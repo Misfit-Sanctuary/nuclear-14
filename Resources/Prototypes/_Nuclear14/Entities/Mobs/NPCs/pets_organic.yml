@@ -134,7 +134,7 @@
     - Sign
   - type: Speech # Corvax-Change
     speechSounds: Dog
-  #- type: DogVision # Corvax-Change | #Misfits Change: Disabled — greyscale shader should not apply to players inhabiting pet mobs
+  - type: DogVision # Corvax-Change
 
 - type: entity
   name: BoS Mutt

@@ -14,7 +14,7 @@
   suffix: Legion, Locked
   components:
   - type: AccessReader
-    access: [["CaesarLegionRecruit"]] # #Misfits Change: All Legion IDs except Slave carry the CaesarLegionRecruit access level tag.
+    access: [["LegionBrassKey"]]
   - type: Wires
     layoutId: AirlockService
 

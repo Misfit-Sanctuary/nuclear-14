@@ -3,7 +3,7 @@
   setPreference: true
   hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
   jobWhitelistBypassesRoleTimers: true # #Misfits Change
-  weight: 110
+  weight: 120
   name: job-name-caesar-legion-frumentarii
   description: job-description-caesar-legion-frumentarii
   playTimeTracker: CaesarLegionFrumentarii
@@ -14,7 +14,10 @@
     - !type:CharacterSpeciesRequirement
       species:
       - Human
-    # #Misfits Change: Frumentarii is now open to Female characters.
+    - !type:CharacterSexRequirement
+      sex: Male
+    - !type:CharacterGenderRequirement
+      gender: Male
   startingGear: CaesarLegionFrumentariiGear
   alwaysUseSpawner: true
   icon: "JobIconlegionerVenator"

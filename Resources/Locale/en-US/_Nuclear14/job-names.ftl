@@ -1,13 +1,13 @@
 # Brotherhood of Steel
-job-name-bos-mid-paladin-comm = Head Paladin
+job-name-bos-mid-paladin-comm = Brotherhood Head Paladin
 job-description-bos-mid-paladin-comm = Lead the martial wing of the Brotherhood chapter and direct field operations.
-job-name-bos-mid-paladin = Senior Paladin
+job-name-bos-mid-paladin = Brotherhood Senior Paladin
 job-description-bos-mid-paladin = Serve as a veteran field commander and heavy infantry leader for the Brotherhood.
-job-name-bos-mid-knight = Senior Knight
+job-name-bos-mid-knight = Brotherhood Senior Knight
 job-description-bos-mid-knight = Lead Brotherhood patrols, enforce discipline, and secure recovered technology.
-job-name-bos-mid-scribe = Senior Scribe
+job-name-bos-mid-scribe = Brotherhood Senior Scribe
 job-description-bos-mid-scribe = Coordinate research, catalog technology, and advise the chapter's command staff.
-job-name-bos-mid-squire = Squire
+job-name-bos-mid-squire = Brotherhood Squire
 job-description-bos-mid-squire = Train under the Brotherhood's veterans and prove you are ready for higher duties.
 
 #Misfits Change /Comment-out/: Washington BoS job names removed — will create new prototypes.
@@ -32,46 +32,46 @@ job-name-caravan-guard = Caravan Guard
 job-description-caravan-guard = Protect the caravan company traders, their livestock, and their inventory.
 
 # NCR
-job-name-ncr-recruit = Recruit
+job-name-ncr-recruit = NCR Recruit
 job-description-ncr-recruit = Learn the ropes, follow orders, and prove that you are ready for full service in the NCR.
-job-name-ncr-cadet = Recruit
+job-name-ncr-cadet = NCR Recruit
 job-description-ncr-cadet = Learn the ropes, follow orders, and prove that you are ready for full service in the NCR.
-job-name-ncr-doctor = Medical Doctor
+job-name-ncr-doctor = NCR Medical Doctor
 job-description-ncr-doctor = Oversee battlefield care, keep the detachment alive, and direct NCR medical treatment.
-job-name-ncr-medic = Medic
+job-name-ncr-medic = NCR Medic
 job-description-ncr-medic = Treat wounded NCR personnel in the field and keep the column moving.
-job-name-ncr-first-sergeant = Sergeant First Class
+job-name-ncr-first-sergeant = NCR Sergeant First Class
 job-description-ncr-first-sergeant = Maintain discipline, coordinate the enlisted ranks, and keep the NCR line together under the captain and lieutenant.
-job-name-ncr-staff-sergeant = Staff Sergeant
+job-name-ncr-staff-sergeant = NCR Staff Sergeant
 job-description-ncr-staff-sergeant = Lead NCR troops in the field and enforce the orders of the command staff.
-job-name-ncr-sergeant = Sergeant
+job-name-ncr-sergeant = NCR Sergeant
 job-description-ncr-sergeant = Lead a fireteam, maintain order, and execute the plans of the senior NCOs and officers.
-job-name-ncr-sgt = Sergeant
+job-name-ncr-sgt = NCR Sergeant
 job-description-ncr-sgt = Lead a fireteam, maintain order, and execute the plans of the senior NCOs and officers.
-job-name-ncr-major = Major
+job-name-ncr-major = NCR Major
 job-description-ncr-major = Serve as the senior Command officer of the NCR detachment, answerable only to high command. Set operational priorities, adjudicate disputes between officers, and ensure the mission succeeds.
-job-name-ncr-captain = Captain
+job-name-ncr-captain = NCR Captain
 job-description-ncr-captain = Command the detachment, set priorities, and answer only to NCR high command and the mission.
-job-name-ncr-lt = Lieutenant
+job-name-ncr-lt = NCR Lieutenant
 job-description-ncr-lt = Serve as the captain's second, direct the NCOs, and keep the detachment operating smoothly.
-job-name-ncr-private-first-class = Private First Class
+job-name-ncr-private-first-class = NCR Private First Class
 job-description-ncr-private-first-class = Act as a seasoned line trooper and help steady the ranks below the NCO corps.
-job-name-ncr-private = Private
+job-name-ncr-private = NCR Private
 job-description-ncr-private = Serve as a line trooper of the NCR and carry out orders from your NCOs and officers.
-job-name-ncr-soldier = Private
+job-name-ncr-soldier = NCR Private
 job-description-ncr-soldier = Serve as a line trooper of the NCR and carry out orders from your NCOs and officers.
-job-name-ncr-engineer = Engineer
+job-name-ncr-engineer = NCR Engineer
 job-description-ncr-engineer = Maintain NCR equipment, build defenses, and keep the detachment operational.
-job-name-ncr-corporal = Specialist
+job-name-ncr-corporal = NCR Specialist
 job-description-ncr-corporal = Serve as a trained specialist — whether in combat, engineering, or medicine — and anchor the line under the NCO corps.
-job-name-ncr-ws = Specialist
+job-name-ncr-ws = NCR Specialist
 job-description-ncr-ws = Serve as a trained specialist — whether in combat, engineering, or medicine — and anchor the line under the NCO corps.
 # #Misfits Add - new locale keys for the Specialist rename
-job-name-ncr-specialist = Specialist
+job-name-ncr-specialist = NCR Specialist
 job-description-ncr-specialist = Serve as a trained specialist — whether in combat, engineering, or medicine — and anchor the line under the NCO corps.
-job-name-ncr-ranger = Ranger
+job-name-ncr-ranger = NCR Ranger
 job-description-ncr-ranger = The most experienced and robust soldiers form part of this elite group of the NCR Army, lead troops or act by yourself under the orders of the Republic.
-job-name-ncr-ranger-veteran = Ranger Veteran
+job-name-ncr-ranger-veteran = NCR Ranger Veteran
 job-description-ncr-ranger-veteran = The most experienced and robust soldiers form part of this elite group of the NCR Army, lead troops or act by yourself under the orders of the Republic.
 
 # Rangers
@@ -93,23 +93,23 @@ job-description-ranger-veteran = Lead Ranger operations in the region, choose yo
 # Tribal
 job-name-tribal = Tribesperson
 job-description-tribal = Maintain your tribes way of life in the wasteland at all costs. Security, crafting, homelife, you do it all.
-job-name-tribal-elder = Chieftain
+job-name-tribal-elder = Tribal Chieftan
 job-description-tribal-elder = Lead your tribe through good times and bad times and maintain your beliefs.
-job-name-tribal-farmer = Farmer
+job-name-tribal-farmer = Tribal Farmer
 job-description-tribal-farmer = Produce food and goods for the tribe to sustain your living.
-job-name-tribal-healer = Healer
+job-name-tribal-healer = Tribal Healer
 job-description-tribal-healer = Produce medicines and compounds for the tribe, as is tradition.
 
 # Vault
-job-name-overseer = Overseer
+job-name-overseer = Vault Overseer
 job-description-overseer = Follow Vault-Tec's objectives in managing your Vault and ensure everything goes to plan...
-job-name-vault-doctor = Doctor
+job-name-vault-doctor = Vault Doctor
 job-description-vault-doctor = Maintain the health and well-being of your fellow Vault Dwellers. Conduct research where necessary.
-job-name-vault-dweller = Dweller
+job-name-vault-dweller = Vault Dweller
 job-description-vault-dweller = The general populace of the Vault. Live a comfortable life and pull your own weight where necessary.
-job-name-vault-engineer = Engineer
+job-name-vault-engineer = Vault Engineer
 job-description-vault-engineer = Maintain the Vault and all its vital systems to ensure a comfortable and safe life.
-job-name-vault-security = Security
+job-name-vault-security = Vault Security
 job-description-vault-security = Keep order within the Vault and report to the Overseer. For the good of the Vault!
 
 # Wasteland
@@ -125,21 +125,21 @@ job-description-wastelander = Survive in the wasteland and carve out your own pa
 # Town
 job-name-townsperson = Townsperson
 job-description-townsperson = A member of the post-war society. Follow the town rules or try run for Mayor to change them.
-job-name-towndoctor = Doctor
+job-name-towndoctor = Town Doctor
 job-description-towndoctor = Sell your medical knowledge as a service. Treat the injured for money and manage a doctors practice in town.
-job-name-townmechanic = Mechanic
+job-name-townmechanic = Town Mechanic
 job-description-townmechanic = Maintain the towns services and infrastructure and do what you can on the side for others for money.
-job-name-townshopkeeper = Shopkeeper
+job-name-townshopkeeper = Town Shopkeeper
 job-description-townshopkeeper = Setup shop in town, organise trade partnerships, and sell your wares to the wanderers of the wastes. Beware the tax man.
-job-name-towndeputy = Guard
+job-name-towndeputy = Town's Guard
 job-description-towndeputy = A law enforcement worker for the town. Keep the peace and provide backup to your Marshal.
-job-name-townsheriff = Marshal
+job-name-townsheriff = Town Marshal
 job-description-townsheriff = Maintain law and order within the town and support the Mayor in their rule.
-job-name-townmayor = Mayor
+job-name-townmayor = Town Mayor
 job-description-townmayor = Maintain civilisation in the town. Set taxes and laws and try not to be thrown out or taken over.
-job-name-townreporter = Reporter
+job-name-townreporter = Town Reporter
 job-description-townreporter = Interview people, spread the news across the region, or just have a talk show!
-job-name-townbartender = Innkeeper
+job-name-townbartender = Town Innkeeper
 job-description-townbartender = Manage the local bar, kitchen, and rooms that are there for renting. Run a business in town!
 
 # Followers

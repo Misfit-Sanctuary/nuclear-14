@@ -15,8 +15,25 @@
       state: screens
     - map: ["computerLayerKeys"]
       state: keys
-  # #Misfits Change - Legion tactical map access was moved to N14ChalkboardFloor11
-  # to better match Legion theming and avoid console-based access inheritance.
+  # #Misfits Add - Legion tactical map system.
+  # Restricts UI to CaesarLegionCenturion access level; tracks all IdCardLegion
+  # entities (every Legion ID/medallion) as blips on the Wendover map.
+  - type: AccessReader
+    access: [["CaesarLegionCenturion"]]
+  - type: ActivatableUIRequiresAccess
+  - type: WastelandMap
+    mapTexturePath: _Misfits/Maps/wendover_map.png
+    mapTitle: Legion Tactical Map - Wendover
+    # #Misfits Fix - Use the corrected Wendover AABB so Legion blips align with the rendered map image.
+    worldBounds: "-517,-308,484,311"
+    tacticalFeed: Legion
+  - type: ActivatableUI
+    key: enum.WastelandMapUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.WastelandMapUiKey.Key:
+        type: WastelandMapBoundUserInterface
+  # End Misfits Add
 
 - type: entity
   id: N14ComputerCargoOrders

@@ -1,61 +1,57 @@
-# #Misfits Change: Legion Recruit removed from the roster — replaced by Legionnaire as the entry-level rank.
-# Legionnaire (CaesarLegionLegionnaireRecruit) now serves as the bottom-rung free Legion job.
-# Gear kept below for reference.
+- type: job
+  id: CaesarLegionRecruit
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 20
+  showBorder: true
+  name: job-name-caesar-legion-recruit
+  description: job-description-caesar-legion-recruit
+  playTimeTracker: CaesarLegionRecruit
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+  - !type:CharacterSexRequirement
+    sex: Male
+  - !type:CharacterGenderRequirement
+    gender: Male
+  - !type:CharacterOverallTimeRequirement
+    min: 0
+  startingGear: CaesarLegionRecruitGear
+  alwaysUseSpawner: true
+  icon: "JobIconlegionerRecruit"
+  supervisors: job-name-caesar-legion-other
+  canBeAntag: false
+  accessGroups:
+  - CaesarLegionRecruit
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - CaesarLegion
+      - type: ReplacementAccent
+        accent: latin
+  - !type:AddTraitSpecial
+    traits: [ LanguageLatin ]
 
-# - type: job
-#   id: CaesarLegionRecruit
-#   setPreference: true
-#   hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
-#   jobWhitelistBypassesRoleTimers: true # #Misfits Change
-#   weight: 20
-#   showBorder: true
-#   name: job-name-caesar-legion-recruit
-#   description: job-description-caesar-legion-recruit
-#   playTimeTracker: CaesarLegionRecruit
-#   requirements:
-#   - !type:CharacterSpeciesRequirement
-#     species:
-#     - Human
-#   - !type:CharacterSexRequirement
-#     sex: Male
-#   - !type:CharacterGenderRequirement
-#     gender: Male
-#   - !type:CharacterOverallTimeRequirement
-#     min: 0
-#   startingGear: CaesarLegionRecruitGear
-#   alwaysUseSpawner: true
-#   icon: "JobIconlegionerRecruit"
-#   supervisors: job-name-caesar-legion-other
-#   canBeAntag: false
-#   accessGroups:
-#   - CaesarLegionRecruit
-#   special:
-#   - !type:AddComponentSpecial
-#     components:
-#       - type: NpcFactionMember
-#         factions:
-#           - CaesarLegion
-#       - type: ReplacementAccent
-#         accent: latin
-#   - !type:AddTraitSpecial
-#     traits: [ LanguageLatin ]
+- type: startingGear
+  id: CaesarLegionRecruitGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitRags
+    ears: N14ClothingHeadsetLegion
+    mask: N14ClothingMaskBrownMask
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingBootsLeather
+    head: N14ClothingHeadHatLightBaseballHelmet #Misfits Change /Tweak/: Recruit wears a light baseball helmet
+    gloves: N14ClothingHandsGlovesTribal
+    pocket1: LegionRecruitInitiateloadoutkits
+    id: N14IDLegionaryMedalRecruit
+  #Misfits Change /Tweak/: Give rank-and-file Legion access to healing powder.
+  storage:
+    back:
+    - N14HealingPowder
 
-# - type: startingGear
-#   id: CaesarLegionRecruitGear
-#   equipment:
-#     jumpsuit: N14ClothingUniformJumpsuitRags
-#     ears: N14ClothingHeadsetLegion
-#     mask: N14ClothingMaskBrownMask
-#     back: N14ClothingBackpackMilitary
-#     shoes: N14ClothingBootsLeather
-#     head: N14ClothingHeadHatLightBaseballHelmet #Misfits Change /Tweak/: Recruit wears a light baseball helmet
-#     gloves: N14ClothingHandsGlovesTribal
-#     pocket1: LegionRecruitInitiateloadoutkits
-#     id: N14IDLegionaryMedalRecruit
-#   #Misfits Change /Tweak/: Give rank-and-file Legion access to healing powder.
-#   storage:
-#     back:
-#     - N14HealingPowder
-
-# - type: playTimeTracker
-#   id: CaesarLegionRecruit
+- type: playTimeTracker
+  id: CaesarLegionRecruit

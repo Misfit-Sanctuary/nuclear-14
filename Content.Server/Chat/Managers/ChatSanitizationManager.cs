@@ -21,11 +21,19 @@ public sealed class ChatSanitizationManager : IChatSanitizationManager
     private const string HiFallback = "Hi.";
     private const string UnintelligibleAction = "attempted to say something unintelligible.";
 
-    // #Misfits Tweak - Removed LGBTQ+ identity terms (lesbian, bisexual, queer, trans, transgender,
-    // nonbinary, non-binary, pansexual, asexual, intersex) from blocked terms; these are identity labels,
-    // not slurs, and players should be free to use them naturally. Slurs remain blocked.
+    // #Misfits Tweak - Removed "gay" and "homosexual" from blocked terms; these are not slurs
     private static readonly string[] BlockedTerms =
     [
+        "lesbian",
+        "bisexual",
+        "queer",
+        "trans",
+        "transgender",
+        "nonbinary",
+        "non-binary",
+        "pansexual",
+        "asexual",
+        "intersex",
         "homo",
         "dyke",
         "fag",

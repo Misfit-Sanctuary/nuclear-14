@@ -118,27 +118,9 @@
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor11
-  # #Misfits Add - Legion tactical map moved from computer console to this chalkboard
-  # so Legion map interaction stays thematic and applies to every N14ChalkboardFloor11 spawn.
   components:
   - type: Sprite
     state: board_text2
-  - type: AccessReader
-    access: [["CaesarLegionCenturion"]]
-  - type: ActivatableUIRequiresAccess
-  - type: WastelandMap
-    mapTexturePath: _Misfits/Maps/wendover_map.png
-    mapTitle: Legion Tactical Map - Wendover
-    # #Misfits Fix - Keep the corrected Wendover AABB so Legion blips align with the map image.
-    worldBounds: "-517,-308,484,311"
-    tacticalFeed: Legion
-  - type: ActivatableUI
-    key: enum.WastelandMapUiKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.WastelandMapUiKey.Key:
-        type: WastelandMapBoundUserInterface
-  # End Misfits Add
     
 - type: entity
   parent: N14ChalkboardFloor

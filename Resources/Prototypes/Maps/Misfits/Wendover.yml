@@ -108,14 +108,10 @@
           CaesarLegionOrator: [ 1, 1 ] # Misfits-Legion
           CaesarLegionPriestessOfMars: [ 1, 1 ] # Misfits-Legion — Priestess of Mars late-join slot
           CaesarLegionHoundmaster: [ 1, 1 ] # Forge-Legion
-          # #Misfits Change: CaesarLegionRecruit slot removed — CaesarLegionLegionnaireRecruit (line 103) already covers entry-level.
+          CaesarLegionRecruit: [ 6, 6 ] # Forge-Legion
           CaesarLegionAuxilia: [ 4, 4 ] # #Misfits Change - activated
           CaesarLegionSlave: [ 4, 4 ] # Forge-Legion
-          Khan: [ 8, 8 ] # #Misfits Change - Outlaws split role: Khan
-          Jackal: [ 8, 8 ] # #Misfits Change - Outlaws split role: Jackal
-          Viper: [ 8, 8 ] # #Misfits Change - Outlaws split role: Viper
-          Gunner: [ 8, 8 ] # #Misfits Change - Outlaws split role: Gunner
-          Fiend: [ 8, 8 ] # #Misfits Change - Outlaws split role: Fiend
+          Raider: [ 6, 6 ] # #Misfits Change - activated; #Misfits Tweak - increased to 6 total slots
           Followers: [ 2, 2 ]
           SyntheticMrHandy: [ 1, 2 ]
           SyntheticProtectron: [ 1, 2 ]

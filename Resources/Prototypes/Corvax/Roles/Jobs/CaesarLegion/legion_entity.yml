@@ -175,7 +175,7 @@
     - type: RandomHumanoidAppearance
       randomizeName: true
     - type: Loadout
-      prototypes: [CaesarLegionLegionnaireRecruitGear] # #Misfits Change: Redirected from defunct CaesarLegionRecruitGear
+      prototypes: [CaesarLegionRecruitGear]
     - type: NpcFactionMember
       factions:
       - CaesarLegion

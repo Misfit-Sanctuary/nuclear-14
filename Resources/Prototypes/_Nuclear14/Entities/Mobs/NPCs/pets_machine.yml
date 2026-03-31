@@ -171,17 +171,15 @@
     - Common
   - type: LanguageKnowledge
     speaks:
-    - N14BrotherBeep
     - N14Robot
-    - English
-    - Latin
-    - Chinese # #Misfits Fix: 'Spanish' is not a valid LanguagePrototype id; N14 uses 'Chinese' as the legacy id for Spanish
     understands:
-    - N14BrotherBeep
+    - N14Dog
+    - N14Insect
     - N14Robot
     - English
-    - Latin
-    - Chinese # #Misfits Fix: 'Spanish' is not a valid LanguagePrototype id; N14 uses 'Chinese' as the legacy id for Spanish
+    - Tribal
+    - Chinese
+    - Sign
   - type: HandheldLight
     toggleOnInteract: false
     addPrefix: true
@@ -273,19 +271,14 @@
     enabled: false
   - type: LanguageSpeaker # Corvax-Change
     currentLanguage: N14BrotherBeep
-  - type: LanguageKnowledge # Corvax-Change | #Misfits Change: standardised to match base eyebot language set
+  - type: LanguageKnowledge # Corvax-Change
     speaks:
     - N14BrotherBeep
-    - N14Robot
-    - English
-    - Latin
-    - Chinese # #Misfits Fix: 'Spanish' is not a valid LanguagePrototype id; N14 uses 'Chinese' as the legacy id for Spanish
     understands:
     - N14BrotherBeep
-    - N14Robot
+    - Dog
+    - Universal
     - English
-    - Latin
-    - Chinese # #Misfits Fix: 'Spanish' is not a valid LanguagePrototype id; N14 uses 'Chinese' as the legacy id for Spanish
 
 - type: entity
   name: Washington BoS Eyebot

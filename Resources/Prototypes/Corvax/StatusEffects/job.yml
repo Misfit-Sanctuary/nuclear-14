@@ -14,41 +14,6 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconKhan
-  icon:
-    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
-    state: Khan
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconJackal
-  icon:
-    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
-    state: Jackal
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconViper
-  icon:
-    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
-    state: Viper
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconGunner
-  icon:
-    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
-    state: Gunner
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconFiend
-  icon:
-    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
-    state: Fiend
-
-- type: jobIcon
-  parent: JobIcon
   id: JobIconBosMCommander
   icon:
     sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi

@@ -16,14 +16,11 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: wolf
       sprite: _Nuclear14/Mobs/Animals/dogwolf.rsi
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 3.16
-    baseSprintSpeed: 6.33
   - type: MobThresholds
     thresholds:
       0: Alive
-      110: Critical
-      200: Dead
+      95: Critical
+      175: Dead
   - type: DamageStateVisuals
     states:
       Alive:
@@ -32,18 +29,6 @@
         Base: dead
       Dead:
         Base: dead
-  - type: LanguageKnowledge # Legion mongrel understands Latin so it can follow Houndmaster commands
-    speaks:
-    - N14Dog
-    understands:
-    - N14Dog
-    - N14Insect
-    - N14Robot
-    - English
-    - Tribal
-    - Chinese
-    - Sign
-    - Latin
   - type: MeleeWeapon
     altDisarm: false
     hidden: true
@@ -54,5 +39,5 @@
     wideAnimation: WeaponArcBite
     damage:
       types:
-        Blunt: 10
-        Slash: 10
+        Blunt: 7
+        Slash: 12

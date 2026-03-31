@@ -4,7 +4,7 @@
 #
 # Activation flow:
 #   1. A player surgically extracts their brain (or a ghoul's brain).
-#   2. Brain is placed inside an N14MMI (Man-Machine Interface) item.
+#   2. Brain is placed inside an MMI (Man-Machine Interface) item.
 #   3. MMI is inserted into the borg_brain slot of this chassis.
 #   4. BorgSystem.MMI automatically transfers the player's mind to the chassis.
 #
@@ -63,48 +63,19 @@
 
   # English only — no robotic accent, no binary chatter
   # The Robobrain was designed to interact fluently with humans
-  # #Misfits Fix: 'Spanish' is not a valid LanguagePrototype id; N14 uses 'Chinese' as the legacy id for Spanish.
   - type: LanguageKnowledge
     speaks:
-    - N14BrotherBeep
-    - N14Robot
     - English
-    - Latin
-    - Chinese
+    - RobotTalk
     understands:
-    - N14BrotherBeep
-    - N14Robot
     - English
-    - Latin
-    - Chinese
+    - RobotTalk
 
   # Spawns completely empty — no brain or modules pre-loaded
   - type: ContainerFill
     containers:
       borg_brain: []
       borg_module: []
-
-  # #Misfits Fix: The Machine construction graph requires the final entity to have
-  # Construction (graph: Machine, node: machine) and explicit container declarations
-  # for machine_board and machine_parts. Without these the BoardNodeEntity transition
-  # silently deletes the MachineFrame without spawning the chassis.
-  # We must also redeclare the parent's borg containers here because defining
-  # ContainerContainer in a child fully overrides the parent's definition.
-  - type: Machine
-  - type: ContainerContainer
-    containers:
-      borg_brain: !type:ContainerSlot { }
-      cell_slot: !type:ContainerSlot { }
-      borg_module: !type:Container { }
-      part-container: !type:Container
-      machine_board: !type:Container
-      machine_parts: !type:Container
-  - type: Construction
-    graph: Machine
-    node: machine
-    containers:
-    - machine_parts
-    - machine_board
 
   # Marker component — RobobrainAcidifySystem subscribes to ComponentInit on this
   # and calls _actions.AddAction() to grant the Acidify Brain action at runtime.

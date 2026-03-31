@@ -12,10 +12,19 @@ namespace Content.Shared._Misfits.Chat;
 /// </summary>
 public static class NameSanitizer
 {
-    // Removed LGBTQ+ identity terms (lesbian, bisexual, queer, trans, transgender, nonbinary, non-binary,
-    // pansexual, asexual, intersex) from blocked terms; these are identity labels, not slurs. Slurs remain.
+    // Removed "gay" and "homosexual" from blocked terms; these are not slurs
     private static readonly string[] BlockedTerms =
     [
+        "lesbian",
+        "bisexual",
+        "queer",
+        "trans",
+        "transgender",
+        "nonbinary",
+        "non-binary",
+        "pansexual",
+        "asexual",
+        "intersex",
         "homo",
         "dyke",
         "fag",

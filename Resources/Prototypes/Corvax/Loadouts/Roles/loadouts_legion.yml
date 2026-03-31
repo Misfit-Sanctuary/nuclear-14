@@ -128,7 +128,7 @@
         - CaesarLegionCenturion
         - CaesarLegionFrumentarii
         - CaesarLegionDean
-        # #Misfits Change: CaesarLegionRecruit removed — Legionnaire covers entry-level.
+        - CaesarLegionRecruit # Misfits Change /Add/: expand access to all Legion roles
         - CaesarLegionLegionnaireRecruit
         - CaesarLegionLegionnaireWarrior
         - CaesarLegionLegionnaireVeteran
@@ -156,7 +156,7 @@
       jobs:
         - CaesarLegionCenturion
         - CaesarLegionFrumentarii
-        # #Misfits Change: CaesarLegionRecruit removed — Legionnaire covers entry-level.
+        - CaesarLegionRecruit # Misfits Change /Add/: expand access to all Legion roles
         - CaesarLegionLegionnaireRecruit
         - CaesarLegionLegionnaireWarrior
         - CaesarLegionLegionnaireVeteran
@@ -184,7 +184,7 @@
     - !type:CharacterJobRequirement
       jobs:
         - CaesarLegionCenturion
-        # #Misfits Change: CaesarLegionRecruit removed — Legionnaire covers entry-level.
+        - CaesarLegionRecruit # Misfits Change /Add/: expand access to all Legion roles
         - CaesarLegionLegionnaireRecruit
         - CaesarLegionLegionnaireWarrior
         - CaesarLegionLegionnaireVeteran

@@ -113,7 +113,7 @@
   components:
   - type: ClothingFactionAndRoleAdd
     faction: CaesarLegion
-    role: CaesarLegionLegionnaireRecruit # #Misfits Change: Redirected from defunct CaesarLegionRecruit
+    role: CaesarLegionRecruit
 
 - type: entity
   parent: Clothing
@@ -126,14 +126,7 @@
   - type: Clothing
     sprite: Corvax/Clothing/Bandage/bandageSerfMBOS.rsi
     slots: [ neck ]
-  - type: AccessReader
-    access:
-    - [ "CaesarLegionCenturion" ] # Centurions can always unlock/remove latejoin collars.
-    - [ "LegionBrassKey" ] # Existing Legion brass keys also unlock collars.
-  - type: Lock
-    locked: true
-    unlockTime: 2
-  - type: LegionSlaveCollar
+  - type: Unremoveable
 
 - type: entity
   parent: NCClothingCollarLegionBase

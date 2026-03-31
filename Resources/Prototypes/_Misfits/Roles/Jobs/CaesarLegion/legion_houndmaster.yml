@@ -3,8 +3,7 @@
   setPreference: true
   hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
   jobWhitelistBypassesRoleTimers: true # #Misfits Change
-  weight: 120
-  showBorder: true  # #Misfits Change: Starts the "Specialist" tier block below the Decani
+  weight: 80
   name: job-name-caesar-legion-houndmaster
   description: job-description-caesar-legion-houndmaster
   playTimeTracker: CaesarLegionHoundmaster
@@ -15,6 +14,10 @@
     - !type:CharacterSpeciesRequirement
       species:
       - Human
+    - !type:CharacterSexRequirement
+      sex: Male
+    - !type:CharacterGenderRequirement
+      gender: Male
   startingGear: CaesarLegionHoundmasterGear
   alwaysUseSpawner: true
   icon: "JobIconlegionerWarrior"
