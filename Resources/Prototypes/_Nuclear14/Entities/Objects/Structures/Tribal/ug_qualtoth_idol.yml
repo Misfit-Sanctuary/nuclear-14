@@ -64,7 +64,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Effects/stonewalls.ogg
+          path: /Audio/Effects/break_stone.ogg
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Appearance
