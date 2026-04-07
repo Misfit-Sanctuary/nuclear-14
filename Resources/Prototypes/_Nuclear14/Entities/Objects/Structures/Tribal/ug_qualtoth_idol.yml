@@ -1,0 +1,70 @@
+# Ug-Qualtoth — ancient tribal idol that drives worshippers toward body-horror transformation.
+# N14 TODO: Replace sprite placeholder with a proper tribal idol RSI once art is ready.
+#           Sprite path: _Nuclear14/Structures/Tribal/ug_qualtoth.rsi
+
+- type: entity
+  id: N14UgQualtothIdol
+  name: Ug-Qualtoth
+  description: >-
+    A crude stone idol carved in the shape of a multi-limbed being that defies easy description.
+    Ancient tribal script spirals up its base. You feel an inexplicable pull to kneel before it.
+  parent: BaseStructureDynamic
+  components:
+  - type: UgQualtothArtifact
+    sacrificeRange: 7
+    humanoidSacrificeDevotionGain: 20
+    animalSacrificeDevotionGain: 8
+    praySound:
+      path: /Audio/Ambience/ambimystery.ogg
+      params:
+        volume: -6
+        maxDistance: 8
+    transformSound:
+      path: /Audio/Effects/bone_rattle.ogg
+      params:
+        volume: -3
+        maxDistance: 10
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 1000
+        mask:
+        - HighImpassable
+        layer:
+        - WallLayer
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    # N14 TODO: Replace with dedicated idol sprite once art is available.
+    sprite: _Nuclear14/Structures/Decoration/cave_decor.rsi
+    state: stalagmite1
+  - type: PointLight
+    enabled: true
+    color: "#7B0000"
+    radius: 3
+    energy: 0.8
+    softness: 1
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/stonewalls.ogg
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Appearance

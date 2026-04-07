@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Placeholder art for Nuclear 14 — replace with final Ug-Qualtoth mutation sprites",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "r_hand_claw",
+            "directions": 4
+        },
+        {
+            "name": "r_arm",
+            "directions": 4
+        },
+        {
+            "name": "chest",
+            "directions": 4
+        },
+        {
+            "name": "r_leg",
+            "directions": 4
+        },
+        {
+            "name": "l_leg",
+            "directions": 4
+        }
+    ]
+}

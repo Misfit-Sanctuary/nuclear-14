@@ -1,0 +1,90 @@
+# Stage 4 abomination — the fully transformed Ug-Qualtoth worshipper.
+# The player's mind transfers into this body via PolymorphSystem.
+# N14 TODO: Replace placeholder sprite with a dedicated abomination RSI once art is ready.
+#           Suggested path: _Nuclear14/Mobs/Abominations/ug_qualtoth_abomination.rsi
+
+- type: entity
+  id: N14MobUgQualtothAbomination
+  name: Ug-Qualtoth's Vessel
+  description: >-
+    A living mass of twisted flesh and elongated bone that was once a tribal. The entity moves
+    with horrifying fluid grace, its many repurposed limbs propelling it at terrifying speed.
+    Where its face was, a void stares back.
+  parent: N14MobBaseHostile
+  components:
+  # ── Visuals ────────────────────────────────────────────────────────────────
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    # N14 TODO: Replace with dedicated abomination sprite.
+    sprite: _Nuclear14/Mobs/Animals/firegecko.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: gecko
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: gecko
+      Critical:
+        Base: gecko
+      Dead:
+        Base: dead
+
+  # ── Health & damage ────────────────────────────────────────────────────────
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      200: Dead
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: UgQualtothAbomination
+  - type: Bloodstream
+    bloodMaxVolume: 200
+    bloodReagent: WastelandBlood
+
+  # ── Combat ─────────────────────────────────────────────────────────────────
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 1.5
+    range: 1.8
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 80
+    animation: WeaponArcBite
+    wideAnimation: WeaponArcBite
+    damage:
+      types:
+        Slash: 30
+        Blunt: 15
+
+  # ── Movement ───────────────────────────────────────────────────────────────
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 6
+    baseSprintSpeed: 9
+
+  # ── Physics ────────────────────────────────────────────────────────────────
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+
+  # ── AI faction (worshipper controls their own, NPCs use WastelandAnimal) ──
+  # The NpcFactionMember is intentionally left here as WastelandAnimal so the
+  # abomination is neutral/hostile to non-tribals.  If a player polymorphs into
+  # this form the ActorComponent ensures they retain player control.
+  - type: NpcFactionMember
+    factions:
+    - WastelandAnimal
+    - Tribal
+
+  # ── No butchering, this was a person ──────────────────────────────────────
+  - type: Butcherable
+    spawned: []

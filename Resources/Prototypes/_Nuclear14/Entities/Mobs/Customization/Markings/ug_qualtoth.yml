@@ -1,0 +1,60 @@
+# Ug-Qualtoth mutation markings — applied progressively by UgQualtothSystem as worshippers transform.
+# Stage 1: right hand → claw
+# Stage 2: right hand marking removed; full right arm applied
+# Stage 3: chest + both legs (head left untouched)
+# Stage 4: full polymorph (no additional markings needed)
+#
+# Art placeholder: solid-colour 128x32 PNGs (4 cardinal directions).
+# Replace with final artwork at: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+
+# ── Stage 1: right hand claw ───────────────────────────────────────────────
+
+- type: marking
+  id: UgQualtothRHandClaw
+  bodyPart: RHand
+  markingCategory: RightHand
+  # No speciesRestrictions — tribals can be Human or Ghoul; the system only
+  # adds this on entities with UgQualtothWorshipperComponent anyway.
+  sprites:
+  - sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: r_hand_claw
+
+# ── Stage 2: full right arm ────────────────────────────────────────────────
+
+- type: marking
+  id: UgQualtothRArm
+  bodyPart: RArm
+  markingCategory: RightArm
+  sprites:
+  - sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: r_arm
+
+# ── Stage 3: chest / torso ─────────────────────────────────────────────────
+
+- type: marking
+  id: UgQualtothChest
+  bodyPart: Chest
+  markingCategory: Chest
+  sprites:
+  - sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: chest
+
+# ── Stage 3: right leg ─────────────────────────────────────────────────────
+
+- type: marking
+  id: UgQualtothRLeg
+  bodyPart: RLeg
+  markingCategory: RightLeg
+  sprites:
+  - sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: r_leg
+
+# ── Stage 3: left leg ──────────────────────────────────────────────────────
+
+- type: marking
+  id: UgQualtothLLeg
+  bodyPart: LLeg
+  markingCategory: LeftLeg
+  sprites:
+  - sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: l_leg

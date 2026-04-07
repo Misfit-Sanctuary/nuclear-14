@@ -1,0 +1,13 @@
+# Polymorph config for Ug-Qualtoth Stage 4 ascension.
+# The player's mind is kept in the new abomination body; transformation is permanent.
+
+- type: polymorph
+  id: UgQualtothAbomination
+  configuration:
+    entity: N14MobUgQualtothAbomination
+    forced: true
+    inventory: Drop        # Equipment falls off; the flesh does not need clothes
+    transferName: true     # Keep the player's name so kills are attributable
+    transferDamage: false  # Start fresh — the abomination is hearty
+    revertOnCrit: false
+    revertOnDeath: false   # No going back

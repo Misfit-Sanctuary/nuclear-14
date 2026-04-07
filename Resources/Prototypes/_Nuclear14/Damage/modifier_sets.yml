@@ -87,6 +87,49 @@
     Poison: 0.75
   flatReductions:
     Blunt: 5
+
+# ── Ug-Qualtoth transformation modifier sets ────────────────────────────────
+
+# Stage 2: arms and one leg mutated — minor physical resistance, flesh toughening.
+- type: damageModifierSet
+  id: UgQualtothStage2
+  coefficients:
+    Blunt: 0.9
+    Slash: 0.9
+    Piercing: 0.95
+    Radiation: 0.9
+    Bloodloss: 0.85
+
+# Stage 3: near-complete mutation — heavy resistance, almost unrecognisable.
+- type: damageModifierSet
+  id: UgQualtothStage3
+  coefficients:
+    Blunt: 0.75
+    Slash: 0.75
+    Piercing: 0.8
+    Heat: 0.85
+    Cold: 0.85
+    Radiation: 0.7
+    Bloodloss: 0.6
+  flatReductions:
+    Blunt: 3
+    Slash: 3
+
+# Stage 4: full abomination — thick alien hide, near-immune to environmental damage.
+- type: damageModifierSet
+  id: UgQualtothAbomination
+  coefficients:
+    Blunt: 0.6
+    Slash: 0.6
+    Piercing: 0.7
+    Heat: 0.7
+    Cold: 0.5
+    Poison: 0.4
+    Radiation: 0.3
+    Asphyxiation: 0.1
+    Bloodloss: 0.5
+  flatReductions:
+    Blunt: 5
     Slash: 5
     Piercing: 5
     Heat: 5

@@ -1,0 +1,116 @@
+# Ug-Qualtoth Abomination — the fully-transformed Stage 4 species.
+# Not available at round start; reached only via UgQualtothSystem.SetSpecies().
+# N14 TODO: Replace all placeholder RSI states with dedicated abomination artwork.
+#           Target RSI: _Nuclear14/Mobs/Species/UgQualtothAbomination/parts.rsi
+#           Required states: head_m, head_f, torso_m, torso_f, l_arm, r_arm,
+#                            l_hand, r_hand, l_leg, r_leg, l_foot, r_foot
+
+- type: species
+  id: UgQualtothAbomination
+  name: species-name-ug-qualtoth-abomination
+  roundStart: false
+  prototype: N14MobGhoul          # Never spawned via character creation; placeholder entity ref only
+  sprites: UgQualtothAbominationSprites
+  markingLimits: MobHumanMarkingLimits
+  dollPrototype: N14MobGhoulDummy  # Placeholder; not accessible in character creator
+  skinColoration: TintedHues       # Accepts any hue so the dark crimson skin tone set in C# is valid
+
+- type: speciesBaseSprites
+  id: UgQualtothAbominationSprites
+  sprites:
+    Head:  UgQualtothAbominationHead
+    Chest: UgQualtothAbominationChest
+    LArm:  UgQualtothAbominationLArm
+    RArm:  UgQualtothAbominationRArm
+    LHand: UgQualtothAbominationLHand
+    RHand: UgQualtothAbominationRHand
+    LLeg:  UgQualtothAbominationLLeg
+    RLeg:  UgQualtothAbominationRLeg
+    LFoot: UgQualtothAbominationLFoot
+    RFoot: UgQualtothAbominationRFoot
+
+# ── Humanoid base sprites (all pointing at existing placeholder RSI until art is done) ──
+
+- type: humanoidBaseSprite
+  id: UgQualtothAbominationHead
+  baseSprite:
+    sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: chest   # Placeholder — replace with head-specific art
+
+- type: humanoidBaseSprite
+  id: UgQualtothAbominationHeadMale
+  baseSprite:
+    sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: chest   # Placeholder — replace with head-specific art
+
+- type: humanoidBaseSprite
+  id: UgQualtothAbominationHeadFemale
+  baseSprite:
+    sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: chest   # Placeholder — replace with head-specific art
+
+- type: humanoidBaseSprite
+  id: UgQualtothAbominationChest
+  baseSprite:
+    sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: chest
+
+- type: humanoidBaseSprite
+  id: UgQualtothAbominationChestMale
+  baseSprite:
+    sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: chest
+
+- type: humanoidBaseSprite
+  id: UgQualtothAbominationChestFemale
+  baseSprite:
+    sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: chest
+
+- type: humanoidBaseSprite
+  id: UgQualtothAbominationLArm
+  baseSprite:
+    sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: r_arm   # Placeholder — replace with mirrored l_arm art
+
+- type: humanoidBaseSprite
+  id: UgQualtothAbominationRArm
+  baseSprite:
+    sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: UgQualtothAbominationLHand
+  baseSprite:
+    sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: r_hand_claw   # Placeholder — both hands are claws at stage 4
+
+- type: humanoidBaseSprite
+  id: UgQualtothAbominationRHand
+  baseSprite:
+    sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: r_hand_claw
+
+- type: humanoidBaseSprite
+  id: UgQualtothAbominationLLeg
+  baseSprite:
+    sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: UgQualtothAbominationRLeg
+  baseSprite:
+    sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: UgQualtothAbominationLFoot
+  baseSprite:
+    sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: l_leg   # Placeholder — reusing leg until dedicated foot art exists
+
+- type: humanoidBaseSprite
+  id: UgQualtothAbominationRFoot
+  baseSprite:
+    sprite: _Nuclear14/Mobs/Customization/UgQualtoth/ug_qualtoth_mutations.rsi
+    state: r_leg   # Placeholder
