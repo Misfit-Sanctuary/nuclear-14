@@ -228,7 +228,7 @@
 - type: latheRecipe
   id: N14BPBoSWeaponLaserRifleWattz2000
   result: N14WeaponLaserRifleWattz2000
-  category: N14BlueprintBoSWeaponsT3
+  category: N14BlueprintBoSWeaponsT4 # #Misfits Change - moved from T3 to T4
   completetime: 18
   requiresBlueprint: true
   availableFaction:
@@ -264,7 +264,7 @@
 - type: latheRecipe
   id: N14BPBoSWeaponLaserRCW
   result: N14WeaponLaserRCW
-  category: N14BlueprintBoSWeaponsT3
+  category: N14BlueprintBoSWeaponsT3 # #Misfits Change - moved from T5 to T3; RCW is now red-beam rapid-fire, not top-tier
   completetime: 16
   requiresBlueprint: true
   availableFaction:
@@ -301,11 +301,29 @@
 
     N14Gold: 5
 
+# #Misfits Add - AER-12 recipe at T4; advanced amber-beam laser rifle
+- type: latheRecipe
+  id: N14BPBoSWeaponLaserRifleAER12
+  result: N14WeaponLaserRifleAER12
+  category: N14BlueprintBoSWeaponsT4
+  completetime: 20
+  requiresBlueprint: true
+  availableFaction:
+  - BrotherhoodOfSteel
+  materials:
+    Steel: 8000
+
+    Glass: 60
+
+    Circuitry: 40
+
+    ScrapElectronic: 25
+
 
 - type: latheRecipe
   id: N14BPBoSWeaponLaserRifleWattz3000
   result: N14WeaponLaserRifleWattz3000
-  category: N14BlueprintBoSWeaponsT4
+  category: N14BlueprintBoSWeaponsT5 # #Misfits Change - moved from T4 to T5
   completetime: 22
   requiresBlueprint: true
   availableFaction:
@@ -321,11 +339,31 @@
 
     N14Silver: 10
 
+# #Misfits Add - AER-15 recipe at T5; highest-damage blue-beam laser rifle
+- type: latheRecipe
+  id: N14BPBoSWeaponLaserRifleAER15
+  result: N14WeaponLaserRifleAER15
+  category: N14BlueprintBoSWeaponsT5
+  completetime: 30
+  requiresBlueprint: true
+  availableFaction:
+  - BrotherhoodOfSteel
+  materials:
+    Steel: 12000
+
+    Glass: 80
+
+    Circuitry: 60
+
+    ScrapElectronic: 45
+
+    N14Gold: 10
+
 
 - type: latheRecipe
   id: N14BPBoSWeaponPlasmaCaster
   result: N14WeaponPlasmaCaster
-  category: N14BlueprintBoSWeaponsT4
+  category: N14BlueprintBoSWeaponsT5 # #Misfits Change - moved from T4 to T5
   completetime: 25
   requiresBlueprint: true
   availableFaction:
@@ -345,7 +383,7 @@
 - type: latheRecipe
   id: N14BPBoSWeaponLaserGatling
   result: N14WeaponLaserGatling
-  category: N14BlueprintBoSWeaponsT4
+  category: N14BlueprintBoSWeaponsT5 # #Misfits Change - moved from T4 to T5
   completetime: 30
   requiresBlueprint: true
   availableFaction:
@@ -603,7 +641,7 @@
 # --- BoS Tier 1 Ammo ---
 - type: latheRecipe
   id: N14BPBoSAmmoPowerCellSmall
-  result: N14MicrofusionCellRed
+  result: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC; weapon controls beam color
   category: N14BlueprintBoSAmmoT1
   completetime: 4
   requiresBlueprint: true
@@ -621,7 +659,7 @@
 
 - type: latheRecipe
   id: N14BPBoSAmmoElectronChargePackRed
-  result: N14ElectronChargePackRed
+  result: N14ElectronChargePack # #Misfits Change - consolidated to single generic ECP; weapon controls beam color
   category: N14BlueprintBoSAmmoT1
   completetime: 4
   requiresBlueprint: true
@@ -654,41 +692,16 @@
 
 
 # --- BoS Tier 2 Ammo ---
-- type: latheRecipe
-  id: N14BPBoSAmmoPowerCellHigh
-  result: N14MicrofusionCellGreen
-  category: N14BlueprintBoSAmmoT2
-  completetime: 8
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Glass: 200
+# #Misfits Removed - MFC and ECP recipes commented out; consolidated to single generic cell at T1
+# - type: latheRecipe
+#   id: N14BPBoSAmmoPowerCellHigh
+#   result: N14MicrofusionCell
+#   category: N14BlueprintBoSAmmoT2
 
-    Circuitry: 100
-
-    ScrapElectronic: 100
-
-    Lead: 200
-
-
-- type: latheRecipe
-  id: N14BPBoSAmmoElectronChargePackGreen
-  result: N14ElectronChargePackGreen
-  category: N14BlueprintBoSAmmoT2
-  completetime: 8
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Glass: 200
-
-    Circuitry: 100
-
-    ScrapElectronic: 100
-
-    Lead: 200
-
+# - type: latheRecipe
+#   id: N14BPBoSAmmoElectronChargePackGreen
+#   result: N14ElectronChargePack
+#   category: N14BlueprintBoSAmmoT2
 
 - type: latheRecipe
   id: N14BPBoSAmmoPlasmaCell
@@ -709,45 +722,16 @@
 
 
 # --- BoS Tier 3 Ammo ---
-- type: latheRecipe
-  id: N14BPBoSAmmoPowerCellAdvanced
-  result: N14MicrofusionCellBlue
-  category: N14BlueprintBoSAmmoT3
-  completetime: 12
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Glass: 350
+# #Misfits Removed - MFC and ECP recipes commented out; consolidated to single generic cell at T1
+# - type: latheRecipe
+#   id: N14BPBoSAmmoPowerCellAdvanced
+#   result: N14MicrofusionCell
+#   category: N14BlueprintBoSAmmoT3
 
-    Circuitry: 100
-
-    ScrapElectronic: 100
-
-    Lead: 350
-
-    N14Silver: 50
-
-
-- type: latheRecipe
-  id: N14BPBoSAmmoElectronChargePackBlue
-  result: N14ElectronChargePackBlue
-  category: N14BlueprintBoSAmmoT3
-  completetime: 12
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Glass: 350
-
-    Circuitry: 100
-
-    ScrapElectronic: 100
-
-    Lead: 350
-
-    N14Silver: 50
-
+# - type: latheRecipe
+#   id: N14BPBoSAmmoElectronChargePackBlue
+#   result: N14ElectronChargePack
+#   category: N14BlueprintBoSAmmoT3
 
 - type: latheRecipe
   id: N14BPBoSAmmoPlasmaCartridge
@@ -769,8 +753,8 @@
 
 # --- BoS Tier 4 Ammo ---
 - type: latheRecipe
-  id: N14BPBoSAmmoPowerCellFusion
-  result: N14MicrofusionCellHighCapRed
+  id: N14BPBoSAmmoFusionCoreRed
+  result: N14FusionCore # #Misfits Change - consolidated to single generic fusion core
   category: N14BlueprintBoSAmmoT4
   completetime: 15
   requiresBlueprint: true
@@ -787,86 +771,28 @@
 
     Lead: 850
 
-
-- type: latheRecipe
-  id: N14BPBoSAmmoPowerCellFocused
-  result: N14MicrofusionCellHighCapBlue
-  category: N14BlueprintBoSAmmoT4
-  completetime: 20
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Glass: 800
-
-    Circuitry: 100
-
-    ScrapElectronic: 100
-
-    N14Silver: 50
-
-    Lead: 800
-
+# #Misfits Removed - duplicate FC recipe commented out; consolidated to single generic fusion core above
+# - type: latheRecipe
+#   id: N14BPBoSAmmoFusionCoreBlue
+#   result: N14FusionCore
+#   category: N14BlueprintBoSAmmoT4
 
 # --- BoS Tier 5 Ammo ---
-- type: latheRecipe
-  id: N14BPBoSAmmoMicrofusionViolet
-  result: N14MicrofusionCellViolet
-  category: N14BlueprintBoSAmmoT5
-  completetime: 20
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Glass: 500
+# #Misfits Removed - All T5 energy cell recipes commented out; consolidated to single generic cells at T1. No unique ammo at T5.
+# - type: latheRecipe
+#   id: N14BPBoSAmmoMicrofusionViolet
+#   result: N14MicrofusionCell
+#   category: N14BlueprintBoSAmmoT5
 
-    Circuitry: 100
+# - type: latheRecipe
+#   id: N14BPBoSAmmoElectronChargePackViolet
+#   result: N14ElectronChargePack
+#   category: N14BlueprintBoSAmmoT5
 
-    ScrapElectronic: 100
-
-    N14Gold: 50
-
-    Lead: 500
-
-
-- type: latheRecipe
-  id: N14BPBoSAmmoElectronChargePackViolet
-  result: N14ElectronChargePackViolet
-  category: N14BlueprintBoSAmmoT5
-  completetime: 20
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Glass: 500
-
-    Circuitry: 100
-
-    ScrapElectronic: 100
-
-    N14Gold: 50
-
-    Lead: 500
-
-
-- type: latheRecipe
-  id: N14BPBoSAmmoMicrofusionHighCapViolet
-  result: N14MicrofusionCellHighCapViolet
-  category: N14BlueprintBoSAmmoT5
-  completetime: 30
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Glass: 1000
-
-    Circuitry: 100
-
-    ScrapElectronic: 100
-
-    N14Gold: 50
-
-    Lead: 1000
+# - type: latheRecipe
+#   id: N14BPBoSAmmoFusionCoreViolet
+#   result: N14FusionCore
+#   category: N14BlueprintBoSAmmoT5
 
 
 # =====================================================================
@@ -1181,6 +1107,22 @@
 - type: latheRecipe
   id: N14BPTownWeaponRifle308Battle
   result: N14WeaponRifle308Battle
+  category: N14BlueprintTownWeaponsT3
+  completetime: 14
+  requiresBlueprint: true
+  availableFaction:
+  - Townsfolk
+  materials:
+    Steel: 6500
+
+    Wood: 15
+
+    N14Iron: 12
+
+
+- type: latheRecipe
+  id: N14BPTownWeaponRifleM1Garand
+  result: N14WeaponRifleM1Garand
   category: N14BlueprintTownWeaponsT3
   completetime: 14
   requiresBlueprint: true
@@ -1792,6 +1734,22 @@
     N14Brass: 35
 
     N14Gunpowder: 35
+
+
+- type: latheRecipe
+  id: N14BPTownAmmoGarandEnbloc308
+  result: GarandEnbloc308
+  category: N14BlueprintTownAmmoT3
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - Townsfolk
+  materials:
+    Steel: 2000
+
+    Lead: 20
+
+    N14Gunpowder: 15
 
 
 - type: latheRecipe

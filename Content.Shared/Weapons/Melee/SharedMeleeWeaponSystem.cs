@@ -23,6 +23,9 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared._Misfits.Grab; // #Misfits Add - grab intent integration
+using Content.Shared._Misfits.MartialArts; // #Misfits Add - combo attack event integration
+using Content.Shared.Movement.Pulling.Components; // #Misfits Add - check if puller is attacking pulled target
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
@@ -50,6 +53,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private   readonly IPrototypeManager       _protoManager    = default!;
     [Dependency] private   readonly StaminaSystem           _stamina         = default!;
     [Dependency] private   readonly ContestsSystem          _contests        = default!;
+    // #Misfits Add - grab intent system reference for grab-type light attack interception
+    [Dependency] private   readonly GrabIntentSystem          _grabIntent      = default!;
 
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
@@ -402,13 +407,32 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             switch (attack)
             {
                 case LightAttackEvent light:
+                    // #Misfits Add - Intercept light attack on pulled target to escalate grab stage
+                    if (target != null
+                        && TryComp<PullerComponent>(user, out var pullerComp)
+                        && pullerComp.Pulling == target.Value)
+                    {
+                        var grabAttempt = new GrabAttemptEvent(user, target.Value);
+                        RaiseLocalEvent(target.Value, ref grabAttempt);
+                        if (grabAttempt.Cancelled)
+                        {
+                            // Grab was handled — skip normal light attack
+                            animation = weapon.Animation;
+                            break;
+                        }
+                    }
                     DoLightAttack(user, light, weaponUid, weapon, session);
+                    // #Misfits Add - Raise combo event for the martial arts engine after a light attack
+                    if (target != null && HasComp<CanPerformComboComponent>(user))
+                        RaiseLocalEvent(user, new MisfitsComboAttackPerformedEvent(user, target.Value, weaponUid, MisfitsComboAttackType.Harm));
                     animation = weapon.Animation;
                     break;
                 case DisarmAttackEvent disarm:
                     if (!DoDisarm(user, disarm, weaponUid, weapon, session))
                         return false;
-
+                    // #Misfits Add - Raise combo event for the martial arts engine after a disarm
+                    if (target != null && HasComp<CanPerformComboComponent>(user))
+                        RaiseLocalEvent(user, new MisfitsComboAttackPerformedEvent(user, target.Value, weaponUid, MisfitsComboAttackType.Disarm));
                     animation = weapon.Animation;
                     break;
                 case HeavyAttackEvent heavy:

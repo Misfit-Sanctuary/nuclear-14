@@ -378,7 +378,7 @@
   description: "I'm sick of them. Kill a couple and bring the bodies."
   difficulty: Silver
   targets:
-  - id: N14MobRaiderPsycho
+  - id: N14BaseMobRaider # Misfits Fix — accept any raider variant (abstract = auto-Descendants)
     required: { min: 2, max: 5 }
   rewards:
   - type: Currency

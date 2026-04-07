@@ -7,6 +7,7 @@ using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
+using Content.Shared.Projectiles; // #Misfits Fix - needed to drop embedded projectiles before body destruction
 using Content.Shared.Storage;
 using Content.Shared.Verbs;
 using Content.Shared.Destructible;
@@ -32,6 +33,7 @@ public sealed class SharpSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly SharedProjectileSystem _projectileSystem = default!; // #Misfits Fix - used to safely drop javelins/embedded projectiles before entity deletion
 
     public override void Initialize()
     {
@@ -121,6 +123,10 @@ public sealed class SharpSystem : EntitySystem
         _popupSystem.PopupEntity(Loc.GetString("butcherable-knife-butchered-success", ("target", args.Args.Target.Value), ("knife", uid)),
             popupEnt, args.Args.User, popupType);
 
+        // #Misfits Fix - drop any embedded projectiles (e.g. javelins) before gibbing/destroying,
+        // otherwise they are silently deleted as transform children of the corpse.
+        DropEmbeddedProjectiles(args.Args.Target.Value);
+
         if (hasBody)
             _bodySystem.GibBody(args.Args.Target.Value, body: body);
 
@@ -174,5 +180,22 @@ public sealed class SharpSystem : EntitySystem
         };
 
         args.Verbs.Add(verb);
+    }
+
+    // #Misfits Fix - drop embedded projectiles (e.g. javelins) before destroying a corpse so they
+    // are not silently deleted as transform children. Children are snapshotted first because
+    // RemoveEmbed reparents the child, which would modify the enumerator mid-iteration.
+    private void DropEmbeddedProjectiles(EntityUid target)
+    {
+        var children = new List<EntityUid>();
+        var childEnumerator = Transform(target).ChildEnumerator;
+        while (childEnumerator.MoveNext(out var child))
+            children.Add(child);
+
+        foreach (var child in children)
+        {
+            if (TryComp<EmbeddableProjectileComponent>(child, out var embed))
+                _projectileSystem.RemoveEmbed(child, embed, null);
+        }
     }
 }

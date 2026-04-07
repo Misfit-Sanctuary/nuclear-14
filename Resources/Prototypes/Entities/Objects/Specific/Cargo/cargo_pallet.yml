@@ -51,9 +51,7 @@
                 max: 1
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
-  - type: GuideHelp
-    guides:
-    - Cargo
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Cargo)
 
 - type: entity
   id: CargoPalletSell

@@ -30,12 +30,36 @@
   name: Priestess of Mars Veil
   description: A crimson veil that partially obscures the face of the priestess, marking her as set apart from the common women of the Legion.
 
-# Gloves — worn in the hands slot
+# #Misfits Change - Replaced plain gloves with bespoke gauntlets sporting slashing melee damage.
+# Sprites: icon by Сорока/Nequizia; equipped-HAND by Pinky109.
+# Gauntlets — worn in the hands slot; deal slashing damage when equipped and used in melee
 - type: entity
-  parent: ClothingHandsGlovesColorRed
+  parent: ClothingHandsBase
   id: N14PriestessOfMarsGloves
-  name: Priestess of Mars Gloves
-  description: Neat red gloves worn during sacred rites and daily ministry alike.
+  name: Priestess of Mars Gauntlets
+  description: Ornate gauntlets worn by the Priestess of Mars during Holy War rites. The blessed blades lining their knuckles are not merely ceremonial.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/legion_gauntlets.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: _Misfits/Clothing/CaesarLegion/legion_gauntlets.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/legion_gauntlets.rsi
+    slots: [gloves]
+  - type: MeleeWeapon
+    # Slashing damage applied when wearing and attacking — mirrors the Goliath Powerfist pattern
+    soundHit:
+      collection: MetalThud
+    range: 1.2
+    attackRate: 1.0
+    damage:
+      types:
+        Slash: 8
+    animation: WeaponArcFist
+    wideAnimation: WeaponArcFist
+    mustBeEquippedToUse: true
 
 # Boots — worn in the shoes slot
 - type: entity

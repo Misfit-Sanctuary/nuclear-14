@@ -1,0 +1,50 @@
+# #Misfits Add - Martial Arts style prototypes (misfitsMartialArt) for all six Fallout-themed forms
+# Each prototype ties the form enum to its combo list and starting grab stage.
+
+- type: misfitsMartialArt
+  id: MisfitsLegionGladiatorial
+  martialArtsForm: LegionGladiatorial
+  baseDamageModifier: 2
+  damageModifierType: Blunt
+  roundstartCombos: LegionGladiatorialCombos
+  startingGrabStage: Soft
+
+- type: misfitsMartialArt
+  id: MisfitsRangerCombatTechnique
+  martialArtsForm: RangerCombatTechnique
+  baseDamageModifier: 2
+  damageModifierType: Blunt
+  roundstartCombos: RangerCombatTechniqueCombos
+  startingGrabStage: Soft
+
+- type: misfitsMartialArt
+  id: MisfitsDesertSurvivalFighting
+  martialArtsForm: DesertSurvivalFighting
+  baseDamageModifier: 1
+  damageModifierType: Blunt
+  roundstartCombos: DesertSurvivalFightingCombos
+  startingGrabStage: Soft
+
+- type: misfitsMartialArt
+  id: MisfitsWastelandStreetFighting
+  martialArtsForm: WastelandStreetFighting
+  baseDamageModifier: 1
+  damageModifierType: Blunt
+  roundstartCombos: WastelandStreetFightingCombos
+  startingGrabStage: Soft
+
+- type: misfitsMartialArt
+  id: MisfitsTribalWarriorStyle
+  martialArtsForm: TribalWarriorStyle
+  baseDamageModifier: 2
+  damageModifierType: Blunt
+  roundstartCombos: TribalWarriorStyleCombos
+  startingGrabStage: Soft
+
+- type: misfitsMartialArt
+  id: MisfitsShadowStrike
+  martialArtsForm: ShadowStrike
+  baseDamageModifier: 1
+  damageModifierType: Blunt
+  roundstartCombos: ShadowStrikeCombos
+  startingGrabStage: Hard

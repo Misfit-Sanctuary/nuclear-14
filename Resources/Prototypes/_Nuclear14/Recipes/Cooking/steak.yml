@@ -120,6 +120,21 @@
     entity: N14FoodMeatPigratCooked
 
 - type: constructionGraph
+  id: MeatSteakRadchicken
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: SteakCooked
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 305
+  - node: SteakCooked
+    entity: N14FoodMeatRadchickenCooked
+
+- type: constructionGraph
   id: MeatSteakRadscorpion
   start: start
   graph:

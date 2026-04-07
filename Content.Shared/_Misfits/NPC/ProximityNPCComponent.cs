@@ -14,17 +14,20 @@ public sealed partial class ProximityNPCComponent : Component
 {
     /// <summary>
     /// Distance (tiles) within which a player wakes this NPC.
+    /// Reduced from 40f to 30f to shrink active-NPC radius and lower
+    /// per-tick CPU cost when many NPCs are spread across the map.
     /// </summary>
     [DataField]
-    public float WakeRange = 40f;
+    public float WakeRange = 30f; // #Misfits Tweak - reduced from 40f for performance
 
     /// <summary>
     /// Distance (tiles) at which the NPC sleeps if no players remain nearby.
     /// Must be greater than <see cref="WakeRange"/> to create hysteresis and prevent
     /// rapid wake/sleep thrashing at the boundary edge.
+    /// Reduced from 60f to 45f to match the tighter wake range.
     /// </summary>
     [DataField]
-    public float SleepRange = 60f;
+    public float SleepRange = 45f; // #Misfits Tweak - reduced from 60f for performance
 
     /// <summary>
     /// If true, overrides the default HTN behaviour of waking on map init and instead

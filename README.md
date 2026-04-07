@@ -91,4 +91,3 @@ Detailed information about code and asset licensing is available in [LEGAL.md](h
 
 ---
 
-**Would you like me to make any adjustments to the tone, or proceed with translating other files in the repository?**

@@ -94,6 +94,12 @@ misfits-ticket-log-window-title = Ticket Log
 misfits-staff-tab-audit-log-btn = Audit Log
 misfits-staff-tab-audit-log-desc = Browse this round's tickets by staff member, status, or type — and open a player's live chat.
 
+# #Misfits Add — Activity Log + Banlist buttons in Staff tab
+misfits-staff-tab-activity-log-btn = Activity Log
+misfits-staff-tab-activity-log-desc = View this round's significant admin actions (godmode, rejuv, spawns, teleports, events).
+misfits-staff-tab-banlist-btn = Banlist
+misfits-staff-tab-banlist-desc = View all active bans on the server.
+
 # Audit Log window
 misfits-audit-log-window-title = Audit Log
 misfits-audit-log-header = Round Ticket Audit

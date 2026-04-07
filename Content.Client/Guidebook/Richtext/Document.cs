@@ -1,3 +1,4 @@
+using Content.Client._Misfits.Guidebook;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
@@ -12,7 +13,11 @@ public sealed class Document : BoxContainer, IDocumentTag
 {
     public Document()
     {
+        // #Misfits Tweak - Apply consistent page padding and vertical flow to all guidebook documents.
         Orientation = LayoutOrientation.Vertical;
+        HorizontalExpand = true;
+        SeparationOverride = 0;
+        Margin = GuidebookTheme.PagePadding;
     }
 
     public bool TryParseTag(Dictionary<string, string> args, [NotNullWhen(true)] out Control? control)

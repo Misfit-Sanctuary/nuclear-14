@@ -47,6 +47,22 @@
     sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
     state: Fiend
 
+# #Misfits Add - Eighties job icon for Outlaws faction overhaul (placeholder: reuses Raider state until custom icon is made)
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconEighties
+  icon:
+    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
+    state: Raider
+
+# #Misfits Add - White Legs job icon for Outlaws faction overhaul (placeholder: reuses Raider state until custom icon is made)
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconWhiteLegs
+  icon:
+    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
+    state: Raider
+
 - type: jobIcon
   parent: JobIcon
   id: JobIconBosMCommander

@@ -92,7 +92,8 @@ namespace Content.Server.StationEvents
         ///     to even exist) so I think it's fine.
         /// </remarks>
         [CommandImplementation("simulate")]
-        public IEnumerable<(string, float)> Simulate(EntityPrototype eventScheduler, int rounds, int playerCount, float roundEndMean, float roundEndStdDev)
+        // #Misfits Fix - Mark EntityPrototype as unparseable (type parser removed in RT v275)
+        public IEnumerable<(string, float)> Simulate([CommandArgument(unparseable: true)] EntityPrototype eventScheduler, int rounds, int playerCount, float roundEndMean, float roundEndStdDev)
         {
             _stationEvent ??= GetSys<EventManagerSystem>();
             _basicScheduler ??= GetSys<BasicStationEventSchedulerSystem>();
@@ -129,7 +130,8 @@ namespace Content.Server.StationEvents
         }
 
         [CommandImplementation("lsprob")]
-        public IEnumerable<(string, float)> LsProb(EntityPrototype eventScheduler)
+        // #Misfits Fix - Mark EntityPrototype as unparseable (type parser removed in RT v275)
+        public IEnumerable<(string, float)> LsProb([CommandArgument(unparseable: true)] EntityPrototype eventScheduler)
         {
             _stationEvent ??= GetSys<EventManagerSystem>();
             var events = _stationEvent.AllEvents();
@@ -143,7 +145,8 @@ namespace Content.Server.StationEvents
         }
 
         [CommandImplementation("lsprobtime")]
-        public IEnumerable<(string, float)> LsProbTime(EntityPrototype eventScheduler, float time)
+        // #Misfits Fix - Mark EntityPrototype as unparseable (type parser removed in RT v275)
+        public IEnumerable<(string, float)> LsProbTime([CommandArgument(unparseable: true)] EntityPrototype eventScheduler, float time)
         {
             _stationEvent ??= GetSys<EventManagerSystem>();
             var events = _stationEvent.AllEvents().Where(pair => pair.Value.EarliestStart <= time).ToList();
@@ -157,7 +160,8 @@ namespace Content.Server.StationEvents
         }
 
         [CommandImplementation("prob")]
-        public float Prob(EntityPrototype eventScheduler, string eventId)
+        // #Misfits Fix - Mark EntityPrototype as unparseable (type parser removed in RT v275)
+        public float Prob([CommandArgument(unparseable: true)] EntityPrototype eventScheduler, string eventId)
         {
             _stationEvent ??= GetSys<EventManagerSystem>();
             var events = _stationEvent.AllEvents();

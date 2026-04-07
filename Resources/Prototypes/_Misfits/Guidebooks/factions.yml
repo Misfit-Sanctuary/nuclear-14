@@ -1,0 +1,111 @@
+# #Misfits Change — Consolidated from _Nuclear14/Guidebooks/factions.yml
+# All text paths updated to _Misfits/Guidebooks/ location
+
+# Factions overview page — parent entry for all faction guides
+- type: guideEntry
+  id: Factions
+  name: guide-entry-factions
+  text: "/ServerInfo/_Misfits/Guidebooks/Factions/factions.xml"
+  children:
+  - N14NCR               # #Misfits Tweak - reordered: NCR first
+  - N14BrotherhoodOfSteel
+  - N14CaesarsLegion
+  - N14Tribes
+  - N14Townsfolk
+  - N14VaultDwellers
+  - N14Wastelanders
+  - N14MinorFactions
+  - MisfitsOutlaws        # #Misfits Add - outlaw gangs
+
+# NCR
+- type: guideEntry
+  id: N14NCR
+  name: guide-entry-ncr
+  text: "/ServerInfo/_Misfits/Guidebooks/Factions/NCR/index.xml"
+  filterEnabled: True
+
+# Townsfolk
+- type: guideEntry
+  id: N14Townsfolk
+  name: guide-entry-townsfolk
+  text: "/ServerInfo/_Misfits/Guidebooks/Factions/Townsfolk/index.xml"
+  filterEnabled: True
+
+# Tribes
+- type: guideEntry
+  id: N14Tribes
+  name: guide-entry-tribes
+  text: "/ServerInfo/_Misfits/Guidebooks/Factions/Tribes/index.xml"
+  filterEnabled: True
+
+# Vault Dwellers
+- type: guideEntry
+  id: N14VaultDwellers
+  name: guide-entry-vaultdwellers
+  text: "/ServerInfo/_Misfits/Guidebooks/Factions/VaultDwellers/index.xml"
+  filterEnabled: True
+
+# Wastelanders
+- type: guideEntry
+  id: N14Wastelanders
+  name: guide-entry-wastelanders
+  text: "/ServerInfo/_Misfits/Guidebooks/Factions/Wastelanders/index.xml"
+  filterEnabled: True
+
+# Caravan Company — not currently active on server
+# - type: guideEntry
+#   id: N14CaravanCompany
+#   name: guide-entry-caravancompany
+#   text: "/ServerInfo/_Misfits/Guidebooks/Factions/CaravanCompany/index.xml"
+#   filterEnabled: True
+
+# Brotherhood of Steel
+- type: guideEntry
+  id: N14BrotherhoodOfSteel
+  name: guide-entry-brotherhoodofsteel
+  text: "/ServerInfo/_Misfits/Guidebooks/Factions/BrotherhoodOfSteel/index.xml"
+  filterEnabled: True
+
+# Caesar's Legion
+- type: guideEntry
+  id: N14CaesarsLegion
+  name: guide-entry-caesarslegion
+  text: "/ServerInfo/_Misfits/Guidebooks/Factions/CaesarsLegion/index.xml"
+  filterEnabled: True
+
+# Minor Factions
+- type: guideEntry
+  id: N14MinorFactions
+  name: guide-entry-minorfactions
+  text: "/ServerInfo/_Misfits/Guidebooks/Factions/MinorFactions/index.xml"
+  children:
+  - N14Enclave
+  - N14FollowersOfTheApocalypse
+  - N14ChildrenOfAtom
+  - N14Zetan
+
+- type: guideEntry
+  id: N14ChildrenOfAtom
+  name: guide-entry-childrenofatom
+  text: "/ServerInfo/_Misfits/Guidebooks/Factions/MinorFactions/ChildrenOfAtom/index.xml"
+  filterEnabled: True
+
+# Enclave — points to Misfits expanded page
+- type: guideEntry
+  id: N14Enclave
+  name: guide-entry-enclave
+  text: "/ServerInfo/_Misfits/Guidebooks/Enclave.xml"
+  filterEnabled: True
+
+# Followers of the Apocalypse — points to Misfits expanded page
+- type: guideEntry
+  id: N14FollowersOfTheApocalypse
+  name: guide-entry-followersoftheapocalypse
+  text: "/ServerInfo/_Misfits/Guidebooks/Followers.xml"
+  filterEnabled: True
+
+- type: guideEntry
+  id: N14Zetan
+  name: guide-entry-zetan
+  text: "/ServerInfo/_Misfits/Guidebooks/Factions/MinorFactions/Zetan/index.xml"
+  filterEnabled: True

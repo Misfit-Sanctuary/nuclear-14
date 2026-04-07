@@ -31,3 +31,10 @@ ghost-role-information-n14pet-hauler-description =
 ghost-role-information-n14pet-eyebot-description =
     You are a follower of someone, obey them and attempt to protect them. In-case they perish you may remain in service of the faction they belonged to (if they belonged to any).
     You are able to fire lasers by right clicking, careful because your munitions are limited and recharging is slow!
+
+# #Misfits Add - Pets perk tree ghost role names
+ghost-role-information-n14pet-brahmin-name = Brahmin Companion
+ghost-role-information-n14pet-mirelurk-name = Mirelurk Companion
+ghost-role-information-n14pet-radchicken-name = Rad Chicken Companion
+ghost-role-information-n14pet-cat-name = Cat Companion
+ghost-role-information-n14pet-centaur-name = Centaur Companion

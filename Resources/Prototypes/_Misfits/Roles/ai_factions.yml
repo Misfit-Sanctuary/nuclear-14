@@ -10,8 +10,18 @@
 
 # #Misfits Add - Player Robot faction for Synthetic job prototypes (Mr. Handy, Protectron, etc.).
 # Kept separate from HostileRobot so NPC robots don't auto-aggro player bots.
+# #Misfits Fix - Added hostile list so player robots are enemies to all NPC factions
 - type: npcFaction
   id: PlayerRobot
+  hostile:
+  - Raider
+  - HostileRobot
+  - WastelandInsect
+  - WastelandAnimal
+  - Deathclaw
+  - Feral
+  - SuperMutant
+  - Zetan
 
 # #Misfits Add - Player SentryBot faction. Allied with HostileRobot so NPC robots treat
 # player SentryBots as allies (protect them, won't aggro) rather than neutral bystanders.

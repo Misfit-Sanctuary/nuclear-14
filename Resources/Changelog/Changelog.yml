@@ -2654,3 +2654,263 @@ Entries:
   id: 5701
   time: '2026-04-02T16:02:25.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/230
+- author: cythisiax
+  changes:
+    - type: Add
+      message: Priestess of Mars claw glove sprites by Pinky109 and Nequizia
+    - type: Add
+      message: ArmorComponent values to Supermutant Gladiator 15%/helmet gets 50% ARC
+    - type: Add
+      message: >-
+        Legion&Tribal warcries that increase movement speed flat by 15%
+        (Inspiration from RMC's systems)
+    - type: Add
+      message: >-
+        /war command. Stop ahelping to ask about wars. Highest ranking on
+        faction can declare. 6.3 rules shown in war confirmation. Raids still
+        need to be AHELPed. Raids may end up in a similar method in the future
+        and approve/denied by staff. (The GUI)
+    - type: Add
+      message: >-
+        /warjoin command per-player, does not recruit the entire faction similar
+        to /war, but per-player basis.
+    - type: Fix
+      message: chat bubble dump when players come out of LOS, no longer floods
+    - type: Fix
+      message: >-
+        Legion kits w/ hunting rifle spawning with loose 308 cartridge instead
+        of box
+    - type: Tweak
+      message: N14WeaponLaserPistol uses N14PowerCellSmall + Sprite to thematically fit
+    - type: Tweak
+      message: Spraycans now bring up graffiti gui
+  id: 5702
+  time: '2026-04-03T00:23:10.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/240
+- author: Dpellowski
+  changes:
+    - type: Fix
+      message: Things that are lit.. now gain temperature..
+  id: 5703
+  time: '2026-04-03T00:24:13.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/241
+- author: Oli
+  changes:
+    - type: Add
+      message: Gloomy & Long Gloomy Hairstyle
+  id: 5704
+  time: '2026-04-03T00:35:25.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/242
+- author: cythisiax
+  changes:
+    - type: Fix
+      message: NCR no longer weighted issue with /war declarations.
+    - type: Fix
+      message: 'During a war, ally/enemy tag is now affected by occulsion/raycast. '
+    - type: Fix
+      message: Legion & Tribal warcry application & reset after CD.
+    - type: Fix
+      message: player robots not able to bunker/cryo
+  id: 5705
+  time: '2026-04-03T14:56:21.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/243
+- author: cythisiax
+  changes:
+    - type: Add
+      message: >-
+        `GunDamageBonusComponent` and `GunDamageBonusSystem` to allow guns to
+        apply flat bonus damage (exx., +5 Heat) and a fire cost multiplier.
+    - type: Tweak
+      message: >-
+        Updated the Wattz 2000 and Wattz 3000 laser rifles to use the new
+        component, granting +5 Heat damage and doubling their fire cost.
+    - type: Tweak
+      message: >-
+        Tier 5 (`N14BlueprintBoSWeaponsT5`) for BoS weapon blueprints, moving
+        the RCW, Plasma Caster, Laser Gatling, and Wattz 3000 rifles to this,
+        and shifting the Wattz 2000 rifle from Tier 3 to Tier 4.
+  id: 5706
+  time: '2026-04-03T21:46:18.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/245
+- author: cythisiax
+  changes:
+    - type: Fix
+      message: >-
+        heated cigarette system now iterates the small set of "can-be-hot"
+        entity types instead of every solution container on the map.....
+    - type: Fix
+      message: >-
+        atmosphere system skips all processing on maps that have atmos
+        simulation disabled
+    - type: Fix
+      message: player robots no longer drop positronicbrain upon death
+    - type: Tweak
+      message: NPC max updates reduced from 2048 to 512 to reduce server CPU load
+    - type: Tweak
+      message: >-
+        starvation & dehyd no longer deals direct damage lol, only movement
+        speed reduction remains
+    - type: Add
+      message: >-
+        procedurally generated expedition maps with rich room situations taken
+        from current map files (Decent state)
+    - type: Add
+      message: >-
+        admin ticket audit log now supports filtering by player name, admin
+        name, admin ID, and date range
+    - type: Add
+      message: rotten meat, NPC corpses auto-despawn after 20 minutes
+  id: 5707
+  time: '2026-04-04T04:17:59.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/246
+- author: qeviefun
+  changes:
+    - type: Fix
+      message: Made Mr. Handy not deal toxin damage in surgery
+  id: 5708
+  time: '2026-04-04T18:14:04.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/248
+- author: Bill Clinton
+  changes:
+    - type: Tweak
+      message: buffed tribal meds like bitterdrink, poultice, and powder.
+    - type: Tweak
+      message: melee tuning pass V2
+    - type: Tweak
+      message: buffed psycho with a 30% movespeed increase. It now has a use.
+  id: 5709
+  time: '2026-04-04T21:27:17.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/249
+- author: Bill Clinton
+  changes:
+    - type: Fix
+      message: Hunting rifle accuracy is fixed, millions must hunt.
+  id: 5710
+  time: '2026-04-05T16:10:59.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/251
+- author: cythisiax
+  changes:
+    - type: Tweak
+      message: Updated WIKI https://ss14.misfitsystems.net/wiki/index.php/Main_Page
+    - type: Fix
+      message: >-
+        Optimized spent casing cleanup for large firefights, restored crit
+        suffocation/asphyxiation behind new performance CVars, and fixed several
+        player robot/synthetic prototype issues.
+    - type: Tweak
+      message: >-
+        Reworked faction war flow with faction-wide enlistment, updated
+        panels/messages, and refactored procedural underground expeditions
+        around structured vault/sewer/metro theme profiles.
+    - type: Tweak
+      message: >-
+        Refreshed faction/job loadouts, blueprints, borg modules, and related
+        battery/weapon data across the repo.
+    - type: Remove
+      message: >-
+        Removed the ally/enemy faction war overhead tag overlay for
+        immersion/spy gameplay and stripped Police Protectrons of their ranged
+        loadout.
+    - type: Add
+      message: >-
+        Full AHelp/MHelp ticket lifecycle tracking with claims/resolves/reopens,
+        history replay, audit logging, ghost-follow, toasts/logs, and card-style
+        ticket panels.
+    - type: Add
+      message: >-
+        A reusable Misfits guidebook framework with custom tags/themes plus new
+        wiki-linked pages for armor, chems, currency, faction war,
+        sustainability, Enclave, Followers, Outlaws, Super Mutants, Synthetics,
+        whitelists, and expanded core N14 docs.
+    - type: Add
+      message: >-
+        A full grab escalation and martial arts system (TESTING, reserved for
+        manuals) with staged grabs, escapes, table slams, throws, combo
+        buffering, six Fallout-themed styles, manuals, and Legion/Ranger
+        roundstart techniques. Goob inspo.
+    - type: Add
+      message: >-
+        Added major player robot/synthetic upgrades including built-in
+        flamer/plasma/cryo/head, cryostorage support, and the Frumentarii
+        black-ops kit.
+  id: 5711
+  time: '2026-04-05T21:57:52.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/252
+- author: cythisiax
+  changes:
+    - type: Fix
+      message: >-
+        Fixed broken power armor speed penalty not applying client-side for
+        movement prediction when armor integrity hits zero.
+    - type: Tweak
+      message: >-
+        All PA buffed > 150 HP, now 60% movement reduction while integrity
+        broken; 20% of AC value goes to Mob.
+    - type: Fix
+      message: >-
+        Fixed Legion Gladiatorial and Ranger Combat training manuals not working
+        (missing UseInHand subscriptions).
+    - type: Fix
+      message: >-
+        Fixed headsets with no inserted encryption keys ignoring passive
+        listen-only channels (e.g. PBS broadcast).
+    - type: Fix
+      message: >-
+        Fixed NC trade store getting permanently locked when a player
+        disconnects or dies while browsing.
+    - type: Fix
+      message: >-
+        Fixed missing entity localization keys for machine frames, NCR prisoner
+        bracelets, and Legion slave collars causing UI errors.
+    - type: Fix
+      message: Suppressed RMC missing-RSI sprite log spam on map load.
+    - type: Fix
+      message: Pets perks not registering if selecting more than one pet perk.
+    - type: Tweak
+      message: >-
+        Re-enabled the ally/enemy faction war overhead tag overlay; spy roles
+        (Frumentarii) are now exempt and will not display a tag above their
+        head.
+    - type: Tweak
+      message: >-
+        Outlaws faction overhaul.. replaced the Jackal/Viper/Gunner/Fiend gang
+        roles with Eighties and White Legs, including new armor sets and
+        sprites.
+    - type: Tweak
+      message: >-
+        Faction job consolidation. All NCR, Caesar's Legion, Brotherhood of
+        Steel, Ranger, and Townsfolk job prototypes moved into the _Misfits
+        folder; NCR Corporal renamed to Specialist.
+    - type: Tweak
+      message: >-
+        Undecided loadout kit descriptions are now localized through FTL and
+        render as wrapped rich text in the selection window.
+    - type: Tweak
+      message: >-
+        Scope system ported from RMC-14: directional scoping with zoom cycles
+        and DoAfter delay replaces the old telescope-based N14 scope; binoculars
+        now use the new system.
+    - type: Tweak
+      message: >-
+        Cloud weather system now supports weather-linked auto start/stop and
+        networked overcast ambient light modulation by cloud opacity.
+    - type: Tweak
+      message: >-
+        All in-game guidebook/wiki buttons and keybind now open the Misfits wiki
+        in the system browser instead of the in-game guidebook window.
+    - type: Remove
+      message: >-
+        Removed all upstream SS14/DeltaV/Shitmed/Corvax guidebook XML content
+        and YAML catalogue files (~190 files); the Misfits wiki replaces them.
+    - type: Add
+      message: >-
+        Added banlistall admin command .Opens a paginated EUI panel listing all
+        active server bans and role bans globally without a player filter
+        (Postgres and SQLite).
+    - type: Add
+      message: >-
+        Added fully rewritten Admin Logs panel with collapsible category rail,
+        severity pills, and rich log rows.
+  id: 5712
+  time: '2026-04-07T03:12:48.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/254

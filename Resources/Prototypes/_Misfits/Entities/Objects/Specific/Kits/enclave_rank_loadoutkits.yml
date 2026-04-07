@@ -44,8 +44,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: Enclave_CommandLaserSet
-  name: command laser kit
-  description: A command package for an Enclave officer expecting to direct a firefight personally.
+  name: undecided-loadout-category-misfits-enclave-command-laser-name
+  description: undecided-loadout-category-misfits-enclave-command-laser-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: pointman
@@ -54,8 +54,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: Enclave_CommandShockSet
-  name: command shock kit
-  description: A harder-hitting officer package for an Enclave commander pushing with the line.
+  name: undecided-loadout-category-misfits-enclave-command-shock-name
+  description: undecided-loadout-category-misfits-enclave-command-shock-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: rifleman
@@ -64,8 +64,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: Enclave_CommandPlasmaSet
-  name: command plasma kit
-  description: A compact plasma command package for an officer who favors precision and mobility.
+  name: undecided-loadout-category-misfits-enclave-command-plasma-name
+  description: undecided-loadout-category-misfits-enclave-command-plasma-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: marksman
@@ -74,8 +74,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: Enclave_RiflemanSet
-  name: trooper rifleman kit
-  description: A disciplined line trooper package for Enclave riflemen holding the center.
+  name: undecided-loadout-category-misfits-enclave-rifleman-name
+  description: undecided-loadout-category-misfits-enclave-rifleman-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: rifleman
@@ -84,8 +84,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: Enclave_ShocktrooperSet
-  name: trooper shock kit
-  description: A heavier Enclave assault package for breaking defended positions with superior firepower.
+  name: undecided-loadout-category-misfits-enclave-shocktrooper-name
+  description: undecided-loadout-category-misfits-enclave-shocktrooper-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: gunner
@@ -94,8 +94,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: Enclave_SuppressorSet
-  name: trooper suppressor kit
-  description: An automatic laser package for Enclave soldiers tasked with pinning targets and advancing methodically.
+  name: undecided-loadout-category-misfits-enclave-suppressor-name
+  description: undecided-loadout-category-misfits-enclave-suppressor-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: marksman
@@ -104,8 +104,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: Enclave_FieldResearchSet
-  name: field research kit
-  description: A technical field package for an Enclave scientist operating outside a secure lab.
+  name: undecided-loadout-category-misfits-enclave-field-research-name
+  description: undecided-loadout-category-misfits-enclave-field-research-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: medic
@@ -114,8 +114,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: Enclave_MedicalScienceSet
-  name: medical science kit
-  description: A medical support package for an Enclave scientist handling trauma, radiation, and advanced recovery.
+  name: undecided-loadout-category-misfits-enclave-medical-science-name
+  description: undecided-loadout-category-misfits-enclave-medical-science-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: medic
@@ -124,8 +124,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: Enclave_EngineeringScienceSet
-  name: engineering science kit
-  description: A field engineering package for an Enclave scientist maintaining equipment and infrastructure under pressure.
+  name: undecided-loadout-category-misfits-enclave-engineering-science-name
+  description: undecided-loadout-category-misfits-enclave-engineering-science-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: pointman

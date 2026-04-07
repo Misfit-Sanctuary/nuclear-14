@@ -613,6 +613,15 @@ public sealed class ChatUIController : UIController
             return;
         }
 
+        var player = _player.LocalEntity;
+        var predicate = static (EntityUid uid, (EntityUid compOwner, EntityUid? attachedEntity) data)
+            => uid == data.compOwner || uid == data.attachedEntity;
+        var playerPos = player != null
+            ? _transform?.GetMapCoordinates(player.Value) ?? MapCoordinates.Nullspace
+            : MapCoordinates.Nullspace;
+
+        var occluded = player != null && _examine.IsOccluded(player.Value);
+
         foreach (var (entity, queueData) in _queuedSpeechBubbles.ShallowClone())
         {
             if (!EntityManager.EntityExists(entity))
@@ -637,19 +646,24 @@ public sealed class ChatUIController : UIController
 
             queueData.TimeLeft += BubbleDelayBase + msg.Message.Message.Length * BubbleDelayFactor;
 
+            // Don't create speech bubbles for entities that are out of LOS — discard the message
+            // instead of creating a hidden bubble that would spam the screen when LOS is regained.
+            if (entity != player)
+            {
+                var otherPos = _transform?.GetMapCoordinates(entity) ?? MapCoordinates.Nullspace;
+                if (occluded && !_examine.InRangeUnOccluded(
+                        playerPos,
+                        otherPos, 0f,
+                        (entity, player), predicate))
+                {
+                    continue;
+                }
+            }
+
             // We keep the queue around while it has 0 items. This allows us to keep the timer.
             // When the timer hits 0 and there's no messages left, THEN we can clear it up.
             CreateSpeechBubble(entity, msg);
         }
-
-        var player = _player.LocalEntity;
-        var predicate = static (EntityUid uid, (EntityUid compOwner, EntityUid? attachedEntity) data)
-            => uid == data.compOwner || uid == data.attachedEntity;
-        var playerPos = player != null
-            ? _transform?.GetMapCoordinates(player.Value) ?? MapCoordinates.Nullspace
-            : MapCoordinates.Nullspace;
-
-        var occluded = player != null && _examine.IsOccluded(player.Value);
 
         foreach (var (ent, bubs) in _activeSpeechBubbles)
         {

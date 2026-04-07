@@ -1,0 +1,171 @@
+# #Misfits Add - Training Manual items that grant martial arts styles when used in hand
+# These are single-use consumables; using them destroys the item and grants the bearer a fighting style.
+# None are currently placed in maps or spawn tables — admin-spawn only for testing.
+
+- type: entity
+  name: "legion gladiatorial combat manual"
+  id: TrainingManualLegionGladiatorial
+  parent: BaseItem
+  description: "A scroll of hardened vellum inscribed with the brutal combat doctrines of Caesar's Legion. Teaches gladiatorial fighting — throws, slams, and choke techniques."
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#8B0000"
+    - state: decor_wingette
+      color: "#5C0000"
+    - state: icon_text
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+      - Book
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/book_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+  - type: GrantLegionGladiatorial
+    soundOnUse:
+      path: /Audio/Items/Handling/book_pickup.ogg
+
+- type: entity
+  name: "ranger close-quarters combat handbook"
+  id: TrainingManualRangerCombat
+  parent: BaseItem
+  description: "A compact, well-worn field manual stamped with the Desert Rangers insignia. Covers precision disarms, joint locks, and controlled takedowns."
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#2E5E3E"
+    - state: decor_wingette
+      color: "#1A3A26"
+    - state: icon_text
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+      - Book
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/book_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+  - type: GrantRangerCombat
+    soundOnUse:
+      path: /Audio/Items/Handling/book_pickup.ogg
+
+- type: entity
+  name: "wasteland scrapper's notes"
+  id: TrainingManualDesertSurvival
+  parent: BaseItem
+  description: "A battered collection of scrawled notes on how to fight like a wasteland survivor — techniques born from years of running, sliding, and hitting things at speed."
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#8B6914"
+    - state: decor_wingette
+      color: "#6B4F10"
+    - state: icon_text
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+      - Book
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/book_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+  - type: GrantDesertSurvival
+    soundOnUse:
+      path: /Audio/Items/Handling/book_pickup.ogg
+
+- type: entity
+  name: "mojave underground fight club rulebook"
+  id: TrainingManualWastelandStreetFighting
+  parent: BaseItem
+  description: "No pages, no rules — just a list of techniques so dirty even raider gangs consider them unsporting. Somehow it made it into book form."
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#4A3020"
+    - state: decor_wingette
+      color: "#2E1A0E"
+    - state: icon_text
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+      - Book
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/book_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+  - type: GrantWastelandStreetFighting
+    soundOnUse:
+      path: /Audio/Items/Handling/book_pickup.ogg
+
+- type: entity
+  name: "khans tribal combat codex"
+  id: TrainingManualTribalWarrior
+  parent: BaseItem
+  description: "A weathered codex of Great Khans combat techniques, painted hide and charcoal on reclaimed paper. Teaches the primal fighting form of the Tribal Warrior."
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#2D4A1E"
+    - state: decor_wingette
+      color: "#1A2E0E"
+    - state: icon_text
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+      - Book
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/book_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+  - type: GrantTribalWarrior
+    soundOnUse:
+      path: /Audio/Items/Handling/book_pickup.ogg
+
+- type: entity
+  name: "followers of the apocalypse nerve manual"
+  id: TrainingManualShadowStrike
+  parent: BaseItem
+  description: "A slim, precise volume from the Followers of the Apocalypse on exploiting nerve clusters and the psychology of the unaware. Teaches the Shadow Strike technique."
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#1A1A2E"
+    - state: decor_wingette
+      color: "#0E0E1A"
+    - state: icon_text
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+      - Book
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/book_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+  - type: GrantShadowStrike
+    soundOnUse:
+      path: /Audio/Items/Handling/book_pickup.ogg

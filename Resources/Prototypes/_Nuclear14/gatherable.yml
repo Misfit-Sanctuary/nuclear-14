@@ -6,8 +6,9 @@
 - type: ore
   id: WoodPlank
   oreEntity: MaterialWoodPlank1
-  minOreYield: 4
-  maxOreYield: 8
+  # #Misfits Fix - Timber should consistently convert into five planks when gathered/cut.
+  minOreYield: 5
+  maxOreYield: 5
 
 # Rocks, Metal, Ores
 - type: ore

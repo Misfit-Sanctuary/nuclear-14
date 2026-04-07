@@ -32,16 +32,18 @@ namespace Content.Client.Info
 
             AddInfoButton("server-info-discord-button", CCVars.InfoLinksDiscord);
             AddInfoButton("server-info-website-button", CCVars.InfoLinksWebsite);
-            AddInfoButton("server-info-wiki-button", CCVars.InfoLinksWiki);
+            // #Misfits Change - Wiki & Guidebook access removed from lobby/round-start banner; use escape menu Wiki button instead
+            // AddInfoButton("server-info-wiki-button", CCVars.InfoLinksWiki);
             AddInfoButton("server-info-forum-button", CCVars.InfoLinksForum);
 
-            var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
-            var guidebookButton = new Button() { Text = Loc.GetString("server-info-guidebook-button") };
-            guidebookButton.OnPressed += _ =>
-            {
-                guidebookController.ToggleGuidebook();
-            };
-            buttons.AddChild(guidebookButton);
+            // #Misfits Change - Guidebook button removed from lobby banner (use escape menu Wiki button instead)
+            // var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
+            // var guidebookButton = new Button() { Text = Loc.GetString("server-info-guidebook-button") };
+            // guidebookButton.OnPressed += _ =>
+            // {
+            //     guidebookController.ToggleGuidebook();
+            // };
+            // buttons.AddChild(guidebookButton);
 
             var changelogButton = new ChangelogButton();
             changelogButton.OnPressed += args => UserInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();

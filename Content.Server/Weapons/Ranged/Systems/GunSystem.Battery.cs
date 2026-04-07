@@ -5,6 +5,8 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared._Misfits.Weapons; // #Misfits Add - GunDamageBonusComponent override support
+using Robust.Shared.Containers; // #Misfits Add - container lookup for examine override
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Weapons.Ranged.Systems;
@@ -61,7 +63,7 @@ public sealed partial class GunSystem
 
     private void OnBatteryDamageExamine(EntityUid uid, BatteryAmmoProviderComponent component, ref DamageExamineEvent args)
     {
-        var damageSpec = GetDamage(component);
+        var damageSpec = GetDamage(uid, component); // #Misfits Change - pass uid for container lookup
 
         if (damageSpec == null)
             return;
@@ -76,7 +78,8 @@ public sealed partial class GunSystem
         _damageExamine.AddDamageExamine(args.Message, damageSpec, damageType);
     }
 
-    private DamageSpecifier? GetDamage(BatteryAmmoProviderComponent component)
+    // #Misfits Change - Added EntityUid parameter to allow container lookup for GunDamageBonusComponent
+    private DamageSpecifier? GetDamage(EntityUid uid, BatteryAmmoProviderComponent component)
     {
         if (component is ProjectileBatteryAmmoProviderComponent battery)
         {
@@ -96,6 +99,36 @@ public sealed partial class GunSystem
 
         if (component is HitscanBatteryAmmoProviderComponent hitscan)
         {
+            // #Misfits Add - If the cell is inside a gun with a hitscan override, show that damage instead.
+            // Also adds BonusDamage so the examine tooltip matches actual fired damage.
+            if (_container.TryGetContainingContainer(uid, out var container) &&
+                TryComp<GunDamageBonusComponent>(container.Owner, out var gunBonus))
+            {
+                var overrideProto = gunBonus.HitscanProtoOverride;
+                if (overrideProto != null)
+                {
+                    var dmg = ProtoManager.Index<HitscanPrototype>(overrideProto).Damage;
+                    if (dmg != null && gunBonus.BonusDamage != null)
+                    {
+                        dmg = new DamageSpecifier(dmg);
+                        dmg += gunBonus.BonusDamage;
+                    }
+                    return dmg;
+                }
+
+                // No override but has bonus damage — add it to the cell's base
+                if (gunBonus.BonusDamage != null)
+                {
+                    var dmg = ProtoManager.Index<HitscanPrototype>(hitscan.Prototype).Damage;
+                    if (dmg != null)
+                    {
+                        dmg = new DamageSpecifier(dmg);
+                        dmg += gunBonus.BonusDamage;
+                    }
+                    return dmg;
+                }
+            }
+
             return ProtoManager.Index<HitscanPrototype>(hitscan.Prototype).Damage;
         }
 

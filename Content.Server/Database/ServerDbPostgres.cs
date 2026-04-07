@@ -127,6 +127,30 @@ namespace Content.Server.Database
             return bans;
         }
 
+        // #Misfits Add - banlistall: return all server bans globally without any player/address filter
+        public override async Task<List<ServerBanDef>> GetAllServerBansAsync(bool includeUnbanned)
+        {
+            await using var db = await GetDbImpl();
+
+            IQueryable<ServerBan> query = db.PgDbContext.Ban.Include(p => p.Unban);
+            if (!includeUnbanned)
+            {
+                // Active bans only: not pardoned and not expired
+                query = query.Where(p =>
+                    p.Unban == null && (p.ExpirationTime == null || p.ExpirationTime.Value > DateTime.UtcNow));
+            }
+
+            var queryBans = await query.OrderByDescending(b => b.BanTime).ToArrayAsync();
+            var bans = new List<ServerBanDef>(queryBans.Length);
+            foreach (var ban in queryBans)
+            {
+                var banDef = ConvertBan(ban);
+                if (banDef != null)
+                    bans.Add(banDef);
+            }
+            return bans;
+        }
+
         private static IQueryable<ServerBan> MakeBanLookupQuery(
             IPAddress? address,
             NetUserId? userId,
@@ -345,6 +369,22 @@ namespace Content.Server.Database
                 .OrderByDescending(b => b.BanTime);
 
             return await QueryRoleBans(query);
+        }
+
+        // #Misfits Add - banlistall: return all role bans globally without any player/address filter
+        public override async Task<List<ServerRoleBanDef>> GetAllServerRoleBansAsync(bool includeUnbanned)
+        {
+            await using var db = await GetDbImpl();
+
+            IQueryable<ServerRoleBan> query = db.PgDbContext.RoleBan.Include(p => p.Unban);
+            if (!includeUnbanned)
+            {
+                // Active role bans only: not pardoned and not expired
+                query = query.Where(p =>
+                    p.Unban == null && (p.ExpirationTime == null || p.ExpirationTime.Value > DateTime.UtcNow));
+            }
+
+            return await QueryRoleBans(query.OrderByDescending(b => b.BanTime));
         }
 
         private static async Task<List<ServerRoleBanDef>> QueryRoleBans(IQueryable<ServerRoleBan> query)

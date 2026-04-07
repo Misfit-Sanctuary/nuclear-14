@@ -20,10 +20,11 @@
                Margin="8 6" Align="Center"/>
         <PanelContainer StyleClasses="LowDivider"/>
 
-        <!-- Difficulty tier buttons (3 columns, populated in code-behind) -->
-        <GridContainer Name="TierGrid" Columns="3"
-                       HSeparationOverride="6" VSeparationOverride="6"
-                       Margin="12 8" HorizontalAlignment="Center"/>
+        <!-- Difficulty tier buttons (single column, populated in code-behind) -->
+        <!-- #Misfits Fix - Changed from 3 columns to 1: long procgen labels overflowed the window -->
+        <BoxContainer Name="TierGrid" Orientation="Vertical"
+                      SeparationOverride="6"
+                      Margin="12 8" HorizontalExpand="True"/>
 
         <!-- Selected tier details (hidden until a tier is chosen) -->
         <BoxContainer Name="DetailsPanel" Orientation="Vertical"

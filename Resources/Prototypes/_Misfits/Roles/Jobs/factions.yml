@@ -4,12 +4,13 @@
   color: "#607d8b"
   weight: -100
   roles:
+  - SyntheticAssaultron  # combat robots — no vault access
+  - SyntheticSentryBot   # combat robots — no vault access
+  # #Misfits Change - reorder: vault-assigned robots grouped below (showBorder separator on MrHandy)
   - SyntheticMrHandy
   - SyntheticProtectron
   - SyntheticMrGutsy
-  - SyntheticAssaultron
-  - SyntheticSentryBot # #Misfits Add
-  - SyntheticRobobrain # #Misfits Add
+  - SyntheticRobobrain
 
 # #Misfits Change
 - type: department
@@ -64,4 +65,17 @@
 #  - CaesarLegionAuxilia
 #  - CaesarLegionRecruit
 #  - CaesarLegionSlave
+
+# #Misfits Add — Raider department. Moved from Corvax/Roles/Jobs/factions.yml.
+# Raider job prototypes live in _Misfits/Roles/Jobs/Raider/.
+# #Misfits Change — Outlaws faction overhaul: replaced Jackal/Viper/Gunner/Fiend with Eighties/WhiteLegs
+- type: department
+  id: Raider
+  description: department-Raider-description
+  color: "#093f09"
+  editorHidden: true
+  roles:
+  - Khan       # _Misfits/Roles/Jobs/Raider/raider.yml
+  - Eighties   # _Misfits/Roles/Jobs/Raider/eighties.yml
+  - WhiteLegs  # _Misfits/Roles/Jobs/Raider/whitelegs.yml
 

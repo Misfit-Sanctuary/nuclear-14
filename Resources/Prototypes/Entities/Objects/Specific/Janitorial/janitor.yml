@@ -52,9 +52,7 @@
     tags:
       - Mop
       - MopBasic
-  - type: GuideHelp
-    guides:
-    - Janitorial
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Janitorial)
 
 - type: entity
   parent: BaseItem
@@ -214,9 +212,7 @@
   - type: Item
     sprite: Objects/Specific/Janitorial/plunger.rsi
     heldPrefix: plunger
-  - type: GuideHelp
-    guides:
-    - Janitorial
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Janitorial)
   - type: Clothing
     sprite: Objects/Specific/Janitorial/plunger.rsi
     slots:

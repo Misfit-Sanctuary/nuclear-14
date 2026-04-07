@@ -221,6 +221,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: AccessReader
+  - type: RandomAccessKey # #Misfits Add - generate unique key on construction, matching metal locked door behaviour
   - type: Construction
     graph: N14DoorGraph
     node: woodDoorlocked
@@ -239,6 +240,7 @@
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
   - type: AccessReader
+  - type: RandomAccessKey # #Misfits Add - generate unique key on construction, matching metal locked door behaviour
   - type: Construction
     graph: N14DoorGraph
     node: woodDoorSecureNCR

@@ -1,9 +1,15 @@
-# Misfits — Tiered hitscan definitions for microfusion cell and electron charge pack ammunition.
-# Each energy weapon class has 4 colour-coded tiers: Red (lowest) < Green < Blue < Violet (highest).
-# The ammo cell determines beam colour and damage; the gun determines fire rate and accuracy.
+# Misfits — Hitscan beam definitions for energy weapons.
+# Each weapon specifies its own beam via GunDamageBonusComponent.hitscanProtoOverride.
+# The cell just provides charge; the weapon controls beam color and base damage.
+# Damage hierarchy: Red (17) < Amber (19) < Yellow (17 base, Wattz +bonus) < Green (25) < Blue (30) < Violet (30)
 
-#MARK: Microfusion Cell Lasers — Red < Green < Blue < Violet
-# Used by N14MicrofusionCellRed/Green/Blue/Violet. All laser weapons accept any of these.
+#MARK: Microfusion Cell Lasers — per-weapon beam assignment
+# AER-9/Auto/RCW/Gatling/crude/makeshift -> Red
+# AER-12 -> Amber
+# AER-14 -> Green
+# AER-15 -> Blue
+# Wattz 2K/3K -> Yellow (with GunDamageBonus on top)
+# Violet -> reserved for future / highest-tier weapons
 
 - type: hitscan
   id: N14MFLaserRed
@@ -20,11 +26,29 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: impact_laser
 
+# #Misfits Add - Amber beam for AER-12 rapid-fire laser rifle.
+# Uses red beam sprites tinted amber. Slight damage increase over Red.
+- type: hitscan
+  id: N14MFLaserAmber
+  damage:
+    types:
+      Heat: 19
+  tintColor: "#FF8C00"
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_laser
+  travelFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_laser
+
 - type: hitscan
   id: N14MFLaserGreen
   damage:
     types:
-      Heat: 21
+      Heat: 25
   muzzleFlash:
     sprite: _Misfits/Objects/Weapons/Guns/Projectiles/green_laser.rsi
     state: muzzle_green_laser
@@ -39,7 +63,7 @@
   id: N14MFLaserBlue
   damage:
     types:
-      Heat: 25
+      Heat: 30
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_blue
@@ -50,11 +74,14 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: impact_blue
 
+# #Misfits Change - Recolored violet beam to true violet spectrum (#8B00FF).
+# Original used u_laser sprites (purple). Now tinted to distinct violet.
 - type: hitscan
   id: N14MFLaserViolet
   damage:
     types:
       Heat: 30
+  tintColor: "#8B00FF"
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_u_laser
@@ -64,6 +91,27 @@
   impactFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: impact_u_laser
+
+# #Misfits Add - Yellow beam for Wattz 2000/3000 focused laser rifles.
+# Uses red beam sprites tinted bright yellow. Base damage matches Red;
+# actual output is higher due to GunDamageBonusComponent on the Wattz weapons.
+# Wider beam (1.5x) simulates focused optics — Assaultron is 3.0 for comparison.
+- type: hitscan
+  id: N14MFLaserYellow
+  damage:
+    types:
+      Heat: 17
+  tintColor: "#FFD700"
+  beamWidth: 1.5
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_laser
+  travelFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_laser
 
 #MARK: Electron Charge Pack Pulses — Red < Green < Blue < Violet
 # Used by N14ElectronChargePackRed/Green/Blue/Violet. All pulse weapons accept any of these.

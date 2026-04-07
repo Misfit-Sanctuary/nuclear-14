@@ -116,7 +116,7 @@ public abstract class ClothingSystem : EntitySystem
             if (!force && !appearanceLayers.Contains(layer))
                 break;
 
-            InventorySystem.InventorySlotEnumerator enumerator = _invSystem.GetSlotEnumerator(equipee);
+            InventorySystem.InventorySlotEnumerator enumerator = _invSystem.GetSlotEnumerator(equipee, ~SlotFlags.POCKET); // #Misfits Fix - exclude pocket slots so items stashed there don't hide hair layers
 
             bool shouldLayerShow = true;
             while (enumerator.NextItem(out EntityUid item))

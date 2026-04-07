@@ -40,7 +40,12 @@ public sealed class EntityHeaterSystem : EntitySystem
             // don't divide by total entities since its a big grill
             // excess would just be wasted in the air but that's not worth simulating
             // if you want a heater thermomachine just use that...
-            var energy = power.PowerReceived * deltaTime;
+            // #Misfits Fix - propane/fuel-based heaters (needsPower: false) don't draw from the
+            // power grid, so PowerReceived is always 0. Calculate energy from the entity's own
+            // Power setting directly so they actually heat food placed on them.
+            var energy = power.NeedsPower
+                ? power.PowerReceived * deltaTime
+                : SettingPower(comp.Setting, comp.Power) * deltaTime;
             foreach (var ent in placer.PlacedEntities)
             {
                 // Mitigates error for missing component

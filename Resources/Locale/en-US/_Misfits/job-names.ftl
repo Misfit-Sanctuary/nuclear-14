@@ -39,21 +39,21 @@ job-description-supermutant-gladiator = You are an arena-forged supermutant who 
 # #Misfits Add — Western BoS chapter command-tier jobs (Elder + Head Scribe).
 # These keys were commented out in the Corvax locale when the Corvax west-BoS chapter
 # was removed, but the Misfits bos_elder.yml and bos_headscribe.yml prototypes still reference them.
-job-name-bos-west-elder-comm = Elder
+job-name-bos-west-elder-comm = Brotherhood Elder
 job-description-bos-west-elder-comm = Command the entire Brotherhood chapter and decide its doctrine, diplomacy, and strategic goals.
-job-name-bos-west-scribe = Head Scribe
+job-name-bos-west-scribe = Brotherhood Head Scribe
 job-description-bos-west-scribe = Lead the scribes, control technical doctrine, and safeguard the chapter's knowledge.
 
 # #Misfits Add — New consolidated Brotherhood of Steel jobs.
-job-name-bos-headknight = Head Knight
+job-name-bos-headknight = Brotherhood Head Knight
 job-description-bos-headknight = Oversee the Brotherhood's knightly orders, logistics, and battlefield readiness.
-job-name-bos-paladin = Paladin
+job-name-bos-paladin = Brotherhood Paladin
 job-description-bos-paladin = Fight as the Brotherhood's frontline heavy infantry and defend the chapter's interests.
-job-name-bos-knight = Knight
+job-name-bos-knight = Brotherhood Knight
 job-description-bos-knight = Protect the chapter, escort missions, and recover technology in the field.
-job-name-bos-scribe = Scribe
+job-name-bos-scribe = Brotherhood Scribe
 job-description-bos-scribe = Support the chapter with research, medicine, and technical expertise.
-job-name-bos-initiate = Initiate
+job-name-bos-initiate = Brotherhood Initiate
 job-description-bos-initiate = Learn the Brotherhood's code, follow orders, and earn your place in the chapter.
 
 # #Misfits Add — Squire loadout kit locale for new Misfits_SqrBasic_Set.

@@ -1,0 +1,13 @@
+- type: entity
+  parent: MobHuman
+  id: N14MobHumanRaider
+  name: Raider
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+    - type: Loadout
+      # #Misfits Fix - RaiderGear was removed; use NPC raider loadout instead
+      prototypes: [RaiderPistolGear]
+    - type: NpcFactionMember
+      factions:
+      - Raider

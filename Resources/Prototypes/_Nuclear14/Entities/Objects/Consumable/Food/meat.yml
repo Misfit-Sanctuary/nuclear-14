@@ -250,6 +250,10 @@
     sprite: Objects/Consumable/Food/meat.rsi
     layers:
     - state: bird
+  - type: Construction
+    graph: MeatSteakRadchicken
+    node: start
+    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1
 
@@ -647,6 +651,10 @@
   - type: SliceableFood
     count: 3
     slice: N14FoodMeatRadchickenCutletCooked
+  - type: Construction
+    graph: MeatSteakRadchicken
+    node: SteakCooked
+    defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
 

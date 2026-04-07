@@ -220,9 +220,7 @@
     - part-container
     - cell_slot
   - type: Pullable
-  - type: GuideHelp
-    guides:
-    - Cyborgs
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Cyborgs)
   - type: TwistedConstructionTarget
     replacementProto: ConstructShell
     doAfterDelay: 5

@@ -1087,6 +1087,8 @@
     fireRate: 3
     soundGunshot:
       collection: N14GarandGunshot
+      params: # #Misfits Tweak — lower Garand gunshot volume; was too loud relative to other rifles
+        volume: -4
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

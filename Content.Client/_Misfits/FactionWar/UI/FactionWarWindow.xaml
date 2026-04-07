@@ -1,0 +1,90 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc faction-war-window-title}"
+                      Resizable="False"
+                      SetSize="520 720"
+                      MinSize="480 680">
+
+    <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="0">
+
+        <!-- ── Header ─────────────────────────────────────────────── -->
+        <controls:StripeBack>
+            <PanelContainer>
+                <Label Text="{Loc faction-war-window-title}" StyleClasses="LabelBig" Align="Center" Margin="0 4"/>
+            </PanelContainer>
+        </controls:StripeBack>
+
+        <!-- #Misfits Add - Prominent raid-approval warning banner -->
+        <PanelContainer HorizontalExpand="True" Margin="10 6 10 2">
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                <RichTextLabel HorizontalExpand="True" HorizontalAlignment="Center"
+                               Text="[bold][color=#FF2222][font size=16]WAR DOES NOT AUTO-APPROVE RAIDS[/font][/color][/bold]"/>
+                <RichTextLabel HorizontalExpand="True" HorizontalAlignment="Center"
+                               Text="[italic][color=#FFAAAA][font size=12]Ahelp is needed.[/font][/color][/italic]"/>
+            </BoxContainer>
+        </PanelContainer>
+
+        <!-- ── Rules ──────────────────────────────────────────────── -->
+        <RichTextLabel Name="RulesLabel" Margin="10 6 10 4" HorizontalExpand="True"/>
+
+        <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 0"/>
+
+        <!-- ── Your Faction ───────────────────────────────────────── -->
+        <BoxContainer Orientation="Horizontal" Margin="10 8 10 4">
+            <Label Text="{Loc faction-war-your-faction}" VerticalAlignment="Center" Margin="0 0 6 0"/>
+            <Label Name="MyFactionLabel" VerticalAlignment="Center" HorizontalExpand="True"
+                   StyleClasses="LabelSubText" Modulate="#F0C040"/>
+        </BoxContainer>
+
+        <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 0"/>
+
+        <!-- ── Active Wars ────────────────────────────────────────── -->
+        <Label Text="{Loc faction-war-active-wars-header}" Margin="10 6 10 2" Modulate="#CC4040"/>
+        <ScrollContainer MaxHeight="120" Margin="10 0" HorizontalExpand="True">
+            <BoxContainer Name="ActiveWarsContainer" Orientation="Vertical" SeparationOverride="4"
+                          HorizontalExpand="True"/>
+        </ScrollContainer>
+
+        <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 6"/>
+
+        <!-- ── Declare War ────────────────────────────────────────── -->
+        <Label Text="{Loc faction-war-declare-header}" Margin="10 0 10 4" Modulate="#CC4040"
+               StyleClasses="LabelBig"/>
+
+        <BoxContainer Orientation="Horizontal" Margin="10 0 10 4" SeparationOverride="8">
+            <Label Text="{Loc faction-war-target-label}" VerticalAlignment="Center" MinWidth="100"/>
+            <OptionButton Name="TargetFactionSelector" HorizontalExpand="True" Access="Public"/>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Vertical" Margin="10 0 10 4" SeparationOverride="2">
+            <Label Text="{Loc faction-war-casus-belli-label}"/>
+            <LineEdit Name="CasusBelliEdit" PlaceHolder="{Loc faction-war-casus-belli-placeholder}"
+                      HorizontalExpand="True"/>
+        </BoxContainer>
+
+        <Button Name="DeclareWarButton" Text="{Loc faction-war-declare-button}"
+                Margin="10 2 10 6" HorizontalExpand="True"/>
+
+        <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 0"/>
+
+        <!-- ── Ceasefire ──────────────────────────────────────────── -->
+        <Label Text="{Loc faction-war-ceasefire-header}" Margin="10 6 10 4" Modulate="#5599CC"
+               StyleClasses="LabelBig"/>
+
+        <BoxContainer Orientation="Horizontal" Margin="10 0 10 4" SeparationOverride="8">
+            <Label Text="{Loc faction-war-ceasefire-target-label}" VerticalAlignment="Center" MinWidth="100"/>
+            <OptionButton Name="CeasefireTargetSelector" HorizontalExpand="True" Access="Public"/>
+        </BoxContainer>
+
+        <Button Name="CeasefireButton" Text="{Loc faction-war-ceasefire-button}"
+                Margin="10 2 10 6" HorizontalExpand="True" Disabled="True"/>
+
+        <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 0"/>
+
+        <!-- ── Status / Result ────────────────────────────────────── -->
+        <RichTextLabel Name="ResultLabel" Margin="10 6 10 8" HorizontalExpand="True"/>
+
+    </BoxContainer>
+    </ScrollContainer>
+</controls:FancyWindow>

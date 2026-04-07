@@ -8,6 +8,7 @@ using Content.Shared.Smoking.Systems;
 using Content.Shared.Temperature;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
+using Robust.Shared.Timing; // #Misfits Fix - RT v275: needed for Timer.Spawn
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 
@@ -87,7 +88,7 @@ namespace Content.Server.Light.EntitySystems
             // Change state
             SetState((matchstick, component), SmokableState.Lit);
             _litMatches.Add(matchstick);
-            matchstick.Owner.SpawnTimer(component.Duration * 1000, delegate
+            Timer.Spawn(component.Duration * 1000, delegate // #Misfits Fix - RT v275: SpawnTimer removed, use Timer.Spawn
             {
                 SetState((matchstick, component), SmokableState.Burnt);
                 _litMatches.Remove(matchstick);

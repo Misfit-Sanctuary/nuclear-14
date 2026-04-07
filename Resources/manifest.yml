@@ -1,3 +1,6 @@
 defaultWindowTitle: "Misfits: Nuclear Wasteland"
 windowIconSet: /Textures/Logo/Misfits/icon
 splashLogo: /Textures/Logo/MisfitsNuclearWasteland.png
+# #Misfits Removed - WebView module marked insecure on official Robust CDN; all versions deprecated by space-wizards
+# modules:
+#   - "Robust.Client.WebView"

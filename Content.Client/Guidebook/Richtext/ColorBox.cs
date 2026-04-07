@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using JetBrains.Annotations;
+using Content.Client._Misfits.Guidebook;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -12,11 +13,14 @@ public sealed class ColorBox : PanelContainer, IDocumentTag
     public bool TryParseTag(Dictionary<string, string> args, [NotNullWhen(true)] out Control? control)
     {
         HorizontalExpand = true;
-        VerticalExpand = true;
+        // #Misfits Tweak - Prevent callout boxes from stretching vertically and apply shared block spacing.
+        VerticalExpand = false;
         control = this;
 
         if (args.TryGetValue("Margin", out var margin))
             Margin = new Thickness(float.Parse(margin));
+        else
+            Margin = new Thickness(0, 0, 0, GuidebookTheme.ComponentBottomMargin);
 
         if (args.TryGetValue("HorizontalAlignment", out var halign))
             HorizontalAlignment = Enum.Parse<HAlignment>(halign);
@@ -31,6 +35,8 @@ public sealed class ColorBox : PanelContainer, IDocumentTag
         var styleBox =  new StyleBoxFlat();
         if (args.TryGetValue("Color", out var color))
             styleBox.BackgroundColor = Color.FromHex(color);
+        else
+            styleBox.BackgroundColor = GuidebookTheme.ExampleBackground;
 
         if (args.TryGetValue("OutlineThickness", out var outlineThickness))
             styleBox.BorderThickness = new Thickness(float.Parse(outlineThickness));
@@ -40,7 +46,7 @@ public sealed class ColorBox : PanelContainer, IDocumentTag
         if (args.TryGetValue("OutlineColor", out var outlineColor))
             styleBox.BorderColor = Color.FromHex(outlineColor);
         else
-            styleBox.BorderColor = Color.White;
+            styleBox.BorderColor = GuidebookTheme.ExampleBorder;
 
         PanelOverride = styleBox;
 

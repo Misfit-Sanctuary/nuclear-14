@@ -57,8 +57,7 @@
       maxIntensity: 25000
       intensitySlope: 5
       totalIntensity: 25000
-    - type: GuideHelp
-      guides: [ Supermatter, Power ]
+    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Supermatter, Power)
     - type: WarpPoint
       follow: true
       location: supermatter

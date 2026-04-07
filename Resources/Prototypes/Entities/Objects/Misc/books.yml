@@ -61,10 +61,7 @@
   - type: Tag
     tags:
     - Book
-  - type: GuideHelp
-    openOnActivation: true
-    guides:
-    - SS14
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (SS14)
 
 - type: entity
   id: BookTheBookOfControl
@@ -87,10 +84,7 @@
   - type: Tag
     tags:
     - Book
-  - type: GuideHelp
-    openOnActivation: true
-    guides:
-    - Controls
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Controls)
 
 - type: entity
   id: BookBartendersManual
@@ -110,10 +104,7 @@
   - type: Tag
     tags:
     - Book
-  - type: GuideHelp
-    openOnActivation: true
-    guides:
-    - Bartender
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Bartender)
 
 - type: entity
   id: BookHowToCookForFortySpaceman
@@ -132,10 +123,7 @@
   - type: Tag
     tags:
     - Book
-  - type: GuideHelp
-    openOnActivation: true
-    guides:
-    - Chef
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Chef)
 
 - type: entity
   id: BookLeafLoversSecret
@@ -157,10 +145,7 @@
   - type: Tag
     tags:
     - Book
-  - type: GuideHelp
-    openOnActivation: true
-    guides:
-    - Botany
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Botany)
 
 - type: entity
   id: BookEngineersHandbook
@@ -182,10 +167,7 @@
   - type: Tag
     tags:
     - Book
-  - type: GuideHelp
-    openOnActivation: true
-    guides:
-    - Engineering
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Engineering)
 
 - type: entity
   id: BookScientistsGuidebook
@@ -205,10 +187,7 @@
   - type: Tag
     tags:
     - Book
-  - type: GuideHelp
-    openOnActivation: true
-    guides:
-    - Science
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Science)
 
 - type: entity
   id: BookSecurity
@@ -233,10 +212,7 @@
     damage:
       types:
         Blunt: 6
-  - type: GuideHelp
-    openOnActivation: true
-    guides:
-    - Security
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Security)
 
 - type: entity
   id: BookHowToKeepStationClean
@@ -255,10 +231,7 @@
   - type: Tag
     tags:
     - Book
-  - type: GuideHelp
-    openOnActivation: true
-    guides:
-    - Janitorial
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Janitorial)
 
 - type: entity
   id: BookHowToRockAndStone
@@ -281,10 +254,7 @@
   - type: Tag
     tags:
     - Book
-  - type: GuideHelp
-    openOnActivation: true
-    guides:
-    - Salvage
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Salvage)
 
 - type: entity
   id: BookMedicalReferenceBook
@@ -305,10 +275,7 @@
   - type: Tag
     tags:
     - Book
-  - type: GuideHelp
-    openOnActivation: true
-    guides:
-    - Medical
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Medical)
 
 - type: entity
   id: BookHowToSurvive
@@ -331,10 +298,7 @@
   - type: Tag
     tags:
     - Book
-  - type: GuideHelp
-    openOnActivation: true
-    guides:
-    - Survival
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Survival)
 
 - type: entity
   id: BookChemicalCompendium
@@ -354,10 +318,7 @@
   - type: Tag
     tags:
     - Book
-  - type: GuideHelp
-    openOnActivation: true
-    guides:
-    - Chemicals
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Chemicals)
 
 - type: entity
   parent: BookBase
@@ -555,7 +516,4 @@
   - type: Tag
     tags:
     - Book
-  - type: GuideHelp
-    openOnActivation: true
-    guides:
-    - Psionics
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Psionics)

@@ -1,0 +1,59 @@
+- type: job
+  id: CaesarLegionFrumentarii
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 110
+  name: job-name-caesar-legion-frumentarii
+  description: job-description-caesar-legion-frumentarii
+  playTimeTracker: CaesarLegionFrumentarii
+  requirements:
+    #- !type:CharacterPlaytimeRequirement # TEMP REMOVED
+    #  tracker: CaesarLegionVexillarius
+    #  min: 18000 # 5 hours
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+    # #Misfits Change: Frumentarii is now open to Female characters.
+  startingGear: CaesarLegionFrumentariiGear
+  alwaysUseSpawner: true
+  icon: "JobIconlegionerVenator"
+  supervisors: job-name-caesar-legion-supervisors
+  canBeAntag: false
+  accessGroups:
+  - CaesarLegionFrumentarii
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - CaesarLegion
+#      - type: ReplacementAccent  # #Misfits Removed - forced latin speech replacement removed per request; Frumentarii should be able to speak normally
+#        accent: latin
+#  - !type:AddTraitSpecial  # #Misfits Removed - LanguageLatin tied to forced accent, removed alongside it
+#    traits: [ LanguageLatin ]
+
+- type: startingGear
+  id: CaesarLegionFrumentariiGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitLegionnaire
+    ears: N14ClothingHeadsetLegion
+    mask: N14ClothingMaskBrownMask
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingShoesKaligi
+    outerClothing: N14ClothingLegionReconArmor
+    gloves: N14ClothingHandsGlovesTribal
+    belt: N14Gladius
+    suitstorage: N14PilumSpear
+    pocket1: LegionVenatorloadoutkits  # #Misfits Fix - restore combat loadout kit selector (was accidentally replaced)
+    pocket2: KitFrumentariiBlackOps    # #Misfits Add - deep-cover black ops cover kit in second pocket
+    id: N14IDLegionaryMedalFrumentarii
+  innerClothingSkirt: N14ClothingUniformJumpsuitLegionnaireOther
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryLegion #Misfits Change /Tweak/: Legion uses tribal medicine, not stimpaks
+    - N14HealingPowder
+    - N14Binoculars # #Misfits Add - Frumentarii spawn with binoculars for reconnaissance
+
+- type: playTimeTracker
+  id: CaesarLegionFrumentarii

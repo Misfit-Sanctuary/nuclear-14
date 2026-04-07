@@ -82,6 +82,8 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
     // #Misfits Add — MHelp ticket tracking (per-round, in-memory)
     private int _nextTicketId = 1;
     private readonly Dictionary<NetUserId, HelpTicketInfo> _mhelpTickets = new();
+    // #Misfits Add — 1-minute cooldown per player after ticket resolution
+    private readonly Dictionary<NetUserId, DateTime> _mhelpCooldowns = new();
 
     public override void Initialize()
     {
@@ -114,6 +116,7 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
             // #Misfits Add — reset mentor tickets on round restart
             _mhelpTickets.Clear();
             _nextTicketId = 1;
+            _mhelpCooldowns.Clear();
         });
 
         // #Misfits Add — mentor ticket system handlers
@@ -167,7 +170,7 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
             dcTicket.ResolvedById = null;
             dcTicket.ResolvedAt = DateTime.UtcNow;
             BroadcastMentorTicketUpdate(dcTicket);
-            SendMentorTicketSystemMessage(dcTicket.PlayerId, Loc.GetString("ticket-system-auto-resolved-disconnect", ("id", dcTicket.TicketId), ("type", "MHELP")));
+            // #Misfits Tweak — removed bwoink chat announcement for auto-resolve on disconnect
             LogMentorTicketEvent(dcTicket, "auto-resolved on disconnect", "System", LogImpact.Medium);
         }
 
@@ -370,6 +373,22 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
         _chatManager.SendAdminAnnouncement(text, flagWhitelist: AdminFlags.ViewNotes);
     }
 
+    // #Misfits Add — send a system message only to the player (not visible in mentor panel)
+    private void SendPlayerMentorSystemMessage(NetUserId playerId, string text)
+    {
+        if (!_playerManager.TryGetSessionById(playerId, out var session))
+            return;
+        var safeText = Robust.Shared.Utility.FormattedMessage.EscapeText(text);
+        var msg = new MentorHelpTextMessage(
+            userId: playerId,
+            trueSender: SystemUserId,
+            text: $"[color=yellow]{safeText}[/color]",
+            sentAt: DateTime.Now,
+            playSound: false
+        );
+        RaiseNetworkEvent(msg, session.Channel);
+    }
+
     private void OnTicketClaim(HelpTicketClaimMessage msg, EntitySessionEventArgs args)
     {
         if (msg.Type != HelpTicketType.MentorHelp)
@@ -386,7 +405,7 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
         ticket.ClaimedByName = args.SenderSession.Name;
         ticket.ClaimedById = args.SenderSession.UserId;
         BroadcastMentorTicketUpdate(ticket);
-        SendMentorTicketSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-claimed", ("id", ticket.TicketId), ("role", "Mentor"), ("admin", args.SenderSession.Name), ("type", "MHELP")));
+        // #Misfits Tweak — removed bwoink chat announcement; panel card now shows claimer directly
         LogMentorTicketEvent(ticket, "claimed", args.SenderSession.Name, LogImpact.Low);
     }
 
@@ -408,7 +427,9 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
         ticket.ResolvedById = args.SenderSession.UserId;
         ticket.ResolvedAt = DateTime.UtcNow;
         BroadcastMentorTicketUpdate(ticket);
-        SendMentorTicketSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-resolved", ("id", ticket.TicketId), ("role", "Mentor"), ("admin", args.SenderSession.Name), ("type", "MHELP")));
+        // #Misfits Tweak — send resolve notice only to the player; set 1-minute cooldown
+        _mhelpCooldowns[ticket.PlayerId] = DateTime.Now.AddMinutes(1);
+        SendPlayerMentorSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-resolved-with-cooldown"));
         var age = (DateTime.UtcNow - ticket.CreatedAt).TotalMinutes;
         LogMentorTicketEvent(ticket, $"resolved ({age:F1}m since created)", args.SenderSession.Name, LogImpact.Medium);
     }
@@ -430,7 +451,7 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
         ticket.ClaimedByName = null;
         ticket.ClaimedById = null;
         BroadcastMentorTicketUpdate(ticket);
-        SendMentorTicketSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-unclaimed", ("id", ticket.TicketId), ("role", "Mentor"), ("admin", args.SenderSession.Name), ("type", "MHELP")));
+        // #Misfits Tweak — removed bwoink chat announcement; panel card reflects new status
         LogMentorTicketEvent(ticket, "unclaimed", args.SenderSession.Name, LogImpact.Low);
     }
 
@@ -454,7 +475,9 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
         ticket.ResolvedById = null;
         ticket.ResolvedAt = null;
         BroadcastMentorTicketUpdate(ticket);
-        SendMentorTicketSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-reopened", ("id", ticket.TicketId), ("role", "Mentor"), ("admin", args.SenderSession.Name), ("type", "MHELP")));
+        // #Misfits Tweak — removed bwoink chat announcement; panel card reflects new status
+        // #Misfits Tweak — clear cooldown when mentor explicitly reopens the ticket
+        _mhelpCooldowns.Remove(ticket.PlayerId);
         LogMentorTicketEvent(ticket, "reopened", args.SenderSession.Name, LogImpact.Medium);
     }
 
@@ -534,6 +557,12 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
         // #Misfits Add — create ticket when a non-mentor player sends a message
         if (!senderMentor)
         {
+            // #Misfits Add — enforce 1-minute cooldown after ticket resolution; block silently on mentor side
+            if (_mhelpCooldowns.TryGetValue(message.UserId, out var cooldownEnd) && DateTime.Now < cooldownEnd)
+            {
+                SendPlayerMentorSystemMessage(message.UserId, Loc.GetString("ticket-system-cooldown-blocked"));
+                return; // Don't forward the message or create a ticket
+            }
             EnsureMentorTicket(message.UserId, senderSession.Name);
         }
 
@@ -546,7 +575,7 @@ public sealed partial class MentorHelpSystem : SharedMentorHelpSystem
             openTicket.ClaimedByName = senderSession.Name;
             openTicket.ClaimedById = senderSession.UserId;
             BroadcastMentorTicketUpdate(openTicket);
-            SendMentorTicketSystemMessage(openTicket.PlayerId, Loc.GetString("ticket-system-auto-claimed", ("id", openTicket.TicketId), ("role", "Mentor"), ("admin", senderSession.Name), ("type", "MHELP")));
+            // #Misfits Tweak — removed auto-claim bwoink announcement; panel card shows claimer
         }
 
         var escapedText = FormattedMessage.EscapeText(message.Text);

@@ -9,7 +9,8 @@
   hideWithoutJobWhitelist: true   # Whitelist-only; only visible to whitelisted players
   hideIfPlaytimeRequirementsNotMet: false
   jobWhitelistBypassesRoleTimers: true
-  weight: 130                      # Above Captain (120), below any future General billet
+  # #Misfits Tweak - Weight set to 0; rank not actively used, prevents blocking war declarations
+  weight: 0
   name: job-name-ncr-major
   description: job-description-ncr-major
   playTimeTracker: NCRMajor
@@ -23,7 +24,7 @@
       min: 252000 # 70 hours
   startingGear: NCRMajorGear
   icon: "JobIconNcrLeader"
-  supervisors: job-supervisors-ncr-captain
+  supervisors: job-supervisors-ncr-major
   requireAdminNotify: true
   alwaysUseSpawner: true
   canBeAntag: false

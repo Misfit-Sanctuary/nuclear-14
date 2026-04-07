@@ -1,0 +1,75 @@
+<!-- #Misfits Add - Rich admin log row template replacing flat AdminLogLabel.
+     Layout: [timestamp, fixed-width] [type badge, fixed-width] [message, expanding]
+     Extreme severity rows get a faint red background via code-behind.
+     Clicking a row reveals an expandable detail panel with full entity IDs. -->
+<PanelContainer xmlns="https://spacestation14.io"
+                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                HorizontalExpand="True"
+                MinHeight="24">
+    <!-- Row background — code-behind overrides for Extreme severity -->
+    <PanelContainer.PanelOverride>
+        <gfx:StyleBoxFlat BackgroundColor="#00000000"
+                          ContentMarginLeftOverride="4"
+                          ContentMarginRightOverride="4"
+                          ContentMarginTopOverride="2"
+                          ContentMarginBottomOverride="2" />
+    </PanelContainer.PanelOverride>
+
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+
+        <!-- Main row: timestamp + badge + message -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+
+            <!-- Timestamp — fixed width, muted color, monospace-style -->
+            <Label Name="TimestampLabel" Access="Public"
+                   MinWidth="65" MaxWidth="65"
+                   FontColorOverride="#6a6a88"
+                   StyleClasses="LabelSubText" />
+
+            <Control MinWidth="4" />
+
+            <!-- Type badge — fixed width, tinted background per category -->
+            <PanelContainer Name="TypeBadgePanel" Access="Public"
+                            MinWidth="80" MaxWidth="80"
+                            VerticalAlignment="Center">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1e1e1e"
+                                      ContentMarginLeftOverride="4"
+                                      ContentMarginRightOverride="4"
+                                      ContentMarginTopOverride="1"
+                                      ContentMarginBottomOverride="1" />
+                </PanelContainer.PanelOverride>
+                <Label Name="TypeBadgeLabel" Access="Public"
+                       FontColorOverride="#a1a1aa"
+                       ClipText="True"
+                       HorizontalExpand="True"
+                       StyleClasses="LabelSubText" />
+            </PanelContainer>
+
+            <Control MinWidth="6" />
+
+            <!-- Message body — expanding, color-coded via FormattedMessage in code-behind -->
+            <RichTextLabel Name="MessageLabel" Access="Public"
+                           HorizontalExpand="True" />
+        </BoxContainer>
+
+        <!-- Expandable detail panel — hidden by default, shown on click -->
+        <PanelContainer Name="DetailPanel" Access="Public"
+                        Visible="False"
+                        Margin="69 2 0 0"
+                        HorizontalExpand="True">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#0c0c18"
+                                  ContentMarginLeftOverride="8"
+                                  ContentMarginRightOverride="8"
+                                  ContentMarginTopOverride="4"
+                                  ContentMarginBottomOverride="4"
+                                  BorderThickness="1 0 0 0"
+                                  BorderColor="#252540" />
+            </PanelContainer.PanelOverride>
+            <RichTextLabel Name="DetailLabel" Access="Public"
+                           HorizontalExpand="True" />
+        </PanelContainer>
+
+    </BoxContainer>
+</PanelContainer>

@@ -1,17 +1,32 @@
-# N14 scope toggle action — DISABLED. System removed; preserved for history.
-# N14 scope toggle action
-# Granted automatically when the player picks up a gun with N14ScopeComponent
-# (built-in scope) or a gun whose gun_scope slot contains a scope attachment.
-
+# #Misfits Removed - Old N14ScopeToggleEvent-based action, replaced by RMC-style ToggleActionEvent system
 # - type: entity
-#   id: N14ActionToggleScope
-#   name: Toggle Scope
-#   description: Look through the scope to shift your view forward.
-#   categories: [ HideSpawnMenu ]
-#   components:
-#   - type: InstantAction
-#     checkCanInteract: true
-#     icon:
-#       sprite: _RMC/Actions/scope_actions.rsi
-#       state: sniperscope
-#     event: !type:N14ScopeToggleEvent {}
+#   id: N14ActionToggleScope_OLD
+#   ...
+
+# N14 scope toggle action — activates directional scoping on the held item
+- type: entity
+  id: N14ActionToggleScope
+  name: n14-action-toggle-scope
+  description: n14-action-toggle-scope-description
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: true
+    icon:
+      sprite: _Misfits/Objects/Devices/binoculars.rsi
+      state: binoculars_civ
+    event: !type:ToggleActionEvent {}
+
+# N14 cycle zoom level action — cycles through available zoom levels on multi-zoom scopes
+- type: entity
+  id: N14ActionCycleZoomLevel
+  name: n14-action-cycle-zoom
+  description: n14-action-cycle-zoom-description
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: true
+    icon:
+      sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: scope
+    event: !type:ScopeCycleZoomLevelEvent {}

@@ -406,8 +406,9 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: LegatePraetorianSet
-  name: Legate Praetorian
-  description: Includes a thermospear, a Legion shield, a rope belt, 2 bolas, 2 healing powder, a healing poultice, 2 K rations, a ceramic flask, and broc tea.
+  # #Misfits Change - Localize active Corvax undecided loadout set text through _Misfits/undecidedloadout.ftl.
+  name: undecided-loadout-category-corvax-legate-praetorian-name
+  description: undecided-loadout-category-corvax-legate-praetorian-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -416,8 +417,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: LegateSagitariaSet
-  name: Legate Sagitaria
-  description: Includes a Chinese rifle, a rope belt, 2 7.62 rifle magazines, a box of 7.62 ammo, a smoke grenade, a healing powder, a healing poultice, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-legate-sagitaria-name
+  description: undecided-loadout-category-corvax-legate-sagitaria-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -426,8 +427,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: LegateImperatorSet
-  name: Legate Imperator
-  description: Includes a ceremonial sword, a .45 Colt pistol, 2 .45 magazines, a box of .45 ammo, 2 bolas, 2 healing powder, a healing poultice, 2 K rations, a ceramic flask, and broc tea.
+  name: undecided-loadout-category-corvax-legate-imperator-name
+  description: undecided-loadout-category-corvax-legate-imperator-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -436,8 +437,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: CenturionCommandSet
-  name: Centurion Command
-  description: Includes a lever shotgun, a Legion shield, a rope belt, a box of 20 gauge ammo, 2 bolas, a handcuff box, 2 healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-centurion-command-name
+  description: undecided-loadout-category-corvax-centurion-command-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -446,11 +447,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: CenturionMarksmanSet
-  name: Centurion Marksman
-  description: |-
-    Includes Republic's Demise (scoped M1C looted from a dead NCR lieutenant),
-    4 en-bloc clips, a rope belt, a smoke grenade,
-    2 healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-centurion-marksman-name
+  description: undecided-loadout-category-corvax-centurion-marksman-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -459,8 +457,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: CenturionVanquisherSet
-  name: Centurion Vanquisher
-  description: Includes a sledgehammer, a rope belt, 3 throwing knives, 2 healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-centurion-vanquisher-name
+  description: undecided-loadout-category-corvax-centurion-vanquisher-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -469,8 +467,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: VenatorMarksmanSet
-  name: Venator Marksman
-  description: Includes an anti-materiel rifle, a rope belt, 3 anti-materiel magazines, a box of .50 ammo, night vision goggles, 2 healing powder, 2 K rations, a ceramic flask, and mustard.
+  name: undecided-loadout-category-corvax-venator-marksman-name
+  description: undecided-loadout-category-corvax-venator-marksman-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -479,8 +477,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: VenatorStalkerSet
-  name: Venator Stalker
-  description: Includes a lever shotgun, a 10mm revolver, a box of 20 gauge ammo, 2 10mm speedloaders, a box of 10mm ammo, a rope belt, night vision goggles, a healing powder, a healing poultice, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-venator-stalker-name
+  description: undecided-loadout-category-corvax-venator-stalker-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -489,8 +487,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: VenatorExecutionerSet
-  name: Venator Executioner
-  description: Includes a blowback shotgun, a rope belt, 2 boxes of 12 gauge shells, a ceremonial sword, night vision goggles, 2 healing powder, 2 K rations, a ceramic flask, and mustard.
+  name: undecided-loadout-category-corvax-venator-executioner-name
+  description: undecided-loadout-category-corvax-venator-executioner-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -499,8 +497,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: VexillariusStandardSet
-  name: Vexillarius Standard Bearer
-  description: Includes base armor, a Legion shield, a rope belt, 2 pilum spears, a bola, a healing poultice, a healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-vexillarius-standard-name
+  description: undecided-loadout-category-corvax-vexillarius-standard-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -509,8 +507,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: VexillariusHeraldSet
-  name: Vexillarius Herald
-  description: Includes base armor, a .45 Colt pistol, 2 .45 magazines, a box of .45 ammo, a smoke grenade, 2 bandages, 2 healing poultices, a healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-vexillarius-herald-name
+  description: undecided-loadout-category-corvax-vexillarius-herald-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -519,8 +517,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: VexillariusSkirmisherSet
-  name: Vexillarius Skirmisher
-  description: Includes base armor, a 9mm SMG, 2 9mm SMG magazines, a box of 9mm ammo, a buckler, a pilum spear, a healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-vexillarius-skirmisher-name
+  description: undecided-loadout-category-corvax-vexillarius-skirmisher-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -529,8 +527,9 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: ExplorerScoutSet
-  name: Explorer Scout
-  description: Includes a lever carbine, a tribal .44 revolver, 2 .44 speedloaders, a box of .44 ammo, a rope belt, 2 bolas, night vision goggles, a healing powder, a healing poultice, 2 K rations, and a ceramic flask.
+  # #Misfits Fix - Use FTL keys so undecided loadout UI stops localizing raw English text as message IDs.
+  name: undecided-loadout-category-explorer-scout-name
+  description: undecided-loadout-category-explorer-scout-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -539,8 +538,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: ExplorerTrackerSet
-  name: Explorer Tracker
-  description: Includes a hunting rifle, a .45 Colt pistol, 2 .308 rifle magazines, a box of .308 ammo, 2 .45 magazines, a box of .45 ammo, a rope belt, night vision goggles, a healing powder, a healing poultice, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-explorer-tracker-name
+  description: undecided-loadout-category-explorer-tracker-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -549,8 +548,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: ExplorerRaiderSet
-  name: Explorer Raider
-  description: Includes a lever shotgun, a machete, 2 boxes of 20 gauge ammo, a rope belt, 2 bolas, 2 healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-explorer-raider-name
+  description: undecided-loadout-category-explorer-raider-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -559,8 +558,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: OratorPreacherSet
-  name: Orator Preacher
-  description: Includes a .45 Colt pistol, 2 .45 magazines, a box of .45 ammo, 2 smoke grenades, 2 bandages, 2 healing poultices, a healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-orator-preacher-name
+  description: undecided-loadout-category-corvax-orator-preacher-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -569,8 +568,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: OratorDefenderSet
-  name: Orator Defender
-  description: Includes a 9mm SMG, 2 9mm SMG magazines, a box of 9mm ammo, a smoke grenade, 2 healing poultices, a healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-orator-defender-name
+  description: undecided-loadout-category-corvax-orator-defender-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -579,8 +578,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: OratorInquisitorSet
-  name: Orator Inquisitor
-  description: Includes a tribal .44 revolver, a ceremonial sword, 2 .44 speedloaders, a box of .44 ammo, a bola, handcuffs, 2 healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-orator-inquisitor-name
+  description: undecided-loadout-category-corvax-orator-inquisitor-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -589,8 +588,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: HoundmasterHunterSet
-  name: Houndmaster Hunter
-  description: Includes base armor, a whip, a tribal .44 revolver, 2 .44 speedloaders, a box of .44 ammo, 2 bolas, a healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-houndmaster-hunter-name
+  description: undecided-loadout-category-corvax-houndmaster-hunter-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -599,8 +598,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: HoundmasterTamerSet
-  name: Houndmaster Tamer
-  description: Includes base armor, a short shotgun, a box of 12 gauge shells, a whip, 2 zipties, a healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-houndmaster-tamer-name
+  description: undecided-loadout-category-corvax-houndmaster-tamer-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -609,8 +608,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: HoundmasterMedicSet
-  name: Houndmaster Handler Medic
-  description: Includes base armor, a .45 Colt pistol, a .45 magazine, a box of .45 ammo, 2 bandages, 2 healing poultices, hydra, a healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-houndmaster-medic-name
+  description: undecided-loadout-category-corvax-houndmaster-medic-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -619,8 +618,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: AuxiliaSkirmisherSet
-  name: Auxilia Skirmisher
-  description: Includes recruit armor, a 9mm SMG, 2 9mm SMG magazines, a box of 9mm ammo, a buckler, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-auxilia-skirmisher-name
+  description: undecided-loadout-category-corvax-auxilia-skirmisher-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -629,8 +628,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: AuxiliaSpearmanSet
-  name: Auxilia Spearman
-  description: Includes recruit armor, a spear quiver belt, 3 pilum spears, a buckler, a healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-auxilia-spearman-name
+  description: undecided-loadout-category-corvax-auxilia-spearman-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -639,8 +638,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: AuxiliaMedicSet
-  name: Auxilia Medic
-  description: Includes recruit armor, a medical belt, 2 bandages, 2 healing poultices, hydra, 2 healing powder, a tribal machete, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-auxilia-medic-name
+  description: undecided-loadout-category-corvax-auxilia-medic-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -649,8 +648,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: VeteranDecanusCommandSet
-  name: Veteran Decanus Command
-  description: Includes a Legion shield, an M1 Garand with 4 en-bloc clips, a rope belt, a .45 Colt pistol, 2 .45 magazines, a box of .45 ammo, a handcuff box, a bola, 2 healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-veteran-decanus-command-name
+  description: undecided-loadout-category-corvax-veteran-decanus-command-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -659,8 +658,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: VeteranDecanusHunterSet
-  name: Veteran Decanus Hunter
-  description: Includes a Legion buckler, an M1 Garand with 4 en-bloc clips, a rope belt, a short shotgun, a box of 12 gauge shells, 2 healing poultices, a healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-veteran-decanus-hunter-name
+  description: undecided-loadout-category-corvax-veteran-decanus-hunter-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -669,8 +668,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: VeteranDecanusCrusherSet
-  name: Veteran Decanus Crusher
-  description: Includes a trench club, an M1 Garand with 4 en-bloc clips, a .45 Colt pistol, 2 .45 magazines, a smoke grenade, 2 healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-veteran-decanus-crusher-name
+  description: undecided-loadout-category-corvax-veteran-decanus-crusher-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -679,11 +678,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: DecanusGladiatorSet
-  name: Decanus Gladiator
-  description: |-
-    Includes an M1 Garand with 4 en-bloc clips, a Legion shield,
-    a rope belt, a trench club, 2 bolas, a handcuff box,
-    2 healing powder, 2 K rations, a ceramic flask, and mustard.
+  name: undecided-loadout-category-corvax-decanus-gladiator-name
+  description: undecided-loadout-category-corvax-decanus-gladiator-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -692,11 +688,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: DecanusSagitariaSet
-  name: Decanus Sagitaria
-  description: |-
-    Includes an M1 Garand with 4 en-bloc clips, a .45 revolver with 2 spare mags,
-    a rope belt, a smoke grenade,
-    2 healing powder, 2 K rations, a ceramic flask, and mustard.
+  name: undecided-loadout-category-corvax-decanus-sagitaria-name
+  description: undecided-loadout-category-corvax-decanus-sagitaria-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -705,11 +698,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: DecanusBerserkerSet
-  name: Decanus Berserker
-  description: |-
-    Includes an M1 Garand with 4 en-bloc clips, a .45 revolver with 2 spare mags,
-    a sledgehammer, a rope belt, 3 throwing knives,
-    2 healing powder, 2 K rations, a ceramic flask, and mustard.
+  name: undecided-loadout-category-corvax-decanus-berserker-name
+  description: undecided-loadout-category-corvax-decanus-berserker-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -718,8 +708,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: VeteranRiflemanSet
-  name: Veteran Rifleman
-  description: Includes veteran armor, a rope belt, a gladius, a smoke grenade, a Chinese rifle, a box of 7.62 ammo, 3 7.62 rifle magazines, 2 healing powder, 2 K rations, a ceramic flask, and mustard.
+  name: undecided-loadout-category-corvax-veteran-rifleman-name
+  description: undecided-loadout-category-corvax-veteran-rifleman-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -728,8 +718,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: VeteranBerserkerSet
-  name: Veteran Berserker
-  description: Includes veteran armor, a rope belt, a gladius, a fire axe, 3 throwing knives, 2 healing powder, 2 K rations, a ceramic flask, and mustard.
+  name: undecided-loadout-category-corvax-veteran-berserker-name
+  description: undecided-loadout-category-corvax-veteran-berserker-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -738,8 +728,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: VeteranGoliathSet
-  name: Veteran Goliath
-  description: Includes veteran armor, a rope belt, a goliath power fist, 3 throwing knives, 2 healing powder, 2 K rations, a ceramic flask, and mustard.
+  name: undecided-loadout-category-corvax-veteran-goliath-name
+  description: undecided-loadout-category-corvax-veteran-goliath-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -748,8 +738,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: VeteranShieldbearerSet
-  name: Veteran Shieldbearer
-  description: Includes veteran armor, a rope belt, a Legion shield, a tribal .44 revolver, 2 .44 speedloaders, a box of .44 ammo, 2 healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-veteran-shieldbearer-name
+  description: undecided-loadout-category-corvax-veteran-shieldbearer-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -758,8 +748,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: WarriorSkirmisherSet
-  name: Warrior Skirmisher
-  description: Includes base armor, a rope belt, a gladius, a Legion buckler, a short shotgun, a box of 12 gauge shells, 2 healing powder, 2 K rations, a ceramic flask, and mustard.
+  name: undecided-loadout-category-corvax-warrior-skirmisher-name
+  description: undecided-loadout-category-corvax-warrior-skirmisher-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -768,8 +758,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: WarriorSlaverSet
-  name: Warrior Slaver
-  description: Includes base armor, a rope belt, a whip, a tribal .44 revolver, a .44 speedloader, a box of .44 ammo, a stunprod, 2 zipties, 2 K rations, a ceramic flask, and mustard.
+  name: undecided-loadout-category-corvax-warrior-slaver-name
+  description: undecided-loadout-category-corvax-warrior-slaver-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -778,8 +768,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: WarriorMedicSet
-  name: Warrior Medic
-  description: Includes base armor, a tribal machete, 2 healing powder, 2 healing poultices, 2 bandages, ointment, a .45 Colt pistol, a .45 magazine, a box of .45 ammo, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-warrior-medic-name
+  description: undecided-loadout-category-corvax-warrior-medic-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -788,8 +778,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: WarriorGunmanSet
-  name: Warrior Gunman
-  description: Includes base armor, a rope belt, a tribal machete, a 10mm SMG, a box of 10mm ammo, 3 10mm SMG magazines, a healing powder, 2 K rations, a ceramic flask, and mustard.
+  name: undecided-loadout-category-corvax-warrior-gunman-name
+  description: undecided-loadout-category-corvax-warrior-gunman-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -798,8 +788,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: WarriorShieldbearerSet
-  name: Warrior Shieldbearer
-  description: Includes base armor, a rope belt, a trench club, a Legion shield, a healing powder, a healing poultice, 2 K rations, a ceramic flask, and mustard.
+  name: undecided-loadout-category-corvax-warrior-shieldbearer-name
+  description: undecided-loadout-category-corvax-warrior-shieldbearer-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -808,8 +798,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: LegionnaireRecruitSkirmisherSet
-  name: Legionnaire Recruit Skirmisher
-  description: Includes recruit armor, a spear quiver belt, a 9mm SMG, 2 9mm SMG magazines, a box of 9mm ammo, a tribal machete, a Legion buckler, a healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-recruit-skirmisher-name
+  description: undecided-loadout-category-corvax-recruit-skirmisher-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -818,8 +808,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: LegionnaireRecruitSpearmanSet
-  name: Legionnaire Recruit Spearman
-  description: Includes recruit armor, a spear quiver belt, 4 pilum spears, a Legion buckler, a healing powder, a healing poultice, 2 K rations, a ceramic flask, and mustard.
+  name: undecided-loadout-category-corvax-recruit-spearman-name
+  description: undecided-loadout-category-corvax-recruit-spearman-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -828,8 +818,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: LegionnaireRecruitMedicSet
-  name: Legionnaire Recruit Medic
-  description: Includes recruit armor, a tribal machete, a medical belt, 2 bandages, 2 healing poultices, ointment, a healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-recruit-medic-name
+  description: undecided-loadout-category-corvax-recruit-medic-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -838,8 +828,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: RecruitInitiateSet
-  name: Legion Recruit Initiate
-  description: Includes recruit armor, a tribal machete, a Legion buckler, a healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-recruit-initiate-name
+  description: undecided-loadout-category-corvax-recruit-initiate-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -848,8 +838,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: RecruitPorterSet
-  name: Legion Recruit Spear Porter
-  description: Includes recruit armor, a spear quiver belt, 3 pilum spears, a healing powder, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-recruit-porter-name
+  description: undecided-loadout-category-corvax-recruit-porter-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -858,8 +848,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: RecruitCampMedicSet
-  name: Legion Recruit Camp Medic
-  description: Includes recruit armor, a medical belt, a tribal machete, 2 bandages, ointment, 2 healing poultices, 2 K rations, and a ceramic flask.
+  name: undecided-loadout-category-corvax-recruit-camp-medic-name
+  description: undecided-loadout-category-corvax-recruit-camp-medic-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -868,8 +858,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: AuxiliaryRecruitSet
-  name: Auxiliary Recruit
-  description: Auxiliary light infantry kit with light armor and a sidearm.
+  name: undecided-loadout-category-corvax-auxiliary-recruit-name
+  description: undecided-loadout-category-corvax-auxiliary-recruit-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -878,8 +868,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: AuxiliarySpearmanSet
-  name: Auxiliary Spearman
-  description: Auxiliary spear kit intended for throw-and-charge skirmishing.
+  name: undecided-loadout-category-corvax-auxiliary-spearman-name
+  description: undecided-loadout-category-corvax-auxiliary-spearman-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -888,8 +878,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: AuxiliaryMeleeSet
-  name: Auxiliary Duelist
-  description: Auxiliary melee kit centered on a sword and buckler.
+  name: undecided-loadout-category-corvax-auxiliary-melee-name
+  description: undecided-loadout-category-corvax-auxiliary-melee-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -898,8 +888,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: AuxiliaryHealerSet
-  name: Auxiliary Healer
-  description: Auxiliary support kit with basic medical supplies and a machete.
+  name: undecided-loadout-category-corvax-auxiliary-healer-name
+  description: undecided-loadout-category-corvax-auxiliary-healer-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
@@ -1023,8 +1013,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: RangerSMGSet
-  name: Ranger kit with 9mm SMG
-  description: A ranger kit containing a submachine gun, 4 magazines and 1 box of 9mm ammo, a stimpak, a dry ration, and a knife.
+  name: undecided-loadout-category-corvax-ranger-smg-name
+  description: undecided-loadout-category-corvax-ranger-smg-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: rifleman

@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client._Misfits.Guidebook;
 using Pidgin;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -12,7 +13,7 @@ namespace Content.Client.Guidebook;
 
 public sealed partial class DocumentParsingManager
 {
-    private const string ListBullet = "  › ";
+    private const string ListBullet = GuidebookTheme.DefaultListBullet + " ";
 
     #region Text Parsing
     #region Basic Text Parsing
@@ -60,14 +61,15 @@ public sealed partial class DocumentParsingManager
     {
         var rt = new RichTextLabel()
         {
+            // #Misfits Tweak - Use shared guidebook spacing for body copy.
             HorizontalExpand = true,
-            Margin = new Thickness(0, 0, 0, 15.0f),
         };
 
+        GuidebookTheme.ApplyBodyLabel(rt);
+
         var msg = new FormattedMessage();
-        // THANK YOU RICHTEXT VERY COOL
-        // (text doesn't default to white).
-        msg.PushColor(Color.White);
+        // #Misfits Tweak - Keep body text on the shared guidebook foreground color.
+        msg.PushColor(GuidebookTheme.BodyTextColor);
         msg.AddMarkup(text);
         msg.Pop();
         rt.SetMessage(msg);
@@ -76,27 +78,49 @@ public sealed partial class DocumentParsingManager
     #endregion
 
     #region Headers
-    private static readonly Parser<char, Control> HeaderControlParser = Try(Char('#')).Then(SkipWhitespaces.Then(Map(text => new Label()
+    private static readonly Parser<char, Control> HeaderControlParser = Try(Char('#')).Then(SkipWhitespaces.Then(Map(text =>
     {
-        Text = text,
-        StyleClasses = { "LabelHeadingBigger" }
-    }, AnyCharExcept('\n').AtLeastOnceString()).Cast<Control>())).Labelled("header");
+        var label = new Label { Text = text };
+        // #Misfits Tweak - Route page titles through the shared guidebook heading theme.
+        GuidebookTheme.ApplyPageTitle(label);
+        return (Control) label;
+    }, AnyCharExcept('\n').AtLeastOnceString()))).Labelled("header");
 
-    private static readonly Parser<char, Control> SubHeaderControlParser = Try(String("##")).Then(SkipWhitespaces.Then(Map(text => new Label()
+    private static readonly Parser<char, Control> SubHeaderControlParser = Try(String("##")).Then(SkipWhitespaces.Then(Map(text =>
     {
-        Text = text,
-        StyleClasses = { "LabelHeading" }
-    }, AnyCharExcept('\n').AtLeastOnceString()).Cast<Control>())).Labelled("subheader");
+        var label = new Label { Text = text };
+        // #Misfits Tweak - Route section titles through the shared guidebook heading theme.
+        GuidebookTheme.ApplySectionTitle(label);
+        return (Control) label;
+    }, AnyCharExcept('\n').AtLeastOnceString()))).Labelled("subheader");
 
     private static readonly Parser<char, Control> TryHeaderControl = OneOf(SubHeaderControlParser, HeaderControlParser);
     #endregion
 
     // Parser that consumes a - and then just parses normal rich text with some prefix text (a bullet point).
     private static readonly Parser<char, Control> ListControlParser = Try(Char('-')).Then(SkipWhitespaces).Then(Map(
-        control => new BoxContainer()
+        control =>
         {
-            Children = { new Label() { Text = ListBullet, VerticalAlignment = VAlignment.Top, }, control },
-            Orientation = LayoutOrientation.Horizontal,
+            if (control is RichTextLabel rt)
+                rt.Margin = new Thickness(0);
+
+            return new BoxContainer()
+            {
+                Children =
+                {
+                    new Label()
+                    {
+                        Text = ListBullet,
+                        FontColorOverride = GuidebookTheme.SubSectionColor,
+                        Margin = new Thickness(0, 0, 6, 0),
+                        VerticalAlignment = VAlignment.Top,
+                    },
+                    control,
+                },
+                HorizontalExpand = true,
+                Margin = new Thickness(GuidebookTheme.ListIndent, 0, 0, GuidebookTheme.ListItemBottomMargin),
+                Orientation = LayoutOrientation.Horizontal,
+            };
         }, TextControlParser).Cast<Control>()).Labelled("list");
 
     #region Tag Parsing

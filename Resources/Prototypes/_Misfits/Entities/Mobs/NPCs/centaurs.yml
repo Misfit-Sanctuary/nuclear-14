@@ -106,3 +106,14 @@
     spawned:
     - id: N14FoodMeatRadRaw
       amount: 3
+  - type: LanguageKnowledge # #Misfits Add - understands common wasteland languages; speaks N14Insect (FEV-mutant tentacle sounds)
+    speaks:
+    - N14Insect
+    understands:
+    - N14Insect
+    - English
+    - Chinese
+    - Spanish
+    - Latin
+    - N14Robot
+    - N14BrotherBeep

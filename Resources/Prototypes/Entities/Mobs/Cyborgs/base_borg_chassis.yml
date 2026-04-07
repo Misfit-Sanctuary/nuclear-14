@@ -203,8 +203,8 @@
       id: blinking
       interpolate: Nearest
       maxDuration: 1.0
-      minValue: 0.1
-      maxValue: 2.0
+      startValue: 0.1 # #Misfits Fix - v275 PulseBehaviour renamed minValue/maxValue to startValue/endValue
+      endValue: 2.0
       isLooped: true
   - type: ToggleableLightVisuals
   - type: PointLight
@@ -224,9 +224,7 @@
     - CanPilot
     - SiliconEmotes
   - type: Emoting
-  - type: GuideHelp
-    guides:
-      - Cyborgs
+  # #Misfits Removed - GuideHelp: guide entry not present in Nuclear-14 (Cyborgs)
   - type: StepTriggerImmune
   - type: Eye
     visMask:

@@ -7,9 +7,10 @@
     MinSize="50 50">
     <BoxContainer Orientation="Vertical" SeparationOverride="8" VerticalExpand="True">
 
-        <!-- Fax Manager shortcut -->
+        <!-- Fax Manager + Force War shortcuts -->
         <BoxContainer Orientation="Horizontal" SeparationOverride="8">
             <Button Name="FaxManagerButton" Text="{Loc loremaster-tab-fax-manager}" Access="Public" MinWidth="140"/>
+            <Button Name="ForceWarButton" Text="Force War" Access="Public" MinWidth="120"/>
             <Label Text="{Loc loremaster-tab-fax-manager-hint}" VerticalAlignment="Center" Modulate="#808080"/>
         </BoxContainer>
 

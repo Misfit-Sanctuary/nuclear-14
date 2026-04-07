@@ -323,7 +323,6 @@
   parent: FoodEgg
   suffix: Fertilized, Chicken
   components:
-  - type: Timer
   - type: TimedSpawner
     prototypes:
     - MobChicken
@@ -745,7 +744,6 @@
   parent: FoodEgg
   suffix: Fertilized, Duck
   components:
-    - type: Timer
     - type: TimedSpawner
       prototypes:
       - MobDuckMallard
@@ -881,12 +879,7 @@
   - type: HTN
     rootTask:
       task: RuminantCompound
-  - type: GuideHelp
-    guides:
-    - Chef
-  # - type: RandomBark
-    # barkType: cow
-    # barkMultiplier: 3
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Chef)
 
 
 - type: entity
@@ -3065,11 +3058,17 @@
     spawned:
     - id: FoodMeat
       amount: 3
-  - type: LanguageKnowledge
+  - type: LanguageKnowledge # #Misfits Add - understands common wasteland languages; speaks Cat (native meow sounds)
     speaks:
     - Cat
     understands:
     - Cat
+    - English
+    - Chinese
+    - Spanish
+    - Latin
+    - N14Robot
+    - N14BrotherBeep
   - type: InteractionPopup
     successChance: 0.7
     interactSuccessString: petting-success-cat

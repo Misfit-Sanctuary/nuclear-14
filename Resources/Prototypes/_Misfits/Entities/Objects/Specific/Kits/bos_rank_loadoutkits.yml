@@ -314,7 +314,7 @@
   - type: SpawnItemsOnUse
     items:
       - id: N14WeaponLaserPistol
-      - id: N14MicrofusionCellRed
+      - id: N14PowerCellSmall # #Misfits Fix - was N14MicrofusionCellRed (wrong ammo type for AEP-7)
         amount: 2
       - id: N14CombatKnife
       - id: N14CleanGauze10

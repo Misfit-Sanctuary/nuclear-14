@@ -1,28 +1,190 @@
-<!-- #Misfits Change - Mentor Help control XAML (like BwoinkControl but with limited verbs) -->
+<!-- #Misfits Change - Modernized Mentor Help panel.
+     Deep dark palette (#0e0e1a base), 260px sidebar, clean rectangular filter tabs,
+     rich player cards with ticket pills, player header bar, ticket sub-bar.
+     All elements use consistent 8px padding and flat StyleBoxFlat backgrounds
+     to prevent clipping, overlap, and jagged texture-atlas edges.
+     MentorHeader uses dark green (#0f3a1a) to distinguish from admin red. -->
 <Control
     xmlns="https://spacestation14.io"
-    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls">
-    <PanelContainer StyleClasses="BackgroundDark">
-        <SplitContainer Orientation="Horizontal" VerticalExpand="True">
-            <cc:PlayerListControl Access="Public" Name="ChannelSelector" HorizontalExpand="True" SizeFlagsStretchRatio="1" />
-            <BoxContainer Orientation="Vertical" HorizontalExpand="True" SizeFlagsStretchRatio="2">
-                <!-- #Misfits Add — Ticket status bar shown above the chat area -->
-                <BoxContainer Name="TicketStatusBar" Access="Public" Orientation="Horizontal" HorizontalExpand="True" Visible="False">
-                    <RichTextLabel Name="TicketStatusLabel" Access="Public" HorizontalExpand="True" />
-                    <Button Name="ClaimTicket" Access="Public" Text="{Loc 'ticket-system-claim-button'}" StyleClasses="OpenRight" Visible="True" />
-                    <Button Name="UnclaimTicket" Access="Public" Text="{Loc 'ticket-system-unclaim-button'}" StyleClasses="OpenBoth" Visible="False" />
-                    <Button Name="ResolveTicket" Access="Public" Text="{Loc 'ticket-system-resolve-button'}" StyleClasses="OpenBoth" Visible="True" />
-                    <Button Name="ReopenTicket" Access="Public" Text="{Loc 'ticket-system-reopen-button'}" StyleClasses="OpenLeft" Visible="False" />
-                </BoxContainer>
-                <BoxContainer Access="Public" Name="MHelpArea" VerticalExpand="True" />
-                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-                    <CheckBox Visible="True" Name="PlaySound" Access="Public" Text="Bwoink?" Pressed="True" />
-                    <Control HorizontalExpand="True" MinWidth="5" />
-                    <Button Visible="True" Name="PopOut" Access="Public" Text="Pop Out" StyleClasses="OpenBoth" HorizontalAlignment="Left" />
+    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+
+    <!-- Deep dark base background -->
+    <PanelContainer>
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#0e0e1a" />
+        </PanelContainer.PanelOverride>
+
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+
+            <!-- ═══ HEADER BAR — dark green for mentor distinction ═══ -->
+            <!-- #Misfits Tweak - Named MentorHeader so it can be hidden when embedded in BwoinkControl -->
+            <PanelContainer Name="MentorHeader" Access="Public" MinHeight="42">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#2a1f3d"
+                                      BorderThickness="0 0 0 1"
+                                      BorderColor="#1a1530" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
+                              Margin="12 0 12 0" VerticalAlignment="Center">
+                    <Label Name="HeaderTitle" Access="Public"
+                           Text="Mentor message"
+                           FontColorOverride="#ffffff"
+                           StyleClasses="LabelHeading" />
+                    <Control MinWidth="8" />
+                    <!-- Badge pill: open ticket count -->
+                    <PanelContainer Name="HeaderBadgePanel" Access="Public" VerticalAlignment="Center">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#4d3333"
+                                              ContentMarginLeftOverride="8"
+                                              ContentMarginRightOverride="8"
+                                              ContentMarginTopOverride="2"
+                                              ContentMarginBottomOverride="2" />
+                        </PanelContainer.PanelOverride>
+                        <Label Name="HeaderBadgeLabel" Access="Public"
+                               Text="0 open"
+                               FontColorOverride="#ffffff"
+                               StyleClasses="LabelSmall" />
+                    </PanelContainer>
                     <Control HorizontalExpand="True" />
-                    <Button Visible="False" Name="Notes" Text="Notes" StyleClasses="OpenBoth" />
+                    <Button Name="PopOut" Access="Public" Text="Pop Out"
+                            StyleClasses="ButtonSmall" MinHeight="28" Margin="4 0 0 0" />
+                </BoxContainer>
+            </PanelContainer>
+
+            <!-- ═══ MAIN BODY — sidebar + right panel ═══ -->
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
+
+                <!-- ═══ LEFT SIDEBAR (290px, right border separator) ═══ -->
+                <PanelContainer MinWidth="290" MaxWidth="290" VerticalExpand="True">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#181830"
+                                          BorderThickness="0 0 1 0"
+                                          BorderColor="#252540" />
+                    </PanelContainer.PanelOverride>
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+
+                        <!-- Search / Message Player input with 5px+ internal breathing room -->
+                        <BoxContainer Orientation="Vertical" Margin="8 8 8 6">
+                            <LineEdit Name="SearchPlayerEdit" Access="Public"
+                                      HorizontalExpand="True" MinHeight="28"
+                                      PlaceHolder="{Loc 'ticket-search-player-placeholder'}" />
+                        </BoxContainer>
+
+                        <!-- Filter tabs: MinWidth prevents text cutoff on dynamic counts -->
+                        <PanelContainer MinHeight="34">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#141422"
+                                                  BorderThickness="0 0 0 1"
+                                                  BorderColor="#252540" />
+                            </PanelContainer.PanelOverride>
+                            <BoxContainer Name="FilterTabsContainer" Access="Public"
+                                          Orientation="Horizontal" HorizontalExpand="True"
+                                          Margin="4 2 4 2" SeparationOverride="2">
+                                <Button Name="FilterOpen" Access="Public" Text="OPEN"
+                                        HorizontalExpand="True" StyleClasses="ButtonSmall"
+                                        MinHeight="24" MinWidth="50" ToggleMode="True" Pressed="True" />
+                                <Button Name="FilterClaimed" Access="Public" Text="CLAIMED"
+                                        HorizontalExpand="True" StyleClasses="ButtonSmall"
+                                        MinHeight="24" MinWidth="50" ToggleMode="True" />
+                                <Button Name="FilterResolved" Access="Public" Text="RESOLVED"
+                                        HorizontalExpand="True" StyleClasses="ButtonSmall"
+                                        MinHeight="24" MinWidth="50" ToggleMode="True" />
+                                <Button Name="FilterAll" Access="Public" Text="ALL"
+                                        HorizontalExpand="True" StyleClasses="ButtonSmall"
+                                        MinHeight="24" MinWidth="40" ToggleMode="True" />
+                            </BoxContainer>
+                        </PanelContainer>
+
+                        <!-- Scrollable ticket/player card list -->
+                        <cc:PlayerListControl Access="Public" Name="ChannelSelector"
+                                              HorizontalExpand="True" VerticalExpand="True" />
+                    </BoxContainer>
+                </PanelContainer>
+
+                <!-- ═══ RIGHT PANEL ═══ -->
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True"
+                              SizeFlagsStretchRatio="2">
+
+                    <!-- Player header bar (mentor: only Notes button) -->
+                    <PanelContainer Name="PlayerHeaderBar" Access="Public" MinHeight="36" Visible="False">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#0f162a"
+                                              BorderThickness="0 0 0 1"
+                                              BorderColor="#252540" />
+                        </PanelContainer.PanelOverride>
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
+                                      Margin="12 0 12 0" VerticalAlignment="Center"
+                                      SeparationOverride="8">
+                            <Label Name="PhUsername" Access="Public"
+                                   FontColorOverride="#ffffff"
+                                   StyleClasses="LabelHeading" />
+                            <Label Name="PhCharname" Access="Public"
+                                   FontColorOverride="#6a6a88"
+                                   StyleClasses="Italic" />
+                            <Label Name="PhStatus" Access="Public"
+                                   FontColorOverride="#22c55e"
+                                   StyleClasses="LabelSmall" />
+                            <Control HorizontalExpand="True" />
+                            <!-- Mentor only gets Notes -->
+                            <Button Visible="False" Name="Notes" Access="Public"
+                                    Text="Notes"
+                                    StyleClasses="ButtonSmall" MinWidth="55" MinHeight="26" />
+                        </BoxContainer>
+                    </PanelContainer>
+
+                    <!-- Ticket status sub-bar -->
+                    <PanelContainer Name="TicketStatusBar" Access="Public" MinHeight="32" Visible="False">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#0a0e17"
+                                              BorderThickness="0 0 0 1"
+                                              BorderColor="#252540" />
+                        </PanelContainer.PanelOverride>
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
+                                      Margin="12 0 12 0" VerticalAlignment="Center"
+                                      SeparationOverride="4">
+                            <RichTextLabel Name="TicketStatusLabel" Access="Public"
+                                           HorizontalExpand="True" />
+                            <Button Name="ClaimTicket" Access="Public"
+                                    Text="{Loc 'ticket-system-claim-button'}"
+                                    StyleClasses="ButtonSmall" Visible="True" />
+                            <Button Name="UnclaimTicket" Access="Public"
+                                    Text="{Loc 'ticket-system-unclaim-button'}"
+                                    StyleClasses="ButtonSmall" Visible="False" />
+                            <Button Name="ResolveTicket" Access="Public"
+                                    Text="{Loc 'ticket-system-resolve-button'}"
+                                    StyleClasses="ButtonSmall" Visible="True" />
+                            <Button Name="ReopenTicket" Access="Public"
+                                    Text="{Loc 'ticket-system-reopen-button'}"
+                                    StyleClasses="ButtonSmall" Visible="False" />
+                        </BoxContainer>
+                    </PanelContainer>
+
+                    <!-- Chat / message history area: HorizontalExpand prevents the squish bug -->
+                    <BoxContainer Access="Public" Name="MHelpArea"
+                                  HorizontalExpand="True" VerticalExpand="True" />
+
+                    <!-- Footer: Bwoink toggle + open count, checkbox aligned bottom-right -->
+                    <PanelContainer MinHeight="36">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#0f162a"
+                                              BorderThickness="0 1 0 0"
+                                              BorderColor="#252540" />
+                        </PanelContainer.PanelOverride>
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
+                                      Margin="12 0 12 0" VerticalAlignment="Center"
+                                      SeparationOverride="8">
+                            <Label Name="OpenTicketCountLabel" Access="Public"
+                                   VerticalAlignment="Center"
+                                   FontColorOverride="#ef4444" />
+                            <Control HorizontalExpand="True" />
+                            <CheckBox Visible="True" Name="PlaySound" Access="Public"
+                                      Text="Bwoink?" Pressed="True"
+                                      VerticalAlignment="Center" />
+                        </BoxContainer>
+                    </PanelContainer>
                 </BoxContainer>
             </BoxContainer>
-        </SplitContainer>
+        </BoxContainer>
     </PanelContainer>
 </Control>

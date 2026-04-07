@@ -19,9 +19,7 @@
     noRot: false
   - type: Machine
     board: BoozeDispenserMachineCircuitboard
-  - type: GuideHelp
-    guides:
-    - Bartender
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Bartender)
   - type: StealTarget
     stealGroup: BoozeDispenser
 

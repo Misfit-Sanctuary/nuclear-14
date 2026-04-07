@@ -1,0 +1,25 @@
+# #Misfits Add - Graffiti spray can entity prototype.
+# A handheld spray can that lets players apply graffiti decals to floors and surfaces.
+
+- type: entity
+  parent: BaseItem
+  id: GraffitiSprayCan
+  name: graffiti spray can
+  description: A pressurized aerosol can filled with fast-drying paint. Press Z to pick a design, then click a surface to tag it.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/spraycans.rsi
+    state: spray_cap
+  - type: Item
+    sprite: Objects/Fun/spraycans.rsi
+    heldPrefix: spray
+  # Opens the graffiti picker on UseInHand (Z key)
+  - type: ActivatableUI
+    key: enum.GraffitiSprayCanUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GraffitiSprayCanUiKey.Key:
+        type: GraffitiSprayCanBoundUserInterface
+  - type: GraffitiSprayCan
+  - type: StaticPrice
+    price: 3

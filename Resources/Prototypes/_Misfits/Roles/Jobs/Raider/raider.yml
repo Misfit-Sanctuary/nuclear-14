@@ -1,0 +1,283 @@
+# #Misfits Removed - Generic Raider job removed as part of Outlaws faction overhaul (Eighties/WhiteLegs replace generic raiders)
+# - type: job
+#   id: Raider
+#   setPreference: true
+#   name: job-name-raider
+#   description: job-description-raider
+#   playTimeTracker: Raider
+#   whitelisted: true
+#   requirements:
+#   - !type:MinPlayersRequirement
+#     min: 0
+#   startingGear: RaiderGear
+#   alwaysUseSpawner: true
+#   icon: "JobIconRaider"
+#   supervisors: job-supervisors-raider
+#   canBeAntag: false
+#   special:
+#   - !type:AddComponentSpecial
+#     components:
+#       - type: NpcFactionMember
+#         factions:
+#           - PlayerRaider
+
+- type: job
+  id: Khan
+  setPreference: true
+  name: job-name-khan #Misfits Add
+  description: job-description-khan
+  playTimeTracker: Khan
+  whitelisted: true # #Misfits Add - Keep whitelist gate consistent with existing Outlaw access policy
+  requirements:
+  - !type:MinPlayersRequirement
+    min: 0
+  startingGear: KhanGear
+  alwaysUseSpawner: true
+  icon: "JobIconKhan"
+  supervisors: job-supervisors-outlaws
+  canBeAntag: false
+  special: # #Misfits Add - register with PlayerRaider faction so Loremaster tab can detect this job
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - PlayerRaider
+
+# #Misfits Removed - Jackal job removed as part of Outlaws faction overhaul
+# - type: job
+#   id: Jackal
+#   setPreference: true
+#   name: job-name-jackal
+#   description: job-description-jackal
+#   playTimeTracker: Jackal
+#   whitelisted: true
+#   requirements:
+#   - !type:MinPlayersRequirement
+#     min: 0
+#   startingGear: JackalGear
+#   alwaysUseSpawner: true
+#   icon: "JobIconJackal"
+#   supervisors: job-supervisors-outlaws
+#   canBeAntag: false
+#   special:
+#   - !type:AddComponentSpecial
+#     components:
+#       - type: NpcFactionMember
+#         factions:
+#           - PlayerRaider
+
+# #Misfits Removed - Viper job removed as part of Outlaws faction overhaul
+# - type: job
+#   id: Viper
+#   setPreference: true
+#   name: job-name-viper
+#   description: job-description-viper
+#   playTimeTracker: Viper
+#   whitelisted: true
+#   requirements:
+#   - !type:MinPlayersRequirement
+#     min: 0
+#   startingGear: ViperGear
+#   alwaysUseSpawner: true
+#   icon: "JobIconViper"
+#   supervisors: job-supervisors-outlaws
+#   canBeAntag: false
+#   special:
+#   - !type:AddComponentSpecial
+#     components:
+#       - type: NpcFactionMember
+#         factions:
+#           - PlayerRaider
+
+# #Misfits Removed - Gunner job removed as part of Outlaws faction overhaul
+# - type: job
+#   id: Gunner
+#   setPreference: true
+#   name: job-name-gunner
+#   description: job-description-gunner
+#   playTimeTracker: Gunner
+#   whitelisted: true
+#   requirements:
+#   - !type:MinPlayersRequirement
+#     min: 0
+#   startingGear: GunnerGear
+#   alwaysUseSpawner: true
+#   icon: "JobIconGunner"
+#   supervisors: job-supervisors-outlaws
+#   canBeAntag: false
+#   special:
+#   - !type:AddComponentSpecial
+#     components:
+#       - type: NpcFactionMember
+#         factions:
+#           - PlayerRaider
+
+# #Misfits Removed - Fiend job removed as part of Outlaws faction overhaul
+# - type: job
+#   id: Fiend
+#   setPreference: true
+#   name: job-name-fiend
+#   description: job-description-fiend
+#   playTimeTracker: Fiend
+#   whitelisted: true
+#   requirements:
+#   - !type:MinPlayersRequirement
+#     min: 0
+#   startingGear: FiendGear
+#   alwaysUseSpawner: true
+#   icon: "JobIconFiend"
+#   supervisors: job-supervisors-outlaws
+#   canBeAntag: false
+#   special:
+#   - !type:AddComponentSpecial
+#     components:
+#       - type: NpcFactionMember
+#         factions:
+#           - PlayerRaider
+
+# #Misfits Removed - RaiderGear removed as part of Outlaws faction overhaul
+# - type: startingGear
+#   id: RaiderGear
+#   equipment:
+#     bandage: NCClothingBandageRaiders
+#     jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
+#     outerClothing: N14ClothingOuterRaiderBlastmaster
+#     shoes: N14ClothingShoesRaider
+#     neck: ClothingNeckBlackScarf
+#     head: N14ClothingHeadHatBeanie
+#     back: N14ClothingBackpackMilitary
+#     suitstorage: N14WeaponSMG45
+#     belt: ClothingBeltMilitary
+#   storage:
+#     back:
+#     - N14BoxPlasticFilledWastelander
+#     belt:
+#     - Magazine45SubMachineGun
+#     - Magazine45SubMachineGun
+
+- type: startingGear
+  id: KhanGear
+  equipment:
+    bandage: NCClothingBandageRaiders
+    jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
+    outerClothing: MisfitsClothingOuterKhansJacket
+    shoes: N14ClothingShoesRaider
+    neck: ClothingNeckBlackScarf
+    head: N14ClothingHeadHatBeanie
+    ears: MisfitsClothingHeadsetWastelandScrap
+    back: N14ClothingBackpackMilitary
+    suitstorage: N14WeaponSMG45
+    belt: ClothingBeltMilitary
+  storage:
+    back:
+    - N14BoxPlasticFilledWastelander
+    belt:
+    - Magazine45SubMachineGun
+    - Magazine45SubMachineGun
+
+# #Misfits Removed - JackalGear removed as part of Outlaws faction overhaul
+# - type: startingGear
+#   id: JackalGear
+#   equipment:
+#     bandage: NCClothingBandageRaiders
+#     jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
+#     outerClothing: MisfitsClothingOuterJackalArmor
+#     shoes: N14ClothingShoesRaider
+#     neck: ClothingNeckBlackScarf
+#     head: N14ClothingHeadHatBeanie
+#     ears: MisfitsClothingHeadsetWastelandScrap
+#     back: N14ClothingBackpackMilitary
+#     suitstorage: N14WeaponSMG45
+#     belt: ClothingBeltMilitary
+#   storage:
+#     back:
+#     - N14BoxPlasticFilledWastelander
+#     belt:
+#     - Magazine45SubMachineGun
+#     - Magazine45SubMachineGun
+
+# #Misfits Removed - ViperGear removed as part of Outlaws faction overhaul
+# - type: startingGear
+#   id: ViperGear
+#   equipment:
+#     bandage: NCClothingBandageRaiders
+#     jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
+#     outerClothing: MisfitsClothingOuterViperArmor
+#     shoes: N14ClothingShoesRaider
+#     neck: ClothingNeckBlackScarf
+#     head: N14ClothingHeadHatBeanie
+#     ears: MisfitsClothingHeadsetWastelandScrap
+#     back: N14ClothingBackpackMilitary
+#     suitstorage: N14WeaponSMG45
+#     belt: ClothingBeltMilitary
+#   storage:
+#     back:
+#     - N14BoxPlasticFilledWastelander
+#     belt:
+#     - Magazine45SubMachineGun
+#     - Magazine45SubMachineGun
+
+# #Misfits Removed - GunnerGear removed as part of Outlaws faction overhaul
+# - type: startingGear
+#   id: GunnerGear
+#   equipment:
+#     bandage: NCClothingBandageRaiders
+#     jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
+#     outerClothing: N14ClothingOuterRaiderBlastmaster
+#     shoes: N14ClothingShoesRaider
+#     neck: ClothingNeckBlackScarf
+#     head: N14ClothingHeadHatBeanie
+#     ears: MisfitsClothingHeadsetWastelandScrap
+#     back: N14ClothingBackpackMilitary
+#     suitstorage: N14WeaponSMG45
+#     belt: ClothingBeltMilitary
+#   storage:
+#     back:
+#     - N14BoxPlasticFilledWastelander
+#     belt:
+#     - Magazine45SubMachineGun
+#     - Magazine45SubMachineGun
+
+# #Misfits Removed - FiendGear removed as part of Outlaws faction overhaul
+# - type: startingGear
+#   id: FiendGear
+#   equipment:
+#     bandage: NCClothingBandageRaiders
+#     jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
+#     outerClothing: MisfitsClothingOuterFiendArmor
+#     shoes: N14ClothingShoesRaider
+#     neck: ClothingNeckBlackScarf
+#     head: N14ClothingHeadHatBeanie
+#     ears: MisfitsClothingHeadsetWastelandScrap
+#     back: N14ClothingBackpackMilitary
+#     suitstorage: N14WeaponSMG45
+#     belt: ClothingBeltMilitary
+#   storage:
+#     back:
+#     - N14BoxPlasticFilledWastelander
+#     belt:
+#     - Magazine45SubMachineGun
+#     - Magazine45SubMachineGun
+
+# #Misfits Removed - Raider playTimeTracker removed as part of Outlaws faction overhaul
+# - type: playTimeTracker
+#   id: Raider
+
+- type: playTimeTracker
+  id: Khan
+
+# #Misfits Removed - Jackal playTimeTracker removed as part of Outlaws faction overhaul
+# - type: playTimeTracker
+#   id: Jackal
+
+# #Misfits Removed - Viper playTimeTracker removed as part of Outlaws faction overhaul
+# - type: playTimeTracker
+#   id: Viper
+
+# #Misfits Removed - Gunner playTimeTracker removed as part of Outlaws faction overhaul
+# - type: playTimeTracker
+#   id: Gunner
+
+# #Misfits Removed - Fiend playTimeTracker removed as part of Outlaws faction overhaul
+# - type: playTimeTracker
+#   id: Fiend

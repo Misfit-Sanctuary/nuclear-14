@@ -1,0 +1,181 @@
+<Document>
+# Medicine Crafting
+
+[textlink="View Full Wiki Page" link="https://ss14.misfitsystems.net/wiki/index.php/Medicine%20Crafting"/]
+
+## Medicine
+
+<p>Medicine and chems are essential for surviving the Wasteland. Knowing what to use and when can mean the difference between life and death. Most medical supplies can be found in first aid kits, looted from enemies, or purchased from traveling doctors and merchants - but the craftable ones can save your life far from civilization.</p>
+
+<h3 Text="Tools"/>
+
+<p>A [bold]mortar and pestle[/bold] is required to process ingredients for many medical recipes. Craft one from two wooden planks.</p>
+
+<Table Columns="2">
+  <Box>[bold]Item[/bold]</Box>
+  <Box>[bold]Recipe[/bold]</Box>
+  <Box>Mortar and Pestle</Box>
+  <Box>2× Wood Plank</Box>
+</Table>
+
+<h3 Text="Wound Care"/>
+
+<Table Columns="2">
+  <Box>[bold]Item[/bold]</Box>
+  <Box>[bold]Recipe / Notes[/bold]</Box>
+  <Box>[bold]Dirty Gauze[/bold]</Box>
+  <Box>2× Cloth Strip. Last-resort wound dressing. Stops bleeding but risks infection. (-7 Slash, -7 Piercing, -7 Bloodloss, +1 poison)</Box>
+  <Box>[bold]Clean Gauze[/bold]</Box>
+  <Box>Found in first aid kits and medical caches. Best standard wound dressing. (-10 Slash, -10 Piercing, 10 Bloodloss)</Box>
+  <Box>[bold]Ointment[/bold]</Box>
+  <Box>Brewed from: Agave Nectar Extract + Clean Water + Ash. Treats burns and cold damage. (-5 Blunt, -5 Heat, -5 Cold, -5 Shock, -5 Caustic)</Box>
+</Table>
+
+<h3 Text="Healing Powder"/>
+
+<p>A tribal remedy that accelerates natural healing. Nauseating but effective. No workbench required - just crush the ingredients together.</p>
+
+<Table Columns="2">
+  <Box>[bold]Item[/bold]</Box>
+  <Box>[bold]Recipe[/bold]</Box>
+  <Box>[bold]Healing Powder[/bold]</Box>
+  <Box>Broc Flower + Xander Root</Box>
+</Table>
+
+<h3 Text="Cleansing Powder"/>
+
+<p>A field remedy used by tribal and Legion healers to purge radiation. Crafted from one irradiated cave fungus and one xander root in the medical tab of the crafting menu.</p>
+
+<Table Columns="2">
+  <Box>[bold]Item[/bold]</Box>
+  <Box>[bold]Recipe[/bold]</Box>
+  <Box>[bold]Cleansing Powder[/bold]</Box>
+  <Box>Irradiated Cave Fungus + Xander Root</Box>
+</Table>
+
+<h3 Text="Healing Poultice"/>
+
+<p>A more advanced natural remedy combining multiple plant extracts. Heals common ailments slowly but surpasses healing powder for sustained recovery.</p>
+
+<Table Columns="2">
+  <Box>[bold]Item[/bold]</Box>
+  <Box>[bold]Recipe[/bold]</Box>
+  <Box>[bold]Healing Poultice[/bold]</Box>
+  <Box>Broc Flower + Xander Root + Cave Fungus + Agave</Box>
+</Table>
+
+<h3 Text="Stimpaks"/>
+
+<p>Stimpaks are the backbone of Wasteland medicine - injectable serums that rapidly accelerate the body's healing.</p>
+
+<Table Columns="2">
+  <Box>[bold]Item[/bold]</Box>
+  <Box>[bold]Recipe / Notes[/bold]</Box>
+  <Box>[bold]Stimpak[/bold]</Box>
+  <Box>Broc Flower + Xander Root + Syringe + Bloodpack. Or craft via chemistry intermediates.</Box>
+  <Box>[bold]Dirty Stimpak[/bold]</Box>
+  <Box>Improvised with Wasteland blood. Risky but functional in emergencies.</Box>
+  <Box>[bold]Super Stimpak[/bold]</Box>
+  <Box>Pre-war manufactured or sold by doctors/traders. Cannot be crafted.</Box>
+</Table>
+
+<p>[bold]Chemistry intermediates:[/bold] Healing Mixture (from Broc + Xander) → stabilized with oil and phosphorus for the syringe.</p>
+
+<h3 Text="Bitterdrink"/>
+
+<p>A bottled tribal remedy for poison and radiation exposure. Brewed from broc flower and xander root poured into an empty soda bottle.</p>
+
+<Table Columns="2">
+  <Box>[bold]Item[/bold]</Box>
+  <Box>[bold]Recipe[/bold]</Box>
+  <Box>[bold]Bitterdrink[/bold]</Box>
+  <Box>Broc Flower + Xander Root + Empty Soda Bottle</Box>
+</Table>
+
+<p>[italic]Chemistry station note:[/italic] If working in a proper lab, print an empty bitterdrink bottle and fill it through the ChemMaster instead.</p>
+
+<h3 Text="Jet Inhaler"/>
+
+<p>A crafting component used as the body for a RadAway inhaler. The empty inhaler body is made from a sheet of plastic.</p>
+
+<Table Columns="2">
+  <Box>[bold]Item[/bold]</Box>
+  <Box>[bold]Recipe[/bold]</Box>
+  <Box>[bold]Jet Inhaler[/bold] (empty body)</Box>
+  <Box>1× Plastic Sheet</Box>
+</Table>
+
+<h3 Text="Hydra"/>
+
+<p>Requires chemistry first. Mix radscorpion tail, cave fungus extract, and nightstalker blood at a chemistry set to produce Hydra reagent (2u per batch - you need 8 batches to reach the required 15u). Once you have 15u, pour it into an empty hydra inhaler, then seal it with a screwdriver in the medical tab of the crafting menu.</p>
+
+<Table Columns="2">
+  <Box>[bold]Step[/bold]</Box>
+  <Box>[bold]Details[/bold]</Box>
+  <Box>[bold]Chemistry (per batch → 2u Hydra)[/bold]</Box>
+  <Box>Scorpion Tail + Fungus Extract + Nightstalker Blood</Box>
+  <Box>[bold]Assembly[/bold]</Box>
+  <Box>Fill empty Hydra Inhaler with 15u Hydra, then seal with screwdriver</Box>
+</Table>
+
+<h3 Text="RadAway Inhaler"/>
+
+<p>Flushes radiation from the bloodstream. Assemble the inhaler body first (see Jet Inhaler above), then attach a RadAway phial loaded with RadAway reagent.</p>
+
+<Table Columns="2">
+  <Box>[bold]Step[/bold]</Box>
+  <Box>[bold]Details[/bold]</Box>
+  <Box>[bold]RadAway reagent[/bold]</Box>
+  <Box>Irradiated Fungus Extract + Antiseptic + Water. Can also dilute for weaker RadAway Diluted.</Box>
+  <Box>[bold]Assembly[/bold]</Box>
+  <Box>Jet Inhaler body + RadAway Phial (filled with RadAway)</Box>
+</Table>
+
+<p>RadAway phials and RadAway bloodbags are also found as standalone items throughout the Wasteland.</p>
+
+<h3 Text="Antidotes and Other Remedies"/>
+
+<p>Most finished items here are found or purchased. The chemistry can still be refined if you have the ingredients.</p>
+<p>[bold]Antidote chemistry:[/bold] Radscorpion Tail + Ethanol → Antidote Mixture → add Tarberries → proper Antidote.</p>
+
+<Table Columns="2">
+  <Box>[bold]Item[/bold]</Box>
+  <Box>[bold]Notes[/bold]</Box>
+  <Box>[bold]Antidote[/bold]</Box>
+  <Box>Treats poison. Crafted via chemistry or found/purchased.</Box>
+  <Box>[bold]Smelling Salts[/bold]</Box>
+  <Box>Revives stunned characters. Usually scavenged.</Box>
+  <Box>[bold]Mourning Poultice[/bold]</Box>
+  <Box>Ritual compound associated with Legion and tribal ceremonial use. Causes minor harm rather than healing - not a standard medical treatment.</Box>
+</Table>
+
+<h3 Text="Pills, Canisters, and Chems"/>
+
+<p>Pre-manufactured items that cannot be crafted. Found in medical caches, purchased from doctors, or looted from enemies.</p>
+
+<Table Columns="2">
+  <Box>[bold]Chem[/bold]</Box>
+  <Box>[bold]Effect[/bold]</Box>
+  <Box>[bold]Rad-X[/bold]</Box>
+  <Box>Reduces radiation absorption rate while active.</Box>
+  <Box>[bold]Buffout[/bold]</Box>
+  <Box>Temporarily increases Strength and Endurance.</Box>
+  <Box>[bold]Mentats[/bold]</Box>
+  <Box>Temporarily increases Intelligence and Perception.</Box>
+  <Box>[bold]Fixer[/bold]</Box>
+  <Box>Treats most chem addictions.</Box>
+  <Box>[bold]Cateye[/bold]</Box>
+  <Box>Night-vision effect. Useful in dark environments.</Box>
+  <Box>[bold]Jet[/bold]</Box>
+  <Box>Stimulant and speed boost. Highly addictive.</Box>
+  <Box>[bold]Hydra[/bold]</Box>
+  <Box>Potent painkiller similiar to med-x. Crafted (see above).</Box>
+  <Box>[bold]Buffjet[/bold]</Box>
+  <Box>Combined Buffout + Jet effect. Pre-war formula.</Box>
+  <Box>[bold]Bufftats[/bold]</Box>
+  <Box>Combined Buffout + Mentats effect. Pre-war formula.</Box>
+</Table>
+
+<p>[bold]Warning:[/bold] Prolonged chem use leads to addiction. Fixer can treat most addictions, but availability is not guaranteed.</p>
+
+</Document>

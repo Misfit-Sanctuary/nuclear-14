@@ -1,3 +1,5 @@
+// #Misfits Removed - WebView module deprecated upstream, all versions marked insecure
+// using Content.Client._Misfits.WebView;
 using Content.Client.Gameplay;
 using Content.Client.Guidebook;
 using Content.Client.Info;
@@ -19,6 +21,7 @@ public sealed class InfoUIController : UIController, IOnStateExited<GameplayStat
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
+    // #Misfits Change - Reverted to standard RulesPopup (WebView module deprecated upstream)
     private RulesPopup? _rulesPopup;
     private RulesAndInfoWindow? _infoWindow;
 
@@ -53,6 +56,7 @@ public sealed class InfoUIController : UIController, IOnStateExited<GameplayStat
         _infoWindow = null;
     }
 
+    // #Misfits Change - Reverted to standard RulesPopup (WebView module deprecated upstream)
     private void ShowRules(float time)
     {
         if (_rulesPopup != null)

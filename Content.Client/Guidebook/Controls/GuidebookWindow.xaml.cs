@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Client.Guidebook.RichText;
@@ -20,6 +21,7 @@ public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler
 {
     [Dependency] private readonly IResourceManager _resourceManager = default!;
     [Dependency] private readonly DocumentParsingManager _parsingMan = default!;
+    [Dependency] private readonly IUriOpener _uriOpener = default!; // #Misfits Add - External URL support for wiki links
 
     private Dictionary<string, GuideEntry> _entries = new();
 
@@ -184,6 +186,14 @@ public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler
 
     public void HandleClick(string link)
     {
+        // #Misfits Add - Open external URLs (http/https) in the OS browser instead of navigating guidebook entries
+        if (link.StartsWith("https://", StringComparison.OrdinalIgnoreCase) ||
+            link.StartsWith("http://", StringComparison.OrdinalIgnoreCase))
+        {
+            _uriOpener.OpenUri(link);
+            return;
+        }
+
         if (!_entries.TryGetValue(link, out var entry))
             return;
 

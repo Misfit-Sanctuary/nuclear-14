@@ -74,8 +74,7 @@
   - type: Construction
     graph: TinfoilHat
     node: tinfoilhat
-  - type: GuideHelp
-    guides: [ PsionicInsulation ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (PsionicInsulation)
 
 - type: entity
   parent: ClothingHeadBase
@@ -122,8 +121,7 @@
         Slash: 0.85
         Piercing: 0.95
         Radiation: 0.95
-  - type: GuideHelp
-    guides: [ PsionicInsulation ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (PsionicInsulation)
 
 
 - type: entity

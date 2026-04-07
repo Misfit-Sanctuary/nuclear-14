@@ -1,53 +1,137 @@
 <DefaultWindow
     xmlns="https://spacestation14.io"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     Title="{Loc 'ticket-audit-log-window-title'}"
-    MinWidth="700"
-    MinHeight="450">
+    MinWidth="1000"
+    MinHeight="550">
     <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="4">
 
-        <!-- Filter row -->
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 4">
-            <Label Text="{Loc 'ticket-audit-log-filter-label'}" Margin="0 0 4 0" VerticalAlignment="Center" />
-            <LineEdit
-                Name="PlayerFilterEdit"
-                Access="Public"
-                HorizontalExpand="True"
-                PlaceHolder="{Loc 'ticket-audit-log-filter-placeholder'}" />
-            <Button
-                Name="FilterButton"
-                Access="Public"
-                Text="{Loc 'ticket-audit-log-filter-button'}"
-                StyleClasses="OpenLeft"
-                Margin="4 0 0 0" />
-            <Button
-                Name="ClearFilterButton"
-                Access="Public"
-                Text="{Loc 'ticket-audit-log-clear-button'}"
-                StyleClasses="OpenLeft" />
-        </BoxContainer>
+        <!-- #Misfits Change - expanded filter panel with player/admin/date controls -->
+        <PanelContainer Margin="0 0 0 8">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#1a1a1a" BorderColor="#555555" BorderThickness="1" />
+            </PanelContainer.PanelOverride>
+            
+            <BoxContainer Orientation="Vertical" Margin="4">
+                <!-- Top filter row: Player & Admin -->
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 4">
+                    <!-- Player search (Name or GUID) -->
+                    <Label Text="{Loc 'ticket-audit-filter-player-label'}" 
+                           MinWidth="100" VerticalAlignment="Center" Margin="0 0 4 0" />
+                    <LineEdit
+                        Name="PlayerFilterEdit"
+                        HorizontalExpand="True"
+                        PlaceHolder="{Loc 'ticket-audit-filter-player-placeholder'}"
+                        Margin="0 0 8 0" />
+                    
+                    <!-- Admin name search -->
+                    <Label Text="{Loc 'ticket-audit-filter-admin-label'}" 
+                           MinWidth="80" VerticalAlignment="Center" Margin="0 0 4 0" />
+                    <LineEdit
+                        Name="AdminFilterEdit"
+                        HorizontalExpand="True"
+                        PlaceHolder="{Loc 'ticket-audit-filter-admin-placeholder'}"
+                        Margin="0 0 8 0" />
+                </BoxContainer>
 
-        <!-- Header row -->
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 2">
-            <Label Text="{Loc 'ticket-audit-log-header-time'}"   MinWidth="140" />
-            <Label Text="{Loc 'ticket-audit-log-header-id'}"     MinWidth="50" />
-            <Label Text="{Loc 'ticket-audit-log-header-event'}"  MinWidth="110" />
-            <Label Text="{Loc 'ticket-audit-log-header-player'}" MinWidth="170" />
-            <Label Text="{Loc 'ticket-audit-log-header-admin'}"  MinWidth="150" />
-            <Label Text="{Loc 'ticket-audit-log-header-chat'}"   HorizontalExpand="True" />
-        </BoxContainer>
+                <!-- Bottom filter row: Date Range & Month Quick-Select -->
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 4">
+                    <!-- From Date -->
+                    <Label Text="{Loc 'ticket-audit-filter-date-from'}" 
+                           MinWidth="100" VerticalAlignment="Center" Margin="0 0 4 0" />
+                    <LineEdit
+                        Name="StartDateEdit"
+                        HorizontalExpand="True"
+                        PlaceHolder="{Loc 'ticket-audit-filter-date-placeholder'}"
+                        Margin="0 0 8 0" />
+                    
+                    <!-- To Date -->
+                    <Label Text="{Loc 'ticket-audit-filter-date-to'}" 
+                           MinWidth="100" VerticalAlignment="Center" Margin="0 0 4 0" />
+                    <LineEdit
+                        Name="EndDateEdit"
+                        HorizontalExpand="True"
+                        PlaceHolder="{Loc 'ticket-audit-filter-date-placeholder'}"
+                        Margin="0 0 8 0" />
+                </BoxContainer>
 
-        <!-- Scrollable event list -->
-        <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
-            <BoxContainer Name="EventList" Access="Public" Orientation="Vertical" HorizontalExpand="True" />
-        </ScrollContainer>
+                <!-- Month quick-selectors & action buttons -->
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 0">
+                    <!-- Quick month buttons -->
+                    <Button
+                        Name="ThisMonthButton"
+                        Text="{Loc 'ticket-audit-filter-month-this'}"
+                        StyleClasses="ButtonSmall"
+                        MinWidth="120"
+                        Margin="0 0 4 0" />
+                    <Button
+                        Name="LastMonthButton"
+                        Text="{Loc 'ticket-audit-filter-month-last'}"
+                        StyleClasses="ButtonSmall"
+                        MinWidth="120"
+                        Margin="0 0 8 0" />
+                    
+                    <!-- Action buttons -->
+                    <Button
+                        Name="FilterButton"
+                        Text="{Loc 'ticket-audit-filter-search'}"
+                        StyleClasses="OpenLeft"
+                        MinWidth="100"
+                        Margin="0 0 4 0" />
+                    <Button
+                        Name="ClearFilterButton"
+                        Text="{Loc 'ticket-audit-filter-clear'}"
+                        StyleClasses="OpenLeft"
+                        MinWidth="100" />
+                </BoxContainer>
+            </BoxContainer>
+        </PanelContainer>
 
-        <!-- Pagination row -->
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 4 0 0">
-            <Button Name="PrevPageButton" Access="Public" Text="{Loc 'ticket-audit-log-prev'}" Disabled="True" />
-            <Label Name="PageLabel" Access="Public" HorizontalExpand="True" HorizontalAlignment="Center"
-                   Text="{Loc 'ticket-audit-log-page-placeholder'}" />
-            <Button Name="NextPageButton" Access="Public" Text="{Loc 'ticket-audit-log-next'}" Disabled="True" />
-        </BoxContainer>
+        <!-- Tab container for Events and Statistics -->
+        <TabContainer Name="AuditTabContainer" VerticalExpand="True" HorizontalExpand="True">
+            
+            <!-- Events Tab -->
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 2">
+                    <Label Text="{Loc 'ticket-audit-header-time'}"   MinWidth="140" />
+                    <Label Text="{Loc 'ticket-audit-header-id'}"     MinWidth="50" />
+                    <Label Text="{Loc 'ticket-audit-header-event'}"  MinWidth="110" />
+                    <Label Text="{Loc 'ticket-audit-header-player'}" MinWidth="170" />
+                    <Label Text="{Loc 'ticket-audit-header-admin'}"  MinWidth="150" />
+                </BoxContainer>
+
+                <!-- Scrollable event list -->
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                    <BoxContainer Name="EventList" Orientation="Vertical" HorizontalExpand="True" />
+                </ScrollContainer>
+
+                <!-- Pagination row -->
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 4 0 0">
+                    <Button Name="PrevPageButton" Text="{Loc 'ticket-audit-pagination-prev'}" Disabled="True" />
+                    <Label Name="PageLabel" HorizontalExpand="True" HorizontalAlignment="Center"
+                           Text="{Loc 'ticket-audit-pagination-placeholder'}" />
+                    <Button Name="NextPageButton" Text="{Loc 'ticket-audit-pagination-next'}" Disabled="True" />
+                </BoxContainer>
+            </BoxContainer>
+
+            <!-- Statistics Tab -->
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="4">
+                <!-- Stats header -->
+                <Label Text="{Loc 'ticket-audit-stats-label'}" Margin="0 0 0 4" />
+                
+                <!-- Stats table header -->
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 2">
+                    <Label Text="{Loc 'ticket-audit-stats-admin'}"   MinWidth="200" />
+                    <Label Text="{Loc 'ticket-audit-stats-resolved'}" MinWidth="120" />
+                    <Label Text="{Loc 'ticket-audit-stats-claimed'}"  HorizontalExpand="True" />
+                </BoxContainer>
+
+                <!-- Scrollable stats list -->
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                    <BoxContainer Name="StatsList" Orientation="Vertical" HorizontalExpand="True" />
+                </ScrollContainer>
+            </BoxContainer>
+        </TabContainer>
 
     </BoxContainer>
 </DefaultWindow>

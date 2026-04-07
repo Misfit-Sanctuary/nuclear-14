@@ -124,6 +124,10 @@
   - type: Construction
     graph: N14Stimpak
     node: stimpak
+  - type: Tag # #Misfits Add - Allow empty stimpaks to be reused in crafting recipes
+    tags:
+    - Syringe
+    - N14EmptySyringe
 
 - type: entity
   parent: N14Stimpak
@@ -172,6 +176,10 @@
         reagents:
         - ReagentId: RobustHealingMixture
           Quantity: 25
+  - type: Tag # #Misfits Add - Allow empty super stimpaks to be reused in crafting recipes
+    tags:
+    - Syringe
+    - N14EmptySyringe
 
 - type: entity
   parent: N14ChemicalSyringe

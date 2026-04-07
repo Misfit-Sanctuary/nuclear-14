@@ -1,5 +1,7 @@
 #Misfits Change — Moved from Corvax/Guidebooks/rules.yml
+# Visible in guidebook as "Server Rules" and used by the join popup (CVar server.rules_file)
 - type: guideEntry
   id: DefaultRuleset
   name: guide-entry-rules
   text: "/ServerInfo/_Misfits/ServerRules/DefaultRuleset.xml"
+  priority: -5

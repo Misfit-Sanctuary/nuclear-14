@@ -1,5 +1,6 @@
 server-info-rules-button = Rules
-server-info-guidebook-button = Guidebook
+# #Misfits Change - Renamed from "Guidebook" to "Wiki & Guides"
+server-info-guidebook-button = Wiki & Guides
 server-info-discord-button = Discord
 server-info-website-button = Website
 server-info-wiki-button = Wiki

@@ -207,9 +207,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
     access: [["Bar"]]
-  - type: GuideHelp
-    guides:
-    - Bartender
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Bartender)
 
 - type: entity
   parent: VendingMachine
@@ -927,9 +925,7 @@
     color: "#9dc5c9"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-  - type: GuideHelp
-    guides:
-    - MedicalDoctor
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (MedicalDoctor)
   - type: Transform
     noRot: false
   - type: Rotatable
@@ -1008,9 +1004,7 @@
     color: "#78645c"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-  - type: GuideHelp
-    guides:
-    - Security
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Security)
   - type: Transform
     noRot: false
   - type: Rotatable
@@ -1396,9 +1390,7 @@
   - type: Rotatable
     rotateWhileAnchored: false
     rotateWhilePulling: true
-  - type: GuideHelp
-    guides:
-    - Robotics
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Robotics)
 
 - type: entity
   parent: VendingMachine
@@ -1565,9 +1557,7 @@
     layoutId: ShopVendor
   - type: AccessReader
     access: [["Salvage"]]
-  - type: GuideHelp
-    guides:
-    - Salvage
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Salvage)
 
 - type: entity
   parent: VendingMachine
@@ -1654,9 +1644,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
     access: [["Medical"]]
-  - type: GuideHelp
-    guides:
-    - Medical
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Medical)
   - type: Transform
     noRot: false
   - type: Rotatable
@@ -2337,9 +2325,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
     access: [["Chemistry"]]
-  - type: GuideHelp
-    guides:
-    - Chemicals
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Chemicals)
 
 - type: entity
   parent: VendingMachineChemicals

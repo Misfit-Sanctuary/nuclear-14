@@ -43,6 +43,9 @@ fork_id = "EinsteinEngines"
 [server]
 rules_file   = "DefaultRuleset"
 
+[procgen]
+preload = false
+
 [ooc]
 enable_during_round = true
 

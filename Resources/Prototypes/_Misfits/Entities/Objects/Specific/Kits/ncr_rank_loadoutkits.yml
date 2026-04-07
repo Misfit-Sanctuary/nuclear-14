@@ -2,8 +2,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: NCRA_PFCFireteamSet
-  name: Private First Class Fireteam Kit
-  description: Includes NCR pouches, a carbine with 3 long magazines, a 9mm pistol with 2 magazines, a handheld radio, a smoke grenade, a C ration MRE, a stimpak, a Rad-X pill, a gauze pack, and a flare.
+  name: undecided-loadout-category-misfits-ncra-pfc-fireteam-name
+  description: undecided-loadout-category-misfits-ncra-pfc-fireteam-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: pointman
@@ -12,8 +12,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: NCRA_CorporalPatrolSet
-  name: Specialist Patrol Leader Kit
-  description: Includes a metal helmet, an NCR belt, a scoped service rifle with 4 magazines, a 9mm pistol with 2 magazines, a handheld radio, 2 smoke grenades, a C ration MRE, a stimpak, a RadAway blood bag, a gauze pack, and a flare.
+  name: undecided-loadout-category-misfits-ncra-corporal-patrol-name
+  description: undecided-loadout-category-misfits-ncra-corporal-patrol-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: marksman
@@ -22,8 +22,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: NCRA_StaffSergeantLineSet
-  name: Staff Sergeant Linebreaker Kit
-  description: Includes NCR combat armor, an NCR belt, a sergeant first class pin, a battle rifle with 6 clips, a 9mm pistol with 2 magazines, a handheld radio, a smoke grenade, a C ration MRE, a stimpak, a super stimpak, a RadAway blood bag, a gauze pack, and a flare.
+  name: undecided-loadout-category-misfits-ncra-staff-sergeant-line-name
+  description: undecided-loadout-category-misfits-ncra-staff-sergeant-line-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: rifleman
@@ -32,8 +32,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: NCRA_FirstSergeantVeteranSet
-  name: Sergeant First Class Veteran Kit
-  description: Includes an NCR trench coat, a loaded revolver belt, a master sergeant pin, a battle rifle with 6 clips, a handheld radio, 2 smoke grenades, a frag grenade, a C ration MRE, a stimpak, a super stimpak, a RadAway blood bag, 2 gauze packs, and a flare.
+  name: undecided-loadout-category-misfits-ncra-first-sergeant-veteran-name
+  description: undecided-loadout-category-misfits-ncra-first-sergeant-veteran-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: pointman
@@ -42,12 +42,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: NCRA_CaptainCommandSet
-  name: Captain Command Kit
-  description: |-
-    Includes NCR combat armor, a loaded captain's revolver belt,
-        a captain pin, a battle rifle with 6 clips, a handheld radio,
-        2 smoke grenades, a frag grenade, a C ration MRE, a stimpak,
-        2 super stimpaks, a RadAway blood bag, 2 gauze packs, and a flare.
+  name: undecided-loadout-category-misfits-ncra-captain-command-name
+  description: undecided-loadout-category-misfits-ncra-captain-command-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: rifleman
@@ -56,12 +52,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: NCRA_CaptainMarksmanSet
-  name: Captain Frontier Marksman Kit
-  description: |-
-    Includes an NCR trench coat, a loaded captain's revolver belt, a captain pin,
-    Republic's Pride (Gunrunner-tuned scoped M1C) with 4 en-bloc clips,
-    a handheld radio, a smoke grenade, a C ration MRE, a stimpak,
-    a super stimpak, a RadAway blood bag, 2 gauze packs, and a flare.
+  name: undecided-loadout-category-misfits-ncra-captain-marksman-name
+  description: undecided-loadout-category-misfits-ncra-captain-marksman-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: marksman
@@ -181,7 +173,7 @@
       - id: RadioHandheld
       - id: SmokeGrenade
         amount: 2
-      - id: GrenadeFrag
+      - id: N14Dynamite # #Misfits Fix - GrenadeFrag is a GL-only round (no matching launcher in kit); replaced with throwable dynamite
       - id: N14BoxCardboardMREBoxCFilled
       - id: N14Stimpak
       - id: N14SuperStimpak
@@ -213,7 +205,7 @@
       - id: RadioHandheld
       - id: SmokeGrenade
         amount: 2
-      - id: GrenadeFrag
+      - id: N14Dynamite # #Misfits Fix - GrenadeFrag is a GL-only round (no matching launcher in kit); replaced with throwable dynamite
       - id: N14BoxCardboardMREBoxCFilled
       - id: N14Stimpak
       - id: N14SuperStimpak
@@ -257,12 +249,8 @@
 
 - type: UndecidedLoadoutBackpackSet
   id: NCRA_CaptainServiceRifleSet
-  name: Captain Field Officer Kit
-  description: |-
-    Includes NCR combat armor, an NCR belt, a captain pin,
-        a scoped service rifle with 6 magazines, a 9mm pistol with 3 magazines,
-        a handheld radio, 2 smoke grenades, a frag grenade, a C ration MRE,
-        a stimpak, 2 super stimpaks, a RadAway blood bag, 2 gauze packs, and a flare.
+  name: undecided-loadout-category-misfits-ncra-captain-service-rifle-name
+  description: undecided-loadout-category-misfits-ncra-captain-service-rifle-description
   sprite:
     sprite: _Nuclear14/Objects/Misc/kits.rsi
     state: rifleman
@@ -293,7 +281,7 @@
       - id: RadioHandheld
       - id: SmokeGrenade
         amount: 2
-      - id: GrenadeFrag
+      - id: N14Dynamite # #Misfits Fix - GrenadeFrag is a GL-only round (no matching launcher in kit); replaced with throwable dynamite
       - id: N14BoxCardboardMREBoxCFilled
       - id: N14Stimpak
       - id: N14SuperStimpak

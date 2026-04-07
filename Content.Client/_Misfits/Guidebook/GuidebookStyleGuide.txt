@@ -1,0 +1,134 @@
+GUIDEBOOK AUTHORING STANDARD
+
+Purpose
+- Use structural guide tags for layout, hierarchy, spacing, and reusable page chrome.
+- Use inline markup only for local emphasis inside text.
+- Keep every page readable in the dark guidebook theme without per-page styling hacks.
+
+XAML vs HTML responsibilities
+
+Use XAML-backed guide tags for:
+- page structure
+- section hierarchy
+- spacing and rhythm
+- callouts and reusable blocks
+- visual chrome such as dividers, borders, and padding
+
+Use inline markup only for:
+- [bold] labels and short emphasis
+- [italic] tone or caveats
+- [color=#hex] short highlights inside a sentence
+- [textlink="Label" link="GuideIdOrUrl"] links inside body copy
+
+Do not use inline markup for:
+- fake headers
+- manual spacing
+- hand-built callouts
+- layout columns or alignment
+
+Unified theme
+- Primary accent: #caa468
+- Title color: #efe1bf
+- Section color: #ddc18f
+- Body text: #f2f2f2
+- Muted text: #b5bdc9
+- Info box: background #1b2530, border #5b89b7
+- Warning box: background #362313, border #d89c4a
+- Example box: background #1a1f27, border #59677a
+- Code block: background #111418, border #707988
+
+Typography scale
+- H1: LabelHeadingBigger
+- H2: LabelHeading
+- H3 and callout titles: LabelSubText
+- Body copy: RichTextLabel body text
+
+Spacing scale
+- Page padding: 14 12 14 18
+- Section gap: 18
+- Subsection gap: 12
+- Paragraph gap: 10
+- List indent: 16
+- Callout gap: 12
+
+Preferred page template
+
+<GuidePage Title="Page Title" Subtitle="One-sentence summary." Link="https://example">
+  <GuideInfoBox Title="At a Glance">
+    <p>Use this only when the reader needs immediate context, scope, or a quick warning.</p>
+  </GuideInfoBox>
+
+  <GuideSection Title="First Major Topic">
+    <p>Start every section with one lead paragraph before lists, tables, or procedures.</p>
+
+    <GuideSubSection Title="Checklist or Procedure">
+      <ul>
+        <li>Keep steps short and action oriented.</li>
+        <li>Split long procedures into multiple subsections.</li>
+        <li>Use tables only when readers need side-by-side comparison.</li>
+      </ul>
+    </GuideSubSection>
+  </GuideSection>
+
+  <GuideSection Title="Supporting Material">
+    <GuideExampleBlock Title="Recommended Pattern">
+      <p>Use example blocks for a preferred workflow, rotation, or decision rule.</p>
+    </GuideExampleBlock>
+
+    <GuideWarningBox Title="Common Failure State">
+      <p>Reserve warning boxes for hazards, irreversible choices, or supply-wasting mistakes.</p>
+    </GuideWarningBox>
+  </GuideSection>
+</GuidePage>
+
+Do
+- Open new pages with GuidePage.
+- Use GuideSection for every major topic.
+- Keep one clear idea per subsection.
+- Put short lead paragraphs before lists and tables.
+- Use GuideInfoBox for scope, notes, or reminders.
+- Use GuideWarningBox only for failure states and hazards.
+- Keep inline color changes short and rare.
+
+Do not
+- Mix # and ## headers with fake subsection headers made from [bold][color] lines in the same new page.
+- Stack empty paragraphs or repeated <br/> tags to make space.
+- Build every callout manually with ColorBox if a semantic guide tag exists.
+- Put full sentences in all caps.
+- Encode layout with spaces, dash prefixes, or text alignment tricks.
+
+Bad example
+
+<Document>
+# Water
+[bold][color=#caa468]Tips[/color][/bold]
+<p>Drink often.</p>
+<br/>
+<br/>
+<ColorBox Color="#3a0000" OutlineColor="#f44336" OutlineThickness="1" Margin="5">
+<Box Orientation="Vertical" Margin="8">
+<p>Do not forget canteens.</p>
+</Box>
+</ColorBox>
+</Document>
+
+Corrected example
+
+<GuidePage Title="Water" Subtitle="Core hydration rules for the wasteland.">
+  <GuideSection Title="Tips">
+    <p>Drink often.</p>
+  </GuideSection>
+
+  <GuideWarningBox Title="Supplies">
+    <p>Carry spare canteens before long trips.</p>
+  </GuideWarningBox>
+</GuidePage>
+
+Component reference
+- GuidePage.xaml: page shell, title, subtitle, wiki link, divider
+- GuideSection.xaml: major page sections
+- GuideSubSection.xaml: nested section headings
+- GuideInfoBox.xaml: informational callouts
+- GuideWarningBox.xaml: warnings and critical caveats
+- GuideExampleBlock.xaml: recommended workflow examples
+- GuideCodeBlock.xaml: literal snippets or compact command examples

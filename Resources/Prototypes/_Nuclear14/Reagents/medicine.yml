@@ -171,8 +171,8 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -1
-            Brute: -1
+            Burn: -1.5
+            Brute: -2.5
             Airloss: -2
           types:
             Poison: -1
@@ -473,11 +473,11 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -3
-            Brute: -3
+            Burn: -4.5
+            Brute: -4.5
             Airloss: -1
       - !type:ModifyBleedAmount
-        amount: -1
+        amount: -2
       # !type:Drunk — #Misfits Tweak: Removed. TryAddTime accumulates per metabolism tick, causing ~10 min overlay.
       # HealingPoultice is a medicine not a drink; Jitter below already signals discomfort without screen distortion.
       - !type:Jitter
@@ -508,7 +508,7 @@
           groups:
             Toxin: -2.5
           types:
-            Radiation: -1
+            Radiation: -2
       - !type:ChemVomit
         probability: 0.05
         conditions:

@@ -1,0 +1,12 @@
+<!-- #Misfits Add - Scrollable role ban list control for global ban list -->
+<roleBans:MisfitsRoleBanListAllControl
+    xmlns="https://spacestation14.io"
+    xmlns:roleBans="clr-namespace:Content.Client._Misfits.Administration.UI.BanListAll.RoleBans">
+    <PanelContainer StyleClasses="BackgroundDark">
+        <ScrollContainer>
+            <BoxContainer Name="RoleBans" Access="Public" Orientation="Vertical">
+                <roleBans:MisfitsRoleBanListAllHeader Name="RoleBansHeader"/>
+            </BoxContainer>
+        </ScrollContainer>
+    </PanelContainer>
+</roleBans:MisfitsRoleBanListAllControl>

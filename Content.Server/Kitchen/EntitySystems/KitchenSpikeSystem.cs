@@ -2,6 +2,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
 using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
+using Content.Shared.Projectiles; // #Misfits Fix - needed to drop embedded projectiles before body destruction
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Database;
@@ -38,6 +39,7 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly MetaDataSystem _metaData = default!;
         [Dependency] private readonly SharedSuicideSystem _suicide = default!;
+        [Dependency] private readonly SharedProjectileSystem _projectileSystem = default!; // #Misfits Fix - used to safely drop embedded projectiles before entity deletion
 
         public override void Initialize()
         {
@@ -160,6 +162,11 @@ namespace Content.Server.Kitchen.EntitySystems
             _transform.SetCoordinates(victimUid, Transform(uid).Coordinates);
             // THE WHAT?
             // TODO: Need to be able to leave them on the spike to do DoT, see ss13.
+
+            // #Misfits Fix - drop any embedded projectiles (e.g. javelins) before gibbing,
+            // otherwise transform children are silently deleted with the entity.
+            DropEmbeddedProjectiles(victimUid);
+
             var gibs = _bodySystem.GibBody(victimUid);
             foreach (var gib in gibs) {
                 QueueDel(gib);
@@ -274,6 +281,23 @@ namespace Content.Server.Kitchen.EntitySystems
             _doAfter.TryStartDoAfter(doAfterArgs);
 
             return true;
+        }
+
+        // #Misfits Fix - drop embedded projectiles (e.g. javelins) before destroying a corpse so they
+        // are not silently deleted as transform children. Children are snapshotted first because
+        // RemoveEmbed reparents the child, which would modify the enumerator mid-iteration.
+        private void DropEmbeddedProjectiles(EntityUid target)
+        {
+            var children = new List<EntityUid>();
+            var childEnumerator = Transform(target).ChildEnumerator;
+            while (childEnumerator.MoveNext(out var child))
+                children.Add(child);
+
+            foreach (var child in children)
+            {
+                if (TryComp<EmbeddableProjectileComponent>(child, out var embed))
+                    _projectileSystem.RemoveEmbed(child, embed, null);
+            }
         }
     }
 }

@@ -1,0 +1,9 @@
+<controls:GuideTagContainer xmlns="https://spacestation14.io"
+              xmlns:controls="clr-namespace:Content.Client._Misfits.Guidebook.Controls"
+              Orientation="Vertical"
+              HorizontalExpand="True"
+              Margin="0 0 0 18"
+              SeparationOverride="0">
+    <Label Name="TitleLabel" Visible="False"/>
+    <BoxContainer Name="ContentBody" Orientation="Vertical" HorizontalExpand="True" SeparationOverride="0"/>
+</controls:GuideTagContainer>

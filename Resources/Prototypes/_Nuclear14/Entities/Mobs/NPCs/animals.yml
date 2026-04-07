@@ -401,7 +401,6 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: WastelandAnimal
-  - type: Timer
   - type: TimedSpawner
     prototypes:
       - N14BrahminDung
@@ -427,6 +426,17 @@
     pack: N14BrahminSays
     minimumWait: 120
     maximumWait: 300
+  - type: LanguageKnowledge # #Misfits Add - understands common wasteland languages; speaks Cow (native moo sounds)
+    speaks:
+    - Cow
+    understands:
+    - Cow
+    - English
+    - Chinese
+    - Spanish
+    - Latin
+    - N14Robot
+    - N14BrotherBeep
 
 #MARK: Bighorner
 - type: entity
@@ -670,6 +680,17 @@
     - id: N14FoodEggChicken
   - type: MobPrice
     price: 200
+  - type: LanguageKnowledge # #Misfits Add - understands common wasteland languages; speaks Chicken (native cluck sounds)
+    speaks:
+    - Chicken
+    understands:
+    - Chicken
+    - English
+    - Chinese
+    - Spanish
+    - Latin
+    - N14Robot
+    - N14BrotherBeep
 
 #MARK: Iguana
 - type: entity

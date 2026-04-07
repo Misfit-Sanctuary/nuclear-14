@@ -404,9 +404,7 @@
           type: NetworkConfiguratorBoundUserInterface
     - type: StaticPrice
       price: 2 # Corvax-Change
-    - type: GuideHelp
-      guides:
-        - NetworkConfigurator
+    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (NetworkConfigurator)
 
 #Power tools
 #Later on these should switch probably switch damage when changing the tool behavior.

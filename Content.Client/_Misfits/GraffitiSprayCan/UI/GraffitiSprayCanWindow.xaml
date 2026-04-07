@@ -1,0 +1,18 @@
+<!-- #Misfits Add - Graffiti spray can selection window XAML layout. -->
+<DefaultWindow xmlns="https://spacestation14.io"
+               MinSize="320 420"
+               SetSize="320 480"
+               Title="{Loc 'graffiti-spray-can-window-title'}">
+    <BoxContainer Orientation="Vertical"
+                  HorizontalExpand="True"
+                  VerticalExpand="True"
+                  SeparationOverride="4">
+        <Label Name="ChargesLabel"
+               Margin="6 6 6 0"/>
+        <Label Text="{Loc 'graffiti-spray-can-select-label'}"
+               Margin="6 0 6 0"/>
+        <ItemList Name="DecalList"
+                  VerticalExpand="True"
+                  Margin="4"/>
+    </BoxContainer>
+</DefaultWindow>

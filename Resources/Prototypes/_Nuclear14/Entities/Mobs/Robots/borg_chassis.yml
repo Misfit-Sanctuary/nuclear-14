@@ -33,11 +33,11 @@
     layers:
     - state: icon
       map: ["movement"]
-    - state: icon  # change me
+    - state: on # #Misfits Fix: lit indicator; BorgSystem overrides at runtime
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
       visible: false
-    - state: icon # change me
+    - state: on # #Misfits Fix: 'on' RSI state is the lit variant used as the flashlight glow overlay
       shader: unshaded
       map: ["light"]
       visible: false
@@ -203,11 +203,11 @@
     layers:
     - state: icon
       map: ["movement"]
-    - state: icon  # change me
+    - state: on # #Misfits Fix: lit indicator; BorgSystem overrides at runtime
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
       visible: false
-    - state: icon # change me
+    - state: on # #Misfits Fix: 'on' RSI state is the lit variant used as the flashlight glow overlay
       shader: unshaded
       map: ["light"]
       visible: false

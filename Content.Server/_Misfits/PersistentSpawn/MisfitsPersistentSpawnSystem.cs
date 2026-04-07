@@ -59,6 +59,11 @@ public sealed class MisfitsPersistentSpawnSystem : EntitySystem
     /// </summary>
     private readonly Dictionary<EntityUid, string> _uidToPersistenceId = new();
 
+    // #Misfits Tweak - Batch spawn queue: entity re-spawns are spread across ticks at round start
+    // to prevent a single-frame TPS spike when Wendover has many persistent entities.
+    private readonly Queue<(string Id, PersistentEntity Record, MapId TargetMap)> _spawnQueue = new();
+    private const int SpawnBatchSize = 50;
+
     // #Misfits Fix - track the DB load task so OnRoundStarted can block until it finishes.
     // The old JSON system was synchronous so dicts were always populated before round start.
     private Task _initLoadTask = Task.CompletedTask;
@@ -121,7 +126,8 @@ public sealed class MisfitsPersistentSpawnSystem : EntitySystem
         }
 
         // ── Respawn persistent entities ────────────────────────────────────────
-        var spawned = 0;
+        // #Misfits Tweak - Enqueue instead of spawning synchronously; Update() drains the queue
+        // at SpawnBatchSize entities/tick to avoid a round-start TPS spike on large Wendover saves.
         foreach (var (id, record) in _entityRecords)
         {
             if (!_prototypeManager.HasIndex<EntityPrototype>(record.PrototypeId))
@@ -130,20 +136,10 @@ public sealed class MisfitsPersistentSpawnSystem : EntitySystem
                 continue;
             }
 
-            var coords = new MapCoordinates(new Vector2(record.X, record.Y), targetMap.Value);
-            var rotation = Angle.FromDegrees(record.RotationDegrees);
-
-            var uid = EntityManager.SpawnEntity(record.PrototypeId, coords);
-            _transformSystem.SetWorldRotation(uid, rotation);
-
-            var comp = EnsureComp<MisfitsPersistentEntityComponent>(uid);
-            comp.PersistenceId = id;
-
-            _uidToPersistenceId[uid] = id;
-            spawned++;
+            _spawnQueue.Enqueue((id, record, targetMap.Value));
         }
 
-        _log.Info($"Respawned {spawned} persistent entities.");
+        _log.Info($"Queued {_spawnQueue.Count} persistent entities for batch spawning.");
 
         // ── Respawn persistent tiles ───────────────────────────────────────────
         var tilesPlaced = 0;
@@ -198,6 +194,35 @@ public sealed class MisfitsPersistentSpawnSystem : EntitySystem
         }
 
         _log.Info($"Restored {decalsPlaced} persistent decals.");
+    }
+
+    // ── Batch-tick entity spawn draining ──────────────────────────────────────
+
+    // #Misfits Tweak - Dequeue and spawn up to SpawnBatchSize entities per game tick.
+    // Tiles and decals are cheap and remain synchronous in OnRoundStarted.
+    public override void Update(float frameTime)
+    {
+        if (_spawnQueue.Count == 0)
+            return;
+
+        var spawned = 0;
+        while (_spawnQueue.Count > 0 && spawned < SpawnBatchSize)
+        {
+            var (id, record, targetMap) = _spawnQueue.Dequeue();
+            var coords = new MapCoordinates(new Vector2(record.X, record.Y), targetMap);
+            var rotation = Angle.FromDegrees(record.RotationDegrees);
+
+            var uid = EntityManager.SpawnEntity(record.PrototypeId, coords);
+            _transformSystem.SetWorldRotation(uid, rotation);
+
+            var comp = EnsureComp<MisfitsPersistentEntityComponent>(uid);
+            comp.PersistenceId = id;
+            _uidToPersistenceId[uid] = id;
+            spawned++;
+        }
+
+        if (_spawnQueue.Count == 0)
+            _log.Info($"Batch spawn complete: all persistent entities respawned ({spawned} final tick).");
     }
 
     // ── Spawn request from Persistent Entity Spawn Menu ────────────────────────

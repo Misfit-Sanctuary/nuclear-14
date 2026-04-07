@@ -20,6 +20,10 @@ public abstract class SharedCampfireSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
 
+    // #Misfits Tweak - Only track lit campfires in Update so we iterate O(lit) not O(all).
+    // Wendover may have hundreds of campfires; most are cold/unlit.
+    private readonly HashSet<EntityUid> _litCampfires = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -28,6 +32,13 @@ public abstract class SharedCampfireSystem : EntitySystem
         SubscribeLocalEvent<CampfireComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<CampfireComponent, ActivateInWorldEvent>(OnActivateInWorld);
         SubscribeLocalEvent<CampfireComponent, CampfireExtinguishDoAfterEvent>(OnExtinguishDoAfter);
+        // #Misfits Tweak - Remove from active set on component removal to prevent stale entries.
+        SubscribeLocalEvent<CampfireComponent, ComponentShutdown>(OnCampfireShutdown);
+    }
+
+    private void OnCampfireShutdown(Entity<CampfireComponent> ent, ref ComponentShutdown args)
+    {
+        _litCampfires.Remove(ent.Owner);
     }
 
     private void OnStartup(Entity<CampfireComponent> ent, ref ComponentStartup args)
@@ -38,16 +49,29 @@ public abstract class SharedCampfireSystem : EntitySystem
             Dirty(ent);
         }
 
+        // #Misfits Tweak - Populate active set if a campfire is YAML-spawned with Lit: true.
+        if (ent.Comp.Lit)
+            _litCampfires.Add(ent.Owner);
+
         UpdateAppearance(ent);
     }
 
     public override void Update(float frameTime)
     {
+        // #Misfits Tweak - Fuel consumption is server-only simulation; skip on client entirely.
+        if (_net.IsClient)
+            return;
+
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<CampfireComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        // #Misfits Tweak - Iterate only lit campfires (active set) instead of all CampfireComponents.
+        // Fuel timer uses wall-clock TimeSpan comparison so reduced iteration count is safe.
+        var toExtinguish = new List<Entity<CampfireComponent>>();
+        foreach (var uid in _litCampfires)
         {
+            if (!TryComp<CampfireComponent>(uid, out var comp))
+                continue;
+
             if (!comp.Lit || comp.LitAt == null || !comp.FuelRequired)
                 continue;
 
@@ -55,21 +79,26 @@ public abstract class SharedCampfireSystem : EntitySystem
             if (elapsed < comp.BurnDuration)
                 continue;
 
-            // Consume one fuel unit
-            comp.Fuel--;
-            Dirty(uid, comp);
+            toExtinguish.Add((uid, comp));
+        }
 
-            if (comp.Fuel > 0)
+        foreach (var ent in toExtinguish)
+        {
+            // Consume one fuel unit.
+            ent.Comp.Fuel--;
+            Dirty(ent.Owner, ent.Comp);
+
+            if (ent.Comp.Fuel > 0)
             {
-                // Reset timer for next fuel unit
-                comp.LitAt = _timing.CurTime;
+                // Reset timer for next fuel unit.
+                ent.Comp.LitAt = _timing.CurTime;
             }
             else
             {
-                // Out of fuel — extinguish
-                SetLit((uid, comp), false);
+                // Out of fuel — extinguish.
+                SetLit((ent.Owner, ent.Comp), false);
                 if (_net.IsServer)
-                    _popup.PopupEntity("The fire goes out.", uid);
+                    _popup.PopupEntity("The fire goes out.", ent.Owner);
             }
         }
     }
@@ -173,9 +202,17 @@ public abstract class SharedCampfireSystem : EntitySystem
         ent.Comp.Lit = lit;
 
         if (lit)
+        {
             ent.Comp.LitAt = _timing.CurTime;
+            // #Misfits Tweak - Register in active set so Update only iterates lit campfires.
+            _litCampfires.Add(ent.Owner);
+        }
         else
+        {
             ent.Comp.LitAt = null;
+            // #Misfits Tweak - Remove from active set when extinguished.
+            _litCampfires.Remove(ent.Owner);
+        }
 
         Dirty(ent);
 

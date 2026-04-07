@@ -3,6 +3,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
 using Content.Shared.UndecidedLoadout;
 using Robust.Client.GameObjects;
+using Robust.Shared.Utility;
 
 namespace Content.Client.UndecidedLoadout;
 
@@ -15,7 +16,8 @@ public sealed partial class UndecidedLoadoutBackpackSet : Control
 
         Icon.Texture = spriteSystem.Frame0(set.Sprite);
         SetName.Text = Loc.GetString(set.Name);
-        SetDescription.Text = Loc.GetString(set.Description);
+        // #Misfits Tweak - Use wrapped rich text so long loadout descriptions stay readable in the selection window.
+        SetDescription.SetMessage(FormattedMessage.FromMarkupPermissive(Loc.GetString(set.Description)));
         SetButton.Text = Loc.GetString(set.Selected ? "undecided-loadout-button-deselect" : "undecided-loadout-button-select");
         SetButton.ModulateSelfOverride = set.Selected ? new Color(40, 84, 35) : new Color(68, 75, 103);
     }

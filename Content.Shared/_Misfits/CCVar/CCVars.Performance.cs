@@ -50,4 +50,15 @@ public sealed class PerformanceCVars : CVars
     /// </summary>
     public static readonly CVarDef<bool> PressureDamage =
         CVarDef.Create("misfits.pressure_damage", false, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Whether respiratory suffocation (gasping, asphyxiation damage) is active.
+    /// When false, <c>RespiratorSystem.Update()</c> returns early — no oxygen
+    /// saturation drain, no gasp popups, and no suffocation damage are ever applied.
+    /// Safe to disable alongside <c>AtmosSimulated</c> and <c>PressureDamage</c> on
+    /// maps that don't need breathing mechanics.
+    /// </summary>
+    // #Misfits Add - CVar to disable all respiratory suffocation
+    public static readonly CVarDef<bool> Suffocation =
+        CVarDef.Create("misfits.suffocation", false, CVar.SERVERONLY);
 }

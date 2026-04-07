@@ -513,7 +513,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (TryComp<CartridgeAmmoComponent>(entity, out var cartridge2) && cartridge2.Spent)
         {
             var despawn = EnsureComp<TimedDespawnComponent>(entity);
-            despawn.Lifetime = 5f * 60; // 5 minutes
+            despawn.Lifetime = 90f; // #Misfits Tweak - Reduce casing despawn from 5min to 90s to prevent 1000+ entity buildup during war
 
             _entManager.RemoveComponent<ItemComponent>(entity);
         }

@@ -1,32 +1,252 @@
-﻿<Control
+<!-- #Misfits Change - Consolidated Admin/Mentor Help panel with mode tabs.
+     Deep dark palette (#0e0e1a base), 260px sidebar, clean rectangular filter tabs,
+     rich player cards with ticket pills, player header bar, action toolbelt, ticket sub-bar.
+     Admin Help and Mentor Help are unified under one window with tab selection.
+     All elements use consistent 8px padding and flat StyleBoxFlat backgrounds
+     to prevent clipping, overlap, and jagged texture-atlas edges.
+     HeaderBar is named so code-behind can swap colors: dark red (admin) / dark green (mentor). -->
+<Control
     xmlns="https://spacestation14.io"
-    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls">
-    <PanelContainer StyleClasses="BackgroundDark">
-        <SplitContainer Orientation="Horizontal" VerticalExpand="True">
-            <cc:PlayerListControl Access="Public" Name="ChannelSelector" HorizontalExpand="True" SizeFlagsStretchRatio="1" />
-            <BoxContainer Orientation="Vertical" HorizontalExpand="True" SizeFlagsStretchRatio="2">
-                <!-- #Misfits Add — Ticket status bar shown above the chat area -->
-                <BoxContainer Name="TicketStatusBar" Access="Public" Orientation="Horizontal" HorizontalExpand="True" Visible="False">
-                    <RichTextLabel Name="TicketStatusLabel" Access="Public" HorizontalExpand="True" />
-                    <Button Name="ClaimTicket" Access="Public" Text="{Loc 'ticket-system-claim-button'}" StyleClasses="OpenRight" Visible="True" />
-                    <Button Name="UnclaimTicket" Access="Public" Text="{Loc 'ticket-system-unclaim-button'}" StyleClasses="OpenBoth" Visible="False" />
-                    <Button Name="ResolveTicket" Access="Public" Text="{Loc 'ticket-system-resolve-button'}" StyleClasses="OpenBoth" Visible="True" />
-                    <Button Name="ReopenTicket" Access="Public" Text="{Loc 'ticket-system-reopen-button'}" StyleClasses="OpenLeft" Visible="False" />
-                </BoxContainer>
-                <BoxContainer Access="Public" Name="BwoinkArea" VerticalExpand="True" />
-                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-                    <CheckBox Visible="True" Name="PlaySound" Access="Public" Text="{Loc 'admin-bwoink-play-sound'}" Pressed="True" />
-                    <Control HorizontalExpand="True" MinWidth="5" />
-                    <Button Visible="True"  Name="PopOut"    Access="Public" Text="{Loc 'admin-logs-pop-out'}"           StyleClasses="OpenBoth" HorizontalAlignment="Left" />
+    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+
+    <!-- Deep dark base background -->
+    <PanelContainer>
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#0e0e1a" />
+        </PanelContainer.PanelOverride>
+
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+
+            <!-- ═══ HEADER BAR ═══ -->
+            <!-- #Misfits Add - Named HeaderBar so SetMode can swap background color
+                 between admin red (#5a0f0f) and mentor green (#0f3a1a). -->
+            <PanelContainer Name="HeaderBar" Access="Public" MinHeight="42">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#5a0f0f"
+                                      BorderThickness="0 0 0 1"
+                                      BorderColor="#2a0505" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
+                              Margin="12 0 12 0" VerticalAlignment="Center">
+                    <Label Name="HeaderTitle" Access="Public"
+                           Text="Admin message"
+                           FontColorOverride="#ffffff"
+                           StyleClasses="LabelHeading" />
+                    <Control MinWidth="8" />
+                    <!-- Badge pill: open ticket count -->
+                    <PanelContainer Name="HeaderBadgePanel" Access="Public" VerticalAlignment="Center">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#4d3333"
+                                              ContentMarginLeftOverride="8"
+                                              ContentMarginRightOverride="8"
+                                              ContentMarginTopOverride="2"
+                                              ContentMarginBottomOverride="2" />
+                        </PanelContainer.PanelOverride>
+                        <Label Name="HeaderBadgeLabel" Access="Public"
+                               Text="0 open"
+                               FontColorOverride="#ffffff"
+                               StyleClasses="LabelSmall" />
+                    </PanelContainer>
                     <Control HorizontalExpand="True" />
-                    <Button Visible="False" Name="Bans" Text="{Loc 'admin-player-actions-bans'}" StyleClasses="OpenRight" />
-                    <Button Visible="False" Name="Notes" Text="{Loc 'admin-player-actions-notes'}" StyleClasses="OpenBoth" />
-                    <Button Visible="False" Name="Kick" Text="{Loc 'admin-player-actions-kick'}" StyleClasses="OpenBoth" />
-                    <Button Visible="False" Name="Ban" Text="{Loc 'admin-player-actions-ban'}" StyleClasses="OpenBoth" />
-                    <Button Visible="False" Name="Respawn" Text="{Loc 'admin-player-actions-respawn'}" StyleClasses="OpenBoth" />
-                    <Button Visible="False" Name="Follow" Text="{Loc 'admin-player-actions-follow'}" StyleClasses="OpenLeft" />
+                    <Button Name="PopOut" Access="Public" Text="{Loc 'admin-logs-pop-out'}"
+                            StyleClasses="ButtonSmall" MinHeight="28" Margin="4 0 0 0" />
+                </BoxContainer>
+            </PanelContainer>
+
+            <!-- ═══ MODE TABS — Admin Help / Mentor Help ═══ -->
+            <!-- #Misfits Add - Clean rectangular mode tabs. Hidden when the user lacks
+                 mentor permissions. Distinct color blocks: dark red admin, dark green mentor. -->
+            <PanelContainer Name="ModeTabBar" Access="Public" MinHeight="34">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#141422"
+                                      BorderThickness="0 0 0 1"
+                                      BorderColor="#252540" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
+                              Margin="4 2 4 2" SeparationOverride="4">
+                    <Button Name="TabAdmin" Access="Public" Text="ADMIN MESSAGE"
+                            HorizontalExpand="True" StyleClasses="ButtonSmall"
+                            MinHeight="28" ToggleMode="True" Pressed="True" />
+                    <Button Name="TabMentor" Access="Public" Text="MENTOR MESSAGE"
+                            HorizontalExpand="True" StyleClasses="ButtonSmall"
+                            MinHeight="28" ToggleMode="True" />
+                </BoxContainer>
+            </PanelContainer>
+
+            <!-- ═══ ADMIN BODY — sidebar + right panel ═══ -->
+            <BoxContainer Name="AdminBody" Access="Public"
+                          Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
+
+                <!-- ═══ LEFT SIDEBAR (290px, right border separator) ═══ -->
+                <PanelContainer MinWidth="290" MaxWidth="290" VerticalExpand="True">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#181830"
+                                          BorderThickness="0 0 1 0"
+                                          BorderColor="#252540" />
+                    </PanelContainer.PanelOverride>
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+
+                        <!-- Search / Message Player input with 5px+ internal breathing room -->
+                        <BoxContainer Orientation="Vertical" Margin="8 8 8 6">
+                            <LineEdit Name="SearchPlayerEdit" Access="Public"
+                                      HorizontalExpand="True" MinHeight="28"
+                                      PlaceHolder="{Loc 'ticket-search-player-placeholder'}" />
+                        </BoxContainer>
+
+                        <!-- Filter tabs: MinWidth prevents text cutoff on dynamic counts like "(12)" -->
+                        <PanelContainer MinHeight="34">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#141422"
+                                                  BorderThickness="0 0 0 1"
+                                                  BorderColor="#252540" />
+                            </PanelContainer.PanelOverride>
+                            <BoxContainer Name="FilterTabsContainer" Access="Public"
+                                          Orientation="Horizontal" HorizontalExpand="True"
+                                          Margin="4 2 4 2" SeparationOverride="2">
+                                <Button Name="FilterOpen" Access="Public" Text="OPEN"
+                                        HorizontalExpand="True" StyleClasses="ButtonSmall"
+                                        MinHeight="24" MinWidth="50" ToggleMode="True" Pressed="True" />
+                                <Button Name="FilterClaimed" Access="Public" Text="CLAIMED"
+                                        HorizontalExpand="True" StyleClasses="ButtonSmall"
+                                        MinHeight="24" MinWidth="50" ToggleMode="True" />
+                                <Button Name="FilterResolved" Access="Public" Text="RESOLVED"
+                                        HorizontalExpand="True" StyleClasses="ButtonSmall"
+                                        MinHeight="24" MinWidth="50" ToggleMode="True" />
+                                <Button Name="FilterAll" Access="Public" Text="ALL"
+                                        HorizontalExpand="True" StyleClasses="ButtonSmall"
+                                        MinHeight="24" MinWidth="40" ToggleMode="True" />
+                            </BoxContainer>
+                        </PanelContainer>
+
+                        <!-- Scrollable ticket/player card list -->
+                        <cc:PlayerListControl Access="Public" Name="ChannelSelector"
+                                              HorizontalExpand="True" VerticalExpand="True" />
+                    </BoxContainer>
+                </PanelContainer>
+
+                <!-- ═══ RIGHT PANEL ═══ -->
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True"
+                              SizeFlagsStretchRatio="2">
+
+                    <!-- Player header bar: username, charname, connection status -->
+                    <PanelContainer Name="PlayerHeaderBar" Access="Public" MinHeight="36" Visible="False">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#0f162a"
+                                              BorderThickness="0 0 0 1"
+                                              BorderColor="#252540" />
+                        </PanelContainer.PanelOverride>
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
+                                      Margin="12 0 12 0" VerticalAlignment="Center"
+                                      SeparationOverride="8">
+                            <Label Name="PhUsername" Access="Public"
+                                   FontColorOverride="#ffffff"
+                                   StyleClasses="LabelHeading" />
+                            <Label Name="PhCharname" Access="Public"
+                                   FontColorOverride="#6a6a88"
+                                   StyleClasses="Italic" />
+                            <Label Name="PhStatus" Access="Public"
+                                   FontColorOverride="#22c55e"
+                                   StyleClasses="LabelSmall" />
+                            <Control HorizontalExpand="True" />
+                        </BoxContainer>
+                    </PanelContainer>
+
+                    <!-- #Misfits Add - Action toolbelt: dedicated row of uniform-sized buttons.
+                         All buttons share MinWidth="60" MinHeight="28" for visual consistency.
+                         Includes new Rejuv button for quick rejuvenation. -->
+                    <PanelContainer Name="ActionToolbelt" Access="Public" MinHeight="34" Visible="False">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#0c1220"
+                                              BorderThickness="0 0 0 1"
+                                              BorderColor="#252540" />
+                        </PanelContainer.PanelOverride>
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
+                                      Margin="8 2 8 2" VerticalAlignment="Center"
+                                      SeparationOverride="4">
+                            <Button Visible="False" Name="Notes" Access="Public"
+                                    Text="{Loc 'admin-player-actions-notes'}"
+                                    StyleClasses="ButtonSmall" MinWidth="55" MinHeight="26" />
+                            <Button Visible="False" Name="Bans" Access="Public"
+                                    Text="{Loc 'admin-player-actions-bans'}"
+                                    StyleClasses="ButtonSmall" MinWidth="55" MinHeight="26" />
+                            <Button Visible="False" Name="Follow" Access="Public"
+                                    Text="{Loc 'admin-player-actions-follow'}"
+                                    StyleClasses="ButtonSmall" MinWidth="55" MinHeight="26" />
+                            <Button Visible="False" Name="Kick" Access="Public"
+                                    Text="{Loc 'admin-player-actions-kick'}"
+                                    StyleClasses="ButtonSmall" MinWidth="55" MinHeight="26" />
+                            <Button Visible="False" Name="Ban" Access="Public"
+                                    Text="{Loc 'admin-player-actions-ban'}"
+                                    StyleClasses="ButtonSmall" MinWidth="55" MinHeight="26" />
+                            <Button Visible="False" Name="Respawn" Access="Public"
+                                    Text="{Loc 'admin-player-actions-respawn'}"
+                                    StyleClasses="ButtonSmall" MinWidth="55" MinHeight="26" />
+                            <Button Visible="False" Name="Rejuv" Access="Public"
+                                    Text="{Loc 'admin-player-actions-rejuv'}"
+                                    StyleClasses="ButtonSmall" MinWidth="55" MinHeight="26" />
+                        </BoxContainer>
+                    </PanelContainer>
+
+                    <!-- Ticket status sub-bar -->
+                    <PanelContainer Name="TicketStatusBar" Access="Public" MinHeight="32" Visible="False">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#0a0e17"
+                                              BorderThickness="0 0 0 1"
+                                              BorderColor="#252540" />
+                        </PanelContainer.PanelOverride>
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
+                                      Margin="12 0 12 0" VerticalAlignment="Center"
+                                      SeparationOverride="4">
+                            <RichTextLabel Name="TicketStatusLabel" Access="Public"
+                                           HorizontalExpand="True" />
+                            <Button Name="ClaimTicket" Access="Public"
+                                    Text="{Loc 'ticket-system-claim-button'}"
+                                    StyleClasses="ButtonSmall" Visible="True" />
+                            <Button Name="UnclaimTicket" Access="Public"
+                                    Text="{Loc 'ticket-system-unclaim-button'}"
+                                    StyleClasses="ButtonSmall" Visible="False" />
+                            <Button Name="ResolveTicket" Access="Public"
+                                    Text="{Loc 'ticket-system-resolve-button'}"
+                                    StyleClasses="ButtonSmall" Visible="True" />
+                            <Button Name="ReopenTicket" Access="Public"
+                                    Text="{Loc 'ticket-system-reopen-button'}"
+                                    StyleClasses="ButtonSmall" Visible="False" />
+                        </BoxContainer>
+                    </PanelContainer>
+
+                    <!-- Chat / message history area: HorizontalExpand ensures it fills remaining space -->
+                    <BoxContainer Access="Public" Name="BwoinkArea"
+                                  HorizontalExpand="True" VerticalExpand="True" />
+
+                    <!-- Footer: Bwoink toggle + open count, aligned bottom-right -->
+                    <PanelContainer MinHeight="36">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#0f162a"
+                                              BorderThickness="0 1 0 0"
+                                              BorderColor="#252540" />
+                        </PanelContainer.PanelOverride>
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
+                                      Margin="12 0 12 0" VerticalAlignment="Center"
+                                      SeparationOverride="8">
+                            <Label Name="OpenTicketCountLabel" Access="Public"
+                                   VerticalAlignment="Center"
+                                   FontColorOverride="#ef4444" />
+                            <Control HorizontalExpand="True" />
+                            <CheckBox Visible="True" Name="PlaySound" Access="Public"
+                                      Text="{Loc 'admin-bwoink-play-sound'}" Pressed="True"
+                                      VerticalAlignment="Center" />
+                        </BoxContainer>
+                    </PanelContainer>
                 </BoxContainer>
             </BoxContainer>
-        </SplitContainer>
+
+            <!-- ═══ MENTOR BODY — holds embedded MentorHelpControl ═══ -->
+            <!-- #Misfits Add - Container for the embedded MentorHelpControl instance.
+                 Populated programmatically on first mentor tab click. -->
+            <BoxContainer Name="MentorBody" Access="Public"
+                          HorizontalExpand="True" VerticalExpand="True" Visible="False" />
+
+        </BoxContainer>
     </PanelContainer>
 </Control>

@@ -1,0 +1,12 @@
+<!-- #Misfits Add - Scrollable ban list control for global ban list -->
+<bans:MisfitsBanListAllControl
+    xmlns="https://spacestation14.io"
+    xmlns:bans="clr-namespace:Content.Client._Misfits.Administration.UI.BanListAll.Bans">
+    <PanelContainer StyleClasses="BackgroundDark">
+        <ScrollContainer>
+            <BoxContainer Name="Bans" Access="Public" Orientation="Vertical">
+                <bans:MisfitsBanListAllHeader Name="BansHeader"/>
+            </BoxContainer>
+        </ScrollContainer>
+    </PanelContainer>
+</bans:MisfitsBanListAllControl>

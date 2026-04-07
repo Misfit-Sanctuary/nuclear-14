@@ -56,6 +56,11 @@ public sealed partial class StoreStructuredSystem : EntitySystem
     private TimeSpan _nextCheck = TimeSpan.Zero;
     private const int MaxDynamicUpdatesPerTick = 8;
 
+    // #Misfits Fix - Periodic sweep interval and timer for clearing stale CurrentUser locks
+    private const float StaleUserCheckInterval = 3f;
+    private float _staleUserCheckAccumulator;
+    private static readonly ISawmill StoreSawmill = Logger.GetSawmill("ncstore.structured");
+
     private DynamicScratch GetDynamicScratch(EntityUid storeUid)
     {
         if (_dynamicScratchByStore.TryGetValue(storeUid, out var scratch))
@@ -233,6 +238,30 @@ public sealed partial class StoreStructuredSystem : EntitySystem
             }
         }
 
+        // #Misfits Fix - Periodic sweep to clear stale CurrentUser locks on orphaned stores
+        _staleUserCheckAccumulator += frameTime;
+        if (_staleUserCheckAccumulator >= StaleUserCheckInterval)
+        {
+            _staleUserCheckAccumulator = 0f;
+            var staleQuery = EntityQueryEnumerator<NcStoreComponent>();
+            while (staleQuery.MoveNext(out var storeUid, out var storeComp))
+            {
+                if (storeComp.CurrentUser is not { } staleUser)
+                    continue;
+
+                // Already tracked — the normal health check will handle it
+                if (_openStoreUids.Contains(storeUid))
+                    continue;
+
+                // CurrentUser is set but store is NOT tracked — check if BUI is actually open
+                if (!_ui.IsUiOpen(storeUid, StoreUiKey.Key, staleUser))
+                {
+                    StoreSawmill.Warning($"Stale sweep: clearing orphaned CurrentUser {ToPrettyString(staleUser)} on {ToPrettyString(storeUid)}");
+                    storeComp.CurrentUser = null;
+                }
+            }
+        }
+
         if (_timing.CurTime < _nextCheck)
             return;
 
@@ -397,18 +426,49 @@ public sealed partial class StoreStructuredSystem : EntitySystem
 
         if (!_ui.HasUi(uid, StoreUiKey.Key))
             return;
+
+        // #Misfits Fix - Add popup feedback when store UI open is denied
         if (!_storeSystem.CanUseStore(uid, comp, user))
+        {
+            _popups.PopupEntity(Loc.GetString("nc-store-popup-no-access"), uid, user);
             return;
+        }
+
         if (comp.CurrentUser is { } current && current != user)
-            return;
+        {
+            // #Misfits Fix - Reset stale CurrentUser when BUI not actually open for that user
+            if (!_ui.IsUiOpen(uid, StoreUiKey.Key, current))
+            {
+                StoreSawmill.Warning($"Clearing stale CurrentUser {ToPrettyString(current)} on {ToPrettyString(uid)}");
+                comp.CurrentUser = null;
+                CloseAndCleanUp(uid);
+                // Fall through to fresh open below
+            }
+            else
+            {
+                _popups.PopupEntity(Loc.GetString("nc-store-popup-in-use"), uid, user);
+                return;
+            }
+        }
+
         if (TryComp(uid, out TransformComponent? sX) && TryComp(user, out TransformComponent? uX) &&
             !_xform.InRange(sX.Coordinates, uX.Coordinates, AutoCloseDistance))
+        {
+            _popups.PopupEntity(Loc.GetString("nc-store-popup-too-far"), uid, user);
             return;
+        }
 
-        var wasInUse = comp.CurrentUser != null;
+        // #Misfits Fix - If CurrentUser == user but BUI isn't open, treat as fresh open
+        if (comp.CurrentUser == user && !_ui.IsUiOpen(uid, StoreUiKey.Key, user))
+        {
+            StoreSawmill.Warning($"Resetting stale self-lock for {ToPrettyString(user)} on {ToPrettyString(uid)}");
+            comp.CurrentUser = null;
+            CloseAndCleanUp(uid);
+        }
+
         comp.CurrentUser = user;
-        if (!wasInUse)
-            _openStoreUids.Add(uid);
+        // #Misfits Fix - Always register store in _openStoreUids on successful UI open
+        _openStoreUids.Add(uid);
 
         if (!_ui.IsUiOpen(uid, StoreUiKey.Key, user))
             _ui.OpenUi(uid, StoreUiKey.Key, user);

@@ -10,9 +10,7 @@
   - type: Item
     sprite: Objects/Specific/Research/rped.rsi
     size: Normal
-  - type: GuideHelp
-    guides:
-    - MachineUpgrading
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (MachineUpgrading)
   - type: PartExchanger
   - type: Storage
     grid:

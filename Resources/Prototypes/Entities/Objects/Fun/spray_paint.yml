@@ -37,6 +37,14 @@
     closeable: true
     closeSound:
       path: /Audio/Effects/pop_high.ogg
+  # #Misfits Add - Graffiti: clicking empty floor opens decal picker (Z key), then click-to-place decals
+  - type: ActivatableUI
+    key: enum.GraffitiSprayCanUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.GraffitiSprayCanUiKey.Key:
+        type: GraffitiSprayCanBoundUserInterface
+  - type: GraffitiSprayCan
 
 # Paints
 

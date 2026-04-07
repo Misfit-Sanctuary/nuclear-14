@@ -1,0 +1,32 @@
+- type: entity
+  id: ActionLegionWarcry
+  name: action-name-legion-warcry
+  description: action-desc-legion-warcry
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 45
+    icon: Interface/Alerts/Fire/fire.png
+    event: !type:PerformWarcryActionEvent
+
+- type: entity
+  id: ActionTribalWarcry
+  name: action-name-tribal-warcry
+  description: action-desc-tribal-warcry
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 45
+    icon: Interface/Alerts/Fire/fire.png
+    event: !type:PerformWarcryActionEvent
+
+- type: entity
+  id: ActionMarsWarcry
+  name: action-name-mars-warcry
+  description: action-desc-mars-warcry
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 45
+    icon: Interface/Alerts/Fire/fire.png
+    event: !type:PerformWarcryActionEvent

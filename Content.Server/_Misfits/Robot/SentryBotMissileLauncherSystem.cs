@@ -83,9 +83,19 @@ public sealed class SentryBotMissileLauncherSystem : EntitySystem
         }
     }
 
+    // #Misfits Tweak - Gate missile launch polling to 0.5 Hz; the targeting delay is
+    // seconds-scale and uses IGameTiming.CurTime so no drift occurs.
+    private float _missileAccumulator;
+    private const float MissileUpdateInterval = 0.5f;
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        _missileAccumulator += frameTime;
+        if (_missileAccumulator < MissileUpdateInterval)
+            return;
+        _missileAccumulator -= MissileUpdateInterval;
 
         var query = EntityQueryEnumerator<SentryBotChassisComponent>();
 

@@ -7,9 +7,17 @@ on:
 
 jobs:
   this_aint_right:
-    if: github.actor != 'sleepyyapril' && github.actor != 'VMSolidus' && github.actor != 'DEATHB4DEFEAT'
     name: Submodule update in pr found
     runs-on: ubuntu-latest
     steps:
-      - name: Fail
-        run: exit 1
+      # #Misfits Change - Allowlisted actors get green check instead of grey skip
+      - name: Check submodule update permission
+        run: |
+          ALLOWED="sleepyyapril VMSolidus DEATHB4DEFEAT Cythisiax"
+          if echo "$ALLOWED" | grep -qw "${{ github.actor }}"; then
+            echo "✅ ${{ github.actor }} is allowed to update submodules"
+            exit 0
+          else
+            echo "❌ ${{ github.actor }} is not allowed to update submodules"
+            exit 1
+          fi

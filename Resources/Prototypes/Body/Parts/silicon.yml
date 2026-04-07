@@ -22,10 +22,7 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 25
-  - type: GuideHelp
-    guides:
-      - Cyborgs
-  # Shitmed Change Start
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Cyborgs)
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/organ1.ogg

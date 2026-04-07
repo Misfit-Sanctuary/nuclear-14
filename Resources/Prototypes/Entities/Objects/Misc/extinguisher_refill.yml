@@ -13,8 +13,7 @@
     size: Small
   - type: SelfExtinguisherRefill
     refillAmount: 10
-  - type: GuideHelp
-    guides: [ Plasmaman ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Plasmaman)
   - type: MeleeWeapon # Same values as double emergency tank
     attackRate: 0.9
     wideAnimationRotation: 45

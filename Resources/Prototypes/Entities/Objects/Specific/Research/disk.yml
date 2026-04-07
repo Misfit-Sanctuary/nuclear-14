@@ -8,9 +8,7 @@
     sprite: Objects/Specific/Research/researchdisk.rsi
     state: icon
   - type: ResearchDisk
-  - type: GuideHelp
-    guides:
-    - Science
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Science)
   - type: EmitSoundOnPickup
     sound: /Audio/SimpleStation14/Items/Handling/disk_pickup.ogg
   - type: EmitSoundOnDrop

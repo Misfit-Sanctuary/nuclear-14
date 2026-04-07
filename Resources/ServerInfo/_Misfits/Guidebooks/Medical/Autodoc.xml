@@ -1,0 +1,51 @@
+<Document>
+# Autodoc Mk.XIV
+
+[textlink="View Full Wiki Page" link="https://ss14.misfitsystems.net/wiki/index.php/Autodoc"]
+
+<p>The Autodoc Mk.XIV is a programmable surgical machine capable of executing complex medical procedures automatically. It must be linked to an operating table and programmed before use.</p>
+
+<ColorBox Color="#1a1a1a" OutlineColor="#cc3333" OutlineThickness="1" Margin="5">
+  <Box Orientation="Vertical" Margin="8">
+    [bold][color=#cc3333]WARNING:[/color][/bold] Operation requires proper medical certification and adherence to established protocols. Anesthesia is required for safe operation.
+  </Box>
+</ColorBox>
+
+<hr/>
+
+## Setup
+
+<p>Use a multitool to link the Autodoc to a nearby operating table. Once a patient is sleeping on the linked table, the Autodoc is ready to operate.</p>
+
+<p>Place any items a program requires in the Autodoc's storage trays before starting. The machine cannot retrieve items from the floor.</p>
+
+<hr/>
+
+## Programs and Steps
+
+<p>The Autodoc operates through programs — ordered lists of steps executed in sequence until the program completes. If any step fails, the Autodoc aborts the procedure unless safety mode is disabled.</p>
+
+<p>Create a program with a memorable name and add steps using the interface. Available step types:</p>
+
+<ul>
+<li>[bold]PERFORM SURGERY[/bold] — executes a surgery on a chosen body part. Prerequisites such as opening the ribcage are handled automatically. Ensure compatible surgeries are selected — the machine will not prevent logical errors.</li>
+<li>[bold]GRAB ITEM[/bold] — retrieves an item from the storage trays by exact name. Use a hand labeler to distinguish multiple copies of the same item.</li>
+<li>[bold]GRAB ORGAN[/bold] — retrieves any organ from the storage trays.</li>
+<li>[bold]GRAB PART[/bold] — retrieves any body part from the storage trays.</li>
+<li>[bold]STORE ITEM[/bold] — places the currently held item back into the storage trays. Required after removing something from a patient, or subsequent steps will drop it on the floor.</li>
+<li>[bold]SET LABEL[/bold] — applies a short label to the currently held item. Essential for organ transplants requiring a specific organ.</li>
+<li>[bold]WAIT[/bold] — pauses execution for a set duration before continuing.</li>
+</ul>
+
+<hr/>
+
+## Additional Notes
+
+<ul>
+<li>Selecting a step in the program allows you to remove it or insert a new step before it, rather than only appending to the end.</li>
+<li>Disabling a program's safety mode causes failed steps to be skipped rather than aborting the entire program. Only disable safety if you understand the full consequences.</li>
+<li>If storage trays are full, STORE ITEM steps will fail and the machine will halt. Keep tray space available during long procedures.</li>
+<li>Amputating a limb detaches its extremity to the floor. Remove feet and hands manually before amputating arms or legs if they need to be reattached.</li>
+</ul>
+
+</Document>

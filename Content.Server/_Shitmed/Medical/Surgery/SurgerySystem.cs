@@ -265,6 +265,11 @@ public sealed class SurgerySystem : SharedSurgerySystem
         if (!TryComp<DnaComponent>(ent, out var dnaComp))
             return;
 
+        // #Misfits Change - Sanitized surgeons (e.g. Mr. Handy) are sterile: skip both contamination
+        // damage and instrument dirtying, consistent with the SanitizedComponent intent in Steps.cs.
+        if (HasComp<SanitizedComponent>(args.User))
+            return;
+
         var dirtiness = TotalDirtiness(args.User, args.Tools, (ent, dnaComp, ent));
         var damage = DamageToBeDealt(ent, dirtiness);
 

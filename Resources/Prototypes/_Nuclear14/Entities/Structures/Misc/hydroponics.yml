@@ -46,7 +46,7 @@
   - type: Sprite
     sprite: _Nuclear14/Objects/Specific/Hydroponics/equipment.rsi
     snapCardinals: true
-    netsync: false
+    # netsync: false # #Misfits Fix - this was preventing the sprite from rendering on clients
     state: compostbin
   - type: ApcPowerReceiver
     powerLoad: 0

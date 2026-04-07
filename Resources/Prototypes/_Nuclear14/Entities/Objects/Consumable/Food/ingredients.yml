@@ -435,6 +435,32 @@
   components:
   - type: Sprite
     state: butter
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Butter
+          Quantity: 15
+  - type: SliceableFood
+    count: 3
+    slice: N14FoodButterSlice
+
+- type: entity
+  name: butter slice
+  parent: N14FoodBakingBase
+  id: N14FoodButterSlice
+  description: A pat of delicious, golden, fatty goodness.
+  components:
+  - type: Sprite
+    state: butter-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Butter
+          Quantity: 5
 
 - type: entity
   name: stick of cannabis butter

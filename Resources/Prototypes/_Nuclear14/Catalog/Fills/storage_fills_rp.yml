@@ -1174,6 +1174,8 @@
           maxAmount: 3
         - id: MisfitsWendoverMap # #Misfits Add — rare chance to find a Wendover area map in junk piles
           prob: 0.10
+        - id: N14Binoculars # #Misfits Add — rare binoculars find in junkpiles
+          prob: 0.02
         - id: N14CombatKnife
           prob: 0.03
           orGroup: Tools

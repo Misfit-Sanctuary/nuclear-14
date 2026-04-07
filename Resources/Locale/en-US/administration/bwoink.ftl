@@ -1,4 +1,4 @@
-bwoink-user-title = Admin Message
+bwoink-user-title = Tickets
 
 bwoink-system-starmute-message-no-other-users = *System: Nobody is available to receive your message. Try pinging Game Admins on Discord.
 

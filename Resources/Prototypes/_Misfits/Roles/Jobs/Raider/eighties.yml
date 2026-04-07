@@ -1,0 +1,48 @@
+# #Misfits Add - Eighties job definition for the Outlaws faction overhaul.
+# The Eighties are a tribal raider gang named after Interstate 80.
+# They specialize in ambushing caravans and scavenging highway infrastructure.
+
+- type: job
+  id: Eighties
+  setPreference: true
+  name: job-name-eighties
+  description: job-description-eighties
+  playTimeTracker: Eighties
+  whitelisted: true # Keep whitelist gate consistent with existing Outlaw access policy
+  requirements:
+  - !type:MinPlayersRequirement
+    min: 0
+  startingGear: EightiesGear
+  alwaysUseSpawner: true
+  icon: "JobIconEighties"
+  supervisors: job-supervisors-outlaws
+  canBeAntag: false
+  special: # Register with PlayerRaider faction for faction war system compatibility
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - PlayerRaider
+
+- type: startingGear
+  id: EightiesGear
+  equipment:
+    bandage: NCClothingBandageRaiders
+    jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
+    outerClothing: MisfitsClothingOuterEightiesArmor
+    shoes: N14ClothingShoesRaider
+    neck: ClothingNeckBlackScarf
+    head: N14ClothingHeadHatBeanie
+    ears: MisfitsClothingHeadsetWastelandScrap
+    back: N14ClothingBackpackMilitary
+    suitstorage: N14WeaponSMG45
+    belt: ClothingBeltMilitary
+  storage:
+    back:
+    - N14BoxPlasticFilledWastelander
+    belt:
+    - Magazine45SubMachineGun
+    - Magazine45SubMachineGun
+
+- type: playTimeTracker
+  id: Eighties

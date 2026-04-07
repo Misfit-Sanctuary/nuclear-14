@@ -33,7 +33,7 @@ namespace Content.Server.Construction.Conditions
             var entity = args.Examined;
 
             if (!IoCManager.Resolve<IEntityManager>().TryGetComponent(entity, out ContainerManagerComponent? containerManager) ||
-                !containerManager.TryGetContainer(Container, out var container)) return false;
+                !containerManager.Containers.TryGetValue(Container, out var container)) return false; // #Misfits Fix - RT v275: TryGetContainer moved to system; use Containers dict directly
 
             if (container.ContainedEntities.Count != 0)
                 return false;

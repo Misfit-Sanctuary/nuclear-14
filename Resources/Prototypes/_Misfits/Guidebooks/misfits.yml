@@ -1,0 +1,99 @@
+# #Misfits Add — Misfits guidebook prototype entries
+
+# Faction War — cross-faction war timeline and rules
+- type: guideEntry
+  id: MisfitsFactionWar
+  name: guide-entry-misfits-factionwar
+  text: "/ServerInfo/_Misfits/Guidebooks/FactionWar.xml"
+
+# Chems & Addiction — medical and chem reference
+- type: guideEntry
+  id: MisfitsChemsAddiction
+  name: guide-entry-misfits-chemsaddiction
+  text: "/ServerInfo/_Misfits/Guidebooks/ChemsAddiction.xml"
+
+# Currency — wasteland economy
+- type: guideEntry
+  id: MisfitsCurrency
+  name: guide-entry-misfits-currency
+  text: "/ServerInfo/_Misfits/Guidebooks/Currency.xml"
+
+# Armor — power armor and faction armor
+- type: guideEntry
+  id: MisfitsArmor
+  name: guide-entry-misfits-armor
+  text: "/ServerInfo/_Misfits/Guidebooks/Armor.xml"
+
+# Outlaws — outlaw gangs faction
+- type: guideEntry
+  id: MisfitsOutlaws
+  name: guide-entry-misfits-outlaws
+  text: "/ServerInfo/_Misfits/Guidebooks/Outlaws.xml"
+  filterEnabled: True
+
+# Synthetics — Institute synths and robots
+- type: guideEntry
+  id: MisfitsSynthetics
+  name: guide-entry-misfits-synthetics
+  text: "/ServerInfo/_Misfits/Guidebooks/Synthetics.xml"
+  filterEnabled: True
+
+# Super Mutants — FEV-mutated faction
+- type: guideEntry
+  id: MisfitsSuperMutants
+  name: guide-entry-misfits-supermutants
+  text: "/ServerInfo/_Misfits/Guidebooks/SuperMutants.xml"
+  filterEnabled: True
+
+# Whitelists — whitelist-only race roles (Super Mutants, Robots)
+- type: guideEntry
+  id: MisfitsWhitelists
+  name: guide-entry-misfits-whitelists
+  text: "/ServerInfo/_Misfits/Guidebooks/Whitelists.xml"
+  children:
+  - MisfitsSuperMutants
+  - MisfitsSynthetics
+
+# Faction Sustainability — munitions and medicine guide
+- type: guideEntry
+  id: MisfitsFactionSustainability
+  name: guide-entry-misfits-factionsustainability
+  text: "/ServerInfo/_Misfits/Guidebooks/FactionSustainability.xml"
+
+# Guidebook component showcase — hidden contributor reference page
+- type: guideEntry
+  id: MisfitsGuidebookShowcase
+  name: guide-entry-misfits-guidebook-showcase
+  text: "/ServerInfo/_Misfits/Guidebooks/GuidebookComponentShowcase.xml"
+  hideInMenu: true
+
+# Guidebook authoring template — hidden contributor reference page
+- type: guideEntry
+  id: MisfitsGuidebookTemplate
+  name: guide-entry-misfits-guidebook-template
+  text: "/ServerInfo/_Misfits/Guidebooks/GuidebookAuthoringTemplate.xml"
+  hideInMenu: true
+
+# Enclave and Followers entries live in factions.yml with updated paths
+
+# Species — hidden entry for character creation species guide button
+# Referenced by HumanoidProfileEditor.xaml.cs DefaultSpeciesGuidebook const
+- type: guideEntry
+  id: Species
+  name: guide-entry-species
+  text: "/ServerInfo/_Misfits/Guidebooks/Species.xml"
+  hideInMenu: true
+
+# Wiki — external link buttons for the Misfits wiki site
+- type: guideEntry
+  id: MisfitsWiki
+  name: guide-entry-misfits-wiki
+  text: "/ServerInfo/_Misfits/Guidebooks/WikiLink.xml"
+  priority: -10
+
+# NewPlayer — default guidebook landing page (matches server.default_guide CVar default)
+- type: guideEntry
+  id: NewPlayer
+  name: guide-entry-new-player
+  text: "/ServerInfo/_Misfits/ServerRules/DefaultRuleset.xml"
+  hideInMenu: true

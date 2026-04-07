@@ -97,6 +97,8 @@ namespace Content.Server.Administration.Systems
         // #Misfits Add — AHelp ticket tracking (per-round, in-memory)
         private int _nextTicketId = 1;
         private readonly Dictionary<NetUserId, HelpTicketInfo> _tickets = new();
+        // #Misfits Add — 1-minute cooldown per player after ticket resolution
+        private readonly Dictionary<NetUserId, DateTime> _ticketCooldowns = new();
 
         // #Misfits Add — per-channel message history for the current round so late-joining
         // admins can see the full conversation when they open the bwoink panel.
@@ -146,6 +148,7 @@ namespace Content.Server.Administration.Systems
                 _nextTicketId = 1;
                 // #Misfits Add — clear message history so stale conversations don't leak across rounds
                 _messageHistory.Clear();
+                _ticketCooldowns.Clear();
             });
             // #Misfits Add — ghost-follow from the AHelp/Bwoink panel
             SubscribeNetworkEvent<BwoinkAdminGhostFollowMessage>(OnBwoinkAdminGhostFollow);
@@ -253,7 +256,7 @@ namespace Content.Server.Administration.Systems
                 dcTicket.ResolvedById = null;
                 dcTicket.ResolvedAt = DateTime.UtcNow;
                 BroadcastTicketUpdate(dcTicket);
-                SendTicketSystemMessage(dcTicket.PlayerId, Loc.GetString("ticket-system-auto-resolved-disconnect", ("id", dcTicket.TicketId), ("type", "AHELP")));
+                // #Misfits Tweak — removed bwoink chat announcement for auto-resolve on disconnect
                 // #Misfits Add — persist disconnect auto-resolve so ticket history survives round resets.
                 LogAHelpTicketEvent(dcTicket, "auto-resolved on disconnect", "System", LogImpact.Medium);
                 PersistTicketEvent(dcTicket, HelpTicketEventType.AutoResolved);
@@ -578,6 +581,22 @@ namespace Content.Server.Administration.Systems
             _chatManager.SendAdminAnnouncement(text, flagWhitelist: AdminFlags.Adminhelp);
         }
 
+        // #Misfits Add — send a system message only to the player (not visible in admin bwoink panel)
+        private void SendPlayerSystemMessage(NetUserId playerId, string text)
+        {
+            if (!_playerManager.TryGetSessionById(playerId, out var session))
+                return;
+            var safeText = Robust.Shared.Utility.FormattedMessage.EscapeText(text);
+            var msg = new BwoinkTextMessage(
+                userId: playerId,
+                trueSender: SystemUserId,
+                text: $"[color=yellow]{safeText}[/color]",
+                sentAt: DateTime.Now,
+                playSound: false
+            );
+            RaiseNetworkEvent(msg, session.Channel);
+        }
+
         // #Misfits Add — admin claims a ticket
         private void OnTicketClaim(HelpTicketClaimMessage msg, EntitySessionEventArgs args)
         {
@@ -596,7 +615,7 @@ namespace Content.Server.Administration.Systems
             ticket.ClaimedByName = args.SenderSession.Name;
             ticket.ClaimedById = args.SenderSession.UserId;
             BroadcastTicketUpdate(ticket);
-            SendTicketSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-claimed", ("id", ticket.TicketId), ("role", "Admin"), ("admin", args.SenderSession.Name), ("type", "AHELP")));
+            // #Misfits Tweak — removed bwoink chat announcement; panel card now shows claimer directly
             // #Misfits Add — persist claims so staff handling volume can be audited historically.
             LogAHelpTicketEvent(ticket, "claimed", args.SenderSession.Name, LogImpact.Low);
             PersistTicketEvent(ticket, HelpTicketEventType.Claimed, args.SenderSession.Name, args.SenderSession.UserId.UserId);
@@ -620,7 +639,9 @@ namespace Content.Server.Administration.Systems
             ticket.ResolvedById = args.SenderSession.UserId;
             ticket.ResolvedAt = DateTime.Now;
             BroadcastTicketUpdate(ticket);
-            SendTicketSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-resolved", ("id", ticket.TicketId), ("role", "Admin"), ("admin", args.SenderSession.Name), ("type", "AHELP")));
+            // #Misfits Tweak — send resolve notice only to the player (no admin panel spam); set 1-minute cooldown
+            _ticketCooldowns[ticket.PlayerId] = DateTime.Now.AddMinutes(1);
+            SendPlayerSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-resolved-with-cooldown"));
             // #Misfits Add — persist resolutions with timing to support promotion/performance reviews.
             var age = (DateTime.Now - ticket.CreatedAt).TotalMinutes;
             LogAHelpTicketEvent(ticket, $"resolved ({age:F1}m since created)", args.SenderSession.Name, LogImpact.Medium);
@@ -644,7 +665,7 @@ namespace Content.Server.Administration.Systems
             ticket.ClaimedByName = null;
             ticket.ClaimedById = null;
             BroadcastTicketUpdate(ticket);
-            SendTicketSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-unclaimed", ("id", ticket.TicketId), ("role", "Admin"), ("admin", args.SenderSession.Name), ("type", "AHELP")));
+            // #Misfits Tweak — removed bwoink chat announcement; panel card reflects new status
             // #Misfits Add — persist unclaims for queue-handoff auditability.
             LogAHelpTicketEvent(ticket, "unclaimed", args.SenderSession.Name, LogImpact.Low);
             PersistTicketEvent(ticket, HelpTicketEventType.Unclaimed, args.SenderSession.Name, args.SenderSession.UserId.UserId);
@@ -670,7 +691,9 @@ namespace Content.Server.Administration.Systems
             ticket.ResolvedById = null;
             ticket.ResolvedAt = null;
             BroadcastTicketUpdate(ticket);
-            SendTicketSystemMessage(ticket.PlayerId, Loc.GetString("ticket-system-reopened", ("id", ticket.TicketId), ("role", "Admin"), ("admin", args.SenderSession.Name), ("type", "AHELP")));
+            // #Misfits Tweak — removed bwoink chat announcement; panel card reflects new status
+            // #Misfits Tweak — clear cooldown when admin explicitly reopens the ticket
+            _ticketCooldowns.Remove(ticket.PlayerId);
             // #Misfits Add — persist reopen events to track unresolved churn over time.
             LogAHelpTicketEvent(ticket, "reopened", args.SenderSession.Name, LogImpact.Medium);
             PersistTicketEvent(ticket, HelpTicketEventType.Reopened, args.SenderSession.Name, args.SenderSession.UserId.UserId);
@@ -752,14 +775,22 @@ namespace Content.Server.Administration.Systems
             RaiseNetworkEvent(new HelpTicketListMessage(list, HelpTicketType.AdminHelp), args.SenderSession.Channel);
         }
 
-        // #Misfits Add — admin requests persistent audit log from DB (cross-round, paginated)
+        // #Misfits Change - Audit log handler: extended to support filters (name, admin, date) and admin statistics
         private async void OnAuditRequest(HelpTicketAuditRequestMessage msg, EntitySessionEventArgs args)
         {
             if (!(_adminManager.GetAdminData(args.SenderSession)?.HasFlag(AdminFlags.Adminhelp) ?? false))
                 return;
 
+            // #Misfits Change - pass all filter parameters to DB query
             var (events, total) = await _dbManager.GetHelpTicketEventsAsync(
-                msg.FilterPlayerId, msg.Limit, msg.Offset);
+                msg.FilterPlayerId,
+                msg.Limit,
+                msg.Offset,
+                msg.FilterPlayerName,
+                msg.FilterAdminName,
+                msg.FilterAdminId,
+                msg.FilterStartDate,
+                msg.FilterEndDate);
 
             var entries = events.Select(e => new HelpTicketAuditEntry
             {
@@ -774,8 +805,23 @@ namespace Content.Server.Administration.Systems
                 OccurredAt = e.OccurredAt,
             }).ToList();
 
+            // #Misfits Add - fetch admin statistics when requested
+            List<AdminStatEntry>? adminStats = null;
+            if (msg.IncludeAdminStats)
+            {
+                adminStats = await _dbManager.GetAdminStatisticsAsync(
+                    msg.FilterStartDate,
+                    msg.FilterEndDate);
+            }
+
             RaiseNetworkEvent(
-                new HelpTicketAuditResponseMessage { Entries = entries, TotalCount = total, Offset = msg.Offset },
+                new HelpTicketAuditResponseMessage
+                {
+                    Entries = entries,
+                    TotalCount = total,
+                    Offset = msg.Offset,
+                    AdminStats = adminStats, // #Misfits Add - include stats in response
+                },
                 args.SenderSession.Channel);
         }
 
@@ -1187,6 +1233,13 @@ namespace Content.Server.Administration.Systems
             // #Misfits Add — create ticket when a non-admin player sends a message
             if (bwoinkParams.SenderAdmin == null || !bwoinkParams.SenderAdmin.HasFlag(AdminFlags.Adminhelp))
             {
+                // #Misfits Add — enforce 1-minute cooldown after ticket resolution; block silently on admin side
+                if (_ticketCooldowns.TryGetValue(bwoinkParams.Message.UserId, out var cooldownEnd)
+                    && DateTime.Now < cooldownEnd)
+                {
+                    SendPlayerSystemMessage(bwoinkParams.Message.UserId, Loc.GetString("ticket-system-cooldown-blocked"));
+                    return; // Don't forward the message or create a ticket
+                }
                 EnsureTicket(bwoinkParams.Message.UserId, bwoinkParams.SenderName);
             }
 
@@ -1210,7 +1263,7 @@ namespace Content.Server.Administration.Systems
                     newTicket.ClaimedByName = bwoinkParams.SenderName;
                     newTicket.ClaimedById = bwoinkParams.SenderId;
                     BroadcastTicketUpdate(newTicket);
-                    SendTicketSystemMessage(newTicket.PlayerId, Loc.GetString("ticket-system-auto-claimed", ("id", newTicket.TicketId), ("admin", bwoinkParams.SenderName), ("type", "AHELP")));
+                    // #Misfits Tweak — removed auto-claim bwoink announcement; panel card shows claimer
                 }
             }
 
@@ -1225,7 +1278,7 @@ namespace Content.Server.Administration.Systems
                 openTicket.ClaimedByName = bwoinkParams.SenderName;
                 openTicket.ClaimedById = bwoinkParams.SenderId;
                 BroadcastTicketUpdate(openTicket);
-                SendTicketSystemMessage(openTicket.PlayerId, Loc.GetString("ticket-system-auto-claimed", ("id", openTicket.TicketId), ("admin", bwoinkParams.SenderName), ("type", "AHELP")));
+                // #Misfits Tweak — removed auto-claim bwoink announcement; panel card shows claimer
             }
 
             var escapedText = FormattedMessage.EscapeText(bwoinkParams.Message.Text);

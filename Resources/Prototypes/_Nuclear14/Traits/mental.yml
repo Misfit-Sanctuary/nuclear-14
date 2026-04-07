@@ -158,7 +158,7 @@
 # The flood of various & mixed pet traits shall begin here
 - type: trait
   id: N14PetRoach
-  category: Mental
+  category: Pets # #Misfits Change - moved from Mental to Pets tab; removed inter-pet exclusion to allow stacking
   points: -3
   requirements:
     - !type:CharacterDepartmentRequirement
@@ -166,12 +166,6 @@
         - Wastelander
         - Tribe
         - Townsfolk
-    - !type:CharacterTraitRequirement
-      inverted: true
-      traits:
-        - N14PetPigrat
-        - N14PetEyebot
-        - N14PetDog
   functions:
     - !type:TraitAddComponent
       components:
@@ -184,7 +178,7 @@
 
 - type: trait
   id: N14PetPigrat
-  category: Mental
+  category: Pets # #Misfits Change - moved from Mental to Pets tab; removed inter-pet exclusion to allow stacking
   points: -4
   requirements:
     - !type:CharacterDepartmentRequirement
@@ -192,12 +186,6 @@
         - Wastelander
         - Tribe
         - Townsfolk
-    - !type:CharacterTraitRequirement
-      inverted: true
-      traits:
-        - N14PetRoach
-        - N14PetEyebot
-        - N14PetDog
   functions:
     - !type:TraitAddComponent
       components:
@@ -233,19 +221,13 @@
 # All the eyebots shall be here.
 - type: trait
   id: N14PetEyebot
-  category: Mental
+  category: Pets # #Misfits Change - moved from Mental to Pets tab; removed inter-pet exclusion to allow stacking
   points: -6
   requirements:
     - !type:CharacterDepartmentRequirement
       departments:
         - Wastelander
         - Townsfolk
-    - !type:CharacterTraitRequirement
-      inverted: true
-      traits:
-        - N14PetRoach
-        - N14PetPigrat
-        - N14PetDog
   functions:
     - !type:TraitAddComponent
       components:
@@ -258,16 +240,12 @@
 
 - type: trait
   id: N14PetEyebotMBoS
-  category: Mental
+  category: Pets # #Misfits Change - moved from Mental to Pets tab; removed inter-pet exclusion to allow stacking
   points: -6
   requirements:
     - !type:CharacterDepartmentRequirement
       departments:
         - BrotherhoodOfSteel
-    - !type:CharacterTraitRequirement
-      inverted: true
-      traits:
-        - N14PetDogMBoS
   functions:
     - !type:TraitAddComponent
       components:
@@ -304,7 +282,7 @@
 # All the dog pet traits because every faction that has turrets needs their own variant
 - type: trait
   id: N14PetDog
-  category: Mental
+  category: Pets # #Misfits Change - moved from Mental to Pets tab; removed inter-pet exclusion to allow stacking
   points: -6
   requirements:
     - !type:CharacterOverallTimeRequirement
@@ -314,12 +292,6 @@
         - Wastelander
         - Tribe
         - Townsfolk
-    - !type:CharacterTraitRequirement
-      inverted: true
-      traits:
-        - N14PetRoach
-        - N14PetPigrat
-        - N14PetEyebot
   functions:
     - !type:TraitAddComponent
       components:
@@ -332,7 +304,7 @@
 
 - type: trait
   id: N14PetDogMBoS
-  category: Mental
+  category: Pets # #Misfits Change - moved from Mental to Pets tab; removed inter-pet exclusion to allow stacking
   points: -6
   requirements:
     - !type:CharacterOverallTimeRequirement
@@ -340,10 +312,6 @@
     - !type:CharacterDepartmentRequirement
       departments:
         - BrotherhoodOfSteel
-    - !type:CharacterTraitRequirement
-      inverted: true
-      traits:
-        - N14PetEyebotMBoS
   functions:
     - !type:TraitAddComponent
       components:
@@ -405,7 +373,7 @@
 
 - type: trait
   id: N14PetDogNCR
-  category: Mental
+  category: Pets # #Misfits Change - moved from Mental to Pets tab
   points: -6
   requirements:
     - !type:CharacterOverallTimeRequirement
@@ -425,7 +393,7 @@
 
 - type: trait
   id: N14PetDogNCRK9Medical
-  category: Mental
+  category: Pets # #Misfits Change - moved from Mental to Pets tab
   points: -6
   requirements:
     - !type:CharacterOverallTimeRequirement

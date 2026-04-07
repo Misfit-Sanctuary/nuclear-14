@@ -4,56 +4,59 @@
 # Stats converted from SS13 (0-100 resistance) to SS14 coefficients: 1 - (ss13_value / 100).
 # Sprites: TODO — source .dmi files from SS13 Big-Iron icons/clothing/suits/ and convert to RSI.
 
-- type: entity
-  parent: N14FalloutArmorBase
-  id: MisfitsClothingOuterFiendArmor
-  name: fiend raider armor
-  description: Armor cobbled together from Vault 3 security gear and scavenged raider parts. Whoever wore this was deep in the Psycho habit — the stitching is sloppy and the straps have been adjusted and re-adjusted a dozen times.
-  components:
-  - type: Sprite
-    sprite: _Misfits/Clothing/OuterClothing/Armor/fiendarmor.rsi
-  - type: Clothing
-    sprite: _Misfits/Clothing/OuterClothing/Armor/fiendarmor.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.72
-        Slash: 0.72
-        Piercing: 0.77
-        Heat: 0.87
-        Caustic: 0.82
+# #Misfits Removed - Fiend armor removed as part of Outlaws faction overhaul (replaced by Eighties/WhiteLegs)
+# - type: entity
+#   parent: N14FalloutArmorBase
+#   id: MisfitsClothingOuterFiendArmor
+#   name: fiend raider armor
+#   description: Armor cobbled together from Vault 3 security gear and scavenged raider parts. Whoever wore this was deep in the Psycho habit — the stitching is sloppy and the straps have been adjusted and re-adjusted a dozen times.
+#   components:
+#   - type: Sprite
+#     sprite: _Misfits/Clothing/OuterClothing/Armor/fiendarmor.rsi
+#   - type: Clothing
+#     sprite: _Misfits/Clothing/OuterClothing/Armor/fiendarmor.rsi
+#   - type: Armor
+#     modifiers:
+#       coefficients:
+#         Blunt: 0.72
+#         Slash: 0.72
+#         Piercing: 0.77
+#         Heat: 0.87
+#         Caustic: 0.82
 
-- type: entity
-  parent: N14FalloutArmorBase
-  id: MisfitsClothingOuterJackalArmor
-  name: jackal gang armor
-  description: Scavenged plates and leather worn by members of the Jackals. Mean, lean, and expendable — exactly how the gang operates. Offers just enough protection to make running away a viable option.
-  components:
-  - type: Sprite
-    sprite: _Misfits/Clothing/OuterClothing/Armor/jackalarmor.rsi
-  - type: Clothing
-    sprite: _Misfits/Clothing/OuterClothing/Armor/jackalarmor.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.77
-        Slash: 0.82
-        Piercing: 0.82
+# #Misfits Removed - Jackal armor removed as part of Outlaws faction overhaul (replaced by Eighties/WhiteLegs)
+# - type: entity
+#   parent: N14FalloutArmorBase
+#   id: MisfitsClothingOuterJackalArmor
+#   name: jackal gang armor
+#   description: Scavenged plates and leather worn by members of the Jackals. Mean, lean, and expendable — exactly how the gang operates. Offers just enough protection to make running away a viable option.
+#   components:
+#   - type: Sprite
+#     sprite: _Misfits/Clothing/OuterClothing/Armor/jackalarmor.rsi
+#   - type: Clothing
+#     sprite: _Misfits/Clothing/OuterClothing/Armor/jackalarmor.rsi
+#   - type: Armor
+#     modifiers:
+#       coefficients:
+#         Blunt: 0.77
+#         Slash: 0.82
+#         Piercing: 0.82
 
-- type: entity
-  parent: N14FalloutArmorBase
-  id: MisfitsClothingOuterViperArmor
-  name: viper gang armor
-  description: Viper cult armor adorned with snake motifs and stolen NCR plates. Old habits from when they were a genuine threat to the Mojave. The snake iconography is half intimidation, half genuine belief.
-  components:
-  - type: Sprite
-    sprite: _Misfits/Clothing/OuterClothing/Armor/viperarmor.rsi
-  - type: Clothing
-    sprite: _Misfits/Clothing/OuterClothing/Armor/viperarmor.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.67
-        Slash: 0.70
-        Piercing: 0.77
-        Caustic: 0.82
+# #Misfits Removed - Viper armor removed as part of Outlaws faction overhaul (replaced by Eighties/WhiteLegs)
+# - type: entity
+#   parent: N14FalloutArmorBase
+#   id: MisfitsClothingOuterViperArmor
+#   name: viper gang armor
+#   description: Viper cult armor adorned with snake motifs and stolen NCR plates. Old habits from when they were a genuine threat to the Mojave. The snake iconography is half intimidation, half genuine belief.
+#   components:
+#   - type: Sprite
+#     sprite: _Misfits/Clothing/OuterClothing/Armor/viperarmor.rsi
+#   - type: Clothing
+#     sprite: _Misfits/Clothing/OuterClothing/Armor/viperarmor.rsi
+#   - type: Armor
+#     modifiers:
+#       coefficients:
+#         Blunt: 0.67
+#         Slash: 0.70
+#         Piercing: 0.77
+#         Caustic: 0.82

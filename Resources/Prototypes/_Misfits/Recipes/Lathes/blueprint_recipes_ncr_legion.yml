@@ -383,6 +383,22 @@
 
 
 - type: latheRecipe
+  id: N14BPNCRWeaponRifleM1Garand
+  result: N14WeaponRifleM1Garand
+  category: N14BlueprintNCRWeaponsT3
+  completetime: 15
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 7000
+
+    Wood: 15
+
+    N14Iron: 12
+
+
+- type: latheRecipe
   id: N14BPNCRWeaponSMG10mm
   result: N14WeaponSMG10mm
   category: N14BlueprintNCRWeaponsT3
@@ -587,6 +603,29 @@
     N14Brass: 45
 
     Circuitry: 15
+
+
+# --- NCR Tier 5 Weapons (Anti-Materiel) ---
+# #Misfits Add - costs so much scrap metal to make these dang things
+- type: latheRecipe
+  id: N14BPNCRWeaponAntiMateriel
+  result: N14WeaponSniper50AntiMateriel
+  category: N14BlueprintNCRWeaponsT5
+  completetime: 35
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  - Rangers
+  materials:
+    Steel: 20000
+
+    N14Iron: 60
+
+    N14Brass: 50
+
+    Scrap: 80
+
+    Glass: 20
 
 
 # =====================================================================
@@ -1140,6 +1179,22 @@
 
 
 - type: latheRecipe
+  id: N14BPNCRAmmoGarandEnbloc308
+  result: GarandEnbloc308
+  category: N14BlueprintNCRAmmoT3
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 2000
+
+    Lead: 20
+
+    N14Gunpowder: 15
+
+
+- type: latheRecipe
   id: N14BPNCRAmmoBox127
   result: N14AmmoBox127
   category: N14BlueprintNCRAmmoT3
@@ -1642,6 +1697,22 @@
 
 
 - type: latheRecipe
+  id: N14BPLegionWeaponRifleM1Garand
+  result: N14WeaponRifleM1Garand
+  category: N14BlueprintLegionWeaponsT3
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 6000
+
+    Wood: 20
+
+    N14Iron: 15
+
+
+- type: latheRecipe
   id: N14BPLegionWeaponLauncherGrenade
   result: N14WeaponLauncherGrenade
   category: N14BlueprintLegionWeaponsT3
@@ -2127,6 +2198,22 @@
     N14Brass: 35
 
     N14Gunpowder: 40
+
+
+- type: latheRecipe
+  id: N14BPLegionAmmoGarandEnbloc308
+  result: GarandEnbloc308
+  category: N14BlueprintLegionAmmoT3
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 2000
+
+    Lead: 20
+
+    N14Gunpowder: 15
 
 
 - type: latheRecipe

@@ -38,7 +38,7 @@
     alwaysCombustible: true
     canExtinguish: true
     firestacksOnIgnite: 3.0
-    firestackFade: -0.01
+    firestackFade: 0 # #Misfits Tweak - No passive decay; bonfire stays lit until manually extinguished
     damage:
       types:
         Heat: 0.1

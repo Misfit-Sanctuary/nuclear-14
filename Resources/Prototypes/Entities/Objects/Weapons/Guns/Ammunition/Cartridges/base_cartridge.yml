@@ -14,8 +14,8 @@
         density: 0.5
         mask:
           - ItemMask
-        restitution: 0.7  # Small and bouncy
-        friction: 0.2
+        restitution: 0.1 # #Misfits Tweak - Low bounce so casings settle fast instead of staying awake in physics engine
+        friction: 0.7 # #Misfits Tweak - High friction so casings stop sliding fast and exit the physics active set sooner
   - type: Tag
     tags:
     - Cartridge
@@ -27,11 +27,13 @@
       path: /Audio/Weapons/Guns/Casings/casing_fall_1.ogg
       params:
         volume: -1
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Weapons/Guns/Casings/casing_fall_2.ogg
-      params:
-        volume: -1
+  # #Misfits Removed - EmitSoundOnCollide is expensive at 1000+ casings during war (fires on every physics collision);
+  # EmitSoundOnLand above is sufficient for audio feedback and only fires once per landing.
+  #- type: EmitSoundOnCollide
+  #  sound:
+  #    path: /Audio/Weapons/Guns/Casings/casing_fall_2.ogg
+  #    params:
+  #      volume: -1
   - type: StaticPrice
     price: 0.2
   # - type: Craftable # Corvax-Changes  # #Misfits Remove: Stalker14 crafting system

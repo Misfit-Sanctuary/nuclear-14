@@ -32,6 +32,53 @@
     - Energy
     - SmallCaliber
     - MediumCaliber
+  - type: CanEnterCryostorage # #Misfits Add: allow player robot species to enter N14CryoBunkerLadder and despawn like MobHuman
+  # #Misfits Fix: override base chassis Destructible to exclude borg_brain from EmptyContainersBehaviour.
+  # Without this the PositronicBrain (containing the player mind) drops as loot when a player robot is
+  # destroyed. The brain should be consumed with the chassis, not left on the floor.
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/AI/borg_death.ogg
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PowerCellHyper:
+            min: 1
+            max: 1
+          N14Scrap1:
+            min: 2
+            max: 4
+          N14ScrapElectronic1:
+            min: 1
+            max: 3
+      - !type:EmptyContainersBehaviour
+        containers:
+        - borg_module
+        - cell_slot
+        # borg_brain intentionally omitted — player mind is destroyed with the chassis
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   parent: N14BasePlayerSynthetic
@@ -47,11 +94,11 @@
     layers:
     - state: icon
       map: ["enum.DamageStateVisualLayers.Base", "movement"]
-    - state: icon
+    - state: on # #Misfits Fix: lit indicator; BorgSystem overrides at runtime
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
       visible: false
-    - state: icon
+    - state: on # #Misfits Fix: 'on' RSI state is the lit variant used as the flashlight glow overlay
       shader: unshaded
       map: ["light"]
       visible: false
@@ -92,6 +139,7 @@
         Heat: -0.5
         Shock: -0.5
   - type: RobotSelfRepairAnnouncer # #Misfits Change: hull integrity warnings + self-repair popups
+  - type: Sanitized # #Misfits Change: makes mr handy not do damage in surgery
 
   - type: Gun # #Misfits Add: built-in flamer — right-click in combat mode to fire
     cameraRecoilScalar: 0
@@ -135,7 +183,7 @@
   id: N14PlayerSyntheticProtectron
   name: protectron
   suffix: player, synthetic
-  description: A RobCo Industries Protectron security robot, now guided by a living mind.
+  description: A RobCo Industries Protectron civil service robot, now guided by a living mind. The baseline model — equipped with an integrated hand-laser for self-defense and a general utility toolkit. Functional but unremarkable; the jack-of-all-trades among Protectron chassis types.
   components:
   - type: HumanoidAppearance
     species: RobotProtectron
@@ -144,11 +192,11 @@
     layers:
     - state: icon
       map: ["enum.DamageStateVisualLayers.Base", "movement"]
-    - state: icon
+    - state: on # #Misfits Fix: lit indicator; BorgSystem overrides at runtime
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
       visible: false
-    - state: icon
+    - state: on # #Misfits Fix: 'on' RSI state is the lit variant used as the flashlight glow overlay
       shader: unshaded
       map: ["light"]
       visible: false
@@ -211,6 +259,9 @@
     containers:
       borg_brain:
         - PositronicBrain
+      borg_module: # #Misfits Add: civil-service general loadout — integrated laser for self-defense + basic utility toolkit
+        - N14BorgModuleLaser # integrated hand-laser, matches Fallout canon dual hand-lasers
+        - BorgModuleTool     # wrench/screwdriver/welder kit for general civil service tasks
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
         - MisfitsRobotNavCardRobCo # RobCo Industries Navigation
       ears: # Wasteland radio for inter-robot and faction communication
@@ -235,11 +286,11 @@
     layers:
     - state: icon
       map: ["enum.DamageStateVisualLayers.Base", "movement"]
-    - state: icon
+    - state: on # #Misfits Fix: lit indicator; BorgSystem overrides at runtime
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
       visible: false
-    - state: icon
+    - state: on # #Misfits Fix: 'on' RSI state is the lit variant used as the flashlight glow overlay
       shader: unshaded
       map: ["light"]
       visible: false
@@ -321,7 +372,7 @@
   id: N14PlayerSyntheticProtectronPolice
   name: protectron police
   suffix: player, synthetic, police
-  description: A RobCo Industries Protectron police model fitted with an integrated low-power laser emitter.
+  description: A RobCo Industries Protectron police model specialising in close-quarters detainment. Equipped with a heavy electro-shock melee strike, a stun baton, and restraint tools. No ranged weapons — this unit subdues, not suppresses.
   components:
   - type: HumanoidAppearance
     species: RobotProtectronPolice
@@ -330,40 +381,53 @@
     layers:
     - state: icon
       map: ["enum.DamageStateVisualLayers.Base", "movement"]
-    - state: icon
+    - state: on # #Misfits Fix: lit indicator; BorgSystem overrides at runtime
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
       visible: false
-    - state: icon
+    - state: on # #Misfits Fix: 'on' RSI state is the lit variant used as the flashlight glow overlay
       shader: unshaded
       map: ["light"]
       visible: false
-  - type: Gun # #Misfits Add: police model keeps an eyebot-level integrated laser.
-    minAngle: 9
-    maxAngle: 18
-    angleIncrease: 3
-    angleDecay: 4
-    fireRate: 1
-    soundGunshot:
-      collection: N14RechargerRifleGunshot
-    useKey: false
-    selectedMode: SemiAuto
-    availableModes:
-      - SemiAuto
-  - type: BasicEntityAmmoProvider
-    proto: BulletLaser
-    capacity: 9
-    count: 9
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 2
-    rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-  - type: ContainerFill # #Misfits Change: security module provides stun baton, cuffs, and flashlight.
+  # #Misfits Removed - Police Protectrons are melee-only per Fallout lore; no ranged weapons
+  # - type: Gun
+  #   minAngle: 9
+  #   maxAngle: 18
+  #   angleIncrease: 3
+  #   angleDecay: 4
+  #   fireRate: 1
+  #   soundGunshot:
+  #     collection: N14RechargerRifleGunshot
+  #   useKey: false
+  #   selectedMode: SemiAuto
+  #   availableModes:
+  #     - SemiAuto
+  # - type: BasicEntityAmmoProvider
+  #   proto: BulletLaser
+  #   capacity: 9
+  #   count: 9
+  # - type: RechargeBasicEntityAmmo
+  #   rechargeCooldown: 2
+  #   rechargeSound:
+  #     path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: MeleeWeapon # #Misfits Add: electro-shock close combat — Fallout Police Protectron uses powerful melee strikes and painful electric shock
+    hidden: true
+    soundHit:
+      path: /Audio/Effects/sparks4.ogg
+    angle: 0
+    animation: WeaponArcPunch
+    range: 1.5
+    damage:
+      types:
+        Blunt: 10  # moderate impact force
+        Shock: 12  # painful electric discharge — the signature Police Protectron incapacitation tool
+  - type: ContainerFill # #Misfits Change: security module provides stun baton, cuffs, and flashlight for patrol and detainment
     containers:
       borg_brain:
         - PositronicBrain
       borg_module:
-        - N14BorgModuleSecurity
+        - N14BorgModuleSecurity # stun baton, handcuffs, flashlight - lore-accurate detainment kit
+        - BorgModuleGPS         # navigation/patrol utility for law enforcement
       id:
         - MisfitsRobotNavCardRobCo
       ears: # Wasteland radio for inter-robot and faction communication
@@ -383,11 +447,11 @@
     layers:
     - state: icon
       map: ["enum.DamageStateVisualLayers.Base", "movement"]
-    - state: icon
+    - state: on # #Misfits Fix: lit indicator; BorgSystem overrides at runtime
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
       visible: false
-    - state: icon
+    - state: on # #Misfits Fix: 'on' RSI state is the lit variant used as the flashlight glow overlay
       shader: unshaded
       map: ["light"]
       visible: false
@@ -409,7 +473,7 @@
   id: N14PlayerSyntheticProtectronFire
   name: protectron firefighter
   suffix: player, synthetic, firefighter
-  description: A RobCo Industries Protectron firefighter model equipped for suppression and emergency utility work.
+  description: A RobCo Industries Protectron firefighter model equipped for fire suppression and emergency response. Features an integrated cryo emitter — its signature cryogenic projector that freezes flames and slows targets — backed by a standard water extinguisher module.
   components:
   - type: HumanoidAppearance
     species: RobotProtectronFire
@@ -418,21 +482,41 @@
     layers:
     - state: icon
       map: ["enum.DamageStateVisualLayers.Base", "movement"]
-    - state: icon
+    - state: on # #Misfits Fix: lit indicator; BorgSystem overrides at runtime
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
       visible: false
-    - state: icon
+    - state: on # #Misfits Fix: 'on' RSI state is the lit variant used as the flashlight glow overlay
       shader: unshaded
       map: ["light"]
       visible: false
-  - type: ContainerFill # #Misfits Add: firefighter loadout emphasizes extinguisher + utility tools.
+  - type: Gun # #Misfits Add: integrated cryo emitter — Fallout canon firefighter Protectrons carry an internal cryo gun
+    minAngle: 9
+    maxAngle: 18
+    angleIncrease: 3
+    angleDecay: 4
+    fireRate: 1.5
+    soundGunshot:
+      path: /Audio/Effects/extinguish.ogg
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: BasicEntityAmmoProvider # cryo bursts: slower recharge than the laser — cryo emitter is a utility tool not a spam weapon
+    proto: BulletCryo
+    capacity: 6
+    count: 6
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 3
+    rechargeSound:
+      path: /Audio/Effects/extinguish.ogg
+  - type: ContainerFill # #Misfits Change: cryo + extinguisher loadout; water extinguisher kept for traditional fire suppression
     containers:
       borg_brain:
         - PositronicBrain
       borg_module:
-        - BorgModuleFireExtinguisher
-        - BorgModuleTool
+        - BorgModuleFireExtinguisher # traditional water/CO2 extinguisher for structural fires
+        - N14BorgModuleCryo          # holdable cryo emitter module for field use
       id:
         - MisfitsRobotNavCardRobCo
       ears: # Wasteland radio for inter-robot and faction communication
@@ -452,11 +536,11 @@
     layers:
     - state: icon
       map: ["enum.DamageStateVisualLayers.Base", "movement"]
-    - state: icon
+    - state: on # #Misfits Fix: lit indicator; BorgSystem overrides at runtime
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
       visible: false
-    - state: icon
+    - state: on # #Misfits Fix: 'on' RSI state is the lit variant used as the flashlight glow overlay
       shader: unshaded
       map: ["light"]
       visible: false
@@ -618,11 +702,11 @@
     layers:
     - state: icon
       map: ["enum.DamageStateVisualLayers.Base", "movement"]
-    - state: icon
+    - state: on # #Misfits Fix: lit indicator; BorgSystem overrides at runtime
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
       visible: false
-    - state: icon
+    - state: on # #Misfits Fix: 'on' RSI state is the lit variant used as the flashlight glow overlay
       shader: unshaded
       map: ["light"]
       visible: false
@@ -848,11 +932,11 @@
     layers:
     - state: icon
       map: ["enum.DamageStateVisualLayers.Base", "movement"]
-    - state: icon
+    - state: on # #Misfits Fix: lit indicator; BorgSystem overrides at runtime
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
       visible: false
-    - state: icon
+    - state: on # #Misfits Fix: 'on' RSI state is the lit variant used as the flashlight glow overlay
       shader: unshaded
       map: ["light"]
       visible: false

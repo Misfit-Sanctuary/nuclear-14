@@ -20,7 +20,9 @@ namespace Content.Server.NPC.Pathfinding;
 
 public sealed partial class PathfindingSystem
 {
-    private static readonly TimeSpan UpdateCooldown = TimeSpan.FromSeconds(0.45);
+    // #Misfits Tweak - Raised from 0.45 s to 0.75 s to reduce navmesh chunk rebuild frequency
+    // on the 184 k-entity Wendover map. Pathfinding quality is unaffected on a static outdoor grid.
+    private static readonly TimeSpan UpdateCooldown = TimeSpan.FromSeconds(0.75);
 
     // What relevant collision groups we track for pathfinding.
     // Stuff like chairs have collision but aren't relevant for mobs.

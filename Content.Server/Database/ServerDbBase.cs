@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration.Logs;
+using Content.Shared._Misfits.Administration;
 using Content.Shared.Clothing.Loadouts.Systems;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
@@ -407,6 +408,9 @@ namespace Content.Server.Database
         public abstract Task AddServerBanAsync(ServerBanDef serverBan);
         public abstract Task AddServerUnbanAsync(ServerUnbanDef serverUnban);
 
+        // #Misfits Add - banlistall: all server bans without player filter
+        public abstract Task<List<ServerBanDef>> GetAllServerBansAsync(bool includeUnbanned);
+
         public async Task EditServerBan(int id, string reason, NoteSeverity severity, DateTimeOffset? expiration, Guid editedBy, DateTimeOffset editedAt)
         {
             await using var db = await GetDb();
@@ -500,6 +504,9 @@ namespace Content.Server.Database
             ImmutableArray<byte>? hwId,
             ImmutableArray<ImmutableArray<byte>>? modernHWIds,
             bool includeUnbanned);
+
+        // #Misfits Add - banlistall: all role bans without player filter
+        public abstract Task<List<ServerRoleBanDef>> GetAllServerRoleBansAsync(bool includeUnbanned);
 
         public abstract Task<ServerRoleBanDef> AddServerRoleBanAsync(ServerRoleBanDef serverRoleBan);
         public abstract Task AddServerRoleUnbanAsync(ServerRoleUnbanDef serverRoleUnban);
@@ -2035,15 +2042,49 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             await db.DbContext.SaveChangesAsync();
         }
 
+        // #Misfits Change - extended audit log query with optional filters (player name, admin name/id, date range)
         public async Task<(List<HelpTicketEvent> Events, int TotalCount)> GetHelpTicketEventsAsync(
-            Guid? playerId, int limit, int offset, CancellationToken cancel = default)
+            Guid? playerId = null,
+            int limit = 100,
+            int offset = 0,
+            string? playerName = null,
+            string? adminName = null,
+            Guid? adminId = null,
+            DateTime? startDate = null,
+            DateTime? endDate = null,
+            CancellationToken cancel = default)
         {
             await using var db = await GetDb(cancel);
 
             var query = db.DbContext.HelpTicketEvent.AsQueryable();
 
+            // #Misfits Add - original filter (for backward compatibility)
             if (playerId.HasValue)
                 query = query.Where(e => e.PlayerId == playerId.Value);
+
+            // #Misfits Add - partial player name match (case-insensitive)
+            if (!string.IsNullOrWhiteSpace(playerName))
+            {
+                var lower = playerName.ToLower();
+                query = query.Where(e => e.PlayerName.ToLower().Contains(lower));
+            }
+
+            // #Misfits Add - partial admin name match (case-insensitive)
+            if (!string.IsNullOrWhiteSpace(adminName))
+            {
+                var lower = adminName.ToLower();
+                query = query.Where(e => e.AdminName != null && e.AdminName.ToLower().Contains(lower));
+            }
+
+            // #Misfits Add - exact admin ID match
+            if (adminId.HasValue)
+                query = query.Where(e => e.AdminId == adminId.Value);
+
+            // #Misfits Add - date range filters (UTC)
+            if (startDate.HasValue)
+                query = query.Where(e => e.OccurredAt >= startDate.Value.ToUniversalTime());
+            if (endDate.HasValue)
+                query = query.Where(e => e.OccurredAt <= endDate.Value.ToUniversalTime());
 
             var total = await query.CountAsync(cancel);
 
@@ -2054,6 +2095,45 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 .ToListAsync(cancel);
 
             return (events, total);
+        }
+
+        // #Misfits Add - admin statistics query: counts of resolved/claimed ticket actions per admin
+        public async Task<List<AdminStatEntry>> GetAdminStatisticsAsync(
+            DateTime? startDate = null,
+            DateTime? endDate = null,
+            CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            // #Misfits Add - filter to events with both AdminId and AdminName set (skip player/system events)
+            var query = db.DbContext.HelpTicketEvent
+                .Where(e => e.AdminId != null && e.AdminName != null)
+                .AsQueryable();
+
+            // #Misfits Add - date range filtering
+            if (startDate.HasValue)
+                query = query.Where(e => e.OccurredAt >= startDate.Value.ToUniversalTime());
+            if (endDate.HasValue)
+                query = query.Where(e => e.OccurredAt <= endDate.Value.ToUniversalTime());
+
+            // #Misfits Fix - EF Core cannot translate GroupBy+conditional Count to SQL.
+            // Materialize the filtered admin events first, then aggregate in memory.
+            var adminEvents = await query
+                .Select(e => new { e.AdminId, e.AdminName, e.EventType })
+                .ToListAsync(cancel);
+
+            var stats = adminEvents
+                .GroupBy(e => new { e.AdminId, e.AdminName })
+                .Select(g => new AdminStatEntry(
+                    g.Key.AdminName!,
+                    g.Key.AdminId!.Value,
+                    g.Count(e => e.EventType == (int)HelpTicketEventType.Resolved),
+                    g.Count(e => e.EventType == (int)HelpTicketEventType.Claimed)
+                ))
+                .OrderByDescending(s => s.ResolvedCount)
+                .ToList();
+
+            return stats;
         }
 
         // #Misfits Add — persist / retrieve individual bwoink/mhelp chat messages

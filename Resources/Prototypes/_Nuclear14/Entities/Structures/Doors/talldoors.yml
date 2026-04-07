@@ -436,9 +436,10 @@
       path: /Audio/_Nuclear14/Effects/Doors/DRS_Vault_Gear_Door_Open_3D_01.ogg
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: StructuralMetallic
+  # #Misfits Tweak - Make N14DoorVault invincible by disabling damage processing.
+  # - type: Damageable
+    # damageContainer: Inorganic
+    # damageModifierSet: StructuralMetallic
   # - type: Destructible
     # thresholds:
     # - trigger:

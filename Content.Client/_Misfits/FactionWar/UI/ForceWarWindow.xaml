@@ -1,0 +1,72 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="Force War (Admin)"
+                      Resizable="False"
+                      SetSize="420 520"
+                      MinSize="400 480">
+
+    <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="0">
+
+        <!-- ── Header ─────────────────────────────────────────────── -->
+        <controls:StripeBack>
+            <PanelContainer>
+                <Label Text="Force War (Admin)" StyleClasses="LabelBig" Align="Center" Margin="0 4"/>
+            </PanelContainer>
+        </controls:StripeBack>
+
+        <Label Text="Bypasses 30-min cooldown, rank checks, and post-war cooldowns."
+               Margin="10 6 10 2" Modulate="#AAAAAA" StyleClasses="LabelSubText"/>
+
+        <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 4"/>
+
+        <!-- ── Aggressor ──────────────────────────────────────────── -->
+        <BoxContainer Orientation="Horizontal" Margin="10 4 10 4" SeparationOverride="8">
+            <Label Text="Aggressor:" VerticalAlignment="Center" MinWidth="90"/>
+            <OptionButton Name="AggressorSelector" HorizontalExpand="True"/>
+        </BoxContainer>
+
+        <!-- ── Target ─────────────────────────────────────────────── -->
+        <BoxContainer Orientation="Horizontal" Margin="10 0 10 4" SeparationOverride="8">
+            <Label Text="Target:" VerticalAlignment="Center" MinWidth="90"/>
+            <OptionButton Name="TargetSelector" HorizontalExpand="True"/>
+        </BoxContainer>
+
+        <!-- ── Casus Belli ────────────────────────────────────────── -->
+        <BoxContainer Orientation="Vertical" Margin="10 0 10 4" SeparationOverride="2">
+            <Label Text="Casus Belli (optional):"/>
+            <LineEdit Name="CasusBelliEdit" PlaceHolder="Admin-forced war (testing)"
+                      HorizontalExpand="True"/>
+        </BoxContainer>
+
+        <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 4"/>
+
+        <!-- ── Force War Button ───────────────────────────────────── -->
+        <Button Name="ForceWarButton" Text="Force War"
+                Margin="10 4 10 6" HorizontalExpand="True"/>
+
+        <!-- ── Result ─────────────────────────────────────────────── -->
+        <RichTextLabel Name="ResultLabel" Margin="10 4 10 4" HorizontalExpand="True"/>
+
+        <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 4"/>
+
+        <!-- ── Force Ceasefire ─────────────────────────────────────── -->
+        <Label Text="Force Ceasefire" Margin="10 4 10 2" Modulate="#5599CC"
+               StyleClasses="LabelBig"/>
+
+        <Label Text="End an active or pending war immediately."
+               Margin="10 0 10 4" Modulate="#AAAAAA" StyleClasses="LabelSubText"/>
+
+        <BoxContainer Orientation="Horizontal" Margin="10 0 10 4" SeparationOverride="8">
+            <Label Text="Active War:" VerticalAlignment="Center" MinWidth="90"/>
+            <OptionButton Name="CeasefireWarSelector" HorizontalExpand="True"/>
+        </BoxContainer>
+
+        <Button Name="ForceCeasefireButton" Text="Force Ceasefire"
+                Margin="10 2 10 6" HorizontalExpand="True" Disabled="True"/>
+
+        <RichTextLabel Name="CeasefireResultLabel" Margin="10 4 10 8" HorizontalExpand="True"/>
+
+    </BoxContainer>
+    </ScrollContainer>
+</controls:FancyWindow>

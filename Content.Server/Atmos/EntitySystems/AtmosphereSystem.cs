@@ -104,6 +104,12 @@ public sealed partial class AtmosphereSystem : SharedAtmosphereSystem
     {
         base.Update(frameTime);
 
+        // #Misfits Add - skip all atmos processing when simulation disabled;
+        // avoids three separate per-tick traversals (UpdateProcessing, UpdateHighPressure,
+        // and the AtmosExposed query) on maps that have atmos sim turned off.
+        if (!AtmosSimulated)
+            return;
+
         UpdateProcessing(frameTime);
         UpdateHighPressure(frameTime);
 

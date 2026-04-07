@@ -43,6 +43,10 @@ n14-expedition-timer-launch = Launching in {$seconds}s...
 n14-expedition-timer-cooldown = Cooldown: {$time} remaining
 
 n14-expedition-difficulty-abandoned-vault = Abandoned Vault
+# #Misfits Add - procedural underground expedition difficulty names
+n14-expedition-difficulty-vault-procgen = Abandoned Vault (Procedural)
+n14-expedition-difficulty-sewer-procgen = Sewers (Procedural)
+n14-expedition-difficulty-metro-procgen = Metro Tunnels (Procedural)
 
 # Temporarily disabled (RAM/engine constraints — server OOM at 8 GB):
 # n14-expedition-difficulty-surface = Surface

@@ -183,14 +183,29 @@ namespace Content.Client.Administration.Systems
             RaiseNetworkEvent(new HelpTicketRequestListMessage(HelpTicketType.AdminHelp));
         }
 
-        // #Misfits Add — request a page of the persistent audit log from the server DB
-        public void RequestAuditLog(Guid? filterPlayerId = null, int limit = 100, int offset = 0)
+        // #Misfits Change - request audit log with optional filters: player name, admin name/id, date range
+        public void RequestAuditLog(
+            Guid? filterPlayerId = null,
+            int limit = 100,
+            int offset = 0,
+            string? filterPlayerName = null,
+            string? filterAdminName = null,
+            Guid? filterAdminId = null,
+            DateTime? filterStartDate = null,
+            DateTime? filterEndDate = null,
+            bool includeAdminStats = false)
         {
             RaiseNetworkEvent(new HelpTicketAuditRequestMessage
             {
                 FilterPlayerId = filterPlayerId,
                 Limit = limit,
                 Offset = offset,
+                FilterPlayerName = filterPlayerName,    // #Misfits Add
+                FilterAdminName = filterAdminName,      // #Misfits Add
+                FilterAdminId = filterAdminId,          // #Misfits Add
+                FilterStartDate = filterStartDate,      // #Misfits Add
+                FilterEndDate = filterEndDate,          // #Misfits Add
+                IncludeAdminStats = includeAdminStats,  // #Misfits Add
             });
         }
 

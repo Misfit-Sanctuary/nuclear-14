@@ -70,6 +70,7 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
             _changelog.ToggleWindow();
         };
 
+        // #Misfits Change - Reverted to _info.OpenWindow() (WebView module deprecated upstream)
         _escapeWindow.RulesButton.OnPressed += _ =>
         {
             CloseEscapeWindow();
@@ -94,11 +95,12 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
             _console.ExecuteCommand("quit");
         };
 
+        // #Misfits Change - WikiButton opens the Misfits wiki in browser
         _escapeWindow.WikiButton.OnPressed += _ =>
         {
-            _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWiki));
+            _uri.OpenUri("https://ss14.misfitsystems.net/wiki/index.php/Main_Page");
         };
-		
+
 // discord-button start
 
         _escapeWindow.DiscordButton.OnPressed += _ =>
@@ -108,13 +110,8 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
 
 // discord-button end
 
-        _escapeWindow.GuidebookButton.OnPressed += _ =>
-        {
-            _guidebook.ToggleGuidebook();
-        };
-
-        // Hide wiki button if we don't have a link for it.
-        _escapeWindow.WikiButton.Visible = _cfg.GetCVar(CCVars.InfoLinksWiki) != "";
+        // #Misfits Change - GuidebookButton hidden; WikiButton now serves as the wiki link
+        _escapeWindow.GuidebookButton.Visible = false;
 		// Hide discord button if we don't have a link for it.
         _escapeWindow.DiscordButton.Visible = _cfg.GetCVar(CCVars.InfoLinksDiscord) != ""; //discord-button
 
@@ -148,6 +145,7 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
             _changelog.ToggleWindow();
         };
 
+        // #Misfits Change - Reverted to _info.OpenWindow() (WebView module deprecated upstream)
         _escapeWindow.RulesButton.OnPressed += _ =>
         {
             CloseEscapeWindow();
@@ -172,18 +170,14 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
             _console.ExecuteCommand("quit");
         };
 
+        // #Misfits Change - WikiButton opens the Misfits wiki in browser
         _escapeWindow.WikiButton.OnPressed += _ =>
         {
-            _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksWiki));
+            _uri.OpenUri("https://ss14.misfitsystems.net/wiki/index.php/Main_Page");
         };
 
-        _escapeWindow.GuidebookButton.OnPressed += _ =>
-        {
-            _guidebook.ToggleGuidebook();
-        };
-
-        // Hide wiki button if we don't have a link for it.
-        _escapeWindow.WikiButton.Visible = _cfg.GetCVar(CCVars.InfoLinksWiki) != "";
+        // #Misfits Change - GuidebookButton hidden; WikiButton now serves as the wiki link
+        _escapeWindow.GuidebookButton.Visible = false;
 
         CommandBinds.Builder
             .Bind(EngineKeyFunctions.EscapeMenu,

@@ -1,5 +1,6 @@
 game-hud-open-escape-menu-button-tooltip = Open Escape Menu
-game-hud-open-guide-menu-button-tooltip = Open Guidebook Menu
+# #Misfits Change - Renamed from Guidebook to Wiki & Guides
+game-hud-open-guide-menu-button-tooltip = Open Wiki & Guides
 game-hud-open-character-menu-button-tooltip = Open Character Menu
 game-hud-open-emotes-menu-button-tooltip= Open Emotes Menu
 game-hud-open-inventory-menu-button-tooltip = Open Inventory Menu

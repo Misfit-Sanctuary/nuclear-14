@@ -1,0 +1,22 @@
+# #Misfits Add - Frumentarii deep-cover black ops kit.
+# Lets the Frumentarii blend in with wastelanders for undercover operations.
+# Contains: settler rags (civilian cover), wasteland scrap headset (blends in, wasteland radio), wastelander dogtags (fake civilian ID).
+
+- type: entity
+  name: frumentarii black-ops kit
+  parent: KitBase
+  id: KitFrumentariiBlackOps
+  description: A concealed kit for Frumentarii undercover operations. Contains civilian clothes, a scrap headset, and wastelander dogtags.
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Normal
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingUniformJumpsuitSettlerRags  # civilian cover — blend in with wastelanders
+      - id: MisfitsClothingHeadsetWastelandScrap   # wasteland radio channel, inconspicuous
+      - id: N14ClothingNeckDogtags                 # fake wastelander ID for deep cover
+    sound:
+      path: /Audio/Effects/unwrap.ogg

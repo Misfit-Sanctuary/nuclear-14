@@ -6,6 +6,30 @@
   bold: true
   fontSize: 16
 
+- type: speechVerb
+  id: MisfitsLegionWarcry
+  name: chat-speech-verb-name-legion-warcry
+  speechVerbStrings:
+  - chat-speech-verb-legion-warcry
+  bold: true
+  fontSize: 18
+
+- type: speechVerb
+  id: MisfitsTribalWarcry
+  name: chat-speech-verb-name-tribal-warcry
+  speechVerbStrings:
+  - chat-speech-verb-tribal-warcry
+  bold: true
+  fontSize: 18
+
+- type: speechVerb
+  id: MisfitsMarsWarcry
+  name: chat-speech-verb-name-mars-warcry
+  speechVerbStrings:
+  - chat-speech-verb-mars-warcry
+  bold: true
+  fontSize: 18
+
 # #Misfits Add - vocal style preferences for character creation
 - type: speechVerb
   id: MisfitsRasp

@@ -40,6 +40,8 @@
     - replay_stop
     - replay_load
     - saveconfig
+    - war
+    - warjoin
 
 - Flags: DEBUG
   Commands:
@@ -85,3 +87,8 @@
     - uploadfile
     - loadprototype
     - uploadfolder
+
+# #Misfits Add - Force War admin command for the faction war system
+- Flags: ADMIN
+  Commands:
+    - forcewar

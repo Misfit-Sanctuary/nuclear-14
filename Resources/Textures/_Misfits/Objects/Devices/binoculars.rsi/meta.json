@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from RMC-14 (https://github.com/RMC-14/RMC-14), originally from cmss13 (https://github.com/cmss13-devs/cmss13). Ported for Misfits Sanctuary.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "binoculars_civ"
+    },
+    {
+      "name": "binoculars-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "binoculars-inhand-right",
+      "directions": 4
+    }
+  ]
+}

@@ -421,6 +421,10 @@
 - type: Tag
   id: N14MicrofusionCell
 
+# #Misfits Add - Dedicated tag for fusion cores (Gatling-only high-capacity cells)
+- type: Tag
+  id: N14FusionCore
+
 - type: Tag
   id: N14ElectronChargePack
 

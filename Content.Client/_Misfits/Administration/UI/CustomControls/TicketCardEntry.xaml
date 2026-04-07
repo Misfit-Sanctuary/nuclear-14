@@ -1,0 +1,108 @@
+<!-- #Misfits Add - Rich player card for admin/mentor help panels.
+     Replaces flat PlayerListEntry with a multi-row card showing
+     username, ticket pill, charname, status dot, icons, and preview. -->
+<PanelContainer xmlns="https://spacestation14.io"
+                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                HorizontalExpand="True"
+                MinHeight="58">
+    <!-- Card background — set in code-behind via SetStatus() -->
+    <PanelContainer.PanelOverride>
+        <gfx:StyleBoxFlat BackgroundColor="#12121e"
+                          ContentMarginLeftOverride="10"
+                          ContentMarginRightOverride="10"
+                          ContentMarginTopOverride="7"
+                          ContentMarginBottomOverride="7"
+                          BorderThickness="3 0 0 0"
+                          BorderColor="#ef4444" />
+    </PanelContainer.PanelOverride>
+
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+
+        <!-- Row 1: Username + unread badge + ticket pill -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Label Name="UsernameLabel" Access="Public"
+                   FontColorOverride="#ffffff"
+                   ClipText="True"
+                   HorizontalExpand="True"
+                   StyleClasses="LabelSmall" />
+            <Control MinWidth="4" />
+            <!-- Unread badge (red circle with count) — hidden by default -->
+            <PanelContainer Name="UnreadBadge" Access="Public"
+                            Visible="False" VerticalAlignment="Center"
+                            MinWidth="16" MinHeight="16">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#ef4444"
+                                      ContentMarginLeftOverride="4"
+                                      ContentMarginRightOverride="4"
+                                      ContentMarginTopOverride="1"
+                                      ContentMarginBottomOverride="1" />
+                </PanelContainer.PanelOverride>
+                <Label Name="UnreadLabel" Access="Public"
+                       FontColorOverride="#ffffff"
+                       StyleClasses="LabelSmall" />
+            </PanelContainer>
+            <Control MinWidth="4" />
+            <!-- Ticket pill (#7 OPEN) -->
+            <PanelContainer Name="TicketPill" Access="Public"
+                            VerticalAlignment="Center">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#1a0808"
+                                      ContentMarginLeftOverride="6"
+                                      ContentMarginRightOverride="6"
+                                      ContentMarginTopOverride="1"
+                                      ContentMarginBottomOverride="1"
+                                      BorderThickness="1 1 1 1"
+                                      BorderColor="#3d1515" />
+                </PanelContainer.PanelOverride>
+                <Label Name="TicketPillLabel" Access="Public"
+                       FontColorOverride="#fca5a5"
+                       StyleClasses="LabelSmall" />
+            </PanelContainer>
+        </BoxContainer>
+
+        <!-- Row 2: Status dot + charname + icons -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
+                      Margin="0 2 0 0">
+            <!-- Status dot — color set in code-behind -->
+            <Label Name="StatusDot" Access="Public"
+                   FontColorOverride="#22c55e"
+                   StyleClasses="LabelSmall" />
+            <Control MinWidth="4" />
+            <Label Name="CharnameLabel" Access="Public"
+                   FontColorOverride="#6a6a88"
+                   ClipText="True"
+                   HorizontalExpand="True"
+                   StyleClasses="LabelSmall" />
+            <!-- Antag icon (shown only in admin mode) -->
+            <Label Name="AntagIcon" Access="Public"
+                   Visible="False"
+                   FontColorOverride="#ef4444"
+                   StyleClasses="LabelSmall" />
+            <!-- New player icon -->
+            <Label Name="NewPlayerIcon" Access="Public"
+                   Visible="False"
+                   FontColorOverride="#f59e0b"
+                   StyleClasses="LabelSmall" />
+            <!-- Pin button -->
+            <TextureButton Name="PinButton" Access="Public"
+                           HorizontalAlignment="Right" />
+        </BoxContainer>
+
+        <!-- Row 3: Claimed-by / Resolved-by info (hidden when no ticket or ticket is open) -->
+        <Label Name="ClaimedByLabel" Access="Public"
+               Visible="False"
+               FontColorOverride="#f59e0b"
+               ClipText="True"
+               HorizontalExpand="True"
+               Margin="0 1 0 0"
+               StyleClasses="LabelSmall" />
+
+        <!-- Row 4: Preview text (last message snippet) -->
+        <Label Name="PreviewLabel" Access="Public"
+               FontColorOverride="#454560"
+               ClipText="True"
+               HorizontalExpand="True"
+               Margin="0 1 0 0"
+               StyleClasses="LabelSmall" />
+    </BoxContainer>
+</PanelContainer>

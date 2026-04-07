@@ -1,0 +1,16 @@
+# #Misfits Change — Consolidated from _Nuclear14/Guidebooks/survivalbasics.yml
+# All text paths updated to _Misfits/Guidebooks/ location
+
+# Survival basics overview page
+- type: guideEntry
+  id: N14SurvivalBasics
+  name: guide-entry-survivalindex
+  text: "/ServerInfo/_Misfits/Guidebooks/Survival/index.xml"
+  children:
+  - N14Basics
+
+- type: guideEntry
+  id: N14Basics
+  name: guide-entry-basics
+  text: "/ServerInfo/_Misfits/Guidebooks/Survival/Basics.xml"
+  filterEnabled: True

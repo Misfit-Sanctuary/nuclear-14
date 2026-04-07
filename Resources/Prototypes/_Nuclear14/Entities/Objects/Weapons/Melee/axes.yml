@@ -29,8 +29,8 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 6
-        Slash: 20
+        Blunt: 8
+        Slash: 28
   - type: Item
     sprite: _Nuclear14/Objects/Weapons/Melee/hatchet.rsi
     size: Normal
@@ -69,7 +69,7 @@
     damage:
       types:
         Blunt: 8
-        Slash: 22
+        Slash: 30
   - type: Item
     sprite: _Nuclear14/Objects/Weapons/Melee/tribalhatchet.rsi
     size: Normal
@@ -129,7 +129,7 @@
     damage:
       types:
         Blunt: 8
-        Slash: 30
+        Slash: 40
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Melee/axe.rsi
     quickEquip: false

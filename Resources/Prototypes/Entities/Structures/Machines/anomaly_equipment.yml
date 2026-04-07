@@ -84,9 +84,7 @@
         sound:
           collection: MetalGlassBreak
       - !type:ExplodeBehavior
-  - type: GuideHelp
-    guides:
-    - ScannersAndVessels
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (ScannersAndVessels)
 
 - type: entity
   id: MachineAnomalyVesselExperimental
@@ -180,9 +178,7 @@
     baseFireBurstDelayMax: 6
   - type: ApcPowerReceiver
     powerLoad: 100
-  - type: GuideHelp
-    guides:
-    - APE
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (APE)
   - type: Gun
     projectileSpeed: 4
     fireRate: 10 #just has to be fast enough to keep up with upgrades
@@ -325,6 +321,4 @@
     price: 5000
   - type: AccessReader
     access: [["Research"]]
-  - type: GuideHelp
-    guides:
-    - AnomalousResearch
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (AnomalousResearch)

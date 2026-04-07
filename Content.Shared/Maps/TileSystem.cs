@@ -1,7 +1,9 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Decals;
+using Content.Shared.Tiles;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
@@ -20,6 +22,12 @@ public sealed class TileSystem : EntitySystem
     [Dependency] private readonly SharedDecalSystem _decal = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<TileChangedEvent>(OnTileChanged);
+    }
 
     /// <summary>
     ///     Returns a weighted pick of a tile variant.
@@ -146,6 +154,26 @@ public sealed class TileSystem : EntitySystem
         return true;
     }
 
+    public void PreserveUnderlay(EntityUid gridUid, Vector2i indices, string tileId)
+    {
+        var comp = EnsureComp<PreservedTileUnderlayComponent>(gridUid);
+        comp.Underlays[indices] = tileId;
+    }
+
+    public bool TryTakePreservedUnderlay(EntityUid gridUid, Vector2i indices, [NotNullWhen(true)] out ContentTileDefinition? tile)
+    {
+        tile = null;
+
+        if (!TryComp<PreservedTileUnderlayComponent>(gridUid, out var comp) ||
+            !comp.Underlays.Remove(indices, out var tileId))
+        {
+            return false;
+        }
+
+        tile = (ContentTileDefinition) _tileDefinitionManager[tileId];
+        return true;
+    }
+
     public bool DeconstructTile(TileRef tileRef)
     {
         if (tileRef.Tile.IsEmpty)
@@ -178,9 +206,27 @@ public sealed class TileSystem : EntitySystem
             _decal.RemoveDecal(tileRef.GridUid, id);
         }
 
-        var plating = _tileDefinitionManager[tileDef.BaseTurf];
-        _maps.SetTile(gridUid, mapGrid, tileRef.GridIndices, new Tile(plating.TileId));
+        var replacementTile = TryTakePreservedUnderlay(gridUid, tileRef.GridIndices, out var preservedTile)
+            ? preservedTile
+            : (ContentTileDefinition) _tileDefinitionManager[tileDef.BaseTurf];
+
+        _maps.SetTile(gridUid, mapGrid, tileRef.GridIndices, new Tile(replacementTile.TileId));
 
         return true;
+    }
+
+    private void OnTileChanged(ref TileChangedEvent args)
+    {
+        if (!TryComp<PreservedTileUnderlayComponent>(args.Entity, out var comp))
+            return;
+
+        foreach (var change in args.Changes)
+        {
+            if (!comp.Underlays.ContainsKey(change.GridIndices))
+                continue;
+
+            if (change.NewTile.IsEmpty || change.NewTile.GetContentTileDefinition(_tileDefinitionManager).IsSubFloor)
+                comp.Underlays.Remove(change.GridIndices);
+        }
     }
 }

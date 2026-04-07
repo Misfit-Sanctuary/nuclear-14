@@ -101,6 +101,17 @@
     - N14BPNCRWeaponRevolver45-70Hunter
     - N14BPNCRWeaponMinigun
 
+# #Misfits Add - T5 anti-materiel rifle; costs so much scrap it earns its own tier
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintNCRWeaponsT5
+  name: NCR Anti-Materiel Ordnance Schema
+  description: '"Costs so much scrap metal to make these dang things." Classified anti-materiel rifle schematics, cleared only at the highest NCR command level. Tier 5 weapons.'
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPNCRWeaponAntiMateriel
+
 # --- NCR Armor ---
 - type: entity
   parent: N14BlueprintBase
@@ -423,9 +434,8 @@
     - N14BPBoSWeaponPlasmaRifle
     - N14BPBoSWeaponPlasmaRifleAuto
     - N14BPBoSWeaponPlasmaRifleUrban
-    - N14BPBoSWeaponLaserRifleWattz2000
     - N14BPBoSWeaponPlasmaMultiplas
-    - N14BPBoSWeaponLaserRCW
+    - N14BPBoSWeaponLaserRCW # #Misfits Change - moved from T5 to T3; RCW is now red-beam mid-tier
 
 - type: entity
   parent: N14BlueprintBase
@@ -436,9 +446,23 @@
   - type: Blueprint
     recipes:
     - N14BPBoSWeaponLaserRiflePrototypeAER14
+    - N14BPBoSWeaponLaserRifleWattz2000 # #Misfits Change - moved from T3 to T4
     - N14BPBoSWeaponLaserRifleWattz3000
+    - N14BPBoSWeaponLaserRifleAER12 # #Misfits Add - AER-12 amber beam at T4
+
+# #Misfits Change - RCW moved to T3; AER-15 added to T5
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintBoSWeaponsT5
+  name: BoS Sentinel Heavy Ordnance Plans
+  description: Classified heavy weapons schematics held only by Brotherhood Sentinels. Contains designs for the deadliest energy weapons in the arsenal. Tier 5 weapons.
+  components:
+  - type: Blueprint
+    recipes:
     - N14BPBoSWeaponPlasmaCaster
     - N14BPBoSWeaponLaserGatling
+    - N14BPBoSWeaponLaserRifleWattz3000 # #Misfits Change - moved from T4 to T5
+    - N14BPBoSWeaponLaserRifleAER15 # #Misfits Add - AER-15 blue beam at T5; highest damage laser rifle
 
 # --- BoS Armor ---
 - type: entity
@@ -503,49 +527,48 @@
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintBoSAmmoT2
-  name: BoS Power Cell Specs
-  description: Brotherhood specifications for improved green-wavelength energy weapon cells. Tier 2 ammo.
+  name: BoS Plasma Cell Specs
+  description: Brotherhood specifications for plasma weapon ammunition. Tier 2 ammo.
   components:
   - type: Blueprint
     recipes:
-    - N14BPBoSAmmoPowerCellHigh
-    - N14BPBoSAmmoElectronChargePackGreen
+    # #Misfits Change - MFC/ECP recipes removed; consolidated to single generic cells at T1
     - N14BPBoSAmmoPlasmaCell
 
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintBoSAmmoT3
-  name: BoS Advanced Cell Blueprint
-  description: Advanced energy cell manufacturing plans from the Scribe archives. Tier 3 ammo.
+  name: BoS Plasma Cartridge Blueprint
+  description: Advanced plasma ammunition manufacturing plans from the Scribe archives. Tier 3 ammo.
   components:
   - type: Blueprint
     recipes:
-    - N14BPBoSAmmoPowerCellAdvanced
-    - N14BPBoSAmmoElectronChargePackBlue
+    # #Misfits Change - MFC/ECP recipes removed; consolidated to single generic cells at T1
     - N14BPBoSAmmoPlasmaCartridge
 
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintBoSAmmoT4
   name: BoS Fusion Core Schematic
-  description: Pre-war fusion core and high-capacity cell assembly plans. Brotherhood's most advanced standard ammunition technology. Tier 4 ammo.
+  description: Pre-war fusion core assembly plans. Brotherhood's most advanced ammunition technology. Tier 4 ammo.
   components:
   - type: Blueprint
     recipes:
-    - N14BPBoSAmmoPowerCellFusion
-    - N14BPBoSAmmoPowerCellFocused
+    - N14BPBoSAmmoFusionCoreRed
+    # #Misfits Change - duplicate FC recipe removed; consolidated to single generic fusion core
 
-- type: entity
-  parent: N14BlueprintBase
-  id: N14BlueprintBoSAmmoT5
-  name: BoS Experimental Violet-Spectrum Cell Plans
-  description: Highly classified experimental schematics for violet ultraviolet-spectrum energy cells. The pinnacle of Brotherhood energy weapon technology. Tier 5 ammo.
-  components:
-  - type: Blueprint
-    recipes:
-    - N14BPBoSAmmoMicrofusionViolet
-    - N14BPBoSAmmoElectronChargePackViolet
-    - N14BPBoSAmmoMicrofusionHighCapViolet
+# #Misfits Removed - T5 ammo blueprint entity commented out; all T5 energy cells consolidated to generic types at T1
+# - type: entity
+#   parent: N14BlueprintBase
+#   id: N14BlueprintBoSAmmoT5
+#   name: BoS Experimental Violet-Spectrum Cell Plans
+#   description: No longer relevant — all energy cells consolidated to single generic types.
+#   components:
+#   - type: Blueprint
+#     recipes:
+#     - N14BPBoSAmmoMicrofusionViolet
+#     - N14BPBoSAmmoElectronChargePackViolet
+#     - N14BPBoSAmmoFusionCoreViolet
 
 # =====================================================================
 # TOWNSFOLK BLUEPRINTS
@@ -848,24 +871,24 @@
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintVaultAmmoT3
-  name: Vault-Tec Advanced Power Cells
-  description: Vault-Tec specifications for high-grade energy cells. Tier 3 ammo.
+  name: Vault-Tec Plasma Cell Specs
+  description: Vault-Tec specifications for plasma weapon ammunition. Tier 3 ammo.
   components:
   - type: Blueprint
     recipes:
-    - N14BPVaultAmmoPowerCellHigh
+    # #Misfits Change - MFC recipe removed; consolidated to single generic cell at T2
     - N14BPVaultAmmoPlasmaCell
 
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintVaultAmmoT4
-  name: Vault-Tec Experimental Cell Archive
-  description: Experimental energy cell designs from the Vault-Tec science archives. Tier 4 ammo.
+  name: Vault-Tec Plasma Cartridge Archive
+  description: Experimental plasma ammunition designs from the Vault-Tec science archives. Tier 4 ammo.
   components:
   - type: Blueprint
     recipes:
     - N14BPVaultAmmoPlasmaCartridge
-    - N14BPVaultAmmoPowerCellAdvanced
+    # #Misfits Change - MFC recipe removed; consolidated to single generic cell at T2
 
 # =====================================================================
 # TRIBE BLUEPRINTS

@@ -1,0 +1,118 @@
+<Document>
+# Guide to Faction Sustainability
+
+[textlink="View Full Wiki Page" link="https://ss14.misfitsystems.net/wiki/index.php/Guide%20to%20Faction%20Sustainability"/]
+
+# Guide to Faction Sustainability: Munitions & Medicine
+
+<p>This guide outlines the essential loops for replenishing a faction's supplies mid-round, focusing on ammunition production and medical farming.</p>
+
+## Ammunition Production
+
+<p>When round-start supplies are exhausted, combat effectiveness depends on a steady logistical chain of lead, steel, and gunpowder.</p>
+
+<h3 Text="Resource Acquisition"/>
+
+<p>There are three primary ways to gather the raw materials needed for casings and bullets:</p>
+<ul>
+<li>[bold]Salvaging:[/bold] Searching junk piles, shelves, and crates in the wastes or bunkers. This is the most efficient method in the early game.</li>
+<li>[bold]Dismantling:[/bold] Breaking down wrecked cars or vehicles found on roads and in junkyards. This provides a significant yield of [bold]Lead[/bold] and [bold]Steel[/bold] scraps.</li>
+<li>[bold]Mining:[/bold] The least viable method. Ore veins (Coal, Sulfur, Iron) have low yields and inconsistent drops, making it difficult to target specific materials.</li>
+</ul>
+
+<h3 Text="Ammo Recipes"/>
+
+<p>Standard ammunition requires an [bold]Ammo Bench[/bold]. Ensure you have the following materials inserted into the workbench:</p>
+
+<Table Columns="5">
+  <Box>[bold]Ammo Type[/bold]</Box>
+  <Box>[bold]Lead (Bar)[/bold]</Box>
+  <Box>[bold]Steel (Sheet)[/bold]</Box>
+  <Box>[bold]Gunpowder[/bold]</Box>
+  <Box>[bold]Secondary Mat[/bold]</Box>
+  <Box>[bold]5.56mm[/bold]</Box>
+  <Box>1.5</Box>
+  <Box>2.25</Box>
+  <Box>1.5</Box>
+  <Box>1 Cardboard</Box>
+  <Box>[bold]Shotgun Shell[/bold]</Box>
+  <Box>0.6</Box>
+  <Box>0</Box>
+  <Box>0.6</Box>
+  <Box>1 Cardboard and 1 Paper</Box>
+</Table>
+
+<p>[italic]Note: Cardboard is crafted from 2x Paper. Paper is crafted from 1x Wood Plank.[/italic]</p>
+
+<h3 Text="Crafting Gunpowder"/>
+
+<p>Gunpowder is the most complex component and must be crafted via the crafting menu. There are two ways to produce it:</p>
+
+<h3 Text="Method 1: Basic Crafting (Manual)"/>
+
+<ul>
+<li>[bold]Recipe:[/bold] 1x Fertilizer + 1x Coal + 1x Sulfur.</li>
+<li>[bold]Coal:[/bold] Processed in a [bold]Forge[/bold] from [bold]Charcoal[/bold] (1 Plank = 1 Charcoal; 1.5 Charcoal = 1 Coal).</li>
+<li>[bold]Fertilizer/Sulfur:[/bold] Primarily obtained through mining or faction base stockpiles.</li>
+</ul>
+
+<h3 Text="Method 2: High-Efficiency (Chemset &amp; Mortar)"/>
+
+<p>If you have access to a [bold]Chemical Set[/bold] and beakers, you can produce gunpowder in bulk with much higher efficiency.</p>
+<ul>
+<li>[bold]Grinding:[/bold] Use a [bold]Mortar and Pestle[/bold] (crafted with 2x Wood) to grind Sulfur, Fertilizer, and Coal (which becomes Carbon) into a liquid form.</li>
+<li>[bold]Mixing:[/bold] Collect the resulting liquids into a [bold]Chemical Set[/bold].</li>
+<li>[bold]Ratios:[/bold] Redistribute the chemicals into a single beaker in a strict [bold]1:1:1 ratio[/bold] (For example, 30u Sulfur : 30u Fertilizer : 30u Carbon).</li>
+<li>[bold]Final Step:[/bold] It will consume the units directly from the beaker and drop the gunpowder on the ground, allowing for rapid, large-scale production.</li>
+</ul>
+
+## Medical Supplies & Farming
+
+<p>Medical sustainability relies on the cultivation of [bold]Broc Flower[/bold] and [bold]Xander Root[/bold].</p>
+
+<h3 Text="The Farming Loop"/>
+
+<p>Farming is a precise cycle. If you miss a step(especially clipping), you may lose your ability to replant for the rest of the round.</p>
+<ul>
+<li>[bold]Planting:[/bold] Start with an empty planter. With a [bold]Plant Clipping[/bold] in your hand, click the planter to sow the crop (clippings function as seeds).</li>
+<li>[bold]Weeding:[/bold] Use a [bold]Hoe[/bold] to remove weeds. This can be done either before planting to prep the soil or after the plant has started growing.</li>
+<li>[bold]Hydration & Nutrition:[/bold]
+<ul>
+<li>Keep the water level stable.</li>
+<li>To boost nutrition, collect **Dung** from Brahmin or Brahdo using a bucket or compost bag.</li>
+<li>Insert the compost bag into a **Composer**, then use [bold]Alt+Click[/bold] (or right-click) to toggle the machine on.</li>
+<li>Once processed into compost, click the planter with the compost in hand.</li>
+</ul>
+</li>
+<li>[bold]Clipping (Crucial):[/bold] Once the plant has grown, you [bold]must[/bold] use **Plant Clipper** on it before harvesting. This gives you a new clipping to replant.</li>
+<li>[bold]Harvesting:[/bold] After clipping, you can harvest the plant.</li>
+</ul>
+<p>[italic]Warning: Each plant can only be clipped once. If you harvest before clipping, you officially lose the ability to replant that crop unless you find a new wild source.[/italic]</p>
+
+<h3 Text="Seed Management"/>
+
+<p>If your faction does not have a [bold]Seed Extractor[/bold], you must use [bold]Plant Clippers[/bold]:</p>
+<ul>
+<li>Click a mature crop with the scissors to get a clipping.</li>
+<li>[bold]Warning:[/bold] Each plant can only be clipped once. If you harvest a plant without clipping it first, you lose the ability to replant it.</li>
+</ul>
+<p>[bold]Crafting the Seed Extractor Frame:[/bold] To build the extractor, open your crafting menu and gather the following:</p>
+<ul>
+<li>[bold]4x Planks[/bold]</li>
+<li>[bold]1x Cooking Pot[/bold]</li>
+<li>[bold]2x Steel Sheets[/bold]</li>
+<li>[bold]1x Duct Tape[/bold]</li>
+<li>[bold]Tool Required:[/bold] Screwdriver (to finish construction)</li>
+</ul>
+
+<h3 Text="Medical Recipes"/>
+
+<p>Once harvested, use a workbench or your crafting menu to create healing items:</p>
+<ul>
+<li>[bold]Healing Powder:[/bold] 1x Broc Flower + 1x Xander Root.</li>
+<li>[bold]Doctor Syringe:[/bold] 1x Plastic + 0.25 Steel (Crafted at a workbench).</li>
+<li>[bold]Stimpak:[/bold] 1x Broc Flower + 1x Xander Root + 1x Bloodpack + 1x Doctor Syringe.</li>
+</ul>
+<p>[italic]Note: Empty stimpaks cannot be refilled. Super Stimpaks and Dirty Stimpaks are currently uncraftable.[/italic]</p>
+
+</Document>

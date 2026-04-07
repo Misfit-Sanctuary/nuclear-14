@@ -1,0 +1,172 @@
+<Document>
+# Chems & Addiction
+
+[textlink="View Full Wiki Page" link="https://ss14.misfitsystems.net/wiki/index.php/Chems%20%26%20Addiction"/]
+
+<p>◈ Chems & Addiction ◈ Wasteland Pharmacology ◈</p>
+<p>The Wasteland offers a range of chemical substances - some that save lives, others that ruin them. Understanding what each chem does, how it affects the body, and [bold]what happens when you stop taking it[/bold] is the difference between using a tool and becoming a slave to one.</p>
+
+## Stimpaks
+
+<p>The backbone of Wasteland medicine. Stimpaks are injectable serums that rapidly accelerate the body's healing. Multiple variants exist with different potency and risk.</p>
+
+<Table Columns="4">
+  <Box>[bold]Item[/bold]</Box>
+  <Box>[bold]Effect[/bold]</Box>
+  <Box>[bold]Overdose[/bold]</Box>
+  <Box>[bold]Notes[/bold]</Box>
+  <Box>Stimpak</Box>
+  <Box>Heals Brute, Burn, and Airloss at -2.5 per tick. Stops bleeding (-2). Grants recovery drug status (can stand from crit).</Box>
+  <Box>30u: bonus healing but +0.3 poison/tick. 50u: +1.5 poison/tick (pushes to crit, cannot kill).</Box>
+  <Box>Primary healing item. Crafted from Broc Flower + Xander Root + Empty Syringe + Bloodpack.</Box>
+  <Box>[bold]Dirty Stimpak[/bold]</Box>
+  <Box>Heals Brute, Burn, and Airloss at -1.5 per tick. Applies +0.1 radiation per tick. Stops bleeding (-1).</Box>
+  <Box>30u: weaker bonus healing but +0.2 poison/tick. 50u: +1.0 poison/tick.</Box>
+  <Box>Contaminated variant. Weaker than a clean stimpak but still effective. Found in loot or purchased cheaply.</Box>
+  <Box>Super Stimpak</Box>
+  <Box>Heals Brute, Burn, and Airloss at -6.125 per tick. Stops bleeding (-3). Grants recovery drug status.</Box>
+  <Box>30u: bonus healing but +4.5 poison and +0.75 cellular damage per tick. Also halves movement speed.</Box>
+  <Box>Extremely powerful. Taking two at once is near-guaranteed crit. Cellular damage is [bold]permanent[/bold]. Found in elite medical kits or high-value loot.</Box>
+</Table>
+
+## Other Medical Items
+
+<p>Non-stimpak healing items and medical supplies.</p>
+
+<Table Columns="3">
+  <Box>[bold]Item[/bold]</Box>
+  <Box>[bold]Effect[/bold]</Box>
+  <Box>[bold]Notes[/bold]</Box>
+  <Box>Healing Powder</Box>
+  <Box>Heals Brute and Burn at -1.5 per tick. Causes vision blur (haze overlay). Stops bleeding (-0.5).</Box>
+  <Box>Slow metabolism (0.1 rate). Tribal remedy crafted from Broc Flower + Xander Root. Vomiting at 30u. Standard issue for Legion and tribal roles.</Box>
+  <Box>Healing Poultice</Box>
+  <Box>Heals Brute and Burn at -3.0 per tick. Stops bleeding (-1.0). Causes jitter.</Box>
+  <Box>Faster metabolism (0.2 rate). Stronger than healing powder. Crafted from Broc Flower + Xander Root + Cave Fungus + Agave Leaf. Vomiting at 25u.</Box>
+  <Box>RadAway</Box>
+  <Box>Removes accumulated radiation damage.</Box>
+  <Box>Critical for survival in irradiated areas. Non-addictive.</Box>
+  <Box>[bold]Antidote[/bold]</Box>
+  <Box>Neutralizes poison damage and effects.</Box>
+  <Box>Counter to poisoning.</Box>
+</Table>
+
+## Combat Chems
+
+<p>Combat chems provide powerful temporary bonuses but carry [bold]addiction risk[/bold]. Continued use builds dependency. Stopping use triggers [bold]withdrawal[/bold].</p>
+
+<Table Columns="4">
+  <Box>[bold]Chem[/bold]</Box>
+  <Box>[bold]Effect[/bold]</Box>
+  <Box>[bold]Overdose[/bold]</Box>
+  <Box>[bold]Withdrawal[/bold]</Box>
+  <Box>Jet</Box>
+  <Box>+10% walk and sprint speed. Removes stun/knockdown effects.</Box>
+  <Box>30+ units: asphyxiation</Box>
+  <Box>Speed penalty (0.80×), stamina drain 5.0</Box>
+  <Box>[bold]Turbo[/bold]</Box>
+  <Box>+20% walk and sprint speed. Drunk effect. Removes stun.</Box>
+  <Box>15+ units: asphyxiation</Box>
+  <Box>Speed penalty (0.70×), stamina drain 7.0</Box>
+  <Box>[bold]Psycho[/bold]</Box>
+  <Box>+2 melee strength. Drunk effect.</Box>
+  <Box>30+ units: asphyxiation</Box>
+  <Box>Brute damage 0.2/tick, stamina drain 6.0</Box>
+  <Box>[bold]Buffout[/bold]</Box>
+  <Box>+2 strength. Minor brute healing (-0.3).</Box>
+  <Box>30+ units: asphyxiation</Box>
+  <Box>Brute damage 0.2/tick, stamina drain 8.0</Box>
+  <Box>[bold]Mentats[/bold]</Box>
+  <Box>Intelligence and perception boost.</Box>
+  <Box>-</Box>
+  <Box>Stamina drain (moderate)</Box>
+  <Box>[bold]Cateye[/bold]</Box>
+  <Box>Night vision (5 seconds per dose).</Box>
+  <Box>-</Box>
+  <Box>Stamina drain 2.0</Box>
+  <Box>[bold]Daytripper[/bold]</Box>
+  <Box>Visual hallucinations, rainbow vision.</Box>
+  <Box>-</Box>
+  <Box>Speed penalty (0.90×), stamina drain 4.0</Box>
+  <Box>[bold]Buffjet[/bold]</Box>
+  <Box>Combined Buffout + Jet effects.</Box>
+  <Box>Combined</Box>
+  <Box>Combined withdrawal effects</Box>
+  <Box>[bold]Bufftats[/bold]</Box>
+  <Box>Combined Mentats + Buffout effects.</Box>
+  <Box>Combined</Box>
+  <Box>Combined withdrawal effects</Box>
+</Table>
+
+<p>[bold]Overdose rule:[/bold] Overdose can push you to [bold]critical but never kill you[/bold] directly. Damage scales with excess chemical concentration (0.05 per excess unit).</p>
+
+## Addiction System
+
+<p>Using combat chems builds chemical dependency over time. When a chem wears off, [bold]withdrawal[/bold] begins.</p>
+
+<h3 Text="Withdrawal Tiers"/>
+
+<p>Withdrawal severity depends on how long ago the chem wore off:</p>
+
+<Table Columns="3">
+  <Box>[bold]Tier[/bold]</Box>
+  <Box>[bold]Time Remaining[/bold]</Box>
+  <Box>[bold]Symptoms[/bold]</Box>
+  <Box>Severe</Box>
+  <Box>> 120 seconds</Box>
+  <Box>Maximum speed penalty, stamina drain, health damage, mood effects</Box>
+  <Box>[bold]Moderate[/bold]</Box>
+  <Box>60 – 120 seconds</Box>
+  <Box>Reduced penalties, still noticeable performance impact</Box>
+  <Box>[bold]Mild[/bold]</Box>
+  <Box>15 – 60 seconds</Box>
+  <Box>Minor penalties, the worst has passed</Box>
+  <Box>[bold]Fading[/bold]</Box>
+  <Box>< 15 seconds</Box>
+  <Box>Nearly clean. Hold on.</Box>
+</Table>
+
+<p>Withdrawal effects tick every [bold]15 seconds[/bold] and include:</p>
+<ul>
+<li>[bold]Speed penalties[/bold] - movement speed reduced (per-drug, 0.70× to 0.90×)</li>
+<li>[bold]Stamina drain[/bold] - stamina depletes faster (2.0 to 8.0 per tick)</li>
+<li>[bold]Health damage[/bold] - some drugs cause direct brute or burn damage during withdrawal</li>
+<li>[bold]Mood effects[/bold] - negative mood modifiers until clean</li>
+</ul>
+
+<h3 Text="Chem Recipes"/>
+
+<Table Columns="3">
+  <Box>[bold]Chem[/bold]</Box>
+  <Box>[bold]Recipe[/bold]</Box>
+  <Box>[bold]Notes[/bold]</Box>
+  <Box>[bold]Jet[/bold]</Box>
+  <Box>Ammonia 1 + Abraxo 1 (heated to 374°C)</Box>
+  <Box>Requires heat source</Box>
+  <Box>[bold]Psycho[/bold]</Box>
+  <Box>Bloatfly Acid 1 + Broc Extract 2 + Blood 1 + Antiseptic 2</Box>
+  <Box>Complex recipe, rare ingredients</Box>
+  <Box>[bold]Turbo[/bold]</Box>
+  <Box>Cazador Acid 1 + Broc Extract 1 + Jet 1 + Turpentine 1</Box>
+  <Box>Requires Jet as base ingredient</Box>
+  <Box>[bold]Mentats[/bold]</Box>
+  <Box>Abraxo 1 + Lead 1</Box>
+  <Box>Simple recipe</Box>
+  <Box>[bold]Buffjet[/bold]</Box>
+  <Box>Jet 1 + Buffout 1</Box>
+  <Box>Combination drug</Box>
+  <Box>[bold]Bufftats[/bold]</Box>
+  <Box>Mentats 1 + Buffout 1</Box>
+  <Box>Combination drug</Box>
+  <Box>[bold]Hydra[/bold]</Box>
+  <Box>Scorpion Tail 1 + Fungus Extract 1 + Nightstalker Blood 1</Box>
+  <Box>Healing/stat hybrid</Box>
+  <Box>[bold]RadAway[/bold]</Box>
+  <Box>Fungus Extract (Rad) 1 + Antiseptic 2 + Water 2</Box>
+  <Box>Medical, non-addictive</Box>
+  <Box>[bold]Stimpak[/bold]</Box>
+  <Box>Broc Extract 1 + Xander Extract 1 + Blood 1</Box>
+  <Box>Medical, non-addictive</Box>
+</Table>
+
+</Document>

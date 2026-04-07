@@ -10,7 +10,7 @@
 #   - BoSMidKnight
 #   - BoSMidSquire
 #   - BoSMidInquisitor # Forge-Change
-#   - BoSMidSerf
+#   - BoSMidSerf  # moved to _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_serf.yml  # #Misfits Fix
 
 # - type: department
 #   id: BrotherhoodWashington
@@ -67,6 +67,8 @@
   description: department-NCR-description
   color: "#fbc02d"
   roles:
+  # Command (Admin Whitelist Only)
+  - NCRMajor             # NCR Major (whitelist)   | _Misfits/Roles/Jobs/NCR/ncr_major.yml  # #Misfits Add
   # Officers
   - NCRCaptain           # NCR Captain             | _Misfits/Roles/Jobs/NCR/ncr_captain.yml
   - NCRLT                # NCR Lieutenant          | _Misfits/Roles/Jobs/NCR/ncr_lieutenant.yml
@@ -76,7 +78,7 @@
   - NCRStaffSergeant     # NCR Staff Sergeant      | _Misfits/Roles/Jobs/NCR/ncr_staff_sergeant.yml
   - NCRSGT               # NCR Sergeant            | _Misfits/Roles/Jobs/NCR/ncr_sergeant.yml
   # Enlisted
-  - NCRWS                # NCR Specialist          | _Misfits/Roles/Jobs/NCR/ncr_corporal.yml
+  - NCRWS                # NCR Specialist          | _Misfits/Roles/Jobs/NCR/ncr_specialist.yml  # #Misfits Fix - renamed from ncr_corporal.yml to match in-game role name
   #- NCRMedic             # NCR Medic (consolidated into Specialist) #Misfits Change /Comment-out/
   #- NCREngineer          # NCR Engineer (consolidated into Specialist) #Misfits Change /Comment-out/
   - NCRPrivateFirstClass # NCR Private First Class | _Misfits/Roles/Jobs/NCR/ncr_private_first_class.yml
@@ -94,10 +96,10 @@
   description: department-Rangers-description
   color: "#3ab700"
   roles:
-  - RangerVeteran
-  - Ranger
-  - RangerRecruit
-  - NCRRanger         # #Misfits Add - NCR Ranger (needed for department requirement lookup)
+  - RangerVeteran  # Ranger Veteran  | _Misfits/Roles/Jobs/Rangers/ranger_veteran.yml  # #Misfits Fix - moved from _Nuclear14
+  - Ranger         # Ranger         | _Misfits/Roles/Jobs/Rangers/ranger.yml           # #Misfits Fix - moved from _Nuclear14
+  - RangerRecruit  # Ranger Recruit | _Misfits/Roles/Jobs/Rangers/ranger_recruit.yml   # #Misfits Fix - moved from _Nuclear14
+  - NCRRanger      # NCR Ranger     | _Misfits/Roles/Jobs/Rangers/ncr_ranger.yml       # #Misfits Add/Fix - NCR Ranger moved from _Nuclear14/NCR/republic_ranger.yml
 
 - type: department
   id: Tribe
@@ -119,6 +121,11 @@
   - VaultDoctor
   - VaultEngineer
   - VaultDweller
+  # #Misfits Add - vault-assigned robots (showBorder on MrHandy creates the visual separator; hidden without Robots whitelist)
+  - SyntheticMrHandy
+  - SyntheticProtectron
+  - SyntheticMrGutsy
+  - SyntheticRobobrain
 
 - type: department
   id: Wastelander
@@ -186,7 +193,7 @@
   - CaesarLegionLegionnaireRecruit  # Legionnaire Recruit | _Misfits/Roles/Jobs/CaesarLegion/legion_legionnaire_recruit.yml
   # Specialists # #Misfits Change /Fix/: Match Character Setup and Latejoin order to the requested Legion rank grouping.
   - CaesarLegionHoundmaster     # Houndmaster         | _Misfits/Roles/Jobs/CaesarLegion/legion_houndmaster.yml
-  - CaesarLegionFrumentarii     # Frumentarii         | _Misfits/Roles/Jobs/CaesarLegion/legion_venator.yml
+  - CaesarLegionFrumentarii     # Frumentarii         | _Misfits/Roles/Jobs/CaesarLegion/legion_frumentarii.yml  # #Misfits Fix - renamed from legion_venator.yml to match in-game role name
   - CaesarLegionVexillarius     # Vexillarius         | _Misfits/Roles/Jobs/CaesarLegion/legion_vexillarius.yml
   - CaesarLegionExplorer        # Explorer            | _Misfits/Roles/Jobs/CaesarLegion/legion_explorer.yml
   - CaesarLegionAuxilia         # Auxilia             | _Misfits/Roles/Jobs/CaesarLegion/legion_auxilia.yml

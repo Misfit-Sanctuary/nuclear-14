@@ -18,7 +18,9 @@ using Content.Shared.Database;
 using Content.Shared.EntityEffects;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mood;
+using Content.Shared._Misfits.CCVar; // #Misfits Add - suffocation CVar
 using JetBrains.Annotations;
+using Robust.Shared.Configuration; // #Misfits Add - config manager for suffocation CVar
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -41,6 +43,7 @@ public sealed class RespiratorSystem : EntitySystem
     [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // #Misfits Add - config manager for suffocation CVar
 
     private static readonly ProtoId<MetabolismGroupPrototype> GasId = new("Gas");
 
@@ -69,6 +72,9 @@ public sealed class RespiratorSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        // #Misfits Add - cache suffocation CVar once per tick instead of per-entity
+        var suffocationEnabled = _cfg.GetCVar(PerformanceCVars.Suffocation);
+
         var query = EntityQueryEnumerator<RespiratorComponent, BodyComponent>();
         while (query.MoveNext(out var uid, out var respirator, out var body))
         {
@@ -82,6 +88,15 @@ public sealed class RespiratorSystem : EntitySystem
 
             if (HasComp<RespiratorImmuneComponent>(uid))
                 continue;
+
+            // #Misfits Add - targeted CVar gate: non-crit entities skip breathing/suffocation
+            // when CVar disabled, but crit/hardcrit entities still suffocate toward death.
+            if (!suffocationEnabled && !_mobState.IsIncapacitated(uid))
+            {
+                StopSuffocation((uid, respirator));
+                respirator.SuffocationCycles = 0;
+                continue;
+            }
 
             UpdateSaturation(uid, -(float) respirator.UpdateInterval.TotalSeconds, respirator);
 

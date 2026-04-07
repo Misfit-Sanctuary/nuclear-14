@@ -17,7 +17,7 @@
   hideWithoutWhitelist: true # #Misfits Change
   spawnLoadout: false
   startingGear: SuperMutantVaultSuitGear # #Misfits Add - prevents naked spawns
-  applyTraits: false
+  applyTraits: true # #Misfits Change - enable perks tab for Supermutants
   requirements:
     - !type:CharacterSpeciesRequirement
       species:
@@ -54,7 +54,7 @@
   whitelisted: true # #Misfits Change
   hideWithoutWhitelist: true # #Misfits Change
   spawnLoadout: false
-  applyTraits: false
+  applyTraits: true # #Misfits Change - enable perks tab for Supermutants
   startingGear: SuperMutantGladiatorGear
   requirements:
     - !type:CharacterSpeciesRequirement
@@ -77,6 +77,8 @@
     shoes: ClothingSuperMutantGladiatorBoots
     head: ClothingSuperMutantGladiatorHelmet
     id: N14IDLegionaryBadgeSlave # Gladiator serves under Legion authority
+    back: N14ClothingBackpackMilitary # #Misfits Add - backslot for storing a secondary weapon
+    suitstorage: N14WastelandTribalSpear # #Misfits Add - back holster slot; starts with a spear stowed on the back
   inhand:
     - N14WastelandTribalSpear # Starts with a tribal spear for close-combat
 

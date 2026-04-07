@@ -104,17 +104,29 @@ public sealed class RadiationWarningSystem : EntitySystem
         ProcessRadiationDamage(uid, comp, args);
     }
 
+    // #Misfits Tweak - Gate cooldown ticks to 1 Hz; 1-second resolution is imperceptible for
+    // visual/audio warning messages. Reduces per-tick component iteration by ~30×.
+    private float _cooldownAccumulator;
+    private const float CooldownTickInterval = 1.0f;
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
+        _cooldownAccumulator += frameTime;
+        if (_cooldownAccumulator < CooldownTickInterval)
+            return;
+        _cooldownAccumulator -= CooldownTickInterval;
+
+        // Decrement by the full 1-second interval so cooldowns drain at the same rate
+        // regardless of tick rate.
         var query = EntityQueryEnumerator<RadiationWarningComponent>();
         while (query.MoveNext(out _, out var comp))
         {
             for (var i = 0; i < comp.TierCooldowns.Length; i++)
             {
                 if (comp.TierCooldowns[i] > 0f)
-                    comp.TierCooldowns[i] = MathF.Max(0f, comp.TierCooldowns[i] - frameTime);
+                    comp.TierCooldowns[i] = MathF.Max(0f, comp.TierCooldowns[i] - CooldownTickInterval);
             }
         }
     }

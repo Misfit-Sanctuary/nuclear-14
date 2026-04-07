@@ -101,6 +101,15 @@ namespace Content.Server.Database
             return (await GetServerBanQueryAsync(db, address, userId, hwId, modernHWIds, includeUnbanned)).ToList();
         }
 
+        // #Misfits Add - banlistall: return all server bans globally without a player filter
+        public override async Task<List<ServerBanDef>> GetAllServerBansAsync(bool includeUnbanned)
+        {
+            await using var db = await GetDbImpl();
+            // Reuse the private GetAllBans helper that already loads everything from the SQLite Ban table.
+            var queryBans = await GetAllBans(db.SqliteDbContext, includeUnbanned, null);
+            return queryBans.Select(ConvertBan).Where(b => b != null).Select(b => b!).ToList();
+        }
+
         private async Task<IEnumerable<ServerBanDef>> GetServerBanQueryAsync(
             DbGuardImpl db,
             IPAddress? address,
@@ -219,6 +228,15 @@ namespace Content.Server.Database
                 .Where(b => RoleBanMatches(b, address, userId, hwId, modernHWIds))
                 .Select(ConvertRoleBan)
                 .ToList()!;
+        }
+
+        // #Misfits Add - banlistall: return all role bans globally without a player filter
+        public override async Task<List<ServerRoleBanDef>> GetAllServerRoleBansAsync(bool includeUnbanned)
+        {
+            await using var db = await GetDbImpl();
+            // Reuse the private GetAllRoleBans helper.
+            var queryBans = await GetAllRoleBans(db.SqliteDbContext, includeUnbanned);
+            return queryBans.Select(ConvertRoleBan).Where(b => b != null).Select(b => b!).ToList();
         }
 
         private static async Task<List<ServerRoleBan>> GetAllRoleBans(

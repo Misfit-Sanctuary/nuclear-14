@@ -227,6 +227,34 @@ public sealed class WieldableSystem : EntitySystem
     /// <returns>True if the attempt wasn't blocked.</returns>
     public bool TryWield(EntityUid used, WieldableComponent component, EntityUid user)
     {
+        // #Misfits Add - Auto-drop off-hand items when wielding a weapon that requires a free hand.
+        // If the other hand contains a non-virtual item and we don't have enough free hands, drop it
+        // so the player can wield without needing to manually clear their off-hand first.
+        if (_netManager.IsServer
+            && component.FreeHandsRequired > 0
+            && TryComp<HandsComponent>(user, out var handsForDrop)
+            && _handsSystem.IsHolding(user, used, out var wieldHand, handsForDrop))
+        {
+            var freeCount = _handsSystem.EnumerateHands(user, handsForDrop).Count(h => h.IsEmpty);
+            if (freeCount < component.FreeHandsRequired)
+            {
+                foreach (var hand in _handsSystem.EnumerateHands(user, handsForDrop))
+                {
+                    if (freeCount >= component.FreeHandsRequired)
+                        break;
+                    if (hand == wieldHand || hand.IsEmpty)
+                        continue;
+                    if (hand.HeldEntity is not { } heldItem)
+                        continue;
+                    // Never drop virtual items — they are wield-lock placeholders from another wield
+                    if (HasComp<VirtualItemComponent>(heldItem))
+                        continue;
+                    if (_handsSystem.TryDrop(user, hand, checkActionBlocker: false, handsComp: handsForDrop))
+                        freeCount++;
+                }
+            }
+        }
+
         if (!CanWield(used, component, user))
             return false;
 

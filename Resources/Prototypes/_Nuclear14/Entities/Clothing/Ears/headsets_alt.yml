@@ -6,6 +6,9 @@
   description: An earpiece with an intercom built into it, almost like a radio? Takes encryption keys.
   components:
   - type: Headset
+    # #Misfits Add - all N14 headsets passively receive PBS (Broadcast) without a key; transmit requires EncryptionKeyPBS
+    passiveChannels:
+    - PBS
   - type: ContainerContainer
     containers:
       key_slots: !type:Container

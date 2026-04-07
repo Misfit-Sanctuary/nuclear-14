@@ -84,6 +84,7 @@
   - type: Grammar # Misfits Change - proper noun so names appear capitalized in says/emotes when possessed
     attributes:
       proper: true
+  - type: ZombieImmune # #Misfits Fix - robots should not be zombifiable; matches silicon_base, borg chassis, and NPC silicon patterns
 # Let's see how much this remains functional, butchered MobSiliconBase, it is.
 
 - type: entity
@@ -194,7 +195,7 @@
     energy: 1
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    netsync: false
+    # netsync: false # #Misfits Fix - this was preventing flashlight state from syncing to clients after toggle
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour

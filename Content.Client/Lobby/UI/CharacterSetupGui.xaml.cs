@@ -1,3 +1,5 @@
+// #Misfits Removed - WebView module deprecated upstream, all versions marked insecure
+// using Content.Client._Misfits.WebView;
 using Content.Client.Info;
 using Content.Client.Info.PlaytimeStats;
 using Content.Client.Resources;
@@ -63,6 +65,7 @@ namespace Content.Client.Lobby.UI
             };
 
             CharEditor.AddChild(profileEditor);
+            // #Misfits Change - Reverted to standard RulesAndInfoWindow (WebView module deprecated upstream)
             RulesButton.OnPressed += _ => new RulesAndInfoWindow().Open();
 
             StatsButton.OnPressed += _ => new PlaytimeStatsWindow().OpenCentered();

@@ -16,6 +16,7 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Weapons.Reflect;
 using Content.Shared.Damage.Components;
+using Content.Shared._Misfits.Weapons; // #Misfits Add - GunDamageBonusComponent support
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
@@ -147,6 +148,15 @@ public sealed partial class GunSystem : SharedGunSystem
                     break;
                 case HitscanPrototype hitscan:
 
+                    // #Misfits Add - Override hitscan proto if gun specifies one.
+                    // This lets weapons control their own beam color and base damage
+                    // independently of which cell is inserted.
+                    if (TryComp<GunDamageBonusComponent>(gunUid, out var gunOverride) &&
+                        gunOverride.HitscanProtoOverride != null)
+                    {
+                        hitscan = ProtoManager.Index<HitscanPrototype>(gunOverride.HitscanProtoOverride);
+                    }
+
                     EntityUid? lastHit = null;
 
                     var from = fromMap;
@@ -217,6 +227,13 @@ public sealed partial class GunSystem : SharedGunSystem
                             _stamina.TakeStaminaDamage(hitEntity, hitscan.StaminaDamage, source: user);
 
                         var dmg = hitscan.Damage;
+
+                        // #Misfits Add - Apply gun-side bonus damage from GunDamageBonusComponent
+                        if (dmg != null && TryComp<GunDamageBonusComponent>(gunUid, out var gunBonus) && gunBonus.BonusDamage != null)
+                        {
+                            dmg = new DamageSpecifier(dmg);
+                            dmg += gunBonus.BonusDamage;
+                        }
 
                         var hitName = ToPrettyString(hitEntity);
                         if (dmg != null)

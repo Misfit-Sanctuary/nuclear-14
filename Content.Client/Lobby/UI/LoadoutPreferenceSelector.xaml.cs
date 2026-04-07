@@ -159,23 +159,25 @@ public sealed partial class LoadoutPreferenceSelector : Control
 
 
         // Manage the info button
-        void UpdateGuidebook() => GuidebookButton.Visible =
-            prototypeManager.HasIndex<GuideEntryPrototype>(loadout.GuideEntry);
-        UpdateGuidebook();
-        prototypeManager.PrototypesReloaded += _ => UpdateGuidebook();
+        // #Misfits Change - Guidebook button hidden in round-start loadout panel; use escape menu Wiki button instead
+        GuidebookButton.Visible = false;
+        // void UpdateGuidebook() => GuidebookButton.Visible =
+        //     prototypeManager.HasIndex<GuideEntryPrototype>(loadout.GuideEntry);
+        // UpdateGuidebook();
+        // prototypeManager.PrototypesReloaded += _ => UpdateGuidebook();
 
-        GuidebookButton.OnPressed += _ =>
-        {
-            if (!prototypeManager.TryIndex<GuideEntryPrototype>(loadout.GuideEntry, out var guideRoot))
-                return;
-
-            var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
-            //TODO: Don't close the guidebook if its already open, just go to the correct page
-            guidebookController.ToggleGuidebook(
-                new Dictionary<string, GuideEntry> { { loadout.GuideEntry, guideRoot } },
-                includeChildren: true,
-                selected: loadout.GuideEntry);
-        };
+        // #Misfits Change - Guidebook button handler kept for reference but button is hidden
+        // GuidebookButton.OnPressed += _ =>
+        // {
+        //     if (!prototypeManager.TryIndex<GuideEntryPrototype>(loadout.GuideEntry, out var guideRoot))
+        //         return;
+        //     var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
+        //     //TODO: Don't close the guidebook if its already open, just go to the correct page
+        //     guidebookController.ToggleGuidebook(
+        //         new Dictionary<string, GuideEntry> { { loadout.GuideEntry, guideRoot } },
+        //         includeChildren: true,
+        //         selected: loadout.GuideEntry);
+        // };
 
         // Create a checkbox to get the loadout
         PreferenceButton.AddChild(new BoxContainer

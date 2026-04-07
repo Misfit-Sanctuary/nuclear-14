@@ -88,8 +88,7 @@
         path: /Audio/Ambience/Objects/prober_hum_dangerous.ogg
       Critical:
         path: /Audio/Ambience/Objects/prober_hum_dangerous.ogg
-  - type: GuideHelp
-    guides: [ Glimmer ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Glimmer)
 
 - type: entity
   parent: BaseMachinePowered
@@ -128,8 +127,7 @@
   - type: NpcFactionMember
     factions:
     - PsionicInterloper # :^)
-  - type: GuideHelp
-    guides: [ Glimmer ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Glimmer)
 
 - type: entity
   id: GlimmerDeviceFrame
@@ -180,5 +178,4 @@
       - state: base
       - state: intermediate
     - type: CargoSellBlacklist
-    - type: GuideHelp
-      guides: [ Glimmer ]
+    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Glimmer)

@@ -1,4 +1,5 @@
 using Content.Server.Administration.Logs;
+using Robust.Shared.Timing; // #Misfits Fix - RT v275: needed for Timer.Spawn (replaces EntityUid.SpawnTimer)
 using Content.Server.Atmos.Components;
 using Content.Server.IgnitionSource;
 using Content.Server.Stunnable;
@@ -389,7 +390,7 @@ namespace Content.Server.Atmos.EntitySystems
             _stunSystem.TryParalyze(uid, TimeSpan.FromSeconds(2f), true);
 
             // TODO FLAMMABLE: Make this not use TimerComponent...
-            uid.SpawnTimer(2000, () =>
+            Timer.Spawn(2000, () => // #Misfits Fix - RT v275: SpawnTimer removed, use Timer.Spawn
             {
                 flammable.Resisting = false;
                 flammable.FireStacks -= flammable.FirestackFade * 10f;

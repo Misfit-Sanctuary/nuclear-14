@@ -43,13 +43,22 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
         if (!headset.Enabled || MetaData(uid).EntityLifeStage >= EntityLifeStage.Terminating)
             return;
 
-        if (!Resolve(uid, ref keyHolder))
-            return;
+        // #Misfits Change - don't early-return if no keyHolder; passive channels still need to be applied.
+        Resolve(uid, ref keyHolder, logMissing: false);
 
-        if (keyHolder.Channels.Count == 0)
+        // #Misfits Add - merge key channels with passive listen-only channels (e.g. PBS broadcast).
+        // PassiveChannels are always received regardless of inserted encryption keys,
+        // but transmitting on them still requires the matching EncryptionKey (OnSpeak checks keyHolder.Channels).
+        // Note: keyHolder may be null if the headset has no inserted keys — use empty set as base in that case.
+        var keyChannels = keyHolder != null ? keyHolder.Channels : new HashSet<string>();
+        var allReceiveChannels = new HashSet<string>(keyChannels);
+        allReceiveChannels.UnionWith(headset.PassiveChannels);
+
+        if (allReceiveChannels.Count == 0)
             RemComp<ActiveRadioComponent>(uid);
         else
-            EnsureComp<ActiveRadioComponent>(uid).Channels = new(keyHolder.Channels);
+            EnsureComp<ActiveRadioComponent>(uid).Channels = allReceiveChannels;
+        // End #Misfits Add
     }
 
     private void OnSpeak(EntityUid uid, WearingHeadsetComponent component, EntitySpokeEvent args)

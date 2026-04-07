@@ -10,3 +10,6 @@ trait-category-TraitsSpeechAccents = Accents
 trait-category-TraitsSpeechLanguages = Languages
 trait-category-Visual = Visual
 trait-category-Language = Language
+
+# #Misfits Add - Pets perk tree category
+trait-category-Pets = Pets

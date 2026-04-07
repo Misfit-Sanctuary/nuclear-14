@@ -97,6 +97,7 @@
         !type:DamageTrigger
         damage: 50
       behaviors:
+      # #Misfits Fix - Use OreVein-only drops to prevent stack-count roll multiplication on timber.
       - !type:PlaySoundBehavior
         sound:
           path: /Audio/Effects/tree_fell.ogg
@@ -105,11 +106,6 @@
             variation: 0.05
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          MaterialWoodPlank1:
-            min: 1
-            max: 1
   - type: Stack
     stackType: N14Timber
     count: 1

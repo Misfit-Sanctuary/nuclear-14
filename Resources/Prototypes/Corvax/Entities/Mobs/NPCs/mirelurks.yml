@@ -53,6 +53,17 @@
     - id: N14FoodMeatMirelurkClaw
       amount: 2
       prob: 0.8
+  - type: LanguageKnowledge # #Misfits Add - understands common wasteland languages; speaks Crab (crustacean mutations)
+    speaks:
+    - Crab
+    understands:
+    - Crab
+    - English
+    - Chinese
+    - Spanish
+    - Latin
+    - N14Robot
+    - N14BrotherBeep
 
 - type: entity
   name: rad mirelurk

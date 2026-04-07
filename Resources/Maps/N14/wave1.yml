@@ -6249,6 +6249,25 @@ entities:
         colorHex: '#02020b'
       - time: 1
         colorHex: '#000000'
+    - type: MapAtmosphere
+      space: False
+      mixture:
+        volume: 2500
+        immutable: True
+        temperature: 293.15
+        moles:
+        - 21.82478
+        - 82.10312
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: LoadedMap
 - proto: AcousticGuitarInstrument
   entities:

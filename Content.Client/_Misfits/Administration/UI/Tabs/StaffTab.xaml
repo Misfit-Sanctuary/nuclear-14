@@ -1,4 +1,4 @@
-<!-- #Misfits Change - Staff Panel tab: quick action buttons + squished-in round ticket stats (TicketStatsTab removed as separate tab) -->
+<!-- #Misfits Change - Staff Panel tab: quick action buttons + Audit Log + Activity Log + Banlist (Round Ticket Stats removed — redundant with Audit Log) -->
 <Control
     xmlns="https://spacestation14.io"
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
@@ -12,47 +12,23 @@
             <Label Text="{Loc misfits-staff-tab-permissions-desc}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
         </BoxContainer>
 
-        <!-- #Misfits Add - Audit Log button: opens the ticket audit window with filtering and per-ticket chat access -->
+        <!-- Audit Log: persistent DB-backed ticket history -->
         <BoxContainer Orientation="Horizontal" SeparationOverride="8">
             <Button Name="OpenAuditLog" Text="{Loc misfits-staff-tab-audit-log-btn}" MinWidth="180" />
             <Label Text="{Loc misfits-staff-tab-audit-log-desc}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
         </BoxContainer>
 
-        <!-- Round Ticket Stats — squished in from the now-removed TicketStats tab -->
-        <PanelContainer Name="StatsPanel" MinHeight="200" VerticalExpand="True">
-            <ScrollContainer HScrollEnabled="false" VScrollEnabled="true">
-                <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="6">
-                    <Label Name="StatsHeader" Text="{Loc misfits-staff-stats-header}" StyleClasses="LabelHeading" />
+        <!-- #Misfits Add - Activity Log: opens AdminLogsEui pre-filtered to High/Extreme admin-action types -->
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <Button Name="OpenActivityLog" Text="{Loc misfits-staff-tab-activity-log-btn}" MinWidth="180" />
+            <Label Text="{Loc misfits-staff-tab-activity-log-desc}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
+        </BoxContainer>
 
-                    <!-- Admin ticket counters -->
-                    <BoxContainer Orientation="Horizontal" SeparationOverride="14">
-                        <Label Text="Admin:" StyleClasses="LabelSubText" FontColorOverride="#D4A843" MinWidth="55" />
-                        <Label Name="AdminTotalLabel" StyleClasses="LabelSubText" />
-                        <Label Name="AdminOpenLabel" StyleClasses="LabelSubText" />
-                        <Label Name="AdminClaimedLabel" StyleClasses="LabelSubText" />
-                        <Label Name="AdminResolvedLabel" StyleClasses="LabelSubText" />
-                    </BoxContainer>
-
-                    <!-- Mentor ticket counters -->
-                    <BoxContainer Orientation="Horizontal" SeparationOverride="14">
-                        <Label Text="Mentor:" StyleClasses="LabelSubText" FontColorOverride="#43B4D4" MinWidth="55" />
-                        <Label Name="MentorTotalLabel" StyleClasses="LabelSubText" />
-                        <Label Name="MentorOpenLabel" StyleClasses="LabelSubText" />
-                        <Label Name="MentorClaimedLabel" StyleClasses="LabelSubText" />
-                        <Label Name="MentorResolvedLabel" StyleClasses="LabelSubText" />
-                    </BoxContainer>
-
-                    <!-- Avg resolution time (combined) -->
-                    <Label Name="AvgResolutionLabel" StyleClasses="LabelSubText" />
-
-                    <!-- Per-staff breakdown header -->
-                    <Label Text="{Loc misfits-staff-stats-breakdown-header}" StyleClasses="LabelSubText" Margin="0 4 0 0" />
-
-                    <!-- Staff leaderboard grid (populated in code-behind) -->
-                    <GridContainer Name="StaffGrid" Columns="4" HSeparationOverride="30" VSeparationOverride="4" />
-                </BoxContainer>
-            </ScrollContainer>
-        </PanelContainer>
+        <!-- #Misfits Add - Banlist: opens the server-wide active ban list (banlistall command) -->
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <cc:CommandButton Command="banlistall" Text="{Loc misfits-staff-tab-banlist-btn}" MinWidth="180" />
+            <Label Text="{Loc misfits-staff-tab-banlist-desc}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
+        </BoxContainer>
 
     </BoxContainer>
 </Control>

@@ -212,7 +212,7 @@ public sealed class HelpTicketAuditEntry
 
 /// <summary>
 /// Admin → Server: request audit log entries from the database.
-/// Optionally filtered to a specific player.
+/// Optionally filtered to a specific player, admin, or date range.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class HelpTicketAuditRequestMessage : EntityEventArgs
@@ -223,7 +223,33 @@ public sealed class HelpTicketAuditRequestMessage : EntityEventArgs
     public int Limit { get; init; } = 100;
     /// <summary>Number of entries to skip for pagination (default 0).</summary>
     public int Offset { get; init; } = 0;
+
+    // #Misfits Add - extended audit log filtering: player name, admin name/id, date range
+    /// <summary>Partial player name filter (case-insensitive). Null to ignore.</summary>
+    public string? FilterPlayerName { get; init; }
+    /// <summary>Partial admin name filter (case-insensitive). Null to ignore.</summary>
+    public string? FilterAdminName { get; init; }
+    /// <summary>Exact admin ID filter. Null to ignore.</summary>
+    public Guid? FilterAdminId { get; init; }
+    /// <summary>Start of date range for filtering (UTC). Events must be >= this time.</summary>
+    public DateTime? FilterStartDate { get; init; }
+    /// <summary>End of date range for filtering (UTC). Events must be <= this time.</summary>
+    public DateTime? FilterEndDate { get; init; }
+    /// <summary>When true, the server includes admin statistics in the response.</summary>
+    public bool IncludeAdminStats { get; init; }
 }
+
+// #Misfits Add - admin statistics entry for audit log: admin name + ticket counts
+/// <summary>
+/// Aggregated ticket count statistics for a single admin across all their handled tickets.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed record AdminStatEntry(
+    string AdminName,
+    Guid AdminId,
+    int ResolvedCount,
+    int ClaimedCount
+);
 
 /// <summary>
 /// Server → Admin: audit log entries retrieved from the database.
@@ -236,6 +262,10 @@ public sealed class HelpTicketAuditResponseMessage : EntityEventArgs
     public int TotalCount { get; init; }
     /// <summary>Offset that was used to produce this page.</summary>
     public int Offset { get; init; }
+
+    // #Misfits Add - optional admin statistics when requested by the client
+    /// <summary>Admin statistics (resolved/claimed counts) for the filtered period. Null if not requested.</summary>
+    public List<AdminStatEntry>? AdminStats { get; init; }
 }
 
 // ──────────────────── Chat History ──────────────────────

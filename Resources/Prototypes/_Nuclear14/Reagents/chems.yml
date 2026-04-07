@@ -158,6 +158,9 @@
           groups:
             Brute: 0.2
         withdrawalStaminaDrain: 6.0
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.30
+        sprintSpeedModifier: 1.30
       - !type:HealthChange #Misfits Change /Add:/ Overdose — suffocates the player when stacking too much Psycho
         conditions:
         - !type:ReagentThreshold

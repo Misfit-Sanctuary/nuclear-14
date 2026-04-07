@@ -1,0 +1,91 @@
+<Document>
+# Botany
+
+[textlink="View Full Wiki Page" link="https://ss14.misfitsystems.net/wiki/index.php/Botany"/]
+
+## Botany
+
+<p>Botany in Nuclear 14 is about growing food, medicinal plants, and useful extracts for your settlement. Plant products can be eaten raw, cooked, ground into extracts, or turned into ingredients for medicine and other crafting recipes.</p>
+
+<h3 Text="Growing Basics"/>
+
+<p>Most growers use either simple soil beds or proper hydroponic planters. Soil is cheap and reliable, while hydroponics gives clearer visual feedback about plant health.</p>
+
+<h3 Text="Soil Beds"/>
+
+<p>Soil can be made in the crafting menu from compost. It is the simplest way to farm, but it does not provide the flag indicators that hydroponic trays do, so you need to inspect plants directly to judge their condition.</p>
+<p>The plant life cycle is as follows:</p>
+
+<Table Columns="2">
+  <Box>[bold]Stage[/bold]</Box>
+  <Box>[bold]Meaning[/bold]</Box>
+  <Box>[bold]Empty[/bold]</Box>
+  <Box>No water, seeds, or nutrients present.</Box>
+  <Box>[bold]Moist[/bold]</Box>
+  <Box>Water has been added (e.g., from a bottle or bucket).</Box>
+  <Box>[bold]Ready to Plant[/bold]</Box>
+  <Box>Water and nutrients (fertilizer) have been added.</Box>
+  <Box>[bold]Planted[/bold]</Box>
+  <Box>A seed or cutting has been placed.</Box>
+  <Box>[bold]Ready to Harvest[/bold]</Box>
+  <Box>The plant has grown and is ready to collect.</Box>
+  <Box>[bold]Sample Taken[/bold]</Box>
+  <Box>A seed or cutting has been extracted from the plant.</Box>
+  <Box>[bold]Harvested[/bold]</Box>
+  <Box>Plants have been collected. Some will regrow; others must be replanted.</Box>
+  <Box>[bold]Unhealthy[/bold]</Box>
+  <Box>Too many samples taken or sprayed with chemicals. Will continue to grow, but needs care. Restore with fertilizer or replant.</Box>
+  <Box>[bold]Old / Withered[/bold]</Box>
+  <Box>Matured and will soon die. Still harvestable briefly - extract seed before it dies.</Box>
+  <Box>[bold]Dead[/bold]</Box>
+  <Box>Growth has stopped. Pull up and replant. Seeds cannot be extracted.</Box>
+</Table>
+
+<h3 Text="Hydroponic Planters"/>
+
+<p>Hydroponic setups add visual flags that indicate plant status at a glance. The underlying growth process is the same as soil, but maintenance is easier because warning signs are visible on the tray.</p>
+<p>[bold]Hydroponic flag indicators:[/bold]</p>
+
+<Table Columns="2">
+  <Box>[bold]Flag[/bold]</Box>
+  <Box>[bold]Meaning[/bold]</Box>
+  <Box>Red flag (bottom right)</Box>
+  <Box>Dead plant - needs replanting. Use a shovel to remove.</Box>
+  <Box>Orange / Weeds</Box>
+  <Box>Environment suboptimal. Check with Shift+click. Likely weeds - use a mini-hoe or spray once with herbicide. Overuse of herbicide can kill the plant.</Box>
+  <Box>Blue flag (bottom left)</Box>
+  <Box>Water needed - use a bucket on the water reservoir and fill the tray.</Box>
+  <Box>Green flag (top left)</Box>
+  <Box>Ready to harvest - left-click to collect.</Box>
+  <Box>Yellow flag (top right)</Box>
+  <Box>Nutrients needed - add fruit to the soil or apply fertilizer from animal manure or mining.</Box>
+</Table>
+
+<h3 Text="Plant Genetics"/>
+
+<p>Plants pass traits to their offspring through seeds and cuttings. By observing good strains, preserving seed stock, and occasionally mutating crops, you can produce hardier and more productive harvests.</p>
+
+<h3 Text="Traits"/>
+
+<p>The phenotype - the visible set of traits a plant expresses - can be identified by growing it and observing its behavior.</p>
+
+<Table Columns="2">
+  <Box>[bold]Trait[/bold]</Box>
+  <Box>[bold]Effect[/bold]</Box>
+  <Box>[bold]Bioluminescence[/bold]</Box>
+  <Box>Plant glows in the dark.</Box>
+  <Box>[bold]High Yield[/bold]</Box>
+  <Box>Produces more fruit per harvest.</Box>
+  <Box>[bold]Less Water[/bold]</Box>
+  <Box>Requires less water than normal to grow.</Box>
+  <Box>[bold]Woody[/bold]</Box>
+  <Box>Requires sharp tools (knife, hatchet) to harvest.</Box>
+  <Box>[bold]Long-lived[/bold]</Box>
+  <Box>Survives more harvest cycles before dying.</Box>
+  <Box>[bold]Low Light[/bold]</Box>
+  <Box>Requires less light than normal to grow.</Box>
+  <Box>[bold]Pest Resistant[/bold]</Box>
+  <Box>More resistant to pests and environmental damage.</Box>
+</Table>
+
+</Document>

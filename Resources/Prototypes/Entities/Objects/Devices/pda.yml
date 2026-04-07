@@ -184,9 +184,7 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-internmed
-  - type: GuideHelp
-    guides:
-    - MedicalDoctor
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (MedicalDoctor)
 
 - type: entity
   parent: BasePDA
@@ -750,9 +748,7 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-medical
-  - type: GuideHelp
-    guides:
-    - MedicalDoctor
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (MedicalDoctor)
 
 - type: entity
   parent: BaseMedicalPDA

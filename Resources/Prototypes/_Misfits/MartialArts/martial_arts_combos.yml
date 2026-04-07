@@ -1,0 +1,274 @@
+# #Misfits Add - Martial Arts combo definitions for all six Fallout-themed fighting styles
+# Each misfitsCombo defines a single attack sequence and its outcome.
+# Each misfitsComboList groups a style's combos for assignment via GrantMartialArtsSystem.
+
+# =============================================
+# LEGION GLADIATORIAL FIGHTING STYLE
+# (Centurion and Legate job default)
+# =============================================
+
+- type: misfitsCombo
+  id: LegionBodySlam
+  martialArtsForm: LegionGladiatorial
+  attacks:
+    - Grab
+    - Harm
+  extraDamage: 8
+  damageType: Blunt
+  staminaDamage: 20
+  paralyzeTime: 1.5
+  thrownSpeed: 6
+
+- type: misfitsCombo
+  id: LegionFootSweep
+  martialArtsForm: LegionGladiatorial
+  attacks:
+    - Disarm
+  extraDamage: 3
+  damageType: Blunt
+  paralyzeTime: 1.0
+
+- type: misfitsCombo
+  id: LegionCrushingBlow
+  martialArtsForm: LegionGladiatorial
+  attacks:
+    - Harm
+    - Harm
+  extraDamage: 10
+  damageType: Blunt
+  paralyzeTime: 2.0
+
+- type: misfitsCombo
+  id: LegionNeckGrip
+  martialArtsForm: LegionGladiatorial
+  attacks:
+    - Grab
+    - Grab
+  dropItems: true
+
+- type: misfitsComboList
+  id: LegionGladiatorialCombos
+  combos:
+    - LegionBodySlam
+    - LegionFootSweep
+    - LegionCrushingBlow
+    - LegionNeckGrip
+
+# =============================================
+# RANGER COMBAT TECHNIQUE
+# (Veteran Ranger and Ranger Chief job default)
+# =============================================
+
+- type: misfitsCombo
+  id: RangerQuickDisarm
+  martialArtsForm: RangerCombatTechnique
+  attacks:
+    - Disarm
+  extraDamage: 3
+  damageType: Blunt
+  dropItems: true
+
+- type: misfitsCombo
+  id: RangerPressurePoint
+  martialArtsForm: RangerCombatTechnique
+  attacks:
+    - Harm
+    - Disarm
+  extraDamage: 5
+  damageType: Blunt
+  staminaDamage: 25
+  paralyzeTime: 1.5
+
+- type: misfitsCombo
+  id: RangerTakedownThrow
+  martialArtsForm: RangerCombatTechnique
+  attacks:
+    - Grab
+    - Harm
+  extraDamage: 6
+  damageType: Blunt
+  paralyzeTime: 2.0
+  thrownSpeed: 7
+
+- type: misfitsCombo
+  id: RangerArmBar
+  martialArtsForm: RangerCombatTechnique
+  attacks:
+    - Grab
+    - Grab
+    - Harm
+  extraDamage: 8
+  damageType: Blunt
+  paralyzeTime: 2.5
+  staminaDamage: 15
+
+- type: misfitsComboList
+  id: RangerCombatTechniqueCombos
+  combos:
+    - RangerQuickDisarm
+    - RangerPressurePoint
+    - RangerTakedownThrow
+    - RangerArmBar
+
+# =============================================
+# DESERT SURVIVAL FIGHTING
+# (Velocity-scaled damage brawling — Training Manual)
+# =============================================
+
+- type: misfitsCombo
+  id: DesertRushingStrike
+  martialArtsForm: DesertSurvivalFighting
+  attacks:
+    - Harm
+  extraDamage: 5
+  damageType: Blunt
+
+- type: misfitsCombo
+  id: DesertPowerBurst
+  martialArtsForm: DesertSurvivalFighting
+  attacks:
+    - Disarm
+    - Harm
+  extraDamage: 8
+  damageType: Blunt
+  paralyzeTime: 1.5
+
+- type: misfitsCombo
+  id: DesertSlamDown
+  martialArtsForm: DesertSurvivalFighting
+  attacks:
+    - Grab
+    - Harm
+  extraDamage: 6
+  damageType: Blunt
+  paralyzeTime: 2.0
+  staminaDamage: 20
+
+- type: misfitsComboList
+  id: DesertSurvivalFightingCombos
+  combos:
+    - DesertRushingStrike
+    - DesertPowerBurst
+    - DesertSlamDown
+
+# =============================================
+# WASTELAND STREET FIGHTING
+# (Dirty tricks and throws — Training Manual)
+# =============================================
+
+- type: misfitsCombo
+  id: WastelandDirtyKick
+  martialArtsForm: WastelandStreetFighting
+  attacks:
+    - Harm
+    - Disarm
+  extraDamage: 5
+  damageType: Blunt
+  paralyzeTime: 1.0
+
+- type: misfitsCombo
+  id: WastelandWheelThrow
+  martialArtsForm: WastelandStreetFighting
+  attacks:
+    - Grab
+    - Grab
+  extraDamage: 8
+  damageType: Blunt
+  paralyzeTime: 2.0
+  thrownSpeed: 9
+  requiredGrabStage: Hard
+
+- type: misfitsCombo
+  id: WastelandEyePoke
+  martialArtsForm: WastelandStreetFighting
+  attacks:
+    - Disarm
+    - Disarm
+  staminaDamage: 20
+  paralyzeTime: 3.0
+
+- type: misfitsComboList
+  id: WastelandStreetFightingCombos
+  combos:
+    - WastelandDirtyKick
+    - WastelandWheelThrow
+    - WastelandEyePoke
+
+# =============================================
+# TRIBAL WARRIOR STYLE
+# (Primal brawling, gun suppression — Training Manual)
+# =============================================
+
+- type: misfitsCombo
+  id: TribalSavageGnash
+  martialArtsForm: TribalWarriorStyle
+  attacks:
+    - Harm
+  extraDamage: 5
+  damageType: Blunt
+
+- type: misfitsCombo
+  id: TribalWarCry
+  martialArtsForm: TribalWarriorStyle
+  attacks:
+    - Harm
+    - Harm
+    - Harm
+  extraDamage: 10
+  damageType: Blunt
+  paralyzeTime: 2.0
+  staminaDamage: 30
+
+- type: misfitsCombo
+  id: TribalTribeStomp
+  martialArtsForm: TribalWarriorStyle
+  attacks:
+    - Disarm
+    - Disarm
+  extraDamage: 8
+  damageType: Blunt
+  paralyzeTime: 1.5
+
+- type: misfitsComboList
+  id: TribalWarriorStyleCombos
+  combos:
+    - TribalSavageGnash
+    - TribalWarCry
+    - TribalTribeStomp
+
+# =============================================
+# SHADOW STRIKE
+# (Stealth attacks and instant neck grabs — Training Manual)
+# =============================================
+
+- type: misfitsCombo
+  id: ShadowSilentBlow
+  martialArtsForm: ShadowStrike
+  attacks:
+    - Harm
+  extraDamage: 5
+  damageType: Blunt
+
+- type: misfitsCombo
+  id: ShadowHug
+  martialArtsForm: ShadowStrike
+  attacks:
+    - Hug
+
+- type: misfitsCombo
+  id: ShadowDisarm
+  martialArtsForm: ShadowStrike
+  attacks:
+    - Disarm
+    - Harm
+  extraDamage: 6
+  damageType: Blunt
+  paralyzeTime: 1.0
+  dropItems: false
+
+- type: misfitsComboList
+  id: ShadowStrikeCombos
+  combos:
+    - ShadowSilentBlow
+    - ShadowHug
+    - ShadowDisarm

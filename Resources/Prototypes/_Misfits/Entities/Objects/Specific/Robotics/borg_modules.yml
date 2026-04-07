@@ -129,7 +129,7 @@
   - type: Sprite
     layers:
     - state: generic
-    - state: icon-stunbaton
+    - state: security
   - type: ItemBorgModule
     items:
     - Stunbaton
@@ -186,3 +186,53 @@
   - type: ItemBorgModule
     items:
     - N14BorgWeaponLaser
+
+# Integrated cryo emitter weapon for Firefighter Protectron — battery-based to match other borg weapons. #Misfits Add
+- type: entity
+  id: N14BorgWeaponCryo
+  parent: BaseItem
+  name: integrated cryo emitter
+  description: A built-in cryogenic projector integrated into the chassis. Fires bursts of liquid nitrogen that deal Cold damage and slow targets. Draws power from the robot's internal reserves and recharges automatically.
+  suffix: borg, integrated
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Battery
+    maxCharge: 99999
+    startingCharge: 99999
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 1000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletCryo
+    fireCost: 100
+  - type: Gun
+    cameraRecoilScalar: 0
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Effects/extinguish.ogg
+  - type: Sprite
+    sprite: Objects/Misc/fire_extinguisher.rsi # placeholder — no cryo weapon sprite yet
+    layers:
+    - state: fire_extinguisher_closed
+  - type: Item
+    size: Normal
+  - type: FollowDistance
+    backStrength: 6
+
+# Cryo module — provides the integrated borg cryo emitter. #Misfits Add
+- type: entity
+  id: N14BorgModuleCryo
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: cryo emitter cyborg module
+  description: A cryogenic suppression module. Provides an integrated cryo emitter for slowing and suppressing targets and extinguishing fires. The weapon draws from internal power reserves and recharges automatically.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-fire-extinguisher # closest available icon for cryo/suppression function
+  - type: ItemBorgModule
+    items:
+    - N14BorgWeaponCryo

@@ -1,0 +1,50 @@
+<Document>
+
+  <ColorBox Color="#010801" OutlineColor="#39ff14" OutlineThickness="2" Margin="5">
+    <Box Orientation="Vertical" Margin="10">
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        [color=#1a8a00]+======================================+[/color]
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        [bold][color=#39ff14]VAULT-TEC NETWORK TERMINAL[/color][/bold]
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        [color=#1a8a00]ACCESS LEVEL: PUBLIC[/color]
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        [color=#1a8a00]+======================================+[/color]
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+        [bold][color=#39ff14]MISFITS: NUCLEAR WASTELAND — WIKI[/color][/bold]
+
+        [color=#c8f0c8]The full Misfits wiki contains faction dossiers, crafting guides, weapons catalogs, survival tips, and the complete server rules.[/color]
+
+        [color=#c8f0c8]Click the link below to open the wiki in your browser:[/color]
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+        [bold][color=#ffb000]▶ [/color][/bold][textlink="OPEN THE MISFITS WIKI" link="https://ss14.misfitsystems.net/wiki"]
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+        [textlink="▶ SERVER RULES — READ BEFORE PLAYING" link="https://ss14.misfitsystems.net/wiki/index.php/Rules"]
+      </Box>
+      <Box Orientation="Vertical" Margin="10">
+        [color=#1a8a00]PAGES AVAILABLE:[/color]
+
+        - [color=#c8f0c8]Server Rules & Directives[/color]
+        - [color=#c8f0c8]Faction Dossiers (NCR, Legion, BoS, and more)[/color]
+        - [color=#c8f0c8]Faction War System[/color]
+        - [color=#c8f0c8]Crafting, Cooking, Botany & Medicine[/color]
+        - [color=#c8f0c8]Weapons & Armor[/color]
+        - [color=#c8f0c8]Chems & Addiction[/color]
+        - [color=#c8f0c8]Currency & Economy[/color]
+        - [color=#c8f0c8]Survival Guide[/color]
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        [color=#0d4d00]======================================[/color]
+      </Box>
+      <Box Orientation="Horizontal" HorizontalAlignment="Center">
+        [color=#1a8a00]— VAULT-TEC NOTICE: A BETTER COMMUNITY THROUGH ORDER. —[/color]
+      </Box>
+    </Box>
+  </ColorBox>
+</Document>

@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Procedural;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -59,9 +60,23 @@ public sealed partial class N14ExpeditionMapEntry
 {
     /// <summary>
     /// Path to the map file (e.g. /Maps/N14/MercerIslandSewers.yml).
+    /// Optional when runtime dungeon generation is enabled.
     /// </summary>
-    [DataField(required: true)]
-    public ResPath Path { get; private set; } = default!;
+    [DataField]
+    public ResPath? Path { get; private set; }
+
+    /// <summary>
+    /// When true, the expedition system creates a fresh map/grid and generates
+    /// a dungeon at runtime instead of loading Path from disk.
+    /// </summary>
+    [DataField]
+    public bool RuntimeDungeon { get; private set; }
+
+    /// <summary>
+    /// Dungeon prototype used when RuntimeDungeon is true.
+    /// </summary>
+    [DataField]
+    public ProtoId<DungeonConfigPrototype>? DungeonConfig { get; private set; }
 
     /// <summary>
     /// Optional faction-group spawn overrides for this map.
@@ -71,6 +86,60 @@ public sealed partial class N14ExpeditionMapEntry
     /// </summary>
     [DataField]
     public List<N14FactionSpawnGroup>? FactionSpawns { get; private set; }
+
+    // #Misfits Add - procedural underground expedition support
+
+    /// <summary>
+    /// When true, generate this map at runtime using the
+    /// UndergroundExpeditionMapGenerator instead of loading a YAML file or
+    /// running DungeonSystem.
+    /// </summary>
+    [DataField]
+    public bool RuntimeProcedural { get; private set; }
+
+    /// <summary>
+    /// Which visual/structural theme to use when RuntimeProcedural is true.
+    /// </summary>
+    [DataField]
+    public UndergroundTheme? ProceduralTheme { get; private set; }
+
+    /// <summary>
+    /// Side length of the square procedural grid (both width and height).
+    /// Default 80 tiles.
+    /// </summary>
+    [DataField]
+    public int ProceduralGridSize { get; private set; } = 80;
+
+    /// <summary>
+    /// Difficulty tier passed to the generator: 0 = Easy, 1 = Medium, 2 = Hard.
+    /// Affects room counts and mob density.
+    /// </summary>
+    [DataField]
+    public int ProceduralDifficultyTier { get; private set; }
+
+    /// <summary>Minimum number of standard rooms to guarantee in the layout.</summary>
+    [DataField]
+    public int ProceduralMinRooms { get; private set; } = 6;
+
+    /// <summary>Maximum number of standard rooms to attempt in the layout.</summary>
+    [DataField]
+    public int ProceduralMaxRooms { get; private set; } = 12;
+
+    /// <summary>
+    /// Number of faction staging hubs placed at map corners (1–4).
+    /// If FactionSpawns is set, one hub is allocated per group up to this limit.
+    /// </summary>
+    [DataField]
+    public int ProceduralHubCount { get; private set; } = 2;
+
+    // #Misfits Add - YAML-pinnable environmental states for procedural maps
+    /// <summary>
+    /// Environmental conditions applied to this procedural map entry.
+    /// Multiple states stack — e.g. [Abandoned, Damaged] compounds both modifiers.
+    /// When empty, the generator auto-picks 1–2 states valid for the theme.
+    /// </summary>
+    [DataField]
+    public List<EnvironmentalState> ProceduralEnvironmentalStates { get; private set; } = new();
 }
 
 /// <summary>

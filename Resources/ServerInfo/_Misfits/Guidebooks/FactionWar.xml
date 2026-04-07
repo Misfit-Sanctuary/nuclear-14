@@ -1,0 +1,72 @@
+<Document>
+# Faction War
+
+[textlink="View Full Wiki Page" link="https://ss14.misfitsystems.net/wiki/index.php/Faction%20War"/]
+
+<p>◈ Faction War ◈ Declaration & Engagement System ◈</p>
+<p>The [bold]Faction War[/bold] system allows eligible factions to formally declare war on each other during a round. Wars are structured - they have a lead-up, a duration, and an end. They are not free-for-all deathmatches. They are organized conflicts with rules, commands, and consequences.</p>
+
+## War-Capable Factions
+
+<p>Only the following factions may declare or receive war declarations:</p>
+<p>[bold]Note:[/bold] Rangers are aliased to NCR - a war declaration against NCR includes Rangers automatically.</p>
+
+## Timeline
+
+<Table Columns="3">
+  <Box>[bold]Phase[/bold]</Box>
+  <Box>[bold]Duration[/bold]</Box>
+  <Box>[bold]Description[/bold]</Box>
+  <Box>Round-Start Cooldown</Box>
+  <Box>[bold]30 minutes[/bold]</Box>
+  <Box>War declarations are locked for the first 30 minutes of every round. This gives factions time to set up, staff their positions, and establish themselves before conflict begins.</Box>
+  <Box>[bold]Pending Phase[/bold]</Box>
+  <Box>[bold]5 minutes[/bold]</Box>
+  <Box>After a war is declared, both sides have a 5-minute preparation window. During this phase, members of either faction may use [bold]/warjoin[/bold] to opt into the conflict. Once the pending phase ends, the war goes active.</Box>
+  <Box>[bold]Active War[/bold]</Box>
+  <Box>[bold]30 minutes[/bold]</Box>
+  <Box>Combat is authorized between the warring factions. The war runs for a maximum of 30 minutes before an automatic ceasefire is triggered.</Box>
+  <Box>[bold]Post-War Cooldown[/bold]</Box>
+  <Box>[bold]10 minutes[/bold]</Box>
+  <Box>After a war ends (by ceasefire or timeout), both factions enter a 10-minute cooldown before they can declare war on anyone again.</Box>
+</Table>
+
+## Commands
+
+<Table Columns="3">
+  <Box>[bold]Command[/bold]</Box>
+  <Box>[bold]Description[/bold]</Box>
+  <Box>[bold]Who Can Use It[/bold]</Box>
+  <Box>/war <faction> <reason></Box>
+  <Box>Declare war on another faction. The reason ([italic]casus belli[/italic]) must be at least [bold]5 words[/bold] long.</Box>
+  <Box>Highest-ranking online member of the declaring faction</Box>
+  <Box>/warjoin</Box>
+  <Box>Join a pending war during the 5-minute preparation phase.</Box>
+  <Box>Any member of an involved faction</Box>
+  <Box>/ceasefire <faction></Box>
+  <Box>End an active war early by mutual agreement.</Box>
+  <Box>Highest-ranking online member only</Box>
+</Table>
+
+<h3 Text="Admin Commands"/>
+
+<Table Columns="2">
+  <Box>[bold]Command[/bold]</Box>
+  <Box>[bold]Description[/bold]</Box>
+  <Box>/warend <aggressor> <target></Box>
+  <Box>Force-end a war between two factions.</Box>
+  <Box>/forcewar <aggressor> <target> [reason]</Box>
+  <Box>Force-start a war, bypassing cooldowns and rank requirements.</Box>
+</Table>
+
+## Rules
+
+<ul>
+<li>[bold]One war per faction at a time[/bold] - a faction cannot be involved in two simultaneous wars.</li>
+<li>[bold]Only the highest-ranking online member[/bold] may declare war or issue a ceasefire. Rank is determined by job weight.</li>
+<li>[bold]Casus belli is mandatory[/bold] - you must state a reason for war, and it must be at least 5 words.</li>
+<li>[bold]Auto-ceasefire[/bold] triggers after 30 minutes of active combat regardless of the battlefield situation.</li>
+<li>Wars are [bold]broadcast server-wide[/bold] - all players see war declarations, pending phases, and ceasefires.</li>
+</ul>
+
+</Document>

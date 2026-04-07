@@ -82,8 +82,7 @@
       color: "#cec8ac"
       map: ["enum.FlatpackVisualLayers.Overlay"]
     - state: icon-default
-  - type: GuideHelp
-    guides: [ TEG, Power ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (TEG, Power)
 
 - type: entity
   parent: BaseFlatpack
@@ -100,8 +99,7 @@
       color: "#cec8ac"
       map: ["enum.FlatpackVisualLayers.Overlay"]
     - state: icon-default
-  - type: GuideHelp
-    guides: [ TEG, Power ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (TEG, Power)
 
 - type: entity
   parent: BaseFlatpack

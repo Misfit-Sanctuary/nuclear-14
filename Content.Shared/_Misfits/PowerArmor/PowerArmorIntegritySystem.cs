@@ -40,6 +40,7 @@ public sealed class PowerArmorIntegritySystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!; // #Misfits Add - speed debuff for broken armor
 
     public override void Initialize()
     {
@@ -71,6 +72,12 @@ public sealed class PowerArmorIntegritySystem : EntitySystem
         // Cancelling AttemptMobTargetCollideEvent prevents the mob collision system
         // from displacing the wearer when others walk into them.
         SubscribeLocalEvent<PowerArmorWornComponent, AttemptMobTargetCollideEvent>(OnAttemptMobTargetCollide);
+
+        // #Misfits Add - broken-armor speed penalty; component lives on the WEARER.
+        // Must be handled in a shared system for client-side movement prediction.
+        SubscribeLocalEvent<PowerArmorBrokenComponent, ComponentStartup>(OnBrokenStartup);
+        SubscribeLocalEvent<PowerArmorBrokenComponent, ComponentRemove>(OnBrokenRemove);
+        SubscribeLocalEvent<PowerArmorBrokenComponent, RefreshMovementSpeedModifiersEvent>(OnBrokenRefreshSpeed);
     }
 
     /// <summary>
@@ -82,11 +89,56 @@ public sealed class PowerArmorIntegritySystem : EntitySystem
     ///     absorbed by the armor's HP pool. When integrity hits zero the armor is
     ///     broken and this handler returns early, letting full damage through.
     /// </summary>
+    // #Misfits Add - handlers for PowerArmorBrokenComponent (lives on the WEARER)
+
+    /// <summary>
+    ///     When the broken-armor speed debuff is added to the wearer, trigger a
+    ///     movement speed recalculation so the penalty takes effect immediately.
+    /// </summary>
+    private void OnBrokenStartup(EntityUid uid, PowerArmorBrokenComponent comp, ComponentStartup args)
+    {
+        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+    }
+
+    /// <summary>
+    ///     When the broken-armor debuff is removed (repair or unequip), recalculate
+    ///     speed to clear the penalty. Guard against entity deletion to avoid NRE.
+    /// </summary>
+    private void OnBrokenRemove(EntityUid uid, PowerArmorBrokenComponent comp, ComponentRemove args)
+    {
+        if (TerminatingOrDeleted(uid))
+            return;
+
+        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+    }
+
+    /// <summary>
+    ///     Applies the broken-armor speed penalty during movement speed recalculation.
+    ///     Cuts walk and sprint to <see cref="PowerArmorBrokenComponent.SpeedModifier"/> (40% default, 60% reduction).
+    /// </summary>
+    private void OnBrokenRefreshSpeed(EntityUid uid, PowerArmorBrokenComponent comp,
+        RefreshMovementSpeedModifiersEvent args)
+    {
+        args.ModifySpeed(comp.SpeedModifier, comp.SpeedModifier);
+    }
+
     private void OnDamageModify(EntityUid uid, PowerArmorIntegrityComponent comp,
         InventoryRelayedEvent<DamageModifyEvent> args)
     {
+        // #Misfits Change - broken armor: ArmorComponent stays active (coefficients still apply).
+        // Apply BrokenBleedthroughRatio (20%) so the wearer takes only 20% of post-coefficient damage.
+        // OLD behavior: returned early → ArmorComponent had been removed → wearer took full damage.
         if (comp.Broken)
+        {
+            var brokenShare = new DamageSpecifier();
+            foreach (var (type, amount) in args.Args.Damage.DamageDict)
+            {
+                // Pass healing (negative values) through unchanged; only cap incoming damage.
+                brokenShare.DamageDict[type] = amount <= 0 ? amount : amount * comp.BrokenBleedthroughRatio;
+            }
+            args.Args.Damage = brokenShare;
             return;
+        }
 
         if (!TryComp<DamageableComponent>(uid, out var damageable))
             return;
@@ -180,6 +232,11 @@ public sealed class PowerArmorIntegritySystem : EntitySystem
         // repair interactions to it.
         var worn = EnsureComp<PowerArmorWornComponent>(args.Wearer);
         worn.Armor = uid;
+
+        // #Misfits Add - if the armor was already broken before being worn
+        // (e.g. picking up a damaged suit), apply the speed penalty immediately.
+        if (comp.Broken)
+            EnsureComp<PowerArmorBrokenComponent>(args.Wearer);
     }
 
     /// <summary>
@@ -191,6 +248,11 @@ public sealed class PowerArmorIntegritySystem : EntitySystem
     {
         _alerts.ClearAlert(args.Wearer, comp.IntegrityAlert);
         RemCompDeferred<PowerArmorWornComponent>(args.Wearer);
+
+        // #Misfits Add - lift the speed penalty when broken armor is taken off.
+        // ComponentRemove on PowerArmorBrokenComponent will trigger RefreshMovementSpeedModifiers.
+        if (comp.Broken)
+            RemCompDeferred<PowerArmorBrokenComponent>(args.Wearer);
     }
 
     /// <summary>
@@ -238,13 +300,19 @@ public sealed class PowerArmorIntegritySystem : EntitySystem
         {
             comp.Broken = true;
 
-            // Strip ArmorComponent so broken plating provides no coefficient reduction.
-            // Cache the modifiers so they can be restored when the suit is repaired.
-            if (TryComp<ArmorComponent>(uid, out var armorComp))
-            {
-                comp.CachedArmorModifiers = armorComp.Modifiers;
-                RemCompDeferred<ArmorComponent>(uid);
-            }
+            // #Misfits Removed - ArmorComponent was previously stripped here so the wearer took full
+            // unmitigated damage. Now ArmorComponent stays (coefficients still apply) and we apply
+            // BrokenBleedthroughRatio (20%) + a speed debuff via PowerArmorBrokenComponent.
+            // if (TryComp<ArmorComponent>(uid, out var armorComp))
+            // {
+            //     comp.CachedArmorModifiers = armorComp.Modifiers;
+            //     RemCompDeferred<ArmorComponent>(uid);
+            // }
+
+            // Add speed penalty to the wearer. ComponentStartup on PowerArmorBrokenComponent
+            // will call RefreshMovementSpeedModifiers automatically.
+            if (_container.TryGetContainingContainer((uid, null, null), out var brokenContainer))
+                EnsureComp<PowerArmorBrokenComponent>(brokenContainer.Owner);
 
             Dirty(uid, comp);
 
@@ -257,16 +325,22 @@ public sealed class PowerArmorIntegritySystem : EntitySystem
         }
         else if (integrity > 0 && wasBroken)
         {
-            // Armor was repaired above 0 — restore ArmorComponent with cached modifiers.
+            // Armor was repaired above 0 — clear the speed debuff.
             comp.Broken = false;
 
-            if (comp.CachedArmorModifiers != null)
-            {
-                var restored = EnsureComp<ArmorComponent>(uid);
-                restored.Modifiers = comp.CachedArmorModifiers;
-                comp.CachedArmorModifiers = null;
-                Dirty(uid, restored);
-            }
+            // #Misfits Removed - ArmorComponent restoration from cache is no longer needed;
+            // ArmorComponent was never removed when the suit broke.
+            // if (comp.CachedArmorModifiers != null)
+            // {
+            //     var restored = EnsureComp<ArmorComponent>(uid);
+            //     restored.Modifiers = comp.CachedArmorModifiers;
+            //     comp.CachedArmorModifiers = null;
+            //     Dirty(uid, restored);
+            // }
+
+            // Remove the speed debuff. ComponentRemove triggers RefreshMovementSpeedModifiers.
+            if (_container.TryGetContainingContainer((uid, null, null), out var repairedContainer))
+                RemCompDeferred<PowerArmorBrokenComponent>(repairedContainer.Owner);
 
             Dirty(uid, comp);
 

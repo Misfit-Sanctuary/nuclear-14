@@ -100,4 +100,23 @@ public sealed class TileConstructionTests : InteractionTest
 
         await AssertEntityLookup((FloorItem, 1));
     }
+
+    /// <summary>
+    /// Test placing a normal floor tile over planetary terrain and restoring that terrain when pried up.
+    /// </summary>
+    [Test]
+    public async Task FloorConstructDeconstructOnPlanetaryTile()
+    {
+        await SetTile(FloorPlanetGrass, grid: MapData.Grid);
+        await AssertTile(FloorPlanetGrass);
+
+        await InteractUsing(FloorItem);
+        Assert.That(Hands.ActiveHandEntity, Is.Null);
+        await AssertTile(Floor);
+
+        await InteractUsing(Pry);
+        await AssertTile(FloorPlanetGrass);
+
+        await AssertEntityLookup((FloorItem, 1));
+    }
 }

@@ -1,0 +1,25 @@
+# #Misfits Add - Eighties faction armor for the Outlaws faction overhaul.
+# The Eighties are a tribal raider gang named after Interstate 80.
+# Their armor is cobbled together from highway roadsigns and scrap metal.
+# Stats baseline: NCR Private T2 ±10%. Biased toward blunt/piercing resistance (metal plates).
+# Sprites: placeholder khansjacket.rsi until Eighties-specific RSIs are sourced and converted.
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitsClothingOuterEightiesArmor
+  name: eighties roadsign armor
+  description: Roadsign plates from Interstate 80 bolted onto a leather harness. The "80" on the backplate is worn but legible — the tribe's namesake and calling card. Crude but effective against blades and bullets alike.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/eightiesarmor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/eightiesarmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.80   # slightly better than NCR Private (0.85) — metal plates absorb impact
+        Slash: 0.82   # near-baseline — metal edges still deflect cuts
+        Piercing: 0.78 # slightly better than baseline (0.80) — layered roadsign metal
+        Heat: 0.85    # slightly worse than baseline (0.80) — metal conducts heat
+  - type: ExplosionResistance
+    damageCoefficient: 0.88 # near NCR Private baseline (0.90) — bulky metal helps slightly

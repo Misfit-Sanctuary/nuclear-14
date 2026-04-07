@@ -1,57 +1,78 @@
-# DISABLED. System removed; preserved for history.
-# N14 Binoculars — Telescope-style (mouse-follow camera pan while held in active hand).
-# Uses the existing upstream TelescopeComponent; no new C# needed for this behavior.
-# Reuses the RMC binoculars sprite since N14 has no dedicated binoculars art yet.
+# #Misfits Removed - Old N14Scope/Telescope-based prototypes, replaced by RMC-style ScopeComponent system
+# Old binoculars/scope attachment prototypes preserved below for history.
+# See git history for original definitions.
 
 # - type: entity
 #   parent: BaseItem
-#   id: N14Binoculars
-#   name: binoculars
-#   description: A pair of pre-war binoculars. Hold in your active hand and look around by pointing your cursor.
-#   components:
-#   - type: Item
-#     size: Small
-#     heldPrefix: binoculars
-#   - type: Sprite
-#     sprite: _RMC/Objects/Devices/binoculars.rsi
-#     state: binoculars_civ
-#   - type: Clothing
-#     quickEquip: false
-#     slots:
-#     - Belt
-#     - suitstorage
-#   - type: Wieldable
-#   - type: Telescope
-#     divisor: 0.08
-#     lerpAmount: 0.3
-#   - type: StaticPrice
-#     price: 150
-#   - type: Tag
-#     tags:
-#     - Binoculars
-
-# N14 Scope Attachment — a removable scope that slots into a gun's "gun_scope" ItemSlot.
-# When the hosting gun is picked up, the player gains a "Toggle Scope" hotbar action
-# that shifts their viewport forward by EyeOffset tiles (default 5).
-# This entity replaces/upgrades the existing N14JunkGunpartsRifleScope junk item,
-# which is now the crafting ingredient for this proper functional item.
+#   id: N14Binoculars_OLD
+#   ...
 
 # - type: entity
 #   parent: BaseItem
-#   id: N14WeaponScopeAttachment
-#   name: rifle scope
-#   description: A detachable optic scope for a rifle. Attach it to a compatible weapon to gain a 'Toggle Scope' action that shifts your view toward your target.
-#   components:
-#   - type: Item
-#     size: Small
-#   - type: Sprite
-#     sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
-#     state: scope
-#   - type: Tag
-#     tags:
-#     - RifleScope
-#   - type: N14Scope
-#     isAttachment: true
-#     eyeOffset: 5
-#   - type: StaticPrice
-#     price: 100
+#   id: N14WeaponScopeAttachment_OLD
+#   ...
+
+# ────────────────────────────────────────────────────────────────────────────
+# N14 Binoculars — RMC-style directional scope (DoAfter, PVS relay, zoom levels)
+# Must be wielded to activate. 2 second use delay. Locks view in cardinal direction.
+- type: entity
+  parent: BaseItem
+  id: N14Binoculars
+  name: binoculars
+  description: A pair of pre-war binoculars. Wield them and look through to see far in one direction.
+  components:
+  - type: Item
+    size: Small
+    heldPrefix: binoculars
+  - type: Sprite
+    sprite: _Misfits/Objects/Devices/binoculars.rsi
+    state: binoculars_civ
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Belt
+    - suitstorage
+  - type: Wieldable
+  - type: Scope
+    useInHand: true
+    requireWielding: true
+    zoomLevels:
+    - name: 4x
+      zoom: 1.0
+      offset: 15
+      allowMovement: false
+      doAfter: 2
+  - type: StaticPrice
+    price: 150
+  # #Misfits Removed - Binoculars TagPrototype not defined in Nuclear-14
+  # - type: Tag
+  #   tags:
+  #   - Binoculars
+
+# N14 Rifle Scope Attachment — attach to a gun's ItemSlot to gain a scope action.
+# Uses ScopeComponent with attachment: true so it only activates from inside a container.
+- type: entity
+  parent: BaseItem
+  id: N14WeaponScopeAttachment
+  name: rifle scope
+  description: A detachable optic scope for a rifle. Attach it to a compatible weapon to gain a directional scope action.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: scope
+  - type: Scope
+    attachment: true
+    requireWielding: true
+    zoomLevels:
+    - name: 4x
+      zoom: 1.0
+      offset: 15
+      allowMovement: false
+      doAfter: 0.8
+  - type: Tag
+    tags:
+    - RifleScope
+  - type: StaticPrice
+    price: 100

@@ -14,9 +14,7 @@
     - type: Tag
       tags:
       - ClarkeCentralControlModule
-    - type: GuideHelp
-      guides:
-      - Robotics
+    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Robotics)
 
 - type: entity
   id: ClarkePeripheralsElectronics
@@ -30,9 +28,7 @@
     - type: Tag
       tags:
       - ClarkePeripheralsControlModule
-    - type: GuideHelp
-      guides:
-      - Robotics
+    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Robotics)
 
 # Gygax
 
@@ -50,9 +46,7 @@
     - type: Tag
       tags:
       - GygaxCentralControlModule
-    - type: GuideHelp
-      guides:
-      - Robotics
+    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Robotics)
 
 - type: entity
   id: GygaxPeripheralsElectronics
@@ -66,9 +60,7 @@
     - type: Tag
       tags:
       - GygaxPeripheralsControlModule
-    - type: GuideHelp
-      guides:
-      - Robotics
+    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Robotics)
 
 - type: entity
   id: GygaxTargetingElectronics
@@ -82,9 +74,7 @@
     - type: Tag
       tags:
       - GygaxTargetingControlModule
-    - type: GuideHelp
-      guides:
-      - Robotics
+    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Robotics)
 
 # Durand
 
@@ -102,9 +92,7 @@
     - type: Tag
       tags:
       - DurandCentralControlModule
-    - type: GuideHelp
-      guides:
-      - Robotics
+    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Robotics)
 
 - type: entity
   id: DurandPeripheralsElectronics
@@ -118,9 +106,7 @@
     - type: Tag
       tags:
       - DurandPeripheralsControlModule
-    - type: GuideHelp
-      guides:
-      - Robotics
+    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Robotics)
 
 - type: entity
   id: DurandTargetingElectronics
@@ -134,6 +120,4 @@
     - type: Tag
       tags:
       - DurandTargetingControlModule
-    - type: GuideHelp
-      guides:
-      - Robotics
+    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Robotics)

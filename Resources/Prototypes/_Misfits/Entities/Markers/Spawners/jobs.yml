@@ -363,6 +363,19 @@
       - state: slave
 
 # NCR
+# #Misfits Add - NCR Major whitelist-only billet; spawns at same location as Captain
+- type: entity
+  parent: MisfitsSpawnPointNCRCadet
+  id: MisfitsSpawnPointNCRMajor
+  name: NCR Major
+  components:
+  - type: SpawnPoint
+    job_id: NCRMajor
+  - type: Sprite
+    layers:
+      - state: green
+      - state: lt
+
 - type: entity
   parent: SpawnPointJobBase
   id: MisfitsSpawnPointNCRCadet
@@ -682,37 +695,24 @@
       - state: green
       - state: raider
 
-- type: entity
-  parent: MisfitsSpawnPointKhan
-  id: MisfitsSpawnPointJackal
-  name: Jackal
-  components:
-  - type: SpawnPoint
-    job_id: Jackal
+# #Misfits Removed - Jackal, Viper, Gunner, Fiend spawn points removed as part of Outlaws faction overhaul
+# Replaced by Eighties and WhiteLegs spawn points below
 
 - type: entity
   parent: MisfitsSpawnPointKhan
-  id: MisfitsSpawnPointViper
-  name: Viper
+  id: MisfitsSpawnPointEighties
+  name: Eighties
   components:
   - type: SpawnPoint
-    job_id: Viper
+    job_id: Eighties
 
 - type: entity
   parent: MisfitsSpawnPointKhan
-  id: MisfitsSpawnPointGunner
-  name: Gunner
+  id: MisfitsSpawnPointWhiteLegs
+  name: White Legs
   components:
   - type: SpawnPoint
-    job_id: Gunner
-
-- type: entity
-  parent: MisfitsSpawnPointKhan
-  id: MisfitsSpawnPointFiend
-  name: Fiend
-  components:
-  - type: SpawnPoint
-    job_id: Fiend
+    job_id: WhiteLegs
 
 #Misfits Add: Legacy Washington BoS spawnpoint aliases kept for old map compatibility.
 - type: entity

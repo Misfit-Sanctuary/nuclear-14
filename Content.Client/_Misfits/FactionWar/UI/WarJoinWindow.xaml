@@ -1,0 +1,51 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc faction-war-join-window-title}"
+                      Resizable="False"
+                      SetSize="480 500"
+                      MinSize="440 420">
+
+    <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="0">
+
+        <!-- ── Header ─────────────────────────────────────────────── -->
+        <controls:StripeBack>
+            <PanelContainer>
+                <Label Text="{Loc faction-war-join-window-title}" StyleClasses="LabelBig" Align="Center" Margin="0 4"/>
+            </PanelContainer>
+        </controls:StripeBack>
+
+        <!-- ── KOS Warning ────────────────────────────────────────── -->
+        <RichTextLabel Name="WarningLabel" Margin="10 6 10 4" HorizontalExpand="True"/>
+
+        <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 0"/>
+
+        <!-- ── Select Conflict ────────────────────────────────────── -->
+        <BoxContainer Orientation="Horizontal" Margin="10 8 10 4" SeparationOverride="8">
+            <Label Text="{Loc faction-war-join-conflict-label}" VerticalAlignment="Center" MinWidth="100"/>
+            <OptionButton Name="WarSelector" HorizontalExpand="True" Access="Public"/>
+        </BoxContainer>
+
+        <!-- ── Select Side ────────────────────────────────────────── -->
+        <BoxContainer Orientation="Horizontal" Margin="10 4 10 4" SeparationOverride="8">
+            <Label Text="{Loc faction-war-join-side-label}" VerticalAlignment="Center" MinWidth="100"/>
+            <OptionButton Name="SideSelector" HorizontalExpand="True" Access="Public"/>
+        </BoxContainer>
+        <!-- ── Faction-Wide Enlist (visible only to top-ranking faction members) ── -->
+        <CheckBox Name="FactionWideCheck" Text="{Loc faction-war-join-faction-wide}"
+                  Margin="10 4 10 0" Visible="False" Access="Public"/>
+        <RichTextLabel Name="FactionWideHint" Margin="10 0 10 4" Visible="False" Access="Public"/>
+        <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 6"/>
+
+        <!-- ── Join Button ────────────────────────────────────────── -->
+        <Button Name="JoinButton" Text="{Loc faction-war-join-button}"
+                Margin="10 2 10 6" HorizontalExpand="True"/>
+
+        <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 0"/>
+
+        <!-- ── Status / Result ────────────────────────────────────── -->
+        <RichTextLabel Name="JoinResultLabel" Margin="10 6 10 8" HorizontalExpand="True"/>
+
+    </BoxContainer>
+    </ScrollContainer>
+</controls:FancyWindow>

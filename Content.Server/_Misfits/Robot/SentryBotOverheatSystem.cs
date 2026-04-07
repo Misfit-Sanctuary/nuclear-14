@@ -47,9 +47,19 @@ public sealed class SentryBotOverheatSystem : EntitySystem
             PopupType.LargeCaution);
     }
 
+    // #Misfits Tweak - Gate overheat polling to 0.5 Hz; overheat timers are seconds-scale
+    // and use IGameTiming.CurTime so no drift occurs from reduced update frequency.
+    private float _overheatAccumulator;
+    private const float OverheatUpdateInterval = 0.5f;
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        _overheatAccumulator += frameTime;
+        if (_overheatAccumulator < OverheatUpdateInterval)
+            return;
+        _overheatAccumulator -= OverheatUpdateInterval;
 
         var query = EntityQueryEnumerator<SentryBotChassisComponent, BasicEntityAmmoProviderComponent>();
         while (query.MoveNext(out var uid, out var comp, out var ammo))

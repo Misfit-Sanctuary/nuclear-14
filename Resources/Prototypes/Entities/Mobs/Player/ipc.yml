@@ -64,9 +64,7 @@
   - type: SiliconDownOnDead
   - type: Inventory
     templateId: ipc
-  - type: GuideHelp
-    guides:
-      - IPCs
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (IPCs)
   - type: Silicon
     entityType: enum.SiliconType.Player
     batteryPowered: true

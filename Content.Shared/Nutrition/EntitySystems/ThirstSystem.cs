@@ -249,11 +249,12 @@ public sealed class ThirstSystem : EntitySystem
     // mirroring the starvation damage pattern in HungerSystem.
     private void DoContinuousThirstEffects(EntityUid uid, ThirstComponent component)
     {
-        if (component.CurrentThirstThreshold <= ThirstThreshold.Dead &&
-            component.DehydrationDamage is { } damage &&
-            _mobState.IsAlive(uid)) // Misfits Change: was !IsDead — now stops at Critical so dehydration can incapacitate but never kill outright
-        {
-            _damageable.TryChangeDamage(uid, damage, true, false);
-        }
+        // #Misfits Tweak - Dehydration damage removed; only movement speed reduction remains.
+        // if (component.CurrentThirstThreshold <= ThirstThreshold.Dead &&
+        //     component.DehydrationDamage is { } damage &&
+        //     _mobState.IsAlive(uid))
+        // {
+        //     _damageable.TryChangeDamage(uid, damage, true, false);
+        // }
     }
 }

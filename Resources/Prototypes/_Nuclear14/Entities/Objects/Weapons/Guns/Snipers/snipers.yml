@@ -10,6 +10,9 @@
     sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/hunting.rsi
   - type: Wieldable
     wieldedSpeedModifier: 0.75
+  - type: GunWieldBonus
+    minAngle: -23
+    maxAngle: -104
   - type: Gun
     minAngle: 24
     maxAngle: 105

@@ -1,0 +1,48 @@
+# #Misfits Add - White Legs job definition for the Outlaws faction overhaul.
+# The White Legs are a tribal raider group known for white body paint and guerrilla tactics.
+# They favor speed and brutal close-range combat over sustained firefights.
+
+- type: job
+  id: WhiteLegs
+  setPreference: true
+  name: job-name-whitelegs
+  description: job-description-whitelegs
+  playTimeTracker: WhiteLegs
+  whitelisted: true # Keep whitelist gate consistent with existing Outlaw access policy
+  requirements:
+  - !type:MinPlayersRequirement
+    min: 0
+  startingGear: WhiteLegsGear
+  alwaysUseSpawner: true
+  icon: "JobIconWhiteLegs"
+  supervisors: job-supervisors-outlaws
+  canBeAntag: false
+  special: # Register with PlayerRaider faction for faction war system compatibility
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - PlayerRaider
+
+- type: startingGear
+  id: WhiteLegsGear
+  equipment:
+    bandage: NCClothingBandageRaiders
+    jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
+    outerClothing: MisfitsClothingOuterWhiteLegsArmor
+    shoes: N14ClothingShoesRaider
+    neck: ClothingNeckBlackScarf
+    head: N14ClothingHeadHatBeanie
+    ears: MisfitsClothingHeadsetWastelandScrap
+    back: N14ClothingBackpackMilitary
+    suitstorage: N14WeaponSMG45
+    belt: ClothingBeltMilitary
+  storage:
+    back:
+    - N14BoxPlasticFilledWastelander
+    belt:
+    - Magazine45SubMachineGun
+    - Magazine45SubMachineGun
+
+- type: playTimeTracker
+  id: WhiteLegs

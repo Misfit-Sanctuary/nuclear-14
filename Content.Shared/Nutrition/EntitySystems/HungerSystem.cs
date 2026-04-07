@@ -173,12 +173,13 @@ public sealed class HungerSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        if (component.CurrentThreshold <= HungerThreshold.Starving &&
-            component.StarvationDamage is { } damage &&
-            _mobState.IsAlive(uid)) // Misfits Change: was !IsDead — now stops at Critical so malnutrition can incapacitate but never kill outright
-        {
-            _damageable.TryChangeDamage(uid, damage, true, false);
-        }
+        // #Misfits Tweak - Starvation damage removed; only movement speed reduction remains.
+        // if (component.CurrentThreshold <= HungerThreshold.Starving &&
+        //     component.StarvationDamage is { } damage &&
+        //     _mobState.IsAlive(uid))
+        // {
+        //     _damageable.TryChangeDamage(uid, damage, true, false);
+        // }
     }
 
     /// <summary>

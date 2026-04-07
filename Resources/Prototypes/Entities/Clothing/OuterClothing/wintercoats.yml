@@ -584,8 +584,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/corpo_jacket_einstein_engines.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/corpo_jacket_einstein_engines.rsi
-  - type: GuideHelp
-    guides: [ EinsteinEngines ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (EinsteinEngines)
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -597,8 +596,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/corpo_jacket_hephestus_industries.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/corpo_jacket_hephestus_industries.rsi
-  - type: GuideHelp
-    guides: [ HephaestusIndustries ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (HephaestusIndustries)
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -632,8 +630,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/corpo_jacket_bishop_cybernetics.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/corpo_jacket_bishop_cybernetics.rsi
-  - type: GuideHelp
-    guides: [ ZengHuPharmaceuticals ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (ZengHuPharmaceuticals)
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -678,5 +675,4 @@
     sprite: Clothing/OuterClothing/WinterCoats/corpo_jacket_zeng_hu_pharma.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/corpo_jacket_zeng_hu_pharma.rsi
-  - type: GuideHelp
-    guides: [ ZengHuPharmaceuticals ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (ZengHuPharmaceuticals)

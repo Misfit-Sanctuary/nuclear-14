@@ -98,9 +98,7 @@
   - type: MobMover
   - type: Body
     prototype: Bot
-  - type: GuideHelp
-    guides:
-    - Robotics
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Robotics)
   - type: Speech
     speechVerb: Robotic
   - type: TypingIndicator

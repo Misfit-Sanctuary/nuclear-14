@@ -1,76 +1,77 @@
-- type: entity
-  parent: MobHuman
-  id: N14MobHumanBoSWashingtonPaladin
-  name: BoSWashingtonPaladin
-  components:
-    - type: Icon
-      sprite: _Nuclear14/Markers/Jobs/boswashington.rsi
-      state: paladin
-    - type: RandomHumanoidAppearance
-      randomizeName: true
-    - type: Loadout
-      prototypes: [] # Misfits Fix: BoSWashingtonPaladinGear prototype commented out
-    - type: NpcFactionMember
-      factions:
-      - BrotherhoodOfSteel
+# #Misfits Removed - Washington BoS is not deployed on Wendover; all job slots removed. NPC entities kept for legacy compat but disabled.
+# - type: entity
+#   parent: MobHuman
+#   id: N14MobHumanBoSWashingtonPaladin
+#   name: BoSWashingtonPaladin
+#   components:
+#     - type: Icon
+#       sprite: _Nuclear14/Markers/Jobs/boswashington.rsi
+#       state: paladin
+#     - type: RandomHumanoidAppearance
+#       randomizeName: true
+#     - type: Loadout
+#       prototypes: [] # Misfits Fix: BoSWashingtonPaladinGear prototype commented out
+#     - type: NpcFactionMember
+#       factions:
+#       - BrotherhoodOfSteel
 
-- type: entity
-  parent: N14MobHumanBoSWashingtonPaladin
-  id: N14MobHumanBoSWashingtonCommander
-  name: BoSWashingtonCommander
-  components:
-    - type: Icon
-      state: commander
-    - type: RandomHumanoidAppearance
-      randomizeName: true
-    - type: Loadout
-      prototypes: [] # Misfits Fix: BoSWashingtonCommanderGear prototype commented out
-    - type: NpcFactionMember
-      factions:
-      - BrotherhoodOfSteel
+# - type: entity
+#   parent: N14MobHumanBoSWashingtonPaladin
+#   id: N14MobHumanBoSWashingtonCommander
+#   name: BoSWashingtonCommander
+#   components:
+#     - type: Icon
+#       state: commander
+#     - type: RandomHumanoidAppearance
+#       randomizeName: true
+#     - type: Loadout
+#       prototypes: [] # Misfits Fix: BoSWashingtonCommanderGear prototype commented out
+#     - type: NpcFactionMember
+#       factions:
+#       - BrotherhoodOfSteel
 
-- type: entity
-  parent: N14MobHumanBoSWashingtonPaladin
-  id: N14MobHumanBoSWashingtonInitiate
-  name: BoSWashingtonInitiate
-  components:
-    - type: Icon
-      state: initiate
-    - type: RandomHumanoidAppearance
-      randomizeName: true
-    - type: Loadout
-      prototypes: [] # Misfits Fix: BoSWashingtonInitiateGear prototype commented out
-    - type: NpcFactionMember
-      factions:
-      - BrotherhoodOfSteel
+# - type: entity
+#   parent: N14MobHumanBoSWashingtonPaladin
+#   id: N14MobHumanBoSWashingtonInitiate
+#   name: BoSWashingtonInitiate
+#   components:
+#     - type: Icon
+#       state: initiate
+#     - type: RandomHumanoidAppearance
+#       randomizeName: true
+#     - type: Loadout
+#       prototypes: [] # Misfits Fix: BoSWashingtonInitiateGear prototype commented out
+#     - type: NpcFactionMember
+#       factions:
+#       - BrotherhoodOfSteel
 
-- type: entity
-  parent: N14MobHumanBoSWashingtonPaladin
-  id: N14MobHumanBoSWashingtonScribe
-  name: BoSWashingtonScribe
-  components:
-    - type: Icon
-      state: scribe
-    - type: RandomHumanoidAppearance
-      randomizeName: true
-    - type: Loadout
-      prototypes: [] # Misfits Fix: BoSWashingtonScribeGear prototype commented out
-    - type: NpcFactionMember
-      factions:
-      - BrotherhoodOfSteel
+# - type: entity
+#   parent: N14MobHumanBoSWashingtonPaladin
+#   id: N14MobHumanBoSWashingtonScribe
+#   name: BoSWashingtonScribe
+#   components:
+#     - type: Icon
+#       state: scribe
+#     - type: RandomHumanoidAppearance
+#       randomizeName: true
+#     - type: Loadout
+#       prototypes: [] # Misfits Fix: BoSWashingtonScribeGear prototype commented out
+#     - type: NpcFactionMember
+#       factions:
+#       - BrotherhoodOfSteel
 
-- type: entity
-  parent: N14MobHumanBoSWashingtonPaladin
-  id: N14MobHumanBoSWashingtonKnight
-  name: BoSWashingtonKnight
-  components:
-    - type: Icon
-      state: knight
-    - type: RandomHumanoidAppearance
-      randomizeName: true
-    - type: Loadout
-      prototypes: [] # Misfits Fix: BoSWashingtonKnightGear prototype commented out
-    - type: NpcFactionMember
-      factions:
-      - BrotherhoodOfSteel
+# - type: entity
+#   parent: N14MobHumanBoSWashingtonPaladin
+#   id: N14MobHumanBoSWashingtonKnight
+#   name: BoSWashingtonKnight
+#   components:
+#     - type: Icon
+#       state: knight
+#     - type: RandomHumanoidAppearance
+#       randomizeName: true
+#     - type: Loadout
+#       prototypes: [] # Misfits Fix: BoSWashingtonKnightGear prototype commented out
+#     - type: NpcFactionMember
+#       factions:
+#       - BrotherhoodOfSteel
 

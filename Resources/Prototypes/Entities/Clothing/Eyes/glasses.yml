@@ -225,9 +225,7 @@
     - HamsterWearable
     - WhitelistChameleon
     - SecDogWearable # DeltaV - let Laika wear secglasses
-  - type: GuideHelp
-    guides:
-    - Security
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Security)
   - type: IdentityBlocker
     coverage: EYES
 

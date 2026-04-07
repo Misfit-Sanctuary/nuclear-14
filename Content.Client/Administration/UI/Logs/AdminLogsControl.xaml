@@ -1,65 +1,197 @@
-﻿<Control xmlns="https://spacestation14.io"
-         xmlns:aui="clr-namespace:Content.Client.Administration.UI.CustomControls">
-    <PanelContainer StyleClasses="BackgroundDark">
-        <BoxContainer Orientation="Horizontal">
-            <BoxContainer Orientation="Vertical">
-                <BoxContainer Orientation="Horizontal" MinWidth="400">
-                    <Label Text="{Loc admin-logs-round}"/>
-                    <SpinBox Name="RoundSpinBox" Value="0" MinWidth="150"/>
-                    <Control HorizontalExpand="True"/>
-                    <Button Name="ResetRoundButton" Text="{Loc admin-logs-reset}" HorizontalAlignment="Right"
-                            StyleClasses="OpenRight"/>
+<!-- #Misfits Change - Full layout rewrite of admin logs panel.
+     Matches bwoink panel conventions: dark palette (#0e0e1a base), PanelContainer sections
+     with StyleBoxFlat borders (no HSeparator/VSeparator), named controls with Access="Public",
+     and consistent 8px padding. Layout:
+     - Header bar: "Admin Logs" + round stepper + count + refresh + pop-out
+     - Filter row: search + severity pills + advanced filters button
+     - Body: left category rail (240px) + right log area -->
+<Control xmlns="https://spacestation14.io"
+         xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+
+    <!-- Deep dark base background matching bwoink panel -->
+    <PanelContainer>
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#0e0e1a" />
+        </PanelContainer.PanelOverride>
+
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+
+            <!-- ═══ HEADER BAR ═══ -->
+            <PanelContainer MinHeight="42">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#141428"
+                                      BorderThickness="0 0 0 1"
+                                      BorderColor="#252540" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
+                              Margin="12 0 12 0" VerticalAlignment="Center"
+                              SeparationOverride="6">
+                    <!-- Left group: title + round stepper -->
+                    <Label Text="Admin Logs"
+                           FontColorOverride="#ffffff"
+                           StyleClasses="LabelHeading" />
+                    <Control MinWidth="12" />
+                    <SpinBox Name="RoundSpinBox" Access="Public"
+                             Value="0" MinWidth="130" />
+                    <Control MinWidth="4" />
+                    <Button Name="ResetRoundButton" Access="Public"
+                            Text="{Loc admin-logs-reset}"
+                            StyleClasses="ButtonSmall" MinHeight="28" />
+
+                    <!-- Flex spacer -->
+                    <Control HorizontalExpand="True" />
+
+                    <!-- Right group: count + refresh + pop out -->
+                    <Label Name="Count" Access="Public"
+                           FontColorOverride="#8888aa" />
+                    <Control MinWidth="8" />
+                    <Button Name="RefreshButton" Access="Public"
+                            Text="{Loc admin-logs-refresh}"
+                            StyleClasses="ButtonSmall" MinHeight="28" />
+                    <Control MinWidth="4" />
+                    <Button Name="PopOutButton" Access="Public"
+                            Text="{Loc admin-logs-pop-out}"
+                            StyleClasses="ButtonSmall" MinHeight="28" />
                 </BoxContainer>
-                <BoxContainer Orientation="Horizontal" VerticalExpand="True">
-                    <BoxContainer Orientation="Vertical" MinWidth="200">
-                        <LineEdit Name="TypeSearch" Access="Public" StyleClasses="actionSearchBox"
-                                  HorizontalExpand="true" PlaceHolder="{Loc admin-logs-search-types-placeholder}"/>
-                        <BoxContainer Orientation="Horizontal">
-                            <Button Name="SelectAllTypesButton" Text="{Loc admin-logs-select-all}"
-                                    MinWidth="100" StyleClasses="ButtonSquare"/>
-                            <Button Name="SelectNoTypesButton" Text="{Loc admin-logs-select-none}"
-                                    MinWidth="100" StyleClasses="ButtonSquare"/>
+            </PanelContainer>
+
+            <!-- ═══ FILTER ROW ═══ -->
+            <PanelContainer MinHeight="36">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#111120"
+                                      BorderThickness="0 0 0 1"
+                                      BorderColor="#252540" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
+                              Margin="12 4 12 4" SeparationOverride="4">
+                    <!-- Search input -->
+                    <LineEdit Name="LogSearch" Access="Public"
+                              StyleClasses="actionSearchBox"
+                              HorizontalExpand="True" MinHeight="28"
+                              PlaceHolder="{Loc admin-logs-search-logs-placeholder}" />
+                    <Control MinWidth="8" />
+                    <!-- Severity pills — toggle buttons styled in code-behind -->
+                    <BoxContainer Name="LogImpactContainer" Access="Public"
+                                  Orientation="Horizontal" SeparationOverride="2" />
+                    <Control MinWidth="8" />
+                    <!-- Advanced filters popup trigger -->
+                    <Button Name="FiltersButton" Access="Public"
+                            StyleClasses="ButtonSmall" MinHeight="28" />
+                </BoxContainer>
+            </PanelContainer>
+
+            <!-- ═══ BODY: sidebar + log area ═══ -->
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
+
+                <!-- ═══ LEFT RAIL — categories + players (240px) ═══ -->
+                <PanelContainer MinWidth="240" MaxWidth="240" VerticalExpand="True">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#181830"
+                                          BorderThickness="0 0 1 0"
+                                          BorderColor="#252540" />
+                    </PanelContainer.PanelOverride>
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+
+                        <!-- Category search -->
+                        <BoxContainer Orientation="Vertical" Margin="8 8 8 4">
+                            <LineEdit Name="TypeSearch" Access="Public"
+                                      HorizontalExpand="True" MinHeight="28"
+                                      StyleClasses="actionSearchBox"
+                                      PlaceHolder="{Loc admin-logs-search-types-placeholder}" />
                         </BoxContainer>
-                        <ScrollContainer VerticalExpand="True">
-                            <BoxContainer Name="TypesContainer" Access="Public" Orientation="Vertical"/>
-                        </ScrollContainer>
-                    </BoxContainer>
-                    <aui:VSeparator/>
-                    <BoxContainer Orientation="Vertical" MinWidth="200">
-                        <LineEdit Name="PlayerSearch" Access="Public" StyleClasses="actionSearchBox"
-                                  HorizontalExpand="true" PlaceHolder="{Loc admin-logs-search-players-placeholder}"/>
-                        <Button Name="IncludeNonPlayersButton" Text="{Loc admin-logs-include-non-player}"
-                                MinWidth="100" StyleClasses="ButtonSquare" ToggleMode="True" />
-                        <BoxContainer Orientation="Horizontal">
-                            <Button Name="SelectAllPlayersButton" Text="{Loc admin-logs-select-all}"
-                                    MinWidth="100" StyleClasses="ButtonSquare" />
-                            <Button Name="SelectNoPlayersButton" Text="{Loc admin-logs-select-none}"
-                                    MinWidth="100" StyleClasses="ButtonSquare"/>
+
+                        <!-- Select all/none + include non-players — compact row -->
+                        <BoxContainer Orientation="Horizontal" Margin="8 0 8 4"
+                                      SeparationOverride="2">
+                            <Button Name="SelectAllTypesButton" Access="Public"
+                                    Text="{Loc admin-logs-select-all}"
+                                    StyleClasses="ButtonSmall" MinHeight="24" />
+                            <Button Name="SelectNoTypesButton" Access="Public"
+                                    Text="{Loc admin-logs-select-none}"
+                                    StyleClasses="ButtonSmall" MinHeight="24" />
                         </BoxContainer>
-                        <ScrollContainer VerticalExpand="True">
-                            <BoxContainer Name="PlayersContainer" Access="Public" Orientation="Vertical"/>
+
+                        <!-- Scrollable category tree -->
+                        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                            <BoxContainer Name="CategoriesContainer" Access="Public"
+                                          Orientation="Vertical" HorizontalExpand="True" />
                         </ScrollContainer>
+
+                        <!-- Players section divider -->
+                        <PanelContainer MinHeight="28">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#141422"
+                                                  BorderThickness="0 1 0 0"
+                                                  BorderColor="#252540"
+                                                  ContentMarginLeftOverride="10"
+                                                  ContentMarginTopOverride="4" />
+                            </PanelContainer.PanelOverride>
+                            <Label Text="Players"
+                                   FontColorOverride="#8888aa"
+                                   StyleClasses="LabelSmall" />
+                        </PanelContainer>
+
+                        <!-- Player search + select all/none -->
+                        <BoxContainer Orientation="Vertical" Margin="8 4 8 4">
+                            <LineEdit Name="PlayerSearch" Access="Public"
+                                      HorizontalExpand="True" MinHeight="28"
+                                      StyleClasses="actionSearchBox"
+                                      PlaceHolder="{Loc admin-logs-search-players-placeholder}" />
+                        </BoxContainer>
+
+                        <BoxContainer Orientation="Horizontal" Margin="8 0 8 4"
+                                      SeparationOverride="2">
+                            <Button Name="IncludeNonPlayersButton" Access="Public"
+                                    Text="{Loc admin-logs-include-non-player}"
+                                    StyleClasses="ButtonSmall" MinHeight="24"
+                                    ToggleMode="True" />
+                            <Button Name="SelectAllPlayersButton" Access="Public"
+                                    Text="{Loc admin-logs-select-all}"
+                                    StyleClasses="ButtonSmall" MinHeight="24" />
+                            <Button Name="SelectNoPlayersButton" Access="Public"
+                                    Text="{Loc admin-logs-select-none}"
+                                    StyleClasses="ButtonSmall" MinHeight="24" />
+                        </BoxContainer>
+
+                        <!-- Scrollable player list -->
+                        <ScrollContainer VerticalExpand="True" HScrollEnabled="False"
+                                         SizeFlagsStretchRatio="0.6">
+                            <BoxContainer Name="PlayersContainer" Access="Public"
+                                          Orientation="Vertical" HorizontalExpand="True" />
+                        </ScrollContainer>
+
                     </BoxContainer>
-                    <aui:VSeparator/>
+                </PanelContainer>
+
+                <!-- ═══ LOG AREA ═══ -->
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+
+                    <!-- Pagination / next row -->
+                    <PanelContainer MinHeight="30">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#0f0f1e"
+                                              BorderThickness="0 0 0 1"
+                                              BorderColor="#252540" />
+                        </PanelContainer.PanelOverride>
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
+                                      Margin="8 2 8 2" VerticalAlignment="Center"
+                                      SeparationOverride="4">
+                            <Control HorizontalExpand="True" />
+                            <Button Name="NextButton" Access="Public"
+                                    Text="{Loc admin-logs-next}"
+                                    StyleClasses="ButtonSmall" MinHeight="26" />
+                        </BoxContainer>
+                    </PanelContainer>
+
+                    <!-- Scrollable log rows -->
+                    <ScrollContainer VerticalExpand="True" HorizontalExpand="True"
+                                     HScrollEnabled="False">
+                        <BoxContainer Name="LogsContainer" Access="Public"
+                                      Orientation="Vertical" VerticalExpand="True"
+                                      HorizontalExpand="True" />
+                    </ScrollContainer>
                 </BoxContainer>
-            </BoxContainer>
-            <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                <BoxContainer Name="TopRightContainer">
-                    <BoxContainer Name="LogImpactContainer" Orientation="Horizontal"/>
-                    <Control HorizontalExpand="True"/>
-                    <Label Name="Count" Access="Public"/>
-                    <Control HorizontalExpand="True"/>
-                    <Button Name="PopOutButton" Access="Public" Text="{Loc admin-logs-pop-out}"/>
-                </BoxContainer>
-                <BoxContainer Orientation="Horizontal">
-                    <LineEdit Name="LogSearch" Access="Public" StyleClasses="actionSearchBox"
-                              HorizontalExpand="true" PlaceHolder="{Loc admin-logs-search-logs-placeholder}"/>
-                    <Button Name="RefreshButton" Access="Public" Text="{Loc admin-logs-refresh}" StyleClasses="ButtonSquare"/>
-                    <Button Name="NextButton" Access="Public" Text="{Loc admin-logs-next}" StyleClasses="OpenLeft"/>
-                </BoxContainer>
-                <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
-                    <BoxContainer Name="LogsContainer" Access="Public" Orientation="Vertical" VerticalExpand="True"/>
-                </ScrollContainer>
+
             </BoxContainer>
         </BoxContainer>
     </PanelContainer>

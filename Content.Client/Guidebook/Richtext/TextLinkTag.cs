@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Content.Client._Misfits.Guidebook;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -30,11 +31,12 @@ public sealed class TextLinkTag : IMarkupTag
         label.Text = text;
 
         label.MouseFilter = Control.MouseFilterMode.Stop;
-        label.FontColorOverride = Color.CornflowerBlue;
+        // #Misfits Tweak - Align guidebook links with the standardized accent/link palette.
+        label.FontColorOverride = GuidebookTheme.LinkColor;
         label.DefaultCursorShape = Control.CursorShape.Hand;
 
-        label.OnMouseEntered += _ => label.FontColorOverride = Color.LightSkyBlue;
-        label.OnMouseExited += _ => label.FontColorOverride = Color.CornflowerBlue;
+        label.OnMouseEntered += _ => label.FontColorOverride = GuidebookTheme.LinkHoverColor;
+        label.OnMouseExited += _ => label.FontColorOverride = GuidebookTheme.LinkColor;
         label.OnKeyBindDown += args => OnKeybindDown(args, link);
 
         control = label;

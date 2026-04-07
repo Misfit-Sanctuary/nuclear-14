@@ -1,0 +1,45 @@
+<GuidePage Title="Guidebook Component Showcase" Subtitle="Reference page for the standardized guidebook component system.">
+<GuideInfoBox Title="Role Split">
+<p>Use XAML-backed guide tags for structure, spacing, hierarchy, and reusable chrome. Use inline markup only for [bold]emphasis[/bold], [italic]tone[/italic], [color=#caa468]highlights[/color], and [textlink="links" link="MisfitsGuidebookTemplate"].</p>
+</GuideInfoBox>
+
+<GuideSection Title="Page Structure">
+<p>Every page starts with a title, a one-sentence summary, and then a small number of clearly named sections.</p>
+
+<GuideSubSection Title="Major Sections">
+<p>GuideSection creates the primary page rhythm and should contain the lead paragraph for that topic.</p>
+</GuideSubSection>
+
+<GuideSubSection Title="Subsections">
+<p>GuideSubSection groups procedures, tables, or tactical notes under a single idea.</p>
+</GuideSubSection>
+</GuideSection>
+
+<GuideSection Title="Reusable Blocks">
+<GuideInfoBox Title="Info Box">
+<p>Use info boxes for context, scope, and non-critical reminders.</p>
+</GuideInfoBox>
+
+<GuideWarningBox Title="Warning Box">
+<p>Use warning boxes only for hazards, irreversible choices, or common failure states.</p>
+</GuideWarningBox>
+
+<GuideExampleBlock Title="Example Block">
+<p>Example blocks are for recommended patterns, sample workflows, or reference sequences.</p>
+</GuideExampleBlock>
+
+<GuideCodeBlock Title="Code Block">
+<p>Code blocks are for short snippets, commands, or literal authoring fragments that need visual separation.</p>
+</GuideCodeBlock>
+</GuideSection>
+
+<GuideSection Title="Lists and Inline Markup">
+<p>Inline markup should stay short and local to the sentence it modifies.</p>
+<ul>
+<li>Use [bold]bold[/bold] for labels and command verbs.</li>
+<li>Use [italic]italic[/italic] for tone, caveats, or secondary emphasis.</li>
+<li>Use [color=#caa468]accent color[/color] sparingly for highlights inside body text.</li>
+<li>Use [textlink="guide links" link="MisfitsGuidebookTemplate"] or [textlink="external links" link="https://ss14.misfitsystems.net/wiki/index.php/Main_Page"] inside paragraphs, not as layout elements.</li>
+</ul>
+</GuideSection>
+</GuidePage>

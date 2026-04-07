@@ -65,9 +65,7 @@
     angle: 225
   - type: Item
     sprite: Objects/Weapons/Melee/kitchen_knife.rsi
-  - type: GuideHelp
-    guides:
-    - Chef
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Chef)
 
 - type: entity
   name: butcher's cleaver
@@ -96,10 +94,7 @@
   - type: Item
     size: Normal
     sprite: Objects/Weapons/Melee/cleaver.rsi
-  - type: GuideHelp
-    guides:
-    - Chef
-  # Shitmed Change
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Chef)
   - type: Scalpel
     speed: 0.3
   - type: BoneSaw 

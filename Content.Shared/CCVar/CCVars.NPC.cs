@@ -5,7 +5,7 @@ namespace Content.Shared.CCVar;
 public sealed partial class CCVars
 {
     public static readonly CVarDef<int> NPCMaxUpdates =
-        CVarDef.Create("npc.max_updates", 2048); // #Misfits Change: Increased from 1024 to 2048
+        CVarDef.Create("npc.max_updates", 512); // #Misfits Tweak: Reduced from 2048 to 512 for performance
 
     public static readonly CVarDef<bool> NPCEnabled = CVarDef.Create("npc.enabled", true);
 

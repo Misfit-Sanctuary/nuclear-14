@@ -609,8 +609,7 @@
         reagents:
         - ReagentId: SpaceDrugs
           Quantity: 15
-  - type: GuideHelp
-    guides: [ Psionics ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Psionics)
 
 - type: entity
   parent: PillCanister
@@ -623,8 +622,7 @@
     contents:
     - id: PillSpaceDrugs
       amount: 5
-  - type: GuideHelp
-    guides: [ Psionics ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Psionics)
 
 - type: entity
   suffix: Pax 10u

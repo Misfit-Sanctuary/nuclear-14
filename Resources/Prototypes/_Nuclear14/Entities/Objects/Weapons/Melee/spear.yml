@@ -129,8 +129,8 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 20
-        Slash: 8
+        Piercing: 24
+        Slash: 10
     angle: 0
     animation: WeaponArcThrust
     soundHit:
@@ -215,8 +215,8 @@
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 25
-        Slash: 16
+        Piercing: 28
+        Slash: 18
   - type: DamageOtherOnHit
     damage:
       types:
@@ -242,8 +242,8 @@
   - type: MeleeWeapon
     damage:
       types:
-        Piercing: 24
-        Slash: 16
+        Piercing: 26
+        Slash: 38
   - type: DamageOtherOnHit
     damage:
       types:

@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Shared.Administration.Logs;
+using Content.Shared._Misfits.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Preferences;
@@ -122,6 +123,14 @@ namespace Content.Server.Database
         /// <returns><see cref="ServerBanExemptFlags.None"/> if the user is not exempt from any bans.</returns>
         Task<ServerBanExemptFlags> GetBanExemption(NetUserId userId, CancellationToken cancel = default);
 
+        // #Misfits Add - banlistall: retrieve all server bans without player filter
+        /// <summary>
+        ///     Gets all server bans globally, without filtering by player.
+        ///     Used by the banlistall admin command.
+        /// </summary>
+        /// <param name="includeUnbanned">If true, expired and pardoned bans are also included.</param>
+        Task<List<ServerBanDef>> GetAllServerBansAsync(bool includeUnbanned = false);
+
         #endregion
 
         #region Role Bans
@@ -150,6 +159,9 @@ namespace Content.Server.Database
             ImmutableArray<byte>? hwId,
             ImmutableArray<ImmutableArray<byte>>? modernHWIds,
             bool includeUnbanned = true);
+
+        // #Misfits Add - banlistall: retrieve all role bans without player filter
+        Task<List<ServerRoleBanDef>> GetAllServerRoleBansAsync(bool includeUnbanned = false);
 
         Task<ServerRoleBanDef> AddServerRoleBanAsync(ServerRoleBanDef serverBan);
         Task AddServerRoleUnbanAsync(ServerRoleUnbanDef serverBan);
@@ -396,11 +408,19 @@ namespace Content.Server.Database
         Task AddHelpTicketEventAsync(HelpTicketEvent ticketEvent);
 
         /// <summary>
-        /// Retrieve audit log entries, newest first. Optionally filter to a specific player.
+        /// Retrieve audit log entries, newest first. Optionally filter by player GUID, player name, admin name, admin ID, or date range.
         /// Returns the page of events and the total matching row count for pagination.
         /// </summary>
         Task<(List<HelpTicketEvent> Events, int TotalCount)> GetHelpTicketEventsAsync(
-            Guid? playerId, int limit, int offset, CancellationToken cancel = default);
+            Guid? playerId = null, int limit = 100, int offset = 0,
+            string? playerName = null, string? adminName = null, Guid? adminId = null,
+            DateTime? startDate = null, DateTime? endDate = null,
+            CancellationToken cancel = default);
+
+        // #Misfits Add - admin statistics query method
+        /// <summary>Get resolved/claimed ticket counts grouped by admin, optionally filtered by date range.</summary>
+        Task<List<AdminStatEntry>> GetAdminStatisticsAsync(
+            DateTime? startDate = null, DateTime? endDate = null, CancellationToken cancel = default);
 
         /// <summary>Append one bwoink/mhelp chat message to the persistent log. Fire-and-forget safe.</summary>
         Task AddHelpTicketMessageAsync(HelpTicketMessage message);
@@ -580,6 +600,13 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetServerBansAsync(address, userId, hwId, modernHWIds, includeUnbanned));
         }
 
+        // #Misfits Add - banlistall: all server bans without player filter
+        public Task<List<ServerBanDef>> GetAllServerBansAsync(bool includeUnbanned = false)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetAllServerBansAsync(includeUnbanned));
+        }
+
         public Task AddServerBanAsync(ServerBanDef serverBan)
         {
             DbWriteOpsMetric.Inc();
@@ -626,6 +653,13 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetServerRoleBansAsync(address, userId, hwId, modernHWIds, includeUnbanned));
+        }
+
+        // #Misfits Add - banlistall: all role bans without player filter
+        public Task<List<ServerRoleBanDef>> GetAllServerRoleBansAsync(bool includeUnbanned = false)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetAllServerRoleBansAsync(includeUnbanned));
         }
 
         public Task<ServerRoleBanDef> AddServerRoleBanAsync(ServerRoleBanDef serverRoleBan)
@@ -1222,11 +1256,24 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.AddHelpTicketEventAsync(ticketEvent));
         }
 
+        // #Misfits Change - extended GetHelpTicketEventsAsync to support new filter parameters
         public Task<(List<HelpTicketEvent> Events, int TotalCount)> GetHelpTicketEventsAsync(
-            Guid? playerId, int limit, int offset, CancellationToken cancel = default)
+            Guid? playerId = null, int limit = 100, int offset = 0,
+            string? playerName = null, string? adminName = null, Guid? adminId = null,
+            DateTime? startDate = null, DateTime? endDate = null,
+            CancellationToken cancel = default)
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetHelpTicketEventsAsync(playerId, limit, offset, cancel));
+            return RunDbCommand(() => _db.GetHelpTicketEventsAsync(
+                playerId, limit, offset, playerName, adminName, adminId, startDate, endDate, cancel));
+        }
+
+        // #Misfits Add - admin statistics query implementation
+        public Task<List<AdminStatEntry>> GetAdminStatisticsAsync(
+            DateTime? startDate = null, DateTime? endDate = null, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetAdminStatisticsAsync(startDate, endDate, cancel));
         }
 
         // #Misfits Add — persist/retrieve individual chat messages

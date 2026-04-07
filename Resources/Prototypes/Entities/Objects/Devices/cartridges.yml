@@ -90,9 +90,7 @@
         sprite: Structures/Doors/Airlocks/Standard/security.rsi
         state: closed
     - type: LogProbeCartridge
-    - type: GuideHelp
-      guides:
-      - Forensics
+    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Forensics)
 
 - type: entity
   parent: BaseItem

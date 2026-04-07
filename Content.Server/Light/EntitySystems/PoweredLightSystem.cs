@@ -363,7 +363,7 @@ namespace Content.Server.Light.EntitySystems
             light.LastGhostBlink = time;
 
             ToggleBlinkingLight(uid, light, true);
-            uid.SpawnTimer(light.GhostBlinkingTime, () =>
+            Timer.Spawn(light.GhostBlinkingTime, () => // #Misfits Fix - RT v275: SpawnTimer removed, use Timer.Spawn
             {
                 ToggleBlinkingLight(uid, light, false);
             });

@@ -288,8 +288,7 @@
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot {}
-  - type: GuideHelp # While the playerbase is getting introduced to Plasmamen, add their guidebook here
-    guides: [ Plasmaman ]
+  # #Misfits Removed - GuideHelp: guide entry not present in Nuclear-14 (Plasmaman)
 
 # When making new custom envirohelms, inherit from this entity and
 # replace the color fields on the layers

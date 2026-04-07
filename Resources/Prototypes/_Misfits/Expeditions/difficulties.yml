@@ -159,30 +159,83 @@
 #     - path: /Maps/N14/MercerIslandSewers.yml
 #       ...
 
+# #Misfits Removed - Temporarily disabled to focus on procedural options; re-enable when static dungeon is revisited
+# - type: n14ExpeditionDifficulty
+#   id: N14ExpeditionAbandonedVault
+#   name: n14-expedition-difficulty-abandoned-vault
+#   color: "#6B4F3A"  # dark earthy brown
+#   duration: 900  # 15 minutes — underground map
+#   sortOrder: 0
+#   maps:
+#     - runtimeDungeon: true
+#       dungeonConfig: NFCaveFactory
+#       factionSpawns:
+#         - factions: [NCR, Rangers]
+#           position: -12.0, 0.0
+#         - factions: [CaesarLegion]
+#           position: 12.0, 0.0
+#         - factions: [BrotherhoodOfSteel]
+#           position: 0.0, 12.0
+#         - factions: [Townsfolk]
+#           position: 0.0, -12.0
+#         - factions: [Wastelander]
+#           position: -8.0, -8.0
+#         - factions: [PlayerRaider, Raider]
+#           position: 8.0, -8.0
+#         - factions: [Tribal]
+#           position: -8.0, 8.0
+#         - factions: [PlayerSuperMutant, SuperMutant]
+#           position: 8.0, 8.0
+#         - factions: [PlayerRobot, PlayerSentryBot]
+#           position: 0.0, 0.0
+
+# #Misfits Add - Procedural underground expedition difficulties
+# Three themes (Vault, Sewer, Metro) each at their own tier.
+# Maps are generated fresh every launch from a per-launch seed.
+# Grid size 80×80 gives roughly 6400 tiles of underground space.
+# Players always spawn at grid centre (central congregation room).
+
 - type: n14ExpeditionDifficulty
-  id: N14ExpeditionAbandonedVault
-  name: n14-expedition-difficulty-abandoned-vault
-  color: "#6B4F3A"  # dark earthy brown
-  duration: 900  # 15 minutes — underground map
-  sortOrder: 0
+  id: N14ExpeditionVaultProcedural
+  name: n14-expedition-difficulty-vault-procgen
+  color: "#5A7A5A"  # vault green
+  duration: 1200    # 20 minutes
+  sortOrder: 1
   maps:
-    - path: /Maps/N14/SunnyvaleUnderground.yml
-      factionSpawns:
-        - factions: [NCR, Rangers]
-          position: -147.11, 3.06
-        - factions: [CaesarLegion]
-          position: -138.70, -80.35
-        - factions: [BrotherhoodOfSteel]
-          position: -134.47, -81.24
-        - factions: [Townsfolk]
-          position: 99.70, 241.69
-        - factions: [Wastelander]
-          position: -22.25, -44.57
-        - factions: [PlayerRaider, Raider]
-          position: -22.25, -44.57
-        - factions: [Tribal]
-          position: -22.25, -44.57
-        - factions: [PlayerSuperMutant, SuperMutant]
-          position: -22.25, -44.57
-        - factions: [PlayerRobot, PlayerSentryBot]
-          position: -22.25, -44.57
+    - runtimeProcedural: true
+      proceduralTheme: Vault
+      proceduralGridSize: 80
+      proceduralDifficultyTier: 1
+      proceduralMinRooms: 7
+      proceduralMaxRooms: 12
+      proceduralHubCount: 3
+
+- type: n14ExpeditionDifficulty
+  id: N14ExpeditionSewerProcedural
+  name: n14-expedition-difficulty-sewer-procgen
+  color: "#4A7A4A"  # dirty sewer green
+  duration: 1200    # 20 minutes
+  sortOrder: 2
+  maps:
+    - runtimeProcedural: true
+      proceduralTheme: Sewer
+      proceduralGridSize: 80
+      proceduralDifficultyTier: 1
+      proceduralMinRooms: 6
+      proceduralMaxRooms: 10
+      proceduralHubCount: 2
+
+- type: n14ExpeditionDifficulty
+  id: N14ExpeditionMetroProcedural
+  name: n14-expedition-difficulty-metro-procgen
+  color: "#5A5A8A"  # metro slate blue
+  duration: 1200    # 20 minutes
+  sortOrder: 3
+  maps:
+    - runtimeProcedural: true
+      proceduralTheme: Metro
+      proceduralGridSize: 80
+      proceduralDifficultyTier: 1
+      proceduralMinRooms: 8
+      proceduralMaxRooms: 14
+      proceduralHubCount: 4

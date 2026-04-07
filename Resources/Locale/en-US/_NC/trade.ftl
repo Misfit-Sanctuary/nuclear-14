@@ -103,3 +103,13 @@ nc-store-contract-reward-item-line = { $item } x{ $count }
 
 nc-store-contract-badge-completed = COMPLETED
 nc-store-contract-badge-completed-tooltip = Contract complete - you can claim the reward.
+
+# #Misfits Add - Store popup messages for UI open feedback
+nc-store-popup-no-access = You don't have access to this terminal.
+nc-store-popup-too-far = You are too far from the terminal.
+nc-store-popup-in-use = This terminal is currently in use.
+nc-store-popup-crate-open = Close the crate first.
+nc-store-popup-no-crate = You need to pull a closed crate to sell.
+nc-store-popup-invalid-listing = Invalid listing.
+nc-store-popup-transaction-failed = Transaction failed.
+nc-store-popup-crate-too-far = The crate is too far away.

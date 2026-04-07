@@ -8,6 +8,9 @@
   - type: Item
     heldPrefix: off
   - type: Headset
+    # #Misfits Add - all N14 headsets passively receive PBS (Broadcast) without a key; transmit requires EncryptionKeyPBS
+    passiveChannels:
+    - PBS
   - type: ContainerContainer
     containers:
       key_slots: !type:Container

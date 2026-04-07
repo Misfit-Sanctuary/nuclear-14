@@ -318,7 +318,7 @@
 # --- Vault Tier 2 Ammo ---
 - type: latheRecipe
   id: N14BPVaultAmmoPowerCellSmall
-  result: N14MicrofusionCellRed
+  result: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC; weapon controls beam color
   category: N14BlueprintVaultAmmoT2
   completetime: 4
   requiresBlueprint: true
@@ -344,19 +344,11 @@
     N14Gunpowder: 50
 
 # --- Vault Tier 3 Ammo ---
-- type: latheRecipe
-  id: N14BPVaultAmmoPowerCellHigh
-  result: N14MicrofusionCellGreen
-  category: N14BlueprintVaultAmmoT3
-  completetime: 8
-  requiresBlueprint: true
-  availableFaction:
-  - Vault
-  materials:
-    Glass: 200
-    Circuitry: 100
-    ScrapElectronic: 100
-    Lead: 200
+# #Misfits Removed - MFC recipe commented out; consolidated to single generic cell at T2
+# - type: latheRecipe
+#   id: N14BPVaultAmmoPowerCellHigh
+#   result: N14MicrofusionCell
+#   category: N14BlueprintVaultAmmoT3
 
 - type: latheRecipe
   id: N14BPVaultAmmoPlasmaCell
@@ -387,20 +379,11 @@
     ScrapElectronic: 100
     Lead: 400
 
-- type: latheRecipe
-  id: N14BPVaultAmmoPowerCellAdvanced
-  result: N14MicrofusionCellBlue
-  category: N14BlueprintVaultAmmoT4
-  completetime: 12
-  requiresBlueprint: true
-  availableFaction:
-  - Vault
-  materials:
-    Glass: 350
-    Circuitry: 100
-    ScrapElectronic: 100
-    Lead: 350
-    N14Silver: 50
+# #Misfits Removed - MFC recipe commented out; consolidated to single generic cell at T2
+# - type: latheRecipe
+#   id: N14BPVaultAmmoPowerCellAdvanced
+#   result: N14MicrofusionCell
+#   category: N14BlueprintVaultAmmoT4
 
 # =====================================================================
 # TRIBE WEAPON RECIPES

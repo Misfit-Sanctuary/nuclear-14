@@ -9,7 +9,6 @@
         - sprite: Corvax/Mobs/Animals/mirelurk.rsi
           state: mirelurk
         - state: timed
-    - type: Timer
     - type: TimedSpawner
       prototypes:
         - N14MobMirelurk
@@ -29,7 +28,6 @@
         - sprite: Corvax/Mobs/Animals/radmirelurk.rsi
           state: radmirelurk
         - state: timed
-    - type: Timer
     - type: TimedSpawner
       prototypes:
         - N14MobRadMirelurk
@@ -49,7 +47,6 @@
         - sprite: Corvax/Mobs/Animals/jackal.rsi
           state: jackal
         - state: timed
-    - type: Timer
     - type: TimedSpawner
       prototypes:
         - N14MobJackal

@@ -11,12 +11,26 @@ namespace Content.Shared._Misfits.PowerArmor;
 ///     damage before it reaches the wearer.
 ///
 ///     While integrity is above zero, <see cref="BleedthroughRatio"/> of each
-///     hit (default 1.5%) bleeds through to the player — just enough to feel
-///     the impact — and the rest is absorbed by the armor's own HP pool.
+///     hit (default 10%) bleeds through to the player and the rest is absorbed
+///     by the armor's own HP pool.
 ///
-///     When integrity reaches zero the ArmorComponent is stripped and the
-///     wearer takes full unmitigated damage until the suit is repaired with
-///     a welder.
+///     When integrity reaches zero the armor enters a <b>broken</b> state:
+///     <list type="bullet">
+///       <item>
+///         <see cref="Content.Shared.Armor.ArmorComponent"/> is <b>NOT removed</b> —
+///         damage coefficients still apply.
+///       </item>
+///       <item>
+///         Only <see cref="BrokenBleedthroughRatio"/> (20% default) of
+///         post-coefficient damage reaches the wearer (no HP absorption).
+///       </item>
+///       <item>
+///         A <see cref="PowerArmorBrokenComponent"/> is added to the wearer,
+///         cutting their movement speed to 10% of normal.
+///       </item>
+///     </list>
+///
+///     Repair with a welder to restore full absorption and remove the speed debuff.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class PowerArmorIntegrityComponent : Component
@@ -31,12 +45,23 @@ public sealed partial class PowerArmorIntegrityComponent : Component
     /// <summary>
     ///     Fraction of post-coefficient damage that bleeds through to the
     ///     wearer while integrity is above zero (0.0–1.0).
-    ///     Default 0.015 = 1.5% bleedthrough — player feels hits but is
+    ///     Default 0.100 = 10% bleedthrough — player feels hits but is
     ///     effectively protected until the armor breaks.
     ///     The remaining (1 − BleedthroughRatio) is absorbed by the armor HP pool.
     /// </summary>
     [DataField, AutoNetworkedField]
     public float BleedthroughRatio = 0.100f;
+
+    /// <summary>
+    ///     Fraction of post-coefficient damage that reaches the wearer when
+    ///     the armor is in the broken state (integrity = 0).
+    ///     Default 0.20 = 20% — wearer is still partially protected but
+    ///     the remaining 80% is not absorbed anywhere (no HP pool left).
+    ///     Combined with the ArmorComponent coefficients still being active,
+    ///     the wearer takes coefficient × 0.20 of raw damage.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float BrokenBleedthroughRatio = 0.20f;
 
     /// <summary>
     ///     When integrity drops to zero the armor is broken and provides no
@@ -48,9 +73,12 @@ public sealed partial class PowerArmorIntegrityComponent : Component
     /// <summary>
     ///     Stores the <see cref="DamageModifierSet"/> from
     ///     <see cref="Content.Shared.Armor.ArmorComponent"/> while the suit is
-    ///     broken. The ArmorComponent is removed when integrity hits zero;
-    ///     this cache lets us restore it on repair.
-    ///     Not networked — only the server needs this.
+    ///     broken.
+    ///     <para>
+    ///         Retained for serialization compatibility — <b>no longer used at runtime</b>.
+    ///         ArmorComponent is no longer removed when integrity hits zero, so this
+    ///         cache is never written. Kept to avoid breaking existing saved state.
+    ///     </para>
     /// </summary>
     [DataField]
     public DamageModifierSet? CachedArmorModifiers;

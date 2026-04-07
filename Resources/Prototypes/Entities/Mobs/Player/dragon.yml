@@ -152,9 +152,7 @@
   components:
   - type: Dragon
     spawnRiftAction: ActionSpawnRift
-  - type: GuideHelp
-    guides:
-    - MinorAntagonists
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (MinorAntagonists)
 
 - type: entity
   categories: [ HideSpawnMenu ]

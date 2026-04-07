@@ -53,7 +53,7 @@ public sealed partial class N14ExpeditionBoardWindow : FancyWindow
             var button = new Button
             {
                 Text = tier.Name,
-                MinWidth = 120,
+                HorizontalExpand = true,  // #Misfits Fix - Fill full width in vertical stack
                 MinHeight = 50,
             };
             button.ModulateSelfOverride = tier.Color;

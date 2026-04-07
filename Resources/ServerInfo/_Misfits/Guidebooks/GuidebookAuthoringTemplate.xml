@@ -1,0 +1,27 @@
+<GuidePage Title="Template Page Title" Subtitle="Replace this sentence with a one-line summary of the page." Link="https://ss14.misfitsystems.net/wiki/index.php/Main_Page">
+<GuideInfoBox Title="At a Glance">
+<p>Open with one short box only if the reader needs immediate context, scope, or an operational warning.</p>
+</GuideInfoBox>
+
+<GuideSection Title="First Major Topic">
+<p>Start every section with one lead paragraph before lists, tables, or procedures.</p>
+
+<GuideSubSection Title="Procedure or Checklist">
+<ul>
+<li>Keep steps short and action oriented.</li>
+<li>Split long procedures into multiple subsections instead of one wall of text.</li>
+<li>Use tables only when readers truly need side-by-side comparison.</li>
+</ul>
+</GuideSubSection>
+</GuideSection>
+
+<GuideSection Title="Supporting Material">
+<GuideExampleBlock Title="Recommended Pattern">
+<p>Use example blocks for a preferred workflow, rotation, or decision rule.</p>
+</GuideExampleBlock>
+
+<GuideWarningBox Title="Common Failure State">
+<p>Reserve warning boxes for things that can waste supplies, lock out progress, or get the reader killed.</p>
+</GuideWarningBox>
+</GuideSection>
+</GuidePage>

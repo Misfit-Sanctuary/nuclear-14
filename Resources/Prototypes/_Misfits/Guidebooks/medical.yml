@@ -1,0 +1,41 @@
+# #Misfits Change — Consolidated from _Shitmed/Guidebook/medical.yml
+# Surgery guide entries — all text paths updated to _Misfits/Guidebooks/ location
+# These are hidden from the guidebook menu but accessible via entity examine (e.g., Autodoc)
+
+- type: guideEntry
+  id: Surgery
+  name: guide-entry-surgery
+  text: "/ServerInfo/_Misfits/Guidebooks/Medical/Surgery.xml"
+  hideInMenu: true
+  children:
+  - PartManipulation
+  - OrganManipulation
+  - UtilitySurgeries
+  - Autodoc
+
+- type: guideEntry
+  id: PartManipulation
+  name: guide-entry-partmanipulation
+  text: "/ServerInfo/_Misfits/Guidebooks/Medical/PartManipulation.xml"
+  hideInMenu: true
+  filterEnabled: true
+
+- type: guideEntry
+  id: OrganManipulation
+  name: guide-entry-organmanipulation
+  text: "/ServerInfo/_Misfits/Guidebooks/Medical/OrganManipulation.xml"
+  hideInMenu: true
+  filterEnabled: true
+
+- type: guideEntry
+  id: UtilitySurgeries
+  name: guide-entry-utilitysurgeries
+  text: "/ServerInfo/_Misfits/Guidebooks/Medical/UtilitySurgeries.xml"
+  hideInMenu: true
+  filterEnabled: true
+
+- type: guideEntry
+  id: Autodoc
+  name: guide-entry-autodoc
+  text: "/ServerInfo/_Misfits/Guidebooks/Medical/Autodoc.xml"
+  hideInMenu: true

@@ -36,4 +36,6 @@
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
+  <!-- #Misfits Removed - WebView module deprecated upstream, all versions marked insecure on official Robust CDN -->
+  <!-- <Import Project="..\RobustToolbox\Imports\WebView.props" /> -->
 </Project>

@@ -62,8 +62,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitAtmos
-  - type: GuideHelp
-    guides: [ HephaestusIndustries ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (HephaestusIndustries)
 
 #Engineering Hardsuit
 - type: entity
@@ -116,8 +115,7 @@
     clothingPrototype: ClothingHeadHelmetHardsuitEngineering
   - type: StaminaDamageResistance
     coefficient: 0.75 # 25%
-  - type: GuideHelp
-    guides: [ HephaestusIndustries ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (HephaestusIndustries)
   - type: TemperatureProtection
     coefficient: 0.001
   - type: FireProtection
@@ -151,8 +149,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSpatio
-  - type: GuideHelp
-    guides: [ HephaestusIndustries ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (HephaestusIndustries)
 
 #Salvage Hardsuit
 - type: entity
@@ -184,8 +181,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSalvage
-  - type: GuideHelp
-    guides: [ HephaestusIndustries ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (HephaestusIndustries)
 
 #Paramedic Voidsuit
 - type: entity
@@ -217,8 +213,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitVoidParamed
-  - type: GuideHelp
-    guides: [ ZengHuPharmaceuticals ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (ZengHuPharmaceuticals)
 
 
 - type: entity
@@ -253,8 +248,7 @@
     reduction: 1
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMaxim
-  - type: GuideHelp
-    guides: [ HephaestusIndustries ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (HephaestusIndustries)
 
 #Security Hardsuit
 - type: entity
@@ -382,8 +376,7 @@
     clothingPrototype: ClothingHeadHelmetHardsuitCap
   - type: StaminaDamageResistance
     coefficient: 0.5 # 50%
-  - type: GuideHelp
-    guides: [ NanoTrasen ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (NanoTrasen)
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -421,8 +414,7 @@
     - type: SupermatterImmune
   - type: StaminaDamageResistance
     coefficient: 0.65 # 35%
-  - type: GuideHelp
-    guides: [ HephaestusIndustries ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (HephaestusIndustries)
   - type: TemperatureProtection
     coefficient: 0.001
   - type: FireProtection
@@ -452,8 +444,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMedical
-  - type: GuideHelp
-    guides: [ ZengHuPharmaceuticals ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (ZengHuPharmaceuticals)
 
 #Research Director's Hardsuit
 - type: entity
@@ -500,8 +491,7 @@
     stealGroup: ClothingOuterHardsuitRd
   - type: StaminaDamageResistance
     coefficient: 0.75 # 25% as in "shock resistance" :trollface:
-  - type: GuideHelp
-    guides: [ NanoTrasen ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (NanoTrasen)
 
 #Head of Security's Hardsuit
 - type: entity
@@ -566,8 +556,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitLuxury
-  - type: GuideHelp
-    guides: [ HephaestusIndustries ]
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (HephaestusIndustries)
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit

@@ -1,0 +1,98 @@
+# #Misfits Add - Pet companion traits for the Pets perk tree (globally available, no role restrictions)
+
+# Dog Companion — generic wasteland dog, available to all roles, costs 8 perk points
+- type: trait
+  id: N14PetDogCompanion
+  category: Pets
+  points: -8
+  functions:
+    - !type:TraitAddComponent
+      components:
+        # Creates a ghost role so another player can take control of the companion dog
+        - type: GhostRole
+          name: ghost-role-information-n14pet-dog-name
+          description: ghost-role-information-n14pet-generic-description
+          rules: ghost-role-component-default-rules
+        # Spawns the N14MobPetDog entity at the player's location at round start
+        - type: GhostRoleMobSpawner
+          prototype: N14MobPetDog
+
+# Brahmin — two-headed pack animal, available to all roles, costs 10 perk points
+- type: trait
+  id: N14PetBrahmin
+  category: Pets
+  points: -10
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: GhostRole
+          name: ghost-role-information-n14pet-brahmin-name
+          description: ghost-role-information-n14pet-generic-description
+          rules: ghost-role-component-default-rules
+        - type: GhostRoleMobSpawner
+          prototype: N14MobBrahmin
+
+# Mirelurk — irradiated crustacean companion, available to all roles, costs 8 perk points
+- type: trait
+  id: N14PetMirelurk
+  category: Pets
+  points: -8
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: GhostRole
+          name: ghost-role-information-n14pet-mirelurk-name
+          description: ghost-role-information-n14pet-generic-description
+          rules: ghost-role-component-default-rules
+        - type: GhostRoleMobSpawner
+          prototype: N14MobMirelurk
+
+# Rad Chicken — glowing wasteland chicken, available to all roles, costs 5 perk points
+- type: trait
+  id: N14PetRadChicken
+  category: Pets
+  points: -5
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: GhostRole
+          name: ghost-role-information-n14pet-radchicken-name
+          description: ghost-role-information-n14pet-generic-description
+          rules: ghost-role-component-default-rules
+        - type: GhostRoleMobSpawner
+          prototype: N14MobChicken
+
+# Cat — a basic cat companion, available to all roles, costs 5 perk points (NOT MobCatFloppa, NOT N14MobCatHaggis)
+- type: trait
+  id: N14PetCat
+  category: Pets
+  points: -5
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: GhostRole
+          name: ghost-role-information-n14pet-cat-name
+          description: ghost-role-information-n14pet-generic-description
+          rules: ghost-role-component-default-rules
+        - type: GhostRoleMobSpawner
+          prototype: MobCat
+
+# Centaur — FEV-warped creature, SUPERMUTANT ONLY (FEVMutants department), costs 8 perk points
+# Placeholder — full implementation pending dedicated pet centaur prototype
+- type: trait
+  id: N14PetCentaur
+  category: Pets
+  points: -8
+  requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - FEVMutants
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: GhostRole
+          name: ghost-role-information-n14pet-centaur-name
+          description: ghost-role-information-n14pet-generic-description
+          rules: ghost-role-component-default-rules
+        - type: GhostRoleMobSpawner
+          prototype: N14MobCentaur

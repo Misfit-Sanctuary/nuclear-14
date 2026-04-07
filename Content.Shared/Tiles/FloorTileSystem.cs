@@ -134,11 +134,21 @@ public sealed class FloorTileSystem : EntitySystem
 
                 var tile = mapGrid.GetTileRef(location);
                 var baseTurf = (ContentTileDefinition) _tileDefinitionManager[tile.Tile.TypeId];
+                var preserveUnderlay = false;
 
-                if (HasBaseTurf(currentTileDefinition, baseTurf.ID))
+                if (!HasBaseTurf(currentTileDefinition, baseTurf.ID) &&
+                    CanPlaceOverPlanetarySubfloor(currentTileDefinition, baseTurf))
+                {
+                    preserveUnderlay = true;
+                }
+
+                if (HasBaseTurf(currentTileDefinition, baseTurf.ID) || preserveUnderlay)
                 {
                     if (!_stackSystem.Use(uid, 1, stack))
                         continue;
+
+                    if (preserveUnderlay && !_netManager.IsClient)
+                        _tile.PreserveUnderlay(gridUid, tile.GridIndices, baseTurf.ID);
 
                     PlaceAt(args.User, gridUid, mapGrid, location, currentTileDefinition.TileId, component.PlaceTileSound);
                     args.Handled = true;
@@ -168,6 +178,14 @@ public sealed class FloorTileSystem : EntitySystem
     public bool HasBaseTurf(ContentTileDefinition tileDef, string baseTurf)
     {
         return tileDef.BaseTurf == baseTurf;
+    }
+
+    private static bool CanPlaceOverPlanetarySubfloor(ContentTileDefinition replacementTile, ContentTileDefinition currentTile)
+    {
+        return !replacementTile.IsSubFloor &&
+               currentTile.IsSubFloor &&
+               currentTile.Indestructible &&
+               currentTile.ID != ContentTileDefinition.SpaceID;
     }
 
     private void PlaceAt(EntityUid user, EntityUid gridUid, MapGridComponent mapGrid, EntityCoordinates location,

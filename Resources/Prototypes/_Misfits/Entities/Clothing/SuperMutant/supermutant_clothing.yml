@@ -127,7 +127,7 @@
 
 # --- Gladiator Armor ---
 - type: entity
-  parent: ClothingOuterBase
+  parent: [ClothingOuterBase, AllowSuitStorageClothing] # #Misfits Add - AllowSuitStorageClothing enables the back holster (suitstorage) slot
   id: ClothingSuperMutantGladiatorArmor
   name: supermutant gladiator armor
   description: Heavy scrap armor reinforced for pit fights and close-quarters brutality.
@@ -139,6 +139,12 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: Armor # #Misfits Add - 15% physical damage resistance baseline
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
 
 # --- Gladiator Boots ---
 - type: entity
@@ -169,6 +175,12 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: Armor # #Misfits Add - 50% physical damage resistance (head protection)
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
 
 # #Misfits Add - Vault suit jumpsuit for the base playable Supermutant role.
 # Sprites by ColonelNothing (CC-BY-SA-3.0). Prevents naked spawns.

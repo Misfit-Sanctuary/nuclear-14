@@ -1,0 +1,66 @@
+- type: job
+  id: RangerVeteran
+  setPreference: true
+  alwaysUseSpawner: true
+  jobWhitelistBypassesRoleTimers: true
+  name: job-name-ranger-veteran-n14
+  description: job-description-ranger-veteran-n14
+  playTimeTracker: RangerVeteran
+  weight: 10
+  startingGear: RangerVeteranGear
+  icon: "JobIconHeadOfSecurity"
+  supervisors: job-supervisors-ranger-veteran
+  requireAdminNotify: true
+  canBeAntag: false
+  accessGroups:
+  - NCRRanger #Misfits Fix - was NCR; Elite Rangers must open NCRRanger-tagged doors
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Rangers
+  # #Misfits Removed - Disabled auto-grant pending testing; use training manuals instead
+  #- !type:AddComponentSpecial
+  #  components:
+  #    - type: GrantRangerCombat
+  requirements:
+    - !type:CharacterDepartmentTimeRequirement
+      department: Rangers
+      min: 252000 # 70 hours
+    - !type:CharacterSpeciesRequirement # #Misfits Change - robots and super mutants cannot be Rangers
+      inverted: true
+      species:
+      - RobotMrHandy
+      - RobotProtectron
+      - RobotMrGutsy
+      - RobotAssaultron
+      - SuperMutant
+
+- type: startingGear
+  id: RangerVeteranGear
+  equipment:
+    head: N14ClothingHeadHatRangerHelmetEliteOld
+    back: N14ClothingBackpackMilitary # Corvax-Change
+    jumpsuit: N14ClothingUniformRangerV3
+    ears: N14ClothingHeadsetNCR
+    shoes: N14ClothingBootsCombatFilled
+    gloves: N14ClothingHandsGlovesCombat
+    belt: ClothingBeltRevolvervetfilled
+    mask: ClothingMaskGasRangerElite
+    pocket1: MagazineBox45-70
+    pocket2: NCRveteranrangerloadoutkits
+    eyes: ClothingEyesGlassesSunglasses
+    outerClothing: N14ClothingOuterRangerEliteOld
+    id: N14IDBadgeNCRDesertRangerElite
+  innerClothingSkirt: N14ClothingUniformRangerV3 #placeholder
+  satchel: N14ClothingBackpackSatchelMilitaryFilled
+  duffelbag: N14ClothingBackpackDuffelMilitaryFilled
+  storage: # Corvax-Change
+    back:
+    - N14BoxPlasticFilledMilitary
+    - FlashlightSeclite
+    - N14Binoculars # #Misfits Add - Veteran Rangers spawn with binoculars for scouting
+
+- type: playTimeTracker
+  id: RangerVeteran

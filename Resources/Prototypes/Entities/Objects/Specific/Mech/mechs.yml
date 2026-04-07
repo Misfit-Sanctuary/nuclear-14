@@ -91,9 +91,7 @@
   - type: FootstepModifier
     footstepSoundCollection:
       path: /Audio/Mecha/mechmove03.ogg
-  - type: GuideHelp
-    guides:
-    - Robotics
+  # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Robotics)
   - type: Destructible
     thresholds:
     - trigger:

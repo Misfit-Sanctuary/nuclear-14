@@ -1,0 +1,240 @@
+<Document>
+# Synthetics
+
+[textlink="View Full Wiki Page" link="https://ss14.misfitsystems.net/wiki/index.php/Synthetics"/]
+
+<p>◈ Synthetics ◈ Player-Controlled Robotics ◈ Wendover Region ◈</p>
+
+<Table Columns="2">
+  <Box>[bold]Synthetics[/bold]</Box>
+  <Box></Box>
+  <Box>◈ FACTION DOSSIER ◈</Box>
+  <Box></Box>
+  <Box>[bold]Status[/bold]</Box>
+  <Box>Active - Operational</Box>
+  <Box>[bold]Location[/bold]</Box>
+  <Box>Wendover Region, Utah</Box>
+  <Box>[bold]Commander[/bold]</Box>
+  <Box>N/A - Programming Directive</Box>
+  <Box>[bold]Ideology[/bold]</Box>
+  <Box>Directive Compliance
+Pre-War Operational Parameters</Box>
+  <Box>[bold]Motto[/bold]</Box>
+  <Box>[italic]Please stand back.[/italic]</Box>
+  <Box>[bold]Affiliation[/bold]</Box>
+  <Box>Independent / Faction-Assigned</Box>
+  <Box>⬜ RESTRICTED ACCESS ⬜</Box>
+  <Box></Box>
+</Table>
+
+<p>[bold]Synthetics[/bold] are pre-war robotic units still operational in the Wendover region. Unlike the hostile NPC robots encountered in the wastes, these are [bold]player-controlled[/bold] units - each with distinct chassis, built-in armaments, and specialized roles. All Synthetic roles require [bold]whitelist approval[/bold] and are [bold]species-locked[/bold] to their corresponding robot chassis.</p>
+<p>Synthetics cannot pick up or equip conventional firearms. Their armament is integrated into their chassis and cannot be changed.</p>
+
+## Chassis Overview
+
+<Table Columns="6">
+  <Box>[bold]Chassis[/bold]</Box>
+  <Box>[bold]Role[/bold]</Box>
+  <Box>[bold]Walk / Sprint[/bold]</Box>
+  <Box>[bold]HP[/bold]</Box>
+  <Box>[bold]Built-In Weapon[/bold]</Box>
+  <Box>[bold]Armor[/bold]</Box>
+  <Box>Mr. Handy</Box>
+  <Box>Domestic - cleaning, gardening, general maintenance</Box>
+  <Box>2.5 / 4.5</Box>
+  <Box>200</Box>
+  <Box>Flamer (30 fuel)</Box>
+  <Box>None</Box>
+  <Box>[bold]Protectron[/bold]</Box>
+  <Box>Civil Service - utility, patrol, civic duties</Box>
+  <Box>2.0 / 3.5</Box>
+  <Box>200</Box>
+  <Box>Hand-Laser (9 cap)</Box>
+  <Box>0.7× blunt/slash</Box>
+  <Box>[bold]Protectron Police[/bold]</Box>
+  <Box>Law Enforcement - detainment, patrols</Box>
+  <Box>2.0 / 3.5</Box>
+  <Box>200</Box>
+  <Box>Electro-Shock (10 blunt + 12 shock)</Box>
+  <Box>0.7× blunt/slash</Box>
+  <Box>[bold]Protectron Builder[/bold]</Box>
+  <Box>Engineering - construction, repair</Box>
+  <Box>2.0 / 3.5</Box>
+  <Box>200</Box>
+  <Box>RCD + construction tools</Box>
+  <Box>0.7× blunt/slash</Box>
+  <Box>[bold]Protectron Firefighter[/bold]</Box>
+  <Box>Emergency - fire suppression, rescue</Box>
+  <Box>2.0 / 3.5</Box>
+  <Box>200</Box>
+  <Box>Cryo Emitter (6 cap)</Box>
+  <Box>0.7× blunt/slash</Box>
+  <Box>[bold]Mr. Gutsy[/bold]</Box>
+  <Box>Military - combat patrol, area denial</Box>
+  <Box>2.5 / 4.5</Box>
+  <Box>200</Box>
+  <Box>Plasma Caster (15 cap)</Box>
+  <Box>None</Box>
+  <Box>[bold]Assaultron[/bold]</Box>
+  <Box>Combat - close-quarters assault</Box>
+  <Box>3.0 / 6.0</Box>
+  <Box>200</Box>
+  <Box>Head Laser (charged, 2s charge + 3s cooldown) + Claw (30 slash)</Box>
+  <Box>None</Box>
+  <Box>[bold]Assaultron Tesla[/bold]</Box>
+  <Box>Combat - area denial, chain lightning</Box>
+  <Box>3.0 / 6.0</Box>
+  <Box>200</Box>
+  <Box>Tesla Discharge (arcing chain-lightning)</Box>
+  <Box>None</Box>
+  <Box>Sentry Bot Minigun</Box>
+  <Box>Heavy Siege - suppression, defense</Box>
+  <Box>1.0 / 1.5</Box>
+  <Box>[bold]350[/bold]</Box>
+  <Box>5mm Gatling (30 cap)</Box>
+  <Box>[bold]0.65×[/bold] + 50% reflect</Box>
+  <Box>Sentry Bot Laser</Box>
+  <Box>Heavy Siege - suppression, defense</Box>
+  <Box>1.0 / 1.5</Box>
+  <Box>[bold]350[/bold]</Box>
+  <Box>Gatling Laser (20 cap)</Box>
+  <Box>[bold]0.65×[/bold] + 50% reflect</Box>
+  <Box>[bold]Robobrain[/bold]</Box>
+  <Box>Medical / Utility - diagnosis, treatment</Box>
+  <Box>1.5 / 3.0</Box>
+  <Box>200</Box>
+  <Box>None (tool + medical modules)</Box>
+  <Box>None</Box>
+  <Box>[bold]Robobrain Laser[/bold]</Box>
+  <Box>Medical / Combat - mixed role</Box>
+  <Box>1.5 / 3.0</Box>
+  <Box>200</Box>
+  <Box>Hand-Laser (9 cap)</Box>
+  <Box>None</Box>
+</Table>
+
+<h3 Text="Scale"/>
+
+<ul>
+<li>[bold]Sentry Bots[/bold] are [bold]2.0× scale[/bold] - visually massive and physically imposing</li>
+<li>[bold]All other robots[/bold] are standard 1.0× scale</li>
+</ul>
+
+## Synthetic Jobs
+
+<Table Columns="3">
+  <Box>[bold]Job[/bold]</Box>
+  <Box>[bold]Chassis Options[/bold]</Box>
+  <Box>[bold]Notes[/bold]</Box>
+  <Box>Mr. Handy</Box>
+  <Box>Mr. Handy</Box>
+  <Box>Whitelist, 3-handed</Box>
+  <Box>[bold]Protectron[/bold]</Box>
+  <Box>Protectron, Police, Builder, Firefighter</Box>
+  <Box>Whitelist, 4 model variants</Box>
+  <Box>[bold]Mr. Gutsy[/bold]</Box>
+  <Box>Mr. Gutsy</Box>
+  <Box>Whitelist, military</Box>
+  <Box>[bold]Assaultron[/bold]</Box>
+  <Box>Assaultron, Assaultron Tesla</Box>
+  <Box>Whitelist, fastest chassis</Box>
+  <Box>[bold]Sentry Bot[/bold]</Box>
+  <Box>Sentry Bot Minigun, Sentry Bot Laser</Box>
+  <Box>Whitelist, heaviest chassis</Box>
+  <Box>[bold]Robobrain[/bold]</Box>
+  <Box>Robobrain, Robobrain Laser</Box>
+  <Box>Whitelist, medical focus</Box>
+</Table>
+
+<p>All Synthetic jobs require [bold]whitelisted: true[/bold] status and restrict the player to robot-specific species and customization.</p>
+
+## Borg Modules
+
+<p>Synthetics carry integrated modules that define their utility beyond combat:</p>
+
+<Table Columns="2">
+  <Box>[bold]Module[/bold]</Box>
+  <Box>[bold]Function[/bold]</Box>
+  <Box>[bold]Integrated Hand-Laser[/bold]</Box>
+  <Box>Semi-auto laser, 9 capacity, rechargeable</Box>
+  <Box>[bold]Plasma Caster[/bold]</Box>
+  <Box>Plasma projector, internal battery, self-recharging</Box>
+  <Box>[bold]Integrated Flamer[/bold]</Box>
+  <Box>Full-auto incendiary, 30 fuel, auto-refill</Box>
+  <Box>[bold]Cryo Emitter[/bold]</Box>
+  <Box>Cryo projector, 6 capacity, fire suppression</Box>
+  <Box>[bold]Security Module[/bold]</Box>
+  <Box>Stun baton, handcuffs, flashlight - law enforcement loadout</Box>
+  <Box>[bold]Diagnosis Module[/bold]</Box>
+  <Box>Medical scanner and patient assessment</Box>
+  <Box>[bold]Treatment Module[/bold]</Box>
+  <Box>Medical treatment - surgical tools, healing capability</Box>
+  <Box>[bold]Tool Module[/bold]</Box>
+  <Box>Engineering tools - wrench, screwdriver, welder</Box>
+  <Box>[bold]GPS Module[/bold]</Box>
+  <Box>Navigation and mapping - ties into Wendover tactical map</Box>
+</Table>
+
+## Hostile NPC Robots
+
+<p>The Wasteland is home to many [bold]hostile NPC robots[/bold] that are [bold]not[/bold] player-controlled. These are pre-war units whose programming has degraded into permanent hostility. They belong to the [bold]HostileRobot[/bold] NPC faction and attack on sight.</p>
+
+<Table Columns="4">
+  <Box>[bold]NPC Robot[/bold]</Box>
+  <Box>[bold]HP[/bold]</Box>
+  <Box>[bold]Armament[/bold]</Box>
+  <Box>[bold]Notes[/bold]</Box>
+  <Box>Protectron (Melee)</Box>
+  <Box>100</Box>
+  <Box>Melee (5 brute)</Box>
+  <Box>Slow patrol, weakest NPC robot</Box>
+  <Box>Protectron Police</Box>
+  <Box>100</Box>
+  <Box>Hand-Laser (9 cap)</Box>
+  <Box>Ranged, slightly more dangerous</Box>
+  <Box>Mr. Handy (Claw / Saw / Gun)</Box>
+  <Box>100</Box>
+  <Box>Claw / Saw / Hand-Laser</Box>
+  <Box>Three variants, domestic-speed</Box>
+  <Box>Mr. Gutsy</Box>
+  <Box>100</Box>
+  <Box>Plasma Caster (9 cap)</Box>
+  <Box>Military variant, same HP as Mr. Handy</Box>
+  <Box>Assaultron</Box>
+  <Box>200</Box>
+  <Box>Claw (15 slash)</Box>
+  <Box>Fast (3.0/6.0), melee-focused</Box>
+  <Box>Eyebot</Box>
+  <Box>100</Box>
+  <Box>Hand-Laser (9 cap)</Box>
+  <Box>Fast scout, plays ambient music</Box>
+  <Box>Robobrain</Box>
+  <Box>100</Box>
+  <Box>Hand-Laser (9 cap)</Box>
+  <Box>Slow, ranged</Box>
+  <Box>Sentry Bot (Gatling Laser)</Box>
+  <Box>[bold]350[/bold]</Box>
+  <Box>Gatling Laser (6 shots/sec) + Stomp (40 brute)</Box>
+  <Box>2× scale, heavy armor, [bold]8-second death explosion[/bold]</Box>
+  <Box>Sentry Bot (Ballistic)</Box>
+  <Box>[bold]350[/bold]</Box>
+  <Box>Missile Launcher</Box>
+  <Box>2× scale, heavy armor</Box>
+</Table>
+
+<p>[bold]Warning:[/bold] NPC Sentry Bots explode on death with an 8-second fuse. Clear the area immediately.</p>
+
+## Equipment
+
+<Table Columns="2">
+  <Box>[bold]Item[/bold]</Box>
+  <Box>[bold]Description[/bold]</Box>
+  <Box>[bold]General Atomics Navigation Card[/bold]</Box>
+  <Box>Wendover tactical map - standard issue</Box>
+  <Box>[bold]RobCo Industries Navigation Card[/bold]</Box>
+  <Box>Wendover tactical map - RobCo branded</Box>
+  <Box>[bold]Wasteland Scrap Headset[/bold]</Box>
+  <Box>Inter-robot and faction communication radio</Box>
+</Table>
+
+</Document>

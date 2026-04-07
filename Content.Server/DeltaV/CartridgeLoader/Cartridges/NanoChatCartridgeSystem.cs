@@ -380,17 +380,24 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             : sender.Owner;
         var senderStation = _station.GetOwningStation(senderEntity);
 
+        // #Misfits Fix - Wasteland P2P mode: engage when there is no owning station OR when the
+        // station has no active telecomm server. N14 maps may have a station entity for game-management
+        // purposes but no telecomm infrastructure, so checking only for null station was insufficient.
+        var wastelandMode = true;
+        if (senderStation.HasValue)
+            wastelandMode = !HasActiveServer(senderStation.Value);
+
         foreach (var recipient in foundRecipients)
         {
-            // #Misfits Fix - Wasteland: no station grid exists, skip all radio/telecomm checks
-            // and deliver directly to any card with a matching number (peer-to-peer).
-            // #Misfits Fix - Use HasValue guard so nullable flow analysis proves non-null UID.
-            if (!senderStation.HasValue)
+            // Wasteland: skip all radio/telecomm checks and deliver peer-to-peer.
+            if (wastelandMode)
             {
                 deliverableRecipients.Add(recipient);
                 continue;
             }
-            var senderStationUid = senderStation.Value;
+
+            if (senderStation is not { } senderStationUid)
+                continue;
 
             // Find any cartridges that have this card
             var cartridgeQuery = EntityQueryEnumerator<NanoChatCartridgeComponent, ActiveRadioComponent, CartridgeComponent>();

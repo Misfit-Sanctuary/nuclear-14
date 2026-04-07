@@ -556,9 +556,7 @@
       steps: 5
       zeroVisible: true
     - type: Appearance
-    - type: GuideHelp
-      guides:
-      - Security
+    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Security)
     - type: MeleeWeapon
       damage:
         types:

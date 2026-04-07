@@ -458,6 +458,10 @@
           Quantity: 4
         - ReagentId: Fat
           Quantity: 4
+  # #Misfits Add - auto-cleanup rotten meat to prevent ground clutter over long sessions
+  - type: TimedDespawn
+    lifetime: 1200
+  - type: PauseTimedDespawnInEntityStorage
 
 - type: entity
   name: raw spider meat

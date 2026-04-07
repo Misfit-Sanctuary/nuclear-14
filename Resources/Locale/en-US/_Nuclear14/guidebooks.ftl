@@ -8,9 +8,9 @@ guide-entry-enclave = Enclave
 guide-entry-followersoftheapocalypse = Followers of the Apocalypse
 guide-entry-minorfactions = Minor Factions
 guide-entry-ncr = NCR
-guide-entry-townsfolk = Townspeople
-guide-entry-tribes = Tribe
-guide-entry-vaultdwellers = Vault Dwellers
+guide-entry-townsfolk = Town
+guide-entry-tribes = Tribals
+guide-entry-vaultdwellers = Vault
 guide-entry-wastelanders = Wastelanders
 guide-entry-zetan = Zetans
 
