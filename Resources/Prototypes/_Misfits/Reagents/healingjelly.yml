@@ -1,0 +1,38 @@
+﻿# #Misfits Change
+# formed from mixing healing poultice and powder, to mitigate how potent they are combined in large amounts
+
+- type: reagent
+  id: healingjelly
+  name: reagent-name-healingjelly
+  group: Medicine
+  desc: reagent-desc-healingjelly
+  physicalDesc: reagent-physical-desc-gloopy
+  flavor: sour
+  color: "#316101"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:GenericStatusEffect # Misfits Add: mark entity as having an active recovery drug — enables 2s crit stand-up
+        key: RecoveryDrugActive
+        component: RecoveryDrugActiveComponent
+        type: Add
+        time: 3
+        refresh: true
+      - !type:HealthChange # burn/brute recovery between poultice/powder, better airloss than both.
+        damage:
+          groups:
+            Burn: -4
+            Brute: -4.5
+            Airloss: -6
+      - !type:SatiateHunger
+        amount: 5
+      - !type:ModifyBleedAmount # stems bloodloss
+        amount: -0.5
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold #OD poison threshold
+          min: 35
+        - !type:MobStateCondition #poison per .25 over 35 ingested.
+        damage:
+          types:
+            Poison: 1.0

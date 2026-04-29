@@ -1,0 +1,23 @@
+﻿# #Misfits Change
+# formed from mixing healing poultice and powder, to mitigate how potent they are combined in large amounts.
+# for the sake of faction parity, mixing standard and super stims makes razorium now.
+
+- type: reaction
+  id: healingjelly
+  reactants:
+    HealingPowder:
+      amount: 45
+    HealingPoultice:
+      amount: 45
+  products:
+    healingjelly: 90
+
+- type: reaction
+  id: StimpackSuperStimpackReaction
+  reactants:
+    RobustHealingMixture:
+      amount: 45
+    HealingMixture:
+      amount: 45
+  products:
+    Razorium: 40
