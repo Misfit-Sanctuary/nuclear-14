@@ -1071,8 +1071,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: ClothingSpeedModifier
-    walkModifier: 1.05
-    sprintModifier: 1.05
+    walkModifier: 1.1 # Same bonus as the Legion kind
+    sprintModifier: 1.1
 
 #MARK: Veteran
 
@@ -1091,11 +1091,15 @@
       coefficients:
         Blunt: 0.75
         Slash: 0.75
-        Piercing: 0.75
-        Heat: 0.75
+        Piercing: 0.70 # Isn't this suppose to be the better armor, why does this armor have only 25 reduction?
+        Heat: 0.70
     priceMultiplier: 0.6
   - type: ExplosionResistance
     damageCoefficient: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 1.1 # Same bonus as the Legion armor
+    sprintModifier: 1.1
+
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -1501,8 +1505,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.8
   - type: ClothingSpeedModifier # Forge-Change
-    walkModifier: 1.05
-    sprintModifier: 1.05
+    walkModifier: 1.1 
+    sprintModifier: 1.1
 
 # New Midwest BoS stuff after rework
 
