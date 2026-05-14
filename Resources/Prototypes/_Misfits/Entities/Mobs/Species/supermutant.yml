@@ -119,10 +119,10 @@
   - type: Oni
     modifiers:
       coefficients:
-        Blunt: 2.0
-        Slash: 2.0
-        Piercing: 2.0
-        Shock: 2.0
+        Blunt: 1.5
+        Slash: 1.5
+        Piercing: 1.5
+        Shock: 1.5
   - type: MeleeThrowOnHit
     speed: 15
     lifetime: 0.025
