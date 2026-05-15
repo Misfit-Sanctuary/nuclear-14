@@ -39,10 +39,10 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.70
-        Heat: 0.75
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.55
   - type: TemperatureProtection
     coefficient: 0.25
   - type: FireProtection
@@ -55,7 +55,6 @@
   - type: Reflect # #Misfits Change Tweak: Small-caliber rounds (sub-5.56mm) ricochet off power armor at 30% chance. Innate - always active regardless of movement.
     reflects:
       - SmallCaliber
-      - MediumCaliber
     reflectProb: 0.3
     reflectProbByType:
       MediumCaliber: 0.10 #less armor. less reflect.
