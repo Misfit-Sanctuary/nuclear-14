@@ -33,8 +33,8 @@ public sealed partial class PowerArmorBrokenComponent : Component
 {
     /// <summary>
     ///     Walk and sprint speed multiplier applied while this component is active.
-    ///     Default 0.70 = 70% of normal speed (30% penalty).
+    ///     Default 0.40 = 40% of normal speed (60% penalty).
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float SpeedModifier = 0.70f;
+    public float SpeedModifier = 0.40f;
 }
