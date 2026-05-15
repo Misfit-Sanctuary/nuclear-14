@@ -12,11 +12,11 @@
   # Repair with a welder to restore the pool and re-enable absorption.
   - type: Damageable
   - type: PowerArmorIntegrity
-    maxIntegrity: 400 # #Misfits Tweak: By Bill, 400 durability for a little more standing power.
+    maxIntegrity: 395 # #Misfits Tweak: By Squaggles, reduced to 395 durability due to changes in coefficients.
     brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
   - type: Repairable
     fuelCost: 10
-    doAfterDelay: 18 # #Misfits Tweak - Increased weld repair time from 5s to 30s to 18s; 5s was too fast for combat balance, 30 is too slow, current proposal is 18.
+    doAfterDelay: 10 # #Misfits Tweak - Increased weld repair time from 5s to 30s to 18s to 10s; 5s was too fast for combat balance, 30 is too slow, current proposal is 10.
     qualityNeeded: Welding
   # End Misfits Add
   - type: Sprite
@@ -39,12 +39,12 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
-        Heat: 0.75
-        Caustic: 0.75
-        Radiation: 0.6
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
+        Caustic: 0.4
+        Radiation: 0.3
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
@@ -82,9 +82,9 @@
   - type: PowerArmorBrace # #Misfits Change Add: Grants wearer a hotkey to brace (anchor in place, immobile but can fire, slight damage resistance). 5-second cooldown between stance changes.
     activeModifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
   - type: EmitsSoundOnMove # Corvax-Change
     soundCollection:
       collection: N14FootstepPowerArmor
@@ -110,12 +110,12 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.70
-        Heat: 0.70
-        Caustic: 0.75
-        Radiation: 0.6
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
+        Caustic: 0.4
+        Radiation: 0.3
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
@@ -183,12 +183,12 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.725
-        Slash: 0.725
-        Piercing: 0.725
-        Heat: 0.725
-        Caustic: 0.75
-        Radiation: 0.6
+        Blunt: 0.375
+        Slash: 0.375
+        Piercing: 0.375
+        Heat: 0.375
+        Caustic: 0.375
+        Radiation: 0.275
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
