@@ -627,13 +627,13 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/midwestbosfieldscribe.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/midwestbosfieldscribe.rsi
-  - type: Armor # #Misfits Tweak - Standardize scribe coat armor to 10% flat (overrides parent)
+  - type: Armor # #Misfits Tweak - Squaggles: Buff field scribe armor to allow for better protection while on the field. Keep worse than Knight armor. (overrides parent)
     modifiers:
       coefficients:
-        Blunt: 0.90
-        Slash: 0.90
-        Piercing: 0.90
-        Heat: 0.90
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.75
+        Heat: 0.75
     priceMultiplier: 0.5
 
 - type: entity
