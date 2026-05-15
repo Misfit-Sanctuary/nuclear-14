@@ -260,12 +260,12 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65
-        Heat: 0.65
-        Caustic: 0.75
-        Radiation: 0.6
+        Blunt: 0.285
+        Slash: 0.285
+        Piercing: 0.285
+        Heat: 0.285
+        Caustic: 0.285
+        Radiation: 0.25
   - type: ExplosionResistance
     damageCoefficient: 0.08 # #Misfits Tweak: X-01 advanced plating — ~10 HP at ground zero
   - type: UserInterface
@@ -304,12 +304,12 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.70
-        Heat: 0.70
-        Caustic: 0.75
-        Radiation: 0.6
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.35
+        Heat: 0.35
+        Caustic: 0.35
+        Radiation: 0.25
   - type: ExplosionResistance
     damageCoefficient: 0.10 # #Misfits Tweak: X-02 blast resistance — ~12 HP at ground zero
   - type: UserInterface
@@ -357,12 +357,12 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.70
-        Heat: 0.70
-        Caustic: 0.75
-        Radiation: 0.5
+        Blunt: 0.20
+        Slash: 0.20
+        Piercing: 0.20
+        Heat: 0.20
+        Caustic: 0.20
+        Radiation: 0.1
   - type: ExplosionResistance
     damageCoefficient: 0.06 # #Misfits Tweak: Hellfire designed for combat — best blast resistance, ~7 HP at ground zero
   - type: UserInterface
@@ -392,12 +392,12 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.80
-        Slash: 0.80
-        Piercing: 0.80
-        Heat: 0.80
-        Caustic: 0.75
-        Radiation: 0.65
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.45
+        Caustic: 0.45
+        Radiation: 0.3
   - type: ExplosionResistance
     damageCoefficient: 0.20 # #Misfits Tweak: Raider PA cobbled together — weakest blast protection, ~24 HP at ground zero
   - type: UserInterface
@@ -483,12 +483,12 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.70
-        Heat: 0.70
-        Caustic: 0.75
-        Radiation: 0.6
+        Blunt: 0.325
+        Slash: 0.325
+        Piercing: 0.325
+        Heat: 0.325
+        Caustic: 0.325
+        Radiation: 0.25
   - type: Storage
     grid:
     - 0,0,2,1
@@ -716,12 +716,12 @@
   - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
     modifiers:
       coefficients:
-        Blunt: 0.675
-        Slash: 0.675
-        Piercing: 0.675
-        Heat: 0.675
-        Caustic: 0.75
-        Radiation: 0.6
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.3
+        Caustic: 0.3
+        Radiation: 0.25
   - type: Storage
     grid:
     - 0,0,2,1
