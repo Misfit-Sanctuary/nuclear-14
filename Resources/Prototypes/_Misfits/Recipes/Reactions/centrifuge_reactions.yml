@@ -1,0 +1,36 @@
+- type: reaction
+  id: FertilizerBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    Fertilizer:
+     amount: 20
+  products:
+    Ammonia: 5
+    Potassium: 5
+    Phosphorus: 10
+
+- type: reaction
+  id: BrocBreakdownCentrifuge
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    ExtractBroc:
+      amount: 20
+  products:
+    Fluorine: 10
+    Fiber: 10
+
+- type: reaction
+  id: IrradiatedFungusBreakdownCentrifuge
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    ExtractFungusRad:
+     amount: 15
+  products:
+    Radium: 10
+    Plasma: 5
