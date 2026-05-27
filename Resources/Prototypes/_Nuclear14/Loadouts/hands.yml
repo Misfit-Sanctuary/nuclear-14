@@ -1,7 +1,7 @@
 - type: loadout
   id: N14LoadoutHandsGlovesCloth
   category: Hands
-  cost: 2
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutHands
@@ -21,7 +21,7 @@
 - type: loadout
   id: N14LoadoutHandsGlovesLeather
   category: Hands
-  cost: 2
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutHands
@@ -37,7 +37,7 @@
 - type: loadout
   id: N14LoadoutHandsGlovesFur
   category: Hands
-  cost: 2
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutHands
@@ -57,7 +57,7 @@
 - type: loadout
   id: N14LoadoutHandsGlovesBlackLeather
   category: Hands
-  cost: 2
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutHands
@@ -73,7 +73,7 @@
 - type: loadout
   id: N14LoadoutHandsGlovesNitrile
   category: Hands
-  cost: 3
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutHands
@@ -93,7 +93,7 @@
 - type: loadout
   id: N14LoadoutHandsGlovesNitrilePurple
   category: Hands
-  cost: 3
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutHands
