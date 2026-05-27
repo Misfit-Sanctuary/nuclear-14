@@ -2129,3 +2129,31 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/metal_thud1.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieKit
+  name: Kit Plushie
+  description: ASSAULTRON ENGAGE!
+  components:
+  - type: Sprite
+    state: plushie_kit
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Admin/adminhelp_old.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Misfits/Mobs/Assaultron/aggro5.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Admin/adminhelp_old.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/_Misfits/Mobs/Assaultron/aggro5.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Admin/adminhelp_old.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Misfits/Mobs/Assaultron/aggro5.ogg
