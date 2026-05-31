@@ -24,6 +24,12 @@
     - !type:CharacterPlaytimeRequirement
       tracker: BoSMidSquire
       min: 36000 # 10 hours
+    - !type:CharacterPlaytimeRequirement # #Misfits Tweak - Require 3h
+      tracker: BoSScribe
+      min: 10800 # 3 hours as Scribe
+    - !type:CharacterPlaytimeRequirement # #Misfits Tweak - Require 3h
+      tracker: BoSKnight
+      min: 10800 # 3 hours as Knight
   startingGear: BoSMidPaladinCommanderGear
   alwaysUseSpawner: true
   icon: "JobIconBosMCommander" # Corvax-Change

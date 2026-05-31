@@ -18,6 +18,12 @@
     - !type:CharacterPlaytimeRequirement # #Misfits Tweak - Require 8h as Senior Scribe before Head Scribe
       tracker: BoSMidScribe
       min: 28800 # 8 hours as Senior Scribe
+    - !type:CharacterPlaytimeRequirement # #Misfits Tweak - Require 3h
+      tracker: BoSPaladin
+      min: 10800 # 3 hours as Paladin
+    - !type:CharacterPlaytimeRequirement # #Misfits Tweak - Require 3h
+      tracker: BoSKnight
+      min: 10800 # 3 hours as Knight
   startingGear: BoSWestScribeGear
   alwaysUseSpawner: true
   icon: "JobIconBosMScriptor"
