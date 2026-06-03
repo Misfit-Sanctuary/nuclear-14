@@ -37,6 +37,7 @@
         factions:
           - PlayerRaider
           - Wastelander
+      - type: RidingPerk
 
 - type: startingGear
   id: EightiesTheBlockGear
@@ -51,15 +52,11 @@
     head: N14ClothingHeadHatBeanie
     ears: MisfitsClothingHeadsetWastelandScrap
     back: N14ClothingBackpackMilitary
-    suitstorage: N14WeaponSMG45
-    pocket1: N14WeaponRevolver44TribalUpgraded
+    pocket1: VehicleKeyMotorbike
     belt: ClothingBeltMilitary
   storage:
     back:
     - N14BoxPlasticFilledWastelander
-    belt:
-    - Magazine45SubMachineGun
-    - Magazine45SubMachineGun
 
 - type: playTimeTracker
   id: EightiesTheBlock
@@ -99,6 +96,7 @@
         factions:
           - PlayerRaider
           - Wastelander
+      - type: RidingPerk
 
 - type: startingGear
   id: EightiesCylindersGear
@@ -111,14 +109,11 @@
     head: N14ClothingHeadHatBeanie
     ears: MisfitsClothingHeadsetWastelandScrap
     back: N14ClothingBackpackMilitary
-    suitstorage: N14WeaponSMG45
     belt: ClothingBeltMilitary
+    pocket1: VehicleKeyMotorbike
   storage:
     back:
     - N14BoxPlasticFilledWastelander
-    belt:
-    - Magazine45SubMachineGun
-    - Magazine45SubMachineGun
 
 - type: playTimeTracker
   id: EightiesCylinders
@@ -157,6 +152,7 @@
         factions:
           - PlayerRaider
           - Wastelander
+      - type: RidingPerk
 
 - type: startingGear
   id: EightiesPistonsGear
@@ -169,14 +165,10 @@
     head: N14ClothingHeadHatBeanie
     ears: MisfitsClothingHeadsetWastelandScrap
     back: N14ClothingBackpackMilitary
-    suitstorage: N14WeaponSMG45
     belt: ClothingBeltMilitary
   storage:
     back:
     - N14BoxPlasticFilledWastelander
-    belt:
-    - Magazine45SubMachineGun
-    - Magazine45SubMachineGun
 
 - type: playTimeTracker
   id: EightiesPistons
@@ -215,6 +207,7 @@
         factions:
           - PlayerRaider
           - Wastelander
+      - type: RidingPerk
 
 - type: startingGear
   id: EightiesOilersGear
@@ -273,6 +266,7 @@
         factions:
           - PlayerRaider
           - Wastelander
+      - type: RidingPerk
 
 - type: startingGear
   id: EightiesRoadRashGear

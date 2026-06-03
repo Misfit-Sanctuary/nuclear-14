@@ -1,0 +1,463 @@
+- type: entity
+  name: The Block Ripper kit
+  parent: KitBase
+  id: KitBlockRipper
+  description: "A pile of loot fit for a Block of the 80s."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ripper
+      - id: N14TribalBigClubDecorated
+      - id: N14WeaponSMG12mm
+      - id: N14MagazineSMG12mm
+        amount: 2
+      - id: N14WeaponRevolver45-70Hunter
+      - id: SpeedLoader45-70
+        amount: 4
+      - id: BoxHandcuff
+      - id: N14HealingPoultice 
+      - id: N14SuperStimpak
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: The Block Steel Hunter kit
+  parent: KitBase
+  id: KitBlockHunter
+  description: "A pile of loot fit for a Block of the 80s."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponSniper50Pipe
+      - id: MagazineBox50
+        amount: 2
+      - id: N14WeaponRevolver45-70Hunter
+      - id: SpeedLoader45-70
+        amount: 4
+      - id: BoxHandcuff
+      - id: N14HealingPoultice 
+      - id: N14SuperStimpak
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: Cylinders Turbo kit
+  parent: KitBase
+  id: KitCylinderTurbo
+  description: "A collection of fitting equipment for a Cylinder."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponSMGAmerican180
+      - id: N14MagazineAmerican180Drum
+        amount: 2
+      - id: N14WeaponRevolver44TribalUpgraded
+      - id: SpeedLoader44
+        amount: 4
+      - id: N14Turbo
+        amount: 2
+      - id: N14HealingPoultice 
+      - id: N14Stimpak
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: SmokeGrenade
+        amount: 2
+      - id: N14JunkCeramicFlask
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: Cylinders Rider kit
+  parent: KitBase
+  id: KitCylinderRider
+  description: "A collection of fitting equipment for a Cylinder."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponSMG10mm
+      - id: N14MagazineSMG10mm
+        amount: 4
+      - id: N14WeaponRevolver44TribalUpgraded
+      - id: SpeedLoader44
+        amount: 2
+      - id: N14Stimpak
+        amount: 2
+      - id: N14HealingPoultice 
+      - id: N14SuperStimpak
+      - id: N14FoodTinK
+        amount: 2
+      - id: SmokeGrenade
+        amount: 2
+      - id: N14JunkCeramicFlask
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: Pistons Slave Driver kit
+  parent: KitBase
+  id: KitPistonSlaver
+  description: "A personal supply of gear belonging to a piston."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponSMG10mm
+      - id: N14MagazineSMG10mm
+        amount: 4
+      - id: N14WeaponRevolver44TribalUpgraded
+      - id: SpeedLoader44
+        amount: 2
+      - id: N14Stimpak
+        amount: 2
+      - id: N14HealingPoultice 
+      - id: Bola
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: Pistons Skirmisher kit
+  parent: KitBase
+  id: KitPistonSkirmisher
+  description: "A personal supply of gear belonging to a piston."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponRifle556CarbineOld
+      - id: Magazine556Rifle
+        amount: 4
+      - id: N14WeaponRevolver44TribalUpgraded
+      - id: SpeedLoader44
+        amount: 2
+      - id: N14Stimpak
+        amount: 2
+      - id: N14HealingPoultice 
+      - id: SmokeGrenade
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: 80s looted equipment kit
+  parent: KitBase
+  id: Kitlooted80s
+  description: "A pitiful supply of equipment looted from others."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponShotgunLever
+      - id: MagazineBox20gauge
+        amount: 2
+      - id: N14WeaponRevolver44TribalUpgraded
+      - id: SpeedLoader44
+        amount: 2
+      - id: N14Stimpak
+        amount: 2 
+      - id: N14ShieldMetalLight
+      - id: N14FoodTinK
+        amount: 1
+      - id: N14JunkCeramicFlask
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: 80s scrapped equipment kit
+  parent: KitBase
+  id: Kitscrapped80s
+  description: "A pitiful supply of equipment made of scrap."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponSMG10mmPipe
+      - id: N14MagazineSMG10mm
+        amount: 3
+      - id: N14TribalClub
+      - id: N14WeaponPistol10mmPipe
+      - id: N14MagazinePistol10mm
+        amount: 2
+      - id: N14Stimpak
+        amount: 2 
+      - id: N14ShieldMetalLight
+      - id: N14FoodTinK
+        amount: 1
+      - id: N14JunkCeramicFlask
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: 80s brawler kit
+  parent: KitBase
+  id: Kitbrawler80s
+  description: "A pitiful pile of gear for getting in close."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: Bola
+      - id: N14TribalBigClub
+      - id: N14WeaponPistol10mmPipe
+      - id: N14MagazinePistol10mm
+        amount: 2
+      - id: N14Stimpak
+        amount: 2 
+      - id: N14Psycho
+      - id: N14Jet
+        amount: 2
+      - id: N14FoodTinK
+        amount: 1
+      - id: N14JunkCeramicFlask
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: 80s rash kit
+  parent: KitBase
+  id: KitRash80s
+  description: "The equipment of a man who will not survive first contact."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ScrapMachete
+      - id: N14WeaponPistol10mmPipe
+      - id: N14MagazinePistol10mm
+        amount: 2
+      - id: N14Stimpak
+      - id: N14Jet
+      - id: N14FoodTinK
+        amount: 1
+      - id: N14JunkCeramicFlask
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: UndecidedLoadoutBackpackSet
+  id: BigBlockRipperSet
+  name: The Big Block's Ripper kit.
+  description: A pile of loot fit for the Big Block of the 80s. Comes with a ripper and SMG.
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitBlockRipper
+
+- type: UndecidedLoadoutBackpackSet
+  id: BigBlockHunterSet
+  name: The Big Block's Steel Hunting kit.
+  description: A pile of loot fit for the Big Block of the 80s. Comes with everything needed to kill a tin can.
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitBlockHunter
+
+- type: UndecidedLoadoutBackpackSet
+  id: CylinderTurboSet
+  name: A Cylinder's Turbo stash.
+  description: An acceptable collection of equipment fit for a cylinder. Filled with turbo and a 180 SMG.
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitCylinderTurbo
+
+- type: UndecidedLoadoutBackpackSet
+  id: CylinderRiderSet
+  name: A Cylinder's Riding stash.
+  description: An acceptable collection of equipment fit for a cylinder. Filled with chems and guns perfect for riding.
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitCylinderRider
+
+- type: UndecidedLoadoutBackpackSet
+  id: PistonSlaverSet
+  name: A Piston's slaving kit.
+  description: Personal gear of a piston, this one is made for capturing slaves or runaways.
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitPistonSlaver
+
+- type: UndecidedLoadoutBackpackSet
+  id: PistonSkirmisherSet
+  name: A Piston's slaving kit.
+  description: Personal gear of a piston, this gear is made for skirmishing and picking off stragglers.
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitPistonSkirmisher
+
+- type: UndecidedLoadoutBackpackSet
+  id: 80sLootedSet
+  name: A pile of looted gear.
+  description: A small pile of looted equipment. Comes with a lever action, shield, and handgun.
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - Kitlooted80s
+
+- type: UndecidedLoadoutBackpackSet
+  id: 80sscrappedSet
+  name: A pile of cobbled together weapons.
+  description: Scrap weapons. A tribal club and metal shield may be the only reliable thing here. Comes with a scrap 10mm and scrap handgun.
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - Kitscrapped80s
+
+- type: UndecidedLoadoutBackpackSet
+  id: 80sBrawlerSet
+  name: A stash of melee equipment.
+  description: A pitiful selection of melee weapons, a heavy tribal club with jet and a psycho syringe are your saving grace.
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - Kitbrawler80s
+
+- type: UndecidedLoadoutBackpackSet
+  id: 80sRashSet
+  name: Gear deserving of a Rash.
+  description: Barely even qualifies. A machete and a 10mm pipe pistol with barely any chems. Good luck.
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitRash80s
+
+- type: entity
+  id: BigBlockloadoutkits
+  name: kit
+  description: "Take your fill."
+  parent: LegionCenturionloadoutkits
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - BigBlockRipperSet
+    - BigBlockHunterSet
+
+- type: entity
+  id: Cylinderloadoutkits
+  name: kit
+  description: "Take your fill."
+  parent: LegionCenturionloadoutkits
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - CylinderTurboSet
+    - CylinderRiderSet
+
+- type: entity
+  id: Pistonloadoutkits
+  name: kit
+  description: "Take your Stash."
+  parent: LegionCenturionloadoutkits
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - PistonSlaverSet
+    - PistonSkirmisherSet
+
+- type: entity
+  id: Oilersloadoutkits
+  name: kit
+  description: "Take your loot."
+  parent: LegionCenturionloadoutkits
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - 80sBrawlerSet
+    - 80sLootedSet
+    - 80sscrappedSet
+
+- type: entity
+  id: Rashloadoutkits
+  name: kit
+  description: "Take your shit."
+  parent: LegionCenturionloadoutkits
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - 80sRashSet
