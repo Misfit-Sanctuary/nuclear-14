@@ -57,6 +57,9 @@
   storage:
     back:
     - N14BoxPlasticFilledWastelander
+    belt:
+    - Magazine45SubMachineGun
+    - Magazine45SubMachineGun
 
 - type: playTimeTracker
   id: EightiesTheBlock
@@ -109,11 +112,14 @@
     head: N14ClothingHeadHatBeanie
     ears: MisfitsClothingHeadsetWastelandScrap
     back: N14ClothingBackpackMilitary
+    suitstorage: N14WeaponSMG45
     belt: ClothingBeltMilitary
-    pocket1: VehicleKeyMotorbike
   storage:
     back:
     - N14BoxPlasticFilledWastelander
+    belt:
+    - Magazine45SubMachineGun
+    - Magazine45SubMachineGun
 
 - type: playTimeTracker
   id: EightiesCylinders
@@ -165,10 +171,14 @@
     head: N14ClothingHeadHatBeanie
     ears: MisfitsClothingHeadsetWastelandScrap
     back: N14ClothingBackpackMilitary
+    suitstorage: N14WeaponSMG45
     belt: ClothingBeltMilitary
   storage:
     back:
     - N14BoxPlasticFilledWastelander
+    belt:
+    - Magazine45SubMachineGun
+    - Magazine45SubMachineGun
 
 - type: playTimeTracker
   id: EightiesPistons
