@@ -79,6 +79,7 @@
     innate: true
     spread: 90
   - type: SpearBlock # #Misfits Change Add: Power armor deflects thrown polearms; falls to ground instead of embedding.
+  - type: PowerArmorSelfDestruct
   - type: PowerArmorBrace # #Misfits Change Add: Grants wearer a hotkey to brace (anchor in place, immobile but can fire, slight damage resistance). 5-second cooldown between stance changes.
     activeModifiers:
       coefficients:

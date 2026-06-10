@@ -1,0 +1,12 @@
+- type: entity
+  id: ActionPowerArmorSelfDestruct
+  name: action-power-armor-self-destruct-name
+  description: action-power-armor-self-destruct-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 11
+    icon:
+      sprite: Objects/Devices/nuke.rsi
+      state: nuclearbomb_deployed
+    event: !type:PowerArmorSelfDestructEvent
