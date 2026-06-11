@@ -130,9 +130,9 @@ public sealed class PowerArmorSelfDestructSystem : EntitySystem
             if (!TerminatingOrDeleted(uid))
                 QueueDel(uid);
 
-            _explosion.QueueExplosion(detonationCoords, "N14DefaultStructural", totalIntensity: 3000f, slope: 10f, maxTileIntensity: 80f);
+            _explosion.QueueExplosion(detonationCoords, "N14DefaultStructural", totalIntensity: 2000f, slope: 10f, maxTileIntensity: 40f);
 
-            _emp.EmpPulse(detonationCoords, range: 8f, energyConsumption: 1000f, duration: 30f);
+            _emp.EmpPulse(detonationCoords, range: 10f, energyConsumption: 1000f, duration: 30f);
 
             if (!TerminatingOrDeleted(performer))
                 _body.GibBody(performer, launchGibs: true);
