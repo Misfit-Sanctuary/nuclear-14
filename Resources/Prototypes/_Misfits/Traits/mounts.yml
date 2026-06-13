@@ -1,4 +1,5 @@
 # #Misfits Add - Riding perk trait for perk-gated animal mounts.
+# like bro let's be real; it never made sense why SMs/C-27s were able to have it in the first place, granted their natural weight   -pierow
 - type: trait
   id: N14RidingPerk
   category: Physical
@@ -7,7 +8,6 @@
     - !type:CharacterSpeciesRequirement
       inverted: true
       species:
-        #like bro let's be real; it never made sense why they were able to have it in the first place, granted their natural weight   -pierow
         - SuperMutant
         - C27HumanoidRobot
   functions:
