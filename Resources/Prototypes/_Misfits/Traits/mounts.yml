@@ -9,7 +9,9 @@
       inverted: true
       species:
         - SuperMutant
-        - C27HumanoidRobot
+        - C27
+        - C27NCR
+        - C27BoS
   functions:
     - !type:TraitAddComponent
       components:
