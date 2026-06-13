@@ -3,6 +3,13 @@
   id: N14RidingPerk
   category: Physical
   points: -2
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        #like bro let's be real; it never made sense why they were able to have it in the first place, granted their natural weight   -pierow
+        - SuperMutant
+        - C27HumanoidRobot
   functions:
     - !type:TraitAddComponent
       components:
