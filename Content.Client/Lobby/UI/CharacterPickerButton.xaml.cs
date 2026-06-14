@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Client.Humanoid;
-using Content.Client.Stylesheets;
 using Content.Shared.Clothing;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -36,7 +35,6 @@ public sealed partial class CharacterPickerButton : ContainerButton
         RobustXamlLoader.Load(this);
         _entManager = entityManager;
         AddStyleClass(StyleClassButton);
-        AddStyleClass(StyleNano.StyleClassPipBoyButton);
         ToggleMode = true;
         Group = group;
         var description = profile.Name;

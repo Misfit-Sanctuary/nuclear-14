@@ -1,11 +1,11 @@
 <Control
     xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-    xmlns:style="clr-namespace:Content.Client.Stylesheets">
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls">
     <BoxContainer Name="VBox" Orientation="Vertical">
-        <Label Name="Header" StyleClasses="PipBoyHeading" Text="{Loc 'lobby-character-preview-panel-header'}" />
-        <controls:HLine Color="{x:Static style:StyleNano.PipBoyGreen}" Thickness="1" />
+        <controls:NanoHeading Name="Header" Text="{Loc 'lobby-character-preview-panel-header'}">
+
+        </controls:NanoHeading>
         <BoxContainer Name="Loaded" Orientation="Vertical" Visible="False">
             <Label Name="Summary" HorizontalAlignment="Center" Margin="3 3"/>
             <BoxContainer Name="ViewBox" Orientation="Horizontal" HorizontalAlignment="Center">
@@ -13,7 +13,7 @@
             </BoxContainer>
             <controls:VSpacer/>
             <Button Name="CharacterSetup" Text="{Loc 'lobby-character-preview-panel-character-setup-button'}"
-                StyleClasses="PipBoy" HorizontalAlignment="Center" Margin="0 5 0 0"/>
+                HorizontalAlignment="Center" Margin="0 5 0 0"/>
         </BoxContainer>
         <Label Name="Unloaded" Text="{Loc 'lobby-character-preview-panel-unloaded-preferences-label'}"/>
     </BoxContainer>

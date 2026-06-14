@@ -79,12 +79,6 @@ namespace Content.Client.Stylesheets
         public const string StyleClassLabelSmall = "LabelSmall";
         public const string StyleClassButtonBig = "ButtonBig";
 
-        // Pip-Boy terminal style classes (lobby + character selection retheme).
-        public const string StyleClassPipBoyButton = "PipBoy";
-        public const string StyleClassPipBoyPanel = "PipBoyPanel";
-        public const string StyleClassPipBoyHeading = "PipBoyHeading";
-        public const string StyleClassPipBoyLabel = "PipBoyLabel";
-
         public const string StyleClassPopupMessageSmall = "PopupMessageSmall";
         public const string StyleClassPopupMessageSmallCaution = "PopupMessageSmallCaution";
         public const string StyleClassPopupMessageMedium = "PopupMessageMedium";
@@ -94,20 +88,18 @@ namespace Content.Client.Stylesheets
 
         public static readonly Color PanelDark = Color.FromHex("#1E1E22");
 
-        // Pip-Boy global retheme: primary accent is phosphor green (was gold #A88B5E).
-        public static readonly Color NanoGold = Color.FromHex("#33FF66");
+        public static readonly Color NanoGold = Color.FromHex("#A88B5E");
         public static readonly Color GoodGreenFore = Color.FromHex("#31843E");
         public static readonly Color ConcerningOrangeFore = Color.FromHex("#A5762F");
         public static readonly Color DangerousRedFore = Color.FromHex("#BB3232");
         public static readonly Color DisabledFore = Color.FromHex("#5A5A5A");
 
-        // Pip-Boy global retheme: default button family recolored to green-black terminal tones.
-        public static readonly Color ButtonColorDefault = Color.FromHex("#163E1E");
+        public static readonly Color ButtonColorDefault = Color.FromHex("#464950");
         public static readonly Color ButtonColorDefaultRed = Color.FromHex("#D43B3B");
-        public static readonly Color ButtonColorHovered = Color.FromHex("#205A2C");
+        public static readonly Color ButtonColorHovered = Color.FromHex("#575b61");
         public static readonly Color ButtonColorHoveredRed = Color.FromHex("#DF6B6B");
-        public static readonly Color ButtonColorPressed = Color.FromHex("#2E7D3F");
-        public static readonly Color ButtonColorDisabled = Color.FromHex("#10240F");
+        public static readonly Color ButtonColorPressed = Color.FromHex("#3e6c45");
+        public static readonly Color ButtonColorDisabled = Color.FromHex("#292929");
 
         public static readonly Color ButtonColorCautionDefault = Color.FromHex("#8F6A33");
         public static readonly Color ButtonColorCautionHovered = Color.FromHex("#C0934E");
@@ -122,16 +114,6 @@ namespace Content.Client.Stylesheets
         public static readonly Color ButtonColorGoodDefault = Color.FromHex("#3E6C45");
         public static readonly Color ButtonColorGoodHovered = Color.FromHex("#31843E");
         public static readonly Color ButtonColorGoodDisabled = Color.FromHex("#164420");
-
-        // Pip-Boy terminal palette (lobby + character selection retheme).
-        public static readonly Color PipBoyGreen = Color.FromHex("#33FF66");
-        public static readonly Color PipBoyGreenDim = Color.FromHex("#1E9C3D");
-        public static readonly Color PipBoyPanelBg = Color.FromHex("#0C1F0E");
-        public static readonly Color PipBoyBgTint = Color.FromHex("#5CC46E");
-        public static readonly Color PipBoyBtnDefault = Color.FromHex("#163E1E");
-        public static readonly Color PipBoyBtnHovered = Color.FromHex("#205A2C");
-        public static readonly Color PipBoyBtnPressed = Color.FromHex("#2E7D3F");
-        public static readonly Color PipBoyBtnDisabled = Color.FromHex("#10240F");
 
         //NavMap
         public static readonly Color PointRed = Color.FromHex("#B02E26");
@@ -200,10 +182,6 @@ namespace Content.Client.Stylesheets
             var notoSansBold18 = resCache.NotoStack(variation: "Bold", size: 18);
             var notoSansBold20 = resCache.NotoStack(variation: "Bold", size: 20);
             var notoSansMono = resCache.GetFont("/EngineFonts/NotoSans/NotoSansMono-Regular.ttf", size: 12);
-            // Pip-Boy terminal fonts (reuse the engine monospace face, no new asset).
-            var pipBoyMono12 = resCache.GetFont("/EngineFonts/NotoSans/NotoSansMono-Regular.ttf", size: 12);
-            var pipBoyMono16 = resCache.GetFont("/EngineFonts/NotoSans/NotoSansMono-Regular.ttf", size: 16);
-            var pipBoyMono20 = resCache.GetFont("/EngineFonts/NotoSans/NotoSansMono-Regular.ttf", size: 20);
             var windowHeaderTex = resCache.GetTexture("/Textures/Interface/Nano/window_header.png");
             var windowHeader = new StyleBoxTexture
             {
@@ -728,33 +706,6 @@ namespace Content.Client.Stylesheets
                 Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(ButtonDanger)
                     .Pseudo(ContainerButton.StylePseudoClassDisabled)
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorDangerDisabled),
-
-                // Colors for the Pip-Boy terminal buttons (lobby + character selection).
-                Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(StyleClassPipBoyButton)
-                    .Pseudo(ContainerButton.StylePseudoClassNormal)
-                    .Prop(Control.StylePropertyModulateSelf, PipBoyBtnDefault),
-
-                Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(StyleClassPipBoyButton)
-                    .Pseudo(ContainerButton.StylePseudoClassHover)
-                    .Prop(Control.StylePropertyModulateSelf, PipBoyBtnHovered),
-
-                Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(StyleClassPipBoyButton)
-                    .Pseudo(ContainerButton.StylePseudoClassPressed)
-                    .Prop(Control.StylePropertyModulateSelf, PipBoyBtnPressed),
-
-                Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(StyleClassPipBoyButton)
-                    .Pseudo(ContainerButton.StylePseudoClassDisabled)
-                    .Prop(Control.StylePropertyModulateSelf, PipBoyBtnDisabled),
-
-                // Pip-Boy button label: monospace, phosphor green.
-                new StyleRule(new SelectorChild(
-                        new SelectorElement(typeof(ContainerButton), new[] {StyleClassPipBoyButton}, null, null),
-                        new SelectorElement(typeof(Label), null, null, null)),
-                    new[]
-                    {
-                        new StyleProperty(Label.StylePropertyFont, pipBoyMono16),
-                        new StyleProperty(Label.StylePropertyFontColor, PipBoyGreen),
-                    }),
 
                 // Colors for confirm buttons confirm states.
                 Element<ConfirmButton>()
@@ -1452,21 +1403,6 @@ namespace Content.Client.Stylesheets
                 Element<PanelContainer>().Class(ClassAngleRect)
                     .Prop(PanelContainer.StylePropertyPanel, BaseAngleRect)
                     .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#252525")),
-
-                // Pip-Boy terminal panel (lobby + character selection): green-black fill.
-                Element<PanelContainer>().Class(StyleClassPipBoyPanel)
-                    .Prop(PanelContainer.StylePropertyPanel, BaseAngleRect)
-                    .Prop(Control.StylePropertyModulateSelf, PipBoyPanelBg),
-
-                // Pip-Boy heading: large monospace, phosphor green.
-                Element<Label>().Class(StyleClassPipBoyHeading)
-                    .Prop(Label.StylePropertyFont, pipBoyMono20)
-                    .Prop(Label.StylePropertyFontColor, PipBoyGreen),
-
-                // Pip-Boy body label: monospace, dim green.
-                Element<Label>().Class(StyleClassPipBoyLabel)
-                    .Prop(Label.StylePropertyFont, pipBoyMono12)
-                    .Prop(Label.StylePropertyFontColor, PipBoyGreenDim),
 
                 Element<PanelContainer>().Class("BackgroundOpenRight")
                     .Prop(PanelContainer.StylePropertyPanel, BaseButtonOpenRight)

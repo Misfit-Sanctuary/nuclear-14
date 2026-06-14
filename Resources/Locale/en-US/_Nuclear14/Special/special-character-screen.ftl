@@ -12,6 +12,3 @@ humanoid-profile-editor-special-priority-ten-button = 10
 humanoid-profile-editor-specials-tab = SPECIAL
 
 humanoid-profile-editor-special-points-label = Available SPECIAL points: {$points}
-
-humanoid-profile-editor-special-info-tooltip = Show effect details
-humanoid-profile-editor-special-current-header = Current effects:

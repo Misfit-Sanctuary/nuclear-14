@@ -40,7 +40,7 @@
             <CollapsibleBody HorizontalExpand="True" Margin="0 0 0 5">
                 <PanelContainer HorizontalExpand="True">
                     <PanelContainer.PanelOverride>
-                        <graphics:StyleBoxFlat BackgroundColor="#142A16" BorderColor="#142A16af" BorderThickness="1" />
+                        <graphics:StyleBoxFlat BackgroundColor="#2f2f2f" BorderColor="#2f2f2faf" BorderThickness="1" />
                     </PanelContainer.PanelOverride>
 
                     <BoxContainer Orientation="Vertical" Margin="3" HorizontalExpand="True">
@@ -53,7 +53,7 @@
                             <Label Text="{Loc 'humanoid-profile-editor-loadouts-customize-description'}" />
                             <PanelContainer HorizontalExpand="True">
                                 <PanelContainer.PanelOverride>
-                                    <graphics:StyleBoxFlat BackgroundColor="#0C1F0E" />
+                                    <graphics:StyleBoxFlat BackgroundColor="#222222" />
                                 </PanelContainer.PanelOverride>
 
                                 <controls:ResizableControl
