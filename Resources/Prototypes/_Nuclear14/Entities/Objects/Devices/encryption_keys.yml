@@ -232,9 +232,9 @@
 
 - type: entity
   parent: EncryptionKey
-  id: EncryptionKeyNCRCO
-  name: NCR CO encryption key
-  description: An encryption key used by NCR Commanding Officers.
+  id: EncryptionKeyNCRSeniorOfficer
+  name: NCR Senior Officer encryption key
+  description: An encryption key used by NCR Senior Officers.
   components:
   - type: EncryptionKey
     channels:

@@ -89,8 +89,8 @@
       - EncryptionKeyPBS
       - EncryptionKeyNCRMPRecruit # Misfits Add — NCRMP Comms
       - EncryptionKeyNCRMPSergeant
-      - EncryptionKeyNCRMPCaptain
-      - EncryptionKeyNCRCO
+      - EncryptionKeyNCRMPLieutenant
+      - EncryptionKeyNCRSeniorOfficer
 
 - type: entity
   parent: TelecomServer
