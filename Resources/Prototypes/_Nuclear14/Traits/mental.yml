@@ -128,6 +128,15 @@
         - type: CPRTraining
 
 - type: trait
+  id: N14ChemistTraining
+  category: Mental
+  points: -6
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: SolutionScanner
+
+- type: trait
   id: N14SelfAware
   category: Mental
   points: -4
