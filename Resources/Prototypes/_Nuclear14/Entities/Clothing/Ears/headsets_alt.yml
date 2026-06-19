@@ -267,6 +267,22 @@
 
 - type: entity
   parent: N14ClothingHeadsetAlt
+  id: MisfitsClothingHeadsetNCRMPLieutenant
+  name: NCR MP Lieutenant radio earpiece
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyNCR
+      - EncryptionKeyNCRMPLieutenant
+      - EncryptionKeyWastelandGlobal
+  - type: Sprite
+    sprite: _Misfits/Clothing/Ears/Headsets/ncr.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Ears/Headsets/ncr.rsi
+
+- type: entity
+  parent: N14ClothingHeadsetAlt
   id: MisfitsClothingHeadsetNCROfficer
   name: NCR Senior Officer radio earpiece
   components:
