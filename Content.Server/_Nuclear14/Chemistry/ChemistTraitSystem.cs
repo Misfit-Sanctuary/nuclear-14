@@ -23,7 +23,7 @@ public sealed class ChemistTraitSystem : EntitySystem
         if (HasComp<ExaminableSolutionComponent>(entity))
             return;
 
-        if (!HasComp<SolutionScannerComponent>(args.Examiner))
+        if (!HasComp<ChemistTrainingComponent>(args.Examiner))
             return;
 
         var reagentLines = new List<string>();

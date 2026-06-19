@@ -134,7 +134,7 @@
   functions:
     - !type:TraitAddComponent
       components:
-        - type: SolutionScanner
+        - type: ChemistTraining
 
 - type: trait
   id: N14SelfAware
