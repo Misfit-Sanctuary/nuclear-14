@@ -87,6 +87,10 @@
       - EncryptionKeyLegion # #Misfits Change /Fix/: Legion headsets require telecom support for :l to relay.
       - EncryptionKeyVault
       - EncryptionKeyPBS
+      - EncryptionKeyNCRMPRecruit # Misfits Add — NCRMP Comms
+      - EncryptionKeyNCRMPSergeant
+      - EncryptionKeyNCRMPCaptain
+      - EncryptionKeyNCRCO
 
 - type: entity
   parent: TelecomServer

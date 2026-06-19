@@ -231,3 +231,69 @@
     sprite: Clothing/Ears/Headsets/security.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/security.rsi
+
+# Misfits Add — NCR Military Police headsets
+- type: entity
+  parent: N14ClothingHeadsetAlt
+  id: MisfitsClothingHeadsetNCRMPRecruit
+  name: NCR MP Recruit radio earpiece
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyNCR
+      - EncryptionKeyNCRMPRecruit
+      - EncryptionKeyWastelandGlobal
+  - type: Sprite
+    sprite: _Misfits/Clothing/Ears/Headsets/ncr.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Ears/Headsets/ncr.rsi
+
+- type: entity
+  parent: N14ClothingHeadsetAlt
+  id: MisfitsClothingHeadsetNCRMPSergeant
+  name: NCR MP Sergeant radio earpiece
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyNCR
+      - EncryptionKeyNCRMPSergeant
+      - EncryptionKeyWastelandGlobal
+  - type: Sprite
+    sprite: _Misfits/Clothing/Ears/Headsets/ncr.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Ears/Headsets/ncr.rsi
+
+- type: entity
+  parent: N14ClothingHeadsetAlt
+  id: MisfitsClothingHeadsetNCRMPCaptain
+  name: NCR MP Captain radio earpiece
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyNCR
+      - EncryptionKeyNCRMPCaptain
+      - EncryptionKeyWastelandGlobal
+  - type: Sprite
+    sprite: _Misfits/Clothing/Ears/Headsets/ncr.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Ears/Headsets/ncr.rsi
+
+- type: entity
+  parent: N14ClothingHeadsetAlt
+  id: MisfitsClothingHeadsetNCRCO
+  name: NCR CO radio earpiece
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyNCR
+      - EncryptionKeyNCRCO
+      - EncryptionKeyWastelandGlobal
+  - type: Sprite
+    sprite: _Misfits/Clothing/Ears/Headsets/ncr.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Ears/Headsets/ncr.rsi
+

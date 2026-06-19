@@ -151,6 +151,14 @@
   # # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
   # longRange: true
 
+# Misfits Add — NCRMP radio channel for NCR Military Police, accessible to all MPs and the NCR CO via headsets.
+- type: radioChannel
+  id: NCRMP
+  name: NCRMP
+  keycode: 'm'
+  frequency: 1551
+  color: "#4a5fa5"
+
 # - type: radioChannel
   # id: Freelance
   # name: chat-radio-freelance
