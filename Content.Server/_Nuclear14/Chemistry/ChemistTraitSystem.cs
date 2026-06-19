@@ -27,7 +27,7 @@ public sealed class ChemistTraitSystem : EntitySystem
             return;
 
         var reagentLines = new List<string>();
-        foreach (var (_, solutionEntity) in _solutionSystem.EnumerateSolutions(entity))
+        foreach (var (_, solutionEntity) in _solutionSystem.EnumerateSolutions((Entity<SolutionContainerManagerComponent?>) entity))
         {
             var solution = solutionEntity.Comp.Solution;
             if (solution.Volume <= 0)
