@@ -15,7 +15,7 @@
     size: Small
   - type: AccessOverrider
     accessLevels:
-    - TownieMechanic # All N14 accesses don't touch them  >:(
+    - TownieMechanic # All N14 change for the access terminals.
     - TownieShopkeeper
     - TownieDoctor
     - TownieLaw
@@ -26,31 +26,45 @@
     - InnRoomOne
     - InnRoomTwo
     - InnRoomThree
-    - VaultDweller
+    - FotA # Misfit: FotA Start
+    - FotADoctor
+    - FotAHead
+    - VaultDweller # Misfit: Vault Start
     - VaultEngineer
     - VaultMedical
     - VaultSecurity
     - VaultOverseer
-    - TribeMember
+    - TribeMember # Misfit: Tribe Start
     - TribeChief
-    #      - CaravanCompanyGuard
-    - WastelandChaplain
+    - WastelandChaplain # Misfit: Wastelander
     - WastelandFarmer
-    - WashingtonInitiate
-    - WashingtonKnight
-    - WashingtonScribe
-    - WashingtonPaladin
-    - WashingtonCommander
-    - NCR
+    - NCR # Misfit: NCR Start
     - NCRSGT
     - NCRMedic
     - NCRLT
     - NCRRanger
-    - BoSMidwest
-    - Knight
-    - Scribe
-    - Paladin
-    - PaladinCommander
+    - CaesarLegion # Misfit: Legion Start
+    - CaesarLegionRecruit #Misfits Add - Cell door gate access for Legion IDs
+    - CaesarLegionSlave
+    - CaesarLegionFrumentarii
+    - CaesarLegionVexillarius
+    - CaesarLegionLegionnaireRecruit
+    - CaesarLegionLegionnaireWarrior
+    - CaesarLegionLegionnaireVeteran
+    - CaesarLegionDean
+    - CaesarLegionVeteranDecanus
+    - CaesarLegionOptio
+    - CaesarLegionCenturion
+    - BOS # Misfit: BOS Start
+    - BOSInitiate
+    - BOSKnight
+    - BOSScribe
+    - BOSPaladin
+    - BOSHeadPaladin
+    - 80s # Misfit: 80s Start
+    - 80sHead
+    - 80sSlave
+
     privilegedIdSlot:
       name: id-card-console-privileged-id
       ejectSound: /Audio/Machines/id_swipe.ogg

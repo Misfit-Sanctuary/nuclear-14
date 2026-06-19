@@ -672,7 +672,44 @@
               amount: 5
             - !type:DeleteEntity 
 
-# Signs (like left and right wooden signs)
+- type: constructionGraph
+  id: MisfitsFlagTribe
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: FlagTribe
+          steps:
+            - material: WoodPlank
+              amount: 5
+              doAfter: 3
+            - material: Cloth
+              amount: 5
+              doAfter: 3
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+
+    - node: FlagTribe
+      entity: MisfitsDecorationFlagTribe
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 5
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 5
+            - !type:SpawnPrototype
+              prototype: HeadSkeleton
+              amount: 1
+            - !type:DeleteEntity
+              
+              # Signs (like left and right wooden signs)
 
 - type: constructionGraph
   id: WoodenSign

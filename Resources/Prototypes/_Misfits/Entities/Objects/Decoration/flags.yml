@@ -1,0 +1,45 @@
+- type: entity 
+  parent: N14DecorationFlagFlammable
+  id: MisfitsDecorationFlagTribe
+  name: tribal banner
+  description: A banner depicting the tree of life.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Structures/Decoration/tribal_banner.rsi
+    state: banner1 
+  - type: Construction 
+    graph: MisfitsFlagTribe
+    node: FlagTribe
+      
+- type: entity
+  parent: N14DecorationFlagFlammable
+  id: MisfitsDecorationFlagTribeSkull
+  name: tribal flag
+  description: A banner depicting the tree of life. A skull is planted on top.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Structures/Decoration/tribal_banner.rsi
+    state: banner2
+  # TODO: add construction graph when I make skulls a crafting material
+
+- type: entity
+  parent: BaseRock
+  id: MisfitsDecorationStoneTribe
+  name: tribal painting
+  description: A stone painted with the tree of life.
+  suffix: Mapping
+  components:
+  - type: SpriteFade
+  - type: Sprite
+    sprite: _Misfits/Structures/Decoration/tribal_banner.rsi
+    state: stone1
+    drawdepth: Overdoors
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-1.1,0.4,0"
+        density: 1000
+        layer:
+          - WallLayer

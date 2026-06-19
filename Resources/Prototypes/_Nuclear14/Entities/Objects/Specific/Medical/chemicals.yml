@@ -13,11 +13,18 @@
     scale: 0.75, 0.75
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_stimpak.rsi
     layers:
-    - state: stimpak
+    - state: stimpakfill1
       map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+    - state: stimpak-empty
+      map: [ "enum.SolutionContainerLayers.Base" ]
+  - type: Icon
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_stimpak.rsi
+    state: "stimpak-empty"
   - type: SolutionContainerVisuals
     maxFillLevels: 1
-    changeColor: false
+    changeColor: true
+    fillBaseName: stimpakfill
     emptySpriteName: stimpak-empty
   - type: SolutionContainerManager
     solutions:
@@ -45,46 +52,51 @@
   abstract: true
   components:
   - type: Item
-    sprite: _Nuclear14/Objects/Specific/Medical/ms13_stimpak.rsi
-    heldPrefix: stimpak
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_doctorssyringe.rsi
   - type: Sprite
     scale: 0.75, 0.75
-    sprite: _Nuclear14/Objects/Specific/Medical/ms13_stimpak.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_doctorssyringe.rsi
     layers:
-    - state: stimpak
+    - state: doctorssyringefill1
       map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+    - state: doctorssyringe-empty
+      map: [ "enum.SolutionContainerLayers.Base" ]
+  - type: Icon
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_doctorssyringe.rsi
+    state: "doctorssyringe-empty"
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: true
+    fillBaseName: doctorssyringefill
+    emptySpriteName: doctorssyringe-empty
+  - type: Appearance
   - type: SolutionContainerManager
     solutions:
       injector:
         maxVol: 15
   - type: Injector
+    transferAmount: 15
+    toggleState: draw
     injectOnly: false
-    doAfterDuration: 1.5
   - type: ExaminableSolution
     solution: injector
   - type: Spillable
     solution: injector
   - type: TrashOnSolutionEmpty
     solution: injector
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 1
-    changeColor: false
-    emptySpriteName: stimpak-empty
   - type: WelderRefinable
     refineResult:
     - id: SheetPlastic1
   - type: Tag
     tags:
     - Syringe
+  - type: DoAfter
 
 - type: entity
   parent: N14BaseSyringe
   id: N14DoctorSyringe
   components:
-  - type: Injector
-    transferAmount: 15
-    toggleState: Draw
   - type: Tag
     tags:
     - Syringe # Forge-Change
@@ -106,12 +118,20 @@
     scale: 0.75, 0.75
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_stimpak.rsi
     layers:
-    - state: stimpak
+    - state: stimpakfill1
       map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+    - state: stimpak-empty
+      map: [ "enum.SolutionContainerLayers.Base" ]
+  - type: Icon
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_stimpak.rsi
+    state: "stimpak-empty"
   - type: SolutionContainerVisuals
     maxFillLevels: 1
-    changeColor: false
+    changeColor: true
+    fillBaseName: stimpakfill
     emptySpriteName: stimpak-empty
+  - type: Appearance
   - type: Hypospray
     solutionName: pen
     transferAmount: 25
@@ -163,12 +183,20 @@
     scale: 0.75, 0.75
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_superstimpak.rsi
     layers:
-    - state: superstimpak
+    - state: superstimpakfill1
       map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+    - state: superstimpak-empty
+      map: [ "enum.SolutionContainerLayers.Base" ]
+  - type: Icon
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_superstimpak.rsi
+    state: "superstimpak-empty"
   - type: SolutionContainerVisuals
     maxFillLevels: 1
-    changeColor: false
+    changeColor: true
+    fillBaseName: superstimpakfill
     emptySpriteName: superstimpak-empty
+  - type: Appearance
   - type: Hypospray
     solutionName: pen
     transferAmount: 25
@@ -240,12 +268,20 @@
     scale: 0.75, 0.75
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
     layers:
-    - state: jet
+    - state: jetfill1
       map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+    - state: jet-empty
+      map: [ "enum.SolutionContainerLayers.Base" ]
+  - type: Icon
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    state: "jet-empty"
   - type: SolutionContainerVisuals
     maxFillLevels: 1
-    changeColor: false
-    emptySpriteName: jet_used
+    changeColor: true
+    fillBaseName: jetfill
+    emptySpriteName: jet-empty
+  - type: Appearance
   - type: Hypospray
     solutionName: pen
     transferAmount: 18
@@ -286,12 +322,20 @@
     scale: 0.75, 0.75
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
     layers:
-    - state: turbo
+    - state: turbofill1
       map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+    - state: turbo-empty
+      map: [ "enum.SolutionContainerLayers.Base" ]
+  - type: Icon
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    state: "turbo-empty"
   - type: SolutionContainerVisuals
     maxFillLevels: 1
-    changeColor: false
-    emptySpriteName: turbo
+    changeColor: true
+    fillBaseName: turbofill
+    emptySpriteName: turbo-empty
+  - type: Appearance
   - type: Hypospray
     solutionName: pen
     transferAmount: 10
@@ -323,7 +367,7 @@
 
 - type: entity
   parent: N14ChemicalSyringe
-  id: N14Med-X
+  id: N14Med-XInjector
   name: med-x
   description: A syringe filled with a powerful painkiller. Some believe that it makes you more resistant to pain.
   components:
@@ -331,12 +375,20 @@
     scale: 0.75, 0.75
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
     layers:
-    - state: medx
+    - state: medxfill1
       map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+    - state: medx-empty
+      map: [ "enum.SolutionContainerLayers.Base" ]
+  - type: Icon
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    state: "medx-empty"
   - type: SolutionContainerVisuals
     maxFillLevels: 1
-    changeColor: false
-    emptySpriteName: medx_used
+    changeColor: true
+    fillBaseName: medxfill
+    emptySpriteName: medx-empty
+  - type: Appearance
   - type: Hypospray
     solutionName: pen
     transferAmount: 20
@@ -344,11 +396,23 @@
     solutions:
       pen:
         maxVol: 20
+  - type: UseDelay
+    delay: 0.75
+
+- type: entity
+  parent: N14Med-XInjector
+  id: N14Med-X
+  suffix: filled
+  name: med-x
+  description: A syringe filled with a powerful painkiller. Some believe that it makes you more resistant to pain.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
         reagents:
         - ReagentId: DamageResistMixture
           Quantity: 20
-  - type: UseDelay
-    delay: 0.75
 
 - type: entity
   parent: N14ChemicalSyringe
@@ -410,12 +474,17 @@
     scale: 0.75, 0.75
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
     layers:
-    - state: psycho
-      map: ["enum.SolutionContainerLayers.Fill"]
+    - state: psychofill1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
+    - state: psycho-empty
+      map: [ "enum.SolutionContainerLayers.Base" ]
   - type: SolutionContainerVisuals
     maxFillLevels: 1
-    changeColor: false
-    emptySpriteName: psycho_used
+    changeColor: true
+    fillBaseName: psychofill
+    emptySpriteName: psycho-empty
+  - type: Appearance
   - type: Hypospray
     solutionName: pen
     transferAmount: 20
@@ -487,12 +556,16 @@
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
     netsync: false
     layers:
-    - state: ivbag-radaway
+    - state: ivbagfill1
       map: ["enum.SolutionContainerLayers.Fill"]
+    - state: ivbag-empty
+      map: [ "enum.SolutionContainerLayers.Base" ]
   - type: SolutionContainerVisuals
     maxFillLevels: 1
-    changeColor: false
-    emptySpriteName: ivbag
+    changeColor: true
+    fillBaseName: ivbagfill
+    emptySpriteName: ivbag-empty
+  - type: Appearance
   - type: Hypospray
     solutionName: pen
     transferAmount: 20
@@ -786,7 +859,6 @@
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
     state: powder1
   - type: SmellingSalts
-    doAfterDuration: 6
     reviveHeal:
       types:
         Asphyxiation: -40

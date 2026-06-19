@@ -424,6 +424,10 @@ loadout-name-LoadoutLegionCloakBlack = Legion black cloak
 loadout-name-LoadoutNeckCloakLegionWhite = Legion white cloak
 loadout-name-LoadoutNeckCloakLegionRed = Legion red cloak
 loadout-name-LoadoutLegionPrimeHeavyArmor = Legion Gravis pattern armor
+loadout-name-LoadoutNeckLegionForgemaster = blacksmith's apron
+loadout-name-LoadoutNeckLegionMedicus = medicus apron
+loadout-name-LoadoutNeckLegionTreasurer = treasurers mantle
+loadout-name-LoadoutUniformJumpsuitLegionnaireOther = legionnaire skirt
 
 # Miscellaneous eyes
 loadout-name-ClothingEyesGlassesChemist = chemist glasses

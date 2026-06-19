@@ -282,7 +282,7 @@
     sprite: Corvax/Markers/jobs.rsi
     layers:
       - state: green
-      - state: Prisoner
+      - state: prisoner         # Misfits Change: Stopping this chud error
 
 - type: entity
   id: SpawnPointCaesarLegionSlave

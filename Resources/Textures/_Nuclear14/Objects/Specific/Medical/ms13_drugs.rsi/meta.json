@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-NC-SA-3.0",
-  "copyright": "Created by INFRARED_BARON for MS13",
+  "copyright": "Created by INFRARED_BARON for MS13. Fill sprites/edits by RedBookcase.",
   "size": {
     "x": 32,
     "y": 32
@@ -17,7 +17,10 @@
       "name": "medx"
     },
     {
-      "name": "medx_used"
+      "name": "medx-empty"
+    },
+    {
+      "name": "medxfill1"
     },
     {
       "name": "calmex"
@@ -26,10 +29,10 @@
       "name": "calmex_used"
     },
     {
-      "name": "psycho"
+      "name": "psycho-empty"
     },
     {
-      "name": "psycho_used"
+      "name": "psychofill1"
     },
     {
       "name": "overdrive"
@@ -38,10 +41,10 @@
       "name": "overdrive_used"
     },
     {
-      "name": "jet"
+      "name": "jet-empty"
     },
-    {
-      "name": "jet_used"
+	{
+	  "name": "jetfill1"
     },
     {
       "name": "rocket"
@@ -50,7 +53,10 @@
       "name": "rocket_used"
     },
     {
-      "name": "turbo"
+      "name": "turbo-empty"
+    },
+	{
+      "name": "turbofill1"
     },
     {
       "name": "hydra"

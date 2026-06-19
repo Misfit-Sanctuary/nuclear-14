@@ -396,7 +396,7 @@
   - type: Sprite
     layers:
       - state: green
-      - state: platoonlead
+      - state: veteran # Misfits Change - shutting up an error, TODO: we should get a platoonlead sprite for this
 
 # Tribals
 - type: entity

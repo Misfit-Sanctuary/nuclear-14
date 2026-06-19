@@ -7390,3 +7390,104 @@ Entries:
   id: 6098
   time: '2026-06-18T02:12:55.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/839
+- author: WazuraWasTaken
+  changes:
+    - type: Add
+      message: 45, 12.7 and the PPsh41 Smgs to Loadout
+    - type: Tweak
+      message: Makeshift Laser Revolver and aer-7 being bos only
+    - type: Tweak
+      message: Armor is Slightly cheaper
+  id: 6099
+  time: '2026-06-18T23:30:55.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/840
+- author: luckyshotpictures
+  changes:
+    - type: Tweak
+      message: >-
+        [Legion] Slaves can no longer access the armoury/workbench area by
+        default.
+    - type: Add
+      message: >-
+        [Legion] The mines have been expanded slightly, and can now be mined out
+        up to the medical quarters.
+    - type: Tweak
+      message: '[Brotherhood] Brahdos moved to the farm area.'
+    - type: Add
+      message: '[Brotherhood] The old Brahado pen is now a room to keep visitors.'
+    - type: Add
+      message: '[80s] Finished the 80s and enabled them round start.'
+    - type: Add
+      message: >-
+        [NCR Rangers] The rangers have decided to pack up shop and move to a
+        swimming platform to the north. Please note, that this base does have
+        raid protection and cannot be freely looted. 
+    - type: Add
+      message: >-
+        [NCR MPs] The MPs have seized the opportunity and decided to take over
+        the old ranger room.
+    - type: Add
+      message: '[NCR Medical] Medical has been moved to the back and expanded.'
+    - type: Tweak
+      message: '[NCR] The prison has been expanded.'
+    - type: Add
+      message: '[NCR] Two preservation shelters have been added near the front gate.'
+    - type: Tweak
+      message: >-
+        [NCR] The citizen tents have been moved slightly away from the front
+        gate.
+    - type: Tweak
+      message: >-
+        [NCR] The front gate has been changed to an airlock system with blast
+        doors.
+    - type: Add
+      message: '[FotA] A preservation shelter has been added near the SSD area.'
+    - type: Add
+      message: '[FotA] Two brahdos have been purchased and stabled.'
+    - type: Add
+      message: '[FotA] Stable pens for guests have been added above the SSD area.'
+    - type: Add
+      message: '[ADMIN] Admin Area has been added. Awoo!'
+  id: 6100
+  time: '2026-06-18T23:45:36.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/845
+- author: Oli
+  changes:
+    - type: Add
+      message: >-
+        Medicus, Blacksmith(forgemaster), and treasurer mantles/apron/cloaks +
+        skirt to loadout menu
+  id: 6101
+  time: '2026-06-18T23:48:58.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/844
+- author: RedBookcase
+  changes:
+    - type: Add
+      message: >-
+        Various chem injectors have had new fill sprites added, and various
+        chems have received changes to their appearance and descriptions.
+  id: 6102
+  time: '2026-06-19T00:28:37.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/842
+- author: paige404
+  changes:
+    - type: Add
+      message: >-
+        Added new sprites by Octin for the tribal Tree of Life and the Legion's
+        Tree of Mars
+    - type: Add
+      message: Added new tribe banners by sprited by Octin and Skellingtonio.
+  id: 6103
+  time: '2026-06-19T01:13:19.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/847
+- author: luckyshotpictures
+  changes:
+    - type: Fix
+      message: Fixed the locksmith tool.
+    - type: Fix
+      message: NCR medics spawn inside the NCR now.
+    - type: Fix
+      message: Legion can no longer mine into Valhalla and back. Hopefully.
+  id: 6104
+  time: '2026-06-19T05:39:29.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/851

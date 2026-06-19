@@ -5,7 +5,7 @@
   group: Chems
   desc: reagent-desc-healing-mixture
   physicalDesc: reagent-physical-desc-refreshing
-  color: "#00e5ff"
+  color: "#9e1d1d"
   metabolisms:
     Medicine:
       effects:
@@ -71,12 +71,12 @@
         moodPrototype: JetBenefit
 
 - type: reagent
-  id: RobustMovespeedMixture #used in turbo
+  id: RobustMovespeedMixture #This is Turbo
   name: reagent-name-robust-movespeedmod-mixture
   group: Chems
   desc: reagent-name-robust-movespeedmod-mixture
-  physicalDesc: reagent-physical-desc-powdery
-  color: "#D2FFFA"
+  physicalDesc: reagent-physical-desc-roaring
+  color: "#ffc8ff"
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
@@ -137,8 +137,8 @@
   name: reagent-name-damage-mod-mixture
   group: Chems
   desc: reagent-desc-damage-mod-mixture
-  physicalDesc: reagent-physical-desc-volatile
-  color: "#00e5ff"
+  physicalDesc: reagent-physical-desc-enraging
+  color: "#c6ba10"
   metabolisms:
     Medicine:
       metabolismRate: 0.2 # Effectively once every 5 seconds.
@@ -218,8 +218,8 @@
   name: reagent-name-cateye
   group: Chems
   desc: reagent-desc-cateye
-  physicalDesc: reagent-physical-desc-sticky
-  color: "#00e5ff"
+  physicalDesc: reagent-physical-desc-glittery
+  color: "#924d17"
   metabolisms:
     Medicine:
       metabolismRate: 0.067 # Forge-Change
@@ -244,8 +244,8 @@
   name: reagent-name-buffout
   group: Chems
   desc: reagent-desc-buffout
-  physicalDesc: reagent-physical-desc-robust
-  color: "#00e5ff"
+  physicalDesc: reagent-physical-desc-fortifying
+  color: "#8b4513"
   metabolisms:
     Medicine:
       metabolismRate: 0.2 # Effectively once every 5 seconds.
@@ -296,8 +296,8 @@
   name: reagent-name-buffjet
   group: Chems
   desc: reagent-desc-buffjet
-  physicalDesc: reagent-physical-desc-robust
-  color: "#00e5ff"
+  physicalDesc: reagent-physical-desc-swirling
+  color: "#800000"
   metabolisms:
     Medicine:
       metabolismRate: 0.2 # Effectively once every 5 seconds.
@@ -339,8 +339,8 @@
   name: reagent-name-bufftats
   group: Chems
   desc: reagent-desc-bufftats
-  physicalDesc: reagent-physical-desc-robust
-  color: "#00e5ff"
+  physicalDesc: reagent-physical-desc-bubbling
+  color: "#15162a"
   metabolisms:
     Medicine:
       metabolismRate: 0.2 # Effectively once every 5 seconds.
@@ -373,7 +373,7 @@
   group: Chems
   desc: reagent-desc-mentats
   physicalDesc: reagent-physical-desc-tangy
-  color: "#00e5ff"
+  color: "#9f321f"
   metabolisms:
     Medicine:
       metabolismRate: 0.2 # Effectively once every 5 seconds.
@@ -464,12 +464,12 @@
         withdrawalStaminaDrain: 3.0
 
 - type: reagent
-  id: DamageResistMixture
+  id: DamageResistMixture #This is Med-X
   name: reagent-name-damage-resist-mixture
   group: Medicine
   desc: reagent-desc-damage-resist-mixture
-  physicalDesc: reagent-physical-desc-reasonably-metallic
-  color: "#00e5ff"
+  physicalDesc: reagent-physical-desc-cloudy
+  color: "#581572"
   metabolisms:
     Medicine:
       metabolismRate: 0.2 # Effectively once every 5 seconds.
@@ -556,7 +556,7 @@
   name: reagent-name-mourning-poultice
   group: Medicine
   desc: reagent-desc-mourning-poultice
-  physicalDesc: reagent-physical-desc-oily
+  physicalDesc: reagent-physical-desc-murky
   color: "#1d3d22"
   metabolisms:
     Medicine:

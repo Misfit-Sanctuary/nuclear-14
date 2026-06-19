@@ -326,7 +326,7 @@
 - type: loadout
   id: N14LoadoutOuterMetalArmor
   category: Outer
-  cost: 6
+  cost: 5
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -346,7 +346,7 @@
 - type: loadout
   id: N14LoadoutOuterTribalArmor
   category: Outer
-  cost: 5
+  cost: 4
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -428,7 +428,7 @@
 - type: loadout
   id: N14LoadoutOuterScavengerHeavyArmor
   category: Outer
-  cost: 8
+  cost: 4
   requirements:
     - !type:CharacterPlaytimeRequirement
       tracker: Wastelander
@@ -478,7 +478,7 @@
 - type: loadout
   id: N14LoadoutOuterCoatCombatDuster
   category: Outer
-  cost: 7
+  cost: 6
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -499,7 +499,7 @@
 - type: loadout
   id: N14LoadoutOuterCoatFollowersArmoredCheap
   category: Outer
-  cost: 6
+  cost: 4
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -520,7 +520,7 @@
 - type: loadout
   id: N14LoadoutOuterCoatFollowersArmored
   category: Outer
-  cost: 10
+  cost: 7
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -540,7 +540,7 @@
 - type: loadout
   id: N14LoadoutOuterCombatArmorRaider 
   category: Outer
-  cost: 7 # Why cheap, it sucks its a 20% armor despite the name
+  cost: 5 # Why cheap, it sucks its a 20% armor despite the name
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -560,7 +560,7 @@
 - type: loadout
   id: N14LoadoutOuterPoliceCombat
   category: Outer
-  cost: 9
+  cost: 6
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -581,7 +581,7 @@
 - type: loadout
   id: N14LoadoutOuterPressArmor
   category: Outer
-  cost: 9
+  cost: 6
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -601,7 +601,7 @@
 - type: loadout
   id: N14LoadoutOuterCombatArmor
   category: Outer
-  cost: 18
+  cost: 12
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -621,7 +621,7 @@
 - type: loadout
   id: N14LoadoutOuterCombatArmorPainspike
   category: Outer
-  cost: 18
+  cost: 12
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -642,7 +642,7 @@
 - type: loadout
   id: N14LoadoutOuterRaiderCombat1
   category: Outer
-  cost: 18
+  cost: 12
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -663,7 +663,7 @@
 - type: loadout
   id: N14ClothingOuterCombatArmorChinese
   category: Outer
-  cost: 18
+  cost: 12
   requirements:
     - !type:CharacterTraitRequirement
       traits:
@@ -687,7 +687,7 @@
 - type: loadout
   id: N14LoadoutOuterVestChinese
   category: Outer
-  cost: 17
+  cost: 11
   requirements:
     - !type:CharacterTraitRequirement
       traits:
@@ -719,7 +719,7 @@
 - type: loadout
   id: N14LoadoutOuterSoldierCoat
   category: Outer
-  cost: 2
+  cost: 3
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter

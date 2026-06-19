@@ -85,16 +85,7 @@
           NCRMilitaryPoliceSergeant: [ 1, 1 ]
           NCRMilitaryPoliceRecruit: [ 2, 2 ]
           NCRMilitaryPoliceCaptain: [ 1, 1 ]
-          # CaravanLeader: [ 1, 1 ]
-          # CaravanTrader: [ 1, 1 ]
-          # CaravanGuard: [ 2, 2 ]
           BoSWestElderCommander: [ 1, 0 ] # Misfits Change # #Misfits Tweak - 0 active slots (admin-notify role)
-          #Misfits Change /Comment-out/: Washington BoS map spawners removed.
-          # BoSWashingtonCommander: [ 1, 1 ]
-          # BoSWashingtonPaladin: [ 1, 1 ]
-          # BoSWashingtonScribe: [ 2, 1 ]
-          # BoSWashingtonKnight: [ 2, 2 ]
-          # BoSWashingtonInitiate: [ 0, 2 ]
           BoSMidPaladinCommander: [ 1, 1 ]
           BoSHeadKnight: [ 1, 1 ]  #Misfits Change /Add/: New consolidated BoS jobs
           BoSWestScribe: [ 1, 1 ] # Misfits Change
@@ -106,7 +97,6 @@
           BoSScribe: [ 3, 3 ]  #Misfits Change /Add/
           BoSMidSquire: [ 3, 3 ]
           BoSInitiate: [ 3, 3 ]  #Misfits Change /Add/
-          # BoSWashingtonInitiate: [ 3, 3 ] #Misfits Change /Comment-out/: Washington BoS removed
           Overseer: [ 1, 1 ]
           VaultDoctor: [ 2, 3 ]
           VaultDweller: [ 8, 10 ]
@@ -130,14 +120,14 @@
           # #Misfits Change: CaesarLegionRecruit slot removed — CaesarLegionLegionnaireRecruit (line 103) already covers entry-level.
           CaesarLegionAuxilia: [ 4, 4 ] # #Misfits Change - activated
           CaesarLegionCitizen: [ 4, 4 ] #
-          CaesarLegionTrader: [ 1, 1 ] # 
+          CaesarLegionTrader: [ 1, 1 ] #
           CaesarLegionSlave: [ 4, 4 ] # Forge-Legion
           # #Misfits Change - Khan removed (deactivated); Eighties expanded to 5-rank department.
-          EightiesTheBlock:  [ 0, 0 ] # leader, 1 slot. set to 1 when ready.
-          EightiesCylinders: [ 0, 0 ] # officer tier, 2 slots. set to 2 when ready.
-          EightiesPistons:   [ 0, 0 ] # NCO tier, 3 slots. set to 3 when ready.
-          EightiesOilers:    [ 0, 0 ] # specialist tier, 4 slots. set to 4 when ready.
-          EightiesRoadRash:  [ 0, 0 ] # recruit tier, 4 slots. set to 4 when ready.
+          EightiesTheBlock:  [ 1, 1 ] # leader, 1 slot. set to 1 when ready.
+          EightiesCylinders: [ 2, 2 ] # officer tier, 2 slots. set to 2 when ready.
+          EightiesPistons:   [ 3, 3 ] # NCO tier, 3 slots. set to 3 when ready.
+          EightiesOilers:    [ 4, 4 ] # specialist tier, 4 slots. set to 4 when ready.
+          EightiesRoadRash:  [ 4, 4 ] # recruit tier, 4 slots. set to 4 when ready.
           WhiteLegs: [ 16, 16 ] # #Misfits Change - keep the compatible White Legs base role live at 16 slots until ranked markers are placed.
           WhiteLegsWarChief: [ 0, 0 ] # #Misfits Add - prototype-ready rank, no placed map marker yet.
           WhiteLegsBoneBreaker: [ 0, 0 ] # #Misfits Add - prototype-ready rank, no placed map marker yet.

@@ -367,6 +367,21 @@
   objectType: Structure
   placementMode: SnapgridCenter
 
+- type: construction
+  name: tribal banner
+  id: MisfitsDecorationFlagTribe
+  graph: MisfitsFlagTribe
+  startNode: start
+  targetNode: FlagTribe
+  # category: construction-category-decorations
+  description: A banner depicting the tree of life.
+  hide: false
+  icon:
+    sprite: _Misfits/Structures/Decoration/tribal_banner.rsi
+    state: banner1
+  objectType: Structure
+  placementMode: SnapgridCenter
+
 # signs like left and right wooden ones in mines
 
 - type: construction

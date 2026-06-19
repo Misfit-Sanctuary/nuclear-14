@@ -216,7 +216,7 @@
 - type: loadout
   id: N14ClothingHeadHatCombatHelmet
   category: Head
-  cost: 4
+  cost: 3 # Its 10% literally nothing
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -237,7 +237,7 @@
 - type: loadout
   id: N14ClothingHeadHatPressHelmet
   category: Head
-  cost: 4
+  cost: 3
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -258,7 +258,7 @@
 - type: loadout
   id: N14ClothingHeadHatLightBaseballHelmet
   category: Head
-  cost: 4
+  cost: 3
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -279,7 +279,7 @@
 - type: loadout
   id: N14ClothingHeadHatChineseHelmet
   category: Head
-  cost: 4
+  cost: 3
   exclusive: true
   requirements:
     - !type:CharacterTraitRequirement
@@ -300,3 +300,50 @@
        - Vault
   items:
     - N14ClothingHeadHatChineseHelmet
+
+- type: loadout
+  id: N14ClothingHeadHatPrewarMilitaryHelmet
+  category: Head
+  cost: 3
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterDepartmentRequirement
+       inverted: true
+       departments:
+       - Vault
+  items:
+    - N14ClothingHeadHatPrewarMilitaryHelmet
+
+
+- type: loadout
+  id: N14ClothingHeadHatChineseHelmetMk2
+  category: Head
+  cost: 4 # Its actually not better than the normal helmet for some reason, but make it 4 since drip expensive I guess
+  exclusive: true
+  requirements:
+    - !type:CharacterTraitRequirement
+      traits:
+      - LanguageChinese
+      - LanguageNerd 
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+    - !type:CharacterDepartmentRequirement
+       inverted: true
+       departments:
+       - Vault
+  items:
+    - N14ClothingHeadHatChineseHelmetMk2
