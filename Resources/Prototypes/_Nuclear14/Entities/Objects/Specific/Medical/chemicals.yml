@@ -430,6 +430,36 @@
     delay: 1.5
 
 - type: entity
+  parent: N14ChemicalSyringe
+  id: N14CombatSyringe
+  suffix: empty
+  name: combat syringe
+  description: A standard auto-injector syringe used for the rapid administration of any number of chemical cocktails, often used for combat stims.
+  components:
+  - type: Sprite
+    scale: 0.75, 0.75
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    layers:
+    - state: psycho
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: psycho_used
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 20
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+  - type: Tag
+    tags:
+    - Syringe
+  - type: UseDelay
+    delay: 1.5
+
+- type: entity
   parent: N14PsychoSyringe
   id: N14Psycho
   suffix: full

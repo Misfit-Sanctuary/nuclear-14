@@ -123,6 +123,14 @@
     Glass: 100
 
 - type: latheRecipe
+  id: N14CombatSyringe
+  result: N14CombatSyringe
+  completetime: 2
+  category: N14Chemistry
+  materials:
+    Glass: 100
+
+- type: latheRecipe
   id: N14ChemicalSyringeAntidoteEmpty
   result: N14ChemicalSyringeAntidoteEmpty
   completetime: 2
