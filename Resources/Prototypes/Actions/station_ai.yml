@@ -66,3 +66,90 @@
       state: state_laws
     event: !type:ToggleLawsScreenEvent
     useDelay: 0.5
+
+# [Changed by MisfitsCrew/Operator] Adds Station AI command actions for selecting and ordering ZAX NPC units through camera view.
+- type: entity
+  id: ActionStationAiSelectNpc
+  name: Select NPC
+  description: Selects or deselects an NPC for Station AI command orders.
+  components:
+  - type: EntityTargetAction
+    priority: -20
+    itemIconStyle: BigAction
+    icon: Interface/VerbIcons/sentient.svg.192dpi.png
+    checkCanInteract: false
+    checkConsciousness: false
+    checkCanAccess: false
+    range: 0
+    repeat: true
+    deselectOnMiss: false
+    event: !type:StationAiSelectNpcActionEvent
+
+- type: entity
+  id: ActionStationAiClearNpcSelection
+  name: Clear NPC selection
+  description: Clears selected NPCs and restores their normal AI.
+  components:
+  - type: InstantAction
+    priority: -21
+    itemIconStyle: BigAction
+    icon: Interface/VerbIcons/close.svg.192dpi.png
+    checkConsciousness: false
+    event: !type:StationAiClearNpcSelectionActionEvent
+
+- type: entity
+  id: ActionStationAiMoveNpcs
+  name: Move selected NPCs
+  description: Orders selected NPCs to move to a location.
+  components:
+  - type: WorldTargetAction
+    priority: -22
+    itemIconStyle: BigAction
+    icon: Interface/VerbIcons/open.svg.192dpi.png
+    checkCanInteract: false
+    checkConsciousness: false
+    checkCanAccess: false
+    range: 0
+    event: !type:StationAiMoveSelectedNpcsActionEvent
+
+- type: entity
+  id: ActionStationAiFormationMoveNpcs
+  name: Move selected NPCs in formation
+  description: Orders selected NPCs to move around a location in formation.
+  components:
+  - type: WorldTargetAction
+    priority: -23
+    itemIconStyle: BigAction
+    icon: Interface/VerbIcons/group.svg.192dpi.png
+    checkCanInteract: false
+    checkConsciousness: false
+    checkCanAccess: false
+    range: 0
+    event: !type:StationAiFormationMoveSelectedNpcsActionEvent
+
+- type: entity
+  id: ActionStationAiEngageNpcs
+  name: Engage target
+  description: Orders selected NPCs to engage a target.
+  components:
+  - type: EntityTargetAction
+    priority: -24
+    itemIconStyle: BigAction
+    icon: Interface/VerbIcons/point.svg.192dpi.png
+    checkCanInteract: false
+    checkConsciousness: false
+    checkCanAccess: false
+    range: 0
+    event: !type:StationAiEngageSelectedNpcsActionEvent
+
+- type: entity
+  id: ActionStationAiHoldNpcs
+  name: Hold selected NPCs
+  description: Orders selected NPCs to hold position and not engage targets.
+  components:
+  - type: InstantAction
+    priority: -25
+    itemIconStyle: BigAction
+    icon: Interface/VerbIcons/anchor.svg.192dpi.png
+    checkConsciousness: false
+    event: !type:StationAiHoldSelectedNpcsActionEvent

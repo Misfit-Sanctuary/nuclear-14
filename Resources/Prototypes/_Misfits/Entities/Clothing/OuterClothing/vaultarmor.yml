@@ -46,3 +46,31 @@
     priceMultiplier: 0.5
   - type: ClothingSpeedModifier
     walkModifier: 0.975
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBase, ClothingOuterHardsuitBase]
+  id: N14ClothingOuterVolMatSuit
+  name: VMHE suit
+  description: A versatile and advanced development of the Vault-Tec Radsuit, the Volatile Materials and Hazardous Environments suit is designed to keep its user alive through a variety of circumstances. Built with lightweight impact jel underneath a layer of treated polybenzimidazole, its efficacy is proven against acid rains, radiation, and chemical explosions. "DO NOT PUNCTURE".
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Coats/falloutvolmatsuit.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Coats/falloutvolmatsuit.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.70
+        Radiation: 0.15
+        Caustic: 0.15
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+  - type: ExplosionResistance
+    damageCoefficient: 0.15
+  - type: ToggleableClothing
+    clothingPrototype: N14ClothingHeadHatHelmetVolMatHelmet
+    slot: head

@@ -22,6 +22,8 @@
   - type: IgnoreUIRange
   - type: StationAiHeld
   - type: StationAiOverlay
+  # [Changed by MisfitsCrew/Operator] Enables Station AI to track selected ZAX units and issue command actions.
+  - type: StationAiNpcCommander
   - type: ShowElectrocutionHUD
   - type: ActionGrant
     actions:
@@ -29,6 +31,13 @@
     - ActionShowJobIcons
     - ActionSurvCameraLights
     - ActionAIViewLaws
+    # [Changed by MisfitsCrew/Operator] Grants the Station AI ZAX unit selection, movement, engagement, formation, and hold commands.
+    - ActionStationAiSelectNpc
+    - ActionStationAiClearNpcSelection
+    - ActionStationAiMoveNpcs
+    - ActionStationAiFormationMoveNpcs
+    - ActionStationAiEngageNpcs
+    - ActionStationAiHoldNpcs
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:

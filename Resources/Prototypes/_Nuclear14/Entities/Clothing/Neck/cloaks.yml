@@ -218,3 +218,19 @@
       amount: 2
   - type: StaticPrice
     price: 50
+
+- type: entity
+  parent: ClothingNeckBase
+  id: N14ClothingNeckCoyoteCloak
+  name: Houndmaster's cloak
+  description: A Cloak for Houndmasters made from Coyote hide.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Neck/coyotecape.rsi
+  - type: ToggleableClothing
+    clothingPrototype: N14ClothingHeadCoyoteCloakHood
+    requiredSlot: neck
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:Container

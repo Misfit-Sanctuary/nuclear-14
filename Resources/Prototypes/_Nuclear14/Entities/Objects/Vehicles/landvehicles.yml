@@ -29,7 +29,17 @@
     acceleration: 6
     friction: 0.1
     baseWalkSpeed: 8
-    baseSprintSpeed: 10
+    baseSprintSpeed: 8
+  - type: Fixtures # So they cant fit through 1 door.
+    fixtures:
+      fix1:
+        hard: true
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.75
+        density: 50
+        mask:
+        - MobMask
   - type: ItemSlots
     slots:
       key_slot:

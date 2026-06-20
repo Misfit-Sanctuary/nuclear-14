@@ -2790,14 +2790,7 @@ namespace Content.Client.Lobby.UI
             var shotCrit = Math.Clamp(delta * tuning.LuckSingleShotCriticalChancePerPoint, 0f, 1f);
             var revolverCrit = Math.Clamp(shotCrit * 2f, 0f, 1f);
             var luckyLoot = Math.Clamp(delta * tuning.LuckLootChancePerPoint, 0f, 1f);
-            var clumsy = value switch
-            {
-                1 => 0.50f,
-                2 => 0.05f,
-                3 => 0.03f,
-                4 => 0.01f,
-                _ => 0f,
-            };
+            var clumsy = value == 1 ? 0.10f : 0f;
             var unlucky = value switch
             {
                 2 => 0.05f,

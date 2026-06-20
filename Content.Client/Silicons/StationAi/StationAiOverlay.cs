@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._Misfits.Silicon;
 using Content.Shared.Silicons.StationAi;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -124,5 +125,38 @@ public sealed class StationAiOverlay : Overlay
         worldHandle.SetTransform(Matrix3x2.Identity);
         worldHandle.UseShader(null);
 
+        // [Changed by MisfitsCrew/Operator] Draws Station AI command selection feedback over ZAX units.
+        DrawSelectedNpcs(worldHandle, args);
+    }
+
+    // [Changed by MisfitsCrew/Operator] Highlights currently selected NPCs so AI command state is visible in camera view.
+    private void DrawSelectedNpcs(DrawingHandleWorld worldHandle, in OverlayDrawArgs args)
+    {
+        var playerEnt = _player.LocalEntity;
+        if (playerEnt == null ||
+            !_entManager.TryGetComponent(playerEnt.Value, out StationAiNpcCommanderComponent? commander))
+        {
+            return;
+        }
+
+        var xforms = _entManager.System<SharedTransformSystem>();
+        var fill = new Color(0.1f, 0.85f, 1f, 0.12f);
+        var outline = new Color(0.1f, 0.85f, 1f, 0.85f);
+
+        foreach (var selected in commander.SelectedNpcs)
+        {
+            if (!_entManager.TryGetComponent(selected, out TransformComponent? xform) ||
+                xform.MapID != args.MapId)
+            {
+                continue;
+            }
+
+            var worldPos = xforms.GetWorldPosition(xform);
+            if (!args.WorldAABB.Contains(worldPos))
+                continue;
+
+            worldHandle.DrawCircle(worldPos, 0.75f, fill);
+            worldHandle.DrawCircle(worldPos, 0.75f, outline, filled: false);
+        }
     }
 }

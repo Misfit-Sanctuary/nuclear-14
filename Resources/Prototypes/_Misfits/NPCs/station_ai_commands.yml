@@ -1,0 +1,30 @@
+# [Changed by MisfitsCrew/Operator] HTN command roots used by Station AI orders for ZAX move, engage, and hold behavior.
+- type: htnCompound
+  id: StationAiOrderedMoveCompound
+  branches:
+    - tasks:
+        - !type:HTNCompoundTask
+          task: OrderedFollowCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: HoldPositionCompound
+
+- type: htnCompound
+  id: StationAiOrderedEngageCompound
+  branches:
+    - tasks:
+        - !type:HTNCompoundTask
+          task: OrderedRangedCombatCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: OrderedMeleeCombatCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: HoldPositionCompound
+
+- type: htnCompound
+  id: StationAiOrderedHoldCompound
+  branches:
+    - tasks:
+        - !type:HTNCompoundTask
+          task: HoldPositionCompound

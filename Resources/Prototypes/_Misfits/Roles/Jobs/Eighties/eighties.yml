@@ -28,7 +28,7 @@
     - GhoulGlowing
   - !type:CharacterDepartmentTimeRequirement
     department: Eighties
-    min: 144000 # 40 hours
+    min: 162000 # 45 hours
   startingGear: EightiesTheBlockGear
   alwaysUseSpawner: true
   icon: "JobIconEighties"
@@ -41,6 +41,8 @@
         factions:
           - PlayerRaider
           - Wastelander
+  - !type:AddTraitSpecial
+    traits: [ N14RidingPerk ]
 
 - type: startingGear
   id: EightiesTheBlockGear
@@ -90,7 +92,7 @@
     - GhoulGlowing
   - !type:CharacterDepartmentTimeRequirement
     department: Eighties
-    min: 54000 # 15 hours
+    min: 61200 # 17 hours
   startingGear: EightiesCylindersGear
   alwaysUseSpawner: true
   icon: "JobIconEighties"
@@ -103,6 +105,8 @@
         factions:
           - PlayerRaider
           - Wastelander
+  - !type:AddTraitSpecial
+    traits: [ N14RidingPerk ]
 
 - type: startingGear
   id: EightiesCylindersGear
@@ -150,7 +154,7 @@
     - GhoulGlowing
   - !type:CharacterDepartmentTimeRequirement
     department: Eighties
-    min: 21600 # 6 hours
+    min: 32400 # 9 hours
   startingGear: EightiesPistonsGear
   alwaysUseSpawner: true
   icon: "JobIconEighties"
@@ -163,6 +167,8 @@
         factions:
           - PlayerRaider
           - Wastelander
+  - !type:AddTraitSpecial
+    traits: [ N14RidingPerk ]
 
 - type: startingGear
   id: EightiesPistonsGear
@@ -210,7 +216,7 @@
     - GhoulGlowing
   - !type:CharacterDepartmentTimeRequirement
     department: Eighties
-    min: 7200 # 2 hours
+    min: 18000 # 5 hours
   startingGear: EightiesOilersGear
   alwaysUseSpawner: true
   icon: "JobIconEighties"
@@ -223,6 +229,8 @@
         factions:
           - PlayerRaider
           - Wastelander
+  - !type:AddTraitSpecial
+    traits: [ N14RidingPerk ]
 
 - type: startingGear
   id: EightiesOilersGear
@@ -271,7 +279,7 @@
     - GhoulGlowing
   - !type:CharacterPlaytimeRequirement
     tracker: Wastelander
-    min: 36000 # 10 hours
+    min: 46800 # 13 hours
   startingGear: EightiesRoadRashGear
   alwaysUseSpawner: true
   icon: "JobIconEighties"

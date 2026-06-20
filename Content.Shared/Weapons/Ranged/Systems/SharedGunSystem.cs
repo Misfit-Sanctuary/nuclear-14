@@ -361,6 +361,8 @@ public abstract partial class SharedGunSystem : EntitySystem
             return null;
         }
 
+        gun.ShotCounter += shots;
+
         if (!Timing.IsFirstTimePredicted)
             return null;
 
@@ -381,10 +383,6 @@ public abstract partial class SharedGunSystem : EntitySystem
         DebugTools.Assert(ev.Ammo.Count <= shots);
         DebugTools.Assert(shots >= 0);
         UpdateAmmoCount(gunUid);
-
-        // Even if we don't actually shoot update the ShotCounter. This is to avoid spamming empty sounds
-        // where the gun may be SemiAuto or Burst.
-        gun.ShotCounter += shots;
 
         if (ev.Ammo.Count <= 0)
         {

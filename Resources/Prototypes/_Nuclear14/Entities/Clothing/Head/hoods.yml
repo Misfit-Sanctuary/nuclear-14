@@ -144,3 +144,17 @@
   - type: HideLayerClothing
     slots:
     - Hair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: N14ClothingHeadCoyoteCloakHood
+  name: Houndmaster cloak hood
+  description: The hood for houndmaster's cloak, it is made from a Coyote's head. fitting.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHoods/coyotecape.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHoods/coyotecape.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair

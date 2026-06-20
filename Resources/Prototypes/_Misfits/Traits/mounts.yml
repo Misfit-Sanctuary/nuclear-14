@@ -7,3 +7,8 @@
     - !type:TraitAddComponent
       components:
         - type: RidingPerk
+  requirements:
+  - !type:CharacterJobRequirement
+    inverted: true
+    jobs:
+    - EightiesRoadRash # you must learn to ride

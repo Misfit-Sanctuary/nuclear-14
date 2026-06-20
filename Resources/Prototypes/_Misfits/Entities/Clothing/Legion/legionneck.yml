@@ -5,9 +5,9 @@
   description: The grey and black mantle with gold thread trimming shows the wearer is entrusted with matters of money and records.
   components:
   - type: Sprite
-    sprite: _Misfits\Clothing\Neck\treasurer.rsi
+    sprite: _Misfits/Clothing/Neck/treasurer.rsi
   - type: Clothing
-    sprite: _Misfits\Clothing\Neck\treasurer.rsi
+    sprite: _Misfits/Clothing/Neck/treasurer.rsi
 
 - type: entity
   parent: ClothingNeckBase
@@ -16,9 +16,9 @@
   description: Waxed cotton apron with a red bull on it. Marks the wearer as a healer following the wisdom of Caesar. Has pockets for some small medical equipment.
   components:
   - type: Sprite
-    sprite: _Misfits\Clothing\Neck\medicus.rsi
+    sprite: _Misfits/Clothing/Neck/medicus.rsi
   - type: Clothing
-    sprite: _Misfits\Clothing\Neck\medicus.rsi
+    sprite: _Misfits/Clothing/Neck/medicus.rsi
 
 - type: entity
   parent: ClothingNeckBase
@@ -27,6 +27,6 @@
   description: A heavy leather apron designed for protecting the user when metalforging and help carry some minor tools. Marked with a yellow bull.
   components:
   - type: Sprite
-    sprite: _Misfits\Clothing\Neck\forgemaster.rsi
+    sprite: _Misfits/Clothing/Neck/forgemaster.rsi
   - type: Clothing
-    sprite: _Misfits\Clothing\Neck\forgemaster.rsi
+    sprite: _Misfits/Clothing/Neck/forgemaster.rsi

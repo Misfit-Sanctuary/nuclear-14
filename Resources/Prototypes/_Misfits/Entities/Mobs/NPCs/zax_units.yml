@@ -1,0 +1,135 @@
+# [Changed by MisfitsCrew/Operator] ZAX units are Station AI-controllable NPC copies of the player-selectable silicon chassis.
+
+- type: entity
+  abstract: true
+  id: MisfitsZaxUnitBase
+  components:
+  - type: ZaxUnit
+  - type: NpcFactionMember
+    factions:
+    - Wastelander
+  - type: HTN
+    rootTask:
+      task: StationAiOrderedHoldCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+
+- type: entity
+  parent: [N14MobRobotMrHandyClaw, MisfitsZaxUnitBase]
+  id: N14MobZaxMrHandy
+  name: ZAX Mr. Handy unit
+  description: A ZAX-linked Mr. Handy chassis prepared for Station AI command.
+  suffix: ZAX, AI controllable
+
+- type: entity
+  parent: [N14MobRobotMrHandyGutsy, MisfitsZaxUnitBase]
+  id: N14MobZaxMrGutsy
+  name: ZAX Mr. Gutsy unit
+  description: A ZAX-linked Mr. Gutsy chassis prepared for Station AI command.
+  suffix: ZAX, AI controllable
+
+- type: entity
+  parent: [N14MobRobotProtectronHostile, MisfitsZaxUnitBase]
+  id: N14MobZaxProtectron
+  name: ZAX Protectron unit
+  description: A ZAX-linked Protectron chassis prepared for Station AI command.
+  suffix: ZAX, AI controllable
+
+- type: entity
+  parent: [N14MobRobotProtectronBuilderHostile, MisfitsZaxUnitBase]
+  id: N14MobZaxProtectronBuilder
+  name: ZAX Protectron builder unit
+  description: A ZAX-linked Protectron builder chassis prepared for Station AI command.
+  suffix: ZAX, AI controllable
+
+- type: entity
+  parent: [N14MobRobotProtectronFireHostile, MisfitsZaxUnitBase]
+  id: N14MobZaxProtectronFire
+  name: ZAX Protectron firefighter unit
+  description: A ZAX-linked Protectron firefighter chassis prepared for Station AI command.
+  suffix: ZAX, AI controllable
+
+- type: entity
+  parent: [N14MobRobotProtectronPoliceHostile, MisfitsZaxUnitBase]
+  id: N14MobZaxProtectronPolice
+  name: ZAX Protectron police unit
+  description: A ZAX-linked Protectron police chassis prepared for Station AI command.
+  suffix: ZAX, AI controllable
+
+- type: entity
+  parent: [N14MobRobotSecuritronHostile, MisfitsZaxUnitBase]
+  id: N14MobZaxSecuritronGray
+  name: ZAX Securitron unit
+  description: A ZAX-linked gray Securitron chassis prepared for Station AI command.
+  suffix: ZAX, AI controllable, gray
+
+- type: entity
+  parent: [N14MobRobotSecuritronBlueHostile, MisfitsZaxUnitBase]
+  id: N14MobZaxSecuritronBlue
+  name: ZAX Securitron unit
+  description: A ZAX-linked blue Securitron chassis prepared for Station AI command.
+  suffix: ZAX, AI controllable, blue
+
+- type: entity
+  parent: [N14MobRobotSecuritronBrownHostile, MisfitsZaxUnitBase]
+  id: N14MobZaxSecuritronBrown
+  name: ZAX Securitron unit
+  description: A ZAX-linked brown Securitron chassis prepared for Station AI command.
+  suffix: ZAX, AI controllable, brown
+
+- type: entity
+  parent: [N14MobRobotSecuritronRedHostile, MisfitsZaxUnitBase]
+  id: N14MobZaxSecuritronRed
+  name: ZAX Securitron unit
+  description: A ZAX-linked red Securitron chassis prepared for Station AI command.
+  suffix: ZAX, AI controllable, red
+
+- type: entity
+  parent: [N14MobRobotSecuritronYellowHostile, MisfitsZaxUnitBase]
+  id: N14MobZaxSecuritronYellow
+  name: ZAX Securitron unit
+  description: A ZAX-linked yellow Securitron chassis prepared for Station AI command.
+  suffix: ZAX, AI controllable, yellow
+
+- type: entity
+  parent: [N14MobRobotAssaultronHostile, MisfitsZaxUnitBase]
+  id: N14MobZaxAssaultron
+  name: ZAX Assaultron unit
+  description: A ZAX-linked Assaultron chassis prepared for Station AI command.
+  suffix: ZAX, AI controllable
+
+- type: entity
+  parent: [N14MobRobotAssaultronHostile, MisfitsZaxUnitBase]
+  id: N14MobZaxAssaultronTesla
+  name: ZAX Assaultron Tesla unit
+  description: A ZAX-linked Assaultron Tesla chassis prepared for Station AI command.
+  suffix: ZAX, AI controllable, tesla
+
+- type: entity
+  parent: [N14MobRobotSentryBotBallistic, MisfitsZaxUnitBase]
+  id: N14MobZaxSentryBotMinigun
+  name: ZAX Sentry Bot unit
+  description: A ZAX-linked Sentry Bot minigun chassis prepared for Station AI command.
+  suffix: ZAX, AI controllable, minigun
+
+- type: entity
+  parent: [N14MobRobotSentryBot, MisfitsZaxUnitBase]
+  id: N14MobZaxSentryBotLaser
+  name: ZAX Sentry Bot unit
+  description: A ZAX-linked Sentry Bot laser chassis prepared for Station AI command.
+  suffix: ZAX, AI controllable, laser
+
+- type: entity
+  parent: [N14MobRobotRobobrain, MisfitsZaxUnitBase]
+  id: N14MobZaxRobobrain
+  name: ZAX Robobrain unit
+  description: A ZAX-linked Robobrain chassis prepared for Station AI command.
+  suffix: ZAX, AI controllable
+
+- type: entity
+  parent: [N14MobRobotRobobrain, MisfitsZaxUnitBase]
+  id: N14MobZaxRobobrainLaser
+  name: ZAX Robobrain laser unit
+  description: A ZAX-linked Robobrain laser chassis prepared for Station AI command.
+  suffix: ZAX, AI controllable, laser

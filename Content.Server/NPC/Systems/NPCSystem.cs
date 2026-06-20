@@ -403,7 +403,7 @@ namespace Content.Server.NPC.Systems
                 return;
 
             var currentCount = GetFollowerCountForCommander(args.User);
-            var maxCount = GetNeutralFollowerCapacity(_special.GetEffective(args.User, SpecialStat.Charisma), _special.GetTuning());
+            var maxCount = GetNeutralFollowerCapacity(args.User);
 
             var follow = new Verb()
             {
@@ -427,13 +427,8 @@ namespace Content.Server.NPC.Systems
                 return false;
             }
 
-            var tuning = _special.GetTuning();
-            var charisma = _special.GetEffective(user, SpecialStat.Charisma);
-            if (charisma < tuning.CharismaNeutralFollowerMinimum)
-                return false;
-
             var followerCount = GetFollowerCountForCommander(user);
-            var followerCapacity = GetNeutralFollowerCapacity(charisma, tuning);
+            var followerCapacity = GetNeutralFollowerCapacity(user);
             if (followerCount >= followerCapacity)
                 return false;
 
@@ -463,10 +458,8 @@ namespace Content.Server.NPC.Systems
                 return;
             }
 
-            var charisma = _special.GetEffective(user, SpecialStat.Charisma);
-            var tuning = _special.GetTuning();
             var followerCount = GetFollowerCountForCommander(user);
-            var followerCapacity = GetNeutralFollowerCapacity(charisma, tuning);
+            var followerCapacity = GetNeutralFollowerCapacity(user);
             if (followerCount >= followerCapacity)
             {
                 _popup.PopupEntity(Loc.GetString("npc-order-follow-cap-reached"), target, user, PopupType.Small);
@@ -593,7 +586,14 @@ namespace Content.Server.NPC.Systems
 
             if (commander.FollowerCount <= 1)
             {
-                RemCompDeferred<FollowerCommanderComponent>(ent.Comp.Commander);
+                if (commander.InnateFollowerCapacity <= 0)
+                {
+                    RemCompDeferred<FollowerCommanderComponent>(ent.Comp.Commander);
+                    return;
+                }
+
+                commander.FollowerCount = 0;
+                Dirty(ent.Comp.Commander, commander);
                 return;
             }
 
@@ -667,14 +667,28 @@ namespace Content.Server.NPC.Systems
         private void UpdateCommanderFollowerCount(EntityUid commander)
         {
             var count = GetFollowerCountForCommander(commander);
+            var hasCommanderComponent = TryComp<FollowerCommanderComponent>(commander, out var component);
 
             if (count <= 0)
             {
-                RemCompDeferred<FollowerCommanderComponent>(commander);
+                if (!hasCommanderComponent)
+                    return;
+
+                if (component!.InnateFollowerCapacity <= 0)
+                {
+                    RemCompDeferred<FollowerCommanderComponent>(commander);
+                    return;
+                }
+
+                if (component.FollowerCount == 0)
+                    return;
+
+                component.FollowerCount = 0;
+                Dirty(commander, component);
                 return;
             }
 
-            var component = EnsureComp<FollowerCommanderComponent>(commander);
+            component ??= EnsureComp<FollowerCommanderComponent>(commander);
             if (component.FollowerCount == count)
                 return;
 
@@ -695,7 +709,14 @@ namespace Content.Server.NPC.Systems
             return count;
         }
 
-        private static int GetNeutralFollowerCapacity(int charisma, SpecialTuningPrototype tuning)
+        private int GetNeutralFollowerCapacity(EntityUid commander, FollowerCommanderComponent? component = null)
+        {
+            var charismaCapacity = GetCharismaFollowerCapacity(_special.GetEffective(commander, SpecialStat.Charisma), _special.GetTuning());
+            var innateCapacity = Resolve(commander, ref component, false) ? component.InnateFollowerCapacity : 0;
+            return charismaCapacity + innateCapacity;
+        }
+
+        private static int GetCharismaFollowerCapacity(int charisma, SpecialTuningPrototype tuning)
         {
             if (charisma < tuning.CharismaNeutralFollowerMinimum)
                 return 0;

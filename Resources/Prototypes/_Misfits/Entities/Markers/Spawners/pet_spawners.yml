@@ -9,6 +9,9 @@
   abstract: true
   components:
   - type: Transform
+  - type: Sprite              # actually, maybe SOME sprite, but not one players will see
+    drawdepth: Overdoors
+    sprite: Markers/cross.rsi
 
 # Dog companion spawner
 - type: entity

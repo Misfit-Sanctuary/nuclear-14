@@ -225,17 +225,20 @@
     sprite: _Nuclear14/Objects/Specific/Medical/antidote-injector.rsi
     netsync: false
     layers:
-    - state: icon
+    - state: antidotesyringefill1
       map: ["enum.SolutionContainerLayers.Fill"]
-  - type: Item
+      visible: false
+    - state: icon
+      map: [ "enum.SolutionContainerLayers.Base" ]
+  - type: Icon
     sprite: _Nuclear14/Objects/Specific/Medical/antidote-injector.rsi
-  - type: Hypospray
-    solutionName: pen
-    transferAmount: 15
+    state: "icon"
   - type: SolutionContainerVisuals
     maxFillLevels: 1
-    changeColor: false
-    emptySpriteName: used
+    changeColor: true
+    fillBaseName: antidotesyringefill
+    emptySpriteName: icon
+  - type: Appearance
   - type: Tag
     tags:
     - Syringe
@@ -425,12 +428,20 @@
     scale: 0.75, 0.75
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
     layers:
-    - state: hydra
+    - state: hydrafill1
       map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+    - state: hydra-empty
+      map: [ "enum.SolutionContainerLayers.Base" ]
+  - type: Icon
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    state: "hydra-empty"
   - type: SolutionContainerVisuals
     maxFillLevels: 1
-    changeColor: false
-    emptySpriteName: hydra
+    changeColor: true
+    fillBaseName: hydrafill
+    emptySpriteName: hydra-empty
+  - type: Appearance
   - type: Hypospray
     solutionName: pen
     transferAmount: 15
@@ -548,6 +559,44 @@
           Quantity: 20
   - type: UseDelay
     delay: 1.25
+
+- type: entity
+  parent: N14ChemicalSyringe
+  id: N14CombatInjector
+  suffix: empty
+  name: combat injector
+  description: A glass ampule attached to a rudimentary injector, used to house any number of medicines.
+  components:
+  - type: Sprite
+    scale: 0.75, 0.75
+    sprite: _Nuclear14/Objects/Specific/Medical/combat-injector.rsi
+    layers:
+    - state: combatinjectorfill1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+    - state: combatinjector-empty
+      map: [ "enum.SolutionContainerLayers.Base" ]
+  - type: Icon
+    sprite: _Nuclear14/Objects/Specific/Medical/combat-injector.rsi
+    state: "combatinjector-empty"
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: true
+    fillBaseName: combatinjectorfill
+    emptySpriteName: combatinjector-empty
+  - type: Appearance
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 20
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+  - type: Tag
+    tags:
+    - Syringe
+  - type: UseDelay
+    delay: 0.5
 
 #MARK: RadAway Inhaler
 - type: entity

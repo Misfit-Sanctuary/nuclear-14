@@ -16,10 +16,7 @@ public sealed class SpecialPenaltySystem : EntitySystem
 
     private const int LowCharismaThreshold = 5;
     private const int LowIntelligenceThreshold = 2;
-    private const float ClumsyLuckOneChance = 0.50f;
-    private const float ClumsyLuckTwoChance = 0.05f;
-    private const float ClumsyLuckThreeChance = 0.03f;
-    private const float ClumsyLuckFourChance = 0.01f;
+    private const float ClumsyLuckOneChance = 0.10f;
 
     public override void Initialize()
     {
@@ -62,9 +59,8 @@ public sealed class SpecialPenaltySystem : EntitySystem
         else
             ClearLowIntelligence(ent.Owner);
 
-        var luck = _special.GetEffective(ent.Owner, SpecialStat.Luck, ent.Comp);
-        if (TryGetLuckClumsyChance(luck, out var clumsyChance))
-            ApplyLuckClumsy(ent.Owner, clumsyChance);
+        if (_special.GetEffective(ent.Owner, SpecialStat.Luck, ent.Comp) == 1)
+            ApplyLuckClumsy(ent.Owner, ClumsyLuckOneChance);
         else
             ClearLuckClumsy(ent.Owner);
     }
@@ -88,20 +84,6 @@ public sealed class SpecialPenaltySystem : EntitySystem
     private void ClearLowIntelligence(EntityUid uid)
     {
         RemComp<LowIntelligenceAccentComponent>(uid);
-    }
-
-    private static bool TryGetLuckClumsyChance(int luck, out float chance)
-    {
-        chance = luck switch
-        {
-            1 => ClumsyLuckOneChance,
-            2 => ClumsyLuckTwoChance,
-            3 => ClumsyLuckThreeChance,
-            4 => ClumsyLuckFourChance,
-            _ => 0f,
-        };
-
-        return chance > 0f;
     }
 
     private void ApplyLuckClumsy(EntityUid uid, float chance)
