@@ -1,0 +1,41 @@
+- type: entity
+  id: ActionCatTranslator
+  name: action-name-cat-translator
+  description: action-desc-cat-translator
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon: Interface/Emotes/meow.png
+    charges: 3
+    range: 2
+    checkCanAccess: false
+    canTargetSelf: false
+    event: !type:PetLanguageTranslatorActionEvent
+
+- type: entity
+  id: ActionDogTranslator
+  name: action-name-dog-translator
+  description: action-desc-dog-translator
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon: Interface/Emotes/bark.png
+    charges: 3
+    range: 2
+    checkCanAccess: false
+    canTargetSelf: false
+    event: !type:PetLanguageTranslatorActionEvent
+
+- type: entity
+  id: ActionBrahminTranslator
+  name: action-name-brahmin-translator
+  description: action-desc-brahmin-translator
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon: Interface/Emotes/meow.png
+    charges: 3
+    range: 2
+    checkCanAccess: false
+    canTargetSelf: false
+    event: !type:PetLanguageTranslatorActionEvent

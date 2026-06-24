@@ -21,6 +21,10 @@
     makeSentient: false
     allowMovement: true
   - type: GhostTakeoverAvailable
+  - type: PetLanguageTranslator
+    actionId: ActionBrahminTranslator
+    language: Cow
+    languageName: Brahmin
   - type: MobThresholds # #Misfits Add - allow revival by medics
     allowRevives: true
   - type: Puller # #Misfits Add - explicit puller for drag mechanic (SimpleMobBase doesn't define one)
@@ -87,6 +91,7 @@
     allowMovement: true
   - type: GhostTakeoverAvailable
   - type: Emoting
+  - type: PetLanguageTranslator
   - type: MobThresholds # #Misfits Add - allow revival by medics
     allowRevives: true
   - type: Inventory
@@ -366,7 +371,6 @@
   parent: N14MobPetCat
   description: A spoon cat, somehow your companion.
   components:
-  - type: SpoonCatTranslator
   - type: GhostRole
     name: ghost-role-information-n14pet-cat-spoon-name
     description: ghost-role-information-n14pet-generic-description

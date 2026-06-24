@@ -145,6 +145,10 @@
     makeSentient: false
     allowMovement: true
   - type: GhostTakeoverAvailable
+  - type: PetLanguageTranslator
+    actionId: ActionDogTranslator
+    language: N14Dog
+    languageName: Dog
   - type: Speech # Corvax-Change
     speechSounds: Dog
   #- type: DogVision # Corvax-Change | #Misfits Change: Disabled — greyscale shader should not apply to players inhabiting pet mobs
