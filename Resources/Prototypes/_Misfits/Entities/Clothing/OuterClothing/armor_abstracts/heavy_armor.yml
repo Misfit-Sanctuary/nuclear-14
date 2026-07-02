@@ -1,0 +1,91 @@
+### Heavy Armor
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitHeavyArmor
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.60
+        Heat: 0.60
+  - type: ExplosionResistance
+    damageCoefficient: 0.70
+  - type: ClothingSpeedModifier
+    walkModifier: .8
+    sprintModifier: .8
+
+- type: entity
+  parent: MisfitHeavyArmor
+  id: MisfitHeavyArmorBallistic
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.55
+        Heat: 0.60
+
+- type: entity
+  parent: MisfitHeavyArmor
+  id: MisfitHeavyArmorRiot
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.60
+        Heat: 0.60
+
+
+- type: entity
+  parent: MisfitHeavyArmor
+  id: MisfitHeavyArmorEnergy
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.60
+        Heat: 0.55
+
+# Advance
+
+- type: entity
+  parent: MisfitHeavyArmor
+  id: MisfitHeavyArmorAdvance
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.55
+  - type: ExplosionResistance
+    damageCoefficient: 0.65
+
+
+# Fast
+
+- type: entity
+  parent: MisfitHeavyArmor
+  id: MisfitHeavyArmorFast
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.60
+        Heat: 0.60
+  - type: ExplosionResistance
+    damageCoefficient: 0.70
+  - type: ClothingSpeedModifier
+    walkModifier: .85
+    sprintModifier: .85

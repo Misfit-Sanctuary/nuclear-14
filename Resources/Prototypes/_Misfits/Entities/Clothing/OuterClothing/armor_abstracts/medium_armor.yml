@@ -1,0 +1,91 @@
+### Medium Armor
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitMediumArmor
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.70
+  - type: ExplosionResistance
+    damageCoefficient: 0.80
+  - type: ClothingSpeedModifier
+    walkModifier: .9
+    sprintModifier: .9
+
+- type: entity
+  parent: MisfitMediumArmor
+  id: MisfitMediumArmorBallistic
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.65
+        Heat: 0.70
+
+- type: entity
+  parent: MisfitMediumArmor
+  id: MisfitMediumArmorRiot
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.70
+        Heat: 0.70
+
+
+- type: entity
+  parent: MisfitMediumArmor
+  id: MisfitMediumArmorEnergy
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.65
+
+# Advance
+
+- type: entity
+  parent: MisfitMediumArmor
+  id: MisfitMediumArmorAdvance
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.65
+  - type: ExplosionResistance
+    damageCoefficient: 0.75
+
+
+# Fast
+
+- type: entity
+  parent: MisfitMediumArmor
+  id: MisfitMediumArmorFast
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.70
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: ClothingSpeedModifier
+    walkModifier: .95
+    sprintModifier: .95
