@@ -7,12 +7,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.80
-        Slash: 0.80
-        Piercing: 0.80
-        Heat: 0.80
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
   - type: ExplosionResistance
-    damageCoefficient: 0.90
+    damageCoefficient: 0.9
   - type: ClothingSpeedModifier
     walkModifier: .95
     sprintModifier: .95
@@ -24,10 +24,7 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.80
-        Slash: 0.80
         Piercing: 0.75
-        Heat: 0.80
 
 - type: entity
   parent: MisfitLightArmor
@@ -38,8 +35,6 @@
       coefficients:
         Blunt: 0.75
         Slash: 0.75
-        Piercing: 0.80
-        Heat: 0.80
 
 
 - type: entity
@@ -49,9 +44,6 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.80
-        Slash: 0.80
-        Piercing: 0.80
         Heat: 0.75
 
 # Advance
@@ -70,6 +62,36 @@
   - type: ExplosionResistance
     damageCoefficient: 0.85
 
+- type: entity
+  parent: MisfitLightArmorAdvance
+  id: MisfitLightArmorRiotAdvance
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+
+
+- type: entity
+  parent: MisfitLightArmorAdvance
+  id: MisfitLightArmorBallisticAdvance
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Piercing: 0.7
+
+- type: entity
+  parent: MisfitLightArmorAdvance
+  id: MisfitLightArmorEnergyAdvance
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.7
+
+
 
 # Fast
 
@@ -77,15 +99,35 @@
   parent: MisfitLightArmor
   id: MisfitLightArmorFast
   components:
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.80
-        Slash: 0.80
-        Piercing: 0.80
-        Heat: 0.80
-  - type: ExplosionResistance
-    damageCoefficient: 0.90
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1
+
+- type: entity
+  parent: MisfitLightArmorFast
+  id: MisfitLightArmorRiotFast
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+
+
+- type: entity
+  parent: MisfitLightArmorFast
+  id: MisfitLightArmorBallisticFast
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Piercing: 0.75
+
+- type: entity
+  parent: MisfitLightArmorFast
+  id: MisfitLightArmorEnergyFast
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.75
