@@ -41,6 +41,17 @@
         Piercing: 0.8
         Heat: 0.8
 
+- type: entity
+  parent: MisfitLightArmor
+  id: MisfitLightArmorCombat
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.75
+        Heat: 0.75
 
 - type: entity
   parent: MisfitLightArmor
@@ -82,6 +93,17 @@
         Piercing: 0.75
         Heat: 0.75
 
+- type: entity
+  parent: MisfitLightArmorAdvance
+  id: MisfitLightArmorCombatAdvance
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.7
+        Heat: 0.7
 
 - type: entity
   parent: MisfitLightArmorAdvance
@@ -122,6 +144,14 @@
 - type: entity
   parent: MisfitLightArmorRiot
   id: MisfitLightArmorRiotFast
+  components:
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+
+- type: entity
+  parent: MisfitLightArmorCombat
+  id: MisfitLightArmorCombatFast
   components:
   - type: ClothingSpeedModifier
     walkModifier: 1
