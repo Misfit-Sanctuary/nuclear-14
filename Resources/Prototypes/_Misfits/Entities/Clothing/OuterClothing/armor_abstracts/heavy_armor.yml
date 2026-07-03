@@ -1,14 +1,14 @@
 ### Heavy Armor
 
-
 ## Types
 # Riot +5% Melee -5% Range
 # Combat -5% Melee +5% Range
 # Ballistic +10% Pierce -10% Everything
 # Energy +10% Heat -10% Everything
 ## Modifier
-# Advance +5% Everything
-# Fast +5% Speed
+# Advance +5% Everything, Mk2s
+# Elite +10% Everything, Cent Armor and Vet Armors
+# Fast +5% Speed Probably wont be used
 
 - type: entity
   parent: N14FalloutArmorBase
@@ -145,6 +145,72 @@
         Piercing: 0.65
         Heat: 0.45
 
+
+# Elite
+
+- type: entity
+  parent: MisfitHeavyArmor
+  id: MisfitHeavyArmorElite
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.6
+
+
+- type: entity
+  parent: MisfitHeavyArmorElite
+  id: MisfitHeavyArmorRiotElite
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.55
+        Heat: 0.55
+
+- type: entity
+  parent: MisfitHeavyArmorElite
+  id: MisfitHeavyArmorCombatElite
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.45
+        Heat: 0.45
+
+
+- type: entity
+  parent: MisfitHeavyArmorElite
+  id: MisfitHeavyArmorBallisticElite
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.4
+        Heat: 0.6
+
+- type: entity
+  parent: MisfitHeavyArmorElite
+  id: MisfitHeavyArmorEnergyElite
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.4
 
 # Fast
 

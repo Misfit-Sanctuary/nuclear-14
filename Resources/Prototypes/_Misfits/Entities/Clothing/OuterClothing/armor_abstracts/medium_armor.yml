@@ -6,9 +6,9 @@
 # Ballistic +10% Pierce -10% Everything
 # Energy +10% Heat -10% Everything
 ## Modifier
-# Advance +5% Everything
-# Fast +5% Speed
-
+# Advance +5% Everything, Mk2s
+# Elite +10% Everything, Cent Armor and Vet Armors
+# Fast +5% Speed Probably wont be used
 
 - type: entity
   parent: N14FalloutArmorBase
@@ -144,6 +144,72 @@
         Piercing: 0.75
         Heat: 0.55
 
+
+# Elite
+
+- type: entity
+  parent: MisfitMediumArmor
+  id: MisfitMediumArmorElite
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+
+
+- type: entity
+  parent: MisfitMediumArmorElite
+  id: MisfitMediumArmorRiotElite
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.65
+        Heat: 0.65
+
+- type: entity
+  parent: MisfitMediumArmorElite
+  id: MisfitMediumArmorCombatElite
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.55
+        Heat: 0.55
+
+- type: entity
+  parent: MisfitMediumArmorElite
+  id: MisfitMediumArmorBallisticElite
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.5
+        Heat: 0.7
+
+
+- type: entity
+  parent: MisfitMediumArmorElite
+  id: MisfitMediumArmorEnergyElite
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.5
 
 # Fast
 
