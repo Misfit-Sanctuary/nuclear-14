@@ -24,8 +24,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: ClothingSpeedModifier
-    walkModifier: .8
-    sprintModifier: .8
+    walkModifier: .85
+    sprintModifier: .85
 
 
 
@@ -153,24 +153,24 @@
   id: MisfitHeavyArmorFast
   components:
   - type: ClothingSpeedModifier
-    walkModifier: .85
-    sprintModifier: .85
+    walkModifier: .9
+    sprintModifier: .9
 
 - type: entity
   parent: MisfitHeavyArmorRiot
   id: MisfitHeavyArmorRiotFast
   components:
   - type: ClothingSpeedModifier
-    walkModifier: .85
-    sprintModifier: .85
+    walkModifier: .9
+    sprintModifier: .9
 
 - type: entity
   parent: MisfitHeavyArmorCombat
   id: MisfitHeavyArmorCombatFast
   components:
   - type: ClothingSpeedModifier
-    walkModifier: .85
-    sprintModifier: .85
+    walkModifier: .9
+    sprintModifier: .9
 
 
 - type: entity
@@ -178,8 +178,8 @@
   id: MisfitHeavyArmorBallisticFast
   components:
   - type: ClothingSpeedModifier
-    walkModifier: .85
-    sprintModifier: .85
+    walkModifier: .9
+    sprintModifier: .9
 
 
 - type: entity
@@ -187,5 +187,5 @@
   id: MisfitHeavyArmorEnergyFast
   components:
   - type: ClothingSpeedModifier
-    walkModifier: .85
-    sprintModifier: .85
+    walkModifier: .9
+    sprintModifier: .9
