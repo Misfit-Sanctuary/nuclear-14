@@ -7,6 +7,6 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 10
-        Blunt: 10
+        Piercing: 30
+        Blunt: 20
     ignoreResistances: true
