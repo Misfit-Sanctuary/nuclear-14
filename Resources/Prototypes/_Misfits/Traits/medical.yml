@@ -3,7 +3,16 @@
 - type: trait
   id: FiremanCarry
   category: Physical
-  hidden: true
+  points: -2 # Misfits Change: Added Fireman Carry as a 2 point trait option
+  requirements:
+  - !type:CharacterJobRequirement
+    inverted: true
+    jobs:
+    - FollowerHead    # Followers get access to Fireman Carry by default as the "Paramedics" of the wasteland. Shouldn't be added to other medical roles as a default - they already get free CPR.
+    - FollowerDoctor
+    - FollowerGuard
+    - FollowerVolunteer
+    - SuperMutantFollowerDoctor
   functions:
     - !type:TraitAddComponent
       components:

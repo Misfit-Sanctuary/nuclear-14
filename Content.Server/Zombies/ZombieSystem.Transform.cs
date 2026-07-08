@@ -237,7 +237,7 @@ namespace Content.Server.Zombies
             var htn = EnsureComp<HTNComponent>(target);
             htn.RootTask = new HTNCompoundTask() { Task = "SimpleHostileCompound" };
             htn.Blackboard.SetValue(NPCBlackboard.Owner, target);
-            _npc.SleepNPC(target, htn);
+            _npc.SleepNPC(target, htn, removeSound: false);
 
             //He's gotta have a mind
             var hasMind = _mind.TryGetMind(target, out var mindId, out _);

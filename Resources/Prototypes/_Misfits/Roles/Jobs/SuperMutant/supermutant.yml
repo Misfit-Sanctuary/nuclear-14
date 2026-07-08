@@ -430,6 +430,9 @@
             - Followers
         - type: CPRTraining
         - type: Sanitized
+    - !type:AddTraitSpecial
+      traits:
+      - FiremanCarry
 - type: startingGear
   id: SuperMutantFollowerDoctorGear
   equipment:

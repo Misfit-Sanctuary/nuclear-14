@@ -8661,3 +8661,19 @@ Entries:
   id: 6197
   time: '2026-07-08T15:52:21.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/986
+- author: JohnKieser
+  changes:
+    - type: Fix
+      message: Crit NPCs don't move anymore. Shouldn't affect players possessing pets
+  id: 6198
+  time: '2026-07-08T20:54:24.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/961
+- author: RedBookcase
+  changes:
+    - type: Add
+      message: >-
+        Fireman Carry is now a 2 Point perk anyone can take. Followers get it by
+        default.
+  id: 6199
+  time: '2026-07-08T21:01:22.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/974

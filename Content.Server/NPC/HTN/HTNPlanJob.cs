@@ -35,7 +35,24 @@ public sealed class HTNPlanJob : Job<HTNPlan>
         _blackboard = blackboard;
         _branchTraversal = branchTraversal;
     }
-
+    /// TODO: make better comments after complete refactor
+    /// <summary>
+    /// ACTUAL HTN PLANNING FOR A MOB TAKES PLACE HERE
+    /// When HTN is ticked, this is called for each active mob
+    /// where their respective """behavior trees""" defined in yaml
+    /// searches for the best plan.
+    ///
+    /// This happens even when the AI is active and already is DOING/EXECUTING a plan
+    /// It is async, meaning this can be done concurrently or parralel with whatever
+    /// depending on what threads are available
+    ///
+    /// basic of the algorithim is that starting from a root, we have "branches" or "methods"
+    /// a branch represents a general task, which can have other branches that would be different ways of
+    /// doing that task that should be more specific.
+    ///
+    /// during planning, if we realize we can't do any task within a branch, we go back(move up a depth)
+    /// and try looking for another branch
+    /// </summary>
     protected override async Task<HTNPlan?> Process()
     {
         /*
@@ -44,7 +61,7 @@ public sealed class HTNPlanJob : Job<HTNPlan>
          *
          * Methods have been renamed to branches
          */
-
+        // Decomp history is here to
         var decompHistory = new Stack<DecompositionState>();
 
         // branch traversal record. Whenever we find a new compound task this updates.
@@ -54,6 +71,11 @@ public sealed class HTNPlanJob : Job<HTNPlan>
         // e.g. pathfind to a target before deciding to attack it.
         // Given all of the primitive tasks are singletons we need to store the data somewhere
         // hence we'll store it here.
+
+        // fundlemantal of task based planning is that during planning, as we go through each task
+        // we need to consider what the previous task hypothetically should of done
+        // so we track that via these states.
+        // though in practice HERE alot of tasks have null states so this seems underused
         var appliedStates = new List<Dictionary<string, object>?>();
 
         var tasksToProcess = new Queue<HTNTask>();
@@ -69,13 +91,14 @@ public sealed class HTNPlanJob : Job<HTNPlan>
             {
                 case HTNCompoundTask compound:
                     await SuspendIfOutOfTime();
-
+                    /// look thrugh compound's branches and decomp first valid branch's tasks
                     if (TryFindSatisfiedMethod(compound, tasksToProcess, _blackboard, ref btrIndex))
                     {
                         // Need to copy worldstate to roll it back
                         // Don't need to copy taskstoprocess as we can just clear it and set it to the compound task we roll back to.
                         // Don't need to copy finalplan as we can just count how many primitives we've added since last record
 
+                        // each method or branch has associated num of primitives
                         decompHistory.Push(new DecompositionState()
                         {
                             Blackboard = _blackboard.ShallowClone(),
@@ -84,8 +107,7 @@ public sealed class HTNPlanJob : Job<HTNPlan>
                             PrimitiveCount = primitiveCount,
                         });
 
-                        // TODO: Early out if existing plan is better and save lots of time.
-                        // my brain is not working rn AAA
+                        // TODO: Early out if existing plan is better and save lots of time
 
                         primitiveCount = 0;
                         // Reset method traversal
@@ -125,6 +147,7 @@ public sealed class HTNPlanJob : Job<HTNPlan>
     {
         blackboard.ReadOnly = true;
 
+        /// if one primitive is invalid, we gotta cancel its tasks and goto next branch
         foreach (var con in primitive.Preconditions)
         {
             if (con.IsMet(blackboard))
@@ -132,7 +155,7 @@ public sealed class HTNPlanJob : Job<HTNPlan>
 
             return false;
         }
-
+        /// making this a tuple with a "valid" bool seems redundant if we got precons
         var (valid, effects) = await primitive.Operator.Plan(blackboard, Cancellation);
 
         if (!valid)
@@ -156,15 +179,20 @@ public sealed class HTNPlanJob : Job<HTNPlan>
     /// <summary>
     /// Goes through each compound task branch and tries to find an appropriate one.
     /// </summary>
+    /// TODO: Maybe fix this up and have early exit due to current MTR cost
+    /// TODO: Method = branch
+    /// compound just holds branchs
     private bool TryFindSatisfiedMethod(HTNCompoundTask compoundId, Queue<HTNTask> tasksToProcess, NPCBlackboard blackboard, ref int mtrIndex)
     {
         var compound = _protoManager.Index<HTNCompoundPrototype>(compoundId.Task);
 
         for (var i = mtrIndex; i < compound.Branches.Count; i++)
         {
+
             var branch = compound.Branches[i];
             var isValid = true;
 
+            /// check each precon in branch
             foreach (var con in branch.Preconditions)
             {
                 if (con.IsMet(blackboard))
@@ -176,12 +204,12 @@ public sealed class HTNPlanJob : Job<HTNPlan>
 
             if (!isValid)
                 continue;
-
+            /// decomp tasks in 1st accepted branch
             foreach (var task in branch.Tasks)
             {
                 tasksToProcess.Enqueue(task);
             }
-
+            /// first valid branch only
             return true;
         }
 
@@ -212,7 +240,8 @@ public sealed class HTNPlanJob : Job<HTNPlan>
         var count = finalPlan.Count;
         var reduction = count - primitiveCount;
 
-        // Final plan only has primitive tasks added to it so we can just remove the count we've tracked since the last decomp.
+        // Final plan only has primitive tasks added to it
+        // so we can just remove the count we've tracked since the last decomp.
         finalPlan.RemoveRange(reduction, primitiveCount);
         appliedStates.RemoveRange(reduction, primitiveCount);
 

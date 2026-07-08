@@ -258,7 +258,7 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
     private void OnZaxDamaged(Entity<ZaxUnitComponent> ent, ref DamageChangedEvent args)
     {
         if (!args.DamageIncreased ||
-            args.Origin is not {} attacker ||
+            args.Origin is not { } attacker ||
             attacker == ent.Owner ||
             Deleted(attacker) ||
             !HasComp<MobStateComponent>(attacker) ||
@@ -801,7 +801,7 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
         // [Changed by MisfitsCrew/Operator] Mirrors the existing NPC follower lifecycle so HTN orders restart movement reliably.
         var commanded = EnsureCommandedNpc(uid, commander, htn);
         commanded.HoldingCommand = rootTask == HoldRoot;
-        _npc.SleepNPC(uid, htn);
+        _npc.SleepNPC(uid, htn, removeSound: false);
         htn.RootTask.Task = rootTask;
     }
 
@@ -911,7 +911,7 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
         }
 
         if (!TryComp(uid, out StationAiCommandedNpcComponent? commanded) ||
-            commanded.ForcedHostile is not {} hostile)
+            commanded.ForcedHostile is not { } hostile)
         {
             return;
         }
