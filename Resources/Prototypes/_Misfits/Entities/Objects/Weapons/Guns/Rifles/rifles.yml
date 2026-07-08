@@ -73,14 +73,20 @@
     size: Large
     sprite: _Misfits/Objects/Weapons/Guns/Rifles/gaussrifle.rsi
   - type: Wieldable
-    wieldedSpeedModifier: 0.82
+    wieldedSpeedModifier: 0.75
   - type: GunRequiresWield
+    - type: Gun
+    minAngle: 1
+    maxAngle: 2
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 0.9
   - type: AmmoCounter
   - type: Gun
     fireRate: 2
-    selectedMode: FullAuto
+    selectedMode: SemiAuto
     availableModes:
-    - FullAuto
+    - SemiAuto
     soundGunshot:
       collection: N14AutoShotgunGunshot
     soundEmpty:
@@ -107,4 +113,4 @@
     zeroVisible: true
   - type: Appearance
   - type: StaticPrice
-    price: 100
+    price: 350
