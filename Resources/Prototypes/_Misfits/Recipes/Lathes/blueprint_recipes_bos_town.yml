@@ -361,6 +361,24 @@
 
     Glass: 300 #scope
 
+- type: latheRecipe
+  id: N14BPBoSWeaponGaussRifle
+  result: N14WeaponGaussRifle
+  category: N14BlueprintBoSWeaponsT4
+  completetime: 30
+  requiresBlueprint: true
+  availableFaction:
+  - BrotherhoodOfSteel
+  materials:
+    Steel: 12500
+
+    Circuitry: 2100
+
+    ScrapElectronic: 1000
+
+    N14Gold: 600
+
+    Copper: 600
 
 - type: latheRecipe
   id: N14BPBoSWeaponLaserRifleWattz3000
