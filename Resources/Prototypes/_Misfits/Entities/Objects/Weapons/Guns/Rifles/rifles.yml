@@ -75,12 +75,12 @@
   - type: Wieldable
     wieldedSpeedModifier: 0.75
   - type: GunRequiresWield
-    - type: Gun
+  - type: Gun
     minAngle: 1
     maxAngle: 2
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 0.9
+    fireRate: 0.75
   - type: AmmoCounter
   - type: Gun
     fireRate: 2
