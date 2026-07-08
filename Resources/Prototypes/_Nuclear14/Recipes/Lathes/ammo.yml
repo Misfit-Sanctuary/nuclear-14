@@ -603,24 +603,3 @@
     Steel: 200
     N14Gunpowder: 150
     Cardboard: 100
-
-- type: latheRecipe
-  id: N14Cartridge2mmEC
-  result: N14Cartridge2mmEC
-  category: N14Ammo
-  completetime: 5
-  materials:
-    Lead: 100
-    Steel: 200
-    N14Copper: 150
-    Circuitry: 150
-
-- type: latheRecipe
-  id: N14BaseMagazine2mmECRifle
-  result: N14BaseMagazine2mmECRifle
-  category: N14AmmoMagazine
-  completetime: 5
-  materials:
-    Lead: 250
-    Steel: 500
-    N14Copper: 250
