@@ -754,6 +754,35 @@
 
     N14Gunpowder: 50
 
+- type: latheRecipe
+  id: N14Cartridge2mmEC
+  result: N14Cartridge2mmEC
+  category: N14BlueprintBoSAmmoT1
+  completetime: 4
+  requiresBlueprint: true
+  availableFaction:
+  - BrotherhoodOfSteel
+  completetime: 5
+  materials:
+    Lead: 100
+    Steel: 200
+    N14Copper: 150
+    Circuitry: 150
+
+- type: latheRecipe
+  id: N14BaseMagazine2mmECRifle
+  result: N14BaseMagazine2mmECRifle
+  category: N14BlueprintBoSAmmoT1
+  completetime: 4
+  requiresBlueprint: true
+  availableFaction:
+  - BrotherhoodOfSteel
+  completetime: 5
+  materials:
+    Lead: 250
+    Steel: 500
+    N14Copper: 250
+
 
 # --- BoS Tier 2 Ammo ---
 # #Misfits Removed - MFC and ECP recipes commented out; consolidated to single generic cell at T1
