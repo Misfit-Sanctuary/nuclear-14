@@ -1,7 +1,7 @@
 
 - type: entity
   id: N14BaseMagazine2mmECRifle
-  name: 2mmEC 20 capacity magazine
+  name: 2mmEC 7 capacity magazine
   parent: BaseItem
   components:
   - type: Tag
@@ -12,7 +12,7 @@
     whitelist:
       tags:
         - N14Cartridge2mmEC
-    capacity: 20
+    capacity: 7
     soundRack:
       path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
   - type: ContainerContainer
@@ -34,7 +34,7 @@
 
 - type: entity
   id: N14Magazine2mmECRifle
-  name: 2mmEC 20 capacity magazine
+  name: 2mmEC 7 capacity magazine
   parent: N14BaseMagazine2mmECRifle
   components:
   - type: BallisticAmmoProvider
@@ -42,7 +42,7 @@
 
 - type: entity
   id: N14BaseMagazine2mmECPistol
-  name: 2mmEC 12 capacity magazine
+  name: 2mmEC 4 capacity magazine
   parent: BaseItem
   components:
   - type: Tag
@@ -53,7 +53,7 @@
     whitelist:
       tags:
         - N14Cartridge2mmEC
-    capacity: 12
+    capacity: 4
     soundRack:
       path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
   - type: ContainerContainer
@@ -75,7 +75,7 @@
 
 - type: entity
   id: N14Magazine2mmECPistol
-  name: 2mmEC 12 capacity magazine
+  name: 2mmEC 4 capacity magazine
   parent: N14BaseMagazine2mmECPistol
   components:
   - type: BallisticAmmoProvider
