@@ -43,53 +43,53 @@
     state: full
   - type: Sprite
     drawdepth: Mobs
-    noRot: true
-    layers:
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    - map: [ "enum.HumanoidVisualLayers.Head" ]
-    - map: [ "enum.HumanoidVisualLayers.Snout" ]
-    - map: [ "enum.HumanoidVisualLayers.RArm" ]
-    - map: [ "enum.HumanoidVisualLayers.LArm" ]
-    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-    - shader: StencilClear
-      sprite: _Misfits/Mobs/Species/SuperMutant/parts.rsi
-      state: l_leg
-    - shader: StencilMask
-      map: [ "enum.HumanoidVisualLayers.StencilMask" ]
-      sprite: Mobs/Customization/masking_helpers.rsi
-      state: female_full
-      visible: false
-    - map: [ "jumpsuit" ]
-    - map: [ "enum.HumanoidVisualLayers.LHand" ]
-    - map: [ "enum.HumanoidVisualLayers.RHand" ]
-    - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-    - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-      color: "#ffffff"
-      sprite: Objects/Misc/handcuffs.rsi
-      state: body-overlay-2
-      visible: false
-    - map: [ "id" ]
-    - map: [ "gloves" ]
-    - map: [ "shoes" ]
-    - map: [ "ears" ]
-    - map: [ "innerBelt" ]
-    - map: [ "innerNeck" ]
-    - map: [ "outerClothing" ]
-    - map: [ "eyes" ]
-    - map: [ "belt" ]
-    - map: [ "neck" ]
-    - map: [ "back" ]
-    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-    - map: [ "enum.HumanoidVisualLayers.Hair" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    - map: [ "mask" ]
-    - map: [ "head" ]
-    - map: [ "pocket1" ]
-    - map: [ "pocket2" ]
+  noRot: true
+  layers:
+  - map: [ "enum.HumanoidVisualLayers.Chest" ]
+  - map: [ "enum.HumanoidVisualLayers.Head" ]
+  - map: [ "enum.HumanoidVisualLayers.Snout" ]
+  - map: [ "enum.HumanoidVisualLayers.RArm" ]
+  - map: [ "enum.HumanoidVisualLayers.LArm" ]
+  - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+  - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+  - shader: StencilClear
+    sprite: _Misfits/Mobs/Species/SuperMutant/parts.rsi
+    state: l_leg
+  - shader: StencilMask
+    map: [ "enum.HumanoidVisualLayers.StencilMask" ]
+    sprite: Mobs/Customization/masking_helpers.rsi
+    state: female_full
+    visible: false
+  - map: [ "jumpsuit" ]
+  - map: [ "enum.HumanoidVisualLayers.LHand" ]
+  - map: [ "enum.HumanoidVisualLayers.RHand" ]
+  - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+  - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+  - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+    color: "#ffffff"
+    sprite: Objects/Misc/handcuffs.rsi
+    state: body-overlay-2
+    visible: false
+  - map: [ "id" ]
+  - map: [ "gloves" ]
+  - map: [ "shoes" ]
+  - map: [ "ears" ]
+  - map: [ "innerBelt" ]
+  - map: [ "innerNeck" ]
+  - map: [ "outerClothing" ]
+  - map: [ "eyes" ]
+  - map: [ "belt" ]
+  - map: [ "neck" ]
+  - map: [ "back" ]
+  - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+  - map: [ "enum.HumanoidVisualLayers.Hair" ]
+  - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+  - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+  - map: [ "enum.HumanoidVisualLayers.Tail" ]
+  - map: [ "mask" ]
+  - map: [ "head" ]
+  - map: [ "pocket1" ]
+  - map: [ "pocket2" ]
   - type: Inventory
     templateId: supermutant
     speciesId: supermutant
