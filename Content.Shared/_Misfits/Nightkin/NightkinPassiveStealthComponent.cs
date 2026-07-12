@@ -1,6 +1,7 @@
 // #Misfits Add - Innate Nightkin Stealth Boy implant state.
 using Content.Shared.Actions;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Misfits.Nightkin;
 
@@ -31,6 +32,19 @@ public sealed partial class NightkinPassiveStealthComponent : Component
 
     [DataField, AutoNetworkedField]
     public string DeactivateMessage = "Your Stealth Boy implant powers down.";
+
+    /// <summary>
+    /// How long the implant needs to recharge after the cloak fully drops
+    /// before it can be activated again.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan Cooldown = TimeSpan.FromSeconds(30);
+
+    /// <summary>
+    /// Server time at which the implant has finished recharging.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    public TimeSpan CooldownEndTime;
 }
 
 /// <summary>
