@@ -23,11 +23,16 @@
         Slash: 0.8
         Piercing: 0.8
         Heat: 0.8
+      flatReductions:
+        Blunt: 3
+        Slash: 3
+        Piercing: 3
+        Heat: 3
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: ClothingSpeedModifier
-    walkModifier: .95
-    sprintModifier: .95
+    walkModifier: 1
+    sprintModifier: 1
 
 - type: entity
   parent: MisfitLightArmor
@@ -40,6 +45,11 @@
         Slash: 0.75
         Piercing: 0.85
         Heat: 0.85
+      flatReductions:
+        Blunt: 4
+        Slash: 4
+        Piercing: 2
+        Heat: 2
 
 - type: entity
   parent: MisfitLightArmor
@@ -52,7 +62,11 @@
         Slash: 0.85
         Piercing: 0.75
         Heat: 0.75
-
+      flatReductions:
+        Blunt: 2
+        Slash: 2
+        Piercing: 4
+        Heat: 4
 
 - type: entity
   parent: MisfitLightArmor
@@ -65,7 +79,11 @@
         Slash: 0.9
         Piercing: 0.7
         Heat: 0.9
-
+      flatReductions:
+        Blunt: 1
+        Slash: 1
+        Piercing: 5
+        Heat: 1
 
 - type: entity
   parent: MisfitLightArmor
@@ -78,6 +96,12 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.7
+      flatReductions:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 5
+
 
 # Advance
 
@@ -92,6 +116,11 @@
         Slash: 0.75
         Piercing: 0.75
         Heat: 0.75
+      flatReductions:
+        Blunt: 4
+        Slash: 4
+        Piercing: 4
+        Heat: 4
   - type: ExplosionResistance
     damageCoefficient: 0.85
 
@@ -106,6 +135,12 @@
         Slash: 0.7
         Piercing: 0.8
         Heat: 0.8
+      flatReductions:
+        Blunt: 5
+        Slash: 5
+        Piercing: 3
+        Heat: 3
+
 
 - type: entity
   parent: MisfitLightArmorAdvance
@@ -118,6 +153,12 @@
         Slash: 0.8
         Piercing: 0.7
         Heat: 0.7
+      flatReductions:
+        Blunt: 3
+        Slash: 3
+        Piercing: 5
+        Heat: 5
+
 
 - type: entity
   parent: MisfitLightArmorAdvance
@@ -130,6 +171,11 @@
         Slash: 0.85
         Piercing: 0.65
         Heat: 0.85
+      flatReductions:
+        Blunt: 2
+        Slash: 2
+        Piercing: 6
+        Heat: 2
 
 - type: entity
   parent: MisfitLightArmorAdvance
@@ -142,6 +188,11 @@
         Slash: 0.85
         Piercing: 0.85
         Heat: 0.65
+      flatReductions:
+        Blunt: 2
+        Slash: 2
+        Piercing: 2
+        Heat: 6
 
 # Elite
 
@@ -156,8 +207,14 @@
         Slash: 0.7
         Piercing: 0.7
         Heat: 0.7
+      flatReductions:
+        Blunt: 5
+        Slash: 5
+        Piercing: 5
+        Heat: 5
   - type: ExplosionResistance
     damageCoefficient: 0.8
+
 
 - type: entity
   parent: MisfitLightArmorElite
@@ -170,6 +227,11 @@
         Slash: 0.65
         Piercing: 0.75
         Heat: 0.75
+      flatReductions:
+        Blunt: 6
+        Slash: 6
+        Piercing: 4
+        Heat: 4
 
 - type: entity
   parent: MisfitLightArmorElite
@@ -182,6 +244,11 @@
         Slash: 0.75
         Piercing: 0.65
         Heat: 0.65
+      flatReductions:
+        Blunt: 4
+        Slash: 4
+        Piercing: 6
+        Heat: 6
 
 - type: entity
   parent: MisfitLightArmorElite
@@ -194,6 +261,11 @@
         Slash: 0.8
         Piercing: 0.6
         Heat: 0.8
+      flatReductions:
+        Blunt: 3
+        Slash: 3
+        Piercing: 7
+        Heat: 3
 
 - type: entity
   parent: MisfitLightArmorElite
@@ -206,7 +278,11 @@
         Slash: 0.8
         Piercing: 0.8
         Heat: 0.6
-
+      flatReductions:
+        Blunt: 3
+        Slash: 3
+        Piercing: 3
+        Heat: 7
 
 # Fast
 
