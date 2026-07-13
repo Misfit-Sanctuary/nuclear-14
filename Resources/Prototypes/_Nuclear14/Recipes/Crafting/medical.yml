@@ -58,20 +58,20 @@
     state: stimpak-empty
   objectType: Item
 
-#Misfits Change /Add/: Add a wasteland-style Bitterdrink item recipe using implemented plant ingredients and an empty soda bottle.
-- type: construction
-  name: bitterdrink
-  id: N14Bitterdrink
-  graph: N14Bitterdrink
-  startNode: start
-  targetNode: bitterdrink
-  category: construction-category-medical
-  description: A bottled herbal remedy brewed from broc flower and xander root.
-  hide: false
-  icon:
-    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
-    state: bitterdrink
-  objectType: Item
+#Misfits Change : Bitterdrink removed from being a cheaply made super-effective anti-poison/rad med, now requires basic chemistry mixing to produce.
+#- type: construction
+#  name: bitterdrink
+#  id: N14Bitterdrink
+#  graph: N14Bitterdrink
+#  startNode: start
+#  targetNode: bitterdrink
+#  category: construction-category-medical
+#  description: A bottled herbal remedy brewed from broc flower and xander root.
+#  hide: false
+#  icon:
+#    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+#    state: bitterdrink
+#  objectType: Item
 
 # RadAway Inhaler
 - type: construction

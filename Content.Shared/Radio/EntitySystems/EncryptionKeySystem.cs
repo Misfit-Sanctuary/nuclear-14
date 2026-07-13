@@ -1,9 +1,12 @@
 using System.Linq;
+using Content.Shared._Misfits.Silicon;
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Radio.Components;
 using Content.Shared.Tools.Components;
@@ -151,7 +154,15 @@ public sealed partial class EncryptionKeySystem : EntitySystem
             return;
         }
 
-        if (!_wires.IsPanelOpen(uid))
+        if (HasComp<SiliconInternalRadioComponent>(uid))
+        {
+            if (!CanExtractSiliconKeys(uid))
+            {
+                _popup.PopupClient("Encryption keys can only be removed from this chassis while it is critical or dead.", uid, args.User);
+                return;
+            }
+        }
+        else if (!_wires.IsPanelOpen(uid))
         {
             _popup.PopupClient(Loc.GetString("encryption-keys-panel-locked"), uid, args.User);
             return;
@@ -164,6 +175,14 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         }
 
         _tool.UseTool(args.Used, args.User, uid, 1f, component.KeysExtractionMethod, new EncryptionRemovalFinishedEvent(), toolComponent: tool);
+    }
+
+    private bool CanExtractSiliconKeys(EntityUid uid)
+    {
+        if (!TryComp<MobStateComponent>(uid, out var state))
+            return false;
+
+        return state.CurrentState == MobState.Critical || state.CurrentState == MobState.Dead;
     }
 
     private void OnStartup(EntityUid uid, EncryptionKeyHolderComponent component, ComponentStartup args)

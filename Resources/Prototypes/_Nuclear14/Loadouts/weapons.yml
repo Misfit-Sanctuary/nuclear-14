@@ -2,7 +2,7 @@
 - type: loadout
   id: N14WeaponPistol22lr
   category: Weapons
-  cost: 2
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
@@ -185,7 +185,7 @@
 - type: loadout
   id: N14WeaponRevolver44Magnun
   category: Weapons
-  cost: 3
+  cost: 4
   requirements:
     - !type:OverallTimeRequirement
       min: 6800
@@ -251,7 +251,7 @@
 - type: loadout
   id: N14WeaponShotgunLever
   category: Weapons
-  cost: 7
+  cost: 6
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -271,7 +271,7 @@
 - type: loadout
   id: N14WeaponShotgun
   category: Weapons
-  cost: 8
+  cost: 7
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -293,7 +293,7 @@
 - type: loadout
   id: N14WeaponShotgunRiot
   category: Weapons
-  cost: 16
+  cost: 15
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -301,6 +301,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -314,7 +318,7 @@
 - type: loadout
   id: N14WeaponShotgunAuto
   category: Weapons
-  cost: 18
+  cost: 15
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -322,6 +326,10 @@
       inverted: true
       departments:
       - Vault
+      - NCR
+      - CaesarLegion
+      - BrotherhoodOfSteel
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -336,7 +344,7 @@
 - type: loadout
   id: N14WeaponBlowback
   category: Weapons
-  cost: 22
+  cost: 18
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -344,6 +352,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - CaesarLegion
+      - NCR
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -356,7 +368,7 @@
 - type: loadout
   id: N14WeaponShotgunChinese
   category: Weapons
-  cost: 23
+  cost: 19
   requirements:
     - !type:CharacterTraitRequirement
       traits:
@@ -368,6 +380,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -380,7 +396,7 @@
 - type: loadout
   id: N14WeaponShotgunCanadian
   category: Weapons
-  cost: 24
+  cost: 18
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -388,6 +404,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -404,7 +424,7 @@
 - type: loadout
   id: N14WeaponSMG9mm
   category: Weapons
-  cost: 8
+  cost: 7
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -412,6 +432,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -432,6 +456,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -453,6 +481,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -473,6 +505,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -497,6 +533,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -518,6 +558,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -532,7 +576,7 @@
 - type: loadout
   id: N14WeaponSMG12mm
   category: Weapons
-  cost: 13
+  cost: 12
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -540,6 +584,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -557,13 +605,18 @@
 - type: loadout
   id: N14WeaponRifle556R91
   category: Weapons
-  cost: 13
+  cost: 14
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
     - !type:CharacterDepartmentRequirement
+      inverted: true
       departments:
+      - Vault
+      - BrotherhoodOfSteel
       - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -576,7 +629,7 @@
 - type: loadout
   id: N14WeaponRifle556Service
   category: Weapons
-  cost: 11
+  cost: 9
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -584,6 +637,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -596,7 +653,7 @@
 - type: loadout
   id: N14WeaponRifle556CarbineOld
   category: Weapons
-  cost: 11
+  cost: 9
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -604,6 +661,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -616,7 +677,7 @@
 - type: loadout
   id: N14WeaponRifle762M14
   category: Weapons
-  cost: 12
+  cost: 11
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -624,6 +685,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -636,7 +701,7 @@
 - type: loadout
   id: N14WeaponRifle762SKS
   category: Weapons
-  cost: 11 # this gun is ass
+  cost: 10 # this gun is ass
   requirements:
     - !type:CharacterTraitRequirement
       traits:
@@ -648,6 +713,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -661,15 +730,19 @@
 - type: loadout
   id: N14WeaponRifle762Fal
   category: Weapons
-  cost: 19
+  cost: 15 # its good, but not 19 points good.
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
-    - !type:CharacterDepartmentRequirement 
+    - !type:CharacterDepartmentRequirement
       inverted: true
       departments:
       - Vault
-    - !type:CharacterJobRequirement 
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+    - !type:CharacterJobRequirement
       inverted: true
       jobs:
       - BoSMidSerf
@@ -684,7 +757,7 @@
 - type: loadout
   id: N14WeaponRifle762Canadian
   category: Weapons
-  cost: 25
+  cost: 18 # 18 leaves room for other items.
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -692,6 +765,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -704,7 +781,7 @@
 - type: loadout
   id: N14WeaponRifle762Chinese
   category: Weapons
-  cost: 25
+  cost: 16 # a little cheaper since its kinda shit?
   requirements:
     - !type:CharacterTraitRequirement
       traits:
@@ -716,6 +793,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -728,7 +809,7 @@
 - type: loadout
   id: N14WeaponRifle762Marksman
   category: Weapons
-  cost: 25
+  cost: 18 # accuracy MONSTER this should cost an arm and a leg.
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -736,6 +817,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -749,7 +834,7 @@
 - type: loadout
   id: N14WeaponRifle556Carbine
   category: Weapons
-  cost: 25
+  cost: 16 # kinda mid with the other 7.62 options on the list im ngl.
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -757,6 +842,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -771,7 +860,7 @@
 - type: loadout
   id: N14WeaponRifle556EM2
   category: Weapons
-  cost: 24
+  cost: 12 # this gun is dogshit btw why was it previously 24 points?
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -779,6 +868,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -798,7 +891,7 @@
 - type: loadout
   id: N14WeaponSniper556VarmintRifle
   category: Weapons
-  cost: 7
+  cost: 4 # horrid dogshit
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -806,6 +899,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -818,7 +915,7 @@
 - type: loadout
   id: N14WeaponSniperHunting
   category: Weapons
-  cost: 9
+  cost: 6 # usable.
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -826,6 +923,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -838,7 +939,7 @@
 - type: loadout
   id: N14WeaponSniper44LeverCarbine
   category: Weapons
-  cost: 9
+  cost: 9 # this is an aura monster and absolutely lethal with high luck
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -846,6 +947,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -858,7 +963,7 @@
 - type: loadout
   id: N14WeaponRifle308Battle
   category: Weapons
-  cost: 11
+  cost: 10
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -866,6 +971,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -883,7 +992,7 @@
 - type: loadout
   id: N14WeaponRifle556Pipe
   category: Weapons
-  cost: 7
+  cost: 3 # frankly dogshit.
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -891,6 +1000,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -904,7 +1017,7 @@
 - type: loadout
   id: N14WeaponSMG10mmPipe
   category: Weapons
-  cost: 6
+  cost: 2 # really dogshit.
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -912,6 +1025,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -925,7 +1042,7 @@
 - type: loadout
   id: N14WeaponSMG12mmPipe
   category: Weapons
-  cost: 7
+  cost: 3
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -933,6 +1050,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -952,10 +1073,14 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
-    - !type:CharacterDepartmentRequirement 
+    - !type:CharacterDepartmentRequirement
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
   items:
     - N14WeaponLaserPistol
 
@@ -966,17 +1091,21 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGuns
-    - !type:CharacterDepartmentRequirement 
+    - !type:CharacterDepartmentRequirement
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
   items:
     - N14WeaponLaserRevolver
 
 - type: loadout
   id: N14WeaponLaserRifleMakeshift
   category: Weapons
-  cost: 9
+  cost: 6 # kinda doggy doo doo without good perception.
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutGunsBig
@@ -984,6 +1113,10 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -1311,7 +1444,7 @@
 - type: loadout
   id: LongMagazine556Rifle
   category: Weapons
-  cost: 3
+  cost: 2
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmoBig
@@ -1330,7 +1463,7 @@
 - type: loadout
   id: ClipMagazine308Rifle
   category: Weapons
-  cost: 2
+  cost: 1 # its 8 shots of .308 used in ONE GUN it can be cheap.
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutAmmoBig

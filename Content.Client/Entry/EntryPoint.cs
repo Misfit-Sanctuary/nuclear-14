@@ -2,6 +2,7 @@ using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
 using Content.Client._NC.DiscordAuth;
+using Content.Client._Misfits.DiscordLink; // #Misfits Add - player Discord account linking
 using Content.Client.JoinQueue;
 using Content.Client.DebugMon;
 using Content.Client.Eui;
@@ -75,6 +76,7 @@ namespace Content.Client.Entry
         [Dependency] private readonly ILogManager _logManager = default!;
         [Dependency] private readonly JoinQueueManager _joinQueue = default!;
         [Dependency] private readonly DiscordAuthManager _discordAuth = default!;
+        [Dependency] private readonly MisfitsDiscordLinkManager _misfitsDiscordLink = default!;
         [Dependency] private readonly ContentReplayPlaybackManager _replayMan = default!;
         [Dependency] private readonly DebugMonitorManager _debugMonitorManager = default!;
         [Dependency] private readonly SponsorManager _sponsorMan = default!; // Forge-Change
@@ -172,6 +174,7 @@ namespace Content.Client.Entry
             _documentParsingManager.Initialize();
             _joinQueue.Initialize();
             _discordAuth.Initialize();
+            _misfitsDiscordLink.Initialize(); // #Misfits Add
 
             _baseClient.RunLevelChanged += (_, args) =>
             {

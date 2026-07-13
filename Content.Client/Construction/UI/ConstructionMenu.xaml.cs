@@ -29,6 +29,7 @@ namespace Content.Client.Construction.UI
 
         ItemList Recipes { get; }
         ItemList RecipeStepList { get; }
+        ItemList LeftoverMaterialsList { get; }
 
         // #Misfits Add: Craftable Now panel
         ItemList CraftableRecipes { get; }

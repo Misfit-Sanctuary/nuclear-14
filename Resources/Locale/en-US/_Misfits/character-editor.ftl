@@ -36,10 +36,15 @@ action-name-combat-mode-toggle = [color=red]Combat Mode[/color]
 action-desc-combat-mode-toggle = Enter combat mode
 
 # Robot model selector labels for species-backed Protectron variants.
+humanoid-profile-editor-robot-model-mr-handy-standard = Standard
+humanoid-profile-editor-robot-model-mr-handy-zax = Z.A.X
 humanoid-profile-editor-robot-model-protectron-standard = Standard
 humanoid-profile-editor-robot-model-protectron-police = Police
 humanoid-profile-editor-robot-model-protectron-builder = Builder
 humanoid-profile-editor-robot-model-protectron-fire = Firefighter
+humanoid-profile-editor-robot-model-protectron-police-zax = Z.A.X Police
+humanoid-profile-editor-robot-model-protectron-builder-zax = Z.A.X Builder
+humanoid-profile-editor-robot-model-protectron-fire-zax = Z.A.X Firefighter
 humanoid-profile-editor-robot-model-protectron-tribal = Tribal Spirit-Tender
 humanoid-profile-editor-robot-model-securitron-gray = Gray
 humanoid-profile-editor-robot-model-securitron-blue = Blue
@@ -47,17 +52,27 @@ humanoid-profile-editor-robot-model-securitron-brown = Brown
 humanoid-profile-editor-robot-model-securitron-red = Red
 humanoid-profile-editor-robot-model-securitron-yellow = Yellow
 
+# Robot model selector labels for Mr. Gutsy variants.
+humanoid-profile-editor-robot-model-mr-gutsy-standard = Standard
+humanoid-profile-editor-robot-model-mr-gutsy-zax = Z.A.X
+
 # Robot model selector labels for Assaultron variants.
 humanoid-profile-editor-robot-model-assaultron-beam = Beam
 humanoid-profile-editor-robot-model-assaultron-tesla = Tesla
+humanoid-profile-editor-robot-model-assaultron-zax = Z.A.X
+humanoid-profile-editor-robot-model-assaultron-tesla-zax = Z.A.X Tesla
 
 # Robot model selector labels for Sentry Bot variants.
 humanoid-profile-editor-robot-model-sentrybot-minigun = Minigun
 humanoid-profile-editor-robot-model-sentrybot-laser = Laser Gatling
+humanoid-profile-editor-robot-model-sentrybot-zax = Z.A.X Minigun
+humanoid-profile-editor-robot-model-sentrybot-laser-zax = Z.A.X Laser Gatling
 
 # Robot model selector labels for Robobrain variants.
 humanoid-profile-editor-robot-model-robobrain-standard = Standard
 humanoid-profile-editor-robot-model-robobrain-laser = Laser
+humanoid-profile-editor-robot-model-robobrain-zax = Z.A.X
+humanoid-profile-editor-robot-model-robobrain-laser-zax = Z.A.X Laser
 
 # Robot model selector labels for C-27 Humanoid Robot variants.
 humanoid-profile-editor-robot-model-c27-generic = Generic Chassis

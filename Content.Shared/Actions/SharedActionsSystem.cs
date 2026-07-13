@@ -686,11 +686,17 @@ public abstract class SharedActionsSystem : EntitySystem
             }
         }
 
+        var eventCooldown = action.Cooldown;
         action.Cooldown = null;
         if (action is { UseDelay: not null, Charges: null or < 1 })
         {
             dirty = true;
             action.Cooldown = (curTime, curTime + action.UseDelay.Value);
+        }
+        else if (eventCooldown is { } cooldown && cooldown.End > curTime)
+        {
+            dirty = true;
+            action.Cooldown = cooldown;
         }
 
         if (dirty)

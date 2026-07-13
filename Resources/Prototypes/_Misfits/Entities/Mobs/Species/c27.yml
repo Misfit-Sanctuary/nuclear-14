@@ -21,6 +21,16 @@
   - type: Inventory
     templateId: c27
     speciesId: c27
+  - type: SiliconInternalRadio
+  - type: EncryptionKeyHolder
+    keySlots: 4
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+  - type: ActiveRadio
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyWastelandGlobal
   - type: Body
     prototype: C27
     requiredLegs: 2
@@ -242,6 +252,11 @@
   components:
   - type: HumanoidAppearance
     species: C27NCR
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyNCR
 
 - type: entity
   save: true
@@ -253,6 +268,11 @@
   components:
   - type: HumanoidAppearance
     species: C27BoS
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyBrotherhoodOfSteel
 
 - type: entity
   save: true
@@ -261,23 +281,39 @@
   parent: N14BaseMobC27
   description: A C-27 humanoid robot rebuilt as a Z.A.X-linked rapid-response chassis.
   components:
+  - type: ZaxLinkedUnit
   - type: HumanoidAppearance
     species: C27ZAX
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - ZAXBinary
-  - type: ActiveRadio
-    channels:
-    - ZAXBinary
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyZAX
+  - type: LanguageKnowledge
+    speaks:
+    - English
+    - N14Robot
+    - N14BrotherBeep
+    - Latin
+    - Chinese
+    - Tribal
+    - Sign
+    understands:
+    - English
+    - N14Robot
+    - N14BrotherBeep
+    - Latin
+    - Chinese
+    - Tribal
+    - Sign
   - type: Damageable
-    damageContainer: Silicon
+    damageContainer: MisfitsC27ZAXNoExternalRepair
     damageModifierSet: MisfitsC27ZAXSilicon
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Critical
-      300: Dead
+      175: Critical
+      350: Dead
     allowRevives: true
   - type: MovementSpeedModifier
     baseWalkSpeed: 5.0
@@ -286,16 +322,34 @@
     empShockDamage: 200
     empDamagePerKiloJoule: 0
     siliconRepairDelayMultiplier: 2
+  - type: ActionGrant
+    actions:
+    - ActionZaxC27RepairMode
+  - type: ZaxC27RepairMode
+    normalRepair:
+      groups:
+        Brute: -1
+      types:
+        Heat: -1
+        Caustic: -1
+        Shock: -1
+    activeRepair:
+      groups:
+        Brute: -6
+      types:
+        Heat: -6
+        Caustic: -6
+        Shock: -6
   - type: PassiveDamage
     allowedStates:
     - Alive
     - Critical
     damage:
       groups:
-        Brute: -5
+        Brute: -1
       types:
-        Heat: -5
-        Caustic: -5
+        Heat: -1
+        Caustic: -1
         Shock: -1
 
 # #Misfits Add - Dummies for the character editor preview. Same sprite layout as the base

@@ -53,6 +53,9 @@
 - type: Tag
   id: IdCardVault
 
+- type: Tag
+  id: MisfitsPipBoy
+
 # Medical Items
 - type: Tag
   id: N14DirtyGauze
@@ -285,7 +288,7 @@
   id: N14CartridgeOver308Rifle
 
 - type: Tag
-  id: N14MagazineOver308RifleSnipers
+  id: N14Cartridge2mmEC
 
 #MARK: Ammo tags(Magazines).
 - type: Tag
@@ -332,6 +335,15 @@
 
 - type: Tag
   id: N14LMGMagazine556Rifle
+
+- type: Tag
+  id: N14MagazineOver308RifleSnipers
+
+- type: Tag
+  id: N14Magazine2mmECRifle
+
+- type: Tag
+  id: N14Magazine2mmECPistol
 
 # Forge-Add-Start
 - type: Tag

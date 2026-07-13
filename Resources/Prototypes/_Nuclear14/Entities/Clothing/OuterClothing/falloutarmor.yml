@@ -1289,13 +1289,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.60
-        Heat: 0.65
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.55
+        Heat: 0.55
     priceMultiplier: 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.75
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -1354,11 +1354,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.825
-        Slash: 0.825
-        Piercing: 0.775
-        Heat: 0.775
-        Caustic: 0.95
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.75
+        Heat: 0.75
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.1
@@ -1380,9 +1379,8 @@
       coefficients:
         Blunt: 0.8
         Slash: 0.8
-        Piercing: 0.725
-        Heat: 0.725
-        Caustic: 0.95
+        Piercing: 0.75
+        Heat: 0.75
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.1
@@ -1406,7 +1404,6 @@
         Slash: 0.75
         Piercing: 0.7
         Heat: 0.7
-        Caustic: 0.9
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.2
@@ -1426,11 +1423,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.725
-        Slash: 0.725
-        Piercing: 0.675
-        Heat: 0.675
-        Caustic: 0.9
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.65
+        Heat: 0.65
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.2
@@ -1535,11 +1531,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.825
-        Slash: 0.825
-        Piercing: 0.775
-        Heat: 0.775
-        Caustic: 0.95
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.75
+        Heat: 0.75
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.1
@@ -1559,11 +1554,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.725
-        Heat: 0.725
-        Caustic: 0.95
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.75
+        Heat: 0.75
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.1
@@ -1587,7 +1581,6 @@
         Slash: 0.75
         Piercing: 0.7
         Heat: 0.7
-        Caustic: 0.9
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.2
@@ -1607,11 +1600,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.725
-        Slash: 0.725
-        Piercing: 0.675
-        Heat: 0.675
-        Caustic: 0.9
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.65
+        Heat: 0.65
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.2
@@ -1635,7 +1627,6 @@
         Slash: 0.7
         Piercing: 0.65
         Heat: 0.65
-        Caustic: 0.85
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.2

@@ -1,7 +1,7 @@
 - type: loadout
   id: N14LoadoutOuterGhostSheet
   category: Outer
-  cost: 2
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -17,7 +17,7 @@
 - type: loadout
   id: N14LoadoutOuterJacketLettermanRed
   category: Outer
-  cost: 2
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -33,7 +33,7 @@
 - type: loadout
   id: N14LoadoutOuterJacketLettermanBrown
   category: Outer
-  cost: 2
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -66,7 +66,7 @@
 - type: loadout
   id: N14ClothingOuterFlannelRed
   category: Outer
-  cost: 2
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -82,7 +82,7 @@
 - type: loadout
   id: N14ClothingOuterFlannelAqua
   category: Outer
-  cost: 2
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -98,7 +98,7 @@
 - type: loadout
   id: N14ClothingOuterFlannelBrown
   category: Outer
-  cost: 2
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -130,7 +130,7 @@
 - type: loadout
   id: N14LoadoutOuterCoatWinterArmored
   category: Outer
-  cost: 3
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -138,6 +138,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement # Forge-Change
       inverted: true
       jobs:
@@ -150,7 +157,7 @@
 - type: loadout
   id: N14LoadoutOuterCoatBattlecoat
   category: Outer
-  cost: 3
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -171,7 +178,7 @@
 - type: loadout
   id: N14LoadoutOuterCoatBattlecoatTan
   category: Outer
-  cost: 3
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -211,7 +218,7 @@
 - type: loadout
   id: N14LoadoutOuterCoatLeatherDuster
   category: Outer
-  cost: 3
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -251,7 +258,7 @@
 - type: loadout
   id: N14LoadoutOuterCoatLeatherCoat
   category: Outer
-  cost: 3
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -285,7 +292,7 @@
 - type: loadout
   id: N14ClothingOuterTownMediumCoat
   category: Outer
-  cost: 3
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -293,6 +300,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement # Forge-Change
       inverted: true
       jobs:
@@ -306,7 +320,7 @@
 - type: loadout
   id: N14LoadoutOuterLeatherArmor
   category: Outer
-  cost: 3
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -314,6 +328,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement # Forge-Change
       inverted: true
       jobs:
@@ -326,7 +347,7 @@
 - type: loadout
   id: N14LoadoutOuterMetalArmor
   category: Outer
-  cost: 5
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -334,6 +355,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement # Forge-Change
       inverted: true
       jobs:
@@ -346,7 +374,7 @@
 - type: loadout
   id: N14LoadoutOuterTribalArmor
   category: Outer
-  cost: 4
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -354,6 +382,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement # Misfits Change
       jobs:
       - Tribal
@@ -367,7 +402,7 @@
 - type: loadout
   id: N14LoadoutOuterRaiderBadlands
   category: Outer
-  cost: 3
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -375,6 +410,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement # Forge-Change
       inverted: true
       jobs:
@@ -387,7 +429,7 @@
 - type: loadout
   id: N14LoadoutOuterRaiderBlastmaster
   category: Outer
-  cost: 3
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -395,6 +437,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement # Forge-Change
       inverted: true
       jobs:
@@ -407,7 +456,7 @@
 - type: loadout
   id: N14LoadoutOuterHarperCoat
   category: Outer
-  cost: 2
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -415,6 +464,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement # Forge-Change
       inverted: true
       jobs:
@@ -428,7 +484,7 @@
 - type: loadout
   id: N14LoadoutOuterScavengerHeavyArmor
   category: Outer
-  cost: 4
+  cost: 3
   requirements:
     - !type:CharacterPlaytimeRequirement
       tracker: Wastelander
@@ -439,6 +495,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement # Forge-Change
       inverted: true
       jobs:
@@ -458,7 +521,7 @@
 - type: loadout
   id: N14LoadoutOuterZealotDuster
   category: Outer
-  cost: 5
+  cost: 3
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -466,6 +529,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -478,7 +548,7 @@
 - type: loadout
   id: N14LoadoutOuterCoatCombatDuster
   category: Outer
-  cost: 6
+  cost: 3
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -486,6 +556,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -499,7 +576,7 @@
 - type: loadout
   id: N14LoadoutOuterCoatFollowersArmoredCheap
   category: Outer
-  cost: 4
+  cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -520,7 +597,7 @@
 - type: loadout
   id: N14LoadoutOuterCoatFollowersArmored
   category: Outer
-  cost: 7
+  cost: 4
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -528,6 +605,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -538,9 +622,9 @@
     - N14ClothingOuterCoatFollowersArmored
 
 - type: loadout
-  id: N14LoadoutOuterCombatArmorRaider 
+  id: N14LoadoutOuterCombatArmorRaider
   category: Outer
-  cost: 5 # Why cheap, it sucks its a 20% armor despite the name
+  cost: 3 # Why cheap, it sucks its a 20% armor despite the name
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -548,6 +632,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -560,7 +651,7 @@
 - type: loadout
   id: N14LoadoutOuterPoliceCombat
   category: Outer
-  cost: 6
+  cost: 4
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -568,6 +659,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -581,7 +679,7 @@
 - type: loadout
   id: N14LoadoutOuterPressArmor
   category: Outer
-  cost: 6
+  cost: 4
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -589,6 +687,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -601,7 +706,7 @@
 - type: loadout
   id: N14LoadoutOuterCombatArmor
   category: Outer
-  cost: 12
+  cost: 6
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -609,6 +714,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -621,7 +733,7 @@
 - type: loadout
   id: N14LoadoutOuterCombatArmorPainspike
   category: Outer
-  cost: 12
+  cost: 6
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -629,6 +741,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -642,7 +761,7 @@
 - type: loadout
   id: N14LoadoutOuterRaiderCombat1
   category: Outer
-  cost: 12
+  cost: 6
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -650,6 +769,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -663,7 +789,7 @@
 - type: loadout
   id: N14ClothingOuterCombatArmorChinese
   category: Outer
-  cost: 12
+  cost: 6
   requirements:
     - !type:CharacterTraitRequirement
       traits:
@@ -675,6 +801,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -687,7 +820,7 @@
 - type: loadout
   id: N14LoadoutOuterVestChinese
   category: Outer
-  cost: 11
+  cost: 5 # a little cheaper since its kinda dog-ass.
   requirements:
     - !type:CharacterTraitRequirement
       traits:
@@ -699,6 +832,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement
       inverted: true
       jobs:
@@ -727,6 +867,13 @@
       inverted: true
       departments:
       - Vault
+      - BrotherhoodOfSteel
+      - NCR
+      - CaesarLegion
+      - Rangers
+      - Eighties
+      - MilitaryPolice
+      - Tribe
     - !type:CharacterJobRequirement
       inverted: true
       jobs:

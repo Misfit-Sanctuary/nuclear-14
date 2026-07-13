@@ -42,22 +42,9 @@
     department: FollowersOfTheApocalypse
     min: 54000 # 15 hours in faction
   - !type:CharacterSpeciesRequirement
-    inverted: true
     species:
-    - RobotMrHandy
-    - RobotMrGutsy
-    - RobotProtectron
-    - RobotProtectronPolice
-    - RobotProtectronBuilder
-    - RobotProtectronFire
-    - RobotAssaultron
-    - RobotAssaultronTesla
-    - RobotSentryBot
-    - RobotSentryBotLaser
-    - RobotRobobrain
-    - RobotRobobrainLaser
-    - SuperMutant
-    - Nightkin
+    - Human
+    - Ghoul
   special:
   - !type:AddComponentSpecial
     components:
@@ -118,22 +105,9 @@
     department: FollowersOfTheApocalypse
     min: 10800 # 3 hours in faction
   - !type:CharacterSpeciesRequirement
-    inverted: true
     species:
-    - RobotMrHandy
-    - RobotMrGutsy
-    - RobotProtectron
-    - RobotProtectronPolice
-    - RobotProtectronBuilder
-    - RobotProtectronFire
-    - RobotAssaultron
-    - RobotAssaultronTesla
-    - RobotSentryBot
-    - RobotSentryBotLaser
-    - RobotRobobrain
-    - RobotRobobrainLaser
-    - SuperMutant
-    - Nightkin
+    - Human
+    - Ghoul
   special:
   - !type:AddComponentSpecial
     components:
@@ -193,22 +167,9 @@
     department: FollowersOfTheApocalypse
     min: 10800 # 3 hours in faction
   - !type:CharacterSpeciesRequirement
-    inverted: true
     species:
-    - RobotMrHandy
-    - RobotMrGutsy
-    - RobotProtectron
-    - RobotProtectronPolice
-    - RobotProtectronBuilder
-    - RobotProtectronFire
-    - RobotAssaultron
-    - RobotAssaultronTesla
-    - RobotSentryBot
-    - RobotSentryBotLaser
-    - RobotRobobrain
-    - RobotRobobrainLaser
-    - SuperMutant
-    - Nightkin
+    - Human
+    - Ghoul
   special:
   - !type:AddComponentSpecial
     components:
@@ -269,22 +230,9 @@
     tracker: Wastelander
     min: 18000 # 5 hours as a Wastelander
   - !type:CharacterSpeciesRequirement
-    inverted: true
     species:
-    - RobotMrHandy
-    - RobotMrGutsy
-    - RobotProtectron
-    - RobotProtectronPolice
-    - RobotProtectronBuilder
-    - RobotProtectronFire
-    - RobotAssaultron
-    - RobotAssaultronTesla
-    - RobotSentryBot
-    - RobotSentryBotLaser
-    - RobotRobobrain
-    - RobotRobobrainLaser
-    - SuperMutant
-    - Nightkin
+    - Human
+    - Ghoul
   special:
   - !type:AddComponentSpecial
     components:
@@ -301,6 +249,7 @@
   id: FollowerVolunteerGear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitFollowers
+    back: ClothingBackpackSatchelMedical
     shoes: N14ClothingBootsLeather
     neck: ClothingNeckStethoscope
     id: N14IDFollowerVolunteer

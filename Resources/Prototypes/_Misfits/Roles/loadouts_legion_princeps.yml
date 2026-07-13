@@ -1,7 +1,7 @@
 - type: loadout
-  id: LoadoutLegionPrinceps
+  id: LoadoutLegionPrincipes
   category: Roles
-  cost: 1
+  cost: 16
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
@@ -12,6 +12,3 @@
       min: 90000 # 25 hours
   items:
     - MisfitsLegionPrincepsArmor
-    - MisfitsLegionPrincepsHelmet
-    - MisfitsLegionPrincepsGloves
-    - MisfitsLegionPrincepsBoots

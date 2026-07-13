@@ -16,7 +16,6 @@
   damage:
     types:
       Heat: 20
-      Pierce: 5
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_laser
@@ -33,8 +32,7 @@
   id: N14MFLaserAmber
   damage:
     types:
-      Heat: 23
-      Pierce: 7
+      Heat: 25
   tintColor: "#FF8C00"
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
@@ -50,8 +48,7 @@
   id: N14MFLaserGreen
   damage:
     types:
-      Heat: 25
-      Pierce: 10
+      Heat: 35
   muzzleFlash:
     sprite: _Misfits/Objects/Weapons/Guns/Projectiles/green_laser.rsi
     state: muzzle_green_laser
@@ -66,8 +63,7 @@
   id: N14MFLaserBlue
   damage:
     types:
-      Heat: 30
-      Pierce: 10
+      Heat: 40
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_blue
@@ -125,8 +121,8 @@
   id: N14PulseRed
   damage:
     types:
-      Heat: 14
-      Shock: 6
+      Heat: 15
+      Shock: 5
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_laser
@@ -210,7 +206,7 @@
   id: N14AssaultronHeadLaser
   damage:
     types:
-      Heat: 30
+      Heat: 75
       Structural: 10
   tintColor: "#FF6A00"
   beamWidth: 3

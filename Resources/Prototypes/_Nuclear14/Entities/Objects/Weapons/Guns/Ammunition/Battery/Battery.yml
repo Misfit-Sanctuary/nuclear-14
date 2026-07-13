@@ -173,7 +173,7 @@
     startingCharge: 1200
   - type: HitscanBatteryAmmoProvider
     proto: N14PulseRed
-    fireCost: 50
+    fireCost: 37.5
 
 # Backward-compatible aliases for colored ECPs.
 - type: entity

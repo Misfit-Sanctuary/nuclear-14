@@ -159,16 +159,27 @@ public sealed class MobRobotAggroSystem : EntitySystem
     private static bool IsRobotSpecies(HumanoidAppearanceComponent humanoid)
     {
         return humanoid.Species == "RobotMrHandy"
+            || humanoid.Species == "RobotMrHandyZAX"
             || humanoid.Species == "RobotProtectron"
             || humanoid.Species == "RobotProtectronPolice"
             || humanoid.Species == "RobotProtectronBuilder"
             || humanoid.Species == "RobotProtectronFire"
+            || humanoid.Species == "RobotProtectronPoliceZAX"
+            || humanoid.Species == "RobotProtectronBuilderZAX"
+            || humanoid.Species == "RobotProtectronFireZAX"
             || humanoid.Species == "RobotMrGutsy"
+            || humanoid.Species == "RobotMrGutsyZAX"
             || humanoid.Species == "RobotAssaultron"
             || humanoid.Species == "RobotAssaultronTesla"
+            || humanoid.Species == "RobotAssaultronZAX"
+            || humanoid.Species == "RobotAssaultronTeslaZAX"
             || humanoid.Species == "RobotSentryBot"
             || humanoid.Species == "RobotSentryBotLaser"
+            || humanoid.Species == "RobotSentryBotZAX"
+            || humanoid.Species == "RobotSentryBotLaserZAX"
             || humanoid.Species == "RobotRobobrain"
-            || humanoid.Species == "RobotRobobrainLaser";
+            || humanoid.Species == "RobotRobobrainLaser"
+            || humanoid.Species == "RobotRobobrainZAX"
+            || humanoid.Species == "RobotRobobrainLaserZAX";
     }
 }

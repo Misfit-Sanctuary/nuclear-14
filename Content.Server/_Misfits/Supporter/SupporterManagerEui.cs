@@ -25,6 +25,12 @@ public sealed class SupporterManagerEui : BaseEui
         IoCManager.InjectDependencies(this);
     }
 
+    public override async void Opened()
+    {
+        await _supporters.WaitLoadedAsync();
+        StateDirty();
+    }
+
     public override EuiStateBase GetNewState()
     {
         var state = new SupporterManagerState(_supporters.GetAll().ToList(), _pendingStatus);

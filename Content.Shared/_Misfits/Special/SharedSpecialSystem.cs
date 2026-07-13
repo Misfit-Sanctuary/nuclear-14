@@ -198,6 +198,16 @@ public sealed class SharedSpecialSystem : EntitySystem
         return (int) Math.Round(GetCurvedEffectDelta(charisma) * 2f, MidpointRounding.AwayFromZero);
     }
 
+    public float GetStrengthThrowSpeedMultiplier(EntityUid uid, SpecialComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false))
+            return 1f;
+
+        var tuning = GetTuning();
+        var modifier = GetCurvedEffectModifier(uid, SpecialStat.Strength, tuning.StrengthThrowSpeedMultiplierPerPoint, component);
+        return MathF.Max(0.1f, 1f + modifier);
+    }
+
     /// <summary>
     /// Returns the Intelligence speed multiplier used by medical actions with do-after timers.
     /// </summary>
@@ -220,6 +230,19 @@ public sealed class SharedSpecialSystem : EntitySystem
     public TimeSpan GetIntelligenceMedicalActionDelay(EntityUid uid, TimeSpan baseDelay, SpecialComponent? component = null)
     {
         return baseDelay / GetIntelligenceMedicalActionSpeed(uid, component);
+    }
+
+    public float GetIntelligenceTopicalHealingMultiplier(EntityUid uid, SpecialComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false))
+            return 1f;
+
+        return GetIntelligenceTopicalHealingMultiplier(GetEffective(uid, SpecialStat.Intelligence, component));
+    }
+
+    public static float GetIntelligenceTopicalHealingMultiplier(int intelligence)
+    {
+        return Math.Clamp(1f + (intelligence - SpecialProfile.DefaultValue) * 0.1f, 1f, 1.3f);
     }
 
     /// <summary>

@@ -152,3 +152,29 @@
   - type: Stack
     stackType: N14Ointment10
     count: 1
+
+- type: entity
+  name: Malnutrition topical
+  id: StarveThirstTopical
+  description: For healing extreme cases of starvation/thirst.
+  parent: N14BaseHealingItem
+  suffix: Admin
+  components:
+  - type: Tag
+    tags:
+    - Ointment
+  - type: Sprite
+    scale: 0.66, 0.66
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
+    state: tube1
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      types:
+        Dehydration: -100
+        Starvation: -100
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"

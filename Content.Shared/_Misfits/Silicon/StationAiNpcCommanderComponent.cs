@@ -19,5 +19,6 @@ public sealed partial class StationAiNpcCommanderComponent : Component
     public List<NetCoordinates> MoveTargetPreviews = new();
 
     [DataField]
-    public int MaxSelected = 12;
+    // [Changed by MisfitsCrew/Operator] Limit both core and shunted commanders to two simultaneously controlled NPCs.
+    public int MaxSelected = 2;
 }

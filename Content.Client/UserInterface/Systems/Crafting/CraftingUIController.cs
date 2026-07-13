@@ -4,6 +4,7 @@ using Content.Client.UserInterface.Controls;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Client.UserInterface.Systems.Crafting;
@@ -13,6 +14,12 @@ public sealed class CraftingUIController : UIController, IOnStateChanged<Gamepla
 {
     private ConstructionMenuPresenter? _presenter;
     private MenuButton? CraftingButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.CraftingButton;
+
+    public override void FrameUpdate(FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+        _presenter?.UpdateLeftoverMaterials();
+    }
 
     public void OnStateEntered(GameplayState state)
     {

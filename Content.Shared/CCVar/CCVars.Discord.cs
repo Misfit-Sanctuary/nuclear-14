@@ -70,6 +70,21 @@ public sealed partial class CCVars
     public static readonly CVarDef<string> DiscordAuthApiKey =
         CVarDef.Create("discord.auth_api_key", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
+    // #Misfits Add - Player-initiated Discord linking for existing accounts.
+    public static readonly CVarDef<string> MisfitsDiscordLinkApiUrl =
+        CVarDef.Create("misfits.discord_link_api_url", "https://oauth.misfitsystems.net", CVar.SERVERONLY);
+
+    public static readonly CVarDef<string> MisfitsDiscordLinkApiKey =
+        CVarDef.Create("misfits.discord_link_api_key", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
+
+    /// <summary>
+    /// JSON array mapping Discord role IDs to automatic Misfits supporter title/color data.
+    /// Highest priority matching role wins.
+    /// Example: [{"role":"123","title":"Supporter","color":"#FFD700","priority":10}]
+    /// </summary>
+    public static readonly CVarDef<string> MisfitsSupporterDiscordRoleMappings =
+        CVarDef.Create("misfits.supporter.discord_role_mappings", "[]", CVar.SERVERONLY);
+
     // #Misfits Change - Discord MHelp webhook CVars
 
     /// <summary>

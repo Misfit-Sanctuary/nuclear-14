@@ -1,0 +1,20 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+            Title="Vault-Tec Security Terminal"
+            MinSize="640 560">
+    <PanelContainer Name="ScreenPanel">
+        <BoxContainer Orientation="Vertical" SeparationOverride="4" Margin="8 8 8 8">
+            <RichTextLabel Name="FlavorLabel" />
+            <Label Name="StatusLabel" />
+            <Control MinSize="0 6" />
+            <BoxContainer Orientation="Horizontal" SeparationOverride="24">
+                <BoxContainer Name="ColumnAContainer" Orientation="Vertical" HorizontalExpand="True" />
+                <BoxContainer Name="ColumnBContainer" Orientation="Vertical" HorizontalExpand="True" />
+            </BoxContainer>
+            <Control MinSize="0 8" />
+            <Label Text="TERMINAL LOG:" />
+            <ScrollContainer VerticalExpand="True" MinSize="0 140">
+                <RichTextLabel Name="HistoryLabel" />
+            </ScrollContainer>
+        </BoxContainer>
+    </PanelContainer>
+</DefaultWindow>

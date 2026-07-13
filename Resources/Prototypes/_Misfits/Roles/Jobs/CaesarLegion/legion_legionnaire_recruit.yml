@@ -8,9 +8,6 @@
   description: job-description-caesar-legionnaire-recruit
   playTimeTracker: CaesarLegionLegionnaireRecruit
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: CaesarLegion
-      min: 7200 # 2 hours
     - !type:CharacterSpeciesRequirement
       species:
       - Human

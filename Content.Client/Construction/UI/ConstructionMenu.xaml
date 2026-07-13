@@ -31,6 +31,8 @@
                 </BoxContainer>
             </Control>
             <ItemList Name="RecipeStepList" Access="Public" VerticalExpand="True"/>
+            <Label Text="{Loc 'hand-craft-intell-leftover-materials-title'}" HorizontalAlignment="Center" Margin="0 4 0 2"/>
+            <ItemList Name="LeftoverMaterialsList" Access="Public" MinSize="0 70"/>
             <BoxContainer Orientation="Vertical">
                 <Button Name="BuildButton" Disabled="True" ToggleMode="True" VerticalExpand="True" SizeFlagsStretchRatio="0.5"/>
                 <BoxContainer Orientation="Horizontal" VerticalExpand="True" SizeFlagsStretchRatio="0.5">

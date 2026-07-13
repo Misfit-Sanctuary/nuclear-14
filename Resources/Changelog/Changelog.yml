@@ -8408,3 +8408,526 @@ Entries:
   id: 6178
   time: '2026-07-01T22:03:32.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/949
+- author: Bradysgaming
+  changes:
+    - type: Remove
+      message: Removed Deogratory spray decal
+  id: 6179
+  time: '2026-07-03T00:28:43.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/955
+- author: Jerryaqua
+  changes:
+    - type: Remove
+      message: The AER-9A is dead, Long live the AER-9A
+    - type: Tweak
+      message: >-
+        The RCW has been reworked to fill a similar role, as well as electron
+        charge pack size buff. 
+    - type: Tweak
+      message: The AER-9 is no longer useless
+    - type: Tweak
+      message: The AER-12 now is viable T4
+    - type: Tweak
+      message: 'The AER-14 has lost DPS for potential damage '
+  id: 6180
+  time: '2026-07-03T03:54:05.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/943
+- author: cythisisax
+  changes:
+    - type: Fix
+      message: Principes and MSL use proper sprites.
+  id: 6181
+  time: '2026-07-03T04:13:34.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/952
+- author: RedBookcase
+  changes:
+    - type: Add
+      message: >-
+        Brahmin Milk is now an inefficient anti-radiation medicine. Brahmin now
+        produce milk a bit more efficiently as well.
+    - type: Tweak
+      message: >-
+        Bitterdrink was easily mass produced with the same ingredients required
+        to make Stimpaks/Healing Powder and it was the most effective treatment
+        for poison/rads in the game. It can no longer be hand crafted and
+        instead requires you to boil a mixture of Brahmin Milk, Datura Extract,
+        and Pinyon Extract to be produced. It remains reasonably effective at
+        treating radiation and poison damage but does not excel at either
+        compared to Radaway/Antidote. It also makes you cough when you drink it
+        because that shit canonically tastes like ass.
+    - type: Tweak
+      message: >-
+        Basic Antidote no longer cures both radiation and poison damage, just
+        poison. Refined antidote treats poison more effectively and does a tiny
+        bit of radiation treatment as well. Swapped the recipes around - basic
+        antidote is made with scorpion tail and tarberries, while refined
+        antidote requires ethanol.
+    - type: Tweak
+      message: >-
+        Radaway and Diluted Radaway had their radiation treatment toned down
+        significantly. A full bag of Radaway was previously capable of treating
+        500 Rad damage - now it treats 200.
+    - type: Tweak
+      message: >-
+        People were previously using a mixture of Stimpak and Dirty Stimpak to
+        replicate the types of healing only achievable with Super Stimpaks.
+        Added a new reaction that causes Dirty Stimpak to contaminate regular
+        Stimpak fluid.
+    - type: Add
+      message: >-
+        Cleansing Powder was previously a 25u pill of pure Radaway, meaning it
+        was extremely efficient and completely negated any need for Radaway.
+        It's been made it's own reagent now which is far less effective at
+        treating Radiation poisoning and it'll make you drowsy. But it's better
+        than the alternative.
+    - type: Add
+      message: >-
+        Added a reaction for producing smelling salts with Ammonia and Table
+        Salt to allow low-tech groups to produce smelling salts.
+    - type: Add
+      message: >-
+        CHEMS! Added new recipes for making Buffout, Cateye, Fixer and Med-x.
+        Various minor chem tweaks, such as making Psycho cause random screaming
+        and giving Buffjet more of a purpose.
+    - type: Add
+      message: >-
+        Added an admin-only spawnable topical to treat extreme cases of
+        Malnutrition at lucky's request.
+    - type: Tweak
+      message: Various minor bugfixes/qol changes.
+  id: 6182
+  time: '2026-07-03T18:03:26.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/942
+- author: Vixting
+  changes:
+    - type: Add
+      message: adds promethine syringe for mapping
+  id: 6183
+  time: '2026-07-03T18:04:07.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/957
+- author: Jerryaqua
+  changes:
+    - type: Tweak
+      message: 'made 12.7 a unique and viable SMG round! '
+  id: 6184
+  time: '2026-07-04T05:15:15.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/958
+- author: Jerryaqua
+  changes:
+    - type: Tweak
+      message: NCRR/NCRA blueprints
+    - type: Tweak
+      message: 'Elite ranger helmets '
+  id: 6185
+  time: '2026-07-04T05:20:51.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/917
+- author: Bradysgaming
+  changes:
+    - type: Remove
+      message: Removed Space cleaner recipe.
+  id: 6186
+  time: '2026-07-04T05:39:32.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/959
+- author: Bradysgaming
+  changes:
+    - type: Remove
+      message: Removed Legionare and Aux timelock
+    - type: Tweak
+      message: Removed C-27 heavy armor caustic reduction
+  id: 6187
+  time: '2026-07-04T22:32:21.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/965
+- author: Bradysgaming
+  changes:
+    - type: Tweak
+      message: >-
+        Gave 80's Keys to the bikes back (you will violently loose your limbs
+        when it explodes so be carefull.)
+    - type: Tweak
+      message: bitterdrink actually needs glowpeppers not datura extract
+  id: 6188
+  time: '2026-07-05T18:14:52.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/966
+- author: Vixting
+  changes:
+    - type: Add
+      message: >-
+        int hand craft can use decimals now, leftover materials will be used for
+        future crafts where possible
+  id: 6189
+  time: '2026-07-05T18:22:09.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/960
+- author: Bradysgaming
+  changes:
+    - type: Fix
+      message: Fixed C-27's being able to play FOTA ( you get THREE roles thats it.)
+  id: 6190
+  time: '2026-07-06T02:27:47.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/973
+- author: Vixting
+  changes:
+    - type: Fix
+      message: Fixed mail units
+    - type: Add
+      message: Added vault mail
+    - type: Add
+      message: Added mail units to overseer, kitchen, security, engi
+    - type: Add
+      message: Reworked hydroponics to not be incredibly depressing
+    - type: Add
+      message: >-
+        Added conveyor belts to construction menu, can place them (can't craft
+        them)
+    - type: Add
+      message: Replace radiation suits with the new suit
+  id: 6191
+  time: '2026-07-06T16:41:15.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/936
+- author: Vixting
+  changes:
+    - type: Remove
+      message: removed duplicate nitrogen from reduced chem master
+  id: 6192
+  time: '2026-07-07T03:44:43.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/975
+- author: silasadam
+  changes:
+    - type: Tweak
+      message: Protectron RCDs now have wasteland structures/tiles
+    - type: Tweak
+      message: >-
+        Assaultrons have been buffed and fixed. Their beam/tesla is now an
+        ability, they deal 25 pierce and 25 slash unarmed, can no longer wield
+        weapons, can now wideswing properly, and have the same infinite cell as
+        their brethren, they also have 10% reflect chance on small and medium
+        calibers. Go forth my children. Kill.
+    - type: Tweak
+      message: Z.A.X Cores understand and speak all languages.
+    - type: Tweak
+      message: >-
+        All silicons no longer need headsets and instead utilize inbuilt radios.
+        Keys can be removed from them if dead or crit. And they can insert keys
+        themselves.
+    - type: Fix
+      message: You can no longer remove a silicons cell unless you are that silicon.
+  id: 6193
+  time: '2026-07-07T04:24:31.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/977
+- author: Operator
+  changes:
+    - type: Add
+      message: aitakeover command
+    - type: Tweak
+      message: ZAX Units get wasteland&binary keys on spawn
+    - type: Tweak
+      message: ZAX NPC units properly function as ghostroles
+    - type: Tweak
+      message: >-
+        ZAX Units inherit SPECIAL properly, and if they dont, they get 5/5/5/5/5
+        across the board
+    - type: Fix
+      message: Securitron front-facing error sprite. [Again.]
+  id: 6194
+  time: '2026-07-08T02:20:36.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/983
+- author: cythisiax
+  changes:
+    - type: Tweak
+      message: Nerf fireStacks.
+  id: 6195
+  time: '2026-07-08T03:21:45.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/985
+- author: Operator
+  changes:
+    - type: Add
+      message: >-
+        Added Z.A.X Chassis to lobby selection. You cant spawn in as them, but
+        admins can spawn you in now.
+    - type: Fix
+      message: Fixed securitron sprite attributions.
+  id: 6196
+  time: '2026-07-08T03:22:24.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/984
+- author: Operator
+  changes:
+    - type: Add
+      message: Brace Repair Mode [Z.A.X C-27s]
+    - type: Tweak
+      message: Z.A.X Unit/Core descriptions
+    - type: Add
+      message: Z.A.X Core integrated wendover map
+    - type: Add
+      message: Z.A.X Core Linked Unit list/Warp ability
+  id: 6197
+  time: '2026-07-08T15:52:21.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/986
+- author: JohnKieser
+  changes:
+    - type: Fix
+      message: Crit NPCs don't move anymore. Shouldn't affect players possessing pets
+  id: 6198
+  time: '2026-07-08T20:54:24.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/961
+- author: RedBookcase
+  changes:
+    - type: Add
+      message: >-
+        Fireman Carry is now a 2 Point perk anyone can take. Followers get it by
+        default.
+  id: 6199
+  time: '2026-07-08T21:01:22.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/974
+- author: Dpellowski
+  changes:
+    - type: Add
+      message: The ability to link your discord to your SS14 account on this server.
+  id: 6200
+  time: '2026-07-09T03:58:34.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/992
+- author: Dpellowski
+  changes:
+    - type: Add
+      message: Supporter & Admin role integration
+  id: 6201
+  time: '2026-07-09T17:38:43.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/993
+- author: Dpellowski
+  changes:
+    - type: Tweak
+      message: Supporter GUI auto refreshes on open
+  id: 6202
+  time: '2026-07-09T19:28:58.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/996
+- author: Dpellowski
+  changes:
+    - type: Add
+      message: Chonk Super
+  id: 6203
+  time: '2026-07-10T03:37:26.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/999
+- author: sssaaagggeee
+  changes:
+    - type: Add
+      message: >-
+        Added NCR Command Sergeant Major & Warrant Officer pins for admin use,
+        for Senior Enlisted Advisor and Vertibird Pilot respectively among other
+        things
+    - type: Add
+      message: >-
+        We seemed to have forgotten the RO's commission paperwork, they should
+        now properly get promotions going from O1->O2->O3
+    - type: Tweak
+      message: >-
+        We've deemed C-27s problematic enough to reduce their rank, starting at
+        Private First Class and ending at Sergeant
+    - type: Tweak
+      message: >-
+        After months of complaints from regular Heavy Troopers, we're increasing
+        their pay grade cap to Corporal
+    - type: Tweak
+      message: >-
+        The Republic has deemed that Squad Leaders have an increased cap in pay
+        grade, alongside intermediary ranks being adjusted
+    - type: Tweak
+      message: >-
+        There was a mistake with Military Police Sergeant's paperwork, they
+        shouldn't cap out at SEA ranks anymore but instead 1st Sergeant
+  id: 6204
+  time: '2026-07-10T21:01:12.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/982
+- author: Billius clintus
+  changes:
+    - type: Add
+      message: Added berserker mix, a tribal combat cocktail.
+    - type: Tweak
+      message: increased some loadout prices for things like PA
+    - type: Tweak
+      message: 'gutted the loadout prices for literally everything else '
+    - type: Tweak
+      message: every major is blacklisted from loadout weapons and armor
+    - type: Fix
+      message: Fixed Principes pattern armor, it is now in its intended form
+  id: 6205
+  time: '2026-07-10T21:10:45.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/994
+- author: Oli
+  changes:
+    - type: Tweak
+      message: >-
+        Cleans up NCR loadout roles + adjusts the price of the armors in loadout
+        menu
+  id: 6206
+  time: '2026-07-10T22:18:07.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1001
+- author: JohnKieser
+  changes:
+    - type: Add
+      message: Updated to RTB 279.0.1
+  id: 6207
+  time: '2026-07-10T22:40:28.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/997
+- author: Lucky
+  changes:
+    - type: Add
+      message: '[Legion] A Priestess of Mars house has been added.'
+    - type: Tweak
+      message: >-
+        [Legion] The entire area above the Tree of Mars has been restricted from
+        slave access.
+    - type: Add
+      message: >-
+        [Legion] A second, access locked slave area above the medical area has
+        been added.
+    - type: Tweak
+      message: '[Legion] Medbay has been slightly expanded.'
+    - type: Tweak
+      message: '[NCR] Prison has been reworked.'
+    - type: Add
+      message: '[NCR] The MPs have now access to a court.'
+    - type: Add
+      message: '[NCR] Troopers can finally shower.'
+    - type: Tweak
+      message: >-
+        [Brotherhood] Scribes can now see into the medbay. Paladins, please stop
+        chugging down antidote.
+    - type: Fix
+      message: '[Brotherhood] The brig is FINALLY access locked.'
+    - type: Add
+      message: '[Tribal] The tribe has moved above cazador valley.'
+    - type: Tweak
+      message: '[80s] Front area has been reworked.'
+    - type: Tweak
+      message: '[Dungeon] The quarry has been expanded upon.'
+    - type: Tweak
+      message: >-
+        [Dungeon] The sewer network near Town has been expanded upon, with two
+        large POIs inside it.
+    - type: Fix
+      message: The correct rocks will spawn now in the new mines.
+  id: 6208
+  time: '2026-07-10T22:43:10.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1002
+- author: Bradysgaming
+  changes:
+    - type: Add
+      message: Added the Plasma Cutter, New anti PA weapon to HP kit
+    - type: Remove
+      message: 'Removed Slippery mutation '
+    - type: Tweak
+      message: Made the Ripper sword 80's only
+    - type: Tweak
+      message: >-
+        Nerfed Aer-12 to 4 rof 25 dmg and added recoil to it so its not
+        pinpoint.
+  id: 6209
+  time: '2026-07-11T01:04:40.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1003
+- author: Jerryaqua
+  changes:
+    - type: Add
+      message: New kits for senior knights! Rejoice for Recon armor
+    - type: Remove
+      message: 'Mk3 armor is gone from senior knights '
+    - type: Remove
+      message: 'Caustic resistance from brotherhood armors '
+    - type: Tweak
+      message: >-
+        Fixed armor values for a lot of brotherhood sets, head knight armor is
+        better
+  id: 6210
+  time: '2026-07-11T23:12:44.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1005
+- author: Bradysgaming
+  changes:
+    - type: Remove
+      message: Removed All guns besides the 9mm from loadouts. Same for ammo.
+    - type: Tweak
+      message: >-
+        Anything that you can buy in the shop now cannot be gotten from
+        loadouts.
+  id: 6211
+  time: '2026-07-12T00:15:01.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1006
+- author: Vixting
+  changes:
+    - type: Add
+      message: >-
+        Added a control panel to outside of vault, can be accessed if you have a
+        pip boy & are in a active raid with the vault. Play minigame to hack
+        open vault door, bolting it open for 20m. 
+    - type: Fix
+      message: 'Fixed case of dissapearing chemvend & the box of unopenning '
+    - type: Fix
+      message: Fixed disposal unit
+  id: 6212
+  time: '2026-07-12T01:14:51.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/976
+- author: Dpellowski
+  changes:
+    - type: Add
+      message: >-
+        Colored phrases and bolded for specific words (Must go to options and
+        auto assigned)
+  id: 6213
+  time: '2026-07-12T01:15:43.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1007
+- author: RedBookcase
+  changes:
+    - type: Tweak
+      message: (Hopefully) fixed issues with Brahmin Milk generation
+    - type: Tweak
+      message: >-
+        Cleansing powder now causes less drowsiness. Drowsiness can be reduced
+        as well by drinking Nuka Cola, Coffee, and other caffeinated beverages.
+    - type: Tweak
+      message: >-
+        Made tacmaps, indestructible at admin request, buff to the HP of Legion
+        & Yuma trees, and the Codex Altar to make accidental/grief destruction
+        less likely.
+  id: 6214
+  time: '2026-07-12T01:42:31.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/990
+- author: Bradysgaming
+  changes:
+    - type: Add
+      message: Added back spray paint to loadouts.
+  id: 6215
+  time: '2026-07-12T05:40:57.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1008
+- author: Operator
+  changes:
+    - type: Add
+      message: Readd Base Station AI sprites/Functionality
+    - type: Tweak
+      message: Limited Z.A.X Command to 2 Units
+    - type: Tweak
+      message: Limited Z.A.X C-27s to 1 Unit
+    - type: Add
+      message: >-
+        Z.A.X Cores can now 'shunt' themselves into NPC/non-player units they
+        control for communication and other necessary things.
+    - type: Fix
+      message: >-
+        Silicons will no longer tell you that you don't have access to weld
+        them. Perhaps they were just a little shy for a bit.
+  id: 6216
+  time: '2026-07-12T20:17:27.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1004
+- author: Tytos
+  changes:
+    - type: Tweak
+      message: fixed ncr prison door access
+    - type: Tweak
+      message: no more nevada
+  id: 6217
+  time: '2026-07-12T23:38:18.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1010
+- author: Bradysgaming
+  changes:
+    - type: Remove
+      message: Undid the whole loadout killing thing. Larp to your hearts content
+    - type: Tweak
+      message: Unfaction locked some larp items
+  id: 6218
+  time: '2026-07-13T02:02:57.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1011

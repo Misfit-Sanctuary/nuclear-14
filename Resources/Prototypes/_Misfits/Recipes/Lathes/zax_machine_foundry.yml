@@ -25,6 +25,184 @@
     Plastic: 3000
     N14Silver: 1000
 
+# Z.A.X foundry-accessible copies of C-27 armor workbench recipes.
+# Material costs match the source blueprint recipes; blueprint/faction gates are intentionally not copied.
+- type: latheRecipe
+  id: MisfitsZaxFoundryC27ArmorMediumGeneric
+  result: ClothingC27ArmorMediumGeneric
+  category: N14Armor
+  completetime: 10
+  materials:
+    Steel: 1500
+    Cloth: 200
+    Thread: 150
+    Plastic: 750
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryC27HelmetMediumGeneric
+  result: ClothingC27HelmetMediumGeneric
+  category: N14Armor
+  completetime: 6
+  materials:
+    Steel: 150
+    Cloth: 75
+    Thread: 50
+    Plastic: 40
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryC27ArmorMediumZAX
+  result: ClothingC27ArmorMediumZAX
+  category: N14Armor
+  completetime: 10
+  materials:
+    Steel: 1500
+    Cloth: 200
+    Thread: 150
+    Plastic: 750
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryC27HelmetMediumZAX
+  result: ClothingC27HelmetMediumZAX
+  category: N14Armor
+  completetime: 6
+  materials:
+    Steel: 150
+    Cloth: 75
+    Thread: 50
+    Plastic: 40
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryC27ArmorHeavyGeneric
+  result: ClothingC27ArmorHeavyGeneric
+  category: N14Armor
+  completetime: 14
+  materials:
+    Steel: 22000
+    Cloth: 250
+    Thread: 175
+    Plastic: 1000
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryC27HelmetHeavyGeneric
+  result: ClothingC27HelmetHeavyGeneric
+  category: N14Armor
+  completetime: 8
+  materials:
+    Steel: 275
+    Cloth: 100
+    Thread: 65
+    Plastic: 60
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryC27ArmorMediumNCR
+  result: ClothingC27ArmorMediumNCR
+  category: N14Armor
+  completetime: 10
+  materials:
+    Steel: 1500
+    Cloth: 200
+    Thread: 150
+    Plastic: 750
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryC27HelmetMediumNCR
+  result: ClothingC27HelmetMediumNCR
+  category: N14Armor
+  completetime: 6
+  materials:
+    Steel: 150
+    Cloth: 75
+    Thread: 50
+    Plastic: 40
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryC27ArmorHeavyNCR
+  result: ClothingC27ArmorHeavyNCR
+  category: N14Armor
+  completetime: 14
+  materials:
+    Steel: 22000
+    Cloth: 250
+    Thread: 175
+    Plastic: 1000
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryC27HelmetHeavyNCR
+  result: ClothingC27HelmetHeavyNCR
+  category: N14Armor
+  completetime: 8
+  materials:
+    Steel: 275
+    Cloth: 100
+    Thread: 65
+    Plastic: 60
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryC27ArmorMediumBoS
+  result: ClothingC27ArmorMediumBoS
+  category: N14Armor
+  completetime: 10
+  materials:
+    Steel: 1500
+    Cloth: 200
+    Thread: 150
+    Plastic: 750
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryC27HelmetMediumBoS
+  result: ClothingC27HelmetMediumBoS
+  category: N14Armor
+  completetime: 6
+  materials:
+    Steel: 150
+    Cloth: 75
+    Thread: 50
+    Plastic: 40
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryC27ArmorHeavyBoS
+  result: ClothingC27ArmorHeavyBoS
+  category: N14Armor
+  completetime: 14
+  materials:
+    Steel: 22000
+    Cloth: 250
+    Thread: 175
+    Plastic: 1000
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryC27HelmetHeavyBoS
+  result: ClothingC27HelmetHeavyBoS
+  category: N14Armor
+  completetime: 8
+  materials:
+    Steel: 275
+    Cloth: 100
+    Thread: 65
+    Plastic: 60
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryC27ArmorCombatGeneric
+  result: ClothingC27ArmorCombatGeneric
+  category: N14Armor
+  completetime: 10
+  materials:
+    Steel: 15000
+    Cloth: 200
+    Thread: 150
+    Plastic: 1050
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryC27HelmetCombatGeneric
+  result: ClothingC27HelmetCombatGeneric
+  category: N14Armor
+  completetime: 6
+  materials:
+    Steel: 2000
+    Cloth: 500
+    Thread: 45
+    Plastic: 30
+
 - type: latheRecipe
   id: MisfitsZaxFoundryProtectronPolice
   result: N14MobZaxProtectronPolice
@@ -41,6 +219,19 @@
 - type: latheRecipe
   id: MisfitsZaxFoundryProtectronBuilder
   result: N14MobZaxProtectronBuilder
+  category: Robotics
+  completetime: 20
+  materials:
+    N14Copper: 1500
+    N14Iron: 3000
+    N14Gold: 100
+    Circuitry: 500
+    Steel: 8000
+    Plastic: 2500
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryProtectronFire
+  result: N14MobZaxProtectronFire
   category: Robotics
   completetime: 20
   materials:

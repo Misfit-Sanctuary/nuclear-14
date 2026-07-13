@@ -177,7 +177,7 @@
   color: "#982d1e"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1 # Slow
+      metabolismRate: 0.2 # Slow
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: AntidoteMixtureAmbient
@@ -187,8 +187,8 @@
         - drug-ambience-antidote-mixture-2
       - !type:HealthChange
         damage:
-          groups:
-            Toxin: -1 # TODO: Change this to poison only once we add toxin syringes.
+          types:
+            Poison: -1 # Misfits Change - the basic Antidote Mix heals poison only now.
       - !type:ChemVomit
         probability: 0.01
 
@@ -201,7 +201,7 @@
   color: "#D41244"
   metabolisms:
     Medicine:
-      metabolismRate: 0.5 # Medium
+      metabolismRate: 0.2 # Slow
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: AntidoteAmbient
@@ -211,8 +211,10 @@
         - drug-ambience-antidote-2
       - !type:HealthChange
         damage:
-          groups:
-            Toxin: -5 # TODO: Change this to poison only once we add toxin syringes.
+          types:
+            Poison: -2 # Misfits Change - refined Antidote now heals poison more efficiently while also healing some rads.
+            Radiation: -0.5
+
 
 - type: reagent
   id: RobustHealingMixture #used in super stimpacks
@@ -284,7 +286,7 @@
       - !type:HealthChange
         damage:
           types:
-            Radiation: -5
+            Radiation: -2
       - !type:ModifyFeralization    # Misfits Add
         delta: -1
 
@@ -308,9 +310,40 @@
       - !type:HealthChange
         damage:
           types:
-            Radiation: -2.5
+            Radiation: -1
       - !type:ModifyFeralization    # Misfits Add
         delta: -0.5
+
+- type: reagent
+  id: CleansingPowder
+  name: reagent-name-cleansing-powder
+  group: Chems
+  desc: reagent-desc-cleansing-powder
+  physicalDesc: reagent-physical-desc-scouring
+  color: "#163018"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1 # Effectively once every 10 seconds.
+      effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: CleansingPowderAmbient
+        cooldown: 25
+        messageKeys:
+        - drug-ambience-cleansing-powder-1
+        - drug-ambience-cleansing-powder-2
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: -0.5
+      - !type:ModifyFeralization  # Misfits Add - Cleansing powder is bargain bin anti-rad, it can only buy you time
+        delta: -0.3
+        minimumThreshold: 80
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
+        time: 2
+        type: Add
+        refresh: false
 
 - type: reagent
   id: RadX
@@ -318,7 +351,7 @@
   group: Chems
   desc: reagent-desc-rad-x
   physicalDesc: reagent-physical-desc-soapy
-  color: "#00e5ff"
+  color: "#ba4900"
   metabolisms:
     Medicine:
       metabolismRate: 0.1 # Effectively once every 10 seconds.
@@ -344,7 +377,7 @@
   group: Chems
   desc: reagent-desc-fixer
   physicalDesc: reagent-physical-desc-volatile
-  color: "#00e5ff"
+  color: "#612f9e"
   metabolisms:
     Medicine:
       metabolismRate: 0.1 # Effectively once every 10 seconds.
@@ -493,7 +526,7 @@
   color: "#ba67f5"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1 # Effectively once every 10 seconds.
+      metabolismRate: 0.2 # Effectively once every 5 seconds.
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: BitterdrinkAmbient
@@ -503,10 +536,13 @@
         - drug-ambience-bitterdrink-2
       - !type:HealthChange
         damage:
-          groups:
-            Toxin: -2.5
           types:
-            Radiation: -2
+            Radiation: -1.5 # Misfits Change - Bitterdrink previously was dirt cheap and outperformed antidote and radaway. Now it requires actual chemistry to make but works as a solid anti-rad/poison mix.
+            Poison: -1.5
+      - !type:Emote # Misfits Change - Bitterdrink is supposed to taste fucking awful
+        emote: Cough
+        showInChat: true
+        probability: 0.05
       - !type:ChemVomit
         probability: 0.05
         conditions:

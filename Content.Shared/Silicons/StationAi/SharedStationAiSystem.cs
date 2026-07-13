@@ -141,14 +141,66 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             Category = VerbCategory.Debug,
             Act = () =>
             {
-                if (!_containers.TryGetContainer(ent, StationAiCoreComponent.Container, out _))
-                    return;
-
-                var brain = SpawnInContainerOrDrop(DefaultAi, ent.Owner, StationAiCoreComponent.Container);
-                _mind.ControlMob(user, brain);
+                TryTakeoverEmptyCore((ent.Owner, ent.Comp), user, out _, out _);
             },
             Impact = LogImpact.High,
         });
+    }
+
+    public bool TryTakeoverEmptyCore(
+        Entity<StationAiCoreComponent?> core,
+        EntityUid user,
+        [NotNullWhen(true)] out EntityUid? brain,
+        [NotNullWhen(false)] out string? error)
+    {
+        if (!TrySpawnTakeoverBrain(core, out brain, out error))
+            return false;
+
+        _mind.ControlMob(user, brain.Value);
+        return true;
+    }
+
+    public bool TryTakeoverEmptyCore(
+        Entity<StationAiCoreComponent?> core,
+        NetUserId user,
+        [NotNullWhen(true)] out EntityUid? brain,
+        [NotNullWhen(false)] out string? error)
+    {
+        if (!TrySpawnTakeoverBrain(core, out brain, out error))
+            return false;
+
+        _mind.ControlMob(user, brain.Value);
+        return true;
+    }
+
+    private bool TrySpawnTakeoverBrain(
+        Entity<StationAiCoreComponent?> core,
+        [NotNullWhen(true)] out EntityUid? brain,
+        [NotNullWhen(false)] out string? error)
+    {
+        brain = null;
+
+        if (!Resolve(core.Owner, ref core.Comp, false))
+        {
+            error = "Target is not a Station AI core.";
+            return false;
+        }
+
+        if (TryGetHeld(core, out _))
+        {
+            error = "Target Station AI core is already occupied.";
+            return false;
+        }
+
+        if (!_containers.TryGetContainer(core.Owner, StationAiCoreComponent.Container, out _))
+        {
+            error = "Target Station AI core has no AI mind slot.";
+            return false;
+        }
+
+        brain = SpawnInContainerOrDrop(DefaultAi, core.Owner, StationAiCoreComponent.Container);
+        error = null;
+        return true;
     }
 
     private void OnAiAccessible(Entity<StationAiOverlayComponent> ent, ref AccessibleOverrideEvent args)

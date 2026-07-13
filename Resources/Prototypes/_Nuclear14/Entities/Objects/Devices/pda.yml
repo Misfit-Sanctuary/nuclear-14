@@ -74,6 +74,9 @@
       maxDistance: 10
       rolloffFactor: 4
   - type: RadiationReceiver
+  - type: Tag
+    tags:
+    - MisfitsPipBoy
   - type: CartridgeLoader
     preinstalled:
       - CrewManifestCartridge

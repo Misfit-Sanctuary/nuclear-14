@@ -69,25 +69,25 @@
       entity: N14Stimpak
 
 # Bitterdrink
-- type: constructionGraph
-  id: N14Bitterdrink
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: bitterdrink
-          steps:
-            - material: BrocFlower
-            - material: XanderRoot
-            - tag: N14EmptyNukaBottle
-              name: empty Nuka-Cola bottle
-              icon:
-                sprite: _Nuclear14/Objects/Consumable/Drinks/nuka_cola_new.rsi
-                state: empty
-              doAfter: 1
-
-    - node: bitterdrink
-      entity: N14Bitterdrink
+#- type: constructionGraph
+#  id: N14Bitterdrink
+#  start: start
+#  graph:
+#    - node: start
+#      edges:
+#        - to: bitterdrink
+#          steps:
+#            - material: BrocFlower
+#            - material: XanderRoot
+#            - tag: N14EmptyNukaBottle
+#              name: empty Nuka-Cola bottle
+#              icon:
+#                sprite: _Nuclear14/Objects/Consumable/Drinks/nuka_cola_new.rsi
+#                state: empty
+#              doAfter: 1
+#
+#    - node: bitterdrink
+#      entity: N14Bitterdrink
 
 # RadAway Inhaler
 - type: constructionGraph

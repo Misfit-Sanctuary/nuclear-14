@@ -221,6 +221,12 @@ namespace Content.Server.Lathe
             if (!Resolve(uid, ref component))
                 return false;
 
+            // [Changed by MisfitsCrew/Operator] Let machine-specific systems reject capped recipes before material consumption.
+            var attempt = new LatheQueueAttemptEvent(recipe, actor);
+            RaiseLocalEvent(uid, ref attempt);
+            if (attempt.Cancelled)
+                return false;
+
             var materialUseMultiplier = component.MaterialUseMultiplier;
 
             if (!CanProduce(uid, recipe, 1, materialUseMultiplier, component))

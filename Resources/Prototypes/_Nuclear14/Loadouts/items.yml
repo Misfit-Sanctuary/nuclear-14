@@ -1,70 +1,70 @@
-- type: loadout
+﻿- type: loadout
   id: N14InstrumentBanjo
   category: Items
-  cost: 2
+  cost: 0
   items:
     - N14InstrumentBanjo
 
 - type: loadout
   id: N14InstrumentClarinet
   category: Items
-  cost: 2
+  cost: 0
   items:
     - N14InstrumentClarinet
 
 - type: loadout
   id: N14InstrumentFlute
   category: Items
-  cost: 2
+  cost: 0
   items:
     - N14InstrumentFlute
 
 - type: loadout
   id: N14InstrumentGuitar
   category: Items
-  cost: 2
+  cost: 0
   items:
     - N14InstrumentGuitar
 
 - type: loadout
   id: N14InstrumentHarmonica
   category: Items
-  cost: 2
+  cost: 0
   items:
     - N14InstrumentHarmonica
 
 - type: loadout
   id: N14InstrumentPanflute
   category: Items
-  cost: 2
+  cost: 0
   items:
     - N14InstrumentPanflute
 
 - type: loadout
   id: N14InstrumentSaxaphone
   category: Items
-  cost: 2
+  cost: 0
   items:
     - N14InstrumentSaxaphone
 
 - type: loadout
   id: N14InstrumentTrombone
   category: Items
-  cost: 2
+  cost: 0
   items:
     - N14InstrumentTrombone
 
 - type: loadout
   id: N14InstrumentTrumpet
   category: Items
-  cost: 2
+  cost: 0
   items:
     - N14InstrumentTrumpet
 
 - type: loadout
   id: N14InstrumentViolin
   category: Items
-  cost: 2
+  cost: 0
   items:
     - N14InstrumentViolin
 
@@ -72,7 +72,7 @@
 - type: loadout
   id: N14LoadoutItemCigsSalem
   category: Items
-  cost: 2
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutSmokeables
@@ -82,7 +82,7 @@
 - type: loadout
   id: N14LoadoutItemCigsKool
   category: Items
-  cost: 2
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutSmokeables
@@ -92,7 +92,7 @@
 - type: loadout
   id: N14LoadoutItemCigsMarlboro
   category: Items
-  cost: 2
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutSmokeables
@@ -102,7 +102,7 @@
 - type: loadout
   id: N14LoadoutItemCigsWinston
   category: Items
-  cost: 2
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutSmokeables
@@ -112,7 +112,7 @@
 - type: loadout
   id: N14LoadoutItemCigsCustom
   category: Items
-  cost: 2
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutSmokeables
@@ -122,7 +122,7 @@
 - type: loadout
   id: N14LoadoutItemCigsRepublics
   category: Items
-  cost: 2
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutSmokeables
@@ -132,7 +132,7 @@
 - type: loadout
   id: N14LoadoutItemCigsLuckyStrike
   category: Items
-  cost: 2
+  cost: 0
   requirements:
   - !type:CharacterItemGroupRequirement
     group: N14LoadoutSmokeables
@@ -154,7 +154,7 @@
 - type: loadout
   id: N14LoadoutItemLighter
   category: Items
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutLighters
@@ -164,7 +164,7 @@
 - type: loadout
   id: N14LoadoutItemLighterCheap
   category: Items
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutLighters
@@ -174,7 +174,7 @@
 - type: loadout
   id: N14LoadoutItemMatches
   category: Items
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutLighters
@@ -184,35 +184,35 @@
 - type: loadout
   id: N14LoadoutItemWallet
   category: Items
-  cost: 2
+  cost: 0
   items:
     - N14Wallet
 
 - type: loadout
   id: d6Dice
   category: Items
-  cost: 2
+  cost: 0
   items:
     - d6Dice
 
 - type: loadout
   id: N14LoadoutItemCanteen
   category: Items
-  cost: 1
+  cost: 0
   items:
     - N14JunkVaultCanteen
 
 - type: loadout
   id: N14LoadoutItemFlask
   category: Items
-  cost: 1
+  cost: 0
   items:
     - N14JunkCeramicFlask
 
 - type: loadout
   id: N14LoadoutItemCig
   category: Items
-  cost: 1
+  cost: 0
   items:
     - N14Cigarette
 
@@ -236,7 +236,7 @@
 - type: loadout
   id: LoadoutItemBarberScissors
   category: Items
-  cost: 2
+  cost: 0
   items:
     - BarberScissors
 
@@ -251,21 +251,21 @@
 - type: loadout
   id: N14InstrumentElectricGuitar
   category: Items
-  cost: 2
+  cost: 0
   items:
     - N14InstrumentElectricGuitar
 
 - type: loadout
   id: N14InstrumentBassGuitar
   category: Items
-  cost: 2
+  cost: 0
   items:
     - N14InstrumentBassGuitar
 
 - type: loadout
   id: N14InstrumentRockGuitar
   category: Items
-  cost: 2
+  cost: 0
   items:
     - N14InstrumentRockGuitar
 
@@ -281,7 +281,7 @@
 
 
 # Misc
-# Misfits Change: Removed bottlecap (N14CurrencyCap100) loadout entry — caps are no longer granted to players at round start via loadouts.
+# Misfits Change: Removed bottlecap (N14CurrencyCap100) loadout entry â€” caps are no longer granted to players at round start via loadouts.
 #- type: loadout
 #  id: N14CurrencyCap100
 #  category: Items
@@ -308,14 +308,14 @@
 - type: loadout
   id: LoadoutTurbo
   category: Items
-  cost: 2
+  cost: 3
   items:
     - N14Turbo
 
 - type: loadout
   id: LoadoutPsycho
   category: Items
-  cost: 2
+  cost: 6
   items:
     - N14Psycho
 
@@ -331,21 +331,22 @@
 - type: loadout
   id: LoadoutHealingPoutltice
   category: Items
-  cost: 2
+  cost: 3
   items:
     - N14HealingPoultice
 
+# Spray Paint
 - type: loadout
   id: LoadoutStimpakDirty
   category: Items
-  cost: 2
+  cost: 1
   items:
     - N14StimpakDirty
 
 - type: loadout
   id: LoadoutStimpak
   category: Items
-  cost: 3
+  cost: 4
   items:
     - N14Stimpak
 
@@ -355,49 +356,50 @@
 - type: loadout
   id: LoadoutSprayPaintBlue
   category: Items
-  cost: 1
+  cost: 0
   items:
     - SprayPaintBlue
 
 - type: loadout
   id: LoadoutSprayPaintRed
   category: Items
-  cost: 1
+  cost: 0
   items:
     - SprayPaintRed
 
 - type: loadout
   id: LoadoutSprayPaintBlack
   category: Items
-  cost: 1
+  cost: 0
   items:
     - SprayPaintBlack
 
 - type: loadout
   id: LoadoutSprayPaintOrange
   category: Items
-  cost: 1
+  cost: 0
   items:
     - SprayPaintOrange
 
 - type: loadout
   id: LoadoutSprayPaintPurple
   category: Items
-  cost: 1
+  cost: 0
   items:
     - SprayPaintPurple
 
 - type: loadout
   id: LoadoutSprayPaintWhite
   category: Items
-  cost: 1
+  cost: 0
   items:
     - SprayPaintWhite
 
 - type: loadout
   id: LoadoutSprayPaintGreen
   category: Items
-  cost: 1
+  cost: 0
   items:
     - SprayPaintGreen
+
 

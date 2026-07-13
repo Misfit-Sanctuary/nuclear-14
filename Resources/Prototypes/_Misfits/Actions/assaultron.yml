@@ -1,0 +1,33 @@
+- type: entity
+  id: ActionAssaultronHeadLaser
+  name: Charge Head Laser
+  description: Charge and fire the integrated head laser.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    icon:
+      sprite: _Nuclear14/Objects/Weapons/Guns/Battery/recharger_rifle.rsi
+      state: icon
+    event: !type:ActionGunShootEvent
+    checkCanInteract: false
+    checkCanAccess: false
+    raiseOnUser: true
+    repeat: true
+    range: 20
+
+- type: entity
+  id: ActionAssaultronTesla
+  name: Charge Tesla Emitter
+  description: Charge and fire the integrated Tesla emitter.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    icon:
+      sprite: Objects/Weapons/Guns/Battery/tesla_gun.rsi
+      state: base
+    event: !type:ActionGunShootEvent
+    checkCanInteract: false
+    checkCanAccess: false
+    raiseOnUser: true
+    repeat: true
+    range: 20

@@ -34,10 +34,15 @@ public sealed partial class CP14StationAdditionalMapSystem : EntitySystem
         foreach (var path in addMap.Comp.MapPaths)
         {
             var options = new DeserializationOptions { InitializeMaps = true }; //Forge-Change
-            if (!_mapLoader.TryLoadMap(path, out var loadedMap, out _, options))
+            if (!_mapLoader.TryLoadMap(path, out var loadedMap, out var loadedGrids, options))
             {
                 Log.Error($"Failed to load map from {path}!");
                 return;
+            }
+
+            foreach (var grid in loadedGrids)
+            {
+                _station.AddGridToStation(addMap, grid.Owner);
             }
 
             Log.Info($"Loaded map {loadedMap!.Value.Comp.MapId} for StationAdditionalMap system");

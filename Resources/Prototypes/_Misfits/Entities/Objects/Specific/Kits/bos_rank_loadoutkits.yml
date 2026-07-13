@@ -84,8 +84,9 @@
     state: rifleman
   - type: UndecidedLoadoutBackpack
     possibleSets:
-    - MBoS_PalBal_Set
-    - MBoS_PalSni_Set
+    - MBoS_SKniLas_Set
+    - MBoS_SKniBal_Set
+    - MBoS_Recon_Set  
 
 - type: entity
   id: BoSBrotherhoodSeniorScribeKits

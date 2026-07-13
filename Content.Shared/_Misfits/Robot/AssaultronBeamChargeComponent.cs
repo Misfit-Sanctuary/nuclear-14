@@ -51,19 +51,24 @@ public sealed partial class AssaultronBeamChargeComponent : Component
     public TimeSpan ChargeEndTime;
     public TimeSpan CooldownEndTime;
 
+    /// <summary>
+    /// Tracks whether the emitter enabled combat mode as a targeting indicator.
+    /// </summary>
+    public bool ForcedCombatMode;
+
     /// <summary>Next time a charge emote is allowed to broadcast.</summary>
     public TimeSpan NextChargeEmoteTime;
     /// <summary>Next time a fire emote is allowed to broadcast.</summary>
     public TimeSpan NextFireEmoteTime;
 }
 
-/// <summary>Raised directed on the Assaultron when charge-up begins. Server handles emote.</summary>
+/// <summary>Raised directed on the Assaultron weapon when charge-up begins. Server handles emote.</summary>
 [ByRefEvent]
-public record struct AssaultronChargeStartedEvent(string EmoteLocale);
+public record struct AssaultronChargeStartedEvent(EntityUid User, string EmoteLocale);
 
-/// <summary>Raised directed on the Assaultron when the beam/projectile fires. Server handles emote.</summary>
+/// <summary>Raised directed on the Assaultron weapon when the beam/projectile fires. Server handles emote.</summary>
 [ByRefEvent]
-public record struct AssaultronBeamFiredEvent(string EmoteLocale);
+public record struct AssaultronBeamFiredEvent(EntityUid User, string EmoteLocale);
 
 /// <summary>
 /// Raised directed when charge-up has completed and the next shot is about to be allowed.

@@ -1,4 +1,6 @@
 using Content.Shared.Administration.Logs;
+using Content.Shared._Misfits.RCD;
+using Content.Shared._Misfits.Silicon;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Construction;
@@ -114,12 +116,7 @@ public class RCDSystem : EntitySystem
 
         if (component.CachedPrototype.Mode == RcdMode.ConstructTile || component.CachedPrototype.Mode == RcdMode.ConstructObject)
         {
-            var name = Loc.GetString(component.CachedPrototype.SetName);
-
-            if (component.CachedPrototype.Prototype != null &&
-                _protoManager.TryIndex(component.CachedPrototype.Prototype, out var proto))
-                name = proto.Name;
-
+            var name = GetBuildDisplayName(component.CachedPrototype);
             msg = Loc.GetString("rcd-component-examine-build-details", ("name", name));
         }
 
@@ -407,9 +404,13 @@ public class RCDSystem : EntitySystem
 
         _intersectingEntities.Clear();
         _lookup.GetLocalEntitiesIntersecting(mapGridData.GridUid, mapGridData.Position, _intersectingEntities, -0.05f, LookupFlags.Uncontained);
+        var ignoreCableCollision = HasComp<RCDIgnoreCableCollisionComponent>(uid);
 
         foreach (var ent in _intersectingEntities)
         {
+            if (ignoreCableCollision && _tags.HasTag(ent, "Cable"))
+                continue;
+
             if (isWindow && HasComp<SharedCanBuildWindowOnTopComponent>(ent))
                 continue;
 
@@ -513,6 +514,7 @@ public class RCDSystem : EntitySystem
         {
             case RcdMode.ConstructTile:
                 _mapSystem.SetTile(mapGridData.GridUid, mapGridData.Component, mapGridData.Position, new Tile(_tileDefMan[component.CachedPrototype.Prototype].TileId));
+                MarkNoDropRcdTile(component.CachedPrototype, mapGridData);
                 _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to set grid: {mapGridData.GridUid} {mapGridData.Position} to {component.CachedPrototype.Prototype}");
                 break;
 
@@ -594,8 +596,40 @@ public class RCDSystem : EntitySystem
 
     public void UpdateCachedPrototype(EntityUid uid, RCDComponent component)
     {
-        if (component.ProtoId.Id != component.CachedPrototype?.Prototype)
+        if (component.ProtoId.Id != component.CachedPrototype?.ID)
             component.CachedPrototype = _protoManager.Index(component.ProtoId);
+    }
+
+    private string GetBuildDisplayName(RCDPrototype proto)
+    {
+        if (proto.Prototype != null)
+        {
+            if (proto.Mode == RcdMode.ConstructObject &&
+                _protoManager.TryIndex<EntityPrototype>(proto.Prototype, out var entProto))
+                return entProto.Name;
+
+            if (proto.Mode == RcdMode.ConstructTile &&
+                _tileDefMan.TryGetDefinition(proto.Prototype, out var tileDef))
+                return Loc.GetString(tileDef.Name);
+        }
+
+        return Loc.GetString(proto.SetName);
+    }
+
+    private void MarkNoDropRcdTile(RCDPrototype proto, MapGridData mapGridData)
+    {
+        if (proto.Mode != RcdMode.ConstructTile ||
+            proto.Prototype == null ||
+            !IsWastelandRcdCategory(proto.Category))
+            return;
+
+        var comp = EnsureComp<RCDNoDropTileComponent>(mapGridData.GridUid);
+        comp.Tiles[mapGridData.Position] = proto.Prototype;
+    }
+
+    private static bool IsWastelandRcdCategory(string category)
+    {
+        return category is "WastelandDoors" or "WastelandWallsAndFlooring";
     }
 
     #endregion

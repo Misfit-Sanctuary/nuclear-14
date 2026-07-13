@@ -1,14 +1,17 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Server.Ghost.Roles.Components;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Pathfinding;
 using Content.Server.NPC.Systems;
+using Content.Server.Silicons.StationAi;
 using Content.Shared._Misfits.C27;
 using Content.Shared._Misfits.Silicon;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
+using Content.Shared.Examine;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -20,11 +23,13 @@ using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.StationAi;
+using Content.Shared.UserInterface;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Player;
+using Robust.Server.GameObjects;
 
 namespace Content.Server._Misfits.Silicon;
 
@@ -49,8 +54,11 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
+    [Dependency] private readonly StationAiSystem _stationAi = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationAiVisionSystem _vision = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
 
     private EntityQuery<BroadphaseComponent> _broadphaseQuery;
     private EntityQuery<MapGridComponent> _gridQuery;
@@ -76,6 +84,13 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
         SubscribeLocalEvent<StationAiCommandedNpcComponent, MobStateChangedEvent>(OnCommandedNpcMobStateChanged);
         SubscribeLocalEvent<StationAiCommandedNpcComponent, EntityTerminatingEvent>(OnCommandedNpcTerminating);
         SubscribeLocalEvent<StationAiCommandedNpcComponent, ComponentShutdown>(OnCommandedNpcShutdown);
+
+        Subs.BuiEvents<StationAiNpcCommanderComponent>(ZaxLinkedUnitsUiKey.Key, subs =>
+        {
+            subs.Event<BoundUIOpenedEvent>(OnLinkedUnitsOpened);
+            subs.Event<ZaxLinkedUnitsRefreshMessage>(OnLinkedUnitsRefresh);
+            subs.Event<ZaxLinkedUnitsWarpMessage>(OnLinkedUnitsWarp);
+        });
     }
 
     public override void Update(float frameTime)
@@ -245,7 +260,7 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
     private void OnZaxDamaged(Entity<ZaxUnitComponent> ent, ref DamageChangedEvent args)
     {
         if (!args.DamageIncreased ||
-            args.Origin is not {} attacker ||
+            args.Origin is not { } attacker ||
             attacker == ent.Owner ||
             Deleted(attacker) ||
             !HasComp<MobStateComponent>(attacker) ||
@@ -314,6 +329,52 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
     private void OnCommandedNpcShutdown(Entity<StationAiCommandedNpcComponent> ent, ref ComponentShutdown args)
     {
         ReleaseDeadOrDeletedNpc(ent.Owner);
+    }
+
+    private void OnLinkedUnitsOpened(Entity<StationAiNpcCommanderComponent> ent, ref BoundUIOpenedEvent args)
+    {
+        if (!ValidateAi(ent.Owner))
+            return;
+
+        UpdateLinkedUnitsUi(ent.Owner);
+    }
+
+    private void OnLinkedUnitsRefresh(Entity<StationAiNpcCommanderComponent> ent, ref ZaxLinkedUnitsRefreshMessage args)
+    {
+        if (args.Actor != ent.Owner || !ValidateAi(ent.Owner))
+            return;
+
+        UpdateLinkedUnitsUi(ent.Owner);
+    }
+
+    private void OnLinkedUnitsWarp(Entity<StationAiNpcCommanderComponent> ent, ref ZaxLinkedUnitsWarpMessage args)
+    {
+        if (args.Actor != ent.Owner ||
+            !ValidateAi(ent.Owner) ||
+            !TryGetEntity(args.Target, out var target) ||
+            !TryGetLinkedUnit(target.Value, out _))
+        {
+            return;
+        }
+
+        if (!TryComp(ent.Owner, out StationAiHeldComponent? held) ||
+            !TryGetCore((ent.Owner, held), out var core))
+        {
+            _popup.PopupEntity(Loc.GetString("zax-linked-units-warp-failed"), ent.Owner, ent.Owner, PopupType.SmallCaution);
+            return;
+        }
+
+        _stationAi.SwitchRemoteEntityMode(core.Value, true);
+
+        if (core.Value.Comp.RemoteEntity == null)
+        {
+            _popup.PopupEntity(Loc.GetString("zax-linked-units-warp-failed"), ent.Owner, ent.Owner, PopupType.SmallCaution);
+            return;
+        }
+
+        _transform.SetCoordinates(core.Value.Comp.RemoteEntity.Value, Transform(target.Value).Coordinates);
+        _popup.PopupEntity(Loc.GetString("zax-linked-units-warped", ("unit", Name(target.Value))), ent.Owner, ent.Owner);
+        UpdateLinkedUnitsUi(ent.Owner);
     }
 
     private void ApplyMove(
@@ -517,7 +578,21 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
         }
 
         foreach (var uid in stale)
+        {
             ent.Comp.SelectedNpcs.Remove(uid);
+            // [Changed by MisfitsCrew/Operator] Restore out-of-view shunted selections instead of leaving their HTN command active.
+            if (!Deleted(uid) && !HasComp<ActorComponent>(uid))
+                RestoreNpc(uid, ent.Owner);
+        }
+
+        // [Changed by MisfitsCrew/Operator] Enforce the lowered cap on state loaded from older or externally modified commanders.
+        while (ent.Comp.SelectedNpcs.Count > ent.Comp.MaxSelected)
+        {
+            var uid = ent.Comp.SelectedNpcs.Last();
+            ent.Comp.SelectedNpcs.Remove(uid);
+            RestoreNpc(uid, ent.Owner);
+            stale.Add(uid);
+        }
 
         return stale.Count > 0;
     }
@@ -536,7 +611,19 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
             return false;
         }
 
+        // [Changed by MisfitsCrew/Operator] Shunted bodies may only retain NPCs that remain in local line of sight.
+        if (HasComp<ZaxShuntedComponent>(commander) && !CanSee(commander, Transform(uid).Coordinates))
+            return false;
+
         return !TryComp(uid, out StationAiCommandedNpcComponent? commanded) || IsSameCommander(commander, commanded);
+    }
+
+    /// <summary>
+    /// [Changed by MisfitsCrew/Operator] Reuses commandability and ownership validation before a core visits an NPC body.
+    /// </summary>
+    public bool CanTakeDirectControl(EntityUid commander, EntityUid npc)
+    {
+        return TryGetCommandableNpc(npc, commander, out _);
     }
 
     private List<EntityCoordinates> GetFormationMoveTargets(
@@ -599,8 +686,20 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
 
     private bool ValidateAi(EntityUid uid)
     {
-        if (!TryComp(uid, out StationAiHeldComponent? held) ||
-            !TryGetCore((uid, held), out var core))
+        Entity<StationAiCoreComponent>? core;
+        // [Changed by MisfitsCrew/Operator] Resolve a shunted commander through its still-inserted brain and original core.
+        if (TryComp(uid, out ZaxShuntedComponent? shunted))
+        {
+            if (!TryComp(shunted.Core, out StationAiCoreComponent? coreComp) ||
+                !TryComp(shunted.Brain, out StationAiHeldComponent? brainHeld) ||
+                !TryGetCore((shunted.Brain, brainHeld), out var insertedCore) ||
+                insertedCore.Value.Owner != shunted.Core)
+                return false;
+
+            core = (shunted.Core, coreComp);
+        }
+        else if (!TryComp(uid, out StationAiHeldComponent? held) ||
+                 !TryGetCore((uid, held), out core))
         {
             return false;
         }
@@ -609,11 +708,86 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
         return _power.IsPowered((core.Value.Owner, receiver));
     }
 
-    private bool TryGetCore(
+    private void UpdateLinkedUnitsUi(EntityUid commander)
+    {
+        _ui.SetUiState(commander, ZaxLinkedUnitsUiKey.Key, BuildLinkedUnitsState());
+    }
+
+    private ZaxLinkedUnitsBoundUserInterfaceState BuildLinkedUnitsState()
+    {
+        var units = new List<ZaxLinkedUnitEntry>();
+        var query = EntityQueryEnumerator<ZaxLinkedUnitComponent, TransformComponent, MetaDataComponent>();
+
+        while (query.MoveNext(out var uid, out _, out var xform, out var meta))
+        {
+            if (!TryGetLinkedUnit(uid, out var kind))
+                continue;
+
+            var mapCoords = _transform.GetMapCoordinates(uid, xform);
+            var location = $"{MathF.Round(mapCoords.Position.X)}, {MathF.Round(mapCoords.Position.Y)}";
+            units.Add(new ZaxLinkedUnitEntry(
+                GetNetEntity(uid),
+                meta.EntityName,
+                kind,
+                location,
+                GetNetCoordinates(xform.Coordinates)));
+        }
+
+        return new ZaxLinkedUnitsBoundUserInterfaceState(units
+            .OrderBy(unit => unit.Kind)
+            .ThenBy(unit => unit.Name)
+            .ToArray());
+    }
+
+    private bool TryGetLinkedUnit(EntityUid uid, out ZaxLinkedUnitKind kind)
+    {
+        kind = ZaxLinkedUnitKind.Npc;
+
+        if (Deleted(uid) ||
+            !HasComp<ZaxLinkedUnitComponent>(uid) ||
+            (TryComp(uid, out MobStateComponent? mobState) && _mobState.IsDead(uid, mobState)))
+        {
+            return false;
+        }
+
+        if (HasComp<ActorComponent>(uid))
+        {
+            kind = ZaxLinkedUnitKind.Player;
+            return true;
+        }
+
+        if (HasComp<ZaxUnitComponent>(uid))
+        {
+            kind = ZaxLinkedUnitKind.Npc;
+            return true;
+        }
+
+        if (HasComp<GhostRoleComponent>(uid) || HasComp<GhostTakeoverAvailableComponent>(uid))
+        {
+            kind = ZaxLinkedUnitKind.GhostRole;
+            return true;
+        }
+
+        kind = ZaxLinkedUnitKind.Npc;
+        return true;
+    }
+
+    /// <summary>
+    /// [Changed by MisfitsCrew/Operator] Exposes authoritative core lookup to the shunt lifecycle system.
+    /// </summary>
+    public bool TryGetCore(
         Entity<StationAiHeldComponent> ai,
         [NotNullWhen(true)] out Entity<StationAiCoreComponent>? core)
     {
         core = null;
+
+        // [Changed by MisfitsCrew/Operator] Resolve the physical core recorded by a shunted controller.
+        if (TryComp(ai.Owner, out ZaxShuntedComponent? shunted) &&
+            TryComp(shunted.Core, out StationAiCoreComponent? shuntedCore))
+        {
+            core = (shunted.Core, shuntedCore);
+            return true;
+        }
 
         if (!_container.TryGetContainingContainer((ai.Owner, null, null), out var container) ||
             container.ID != StationAiCoreComponent.Container ||
@@ -626,8 +800,20 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
         return true;
     }
 
-    private bool CanSee(EntityUid ai, EntityCoordinates coordinates)
+    /// <summary>
+    /// [Changed by MisfitsCrew/Operator] Uses local occluded range while shunted and the camera network while in-core.
+    /// </summary>
+    public bool CanSee(EntityUid ai, EntityCoordinates coordinates)
     {
+        if (TryComp(ai, out ZaxShuntedComponent? shunted))
+        {
+            var viewer = _transform.GetMapCoordinates(ai);
+            var target = coordinates.ToMap(EntityManager, _transform);
+            return viewer.MapId == target.MapId &&
+                Vector2.DistanceSquared(viewer.Position, target.Position) <= shunted.CommandRange * shunted.CommandRange &&
+                _examine.InRangeUnOccluded(ai, coordinates, shunted.CommandRange);
+        }
+
         if (!TryGetCore((ai, Comp<StationAiHeldComponent>(ai)), out var core))
             return false;
 
@@ -678,7 +864,7 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
         // [Changed by MisfitsCrew/Operator] Mirrors the existing NPC follower lifecycle so HTN orders restart movement reliably.
         var commanded = EnsureCommandedNpc(uid, commander, htn);
         commanded.HoldingCommand = rootTask == HoldRoot;
-        _npc.SleepNPC(uid, htn);
+        _npc.SleepNPC(uid, htn, removeSound: false);
         htn.RootTask.Task = rootTask;
     }
 
@@ -759,6 +945,13 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
     {
         coreUid = EntityUid.Invalid;
 
+        // [Changed by MisfitsCrew/Operator] Preserve command ownership by physical core across brain/body relay changes.
+        if (TryComp(commander, out ZaxShuntedComponent? shunted) && Exists(shunted.Core))
+        {
+            coreUid = shunted.Core;
+            return true;
+        }
+
         if (!TryComp(commander, out StationAiHeldComponent? held) ||
             !TryGetCore((commander, held), out var core))
         {
@@ -767,6 +960,23 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
 
         coreUid = core.Value.Owner;
         return true;
+    }
+
+    /// <summary>
+    /// [Changed by MisfitsCrew/Operator] Removes a chassis from this core's selection and returns its HTN to normal
+    /// before the core mind takes direct control of it.
+    /// </summary>
+    public void ReleaseNpcForShunt(EntityUid commander, EntityUid npc)
+    {
+        if (!TryComp(commander, out StationAiNpcCommanderComponent? commanderComp))
+            return;
+
+        // [Changed by MisfitsCrew/Operator] Clear same-core stale ownership left by interrupted targeting or teardown.
+        RestoreNpc(npc, commander);
+        if (commanderComp.SelectedNpcs.Remove(npc))
+        {
+            Dirty(commander, commanderComp);
+        }
     }
 
     private void ClearForcedHostiles(EntityUid uid, bool all = false)
@@ -788,7 +998,7 @@ public sealed class StationAiNpcCommandSystem : EntitySystem
         }
 
         if (!TryComp(uid, out StationAiCommandedNpcComponent? commanded) ||
-            commanded.ForcedHostile is not {} hostile)
+            commanded.ForcedHostile is not { } hostile)
         {
             return;
         }

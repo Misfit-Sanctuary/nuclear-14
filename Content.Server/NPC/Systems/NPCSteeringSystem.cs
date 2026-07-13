@@ -114,7 +114,6 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
         _worldMapQuery = GetEntityQuery<WorldControllerComponent>(); // #Misfits Add
         _loadedChunkQuery = GetEntityQuery<LoadedChunkComponent>(); // #Misfits Add
         _entityQuery = GetEntityQuery<MapGridComponent>(); // #Misfits Add
-        _entityQuery = GetEntityQuery<MapGridComponent>(); // #Misfits Add
 
         for (var i = 0; i < InterestDirections; i++)
         {

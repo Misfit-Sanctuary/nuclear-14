@@ -32,6 +32,32 @@
     - Syringe
     - Trash
 
+- type: entity
+  parent: PrefilledSyringe
+  id: PromethineSyringe
+  name: promethine syringe
+  description: A syringe pre loaded with Promethine, an experimental compound that suppresses the FEV radiation markers responsible for ghoulification. Must be administered soon after exposure to be effective.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Chemistry/syringe.rsi
+    layers:
+      - state: syringe1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        color: "#d4af37"
+      - state: syringe_base0
+        map: ["enum.SolutionContainerLayers.Base"]
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Promethine
+          Quantity: 15
+  - type: Tag
+    tags:
+    - Syringe
+    - Trash
+
 # Admin-only infinite-use version for events/testing
 - type: entity
   parent: GhoulReversalSyringe

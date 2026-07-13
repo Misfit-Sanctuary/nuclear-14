@@ -1,0 +1,12 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: N14Bullet2mmEC
+  name: bullet (2mmEC)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 10
+        Blunt: 10
+    ignoreResistances: true

@@ -16,6 +16,8 @@ public sealed partial class MobStateComponent : Component
 {
     /// <summary>
     ///     Whether this mob will be allowed to issue movement commands when in the Critical MobState.
+    ///     _Misfit Note:
+    ///     ProximityNPCSystem.ProcessBatch() removes InputMoverComponent for Crit NPCs
     /// </summary>
     [DataField]
     public bool AllowMovementWhileCrit;

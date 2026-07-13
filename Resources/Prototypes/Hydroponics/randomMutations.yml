@@ -6,11 +6,11 @@
     #   baseOdds: 0.0072
     #   appliesToPlant: false
     #   effect: !type:MakeSentient
-    - name: Slippery
-      description: mutation-plant-slippery
-      baseOdds: 0.036
-      appliesToPlant: false
-      effect: !type:Slipify
+    #- name: Slippery
+    #  description: mutation-plant-slippery
+    #  baseOdds: 0.036
+    #  appliesToPlant: false
+    #  effect: !type:Slipify
     - name: ChangeSpecies
       baseOdds: 0.036
       appliesToProduce: false

@@ -1,6 +1,5 @@
 // Server-side emote + power drain handler for Assaultron beam charge-up events.
-// Shot blocking / state machine logic lives in SharedAssaultronBeamChargeSystem
-// (Content.Shared) so it runs on both client and server for proper prediction.
+// Shot blocking / state machine logic lives in SharedAssaultronBeamChargeSystem.
 // This system only exists server-side because ChatSystem and BatterySystem are server-only.
 
 using Content.Server.Chat.Systems;
@@ -9,6 +8,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared._Misfits.Robot;
 using Content.Shared.Chat;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Timing;
 
@@ -24,9 +24,29 @@ public sealed class AssaultronBeamChargeEmoteSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<AssaultronBeamChargeComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<AssaultronBeamChargeComponent, AssaultronBeamPreFireCheckEvent>(OnPreFireCheck);
         SubscribeLocalEvent<AssaultronBeamChargeComponent, AssaultronChargeStartedEvent>(OnChargeStarted);
         SubscribeLocalEvent<AssaultronBeamChargeComponent, AssaultronBeamFiredEvent>(OnBeamFired);
+    }
+
+    private void OnMapInit(EntityUid uid, AssaultronBeamChargeComponent comp, ref MapInitEvent args)
+    {
+        comp.IsCharging = false;
+        comp.ReadyToFire = false;
+        comp.ForcedCombatMode = false;
+        comp.ChargeEndTime = TimeSpan.Zero;
+        comp.CooldownEndTime = TimeSpan.Zero;
+
+        if ((!HasComp<HitscanBatteryAmmoProviderComponent>(uid) &&
+             !HasComp<ProjectileBatteryAmmoProviderComponent>(uid)) ||
+            !TryComp<BatteryComponent>(uid, out var battery))
+        {
+            return;
+        }
+
+        var ev = new ChargeChangedEvent(battery.CurrentCharge, battery.MaxCharge);
+        RaiseLocalEvent(uid, ref ev);
     }
 
     /// <summary>
@@ -59,7 +79,7 @@ public sealed class AssaultronBeamChargeEmoteSystem : EntitySystem
         comp.NextChargeEmoteTime = now + TimeSpan.FromSeconds(comp.EmoteCooldown);
 
         _chat.TrySendInGameICMessage(
-            uid,
+            args.User,
             Loc.GetString(args.EmoteLocale),
             InGameICChatType.Emote,
             ChatTransmitRange.Normal,
@@ -79,7 +99,7 @@ public sealed class AssaultronBeamChargeEmoteSystem : EntitySystem
         comp.NextFireEmoteTime = now + TimeSpan.FromSeconds(comp.EmoteCooldown);
 
         _chat.TrySendInGameICMessage(
-            uid,
+            args.User,
             Loc.GetString(args.EmoteLocale),
             InGameICChatType.Emote,
             ChatTransmitRange.Normal,

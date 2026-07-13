@@ -204,6 +204,10 @@ namespace Content.Server.Database
 
         // #Misfits Change - Search players by partial name for whitelist admin UI
         Task<List<PlayerRecord>> SearchPlayersByName(string partialName, int limit = 20, CancellationToken cancel = default);
+
+        // #Misfits Add - Discord linking for existing player accounts.
+        Task<string?> GetPlayerDiscordIdAsync(NetUserId userId, CancellationToken cancel = default);
+        Task SetPlayerDiscordIdAsync(NetUserId userId, string discordId);
         #endregion
 
         #region Connection Logs
@@ -731,6 +735,18 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetPlayerRecordByUserId(userId, cancel));
+        }
+
+        public Task<string?> GetPlayerDiscordIdAsync(NetUserId userId, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayerDiscordIdAsync(userId, cancel));
+        }
+
+        public Task SetPlayerDiscordIdAsync(NetUserId userId, string discordId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SetPlayerDiscordIdAsync(userId, discordId));
         }
 
         // #Misfits Change - Search players by partial name for whitelist admin UI

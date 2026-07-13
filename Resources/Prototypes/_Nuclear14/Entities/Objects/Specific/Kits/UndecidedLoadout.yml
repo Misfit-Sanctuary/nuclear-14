@@ -810,6 +810,36 @@
   content:
   - KitMBoS_KniBal
 
+- type: UndecidedLoadoutBackpackSet
+  id: MBoS_SKniBal_Set
+  name: undecided-loadout-category-mbos-skni-bal-name
+  description: undecided-loadout-category-mbos-skni-bal-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: rifleman
+  content:
+  - KitMBoS_SKniBal
+
+- type: UndecidedLoadoutBackpackSet
+  id: MBoS_SKniLas_Set
+  name: undecided-loadout-category-mbos-skni-las-name
+  description: undecided-loadout-category-mbos-skni-las-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: rifleman
+  content:
+  - KitMBoS_SKniLas
+
+- type: UndecidedLoadoutBackpackSet
+  id: MBoS_Recon_Set
+  name: undecided-loadout-category-mbos-skni-recon-name
+  description: undecided-loadout-category-mbos-skni-recon-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: rifleman
+  content:
+  - KitMBoS_Recon
+
 # MBoS Scribes
 - type: UndecidedLoadoutBackpackSet
   id: MBoS_ScrMed_Set

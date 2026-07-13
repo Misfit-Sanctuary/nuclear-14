@@ -109,6 +109,19 @@
     RobustMovespeedMixture: 3
 
 - type: reaction
+  id: Buffout
+  minTemp: 374 # 100 degrees Celcius.
+  reactants:
+    N14UncookedAnimalProteinsRad:
+      amount: 1
+    N14FireAntNectar:
+      amount: 1
+    Antiseptic:
+      amount: 1
+  products:
+    Buffout: 1
+
+- type: reaction
   id: Buffjet
   reactants:
     MovespeedMixture:
@@ -116,7 +129,7 @@
     Buffout:
       amount: 1
   products:
-    Buffjet : 1
+    Buffjet: 1
 
 - type: reaction
   id: Bufftats
@@ -126,4 +139,41 @@
     Buffout:
       amount: 1
   products:
-    Bufftats : 1
+    Bufftats: 1
+
+- type: reaction
+  id: Med-x
+  minTemp: 374 # 100 degrees Celcius.
+  reactants:
+    Wonderglue:
+      amount: 1
+    ExtractWhiteHorsenettle:
+      amount: 2
+    Ethanol:
+      amount: 1
+  products:
+    DamageResistMixture: 2 #This is Med-X
+
+- type: reaction
+  id: Fixer
+  reactants:
+    ExtractBuffaloGourd:
+      amount: 1
+    ExtractFungusRad:
+      amount: 1
+    Saline:
+      amount: 1
+  products:
+    Fixer: 3
+
+- type: reaction
+  id: Cateye
+  reactants:
+    ExtractCarrot:
+      amount: 1
+    WeldingFuel:
+      amount: 2
+    Silver:
+      amount: 1
+  products:
+    Cateye: 3

@@ -9,9 +9,6 @@
   description: job-description-caesar-legion-auxilia
   playTimeTracker: CaesarLegionAuxilia
   requirements:
-    - !type:CharacterDepartmentTimeRequirement
-      department: CaesarLegion
-      min: 7200 # 2 hours
     - !type:CharacterSpeciesRequirement
       species:
       - Human

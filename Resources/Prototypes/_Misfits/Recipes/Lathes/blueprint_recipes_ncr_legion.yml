@@ -277,6 +277,52 @@
 
 
 - type: latheRecipe
+  id: N14BPNCRWeaponSMG10mm
+  result: N14WeaponSMG10mm
+  category: N14BlueprintNCRWeaponsT2
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 4500
+
+    N14Iron: 400
+
+
+- type: latheRecipe
+  id: N14BPNCRWeaponSMG12mm
+  result: N14WeaponSMG12mm
+  category: N14BlueprintNCRWeaponsT2
+  completetime: 13
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 4500
+
+    N14Iron: 500
+
+    N14Brass: 50
+
+
+- type: latheRecipe
+  id: N14BPNCRWeaponRevolver44Magnun
+  result: N14WeaponRevolver44Magnun
+  category: N14BlueprintNCRWeaponsT2
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 3500
+
+    N14Iron: 120
+
+    Wood: 150
+
+# --- NCR Tier 3 Weapons (Ranger/Veteran grade) ---
+- type: latheRecipe
   id: N14BPNCRWeaponSniper45-70BrushGun
   result: N14WeaponSniper45-70BrushGun
   category: N14BlueprintNCRWeaponsT2
@@ -285,17 +331,19 @@
   availableFaction:
   - NCR
   materials:
-    Steel: 4500
+    Steel: 6000
 
     Wood: 2000
 
-    N14Iron: 500
+    N14Iron: 1000
+
+    N14Brass: 100
 
 
 - type: latheRecipe
   id: N14BPNCRWeaponRifle762Marksman
   result: N14WeaponRifle762Marksman
-  category: N14BlueprintNCRWeaponsT2
+  category: N14BlueprintNCRWeaponsT3
   completetime: 11
   requiresBlueprint: true
   availableFaction:
@@ -303,16 +351,15 @@
   materials:
     Steel: 6500
 
-    Wood: 1500
+    Plastic: 1000
 
-    Glass: 1000
+    Glass: 500
 
     N14Iron: 800
 
     N14Brass: 300
 
 
-# --- NCR Tier 3 Weapons (Ranger/Veteran grade) ---
 - type: latheRecipe
   id: N14BPNCRWeaponRifle556Scout
   result: N14WeaponRifle556Scout
@@ -330,6 +377,8 @@
     N14Iron: 300
 
     N14Brass: 200
+
+    Plastic: 1500
 
 
 - type: latheRecipe
@@ -359,11 +408,11 @@
   availableFaction:
   - NCR
   materials:
-    Steel: 6000
+    Steel: 5000
 
     Wood: 1500
 
-    N14Iron: 1200
+    N14Iron: 1500
 
 
 - type: latheRecipe
@@ -399,52 +448,6 @@
 
 
 - type: latheRecipe
-  id: N14BPNCRWeaponSMG10mm
-  result: N14WeaponSMG10mm
-  category: N14BlueprintNCRWeaponsT3
-  completetime: 12
-  requiresBlueprint: true
-  availableFaction:
-  - NCR
-  materials:
-    Steel: 4500
-
-    N14Iron: 400
-
-
-- type: latheRecipe
-  id: N14BPNCRWeaponSMG12mm
-  result: N14WeaponSMG12mm
-  category: N14BlueprintNCRWeaponsT3
-  completetime: 13
-  requiresBlueprint: true
-  availableFaction:
-  - NCR
-  materials:
-    Steel: 5000
-
-    N14Iron: 350
-
-    N14Brass: 150
-
-
-- type: latheRecipe
-  id: N14BPNCRWeaponRevolver44Magnun
-  result: N14WeaponRevolver44Magnun
-  category: N14BlueprintNCRWeaponsT3
-  completetime: 10
-  requiresBlueprint: true
-  availableFaction:
-  - NCR
-  materials:
-    Steel: 3500
-
-    N14Iron: 120
-
-    Wood: 150
-
-
-- type: latheRecipe
   id: N14BPNCRWeaponDesertEagle44
   result: N14WeaponDesertEagle44
   category: N14BlueprintNCRWeaponsT3
@@ -458,6 +461,8 @@
     N14Iron: 120
 
     N14Brass: 100
+
+    N14Silver: 300
 
 
 - type: latheRecipe
@@ -476,7 +481,9 @@
 
     Wood: 1500
 
-    N14Silver: 500
+    N14Silver: 300
+
+    N14Gold: 300
 
 
 - type: latheRecipe
@@ -490,10 +497,51 @@
   materials:
     Steel: 6000
 
-    N14Iron: 1200
+    N14Iron: 1500
 
-    N14Brass: 1000
+    N14Brass: 250
 
+    Wood: 1500
+
+
+- type: latheRecipe
+  id: N14BPNCRWeaponSMG12mmAdvanced
+  result: N14WeaponSMG12mmAdvanced
+  category: N14BlueprintNCRWeaponsT3
+  completetime: 16
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 8000
+
+    N14Iron: 500
+
+    N14Brass: 200
+
+    Circuitry: 300
+
+    Plastic: 1000
+
+    ScrapElectronic: 500
+
+
+- type: latheRecipe
+  id: N14BPNCRWeaponRevolver45-70Hunter
+  result: N14WeaponRevolver45-70Hunter
+  category: N14BlueprintNCRWeaponsT3
+  completetime: 14
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 4000
+
+    N14Iron: 1000
+
+    Wood: 500
+
+    N14Brass: 50
 
 # --- NCR Tier 4 Weapons (Elite/Heavy) ---
 - type: latheRecipe
@@ -510,9 +558,9 @@
 
     N14Iron: 300
 
-    N14Brass: 300
+    N14Brass: 500
 
-    Glass: 150
+    Glass: 500
 
 
 - type: latheRecipe
@@ -552,40 +600,6 @@
 
 
 - type: latheRecipe
-  id: N14BPNCRWeaponSMG12mmAdvanced
-  result: N14WeaponSMG12mmAdvanced
-  category: N14BlueprintNCRWeaponsT4
-  completetime: 16
-  requiresBlueprint: true
-  availableFaction:
-  - NCR
-  materials:
-    Steel: 10500
-
-    N14Iron: 200
-
-    N14Brass: 300
-
-    Circuitry: 100
-
-
-- type: latheRecipe
-  id: N14BPNCRWeaponRevolver45-70Hunter
-  result: N14WeaponRevolver45-70Hunter
-  category: N14BlueprintNCRWeaponsT4
-  completetime: 14
-  requiresBlueprint: true
-  availableFaction:
-  - NCR
-  materials:
-    Steel: 10500
-
-    N14Iron: 220
-
-    Wood: 300
-
-
-- type: latheRecipe
   id: N14BPNCRWeaponMinigun
   result: N14WeaponMinigun
   category: N14BlueprintNCRWeaponsT4
@@ -594,14 +608,15 @@
   availableFaction:
   - NCR
   materials:
-    Steel: 12000
+    Steel: 15000
 
-    N14Iron: 370
+    N14Iron: 1500
 
-    N14Brass: 50
+    N14Brass: 600
 
-    Circuitry: 150
+    Circuitry: 600
 
+    Plastic: 1000
 
 # --- NCR Tier 5 Weapons (Anti-Materiel) ---
 # #Misfits Add - costs so much scrap metal to make these dang things
@@ -1296,9 +1311,9 @@
   availableFaction:
   - CaesarLegion
   materials:
-    Steel: 800
+    Steel: 1000
 
-    N14Gunpowder: 1000
+    N14Gunpowder: 1200
 
     N14Iron: 500
 
@@ -1313,13 +1328,13 @@
   availableFaction:
   - NCR
   materials:
-    Lead: 102
+    Lead: 1000
 
-    N14Brass: 102
+    N14Brass: 300
 
-    N14Gunpowder: 102
+    N14Gunpowder: 500
 
-    Steel: 500
+    Steel: 1000
 
 
 - type: latheRecipe
@@ -1395,11 +1410,11 @@
   availableFaction:
   - NCR
   materials:
-    Steel: 1000
+    Steel: 500
 
     Lead: 500
 
-    N14Gunpowder: 750
+    N14Gunpowder: 300
 
 - type: latheRecipe
   id: N14BPNCRAmmoMagTopSMG12mm
@@ -2331,9 +2346,9 @@
   availableFaction:
   - CaesarLegion
   materials:
-    Steel: 800
+    Steel: 1000
 
-    N14Gunpowder: 1000
+    N14Gunpowder: 1200
 
     N14Iron: 500
 
@@ -2416,13 +2431,13 @@
   availableFaction:
   - CaesarLegion
   materials:
-    Lead: 102
+    Lead: 1000
 
-    N14Brass: 102
+    N14Brass: 300
 
-    N14Gunpowder: 102
+    N14Gunpowder: 500
 
-    Steel: 500
+    Steel: 1000
 
 
 - type: latheRecipe

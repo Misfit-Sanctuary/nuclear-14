@@ -201,6 +201,14 @@
     layers:
     - state: icon
       map: ["movement"]
+    - state: icon
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: icon
+      shader: unshaded
+      map: ["light"]
+      visible: false
   - type: SpriteMovement
     movementLayers:
       movement:

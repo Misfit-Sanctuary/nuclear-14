@@ -433,7 +433,7 @@
   - type: SolutionContainerManager
     solutions:
       udder:
-        maxVol: 250
+        maxVol: 100
         reagents:
         - ReagentId: N14MilkBrahmin
           Quantity: 30
@@ -441,7 +441,7 @@
     reagentId: N14MilkBrahmin
     quantityPerUpdate: 25
     growthDelay: 60
-    hungerUsage: 10
+    hungerUsage: 0
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: WastelandAnimal

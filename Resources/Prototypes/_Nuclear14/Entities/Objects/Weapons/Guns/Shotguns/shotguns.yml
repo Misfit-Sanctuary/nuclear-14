@@ -279,7 +279,10 @@
     proto: N14ShellShotgun20
     soundInsert:
       path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
-  - type: GunRequiresWield
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -15
+    maxAngle: -40
   - type: Gun
     minAngle: 23
     maxAngle: 104

@@ -1,27 +1,26 @@
 - type: loadout
   id: LoadoutClothingOuterNCRPouchedVestDesert
   category: Outer
-  cost: 2
+  cost: 6
   exclusive: true
   requirements:
   - !type:CharacterJobRequirement
     jobs:
+    - NCRCadet
     - NCRSoldier
-    #- NCREngineer #Misfits Change /Comment-out/: consolidated into Specialist
-    #- NCRMedic #Misfits Change /Comment-out/: consolidated into Specialist
-    - NCRWS # #Misfits Add - Specialist absorbs former Engineer/Medic
-    - NCRCadet # Misfits Change /Add/: expand access to all NCR roles
     - NCRPrivateFirstClass
-    - NCRMedic
+    - NCRWS
     - NCREngineer
-    - NCRDoctor
+    - NCRMedic
     - NCRNCO
-    - NCRStaffSergeant
     - NCRFirstSergeant
+    - NCRHeavyTrooper
     - NCRExecutiveOfficer
     - NCRPlatoonLeader
     - NCRCommander
     - NCRMajor
+    - NCRDoctor
+    - NCRRO
 
     - NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
     - NCRVeteranRanger #Misfits Change - consolidated NCRRangerVeteran into RangerVeteran
@@ -34,28 +33,26 @@
 - type: loadout
   id: LoadoutClothingOuterNCRVestpaddedWebDesert
   category: Outer
-  cost: 3
+  cost: 6
   exclusive: true
   requirements:
   - !type:CharacterJobRequirement
     jobs:
+    - NCRCadet
     - NCRSoldier
-    #- NCREngineer #Misfits Change /Comment-out/: consolidated into Specialist
-    #- NCRMedic #Misfits Change /Comment-out/: consolidated into Specialist
-    - NCRWS
-    - NCRCadet # Misfits Change /Add/: expand access to all NCR roles
     - NCRPrivateFirstClass
-    - NCRMedic
+    - NCRWS
     - NCREngineer
-    - NCRDoctor
+    - NCRMedic
     - NCRNCO
-    - NCRStaffSergeant
     - NCRFirstSergeant
+    - NCRHeavyTrooper
     - NCRExecutiveOfficer
     - NCRPlatoonLeader
-    - NCRRO
     - NCRCommander
     - NCRMajor
+    - NCRDoctor
+    - NCRRO
 
     - NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
     - NCRVeteranRanger #Misfits Change - consolidated NCRRangerVeteran into RangerVeteran
@@ -68,27 +65,26 @@
 - type: loadout
   id: LoadoutClothingOuterNCRVeteranArmorDesert
   category: Outer
-  cost: 4
+  cost: 6
   exclusive: true
   requirements:
   - !type:CharacterJobRequirement
     jobs:
+    - NCRCadet
     - NCRSoldier
-    #- NCREngineer #Misfits Change /Comment-out/: consolidated into Specialist
-    #- NCRMedic #Misfits Change /Comment-out/: consolidated into Specialist
-    - NCRWS
-    - NCRCadet # Misfits Change /Add/: expand access to all NCR roles
     - NCRPrivateFirstClass
-    - NCRMedic
+    - NCRWS
     - NCREngineer
-    - NCRDoctor
+    - NCRMedic
     - NCRNCO
-    - NCRStaffSergeant
     - NCRFirstSergeant
+    - NCRHeavyTrooper
     - NCRExecutiveOfficer
     - NCRPlatoonLeader
     - NCRCommander
     - NCRMajor
+    - NCRDoctor
+    - NCRRO
 
     - NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
     - NCRVeteranRanger #Misfits Change - consolidated NCRRangerVeteran into RangerVeteran
@@ -116,7 +112,6 @@
   - !type:CharacterJobRequirement
     jobs:
     - NCRNCO
-    - NCRStaffSergeant
     - NCRFirstSergeant
     - NCRExecutiveOfficer
     - NCRPlatoonLeader

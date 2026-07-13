@@ -120,7 +120,7 @@
 - type: loadout
   id: LoadoutLegionCloakBlack
   category: Roles
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
@@ -150,7 +150,7 @@
 - type: loadout
   id: LoadoutNeckCloakLegionWhite
   category: Roles
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
@@ -180,7 +180,7 @@
 - type: loadout
   id: LoadoutNeckCloakLegionRed
   category: Roles
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
@@ -255,7 +255,7 @@
 - type: loadout
   id: LoadoutNeckLegionForgemaster
   category: Roles
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
@@ -268,7 +268,7 @@
 - type: loadout
   id: LoadoutNeckLegionMedicus
   category: Roles
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
@@ -280,7 +280,7 @@
 - type: loadout
   id: LoadoutNeckLegionTreasurer
   category: Roles
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
@@ -292,7 +292,7 @@
 - type: loadout
   id: LoadoutUniformJumpsuitLegionnaireOther
   category: Roles
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement

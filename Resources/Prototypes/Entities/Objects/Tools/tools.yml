@@ -569,6 +569,7 @@
   description: A bluespace-enhanced rapid construction device that passively generates its own compressed matter.
   suffix: AutoRecharge
   components:
+  - type: RCDIgnoreCableCollision
   - type: LimitedCharges
     maxCharges: 25
     charges: 25

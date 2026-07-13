@@ -362,6 +362,22 @@ public sealed class StationAiSystem : SharedStationAiSystem
         }
     }
 
+    /// <summary>
+    /// [Changed by MisfitsCrew/Operator] Removes camera-network PVS while an AI mind controls a physical chassis.
+    /// </summary>
+    public void SuspendVisionSubscriptions(EntityUid ai)
+    {
+        ClearAiVisionSubscriptions(ai);
+    }
+
+    /// <summary>
+    /// [Changed by MisfitsCrew/Operator] Rebuilds camera-network PVS after a shunted AI mind returns to its core.
+    /// </summary>
+    public void ResumeVisionSubscriptions(EntityUid ai)
+    {
+        RefreshAiVisionSubscriptions(ai);
+    }
+
     private void AddVisionToRelevantAis(EntityUid vision)
     {
         // [Changed by MisfitsCrew/Operator] Adds one enabled vision source to all powered

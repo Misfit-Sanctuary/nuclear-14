@@ -804,7 +804,7 @@
   parent: N14HealingPowder
   id: N14CleansingPowder
   name: cleansing powder
-  description: A bag of anti-rad powder used by tribal and Legion healers.
+  description: A bag of anti-rad powder used by tribal and Legion healers. Makes the user drowsy.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
@@ -817,10 +817,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 10
         reagents:
-        - ReagentId: RadAway
-          Quantity: 25
+        - ReagentId: CleansingPowder
+          Quantity: 10 # Misfits Change - Cleansing Powder is bargain bin anti-rad. Low quantity with side-effects.
 
 - type: entity
   parent: DrinkBase
@@ -945,9 +945,9 @@
           Quantity: 50
   #Misfits Fix: Bitterdrink is crafted through the legacy hand-construction flow,
   # so it needs Construction metadata for the result entity to finalize correctly.
-  - type: Construction
-    graph: N14Bitterdrink
-    node: bitterdrink
+#  - type: Construction
+#    graph: N14Bitterdrink
+#    node: bitterdrink
 
 - type: entity
   parent: N14HealingPowder

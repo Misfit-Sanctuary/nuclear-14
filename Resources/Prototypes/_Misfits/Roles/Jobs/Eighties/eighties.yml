@@ -19,8 +19,6 @@
   - 80s
   - 80sSlave
   requirements:
-  - !type:MinPlayersRequirement
-    min: 0
   - !type:CharacterSpeciesRequirement
     species:
     - Human
@@ -59,6 +57,7 @@
     ears: MisfitsClothingHeadsetEighties
     back: N14ClothingBackpackMilitary
     pocket1: EightiesTheBlockloadoutkits
+    pocket2: VehicleKeyMotorbike
     belt: ClothingBeltMilitary
   storage:
     back:
@@ -82,8 +81,6 @@
   access:
   - 80s
   requirements:
-  - !type:MinPlayersRequirement
-    min: 0
   - !type:CharacterSpeciesRequirement
     species:
     - Human
@@ -121,6 +118,7 @@
     head: N14ClothingHeadHatBeanie
     back: N14ClothingBackpackMilitary
     pocket1: EightiesCylindersloadoutkits
+    pocket2: VehicleKeyMotorbike
     belt: ClothingBeltMilitary
   storage:
     back:
@@ -143,8 +141,6 @@
   access:
   - 80s
   requirements:
-  - !type:MinPlayersRequirement
-    min: 0
   - !type:CharacterSpeciesRequirement
     species:
     - Human
@@ -182,6 +178,7 @@
     ears: MisfitsClothingHeadsetEighties
     back: N14ClothingBackpackMilitary
     pocket1: EightiesPistonsloadoutkits
+    pocket2: VehicleKeyMotorbike
     belt: ClothingBeltMilitary
   storage:
     back:
@@ -204,8 +201,6 @@
   access:
   - 80s
   requirements:
-  - !type:MinPlayersRequirement
-    min: 0
   - !type:CharacterSpeciesRequirement
     species:
     - Human
@@ -243,6 +238,7 @@
     ears: MisfitsClothingHeadsetEighties
     back: N14ClothingBackpackMilitary
     pocket1: EightiesOilersloadoutkits
+    pocket2: VehicleKeyMotorbike
     belt: ClothingBeltMilitary
   storage:
     back:
@@ -266,8 +262,6 @@
   - 80s
   - 80sSlave
   requirements:
-  - !type:MinPlayersRequirement
-    min: 0
   - !type:CharacterSpeciesRequirement
     species:
     - Human

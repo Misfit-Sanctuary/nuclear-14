@@ -42,6 +42,8 @@ rcd-component-tribal-shelter = Tribal shelter
 rcd-component-tribal-furnishings = Tribal furnishings
 rcd-component-tribal-agriculture = Tribal agriculture
 rcd-component-tribal-lighting = Tribal lighting
+rcd-component-wasteland-doors = Wasteland doors
+rcd-component-wasteland-walls-and-flooring = Wasteland walls and flooring
 
 
 ### Prototype names (note: constructable items will be puralized)

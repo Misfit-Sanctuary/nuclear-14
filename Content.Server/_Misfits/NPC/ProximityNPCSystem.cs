@@ -3,16 +3,18 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Shared._Misfits.CCVar;
 using Content.Shared._Misfits.NPC;
-using Content.Shared.Audio;
 using Content.Shared.Movement.Components;
-using Content.Shared.Sound;
-using Content.Shared.Sound.Components;
-using Robust.Server.GameObjects;
+/// Misfit Change: sound handling moved to NPCSystem wake and sleep methods
+// using Content.Shared.Audio;
+// using Content.Shared.Sound;
+// using Content.Shared.Sound.Components;
+// using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Map;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Content.Shared.Mobs; // Misfits Add: To check MobState so crit NPCs dont move
+using Content.Shared.Mobs.Components; // Misfits Add: To check MobState so crit NPCs dont move
 
 namespace Content.Server._Misfits.NPC;
 
@@ -38,14 +40,15 @@ namespace Content.Server._Misfits.NPC;
 /// At 3 physics substeps/tick this eliminates ~4500 HandleMobMovement calls/tick for
 /// 1500 sleeping NPCs. The component is re-added before waking.
 /// </summary>
-public sealed class ProximityNPCSystem : EntitySystem
+public sealed partial class ProximityNPCSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
-    [Dependency] private readonly SharedEmitSoundSystem _emitSound = default!;
+    /// Misfit Change: sound handling moved to <see cref="NPCSystem.SleepNPC"/> <see cref="NPCSystem.WakeNPC"/>
+    // [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
+    // [Dependency] private readonly SharedEmitSoundSystem _emitSound = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private float _accumulator;
@@ -59,6 +62,7 @@ public sealed class ProximityNPCSystem : EntitySystem
     // Reused across calls to avoid allocating a new HashSet per NPC per scan.
     private readonly HashSet<Entity<ActorComponent>> _playerBuffer = new();
 
+    private EntityQuery<TransformComponent> _xformQuery;
     public override void Initialize()
     {
         base.Initialize();
@@ -71,23 +75,14 @@ public sealed class ProximityNPCSystem : EntitySystem
 
         // Safety: if an admin ghost-possesses a sleeping NPC, ensure it can accept input.
         SubscribeLocalEvent<ProximityNPCComponent, PlayerAttachedEvent>(OnPlayerAttached);
+        _xformQuery = GetEntityQuery<TransformComponent>();
     }
 
     private void OnMapInit(Entity<ProximityNPCComponent> ent, ref MapInitEvent args)
     {
         if (ent.Comp.StartAsleep)
-        {
             _npc.SleepNPC(ent);
-
-            // Remove InputMover so MoverController.UpdateBeforeSolve skips this entity
-            // entirely — no HandleMobMovement per physics substep while asleep.
-            RemCompDeferred<InputMoverComponent>(ent);
-
-            // Silence idle sounds while sleeping — no point emitting audio for NPCs
-            // that are 60+ tiles from any player.
-            _emitSound.SetEnabled((ent.Owner, (SpamEmitSoundComponent?) null), false);
-            _ambient.SetAmbience(ent.Owner, false);
-        }
+        /// Misfit Change: moved redundancy to <see cref="NPCSystem.SleepNPC"/>
     }
 
     /// <summary>
@@ -134,7 +129,10 @@ public sealed class ProximityNPCSystem : EntitySystem
 
         ProcessBatch();
     }
-
+    // TODO: I need to Rework this (maybe whole system) so it
+    //       has other systems do these checks
+    //       and is less likely to cause issues and unintended stuff
+    //       for maintainability sake - John Keiser
     /// <summary>
     /// Processes up to <see cref="_budgetPerTick"/> NPCs from the pending queue.
     /// Each NPC gets a single spatial query to determine if any player is nearby.
@@ -146,51 +144,37 @@ public sealed class ProximityNPCSystem : EntitySystem
         for (var i = _pendingIndex; i < end; i++)
         {
             var uid = _pending[i];
-
-            if (!TryComp<ProximityNPCComponent>(uid, out var prox) ||
-                !TryComp<TransformComponent>(uid, out var xform))
+            // Misfit Change: TryComp(uid, out TransformComponent xform) -> XformQuery.TryGetComponent(uid, out var xform)
+            // Changed due to code warning using generic trycomp to get transformComp
+            if (!TryComp(uid, out ProximityNPCComponent? prox) ||
+                !_xformQuery.TryGetComponent(uid, out var xform))
                 continue;
-
             if (xform.MapID == MapId.Nullspace)
                 continue;
-
-            var mapPos = _transform.GetMapCoordinates(uid, xform);
-            var awake = _npc.IsAwake(uid);
-
+            if (!TryComp(uid, out MobStateComponent? state)) continue;
             // #Misfits Fix — skip player-possessed mobs entirely. HTNSystem already
             // sleeps the AI on PlayerAttachedEvent; re-waking it here would re-enable
             // hostile NPC behaviour while a player/admin is in control.
             if (HasComp<ActorComponent>(uid))
                 continue;
 
-            if (!awake)
-            {
-                // Sleeping — wake if any player has entered the wake radius.
-                if (HasPlayerWithin(mapPos, prox.WakeRange))
-                {
-                    // Add InputMover BEFORE wake so steering can write to it on the first tick.
-                    EnsureComp<InputMoverComponent>(uid);
-                    _emitSound.SetEnabled((uid, (SpamEmitSoundComponent?) null), true);
-                    _ambient.SetAmbience(uid, true);
-                    _npc.WakeNPC(uid);
-                }
-            }
-            else
-            {
-                // Awake — sleep if all players have left the sleep radius.
-                // The sleep radius being larger than the wake radius prevents thrashing.
-                if (!HasPlayerWithin(mapPos, prox.SleepRange))
-                {
-                    if (HasComp<RecruitedFollowerComponent>(uid))
-                        continue;
 
-                    // Sleep first (stops HTN/steering writes), then strip InputMover
-                    // so MoverController.UpdateBeforeSolve skips this entity.
-                    _npc.SleepNPC(uid);
-                    RemCompDeferred<InputMoverComponent>(uid);
-                    _emitSound.SetEnabled((uid, (SpamEmitSoundComponent?) null), false);
-                    _ambient.SetAmbience(uid, false);
-                }
+            // Misfit Change: Refactor for readability and added conditionals
+            //                to prevent AI moving while crit
+            //                players and player pets unaffected
+
+            var mapPos = _transform.GetMapCoordinates(uid, xform);
+            bool inRange = HasPlayerWithin(mapPos, prox.WakeRange);
+            bool awake = _npc.IsAwake(uid);
+
+            if (awake && !inRange && !HasComp<RecruitedFollowerComponent>(uid))
+            {
+                _npc.SleepNPC(uid);
+            }
+            /// NPCs unable to move while crit even if <see cref="MobStateComponent"/> says otherwise
+            else if (state.CurrentState == MobState.Alive && !awake && inRange)
+            {
+                _npc.WakeNPC(uid);
             }
         }
 

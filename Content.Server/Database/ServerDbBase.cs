@@ -679,6 +679,37 @@ namespace Content.Server.Database
             return record == null ? null : MakePlayerRecord(record);
         }
 
+        public async Task<string?> GetPlayerDiscordIdAsync(NetUserId userId, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+
+            return await db.DbContext.Player
+                .Where(p => p.UserId == userId.UserId)
+                .Select(p => p.DiscordId)
+                .SingleOrDefaultAsync(cancel);
+        }
+
+        public async Task SetPlayerDiscordIdAsync(NetUserId userId, string discordId)
+        {
+            await using var db = await GetDb();
+
+            var existingLinkedPlayer = await db.DbContext.Player
+                .Where(p => p.DiscordId == discordId && p.UserId != userId.UserId)
+                .SingleOrDefaultAsync();
+
+            if (existingLinkedPlayer != null)
+                throw new InvalidOperationException("Discord account is already linked to another player account.");
+
+            var record = await db.DbContext.Player
+                .SingleOrDefaultAsync(p => p.UserId == userId.UserId);
+
+            if (record == null)
+                throw new InvalidOperationException($"No player record exists for {userId}.");
+
+            record.DiscordId = discordId;
+            await db.DbContext.SaveChangesAsync();
+        }
+
         protected async Task<bool> PlayerRecordExists(DbGuard db, NetUserId userId)
         {
             return await db.DbContext.Player.AnyAsync(p => p.UserId == userId);

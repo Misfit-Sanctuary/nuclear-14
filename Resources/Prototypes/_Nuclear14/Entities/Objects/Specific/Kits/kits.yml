@@ -1088,6 +1088,74 @@
       - id: N14BoxCardboardMREBoxKFilled
 
 - type: entity
+  name: BoS Senior Knight Ballistic Kit
+  parent: KitBase
+  id: KitMBoS_SKniBal
+  description: A crate containing everything a member of the Brotherhood might need.
+  components:
+  - type: Sprite
+    state: rifleman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponRifle556Carbine
+      - id: LongMagazine556Rifle
+        amount: 3
+      - id: N14WeaponPistol12mm
+      - id: N14MagazinePistol12mm
+        amount: 2
+      - id: N14CleanGauze10
+      - id: N14Stimpak
+      - id: N14BoxCardboardMREBoxKFilled
+      - id: N14ClothingOuterCombatArmorSeniorBOS
+
+- type: entity
+  name: BoS Senior Knight Laser Kit
+  parent: KitBase
+  id: KitMBoS_SKniLas
+  description: A crate containing everything a member of the Brotherhood might need.
+  components:
+  - type: Sprite
+    state: rifleman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponLaserRifle
+      - id: N14MicrofusionCell
+        amount: 1
+      - id: N14WeaponPistol12mm
+      - id: N14MagazinePistol12mm
+        amount: 2
+      - id: N14CleanGauze10
+      - id: N14Stimpak
+      - id: N14BoxCardboardMREBoxKFilled
+      - id: N14ClothingOuterCombatArmorSeniorBOS
+
+- type: entity
+  name: BoS Recon Knight Kit
+  parent: KitBase
+  id: KitMBoS_Recon
+  description: A crate containing everything a recon knight may need.
+  components:
+  - type: Sprite
+    state: rifleman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponRevolver44Magnun
+      - id: N14SpeedLoader44Magnum
+        amount: 2
+      - id: N14AmmoBox44Magnum
+      - id: N14CleanGauze10
+      - id: N14Stimpak
+      - id: N14BoxCardboardMREBoxKFilled
+      - id: N14ClothingOuterMidwestReconArmor
+      - id: N14ClothingHeadHatBrotherhoodMidwestHelmetRecon
+
+- type: entity
   name: BoS Knight Ballistic Kit
   parent: KitBase
   id: KitMBoS_KniBal
@@ -1132,6 +1200,9 @@
       - id: N14ClothingOuterBrotherhoodMidwestMedicalScribeRobes
       - id: ClothingHandsGlovesChemist
       - id: N14BoxCardboardMREBoxKFilled
+      - id: N14WeaponLaserPistol
+      - id: N14PowerCellSmall
+        amount: 2
 
 # MBoS Scribe Field Kit
 - type: entity
@@ -1178,11 +1249,14 @@
       - id: ClothingHandsGlovesColorYellow
       - id: N14ClothingBeltUtilityFilled
       - id: N14BoxCardboardMREBoxKFilled
+      - id: N14WeaponLaserPistol
+      - id: N14PowerCellSmall
+        amount: 2
 
 # MBoS Paladin Kits
 #Misfits Change /Tweak/: Replaced auto laser rifle with auto shotgun + laser pistol sidearm.
 - type: entity
-  name: BoS Paladin Ripper Kit
+  name: BoS Paladin Enclave Slayer Kit
   parent: KitBase
   id: KitMBoS_PalLas
   description: A crate containing everything a member of the Brotherhood might need.
@@ -1193,7 +1267,7 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: N14rippersword
+      - id: MisfitsPlasmaCutter
       - id: N14WeaponLaserPistol
       - id: N14PowerCellSmall
         amount: 4

@@ -44,7 +44,7 @@
       Min: 1
       Max: 10
       PotencyDivisor: 25
-      
+
 - type: seed
   id: N14WildBarrelCactus
   name: clipping-wild-barrel-cactus-name
@@ -154,7 +154,7 @@
       Min: 1
       Max: 10
       PotencyDivisor: 25
-      
+
 - type: seed
   id: N14WildCarrot
   name: clipping-wild-carrot-name
@@ -176,7 +176,7 @@
       Min: 1
       Max: 10
       PotencyDivisor: 25
-      
+
 - type: seed
   id: N14CoyoteTobacco
   name: clipping-coyote-tobacco-name
@@ -198,7 +198,7 @@
       Min: 1
       Max: 10
       PotencyDivisor: 20
-      
+
 - type: seed
   id: N14Datura
   name: clipping-datura-name
@@ -220,7 +220,7 @@
       Min: 1
       Max: 10
       PotencyDivisor: 20
-      
+
 - type: seed
   id: N14WildGlowpepper #N14 change
   name: clipping-glowpepper-name #N14 change
@@ -242,7 +242,7 @@
       Min: 1
       Max: 10
       PotencyDivisor: 20
-      
+
 - type: seed
   id: N14WildMaize
   name: clipping-maize-name
@@ -270,7 +270,7 @@
       Min: 1
       Max: 4
       PotencyDivisor: 25
-      
+
 - type: seed
   id: N14WildMesquite
   name: clipping-mesquite-name
@@ -294,7 +294,7 @@
       Min: 1
       Max: 10
       PotencyDivisor: 25
-      
+
 - type: seed
   id: N14WildMutfruit
   name: clipping-mutfruit-name
@@ -318,7 +318,7 @@
       Min: 1
       Max: 10
       PotencyDivisor: 25
-      
+
 - type: seed
   id: N14WildNettle
   name: seeds-nettle-name
@@ -342,7 +342,7 @@
       Min: 1
       Max: 25
       PotencyDivisor: 4
-      
+
 - type: seed
   id: N14WildOnion
   name: clipping-wild-onion-name
@@ -400,7 +400,7 @@
       Min: 1
       Max: 4
       PotencyDivisor: 10
-      
+
 - type: seed
   id: N14WildPricklyPear
   name: clipping-prickly-pear-name
@@ -448,7 +448,7 @@
       Min: 1
       Max: 10
       PotencyDivisor: 25
-      
+
 - type: seed
   id: N14Starlight
   name: seeds-starlight-name
@@ -457,7 +457,7 @@
   plantRsi: _Nuclear14/Objects/Specific/Hydroponics/starlight.rsi
   packetPrototype: N14FloraWildStarlightBerryClippingSeed
   productPrototypes:
-    - N14WastelandFloraWildStarlightBerries
+    - N14FloraProduceWildStarlightBerries
   lifespan: 30
   maturation: 20
   production: 1
@@ -474,7 +474,7 @@
       Min: 1
       Max: 4
       PotencyDivisor: 25
-      
+
 - type: seed
   id: N14Tarberry
   name: seeds-tarberry-name
@@ -483,7 +483,7 @@
   plantRsi: _Nuclear14/Objects/Specific/Hydroponics/tarberry.rsi
   packetPrototype: N14FloraWildTarberryClippingSeed
   productPrototypes:
-    - N14WastelandFloraWildTarberries
+    - N14FloraProduceWildTarberries
   lifespan: 30
   maturation: 20
   production: 1
@@ -496,7 +496,7 @@
       Min: 1
       Max: 10
       PotencyDivisor: 25
-      
+
 - type: seed
   id: N14WildTato
   name: clipping-wild-tato-name
@@ -518,7 +518,7 @@
       Min: 1
       Max: 10
       PotencyDivisor: 25
-      
+
 - type: seed
   id: N14WildWhiteHorsenettle
   name: clipping-wild-white-horsenettle-name
@@ -540,7 +540,7 @@
       Min: 1
       Max: 10
       PotencyDivisor: 25
-      
+
 - type: seed
   id: N14WildXander
   name: clipping-wild-xander-name

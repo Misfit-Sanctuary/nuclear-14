@@ -962,6 +962,16 @@ public sealed class RaidRequestSystem : EntitySystem
         return false;
     }
 
+    public bool IsFactionUnderActiveRaid(string factionId)
+    {
+        foreach (var entry in _requests.Values)
+        {
+            if (entry.Status == RaidRequestStatus.Active && entry.TargetFaction == factionId)
+                return true;
+        }
+        return false;
+    }
+
     // ── Overlay participants ──────────────────────────────────────────────
 
     /// <summary>

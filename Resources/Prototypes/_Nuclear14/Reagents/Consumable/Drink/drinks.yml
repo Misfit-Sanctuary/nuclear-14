@@ -4,6 +4,13 @@
   parent: Milk
   name: reagent-name-milk-brahmin
   desc: reagent-desc-milk-brahmin
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: -1
 
 - type: reagent
   id: N14MilkBighorner
@@ -146,8 +153,9 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Burn: -1.5
+          types:
+            Heat: -1.5
+            Caustic: -1
 
 ## Maple Syrup
 - type: reagent

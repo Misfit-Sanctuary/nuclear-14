@@ -261,6 +261,7 @@
   name: tribal construction RCD
   description: A battered construction device programmed with plans for tribal settlements.
   components:
+  - type: RCDIgnoreCableCollision
   - type: RCD
     availablePrototypes:
     - MisfitsRCDTribalLogWall
@@ -285,6 +286,97 @@
     - MisfitsRCDTribalPlanter
     - MisfitsRCDTribalFloorTorch
     - MisfitsRCDTribalWallTorch
+    - MisfitsRCDBunkerDoor
+    - MisfitsRCDBunkerGlassDoor
+    - MisfitsRCDBunkerDoor3X
+    - MisfitsRCDBunkerGlassDoor3X
+    - MisfitsRCDAirlockSlanted
+    - MisfitsRCDAirlockTall
+    - MisfitsRCDMetalDoorReinforced
+    - MisfitsRCDMetalDoorCell
+    - MisfitsRCDMetalDoorBar
+    - MisfitsRCDMetalDoorIron
+    - MisfitsRCDMetalDoorSecure
+    - MisfitsRCDMetalDoorBlueSlanted
+    - MisfitsRCDMetalDoorRedSlanted
+    - MisfitsRCDMetalDoorBlueAltSlanted
+    - MisfitsRCDMetalDoorBlueWindowSlanted
+    - MisfitsRCDMetalDoorGrateSlanted
+    - MisfitsRCDMetalDoorBarSlanted
+    - MisfitsRCDMetalDoorFenceSlanted
+    - MisfitsRCDMetalDoorFenceBarbedSlanted
+    - MisfitsRCDMetalDoorBlueTall
+    - MisfitsRCDMetalDoorRedTall
+    - MisfitsRCDMetalDoorBlueAltTall
+    - MisfitsRCDMetalDoorBlueWindowTall
+    - MisfitsRCDMetalDoorGrateTall
+    - MisfitsRCDMetalDoorBarTall
+    - MisfitsRCDMetalDoorFenceTall
+    - MisfitsRCDMetalDoorFenceBarbedTall
+    - MisfitsRCDMetalDoorCellTall
+    - MisfitsRCDMetalDoorCellRustTall
+    - MisfitsRCDWallMetalSlanted
+    - MisfitsRCDWallReinfMetalSlanted
+    - MisfitsRCDWallMetalRustSlanted
+    - MisfitsRCDWallReinfMetalRustSlanted
+    - MisfitsRCDWallMetalTall
+    - MisfitsRCDWallReinfMetalTall
+    - MisfitsRCDWallMetalRustTall
+    - MisfitsRCDWallReinfMetalRustTall
+    - MisfitsRCDWallMetalHalf
+    - MisfitsRCDWallMetalReinforcedHalf
+    - MisfitsRCDWallMetalRustHalf
+    - MisfitsRCDWallMetalReinforcedRustHalf
+    - MisfitsRCDWallScrapSlanted
+    - MisfitsRCDWallScrapTall
+    - MisfitsRCDWallScrapHalf
+    - MisfitsRCDWallScrapWhiteSlanted
+    - MisfitsRCDWallScrapWhiteTall
+    - MisfitsRCDWallScrapBlueSlanted
+    - MisfitsRCDWallScrapBlueTall
+    - MisfitsRCDWallScrapRedSlanted
+    - MisfitsRCDWallScrapRedTall
+    - MisfitsRCDWallRoughScrapSlanted
+    - MisfitsRCDWallRoughScrapTall
+    - MisfitsRCDFloorMetalBlue
+    - MisfitsRCDFloorMetalBlueSolid
+    - MisfitsRCDFloorMetalGreen
+    - MisfitsRCDFloorMetalGreenSolid
+    - MisfitsRCDFloorMetalGrey
+    - MisfitsRCDFloorMetalGreySolid
+    - MisfitsRCDFloorMetalGreyDark
+    - MisfitsRCDFloorMetalGreyDarkSolid
+    - MisfitsRCDFloorMetalPurple
+    - MisfitsRCDFloorMetalPurpleSolid
+    - MisfitsRCDFloorMetalRed
+    - MisfitsRCDFloorMetalRedSolid
+    - MisfitsRCDFloorMetalTeal
+    - MisfitsRCDFloorMetalTealSolid
+    - MisfitsRCDFloorMetalWhite
+    - MisfitsRCDFloorMetalWhiteSolid
+    - MisfitsRCDFloorMetalYellow
+    - MisfitsRCDFloorMetalYellowSolid
+    - MisfitsRCDFloorMetalFreezer
+    - MisfitsRCDFloorMetalTunnel
+    - MisfitsRCDFloorMetalTunnelRusty
+    - MisfitsRCDFloorMetalTunnelWasteland
+    - MisfitsRCDFloorMS13MetalIndustrial
+    - MisfitsRCDFloorMS13MetalTile
+    - MisfitsRCDFloorMS13MetalGrate
+    - MisfitsRCDFloorMS13MetalSolid
+    - MisfitsRCDFloorConcrete
+    - MisfitsRCDFloorConcreteTileGoon
+    - MisfitsRCDFloorConcreteGreyBay
+    - MisfitsRCDFloorConcreteHexacrete
+    - MisfitsRCDFloorConcreteHexacreteDark
+    - MisfitsRCDFloorConcreteDark
+    - MisfitsRCDFloorConcreteRoad
+    - MisfitsRCDFloorMS13BrickConcrete
+    - MisfitsRCDFloorMS13Concrete
+    - MisfitsRCDFloorMS13ConcreteIndustrial
+    - MisfitsRCDFloorMS13ConcreteIndustrialAlt
+    - MisfitsRCDFloorMS13ConcreteIndustrialSplit
+    - MisfitsRCDFloorMS13TileConcreteSmall
     - Deconstruct
 
 - type: entity

@@ -6,7 +6,7 @@
 - type: loadout
   id: MisfitsLoadoutNeckDesertScarf
   category: Accessories
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterDepartmentRequirement
@@ -27,7 +27,7 @@
 - type: loadout
   id: MisfitsLoadoutNeckRedScarf
   category: Accessories
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -44,7 +44,7 @@
 - type: loadout
   id: MisfitsLoadoutNeckBlueScarf
   category: Accessories
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -61,7 +61,7 @@
 - type: loadout
   id: MisfitsLoadoutNeckGreenScarf
   category: Accessories
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -78,7 +78,7 @@
 - type: loadout
   id: MisfitsLoadoutNeckOrangeScarf
   category: Accessories
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -95,7 +95,7 @@
 - type: loadout
   id: MisfitsLoadoutNeckBrownScarf
   category: Accessories
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -112,7 +112,7 @@
 - type: loadout
   id: MisfitsLoadoutNeckPatriotScarf
   category: Accessories
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -131,7 +131,7 @@
 - type: loadout
   id: MisfitsLoadoutNeckTownGuardMantle
   category: Accessories
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterDepartmentRequirement
@@ -154,7 +154,7 @@
 - type: loadout
   id: MisfitsLoadoutEyesPilotGoggles
   category: Accessories
-  cost: 2
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutEyes
@@ -172,7 +172,7 @@
 - type: loadout
   id: MisfitsLoadoutHandsGlovesDriver
   category: Hands
-  cost: 2
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutHands
@@ -195,7 +195,7 @@
 - type: loadout
   id: MisfitsLoadoutHandsBlackBiker
   category: Hands
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutHands
@@ -211,7 +211,7 @@
 - type: loadout
   id: MisfitsLoadoutHandsBrownBiker
   category: Hands
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutHands
@@ -227,7 +227,7 @@
 - type: loadout
   id: MisfitsLoadoutHandsMountie
   category: Hands
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterDepartmentRequirement
         inverted: true
@@ -298,7 +298,7 @@
 - type: loadout
   id: MisfitsLoadoutHandsPatrol
   category: Hands
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterDepartmentRequirement
         inverted: true
@@ -320,7 +320,7 @@
 - type: loadout
   id: MisfitsLoadoutHandsNCR
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutHands
@@ -347,7 +347,7 @@
 - type: loadout
   id: MisfitsLoadoutHandsTribal
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutHands
@@ -365,7 +365,7 @@
 - type: loadout
   id: MisfitsLoadoutEyesGoggles
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutEyes
@@ -383,7 +383,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadWoodBoonie
   category: Head
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterDepartmentRequirement
         inverted: true
@@ -401,7 +401,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadWinterBoonie
   category: Head
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterDepartmentRequirement
         inverted: true
@@ -419,7 +419,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadDesertBoonie
   category: Head
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterDepartmentRequirement
         inverted: true
@@ -437,7 +437,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadArmyBeret
   category: Head
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterDepartmentRequirement
         inverted: true
@@ -455,7 +455,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadArmyBeretAirborne
   category: Head
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterDepartmentRequirement
         inverted: true
@@ -473,7 +473,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadArmyBeretSpecial
   category: Head
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterDepartmentRequirement
         inverted: true
@@ -491,7 +491,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadAntlerSkull
   category: Head
-  cost: 2
+  cost: 1
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -512,7 +512,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadRedBandana
   category: Head
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterDepartmentRequirement
@@ -533,7 +533,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadNCRSidecap
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -558,7 +558,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadNCRBeretOfficer
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -572,7 +572,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadNCRBeretMedic
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -583,7 +583,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadNCRBeretQM
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -600,7 +600,7 @@
 - type: loadout
   id: MisfitsLoadoutNeckNCRmantleQM
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -611,7 +611,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadNCRSlouch
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -643,7 +643,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadArmyBeretRanger
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -658,7 +658,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadNCRBeretRecon
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -673,7 +673,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadRanger
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -688,7 +688,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadRangerB
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -705,7 +705,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadBrotherhoodCap
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -727,7 +727,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadBrotherhoodBeret
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -749,7 +749,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadBrotherhoodFieldCap
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -799,7 +799,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadEnclaveIntel
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -818,7 +818,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadEnclavePeacekeeperCap
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -834,7 +834,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadEnclaveOfficer
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -848,7 +848,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadEnclaveScientist
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -863,7 +863,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadDeputy
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -874,7 +874,7 @@
 - type: loadout
   id: MisfitsLoadoutHeadSheriff
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -888,7 +888,7 @@
 - type: loadout
   id: MisfitsLoadoutShoesJamrock
   category: Shoes
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -905,7 +905,7 @@
 - type: loadout
   id: MisfitsLoadoutShoesLeatherBoots
   category: Shoes
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterDepartmentRequirement
         inverted: true
@@ -925,7 +925,7 @@
 - type: loadout
   id: MisfitsLoadoutShoesTribal
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -939,7 +939,7 @@
 - type: loadout
   id: MisfitsLoadoutShoesRaider
   category: Accessories
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
@@ -1091,7 +1091,7 @@
 - type: loadout
   id: MisfitsLoadoutUniform80sPants
   category: Uniform
-  cost: 1
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -1109,7 +1109,7 @@
 - type: loadout
   id: MisfitsLoadoutOuterCoatJacketBiker
   category: Outer
-  cost: 1
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -1130,7 +1130,7 @@
 - type: loadout
   id: MisfitsLoadoutNeckCloakNCR
   category: Accessories
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -1158,7 +1158,7 @@
 - type: loadout
   id: MisfitsLoadoutNeckCloakNCRSnow
   category: Accessories
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -1186,7 +1186,7 @@
 - type: loadout
   id: MisfitsLoadoutNeckMantleNCR
   category: Accessories
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -1208,7 +1208,7 @@
 - type: loadout
   id: MisfitsLoadoutNeckCloakNCRWoods
   category: Accessories
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -1228,7 +1228,7 @@
 - type: loadout
   id: MisfitsLoadoutNeckCloakTribal
   category: Accessories
-  cost: 2
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement

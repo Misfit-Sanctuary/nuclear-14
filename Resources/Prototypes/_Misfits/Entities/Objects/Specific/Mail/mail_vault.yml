@@ -1,0 +1,683 @@
+# everyone
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultPlushie
+  suffix: vault-plushie
+  components:
+  - type: Mail
+    contents:
+    - id: PlushieBee
+      prob: 0.1
+      orGroup: plushie
+    - id: PlushieCorgi
+      prob: 0.1
+      orGroup: plushie
+    - id: PlushieCatBlack
+      prob: 0.1
+      orGroup: plushie
+    - id: PlushieCatOrange
+      prob: 0.1
+      orGroup: plushie
+    - id: PlushieCatTabby
+      prob: 0.1
+      orGroup: plushie
+    - id: PlushieCatTuxedo
+      prob: 0.08
+      orGroup: plushie
+    - id: PlushieHampter
+      prob: 0.1
+      orGroup: plushie
+    - id: PlushieGhost
+      prob: 0.08
+      orGroup: plushie
+    - id: PlushieSharkBlue
+      prob: 0.08
+      orGroup: plushie
+    - id: PlushieLizard
+      prob: 0.08
+      orGroup: plushie
+
+# clothing gifts — everyone
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultMedSupply
+  suffix: vault-med-supply
+  components:
+  - type: Mail
+    contents:
+    - id: N14Stimpak
+    - id: N14Bandage
+      maxAmount: 2
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultWrappingPaper
+  suffix: vault-wrapping-paper
+  components:
+  - type: Mail
+    contents:
+    - id: PresentTrash
+      maxAmount: 3
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultScarf
+  suffix: vault-scarf
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingNeckScarfStripedRed
+      prob: 0.14
+      orGroup: scarf
+    - id: ClothingNeckScarfStripedBlue
+      prob: 0.14
+      orGroup: scarf
+    - id: ClothingNeckScarfStripedGreen
+      prob: 0.14
+      orGroup: scarf
+    - id: ClothingNeckScarfStripedOrange
+      prob: 0.14
+      orGroup: scarf
+    - id: ClothingNeckScarfStripedPurple
+      prob: 0.14
+      orGroup: scarf
+    - id: ClothingNeckScarfStripedLightBlue
+      prob: 0.14
+      orGroup: scarf
+    - id: ClothingNeckScarfStripedBlack
+      prob: 0.14
+      orGroup: scarf
+    - id: ClothingNeckScarfStripedBrown
+      prob: 0.14
+      orGroup: scarf
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultVodka
+  suffix: vault-vodka
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkVodkaBottleFull
+    - id: DrinkShotGlass
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultWine
+  suffix: vault-wine
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkWineBottleFull
+    - id: DrinkWineGlass
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultBirthdayCake
+  suffix: vault-birthday-cake
+  components:
+  - type: Mail
+    contents:
+    - id: FoodCakeBirthday
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultPreWarMoney
+  suffix: vault-prewar-money
+  components:
+  - type: Mail
+    contents:
+    - id: N14CurrencyPrewarMoney100
+      maxAmount: 3
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultCigars
+  suffix: vault-cigars
+  components:
+  - type: Mail
+    contents:
+    - id: CigarCase
+      prob: 0.7
+      orGroup: cigar-case
+    - id: CigarGoldCase
+      prob: 0.3
+      orGroup: cigar-case
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultFireBomb
+  suffix: vault-firebomb
+  components:
+  - type: Mail
+    contents:
+    - id: FireBomb
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultFortuneCookies
+  suffix: vault-fortune-cookies
+  components:
+  - type: Mail
+    contents:
+    - id: FoodSnackCookieFortune
+      maxAmount: 3
+
+
+# doc
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultDoctorSupplies
+  suffix: vault-doc-supplies
+  components:
+  - type: Mail
+    contents:
+    - id: N14Stimpak
+      maxAmount: 2
+    - id: N14Bandage
+      maxAmount: 2
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultDoctorRadAway
+  suffix: vault-doc-radaway
+  components:
+  - type: Mail
+    contents:
+    - id: N14RadAwayInhaler
+      maxAmount: 2
+    - id: N14RadAwayPhial
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultDoctorStims
+  suffix: vault-doc-stims
+  components:
+  - type: Mail
+    contents:
+    - id: N14SuperStimpak
+    - id: N14CombatInjector
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultDoctorUltraStimpak
+  suffix: vault-doc-ultra
+  components:
+  - type: Mail
+    contents:
+    - id: N14UltraStimpak
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultDoctorControlled
+  suffix: vault-doc-controlled
+  components:
+  - type: Mail
+    contents:
+    - id: N14Med-X
+      prob: 0.5
+      orGroup: ctrl
+    - id: N14Jet
+      prob: 0.3
+      orGroup: ctrl
+    - id: N14Hydra
+      prob: 0.2
+      orGroup: ctrl
+
+
+# engineer
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultEngineerPowerDrill
+  suffix: vault-eng-drill
+  components:
+  - type: Mail
+    contents:
+    - id: N14PowerDrill
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultEngineerGoggles
+  suffix: vault-eng-goggles
+  components:
+  - type: Mail
+    contents:
+    - id: N14ClothingEyesGlassesWelding
+      prob: 0.5
+      orGroup: eng-eye
+    - id: N14ClothingEyesGlassesGoggles
+      prob: 0.3
+      orGroup: eng-eye
+    - id: N14ClothingDrylanderGoggles
+      prob: 0.2
+      orGroup: eng-eye
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultEngineerJumpsuit
+  suffix: vault-eng-jumpsuit
+  components:
+  - type: Mail
+    contents:
+    - id: N14ClothingUniformJumpsuitMechanic
+
+# security
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultSecurityMeds
+  suffix: vault-sec-meds
+  components:
+  - type: Mail
+    contents:
+    - id: N14Stimpak
+      maxAmount: 2
+    - id: N14CombatInjector
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultSecurityDonuts
+  suffix: vault-sec-donuts
+  components:
+  - type: Mail
+    contents:
+    - id: N14CookedFoodDonutPink
+      maxAmount: 2
+    - id: N14CookedFoodDonutPlain
+      maxAmount: 2
+    - id: N14CookedFoodDonutHomer
+      maxAmount: 1
+
+# dweller
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultDwellerOutfit
+  suffix: vault-dweller-outfit
+  components:
+  - type: Mail
+    contents:
+    - id: N14ClothingUniformJumpsuitPreWarRelaxed
+      prob: 0.3
+      orGroup: dw-suit
+    - id: N14ClothingUniformJumpsuitPreWarCasual
+      prob: 0.3
+      orGroup: dw-suit
+    - id: N14ClothingUniformJumpsuitCheckered
+      prob: 0.2
+      orGroup: dw-suit
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultDwellerCostume
+  suffix: vault-dweller-costume
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingUniformJumpsuitClown
+      prob: 0.5
+      orGroup: costume
+    - id: ClothingUniformJumpsuitMime
+      prob: 0.5
+      orGroup: costume
+
+# overseer
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultOverseerNocturine
+  suffix: vault-overseer-nocturine
+  components:
+  - type: Mail
+    contents:
+    - id: NocturineChemistryBottle
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultWizardRobes
+  suffix: vault-wizard
+  components:
+  - type: Mail
+    contents:
+    - id: N14ClothingOuterBlackRobes
+      prob: 0.5
+      orGroup: robe
+    - id: N14ClothingOuterLeatherRobes
+      prob: 0.3
+      orGroup: robe
+    - id: N14ClothingOuterRobeHubologist
+      prob: 0.2
+      orGroup: robe
+    - id: N14ClothingHeadHatHoodBlackRobe
+      prob: 0.5
+      orGroup: robe-hood
+    - id: N14ClothingHeadHatHoodLeatherRobe
+      prob: 0.5
+      orGroup: robe-hood
+
+# doc
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultDoctorCateye
+  suffix: vault-doc-cateye
+  components:
+  - type: Mail
+    contents:
+    - id: N14CateyeCanisterFilled
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultDoctorSurgicalSupplies
+  suffix: vault-doc-surgical
+  components:
+  - type: Mail
+    contents:
+    - id: RegenerativeMesh
+      maxAmount: 2
+    - id: MedicatedSuture
+      maxAmount: 2
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultDoctorCombatMedkit
+  suffix: vault-doc-combatmedkit
+  components:
+  - type: Mail
+    contents:
+    - id: N14MedkitCombatFilled
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultDoctorStimkit
+  suffix: vault-doc-stimkit
+  components:
+  - type: Mail
+    contents:
+    - id: N14MedkitStimkitFilled
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultDoctorParamedicOutfit
+  suffix: vault-doc-paramedic
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingUniformJumpsuitParamedic
+    - id: ClothingHeadHatParamedicsoft
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultDoctorGrenadeKit
+  suffix: vault-doc-grenade
+  components:
+  - type: Mail
+    contents:
+    - id: ChemicalPayload
+    - id: ModularGrenade
+    - id: TimerTrigger
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultPills
+  suffix: vault-pills
+  components:
+  - type: Mail
+    contents:
+    - id: N14MentatsCanisterFilled
+      prob: 0.35
+      orGroup: pill
+    - id: N14BuffoutCanisterFilled
+      prob: 0.3
+      orGroup: pill
+    - id: N14RadXCanisterFilled
+      prob: 0.2
+      orGroup: pill
+    - id: N14FixerCanisterFilled
+      prob: 0.15
+      orGroup: pill
+
+# engineer
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultEngineerWelder
+  suffix: vault-eng-welder
+  components:
+  - type: Mail
+    contents:
+    - id: N14WelderIndustrial
+      prob: 0.45
+      orGroup: weld
+    - id: N14WelderIndustrialAdvanced
+      prob: 0.45
+      orGroup: weld
+    - id: N14WelderExperimental
+      prob: 0.35
+      orGroup: weld
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultEngineerJawsOfLife
+  suffix: vault-eng-jaws
+  components:
+  - type: Mail
+    contents:
+    - id: JawsOfLife
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultEngineerCircuitry
+  suffix: vault-eng-circuitry
+  components:
+  - type: Mail
+    contents:
+    - id: N14MaterialCircuitry10
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultEngineerBelt
+  suffix: vault-eng-belt
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingBeltChiefEngineer
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultEngineerSatchel
+  suffix: vault-eng-satchel
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingBackpackSatchelEngineering
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultEngineerBeret
+  suffix: vault-eng-beret
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHeadHatBeretEngineering
+
+# security
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultSecuritySword
+  suffix: vault-sec-sword
+  components:
+  - type: Mail
+    contents:
+    - id: N14ChineseSword
+      prob: 0.5
+      orGroup: sec-sword
+    - id: N14LongSword
+      prob: 0.5
+      orGroup: sec-sword
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultSecurityTearGas
+  suffix: vault-sec-teargas
+  components:
+  - type: Mail
+    contents:
+    - id: TearGasGrenade
+      maxAmount: 4
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultSecurityEMP
+  suffix: vault-sec-emp
+  components:
+  - type: Mail
+    contents:
+    - id: GrenadeEMP
+      maxAmount: 2
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultSecurityFlashbang
+  suffix: vault-sec-flashbang
+  components:
+  - type: Mail
+    contents:
+    - id: BoxFlashbang
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultSecurityPoliceUniform
+  suffix: vault-sec-police
+  components:
+  - type: Mail
+    contents:
+    - id: N14ClothingOuterPoliceChief
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultSecurityPlasmaDefender
+  suffix: vault-sec-plasmadefender
+  components:
+  - type: Mail
+    contents:
+    - id: N14WeaponPlasmaDefender
+
+# dweller
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultDwellerPipboy
+  suffix: vault-dweller-pipboy
+  components:
+  - type: Mail
+    contents:
+    - id: N14WastelanderPipboy
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultDwellerJoints
+  suffix: vault-dweller-joints
+  components:
+  - type: Mail
+    contents:
+    - id: Joint
+      maxAmount: 4
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultDwellerPirateSet
+  suffix: vault-dweller-pirate
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingUniformJumpsuitPirate
+    - id: ClothingHeadHatPirate
+    - id: ClothingNeckCloakPirateCap
+    - id: ClothingOuterCoatPirate
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultDwellerWitchSet
+  suffix: vault-dweller-witch
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHeadHatWitch
+    - id: ClothingOuterSuitWitchRobes
+
+# overseer
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultOverseerPlasmaRifle
+  suffix: vault-overseer-plasma
+  components:
+  - type: Mail
+    contents:
+    - id: N14WeaponPlasmaRifle
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMail
+  id: MailVaultOverseerJusticeSet
+  suffix: vault-overseer-justice
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingUniformJumpsuitChiefJustice
+    - id: ClothingOuterChiefJustice

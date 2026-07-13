@@ -8,7 +8,9 @@ using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 using System.Numerics;
 
 namespace Content.Client.RCD;
@@ -19,6 +21,7 @@ public sealed partial class RCDMenu : RadialMenu
     [Dependency] private readonly EntityManager _entManager = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
 
     private SharedPopupSystem _popup;
     private SpriteSystem _sprites;
@@ -62,13 +65,7 @@ public sealed partial class RCDMenu : RadialMenu
                 continue;
 
             var parent = FindControl<RadialContainer>(proto.Category);
-            var tooltip = Loc.GetString(proto.SetName);
-
-            if ((proto.Mode == RcdMode.ConstructTile || proto.Mode == RcdMode.ConstructObject) &&
-                proto.Prototype != null && _protoManager.TryIndex(proto.Prototype, out var entProto, logError: false))
-            {
-                tooltip = Loc.GetString(entProto.Name);
-            }
+            var tooltip = GetBuildDisplayName(proto);
 
             tooltip = OopsConcat(char.ToUpper(tooltip[0]).ToString(), tooltip.Remove(0, 1));
 
@@ -80,14 +77,16 @@ public sealed partial class RCDMenu : RadialMenu
                 ProtoId = protoId,
             };
 
-            if (proto.Sprite != null)
+            var sprite = GetBuildDisplaySprite(proto);
+            if (sprite != null)
             {
                 var tex = new TextureRect()
                 {
                     VerticalAlignment = VAlignment.Center,
                     HorizontalAlignment = HAlignment.Center,
-                    Texture = _sprites.Frame0(proto.Sprite),
-                    TextureScale = new Vector2(2f, 2f),
+                    Texture = _sprites.Frame0(sprite),
+                    SetSize = new Vector2(48f, 48f),
+                    Stretch = TextureRect.StretchMode.KeepAspectCovered,
                 };
 
                 button.AddChild(tex);
@@ -150,12 +149,7 @@ public sealed partial class RCDMenu : RadialMenu
 
                     if (proto.Mode == RcdMode.ConstructTile || proto.Mode == RcdMode.ConstructObject)
                     {
-                        var name = Loc.GetString(proto.SetName);
-
-                        if (proto.Prototype != null &&
-                            _protoManager.TryIndex(proto.Prototype, out var entProto, logError: false))
-                            name = entProto.Name;
-
+                        var name = GetBuildDisplayName(proto);
                         msg = Loc.GetString("rcd-component-change-build-mode", ("name", name));
                     }
 
@@ -166,6 +160,45 @@ public sealed partial class RCDMenu : RadialMenu
                 Close();
             };
         }
+    }
+
+    private string GetBuildDisplayName(RCDPrototype proto)
+    {
+        if (proto.Prototype != null)
+        {
+            if (proto.Mode == RcdMode.ConstructObject &&
+                _protoManager.TryIndex<EntityPrototype>(proto.Prototype, out var entProto))
+                return Loc.GetString(entProto.Name);
+
+            if (proto.Mode == RcdMode.ConstructTile &&
+                _tileDefManager.TryGetDefinition(proto.Prototype, out var tileDef))
+                return Loc.GetString(tileDef.Name);
+        }
+
+        return Loc.GetString(proto.SetName);
+    }
+
+    private SpriteSpecifier? GetBuildDisplaySprite(RCDPrototype proto)
+    {
+        if (proto.Prototype != null)
+        {
+            if (proto.Mode == RcdMode.ConstructTile &&
+                _tileDefManager.TryGetDefinition(proto.Prototype, out var tileDef) &&
+                tileDef.Sprite != null)
+                return new SpriteSpecifier.Texture(tileDef.Sprite.Value);
+
+            if (proto.Mode == RcdMode.ConstructObject &&
+                IsWastelandCategory(proto.Category) &&
+                _protoManager.HasIndex<EntityPrototype>(proto.Prototype))
+                return new SpriteSpecifier.EntityPrototype(proto.Prototype);
+        }
+
+        return proto.Sprite;
+    }
+
+    private static bool IsWastelandCategory(string category)
+    {
+        return category == "WastelandDoors" || category == "WastelandWallsAndFlooring";
     }
 }
 

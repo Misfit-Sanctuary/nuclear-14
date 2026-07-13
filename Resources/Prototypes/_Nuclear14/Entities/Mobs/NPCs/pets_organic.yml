@@ -1,7 +1,7 @@
 - type: entity
   name: Basic Pet
   id: N14MobPetBasic
-  parent: N14MobBaseHostile
+  parent: N14MobBaseHostileNoAccent
   categories: [ HideSpawnMenu ]
   description: Why are you even reading this?
   components:
@@ -123,8 +123,6 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       collection: N14DogBark #Misfits Change
-  - type: ReplacementAccent
-    accent: dog
   - type: LanguageKnowledge
     speaks:
     - N14Dog
@@ -132,6 +130,7 @@
     - N14Dog
     - N14Insect
     - English
+    - Spanish
     - Chinese
     - Latin
     - Tribal
@@ -148,6 +147,30 @@
   - type: Speech # Corvax-Change
     speechSounds: Dog
   #- type: DogVision # Corvax-Change | #Misfits Change: Disabled — greyscale shader should not apply to players inhabiting pet mobs
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VulpEmotes
+  - type: InventorySlots
+  - type: Strippable
+  - type: PetCollarHolder
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: Inventory
+    speciesId: cat
+    templateId: cat_pet
+  - type: Emoting
+  - type: Hands # #Misfits Add - allows dragging and item handling
+  - type: BorgHands # #Misfits Add - gives cats actual holdable hand slots
+    handCount: 1
+  - type: ComplexInteraction # #Misfits Add - allows click-opening doors and other complex hand interactions
+  - type: RobotWeaponPickupBlacklist # #Misfits Add - cats should not be able to pick up guns/melee weapons
+    blacklist:
+      components:
+      - Gun
+      - MeleeWeapon
 
 - type: entity
   name: BoS Mutt

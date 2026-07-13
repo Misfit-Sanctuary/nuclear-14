@@ -1,20 +1,70 @@
-# [Changed by MisfitsCrew/Operator] ZAX units are Station AI-controllable NPC copies of the player-selectable silicon chassis.
+# [Changed by MisfitsCrew/Operator] ZAX units are commandable NPC copies of the player-selectable silicon chassis.
 
 - type: entity
   abstract: true
   id: MisfitsZaxUnitBase
   components:
   - type: ZaxUnit
+  - type: ZaxLinkedUnit
   - type: ZaxNeutralSpecial
   - type: StationAiVision
   - type: StationAiWhitelist
+  - type: SiliconInternalRadio
+  - type: EncryptionKeyHolder
+    keySlots: 4
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSilicon
+  - type: UnblockableSpeech
+  - type: LanguageSpeaker
+  - type: Examiner
+  - type: Hands
+    showInHands: true
+  - type: BorgHands
+  - type: ComplexInteraction
+  - type: GhostRole
+    name: ghost-role-information-zax-unit-name
+    description: ghost-role-information-zax-unit-description
+    rules: ghost-role-information-zax-unit-rules
+    allowMovement: true
+    allowSpeech: true
+  - type: GhostTakeoverAvailable
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
+    - WastelandGlobal
     - ZAXBinary
   - type: ActiveRadio
     channels:
+    - WastelandGlobal
     - ZAXBinary
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyZAX
+  - type: LanguageKnowledge
+    speaks:
+    - English
+    - N14Robot
+    - N14BrotherBeep
+    - Latin
+    - Chinese
+    - Tribal
+    - Sign
+    understands:
+    - English
+    - N14Robot
+    - N14BrotherBeep
+    - Latin
+    - Chinese
+    - Tribal
+    - Sign
   - type: NpcFactionMember
     factions:
     - Wastelander
@@ -39,76 +89,114 @@
   abstract: true
   id: MisfitsZaxPlayerUnitBase
   components:
+  - type: ZaxLinkedUnit
   - type: ZaxPlayerSpecial
   - type: StationAiVision
   - type: StationAiWhitelist
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
+    - WastelandGlobal
     - ZAXBinary
   - type: ActiveRadio
     channels:
+    - WastelandGlobal
     - ZAXBinary
+  - type: LanguageKnowledge
+    speaks:
+    - English
+    - N14Robot
+    - N14BrotherBeep
+    - Latin
+    - Chinese
+    - Tribal
+    - Sign
+    understands:
+    - English
+    - N14Robot
+    - N14BrotherBeep
+    - Latin
+    - Chinese
+    - Tribal
+    - Sign
 
 - type: entity
   parent: [N14MobRobotMrHandyClaw, MisfitsZaxUnitBase]
   id: N14MobZaxMrHandy
   name: ZAX Mr. Handy unit
-  description: A ZAX-linked Mr. Handy chassis prepared for Station AI command.
-  suffix: ZAX, AI controllable
+  description: A ZAX-linked Mr. Handy chassis prepared for remote command.
+  suffix: ZAX, commandable
+  components:
+  - type: BorgHands
+    handCount: 3
 
 - type: entity
   parent: [N14MobRobotMrHandyGutsy, MisfitsZaxUnitBase]
   id: N14MobZaxMrGutsy
   name: ZAX Mr. Gutsy unit
-  description: A ZAX-linked Mr. Gutsy chassis prepared for Station AI command.
-  suffix: ZAX, AI controllable
-
-- type: entity
-  parent: [N14MobRobotProtectronHostile, MisfitsZaxUnitBase]
-  id: N14MobZaxProtectron
-  name: ZAX Protectron unit
-  description: A ZAX-linked Protectron chassis prepared for Station AI command.
-  suffix: ZAX, AI controllable
+  description: A ZAX-linked Mr. Gutsy chassis prepared for remote command.
+  suffix: ZAX, commandable
+  components:
+  - type: MeleeWeapon
+    hidden: true
+    autoAttack: true
+    angle: 0
+    wideAnimationRotation: -135
+    attackRate: 0.25
+    damage:
+      types:
+        Slash: 6
+        Piercing: 3
+        Structural: 8
+    soundHit:
+      path: /Audio/_Nuclear14/Weapons/Melee/Swing/ripper.ogg
 
 - type: entity
   parent: [N14MobRobotProtectronBuilderHostile, MisfitsZaxUnitBase]
   id: N14MobZaxProtectronBuilder
   name: ZAX Protectron builder unit
-  description: A ZAX-linked Protectron builder chassis prepared for Station AI command.
-  suffix: ZAX, AI controllable
+  description: A ZAX-linked Protectron builder chassis prepared for remote command.
+  suffix: ZAX, commandable
 
 - type: entity
   parent: [N14MobRobotProtectronFireHostile, MisfitsZaxUnitBase]
   id: N14MobZaxProtectronFire
   name: ZAX Protectron firefighter unit
-  description: A ZAX-linked Protectron firefighter chassis prepared for Station AI command.
-  suffix: ZAX, AI controllable
+  description: A ZAX-linked Protectron firefighter chassis prepared for remote command.
+  suffix: ZAX, commandable
 
 - type: entity
   parent: [N14MobRobotProtectronPoliceHostile, MisfitsZaxUnitBase]
   id: N14MobZaxProtectronPolice
   name: ZAX Protectron police unit
-  description: A ZAX-linked Protectron police chassis prepared for Station AI command.
-  suffix: ZAX, AI controllable
+  description: A ZAX-linked Protectron police chassis prepared for remote command.
+  suffix: ZAX, commandable
 
 - type: entity
   parent: [N14MobRobotSecuritronHostile, MisfitsZaxUnitBase]
   id: N14MobZaxSecuritron
   name: Z.A.X Securitron
-  description: A ZAX-linked Securitron chassis prepared for Station AI command.
-  suffix: ZAX, AI controllable
+  description: A ZAX-linked Securitron chassis prepared for remote command.
+  suffix: ZAX, commandable
   components:
   - type: GhostRole
     name: ghost-role-information-zax-securitron-name
     description: ghost-role-information-zax-securitron-description
     rules: ghost-role-information-zax-securitron-rules
-  - type: GhostTakeoverAvailable
+    allowMovement: true
+    allowSpeech: true
   - type: Sprite
     sprite: _Misfits/Mobs/Robots/zax_securitron.rsi
     layers:
     - state: icon
       map: ["movement"]
+    - state: icon
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: icon
+      shader: unshaded
+      map: ["light"]
       visible: false
   - type: MobThresholds
     thresholds:
@@ -166,7 +254,6 @@
     rules: ghost-role-information-zax-c27-rules
     allowMovement: true
     allowSpeech: true
-  - type: GhostTakeoverAvailable
   - type: MisfitsGhostRoleJobWhitelistRequirement
     jobs:
     - C27ZAX
@@ -175,167 +262,139 @@
   parent: [N14MobRobotAssaultronHostile, MisfitsZaxUnitBase]
   id: N14MobZaxAssaultron
   name: ZAX Assaultron unit
-  description: A ZAX-linked Assaultron chassis prepared for Station AI command.
-  suffix: ZAX, AI controllable
+  description: A ZAX-linked Assaultron chassis prepared for remote command.
+  suffix: ZAX, commandable
 
 - type: entity
   parent: [N14MobRobotAssaultronHostile, MisfitsZaxUnitBase]
   id: N14MobZaxAssaultronTesla
   name: ZAX Assaultron Tesla unit
-  description: A ZAX-linked Assaultron Tesla chassis prepared for Station AI command.
-  suffix: ZAX, AI controllable, tesla
+  description: A ZAX-linked Assaultron Tesla chassis prepared for remote command.
+  suffix: ZAX, commandable, tesla
 
 - type: entity
   parent: [N14MobRobotSentryBotBallistic, MisfitsZaxUnitBase]
   id: N14MobZaxSentryBotMinigun
   name: ZAX Sentry Bot unit
-  description: A ZAX-linked Sentry Bot minigun chassis prepared for Station AI command.
-  suffix: ZAX, AI controllable, minigun
+  description: A ZAX-linked Sentry Bot minigun chassis prepared for remote command.
+  suffix: ZAX, commandable, minigun
 
 - type: entity
   parent: [N14MobRobotSentryBot, MisfitsZaxUnitBase]
   id: N14MobZaxSentryBotLaser
   name: ZAX Sentry Bot unit
-  description: A ZAX-linked Sentry Bot laser chassis prepared for Station AI command.
-  suffix: ZAX, AI controllable, laser
+  description: A ZAX-linked Sentry Bot laser chassis prepared for remote command.
+  suffix: ZAX, commandable, laser
 
 - type: entity
   parent: [N14MobRobotRobobrain, MisfitsZaxUnitBase]
   id: N14MobZaxRobobrain
   name: ZAX Robobrain unit
-  description: A ZAX-linked Robobrain chassis prepared for Station AI command.
-  suffix: ZAX, AI controllable
+  description: A ZAX-linked Robobrain chassis prepared for remote command.
+  suffix: ZAX, commandable
 
 - type: entity
   parent: [N14MobRobotRobobrain, MisfitsZaxUnitBase]
   id: N14MobZaxRobobrainLaser
   name: ZAX Robobrain laser unit
-  description: A ZAX-linked Robobrain laser chassis prepared for Station AI command.
-  suffix: ZAX, AI controllable, laser
+  description: A ZAX-linked Robobrain laser chassis prepared for remote command.
+  suffix: ZAX, commandable, laser
 
-# Player-available silicon chassis copies for admin spawning only.
+# Player-available Z.A.X silicon chassis copies.
 - type: entity
   parent: [N14PlayerSyntheticMrHandy, MisfitsZaxPlayerUnitBase]
   id: N14MobZaxPlayerMrHandy
   name: ZAX Mr. Handy unit
-  description: A ZAX-linked player-configuration Mr. Handy chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis
-
-- type: entity
-  parent: [N14PlayerSyntheticProtectron, MisfitsZaxPlayerUnitBase]
-  id: N14MobZaxPlayerProtectron
-  name: ZAX Protectron unit
-  description: A ZAX-linked player-configuration Protectron chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis
-
-- type: entity
-  parent: [N14PlayerSyntheticProtectronPolice, MisfitsZaxPlayerUnitBase]
-  id: N14MobZaxPlayerProtectronPolice
-  name: ZAX Police Protectron unit
-  description: A ZAX-linked player-configuration Police Protectron chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis
-
-- type: entity
-  parent: [N14PlayerSyntheticProtectronBuilder, MisfitsZaxPlayerUnitBase]
-  id: N14MobZaxPlayerProtectronBuilder
-  name: ZAX Builder Protectron unit
-  description: A ZAX-linked player-configuration Builder Protectron chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis
-
-- type: entity
-  parent: [N14PlayerSyntheticProtectronFire, MisfitsZaxPlayerUnitBase]
-  id: N14MobZaxPlayerProtectronFire
-  name: ZAX Fire Protectron unit
-  description: A ZAX-linked player-configuration Fire Protectron chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis
-
-- type: entity
-  parent: [N14PlayerSyntheticProtectronTribal, MisfitsZaxPlayerUnitBase]
-  id: N14MobZaxPlayerProtectronTribal
-  name: ZAX Tribal Protectron unit
-  description: A ZAX-linked player-configuration Tribal Protectron chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis
-
-- type: entity
-  parent: [N14PlayerSyntheticSecuritronGray, MisfitsZaxPlayerUnitBase]
-  id: N14MobZaxPlayerSecuritronGray
-  name: ZAX Securitron unit
-  description: A ZAX-linked player-configuration Securitron chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis, gray
-
-- type: entity
-  parent: [N14PlayerSyntheticSecuritronBlue, MisfitsZaxPlayerUnitBase]
-  id: N14MobZaxPlayerSecuritronBlue
-  name: ZAX Securitron unit
-  description: A ZAX-linked player-configuration Securitron chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis, blue
-
-- type: entity
-  parent: [N14PlayerSyntheticSecuritronBrown, MisfitsZaxPlayerUnitBase]
-  id: N14MobZaxPlayerSecuritronBrown
-  name: ZAX Securitron unit
-  description: A ZAX-linked player-configuration Securitron chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis, brown
-
-- type: entity
-  parent: [N14PlayerSyntheticSecuritronRed, MisfitsZaxPlayerUnitBase]
-  id: N14MobZaxPlayerSecuritronRed
-  name: ZAX Securitron unit
-  description: A ZAX-linked player-configuration Securitron chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis, red
-
-- type: entity
-  parent: [N14PlayerSyntheticSecuritronYellow, MisfitsZaxPlayerUnitBase]
-  id: N14MobZaxPlayerSecuritronYellow
-  name: ZAX Securitron unit
-  description: A ZAX-linked player-configuration Securitron chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis, yellow
+  description: A ZAX-linked player-configuration Mr. Handy chassis.
+  suffix: ZAX, player chassis
 
 - type: entity
   parent: [N14PlayerSyntheticMrGutsy, MisfitsZaxPlayerUnitBase]
   id: N14MobZaxPlayerMrGutsy
   name: ZAX Mr. Gutsy unit
-  description: A ZAX-linked player-configuration Mr. Gutsy chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis
+  description: A ZAX-linked player-configuration Mr. Gutsy chassis.
+  suffix: ZAX, player chassis
+
+- type: entity
+  parent: [N14PlayerSyntheticProtectronBuilder, MisfitsZaxPlayerUnitBase]
+  id: N14MobZaxPlayerProtectronBuilder
+  name: ZAX Builder Protectron unit
+  description: A ZAX-linked player-configuration Builder Protectron chassis.
+  suffix: ZAX, player chassis
+
+- type: entity
+  parent: [N14PlayerSyntheticProtectronFire, MisfitsZaxPlayerUnitBase]
+  id: N14MobZaxPlayerProtectronFire
+  name: ZAX Firefighter Protectron unit
+  description: A ZAX-linked player-configuration Firefighter Protectron chassis.
+  suffix: ZAX, player chassis
+
+- type: entity
+  parent: [N14PlayerSyntheticProtectronPolice, MisfitsZaxPlayerUnitBase]
+  id: N14MobZaxPlayerProtectronPolice
+  name: ZAX Police Protectron unit
+  description: A ZAX-linked player-configuration Police Protectron chassis.
+  suffix: ZAX, player chassis
+
+- type: entity
+  parent: [N14PlayerSyntheticSecuritronGray, MisfitsZaxPlayerUnitBase]
+  id: N14MobZaxPlayerSecuritron
+  name: Z.A.X Securitron
+  description: A Z.A.X-linked player-configuration Securitron chassis.
+  suffix: ZAX, player chassis
+  components:
+  - type: Sprite
+    sprite: _Misfits/Mobs/Robots/zax_securitron.rsi
+    layers:
+    - state: icon
+      map: ["enum.DamageStateVisualLayers.Base", "movement"]
+    - state: icon
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: icon
+      shader: unshaded
+      map: ["light"]
+      visible: false
 
 - type: entity
   parent: [N14PlayerSyntheticAssaultron, MisfitsZaxPlayerUnitBase]
   id: N14MobZaxPlayerAssaultron
   name: ZAX Assaultron unit
-  description: A ZAX-linked player-configuration Assaultron chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis
+  description: A ZAX-linked player-configuration Assaultron chassis.
+  suffix: ZAX, player chassis
 
 - type: entity
   parent: [N14PlayerSyntheticAssaultronTesla, MisfitsZaxPlayerUnitBase]
   id: N14MobZaxPlayerAssaultronTesla
   name: ZAX Assaultron Tesla unit
-  description: A ZAX-linked player-configuration Assaultron Tesla chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis
+  description: A ZAX-linked player-configuration Assaultron Tesla chassis.
+  suffix: ZAX, player chassis
 
 - type: entity
   parent: [N14PlayerSyntheticSentryBotMinigun, MisfitsZaxPlayerUnitBase]
   id: N14MobZaxPlayerSentryBotMinigun
   name: ZAX Sentry Bot unit
-  description: A ZAX-linked player-configuration Sentry Bot minigun chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis, minigun
+  description: A ZAX-linked player-configuration Sentry Bot minigun chassis.
+  suffix: ZAX, player chassis, minigun
 
 - type: entity
   parent: [N14PlayerSyntheticSentryBotLaser, MisfitsZaxPlayerUnitBase]
   id: N14MobZaxPlayerSentryBotLaser
   name: ZAX Sentry Bot unit
-  description: A ZAX-linked player-configuration Sentry Bot laser chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis, laser
+  description: A ZAX-linked player-configuration Sentry Bot laser chassis.
+  suffix: ZAX, player chassis, laser
 
 - type: entity
   parent: [N14PlayerSyntheticRobobrain, MisfitsZaxPlayerUnitBase]
   id: N14MobZaxPlayerRobobrain
   name: ZAX Robobrain unit
-  description: A ZAX-linked player-configuration Robobrain chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis
+  description: A ZAX-linked player-configuration Robobrain chassis.
+  suffix: ZAX, player chassis
 
 - type: entity
   parent: [N14PlayerSyntheticRobobrainLaser, MisfitsZaxPlayerUnitBase]
   id: N14MobZaxPlayerRobobrainLaser
   name: ZAX Robobrain laser unit
-  description: A ZAX-linked player-configuration Robobrain laser chassis prepared for admin spawning.
-  suffix: ZAX, admin spawn, player chassis, laser
+  description: A ZAX-linked player-configuration Robobrain laser chassis.
+  suffix: ZAX, player chassis, laser

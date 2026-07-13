@@ -579,7 +579,7 @@ loadout-name-LoadoutClothingNeckCloakCowboyOld = old cowboy cloak
 loadout-name-LoadoutN14ClothingOuterWandererCoat = wanderer coat
 loadout-name-LoadoutBoSMidwestHellCat = Brotherhood Hellcat armor (Midwest)
 loadout-name-LoadoutN14ClothingOuterLegionPaladinKiller = Legion paladin killer armor
-loadout-name-LoadoutLegionPrinceps = Princeps
+loadout-name-LoadoutLegionPrincipes = Principes pattern armor
 
 # Enclave rank pin loadouts
 loadout-name-LoadoutEnclavePinPrivate = Enclave private pin

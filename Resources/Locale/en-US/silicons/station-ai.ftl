@@ -21,7 +21,9 @@ toggle-light = Toggle light
 
 ai-device-not-responding = Device is not responding
 
-# [Changed by MisfitsCrew/Operator] Popup used when Station AI reaches the ZAX command selection cap.
+# [Changed by MisfitsCrew/Operator] Popup used when the ZAX command selection cap is reached.
 station-ai-npc-command-selection-full = NPC command selection is full.
+zax-linked-units-warp-failed = Unable to route the Z.A.X eye to that unit.
+zax-linked-units-warped = Z.A.X eye routed to {$unit}.
 
 ai-consciousness-download-warning = Your consciousness is being downloaded.

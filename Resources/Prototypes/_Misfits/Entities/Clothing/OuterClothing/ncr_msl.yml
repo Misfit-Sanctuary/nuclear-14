@@ -2,10 +2,65 @@
 - type: entity
   parent: MisfitsNCRHeavyCombatArmor
   id: MisfitsNCRMSLArmor
-  name: NCR MSL mantle
+  name: Morale Squad Leader Armor
   description: A reinforced NCR mantle reserved for squad leaders who favor trench-clearing work and close-range pushes.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_msl.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_msl.rsi
+
+- type: entity
+  parent: N14ClothingHeadHatNCRHelmetMetalRadioWood
+  id: MisfitsNCRMSLHelmet
+  name: NCR MSL helmet
+  description: A custom NCR squad leader helmet paired with the MSL pattern set.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/FalloutHelmets/msl_helmet.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/FalloutHelmets/msl_helmet.rsi
+
+- type: entity
+  parent: N14ClothingHandsGlovesNCR
+  id: MisfitsNCRMSLGloves
+  name: NCR MSL gloves
+  description: Fingerless field gloves matched to the MSL kit.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Hands/Gloves/msl_gloves.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Hands/Gloves/msl_gloves.rsi
+
+- type: entity
+  parent: N14ClothingBootsCombat
+  id: MisfitsNCRMSLBoots
+  name: NCR MSL boots
+  description: Reinforced combat boots issued with the MSL pattern kit.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Shoes/FalloutBoots/msl_boots.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Shoes/FalloutBoots/msl_boots.rsi
+
+- type: entity
+  parent: N14ClothingMaskDesertMask
+  id: MisfitsNCRMSLMask
+  name: NCR MSL mask
+  description: A desert field scarf used with the MSL pattern set.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Mask/msl_mask.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Mask/msl_mask.rsi
+
+- type: entity
+  parent: N14ClothingOfficerUniformNCRDesert
+  id: MisfitsNCRMSLUniform
+  name: NCR MSL uniform
+  description: A platoon-leader style field uniform used as the base layer for the MSL kit.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/msl_uniform.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/msl_uniform.rsi

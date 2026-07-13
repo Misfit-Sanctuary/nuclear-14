@@ -52,7 +52,7 @@
   components:
   - type: AutoLinkTransmitter
     channel: Vaultdoor
-    
+
 # Vault Door Controller
 - type: entity
   parent: N14SignalButton
@@ -70,7 +70,7 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     offset: 0, 0
-    
+
 - type: entity
   parent: N14DoorVaultControls
   id: N14DoorVaultControlsLocked
@@ -83,3 +83,47 @@
   - type: LockVisuals
   - type: AccessReader
     access: [["VaultControlsPanel"]] # Misfits Change - restricted to N14IDCardVaultOverseer only (not in AllAccess)
+
+- type: entity
+  id: MisfitsDoorVaultExteriorControls
+  parent: BaseStructure
+  name: vault security terminal
+  description: A weathered RobCo security terminal wired into the vault door's control network.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: WallMount
+    arc: 360
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    canCollide: false
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _Nuclear14/Structures/Machines/vaultdoor_controls.rsi
+    layers:
+    - state: on
+    - state: overlay_off
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+  - type: Rotatable
+  - type: Fixtures
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+  - type: WirelessNetworkConnection
+    range: 25
+  - type: DeviceLinkSource
+    ports:
+    - Pressed
+  - type: AutoLinkTransmitter
+    channel: Vaultdoor
+  - type: VaultDoorConsole
+  - type: VaultDoorConsoleGate
+  - type: ActivatableUI
+    key: enum.VaultDoorConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.VaultDoorConsoleUiKey.Key:
+        type: VaultDoorConsoleBoundUserInterface

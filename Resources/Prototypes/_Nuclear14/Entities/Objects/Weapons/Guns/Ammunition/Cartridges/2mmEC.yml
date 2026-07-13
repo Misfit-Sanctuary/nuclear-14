@@ -1,1 +1,33 @@
 
+- type: entity
+  parent: BaseCartridge
+  id: N14Cartridge2mmEC
+  name: cartridge (2mmEC)
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - N14Cartridge2mmEC
+  - type: CartridgeAmmo
+    proto: N14Bullet2mmEC
+    soundEject:
+      collection: N14RifleCasingEject
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 2
+  - type: EmitSoundOnLand
+    sound:
+      collection: N14RifleCasingEject
+      params:
+        volume: -1
+  - type: EmitSoundOnCollide
+    sound:
+      collection: N14RifleCasingEject
+      params:
+        volume: -1

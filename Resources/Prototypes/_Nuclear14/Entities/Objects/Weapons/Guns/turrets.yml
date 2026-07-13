@@ -118,6 +118,8 @@
     - type: BallisticAmmoProvider
       proto: N14CartridgePistol10 
       capacity: 500
+    - type: ProximityNPC # Misfits Add — sleep distant NPCs to reduce tick load
+    - type: MobState # Misfits Add — compatibility with proximity system checks
     - type: HTN
       rootTask:
         task: N14TurretCompound

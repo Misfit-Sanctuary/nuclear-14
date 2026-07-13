@@ -70,13 +70,15 @@ public sealed class HealingSystem : EntitySystem
             return;
         }
 
+        var intelMultiplier = _special.GetIntelligenceTopicalHealingMultiplier(args.User);
+
         // Heal some bloodloss damage.
         if (healing.BloodlossModifier != 0)
         {
             if (!TryComp<BloodstreamComponent>(entity, out var bloodstream))
                 return;
             var isBleeding = bloodstream.BleedAmount > 0;
-            _bloodstreamSystem.TryModifyBleedAmount(entity.Owner, healing.BloodlossModifier);
+            _bloodstreamSystem.TryModifyBleedAmount(entity.Owner, healing.BloodlossModifier * intelMultiplier);
             if (isBleeding != bloodstream.BleedAmount > 0)
             {
                 dontRepeat = true;
@@ -86,9 +88,9 @@ public sealed class HealingSystem : EntitySystem
 
         // Restores missing blood
         if (healing.ModifyBloodLevel != 0)
-            _bloodstreamSystem.TryModifyBloodLevel(entity.Owner, healing.ModifyBloodLevel);
+            _bloodstreamSystem.TryModifyBloodLevel(entity.Owner, healing.ModifyBloodLevel * intelMultiplier);
 
-        var healed = _damageable.TryChangeDamage(entity.Owner, healing.Damage, true, origin: args.User, canSever: false); // Shitmed Change
+        var healed = _damageable.TryChangeDamage(entity.Owner, healing.Damage * intelMultiplier, true, origin: args.User, canSever: false); // Shitmed Change
 
         if (healed == null && healing.BloodlossModifier != 0)
             return;

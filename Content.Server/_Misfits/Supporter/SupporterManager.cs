@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Shared._Misfits.Supporter;
@@ -13,6 +14,7 @@ public interface ISupporterManager
     bool TryGetSupporter(NetUserId userId, [NotNullWhen(true)] out SupporterEntry? data);
     Task SetSupporterAsync(Guid userId, string username, string? title, string? nameColor);
     Task RemoveSupporterAsync(Guid userId);
+    Task WaitLoadedAsync();
     IReadOnlyList<SupporterEntry> GetAll();
 }
 
@@ -21,6 +23,7 @@ public sealed class SupporterManager : ISupporterManager
     [Dependency] private readonly IServerDbManager _db = default!;
 
     private readonly Dictionary<Guid, SupporterEntry> _cache = new();
+    private readonly SemaphoreSlim _writeSemaphore = new(1, 1);
     private ISawmill _sawmill = default!;
     private Task _loadTask = Task.CompletedTask;
 
@@ -57,16 +60,37 @@ public sealed class SupporterManager : ISupporterManager
 
     public async Task SetSupporterAsync(Guid userId, string username, string? title, string? nameColor)
     {
-        await _db.UpsertSupporterAsync(userId, username, title, nameColor);
-        lock (_cache)
-            _cache[userId] = new SupporterEntry(userId, username, title, nameColor);
+        await _writeSemaphore.WaitAsync();
+        try
+        {
+            await _db.UpsertSupporterAsync(userId, username, title, nameColor);
+            lock (_cache)
+                _cache[userId] = new SupporterEntry(userId, username, title, nameColor);
+        }
+        finally
+        {
+            _writeSemaphore.Release();
+        }
     }
 
     public async Task RemoveSupporterAsync(Guid userId)
     {
-        await _db.RemoveSupporterAsync(userId);
-        lock (_cache)
-            _cache.Remove(userId);
+        await _writeSemaphore.WaitAsync();
+        try
+        {
+            await _db.RemoveSupporterAsync(userId);
+            lock (_cache)
+                _cache.Remove(userId);
+        }
+        finally
+        {
+            _writeSemaphore.Release();
+        }
+    }
+
+    public Task WaitLoadedAsync()
+    {
+        return _loadTask;
     }
 
     public IReadOnlyList<SupporterEntry> GetAll()

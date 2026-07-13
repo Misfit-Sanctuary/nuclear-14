@@ -63,7 +63,10 @@ public sealed partial class CanPerformComboComponent : Component
     public int LastAttacksLimit = 4;
 
     /// <summary>Rolling history of recent attack types in order.</summary>
-    [DataField, AutoNetworkedField]
+    // Keep the recent attack buffer local on each side.
+    // Networking it causes the client cursor widget to replay server state on top
+    // of predicted local inputs, which shows duplicated combo icons.
+    [DataField]
     public List<MisfitsComboAttackType> LastAttacks = new();
 
     /// <summary>All combo prototypes this entity is allowed to perform.</summary>

@@ -1,0 +1,59 @@
+- type: mailDeliveryPool
+  id: VaultMailDeliveryPool
+  everyone:
+    MailVaultPlushie: 0.5
+    MailVaultMedSupply: 0.8
+    MailVaultScarf: 0.5
+    MailVaultVodka: 0.4
+    MailVaultWine: 0.4
+    MailVaultBirthdayCake: 0.3
+    MailVaultPreWarMoney: 0.6
+    MailVaultCigars: 0.5
+    MailVaultFireBomb: 0.05
+    MailVaultFortuneCookies: 0.5
+
+  jobs:
+    VaultDoctor:
+      MailVaultDoctorSupplies: 1.0
+      MailVaultDoctorRadAway: 0.5
+      MailVaultDoctorSurgicalSupplies: 1.0
+      MailVaultDoctorStims: 1.0
+      MailVaultDoctorCombatMedkit: 1.0
+      MailVaultDoctorStimkit: 0.8
+      MailVaultDoctorCateye: 0.8
+      MailVaultPills: 1.0
+      MailVaultDoctorUltraStimpak: 0.5
+      MailVaultDoctorControlled: 0.5
+      MailVaultDoctorParamedicOutfit: 0.5
+      MailVaultDoctorGrenadeKit: 1.0
+    VaultEngineer:
+      MailVaultEngineerCircuitry: 0.2
+      MailVaultEngineerWelder: 1.0
+      MailVaultEngineerGoggles: 0.8
+      MailVaultEngineerBeret: 0.6
+      MailVaultEngineerJawsOfLife: 0.2
+      MailVaultEngineerJumpsuit: 0.5
+      MailVaultEngineerBelt: 0.8
+      MailVaultEngineerSatchel: 0.8
+      MailVaultEngineerPowerDrill: 0.1
+    VaultSecurity:
+      MailVaultSecurityMeds: 2.0
+      MailVaultSecurityFlashbang: 0.8
+      MailVaultSecurityTearGas: 0.8
+      MailVaultSecuritySword: 0.7
+      MailVaultSecurityEMP: 0.4
+      MailVaultSecurityPoliceUniform: 0.4
+      MailVaultSecurityPlasmaDefender: 0.01
+      MailVaultSecurityDonuts: 0.1
+    VaultDweller:
+      MailVaultDwellerOutfit: 1.5
+      MailVaultDwellerJoints: 0.8
+      MailVaultWizardRobes: 0.4
+      MailVaultDwellerCostume: 0.3
+      MailVaultDwellerPirateSet: 0.3
+      MailVaultDwellerWitchSet: 0.2
+    Overseer:
+      MailVaultOverseerNocturine: 0.2
+      MailVaultOverseerJusticeSet: 0.4
+      MailVaultOverseerPlasmaRifle: 0.01
+      MailVaultDwellerPipboy: 0.05

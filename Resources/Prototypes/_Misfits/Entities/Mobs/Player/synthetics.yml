@@ -11,6 +11,20 @@
     blacklist:
       components:
       - Gun
+  - type: SiliconInternalRadio
+  - type: EncryptionKeyHolder
+    keySlots: 4
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+  - type: ActiveRadio
+  - type: SiliconSelfCellEjectOnly
+  # [Changed by MisfitsCrew/Operator] Reject non-cell interaction probes before quick-swap checks so welders reach Repairable without granting external cell access.
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        whitelist:
+          components:
+          - PowerCell
   - type: Appearance # #Misfits Change: allow robot sprites to swap to their built-in dead state
   - type: DamageStateVisuals # #Misfits Change: use robot dead sprites instead of animated hover frames when downed/dead
     states:
@@ -186,8 +200,9 @@
         - BorgModuleGardening # #Misfits Add: domestic servant — gardening fits the Handy role
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
         - MisfitsRobotNavCard
-      ears: # #Misfits Fix - vault comms: wasteland + vault radio for vault-assigned robot
-        - MisfitsClothingHeadsetRobotVault
+      key_slots:
+        - EncryptionKeyWastelandGlobal
+        - EncryptionKeyVault
   - type: ItemSlots
     slots:
       cell_slot:
@@ -281,8 +296,9 @@
         - BorgModuleTool     # wrench/screwdriver/welder kit for general civil service tasks
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
         - MisfitsRobotNavCardRobCo # RobCo Industries Navigation
-      ears: # #Misfits Fix - vault comms: wasteland + vault radio for vault-assigned robot
-        - MisfitsClothingHeadsetRobotVault
+      key_slots:
+        - EncryptionKeyWastelandGlobal
+        - EncryptionKeyVault
   - type: ItemSlots
     slots:
       cell_slot:
@@ -372,8 +388,9 @@
         - BorgModuleTool # #Misfits Add: military utility — field repair and maintenance tools
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
         - MisfitsRobotNavCard # General Atomics Navigation
-      ears: # #Misfits Fix - vault comms: wasteland + vault radio for vault-assigned robot
-        - MisfitsClothingHeadsetRobotVault
+      key_slots:
+        - EncryptionKeyWastelandGlobal
+        - EncryptionKeyVault
   - type: ItemSlots
     slots:
       cell_slot:
@@ -442,8 +459,9 @@
         - N14BorgModuleSecurity # stun baton, handcuffs, flashlight - lore-accurate detainment kit
       id:
         - MisfitsRobotNavCardRobCo
-      ears: # #Misfits Fix - vault comms: wasteland + vault radio for vault-assigned robot
-        - MisfitsClothingHeadsetRobotVault
+      key_slots:
+        - EncryptionKeyWastelandGlobal
+        - EncryptionKeyVault
 
 - type: entity
   parent: N14PlayerSyntheticProtectron
@@ -474,11 +492,12 @@
       borg_module:
         - BorgModuleAdvancedTool
         - BorgModuleConstruction
-        - BorgModuleRCD
+        - MisfitsBorgModuleBuilderRCD
       id:
         - MisfitsRobotNavCardRobCo
-      ears: # #Misfits Fix - vault comms: wasteland + vault radio for vault-assigned robot
-        - MisfitsClothingHeadsetRobotVault
+      key_slots:
+        - EncryptionKeyWastelandGlobal
+        - EncryptionKeyVault
 
 - type: entity
   parent: N14PlayerSyntheticProtectron
@@ -531,8 +550,9 @@
         - N14BorgModuleCryo          # holdable cryo emitter module for field use
       id:
         - MisfitsRobotNavCardRobCo
-      ears: # #Misfits Fix - vault comms: wasteland + vault radio for vault-assigned robot
-        - MisfitsClothingHeadsetRobotVault
+      key_slots:
+        - EncryptionKeyWastelandGlobal
+        - EncryptionKeyVault
 
 # Tribal Protectron
 - type: entity
@@ -583,8 +603,8 @@
       - MisfitsBorgModuleTribalConstruction # Tribal settlement construction module
       id: # pre-load the nav module into the id inventory slot
       - MisfitsRobotNavCardRobCo # RobCo Industries Navigation? TODO maybe an alternative
-      ears: # wasteland radio?
-      - MisfitsClothingHeadsetWastelandScrap
+      key_slots:
+      - EncryptionKeyWastelandGlobal
   - type: BorgHands # this one only gets one functioning hand, it is decrepit
     handCount: 1
 
@@ -602,6 +622,14 @@
     layers:
     - state: icon
       map: ["enum.DamageStateVisualLayers.Base", "movement"]
+    - state: icon
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: icon
+      shader: unshaded
+      map: ["light"]
+      visible: false
   - type: SpriteMovement
     movementLayers:
       movement:
@@ -655,6 +683,72 @@
     sprite: _Nuclear14/Mobs/Robots/securitron-yellow.rsi
 
 - type: entity
+  id: N14AssaultronHeadLaserActionGun
+  name: integrated assaultron head laser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Gun
+    minAngle: 1
+    maxAngle: 6
+    angleIncrease: 2
+    angleDecay: 4
+    fireRate: 2
+    shootOffset: 0, 0.35
+    soundGunshot:
+      path: /Audio/_Misfits/Weapons/Guns/assaultron_beam.ogg
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+  - type: AssaultronBeamCharge
+    chargeDuration: 2
+    cooldownDuration: 45
+    fireDrainCharge: 0
+  - type: HitscanBatteryAmmoProvider
+    proto: N14AssaultronHeadLaser
+    fireCost: 1
+  - type: Battery
+    maxCharge: 99999
+    startingCharge: 99999
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 9999
+
+- type: entity
+  id: N14AssaultronTeslaActionGun
+  name: integrated assaultron tesla emitter
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Gun
+    minAngle: 1
+    maxAngle: 6
+    angleIncrease: 2
+    angleDecay: 4
+    fireRate: 2
+    shootOffset: 0, 0.35
+    soundGunshot:
+      collection: N14LaserAutoRifleGunshot
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+  - type: AssaultronBeamCharge
+    chargeDuration: 2
+    cooldownDuration: 180
+    chargeEmoteLocale: assaultron-tesla-charge-emote
+    fireEmoteLocale: assaultron-tesla-fire-emote
+    fireDrainCharge: 0
+  - type: ProjectileBatteryAmmoProvider
+    proto: TeslaGunBullet
+    fireCost: 1
+  - type: Battery
+    maxCharge: 99999
+    startingCharge: 99999
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 9999
+
+- type: entity
   parent: N14BasePlayerSynthetic
   id: N14PlayerSyntheticAssaultron
   name: assaultron
@@ -701,40 +795,30 @@
     baseSprintSpeed: 6.0
   - type: MeleeWeapon
     hidden: true
+    altDisarm: false
     soundHit:
       collection: N14AssaultronAttack
-    angle: 0
+    canWideSwing: true
+    angle: 60
     animation: WeaponArcPunch
+    wideAnimation: WeaponArcClaw
     range: 1.5
+    heavyStaminaCost: 0
     damage:
       types:
-        Slash: 30 # #Misfits Tweak: player assaultrons should match the NPC claw damage profile
-  - type: Gun # #Misfits Add: Assaultron head laser — devastating focused heat beam
-    minAngle: 1
-    maxAngle: 6
-    angleIncrease: 2
-    angleDecay: 4
-    fireRate: 2 # Polling rate while held — actual ROF gated by AssaultronBeamCharge (2s charge + 3s cooldown = ~5s cycle)
-    shootOffset: 0, 0.35 # Shift beam origin up from body center to head level
-    soundGunshot: # #Misfits Add: custom assaultron beam sound
-      path: /Audio/_Misfits/Weapons/Guns/assaultron_beam.ogg
-    useKey: false
-    selectedMode: FullAuto # FullAuto so the gun polls continuously while held, charge system controls timing
-    availableModes:
-      - FullAuto
-  - type: AssaultronBeamCharge # #Misfits Add: 2-second charge-up before beam fires, 3-second cooldown after
-    chargeDuration: 2
-    cooldownDuration: 3
-    fireDrainCharge: 270 # #Misfits Add: 20% of PowerCellHyper (1800) per shot
-  - type: HitscanBatteryAmmoProvider # #Misfits Change: battery pool large enough for continuous fire — beam availability tied to chassis power cell
-    proto: N14AssaultronHeadLaser
-    fireCost: 100
-  - type: Battery
-    maxCharge: 99999
-    startingCharge: 99999
-  - type: BatterySelfRecharger # #Misfits Change: fast recharge — effectively unlimited as long as the chassis power cell keeps the robot alive
-    autoRecharge: true
-    autoRechargeRate: 9999
+        Slash: 25
+        Piercing: 25
+  - type: Reflect
+    innate: true
+    reflectProb: 0.1
+    spread: 150
+    reflects:
+    - SmallCaliber
+    - MediumCaliber
+  - type: ActionGun
+    action: ActionAssaultronHeadLaser
+    gunProto: N14AssaultronHeadLaserActionGun
+  - type: AssaultronMeleeWeaponBlocker
   - type: NpcFactionMember
     factions:
     - Wastelander
@@ -765,13 +849,13 @@
         - PositronicBrain
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
         - MisfitsRobotNavCardRobCo # RobCo Industries Navigation
-      ears: # Wasteland radio for inter-robot and faction communication
-        - MisfitsClothingHeadsetWastelandScrap
+      key_slots:
+        - EncryptionKeyWastelandGlobal
   - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHyper
+        startingItem: PowerCellAntiqueProto
 
 # ────────────────────────────────────────────────────────
 # Assaultron — Tesla variant (model picker variant of RobotAssaultron)
@@ -788,32 +872,9 @@
   components:
   - type: HumanoidAppearance
     species: RobotAssaultronTesla
-  - type: Gun # Tesla fires slower but the chain lightning compensates
-    minAngle: 1
-    maxAngle: 6
-    angleIncrease: 2
-    angleDecay: 4
-    fireRate: 2
-    shootOffset: 0, 0.35 # Shift projectile origin up from body center to head level
-    soundGunshot:
-      collection: N14LaserAutoRifleGunshot
-    useKey: false
-    selectedMode: FullAuto
-    availableModes:
-      - FullAuto
-  - type: AssaultronBeamCharge # Same charge cycle as the beam variant
-    chargeDuration: 2
-    cooldownDuration: 3
-    chargeEmoteLocale: assaultron-tesla-charge-emote
-    fireEmoteLocale: assaultron-tesla-fire-emote
-    fireDrainCharge: 900 # 50% of PowerCellHyper (1800) — tesla shot is devastating but costly
-  - type: ProjectileBatteryAmmoProvider # Fires TeslaGunBullet — chain-lightning energy ball
-    proto: TeslaGunBullet
-    fireCost: 100
-  - type: HitscanBatteryAmmoProvider # Override parent's beam hitscan — this variant fires projectiles only
-    proto: N14AssaultronHeadLaser
-    fireCost: 999999 # Effectively disabled — cost exceeds battery so hitscan never fires
-
+  - type: ActionGun
+    action: ActionAssaultronTesla
+    gunProto: N14AssaultronTeslaActionGun
 # ────────────────────────────────────────────────────────
 # Sentry Bot — Minigun variant (base sentry bot species default)
 # Heavy assault platform with built-in 5mm minigun, missile launcher, and heavy armor.
@@ -940,8 +1001,8 @@
         - BorgModuleTool
       id:
         - MisfitsRobotNavCardRobCo
-      ears: # Wasteland radio for inter-robot and faction communication
-        - MisfitsClothingHeadsetWastelandScrap
+      key_slots:
+        - EncryptionKeyWastelandGlobal
   - type: ItemSlots
     slots:
       cell_slot:
@@ -1120,8 +1181,9 @@
         - BorgModuleTool
       id:
         - MisfitsRobotNavCardRobCo
-      ears: # #Misfits Fix - vault comms: wasteland + vault radio for vault-assigned robot
-        - MisfitsClothingHeadsetRobotVault
+      key_slots:
+        - EncryptionKeyWastelandGlobal
+        - EncryptionKeyVault
   - type: ItemSlots
     slots:
       cell_slot:
@@ -1171,5 +1233,6 @@
         - BorgModuleDiagnosis
       id:
         - MisfitsRobotNavCardRobCo
-      ears: # #Misfits Fix - vault comms: wasteland + vault radio for vault-assigned robot
-        - MisfitsClothingHeadsetRobotVault
+      key_slots:
+        - EncryptionKeyWastelandGlobal
+        - EncryptionKeyVault

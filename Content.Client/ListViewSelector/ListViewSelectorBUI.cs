@@ -1,4 +1,4 @@
-﻿using Content.Client.Lathe.UI;
+using Content.Client.Lathe.UI;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.ListViewSelector;
 using JetBrains.Annotations;
@@ -84,7 +84,7 @@ public sealed class ListViewSelectorBUI(EntityUid owner, Enum uiKey) : BoundUser
         {
             var itemName = item.Name;
             var itemDesc = item.Description;
-            if (_prototypeManager.TryIndex(item.Id, out var itemPrototype, false))
+            if (_prototypeManager.TryIndex(item.Id, out var itemPrototype))
             {
                 itemName = itemPrototype.Name;
                 itemDesc = itemPrototype.Description;

@@ -67,11 +67,11 @@
     event: !type:ToggleLawsScreenEvent
     useDelay: 0.5
 
-# [Changed by MisfitsCrew/Operator] Adds Station AI command actions for selecting and ordering ZAX NPC units through camera view.
+# [Changed by MisfitsCrew/Operator] Adds command actions for selecting and ordering ZAX NPC units through camera view.
 - type: entity
   id: ActionStationAiSelectNpc
   name: Select NPC
-  description: Selects or deselects an NPC for Station AI command orders.
+  description: Selects or deselects an NPC for command orders.
   components:
   - type: EntityTargetAction
     priority: -20
@@ -186,3 +186,65 @@
     repeat: true
     deselectOnMiss: false
     event: !type:StationAiHackCameraActionEvent
+
+- type: entity
+  id: ActionStationAiOpenWendoverMap
+  name: Wendover map
+  description: Opens the integrated Wendover region map.
+  components:
+  - type: InstantAction
+    priority: -28
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Nuclear14/Objects/Misc/clutter.rsi
+      state: map
+    checkCanInteract: false
+    checkConsciousness: false
+    event: !type:OpenUiActionEvent
+      key: enum.WastelandMapUiKey.Key
+
+- type: entity
+  id: ActionStationAiOpenLinkedUnits
+  name: Linked Z.A.X units
+  description: Opens a directory of active Z.A.X-linked units and warps the eye to a selected unit.
+  components:
+  - type: InstantAction
+    priority: -29
+    itemIconStyle: BigAction
+    icon: Interface/VerbIcons/sentient.svg.192dpi.png
+    checkCanInteract: false
+    checkConsciousness: false
+    event: !type:OpenUiActionEvent
+      key: enum.ZaxLinkedUnitsUiKey.Key
+
+# [Changed by MisfitsCrew/Operator] Adds direct-control shunting into an eligible Z.A.X NPC chassis.
+- type: entity
+  id: ActionZaxShunt
+  name: Shunt into Z.A.X unit
+  description: Moves your consciousness into a visible, unoccupied NPC Z.A.X chassis.
+  components:
+  - type: EntityTargetAction
+    priority: -30
+    itemIconStyle: BigAction
+    icon: Interface/VerbIcons/sentient.svg.192dpi.png
+    checkCanInteract: false
+    checkConsciousness: false
+    checkCanAccess: false
+    range: 0
+    event: !type:ZaxShuntActionEvent
+
+# [Changed by MisfitsCrew/Operator] Lets the shunted controller return to the protected brain in the physical core.
+- type: entity
+  id: ActionZaxReturnToCore
+  name: Return to Z.A.X core
+  description: Shunts your consciousness back into the main Z.A.X core.
+  components:
+  - type: InstantAction
+    priority: -30
+    itemIconStyle: BigAction
+    icon:
+      sprite: Interface/Actions/actions_ai.rsi
+      state: ai_core
+    checkCanInteract: false
+    checkConsciousness: false
+    event: !type:ZaxReturnToCoreActionEvent

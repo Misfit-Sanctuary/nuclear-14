@@ -44,8 +44,8 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 2
-            Caustic: 2
+            Poison: 0
+            Caustic: 0
 
 - type: reagent
   id: SoapReagent

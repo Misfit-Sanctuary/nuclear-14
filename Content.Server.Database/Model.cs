@@ -228,6 +228,11 @@ namespace Content.Server.Database
                 .HasIndex(p => p.UserId)
                 .IsUnique();
 
+            // #Misfits Add - Keep one Discord account linked to one existing player account.
+            modelBuilder.Entity<Player>()
+                .HasIndex(p => p.DiscordId)
+                .IsUnique();
+
             modelBuilder.Entity<Player>()
                 .HasIndex(p => p.LastSeenUserName);
 
@@ -563,6 +568,7 @@ namespace Content.Server.Database
 
         // Data that gets updated on each join.
         public string LastSeenUserName { get; set; } = null!;
+        public string? DiscordId { get; set; } // #Misfits Add - Discord account linked to this existing player account
         public DateTime LastSeenTime { get; set; }
         public IPAddress LastSeenAddress { get; set; } = null!;
         public TypedHwid? LastSeenHWId { get; set; }

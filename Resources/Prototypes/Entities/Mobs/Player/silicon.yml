@@ -7,6 +7,8 @@
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
+    - WastelandGlobal
+    - ZAXBinary
     - Binary
     - Common
     - Command
@@ -22,7 +24,7 @@
   - type: IgnoreUIRange
   - type: StationAiHeld
   - type: StationAiOverlay
-  # [Changed by MisfitsCrew/Operator] Enables Station AI to track selected ZAX units and issue command actions.
+  # [Changed by MisfitsCrew/Operator] Enables tracking selected ZAX units and issuing command actions.
   - type: StationAiNpcCommander
   - type: ShowElectrocutionHUD
   - type: ActionGrant
@@ -31,7 +33,7 @@
     - ActionShowJobIcons
     - ActionSurvCameraLights
     - ActionAIViewLaws
-    # [Changed by MisfitsCrew/Operator] Grants the Station AI ZAX unit selection, movement, engagement, formation, and hold commands.
+    # [Changed by MisfitsCrew/Operator] Grants ZAX unit selection, movement, engagement, formation, and hold commands.
     - ActionStationAiSelectNpc
     - ActionStationAiClearNpcSelection
     - ActionStationAiMoveNpcs
@@ -40,8 +42,20 @@
     - ActionStationAiEngageNpcs
     - ActionStationAiHoldNpcs
     - ActionStationAiHackCamera
+    - ActionStationAiOpenWendoverMap
+    - ActionStationAiOpenLinkedUnits
+    # [Changed by MisfitsCrew/Operator] Grant the core brain the server-validated Z.A.X shunt targeting action.
+    - ActionZaxShunt
+  - type: WastelandMap
+    mapTexturePath: _Misfits/Maps/wendover_map.png
+    mapTitle: Wendover Area Map
+    worldBounds: "-517,-308,484,311"
   - type: UserInterface
     interfaces:
+      enum.WastelandMapUiKey.Key:
+        type: WastelandMapBoundUserInterface
+      enum.ZaxLinkedUnitsUiKey.Key:
+        type: ZaxLinkedUnitsBoundUserInterface
       enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
       enum.CrewMonitoringUIKey.Key:
@@ -338,8 +352,9 @@
 
 - type: entity
   id: PlayerStationAiEmpty
-  name: Z.A.X. Core
-  description: A pre-war Z.A.X. mainframe adapted as the station's central artificial intelligence core.
+  # [Changed by MisfitsCrew/Operator] Restore the shared Station AI identity and art instead of globally replacing it with Z.A.X.
+  name: AI Core
+  description: The latest in Artificial Intelligences.
   parent:
   - BaseStructure
   - AiHolder
@@ -366,10 +381,12 @@
   - type: StationAiVision
   - type: InteractionOutline
   - type: Sprite
-    sprite: _Misfits/Mobs/Silicon/zax_core.rsi
+    sprite: Mobs/Silicon/station_ai.rsi
     layers:
+    - state: base
     - state: ai_empty
-      map: ["core"]
+      map: ["unshaded"]
+      shader: unshaded
   - type: Appearance
   - type: InteractionPopup
     interactSuccessString: petting-success-station-ai
@@ -380,25 +397,26 @@
   - type: GenericVisualizer
     visuals:
       enum.StationAiVisualState.Key:
-        core:
+        unshaded:
           Empty: { state: ai_empty }
           Occupied: { state: ai }
   - type: LanguageKnowledge
     speaks:
-    - TauCetiBasic
-    - SolCommon
-    - Tradeband
-    - Freespeak
-    - Elyran
-    - RobotTalk
+    - English
+    - N14Robot
+    - N14BrotherBeep
+    - Latin
+    - Chinese
+    - Tribal
+    - Sign
     understands:
-    - TauCetiBasic
-    - SolCommon
-    - Tradeband
-    - Freespeak
-    - Elyran
-    - RobotTalk
-    - Sign # It's intentional that they don't "Speak" sign language.
+    - English
+    - N14Robot
+    - N14BrotherBeep
+    - Latin
+    - Chinese
+    - Tribal
+    - Sign
   - type: Telephone
     compatibleRanges:
     - Grid
@@ -421,6 +439,60 @@
 - type: entity
   id: PlayerStationAi
   parent: PlayerStationAiEmpty
+  suffix: Job spawn
+  components:
+  - type: ContainerSpawnPoint
+    containerId: station_ai_mind_slot
+    job: StationAi
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+    - state: base
+    - state: ai
+      shader: unshaded
+
+# [Changed by MisfitsCrew/Operator] Keep the Z.A.X. core variant separate from the shared Station AI
+# prototypes so maps using PlayerStationAi retain the original core object.
+- type: entity
+  id: PlayerZaxAiEmpty
+  name: Z.A.X. Core
+  description: A pre-war Z.A.X. mainframe adapted as a central command core.
+  parent: PlayerStationAiEmpty
+  suffix: Empty
+  components:
+  - type: ZaxCore
+  - type: EncryptionKeyHolder
+    keySlots: 4
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - WastelandGlobal
+    - ZAXBinary
+  - type: ActiveRadio
+    channels:
+    - WastelandGlobal
+    - ZAXBinary
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyZAX
+  - type: Sprite
+    sprite: _Misfits/Mobs/Silicon/zax_core.rsi
+    layers:
+    - state: ai_empty
+      map: ["core"]
+  - type: GenericVisualizer
+    visuals:
+      enum.StationAiVisualState.Key:
+        core:
+          Empty: { state: ai_empty }
+          Occupied: { state: ai }
+
+- type: entity
+  id: PlayerZaxAi
+  # [Changed by MisfitsCrew/Operator] Provide a job-ready Z.A.X variant without mutating the shared Station AI spawn.
+  parent: PlayerZaxAiEmpty
   suffix: Job spawn
   components:
   - type: ContainerSpawnPoint
@@ -473,20 +545,21 @@
     - NoConsoleSound
   - type: LanguageKnowledge
     speaks:
-    - TauCetiBasic
-    - SolCommon
-    - Tradeband
-    - Freespeak
-    - Elyran
-    - RobotTalk
+    - English
+    - N14Robot
+    - N14BrotherBeep
+    - Latin
+    - Chinese
+    - Tribal
+    - Sign
     understands:
-    - TauCetiBasic
-    - SolCommon
-    - Tradeband
-    - Freespeak
-    - Elyran
-    - RobotTalk
-    - Sign # It's intentional that they don't "Speak" sign language.
+    - English
+    - N14Robot
+    - N14BrotherBeep
+    - Latin
+    - Chinese
+    - Tribal
+    - Sign
 
 # Hologram projection that the AI's eye tracks.
 - type: entity
@@ -517,20 +590,21 @@
       map: ["base"]
   - type: LanguageKnowledge
     speaks:
-    - TauCetiBasic
-    - SolCommon
-    - Tradeband
-    - Freespeak
-    - Elyran
-    - RobotTalk
+    - English
+    - N14Robot
+    - N14BrotherBeep
+    - Latin
+    - Chinese
+    - Tribal
+    - Sign
     understands:
-    - TauCetiBasic
-    - SolCommon
-    - Tradeband
-    - Freespeak
-    - Elyran
-    - RobotTalk
-    - Sign # It's intentional that they don't "Speak" sign language.
+    - English
+    - N14Robot
+    - N14BrotherBeep
+    - Latin
+    - Chinese
+    - Tribal
+    - Sign
 
 # The holographic representation of the AI that is projected from a holopad.
 - type: entity

@@ -11,7 +11,7 @@
 - type: reaction
   id: AntidoteMixture
   reactants:
-    Ethanol:
+    ExtractTarberries:
       amount: 1
     ScorpionTail:
       amount: 1
@@ -31,10 +31,11 @@
 
 - type: reaction
   id: Antidote
+  minTemp: 354 # 80 degrees Celcius.
   reactants:
     AntidoteMixture:
       amount: 1
-    ExtractTarberries:
+    Ethanol:
       amount: 1
   products:
     Antidote: 2
@@ -125,6 +126,16 @@
     DirtyStimpak: 3
 
 - type: reaction
+  id: DirtyStimpakContamination # Misfits Change - Prevents the super-metamix of stimpak + dirty stimpak
+  reactants:
+    HealingMixture:
+      amount: 1
+    DirtyStimpak:
+      amount: 1
+  products:
+    DirtyStimpak: 2
+
+- type: reaction
   id: DirtyStimpakConversion
   reactants:
     DirtyStimpak:
@@ -139,15 +150,16 @@
 
 - type: reaction
   id: Bitterdrink
+  minTemp: 354 # 80 degrees Celcius.
   reactants:
-    ExtractBroc:
+    N14MilkBrahmin:
+      amount: 2
+    ExtractGlowpepper:
       amount: 1
-    ExtractXander:
-      amount: 1
-    Water:
+    ExtractPinyon:
       amount: 1
   products:
-    Bitterdrink: 1
+    Bitterdrink: 4
 
 - type: reaction
   id: BitterdrinkBottleConversion
@@ -159,6 +171,17 @@
   effects:
     - !type:CreateEntityReactionEffect
       entity: N14Bitterdrink
+
+- type: reaction
+  id: SmellingSaltsConversion
+  reactants:
+    TableSalt:
+      amount: 5
+    Ammonia:
+      amount: 10
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: N14SmellingSalts
 
 - type: reaction
   id: N14Ointment1

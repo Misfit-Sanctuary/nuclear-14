@@ -989,6 +989,28 @@ public sealed class ChatUIController : UIController
             }
         }
 
+        // #Misfits Add - client-only local chat highlights for mentions and custom phrases.
+        if (msg.Channel == ChatChannel.Local)
+        {
+            var configuredTerms = _config.GetCVar(CCVars.ChatHighlightTerms);
+            var terms = configuredTerms.Split(';', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+
+            if (terms.Length == 0 && _player.LocalSession?.AttachedEntity is { } attached)
+            {
+                var nameParts = _ent.GetComponent<MetaDataComponent>(attached).EntityName
+                    .Split(' ', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+                terms = nameParts.Length > 1 ? new[] { nameParts[0], nameParts[^1] } : nameParts;
+            }
+
+            var color = Color.TryFromHex(_config.GetCVar(CCVars.ChatHighlightColor)) ?? Color.Gold;
+            foreach (var term in terms.Distinct(StringComparer.OrdinalIgnoreCase).OrderByDescending(term => term.Length))
+            {
+                msg.WrappedMessage = SharedChatSystem.InjectFontSizeAroundString(msg, term, 14);
+                msg.WrappedMessage = SharedChatSystem.InjectTagAroundString(msg, term, "bold", null);
+                msg.WrappedMessage = SharedChatSystem.InjectTagAroundString(msg, term, "color", color.ToHex());
+            }
+        }
+
         // Log all incoming chat to repopulate when filter is un-toggled
         if (!msg.HideChat)
         {

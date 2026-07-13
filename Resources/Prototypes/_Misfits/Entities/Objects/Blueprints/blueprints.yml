@@ -64,8 +64,9 @@
     - N14BPNCRWeaponSMG45
     - N14BPNCRWeaponShotgunAuto
     - N14BPNCRWeaponShotgunRiot
-    - N14BPNCRWeaponSniper45-70BrushGun
-    - N14BPNCRWeaponRifle762Marksman
+    - N14BPNCRWeaponSMG10mm
+    - N14BPNCRWeaponSMG12mm
+    - N14BPNCRWeaponRevolver44Magnun
 
 - type: entity
   parent: N14BlueprintBase
@@ -79,12 +80,12 @@
     - N14BPNCRWeaponRifle556Carbine
     - N14BPNCRWeaponRifle762Fal
     - N14BPNCRWeaponRifle308Battle
-    - N14BPNCRWeaponSMG10mm
-    - N14BPNCRWeaponSMG12mm
-    - N14BPNCRWeaponRevolver44Magnun
     - N14BPNCRWeaponDesertEagle44
     - N14BPNCRWeaponRevolver45-70RangerSequoia
     - N14BPNCRWeaponShotgunChinese
+    - N14BPNCRWeaponSniper45-70BrushGun
+    - N14BPNCRWeaponRifle762Marksman
+    - N14BPNCRWeaponRevolver45-70Hunter
 
 - type: entity
   parent: N14BlueprintBase
@@ -98,7 +99,6 @@
     - N14BPNCRWeaponLMGAutoRifle
     - N14BPNCRWeaponLMG
     - N14BPNCRWeaponSMG12mmAdvanced
-    - N14BPNCRWeaponRevolver45-70Hunter
     - N14BPNCRWeaponMinigun
 
 # #Misfits Add - T5 anti-materiel rifle; costs so much scrap it earns its own tier
@@ -486,7 +486,6 @@
     - N14BPBoSWeaponPlasmaRifleUrban
     - N14BPBoSWeaponPlasmaMultiplas
     - N14BPBoSWeaponLaserRCW # #Misfits Change - moved from T5 to T3; RCW is now red-beam mid-tier
-    - N14BPBoSWeaponRipperSword
 
 - type: entity
   parent: N14BlueprintBase

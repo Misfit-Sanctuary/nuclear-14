@@ -184,6 +184,11 @@
   - type: Construction #Nyano
     graph: Altar
     node: technology
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000
 
 - type: entity
   id: AltarConvertFestival

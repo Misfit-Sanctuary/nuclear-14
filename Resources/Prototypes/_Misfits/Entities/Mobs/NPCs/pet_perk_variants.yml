@@ -688,9 +688,9 @@
   name: Wim
   id: MisfitsMobPetWim
   parent: N14MobPetDogLegion
-  description: A true agent of chaos.
+  description: A husky-wolf mix reaching most people to their hips. Wears a torn NCR tarp as a collar, with some etching inside.
   components:
-  - type: SpoonCatTranslator
+  - type: WimDogTranslator
   - type: Emoting
   - type: MobThresholds # #Misfits Add - allow revival by medics
     allowRevives: true
@@ -718,6 +718,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+    - VulpEmotes
   - type: NpcFactionMember
     factions:
       - Wastelander

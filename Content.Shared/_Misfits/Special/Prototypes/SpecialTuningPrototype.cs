@@ -23,7 +23,10 @@ public sealed partial class SpecialTuningPrototype : IPrototype
     public float StrengthUnarmedDamageMultiplierPerPoint = 0.03333333f;
 
     [DataField("strengthCarryPullSpeedMultiplierPerPoint")]
-    public float StrengthCarryPullSpeedMultiplierPerPoint = 0.01333333f;
+    public float StrengthCarryPullSpeedMultiplierPerPoint = 0.04f;
+
+    [DataField("strengthThrowSpeedMultiplierPerPoint")]
+    public float StrengthThrowSpeedMultiplierPerPoint = 0.06666667f;
 
     // Perception: ranged accuracy, heavy gun handling, mining speed, and fire delay.
     [DataField("perceptionSpreadMultiplierPerPoint")]

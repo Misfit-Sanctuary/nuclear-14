@@ -4,6 +4,8 @@
   name: Z.A.X Machine Foundry
   description: A Z.A.X-linked robotics foundry configured to assemble command-ready chassis.
   components:
+  # [Changed by MisfitsCrew/Operator] Apply global active-unit and C-27 queue caps to this foundry.
+  - type: ZaxMachineFoundry
   - type: Sprite
     sprite: _Misfits/Structures/Machines/zax_machine_foundry.rsi
     layers:
@@ -21,8 +23,25 @@
     staticRecipes:
     - MisfitsZaxFoundrySecuritron
     - MisfitsZaxFoundryC27
+    - MisfitsZaxFoundryC27ArmorMediumGeneric
+    - MisfitsZaxFoundryC27HelmetMediumGeneric
+    - MisfitsZaxFoundryC27ArmorMediumZAX
+    - MisfitsZaxFoundryC27HelmetMediumZAX
+    - MisfitsZaxFoundryC27ArmorHeavyGeneric
+    - MisfitsZaxFoundryC27HelmetHeavyGeneric
+    - MisfitsZaxFoundryC27ArmorMediumNCR
+    - MisfitsZaxFoundryC27HelmetMediumNCR
+    - MisfitsZaxFoundryC27ArmorHeavyNCR
+    - MisfitsZaxFoundryC27HelmetHeavyNCR
+    - MisfitsZaxFoundryC27ArmorMediumBoS
+    - MisfitsZaxFoundryC27HelmetMediumBoS
+    - MisfitsZaxFoundryC27ArmorHeavyBoS
+    - MisfitsZaxFoundryC27HelmetHeavyBoS
+    - MisfitsZaxFoundryC27ArmorCombatGeneric
+    - MisfitsZaxFoundryC27HelmetCombatGeneric
     - MisfitsZaxFoundryProtectronPolice
     - MisfitsZaxFoundryProtectronBuilder
+    - MisfitsZaxFoundryProtectronFire
     - MisfitsZaxFoundryMrGutsy
     - MisfitsZaxFoundryMrHandy
     # Standard ammunition recipes reused directly so material costs stay inherited.

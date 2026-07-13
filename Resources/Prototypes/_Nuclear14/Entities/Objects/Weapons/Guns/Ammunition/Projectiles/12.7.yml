@@ -7,7 +7,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 17 # Corvax-Change
+        Piercing: 12 # Corvax-Change
+        Blunt: 5
   # Misfits Add - 12.7mm heavy round; strong range retention
   - type: BallisticDamageFalloff
     falloffStartTiles: 8.0

@@ -1,0 +1,94 @@
+- type: entity
+  name: Plasma Cutter
+  parent: BaseItem
+  id: MisfitsPlasmaCutter
+  description: A mobile cutting device with a modular assortment of "blades" formed by superheated plasma.
+  components:
+  - type: EnergySword
+    activatedColor: "#29e21c"
+    colorOptions:
+    - "#29e21c"
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/ebladeon.ogg
+    soundDeactivate:
+      path: /Audio/Weapons/ebladeoff.ogg
+  - type: ComponentToggler
+    components:
+    - type: Sharp
+  - type: ItemToggleHot
+  - type: ItemToggleSize
+    activatedSize: Huge
+  - type: ItemTogglePointLight
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnSwing:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.125
+    activatedDamage:
+      types:
+        Slash: 50
+        Caustic: 10
+        Structural: 60
+  - type: ItemToggleThrowingAngle
+    activatedAngle: 225
+    deleteOnDeactivate: true
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Melee/PlasmaCutter.rsi
+    layers:
+    - state: plasma-cutter
+    - state: plasma_cutter_blade
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.2
+    damage:
+      types:
+        Blunt: 4.5
+  - type: Item
+    size: Small
+    sprite: _Misfits/Objects/Weapons/Melee/PlasmaCutter-inhands.rsi
+    storedSprite:
+      sprite: _Misfits/Objects/Weapons/Melee/PlasmaCutter.rsi
+      state: icon
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Clothing
+    sprite: _Misfits/Objects/Weapons/Melee/PlasmaCutter.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - Back
+    - suitStorage
+  - type: UseDelay
+    delay: 1.0
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 2
+    color: white
+    netsync: false
+  - type: Appearance
+  - type: ToggleableLightVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+        shader: unshaded
+      right:
+      - state: inhand-right-blade
+        shader: unshaded

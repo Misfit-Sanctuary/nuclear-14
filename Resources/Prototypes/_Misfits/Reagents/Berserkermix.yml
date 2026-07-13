@@ -1,0 +1,56 @@
+- type: reagent
+  id: Berserkermix
+  name: reagent-name-Berserker-mixture
+  group: Chems
+  desc: reagent-desc-Berserker-mixture
+  physicalDesc: reagent-physical-desc-roaring
+  flavor: sour
+  color: "#4a0404"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.25 #lasts a bit, hence the low 11u OD
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -0.6
+            Brute: -1.5 #Heals rather poorly, but still heals. Assuming 10u saturation, 0.5 x 4 = 2 x 10 = 20 damage of every brute type after 40 seconds.
+      - !type:ModifyBleedAmount
+        amount: -1
+      - !type:AmbientDrugFlavorText
+        cooldownId: BerserkermixAmbient
+        cooldown: 25
+        messageKeys:
+        - drug-ambience-Berserker-mixture-1
+        - drug-ambience-Berserker-mixture-2
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.1
+        sprintSpeedModifier: 1.1
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: true
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 5
+        type: Remove
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 5
+        type: Remove
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+      - !type:HealthChange #Misfits Change /Add:/ Overdose — suffocates the player when stacking too much Berserker mix
+        conditions:
+        - !type:ReagentThreshold
+          min: 11
+        - !type:MobStateCondition #Misfits Tweak: OD can push to crit but never kill
+        damage:
+          types:
+            Asphyxiation: 6

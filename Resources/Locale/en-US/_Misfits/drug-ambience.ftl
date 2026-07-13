@@ -26,6 +26,9 @@ drug-ambience-radaway-2 = A taste like rust lingers while the ache in your bones
 drug-ambience-radaway-diluted-1 = A thin medicinal warmth takes the edge off the radiation sickness.
 drug-ambience-radaway-diluted-2 = The relief comes slow and watery, but it comes.
 
+drug-ambience-cleansing-powder-1 = A heavy, rolling wave of drowsiness begins to gnaw the rads away.
+drug-ambience-cleansing-powder-2 = Warmth seeps into your veins as the powder begins to scour the sickness clean.
+
 drug-ambience-radx-1 = A dry chemical coat settles over your mouth and throat.
 drug-ambience-radx-2 = Your skin prickles like something is bracing you from the inside.
 
@@ -89,3 +92,7 @@ drug-ambience-hydra-3 = A coppery rush blooms behind your eyes and refuses to fu
 
 drug-ambience-mourning-poultice-1 = Cold poison crawls through your veins, and the world starts to breathe around you.
 drug-ambience-mourning-poultice-2 = The sting turns holy and wrong, dragging bright visions behind the pain.
+
+drug-ambience-Berserker-mixture-1 = Your mind sharpens to a razors edge as your blood screams throughout your body.
+drug-ambience-Berserker-mixture-2 = Blood fills your heart as the rest of your body is inhumanly propelled forward.
+# inhumanly is not a mistake.

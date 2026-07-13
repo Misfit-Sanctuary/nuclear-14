@@ -1,4 +1,5 @@
 using Content.Server._NC.Discord;
+using Content.Server._Misfits.DiscordLink; // #Misfits Add - player Discord account linking
 using Content.Server._Misfits.Holotape; // #Misfits Add - Terminal notes data store IoC registration
 using Content.Server._Misfits.Supporter; // #Misfits Add - Supporter manager
 using Content.Server.Administration;
@@ -75,6 +76,7 @@ namespace Content.Server.IoC
             IoCManager.Register<ServerDbEntryManager>();
             IoCManager.Register<JoinQueueManager>();
             IoCManager.Register<DiscordAuthManager>();
+            IoCManager.Register<MisfitsDiscordLinkManager>(); // #Misfits Add
             IoCManager.Register<TTSManager>(); // Corvax-TTS
             IoCManager.Register<SponsorManager>(); // Forge-Change
             IoCManager.Register<ISharedSponsorManager, SponsorManager>(); // Forge-Change

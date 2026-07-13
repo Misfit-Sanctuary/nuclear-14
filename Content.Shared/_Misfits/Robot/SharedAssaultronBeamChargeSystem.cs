@@ -1,9 +1,10 @@
 // Shared charge-up gate for the Assaultron beam / tesla weapons.
-// Runs on BOTH client (prediction) and server so the client also blocks shots
-// during the charge phase, preventing gunshot sound / animation spam.
+// The action event is acknowledged client-side for prediction, while the server
+// owns the charge state and performs the actual hidden-gun shot.
 // Emote broadcasting is handled server-side by AssaultronBeamChargeEmoteSystem.
 
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Misfits.Robot;
@@ -11,6 +12,7 @@ namespace Content.Shared._Misfits.Robot;
 public sealed class SharedAssaultronBeamChargeSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -21,12 +23,20 @@ public sealed class SharedAssaultronBeamChargeSystem : EntitySystem
 
     private void OnAttemptShoot(EntityUid uid, AssaultronBeamChargeComponent comp, ref AttemptShootEvent args)
     {
+        if (_net.IsClient)
+        {
+            args.Cancelled = true;
+            args.ConsumeFireAttempt = false;
+            return;
+        }
+
         var now = _timing.CurTime;
 
         // Still in post-fire cooldown — block the shot silently.
         if (!comp.IsCharging && now < comp.CooldownEndTime)
         {
             args.Cancelled = true;
+            args.ConsumeFireAttempt = false;
             return;
         }
 
@@ -55,6 +65,7 @@ public sealed class SharedAssaultronBeamChargeSystem : EntitySystem
         if (comp.IsCharging)
         {
             args.Cancelled = true;
+            args.ConsumeFireAttempt = false;
             return;
         }
 
@@ -63,10 +74,11 @@ public sealed class SharedAssaultronBeamChargeSystem : EntitySystem
         comp.ChargeEndTime = now + TimeSpan.FromSeconds(comp.ChargeDuration);
 
         // Notify server to broadcast the charge emote.
-        var ev = new AssaultronChargeStartedEvent(comp.ChargeEmoteLocale);
+        var ev = new AssaultronChargeStartedEvent(args.User, comp.ChargeEmoteLocale);
         RaiseLocalEvent(uid, ref ev);
 
         args.Cancelled = true;
+        args.ConsumeFireAttempt = false;
     }
 
     private void OnGunShot(EntityUid uid, AssaultronBeamChargeComponent comp, ref GunShotEvent args)
@@ -76,7 +88,7 @@ public sealed class SharedAssaultronBeamChargeSystem : EntitySystem
         comp.CooldownEndTime = _timing.CurTime + TimeSpan.FromSeconds(comp.CooldownDuration);
 
         // Notify server to broadcast the fire emote.
-        var ev = new AssaultronBeamFiredEvent(comp.FireEmoteLocale);
+        var ev = new AssaultronBeamFiredEvent(args.User, comp.FireEmoteLocale);
         RaiseLocalEvent(uid, ref ev);
     }
 }

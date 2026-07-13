@@ -14,6 +14,12 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.1
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
+        time: 2
+        type: Remove
+        refresh: false
 
 - type: reagent
   parent: BaseSoda
@@ -28,13 +34,19 @@
       effects:
       - !type:SatiateThirst
         factor: 3
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
+        time: 2
+        type: Remove
+        refresh: false
     Poison:
       effects:
       - !type:HealthChange
         damage:
           types:
             Radiation: 0.1
-            
+
 - type: reagent
   parent: IrradiatedNukaCola
   id: NukaColaQuantum
@@ -62,7 +74,7 @@
             Burn: -1.0
             Brute: -1.0
             Airloss: -1.0
-            
+
 - type: reagent
   parent: NukaColaQuantum
   id: NukaColaQuartz
@@ -71,7 +83,7 @@
   flavor: nuka-cola-quartz
   physicalDesc: reagent-physical-desc-fizzy
   color: "#ACE5F2"
-            
+
 - type: reagent
   parent: IrradiatedNukaCola
   id: NukaColaClear
@@ -89,7 +101,7 @@
   flavor: nuka-cola-cherry
   physicalDesc: reagent-physical-desc-fizzy
   color: "#C02500"
-  
+
 - type: reagent
   parent: IrradiatedNukaCola
   id: NukaColaGrape
@@ -176,7 +188,7 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: vim
   color: "#362d1d"
-  
+
 - type: reagent
   parent: NukaColaQuantum
   id: VimCaptainsblend
@@ -185,7 +197,7 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: vim-captains-blend
   color: "#ACE5F2"
-  
+
 - type: reagent
   parent: NukaCola
   id: VimRefresh
@@ -194,7 +206,7 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: vim-refresh
   color: "#C2F2AC"
-  
+
 - type: reagent
   parent: NukaColaQuantum
   id: VimQuartz

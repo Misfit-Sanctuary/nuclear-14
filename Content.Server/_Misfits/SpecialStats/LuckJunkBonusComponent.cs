@@ -27,6 +27,8 @@ public sealed partial class LuckJunkBonusComponent : Component
 
         new("N14CurrencyCap50", LuckyLootRarity.Uncommon),
         new("N14RadXPill", LuckyLootRarity.Uncommon),
+        new("N14Jet", LuckyLootRarity.Uncommon),
+        new("N14Turbo", LuckyLootRarity.Uncommon),
         new("N14RadAwayBloodbag", LuckyLootRarity.Uncommon),
         new("N14JunkToyNukaTruck", LuckyLootRarity.Uncommon),
         new("N14HolotapeMisfitsRandom", LuckyLootRarity.Uncommon),
@@ -55,10 +57,6 @@ public sealed partial class LuckJunkBonusComponent : Component
         new("MagazineBox762", LuckyLootRarity.Uncommon),
         new("Magazine762Rifle", LuckyLootRarity.Uncommon),
         new("Magazine762AmmoShort", LuckyLootRarity.Uncommon),
-        new("N14PowerCellSmall", LuckyLootRarity.Uncommon),
-        new("N14MicrofusionCell", LuckyLootRarity.Uncommon),
-        new("N14ElectronChargePack", LuckyLootRarity.Uncommon),
-        new("N14PlasmaCartridge", LuckyLootRarity.Uncommon),
         new("SpeedLoader44", LuckyLootRarity.Uncommon),
 
         new("N14DrinkNukaColaQuantum", LuckyLootRarity.Rare),
@@ -77,13 +75,17 @@ public sealed partial class LuckJunkBonusComponent : Component
         new("MagazineBox50", LuckyLootRarity.Rare),
         new("N14Magazine50AMR", LuckyLootRarity.Rare),
         new("N14MagazineMinigun5mm", LuckyLootRarity.Rare),
-        new("N14FusionCore", LuckyLootRarity.Rare),
-        new("N14PlasmaCartridgeMultiplas", LuckyLootRarity.Rare),
-        new("N14PlasmaShell", LuckyLootRarity.Rare),
         new("40mmGrenadeFrag", LuckyLootRarity.Rare),
         new("40mmGrenadeFire", LuckyLootRarity.Rare),
+        new("N14PowerCellSmall", LuckyLootRarity.Rare),
+        new("N14MicrofusionCell", LuckyLootRarity.Rare),
+        new("N14ElectronChargePack", LuckyLootRarity.Rare),
 
         new("N14SuperStimpak", LuckyLootRarity.VeryRare),
+        new("N14PlasmaCartridge", LuckyLootRarity.VeryRare),
+        new("N14FusionCore", LuckyLootRarity.VeryRare),
+        new("N14PlasmaCartridgeMultiplas", LuckyLootRarity.VeryRare),
+        new("N14PlasmaShell", LuckyLootRarity.VeryRare),
 
         new("N14WastelanderPipboy", LuckyLootRarity.Legendary),
     };

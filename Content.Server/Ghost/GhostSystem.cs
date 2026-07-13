@@ -504,7 +504,7 @@ namespace Content.Server.Ghost
         }
 
         // #Misfits Add - apply YAML-driven ghost color presets
-        private void ApplyMisfitsGhostColor(EntityUid ghost, GhostComponent ghostComp, MindComponent mind)
+        public void ApplyMisfitsGhostColor(EntityUid ghost, GhostComponent ghostComp, MindComponent mind)
         {
             var sessionName = mind.Session?.Name;
             if (string.IsNullOrWhiteSpace(sessionName))

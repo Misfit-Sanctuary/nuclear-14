@@ -209,24 +209,6 @@
     Plastic: 1200
 
 - type: latheRecipe
-  id: N14BPBoSWeaponRipperSword
-  result: N14rippersword
-  category: N14BlueprintBoSWeaponsT3
-  completetime: 15
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Steel: 4500
-
-    Circuitry: 100
-
-    ScrapElectronic: 300
-
-    Plastic: 500
-
-
-- type: latheRecipe
   id: N14BPBoSWeaponPlasmaRifleUrban
   result: N14WeaponPlasmaRifleUrban
   category: N14BlueprintBoSWeaponsT3

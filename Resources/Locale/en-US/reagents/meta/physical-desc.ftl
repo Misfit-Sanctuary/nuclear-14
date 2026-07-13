@@ -102,3 +102,4 @@ reagent-physical-desc-volatile = volatile
 reagent-physical-desc-fortifying = fortifying
 reagent-physical-desc-swirling = swirling
 reagent-physical-desc-gleaming = gleaming
+reagent-physical-desc-scouring = scouring

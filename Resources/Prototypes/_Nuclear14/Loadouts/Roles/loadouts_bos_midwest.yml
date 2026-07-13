@@ -107,7 +107,7 @@
 - type: loadout
   id: MisfitsLoadoutBoSMidwestCommanderPowerArmor
   category: Outer
-  cost: 12
+  cost: 13
   exclusive: true
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -124,12 +124,12 @@
 
 ## MISFITS RAAAAAAAAAA
 
-
+# Brotherhood MWBOS PA unlocks made to be 13 points, or 1 point below the 14 of baseline 5 charisma.
 
 - type: loadout
   id: LoadoutBoSMidwest
   category: Outer
-  cost: 12
+  cost: 13
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
@@ -144,7 +144,7 @@
 - type: loadout
   id: LoadoutBoSMidwestSilver
   category: Outer
-  cost: 12
+  cost: 13
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement

@@ -1,0 +1,1136 @@
+# Additional wasteland construction operations for builder-class silicon RCDs.
+
+# Bunker and airlock doors
+- type: rcd
+  id: MisfitsRCDBunkerDoor
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorBunker
+  cost: 4
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: MisfitsRCDBunkerGlassDoor
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/glass_airlock.png
+  mode: ConstructObject
+  prototype: N14DoorBunkerGlass
+  cost: 4
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: MisfitsRCDBunkerDoor3X
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorBunker3X
+  cost: 6
+  delay: 5
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: MisfitsRCDBunkerGlassDoor3X
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/glass_airlock.png
+  mode: ConstructObject
+  prototype: N14DoorBunkerGlass3X
+  cost: 6
+  delay: 5
+  collisionMask: FullTileMask
+  rotation: Camera
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: MisfitsRCDAirlockSlanted
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorAirlockSlanted
+  cost: 4
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct4
+
+- type: rcd
+  id: MisfitsRCDAirlockTall
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorAirlockTall
+  cost: 4
+  delay: 4
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct4
+
+# Metal doors
+- type: rcd
+  id: MisfitsRCDMetalDoorReinforced
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalReinforced
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDMetalDoorCell
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorCellMetal
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDMetalDoorBar
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalBar
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDMetalDoorIron
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalIron
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDMetalDoorSecure
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalSecure
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDMetalDoorBlueSlanted
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalBlueSlanted
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDMetalDoorRedSlanted
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalRedSlanted
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDMetalDoorBlueAltSlanted
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalBlueAltSlanted
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDMetalDoorBlueWindowSlanted
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/glass_airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalBlueWindowSlanted
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDMetalDoorGrateSlanted
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalGrateSlanted
+  cost: 3
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDMetalDoorBarSlanted
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalBarSlanted
+  cost: 3
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDMetalDoorFenceSlanted
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalFenceSlanted
+  cost: 3
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDMetalDoorFenceBarbedSlanted
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalFenceBarbedSlanted
+  cost: 3
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDMetalDoorBlueTall
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalBlueTall
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDMetalDoorRedTall
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalRedTall
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDMetalDoorBlueAltTall
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalBlueAltTall
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDMetalDoorBlueWindowTall
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/glass_airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalBlueWindowTall
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDMetalDoorGrateTall
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalGrateTall
+  cost: 3
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDMetalDoorBarTall
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalBarTall
+  cost: 3
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDMetalDoorFenceTall
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalFenceTall
+  cost: 3
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDMetalDoorFenceBarbedTall
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorMetalFenceBarbedTall
+  cost: 3
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDMetalDoorCellTall
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorCell
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDMetalDoorCellRustTall
+  category: WastelandDoors
+  sprite: /Textures/Interface/Radial/RCD/airlock.png
+  mode: ConstructObject
+  prototype: N14DoorCellRust
+  cost: 4
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct3
+
+# Sheet metal and scrap walls
+- type: rcd
+  id: MisfitsRCDWallMetalSlanted
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallMetalSlanted
+  cost: 4
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDWallReinfMetalSlanted
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallReinfMetalSlanted
+  cost: 5
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDWallMetalRustSlanted
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallMetalRustSlantedSlanted
+  cost: 4
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDWallReinfMetalRustSlanted
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallReinfMetalRustSlanted
+  cost: 5
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDWallMetalTall
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallMetalTall
+  cost: 4
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDWallReinfMetalTall
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallReinfMetalTall
+  cost: 5
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDWallMetalRustTall
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallMetalRustTall
+  cost: 4
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDWallReinfMetalRustTall
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallReinfMetalRustTall
+  cost: 5
+  delay: 3
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct3
+
+- type: rcd
+  id: MisfitsRCDWallMetalHalf
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallMetalHalf
+  cost: 2
+  delay: 1
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDWallMetalReinforcedHalf
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallMetalReinforcedHalf
+  cost: 3
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDWallMetalRustHalf
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallMetalRustHalf
+  cost: 2
+  delay: 1
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDWallMetalReinforcedRustHalf
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallMetalReinforcedRustHalf
+  cost: 3
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDWallScrapSlanted
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallScrapSlanted
+  cost: 4
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDWallScrapTall
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallScrapTall
+  cost: 4
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDWallScrapHalf
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallScrapHalf
+  cost: 2
+  delay: 1
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDWallScrapWhiteSlanted
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallScrapWhiteSlanted
+  cost: 4
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDWallScrapWhiteTall
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallScrapWhiteTall
+  cost: 4
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDWallScrapBlueSlanted
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallScrapBlueSlanted
+  cost: 4
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDWallScrapBlueTall
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallScrapBlueTall
+  cost: 4
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDWallScrapRedSlanted
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallScrapRedSlanted
+  cost: 4
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDWallScrapRedTall
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallScrapRedTall
+  cost: 4
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDWallRoughScrapSlanted
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallRoughScrapSlanted
+  cost: 4
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: User
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: MisfitsRCDWallRoughScrapTall
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/solid_wall.png
+  mode: ConstructObject
+  prototype: N14WallRoughScrapTall
+  cost: 4
+  delay: 2
+  collisionMask: FullTileMask
+  rotation: Fixed
+  fx: EffectRCDConstruct2
+
+# Metal and concrete tiles
+- type: rcd
+  id: MisfitsRCDFloorMetalBlue
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalBlue
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalBlueSolid
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalBlueSolid
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalGreen
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalGreen
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalGreenSolid
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalGreenSolid
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalGrey
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalGrey
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalGreySolid
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalGreySolid
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalGreyDark
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalGreyDark
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalGreyDarkSolid
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalGreyDarkSolid
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalPurple
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalPurple
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalPurpleSolid
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalPurpleSolid
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalRed
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalRed
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalRedSolid
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalRedSolid
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalTeal
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalTeal
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalTealSolid
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalTealSolid
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalWhite
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalWhite
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalWhiteSolid
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalWhiteSolid
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalYellow
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalYellow
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalYellowSolid
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalYellowSolid
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalFreezer
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalFreezer
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalTunnel
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalTunnel
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalTunnelRusty
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalTunnelRusty
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMetalTunnelWasteland
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMetalTunnelWasteland
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMS13MetalIndustrial
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMS13MetalIndustrial
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMS13MetalTile
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMS13MetalTile
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMS13MetalGrate
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMS13MetalGrate
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMS13MetalSolid
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMS13MetalSolid
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorConcrete
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: N14FloorConcrete
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorConcreteTileGoon
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: N14FloorConcreteTileGoon
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorConcreteGreyBay
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: N14FloorConcreteGreyBay
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorConcreteHexacrete
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: N14FloorConcreteHexacrete
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorConcreteHexacreteDark
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: N14FloorConcreteHexacreteDark
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorConcreteDark
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: N14FloorConcreteDark
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorConcreteRoad
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: N14FloorConcreteRoad
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMS13BrickConcrete
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMS13BrickConcrete
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMS13Concrete
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMS13Concrete
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMS13ConcreteIndustrial
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMS13ConcreteIndustrial
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMS13ConcreteIndustrialAlt
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMS13ConcreteIndustrialAlt
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMS13ConcreteIndustrialSplit
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMS13ConcreteIndustrialSplit
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MisfitsRCDFloorMS13TileConcreteSmall
+  category: WastelandWallsAndFlooring
+  sprite: /Textures/Interface/Radial/RCD/metal_tile.png
+  mode: ConstructTile
+  prototype: FloorMS13TileConcreteSmall
+  cost: 1
+  delay: 1
+  collisionMask: InteractImpassable
+  rules:
+  - CanBuildOnEmptyTile
+  fx: EffectRCDConstruct1

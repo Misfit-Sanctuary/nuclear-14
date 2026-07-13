@@ -39,6 +39,12 @@
         <ui:RadialMenuTextureButton StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'rcd-component-tribal-lighting'}" TargetLayer="TribalLighting" Visible="False">
             <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RCD/lighting.png"/>
         </ui:RadialMenuTextureButton>
+        <ui:RadialMenuTextureButton StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'rcd-component-wasteland-doors'}" TargetLayer="WastelandDoors" Visible="False">
+            <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RCD/airlocks.png"/>
+        </ui:RadialMenuTextureButton>
+        <ui:RadialMenuTextureButton StyleClasses="RadialMenuButton" SetSize="64 64" ToolTip="{Loc 'rcd-component-wasteland-walls-and-flooring'}" TargetLayer="WastelandWallsAndFlooring" Visible="False">
+            <TextureRect VerticalAlignment="Center" HorizontalAlignment="Center" TextureScale="2 2" TexturePath="/Textures/Interface/Radial/RCD/walls_and_flooring.png"/>
+        </ui:RadialMenuTextureButton>
     </ui:RadialContainer>
 
     <!-- Walls and flooring -->
@@ -60,5 +66,7 @@
     <ui:RadialContainer Name="TribalFurnishings" VerticalExpand="True" HorizontalExpand="True" Radius="64"/>
     <ui:RadialContainer Name="TribalAgriculture" VerticalExpand="True" HorizontalExpand="True" Radius="64"/>
     <ui:RadialContainer Name="TribalLighting" VerticalExpand="True" HorizontalExpand="True" Radius="64"/>
+    <ui:RadialContainer Name="WastelandDoors" VerticalExpand="True" HorizontalExpand="True" Radius="64"/>
+    <ui:RadialContainer Name="WastelandWallsAndFlooring" VerticalExpand="True" HorizontalExpand="True" Radius="64"/>
 
 </ui:RadialMenu>

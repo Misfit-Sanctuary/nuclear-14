@@ -1,0 +1,11 @@
+- type: entity
+  id: ActionZaxC27RepairMode
+  name: Brace Repair Mode
+  description: Lock the chassis in place and reroute power to accelerated self-repair.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    icon: Interface/VerbIcons/anchor.svg.192dpi.png
+    event: !type:ToggleZaxC27RepairModeEvent

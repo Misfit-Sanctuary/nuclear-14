@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Linq;
 using Content.Client._Misfits.Construction; // #Misfits Add
 using Content.Client.UserInterface.Systems.MenuBar.Widgets;
@@ -47,6 +48,7 @@ namespace Content.Client.Construction.UI
         private ConstructionSystem? _constructionSystem;
         private ConstructionPrototype? _selected;
         private HandCraftIntellRecipePrototype? _selectedIntellRecipe;
+        private Dictionary<string, int> _lastLeftoverMaterials = new();
 
         private bool CraftingAvailable
         {
@@ -81,6 +83,8 @@ namespace Content.Client.Construction.UI
 
                     if (_selected != null)
                         PopulateInfo(_selected);
+
+                    UpdateLeftoverMaterials();
                 }
                 else
                     _constructionView.Close();
@@ -500,9 +504,9 @@ namespace Content.Client.Construction.UI
                 if (_prototypeManager.TryIndex<MaterialPrototype>(mat, out var matProto))
                 {
                     var sheetVolume = Math.Max(1, _materialStorage.GetSheetVolume(matProto));
-                    var quantity = (int)Math.Ceiling((double)amount / sheetVolume);
+                    var quantity = amount / (double) sheetVolume;
                     var matName = Loc.GetString(matProto.Name);
-                    label = $"{quantity}x {matName}";
+                    label = $"{quantity.ToString("0.##", CultureInfo.InvariantCulture)}x {matName}";
                     matIcon = spriteSys.Frame0(matProto.Icon);
                 }
                 else
@@ -511,6 +515,45 @@ namespace Content.Client.Construction.UI
                 }
 
                 stepList.AddItem(label, matIcon, false);
+            }
+        }
+
+        public void UpdateLeftoverMaterials()
+        {
+            if (!_constructionView.IsOpen)
+                return;
+
+            var mats = new Dictionary<string, int>();
+            if (_playerManager.LocalEntity is { } player &&
+                _entManager.TryGetComponent<MaterialStorageComponent>(player, out var storage))
+            {
+                foreach (var (mat, amount) in storage.Storage)
+                {
+                    if (amount > 0)
+                        mats[mat.Id] = amount;
+                }
+            }
+
+            if (_lastLeftoverMaterials.Count == mats.Count &&
+                _lastLeftoverMaterials.All(pair => mats.GetValueOrDefault(pair.Key) == pair.Value))
+                return;
+
+            _lastLeftoverMaterials = mats;
+
+            var list = _constructionView.LeftoverMaterialsList;
+            list.Clear();
+
+            var spriteSys = _systemManager.GetEntitySystem<SpriteSystem>();
+            foreach (var (matId, amount) in mats.OrderBy(pair => pair.Key))
+            {
+                if (!_prototypeManager.TryIndex<MaterialPrototype>(matId, out var matProto))
+                    continue;
+
+                var sheetVolume = Math.Max(1, _materialStorage.GetSheetVolume(matProto));
+                var quantity = amount / (double) sheetVolume;
+                var matName = Loc.GetString(matProto.Name);
+                var label = $"{quantity.ToString("0.##", CultureInfo.InvariantCulture)}x {matName}";
+                list.AddItem(label, spriteSys.Frame0(matProto.Icon), false);
             }
         }
 

@@ -150,6 +150,10 @@
         - drug-ambience-damage-modifying-mixture-1
         - drug-ambience-damage-modifying-mixture-2
       - !type:Drunk
+      - !type:Emote
+        emote: Scream
+        showInChat: true
+        probability: 0.1
       - !type:Addicting #Misfits Change
         time: 8
         # DamageModifyingMixture (Psycho) withdrawal: aggression crash, body aching from the comedown.
@@ -256,7 +260,10 @@
         messageKeys:
         - drug-ambience-buffout-1
         - drug-ambience-buffout-2
-      - !type:Jitter
+      - !type:Emote #Misfits Change - something to add a visible sign of drug use
+        emote: Laugh
+        showInChat: true
+        probability: 0.05
       - !type:Addicting #Misfits Change
         time: 6
         # Buffout withdrawal: muscles ache from sudden loss of chemical strength augmentation.
@@ -300,7 +307,7 @@
   color: "#800000"
   metabolisms:
     Medicine:
-      metabolismRate: 0.2 # Effectively once every 5 seconds.
+      metabolismRate: 0.1 # Misfits Change - Temporary change to give Buffjet a reason to exist. It lasts longer than regular Jet. Should be changed/removed when SPECIAL chems are fixed.
       effects:
       - !type:AmbientDrugFlavorText
         cooldownId: BuffjetAmbient
@@ -314,6 +321,10 @@
             Poison: 0.2
           groups:
       - !type:Jitter
+      - !type:Emote
+        emote: Laugh
+        showInChat: true
+        probability: 0.05
       - !type:MovespeedModifier
         walkSpeedModifier: 1.1
         sprintSpeedModifier: 1.1

@@ -259,8 +259,20 @@ public abstract class SharedChatSystem : EntitySystem
     public static string InjectTagAroundString(ChatMessage message, string targetString, string tag, string? tagParameter)
     {
         var rawmsg = message.WrappedMessage;
-        rawmsg = Regex.Replace(rawmsg, "(?i)(" + targetString + ")(?-i)(?![^[]*])", $"[{tag}={tagParameter}]$1[/{tag}]");
+        var openingTag = tagParameter != null ? $"[{tag}={tagParameter}]" : $"[{tag}]";
+        rawmsg = Regex.Replace(rawmsg, "(?i)(" + Regex.Escape(targetString) + ")(?-i)(?![^[]*])", $"{openingTag}$1[/{tag}]");
         return rawmsg;
+    }
+
+    /// <summary>
+    /// Increases the font size of every literal, case-insensitive occurrence of a string.
+    /// </summary>
+    public static string InjectFontSizeAroundString(ChatMessage message, string targetString, int size)
+    {
+        var rawmsg = message.WrappedMessage;
+        return Regex.Replace(rawmsg,
+            "(?i)(" + Regex.Escape(targetString) + ")(?-i)(?![^[]*])",
+            $"[font size={size}]$1[/font]");
     }
 
     public static string GetStringInsideTag(ChatMessage message, string tag)

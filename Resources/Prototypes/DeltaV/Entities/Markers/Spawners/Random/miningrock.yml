@@ -10,19 +10,39 @@
         state: full
   - type: RandomSpawner
     prototypes:
-      - AsteroidAltRock
-    chance: .90
+      - N14WallRockMammothSlanted
+      - N14RockGreyMining
+      - N14WallRockBasalt
+      - N14WallRockSlanted
+      - N14WallRockSandMining
+      - N14WallRockMining
+      - N14WallRockAndesiteMining
+      - N14WallRockBasaltMining
+      - N14WallRockDroughtSlantedMining
+    chance: 0.99
     rarePrototypes:
-      - AsteroidAltRockMining
       - Barricade
-      - MountainRockMining
-      - MountainRock
-      - RandomStalagmiteOrCrystal
-      - RandomWallRockSpawner
-      - RandomBasaltRockSpawner
-      - AsteroidRockOreCrab
       - RandomWoodenStructure
-    rareChance: 0.15
+      - RandomWoodenSupport
+      - RandomStalagmiteOrCrystal
+      - RandomWoodenStructure
+      - RandomBrownStalagmite
+      - N14RockGreySalt
+      - N14WastelandFloraWildCaveFungus
+      - N14SpawnMobGiantAnt
+      - N14SpawnMobGiantFireAnt
+      - N14SpawnMobRadroach
+      - N14SpawnMobPigrat
+      - N14SpawnMobFeralGhoulRotter
+      - N14SpawnMobFeralGhoul
+      - N14SpawnMobFeralGhoulReaver
+      - FloraRockSolid01
+      - FloraRockSolid02
+      - FloraRockSolid03
+      - N14SpawnMobCazador
+      - N14SpawnMobBloatfly
+      - N14BarricadeWoodTall
+    rareChance: 0.20
 
 - type: entity
   name: Crystal Spawner

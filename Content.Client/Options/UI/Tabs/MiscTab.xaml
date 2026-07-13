@@ -30,6 +30,14 @@
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="ReducedMotionCheckBox" Text="{Loc 'ui-options-reduced-motion'}" />
                 <CheckBox Name="EnableColorNameCheckBox" Text="{Loc 'ui-options-enable-color-name'}" />
+                <Label Text="{Loc 'ui-options-chat-highlight-terms'}" />
+                <LineEdit Name="ChatHighlightTermsEdit"
+                          PlaceHolder="{Loc 'ui-options-chat-highlight-terms-placeholder'}" />
+                <BoxContainer Orientation="Horizontal">
+                    <Label Text="{Loc 'ui-options-chat-highlight-color'}" />
+                    <Control MinSize="4 0" />
+                    <LineEdit Name="ChatHighlightColorEdit" MinWidth="100" />
+                </BoxContainer>
                 <CheckBox Name="ColorblindFriendlyCheckBox" Text="{Loc 'ui-options-colorblind-friendly'}" />
                 <CheckBox Name="DisableFiltersCheckBox" Text="{Loc 'ui-options-no-filters'}" />
                 <BoxContainer Orientation="Horizontal">

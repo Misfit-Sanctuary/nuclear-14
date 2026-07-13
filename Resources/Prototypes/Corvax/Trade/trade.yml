@@ -374,18 +374,18 @@
     price: 220
   - proto: N14WeaponSMG9mminfiltrator
     price: 250
-#  - proto: N14WeaponSMG12mmAdvancedCanadian
-#    price: 230
+  - proto: N14WeaponSMG12mmAdvancedCanadian
+    price: 230
   - proto: N14WeaponSMG10mmSuppressed
     price: 300
-#  - proto: N14WeaponSMG10mmChinese
-#    price: 330
-#  - proto: N14WeaponSMG12mmAdvancedChinese
-#    price: 350
-#    count: 2
-#  - proto: N14WeaponSMG12mmAdvanced
-#    price: 350
-#    count: 2
+  - proto: N14WeaponSMG10mmChinese
+    price: 330
+  - proto: N14WeaponSMG12mmAdvancedChinese
+    price: 350
+    count: 2
+  - proto: N14WeaponSMG12mmAdvanced
+    price: 350
+    count: 2
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Shotguns
@@ -411,12 +411,12 @@
     price: 290
   - proto: N14WeaponShotgunAuto
     price: 300
-#  - proto: N14WeaponShotgunChinese
-#    price: 350
-#    count: 4
-#  - proto: N14WeaponShotgunCanadian
-#    price: 450
-#    count: 4
+  - proto: N14WeaponShotgunChinese
+    price: 350
+    count: 4
+  - proto: N14WeaponShotgunCanadian
+    price: 450
+    count: 4
   - proto: N14WeaponBlowback
     price: 450
     count: 2
@@ -448,46 +448,46 @@
     price: 240
   - proto: N14WeaponSniper308Canadian
     price: 300
-#  - proto: N14WeaponRifle762Chinese
-#    price: 350
-#    count: 5
+  - proto: N14WeaponRifle762Chinese
+    price: 350
+    count: 5
   - proto: N14WeaponRifle762Fal
     price: 350
   - proto: N14WeaponRifle556Carbine
     price: 400
     count: 8
-#  - proto: N14WeaponRifle762MarksmanCanadian
-#    price: 400
-#    count: 2
+  - proto: N14WeaponRifle762MarksmanCanadian
+    price: 400
+    count: 2
   - proto: N14WeaponRifle762Marksman
     price: 500
     count: 4
-#  - proto: N14WeaponRifle762MarksmanChinese
-#    price: 550
-#    count: 2
+  - proto: N14WeaponRifle762MarksmanChinese
+    price: 550
+    count: 2
   - proto: N14WeaponRifle762Canadian
     price: 550
     count: 4
 
-#- type: storeCategoryStructured
-#  id: CaravanBuy2_MachineGuns
-#  name: "Machine Guns"
-#  entries:
-#  - proto: N14WeaponLMG
-#    price: 1200
-#    count: 2
-#  - proto: N14WeaponRifleAk112pn
-#    price: 1300
-#    count: 2
-#  - proto: N14WeaponHMGcanadian
-#    price: 1500
-#    count: 2
-#  - proto: N14WeaponLMGchinese
-#    price: 1600
-#    count: 2
-#  - proto: N14WeaponLMGBren
-#    price: 1800
-#    count: 2
+- type: storeCategoryStructured
+  id: CaravanBuy2_MachineGuns
+  name: "Machine Guns"
+  entries:
+  - proto: N14WeaponLMG
+    price: 2200
+    count: 2
+  - proto: N14WeaponRifleAk112pn
+    price: 2300
+    count: 2
+  - proto: N14WeaponHMGcanadian
+    price: 3500
+    count: 2
+  - proto: N14WeaponLMGchinese
+    price: 3600
+    count: 2
+  - proto: N14WeaponLMGBren
+    price: 4800
+    count: 2
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Rifles
@@ -531,8 +531,8 @@
     price: 80
   - proto: N14WeaponLaserRifleCrude
     price: 200
-#  - proto: N14WeaponPlasmaRifleCrude
-#    price: 240
+  - proto: N14WeaponPlasmaRifleCrude
+    price: 240
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Ammo
@@ -578,8 +578,8 @@
     price: 55
   - proto: N14BaseAxe
     price: 120
-#  - proto: N14ChineseSword
-#    price: 200
+  - proto: N14ChineseSword
+    price: 200
   - proto: N14CeremonialSword
     price: 550
   - proto: N14SledgeHammer
@@ -601,8 +601,8 @@
     price: 35
   - proto: N14ClothingHeadHatPrewarMilitaryHelmet
     price: 35
-#  - proto: N14ClothingHeadHatCombatHelmetCargo
-#    price: 35
+  - proto: N14ClothingHeadHatCombatHelmetCargo
+    price: 35
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Armor

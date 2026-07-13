@@ -1,0 +1,96 @@
+# #Misfits Add - Princeps set sprites credited to nope_no / bill clinton.
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitsLegionPrincepsArmor
+  name: Principes Armor
+  description: Captured heavy plate reworked into veteran Principes armor. Slow and clunking, this suit is difficult to move but very protective for its stripped nature. It comes in the livery of a Veteran.
+  components:
+  - type: N14PowerArmor
+    requiresProficiency: false # #Misfits Add - waive training gate for this salvaged variant
+  # #Misfits Add: Power armor integrity — separate HP pool. While intact, 98.5% of incoming
+  # damage is absorbed by the armor and only 1.5% bleeds through to the wearer.
+  # At 0 integrity the ArmorComponent is stripped and the wearer takes full damage.
+  # Repair with a welder to restore the pool and re-enable absorption.
+  - type: Damageable
+  - type: PowerArmorIntegrity
+    maxIntegrity: 375        # #Misfits Add - FAR lighter salvaged plating
+    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply (35% mitigation from plates alone)
+    disableServosLock: true       # #Misfits Add - no servo-lock speed debuff when armor breaks
+  - type: Repairable
+    fuelCost: 10
+    doAfterDelay: 12 # #Misfits Tweak - Legion salvaged PA is modified with leather and stripped. lower surface to weld makes it slightly faster to fix
+    qualityNeeded: Welding
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/Principes/principes_armor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/Principes/principes_armor.rsi
+    equipDelay: 3
+    unequipDelay: 6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: UserInterface
+    interfaces:
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
+  - type: ToggleableClothing
+    requiredSlot: outerClothing
+    blockUnequipWhenAttached: true
+    replaceCurrentClothing: false
+    clothingPrototypes:
+      head: MisfitsLegionPrincipesHelmet
+      gloves: N14ClothingPAGauntlets
+      shoes: N14ClothingPABoots
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.65
+        Blunt: 0.70
+        Piercing: 0.60
+        Heat: 0.65
+        Caustic: 0.90
+  - type: StaminaDamageResistance
+    coefficient: 0.50
+  - type: TemperatureProtection
+    coefficient: 0.25
+  - type: FireProtection
+    reduction: 0.9
+  - type: Reflect
+    reflects:
+      - SmallCaliber
+      - MediumCaliber
+    reflectProb: 0.4
+    reflectProbByType:
+      MediumCaliber: 0.15
+    innate: true
+    spread: 90
+  - type: EmitsSoundOnMove # Corvax-Change
+    soundCollection:
+      collection: N14FootstepPowerArmor
+      params:
+        volume: -6
+    requiresWorn: true
+    distanceWalking: 3
+    distanceSprinting: 4
+    # #Misfits Tweak - Disable brace stance (servos stripped); slot mismatch prevents action from being granted.
+  - type: PowerArmorBrace
+    requiredSlot: BELT
+
+- type: entity
+  parent: N14ClothingHeadHatCenturionHelmet
+  id: MisfitsLegionPrincipesHelmet
+  name: Principes Helmet
+  description: A heavily butchered T-60 helmet, stripped to its base components and decorated in the colors of a Veteran decanus.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/Principes/principes_helmet.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/Principes/principes_helmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.75
+        Heat: 0.8
+    priceMultiplier: 0.5

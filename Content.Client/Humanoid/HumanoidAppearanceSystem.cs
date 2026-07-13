@@ -61,17 +61,28 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
     private static bool IsRobotTintSpecies(string speciesId)
     {
         return speciesId == "RobotMrHandy"
+            || speciesId == "RobotMrHandyZAX"
             || speciesId == "RobotProtectron"
             || speciesId == "RobotProtectronPolice"
             || speciesId == "RobotProtectronBuilder"
             || speciesId == "RobotProtectronFire"
+            || speciesId == "RobotProtectronPoliceZAX"
+            || speciesId == "RobotProtectronBuilderZAX"
+            || speciesId == "RobotProtectronFireZAX"
             || speciesId == "RobotMrGutsy"
+            || speciesId == "RobotMrGutsyZAX"
             || speciesId == "RobotAssaultron"
             || speciesId == "RobotAssaultronTesla"
+            || speciesId == "RobotAssaultronZAX"
+            || speciesId == "RobotAssaultronTeslaZAX"
             || speciesId == "RobotSentryBot"
             || speciesId == "RobotSentryBotLaser"
+            || speciesId == "RobotSentryBotZAX"
+            || speciesId == "RobotSentryBotLaserZAX"
             || speciesId == "RobotRobobrain"
-            || speciesId == "RobotRobobrainLaser";
+            || speciesId == "RobotRobobrainLaser"
+            || speciesId == "RobotRobobrainZAX"
+            || speciesId == "RobotRobobrainLaserZAX";
     }
 
     private static bool IsHidden(HumanoidAppearanceComponent humanoid, HumanoidVisualLayers layer)

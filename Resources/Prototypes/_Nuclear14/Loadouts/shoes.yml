@@ -1,7 +1,7 @@
 - type: loadout
   id: N14LoadoutShoesBlack
   category: Shoes
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutShoes
@@ -17,7 +17,7 @@
 - type: loadout
   id: N14LoadoutShoesBrown
   category: Shoes
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutShoes
@@ -33,7 +33,7 @@
 - type: loadout
   id: N14LoadoutShoesRags
   category: Shoes
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutShoes
@@ -53,7 +53,7 @@
 - type: loadout
   id: N14LoadoutBootsCowboy
   category: Shoes
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutShoes
@@ -69,7 +69,7 @@
 - type: loadout
   id: N14LoadoutBootsBlack
   category: Shoes
-  cost: 1
+  cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutShoes

@@ -166,6 +166,89 @@
   - type: ReplacementAccent
     accent: genericAggressive
 
+- type: entity
+  abstract: true
+  id: N14MobBaseHostileNoAccent
+  parent: N14MobBaseSimple
+  description: It's a dirty wasteland animal. Watch out for it's bite, it could be infectious.
+  components:
+  - type: PathfindingCustomizable # Misfits Add — Better/customizable and less exploitable pathfinding
+    nodeLimit: 225
+  - type: Hunger
+    thresholds:
+      Overfed: 200
+      Okay: 150
+      Peckish: 100
+      Starving: 50
+      Dead: 0
+    baseDecayRate: 0.0 # Decay rate decreased to 0, because humanoid raider NPCs are able to starve to death. We generally don't need life sim for any hostile mob.
+  - type: Thirst
+    thresholds:
+      OverHydrated: 200
+      Okay: 150
+      Thirsty: 100
+      Parched: 50
+      Dead: 0
+    baseDecayRate: 0.0 # Decay rate decreased to 0, because hostile mobs can be way too easily defeated by slowness applied to them.
+  - type: NPCRetaliation # Aggro on the attacker when damaged from any range
+    attackMemoryLength: 30
+  - type: NpcFactionMember
+    factions:
+    - WastelandAnimal
+  - type: ProximityNPC # Misfits Add — sleep distant NPCs to reduce tick load
+  - type: HTN
+    rootTask:
+      task: N14RangedHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+      MeleeRange: !type:Single
+        1.5
+  - type: Sprite
+    drawdepth: Mobs
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      15: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: Butcherable
+    spawned:
+    - id: N14FoodMeatRadRaw
+      amount: 1
+  - type: Bloodstream
+    bloodMaxVolume: 50
+    bloodReagent: WastelandBlood
+  - type: CombatMode
+  - type: MeleeWeapon
+    hidden: true
+    attackRate: 2
+    range: 1.5
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 60
+    animation: WeaponArcBite
+    wideAnimation: WeaponArcBite
+    damage:
+      groups:
+        Brute: 2
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Toxin
+          Quantity: 0.1
+  - type: MeleeChemicalInjector
+    solution: melee
+
 #MARK: Base Scaley
 - type: entity
   name: scaley wasteland animal

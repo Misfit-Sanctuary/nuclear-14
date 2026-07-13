@@ -195,8 +195,8 @@ reagent-name-tea-whitehorsenettle = white horsenettle tea
 reagent-desc-tea-whitehorsenettle = Tingly.
 reagent-name-tea-xander = xander tea
 reagent-desc-tea-xander = medicinal root tea.
-reagent-name-tea-fireantnectar = fire ant nectar
-reagent-desc-tea-fireantnectar = Crystalised nectar from a fire ant. Sugary.
+reagent-name-tea-fireantnectar = fire ant nectar tea
+reagent-desc-tea-fireantnectar = tea brewed from melted fire ant nectar. It has a honey-like consistency.
 
 
 # Venoms
@@ -214,16 +214,16 @@ reagent-name-healing-powder = healing powder
 reagent-desc-healing-powder = A powder made from crushed plants.
 
 reagent-name-antidote-mixture = handmade antidote
-reagent-desc-antidote-mixture = An antidote made from radscorpion tail and water for treating poison.
+reagent-desc-antidote-mixture = An antidote made from radscorpion tail and tarberry juice.
 
-reagent-name-antidote = industrial antidote
-reagent-desc-antidote = A potent antitoxin manufactured in a lab.
+reagent-name-antidote = refined antidote
+reagent-desc-antidote = A potent antitoxin without impurities. Treats poison and small amounts of radiation exposure.
 
 reagent-name-healing-poultice = healing poultice
 reagent-desc-healing-poultice = A powder made from a large mixture of plants.
 
 reagent-name-bitterdrink = bitterdrink
-reagent-desc-bitterdrink = A mixture of crushed plants mixed with water neutralizing poison and radiation from body.
+reagent-desc-bitterdrink = A mixture of crushed plants and brahmin milk boiled over a fire. Purges poison and radiation from body.
 
 reagent-name-smelling-salts = smelling salts
 reagent-desc-smelling-salts = A grainy mixture of rocks with an insanely potent smell.
@@ -237,6 +237,7 @@ reagent-desc-maple-syrup = "Grade A Golden" pure Maple Syrup. A sugary syrup der
 # Medicine
 reagent-name-healing-mixture = stimpak
 reagent-desc-healing-mixture = A mixture of reagents that makes you heal.
+
 reagent-name-dirty-stimpak = dirty stimpak
 reagent-desc-dirty-stimpak = A dirty mixture of reagents that makes you heal.
 
@@ -249,14 +250,17 @@ reagent-desc-ultra-robust-healing-mixture = A mixture of reagents that make you 
 reagent-name-hydra = hydra
 reagent-desc-hydra = A mixture of fungi, scorpion tail and nightstalker blood that works like a wasteland Med-X, dulling incoming damage at the cost of addiction.
 
-reagent-name-damage-resist-mixture = damage resistant mixture
-reagent-desc-damage-resist-mixture = A mixture of reagents that makes you resistant to damage.
+reagent-name-damage-resist-mixture = med-x
+reagent-desc-damage-resist-mixture = An advanced painkiller that makes injuries easier to ignore.
 
 reagent-name-radaway = radaway
 reagent-desc-radaway = An odd reagent that cures your radiation.
 
 reagent-name-diluted-radaway = diluted radaway
 reagent-desc-diluted-radaway = A diluted odd reagent that cures your radiation at a slower rate.
+
+reagent-name-cleansing-powder = cleansing powder
+reagent-desc-cleansing-powder = a tribal remedy for radiation exposure developed by wasteland herbalists. Works slowly, inefficiently, and makes you drowsy, but it's better than the alternative.
 
 reagent-name-buffout = buffout
 reagent-desc-buffout = A reagent that makes you overall more robust, for a short period of time.

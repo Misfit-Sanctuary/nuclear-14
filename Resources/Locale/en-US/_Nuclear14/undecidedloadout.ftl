@@ -272,6 +272,26 @@ undecided-loadout-category-mbos-kni-las-description =
     2 12.7mm pistol magazines, 1 roll of gauze, 1 stimpak,
     and 1 K ration MRE.
 
+undecided-loadout-category-mbos-skni-bal-name = Senior Ballistic Kit
+undecided-loadout-category-mbos-skni-bal-description =
+    A cache containing belongings of a Brotherhood chapter member.
+    Includes 1 assault carbine, 3 5.56 magazines, 1 12.7mm pistol,
+    2 12.7mm pistol magazines, 1 roll of gauze, 1 stimpak,
+    and 1 K ration MRE.
+
+undecided-loadout-category-mbos-skni-las-name = Senior Laser Kit
+undecided-loadout-category-mbos-skni-las-description =
+    A cache containing belongings of a Brotherhood chapter member.
+    Includes 1 AER-9, 1 microfusion cell, 1 12.7mm pistol,
+    2 12.7mm pistol magazines, 1 roll of gauze, 1 stimpak,
+    and 1 K ration MRE.
+
+undecided-loadout-category-mbos-skni-recon-name = Recon Kit
+undecided-loadout-category-mbos-skni-recon-description =
+    A cache containing belongings of a Brotherhood chapter member.
+    1 .44 revolver, 2 .44 speed loaders, 1 roll of gauze, 1 stimpak,
+    and 1 K ration MRE.
+
 # Misfits Tweak: Removed rank prefix so the kit name is role-neutral.
 undecided-loadout-category-mbos-kni-bal-name = Carbine Kit
 undecided-loadout-category-mbos-kni-bal-description =
@@ -305,10 +325,10 @@ undecided-loadout-category-mbos-scribe-engineer-description =
 
 # Misfits Change /Tweak/: Paladin laser kit replaced with auto shotgun + laser pistol sidearm.
 # Misfits Tweak: Removed rank prefix so the kit name is role-neutral.
-undecided-loadout-category-mbos-pal-las-name = Ripper Kit
+undecided-loadout-category-mbos-pal-las-name = Enclave Slayer Kit
 undecided-loadout-category-mbos-pal-las-description =
     A cache containing belongings of a Brotherhood chapter member.
-    Includes a Ripper sword, 1 AEP-7,
+    Includes a Plasma Cutter, 1 AEP-7,
     4 energy cells, 1 roll of gauze, 2 stimpaks,
     and 1 K ration MRE.
 

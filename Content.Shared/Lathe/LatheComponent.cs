@@ -98,4 +98,14 @@ namespace Content.Shared.Lathe
     /// </summary>
     [ByRefEvent]
     public readonly record struct LatheStartPrintingEvent(LatheRecipePrototype Recipe);
+
+    /// <summary>
+    /// [Changed by MisfitsCrew/Operator] Raised before materials are consumed and a recipe is added to a lathe queue.
+    /// Systems may cancel recipes subject to machine-specific production limits.
+    /// </summary>
+    [ByRefEvent]
+    public record struct LatheQueueAttemptEvent(LatheRecipePrototype Recipe, EntityUid? Actor)
+    {
+        public bool Cancelled;
+    }
 }

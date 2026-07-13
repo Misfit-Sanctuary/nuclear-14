@@ -1,3 +1,4 @@
+using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Server.Stack;
 using Content.Shared._Misfits.Crafting;
@@ -19,6 +20,7 @@ public sealed class HandCraftIntellSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly StackSystem _stack = default!;
+    [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
 
     public override void Initialize()
     {
@@ -83,10 +85,16 @@ public sealed class HandCraftIntellSystem : EntitySystem
     private bool CheckMaterialsAvailable(EntityUid player, Dictionary<ProtoId<MaterialPrototype>, int> required)
     {
         var available = CollectMaterials(player);
+        var pool = CompOrNull<MaterialStorageComponent>(player);
+
         foreach (var (material, amount) in required)
         {
             string matId = material;
-            if (!available.TryGetValue(matId, out var have) || have < amount)
+            var have = available.GetValueOrDefault(matId);
+            if (pool != null)
+                have += _materialStorage.GetMaterialAmount(player, matId, pool);
+
+            if (have < amount)
                 return false;
         }
         return true;
@@ -98,10 +106,22 @@ public sealed class HandCraftIntellSystem : EntitySystem
         var toDelete = new List<EntityUid>();
         var toReduce = new List<(EntityUid entity, int newCount)>();
 
+        var poolComp = EnsureComp<MaterialStorageComponent>(player);
+        poolComp.InsertOnInteract = false;
+        var poolDeltas = new Dictionary<string, int>();
+
         foreach (var (material, needed) in required)
         {
             string matId = material;
             var remaining = needed;
+
+            var poolHave = _materialStorage.GetMaterialAmount(player, matId, poolComp);
+            if (poolHave > 0)
+            {
+                var fromPool = Math.Min(poolHave, remaining);
+                poolDeltas[matId] = poolDeltas.GetValueOrDefault(matId) - fromPool;
+                remaining -= fromPool;
+            }
 
             foreach (var (entity, matItemId, volPerUnit, count) in items)
             {
@@ -122,6 +142,11 @@ public sealed class HandCraftIntellSystem : EntitySystem
                         toDelete.Add(entity);
                     else
                         toReduce.Add((entity, newCount));
+
+                    var excess = unitsNeeded * volPerUnit - remaining;
+                    if (excess > 0)
+                        poolDeltas[matId] = poolDeltas.GetValueOrDefault(matId) + excess;
+
                     remaining = 0;
                 }
             }
@@ -139,6 +164,12 @@ public sealed class HandCraftIntellSystem : EntitySystem
                 _stack.SetCount(entity, newCount, stack);
             else
                 QueueDel(entity);
+        }
+
+        foreach (var (matId, delta) in poolDeltas)
+        {
+            if (delta != 0)
+                _materialStorage.TryChangeMaterialAmount(player, matId, delta, poolComp);
         }
 
         return true;

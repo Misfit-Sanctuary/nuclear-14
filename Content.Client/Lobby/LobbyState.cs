@@ -1,5 +1,6 @@
 using Content.Client.Audio;
 using Content.Client.GameTicking.Managers;
+using Content.Client._Misfits.DiscordLink;
 using Content.Client.LateJoin;
 using Content.Client.Lobby.UI;
 using Content.Client.Message;
@@ -23,6 +24,7 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
+        [Dependency] private readonly MisfitsDiscordLinkManager _discordLink = default!;
 
         private ISawmill _sawmill = default!;
         private ClientGameTicker _gameTicker = default!;
@@ -53,8 +55,12 @@ namespace Content.Client.Lobby
             UpdateLobbyUi();
 
             Lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed;
+            Lobby.CharacterPreview.LinkDiscordButton.OnPressed += OnLinkDiscordPressed;
             Lobby.ReadyButton.OnPressed += OnReadyPressed;
             Lobby.ReadyButton.OnToggled += OnReadyToggled;
+            _discordLink.LinkStatusChanged += OnDiscordLinkStatusChanged;
+            OnDiscordLinkStatusChanged(_discordLink.IsLinked, null);
+            _discordLink.RequestStatus();
 
             _gameTicker.InfoBlobUpdated += UpdateLobbyUi;
             _gameTicker.LobbyStatusUpdated += LobbyStatusUpdated;
@@ -73,8 +79,10 @@ namespace Content.Client.Lobby
             _voteManager.ClearPopupContainer();
 
             Lobby!.CharacterPreview.CharacterSetupButton.OnPressed -= OnSetupPressed;
+            Lobby!.CharacterPreview.LinkDiscordButton.OnPressed -= OnLinkDiscordPressed;
             Lobby!.ReadyButton.OnPressed -= OnReadyPressed;
             Lobby!.ReadyButton.OnToggled -= OnReadyToggled;
+            _discordLink.LinkStatusChanged -= OnDiscordLinkStatusChanged;
 
             Lobby = null;
         }
@@ -89,6 +97,22 @@ namespace Content.Client.Lobby
         {
             SetReady(false);
             Lobby?.SwitchState(LobbyGui.LobbyGuiState.CharacterSetup);
+        }
+
+        private void OnLinkDiscordPressed(BaseButton.ButtonEventArgs args)
+        {
+            _discordLink.BeginLink();
+        }
+
+        private void OnDiscordLinkStatusChanged(bool linked, string? status)
+        {
+            if (Lobby == null)
+                return;
+
+            Lobby.CharacterPreview.LinkDiscordButton.Text = linked
+                ? Loc.GetString("lobby-character-preview-panel-discord-linked-button")
+                : status ?? Loc.GetString("lobby-character-preview-panel-link-discord-button");
+            Lobby.CharacterPreview.LinkDiscordButton.Disabled = linked;
         }
 
         private void OnReadyPressed(BaseButton.ButtonEventArgs args)

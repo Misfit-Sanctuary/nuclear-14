@@ -1,0 +1,13 @@
+﻿- type: entity
+  id: ActionWimDogTranslator
+  name: action-name-wim-dog-translator
+  description: action-desc-wim-dog-translator
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    icon: Interface/Emotes/bark.png
+    charges: 3
+    range: 2
+    checkCanAccess: false
+    canTargetSelf: false
+    event: !type:WimDogTranslatorActionEvent

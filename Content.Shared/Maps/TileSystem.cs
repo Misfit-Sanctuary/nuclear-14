@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._Misfits.RCD;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Decals;
 using Content.Shared.Tiles;
@@ -195,9 +196,14 @@ public sealed class TileSystem : EntitySystem
                 (_robustRandom.NextFloat() - 0.5f) * bounds,
                 (_robustRandom.NextFloat() - 0.5f) * bounds));
 
-        //Actually spawn the relevant tile item at the right position and give it some random offset.
-        var tileItem = Spawn(tileDef.ItemDropPrototypeName, coordinates);
-        Transform(tileItem).LocalRotation = _robustRandom.NextDouble() * Math.Tau;
+        var suppressTileDrop = TryTakeRcdNoDropTile(gridUid, tileRef.GridIndices, tileDef.ID);
+
+        if (!suppressTileDrop)
+        {
+            // Actually spawn the relevant tile item at the right position and give it some random offset.
+            var tileItem = Spawn(tileDef.ItemDropPrototypeName, coordinates);
+            Transform(tileItem).LocalRotation = _robustRandom.NextDouble() * Math.Tau;
+        }
 
         // Destroy any decals on the tile
         var decals = _decal.GetDecalsInRange(gridUid, coordinates.SnapToGrid(EntityManager, _mapManager).Position, 0.5f);
@@ -217,16 +223,39 @@ public sealed class TileSystem : EntitySystem
 
     private void OnTileChanged(ref TileChangedEvent args)
     {
-        if (!TryComp<PreservedTileUnderlayComponent>(args.Entity, out var comp))
+        TryComp<PreservedTileUnderlayComponent>(args.Entity, out var comp);
+        TryComp<RCDNoDropTileComponent>(args.Entity, out var noDrop);
+
+        if (comp == null && noDrop == null)
             return;
 
         foreach (var change in args.Changes)
         {
-            if (!comp.Underlays.ContainsKey(change.GridIndices))
-                continue;
+            if (comp != null && comp.Underlays.ContainsKey(change.GridIndices))
+            {
+                if (change.NewTile.IsEmpty || change.NewTile.GetContentTileDefinition(_tileDefinitionManager).IsSubFloor)
+                    comp.Underlays.Remove(change.GridIndices);
+            }
 
-            if (change.NewTile.IsEmpty || change.NewTile.GetContentTileDefinition(_tileDefinitionManager).IsSubFloor)
-                comp.Underlays.Remove(change.GridIndices);
+            if (noDrop != null &&
+                noDrop.Tiles.TryGetValue(change.GridIndices, out var expectedTile) &&
+                (change.NewTile.IsEmpty || change.NewTile.GetContentTileDefinition(_tileDefinitionManager).ID != expectedTile))
+            {
+                noDrop.Tiles.Remove(change.GridIndices);
+            }
         }
+    }
+
+    private bool TryTakeRcdNoDropTile(EntityUid gridUid, Vector2i indices, string tileId)
+    {
+        if (!TryComp<RCDNoDropTileComponent>(gridUid, out var comp) ||
+            !comp.Tiles.TryGetValue(indices, out var expectedTile) ||
+            expectedTile != tileId)
+        {
+            return false;
+        }
+
+        comp.Tiles.Remove(indices);
+        return true;
     }
 }

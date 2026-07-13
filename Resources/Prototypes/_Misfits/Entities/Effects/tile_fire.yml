@@ -31,5 +31,6 @@
     bigFireDuration: 0.5
     extinguishInstantly: true
     vaporExtinguishSeconds: 2
-    fireStacks: 1.5
-    standingDamage: 1
+    fireStacks: 0.35
+    standingDamage: 0.15
+    touchCooldown: 1

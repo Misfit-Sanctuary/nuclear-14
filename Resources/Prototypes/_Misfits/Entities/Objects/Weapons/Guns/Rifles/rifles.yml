@@ -1,0 +1,110 @@
+- type: entity
+  name: makeshift auto rifle
+  parent: N14WeaponRifleBase
+  id: N14WeaponAutoRifle556Legion
+  description: A makeshift automatic rifle of legion origin, light and extremely cheap, chambered in 5.56mm
+  components:
+  - type: Clothing
+    sprite: _Misfits/Objects/Weapons/Guns/Rifles/legionautorifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Rifles/legionautorifle.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    minAngle: 21
+    maxAngle: 45
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 3
+    soundGunshot:
+      collection: N14ServiceGunshot
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: Magazine556Rifle
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - Magazine556Rifle
+      gun_chamber:
+        name: Chamber
+        startingItem: N14Cartridge556Rifle
+        priority: 1
+        whitelist:
+          tags:
+            - N14Cartridge556Rifle
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  name: M72 rifle
+  parent: BaseItem
+  id: N14WeaponGaussRifle
+  description: The M72 rifle is of German design. It uses an electromagnetic field to propel rounds at tremendous speed... and pierce almost any obstacle. Its range, accuracy and stopping power is almost unparalleled.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Rifles/gaussrifleicon.rsi
+    netsync: false
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Misfits/Objects/Weapons/Guns/Rifles/gaussrifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Item
+    size: Large
+    sprite: _Misfits/Objects/Weapons/Guns/Rifles/gaussrifle.rsi
+  - type: Wieldable
+    wieldedSpeedModifier: 0.82
+  - type: GunRequiresWield
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 2
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      collection: N14AutoShotgunGunshot
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14Magazine2mmECRifle
+        priority: 2
+        whitelist:
+          tags:
+          - N14Magazine2mmECRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineAmmoProvider
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 100

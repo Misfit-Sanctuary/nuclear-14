@@ -3,32 +3,33 @@
   id: BasePrayerTree
   abstract: true
   components:
-    - type: Prayable
-    - type: Destructible
-      thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 2000
-          behaviors:
-            - !type:PlaySoundBehavior
-              sound:
-                path: /Audio/Effects/tree_fell.ogg
-                params:
-                  volume: 5
-                  variation: 0.05
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                N14FloraLogTimber:
-                  min: 2
-                  max: 8
-                HeadSkeleton:
-                  min: 1
-                  max: 1
-                MaterialBones1:
-                  min: 3
-                  max: 10
+  - type: Prayable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/tree_fell.ogg
+          params:
+            volume: 5
+            variation: 0.05
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          N14FloraLogTimber:
+            min: 2
+            max: 8
+          HeadSkeleton:
+            min: 1
+            max: 1
+          MaterialBones1:
+            min: 3
+            max: 10
+
 
 - type: entity
   parent: BasePrayerTree
