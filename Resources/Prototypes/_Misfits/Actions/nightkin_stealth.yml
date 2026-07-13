@@ -8,7 +8,12 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
+<<<<<<< Updated upstream
     # 2s cooldown matches the fade-out duration so rapid re-cloak is not possible.
+=======
+    # 2s so it can't be spammed mid-fade. the real recharge cooldown gets set
+    # by the system when the cloak ends
+>>>>>>> Stashed changes
     useDelay: 2
     icon:
       sprite: _Nuclear14/Objects/Misc/pipboy.rsi

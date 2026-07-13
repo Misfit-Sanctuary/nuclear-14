@@ -121,6 +121,11 @@ public sealed class WieldableSystem : EntitySystem
             (humanoid.Species == "SuperMutant" || humanoid.Species == "Nightkin"))
             return;
 
+        // #Misfits Change - gun handling modifier holders (player nightkin) don't slow down with guns
+        if (HasComp<GunComponent>(uid) &&
+            HasComp<Content.Shared._Misfits.Nightkin.GunHandlingModifierComponent>(args.Holder))
+            return;
+
         var speedModifier = component.WieldedSpeedModifier;
 
         if (speedModifier == null && (HasComp<MeleeWeaponComponent>(uid) || HasComp<GunComponent>(uid)))

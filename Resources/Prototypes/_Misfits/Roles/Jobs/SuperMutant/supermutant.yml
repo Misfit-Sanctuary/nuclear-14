@@ -19,16 +19,16 @@
   startingGear: SuperMutantVaultSuitGear # #Misfits Add - prevents naked spawns
   applyTraits: true # #Misfits Change - enable perks tab for Supermutants
   requirements:
-    - !type:CharacterSpeciesRequirement
-      species:
-        - SuperMutant
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
   special: # #Misfits Add - register with PlayerSuperMutant faction so Loremaster tab can detect this job
   - !type:AddComponentSpecial
     components:
-      - type: NpcFactionMember
-        factions:
-          - PlayerSuperMutant
-          - Wastelander
+    - type: NpcFactionMember
+      factions:
+      - PlayerSuperMutant
+      - Wastelander
 
 
 - type: playTimeTracker
@@ -52,7 +52,7 @@
   icon: JobIconBorg
   supervisors: job-supervisors-supermutant
   canBeAntag: false
-  setPreference: false
+  setPreference: true # #Misfits Change - re-enabled, gated by the nightkin whitelist
   overrideConsoleVisibility: true
   whitelisted: true
   hideWithoutWhitelist: true
@@ -60,16 +60,16 @@
   startingGear: NightkinVaultSuitGear # #Misfits changed to nightkin starting gear
   applyTraits: true
   requirements:
-    - !type:CharacterSpeciesRequirement
-      species:
-        - Nightkin
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Nightkin
   special:
   - !type:AddComponentSpecial
     components:
-      - type: NpcFactionMember
-        factions:
-          - PlayerSuperMutant
-          - Wastelander
+    - type: NpcFactionMember
+      factions:
+      - PlayerSuperMutant
+      - Wastelander
 
 # #Misfits changed to nightkin starting gear
 - type: startingGear
@@ -77,8 +77,7 @@
   equipment:
     jumpsuit: ClothingSuperMutantVaultSuit
     ears: MisfitsClothingHeadsetWastelandScrap
-  inhand:
-    -  MisfitsStealthBoy # # Misfits: Add - stealthboy for nightkin role on spawn
+  # #Misfits Change - removed spawn stealthboy, the implant is innate now
 - type: playTimeTracker
   id: Nightkin
 
@@ -102,17 +101,17 @@
   applyTraits: true # #Misfits Change - enable perks tab for Supermutants
   startingGear: SuperMutantGladiatorGear
   requirements:
-    - !type:CharacterSpeciesRequirement
-      species:
-        - SuperMutant
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
   special: # #Misfits Add - register with PlayerSuperMutant faction so Loremaster tab can detect this job
   - !type:AddComponentSpecial
     components:
-      - type: NpcFactionMember
-        factions:
-          - PlayerSuperMutant
-          - CaesarLegion
-          - Wastelander
+    - type: NpcFactionMember
+      factions:
+      - PlayerSuperMutant
+      - CaesarLegion
+      - Wastelander
   - !type:AddTraitSpecial
     traits: [ LanguageLatin ]
 - type: startingGear
@@ -149,16 +148,16 @@
   applyTraits: true
   startingGear: SuperMutantRangerGear
   requirements:
-    - !type:CharacterSpeciesRequirement
-      species:
-        - SuperMutant
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
   special:
   - !type:AddComponentSpecial
     components:
-      - type: NpcFactionMember
-        factions:
-          - PlayerSuperMutant
-          - Wastelander
+    - type: NpcFactionMember
+      factions:
+      - PlayerSuperMutant
+      - Wastelander
 
 - type: startingGear
   id: SuperMutantRangerGear
@@ -191,18 +190,18 @@
   applyTraits: true
   startingGear: SuperMutantTrooperGear
   requirements:
-    - !type:CharacterSpeciesRequirement
-      species:
-        - SuperMutant
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
   access:
   - NCR
   special:
   - !type:AddComponentSpecial
     components:
-      - type: NpcFactionMember
-        factions:
-          - PlayerSuperMutant
-          - Wastelander
+    - type: NpcFactionMember
+      factions:
+      - PlayerSuperMutant
+      - Wastelander
 
 - type: startingGear
   id: SuperMutantTrooperGear
@@ -239,17 +238,17 @@
   - NCRSGT
   - NCRRanger
   requirements:
-    - !type:CharacterSpeciesRequirement
-      species:
-        - SuperMutant
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
   special:
   - !type:AddComponentSpecial
     components:
-      - type: NpcFactionMember
-        factions:
-          - PlayerSuperMutant  # keeps Loremaster/perk detection working
-          - Rangers            # recognised as ally by NCR faction AI and tabs
-          - Wastelander
+    - type: NpcFactionMember
+      factions:
+      - PlayerSuperMutant  # keeps Loremaster/perk detection working
+      - Rangers            # recognised as ally by NCR faction AI and tabs
+      - Wastelander
 
 - type: startingGear
   id: SuperMutantNCRRangerGear
@@ -290,17 +289,17 @@
   - NCR
   - NCRSGT
   requirements:
-    - !type:CharacterSpeciesRequirement
-      species:
-        - SuperMutant
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
   special:
   - !type:AddComponentSpecial
     components:
-      - type: NpcFactionMember
-        factions:
-          - PlayerSuperMutant  # keeps Loremaster/perk detection working
-          - NCR                # recognised as ally by NCR faction AI and tabs
-          - Wastelander
+    - type: NpcFactionMember
+      factions:
+      - PlayerSuperMutant  # keeps Loremaster/perk detection working
+      - NCR                # recognised as ally by NCR faction AI and tabs
+      - Wastelander
 
 - type: startingGear
   id: SuperMutantNCRTrooperGear
@@ -339,32 +338,32 @@
   applyTraits: true
   startingGear: SuperMutantTribalGear
   requirements:
-    - !type:CharacterSpeciesRequirement
-      species:
-        - SuperMutant
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
   special:
   - !type:AddComponentSpecial
     components:
-      - type: NpcFactionMember
-        factions:
-        - PlayerSuperMutant
-        - Wastelander
-        - Tribal
-      - type: Warcry
-        action: ActionTribalWarcry
-        targetDepartment: Tribe
-        range: 6
-        speedBonus: 0.50
-        duration: 10
-        overlayColor: "#3FAF63"
-        speechVerb: MisfitsTribalWarcry
-        warcryMessage: warcry-message-tribal
-        warcryMessageCount: 6
-        buffPopup: warcry-popup-buffed-tribal
-        excludedJobs:
-        - SuperMutantTribal
-      - type: TribalHuntParticipant
-        targetDepartment: Tribe
+    - type: NpcFactionMember
+      factions:
+      - PlayerSuperMutant
+      - Wastelander
+      - Tribal
+    - type: Warcry
+      action: ActionTribalWarcry
+      targetDepartment: Tribe
+      range: 6
+      speedBonus: 0.50
+      duration: 10
+      overlayColor: "#3FAF63"
+      speechVerb: MisfitsTribalWarcry
+      warcryMessage: warcry-message-tribal
+      warcryMessageCount: 6
+      buffPopup: warcry-popup-buffed-tribal
+      excludedJobs:
+      - SuperMutantTribal
+    - type: TribalHuntParticipant
+      targetDepartment: Tribe
   - !type:AddTraitSpecial
     traits: [ LanguageTribal ]
 
@@ -417,22 +416,22 @@
   applyTraits: true
   startingGear: SuperMutantFollowerDoctorGear
   requirements:
-    - !type:CharacterSpeciesRequirement
-      species:
-        - SuperMutant
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
   special:
-    - !type:AddComponentSpecial
-      components:
-        - type: NpcFactionMember
-          factions:
-            - PlayerSuperMutant
-            - Wastelander
-            - Followers
-        - type: CPRTraining
-        - type: Sanitized
-    - !type:AddTraitSpecial
-      traits:
-      - FiremanCarry
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - PlayerSuperMutant
+      - Wastelander
+      - Followers
+    - type: CPRTraining
+    - type: Sanitized
+  - !type:AddTraitSpecial
+    traits:
+    - FiremanCarry
 - type: startingGear
   id: SuperMutantFollowerDoctorGear
   equipment:
@@ -472,17 +471,17 @@
   accessGroups:
   - EnclaveEnlisted
   requirements:
-    - !type:CharacterSpeciesRequirement
-      species:
-        - SuperMutant
+  - !type:CharacterSpeciesRequirement
+    species:
+    - SuperMutant
   special:
-    - !type:AddComponentSpecial
-      components:
-        - type: NpcFactionMember
-          factions:
-            - PlayerSuperMutant
-            - Enclave
-        - type: PowerArmorProficiency
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions:
+      - PlayerSuperMutant
+      - Enclave
+    - type: PowerArmorProficiency
 - type: startingGear
   id: SuperMutantEnclaveGear
   equipment:

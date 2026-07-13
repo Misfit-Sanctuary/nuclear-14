@@ -4,7 +4,7 @@
 - type: species
   id: Nightkin
   name: species-name-nightkin
-  roundStart: false
+  roundStart: true # #Misfits Change - needed so whitelisted players get it in the species dropdown
   order: 4
   whitelistRequired: true
   restrictedCustomization: true

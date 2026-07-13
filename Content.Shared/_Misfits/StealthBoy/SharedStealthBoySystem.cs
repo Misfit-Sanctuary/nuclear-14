@@ -100,7 +100,8 @@ public abstract class SharedStealthBoySystem : EntitySystem
         TimeSpan fadeInTime,
         TimeSpan fadeOutTime,
         string activateMessage,
-        string reappearMessage)
+        string reappearMessage,
+        float? stillVisibility = null)
     {
         var now = _timing.CurTime;
         var active = EnsureComp<StealthBoyActiveComponent>(user);
@@ -113,6 +114,7 @@ public abstract class SharedStealthBoySystem : EntitySystem
         active.FadingOut = false;
         active.FadeOutStart = TimeSpan.Zero;
         active.FadeInComplete = false;
+        active.StillVisibility = stillVisibility ?? visibility;
         Dirty(user, active);
 
         // Spawn the stealth shader. Clamp MinVisibility to the prototype's target so
@@ -145,10 +147,43 @@ public abstract class SharedStealthBoySystem : EntitySystem
         if (active.FadingOut)
             return false;
 
+        ExitDeepConcealment(user);
         active.FadingOut = true;
         active.FadeOutStart = _timing.CurTime;
         Dirty(user, active);
         return true;
+    }
+
+    // Once faded in, let StealthOnMove take over: standing still sinks toward
+    // StillVisibility, moving climbs back up. Max capped at the shimmer so
+    // running around doesn't fully reveal you mid-cloak.
+    private void EnterDeepConcealment(EntityUid uid, StealthBoyActiveComponent active)
+    {
+        if (active.StillVisibility >= active.TargetVisibility)
+            return;
+
+        if (!TryComp<StealthComponent>(uid, out var stealth))
+            return;
+
+        stealth.MinVisibility = active.StillVisibility;
+        stealth.MaxVisibility = active.TargetVisibility;
+        Dirty(uid, stealth);
+        EnsureComp<StealthOnMoveComponent>(uid);
+    }
+
+    private void ExitDeepConcealment(EntityUid uid)
+    {
+        if (!HasComp<StealthOnMoveComponent>(uid))
+            return;
+
+        RemCompDeferred<StealthOnMoveComponent>(uid);
+
+        // put the cap back or the fade-out can't reach full visibility
+        if (TryComp<StealthComponent>(uid, out var stealth))
+        {
+            stealth.MaxVisibility = 1.5f;
+            Dirty(uid, stealth);
+        }
     }
 
     private void OnActiveShutdown(Entity<StealthBoyActiveComponent> ent, ref ComponentShutdown args)
@@ -156,6 +191,12 @@ public abstract class SharedStealthBoySystem : EntitySystem
         if (Terminating(ent))
             return;
 
+        // let others (nightkin implant cooldown) know the cloak fully ended.
+        // can't subscribe to this shutdown twice so we relay it as our own event
+        var ended = new StealthBoyCloakEndedEvent();
+        RaiseLocalEvent(ent, ref ended);
+
+        RemCompDeferred<StealthOnMoveComponent>(ent);
         RemCompDeferred<StealthComponent>(ent);
         // Hallucination intensity is reasserted by the server-side OnTierChanged path;
         // exposure stays so it can decay back down naturally.
@@ -205,11 +246,13 @@ public abstract class SharedStealthBoySystem : EntitySystem
                     {
                         active.FadeInComplete = true;
                         Dirty(uid, active);
+                        EnterDeepConcealment(uid, active);
                     }
                 }
 
                 if (now >= active.EndTime || _mobState.IsIncapacitated(uid))
                 {
+                    ExitDeepConcealment(uid);
                     active.FadingOut = true;
                     active.FadeOutStart = now;
                     Dirty(uid, active);
@@ -313,3 +356,9 @@ public abstract class SharedStealthBoySystem : EntitySystem
 /// Fired when the Stealth Boy hotkey button is pressed so the item can activate from hand or worn slots.
 /// </summary>
 public sealed partial class ActivateStealthBoyActionEvent : InstantActionEvent;
+
+/// <summary>
+/// Raised on the user when their cloak fully ends.
+/// </summary>
+[ByRefEvent]
+public readonly record struct StealthBoyCloakEndedEvent;

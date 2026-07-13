@@ -65,4 +65,11 @@ public sealed partial class StealthBoyActiveComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public string ReappearMessage = "You reappear as the Stealth Boy power fades.";
+
+    /// <summary>
+    /// Visibility the user sinks to while standing still. Only does anything
+    /// when set below TargetVisibility (nightkin implant uses this).
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float StillVisibility = 1f;
 }
