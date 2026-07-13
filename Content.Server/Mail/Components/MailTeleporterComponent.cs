@@ -29,6 +29,9 @@ public sealed partial class MailTeleporterComponent : Component
     [DataField]
     public string MailPool = "RandomDeltaVMailDeliveryPool";
 
+    [DataField]
+    public string? OutsiderMailPool = null;
+
     /// <summary>
     ///     How many mail candidates do we need per actual delivery sent when
     ///     the mail goes out? The number of candidates is divided by this number

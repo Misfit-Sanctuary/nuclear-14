@@ -27,6 +27,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Roles;
 using Content.Shared.Storage;
@@ -58,6 +59,7 @@ namespace Content.Server.Mail.Systems
         [Dependency] private readonly IdCardSystem _idCardSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
         [Dependency] private readonly MindSystem _mindSystem = default!;
+        [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
         [Dependency] private readonly OpenableSystem _openable = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
@@ -595,13 +597,15 @@ namespace Content.Server.Mail.Systems
             {
                 var accessTags = access.Tags;
                 var mayReceivePriorityMail = !(_mindSystem.GetMind(receiverUid) == null);
+                var isVaultMember = _npcFaction.IsMember(receiverUid, "Vault");
 
                 recipient = new MailRecipient(
                     idCard.Comp.FullName,
                     idCard.Comp.LocalizedJobTitle ?? idCard.Comp.JobTitle ?? "Unknown",
                     idCard.Comp.JobIcon,
                     accessTags,
-                    mayReceivePriorityMail);
+                    mayReceivePriorityMail,
+                    isVaultMember);
 
                 return true;
             }
@@ -654,9 +658,33 @@ namespace Content.Server.Mail.Systems
                 return;
             }
 
-            if (!_prototypeManager.TryIndex<MailDeliveryPoolPrototype>(component.MailPool, out var pool))
+            if (component.OutsiderMailPool == null)
             {
-                _sawmill.Error($"Can't index {ToPrettyString(uid)}'s MailPool {component.MailPool}!");
+                DeliverMailToCandidates(uid, component, candidateList, component.MailPool);
+            }
+            else
+            {
+                var vaultCandidates = candidateList.Where(c => c.IsVaultMember).ToList();
+                var outsiderCandidates = candidateList.Where(c => !c.IsVaultMember).ToList();
+
+                DeliverMailToCandidates(uid, component, vaultCandidates, component.MailPool);
+                DeliverMailToCandidates(uid, component, outsiderCandidates, component.OutsiderMailPool);
+            }
+
+            if (_containerSystem.TryGetContainer(uid, "queued", out var queued))
+                _containerSystem.EmptyContainer(queued);
+
+            _audioSystem.PlayPvs(component.TeleportSound, uid);
+        }
+
+        private void DeliverMailToCandidates(EntityUid uid, MailTeleporterComponent component, List<MailRecipient> candidateList, string mailPool)
+        {
+            if (candidateList.Count <= 0)
+                return;
+
+            if (!_prototypeManager.TryIndex<MailDeliveryPoolPrototype>(mailPool, out var pool))
+            {
+                _sawmill.Error($"Can't index {ToPrettyString(uid)}'s MailPool {mailPool}!");
                 return;
             }
 
@@ -710,11 +738,6 @@ namespace Content.Server.Mail.Systems
 
                 _tagSystem.AddTag(mail, "Mail"); // Frontier
             }
-
-            if (_containerSystem.TryGetContainer(uid, "queued", out var queued))
-                _containerSystem.EmptyContainer(queued);
-
-            _audioSystem.PlayPvs(component.TeleportSound, uid);
         }
 
         private void OpenMail(EntityUid uid, MailComponent? component = null, EntityUid? user = null)
@@ -776,12 +799,14 @@ namespace Content.Server.Mail.Systems
         string job,
         string jobIcon,
         HashSet<ProtoId<AccessLevelPrototype>> accessTags,
-        bool mayReceivePriorityMail)
+        bool mayReceivePriorityMail,
+        bool isVaultMember)
     {
         public readonly string Name = name;
         public readonly string Job = job;
         public readonly string JobIcon = jobIcon;
         public readonly HashSet<ProtoId<AccessLevelPrototype>> AccessTags = accessTags;
         public readonly bool MayReceivePriorityMail = mayReceivePriorityMail;
+        public readonly bool IsVaultMember = isVaultMember;
     }
 }

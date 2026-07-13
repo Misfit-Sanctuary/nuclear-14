@@ -6,3 +6,4 @@
   components:
   - type: MailTeleporter
     mailPool: VaultMailDeliveryPool
+    outsiderMailPool: WastelandMailDeliveryPool
