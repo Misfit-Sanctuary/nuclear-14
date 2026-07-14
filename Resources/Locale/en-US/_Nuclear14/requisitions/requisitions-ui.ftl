@@ -45,6 +45,15 @@ n14-requisitions-bounty-reward-cash = ${$reward}
 n14-requisitions-bounty-row = {$item}  [color=#5fbf5f]({$done}/{$amount})[/color] → [color=#33FF33]{$reward}[/color]
 n14-requisitions-bounty-row-done = [color=#1a5c1a]{$item} ({$amount}/{$amount}) → {$reward} ✓ COMPLETE[/color]
 
+# Randomized requests
+n14-requisitions-random-requests-title = Requests
+n14-requisitions-random-request-row = {$item}  [color=#5fbf5f]({$done}/{$amount})[/color]
+n14-requisitions-random-request-reward-hint = reward:
+n14-requisitions-random-request-reroll = Reroll
+n14-requisitions-random-request-reroll-wait = Reroll ({$time})
+n14-requisitions-random-request-refilling = New request in {$time}
+n14-requisitions-random-request-refilling-soon = New request arriving...
+
 # History
 n14-requisitions-history-empty = No orders yet.
 n14-requisitions-history-row-bought = {$buyer}: bought {$amount}x {$item} ([color=#cf2f2f]-${$cost}[/color])

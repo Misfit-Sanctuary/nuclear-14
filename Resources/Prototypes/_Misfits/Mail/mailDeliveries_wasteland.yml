@@ -1,11 +1,16 @@
 - type: mailDeliveryPool
   id: WastelandMailDeliveryPool
   everyone:
-    MailVaultPlushie: 0.5
-    MailVaultScarf: 0.5
-    MailVaultVodka: 0.4
-    MailVaultWine: 0.4
-    MailVaultBirthdayCake: 0.3
-    MailVaultPreWarMoney: 0.6
-    MailVaultCigars: 0.5
-    MailVaultFortuneCookies: 0.5
+    MailWastelandSupplyBox: 0.8
+    MailWastelandPlushie: 0.5
+    MailWastelandScarf: 0.5
+    MailWastelandVodka: 0.4
+    MailWastelandWine: 0.4
+    MailWastelandBirthdayCake: 0.3
+    MailWastelandPreWarMoney: 0.6
+    MailWastelandCigars: 0.5
+    MailWastelandFortuneCookies: 0.5
+    MailWastelandChems: 0.2
+    MailWastelandPills: 0.5
+    MailWastelandRadTreatment: 0.5
+    MailWastelandDogTreat: 0.2
