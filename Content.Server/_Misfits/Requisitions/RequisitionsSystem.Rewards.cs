@@ -109,7 +109,6 @@ namespace Content.Server._Misfits.Requisitions
             if (!TryComp<ContainerManagerComponent>(uid, out var container))
                 return compoundRewards;
 
-            // It iterates everything inside the crate, including labelSlot
             foreach (var containerValues in container.Containers.Values)
             {
                 foreach (var content in containerValues.ContainedEntities)
