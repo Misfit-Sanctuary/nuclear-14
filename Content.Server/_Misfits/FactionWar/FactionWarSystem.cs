@@ -87,6 +87,7 @@ public sealed class FactionWarSystem : EntitySystem
         "Tribal",
         "Vault",
         "Enclave",
+        "ZAX",
     };
 
     /// <summary>Jobs that should never be auto-enlisted even if their faction is at war.</summary>
@@ -110,6 +111,7 @@ public sealed class FactionWarSystem : EntitySystem
         "CaesarLegion",
         "BrotherhoodOfSteel",
         "Enclave",
+        "ZAX",
     };
 
 

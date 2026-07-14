@@ -1,0 +1,169 @@
+# Dedicated Z.A.X whitelist jobs. All map slots begin closed; player-chassis
+# recipes in the Z.A.X Foundry open only their matching late-join role.
+
+- type: job
+  id: ZaxCore
+  weight: 300
+  name: job-name-zax-core
+  description: job-description-zax-core
+  playTimeTracker: ZaxCore
+  icon: JobIconStationAi
+  supervisors: job-supervisors-synthetic
+  jobEntity: StationAiBrain
+  canBeAntag: false
+  setPreference: true
+  overrideConsoleVisibility: true
+  whitelisted: true
+  hideWithoutWhitelist: true
+  jobWhitelistBypassesRoleTimers: true
+  spawnLoadout: false
+  applyTraits: false
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species:
+    - ZaxCore
+
+- type: job
+  id: ZaxMrHandy
+  weight: 100
+  showBorder: true
+  name: job-name-zax-mr-handy
+  description: job-description-zax-chassis
+  playTimeTracker: ZaxMrHandy
+  icon: JobIconBorg
+  supervisors: job-supervisors-synthetic
+  canBeAntag: false
+  setPreference: true
+  overrideConsoleVisibility: true
+  whitelisted: true
+  hideWithoutWhitelist: true
+  jobWhitelistBypassesRoleTimers: true
+  startingGear: SyntheticGear
+  spawnLoadout: false
+  applyTraits: false
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species: [RobotMrHandyZAX]
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions: [PlayerRobot, Wastelander, ZAX]
+
+- type: job
+  id: ZaxMrGutsy
+  weight: 190
+  name: job-name-zax-mr-gutsy
+  description: job-description-zax-chassis
+  playTimeTracker: ZaxMrGutsy
+  icon: JobIconBorg
+  supervisors: job-supervisors-synthetic
+  canBeAntag: false
+  setPreference: true
+  overrideConsoleVisibility: true
+  whitelisted: true
+  hideWithoutWhitelist: true
+  jobWhitelistBypassesRoleTimers: true
+  startingGear: SyntheticGear
+  spawnLoadout: false
+  applyTraits: false
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species: [RobotMrGutsyZAX]
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions: [PlayerRobot, Wastelander, ZAX]
+
+- type: job
+  id: ZaxProtectron
+  weight: 90
+  name: job-name-zax-protectron
+  description: job-description-zax-chassis
+  playTimeTracker: ZaxProtectron
+  icon: JobIconBorg
+  supervisors: job-supervisors-synthetic
+  canBeAntag: false
+  setPreference: true
+  overrideConsoleVisibility: true
+  whitelisted: true
+  hideWithoutWhitelist: true
+  jobWhitelistBypassesRoleTimers: true
+  startingGear: SyntheticGear
+  spawnLoadout: false
+  applyTraits: false
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species: [RobotProtectronBuilderZAX, RobotProtectronFireZAX, RobotProtectronPoliceZAX]
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions: [PlayerRobot, Wastelander, ZAX]
+
+- type: job
+  id: ZaxSecuritron
+  weight: 180
+  name: job-name-zax-securitron
+  description: job-description-zax-chassis
+  playTimeTracker: ZaxSecuritron
+  icon: JobIconBorg
+  supervisors: job-supervisors-synthetic
+  canBeAntag: false
+  setPreference: true
+  overrideConsoleVisibility: true
+  whitelisted: true
+  hideWithoutWhitelist: true
+  jobWhitelistBypassesRoleTimers: true
+  startingGear: SyntheticGear
+  spawnLoadout: false
+  applyTraits: false
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species: [RobotSecuritronZAX]
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions: [PlayerRobot, Wastelander, ZAX]
+
+- type: job
+  id: ZaxAssaultron
+  weight: 200
+  showBorder: true
+  name: job-name-zax-assaultron
+  description: job-description-zax-chassis
+  playTimeTracker: ZaxAssaultron
+  icon: JobIconBorg
+  supervisors: job-supervisors-synthetic
+  canBeAntag: false
+  setPreference: true
+  overrideConsoleVisibility: true
+  whitelisted: true
+  hideWithoutWhitelist: true
+  jobWhitelistBypassesRoleTimers: true
+  startingGear: SyntheticGear
+  spawnLoadout: false
+  applyTraits: false
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species: [RobotAssaultronZAX, RobotAssaultronTeslaZAX]
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: NpcFactionMember
+      factions: [PlayerRobot, Wastelander, ZAX]
+
+- type: playTimeTracker
+  id: ZaxCore
+- type: playTimeTracker
+  id: ZaxMrHandy
+- type: playTimeTracker
+  id: ZaxMrGutsy
+- type: playTimeTracker
+  id: ZaxProtectron
+- type: playTimeTracker
+  id: ZaxSecuritron
+- type: playTimeTracker
+  id: ZaxAssaultron

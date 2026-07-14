@@ -35,6 +35,9 @@
   - type: WiresPanel
   - type: ActivatableUI
     key: enum.LatheUiKey.Key
+  # [Changed by MisfitsCrew/Operator] Allow Z.A.X/Station AI eyes to operate
+  # this lathe when it is powered and inside their AI vision network.
+  - type: StationAiWhitelist
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:

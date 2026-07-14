@@ -223,6 +223,19 @@ public sealed partial class SpeciesPrototype : IPrototype
     public bool RestrictedCustomization; // #Misfits Change
 
     /// <summary>
+    ///     If true, the species' doll sprite is displayed as-authored and its color/size
+    ///     cannot be changed in character setup.
+    /// </summary>
+    [DataField]
+    public bool FixedAppearance; // #Misfits Add
+
+    /// <summary>
+    ///     If true, the SPECIAL tab is unavailable for this species.
+    /// </summary>
+    [DataField]
+    public bool HideSpecialTab; // #Misfits Add
+
+    /// <summary>
     ///     If set, only loadouts in these categories will be shown.
     ///     Null means all categories are allowed.
     /// </summary>

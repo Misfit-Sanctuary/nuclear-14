@@ -340,16 +340,23 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     public EntityUid LoadProfileEntity(HumanoidCharacterProfile? humanoid, bool jobClothes, bool loadouts)
     {
         EntityUid dummyEnt;
+        SpeciesPrototype species;
 
         if (humanoid is not null)
         {
-            var dummy = _prototypeManager.Index<SpeciesPrototype>(humanoid.Species).DollPrototype;
-            dummyEnt = EntityManager.SpawnEntity(dummy, MapCoordinates.Nullspace);
+            species = _prototypeManager.Index<SpeciesPrototype>(humanoid.Species);
+            dummyEnt = EntityManager.SpawnEntity(species.DollPrototype, MapCoordinates.Nullspace);
         }
         else
-            dummyEnt = EntityManager.SpawnEntity(
-                _prototypeManager.Index<SpeciesPrototype>(DefaultSpecies).DollPrototype,
-                MapCoordinates.Nullspace);
+        {
+            species = _prototypeManager.Index<SpeciesPrototype>(DefaultSpecies);
+            dummyEnt = EntityManager.SpawnEntity(species.DollPrototype, MapCoordinates.Nullspace);
+        }
+
+        // Fixed dolls (such as the Z.A.X Core) are non-humanoid authored previews.
+        // Applying humanoid appearance or equipment would overwrite or obscure them.
+        if (species.FixedAppearance)
+            return dummyEnt;
 
         _humanoid.LoadProfile(dummyEnt, humanoid);
 

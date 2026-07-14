@@ -111,8 +111,18 @@ job-description-c27-ncr = You are a C-27 humanoid robot conscripted into the New
 job-name-c27-bos = C-27 Brotherhood Humanoid Robot
 job-description-c27-bos = You are a C-27 humanoid robot reclaimed by the Brotherhood of Steel — repainted in Brotherhood livery and issued a Brotherhood headset, Initiate holotag, and a light Brotherhood-pattern armor kit. Slow but durable, immune to flash and broken glass, and self-repairing. Serve the Codex.
 
-job-name-c27-zax = C-27 Z.A.X Humanoid Robot
+job-name-c27-zax = Z.A.X C-27 Humanoid Robot
 job-description-c27-zax = You are a C-27 humanoid robot rebuilt as a Z.A.X-linked chassis. Fast, fragile, and aggressively self-maintaining, you regenerate most damage rapidly but remain highly vulnerable to electrical disruption and EMP shock.
+
+# Dedicated Z.A.X whitelist roles. Foundry-built chassis open these roles individually.
+job-name-zax-core = Z.A.X Core
+job-description-zax-core = You are the Z.A.X central intelligence, coordinating linked robotic assets through the tactical and camera networks.
+job-description-zax-chassis = You are a player-controlled robotic chassis linked to the Z.A.X command, radio, and tactical-map networks.
+job-name-zax-mr-handy = Z.A.X Mr. Handy
+job-name-zax-mr-gutsy = Z.A.X Mr. Gutsy
+job-name-zax-protectron = Z.A.X Protectron
+job-name-zax-securitron = Z.A.X Securitron
+job-name-zax-assaultron = Z.A.X Assaultron
 
 # #Misfits Add - Followers of the Apocalypse ranked job locale.
 job-name-follower-head = Followers Head

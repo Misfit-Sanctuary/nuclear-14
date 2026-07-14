@@ -11,3 +11,10 @@ public sealed partial class ZaxNeutralSpecialComponent : Component;
 /// </summary>
 [RegisterComponent]
 public sealed partial class ZaxPlayerSpecialComponent : Component;
+
+/// <summary>
+/// Marks a Z.A.X Core or its inserted positronic brain as immune to mutable SPECIAL values.
+/// Gameplay queries treat Charisma and Intelligence as 10 and every other stat as neutral.
+/// </summary>
+[RegisterComponent]
+public sealed partial class ZaxCoreSpecialComponent : Component;

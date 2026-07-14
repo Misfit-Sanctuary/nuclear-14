@@ -91,7 +91,8 @@ public sealed class SharedSpecialSystem : EntitySystem
     {
         // Observer ghosts may be player-controlled, but they should not inherit
         // character SPECIAL gates, bonuses, or penalties.
-        return !HasComp<GhostComponent>(uid);
+        // Z.A.X Core minds use immutable synthetic values instead of character profiles.
+        return !HasComp<GhostComponent>(uid) && !HasComp<ZaxCoreSpecialComponent>(uid);
     }
 
     /// <summary>
@@ -99,6 +100,9 @@ public sealed class SharedSpecialSystem : EntitySystem
     /// </summary>
     public int GetBase(EntityUid uid, SpecialStat stat, SpecialComponent? component = null)
     {
+        if (TryGetZaxCoreValue(uid, stat, out var fixedValue))
+            return fixedValue;
+
         if (!SpecialStats.IsEnabled(stat) || !UsesSpecialStats(uid))
             return SpecialProfile.DefaultValue;
 
@@ -113,6 +117,9 @@ public sealed class SharedSpecialSystem : EntitySystem
     /// </summary>
     public int GetModifier(EntityUid uid, SpecialStat stat, SpecialComponent? component = null)
     {
+        if (HasComp<ZaxCoreSpecialComponent>(uid))
+            return 0;
+
         if (!SpecialStats.IsEnabled(stat) || !UsesSpecialStats(uid))
             return 0;
 
@@ -127,6 +134,9 @@ public sealed class SharedSpecialSystem : EntitySystem
     /// </summary>
     public int GetUnclampedEffective(EntityUid uid, SpecialStat stat, SpecialComponent? component = null)
     {
+        if (TryGetZaxCoreValue(uid, stat, out var fixedValue))
+            return fixedValue;
+
         if (!SpecialStats.IsEnabled(stat) || !UsesSpecialStats(uid))
             return SpecialProfile.DefaultValue;
 
@@ -330,7 +340,21 @@ public sealed class SharedSpecialSystem : EntitySystem
 
     public bool HasRequirement(EntityUid uid, SpecialStat stat, int minimum, SpecialComponent? component = null)
     {
-        return UsesSpecialStats(uid) && GetEffective(uid, stat, component) >= minimum;
+        return (UsesSpecialStats(uid) || HasComp<ZaxCoreSpecialComponent>(uid))
+               && GetEffective(uid, stat, component) >= minimum;
+    }
+
+    private bool TryGetZaxCoreValue(EntityUid uid, SpecialStat stat, out int value)
+    {
+        value = SpecialProfile.DefaultValue;
+
+        if (!HasComp<ZaxCoreSpecialComponent>(uid) || !SpecialStats.IsEnabled(stat))
+            return false;
+
+        if (stat is SpecialStat.Charisma or SpecialStat.Intelligence)
+            value = SpecialProfile.Maximum;
+
+        return true;
     }
 
     public bool TrySetBase(EntityUid uid, SpecialStat stat, int value, SpecialComponent? component = null)

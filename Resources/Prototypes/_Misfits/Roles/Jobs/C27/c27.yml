@@ -22,7 +22,6 @@
   - C27       # #Misfits Change - was the only role; now joined by C27NCR / C27BoS below.
   - C27NCR    # #Misfits Add - NCR variant role
   - C27BoS    # #Misfits Add - Brotherhood variant role
-  - C27ZAX    # #Misfits Add - Z.A.X chassis variant role
 
 # --- Generic / Unassigned variant ----------------------------------------------------
 - type: job
@@ -119,6 +118,7 @@
 # --- Z.A.X variant -------------------------------------------------------------------
 - type: job
   id: C27ZAX
+  weight: 290
   name: job-name-c27-zax
   description: job-description-c27-zax
   playTimeTracker: C27ZAX
@@ -142,7 +142,9 @@
     components:
       - type: NpcFactionMember
         factions:
+          - PlayerRobot
           - Wastelander
+          - ZAX
 
 # Starting gear, one per job. Faction kits open an UndecidedLoadoutBackpack UI that
 # now offers Light only — Medium / Heavy variants are obtained by crafting at an armor

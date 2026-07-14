@@ -16,7 +16,9 @@ using Content.Server._Misfits.FactionWar;
 using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
 using Content.Shared._Misfits.RaidRequest;
+using Content.Shared._Misfits.Silicon;
 using Content.Shared.GameTicking;
+using Content.Shared.Mind;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Robust.Server.Player;
@@ -949,8 +951,19 @@ public sealed class RaidRequestSystem : EntitySystem
         return topName;
     }
 
-    private int GetJobWeight(EntityUid mindId) =>
-        _jobs.MindTryGetJob(mindId, out _, out var proto) ? proto.Weight : 0;
+    private int GetJobWeight(EntityUid mindId)
+    {
+        // An occupied Z.A.X Core is always the registered Z.A.X faction leader,
+        // including admin takeovers whose mind may not carry the lobby job role.
+        if (TryComp<MindComponent>(mindId, out var mind) &&
+            mind.CurrentEntity is { } entity &&
+            HasComp<ZaxFactionLeaderComponent>(entity))
+        {
+            return int.MaxValue;
+        }
+
+        return _jobs.MindTryGetJob(mindId, out _, out var proto) ? proto.Weight : 0;
+    }
 
     private bool TryGetSession(NetUserId userId, out ICommonSession session)
     {

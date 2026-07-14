@@ -299,6 +299,8 @@ namespace Content.Server.Lathe
                 {
                     var result = Spawn(resultProto, Transform(uid).Coordinates);
                     StripCraftedWeaponAmmo(result);
+                    var finished = new LatheFinishedPrintingEvent(comp.CurrentRecipe, result);
+                    RaiseLocalEvent(uid, ref finished);
                     Log.Info($"FinishProducing: spawned {resultProto} as {result}");
                     _stack.TryMergeToContacts(result);
                 }

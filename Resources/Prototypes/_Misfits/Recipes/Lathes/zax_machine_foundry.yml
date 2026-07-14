@@ -1,29 +1,141 @@
 - type: latheRecipe
   id: MisfitsZaxFoundrySecuritron
+  name: lathe-recipe-zax-automated-securitron-name
   result: N14MobZaxSecuritron
   category: Robotics
   completetime: 30
   materials:
-    N14Copper: 1500
-    N14Iron: 3000
-    N14Gold: 100
-    Circuitry: 1000
-    Steel: 6000
-    Plastic: 1500
+    N14Copper: 750
+    N14Iron: 1500
+    N14Gold: 50
+    Steel: 3000
+    Plastic: 750
 
 - type: latheRecipe
   id: MisfitsZaxFoundryC27
+  name: lathe-recipe-zax-automated-c27-name
   result: N14MobZaxC27
   category: Robotics
   completetime: 25
   materials:
-    N14Copper: 6000
-    N14Gold: 1500
-    N14Iron: 6000
-    Circuitry: 3000
-    Steel: 12000
-    Plastic: 3000
-    N14Silver: 1000
+    N14Copper: 3000
+    N14Gold: 750
+    N14Iron: 3000
+    Steel: 6000
+    Plastic: 1500
+    N14Silver: 500
+
+# Printing a player chassis opens a matching lobby/late-join slot.
+- type: latheRecipe
+  id: MisfitsZaxFoundryPlayerC27
+  name: lathe-recipe-zax-controlled-c27-name
+  result: N14MobC27ZAX
+  category: Robotics
+  completetime: 25
+  materials:
+    N14Copper: 3000
+    N14Gold: 750
+    N14Iron: 3000
+    Steel: 6000
+    Plastic: 1500
+    N14Silver: 500
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryPlayerMrHandy
+  name: lathe-recipe-zax-controlled-mr-handy-name
+  result: N14MobZaxPlayerMrHandy
+  category: Robotics
+  completetime: 18
+  materials:
+    N14Copper: 500
+    N14Silver: 250
+    N14Gold: 50
+    N14Iron: 1000
+    Steel: 3000
+    Plastic: 750
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryPlayerMrGutsy
+  name: lathe-recipe-zax-controlled-mr-gutsy-name
+  result: N14MobZaxPlayerMrGutsy
+  category: Robotics
+  completetime: 22
+  materials:
+    N14Copper: 1500
+    N14Gold: 150
+    N14Iron: 2000
+    Steel: 3000
+    Plastic: 1000
+    N14Silver: 250
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryPlayerProtectron
+  name: lathe-recipe-zax-player-protectron-name
+  result: N14MobZaxPlayerProtectronBuilder
+  category: Robotics
+  completetime: 20
+  materials:
+    N14Copper: 750
+    N14Iron: 1500
+    N14Gold: 50
+    Steel: 4000
+    Plastic: 1250
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryPlayerSecuritron
+  name: lathe-recipe-zax-controlled-securitron-name
+  result: N14MobZaxPlayerSecuritron
+  category: Robotics
+  completetime: 30
+  materials:
+    N14Copper: 750
+    N14Gold: 50
+    N14Iron: 1500
+    Steel: 3000
+    Plastic: 750
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryPlayerAssaultron
+  name: lathe-recipe-zax-player-assaultron-name
+  result: N14MobZaxPlayerAssaultron
+  category: Robotics
+  completetime: 30
+  materials:
+    N14Copper: 1500
+    N14Gold: 150
+    N14Iron: 2500
+    Steel: 5000
+    Plastic: 1500
+    N14Silver: 250
+
+# Remaining NPC/ghost-role chassis variations.
+- type: latheRecipe
+  id: MisfitsZaxFoundryAssaultron
+  name: lathe-recipe-zax-automated-assaultron-name
+  result: N14MobZaxAssaultron
+  category: Robotics
+  completetime: 30
+  materials:
+    N14Copper: 1500
+    N14Gold: 150
+    N14Iron: 2500
+    Steel: 5000
+    Plastic: 1500
+    N14Silver: 250
+
+- type: latheRecipe
+  id: MisfitsZaxFoundryAssaultronTesla
+  name: lathe-recipe-zax-automated-assaultron-tesla-name
+  result: N14MobZaxAssaultronTesla
+  category: Robotics
+  completetime: 30
+  materials:
+    N14Copper: 1500
+    N14Gold: 150
+    N14Iron: 2500
+    Steel: 5000
+    Plastic: 1500
+    N14Silver: 250
 
 # Z.A.X foundry-accessible copies of C-27 armor workbench recipes.
 # Material costs match the source blueprint recipes; blueprint/faction gates are intentionally not copied.
@@ -205,70 +317,70 @@
 
 - type: latheRecipe
   id: MisfitsZaxFoundryProtectronPolice
+  name: lathe-recipe-zax-automated-protectron-police-name
   result: N14MobZaxProtectronPolice
   category: Robotics
   completetime: 20
   materials:
-    N14Copper: 2000
-    N14Gold: 200
-    N14Iron: 4000
-    Circuitry: 1500
-    Steel: 8000
-    Plastic: 2500
+    N14Copper: 1000
+    N14Gold: 100
+    N14Iron: 2000
+    Steel: 4000
+    Plastic: 1250
 
 - type: latheRecipe
   id: MisfitsZaxFoundryProtectronBuilder
+  name: lathe-recipe-zax-automated-protectron-builder-name
   result: N14MobZaxProtectronBuilder
   category: Robotics
   completetime: 20
   materials:
-    N14Copper: 1500
-    N14Iron: 3000
-    N14Gold: 100
-    Circuitry: 500
-    Steel: 8000
-    Plastic: 2500
+    N14Copper: 750
+    N14Iron: 1500
+    N14Gold: 50
+    Steel: 4000
+    Plastic: 1250
 
 - type: latheRecipe
   id: MisfitsZaxFoundryProtectronFire
+  name: lathe-recipe-zax-automated-protectron-fire-name
   result: N14MobZaxProtectronFire
   category: Robotics
   completetime: 20
   materials:
-    N14Copper: 1500
-    N14Iron: 3000
-    N14Gold: 100
-    Circuitry: 500
-    Steel: 8000
-    Plastic: 2500
+    N14Copper: 750
+    N14Iron: 1500
+    N14Gold: 50
+    Steel: 4000
+    Plastic: 1250
 
 - type: latheRecipe
   id: MisfitsZaxFoundryMrGutsy
+  name: lathe-recipe-zax-automated-mr-gutsy-name
   result: N14MobZaxMrGutsy
   category: Robotics
   completetime: 22
   materials:
-    N14Copper: 3000
-    N14Gold: 300
-    N14Iron: 4000
-    Circuitry: 1500
-    Steel: 6000
-    Plastic: 2000
-    N14Silver: 500
+    N14Copper: 1500
+    N14Gold: 150
+    N14Iron: 2000
+    Steel: 3000
+    Plastic: 1000
+    N14Silver: 250
 
 - type: latheRecipe
   id: MisfitsZaxFoundryMrHandy
+  name: lathe-recipe-zax-automated-mr-handy-name
   result: N14MobZaxMrHandy
   category: Robotics
   completetime: 18
   materials:
-    N14Copper: 1000
-    N14Silver: 500
-    N14Gold: 100
-    N14Iron: 2000
-    Circuitry: 1000
-    Steel: 6000
-    Plastic: 1500
+    N14Copper: 500
+    N14Silver: 250
+    N14Gold: 50
+    N14Iron: 1000
+    Steel: 3000
+    Plastic: 750
 
 # Z.A.X foundry-accessible copies of blueprint-gated ammunition.
 # Material costs match the source workbench recipes; blueprint/faction gates are intentionally not copied.

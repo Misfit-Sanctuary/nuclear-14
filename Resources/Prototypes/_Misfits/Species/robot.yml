@@ -5,6 +5,30 @@
 # Access is gated per-job (e.g. jobwhitelistadd <player> SyntheticMrHandy).
 
 - type: species
+  id: ZaxCore
+  name: species-name-zax-core
+  roundStart: true
+  order: 5
+  whitelistRequired: true
+  jobWhitelistUnlock: ZaxCore
+  restrictedJobs:
+  - ZaxCore
+  restrictedCustomization: true
+  fixedAppearance: true
+  hideSpecialTab: true
+  prototype: StationAiBrain
+  dollPrototype: PlayerZaxAiPreview
+  sprites: RobotSprites
+  markingLimits: RobotMarkingLimits
+  skinColoration: Hues
+  defaultSkinTone: "#ffffff"
+  sexes:
+  - Unsexed
+  maleFirstNames: RobotRobobrainFirst
+  femaleFirstNames: RobotRobobrainFirst
+  naming: First
+
+- type: species
   id: RobotMrHandy
   name: species-name-robot-mr-handy
   roundStart: true
@@ -30,9 +54,9 @@
   order: 10
   whitelistRequired: true
   restrictedCustomization: true
-  jobWhitelistUnlock: SyntheticMrHandy
+  jobWhitelistUnlock: ZaxMrHandy
   restrictedJobs:
-  - SyntheticMrHandy
+  - ZaxMrHandy
   sprites: RobotSprites
   markingLimits: RobotMarkingLimits
   prototype: N14MobZaxPlayerMrHandy
@@ -125,9 +149,9 @@
   order: 15
   whitelistRequired: true
   restrictedCustomization: true
-  jobWhitelistUnlock: SyntheticProtectron
+  jobWhitelistUnlock: ZaxProtectron
   restrictedJobs:
-  - SyntheticProtectron
+  - ZaxProtectron
   sprites: RobotSprites
   markingLimits: RobotMarkingLimits
   prototype: N14MobZaxPlayerProtectronBuilder
@@ -144,9 +168,9 @@
   order: 16
   whitelistRequired: true
   restrictedCustomization: true
-  jobWhitelistUnlock: SyntheticProtectron
+  jobWhitelistUnlock: ZaxProtectron
   restrictedJobs:
-  - SyntheticProtectron
+  - ZaxProtectron
   sprites: RobotSprites
   markingLimits: RobotMarkingLimits
   prototype: N14MobZaxPlayerProtectronFire
@@ -163,9 +187,9 @@
   order: 14
   whitelistRequired: true
   restrictedCustomization: true
-  jobWhitelistUnlock: SyntheticProtectron
+  jobWhitelistUnlock: ZaxProtectron
   restrictedJobs:
-  - SyntheticProtectron
+  - ZaxProtectron
   sprites: RobotSprites
   markingLimits: RobotMarkingLimits
   prototype: N14MobZaxPlayerProtectronPolice
@@ -315,9 +339,9 @@
   order: 12
   whitelistRequired: true
   restrictedCustomization: true
-  jobWhitelistUnlock: SyntheticMrGutsy
+  jobWhitelistUnlock: ZaxMrGutsy
   restrictedJobs:
-  - SyntheticMrGutsy
+  - ZaxMrGutsy
   sprites: RobotSprites
   markingLimits: RobotMarkingLimits
   prototype: N14MobZaxPlayerMrGutsy
@@ -325,6 +349,25 @@
   skinColoration: Hues
   maleFirstNames: RobotMrGutsyFirst
   femaleFirstNames: RobotMrGutsyFirst
+  naming: First
+
+- type: species
+  id: RobotSecuritronZAX
+  name: species-name-robot-securitron-zax
+  roundStart: true
+  order: 22
+  whitelistRequired: true
+  restrictedCustomization: true
+  jobWhitelistUnlock: ZaxSecuritron
+  restrictedJobs:
+  - ZaxSecuritron
+  sprites: RobotSprites
+  markingLimits: RobotMarkingLimits
+  prototype: N14MobZaxPlayerSecuritron
+  dollPrototype: N14MobZaxPlayerSecuritron
+  skinColoration: Hues
+  maleFirstNames: RobotProtectronFirst
+  femaleFirstNames: RobotProtectronFirst
   naming: First
 
 - type: species
@@ -372,9 +415,9 @@
   order: 13
   whitelistRequired: true
   restrictedCustomization: true
-  jobWhitelistUnlock: SyntheticAssaultron
+  jobWhitelistUnlock: ZaxAssaultron
   restrictedJobs:
-  - SyntheticAssaultron
+  - ZaxAssaultron
   sprites: RobotSprites
   markingLimits: RobotMarkingLimits
   prototype: N14MobZaxPlayerAssaultron
@@ -391,9 +434,9 @@
   order: 14
   whitelistRequired: true
   restrictedCustomization: true
-  jobWhitelistUnlock: SyntheticAssaultron
+  jobWhitelistUnlock: ZaxAssaultron
   restrictedJobs:
-  - SyntheticAssaultron
+  - ZaxAssaultron
   sprites: RobotSprites
   markingLimits: RobotMarkingLimits
   prototype: N14MobZaxPlayerAssaultronTesla
@@ -456,56 +499,6 @@
   maxWidth: 2.0
 
 - type: species
-  id: RobotSentryBotZAX
-  name: species-name-robot-sentrybot-zax
-  roundStart: true
-  order: 17
-  whitelistRequired: true
-  restrictedCustomization: true
-  jobWhitelistUnlock: SyntheticSentryBot
-  restrictedJobs:
-  - SyntheticSentryBot
-  sprites: RobotSprites
-  markingLimits: RobotMarkingLimits
-  prototype: N14MobZaxPlayerSentryBotMinigun
-  dollPrototype: N14MobZaxPlayerSentryBotMinigun
-  skinColoration: Hues
-  maleFirstNames: RobotSentryBotFirst
-  femaleFirstNames: RobotSentryBotFirst
-  naming: First
-  minHeight: 2.0
-  defaultHeight: 2.0
-  maxHeight: 2.0
-  minWidth: 2.0
-  defaultWidth: 2.0
-  maxWidth: 2.0
-
-- type: species
-  id: RobotSentryBotLaserZAX
-  name: species-name-robot-sentrybot-laser-zax
-  roundStart: true
-  order: 18
-  whitelistRequired: true
-  restrictedCustomization: true
-  jobWhitelistUnlock: SyntheticSentryBot
-  restrictedJobs:
-  - SyntheticSentryBot
-  sprites: RobotSprites
-  markingLimits: RobotMarkingLimits
-  prototype: N14MobZaxPlayerSentryBotLaser
-  dollPrototype: N14MobZaxPlayerSentryBotLaser
-  skinColoration: Hues
-  maleFirstNames: RobotSentryBotFirst
-  femaleFirstNames: RobotSentryBotFirst
-  naming: First
-  minHeight: 2.0
-  defaultHeight: 2.0
-  maxHeight: 2.0
-  minWidth: 2.0
-  defaultWidth: 2.0
-  maxWidth: 2.0
-
-- type: species
   id: RobotRobobrain
   name: species-name-robot-robobrain
   roundStart: true
@@ -538,44 +531,6 @@
   markingLimits: RobotMarkingLimits
   prototype: N14PlayerSyntheticRobobrainLaser
   dollPrototype: N14PlayerSyntheticRobobrainLaser
-  skinColoration: Hues
-  maleFirstNames: RobotRobobrainFirst
-  femaleFirstNames: RobotRobobrainFirst
-  naming: First
-
-- type: species
-  id: RobotRobobrainZAX
-  name: species-name-robot-robobrain-zax
-  roundStart: true
-  order: 19
-  whitelistRequired: true
-  restrictedCustomization: true
-  jobWhitelistUnlock: SyntheticRobobrain
-  restrictedJobs:
-  - SyntheticRobobrain
-  sprites: RobotSprites
-  markingLimits: RobotMarkingLimits
-  prototype: N14MobZaxPlayerRobobrain
-  dollPrototype: N14MobZaxPlayerRobobrain
-  skinColoration: Hues
-  maleFirstNames: RobotRobobrainFirst
-  femaleFirstNames: RobotRobobrainFirst
-  naming: First
-
-- type: species
-  id: RobotRobobrainLaserZAX
-  name: species-name-robot-robobrain-laser-zax
-  roundStart: true
-  order: 20
-  whitelistRequired: true
-  restrictedCustomization: true
-  jobWhitelistUnlock: SyntheticRobobrain
-  restrictedJobs:
-  - SyntheticRobobrain
-  sprites: RobotSprites
-  markingLimits: RobotMarkingLimits
-  prototype: N14MobZaxPlayerRobobrainLaser
-  dollPrototype: N14MobZaxPlayerRobobrainLaser
   skinColoration: Hues
   maleFirstNames: RobotRobobrainFirst
   femaleFirstNames: RobotRobobrainFirst

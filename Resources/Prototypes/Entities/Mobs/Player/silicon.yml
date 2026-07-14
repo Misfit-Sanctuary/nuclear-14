@@ -461,22 +461,28 @@
   suffix: Empty
   components:
   - type: ZaxCore
+  # [Changed by MisfitsCrew/Operator] Z.A.X Core minds ignore character SPECIAL,
+  # always receiving CHA 10 and INT 10 behavior instead.
+  - type: ZaxCoreSpecial
   - type: EncryptionKeyHolder
     keySlots: 4
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
-    - WastelandGlobal
     - ZAXBinary
+    - VaultCommon
+    - WastelandGlobal
   - type: ActiveRadio
     channels:
-    - WastelandGlobal
     - ZAXBinary
+    - VaultCommon
+    - WastelandGlobal
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyWastelandGlobal
       - EncryptionKeyZAX
+      - EncryptionKeyVault
+      - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: _Misfits/Mobs/Silicon/zax_core.rsi
     layers:
@@ -497,12 +503,25 @@
   components:
   - type: ContainerSpawnPoint
     containerId: station_ai_mind_slot
-    job: StationAi
+    job: ZaxCore
   - type: Sprite
     sprite: _Misfits/Mobs/Silicon/zax_core.rsi
     layers:
     - state: ai
       map: ["core"]
+
+# A presentation-only, permanently powered-on Core used by the character picker.
+- type: entity
+  id: PlayerZaxAiPreview
+  parent: BaseStructure
+  name: Z.A.X. Core
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Misfits/Mobs/Silicon/zax_core.rsi
+    layers:
+    - state: ai
+      shader: unshaded
 
 # The actual brain inside the core
 - type: entity

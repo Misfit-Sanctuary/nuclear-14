@@ -77,12 +77,8 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             || speciesId == "RobotAssaultronTeslaZAX"
             || speciesId == "RobotSentryBot"
             || speciesId == "RobotSentryBotLaser"
-            || speciesId == "RobotSentryBotZAX"
-            || speciesId == "RobotSentryBotLaserZAX"
             || speciesId == "RobotRobobrain"
-            || speciesId == "RobotRobobrainLaser"
-            || speciesId == "RobotRobobrainZAX"
-            || speciesId == "RobotRobobrainLaserZAX";
+            || speciesId == "RobotRobobrainLaser";
     }
 
     private static bool IsHidden(HumanoidAppearanceComponent humanoid, HumanoidVisualLayers layer)

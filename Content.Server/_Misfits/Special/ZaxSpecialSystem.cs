@@ -7,6 +7,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Radio.Components;
 using Content.Shared.Radio.EntitySystems;
+using Content.Shared.NPC.Systems;
 using Content.Server.Speech.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
@@ -22,6 +23,7 @@ public sealed class ZaxSpecialSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly EncryptionKeySystem _encryption = default!;
     [Dependency] private readonly SharedSpecialSystem _special = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
 
     private static readonly string[] ZaxKeyPrototypes =
     {
@@ -39,6 +41,8 @@ public sealed class ZaxSpecialSystem : EntitySystem
 
         SubscribeLocalEvent<ZaxPlayerSpecialComponent, ComponentStartup>(OnPlayerStartup);
         SubscribeLocalEvent<ZaxPlayerSpecialComponent, PlayerAttachedEvent>(OnPlayerAttached);
+
+        SubscribeLocalEvent<ZaxCoreSpecialComponent, ComponentStartup>(OnCoreSpecialStartup);
     }
 
     private void OnNeutralStartup(Entity<ZaxNeutralSpecialComponent> ent, ref ComponentStartup args)
@@ -78,8 +82,42 @@ public sealed class ZaxSpecialSystem : EntitySystem
         EnsureZaxKeys(ent.Owner);
     }
 
+    private void OnCoreSpecialStartup(Entity<ZaxCoreSpecialComponent> ent, ref ComponentStartup args)
+    {
+        // The physical core is only a holder. Apply runtime effects to the inserted
+        // brain, which is the entity that performs speech, crafting, and interactions.
+        if (HasComp<Content.Shared._Misfits.Silicon.ZaxCoreComponent>(ent.Owner))
+            return;
+
+        ApplyCoreSpecial(ent.Owner);
+    }
+
+    private void ApplyCoreSpecial(EntityUid uid)
+    {
+        _special.ClearTemporaryModifiers(uid);
+
+        var special = EnsureComp<SpecialComponent>(uid);
+        special.BaseStrength = SpecialProfile.DefaultValue;
+        special.BasePerception = SpecialProfile.DefaultValue;
+        special.BaseEndurance = SpecialProfile.DefaultValue;
+        special.BaseCharisma = SpecialProfile.Maximum;
+        special.BaseIntelligence = SpecialProfile.Maximum;
+        special.BaseAgility = SpecialProfile.DefaultValue;
+        special.BaseLuck = SpecialProfile.DefaultValue;
+        special.TemporaryStrengthModifier = 0;
+        special.TemporaryPerceptionModifier = 0;
+        special.TemporaryEnduranceModifier = 0;
+        special.TemporaryCharismaModifier = 0;
+        special.TemporaryIntelligenceModifier = 0;
+        special.TemporaryAgilityModifier = 0;
+        special.TemporaryLuckModifier = 0;
+        Dirty(uid, special);
+        RaiseStatsReady(uid);
+    }
+
     private void ApplyNeutral(EntityUid uid)
     {
+        _npcFaction.AddFaction(uid, "ZAX");
         RemComp<ReplacementAccentComponent>(uid);
 
         var special = EnsureComp<SpecialComponent>(uid);
@@ -89,6 +127,7 @@ public sealed class ZaxSpecialSystem : EntitySystem
 
     private void ApplySelectedProfile(EntityUid uid, ICommonSession player)
     {
+        _npcFaction.AddFaction(uid, "ZAX");
         var special = EnsureComp<SpecialComponent>(uid);
 
         if (_preferences.GetPreferencesOrNull(player.UserId)?.SelectedCharacter is HumanoidCharacterProfile profile)

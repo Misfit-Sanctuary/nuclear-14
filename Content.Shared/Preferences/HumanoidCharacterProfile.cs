@@ -623,6 +623,13 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             .Distinct()
             .ToList();
 
+        // Match the editor restrictions server-side so hidden loadouts cannot carry over
+        // after changing from an unrestricted species.
+        if (speciesPrototype.RestrictedCustomization
+            && speciesPrototype.AllowedLoadoutCategories is not { Count: > 0 })
+        {
+            loadouts.Clear();
+        }
         var special = SpecialProfile.EnsureValid(Special);
 
         // #Misfits Add - vocal style: fall back to Default if the stored proto no longer exists

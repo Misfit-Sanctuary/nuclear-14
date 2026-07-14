@@ -57,6 +57,7 @@ public enum WastelandMapTacticalFeedKind : byte
     Legion, // #Misfits Add - Legion faction tactical feed for Centurion's terminal
     // #Misfits Add - Followers of the Apocalypse feed: shows all dead player bodies
     Followers,
+    ZAX,
 }
 
 [Serializable, NetSerializable]

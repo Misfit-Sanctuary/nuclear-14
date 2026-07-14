@@ -16,6 +16,7 @@ using Content.Shared.Mobs.Systems; // #Misfits Add - MobStateSystem
 using Content.Shared.Tag;
 using Content.Shared._Misfits.WastelandMap;
 using Content.Shared._Misfits.TribalHunt;
+using Content.Shared._Misfits.Silicon;
 using Content.Shared.NPC.Components; // NpcFactionMemberComponent
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
@@ -223,26 +224,32 @@ public sealed class WastelandMapSystem : EntitySystem
 
     private void OnAddAnnotationMessage(EntityUid uid, WastelandMapComponent comp, WastelandMapAddAnnotationMessage args)
     {
-        if (!TryAddAnnotation(args.Actor, comp, Transform(args.Actor).MapID, args.Annotation))
+        var actorMap = Transform(args.Actor).MapID;
+        var feed = GetEffectiveFeed(comp, args.Actor);
+        if (!TryAddAnnotation(args.Actor, comp, actorMap, args.Annotation, feed))
             return;
 
-        UpdateMapUi(uid, comp, Transform(args.Actor).MapID);
+        UpdateMapUi(uid, comp, actorMap, args.Actor);
     }
 
     private void OnRemoveAnnotationMessage(EntityUid uid, WastelandMapComponent comp, WastelandMapRemoveAnnotationMessage args)
     {
-        if (!TryRemoveAnnotation(args.Actor, comp, Transform(args.Actor).MapID, args.Index))
+        var actorMap = Transform(args.Actor).MapID;
+        var feed = GetEffectiveFeed(comp, args.Actor);
+        if (!TryRemoveAnnotation(args.Actor, comp, actorMap, args.Index, feed))
             return;
 
-        UpdateMapUi(uid, comp, Transform(args.Actor).MapID);
+        UpdateMapUi(uid, comp, actorMap, args.Actor);
     }
 
     private void OnClearAnnotationsMessage(EntityUid uid, WastelandMapComponent comp, WastelandMapClearAnnotationsMessage args)
     {
-        if (!TryClearAnnotations(args.Actor, comp, Transform(args.Actor).MapID))
+        var actorMap = Transform(args.Actor).MapID;
+        var feed = GetEffectiveFeed(comp, args.Actor);
+        if (!TryClearAnnotations(args.Actor, comp, actorMap, feed))
             return;
 
-        UpdateMapUi(uid, comp, Transform(args.Actor).MapID);
+        UpdateMapUi(uid, comp, actorMap, args.Actor);
     }
 
     // #Misfits Add - optional actor param so group-member blips can be injected per-viewer
@@ -257,7 +264,7 @@ public sealed class WastelandMapSystem : EntitySystem
         // #Misfits Add - auto-detect map texture and bounds if not hardcoded
         var (texPath, bounds) = ResolveMapConfig(comp, mapId);
 
-        var feed = feedOverride ?? GetEffectiveFeed(comp);
+        var feed = feedOverride ?? GetEffectiveFeed(comp, actor);
         var trackedBlips = GetTrackedBlips(feed, mapId, bounds, actor);
         var sharedAnnotations = GetSharedAnnotations(comp, mapId, feed).ToArray();
         var overwatch = uid == null
@@ -279,8 +286,16 @@ public sealed class WastelandMapSystem : EntitySystem
 
     public WastelandMapTacticalFeedKind GetEffectiveFeed(WastelandMapComponent comp)
     {
+        return GetEffectiveFeed(comp, null);
+    }
+
+    public WastelandMapTacticalFeedKind GetEffectiveFeed(WastelandMapComponent comp, EntityUid? actor)
+    {
         if (comp.TacticalFeed != WastelandMapTacticalFeedKind.None)
             return comp.TacticalFeed;
+
+        if (actor is { } viewer && HasComp<ZaxTacticalMapComponent>(viewer))
+            return WastelandMapTacticalFeedKind.ZAX;
 
         return comp.TrackBrotherhoodHolotags
             ? WastelandMapTacticalFeedKind.Brotherhood
@@ -321,12 +336,13 @@ public sealed class WastelandMapSystem : EntitySystem
         return true;
     }
 
-    private void UpdateMapUi(EntityUid uid, WastelandMapComponent comp, MapId? mapId = null)
+    private void UpdateMapUi(EntityUid uid, WastelandMapComponent comp, MapId? mapId = null, EntityUid? actor = null)
     {
         if (!TryComp<UserInterfaceComponent>(uid, out var ui))
             return;
 
-        _uiSystem.SetUiState((uid, ui), WastelandMapUiKey.Key, BuildState(uid, comp, mapId ?? Transform(uid).MapID));
+        _uiSystem.SetUiState((uid, ui), WastelandMapUiKey.Key,
+            BuildState(uid, comp, mapId ?? Transform(uid).MapID, actor: actor));
     }
 
     public void RefreshUi(EntityUid uid, EntityUid actor)
@@ -457,6 +473,26 @@ public sealed class WastelandMapSystem : EntitySystem
             case WastelandMapTacticalFeedKind.Followers:
                 AppendDeadBodyBlips(buffer, mapId, bounds);
                 break;
+            case WastelandMapTacticalFeedKind.ZAX:
+                AppendZaxLinkedUnitBlips(buffer, mapId, bounds);
+                break;
+        }
+    }
+
+    private void AppendZaxLinkedUnitBlips(List<WastelandMapTrackedBlip> buffer, MapId mapId, Box2 bounds)
+    {
+        var query = EntityQueryEnumerator<ZaxLinkedUnitComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out _, out var xform))
+        {
+            var mapCoords = _transform.GetMapCoordinates(uid, xform);
+            if (mapCoords.MapId != mapId || !bounds.Contains(mapCoords.Position))
+                continue;
+
+            buffer.Add(new WastelandMapTrackedBlip(
+                mapCoords.Position.X,
+                mapCoords.Position.Y,
+                Name(uid),
+                WastelandMapTrackedBlipKind.PipBoyGroupMember));
         }
     }
 

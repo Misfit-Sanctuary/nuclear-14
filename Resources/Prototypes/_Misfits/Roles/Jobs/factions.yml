@@ -14,6 +14,41 @@
   - SyntheticRobobrain
   - SyntheticProtectronTribal
 
+# Dedicated Z.A.X whitelist group. Every configured map slot starts closed;
+# the Foundry opens only the matching player-chassis role after fabrication.
+- type: department
+  id: ZAX
+  description: department-ZAX-description
+  color: "#5aa8a8"
+  weight: -101
+  uiCategory: Whitelist
+  roles:
+  - ZaxCore
+  - C27ZAX
+  - ZaxAssaultron
+  - ZaxMrGutsy
+  - ZaxSecuritron
+  - ZaxMrHandy
+  - ZaxProtectron
+
+# Mirror the Z.A.X roster in Major Factions while retaining the canonical
+# whitelist department above. Its low weight keeps it at the bottom of the tab.
+- type: department
+  id: ZAXMajorFaction
+  description: department-ZAX-description
+  color: "#5aa8a8"
+  weight: -1000
+  primary: false
+  uiCategory: MajorFaction
+  roles:
+  - ZaxCore
+  - C27ZAX
+  - ZaxAssaultron
+  - ZaxMrGutsy
+  - ZaxSecuritron
+  - ZaxMrHandy
+  - ZaxProtectron
+
 # #Misfits Change
 - type: department
   id: FEVMutants

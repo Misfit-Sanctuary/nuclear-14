@@ -11,6 +11,9 @@ using Content.Shared.Power.Components;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared.StationAi;
+using Content.Shared._Misfits.Special.Components;
+using Content.Shared._Misfits.Silicon;
+using Content.Shared.NPC.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
@@ -29,14 +32,17 @@ public sealed class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly ViewSubscriberSystem _viewSubscriber = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
 
     private readonly HashSet<Entity<StationAiCoreComponent>> _ais = new();
     // [Changed by MisfitsCrew/Operator] Tracks which AI player sessions were subscribed
     // to which Station AI vision sources so camera PVS can be added and removed safely.
     private readonly Dictionary<EntityUid, HashSet<EntityUid>> _visionSubscriptions = new();
     private readonly HashSet<EntityUid> _desiredVisionSubscriptions = new();
+    private bool _syncingZaxName;
 
     // [Changed by MisfitsCrew/Operator] Mirrors normal pointing reach when the AI must
     // fall back from camera-source attribution to its active relayed eye entity.
@@ -58,6 +64,8 @@ public sealed class StationAiSystem : SharedStationAiSystem
         // keep active AI camera PVS subscriptions in sync with mapped cameras.
         SubscribeLocalEvent<StationAiVisionComponent, ComponentStartup>(OnAiVisionStartup);
         SubscribeLocalEvent<StationAiVisionComponent, ComponentShutdown>(OnAiVisionShutdown);
+        SubscribeLocalEvent<ZaxCoreComponent, EntityRenamedEvent>(OnZaxCoreRenamed);
+        SubscribeLocalEvent<ZaxCoreSpecialComponent, EntityRenamedEvent>(OnZaxBrainRenamed);
     }
 
     private void OnExpandICChatRecipients(ExpandICChatRecipientsEvent ev)
@@ -75,8 +83,32 @@ public sealed class StationAiSystem : SharedStationAiSystem
             if (!TryGetInsertedAI(stationAiCore, out var insertedAi) || !TryComp(insertedAi, out ActorComponent? actor))
                 continue;
 
-            if (stationAiCore.Comp.RemoteEntity == null || stationAiCore.Comp.Remote)
+            if (stationAiCore.Comp.RemoteEntity == null)
                 continue;
+
+            // While using the AI eye, mirror ordinary vision: receive local chat only
+            // when the speaker is on a tile supervised by the powered AI vision network.
+            if (stationAiCore.Comp.Remote)
+            {
+                var sourceMap = sourceXform.Coordinates.ToMap(EntityManager, _xforms);
+                if (!IsCorePowered(ent) ||
+                    !TryGetPointingGrid(sourceXform.Coordinates, sourceMap, out var gridUid, out var grid) ||
+                    entXform.GridUid != gridUid ||
+                    !_broadphaseQuery.TryComp(gridUid, out var broadphase))
+                {
+                    continue;
+                }
+
+                var sourceTile = Maps.LocalToTile(gridUid, grid, sourceXform.Coordinates);
+                lock (Vision)
+                {
+                    if (!Vision.IsAccessible((gridUid, broadphase, grid), sourceTile))
+                        continue;
+                }
+
+                ev.Recipients.TryAdd(actor.PlayerSession, new ICChatRecipientData(0f, false));
+                continue;
+            }
 
             var xform = Transform(stationAiCore.Comp.RemoteEntity.Value);
 
@@ -265,6 +297,16 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
     protected override void OnStationAiInserted(Entity<StationAiCoreComponent> core, EntityUid ai)
     {
+        if (HasComp<ZaxCoreComponent>(core.Owner))
+        {
+            _npcFaction.AddFaction(core.Owner, "ZAX");
+            _npcFaction.AddFaction(ai, "ZAX");
+            EnsureComp<ZaxCoreSpecialComponent>(ai);
+            EnsureComp<ZaxTacticalMapComponent>(ai);
+            EnsureComp<ZaxFactionLeaderComponent>(ai);
+            SynchronizeZaxName(core.Owner, ai, MetaData(ai).EntityName);
+        }
+
         // [Changed by MisfitsCrew/Operator] Adds camera PVS subscriptions after the AI
         // brain is inserted into a powered core.
         RefreshAiVisionSubscriptions(ai);
@@ -272,9 +314,78 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
     protected override void OnStationAiRemoved(Entity<StationAiCoreComponent> core, EntityUid ai)
     {
+        if (HasComp<ZaxCoreComponent>(core.Owner))
+        {
+            RemComp<ZaxCoreSpecialComponent>(ai);
+            RemComp<ZaxTacticalMapComponent>(ai);
+            RemComp<ZaxFactionLeaderComponent>(ai);
+            RemComp<Content.Shared._Misfits.Special.Components.SpecialComponent>(ai);
+        }
+
         // [Changed by MisfitsCrew/Operator] Removes camera PVS subscriptions when the AI
         // brain leaves the core.
         ClearAiVisionSubscriptions(ai);
+    }
+
+    protected override void OnStationAiTakeover(EntityUid core, EntityUid ai, string playerName)
+    {
+        if (!HasComp<ZaxCoreComponent>(core))
+            return;
+
+        _npcFaction.AddFaction(core, "ZAX");
+        _npcFaction.AddFaction(ai, "ZAX");
+        EnsureComp<ZaxFactionLeaderComponent>(ai);
+        SynchronizeZaxName(core, ai, playerName);
+    }
+
+    private void OnZaxCoreRenamed(Entity<ZaxCoreComponent> ent, ref EntityRenamedEvent args)
+    {
+        if (_syncingZaxName ||
+            !TryComp<StationAiCoreComponent>(ent.Owner, out var core) ||
+            !TryGetInsertedAI((ent.Owner, core), out var ai))
+        {
+            return;
+        }
+
+        SynchronizeZaxName(ent.Owner, ai.Value.Owner, args.NewName);
+    }
+
+    private void OnZaxBrainRenamed(Entity<ZaxCoreSpecialComponent> ent, ref EntityRenamedEvent args)
+    {
+        if (_syncingZaxName || HasComp<ZaxCoreComponent>(ent.Owner) ||
+            !TryGetContainingStationAiCore(ent.Owner, out var core) ||
+            !HasComp<ZaxCoreComponent>(core.Value.Owner))
+        {
+            return;
+        }
+
+        SynchronizeZaxName(core.Value.Owner, ent.Owner, args.NewName);
+    }
+
+    private void SynchronizeZaxName(EntityUid core, EntityUid ai, string name)
+    {
+        if (_syncingZaxName || string.IsNullOrWhiteSpace(name))
+            return;
+
+        _syncingZaxName = true;
+        try
+        {
+            if (MetaData(core).EntityName != name)
+                _metadata.SetEntityName(core, name);
+
+            if (MetaData(ai).EntityName != name)
+                _metadata.SetEntityName(ai, name);
+
+            if (_mind.TryGetMind(ai, out var mindId, out var mind) && mind.CharacterName != name)
+            {
+                mind.CharacterName = name;
+                Dirty(mindId, mind);
+            }
+        }
+        finally
+        {
+            _syncingZaxName = false;
+        }
     }
 
     protected override void OnStationAiCoreMapInitialized(Entity<StationAiCoreComponent> core, EntityUid? ai)

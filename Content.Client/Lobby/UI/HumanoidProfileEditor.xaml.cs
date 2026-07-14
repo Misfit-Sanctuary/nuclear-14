@@ -59,6 +59,7 @@ namespace Content.Client.Lobby.UI
     public sealed partial class HumanoidProfileEditor : BoxContainer
     {
         private const string LockedSpecies = "SuperMutant";
+        private const string ZaxCoreSpecies = "ZaxCore";
         private const string SpecialTuningPrototypeId = "MisfitsSpecialTuning";
 
         private readonly IConfigurationManager _cfgManager;
@@ -127,6 +128,7 @@ namespace Content.Client.Lobby.UI
                 ("RobotSecuritronBrown", "humanoid-profile-editor-robot-model-securitron-brown"),
                 ("RobotSecuritronRed", "humanoid-profile-editor-robot-model-securitron-red"),
                 ("RobotSecuritronYellow", "humanoid-profile-editor-robot-model-securitron-yellow"),
+                ("RobotSecuritronZAX", "humanoid-profile-editor-robot-model-securitron-zax"),
             },
             ["RobotMrGutsy"] = new[]
             {
@@ -144,15 +146,11 @@ namespace Content.Client.Lobby.UI
             {
                 ("RobotSentryBot", "humanoid-profile-editor-robot-model-sentrybot-minigun"),
                 ("RobotSentryBotLaser", "humanoid-profile-editor-robot-model-sentrybot-laser"),
-                ("RobotSentryBotZAX", "humanoid-profile-editor-robot-model-sentrybot-zax"),
-                ("RobotSentryBotLaserZAX", "humanoid-profile-editor-robot-model-sentrybot-laser-zax"),
             },
             ["RobotRobobrain"] = new[]
             {
                 ("RobotRobobrain", "humanoid-profile-editor-robot-model-robobrain-standard"),
                 ("RobotRobobrainLaser", "humanoid-profile-editor-robot-model-robobrain-laser"),
-                ("RobotRobobrainZAX", "humanoid-profile-editor-robot-model-robobrain-zax"),
-                ("RobotRobobrainLaserZAX", "humanoid-profile-editor-robot-model-robobrain-laser-zax"),
             },
             // #Misfits Add - C-27 Humanoid Robot family. Generic chassis is the visible base species;
             // NCR and Brotherhood variants are hidden in the main species dropdown and selected via
@@ -803,7 +801,7 @@ namespace Content.Client.Lobby.UI
         private void OnChangedStationAiNameCustomizationValue(bool newValue)
         {
             _customizeStationAiName = newValue;
-            StationAiNameContainer.Visible = newValue;
+            StationAiNameContainer.Visible = newValue && Profile?.Species != ZaxCoreSpecies;
         }
 
         private void OnChangedCyborgNameCustomizationValue(bool newValue)
@@ -1080,8 +1078,13 @@ namespace Content.Client.Lobby.UI
 
         private void LoadoutsChanged(bool enabled)
         {
-            CTabContainer.SetTabVisible(LoadoutsTab, enabled);
-            ShowLoadouts.Visible = enabled;
+            var speciesAllowsLoadouts = Profile == null
+                || !_prototypeManager.TryIndex<SpeciesPrototype>(Profile.Species, out var species)
+                || !species.RestrictedCustomization
+                || species.AllowedLoadoutCategories is { Count: > 0 };
+
+            CTabContainer.SetTabVisible(LoadoutsTab, enabled && speciesAllowsLoadouts);
+            ShowLoadouts.Visible = enabled && speciesAllowsLoadouts;
         }
 
         private void OnSpeciesInfoButtonPressed(BaseButton.ButtonEventArgs args)
@@ -1741,8 +1744,9 @@ namespace Content.Client.Lobby.UI
             UpdateRobotAppearanceFieldVisibility(); // #Misfits Add: apply robot-specific appearance field locks immediately after species swap.
             UpdateRobotModelSelector(); // #Misfits Add: update model selector to match selected Protectron variant.
             IsDirty = true;
-            ReloadProfilePreview();
-            ReloadClothes(); // Species may have job-specific gear, reload the clothes
+            // Species may use a different, non-humanoid doll prototype (for example Z.A.X Core).
+            // Recreate the preview so the selected race is reflected immediately.
+            ReloadPreview();
         }
 
         // #Misfits Add: show a dedicated model picker for robot families with multiple variants.
@@ -1811,7 +1815,8 @@ namespace Content.Client.Lobby.UI
             if (Profile == null)
                 return;
 
-            var isRobotSpecies = IsRobotSpecies(Profile.Species);
+            var species = _prototypeManager.Index<SpeciesPrototype>(Profile.Species);
+            var isRobotSpecies = IsRobotSpecies(Profile.Species) || species.FixedAppearance;
 
             EyesContainer.Visible = !isRobotSpecies;
             HeightContainer.Visible = !isRobotSpecies;
@@ -1820,6 +1825,8 @@ namespace Content.Client.Lobby.UI
             ClothingContainer.Visible = !isRobotSpecies;
             LoadoutsContainer.Visible = !isRobotSpecies;
             SexContainer.Visible = !isRobotSpecies;
+            SkinColorContainer.Visible = !species.FixedAppearance;
+            StationAiNameContainer.Visible = _customizeStationAiName && Profile.Species != ZaxCoreSpecies;
         }
 
         // #Misfits Add: helper for species checks used by robot-specific character editor behavior.
@@ -1839,6 +1846,7 @@ namespace Content.Client.Lobby.UI
                 || speciesId == "RobotSecuritronBrown"
                 || speciesId == "RobotSecuritronRed"
                 || speciesId == "RobotSecuritronYellow"
+                || speciesId == "RobotSecuritronZAX"
                 || speciesId == "RobotMrGutsy"
                 || speciesId == "RobotMrGutsyZAX"
                 || speciesId == "RobotAssaultron"
@@ -1847,12 +1855,8 @@ namespace Content.Client.Lobby.UI
                 || speciesId == "RobotAssaultronTeslaZAX"
                 || speciesId == "RobotSentryBot"
                 || speciesId == "RobotSentryBotLaser"
-                || speciesId == "RobotSentryBotZAX"
-                || speciesId == "RobotSentryBotLaserZAX"
                 || speciesId == "RobotRobobrain"
                 || speciesId == "RobotRobobrainLaser"
-                || speciesId == "RobotRobobrainZAX"
-                || speciesId == "RobotRobobrainLaserZAX"
                 || speciesId == "RobotProtectronTribal";
         }
 
@@ -1870,16 +1874,13 @@ namespace Content.Client.Lobby.UI
                 || speciesId == "RobotSecuritronBrown"
                 || speciesId == "RobotSecuritronRed"
                 || speciesId == "RobotSecuritronYellow"
+                || speciesId == "RobotSecuritronZAX"
                 || speciesId == "RobotMrGutsyZAX"
                 || speciesId == "RobotAssaultronTesla"
                 || speciesId == "RobotAssaultronZAX"
                 || speciesId == "RobotAssaultronTeslaZAX"
                 || speciesId == "RobotSentryBotLaser"
-                || speciesId == "RobotSentryBotZAX"
-                || speciesId == "RobotSentryBotLaserZAX"
                 || speciesId == "RobotRobobrainLaser"
-                || speciesId == "RobotRobobrainZAX"
-                || speciesId == "RobotRobobrainLaserZAX"
                 || speciesId == "C27NCR" // #Misfits Add - C-27 NCR variant picked via Robot Model dropdown
                 || speciesId == "C27BoS" // #Misfits Add - C-27 Brotherhood variant picked via Robot Model dropdown
                 || speciesId == "C27ZAX" // #Misfits Add - C-27 Z.A.X variant picked via Robot Model dropdown
@@ -1939,6 +1940,9 @@ namespace Content.Client.Lobby.UI
             // #Misfits Change: hide loadouts tab only if restricted AND no allowed categories
             var showLoadouts = !restricted || species.AllowedLoadoutCategories is { Count: > 0 };
             CTabContainer.SetTabVisible(LoadoutsTab, showLoadouts);
+
+            if (_specialTab != null)
+                CTabContainer.SetTabVisible(_specialTab, !species.HideSpecialTab);
         }
 
         private void SetName(string newName)

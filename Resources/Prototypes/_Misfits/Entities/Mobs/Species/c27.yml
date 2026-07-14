@@ -18,6 +18,8 @@
   - type: NpcFactionMember
     factions:
     - Wastelander
+  - type: StationAiVision
+  - type: StationAiWhitelist
   - type: Inventory
     templateId: c27
     speciesId: c27
@@ -282,6 +284,8 @@
   description: A C-27 humanoid robot rebuilt as a Z.A.X-linked rapid-response chassis.
   components:
   - type: ZaxLinkedUnit
+  - type: ZaxTacticalMap
+  - type: ZaxPlayerSpecial
   - type: HumanoidAppearance
     species: C27ZAX
   - type: ContainerFill
@@ -325,6 +329,25 @@
   - type: ActionGrant
     actions:
     - ActionZaxC27RepairMode
+    - ActionOpenWastelandMap
+  - type: WeldingHealable
+    allowedStates:
+    - Dead
+    damage:
+      groups:
+        Brute: -15
+      types:
+        Heat: -15
+        Caustic: -15
+        Shock: -15
+  - type: WastelandMap
+    mapConfigId: Wendover
+    mapTitle: Z.A.X Unit Tactical Map
+    tacticalFeed: ZAX
+  - type: UserInterface
+    interfaces:
+      enum.WastelandMapUiKey.Key:
+        type: WastelandMapBoundUserInterface
   - type: ZaxC27RepairMode
     normalRepair:
       groups:
@@ -335,11 +358,11 @@
         Shock: -1
     activeRepair:
       groups:
-        Brute: -6
+        Brute: -8
       types:
-        Heat: -6
-        Caustic: -6
-        Shock: -6
+        Heat: -8
+        Caustic: -8
+        Shock: -8
   - type: PassiveDamage
     allowedStates:
     - Alive

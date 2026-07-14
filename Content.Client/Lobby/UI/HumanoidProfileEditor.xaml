@@ -131,7 +131,7 @@
                                 <Label Name="WeightLabel" />
                             </BoxContainer>
                         </BoxContainer>
-                        <BoxContainer Margin="10" HorizontalExpand="True" Orientation="Vertical">
+                        <BoxContainer Name="SkinColorContainer" Margin="10" HorizontalExpand="True" Orientation="Vertical">
                             <Label Text="Skin Color:" />
                             <Slider HorizontalExpand="True" Name="Skin" MinValue="0" MaxValue="100" Value="20" />
                             <BoxContainer Name="RgbSkinColorContainer" Visible="False" Orientation="Vertical" HorizontalExpand="True"></BoxContainer>

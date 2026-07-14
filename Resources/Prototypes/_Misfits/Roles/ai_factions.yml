@@ -23,6 +23,11 @@
   - SuperMutant
   - Zetan
 
+# Z.A.X-linked player, ghost-role, and NPC chassis. Chassis retain their existing
+# behavioral faction alongside this identity so normal wasteland AI behavior is preserved.
+- type: npcFaction
+  id: ZAX
+
 # #Misfits Add - Player SentryBot faction. Allied with HostileRobot so NPC robots treat
 # player SentryBots as allies (protect them, won't aggro) rather than neutral bystanders.
 # Kept separate from PlayerRobot so only SentryBot gets the NPC robot alliance.

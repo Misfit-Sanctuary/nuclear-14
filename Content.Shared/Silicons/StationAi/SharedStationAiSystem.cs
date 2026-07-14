@@ -26,6 +26,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
@@ -36,6 +37,7 @@ namespace Content.Shared.Silicons.StationAi;
 public abstract partial class SharedStationAiSystem : EntitySystem
 {
     [Dependency] private readonly   ISharedAdminManager _admin = default!;
+    [Dependency] private readonly   ISharedPlayerManager _players = default!;
     [Dependency] private readonly   IGameTiming _timing = default!;
     [Dependency] private readonly   INetManager _net = default!;
     [Dependency] private readonly   ItemSlotsSystem _slots = default!;
@@ -68,6 +70,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     // systems can react without duplicating the shared core event subscriptions.
     protected virtual void OnStationAiInserted(Entity<StationAiCoreComponent> core, EntityUid ai) { }
     protected virtual void OnStationAiRemoved(Entity<StationAiCoreComponent> core, EntityUid ai) { }
+    protected virtual void OnStationAiTakeover(EntityUid core, EntityUid ai, string playerName) { }
     protected virtual void OnStationAiCoreMapInitialized(Entity<StationAiCoreComponent> core, EntityUid? ai) { }
     protected virtual void OnStationAiCoreShuttingDown(Entity<StationAiCoreComponent> core, EntityUid? ai) { }
     protected virtual void OnStationAiCorePowerChanged(Entity<StationAiCoreComponent> core, bool powered, EntityUid? ai) { }
@@ -156,6 +159,8 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         if (!TrySpawnTakeoverBrain(core, out brain, out error))
             return false;
 
+        var playerName = TryGetMindName(user) ?? MetaData(user).EntityName;
+        OnStationAiTakeover(core.Owner, brain.Value, playerName);
         _mind.ControlMob(user, brain.Value);
         return true;
     }
@@ -169,8 +174,16 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         if (!TrySpawnTakeoverBrain(core, out brain, out error))
             return false;
 
+        var playerName = _mind.GetCharacterName(user)
+                         ?? (_players.TryGetSessionById(user, out var session) ? session.Name : user.ToString());
+        OnStationAiTakeover(core.Owner, brain.Value, playerName);
         _mind.ControlMob(user, brain.Value);
         return true;
+    }
+
+    private string? TryGetMindName(EntityUid entity)
+    {
+        return _mind.TryGetMind(entity, out _, out var mind) ? mind.CharacterName : null;
     }
 
     private bool TrySpawnTakeoverBrain(

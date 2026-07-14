@@ -145,6 +145,15 @@
           SyntheticAssaultron: [ 1, 3 ]
           SyntheticSentryBot: [ 0, 0 ] # #Misfits Add: sentry bot late join slots
           SyntheticRobobrain: [ 1, 3 ] # #Misfits Add: robobrain late join slots
+          # Dedicated Z.A.X chassis roles start fully closed. Foundry recipes open
+          # their matching role; mapped/admin-spawned job-ready cores open ZaxCore dynamically.
+          ZaxCore: [ 0, 0 ]
+          C27ZAX: [ 0, 0 ]
+          ZaxMrHandy: [ 0, 0 ]
+          ZaxMrGutsy: [ 0, 0 ]
+          ZaxProtectron: [ 0, 0 ]
+          ZaxSecuritron: [ 0, 0 ]
+          ZaxAssaultron: [ 0, 0 ]
           # #Misfits Add - Enclave faction activation: whitelist-only roles. Spawns at Vault bunker (~-92.5, 50.5).
           EnclaveReformer: [ 1, 0 ]      # admin-only leader (The Reformer); 0 active latejoin slots
           EnclaveCommander: [ 1, 1 ]

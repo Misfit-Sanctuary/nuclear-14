@@ -51,6 +51,7 @@ humanoid-profile-editor-robot-model-securitron-blue = Blue
 humanoid-profile-editor-robot-model-securitron-brown = Brown
 humanoid-profile-editor-robot-model-securitron-red = Red
 humanoid-profile-editor-robot-model-securitron-yellow = Yellow
+humanoid-profile-editor-robot-model-securitron-zax = Z.A.X
 
 # Robot model selector labels for Mr. Gutsy variants.
 humanoid-profile-editor-robot-model-mr-gutsy-standard = Standard
@@ -65,14 +66,10 @@ humanoid-profile-editor-robot-model-assaultron-tesla-zax = Z.A.X Tesla
 # Robot model selector labels for Sentry Bot variants.
 humanoid-profile-editor-robot-model-sentrybot-minigun = Minigun
 humanoid-profile-editor-robot-model-sentrybot-laser = Laser Gatling
-humanoid-profile-editor-robot-model-sentrybot-zax = Z.A.X Minigun
-humanoid-profile-editor-robot-model-sentrybot-laser-zax = Z.A.X Laser Gatling
 
 # Robot model selector labels for Robobrain variants.
 humanoid-profile-editor-robot-model-robobrain-standard = Standard
 humanoid-profile-editor-robot-model-robobrain-laser = Laser
-humanoid-profile-editor-robot-model-robobrain-zax = Z.A.X
-humanoid-profile-editor-robot-model-robobrain-laser-zax = Z.A.X Laser
 
 # Robot model selector labels for C-27 Humanoid Robot variants.
 humanoid-profile-editor-robot-model-c27-generic = Generic Chassis

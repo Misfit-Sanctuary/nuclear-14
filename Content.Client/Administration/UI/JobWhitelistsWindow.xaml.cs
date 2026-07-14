@@ -32,6 +32,7 @@ public sealed partial class JobWhitelistsWindow : FancyWindow
         "Robots",
         "Vault",
         "Raider",
+        "ZAX",
     };
 
     public Action<List<ProtoId<JobPrototype>>, bool>? OnSetJobs;

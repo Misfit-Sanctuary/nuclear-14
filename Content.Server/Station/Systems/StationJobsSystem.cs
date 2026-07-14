@@ -276,6 +276,32 @@ public sealed partial class StationJobsSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Sets both the round-start and mid-round capacity for a job. This is intended for
+    /// mapped job providers whose physical availability determines whether a role exists.
+    /// </summary>
+    public bool TrySetJobSlots(EntityUid station, string jobPrototypeId, int roundStartAmount, int midRoundAmount,
+        bool createSlot = false, StationJobsComponent? stationJobs = null)
+    {
+        if (!Resolve(station, ref stationJobs))
+            throw new ArgumentException("Tried to use a non-station entity as a station!", nameof(station));
+        if (roundStartAmount < 0 || midRoundAmount < 0)
+            throw new ArgumentException("Tried to set a job to have a negative number of slots!");
+
+        if (!stationJobs.RoundStartJobList.ContainsKey(jobPrototypeId) && !createSlot)
+            return false;
+
+        var oldRoundStart = stationJobs.RoundStartJobList.TryGetValue(jobPrototypeId, out var oldSlots) && oldSlots != null
+            ? (int) oldSlots.Value
+            : 0;
+
+        stationJobs.RoundStartJobList[jobPrototypeId] = (uint) roundStartAmount;
+        stationJobs.RoundStartTotalJobs += roundStartAmount - oldRoundStart;
+        stationJobs.SetupAvailableJobs[jobPrototypeId] = [roundStartAmount, midRoundAmount];
+
+        return TrySetJobSlot(station, jobPrototypeId, midRoundAmount, createSlot, stationJobs);
+    }
+
     /// <inheritdoc cref="MakeJobUnlimited(Robust.Shared.GameObjects.EntityUid,string,Content.Server.Station.Components.StationJobsComponent?)"/>
     /// <param name="station">Station to make a job unlimited on.</param>
     /// <param name="job">Job to make unlimited.</param>

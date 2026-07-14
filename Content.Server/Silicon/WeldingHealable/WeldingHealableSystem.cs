@@ -5,6 +5,7 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Tools;
 using Content.Shared._Misfits.C27;
@@ -33,14 +34,13 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
         if (args.Cancelled || args.Used == null
             || !TryComp<DamageableComponent>(args.Target, out var damageable)
             || !TryComp<WeldingHealingComponent>(args.Used, out var component)
-            || damageable.DamageContainerID is null
-            || !component.DamageContainers.Contains(damageable.DamageContainerID)
-            || !HasDamage((args.Target.Value, damageable), component, args.User)
+            || !CanRepair(args.Target.Value, damageable, healableComponent, component)
+            || !HasDamage((args.Target.Value, damageable), healableComponent.Damage ?? component.Damage, args.User)
             || !TryComp<WelderComponent>(args.Used, out var welder)
             || !TryComp<SolutionContainerManagerComponent>(args.Used, out var solutionContainer))
             return;
 
-        _damageableSystem.TryChangeDamage(uid, component.Damage, true, false, origin: args.User);
+        _damageableSystem.TryChangeDamage(uid, healableComponent.Damage ?? component.Damage, true, false, origin: args.User);
 
         Entity<SolutionComponent>? sol = new();
         if (!_solutionContainer.ResolveSolution(((EntityUid) args.Used, solutionContainer), welder.FuelSolutionName, ref sol, out _))
@@ -53,6 +53,9 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
         _popup.PopupEntity(str, uid, args.User);
 
         if (!args.Used.HasValue)
+            return;
+
+        if (!CanRepair(uid, damageable, healableComponent, component))
             return;
 
         args.Handled = _toolSystem.UseTool
@@ -72,9 +75,8 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
         if (args.Handled
             || !EntityManager.TryGetComponent(args.Used, out WeldingHealingComponent? component)
             || !EntityManager.TryGetComponent(args.Target, out DamageableComponent? damageable)
-            || damageable.DamageContainerID is null
-            || !component.DamageContainers.Contains(damageable.DamageContainerID)
-            || !HasDamage((args.Target, damageable), component, args.User)
+            || !CanRepair(args.Target, damageable, healableComponent, component)
+            || !HasDamage((args.Target, damageable), healableComponent.Damage ?? component.Damage, args.User)
             || !_toolSystem.HasQuality(args.Used, component.QualityNeeded)
             || args.User == args.Target && !component.AllowSelfHeal)
             return;
@@ -98,13 +100,22 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
             });
     }
 
-    private bool HasDamage(Entity<DamageableComponent> damageable, WeldingHealingComponent healable, EntityUid user)
+    private bool CanRepair(EntityUid target, DamageableComponent damageable, WeldingHealableComponent healable, WeldingHealingComponent tool)
     {
-        if (healable.Damage.DamageDict is null)
+        if (damageable.DamageContainerID is null || !tool.DamageContainers.Contains(damageable.DamageContainerID))
             return false;
 
-        foreach (var type in healable.Damage.DamageDict)
-            if (damageable.Comp.Damage.DamageDict[type.Key].Value > 0)
+        return healable.AllowedStates == null ||
+            TryComp<MobStateComponent>(target, out var mobState) && healable.AllowedStates.Contains(mobState.CurrentState);
+    }
+
+    private bool HasDamage(Entity<DamageableComponent> damageable, DamageSpecifier repairDamage, EntityUid user)
+    {
+        if (repairDamage.DamageDict is null)
+            return false;
+
+        foreach (var type in repairDamage.DamageDict)
+            if (damageable.Comp.Damage.DamageDict.TryGetValue(type.Key, out var damage) && damage.Value > 0)
                 return true;
 
         // In case the healer is a humanoid entity with targeting, we run the check on the targeted parts.
@@ -114,8 +125,8 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
         var (targetType, targetSymmetry) = _bodySystem.ConvertTargetBodyPart(targeting.Target);
         foreach (var part in _bodySystem.GetBodyChildrenOfType(damageable, targetType, symmetry: targetSymmetry))
             if (TryComp<DamageableComponent>(part.Id, out var damageablePart))
-                foreach (var type in healable.Damage.DamageDict)
-                    if (damageablePart.Damage.DamageDict[type.Key].Value > 0)
+                foreach (var type in repairDamage.DamageDict)
+                    if (damageablePart.Damage.DamageDict.TryGetValue(type.Key, out var damage) && damage.Value > 0)
                         return true;
 
         return false;

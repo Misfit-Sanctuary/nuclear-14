@@ -617,6 +617,18 @@
   components:
   - type: HumanoidAppearance
     species: RobotSecuritron
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - N14BorgModuleSecuritronLaser
+      - BorgModuleTool
+      id:
+      - MisfitsRobotNavCardRobCo
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyVault
   - type: Sprite
     sprite: _Nuclear14/Mobs/Robots/securitron-gray.rsi
     layers:

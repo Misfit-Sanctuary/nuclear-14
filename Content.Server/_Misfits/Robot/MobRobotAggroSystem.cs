@@ -175,11 +175,7 @@ public sealed class MobRobotAggroSystem : EntitySystem
             || humanoid.Species == "RobotAssaultronTeslaZAX"
             || humanoid.Species == "RobotSentryBot"
             || humanoid.Species == "RobotSentryBotLaser"
-            || humanoid.Species == "RobotSentryBotZAX"
-            || humanoid.Species == "RobotSentryBotLaserZAX"
             || humanoid.Species == "RobotRobobrain"
-            || humanoid.Species == "RobotRobobrainLaser"
-            || humanoid.Species == "RobotRobobrainZAX"
-            || humanoid.Species == "RobotRobobrainLaserZAX";
+            || humanoid.Species == "RobotRobobrainLaser";
     }
 }

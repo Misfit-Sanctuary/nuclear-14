@@ -100,6 +100,12 @@ namespace Content.Shared.Lathe
     public readonly record struct LatheStartPrintingEvent(LatheRecipePrototype Recipe);
 
     /// <summary>
+    /// Raised after a lathe creates its recipe result.
+    /// </summary>
+    [ByRefEvent]
+    public readonly record struct LatheFinishedPrintingEvent(LatheRecipePrototype Recipe, EntityUid Result);
+
+    /// <summary>
     /// [Changed by MisfitsCrew/Operator] Raised before materials are consumed and a recipe is added to a lathe queue.
     /// Systems may cancel recipes subject to machine-specific production limits.
     /// </summary>

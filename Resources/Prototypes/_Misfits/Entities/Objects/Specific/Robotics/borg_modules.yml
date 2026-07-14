@@ -204,6 +204,30 @@
     items:
     - N14BorgWeaponLaser
 
+# Player Securitrons use a finite 20-shot capacitor which refills after 15 seconds idle.
+- type: entity
+  id: N14SecuritronWeaponLaser
+  parent: N14BorgWeaponLaser
+  name: securitron integrated laser
+  components:
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 99999
+    autoRechargePause: true
+    autoRechargePauseTime: 15
+
+- type: entity
+  id: N14BorgModuleSecuritronLaser
+  parent: N14BorgModuleLaser
+  name: securitron laser module
+  components:
+  - type: ItemBorgModule
+    items:
+    - N14SecuritronWeaponLaser
+
 # Integrated cryo emitter weapon for Firefighter Protectron — battery-based to match other borg weapons. #Misfits Add
 - type: entity
   id: N14BorgWeaponCryo

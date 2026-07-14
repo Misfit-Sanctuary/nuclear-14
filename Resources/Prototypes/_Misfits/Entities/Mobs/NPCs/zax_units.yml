@@ -6,9 +6,21 @@
   components:
   - type: ZaxUnit
   - type: ZaxLinkedUnit
+  - type: ZaxTacticalMap
   - type: ZaxNeutralSpecial
   - type: StationAiVision
   - type: StationAiWhitelist
+  - type: WastelandMap
+    mapConfigId: Wendover
+    mapTitle: Z.A.X Unit Tactical Map
+    tacticalFeed: ZAX
+  - type: ActionGrant
+    actions:
+    - ActionOpenWastelandMap
+  - type: UserInterface
+    interfaces:
+      enum.WastelandMapUiKey.Key:
+        type: WastelandMapBoundUserInterface
   - type: SiliconInternalRadio
   - type: EncryptionKeyHolder
     keySlots: 4
@@ -90,9 +102,21 @@
   id: MisfitsZaxPlayerUnitBase
   components:
   - type: ZaxLinkedUnit
+  - type: ZaxTacticalMap
   - type: ZaxPlayerSpecial
   - type: StationAiVision
   - type: StationAiWhitelist
+  - type: WastelandMap
+    mapConfigId: Wendover
+    mapTitle: Z.A.X Tactical Map - Wendover
+    tacticalFeed: ZAX
+  - type: ActionGrant
+    actions:
+    - ActionOpenWastelandMap
+  - type: UserInterface
+    interfaces:
+      enum.WastelandMapUiKey.Key:
+        type: WastelandMapBoundUserInterface
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
@@ -192,10 +216,8 @@
       map: ["movement"]
     - state: icon
       map: ["enum.BorgVisualLayers.Light"]
-      shader: unshaded
       visible: false
     - state: icon
-      shader: unshaded
       map: ["light"]
       visible: false
   - type: MobThresholds
@@ -307,6 +329,9 @@
   name: ZAX Mr. Handy unit
   description: A ZAX-linked player-configuration Mr. Handy chassis.
   suffix: ZAX, player chassis
+  components:
+  - type: ZaxPlayerChassis
+    kind: MrHandy
 
 - type: entity
   parent: [N14PlayerSyntheticMrGutsy, MisfitsZaxPlayerUnitBase]
@@ -314,6 +339,9 @@
   name: ZAX Mr. Gutsy unit
   description: A ZAX-linked player-configuration Mr. Gutsy chassis.
   suffix: ZAX, player chassis
+  components:
+  - type: ZaxPlayerChassis
+    kind: MrGutsy
 
 - type: entity
   parent: [N14PlayerSyntheticProtectronBuilder, MisfitsZaxPlayerUnitBase]
@@ -321,6 +349,9 @@
   name: ZAX Builder Protectron unit
   description: A ZAX-linked player-configuration Builder Protectron chassis.
   suffix: ZAX, player chassis
+  components:
+  - type: ZaxPlayerChassis
+    kind: Protectron
 
 - type: entity
   parent: [N14PlayerSyntheticProtectronFire, MisfitsZaxPlayerUnitBase]
@@ -328,6 +359,9 @@
   name: ZAX Firefighter Protectron unit
   description: A ZAX-linked player-configuration Firefighter Protectron chassis.
   suffix: ZAX, player chassis
+  components:
+  - type: ZaxPlayerChassis
+    kind: Protectron
 
 - type: entity
   parent: [N14PlayerSyntheticProtectronPolice, MisfitsZaxPlayerUnitBase]
@@ -335,6 +369,9 @@
   name: ZAX Police Protectron unit
   description: A ZAX-linked player-configuration Police Protectron chassis.
   suffix: ZAX, player chassis
+  components:
+  - type: ZaxPlayerChassis
+    kind: Protectron
 
 - type: entity
   parent: [N14PlayerSyntheticSecuritronGray, MisfitsZaxPlayerUnitBase]
@@ -343,6 +380,8 @@
   description: A Z.A.X-linked player-configuration Securitron chassis.
   suffix: ZAX, player chassis
   components:
+  - type: ZaxPlayerChassis
+    kind: Securitron
   - type: Sprite
     sprite: _Misfits/Mobs/Robots/zax_securitron.rsi
     layers:
@@ -350,10 +389,8 @@
       map: ["enum.DamageStateVisualLayers.Base", "movement"]
     - state: icon
       map: ["enum.BorgVisualLayers.Light"]
-      shader: unshaded
       visible: false
     - state: icon
-      shader: unshaded
       map: ["light"]
       visible: false
 
@@ -363,6 +400,9 @@
   name: ZAX Assaultron unit
   description: A ZAX-linked player-configuration Assaultron chassis.
   suffix: ZAX, player chassis
+  components:
+  - type: ZaxPlayerChassis
+    kind: Assaultron
 
 - type: entity
   parent: [N14PlayerSyntheticAssaultronTesla, MisfitsZaxPlayerUnitBase]
@@ -370,6 +410,9 @@
   name: ZAX Assaultron Tesla unit
   description: A ZAX-linked player-configuration Assaultron Tesla chassis.
   suffix: ZAX, player chassis
+  components:
+  - type: ZaxPlayerChassis
+    kind: Assaultron
 
 - type: entity
   parent: [N14PlayerSyntheticSentryBotMinigun, MisfitsZaxPlayerUnitBase]
