@@ -126,5 +126,5 @@
     - type: Organ # Estacao Pirata - IPCs
     - type: LanguageSpeaker
     - type: LanguageKnowledge
-      speaks: [RobotTalk]
-      understands: [RobotTalk]
+      speaks: [RobotTalk, English]
+      understands: [RobotTalk, English]
