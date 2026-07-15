@@ -31,15 +31,15 @@
   - ZaxMrHandy
   - ZaxProtectron
 
-# Mirror the Z.A.X roster in Major Factions while retaining the canonical
+# Mirror the Z.A.X roster in Minor Factions while retaining the canonical
 # whitelist department above. Its low weight keeps it at the bottom of the tab.
 - type: department
-  id: ZAXMajorFaction
+  id: ZAXMinorFaction
   description: department-ZAX-description
   color: "#5aa8a8"
   weight: -1000
   primary: false
-  uiCategory: MajorFaction
+  uiCategory: MinorFaction
   roles:
   - ZaxCore
   - C27ZAX

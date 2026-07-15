@@ -111,7 +111,6 @@ public sealed class FactionWarSystem : EntitySystem
         "CaesarLegion",
         "BrotherhoodOfSteel",
         "Enclave",
-        "ZAX",
     };
 
 
