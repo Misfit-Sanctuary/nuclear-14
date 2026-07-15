@@ -7,10 +7,12 @@
 using Content.Shared.Actions;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Misfits.StealthBoy;
@@ -101,7 +103,8 @@ public abstract class SharedStealthBoySystem : EntitySystem
         TimeSpan fadeOutTime,
         string activateMessage,
         string reappearMessage,
-        float? stillVisibility = null)
+        float? stillVisibility = null,
+        float? walkVisibility = null)
     {
         var now = _timing.CurTime;
         var active = EnsureComp<StealthBoyActiveComponent>(user);
@@ -115,6 +118,7 @@ public abstract class SharedStealthBoySystem : EntitySystem
         active.FadeOutStart = TimeSpan.Zero;
         active.FadeInComplete = false;
         active.StillVisibility = stillVisibility ?? visibility;
+        active.WalkVisibility = walkVisibility ?? visibility;
         Dirty(user, active);
 
         // Spawn the stealth shader. Clamp MinVisibility to the prototype's target so
@@ -147,43 +151,43 @@ public abstract class SharedStealthBoySystem : EntitySystem
         if (active.FadingOut)
             return false;
 
-        ExitDeepConcealment(user);
         active.FadingOut = true;
         active.FadeOutStart = _timing.CurTime;
         Dirty(user, active);
         return true;
     }
 
-    // Once faded in, let StealthOnMove take over: standing still sinks toward
-    // StillVisibility, moving climbs back up. Max capped at the shimmer so
-    // running around doesn't fully reveal you mid-cloak.
-    private void EnterDeepConcealment(EntityUid uid, StealthBoyActiveComponent active)
+    // how fast visibility glides between the still/walk/run levels, per second
+    private const float ConcealRate = 0.8f;
+
+    // Once faded in, visibility depends on how fast the user is moving:
+    // standing still sinks to StillVisibility, slow walking holds WalkVisibility,
+    // anything faster shows the normal cloak shimmer.
+    private void UpdateConcealment(EntityUid uid, StealthBoyActiveComponent active, float frameTime)
     {
-        if (active.StillVisibility >= active.TargetVisibility)
+        if (!TryComp<StealthComponent>(uid, out var stealth) ||
+            !TryComp<PhysicsComponent>(uid, out var physics))
             return;
 
-        if (!TryComp<StealthComponent>(uid, out var stealth))
-            return;
+        var speed = physics.LinearVelocity.Length();
 
-        stealth.MinVisibility = active.StillVisibility;
-        stealth.MaxVisibility = active.TargetVisibility;
-        Dirty(uid, stealth);
-        EnsureComp<StealthOnMoveComponent>(uid);
-    }
+        float target;
+        if (speed < 0.15f)
+            target = active.StillVisibility;
+        else if (TryComp<MovementSpeedModifierComponent>(uid, out var move) &&
+                 speed <= move.CurrentWalkSpeed + 0.2f)
+            target = active.WalkVisibility;
+        else
+            target = active.TargetVisibility;
 
-    private void ExitDeepConcealment(EntityUid uid)
-    {
-        if (!HasComp<StealthOnMoveComponent>(uid))
-            return;
+        var current = _stealth.GetVisibility(uid, stealth);
+        var step = ConcealRate * frameTime;
+        var next = current > target
+            ? Math.Max(target, current - step)
+            : Math.Min(target, current + step);
 
-        RemCompDeferred<StealthOnMoveComponent>(uid);
-
-        // put the cap back or the fade-out can't reach full visibility
-        if (TryComp<StealthComponent>(uid, out var stealth))
-        {
-            stealth.MaxVisibility = 1.5f;
-            Dirty(uid, stealth);
-        }
+        if (Math.Abs(next - current) > 0.0001f)
+            _stealth.SetVisibility(uid, next, stealth);
     }
 
     private void OnActiveShutdown(Entity<StealthBoyActiveComponent> ent, ref ComponentShutdown args)
@@ -196,7 +200,6 @@ public abstract class SharedStealthBoySystem : EntitySystem
         var ended = new StealthBoyCloakEndedEvent();
         RaiseLocalEvent(ent, ref ended);
 
-        RemCompDeferred<StealthOnMoveComponent>(ent);
         RemCompDeferred<StealthComponent>(ent);
         // Hallucination intensity is reasserted by the server-side OnTierChanged path;
         // exposure stays so it can decay back down naturally.
@@ -246,13 +249,15 @@ public abstract class SharedStealthBoySystem : EntitySystem
                     {
                         active.FadeInComplete = true;
                         Dirty(uid, active);
-                        EnterDeepConcealment(uid, active);
                     }
+                }
+                else if (active.StillVisibility < active.TargetVisibility)
+                {
+                    UpdateConcealment(uid, active, frameTime);
                 }
 
                 if (now >= active.EndTime || _mobState.IsIncapacitated(uid))
                 {
-                    ExitDeepConcealment(uid);
                     active.FadingOut = true;
                     active.FadeOutStart = now;
                     Dirty(uid, active);

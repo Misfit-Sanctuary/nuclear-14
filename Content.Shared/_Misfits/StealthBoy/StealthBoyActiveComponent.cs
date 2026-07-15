@@ -72,4 +72,11 @@ public sealed partial class StealthBoyActiveComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float StillVisibility = 1f;
+
+    /// <summary>
+    /// Visibility while moving at walk speed or slower. Sits between
+    /// StillVisibility and TargetVisibility.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float WalkVisibility = 1f;
 }

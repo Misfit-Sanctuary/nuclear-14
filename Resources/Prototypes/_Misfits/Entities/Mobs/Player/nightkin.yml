@@ -10,12 +10,43 @@
     - type: NpcFactionMember
       factions:
       - Wastelander
-    # #Misfits Add - innate stealth boy implant. cooldown = recharge after decloak,
-    # stillVisibility -1 = fully invisible while standing still (moving shows the shimmer)
+    # #Misfits Add - innate stealth boy implant. cooldown = recharge after decloak.
+    # still = fully invisible, slow walk = 0.1 whisper, running = normal 0.3 shimmer
     - type: NightkinPassiveStealth
       cooldown: 30
       stillVisibility: -1
-    # #Misfits Add - steadier with guns, big frame soaks the recoil
+      walkVisibility: 0.1
+    # #Misfits Add - the best shooters in the wasteland, big frame soaks the recoil.
+    # 0.02 = 98% tighter spread, near pinpoint even one-handed. 0 = perfect accuracy
     - type: GunHandlingModifier
-      spreadMultiplier: 0.35
-      recoilMultiplier: 0.35
+      spreadMultiplier: 0.02
+      recoilMultiplier: 0.02
+    # #Misfits Add - barefoot nightkin make no footstep sounds
+    - type: NoShoesSilentFootsteps
+    # #Misfits Change - leaner metabolism than supermutants: 1.5x human hunger (SM is 3x)
+    - type: Hunger
+      baseDecayRate: 0.012
+    # #Misfits Change - faster than supermutants (2.0/3.5), still slower than humans (3.0/5.0)
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2.5
+      baseSprintSpeed: 4
+    # #Misfits Add - too big to limp early. no slowdown until 200 dmg (crit is 400)
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        200: 0.85
+        300: 0.7
+    # #Misfits Add - natural regen, per second: brute 1, burn 0.4 (1 per 2.5s),
+    # airloss 0.29 (1 per ~3.5s), toxin 0.18 (1 per ~5.5s). genetic doesn't regen.
+    # works while downed too - a critted nightkin gets back up if you don't finish it
+    - type: PassiveDamage
+      interval: 1
+      allowedStates:
+      - Alive
+      - SoftCritical
+      - Critical
+      damage:
+        groups:
+          Brute: -1
+          Burn: -0.4
+          Toxin: -0.18
+          Airloss: -0.29

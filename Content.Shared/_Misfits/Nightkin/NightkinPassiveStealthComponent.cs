@@ -25,6 +25,18 @@ public sealed partial class NightkinPassiveStealthComponent : Component
     [DataField, AutoNetworkedField]
     public float StillVisibility = 0f;
 
+    // how visible while slow walking, between still and the running shimmer
+    [DataField, AutoNetworkedField]
+    public float WalkVisibility = 0.1f;
+
+    // hunger drains this much faster while the cloak is active - staying hidden burns calories
+    [DataField, AutoNetworkedField]
+    public float CloakHungerMultiplier = 2.5f;
+
+    // set while the cloak is up so we only restore the hunger rate once
+    [DataField, AutoNetworkedField]
+    public bool HungerBumped;
+
     [DataField, AutoNetworkedField]
     public TimeSpan FadeInTime = TimeSpan.FromSeconds(1.5);
 

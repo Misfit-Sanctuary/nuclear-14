@@ -9,7 +9,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 
 namespace Content.Shared.Nutrition.Components;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(HungerSystem), typeof(Content.Shared._Misfits.SpecialStats.SpecialEnduranceSystem))] // #Misfits Change - allow SpecialEnduranceSystem to reduce BaseDecayRate via Endurance SPECIAL buff.
+[RegisterComponent, NetworkedComponent, Access(typeof(HungerSystem), typeof(Content.Shared._Misfits.SpecialStats.SpecialEnduranceSystem), typeof(Content.Shared._Misfits.Nightkin.SharedNightkinStealthSystem))] // #Misfits Change - SpecialEnduranceSystem tweaks decay via Endurance; Nightkin cloak raises it while hidden.
 [AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class HungerComponent : Component
 {

@@ -43,7 +43,8 @@ public sealed class PassiveDamageSystem : EntitySystem
                 continue;
 
             // Set the next time they can take damage
-            comp.NextDamage = curTime + TimeSpan.FromSeconds(1f);
+            // #Misfits Fix - respect the component's interval instead of hardcoding 1s (default is still 1)
+            comp.NextDamage = curTime + TimeSpan.FromSeconds(comp.Interval);
 
             // Damage them
             foreach (var allowedState in comp.AllowedStates)
