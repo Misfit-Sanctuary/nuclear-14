@@ -17,3 +17,14 @@
   coefficients:
     Shock: 1.45
     Radiation: 0.0
+
+# C-27 body parts cannot accumulate integrity damage or be combat-severed. The
+# surgery system removes parts directly and remains unaffected by this modifier.
+- type: damageModifierSet
+  id: MisfitsC27IndestructiblePart
+  coefficients:
+    Blunt: 0.0
+    Slash: 0.0
+    Piercing: 0.0
+    Heat: 0.0
+    Shock: 0.0

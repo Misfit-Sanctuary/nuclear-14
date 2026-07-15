@@ -11,9 +11,11 @@
   components:
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Metallic # standard metallic resists; tweaked via mob-level modifier in Phase F
+    # C-27 limb integrity is structural rather than a combat health pool. Parts may
+    # only be detached through the surgery removal pathway.
+    damageModifierSet: MisfitsC27IndestructiblePart
   - type: BodyPart
-    severIntegrity: 150
+    canSever: false
     integrityThresholds:
       CriticallyWounded: 150
       HeavilyWounded: 120
