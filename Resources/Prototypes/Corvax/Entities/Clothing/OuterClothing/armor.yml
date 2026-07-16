@@ -175,7 +175,7 @@
 #    strengthModifier: 2
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitMediumArmorAdvance]
+  parent: [N14FalloutArmorBase, MisfitLightArmorAdvance]
   id: N14ClothingOuterLegionnaireVeteranArmor
   name: armor of a legionnaire-veteran
   description: "Good armor for combat, does not slow down the wearer and makes it easy to maneuver."
@@ -198,7 +198,7 @@
 #    damageCoefficient: 0.8
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitLightArmorAdvance]
+  parent: [N14FalloutArmorBase, MisfitLightArmor]
   id: N14ClothingOuterLegionnaireReconnaissanceArmor
   name: reconnaissance armor
   description: "Good durable armor that does not burden movement."
@@ -221,10 +221,10 @@
 #    damageCoefficient: 0.85
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitLightArmor]
+  parent: [N14FalloutArmorBase, MisfitClothArmor]
   id: N14ClothingLegionReconArmor
   name: light reconnaissance armor
-  description: "Incredibly light armor with not the best protection, but you feel faster."
+  description: "Incredibly light armor with not the best protection."
   components:
   - type: Sprite
     sprite: Corvax/Clothing/OuterClothing/Armor/lightreconnaissancearmor.rsi
@@ -313,7 +313,7 @@
 #    damageCoefficient: 0.80
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitLightArmorAdvance]
+  parent: [N14FalloutArmorBase, MisfitLightArmor]
   id: N14ClothingOuterLegionnaireExplorerArmor
   name: explorer armor
   description: "Light layered armor worn by Legion scouts and explorers."
