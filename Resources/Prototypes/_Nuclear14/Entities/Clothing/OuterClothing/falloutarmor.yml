@@ -1114,7 +1114,7 @@
 
 
 - type: entity
-  parent: [N14ClothingOuterBase, MisfitLightArmorCombatAdvance]
+  parent: [N14ClothingOuterBase, MisfitLightArmorCombatElite]
   id: N14ClothingOuterRangerCombat
   name: ranger combat armor
   description: The Rangers combat armor consists of a pre-war L.A.P.D. riot suit under a duster with rodeo jeans. Considered one of the most prestigious suits of armor to earn and wear while in service of the NCR Rangers.
@@ -1934,7 +1934,7 @@
     price: 50
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitLightArmorRiot]
+  parent: [N14FalloutArmorBase, MisfitMediumArmorRiot]
   id: N14ClothingOuterTownGuardRiot
   name: the Guard's riot armor # Misfits Fix - renamed to distinguish from light variant
   description: An old piece of armor or maybe a replica of one, surprisingly sturdy thing. Additional plating over the left arm for extra protection in melee combat.
