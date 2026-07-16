@@ -81,7 +81,7 @@
 
 # T5 — NCR Sergeant
 - type: entity
-  parent: N14ClothingOuterNCRCombatArmor
+  parent: [N14ClothingOuterNCRCombatArmor, MisfitHeavyArmorCombatAdvance]
   id: MisfitsNCRHeavyCombatArmor
   name: NCR combat mantle
   description: Upgraded combat plating issued to NCR Sergeants; noticeably heavier than standard line armor.
@@ -90,20 +90,20 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_reinforced_mantle.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_reinforced_mantle.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.65
-        Heat: 0.65
-    priceMultiplier: 0.6
-  - type: ExplosionResistance
-    damageCoefficient: 0.75
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.70
+#        Slash: 0.70
+#        Piercing: 0.65
+#        Heat: 0.65
+#    priceMultiplier: 0.6
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.75
 
 # T6 — NCR Staff Sergeant
 - type: entity
-  parent: N14ClothingOuterNCRCombatArmor
+  parent: [N14ClothingOuterNCRCombatArmor, MisfitMediumArmorCombatAdvance]
   id: MisfitsNCREliteCombatArmor
   name: NCR elite combat mantle
   description: Elite-grade combat armor worn by NCR Staff Sergeants; the best widely-issued plating in the Republic's arsenal.
@@ -112,20 +112,20 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_lt_mantle.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_lt_mantle.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.60
-        Heat: 0.60
-    priceMultiplier: 0.7
-  - type: ExplosionResistance
-    damageCoefficient: 0.70
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.65
+#        Slash: 0.65
+#        Piercing: 0.60
+#        Heat: 0.60
+#    priceMultiplier: 0.7
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.70
 
 # T7 — NCR First Sergeant
 - type: entity
-  parent: N14ClothingOuterNCRCombatArmor
+  parent: [N14ClothingOuterNCRCombatArmor, MisfitMediumArmorCombatAdvance]
   id: MisfitsNCRCommandArmor
   name: NCR command mantle
   description: Command-grade armor reserved for NCR First Sergeants; the pinnacle of standard Republic military equipment.
@@ -134,16 +134,16 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_captain_mantle.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_captain_mantle.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.55
-        Heat: 0.55
-    priceMultiplier: 0.7
-  - type: ExplosionResistance
-    damageCoefficient: 0.65
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.60
+#        Slash: 0.60
+#        Piercing: 0.55
+#        Heat: 0.55
+#    priceMultiplier: 0.7
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.65
 
 # ---------------------------------------------------------------------------
 # Caesar's Legion
@@ -151,62 +151,62 @@
 
 # T3 — Warrior Legionnaire
 - type: entity
-  parent: N14ClothingOuterLegionnaireBaseArmor
+  parent: [N14ClothingOuterLegionnaireBaseArmor, MisfitMediumArmorCombatAdvance]
   id: MisfitsLegionWarriorArmor
   name: legionnaire warrior armor
   description: Hardened Legionnaire armor pieced together from the most battle-proven components; a step above recruit kit.
-  components:
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.80
-        Slash: 0.80
-        Piercing: 0.75
-        Heat: 0.75
-  - type: ExplosionResistance
-    damageCoefficient: 0.85
+#  components:
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.80
+#        Slash: 0.80
+#        Piercing: 0.75
+#        Heat: 0.75
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.85
 
 # T6 — Prime Decanus
 - type: entity
-  parent: N14ClothingOuterDeanLegionnairePrimeArmor
+  parent: [N14ClothingOuterDeanLegionnairePrimeArmor, MisfitHeavyArmorCombatAdvance]
   id: MisfitsLegionPrimeDecanusArmor
   name: prime decanus armor
   description: Reinforced Decanus armor bearing the insignia of a Prime Decanus; it has refined craftsmanship compared to a regular Decanus' armor.
-  components:
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.60
-        Heat: 0.60
-    priceMultiplier: 0.7
-  - type: ClothingSpeedModifier
-    walkModifier: 1.00
-    sprintModifier: 1.00
-  - type: ExplosionResistance
-    damageCoefficient: 0.70
+#  components:
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.65
+#        Slash: 0.65
+#        Piercing: 0.60
+#        Heat: 0.60
+#    priceMultiplier: 0.7
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1.00
+#    sprintModifier: 1.00
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.70
 
 # T7 — Veteran Decanus
 - type: entity
-  parent: N14ClothingOuterDeanLegionnaireVeteranArmor
+  parent: [N14ClothingOuterDeanLegionnaireVeteranArmor, MisfitHeavyArmorCombatAdvance]
   id: MisfitsLegionVeteranDecanusArmor
   name: veteran decanus armor
   description: The finest Legion field armor, worn only by a Veteran Decanus who has led countless soldiers into battle.
-  components:
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.55
-        Heat: 0.55
-    priceMultiplier: 0.7
-  - type: ClothingSpeedModifier
-    walkModifier: 1.00
-    sprintModifier: 1.00
-  - type: ExplosionResistance
-    damageCoefficient: 0.65
+#  components:
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.60
+#        Slash: 0.60
+#        Piercing: 0.55
+#        Heat: 0.55
+#    priceMultiplier: 0.7
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1.00
+#    sprintModifier: 1.00
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.65
 
 # ---------------------------------------------------------------------------
 # Brotherhood of Steel
@@ -214,54 +214,54 @@
 
 # T2 — Squire (lighter than Midwest armor; Squires are still in training)
 - type: entity
-  parent: N14ClothingOuterMidwestArmor
+  parent: [N14ClothingOuterMidwestArmor, MisfitLightArmorCombatAdvance]
   id: MisfitsBoSSquireArmor
   name: Brotherhood squire armor
   description: Light Brotherhood-issue armor worn by Squires; sturdy enough for patrol duty but not yet the full combat kit of a Knight.
-  components:
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.80
-        Heat: 0.80
-    priceMultiplier: 0.5
-  - type: ExplosionResistance
-    damageCoefficient: 0.90
+#  components:
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.85
+#        Slash: 0.85
+#        Piercing: 0.80
+#        Heat: 0.80
+#    priceMultiplier: 0.5
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.90
 
 # T4 — Knight (equivalent to NCR Specialist / Legion Veteran Legionnaire)
 - type: entity
-  parent: N14ClothingOuterCombatArmorBOSMK2
+  parent: [N14ClothingOuterCombatArmorBOSMK2, MisfitMediumArmorCombatAdvance]
   id: MisfitsBoSKnightArmor
   name: Brotherhood knight armor
   description: Standard Brotherhood combat armor worn by Knights. Well-maintained and reliable, though not yet the heavy plating of a Paladin.
-  components:
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.70
-        Heat: 0.70
-    priceMultiplier: 0.6
-  - type: ExplosionResistance
-    damageCoefficient: 0.80
+#  components:
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.75
+#        Slash: 0.75
+#        Piercing: 0.70
+#        Heat: 0.70
+#    priceMultiplier: 0.6
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.80
 
 # T6 — Head Knight (equivalent to NCR Staff Sergeant / Legion Prime Decanus)
 - type: entity
-  parent: N14ClothingOuterCombatArmorCaptainBOS
+  parent: [N14ClothingOuterCombatArmorCaptainBOS, MisfitHeavyArmorCombatElite]
   id: MisfitsBoSHeadKnightArmor
   name: Brotherhood head knight armor
   description: Elite Brotherhood armor reserved for Head Knights; layered plating that reflects years of field service and the trust of the Elder.
-  components:
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.55
-        Heat: 0.55
-    priceMultiplier: 0.7
-  - type: ExplosionResistance
-    damageCoefficient: 0.65
+#  components:
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.60
+#        Slash: 0.60
+#        Piercing: 0.55
+#        Heat: 0.55
+#    priceMultiplier: 0.7
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.65

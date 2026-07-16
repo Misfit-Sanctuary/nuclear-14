@@ -21,7 +21,7 @@
 #    strengthModifier: 10
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatElite]
   id: N14ClothingOuterHeavyCenturionArmor
   name: centurion heavy armor
   description: "Heavy armor assembled from captured pieces of power armor of defeated enemies."
@@ -30,27 +30,27 @@
     sprite: Corvax/Clothing/OuterClothing/Armor/centurionheavyarmor.rsi
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/centurionheavyarmor.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.45
-        Heat: 0.45
-  - type: ExplosionResistance
-    damageCoefficient: 0.60
-  - type: StaminaDamageResistance
-    coefficient: 0.85 # 15%
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1
+#    sprintModifier: 1
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.45
+#        Slash: 0.45
+#        Piercing: 0.45
+#        Heat: 0.45
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.60
+#  - type: StaminaDamageResistance
+#    coefficient: 0.85 # 15%
 #  - type: ClothingSpecialModifier
 #    strengthModifier: 2
 
 #Misfits Add — Paladin-Slayer Centurion: specialised for engaging Brotherhood of Steel forces.
 # High laser/energy resistance from looted pre-war power armor polymer plating. Stats from SS13 Big-Iron (melee=35,bullet=50,laser=55,energy=35,bomb=35).
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorEnergyElite]
   id: N14ClothingOuterPaladinSlayerCenturionArmor
   name: paladin-slayer centurion armor
   description: Centurion armor salvaged and modified specifically for engaging Brotherhood of Steel forces — layered with pre-war polymer plating to resist energy weapons. The face plate has BOS cross etchings scored out with a knife.
@@ -59,25 +59,25 @@
     sprite: Corvax/Clothing/OuterClothing/Armor/paladinslayercent.rsi  # #Misfits Add - RSI extracted from Big-Iron DMI
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/paladinslayercent.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.45
-        Heat: 0.45
-  - type: ExplosionResistance
-    damageCoefficient: 0.60
-  - type: StaminaDamageResistance
-    coefficient: 0.85
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1
+#    sprintModifier: 1
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.45
+#        Slash: 0.45
+#        Piercing: 0.45
+#        Heat: 0.45
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.60
+#  - type: StaminaDamageResistance
+#    coefficient: 0.85
 
 #Misfits Add — Ranger-Hunter Centurion: specialised for engaging NCR Ranger units.
 # High bullet/fire resistance and bio protection for anti-Ranger skirmish. Stats from SS13 Big-Iron (melee=35,bullet=60,fire=80,bio=60,bomb=35).
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorBallisticElite]
   id: N14ClothingOuterRangerHunterCenturionArmor
   name: ranger-hunter centurion armor
   description: Centurion armor field-modified to engage New California Republic Rangers — heavy ballistic inserts and fire-retardant lining fill the gaps that standard armor leaves exposed. The wearer has clearly studied NCR Ranger tactics.
@@ -86,23 +86,23 @@
     sprite: Corvax/Clothing/OuterClothing/Armor/rangerhuntercent.rsi  # #Misfits Add - RSI extracted from Big-Iron DMI
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/rangerhuntercent.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.45
-        Heat: 0.45
-  - type: ExplosionResistance
-    damageCoefficient: 0.60
-  - type: StaminaDamageResistance
-    coefficient: 0.85
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1
+#    sprintModifier: 1
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.45
+#        Slash: 0.45
+#        Piercing: 0.45
+#        Heat: 0.45
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.60
+#  - type: StaminaDamageResistance
+#    coefficient: 0.85
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatAdvance]
   id: N14ClothingOuterDeanLegionnaireVeteranArmor
   #Misfits Change /Fix:/ corrected malformed component list indentation.
   name: heavy legionary armor
@@ -113,22 +113,22 @@
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/deanveteranarmor.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 0.9 # This is better than Mk2 combat it can be slow.
-    sprintModifier: 0.9
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.55 # Billy again. This shit is for veteran decani. 35% with 10% slow? you fuckin kidding me? buff to 45%.
-        Heat: 0.60 # light buff just 5%
-  - type: ExplosionResistance
-    damageCoefficient: 0.65
+#    walkModifier: 0.9 # This is better than Mk2 combat it can be slow.
+#    sprintModifier: 0.9
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.65
+#        Slash: 0.65
+#        Piercing: 0.55 # Billy again. This shit is for veteran decani. 35% with 10% slow? you fuckin kidding me? buff to 45%.
+#        Heat: 0.60 # light buff just 5%
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.65
 #  - type: ClothingSpecialModifier
 #    strengthModifier: 2
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitMediumArmorCombatAdvance]
   id: N14ClothingOuterDeanLegionnairePrimeArmor
   name: heavy legionary armor
   description: "Though this heavy plate offers no added mobility, it stands as the Forgemaster's most protective suit of armor."
@@ -137,20 +137,20 @@
     sprite: Corvax/Clothing/OuterClothing/Armor/deanprimearmor.rsi
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/deanprimearmor.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.60 # prime is slightly above "recruit" so here is 5% extra resist. sprite does literally have more metal on it.
-        Heat: 0.70 # worse on heat
-  - type: ExplosionResistance
-    damageCoefficient: 0.65
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.70
+#        Slash: 0.70
+#        Piercing: 0.60 # prime is slightly above "recruit" so here is 5% extra resist. sprite does literally have more metal on it.
+#        Heat: 0.70 # worse on heat
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.65
 #  - type: ClothingSpecialModifier
 #    strengthModifier: 2
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombat]
   id: N14ClothingOuterDeanLegionnaireRecruitArmor
   name: heavy legionary armor
   description: "The heavy version of legionary armor slows down the wearer, but gives good protection from external threats."
@@ -159,23 +159,23 @@
     sprite: Corvax/Clothing/OuterClothing/Armor/deanrecruitarmor.rsi
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/deanrecruitarmor.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1.05 # made a little faster since its just worse than combat mk2
-    sprintModifier: 1.05
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.65 # liquid dogshit but you're the bitch decani. -Bill
-        Heat: 0.65
-  - type: ExplosionResistance
-    damageCoefficient: 0.65 # Heavy leather absorbs blasts and acts as padding
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1.05 # made a little faster since its just worse than combat mk2
+#    sprintModifier: 1.05
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.70
+#        Slash: 0.70
+#        Piercing: 0.65 # liquid dogshit but you're the bitch decani. -Bill
+#        Heat: 0.65
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.65 # Heavy leather absorbs blasts and acts as padding
 #  - type: ClothingSpecialModifier
 #    strengthModifier: 2
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitMediumArmorCombatAdvance]
   id: N14ClothingOuterLegionnaireVeteranArmor
   name: armor of a legionnaire-veteran
   description: "Good armor for combat, does not slow down the wearer and makes it easy to maneuver."
@@ -184,21 +184,21 @@
     sprite: Corvax/Clothing/OuterClothing/Armor/veteranarmor.rsi
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/veteranarmor.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1.10
-    sprintModifier: 1.10
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.7
-        Heat: 0.8 #Legion weak to heat type damage
-  - type: ExplosionResistance
-    damageCoefficient: 0.8
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1.10
+#    sprintModifier: 1.10
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.75
+#        Slash: 0.75
+#        Piercing: 0.7
+#        Heat: 0.8 #Legion weak to heat type damage
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.8
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitLightArmorCombatAdvance]
   id: N14ClothingOuterLegionnaireReconnaissanceArmor
   name: reconnaissance armor
   description: "Good durable armor that does not burden movement."
@@ -207,21 +207,21 @@
     sprite: Corvax/Clothing/OuterClothing/Armor/reconnaissancearmor.rsi
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/reconnaissancearmor.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1.10 #same as ranger recon
-    sprintModifier: 1.10
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
-        Heat: 0.75
-  - type: ExplosionResistance
-    damageCoefficient: 0.85
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1.10 #same as ranger recon
+#    sprintModifier: 1.10
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.75
+#        Slash: 0.75
+#        Piercing: 0.75
+#        Heat: 0.75
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.85
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitLightArmorCombat]
   id: N14ClothingLegionReconArmor
   name: light reconnaissance armor
   description: "Incredibly light armor with not the best protection, but you feel faster."
@@ -230,21 +230,21 @@
     sprite: Corvax/Clothing/OuterClothing/Armor/lightreconnaissancearmor.rsi
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/lightreconnaissancearmor.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1.10 #A little faster than the previous recon
-    sprintModifier: 1.10
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85 #20% was a bit too good for what it provided
-        Heat: 0.85
-  - type: ExplosionResistance
-    damageCoefficient: 0.85
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1.10 #A little faster than the previous recon
+#    sprintModifier: 1.10
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.85
+#        Slash: 0.85
+#        Piercing: 0.85 #20% was a bit too good for what it provided
+#        Heat: 0.85
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.85
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitMediumArmorCombat]
   id: N14ClothingOuterLegionnaireBaseArmor
   name: legionnaire armor
   description: "The most standard and common armor."
@@ -253,21 +253,21 @@
     sprite: Corvax/Clothing/OuterClothing/Armor/basearmor.rsi
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/basearmor.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1.05 #A little faster than the previous recon
-    sprintModifier: 1.05
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.75 # 20 fucking %? no. dogshit. here is 25%. You get nothing else. -Bill
-        Heat: 0.85 #Legion is weak to heat
-  - type: ExplosionResistance
-    damageCoefficient: 0.85
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1.05 #A little faster than the previous recon
+#    sprintModifier: 1.05
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.85
+#        Slash: 0.85
+#        Piercing: 0.75 # 20 fucking %? no. dogshit. here is 25%. You get nothing else. -Bill
+#        Heat: 0.85 #Legion is weak to heat
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.85
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitLightArmorCombat]
   id: N14ClothingOuterLegionnaireRecruitArmor
   name: light legionnaire armor
   description: "Not very reliable, but very light legionnaire armor."
@@ -276,21 +276,21 @@
     sprite: Corvax/Clothing/OuterClothing/Armor/lightarmor.rsi
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/lightarmor.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1.10
-    sprintModifier: 1.10 # the little ones can enjoy the game too.
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85 # 10% is worse than some COATS btw. just want you to know that. gave them 15% -Bill
-        Heat: 0.9 # Legion is weak to heat
-  - type: ExplosionResistance
-    damageCoefficient: 0.95
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1.10
+#    sprintModifier: 1.10 # the little ones can enjoy the game too.
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.85
+#        Slash: 0.85
+#        Piercing: 0.85 # 10% is worse than some COATS btw. just want you to know that. gave them 15% -Bill
+#        Heat: 0.9 # Legion is weak to heat
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.95
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitMediumArmorCombatAdvance]
   id: N14ClothingOuterLegionnaireVexillariusArmor
   name: vexillarius armor
   description: "Reinforced armor worn by the Legion's Vexillarius standard bearer."
@@ -299,21 +299,21 @@
     sprite: Corvax/Clothing/OuterClothing/Armor/vexillariusarmor.rsi
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/vexillariusarmor.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1.10 # basically the same as veteran
-    sprintModifier: 1.10
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.70
-        Heat: 0.70 #more heat resist, metal pans cover chest and abdomen
-  - type: ExplosionResistance
-    damageCoefficient: 0.80
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1.10 # basically the same as veteran
+#    sprintModifier: 1.10
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.75
+#        Slash: 0.75
+#        Piercing: 0.70
+#        Heat: 0.70 #more heat resist, metal pans cover chest and abdomen
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.80
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitLightArmorCombatAdvance]
   id: N14ClothingOuterLegionnaireExplorerArmor
   name: explorer armor
   description: "Light layered armor worn by Legion scouts and explorers."
@@ -322,21 +322,21 @@
     sprite: Corvax/Clothing/OuterClothing/Armor/explorerarmor.rsi
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/explorerarmor.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1.10
-    sprintModifier: 1.10
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.80
-        Heat: 0.80
-  - type: ExplosionResistance
-    damageCoefficient: 0.90
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1.10
+#    sprintModifier: 1.10
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.85
+#        Slash: 0.85
+#        Piercing: 0.80
+#        Heat: 0.80
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.90
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitMediumArmorCombatElite]
   id: N14ClothingOuterLegionnaireOptioArmor
   name: optio armor
   description: "Armor of a Legion Optio, styled after the praetorian guard."
@@ -345,22 +345,22 @@
     sprite: Corvax/Clothing/OuterClothing/Armor/oratorarmor.rsi
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/oratorarmor.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1.05 #A little faster than the previous recon
-    sprintModifier: 1.05
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.60 # wah wah, second in command should have good armor
-        Heat: 0.65
-  - type: ExplosionResistance
-    damageCoefficient: 0.82
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1.05 #A little faster than the previous recon
+#    sprintModifier: 1.05
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.60
+#        Slash: 0.60
+#        Piercing: 0.60 # wah wah, second in command should have good armor
+#        Heat: 0.65
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.82
 
 #Misfits Change /Uncomment/: Re-enabled BoS recon armor for new consolidated Brotherhood Scribe jobs.
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitLightArmorCombat]
   id: NCClothingOuterBosReconArmor
   name: Brotherhood of Steel Armor
   description: The armor of the Brotherhood of Steel is sturdy and reliable. "The steel is inside! The steel is outside!"
@@ -371,13 +371,13 @@
     sprite: Corvax/Clothing/OuterClothing/Armor/bosReaconArmor.rsi
   - type: TemperatureProtection
     coefficient: 0.2
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.65
-        Piercing: 0.65
-        Heat: 0.6
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.6
+#        Slash: 0.65
+#        Piercing: 0.65
+#        Heat: 0.6
   - type: ToggleableClothing
     clothingPrototype: NCClothingHeadHatBoSReaconHood
 
@@ -424,22 +424,22 @@
 
 #Misfits Change /Fix/: Redirected sprite — Corvax falloutNCRpaddedwebvest.rsi removed (All Rights Reserved). Using _Nuclear14 NCR web vest.
 - type: entity
-  parent: N14ClothingOuterNCRVestDesert
+  parent: [N14ClothingOuterNCRVestDesert, MisfitLightArmorCombat]
   id: N14ClothingOuterNCRVestpaddedWebDesert
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRwebvest.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRwebvest.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.825
-        Slash: 0.825
-        Piercing: 0.775
-        Heat: 0.775
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.825
+#        Slash: 0.825
+#        Piercing: 0.775
+#        Heat: 0.775
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.9
   - type: Storage
     grid:
     - 0,0,2,1
@@ -454,39 +454,39 @@
 
 #Misfits Change /Fix/: Redirected sprite — Corvax falloutNCRveteranarmor.rsi removed (All Rights Reserved). Using _Nuclear14 NCR plate vest.
 - type: entity
-  parent: N14ClothingOuterNCRVestDesert
+  parent: [N14ClothingOuterNCRVestDesert, MisfitMediumArmorRiotAdvance]
   id: N14ClothingOuterNCRVeteranArmorDesert
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRplatevest.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRplatevest.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.75
-        Heat: 0.75
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.8
+#        Slash: 0.8
+#        Piercing: 0.75
+#        Heat: 0.75
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.9
 
 #Misfits Change /Fix/: Redirected sprite — Corvax falloutcombatveteranNCR.rsi removed (All Rights Reserved). Using _Nuclear14 NCR combat armor mk2.
 - type: entity
-  parent: N14ClothingOuterNCRCombatArmor
+  parent: [N14ClothingOuterNCRCombatArmor, MisfitMediumArmorCombatAdvance]
   id: N14ClothingOuterNCRCombatVeteranArmorDesert
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutcombatNCRmk2.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutcombatNCRmk2.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.725
-        Slash: 0.725
-        Piercing: 0.675
-        Heat: 0.675
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.725
+#        Slash: 0.725
+#        Piercing: 0.675
+#        Heat: 0.675
 
 #Misfits Change /Comment-out/: Inquisitor battle armor removed — no Inquisitor role in Misfits.
 #- type: entity
@@ -511,7 +511,7 @@
 
 #Misfits Change /Fix/: Redirected sprite — Corvax NCRMPArmorWest.rsi removed (All Rights Reserved). Using _Nuclear14 NCR vest.
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitLightArmorCombat]
   id: N14ClothingOuterNCRMPArmorWest
   components:
   - type: Sprite
@@ -520,18 +520,18 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRvest.rsi
   - type: TemperatureProtection
     coefficient: 0.2
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.8
-        Heat: 0.7
-  - type: ExplosionResistance
-    damageCoefficient: 0.8
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.8
+#        Slash: 0.8
+#        Piercing: 0.8
+#        Heat: 0.7
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.8
 
 - type: entity
-  parent: N14ClothingOuterNCRCombatArmor
+  parent: [N14FalloutArmorBase, MisfitLightArmorCombatAdvance]
   id: N14ClothingOuterRangerRedwood
   name: ranger patrol armor set "Redwood"
   description: A modified version of patrol combat armor with a dark brown leather jacket worn over it. Used by NCR rangers patrolling dense regions and mountain passes of California. The set provides good protection without restricting movement.
@@ -540,59 +540,59 @@
     sprite: Corvax/Clothing/OuterClothing/Armor/RangerJacketArmor.rsi
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/RangerJacketArmor.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.7
-    priceMultiplier: 0.6
-  - type: ExplosionResistance
-    damageCoefficient: 0.7
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.7
+#        Slash: 0.7
+#        Piercing: 0.7
+#        Heat: 0.7
+#    priceMultiplier: 0.6
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.7
 
 - type: entity
-  parent: N14ClothingOuterBase
+  parent: [N14FalloutArmorBase, MisfitLightArmorRiotElite]
   id: N14ClothingOuterRangerCoyote
   components:
   - type: Sprite
     sprite: Corvax/Clothing/OuterClothing/Armor/RangerAltArmor.rsi
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/RangerAltArmor.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
-        Heat: 0.75
-    priceMultiplier: 0.6
-  - type: ExplosionResistance
-    damageCoefficient: 0.7
-  - type: ClothingSpeedModifier
-    walkModifier: 1.05
-    sprintModifier: 1.05
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.75
+#        Slash: 0.75
+#        Piercing: 0.75
+#        Heat: 0.75
+#    priceMultiplier: 0.6
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.7
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1.05
+#    sprintModifier: 1.05
 
 - type: entity
-  parent: N14ClothingOuterBase
+  parent: [N14FalloutArmorBase, MisfitLightArmorCombatElite]
   id: N14ClothingOuterRangerScorpion
   components:
   - type: Sprite
     sprite: Corvax/Clothing/OuterClothing/Armor/RangerScorpionArmor.rsi
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/RangerScorpionArmor.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.75
-        Heat: 0.75
-        Caustic: 0.85
-        Radiation: 0.9
-    priceMultiplier: 0.6
-  - type: ExplosionResistance
-    damageCoefficient: 0.7
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.75
+#        Slash: 0.75
+#        Piercing: 0.75
+#        Heat: 0.75
+#        Caustic: 0.85
+#        Radiation: 0.9
+#    priceMultiplier: 0.6
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.7
 
 - type: entity
   parent: N14ClothingOuterNCRCombatArmor

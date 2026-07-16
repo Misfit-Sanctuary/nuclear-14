@@ -1,6 +1,6 @@
 # Cinder Cohort set.
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatElite]
   id: MisfitsCenturionCinderCohort
   name: Cinder Cohort Armor
   description: "Armor forged in the ashes of fallen legionnaires."
@@ -9,20 +9,20 @@
     sprite: _Misfits/Clothing/CaesarLegion/Centurion/Cinder_Cohort.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/CaesarLegion/Centurion/Cinder_Cohort.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.45
-        Heat: 0.45
-  - type: ExplosionResistance
-    damageCoefficient: 0.60
-  - type: StaminaDamageResistance
-    coefficient: 0.85 # 15%
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1
+#    sprintModifier: 1
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.45
+#        Slash: 0.45
+#        Piercing: 0.45
+#        Heat: 0.45
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.60
+#  - type: StaminaDamageResistance
+#    coefficient: 0.85 # 15%
 #  - type: ClothingSpecialModifier
 #    strengthModifier: 2"
 
@@ -54,7 +54,7 @@
 # Salt Column
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatElite]
   id: MisfitsCenturionSaltColumn
   name: Salt Column Armor
   description: "Armor made for the Centurion of the Salt Column."
@@ -63,20 +63,20 @@
     sprite: _Misfits/Clothing/CaesarLegion/Centurion/Salt_Column.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/CaesarLegion/Centurion/Salt_Column.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.45
-        Heat: 0.45
-  - type: ExplosionResistance
-    damageCoefficient: 0.60
-  - type: StaminaDamageResistance
-    coefficient: 0.85 # 15%
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1
+#    sprintModifier: 1
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.45
+#        Slash: 0.45
+#        Piercing: 0.45
+#        Heat: 0.45
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.60
+#  - type: StaminaDamageResistance
+#    coefficient: 0.85 # 15%
 
 - type: entity
   parent: ClothingHeadBase
@@ -106,7 +106,7 @@
 # Unbroken set
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatElite]
   id: MisfitsCenturionUnbroken
   name: Unbroken Centurion Armor
   description: "Armor for a Centurion who refuses to stay dead."
@@ -115,20 +115,20 @@
     sprite: _Misfits/Clothing/CaesarLegion/Centurion/Unbroken.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/CaesarLegion/Centurion/Unbroken.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.45
-        Heat: 0.45
-  - type: ExplosionResistance
-    damageCoefficient: 0.60
-  - type: StaminaDamageResistance
-    coefficient: 0.85 # 15%
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1
+#    sprintModifier: 1
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.45
+#        Slash: 0.45
+#        Piercing: 0.45
+#        Heat: 0.45
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.60
+#  - type: StaminaDamageResistance
+#    coefficient: 0.85 # 15%
 
 - type: entity
   parent: ClothingHeadBase
@@ -158,7 +158,7 @@
 # Warforged set
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatElite]
   id: MisfitsCenturionWarforged
   name: Warforged Centurion Armor
   description: "Armor used by Centurions who have seen countless battles, and lived to tell the tale."
@@ -167,20 +167,20 @@
     sprite: _Misfits/Clothing/CaesarLegion/Centurion/Warforged.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/CaesarLegion/Centurion/Warforged.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.45
-        Heat: 0.45
-  - type: ExplosionResistance
-    damageCoefficient: 0.60
-  - type: StaminaDamageResistance
-    coefficient: 0.85 # 15%
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1
+#    sprintModifier: 1
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.45
+#        Slash: 0.45
+#        Piercing: 0.45
+#        Heat: 0.45
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.60
+#  - type: StaminaDamageResistance
+#    coefficient: 0.85 # 15%
 
 - type: entity
   parent: ClothingHeadBase
@@ -210,7 +210,7 @@
 #Warlord set
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatElite]
   id: MisfitsCenturionWarlord
   name: Warlord Centurion Armor
   description: "Armor for a Centurion who has single handendly won wars."
@@ -219,20 +219,20 @@
     sprite: _Misfits/Clothing/CaesarLegion/Centurion/Warlord.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/CaesarLegion/Centurion/Warlord.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1
-    sprintModifier: 1
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.45
-        Heat: 0.45
-  - type: ExplosionResistance
-    damageCoefficient: 0.60
-  - type: StaminaDamageResistance
-    coefficient: 0.85 # 15%
+#  - type: ClothingSpeedModifier
+#    walkModifier: 1
+#    sprintModifier: 1
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.45
+#        Slash: 0.45
+#        Piercing: 0.45
+#        Heat: 0.45
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.60
+#  - type: StaminaDamageResistance
+#    coefficient: 0.85 # 15%
 
 - type: entity
   parent: ClothingHeadBase

@@ -5,7 +5,7 @@
 # Sprites: placeholder khansjacket.rsi until WhiteLegs-specific RSIs are sourced and converted.
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitMediumArmorEnergy]
   id: MisfitsClothingOuterWhiteLegsArmor
   name: white legs tribal armor
   description: Layered gecko hides and woven cord over a frame of yao guai bone. The White Legs mark their armor with white chalk handprints — one for each raid survived. Light enough to run in, tough enough to matter.
@@ -14,12 +14,12 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/whitelegsarmor.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/Armor/whitelegsarmor.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.88   # slightly worse than NCR Private (0.85) — hides don't stop blunt well
-        Slash: 0.80   # better than baseline (0.85) — layered gecko hide deflects blades
-        Piercing: 0.82 # near-baseline — enough to slow a bullet, not stop it
-        Heat: 0.78    # better than baseline (0.80) — treated hides insulate
-  - type: ExplosionResistance
-    damageCoefficient: 0.92 # slightly worse than NCR Private (0.90) — light armor
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.88   # slightly worse than NCR Private (0.85) — hides don't stop blunt well
+#        Slash: 0.80   # better than baseline (0.85) — layered gecko hide deflects blades
+#        Piercing: 0.82 # near-baseline — enough to slow a bullet, not stop it
+#        Heat: 0.78    # better than baseline (0.80) — treated hides insulate
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.92 # slightly worse than NCR Private (0.90) — light armor

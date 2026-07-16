@@ -47,7 +47,8 @@
         Slash: 3
         Piercing: 1
         Heat: 1
-
+  - type: StaminaDamageResistance
+    coefficient: 0.90
 - type: entity
   parent: MisfitClothArmor
   id: MisfitClothArmorCombat
@@ -132,6 +133,8 @@
         Slash: 4
         Piercing: 2
         Heat: 2
+  - type: StaminaDamageResistance
+    coefficient: 0.85
 
 - type: entity
   parent: MisfitClothArmorAdvance
@@ -222,6 +225,8 @@
         Slash: 5
         Piercing: 3
         Heat: 3
+  - type: StaminaDamageResistance
+    coefficient: 0.80
 
 - type: entity
   parent: MisfitClothArmorElite

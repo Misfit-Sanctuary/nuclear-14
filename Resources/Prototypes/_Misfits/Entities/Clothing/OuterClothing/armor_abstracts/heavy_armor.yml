@@ -50,6 +50,8 @@
         Slash: 6
         Piercing: 4
         Heat: 4
+  - type: StaminaDamageResistance
+    coefficient: 0.80
 
 - type: entity
   parent: MisfitHeavyArmor
@@ -123,7 +125,6 @@
   - type: ExplosionResistance
     damageCoefficient: 0.65
 
-
 - type: entity
   parent: MisfitHeavyArmorAdvance
   id: MisfitHeavyArmorRiotAdvance
@@ -140,6 +141,8 @@
         Slash: 7
         Piercing: 5
         Heat: 5
+  - type: StaminaDamageResistance
+    coefficient: 0.75
 
 - type: entity
   parent: MisfitHeavyArmorAdvance
@@ -213,7 +216,6 @@
   - type: ExplosionResistance
     damageCoefficient: 0.6
 
-
 - type: entity
   parent: MisfitHeavyArmorElite
   id: MisfitHeavyArmorRiotElite
@@ -230,6 +232,8 @@
         Slash: 8
         Piercing: 6
         Heat: 6
+  - type: StaminaDamageResistance
+    coefficient: 0.70
 
 - type: entity
   parent: MisfitHeavyArmorElite

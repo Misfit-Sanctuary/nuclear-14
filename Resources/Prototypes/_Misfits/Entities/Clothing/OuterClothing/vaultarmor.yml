@@ -1,7 +1,7 @@
 # #Misfits Add
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitMediumArmorCombatElite]
   id: M14ClothingOuterVaultCombatArmor
   name: vault combat armor
   description: An extremely advanced piece of combat armor manufactured with vault-tec colors, the strongest you can find in the vault
@@ -12,22 +12,22 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/vaultcombatarmor.rsi
   - type: IntegratedNightVisionArmor # #Misfits Add: Completes the vault NV set when worn with the vault combat helmet.
     setId: vault-combat
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.55
-        Heat: 0.55
-    priceMultiplier: 0.5
-  - type: ExplosionResistance
-    damageCoefficient: 0.75
-  - type: ClothingSpeedModifier # Forge-Add
-    walkModifier: 0.95
-    sprintModifier: 0.95
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.6
+#        Slash: 0.6
+#        Piercing: 0.55
+#        Heat: 0.55
+#    priceMultiplier: 0.5
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.75
+#  - type: ClothingSpeedModifier # Forge-Add
+#    walkModifier: 0.95
+#    sprintModifier: 0.95
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitMediumArmorBallisticElite]
   id: M14ClothingOuterVaultAdvancedVest
   name: advanced vault security vest
   description: An advanced ballistic vest manufactured for vault security, it restricts movement but provides great protection.
@@ -36,16 +36,16 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/advancedvaultvest.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/Armor/advancedvaultvest.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.675
-        Heat: 0.75
-    priceMultiplier: 0.5
-  - type: ClothingSpeedModifier
-    walkModifier: 0.975
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.70
+#        Slash: 0.70
+#        Piercing: 0.675
+#        Heat: 0.75
+#    priceMultiplier: 0.5
+#  - type: ClothingSpeedModifier
+#    walkModifier: 0.975
 
 - type: entity
   parent: [ClothingOuterStorageBase, ClothingOuterHardsuitBase]

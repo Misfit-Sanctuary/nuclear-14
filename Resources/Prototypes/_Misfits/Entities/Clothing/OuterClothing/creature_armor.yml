@@ -5,7 +5,7 @@
 # Sprites: TODO — source .dmi files from SS13 Big-Iron icons/clothing/suits/ and convert to RSI.
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitLightArmorElite]
   id: MisfitsClothingOuterDeathclawCloak
   name: deathclaw cloak
   description: A cloak fashioned from deathclaw hide, treated and cured by a skilled wasteland craftsman. Heavy and uncomfortable, but undeniably impressive. Pair with the matching hood for full coverage.
@@ -14,20 +14,20 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/deathclawcloak.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/Armor/deathclawcloak.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.62
-        Slash: 0.62
-        Piercing: 0.72
-        Heat: 0.62
-        Radiation: 0.82
-        Caustic: 0.82
-  - type: ExplosionResistance
-    damageCoefficient: 0.62
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.62
+#        Slash: 0.62
+#        Piercing: 0.72
+#        Heat: 0.62
+#        Radiation: 0.82
+#        Caustic: 0.82
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.62
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitMediumArmorElite]
   id: MisfitsClothingOuterRazorclawArmour
   name: razorclaw armour
   description: Armor fashioned from the hide of a particularly large and vicious deathclaw specimen — the kind that other deathclaws stepped around. Heavier than the standard cloak, with natural plate-like scales left intact.
@@ -36,22 +36,22 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/razorclawarmour.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/Armor/razorclawarmour.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 0.92
-    sprintModifier: 0.92
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.57
-        Slash: 0.57
-        Piercing: 0.67
-        Heat: 0.52
-        Caustic: 0.72
-  - type: ExplosionResistance
-    damageCoefficient: 0.52
+#  - type: ClothingSpeedModifier
+#    walkModifier: 0.92
+#    sprintModifier: 0.92
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.57
+#        Slash: 0.57
+#        Piercing: 0.67
+#        Heat: 0.52
+#        Caustic: 0.72
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.52
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitLightArmor]
   id: MisfitsClothingOuterRavenCloak
   name: raven cloak
   description: A cloak assembled from hundreds of iridescent black feathers. Offers minimal protection but is disturbingly silent to move in. Favoured by wasteland scavengers who prefer not to be noticed at all.
@@ -60,9 +60,9 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/ravencloak.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/Armor/ravencloak.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.82
-        Slash: 0.82
-        Piercing: 0.87
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.82
+#        Slash: 0.82
+#        Piercing: 0.87

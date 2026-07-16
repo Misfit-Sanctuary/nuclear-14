@@ -50,6 +50,8 @@
         Slash: 4
         Piercing: 2
         Heat: 2
+  - type: StaminaDamageResistance
+    coefficient: 0.80
 
 - type: entity
   parent: MisfitLightArmor
@@ -140,7 +142,8 @@
         Slash: 5
         Piercing: 3
         Heat: 3
-
+  - type: StaminaDamageResistance
+    coefficient: 0.75
 
 - type: entity
   parent: MisfitLightArmorAdvance
@@ -232,6 +235,8 @@
         Slash: 6
         Piercing: 4
         Heat: 4
+  - type: StaminaDamageResistance
+    coefficient: 0.70
 
 - type: entity
   parent: MisfitLightArmorElite

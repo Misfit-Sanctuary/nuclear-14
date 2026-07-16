@@ -4,7 +4,7 @@
 # Sprites: placeholder centurionheavyarmor.rsi until _Misfits RSIs are sourced and converted.
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitClothArmorRiotAdvance]
   id: MisfitsClothingOuterKhansJacket
   name: khans jacket
   description: Jackets popular with the Great Khans show off their skull emblem on the back, with small lead plate inserts providing some protection. Worn by rank-and-file Khan members.
@@ -13,17 +13,17 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/khansjacket.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/Armor/khansjacket.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.82
-        Heat: 0.87
-        Radiation: 0.72
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.75
+#        Slash: 0.75
+#        Piercing: 0.82
+#        Heat: 0.87
+#        Radiation: 0.72
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitLightArmorRiot]
   id: MisfitsClothingOuterKhansArmoredJacket
   name: khans armored jacket
   description: A Great Khans armored jacket with ceramic and metal inserts — more protection, same attitude. Standard issue for Khan enforcers looking to make a statement without slowing down.
@@ -32,17 +32,17 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/khansarmoredjacket.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/Armor/khansarmoredjacket.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.72
-        Slash: 0.72
-        Piercing: 0.82
-        Heat: 0.82
-        Radiation: 0.90
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.72
+#        Slash: 0.72
+#        Piercing: 0.82
+#        Heat: 0.82
+#        Radiation: 0.90
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitMediumArmorRiot]
   id: MisfitsClothingOuterKhanbatArmor
   name: khanbat armor
   description: Pre-war combat armor repainted in the red and black of the Great Khans. Road warrior chic — the Khan who wears this has seen enough firefights to bother upgrading.
@@ -51,15 +51,15 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/khanbatarmor.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/Armor/khanbatarmor.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 0.92
-    sprintModifier: 0.92
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.60
-        Slash: 0.60
-        Piercing: 0.68
-        Heat: 0.83
-  - type: ExplosionResistance
-    damageCoefficient: 0.75
+#  - type: ClothingSpeedModifier
+#    walkModifier: 0.92
+#    sprintModifier: 0.92
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.60
+#        Slash: 0.60
+#        Piercing: 0.68
+#        Heat: 0.83
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.75

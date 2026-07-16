@@ -49,7 +49,8 @@
         Slash: 5
         Piercing: 3
         Heat: 3
-
+  - type: StaminaDamageResistance
+    coefficient: 0.80
 
 - type: entity
   parent: MisfitMediumArmor
@@ -140,6 +141,8 @@
         Slash: 6
         Piercing: 4
         Heat: 4
+  - type: StaminaDamageResistance
+    coefficient: 0.75
 
 - type: entity
   parent: MisfitMediumArmorAdvance
@@ -230,6 +233,8 @@
         Slash: 7
         Piercing: 5
         Heat: 5
+  - type: StaminaDamageResistance
+    coefficient: 0.70
 
 - type: entity
   parent: MisfitMediumArmorElite

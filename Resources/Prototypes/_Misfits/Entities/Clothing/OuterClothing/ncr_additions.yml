@@ -4,7 +4,7 @@
 # Sprites: TODO — source or create RSI files and place in _Misfits/Clothing/OuterClothing/Armor/.
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitMediumArmorRiot]
   id: MisfitsClothingOuterNCRSalvagedMetalArmor
   name: NCR salvaged metal armor
   description: Pre-war metal armor repaired and re-issued to NCR heavy infantry. Durable if not elegant — the Republic takes what it can get after years of campaigning in the Mojave. Heavier than standard NCR vests.
@@ -13,21 +13,21 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/ncrsalvagedmetalarmor.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/Armor/ncrsalvagedmetalarmor.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 0.92
-    sprintModifier: 0.92
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.55
-        Slash: 0.60
-        Piercing: 0.68
-        Heat: 0.83
-  - type: ExplosionResistance
-    damageCoefficient: 0.78
+#  - type: ClothingSpeedModifier
+#    walkModifier: 0.92
+#    sprintModifier: 0.92
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.55
+#        Slash: 0.60
+#        Piercing: 0.68
+#        Heat: 0.83
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.78
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitLightArmor]
   id: MisfitsClothingOuterNCRFieldMedicVest
   name: NCR field medic vest
   description: A reinforced NCR medic vest with a prominent red cross emblem. Relatively light armor — the medic needs to move quickly between fallen soldiers, and bulkier protection would just slow them down.
@@ -36,15 +36,15 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/ncrfieldmedicvest.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/Armor/ncrfieldmedicvest.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.82
-        Slash: 0.82
-        Piercing: 0.82
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.82
+#        Slash: 0.82
+#        Piercing: 0.82
 
 - type: entity
-  parent: [N14FalloutArmorBase, N14ClothingOuterBase]
+  parent: [N14FalloutArmorBase, N14ClothingOuterBase, MisfitLightArmorRiot]
   id: falloutNCRmilitarypolicevest
   name: NCR Military Police Vest
   description: A vest used by the NCR Military Police.
@@ -53,60 +53,72 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRmilitarypolicevest.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRmilitarypolicevest.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.80
-        Slash: 0.80
-        Piercing: 0.85
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.80
+#        Slash: 0.80
+#        Piercing: 0.85
 
 - type: entity
-  parent: falloutNCRmilitarypolicevest
+  parent: [N14FalloutArmorBase, MisfitLightArmorRiotAdvance]
   id: MisfitsNCRMPRecruitArmor
   name: NCR military police recruit armor
   description: Reinforced NCR Military Police armor issued to recruits for base defense and riot control.
   components:
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.75
-        Slash: 0.75
-        Piercing: 0.70
-        Heat: 0.70
-    priceMultiplier: 0.6
-  - type: ExplosionResistance
-    damageCoefficient: 0.80
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRmilitarypolicevest.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRmilitarypolicevest.rsi
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.75
+#        Slash: 0.75
+#        Piercing: 0.70
+#        Heat: 0.70
+#    priceMultiplier: 0.6
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.80
 
 - type: entity
-  parent: falloutNCRmilitarypolicevest
+  parent: [N14FalloutArmorBase, MisfitLightArmorCombatAdvance]
   id: MisfitsNCRMPCombatArmor
   name: NCR military police combat armor
   description: Reinforced NCR Military Police armor for base defense and riot control.
   components:
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.65
-        Heat: 0.65
-    priceMultiplier: 0.6
-  - type: ExplosionResistance
-    damageCoefficient: 0.75
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRmilitarypolicevest.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRmilitarypolicevest.rsi
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.70
+#        Slash: 0.70
+#        Piercing: 0.65
+#        Heat: 0.65
+#    priceMultiplier: 0.6
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.75
 
 - type: entity
-  parent: falloutNCRmilitarypolicevest
+  parent: [N14FalloutArmorBase, MisfitLightArmorRiotElite]
   id: MisfitsNCRMPLieutenantArmor
   name: NCR military police lieutenant armor
   description: Command-grade NCR Military Police armor issued to First Lieutenants.
   components:
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.60
-        Heat: 0.60
-    priceMultiplier: 0.7
-  - type: ExplosionResistance
-    damageCoefficient: 0.70
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRmilitarypolicevest.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutNCRmilitarypolicevest.rsi
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Blunt: 0.65
+#        Slash: 0.65
+#        Piercing: 0.60
+#        Heat: 0.60
+#    priceMultiplier: 0.7
+#  - type: ExplosionResistance
+#    damageCoefficient: 0.70
