@@ -92,10 +92,7 @@
         Piercing: 0.65
         Heat: 0.45
       flatReductions:
-        Blunt: 3
-        Slash: 3
-        Piercing: 3
-        Heat: 7
+        Heat: 5
 
 # Advance
 
@@ -149,10 +146,10 @@
         Piercing: 0.45
         Heat: 0.45
       flatReductions:
-        Blunt: 5
-        Slash: 5
-        Piercing: 1
-        Heat: 1
+        Blunt: 1
+        Slash: 1
+        Piercing: 5
+        Heat: 5
 
 - type: entity
   parent: MisfitHeavyArmorAdvance
