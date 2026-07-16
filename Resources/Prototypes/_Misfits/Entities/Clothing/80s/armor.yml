@@ -1,5 +1,5 @@
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitLightArmor]
   id: MisfitsClothingOuterEightiesArmor
   name: eighties roadsign armor
   description: Roadsign plates from Interstate 80 bolted onto a leather harness. The "80" on the backplate is worn but legible — the tribe's namesake and calling card. Crude but effective against blades and bullets alike.
@@ -8,18 +8,18 @@
     sprite: _Misfits/Clothing/80s/OuterClothing/eightiesarmor.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/80s/OuterClothing/eightiesarmor.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.80   # slightly better than NCR Private (0.85) — metal plates absorb impact
-        Slash: 0.82   # near-baseline — metal edges still deflect cuts
-        Piercing: 0.78 # slightly better than baseline (0.80) — layered roadsign metal
-        Heat: 0.85    # slightly worse than baseline (0.80) — metal conducts heat
-  - type: ExplosionResistance
-    damageCoefficient: 0.88 # near NCR Private baseline (0.90) — bulky metal helps slightly
+  # - type: Armor
+  #   modifiers:
+  #     coefficients:
+  #       Blunt: 0.80   # slightly better than NCR Private (0.85) — metal plates absorb impact
+  #       Slash: 0.82   # near-baseline — metal edges still deflect cuts
+  #       Piercing: 0.78 # slightly better than baseline (0.80) — layered roadsign metal
+  #       Heat: 0.85    # slightly worse than baseline (0.80) — metal conducts heat
+  # - type: ExplosionResistance
+  #   damageCoefficient: 0.88 # near NCR Private baseline (0.90) — bulky metal helps slightly
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitLightArmor]
   id: MisfitsClothingOuterEightiesArmorHeavy
   name: eighties roadsign scavenged armor
   description: Roadsign plates from Interstate 80 bolted onto a leather harness. The "80" on the backplate is worn but legible — the tribe's namesake and calling card. Crude but effective against blades and bullets alike.
@@ -28,18 +28,18 @@
     sprite: _Misfits/Clothing/80s/OuterClothing/80signarmorgreen.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/80s/OuterClothing/80signarmorgreen.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.80   # slightly better than NCR Private (0.85) — metal plates absorb impact
-        Slash: 0.82   # near-baseline — metal edges still deflect cuts
-        Piercing: 0.78 # slightly better than baseline (0.80) — layered roadsign metal
-        Heat: 0.85    # slightly worse than baseline (0.80) — metal conducts heat
-  - type: ExplosionResistance
-    damageCoefficient: 0.88 # near NCR Private baseline (0.90) — bulky metal helps slightly
+  # - type: Armor
+  #   modifiers:
+  #     coefficients:
+  #       Blunt: 0.80   # slightly better than NCR Private (0.85) — metal plates absorb impact
+  #       Slash: 0.82   # near-baseline — metal edges still deflect cuts
+  #       Piercing: 0.78 # slightly better than baseline (0.80) — layered roadsign metal
+  #       Heat: 0.85    # slightly worse than baseline (0.80) — metal conducts heat
+  # - type: ExplosionResistance
+  #   damageCoefficient: 0.88 # near NCR Private baseline (0.90) — bulky metal helps slightly
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitMediumArmor]
   id: MisfitsClothingOuterEightiesArmorHeavyElite
   name: eighties roadsign scavenged elite armor
   description: Roadsign plates from Interstate 80 bolted onto a leather harness. The "80" on the backplate is worn but legible — the tribe's namesake and calling card. Crude but effective against blades and bullets alike.
@@ -48,18 +48,18 @@
     sprite: _Misfits/Clothing/80s/OuterClothing/80signarmorgreenvariant.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/80s/OuterClothing/80signarmorgreenvariant.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.80   # slightly better than NCR Private (0.85) — metal plates absorb impact
-        Slash: 0.82   # near-baseline — metal edges still deflect cuts
-        Piercing: 0.78 # slightly better than baseline (0.80) — layered roadsign metal
-        Heat: 0.85    # slightly worse than baseline (0.80) — metal conducts heat
-  - type: ExplosionResistance
-    damageCoefficient: 0.88 # near NCR Private baseline (0.90) — bulky metal helps slightly
+  # - type: Armor
+  #   modifiers:
+  #     coefficients:
+  #       Blunt: 0.80   # slightly better than NCR Private (0.85) — metal plates absorb impact
+  #       Slash: 0.82   # near-baseline — metal edges still deflect cuts
+  #       Piercing: 0.78 # slightly better than baseline (0.80) — layered roadsign metal
+  #       Heat: 0.85    # slightly worse than baseline (0.80) — metal conducts heat
+  # - type: ExplosionResistance
+  #   damageCoefficient: 0.88 # near NCR Private baseline (0.90) — bulky metal helps slightly
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitHeavyArmor]
   id: MisfitsClothingOuterEightiesArmorHeavyBoss
   name: eighties roadsign boss armor
   description: Roadsign plates from Interstate 80 bolted onto a leather harness. The "80" on the backplate is worn but legible — the tribe's namesake and calling card. Crude but effective against blades and bullets alike.
@@ -68,18 +68,18 @@
     sprite: _Misfits/Clothing/80s/OuterClothing/80signarmor.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/80s/OuterClothing/80signarmor.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.80   # slightly better than NCR Private (0.85) — metal plates absorb impact
-        Slash: 0.82   # near-baseline — metal edges still deflect cuts
-        Piercing: 0.78 # slightly better than baseline (0.80) — layered roadsign metal
-        Heat: 0.85    # slightly worse than baseline (0.80) — metal conducts heat
-  - type: ExplosionResistance
-    damageCoefficient: 0.88 # near NCR Private baseline (0.90) — bulky metal helps slightly
+  # - type: Armor
+  #   modifiers:
+  #     coefficients:
+  #       Blunt: 0.80   # slightly better than NCR Private (0.85) — metal plates absorb impact
+  #       Slash: 0.82   # near-baseline — metal edges still deflect cuts
+  #       Piercing: 0.78 # slightly better than baseline (0.80) — layered roadsign metal
+  #       Heat: 0.85    # slightly worse than baseline (0.80) — metal conducts heat
+  # - type: ExplosionResistance
+  #   damageCoefficient: 0.88 # near NCR Private baseline (0.90) — bulky metal helps slightly
 
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitLightArmorElite]
   id: MisfitsClothingOuterTheBlockArmor
   name: The Block Armor
   description: A jacket with some steel street sign plates attached.
@@ -88,10 +88,10 @@
     sprite: _Misfits/Clothing/80s/OuterClothing/theblockarmor.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/80s/OuterClothing/theblockarmor.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.45
-        Heat: 0.45
+  # - type: Armor
+  #   modifiers:
+  #     coefficients:
+  #       Blunt: 0.45
+  #       Slash: 0.45
+  #       Piercing: 0.45
+  #       Heat: 0.45

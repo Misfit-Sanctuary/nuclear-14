@@ -724,7 +724,7 @@
 #MARK: NCR
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitClothArmorBallistic]
+  parent: [N14FalloutArmorBase, MisfitClothArmorBallisticAdvance]
   id: N14ClothingOuterNCRVestSnow
   name: snow leather NCR vest
   description: A light ballistic plate inside a leather vest, cheap and easy to mass produce, perfect armor for light infantry. This one is covered in snow-white camo.
@@ -745,7 +745,7 @@
 #    damageCoefficient: 0.9
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitClothArmorBallistic]
+  parent: [N14FalloutArmorBase, MisfitClothArmorBallisticAdvance]
   id: N14ClothingOuterNCRVestWoods
   name: woods leather NCR vest
   description: A light ballistic plate inside a leather vest, cheap and easy to mass produce, perfect armor for light infantry. This one is covered in green camo.
@@ -766,7 +766,7 @@
 #    damageCoefficient: 0.9
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitClothArmorBallistic]
+  parent: [N14FalloutArmorBase, MisfitClothArmorBallisticAdvance]
   id: N14ClothingOuterNCRVestDesert
   name: desert leather NCR vest
   description: A light ballistic plate inside a leather vest, cheap and easy to mass produce, perfect armor for light infantry. This one is covered in classic desert camo.
@@ -787,7 +787,7 @@
 #    damageCoefficient: 0.9
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitLightArmorBallistic]
+  parent: [N14FalloutArmorBase, MisfitLightArmorBallisticAdvance]
   id: N14ClothingOuterNCRVestCoatBlack
   name: infiltrator NCR coat
   description: A light ballistic plate inside a leather vest over a long coat. This one is covered in black camo for night operations.
@@ -865,7 +865,7 @@
 #    sprintModifier: 0.95
 
 - type: entity
-  parent: [N14ClothingOuterBase, MisfitClothArmorBallistic]
+  parent: [N14ClothingOuterBase, MisfitClothArmorBallisticAdvance]
   id: N14ClothingOuterNCRPouchedVestWoods
   name: pouched leather NCR vest
   description: A leather vest with a light ballistic plate inside, this vest comes with a pack of pouches to hold any kind of things. It's uncomfy to move with it.
@@ -889,7 +889,7 @@
 #    sprintModifier: 0.95
 
 - type: entity
-  parent: [N14ClothingOuterBase, MisfitClothArmorBallistic]
+  parent: [N14ClothingOuterBase, MisfitClothArmorBallisticAdvance]
   id: N14ClothingOuterNCRPouchedVestDesert
   name: pouched leather NCR vest
   description: A leather vest with a light ballistic plate inside, this vest comes with a pack of pouches to hold any kind of things. It's uncomfy to move with it.
@@ -913,7 +913,7 @@
 #    sprintModifier: 0.95
 
 - type: entity
-  parent: [N14ClothingOuterBase, MisfitClothArmorBallistic]
+  parent: [N14ClothingOuterBase, MisfitClothArmorBallisticAdvance]
   id: N14ClothingOuterNCRPouchedVestSnow
   name: pouched leather NCR vest
   description: A leather vest with a light ballistic plate inside, this vest comes with a pack of pouches to hold any kind of things. It's uncomfy to move with it.
@@ -936,7 +936,7 @@
 #    sprintModifier: 0.95
 
 - type: entity
-  parent: [N14ClothingOuterBase, MisfitClothArmorBallistic]
+  parent: [N14ClothingOuterBase, MisfitClothArmorBallisticAdvance]
   id: N14ClothingOuterNCRLightPouchedVest
   name: light pouched leather NCR vest
   description: A hardened leather vest with a light ballistic plate inside, this vest comes with a pack of pouches to hold any kind of things.
@@ -979,7 +979,7 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutcombatNCRmk2.rsi
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitClothArmorBallistic]
+  parent: [N14FalloutArmorBase, MisfitClothArmorBallisticAdvance]
   id: N14ClothingOuterNCRCFvest
   name: NCR CF ballistic vest
   description: A light ballistic plate inside a nylon vest. This one is in the colors of NCR Correctional Facility staff.
@@ -1732,7 +1732,7 @@
     price: 20
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitClothArmorBallistic]
+  parent: [N14FalloutArmorBase, MisfitClothArmorEnergyAdvance]
   id: N14ClothingOuterLightLeatherArmor
   name: light leather armor
   description: Your basic all leather apparel. Finely crafted from tanned brahmin hide.
@@ -1752,7 +1752,7 @@
 #    damageCoefficient: 0.80
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitLightArmorEnergy]
+  parent: [N14FalloutArmorBase, MisfitLightArmorEnergyAdvance]
   id: N14ClothingOuterReinforcedLeatherArmor
   name: Reinforced leather armor
   description: An advanced version of the basic leather armor with extra layers of protection. Finely crafted from tanned brahmin hide.
@@ -1861,7 +1861,7 @@
 
 # random other armor
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitClothArmorBallistic]
+  parent: [N14FalloutArmorBase, MisfitClothArmorBallisticAdvance]
   id: N14ClothingOuterPressArmor
   name: prewar reporter armor
   description: An old piece of armor once used by the Free Press before the war. Though the ballistic fiber is worn, it will still offer some protection.
