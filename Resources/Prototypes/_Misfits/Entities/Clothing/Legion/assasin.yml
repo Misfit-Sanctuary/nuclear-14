@@ -1,5 +1,5 @@
 - type: entity
-  parent: N14FalloutArmorBase
+  parent: [N14FalloutArmorBase, MisfitLightArmorElite]
   id: MisfitsExplorerAssasin
   name: veteran legion explorer armor
   description: "A set of hardened and decorated armor. Issued by Legion Forgemasters to Explorers that have spent years as Caesar's eyes and ears."
@@ -8,18 +8,18 @@
     sprite: _Misfits/Clothing/CaesarLegion/assasin.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/CaesarLegion/assasin.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1.15
-    sprintModifier: 1.15
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.80
-        Slash: 0.80
-        Piercing: 0.75
-        Heat: 0.80
-  - type: ExplosionResistance
-    damageCoefficient: 0.8
+  # - type: ClothingSpeedModifier
+  #   walkModifier: 1.15
+  #   sprintModifier: 1.15
+  # - type: Armor
+  #   modifiers:
+  #     coefficients:
+  #       Blunt: 0.80
+  #       Slash: 0.80
+  #       Piercing: 0.75
+  #       Heat: 0.80
+  # - type: ExplosionResistance
+  #   damageCoefficient: 0.8
 
 - type: entity
   parent: ClothingHeadBase
