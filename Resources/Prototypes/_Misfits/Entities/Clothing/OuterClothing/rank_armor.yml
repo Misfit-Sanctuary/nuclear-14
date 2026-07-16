@@ -81,7 +81,7 @@
 
 # T5 — NCR Sergeant
 - type: entity
-  parent: [N14ClothingOuterNCRCombatArmor, MisfitHeavyArmorCombat]
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombat]
   id: MisfitsNCRHeavyCombatArmor
   name: NCR combat mantle
   description: Upgraded combat plating issued to NCR Sergeants; noticeably heavier than standard line armor.
@@ -103,7 +103,7 @@
 
 # T6 — NCR Staff Sergeant
 - type: entity
-  parent: [N14ClothingOuterNCRCombatArmor, MisfitHeavyArmorCombatAdvance]
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatAdvance]
   id: MisfitsNCREliteCombatArmor
   name: NCR elite combat mantle
   description: Elite-grade combat armor worn by NCR Staff Sergeants; the best widely-issued plating in the Republic's arsenal.
@@ -125,7 +125,7 @@
 
 # T7 — NCR First Sergeant
 - type: entity
-  parent: [N14ClothingOuterNCRCombatArmor, MisfitMediumArmorCombatAdvance]
+  parent: [N14FalloutArmorBase, MisfitMediumArmorCombatAdvance]
   id: MisfitsNCRCommandArmor
   name: NCR command mantle
   description: Command-grade armor reserved for NCR First Sergeants; the pinnacle of standard Republic military equipment.
@@ -151,7 +151,7 @@
 
 # T3 — Warrior Legionnaire
 - type: entity
-  parent: [N14ClothingOuterLegionnaireBaseArmor, MisfitMediumArmorCombatAdvance]
+  parent: [N14FalloutArmorBase, MisfitMediumArmorCombatAdvance]
   id: MisfitsLegionWarriorArmor
   name: legionnaire warrior armor
   description: Hardened Legionnaire armor pieced together from the most battle-proven components; a step above recruit kit.
@@ -168,7 +168,7 @@
 
 # T6 — Prime Decanus
 - type: entity
-  parent: [N14ClothingOuterDeanLegionnairePrimeArmor, MisfitHeavyArmorCombatAdvance]
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatAdvance]
   id: MisfitsLegionPrimeDecanusArmor
   name: prime decanus armor
   description: Reinforced Decanus armor bearing the insignia of a Prime Decanus; it has refined craftsmanship compared to a regular Decanus' armor.
@@ -189,7 +189,7 @@
 
 # T7 — Veteran Decanus
 - type: entity
-  parent: [N14ClothingOuterDeanLegionnaireVeteranArmor, MisfitHeavyArmorCombatAdvance]
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatAdvance]
   id: MisfitsLegionVeteranDecanusArmor
   name: veteran decanus armor
   description: The finest Legion field armor, worn only by a Veteran Decanus who has led countless soldiers into battle.
@@ -214,7 +214,7 @@
 
 # T2 — Squire (lighter than Midwest armor; Squires are still in training)
 - type: entity
-  parent: [N14ClothingOuterMidwestArmor, MisfitLightArmorCombatAdvance]
+  parent: [N14FalloutArmorBase, MisfitLightArmorCombatAdvance]
   id: MisfitsBoSSquireArmor
   name: Brotherhood squire armor
   description: Light Brotherhood-issue armor worn by Squires; sturdy enough for patrol duty but not yet the full combat kit of a Knight.
@@ -232,7 +232,7 @@
 
 # T4 — Knight (equivalent to NCR Specialist / Legion Veteran Legionnaire)
 - type: entity
-  parent: [N14ClothingOuterCombatArmorBOSMK2, MisfitMediumArmorCombatAdvance]
+  parent: [N14FalloutArmorBase, MisfitMediumArmorCombatAdvance]
   id: MisfitsBoSKnightArmor
   name: Brotherhood knight armor
   description: Standard Brotherhood combat armor worn by Knights. Well-maintained and reliable, though not yet the heavy plating of a Paladin.
@@ -250,7 +250,7 @@
 
 # T6 — Head Knight (equivalent to NCR Staff Sergeant / Legion Prime Decanus)
 - type: entity
-  parent: [N14ClothingOuterCombatArmorCaptainBOS, MisfitHeavyArmorCombatElite]
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatElite]
   id: MisfitsBoSHeadKnightArmor
   name: Brotherhood head knight armor
   description: Elite Brotherhood armor reserved for Head Knights; layered plating that reflects years of field service and the trust of the Elder.
