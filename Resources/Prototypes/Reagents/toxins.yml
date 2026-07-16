@@ -487,6 +487,9 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
+          - !type:OrganType # Misfits Change: super mutants can stomach raw food
+            type: SuperMutant
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -497,10 +500,16 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
+          - !type:OrganType # Misfits Change: super mutants can stomach raw food
+            type: SuperMutant
+            shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:OrganType
           type: Animal
+          shouldHave: false
+        - !type:OrganType # Misfits Change: super mutants can stomach raw food
+          type: SuperMutant
           shouldHave: false
         damage:
           types:
@@ -516,6 +525,12 @@
         conditions:
         - !type:OrganType
           type: Shadowkin
+        reagent: Protein
+        amount: 0.5
+      - !type:AdjustReagent # Misfits Change: super mutants digest raw meat properly
+        conditions:
+        - !type:OrganType
+          type: SuperMutant
         reagent: Protein
         amount: 0.5
 

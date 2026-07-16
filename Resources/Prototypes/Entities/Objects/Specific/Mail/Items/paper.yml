@@ -199,15 +199,15 @@
 
 - type: entity
   id: PaperMailNFSpaceColaAd
-  name: space cola advertisement
+  name: generic cola advertisement
   categories: [ HideSpawnMenu ]
-  suffix: "space cola ad"
+  suffix: "generic cola ad"
   parent: Paper
   components:
   - type: Paper
     content: |2
 
-            [head=2]The classic taste you love, Space Cola.[/head]
+            [head=2]The classic taste you love, just without the name. Generic Cola![/head]
 
                              [head=2]Now certified lead-free.[/head]
 

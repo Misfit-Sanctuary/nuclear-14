@@ -21,6 +21,12 @@
           type: Animal
         reagent: Protein
         amount: 0.5
+      - !type:AdjustReagent # Misfits Change: super mutants digest raw meat properly
+        conditions:
+        - !type:OrganType
+          type: SuperMutant
+        reagent: Protein
+        amount: 0.5
 
 - type: reagent
   id: N14RadParticleFood

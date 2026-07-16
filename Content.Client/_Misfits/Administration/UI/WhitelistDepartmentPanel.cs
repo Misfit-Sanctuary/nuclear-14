@@ -8,7 +8,7 @@ namespace Content.Client._Misfits.Administration.UI;
 
 public sealed class WhitelistDepartmentPanel : PanelContainer
 {
-    public Action<ProtoId<JobPrototype>, bool>? OnSetJob;
+    public Action<List<ProtoId<JobPrototype>>, bool>? OnSetJobs;
 
     private readonly List<(string JobName, CheckBox CheckBox)> _jobCheckboxes = new();
 
@@ -39,11 +39,17 @@ public sealed class WhitelistDepartmentPanel : PanelContainer
 
         header.OnPressed += _ =>
         {
+            // Batch every job that actually changes into one request so the server
+            // only asks for a single blanket justification for the whole department.
+            var changedJobs = new List<ProtoId<JobPrototype>>();
             foreach (var id in department.Roles)
             {
                 if (whitelists.Contains(id) != header.Pressed)
-                    OnSetJob?.Invoke(id, header.Pressed);
+                    changedJobs.Add(id);
             }
+
+            if (changedJobs.Count > 0)
+                OnSetJobs?.Invoke(changedJobs, header.Pressed);
         };
 
         // Job checkboxes in a grid (4 columns, same as vanilla)
@@ -69,7 +75,7 @@ public sealed class WhitelistDepartmentPanel : PanelContainer
             if (!job.Whitelisted)
                 cb.Modulate = grey;
 
-            cb.OnPressed += _ => OnSetJob?.Invoke(capturedId, cb.Pressed);
+            cb.OnPressed += _ => OnSetJobs?.Invoke(new List<ProtoId<JobPrototype>> { capturedId }, cb.Pressed);
             _jobCheckboxes.Add((job.LocalizedName, cb));
             jobsGrid.AddChild(cb);
         }

@@ -43,7 +43,9 @@ using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Server.Shuttles.Components;
+using Content.Server._Misfits.Administration.MysteriousStranger; // #Misfits Add - stranger speech filtering
 using Content.Server._Misfits.Supporter; // #Misfits Add - Supporter chat integration
+using Content.Shared.Eye; // #Misfits Add - stranger speech filtering
 using Content.Shared._Misfits.Special;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Dynamics.Joints;
@@ -1077,6 +1079,19 @@ public sealed partial class ChatSystem : SharedChatSystem
 
             if (observer)
                 recipients.Add(player, new ICChatRecipientData(-1, true));
+        }
+
+        // #Misfits Add - mysterious strangers are only heard by sessions whose eye can actually see them
+        // (their target and admin observers). Covers say, whisper and emotes, which all pass through here.
+        if (HasComp<MysteriousStrangerComponent>(source))
+        {
+            foreach (var session in recipients.Keys.ToArray())
+            {
+                if (session.AttachedEntity is not { } listener
+                    || !TryComp<EyeComponent>(listener, out var listenerEye)
+                    || (listenerEye.VisibilityMask & (int) VisibilityFlags.MysteriousStranger) == 0)
+                    recipients.Remove(session);
+            }
         }
 
         RaiseLocalEvent(new ExpandICChatRecipientsEvent(source, voiceGetRange, recipients));

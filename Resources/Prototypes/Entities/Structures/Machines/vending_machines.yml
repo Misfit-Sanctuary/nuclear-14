@@ -507,8 +507,8 @@
 - type: entity
   parent: VendingMachineCola
   id: VendingMachineColaRed
-  name: Space Cola Vendor
-  description: It vends cola, in space.
+  name: Generic Cola Vendor
+  description: It vends cola, a mercenary machine with no brand loyalty.
   components:
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/cola.rsi

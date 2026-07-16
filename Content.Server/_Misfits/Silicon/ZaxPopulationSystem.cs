@@ -29,13 +29,13 @@ public sealed class ZaxPopulationSystem : EntitySystem
 
     // [Changed by MisfitsCrew/Operator] Section: live chassis accounting used by the foundry capacity rules.
     /// <summary>
-    /// [Changed by MisfitsCrew/Operator] Returns the number of active Z.A.X-linked chassis, excluding C-27s.
+    /// [Changed by MisfitsCrew/Operator] Returns the number of active non-C-27 Z.A.X NPC/ghost-role chassis.
     /// </summary>
     public int GetActiveUnitCount()
     {
         var count = 0;
-        var query = EntityQueryEnumerator<ZaxLinkedUnitComponent>();
-        while (query.MoveNext(out var uid, out _))
+        var query = EntityQueryEnumerator<ZaxLinkedUnitComponent, ZaxUnitComponent>();
+        while (query.MoveNext(out var uid, out _, out _))
         {
             if (HasComp<MisfitsC27Component>(uid) || !OccupiesSlot(uid))
                 continue;
@@ -123,7 +123,9 @@ public sealed class ZaxPopulationSystem : EntitySystem
         }
 
         c27 = prototype.HasComponent<MisfitsC27Component>();
-        unit = prototype.HasComponent<ZaxLinkedUnitComponent>() && !c27;
+        unit = prototype.HasComponent<ZaxLinkedUnitComponent>() &&
+            prototype.HasComponent<ZaxUnitComponent>() &&
+            !c27;
         return true;
     }
 

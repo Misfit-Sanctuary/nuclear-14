@@ -1,4 +1,5 @@
 // #Misfits Change - Shared state and messages for the Whitelist Search EUI
+using System.Linq;
 using Content.Shared.Eui;
 using Content.Shared.Roles;
 using Robust.Shared.Network;
@@ -92,17 +93,18 @@ public sealed class SelectPlayerMessage : EuiMessageBase
 }
 
 /// <summary>
-/// Message from client to server to set a job whitelist for the selected player.
+/// Message from client to server to set job whitelists for the selected player.
+/// Carries multiple jobs so whitelisting a whole department only needs one justification.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class SetWhitelistSearchJobMessage : EuiMessageBase
 {
-    public ProtoId<JobPrototype> Job;
+    public List<ProtoId<JobPrototype>> Jobs;
     public bool Whitelisting;
 
-    public SetWhitelistSearchJobMessage(ProtoId<JobPrototype> job, bool whitelisting)
+    public SetWhitelistSearchJobMessage(IEnumerable<ProtoId<JobPrototype>> jobs, bool whitelisting)
     {
-        Job = job;
+        Jobs = jobs.ToList();
         Whitelisting = whitelisting;
     }
 }

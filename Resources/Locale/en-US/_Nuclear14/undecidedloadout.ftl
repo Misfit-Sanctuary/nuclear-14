@@ -325,12 +325,18 @@ undecided-loadout-category-mbos-scribe-engineer-description =
 
 # Misfits Change /Tweak/: Paladin laser kit replaced with auto shotgun + laser pistol sidearm.
 # Misfits Tweak: Removed rank prefix so the kit name is role-neutral.
-undecided-loadout-category-mbos-pal-las-name = Enclave Slayer Kit
+undecided-loadout-category-mbos-pal-las-name = Close Range Kit
 undecided-loadout-category-mbos-pal-las-description =
     A cache containing belongings of a Brotherhood chapter member.
-    Includes a Plasma Cutter, 1 AEP-7,
-    4 energy cells, 1 roll of gauze, 2 stimpaks,
+    Includes 1 combat shotgun, 1 laser pistol,
+    4 energy cells, 3 shotgun magazines, 1 roll of gauze, 2 stimpaks,
     and 1 K ration MRE.
+
+undecided-loadout-category-mbos-pal-slay-name = Enclave Slayer Kit
+undecided-loadout-category-mbos-pal-slay-description =
+    A cache containing belongings of a Brotherhood chapter member.
+    Includes 1 plasma cutter, 1 laser pistol, 4 energy cells, 1 roll of gauze,
+    2 stimpaks, and 1 K ration MRE.
 
 # Misfits Tweak: Removed rank prefix so the kit name is role-neutral.
 undecided-loadout-category-mbos-pal-bal-name = Ballistic Kit

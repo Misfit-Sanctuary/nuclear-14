@@ -2811,7 +2811,7 @@ namespace Content.Client.Lobby.UI
                 <= 1 => ", low-intelligence accent",
                 >= 10 => ", solution examine on all containers, medical HUD",
                 >= 8 => ", solution scan verb",
-                >= 7 => ", hand caft workbench recipes",
+                >= 7 => ", hand craft workbench recipes",
                 _ => string.Empty,
             };
 

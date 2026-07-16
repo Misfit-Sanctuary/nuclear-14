@@ -54,7 +54,7 @@
     blockUnequipWhenAttached: true
     replaceCurrentClothing: false
     clothingPrototypes:
-      head: N14ClothingHeadHelmetPowerArmorT45BOS # #Misfits Change - BOS T45 now spawns the Brotherhood tactical-HUD helmet
+      head: N14ClothingHeadHelmetPowerArmorT45 # #Misfits Change - BOS has its own PA so not everyone gets the tacmap.
       gloves: N14ClothingPAGauntlets
       shoes: N14ClothingPABoots
       back: N14ClothingPowerSystemsBack
@@ -169,6 +169,39 @@
       back: N14ClothingPowerSystemsBack
   - type: ExplosionResistance
     damageCoefficient: 0.12 # #Misfits Tweak: T-51 blast resistance — ~14 HP at ground zero
+
+- type: entity
+  parent: N14ClothingOuterPowerArmorT45
+  id: MisfitsT45ClothingOuterPowerArmorBoS
+  name: t-45 power armor [Bos]
+  description: An old suit of T-45 Power Armor. It's amazing these still exist.
+  components:
+  - type: PowerArmorIntegrity
+    brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
+    maxIntegrity: 500
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t45.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/t45.rsi
+  - type: Armor # #Misfits Tweak: Added Heat and Piercing coefficients — pre-reduces damage before integrity absorption so PA stays above Centurion/Vet.Ranger at all integrity levels.
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.7
+        Caustic: 0.7
+        Radiation: 0.6
+  - type: UserInterface
+    interfaces:
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: N14ClothingHeadHelmetPowerArmorT45BOS
+      gloves: N14ClothingPAGauntlets
+      shoes: N14ClothingPABoots
+      back: N14ClothingPowerSystemsBack
 
 - type: entity
   parent: N14ClothingOuterPowerArmorT51

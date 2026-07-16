@@ -14,8 +14,6 @@
   - type: Icon
     sprite: _Misfits/Mobs/Species/Nightkin/parts.rsi
     state: full
-  # #Misfits Add - Innate Stealth Boy implant: toggle-able cloak with hallucination side effects.
-  - type: NightkinPassiveStealth
   # #Misfits Tweak - Nightkin are tougher than standard supermutants (200 crit / 400 dead).
   - type: MobThresholds
     thresholds:

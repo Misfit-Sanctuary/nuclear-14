@@ -20,6 +20,8 @@
   - type: Body
     prototype: N14Animal
   - type: InputMover
+  - type: ProximityNPC # Misfits fix — Didn't have comp to reduce tick load and activate ai
+                        #TODO: make every NPC inherit from same base to avoid issues in future
   - type: MobMover
   - type: NpcFactionMember
     factions:

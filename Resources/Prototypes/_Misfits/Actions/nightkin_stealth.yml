@@ -4,11 +4,12 @@
 - type: entity
   id: ActionToggleNightkinStealth
   name: Toggle Stealth Implant
-  description: Activate or deactivate your innate Stealth Boy implant to fade from sight. Extended use degrades the mind.
+  description: Activate or deactivate your innate Stealth Boy implant to fade from sight. The implant must recharge after the cloak drops. Extended use degrades the mind.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    # 2s cooldown matches the fade-out duration so rapid re-cloak is not possible.
+    # 2s so it can't be spammed mid-fade. the real recharge cooldown gets set
+    # by the system when the cloak ends
     useDelay: 2
     icon:
       sprite: _Nuclear14/Objects/Misc/pipboy.rsi

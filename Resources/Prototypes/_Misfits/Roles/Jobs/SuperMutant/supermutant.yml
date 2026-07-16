@@ -52,7 +52,7 @@
   icon: JobIconBorg
   supervisors: job-supervisors-supermutant
   canBeAntag: false
-  setPreference: false
+  setPreference: true # #Misfits Change - re-enabled, gated by the nightkin whitelist
   overrideConsoleVisibility: true
   whitelisted: true
   hideWithoutWhitelist: true
@@ -77,8 +77,7 @@
   equipment:
     jumpsuit: ClothingSuperMutantVaultSuit
     ears: MisfitsClothingHeadsetWastelandScrap
-  inhand:
-    -  MisfitsStealthBoy # # Misfits: Add - stealthboy for nightkin role on spawn
+  # #Misfits Change - removed spawn stealthboy, the implant is innate now
 - type: playTimeTracker
   id: Nightkin
 

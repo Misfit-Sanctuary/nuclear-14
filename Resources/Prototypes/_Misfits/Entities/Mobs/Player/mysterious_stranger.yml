@@ -1,0 +1,50 @@
+# #Misfits Add - admin-only "mysterious stranger": an intangible figure visible solely to its target player.
+# Spawned via the "Become Mysterious Stranger" admin verb or the mysteriousstranger command; the
+# MysteriousStrangerSystem transfers the admin's mind into it and grants the target the eye flag.
+- type: entity
+  parent: MobHuman
+  id: N14MobMysteriousStranger
+  name: mysterious stranger
+  description: A figure in a duster and fedora. You get the feeling nobody else can see them.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: Loadout
+    prototypes: [ N14MysteriousStrangerGear ]
+  # Only the MysteriousStranger visibility layer (1 << 4): PVS never sends this entity to clients
+  # whose eye mask lacks the flag, so regular players and ghosts don't even receive it.
+  - type: Visibility
+    layer: 16
+  # See the world and other strangers; no FOV cone so the controlling admin can play the scene comfortably.
+  - type: Eye
+    drawFov: false
+    visMask:
+    - Normal
+    - MysteriousStranger
+  # Incorporeal physics (copied from the Incorporeal observer base): no collisions with mobs or
+  # projectiles, walks through walls - nothing can bump into an invisible body and reveal it.
+  - type: MovementIgnoreGravity
+  - type: CanMoveInAir
+  - type: Physics
+    bodyType: KinematicController
+    bodyStatus: InAir
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 15
+        layer:
+        - GhostImpassable
+  # Understands and is understood regardless of N14 languages, so the haunting always lands.
+  - type: UniversalLanguageSpeaker
+
+- type: startingGear
+  id: N14MysteriousStrangerGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitManagerSuit
+    outerClothing: N14ClothingOuterCoatDuster
+    head: ClothingHeadHatFedoraBlack
+    shoes: ClothingShoesColorBlack

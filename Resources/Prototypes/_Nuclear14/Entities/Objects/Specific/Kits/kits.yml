@@ -1256,9 +1256,32 @@
 # MBoS Paladin Kits
 #Misfits Change /Tweak/: Replaced auto laser rifle with auto shotgun + laser pistol sidearm.
 - type: entity
-  name: BoS Paladin Enclave Slayer Kit
+  name: BoS Paladin Close Range Kit
   parent: KitBase
   id: KitMBoS_PalLas
+  description: A crate containing everything a member of the Brotherhood might need.
+  components:
+  - type: Sprite
+    state: rifleman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponShotgunAuto
+      - id: N14MagazineShotgun12
+        amount: 3
+      - id: N14WeaponLaserPistol
+      - id: N14PowerCellSmall
+        amount: 4
+      - id: N14CleanGauze10
+      - id: N14Stimpak
+        amount: 2
+      - id: N14BoxCardboardMREBoxKFilled
+
+- type: entity
+  name: BoS Paladin Enclave Slayer Kit
+  parent: KitBase
+  id: KitMBoS_PalSlay
   description: A crate containing everything a member of the Brotherhood might need.
   components:
   - type: Sprite

@@ -130,7 +130,7 @@
     possibleSets:
     - NCRA_GunnerSet
     - NCRA_GrenadierSet
-    - NCRA_SniperSet   
+    - NCRA_SniperSet
     - NCRA_StealthSet
 
 - type: entity
@@ -164,7 +164,7 @@
     - NCRA_SGTPointSet
     - NCRA_StaffSergeantLineSet
     - NCRA_FirstSergeantVeteranSet
-    
+
 - type: entity
   id: NCRfirstsergeantloadoutkits
   name: Undecided NCRA Sergeant First Class Loadout Kit
@@ -881,6 +881,16 @@
     state: rifleman
   content:
   - KitMBoS_PalLas
+
+- type: UndecidedLoadoutBackpackSet
+  id: MBoS_PalSlay_Set
+  name: undecided-loadout-category-mbos-pal-slay-name
+  description: undecided-loadout-category-mbos-pal-slay-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: rifleman
+  content:
+  - KitMBoS_PalSlay
 
 - type: UndecidedLoadoutBackpackSet
   id: MBoS_PalBal_Set

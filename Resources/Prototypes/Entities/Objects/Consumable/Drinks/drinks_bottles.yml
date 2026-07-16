@@ -213,7 +213,7 @@
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkCognacBottleFull
   name: cognac bottle
-  description: A sweet and strongly alchoholic drink, made after numerous distillations and years of maturing. You might as well not scream 'SHITCURITY' this time.
+  description: A strong and sweet booze, made after numerous distillations and years of maturing. A classy way to get drunk before you break the bottle over someone's head.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -230,8 +230,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottlePlasticBaseFull]
   id: DrinkColaBottleFull
-  name: space cola bottle
-  description: Cola. In space.
+  name: generic cola bottle
+  description: Its not Nuka Cola, but it'll do if you're thirsty.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -268,8 +268,8 @@
 - type: entity
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkGinBottleFull
-  name: Griffeater gin
-  description: A bottle of high quality gin, produced in the New London Space Station.
+  name: Griffeater Gin
+  description: A bottle of high quality gin, produced across the irradiated ocean in the ruins of another empire.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -287,7 +287,7 @@
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkGildlagerBottleFull
   name: gildlager bottle
-  description: 100 proof cinnamon schnapps, made for alcoholic teen girls on spring break.
+  description: 100 proof cinnamon schnapps, they don't make this anymore. Maybe its a good thing they don't.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -345,7 +345,7 @@
   parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
   id: DrinkPatronBottleFull
   name: wrapp artiste patron bottle
-  description: Silver laced tequilla, served in space night clubs across the galaxy.
+  description: Silver laced tequilla, served in night clubs across the country before the collapse of the Old World.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -620,7 +620,7 @@
   parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkWaterBottleFull
   name: water bottle
-  description: Simple clean water of unknown origin. You think that maybe you dont want to know it.
+  description: Simple clean water of unknown origin. You think that maybe you don't want to know it.
   components:
   - type: Item
     size: Small
@@ -946,7 +946,7 @@
   parent: DrinkBottlePlasticBaseFull
   id: DrinkEnergyDrinkJug
   name: red bool jug
-  description: A jug of Red Bool, with enough caffine to kill a whole station.
+  description: A jug of Red Bool, with enough caffine to kill a whole settlement.
   components:
   - type: SolutionContainerManager
     solutions:

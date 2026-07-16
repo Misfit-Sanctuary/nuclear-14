@@ -274,6 +274,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Misfits Change: super mutants can eat brains without harm
+          type: SuperMutant
+          shouldHave: false
         damage:
           types:
             Cellular: 2

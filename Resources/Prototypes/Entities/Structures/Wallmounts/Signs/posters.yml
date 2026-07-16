@@ -404,8 +404,8 @@
 - type: entity
   parent: PosterBase
   id: PosterContrabandSpaceCola
-  name: "Space Cola"
-  description: "Your favorite cola, in space."
+  name: "Generic Cola"
+  description: "Want a break from the brands? Try Generic Cola, made in the same factories as the other brands, but without the name at the same price!"
   components:
   - type: Sprite
     state: poster41_contraband
@@ -590,7 +590,7 @@
   components:
     - type: Sprite
       state: poster62_contraband
-      
+
 - type: entity
   parent: PosterBase
   id: PosterContrabandMissingSpacepen
@@ -955,7 +955,7 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitAnatomyPoster
-  name: "Anatomy of a spessman"
+  name: "Anatomy of a Man"
   description: "A poster showing the bits and bobs that makes you... you!"
   components:
   - type: Sprite

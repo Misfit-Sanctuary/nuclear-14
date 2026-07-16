@@ -1778,20 +1778,6 @@
   items:
     - N14TribalSword
 
-
-- type: loadout
-  id: N14LongSwordBoS
-  category: Weapons
-  cost: 2
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutMelee
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - BrotherhoodOfSteel # Longsword with the medieval themed faction
-  items:
-    - N14LongSword
-
 - type: loadout
   id: N14GladiusLegion
   category: Weapons
@@ -1805,7 +1791,6 @@
   items:
     - N14Gladius
 
-
 - type: loadout
   id: N14LongSword
   category: Weapons
@@ -1813,10 +1798,6 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutMelee
-    - !type:CharacterDepartmentRequirement
-      inverted: true
-      departments:
-        - BrotherhoodOfSteel
   items:
     - N14LongSword
 

@@ -79,7 +79,7 @@ public sealed class WhitelistSearchEui : BaseEui
                     await HandleSelectPlayer(select.PlayerId);
                     break;
                 case SetWhitelistSearchJobMessage setJob:
-                    HandleSetJob(setJob.Job, setJob.Whitelisting);
+                    HandleSetJobs(setJob.Jobs, setJob.Whitelisting);
                     break;
             }
         }
@@ -137,34 +137,44 @@ public sealed class WhitelistSearchEui : BaseEui
         StateDirty();
     }
 
-    private void HandleSetJob(ProtoId<JobPrototype> job, bool whitelisting)
+    private void HandleSetJobs(List<ProtoId<JobPrototype>> jobs, bool whitelisting)
     {
         if (_selectedPlayerId == null || _whitelists == null)
             return;
 
-        if (!_proto.HasIndex<JobPrototype>(job))
+        var validJobs = jobs
+            .Where(job => _proto.HasIndex<JobPrototype>(job))
+            .Distinct()
+            .ToList();
+
+        if (validJobs.Count == 0)
             return;
 
         if (whitelisting)
         {
-            PromptWhitelistGrant(job);
+            PromptWhitelistGrant(validJobs);
         }
         else
         {
-            _jobWhitelist.RemoveWhitelist(_selectedPlayerId.Value, job);
-            _whitelists.Remove(job);
-            _sawmill.Info($"{Player.Name} ({Player.UserId}) removed whitelist for {job} from player {_selectedPlayerName} ({_selectedPlayerId.Value.UserId})");
+            foreach (var job in validJobs)
+            {
+                _jobWhitelist.RemoveWhitelist(_selectedPlayerId.Value, job);
+                _whitelists.Remove(job);
+            }
+
+            var removedJobs = string.Join(", ", validJobs);
+            _sawmill.Info($"{Player.Name} ({Player.UserId}) removed job whitelist(s) [{removedJobs}] from player {_selectedPlayerName} ({_selectedPlayerId.Value.UserId})");
             _entManager.System<WhitelistLogSystem>().AddEntry(
                 "Removed",
                 Player.Name,
                 _selectedPlayerName ?? _selectedPlayerId.Value.ToString(),
-                job.ToString());
+                removedJobs);
         }
 
         StateDirty();
     }
 
-    private void PromptWhitelistGrant(ProtoId<JobPrototype> job)
+    private void PromptWhitelistGrant(List<ProtoId<JobPrototype>> jobs)
     {
         _entManager.System<QuickDialogSystem>().OpenDialog<string, string, string>(
             Player,
@@ -186,41 +196,50 @@ public sealed class WhitelistSearchEui : BaseEui
                 {
                     _chat.DispatchServerMessage(Player, "Reason, Discord username, and YES or NO for application are all required.");
                     StateDirty();
-                    PromptWhitelistGrant(job);
+                    PromptWhitelistGrant(jobs);
                     return;
                 }
 
-                ApplyWhitelistGrant(job, reason, discordUsername, wasApplication.Value);
+                ApplyWhitelistGrant(jobs, reason, discordUsername, wasApplication.Value);
             },
             () => StateDirty());
     }
 
-    private void ApplyWhitelistGrant(ProtoId<JobPrototype> job, string reason, string discordUsername, bool wasApplication)
+    private void ApplyWhitelistGrant(List<ProtoId<JobPrototype>> jobs, string reason, string discordUsername, bool wasApplication)
     {
         if (_selectedPlayerId == null || _whitelists == null || _selectedPlayerName == null)
             return;
 
-        if (_whitelists.Contains(job))
+        var addedJobs = new List<ProtoId<JobPrototype>>();
+        foreach (var job in jobs)
+        {
+            if (_whitelists.Contains(job))
+                continue;
+
+            _jobWhitelist.AddWhitelist(_selectedPlayerId.Value, job);
+            _whitelists.Add(job);
+            addedJobs.Add(job);
+        }
+
+        if (addedJobs.Count == 0)
         {
             StateDirty();
             return;
         }
 
-        _jobWhitelist.AddWhitelist(_selectedPlayerId.Value, job);
-        _whitelists.Add(job);
-
+        var jobList = string.Join(", ", addedJobs);
         var applicationText = wasApplication ? "Yes" : "No";
 
         _sawmill.Info(
-            $"{Player.Name} ({Player.UserId}) added whitelist for {job} to player {_selectedPlayerName} ({_selectedPlayerId.Value.UserId}) | reason={reason} | was_application={applicationText} | discord={discordUsername}");
+            $"{Player.Name} ({Player.UserId}) added job whitelist(s) [{jobList}] to player {_selectedPlayerName} ({_selectedPlayerId.Value.UserId}) | reason={reason} | was_application={applicationText} | discord={discordUsername}");
 
         _adminLog.Add(
             LogType.AdminMessage,
             LogImpact.Medium,
-            $"{Player:actor} granted job whitelist [{job}] to {_selectedPlayerName:subject}. Reason: {reason}. Was application: {applicationText}. Discord: {discordUsername}");
+            $"{Player:actor} granted job whitelist(s) [{jobList}] to {_selectedPlayerName:subject}. Reason: {reason}. Was application: {applicationText}. Discord: {discordUsername}");
 
         var adminNotice =
-            $"Admin {Player.Name} has given {_selectedPlayerName} job whitelist(s) for {job}. Reason: {reason}. Was application: {applicationText}. Discord: {discordUsername}.";
+            $"Admin {Player.Name} has given {_selectedPlayerName} job whitelist(s) for {jobList}. Reason: {reason}. Was application: {applicationText}. Discord: {discordUsername}.";
 
         _chat.SendAdminAnnouncement(adminNotice);
         _mommi.SendAdminChatMessage(Player.Name, adminNotice);
@@ -228,7 +247,7 @@ public sealed class WhitelistSearchEui : BaseEui
             "Granted",
             Player.Name,
             _selectedPlayerName,
-            job.ToString(),
+            jobList,
             reason,
             discordUsername,
             applicationText);

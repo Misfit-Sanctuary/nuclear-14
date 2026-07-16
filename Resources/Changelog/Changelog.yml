@@ -8931,3 +8931,66 @@ Entries:
   id: 6218
   time: '2026-07-13T02:02:57.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1011
+- author: Operator
+  changes:
+    - type: Fix
+      message: >-
+        Z.A.X Pop cap uses ZaxUnit comps instead of the other, broader ones.
+        Meaning players arent counted. The C-27 cap remains unaffected. 
+  id: 6219
+  time: '2026-07-14T01:53:41.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1012
+- author: aftemath434
+  changes:
+    - type: Tweak
+      message: >-
+        Nightkin Rework such as Stealth needs a 30 second recharge after turning
+        off/ Standing still while cloaked = fully invisible; moving = faint
+        shimmer / Better with guns much tighter aim, less recoil, no slowdown
+        holding rifles / The role can now be picked by people with the Nightkin
+        whitelist /  No more spare Stealth Boy item on spawn (the implant is
+        built in)
+  id: 6220
+  time: '2026-07-14T01:58:56.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1014
+- author: Bradysgaming
+  changes:
+    - type: Tweak
+      message: Locked Plasma cutter to Head Paladin (As intended)
+    - type: Tweak
+      message: Removed faction lock for longsword in loadout
+  id: 6221
+  time: '2026-07-14T02:10:52.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1015
+- author: JohnKieser
+  changes:
+    - type: Add
+      message: 'Livestock animals have 6x more blood than the average fleshy '
+  id: 6222
+  time: '2026-07-14T20:16:48.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1022
+- author: Bradysgaming
+  changes:
+    - type: Fix
+      message: Fixed Every t-45 having bos tacmap
+  id: 6223
+  time: '2026-07-14T20:25:26.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1023
+- author: Squagg
+  changes:
+    - type: Tweak
+      message: >-
+        Super mutants can now safely eat raw meat, organs, and brains, and gain
+        nutrition from them.
+  id: 6224
+  time: '2026-07-14T22:41:18.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1024
+- author: John-Dang
+  changes:
+    - type: Add
+      message: >-
+        Added new descriptions for the shopkeeper quests and a few items, like
+        space cola now being generic cola!
+  id: 6225
+  time: '2026-07-16T22:09:57.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1033

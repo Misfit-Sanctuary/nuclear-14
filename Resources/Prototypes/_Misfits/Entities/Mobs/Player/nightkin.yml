@@ -1,4 +1,5 @@
 # #Misfits Add - Player-controlled Nightkin entity.
+# perks go here and not on the base mob so NPC nightkin don't get them
 
 - type: entity
   save: false
@@ -9,3 +10,12 @@
     - type: NpcFactionMember
       factions:
       - Wastelander
+    # #Misfits Add - innate stealth boy implant. cooldown = recharge after decloak,
+    # stillVisibility -1 = fully invisible while standing still (moving shows the shimmer)
+    - type: NightkinPassiveStealth
+      cooldown: 30
+      stillVisibility: -1
+    # #Misfits Add - steadier with guns, big frame soaks the recoil
+    - type: GunHandlingModifier
+      spreadMultiplier: 0.35
+      recoilMultiplier: 0.35

@@ -82,8 +82,8 @@
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkColaCan
-  name: space cola
-  description: A refreshing beverage.
+  name: generic cola
+  description: A refreshing beverage, just without the brand label. Can you dare to stomach it?
   components:
   - type: SolutionContainerManager
     solutions:

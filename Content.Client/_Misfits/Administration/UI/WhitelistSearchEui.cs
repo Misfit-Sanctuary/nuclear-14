@@ -15,7 +15,7 @@ public sealed class WhitelistSearchEui : BaseEui
         _window.OnClose += () => SendMessage(new CloseEuiMessage());
         _window.OnSearch += query => SendMessage(new SearchPlayersMessage(query));
         _window.OnSelectPlayer += playerId => SendMessage(new SelectPlayerMessage(playerId));
-        _window.OnSetJob += (job, whitelisting) => SendMessage(new SetWhitelistSearchJobMessage(job, whitelisting));
+        _window.OnSetJobs += (jobs, whitelisting) => SendMessage(new SetWhitelistSearchJobMessage(jobs, whitelisting));
     }
 
     public override void HandleState(EuiStateBase state)

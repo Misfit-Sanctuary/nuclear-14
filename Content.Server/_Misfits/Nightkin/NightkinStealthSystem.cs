@@ -20,7 +20,8 @@ public sealed class NightkinStealthSystem : SharedNightkinStealthSystem
             component.FadeInTime,
             component.FadeOutTime,
             component.ActivateMessage,
-            component.DeactivateMessage);
+            component.DeactivateMessage,
+            component.StillVisibility);
     }
 
     protected override void DeactivateNightkinStealth(

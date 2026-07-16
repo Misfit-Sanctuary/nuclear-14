@@ -24,9 +24,9 @@
 #    state: rifleman
 #  - type: UndecidedLoadoutBackpack
 #    possibleSets:
-#    - CommandBaseWashingtonBoSSet
-#    - CommandCasterWashingtonBoSSet
-#    - CommandWattzWashingtonBoSSet
+#    - MBoS_PalSlay_Set
+#    - MBoS_PalBal_Set
+#    - MBoS_PalSni_Set
 
 #- type: entity
 #  id: BoSBrotherhoodHeadKnightKits
@@ -86,7 +86,7 @@
     possibleSets:
     - MBoS_SKniLas_Set
     - MBoS_SKniBal_Set
-    - MBoS_Recon_Set  
+    - MBoS_Recon_Set
 
 - type: entity
   id: BoSBrotherhoodSeniorScribeKits
@@ -203,7 +203,7 @@
   - type: UndecidedLoadoutBackpack
     possibleSets:
     #- MBoS_KniLas_Set  #Misfits Tweak: AER-9 (was AER-14 PalPla)
-    - MBoS_PalLas_Set
+    - MBoS_PalSlay_Set
     #- MBoS_PalPla_Set
     - MBoS_PalBal_Set
     - MBoS_PalSni_Set  #Misfits readd by Bill: AER-9 for elites.

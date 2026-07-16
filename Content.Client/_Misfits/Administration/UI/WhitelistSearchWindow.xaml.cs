@@ -21,7 +21,7 @@ public sealed partial class WhitelistSearchWindow : FancyWindow
 
     public Action<string>? OnSearch;
     public Action<NetUserId>? OnSelectPlayer;
-    public Action<ProtoId<JobPrototype>, bool>? OnSetJob;
+    public Action<List<ProtoId<JobPrototype>>, bool>? OnSetJobs;
 
     private CancellationTokenSource? _searchDebounce;
 
@@ -136,7 +136,7 @@ public sealed partial class WhitelistSearchWindow : FancyWindow
                 continue;
 
             var panel = new WhitelistDepartmentPanel(proto, _proto, whitelists);
-            panel.OnSetJob += (id, whitelisting) => OnSetJob?.Invoke(id, whitelisting);
+            panel.OnSetJobs += (ids, whitelisting) => OnSetJobs?.Invoke(ids, whitelisting);
             if (!string.IsNullOrWhiteSpace(currentFilter))
                 panel.Filter(currentFilter);
             Departments.AddChild(panel);
