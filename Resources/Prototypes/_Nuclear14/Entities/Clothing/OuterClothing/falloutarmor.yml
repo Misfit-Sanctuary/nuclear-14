@@ -269,7 +269,7 @@
 
 - type: entity
   parent: N14ClothingOuterCombatArmorMK2
-  id: N14ClothingOuterEnclaveArmor
+  id: Armor
   name: enclave armor
   description: A suit of armor used by Enclave soldiers.
   components:
@@ -478,7 +478,7 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutraiderbadlands.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutraiderbadlands.rsi
-3  - type: Armor
+#  - type: Armor
 #    modifiers:
 #      coefficients:
 #        Blunt: 0.9
@@ -1689,7 +1689,7 @@
 #    damageCoefficient: 0.85
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitMediumArmorCombatAdvance]
+  parent: [N14FalloutArmorBase, MisfitMediumArmorAdvance]
   id: N14ClothingOuterRadArmor
   name: radscorpion armor
   description: A suit of handmade armor made of pieces of exoskeleton from radscorpions.
@@ -1774,7 +1774,7 @@
 #MARK: RCMP armors
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitLightArmorBallistic]
+  parent: [N14FalloutArmorBase, MisfitMediumArmorBallistic]
   id: N14ClothingOuterVestRCMP
   name: RCMP armored vest
   description: A bulletproof vest used by the Canadian Mounties of the RCMP.
@@ -1795,7 +1795,7 @@
 #    damageCoefficient: 0.85
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitClothArmorCombat]
+  parent: [N14FalloutArmorBase, MisfitMediumArmorCombatAdvance]
   id: N14ClothingOuterCombatArmorRCMP
   name: RCMP combat armor
   description: A suit of combat armor that's used in combat, this one is a post-war model produced by the RCMP.
@@ -1818,7 +1818,7 @@
 #MARK: Chinese renmants
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitClothArmorCombat]
+  parent: [N14FalloutArmorBase, MisfitMediumArmorCombat]
   id: N14ClothingOuterCombatArmorChinese
   name: chinese combat armor
   description: A bulletproof vest combined with knee pads, mostly used by chinese commandos and special forces.

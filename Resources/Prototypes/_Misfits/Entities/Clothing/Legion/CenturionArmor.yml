@@ -1,6 +1,6 @@
 # Cinder Cohort set.
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatElite]
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorElite]
   id: MisfitsCenturionCinderCohort
   name: Cinder Cohort Armor
   description: "Armor forged in the ashes of fallen legionnaires."
@@ -54,7 +54,7 @@
 # Salt Column
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatElite]
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorElite]
   id: MisfitsCenturionSaltColumn
   name: Salt Column Armor
   description: "Armor made for the Centurion of the Salt Column."
@@ -106,7 +106,7 @@
 # Unbroken set
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatElite]
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorElite]
   id: MisfitsCenturionUnbroken
   name: Unbroken Centurion Armor
   description: "Armor for a Centurion who refuses to stay dead."
@@ -158,7 +158,7 @@
 # Warforged set
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatElite]
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorElite]
   id: MisfitsCenturionWarforged
   name: Warforged Centurion Armor
   description: "Armor used by Centurions who have seen countless battles, and lived to tell the tale."
@@ -210,7 +210,7 @@
 #Warlord set
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatElite]
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorElite]
   id: MisfitsCenturionWarlord
   name: Warlord Centurion Armor
   description: "Armor for a Centurion who has single handendly won wars."

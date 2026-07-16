@@ -17,15 +17,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.6
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.55
       flatReductions:
-        Blunt: 5
-        Slash: 5
-        Piercing: 5
-        Heat: 5
+        Blunt: 3
+        Slash: 3
+        Piercing: 3
+        Heat: 3
   - type: ExplosionResistance
     damageCoefficient: 0.7
   - type: ClothingSpeedModifier
@@ -41,15 +41,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.55
-        Piercing: 0.65
-        Heat: 0.65
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.6
+        Heat: 0.6
       flatReductions:
-        Blunt: 6
-        Slash: 6
-        Piercing: 4
-        Heat: 4
+        Blunt: 4
+        Slash: 4
   - type: StaminaDamageResistance
     coefficient: 0.80
 
@@ -60,15 +58,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.55
-        Heat: 0.55
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.5
+        Heat: 0.5
       flatReductions:
-        Blunt: 4
-        Slash: 4
-        Piercing: 6
-        Heat: 6
+        Piercing: 4
+        Heat: 4
 
 - type: entity
   parent: MisfitHeavyArmor
@@ -77,15 +73,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.5
-        Heat: 0.7
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.45
+        Heat: 0.65
       flatReductions:
-        Blunt: 3
-        Slash: 3
-        Piercing: 7
-        Heat: 3
+        Piercing: 5
 
 - type: entity
   parent: MisfitHeavyArmor
@@ -94,10 +87,10 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.7
-        Heat: 0.5
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.45
       flatReductions:
         Blunt: 3
         Slash: 3
@@ -113,15 +106,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.55
-        Piercing: 0.55
-        Heat: 0.55
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
       flatReductions:
-        Blunt: 6
-        Slash: 6
-        Piercing: 6
-        Heat: 6
+        Blunt: 4
+        Slash: 4
+        Piercing: 4
+        Heat: 4
   - type: ExplosionResistance
     damageCoefficient: 0.65
 
@@ -132,15 +125,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.6
-        Heat: 0.6
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.55
+        Heat: 0.55
       flatReductions:
-        Blunt: 7
-        Slash: 7
-        Piercing: 5
-        Heat: 5
+        Blunt: 5
+        Slash: 5
+        Piercing: 1
+        Heat: 1
   - type: StaminaDamageResistance
     coefficient: 0.75
 
@@ -151,15 +144,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.5
-        Heat: 0.5
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.45
+        Heat: 0.45
       flatReductions:
-        Blunt: 6
-        Slash: 6
-        Piercing: 7
-        Heat: 7
+        Blunt: 5
+        Slash: 5
+        Piercing: 1
+        Heat: 1
 
 - type: entity
   parent: MisfitHeavyArmorAdvance
@@ -168,15 +161,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.45
-        Heat: 0.65
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.4
+        Heat: 0.6
       flatReductions:
-        Blunt: 4
-        Slash: 4
-        Piercing: 8
-        Heat: 4
+        Piercing: 6
 
 - type: entity
   parent: MisfitHeavyArmorAdvance
@@ -185,15 +175,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65
-        Heat: 0.45
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.4
       flatReductions:
-        Blunt: 4
-        Slash: 4
-        Piercing: 4
-        Heat: 8
+        Heat: 6
 
 # Elite
 
@@ -204,15 +191,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.5
-        Piercing: 0.5
-        Heat: 0.5
+        Blunt: 0.45
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.45
       flatReductions:
-        Blunt: 7
-        Slash: 7
-        Piercing: 7
-        Heat: 7
+        Blunt: 5
+        Slash: 5
+        Piercing: 5
+        Heat: 5
   - type: ExplosionResistance
     damageCoefficient: 0.6
 
@@ -223,15 +210,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.45
-        Slash: 0.45
-        Piercing: 0.55
-        Heat: 0.55
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.5
+        Heat: 0.5
       flatReductions:
-        Blunt: 8
-        Slash: 8
-        Piercing: 6
-        Heat: 6
+        Blunt: 6
+        Slash: 6
+        Piercing: 1
+        Heat: 1
   - type: StaminaDamageResistance
     coefficient: 0.70
 
@@ -242,15 +229,15 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.55
-        Slash: 0.55
-        Piercing: 0.45
-        Heat: 0.45
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.4
+        Heat: 0.4
       flatReductions:
-        Blunt: 6
-        Slash: 6
-        Piercing: 8
-        Heat: 8
+        Blunt: 1
+        Slash: 1
+        Piercing: 6
+        Heat: 6
 
 - type: entity
   parent: MisfitHeavyArmorElite
@@ -259,15 +246,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.4
-        Heat: 0.6
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.35
+        Heat: 0.55
       flatReductions:
-        Blunt: 5
-        Slash: 5
-        Piercing: 9
-        Heat: 5
+        Piercing: 7
 
 - type: entity
   parent: MisfitHeavyArmorElite
@@ -276,15 +260,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.6
-        Heat: 0.4
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.35
       flatReductions:
-        Blunt: 5
-        Slash: 5
-        Piercing: 5
-        Heat: 9
+        Heat: 7
 
 # Fast
 

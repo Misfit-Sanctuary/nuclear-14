@@ -21,7 +21,7 @@
 #    strengthModifier: 10
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatElite]
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorElite]
   id: N14ClothingOuterHeavyCenturionArmor
   name: centurion heavy armor
   description: "Heavy armor assembled from captured pieces of power armor of defeated enemies."
@@ -50,7 +50,7 @@
 #Misfits Add — Paladin-Slayer Centurion: specialised for engaging Brotherhood of Steel forces.
 # High laser/energy resistance from looted pre-war power armor polymer plating. Stats from SS13 Big-Iron (melee=35,bullet=50,laser=55,energy=35,bomb=35).
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitHeavyArmorEnergyElite]
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatElite]
   id: N14ClothingOuterPaladinSlayerCenturionArmor
   name: paladin-slayer centurion armor
   description: Centurion armor salvaged and modified specifically for engaging Brotherhood of Steel forces — layered with pre-war polymer plating to resist energy weapons. The face plate has BOS cross etchings scored out with a knife.
@@ -77,7 +77,7 @@
 #Misfits Add — Ranger-Hunter Centurion: specialised for engaging NCR Ranger units.
 # High bullet/fire resistance and bio protection for anti-Ranger skirmish. Stats from SS13 Big-Iron (melee=35,bullet=60,fire=80,bio=60,bomb=35).
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitHeavyArmorBallisticElite]
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatElite]
   id: N14ClothingOuterRangerHunterCenturionArmor
   name: ranger-hunter centurion armor
   description: Centurion armor field-modified to engage New California Republic Rangers — heavy ballistic inserts and fire-retardant lining fill the gaps that standard armor leaves exposed. The wearer has clearly studied NCR Ranger tactics.
@@ -105,7 +105,7 @@
   parent: [N14FalloutArmorBase, MisfitHeavyArmorCombatAdvance]
   id: N14ClothingOuterDeanLegionnaireVeteranArmor
   #Misfits Change /Fix:/ corrected malformed component list indentation.
-  name: heavy legionary armor
+  name: veteran heavy legionary armor
   description: "The heavy version of legionary armor slows down the wearer, but gives good protection from external threats."
   components:
   - type: Sprite
@@ -128,9 +128,9 @@
 #    strengthModifier: 2
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitMediumArmorCombatAdvance]
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorAdvance]
   id: N14ClothingOuterDeanLegionnairePrimeArmor
-  name: heavy legionary armor
+  name: prime heavy legionary armor
   description: "Though this heavy plate offers no added mobility, it stands as the Forgemaster's most protective suit of armor."
   components:
   - type: Sprite
@@ -150,7 +150,7 @@
 #    strengthModifier: 2
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitHeavyArmorCombat]
+  parent: [N14FalloutArmorBase, MisfitHeavyArmor]
   id: N14ClothingOuterDeanLegionnaireRecruitArmor
   name: heavy legionary armor
   description: "The heavy version of legionary armor slows down the wearer, but gives good protection from external threats."
@@ -175,7 +175,7 @@
 #    strengthModifier: 2
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitMediumArmorCombatAdvance]
+  parent: [N14FalloutArmorBase, MisfitMediumArmorAdvance]
   id: N14ClothingOuterLegionnaireVeteranArmor
   name: armor of a legionnaire-veteran
   description: "Good armor for combat, does not slow down the wearer and makes it easy to maneuver."
@@ -198,7 +198,7 @@
 #    damageCoefficient: 0.8
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitLightArmorCombatAdvance]
+  parent: [N14FalloutArmorBase, MisfitLightArmorAdvance]
   id: N14ClothingOuterLegionnaireReconnaissanceArmor
   name: reconnaissance armor
   description: "Good durable armor that does not burden movement."
@@ -221,7 +221,7 @@
 #    damageCoefficient: 0.85
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitLightArmorCombat]
+  parent: [N14FalloutArmorBase, MisfitLightArmor]
   id: N14ClothingLegionReconArmor
   name: light reconnaissance armor
   description: "Incredibly light armor with not the best protection, but you feel faster."
@@ -244,7 +244,7 @@
 #    damageCoefficient: 0.85
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitMediumArmorCombat]
+  parent: [N14FalloutArmorBase, MisfitMediumArmor]
   id: N14ClothingOuterLegionnaireBaseArmor
   name: legionnaire armor
   description: "The most standard and common armor."
@@ -267,7 +267,7 @@
 #    damageCoefficient: 0.85
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitLightArmorCombat]
+  parent: [N14FalloutArmorBase, MisfitLightArmor]
   id: N14ClothingOuterLegionnaireRecruitArmor
   name: light legionnaire armor
   description: "Not very reliable, but very light legionnaire armor."
@@ -290,7 +290,7 @@
 #    damageCoefficient: 0.95
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitMediumArmorCombatAdvance]
+  parent: [N14FalloutArmorBase, MisfitMediumArmorAdvance]
   id: N14ClothingOuterLegionnaireVexillariusArmor
   name: vexillarius armor
   description: "Reinforced armor worn by the Legion's Vexillarius standard bearer."
@@ -313,7 +313,7 @@
 #    damageCoefficient: 0.80
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitLightArmorCombatAdvance]
+  parent: [N14FalloutArmorBase, MisfitLightArmorAdvance]
   id: N14ClothingOuterLegionnaireExplorerArmor
   name: explorer armor
   description: "Light layered armor worn by Legion scouts and explorers."
@@ -336,7 +336,7 @@
 #    damageCoefficient: 0.90
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitMediumArmorCombatElite]
+  parent: [N14FalloutArmorBase, MisfitMediumArmorElite]
   id: N14ClothingOuterLegionnaireOptioArmor
   name: optio armor
   description: "Armor of a Legion Optio, styled after the praetorian guard."
@@ -360,7 +360,7 @@
 
 #Misfits Change /Uncomment/: Re-enabled BoS recon armor for new consolidated Brotherhood Scribe jobs.
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitLightArmorCombat]
+  parent: [N14FalloutArmorBase, MisfitLightArmor]
   id: NCClothingOuterBosReconArmor
   name: Brotherhood of Steel Armor
   description: The armor of the Brotherhood of Steel is sturdy and reliable. "The steel is inside! The steel is outside!"
@@ -424,7 +424,7 @@
 
 #Misfits Change /Fix/: Redirected sprite — Corvax falloutNCRpaddedwebvest.rsi removed (All Rights Reserved). Using _Nuclear14 NCR web vest.
 - type: entity
-  parent: [N14ClothingOuterNCRVestDesert, MisfitLightArmorCombat]
+  parent: [N14FalloutArmorBase, MisfitLightArmorCombat]
   id: N14ClothingOuterNCRVestpaddedWebDesert
   components:
   - type: Sprite
@@ -454,7 +454,7 @@
 
 #Misfits Change /Fix/: Redirected sprite — Corvax falloutNCRveteranarmor.rsi removed (All Rights Reserved). Using _Nuclear14 NCR plate vest.
 - type: entity
-  parent: [N14ClothingOuterNCRVestDesert, MisfitMediumArmorRiotAdvance]
+  parent: [N14FalloutArmorBase, MisfitMediumArmorRiotAdvance]
   id: N14ClothingOuterNCRVeteranArmorDesert
   components:
   - type: Sprite
@@ -473,7 +473,7 @@
 
 #Misfits Change /Fix/: Redirected sprite — Corvax falloutcombatveteranNCR.rsi removed (All Rights Reserved). Using _Nuclear14 NCR combat armor mk2.
 - type: entity
-  parent: [N14ClothingOuterNCRCombatArmor, MisfitMediumArmorCombatAdvance]
+  parent: [N14FalloutArmorBase, MisfitMediumArmorCombatAdvance]
   id: N14ClothingOuterNCRCombatVeteranArmorDesert
   components:
   - type: Sprite

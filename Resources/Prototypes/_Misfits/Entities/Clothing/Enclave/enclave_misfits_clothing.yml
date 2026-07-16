@@ -29,7 +29,7 @@
 # --- New Enclave Combat Armor ---
 # Inherits armor/explosion stats from N14ClothingOuterEnclaveArmor parent.
 - type: entity
-  parent: N14ClothingOuterEnclaveArmor
+  parent: [N14FalloutArmorBase, MisfitMediumArmorCombatAdvance]
   id: N14ClothingOuterEnclaveCombatArmor
   name: enclave combat armor (mk2)
   description: An updated suit of Enclave combat armor with reinforced plating. Heavier than the standard issue but offers better protection in the field.
