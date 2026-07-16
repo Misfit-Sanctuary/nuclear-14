@@ -1,5 +1,5 @@
 - type: entity
-  parent: N14ClothingOuterNCRCombatArmor
+  parent: [N14ClothingOuterBase, MisfitLightArmorCombatAdvance]
   id: N14ClothingOuterNCRArmoredFieldJacket
   name: NCR armored field jacket
   description: An NCR field jacket fitted with hidden armor plating.
@@ -10,7 +10,7 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutncrarmoredfieldjacket.rsi
 
 - type: entity
-  parent: N14ClothingOuterNCRCombatArmor
+  parent: [N14ClothingOuterBase, MisfitLightArmorCombatAdvance]
   id: N14ClothingOuterNCRArmoredFieldJacketLogo
   name: NCR armored field jacket
   description: An NCR field jacket fitted with hidden armor plating and a bold Republic insignia.
@@ -21,7 +21,7 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutncrarmoredfieldjacketlogo.rsi
 
 - type: entity
-  parent: N14ClothingOuterNCRCombatArmor
+  parent: [N14ClothingOuterBase, MisfitLightArmorCombat]
   id: N14ClothingOuterNCRAssaultVest
   name: NCR assault vest
   description: A sidegrade NCR combat vest set up for assault troops.
@@ -32,7 +32,7 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutncrassault.rsi
 
 - type: entity
-  parent: N14ClothingOuterNCRPouchedVestDesert
+  parent: [N14ClothingOuterBase, MisfitHeavyArmorCombat]
   id: N14ClothingOuterNCREngineerVest
   name: NCR engineer vest
   description: A sidegrade NCR armored vest for engineers and field support crews.
@@ -43,7 +43,7 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutncrengineer.rsi
 
 - type: entity
-  parent: N14ClothingOuterNCRCombatArmor
+  parent: [N14ClothingOuterBase, MisfitLightArmorCombat]
   id: N14ClothingOuterNCRFlakVest
   name: NCR flak vest
   description: A sidegrade NCR flak vest often seen on lighter patrol assignments.
@@ -54,7 +54,7 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutncrflakvest.rsi
 
 - type: entity
-  parent: N14ClothingOuterNCRCombatArmor
+  parent: [N14ClothingOuterBase, MisfitLightArmorCombat]
   id: N14ClothingOuterNCRFlakVestOpen
   name: open NCR flak vest
   description: A sidegrade NCR flak vest worn open for comfort in desert heat.
@@ -65,7 +65,7 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutncrflakvestopen.rsi
 
 - type: entity
-  parent: N14ClothingOuterNCRCombatArmor
+  parent: [N14ClothingOuterBase, MisfitLightArmorCombat]
   id: N14ClothingOuterNCRPatrolRangerArmorVariant
   name: NCR patrol ranger armor
   description: A sidegrade patrol ranger armor set with an NCR field refit.
@@ -76,7 +76,7 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutncrpatrolrangerarmor.rsi
 
 - type: entity
-  parent: N14ClothingOuterNCRVestDesert
+  parent: [N14ClothingOuterBase, MisfitLightArmor]
   id: N14ClothingOuterNCRTrenchRaider
   name: NCR trench raider vest
   description: A stripped-down NCR armored vest intended for aggressive close-range patrol work.
