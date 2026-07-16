@@ -1,5 +1,5 @@
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitLightArmor]
+  parent: [N14FalloutArmorBase, MisfitClothArmorRiotAdvance]
   id: MisfitsClothingOuterEightiesArmor
   name: eighties roadsign armor
   description: Roadsign plates from Interstate 80 bolted onto a leather harness. The "80" on the backplate is worn but legible — the tribe's namesake and calling card. Crude but effective against blades and bullets alike.
@@ -19,7 +19,7 @@
   #   damageCoefficient: 0.88 # near NCR Private baseline (0.90) — bulky metal helps slightly
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitLightArmor]
+  parent: [N14FalloutArmorBase, MisfitLightArmorRiot]
   id: MisfitsClothingOuterEightiesArmorHeavy
   name: eighties roadsign scavenged armor
   description: Roadsign plates from Interstate 80 bolted onto a leather harness. The "80" on the backplate is worn but legible — the tribe's namesake and calling card. Crude but effective against blades and bullets alike.
@@ -39,7 +39,7 @@
   #   damageCoefficient: 0.88 # near NCR Private baseline (0.90) — bulky metal helps slightly
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitMediumArmor]
+  parent: [N14FalloutArmorBase, MisfitMediumArmorRiot]
   id: MisfitsClothingOuterEightiesArmorHeavyElite
   name: eighties roadsign scavenged elite armor
   description: Roadsign plates from Interstate 80 bolted onto a leather harness. The "80" on the backplate is worn but legible — the tribe's namesake and calling card. Crude but effective against blades and bullets alike.
@@ -59,7 +59,7 @@
   #   damageCoefficient: 0.88 # near NCR Private baseline (0.90) — bulky metal helps slightly
 
 - type: entity
-  parent: [N14FalloutArmorBase, MisfitHeavyArmor]
+  parent: [N14FalloutArmorBase, MisfitHeavyArmorRiot]
   id: MisfitsClothingOuterEightiesArmorHeavyBoss
   name: eighties roadsign boss armor
   description: Roadsign plates from Interstate 80 bolted onto a leather harness. The "80" on the backplate is worn but legible — the tribe's namesake and calling card. Crude but effective against blades and bullets alike.
