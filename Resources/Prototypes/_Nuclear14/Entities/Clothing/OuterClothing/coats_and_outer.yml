@@ -948,7 +948,7 @@
 
 # Town's Guard
 - type: entity
-  parent: N14ClothingOuterBase
+  parent: [N14ClothingOuterBase, MisfitClothArmor]
   id: N14ClothingOuterTownGuardCoat
   name: the Guard's coat
   description: An old coat from a war, or a replica of one. It was designed to be highly useful with pockets and provide some protection too.
@@ -957,14 +957,14 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/towngreatcoat.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/towngreatcoat.rsi
-  - type: Armor
-    modifiers:
-     coefficients:
-        Blunt: 0.875
-        Slash: 0.875
-        Piercing: 0.9
-        Heat: 0.9
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
+  # - type: Armor
+  #   modifiers:
+  #    coefficients:
+  #       Blunt: 0.875
+  #       Slash: 0.875
+  #       Piercing: 0.9
+  #       Heat: 0.9
+  # - type: ExplosionResistance
+  #   damageCoefficient: 0.9
   - type: StaticPrice
     price: 75
