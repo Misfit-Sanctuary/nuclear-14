@@ -11,7 +11,7 @@
   requirements:
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T7 faction timelock (40h Legion)
       department: CaesarLegion
-      min: 144000 # 40 hours
+      min: 72000 # 20 hours
     - !type:CharacterPlaytimeRequirement
       tracker: CaesarLegionOptio
       min: 28800 # 8 hrs

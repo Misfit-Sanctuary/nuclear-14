@@ -26,7 +26,7 @@
     - GhoulGlowing
   - !type:CharacterDepartmentTimeRequirement
     department: Eighties
-    min: 162000 # 45 hours
+    min: 81000 # 22.5 hours
   startingGear: EightiesTheBlockGear
   alwaysUseSpawner: true
   icon: "JobIconEighties"
@@ -88,7 +88,7 @@
     - GhoulGlowing
   - !type:CharacterDepartmentTimeRequirement
     department: Eighties
-    min: 61200 # 17 hours
+    min: 30600 # 17 hours
   startingGear: EightiesCylindersGear
   alwaysUseSpawner: true
   icon: "JobIconEighties"
@@ -148,7 +148,7 @@
     - GhoulGlowing
   - !type:CharacterDepartmentTimeRequirement
     department: Eighties
-    min: 32400 # 9 hours
+    min: 16200 # 9 hours
   startingGear: EightiesPistonsGear
   alwaysUseSpawner: true
   icon: "JobIconEighties"
@@ -208,7 +208,7 @@
     - GhoulGlowing
   - !type:CharacterDepartmentTimeRequirement
     department: Eighties
-    min: 18000 # 5 hours
+    min: 9000 # 5 hours
   startingGear: EightiesOilersGear
   alwaysUseSpawner: true
   icon: "JobIconEighties"
@@ -269,7 +269,7 @@
     - GhoulGlowing
   - !type:CharacterPlaytimeRequirement
     tracker: Wastelander
-    min: 46800 # 13 hours
+    min: 23400 # 6.5 hours
   startingGear: EightiesRoadRashGear
   alwaysUseSpawner: true
   icon: "JobIconEighties"

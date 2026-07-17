@@ -11,7 +11,7 @@
   requirements:
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T4 faction timelock (12h Legion)
       department: CaesarLegion
-      min: 72000 #
+      min: 36000 #
     #- !type:CharacterPlaytimeRequirement # TEMP REMOVED
     #  tracker: CaesarLegionRecruit
     #  min: 18000 # 5 hours

@@ -1,4 +1,4 @@
-# #Misfits Add - Enclave Enlisted role (Private through Specialist).
+﻿# #Misfits Add - Enclave Enlisted role (Private through Specialist).
 
 - type: job
   id: EnclaveEnlisted
@@ -19,7 +19,7 @@
       - Ghoul
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T2 faction timelock (4h Enclave)
       department: Enclave
-      min: 14400 # 4 hours
+      min: 7200 # 2 hours
   startingGear: EnclaveEnlistedGear
   icon: "JobIconEnclaveEnlisted"
   supervisors: job-supervisors-enclave

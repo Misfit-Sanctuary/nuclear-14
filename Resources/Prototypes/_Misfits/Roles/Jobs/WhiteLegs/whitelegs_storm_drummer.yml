@@ -17,7 +17,7 @@
     - Ghoul
   - !type:CharacterDepartmentTimeRequirement
     department: WhiteLegs
-    min: 28800 # 8 hours
+    min: 14400 # 4 hours
   startingGear: WhiteLegsStormDrummerGear
   alwaysUseSpawner: true
   icon: "JobIconWhiteLegCaller"

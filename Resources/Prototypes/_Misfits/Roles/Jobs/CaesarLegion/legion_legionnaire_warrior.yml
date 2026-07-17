@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: CaesarLegionLegionnaireWarrior
   setPreference: true
   hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
@@ -10,7 +10,7 @@
   requirements:
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T3 faction timelock (8h Legion)
       department: CaesarLegion
-      min: 28800 # 8 hours
+      min: 14400 # 4 hours
     # TEMP REMOVED - !type:CharacterDepartmentTimeRequirement
     #   department: CaesarLegion
     #   min: 54000 # 15 hours

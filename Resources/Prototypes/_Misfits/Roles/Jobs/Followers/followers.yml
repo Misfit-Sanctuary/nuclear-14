@@ -40,7 +40,7 @@
     min: 36000 # 10 hours as Follower Doctor
   - !type:CharacterDepartmentTimeRequirement
     department: FollowersOfTheApocalypse
-    min: 54000 # 15 hours in faction
+    min: 27000 # 7.5 hours in faction
   - !type:CharacterSpeciesRequirement
     species:
     - Human
@@ -103,7 +103,7 @@
     min: 18000 # 5 hours as Follower Volunteer
   - !type:CharacterDepartmentTimeRequirement
     department: FollowersOfTheApocalypse
-    min: 10800 # 3 hours in faction
+    min: 5400 # 3 hours in faction
   - !type:CharacterSpeciesRequirement
     species:
     - Human
@@ -165,7 +165,7 @@
     min: 7200 # 2 hours as Follower Volunteer
   - !type:CharacterDepartmentTimeRequirement
     department: FollowersOfTheApocalypse
-    min: 10800 # 3 hours in faction
+    min: 5400 # 3 hours in faction
   - !type:CharacterSpeciesRequirement
     species:
     - Human

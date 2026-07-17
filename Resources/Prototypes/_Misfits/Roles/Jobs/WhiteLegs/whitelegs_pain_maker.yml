@@ -17,7 +17,7 @@
     - Ghoul
   - !type:CharacterDepartmentTimeRequirement
     department: WhiteLegs
-    min: 14400 # 4 hours
+    min: 7200 # 2 hours
   startingGear: WhiteLegsPainMakerGear
   alwaysUseSpawner: true
   icon: "JobIconWhiteLegTribal"

@@ -29,7 +29,7 @@
   requirements:
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T7 faction timelock (40h Rangers)
       department: Rangers
-      min: 144000 # 40 hours
+      min: 72000 # 20 hours
     - !type:CharacterSpeciesRequirement # #Misfits Change - robots, super mutants, and glowing ghouls cannot be Rangers
       species:
       - Human

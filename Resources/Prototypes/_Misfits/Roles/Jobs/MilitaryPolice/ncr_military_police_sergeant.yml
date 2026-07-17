@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: NCRMilitaryPoliceSergeant
   setPreference: true # #Misfits Tweak - visible in job selection
   hideWithoutJobWhitelist: false # #Misfits Tweak - visible in all menus
@@ -17,7 +17,7 @@
       - Ghoul
     - !type:CharacterDepartmentTimeRequirement
       department: MilitaryPolice
-      min: 72000 # 10 hours
+      min: 18000 # 5 hours
   weight: 2
   startingGear: NCRMilitaryPoliceSergeantGear
   icon: "JobIconNcrLeader"

@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: CaesarLegionVeteranDecanus
   setPreference: true
   hideWithoutJobWhitelist: false # #Misfits Tweak - accessible up to Vet Decanus, no whitelist
@@ -12,7 +12,7 @@
   requirements:
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T6 faction timelock (20h Legion)
       department: CaesarLegion
-      min: 72000 # 20 hours
+      min: 36000 # 10 hours
     # TEMP REMOVED - !type:CharacterDepartmentTimeRequirement
     #   department: CaesarLegion
     #   min: 198000 # 55 hours

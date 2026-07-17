@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: BoSMidKnight
   setPreference: true
   hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
@@ -16,7 +16,7 @@
       - Human
     - !type:CharacterDepartmentTimeRequirement
       department: BrotherhoodOfSteel
-      min: 57600 # 16 hours
+      min: 28800 # 8 hours
     - !type:CharacterPlaytimeRequirement
       tracker: BoSKnight
       min: 28800 # 8 hours as Knight

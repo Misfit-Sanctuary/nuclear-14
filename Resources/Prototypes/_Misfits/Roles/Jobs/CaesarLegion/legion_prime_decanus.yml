@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: CaesarLegionPrimeDecanus
   setPreference: true
   hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
@@ -10,7 +10,7 @@
   requirements:
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T6 faction timelock (20h Legion)
       department: CaesarLegion
-      min: 72000 # 20 hours
+      min: 36000 # 10 hours
     # TEMP REMOVED - !type:CharacterDepartmentTimeRequirement
     #   department: CaesarLegion
     #   min: 162000 # 45 hours

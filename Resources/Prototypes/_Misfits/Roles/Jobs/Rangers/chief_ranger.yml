@@ -23,7 +23,7 @@
   requirements:
     - !type:CharacterDepartmentTimeRequirement # #Misfits Add - admin-only timelock (70h Rangers)
       department: Rangers
-      min: 252000 # 70 hours — admin role
+      min: 126000 # 35 hours — admin role
     - !type:CharacterSpeciesRequirement # #Misfits Change - robots, super mutants, and glowing ghouls cannot be Rangers
       species:
       - Human

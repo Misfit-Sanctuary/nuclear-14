@@ -1,4 +1,4 @@
-# #Misfits Add - Enclave Scientist role (mid-tier science).
+﻿# #Misfits Add - Enclave Scientist role (mid-tier science).
 # #Misfits Change - Expanded species, added rank pin, tiered access, playtime gate.
 
 - type: job
@@ -20,7 +20,7 @@
       - Ghoul
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T4 faction timelock (12h Enclave)
       department: Enclave
-      min: 43200 # 12 hours
+      min: 21600 # 6 hours
   startingGear: EnclaveScientistGear
   icon: "JobIconEnclaveScientist"
   supervisors: job-supervisors-enclave-scientist

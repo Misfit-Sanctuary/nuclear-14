@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: CaesarLegionLegate
   setPreference: true # #Misfits Tweak - visible in job selection
   hideWithoutJobWhitelist: true # #Misfits Change - Legate is whitelist-only; hidden from job picker without it
@@ -11,7 +11,7 @@
   requirements:
   - !type:CharacterDepartmentTimeRequirement
       department: CaesarLegion
-      min: 252000 # 70 hours
+      min: 126000 # 35 hours
   - !type:CharacterSpeciesRequirement
     species:
     - Human

@@ -22,7 +22,7 @@
       - Ghoul
     - !type:CharacterDepartmentTimeRequirement # #Misfits Add - T4.5 faction timelock (14h NCR)
       department: NCR
-      min: 50400 # 14 hours
+      min: 25200 # 7 hours
   startingGear: NCRHeavyTrooperGear
   icon: "JobIconNcrSpec" # closest fitting icon: specialist tier
   supervisors: job-supervisors-ncr-sergeant

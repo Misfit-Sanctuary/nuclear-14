@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: NCREngineer
   setPreference: true
   hideIfPlaytimeRequirementsNotMet: false
@@ -17,7 +17,7 @@
       - Ghoul
     - !type:CharacterDepartmentTimeRequirement # T4 faction timelock (12h NCR)
       department: NCR
-      min: 43200 # 12 hours
+      min: 21600 # 6 hours
   startingGear: NCREngineerGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-ncr-nco

@@ -17,7 +17,7 @@
       - Ghoul
     - !type:CharacterDepartmentTimeRequirement # T7 faction timelock (40h NCR)
       department: NCR
-      min: 144000 # 40 hours
+      min: 72000 # 20 hours
   weight: 120
   startingGear: NCRCommanderGear
   icon: "JobIconNcrLeader"

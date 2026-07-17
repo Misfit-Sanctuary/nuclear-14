@@ -1,4 +1,4 @@
-# #Misfits Add - Enclave Junior Scientist role (entry-level science).
+﻿# #Misfits Add - Enclave Junior Scientist role (entry-level science).
 
 - type: job
   id: EnclaveJuniorScientist
@@ -19,7 +19,7 @@
       - Ghoul
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T2 faction timelock (4h Enclave)
       department: Enclave
-      min: 14400 # 4 hours
+      min: 7200 # 2 hours
   startingGear: EnclaveJuniorScientistGear
   icon: "JobIconEnclaveJuniorScientist"
   supervisors: job-supervisors-enclave-junior-scientist

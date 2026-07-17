@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: CaesarLegionHoundmaster
   setPreference: true
   hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
@@ -11,7 +11,7 @@
   requirements:
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T5 faction timelock (16h Legion)
       department: CaesarLegion
-      min: 57600 # 16 hours
+      min: 28800 # 8 hours
     - !type:CharacterSpeciesRequirement
       species:
       - Human

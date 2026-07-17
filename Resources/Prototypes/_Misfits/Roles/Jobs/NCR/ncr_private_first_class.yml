@@ -17,7 +17,7 @@
       - Ghoul
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T2 faction timelock (8h NCR)
       department: NCR
-      min: 14400 # 4 hours
+      min: 7200 # 2 hours
     #- !type:CharacterPlaytimeRequirement # TEMP REMOVED
     #  tracker: NCRSoldier
     #  min: 18000 # 5 hours

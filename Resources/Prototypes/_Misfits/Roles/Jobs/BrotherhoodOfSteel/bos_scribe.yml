@@ -1,4 +1,4 @@
-#Misfits Change /Comment-out/: Washington BoS Scribe job removed — will create new prototypes.
+﻿#Misfits Change /Comment-out/: Washington BoS Scribe job removed — will create new prototypes.
 #- type: job
 #  id: BoSWashingtonScribe
 #  setPreference: true
@@ -65,7 +65,7 @@
       - Human
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T3 faction timelock (8h BoS)
       department: BrotherhoodOfSteel
-      min: 28800 # 8 hours
+      min: 14400 # 4 hours
     #- !type:CharacterPlaytimeRequirement # TEMP REMOVED
     #  tracker: BoSMidSquire
     #  min: 18000 # 5 hours

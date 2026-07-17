@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: CaesarLegionFrumentarii
   setPreference: true
   hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
@@ -10,7 +10,7 @@
   requirements:
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T5 faction timelock (16h Legion)
       department: CaesarLegion
-      min: 57600 # 16 hours
+      min: 28800 # 8 hours
     #- !type:CharacterPlaytimeRequirement # TEMP REMOVED
     #  tracker: CaesarLegionVexillarius
     #  min: 18000 # 5 hours

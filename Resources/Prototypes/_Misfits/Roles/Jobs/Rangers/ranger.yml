@@ -25,7 +25,7 @@
   requirements:
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T6 faction timelock (20h Rangers)
       department: Rangers
-      min: 72000 # 20 hours
+      min: 36000 # 10 hours
     - !type:CharacterSpeciesRequirement # #Misfits Change - robots, super mutants, and glowing ghouls cannot be Rangers
       species:
       - Human

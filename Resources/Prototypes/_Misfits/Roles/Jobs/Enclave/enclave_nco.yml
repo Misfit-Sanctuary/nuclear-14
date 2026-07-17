@@ -1,4 +1,4 @@
-# #Misfits Add - Enclave NCO role (Sergeant through Master Sergeant).
+﻿# #Misfits Add - Enclave NCO role (Sergeant through Master Sergeant).
 
 - type: job
   id: EnclaveNCO
@@ -20,7 +20,7 @@
       - Ghoul
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T5 faction timelock (16h Enclave)
       department: Enclave
-      min: 57600 # 16 hours
+      min: 28800 # 8 hours
     - !type:CharacterPlaytimeRequirement
       tracker: EnclaveEnlisted
       min: 36000 # 10 hours

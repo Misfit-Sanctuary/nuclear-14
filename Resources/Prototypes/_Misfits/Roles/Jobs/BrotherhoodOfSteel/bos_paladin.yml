@@ -1,4 +1,4 @@
-#Misfits Change /Comment-out/: Washington BoS Paladin job removed — will create new prototypes.
+﻿#Misfits Change /Comment-out/: Washington BoS Paladin job removed — will create new prototypes.
 #- type: job
 #  id: BoSWashingtonPaladin
 #  setPreference: true
@@ -67,7 +67,7 @@
       - Human
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T4 faction timelock (12h BoS)
       department: BrotherhoodOfSteel
-      min: 43200 # 12 hours
+      min: 21600 # 6 hours
     - !type:CharacterPlaytimeRequirement
       tracker: BoSMidSquire
       min: 36000 # 10 hours as paladins need to learn how to be a proper paladin via time

@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: BoSMidSquire # It was renamed to Initiate, but don't change the ID!
   setPreference: true
   hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
@@ -17,7 +17,7 @@
         - Human
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T2 faction timelock (4h BoS)
       department: BrotherhoodOfSteel
-      min: 14400 # 4 hours
+      min: 7200 # 2 hours
     #- !type:CharacterPlaytimeRequirement # TEMP REMOVED
     #  tracker: BoSInitiate
     #  min: 18000 # 5 hours

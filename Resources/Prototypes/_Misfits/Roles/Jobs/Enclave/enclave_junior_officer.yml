@@ -1,4 +1,4 @@
-# #Misfits Add - Enclave Junior Officer role (First Lieutenant / Second Lieutenant).
+﻿# #Misfits Add - Enclave Junior Officer role (First Lieutenant / Second Lieutenant).
 
 - type: job
   id: EnclaveJuniorOfficer
@@ -19,7 +19,7 @@
       - Ghoul
     - !type:CharacterDepartmentTimeRequirement
       department: Enclave
-      min: 57600 # 16 hours
+      min: 28800 # 8 hours
     - !type:CharacterPlaytimeRequirement
       tracker: EnclaveNCO
       min: 36000 # 10 hours

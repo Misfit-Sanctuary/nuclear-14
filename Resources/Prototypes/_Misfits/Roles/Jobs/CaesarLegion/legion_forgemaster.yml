@@ -10,7 +10,7 @@
   requirements:
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T6 faction timelock (20h Legion)
       department: CaesarLegion
-      min: 72000 # 20 hours
+      min: 36000 # 10 hours
     # TEMP REMOVED - !type:CharacterDepartmentTimeRequirement
     #   department: CaesarLegion
     #   min: 126000 # 35 hours

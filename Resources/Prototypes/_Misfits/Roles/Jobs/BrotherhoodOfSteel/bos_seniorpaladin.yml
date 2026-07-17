@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: BoSMidPaladin
   setPreference: true
   hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
@@ -17,7 +17,7 @@
       - Human
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T6 faction timelock (20h BoS)
       department: BrotherhoodOfSteel
-      min: 72000 # 20 hours
+      min: 36000 # 10 hours
     - !type:CharacterPlaytimeRequirement # #Misfits Tweak - Require 8h as Paladin before Senior Paladin (matches Knight/Scribe pattern)
       tracker: BoSPaladin
       min: 28800 # 8 hours as Paladin

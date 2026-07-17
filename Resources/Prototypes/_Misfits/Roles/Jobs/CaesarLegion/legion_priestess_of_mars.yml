@@ -1,4 +1,4 @@
-# legion_priestess_of_mars.yml
+﻿# legion_priestess_of_mars.yml
 # Priestess of Mars — Caesar's Legion female religious role.
 # Senior support-officer tier (equivalent to Centurion's tier) beneath command.
 # CaesarLegionSlave is the female-accessible entry rank; playtime gates placed there.
@@ -19,7 +19,7 @@
     # CaesarLegionSlave is the female-accessible entry rank, so hours gate placed there.
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T6 faction timelock (20h Legion)
       department: CaesarLegion
-      min: 72000 # 20 hours
+      min: 36000 # 10 hours
     - !type:CharacterSpeciesRequirement
       species:
         - Human

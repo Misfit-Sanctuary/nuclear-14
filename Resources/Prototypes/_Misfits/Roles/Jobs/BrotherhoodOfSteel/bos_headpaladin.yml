@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: BoSMidPaladinCommander
   setPreference: true
   hideWithoutJobWhitelist: false # #Misfits Tweak - BoS Heads not whitelisted
@@ -18,7 +18,7 @@
       - Human
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T7 faction timelock (40h BoS)
       department: BrotherhoodOfSteel
-      min: 144000 # 40 hours
+      min: 72000 # 20 hours
     - !type:CharacterPlaytimeRequirement # #Misfits Tweak - Require 8h as Senior Paladin before Head Paladin
       tracker: BoSMidPaladin
       min: 28800 # 8 hours as Senior Paladin
