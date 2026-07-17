@@ -430,6 +430,13 @@
   #    traits:
   #      - N14ExtremeAugKnight
   #      - N14ExtremeAugScribe
+  requirements:
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - NCRPrisoner
+        - SuperMutantGladiator
+        - CaesarLegionSlave
   functions:
     - !type:TraitAddComponent
       components:
