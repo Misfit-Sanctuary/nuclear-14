@@ -7,6 +7,10 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 10
-        Blunt: 10
+        Piercing: 42
+        Blunt: 20
     ignoreResistances: true
+  - type: BallisticDamageFalloff
+    falloffStartTiles: 16.0
+    maxFalloffTiles: 32.0
+    minDamageMultiplier: 0.82
