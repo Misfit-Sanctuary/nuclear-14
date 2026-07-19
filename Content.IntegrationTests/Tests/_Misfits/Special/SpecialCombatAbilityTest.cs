@@ -2,6 +2,7 @@ using Content.Server._Misfits.SpecialStats;
 using Content.Server._Misfits.SpecialStats.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._Misfits.Special;
+using Content.Shared._Misfits.SpecialStats;
 using Content.Shared.Preferences;
 
 namespace Content.IntegrationTests.Tests._Misfits.Special;
@@ -58,6 +59,33 @@ public sealed class SpecialCombatAbilityTest
                 Assert.That(abilities!.ChargeActionEntity, Is.Null, "Agility 5 should revoke charge");
                 Assert.That(abilities.ParryActionEntity, Is.Not.Null);
                 Assert.That(abilities.CrippleActionEntity, Is.Not.Null);
+            });
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task ChargeThrowsUserTowardTarget()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var map = await pair.CreateTestMap();
+
+        await server.WaitAssertion(() =>
+        {
+            var spawning = server.EntMan.System<StationSpawningSystem>();
+            var mob = spawning.SpawnPlayerMob(map.GridCoords, null, ProfileWithStats(5, 5, 8), null);
+
+            var destination = map.GridCoords.Offset(new System.Numerics.Vector2(3f, 0f));
+            var ev = new SpecialChargeActionEvent { Performer = mob, Target = destination };
+            server.EntMan.EventBus.RaiseLocalEvent(mob, ev);
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(ev.Handled, Is.True, "charge event should be handled");
+                Assert.That(server.EntMan.HasComponent<Content.Shared.Throwing.ThrownItemComponent>(mob), Is.True,
+                    "charging should put the user in thrown (lunging) state");
             });
         });
 
