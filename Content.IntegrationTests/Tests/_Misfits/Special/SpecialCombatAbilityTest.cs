@@ -49,6 +49,49 @@ public sealed class SpecialCombatAbilityTest
             });
     }
 
+    private static void GiveMeleeWeapon(Robust.UnitTesting.RobustIntegrationTest.ServerIntegrationInstance server, EntityUid user)
+    {
+        var knife = server.EntMan.SpawnEntity("CombatKnife", server.EntMan.GetComponent<TransformComponent>(user).Coordinates);
+        var hands = server.EntMan.System<Content.Shared.Hands.EntitySystems.SharedHandsSystem>();
+        Assert.That(hands.TryPickupAnyHand(user, knife), Is.True, "test mob should pick up the knife");
+    }
+
+    [Test]
+    public async Task ChargeAndParryRequireMeleeWeapon()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var map = await pair.CreateTestMap();
+
+        await server.WaitAssertion(() =>
+        {
+            var spawning = server.EntMan.System<StationSpawningSystem>();
+
+            // Bare hands: both abilities should refuse without consuming anything.
+            var mob = spawning.SpawnPlayerMob(map.GridCoords, null, ProfileWithStats(5, 8, 8), null);
+
+            var charge = new SpecialChargeActionEvent
+            {
+                Performer = mob,
+                Target = map.GridCoords.Offset(new System.Numerics.Vector2(3f, 0f)),
+            };
+            server.EntMan.EventBus.RaiseLocalEvent(mob, charge);
+
+            var parry = new SpecialParryActionEvent { Performer = mob };
+            server.EntMan.EventBus.RaiseLocalEvent(mob, parry);
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(charge.Handled, Is.False, "charge should require a melee weapon in hand");
+                Assert.That(parry.Handled, Is.False, "parry should require a melee weapon in hand");
+                Assert.That(server.EntMan.HasComponent<SpecialChargingComponent>(mob), Is.False);
+                Assert.That(server.EntMan.HasComponent<SpecialParryActiveComponent>(mob), Is.False);
+            });
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
     [Test]
     public async Task KeenEyeScopesBlocksMovementAndDelaysExit()
     {
@@ -216,6 +259,7 @@ public sealed class SpecialCombatAbilityTest
         {
             var spawning = server.EntMan.System<StationSpawningSystem>();
             var mob = spawning.SpawnPlayerMob(map.GridCoords, null, ProfileWithStats(5, 5, 8), null);
+            GiveMeleeWeapon(server, mob);
 
             // The action must allow clicks beyond interaction range; the handler
             // clamps the dash distance itself. Regression: default checkCanAccess
@@ -259,6 +303,7 @@ public sealed class SpecialCombatAbilityTest
             var damageable = server.EntMan.System<Content.Shared.Damage.DamageableSystem>();
 
             charger = spawning.SpawnPlayerMob(map.GridCoords, null, ProfileWithStats(5, 5, 8), null);
+            GiveMeleeWeapon(server, charger);
             victim = spawning.SpawnPlayerMob(map.GridCoords.Offset(new System.Numerics.Vector2(2f, 0f)), null, ProfileWithStats(5, 5, 5), null);
 
             var ev = new SpecialChargeActionEvent
@@ -321,6 +366,7 @@ public sealed class SpecialCombatAbilityTest
             var damageable = server.EntMan.System<Content.Shared.Damage.DamageableSystem>();
 
             var parrier = spawning.SpawnPlayerMob(map.GridCoords, null, ProfileWithStats(5, 8, 5), null);
+            GiveMeleeWeapon(server, parrier);
             var attacker = spawning.SpawnPlayerMob(map.GridCoords.Offset(new System.Numerics.Vector2(1f, 0f)), null, ProfileWithStats(5, 5, 5), null);
 
             var ev = new SpecialParryActionEvent { Performer = parrier };
@@ -362,6 +408,7 @@ public sealed class SpecialCombatAbilityTest
         {
             var spawning = server.EntMan.System<StationSpawningSystem>();
             parrier = spawning.SpawnPlayerMob(map.GridCoords, null, ProfileWithStats(5, 8, 5), null);
+            GiveMeleeWeapon(server, parrier);
 
             var ev = new SpecialParryActionEvent { Performer = parrier };
             server.EntMan.EventBus.RaiseLocalEvent(parrier, ev);

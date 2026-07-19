@@ -17,6 +17,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Timing;
 
@@ -124,6 +125,10 @@ public sealed class SpecialCombatAbilitySystem : EntitySystem
             return;
 
         var user = args.Performer;
+
+        if (!RequireMeleeWeapon(user))
+            return;
+
         var userPos = _transform.GetMapCoordinates(user);
         var targetPos = _transform.ToMapCoordinates(args.Target);
 
@@ -191,6 +196,9 @@ public sealed class SpecialCombatAbilitySystem : EntitySystem
             return;
 
         var uid = ent.Owner;
+
+        if (!RequireMeleeWeapon(uid))
+            return;
         var active = AddComp<SpecialParryActiveComponent>(uid);
         active.EndTime = _timing.CurTime + ent.Comp.ParryWindow;
         active.StunTime = ent.Comp.ParryStunTime;
@@ -214,6 +222,24 @@ public sealed class SpecialCombatAbilitySystem : EntitySystem
 
         _popup.PopupEntity(Loc.GetString("special-parry-window", ("user", uid)), uid, PopupType.MediumCaution);
         args.Handled = true;
+    }
+
+    /// <summary>
+    /// Charge and parry require an actual melee weapon in the active hand.
+    /// Unarmed attacks resolve the user itself as the weapon, and guns pass
+    /// TryGetWeapon via their bash stats, so both are rejected explicitly.
+    /// </summary>
+    private bool RequireMeleeWeapon(EntityUid user)
+    {
+        if (_melee.TryGetWeapon(user, out var weaponUid, out _)
+            && weaponUid != user
+            && !HasComp<GunComponent>(weaponUid))
+        {
+            return true;
+        }
+
+        _popup.PopupEntity(Loc.GetString("special-ability-needs-melee"), user, user, PopupType.SmallCaution);
+        return false;
     }
 
     private void OnParryAttacked(Entity<SpecialParryActiveComponent> ent, ref AttackedEvent args)
