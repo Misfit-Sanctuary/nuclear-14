@@ -171,6 +171,37 @@ public sealed class SpecialCombatAbilityTest
     }
 
     [Test]
+    public async Task CrippleSlowsTarget()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var map = await pair.CreateTestMap();
+
+        await server.WaitAssertion(() =>
+        {
+            var spawning = server.EntMan.System<StationSpawningSystem>();
+            var combat = server.EntMan.System<Content.Shared.CombatMode.SharedCombatModeSystem>();
+
+            var user = spawning.SpawnPlayerMob(map.GridCoords, null, ProfileWithStats(8, 5, 5), null);
+            var target = spawning.SpawnPlayerMob(map.GridCoords.Offset(new System.Numerics.Vector2(1f, 0f)), null, ProfileWithStats(5, 5, 5), null);
+
+            combat.SetInCombatMode(user, true);
+
+            var ev = new SpecialCrippleActionEvent { Performer = user, Target = target };
+            server.EntMan.EventBus.RaiseLocalEvent(user, ev);
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(ev.Handled, Is.True, "cripple should land on an adjacent target in combat mode");
+                Assert.That(server.EntMan.HasComponent<Content.Shared.Stunnable.SlowedDownComponent>(target), Is.True,
+                    "cripple should slow the target");
+            });
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
     public async Task DefaultStatsGrantNothing()
     {
         await using var pair = await PoolManager.GetServerClient();

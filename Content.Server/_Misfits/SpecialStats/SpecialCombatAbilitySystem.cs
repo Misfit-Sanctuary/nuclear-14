@@ -8,6 +8,7 @@ using Content.Shared.Damage;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
+using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Timing;
@@ -27,6 +28,7 @@ public sealed class SpecialCombatAbilitySystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
 
     public override void Initialize()
     {
@@ -40,6 +42,7 @@ public sealed class SpecialCombatAbilitySystem : EntitySystem
         SubscribeLocalEvent<SpecialCombatAbilitiesComponent, SpecialParryActionEvent>(OnParry);
         SubscribeLocalEvent<SpecialParryActiveComponent, AttackedEvent>(OnParryAttacked);
         SubscribeLocalEvent<SpecialParryActiveComponent, DamageModifyEvent>(OnParryDamageModify);
+        SubscribeLocalEvent<SpecialCombatAbilitiesComponent, SpecialCrippleActionEvent>(OnCripple);
     }
 
     private void OnSpecialChanged(ref SpecialChangedEvent args)
@@ -190,6 +193,31 @@ public sealed class SpecialCombatAbilitySystem : EntitySystem
         }
 
         RemComp<SpecialParryActiveComponent>(uid);
+    }
+
+    private void OnCripple(Entity<SpecialCombatAbilitiesComponent> ent, ref SpecialCrippleActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        var user = args.Performer;
+        var target = args.Target;
+
+        if (target == user)
+            return;
+
+        // The action's range/whitelist already validated the target; the melee
+        // attempt re-checks range, weapon cooldown, and combat mode. If it
+        // fails, don't set Handled so the action cooldown isn't consumed.
+        if (!_melee.TryGetWeapon(user, out var weaponUid, out var weapon))
+            return;
+
+        if (!_melee.AttemptLightAttack(user, weaponUid, weapon, target))
+            return;
+
+        _stun.TrySlowdown(target, ent.Comp.CrippleDuration, refresh: true,
+            ent.Comp.CrippleSpeedMultiplier, ent.Comp.CrippleSpeedMultiplier);
+        args.Handled = true;
     }
 
     private void OnAbilitiesShutdown(Entity<SpecialCombatAbilitiesComponent> ent, ref ComponentShutdown args)
