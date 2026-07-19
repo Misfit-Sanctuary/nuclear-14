@@ -60,7 +60,16 @@ public sealed partial class RequisitionsComputerComponent : Component
     public TimeSpan RandomRequestRerollDelay = TimeSpan.FromMinutes(30);
 
     [DataField]
+    public int RandomRequestMinTargets = 1;
+
+    [DataField]
+    public int RandomRequestMaxTargets = 1;
+
+    [DataField]
     public int HardRequestSlots;
+
+    [DataField]
+    public int DirectBudgetRequestSlots;
 
     [DataField]
     public float HardRequestScoreMultiplier = 3f;

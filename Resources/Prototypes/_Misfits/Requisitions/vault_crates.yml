@@ -65,7 +65,7 @@
     reward: 50
   - type: StorageFill
     contents:
-    - id: N14ClothingOuterTownGuardRiot
+    - id: ClothingOuterArmorRiot
     - id: N14WeaponShotgunRiot
     - id: RiotShield
     - id: ClothingNeckPatriotScarf
@@ -205,6 +205,116 @@
       amount: 2
     - id: M14ClothingHeadHatVaultRiotHelmet
       amount: 2
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultBirthdayParty
+  name: birthday party crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: FoodCakeBirthday
+      amount: 3
+    - id: ClothingHeadHatPartyRed
+    - id: ClothingHeadHatPartyYellow
+    - id: ClothingHeadHatPartyGreen
+    - id: ClothingHeadHatPartyBlue
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultExoticSeeds
+  name: exotic seeds crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: BananaSeeds
+      amount: 2
+    - id: EggySeeds
+      amount: 2
+    - id: TowercapSeeds
+      amount: 2
+    - id: TobaccoSeeds
+      amount: 2
+    - id: CannabisSeeds
+      amount: 2
+    - id: NettleSeeds
+      amount: 2
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultCircuits
+  name: circuit crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14MaterialCircuitry1
+      amount: 10
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultSteel
+  name: steel crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: SheetSteel1
+      amount: 30
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultPlastic
+  name: plastic crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: SheetPlastic1
+      amount: 30
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultThread
+  name: thread crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14MaterialThread1
+      amount: 30
 
 - type: entity
   parent: VehicleJanicart

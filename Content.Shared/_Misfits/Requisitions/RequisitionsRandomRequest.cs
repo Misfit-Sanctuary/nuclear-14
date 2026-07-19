@@ -18,6 +18,29 @@ public sealed partial class RequisitionsRandomSlot
 public sealed partial class RequisitionsRandomRequest
 {
     [DataField]
+    public List<RequisitionsRandomRequestTarget> Targets = new();
+
+    [DataField]
+    public int Score;
+
+    [DataField]
+    public bool IsHard;
+
+    [DataField]
+    public bool DirectBudget;
+
+    [DataField]
+    public Dictionary<string, int> RewardItems = new();
+
+    [DataField]
+    public TimeSpan RerollAvailableAt;
+}
+
+[DataDefinition]
+[Serializable, NetSerializable]
+public sealed partial class RequisitionsRandomRequestTarget
+{
+    [DataField]
     public bool IsReagent;
 
     [DataField(required: true)]
@@ -28,16 +51,4 @@ public sealed partial class RequisitionsRandomRequest
 
     [DataField]
     public int Progress;
-
-    [DataField]
-    public int Score;
-
-    [DataField]
-    public bool IsHard;
-
-    [DataField]
-    public Dictionary<string, int> RewardItems = new();
-
-    [DataField]
-    public TimeSpan RerollAvailableAt;
 }

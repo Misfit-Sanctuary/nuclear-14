@@ -57,6 +57,9 @@ public sealed partial class RequisitionsMaterialRequestEntry
 
     [DataField]
     public float Weight = 1f;
+
+    [DataField]
+    public bool DirectBudget;
 }
 
 [DataDefinition, Serializable, NetSerializable]

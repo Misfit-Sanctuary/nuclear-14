@@ -42,6 +42,10 @@ namespace Content.Server._Misfits.Requisitions;
 
 public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
 {
+    private const float DirectBudgetMinMultiplier = 2.5f;
+    private const float DirectBudgetMaxMultiplier = 3.5f;
+    private const int DirectBudgetMinReward = 600;
+
     [Dependency] private readonly IAdminLogManager _adminLogs = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly ChasmSystem _chasm = default!;
@@ -248,7 +252,8 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
             return;
 
         RollRequestIntoSlot(slot, pool, rewardPool, config.RandomRequestRerollDelay, args.Slot < config.HardRequestSlots, config.HardRequestScoreMultiplier,
-            CollectActiveTargetIds(account.RandomRequests, slot));
+            CollectActiveTargetIds(account.RandomRequests, slot), config.RandomRequestMinTargets, config.RandomRequestMaxTargets,
+            IsDirectBudgetSlot(args.Slot, config));
         Dirty(accountUid, account);
         SendUIStateAll();
 
@@ -276,7 +281,8 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
             {
                 var slot = account.RandomRequests[i];
                 RollRequestIntoSlot(slot, pool, rewardPool, config.RandomRequestRerollDelay, i < config.HardRequestSlots, config.HardRequestScoreMultiplier,
-                    CollectActiveTargetIds(account.RandomRequests, slot));
+                    CollectActiveTargetIds(account.RandomRequests, slot), config.RandomRequestMinTargets, config.RandomRequestMaxTargets,
+                    IsDirectBudgetSlot(i, config));
                 rerolled++;
             }
 
@@ -481,6 +487,26 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
         comp.Busy = true;
         SetMode(elevator, Preparing, nextMode);
         Dirty(elevator);
+    }
+
+    public bool TryAddBudget(string group, int amount)
+    {
+        if (amount == 0)
+            return false;
+
+        var query = EntityQueryEnumerator<RequisitionsAccountComponent>();
+        while (query.MoveNext(out var uid, out var account))
+        {
+            if (account.Group != group)
+                continue;
+
+            account.Balance += amount;
+            Dirty(uid, account);
+            SendUIStateAll();
+            return true;
+        }
+
+        return false;
     }
 
     private Entity<RequisitionsAccountComponent> GetAccount(string group, EntProtoId proto)
@@ -894,11 +920,17 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
                 continue;
 
             RollRequestIntoSlot(slot, pool, rewardPool, config.RandomRequestRerollDelay, i < config.HardRequestSlots, config.HardRequestScoreMultiplier,
-                CollectActiveTargetIds(account.Comp.RandomRequests, slot));
+                CollectActiveTargetIds(account.Comp.RandomRequests, slot), config.RandomRequestMinTargets, config.RandomRequestMaxTargets,
+                IsDirectBudgetSlot(i, config));
             changed = true;
         }
 
         return changed;
+    }
+
+    private static bool IsDirectBudgetSlot(int index, RequisitionsComputerComponent config)
+    {
+        return index >= config.HardRequestSlots && index < config.HardRequestSlots + config.DirectBudgetRequestSlots;
     }
 
     private static HashSet<string> CollectActiveTargetIds(List<RequisitionsRandomSlot> slots, RequisitionsRandomSlot excludeSlot)
@@ -909,55 +941,50 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
             if (ReferenceEquals(other, excludeSlot))
                 continue;
 
-            if (other.Request is { } request)
-                set.Add(request.TargetId);
+            if (other.Request is not { } request)
+                continue;
+
+            foreach (var target in request.Targets)
+                set.Add(target.TargetId);
         }
 
         return set;
     }
 
-    private void RollRequestIntoSlot(
-        RequisitionsRandomSlot slot,
-        RequisitionsRequestPoolPrototype pool,
-        RequisitionsRewardPoolPrototype rewardPool,
-        TimeSpan rerollDelay,
-        bool isHard = false,
-        float hardScoreMultiplier = 1f,
-        HashSet<string>? excludeTargetIds = null)
+    private readonly record struct RolledRequestTarget(string TargetId, bool IsReagent, int Amount, int Score, bool DirectBudget);
+
+    private RolledRequestTarget? TryRollSingleTarget(RequisitionsRequestPoolPrototype pool, HashSet<string> excludeIds, bool isHard, float hardScoreMultiplier)
     {
         var totalWeight = 0f;
+
         foreach (var item in pool.Items)
         {
-            if (excludeTargetIds != null && excludeTargetIds.Contains(item.Item.Id))
+            if (excludeIds.Contains(item.Item.Id))
                 continue;
             totalWeight += item.Weight;
         }
         foreach (var material in pool.Materials)
         {
-            if (excludeTargetIds != null && excludeTargetIds.Contains(material.Material.Id))
+            if (excludeIds.Contains(material.Material.Id))
                 continue;
             totalWeight += material.Weight;
         }
         foreach (var reagent in pool.Reagents)
         {
-            if (excludeTargetIds != null && excludeTargetIds.Contains(reagent.Reagent.Id))
+            if (excludeIds.Contains(reagent.Reagent.Id))
                 continue;
             totalWeight += reagent.Weight;
         }
 
         if (totalWeight <= 0f)
-        {
-            if (excludeTargetIds != null)
-                RollRequestIntoSlot(slot, pool, rewardPool, rerollDelay, isHard, hardScoreMultiplier);
-            return;
-        }
+            return null;
 
         var roll = _random.NextFloat(totalWeight);
         var accumulated = 0f;
 
         foreach (var item in pool.Items)
         {
-            if (excludeTargetIds != null && excludeTargetIds.Contains(item.Item.Id))
+            if (excludeIds.Contains(item.Item.Id))
                 continue;
 
             accumulated += item.Weight;
@@ -968,23 +995,12 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
             var score = (int) MathF.Round(item.ValuePerUnit * amount);
             if (isHard)
                 score = (int) MathF.Round(score * hardScoreMultiplier);
-            slot.Request = new RequisitionsRandomRequest
-            {
-                IsReagent = false,
-                TargetId = item.Item.Id,
-                Amount = amount,
-                Progress = 0,
-                Score = score,
-                IsHard = isHard,
-                RewardItems = PickRewardItems(rewardPool, score),
-                RerollAvailableAt = _timing.CurTime + rerollDelay,
-            };
-            return;
+            return new RolledRequestTarget(item.Item.Id, false, amount, score, false);
         }
 
         foreach (var material in pool.Materials)
         {
-            if (excludeTargetIds != null && excludeTargetIds.Contains(material.Material.Id))
+            if (excludeIds.Contains(material.Material.Id))
                 continue;
 
             accumulated += material.Weight;
@@ -995,23 +1011,12 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
             var score = (int) MathF.Round(material.ValuePerUnit * amount);
             if (isHard)
                 score = (int) MathF.Round(score * hardScoreMultiplier);
-            slot.Request = new RequisitionsRandomRequest
-            {
-                IsReagent = false,
-                TargetId = material.Material.Id,
-                Amount = amount,
-                Progress = 0,
-                Score = score,
-                IsHard = isHard,
-                RewardItems = PickRewardItems(rewardPool, score),
-                RerollAvailableAt = _timing.CurTime + rerollDelay,
-            };
-            return;
+            return new RolledRequestTarget(material.Material.Id, false, amount, score, material.DirectBudget);
         }
 
         foreach (var reagent in pool.Reagents)
         {
-            if (excludeTargetIds != null && excludeTargetIds.Contains(reagent.Reagent.Id))
+            if (excludeIds.Contains(reagent.Reagent.Id))
                 continue;
 
             accumulated += reagent.Weight;
@@ -1022,19 +1027,69 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
             var score = (int) MathF.Round(reagent.ValuePerUnit * amount);
             if (isHard)
                 score = (int) MathF.Round(score * hardScoreMultiplier);
-            slot.Request = new RequisitionsRandomRequest
-            {
-                IsReagent = true,
-                TargetId = reagent.Reagent.Id,
-                Amount = amount,
-                Progress = 0,
-                Score = score,
-                IsHard = isHard,
-                RewardItems = PickRewardItems(rewardPool, score),
-                RerollAvailableAt = _timing.CurTime + rerollDelay,
-            };
-            return;
+            return new RolledRequestTarget(reagent.Reagent.Id, true, amount, score, false);
         }
+
+        return null;
+    }
+
+    private void RollRequestIntoSlot(
+        RequisitionsRandomSlot slot,
+        RequisitionsRequestPoolPrototype pool,
+        RequisitionsRewardPoolPrototype rewardPool,
+        TimeSpan rerollDelay,
+        bool isHard = false,
+        float hardScoreMultiplier = 1f,
+        HashSet<string>? excludeTargetIds = null,
+        int minTargets = 1,
+        int maxTargets = 1,
+        bool forceDirectBudget = false)
+    {
+        minTargets = Math.Max(1, minTargets);
+        maxTargets = Math.Max(minTargets, maxTargets);
+        var targetCount = _random.Next(minTargets, maxTargets + 1);
+
+        var excludeIds = excludeTargetIds != null ? new HashSet<string>(excludeTargetIds) : new HashSet<string>();
+        var targets = new List<RequisitionsRandomRequestTarget>();
+        var totalScore = 0;
+        var directBudget = forceDirectBudget;
+
+        for (var i = 0; i < targetCount; i++)
+        {
+            if (TryRollSingleTarget(pool, excludeIds, isHard, hardScoreMultiplier) is not { } rolled)
+                break;
+
+            excludeIds.Add(rolled.TargetId);
+            targets.Add(new RequisitionsRandomRequestTarget
+            {
+                IsReagent = rolled.IsReagent,
+                TargetId = rolled.TargetId,
+                Amount = rolled.Amount,
+                Progress = 0,
+            });
+
+            totalScore += rolled.Score;
+            directBudget |= rolled.DirectBudget;
+        }
+
+        if (targets.Count == 0)
+            return;
+
+        if (directBudget)
+        {
+            totalScore = (int) MathF.Round(totalScore * _random.NextFloat(DirectBudgetMinMultiplier, DirectBudgetMaxMultiplier));
+            totalScore = Math.Max(totalScore, DirectBudgetMinReward);
+        }
+
+        slot.Request = new RequisitionsRandomRequest
+        {
+            Targets = targets,
+            Score = totalScore,
+            IsHard = isHard,
+            DirectBudget = directBudget,
+            RewardItems = directBudget ? new Dictionary<string, int>() : PickRewardItems(rewardPool, totalScore),
+            RerollAvailableAt = _timing.CurTime + rerollDelay,
+        };
     }
 
     private void CompleteRandomRequests(
@@ -1051,30 +1106,54 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
         var changed = false;
         foreach (var slot in account.Comp.RandomRequests)
         {
-            if (slot.Request is not { } request)
+            if (slot.Request is not { } request || request.Targets.Count == 0)
                 continue;
 
-            var delivCount = request.IsReagent
-                ? deliveredReagents.GetValueOrDefault(request.TargetId).Int()
-                : delivered.GetValueOrDefault(request.TargetId);
+            var progressed = false;
+            foreach (var target in request.Targets)
+            {
+                var needed = target.Amount - target.Progress;
+                if (needed <= 0)
+                    continue;
 
-            if (delivCount <= 0)
+                var delivCount = target.IsReagent
+                    ? deliveredReagents.GetValueOrDefault(target.TargetId).Int()
+                    : delivered.GetValueOrDefault(target.TargetId);
+
+                if (delivCount <= 0)
+                    continue;
+
+                target.Progress += Math.Min(delivCount, needed);
+                progressed = true;
+            }
+
+            if (!progressed)
                 continue;
 
-            request.Progress += delivCount;
             changed = true;
 
-            if (request.Progress < request.Amount)
+            if (request.Targets.Any(t => t.Progress < t.Amount))
                 continue;
 
-            foreach (var (item, amount) in request.RewardItems)
-                AddToStorage(account.Comp, item, amount);
+            string rewardLog;
+            if (request.DirectBudget)
+            {
+                account.Comp.Balance += request.Score;
+                rewardLog = $"{request.Score} budget";
+            }
+            else
+            {
+                foreach (var (item, amount) in request.RewardItems)
+                    AddToStorage(account.Comp, item, amount);
 
-            var rewardLog = request.RewardItems.Count > 0
-                ? string.Join(", ", request.RewardItems.Select(kv => $"{kv.Value}x {kv.Key}"))
-                : "none";
+                rewardLog = request.RewardItems.Count > 0
+                    ? string.Join(", ", request.RewardItems.Select(kv => $"{kv.Value}x {kv.Key}"))
+                    : "none";
+            }
+
+            var targetsLog = string.Join(", ", request.Targets.Select(t => $"{t.Amount}x {t.TargetId}"));
             _adminLogs.Add(LogType.Action,
-                $"Requisitions account {group} completed random request for {request.Amount}x {request.TargetId} " +
+                $"Requisitions account {group} completed random request for {targetsLog} " +
                 $"(score {request.Score}, reward {rewardLog})");
 
             slot.Request = null;

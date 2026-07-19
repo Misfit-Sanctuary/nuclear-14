@@ -83,6 +83,10 @@ public sealed partial class MailComponent : SharedMailComponent
     [DataField]
     public int Penalty = -250;
 
+    // Misfits
+    [DataField]
+    public string? RequisitionsGroup;
+
     /// <summary>
     ///     The sound that's played when the mail's lock is broken.
     /// </summary>

@@ -34,8 +34,11 @@
     rewardPool: VaultRewardPool
     randomRequestSlots: 10
     randomRequestRerollDelay: 900
+    randomRequestMinTargets: 1
+    randomRequestMaxTargets: 3
     hardRequestSlots: 3
     hardRequestScoreMultiplier: 4
+    directBudgetRequestSlots: 4
     sellEntries:
     - item: N14DrinkNukaColaEmpty
       value: 5
@@ -58,7 +61,7 @@
         crate: N14CrateRequisitionsVaultPipboy
       - cost: 400
         crate: N14CrateRequisitionsVaultPowerCells
-      - cost: 150
+      - cost: 500
         crate: MisfitsCrateRequisitionsVaultBinoculars
       - cost: 2000
         stock: 1
@@ -72,7 +75,7 @@
       - cost: 500
         stock: 2
         crate: N14CrateRequisitionsVaultLaser
-      - cost: 1200
+      - cost: 1500
         crate: MisfitsCrateRequisitionsVaultModularGrenade
       - cost: 1300
         crate: MisfitsCrateRequisitionsVaultRiot
@@ -113,6 +116,20 @@
         crate: N14CrateRequisitionsVaultPizzaParty
       - cost: 200
         crate: N14CrateRequisitionsVaultCanned
+      - cost: 250
+        crate: MisfitsCrateRequisitionsVaultBirthdayParty
+      - cost: 300
+        crate: MisfitsCrateRequisitionsVaultExoticSeeds
+    - name: n14-requisitions-category-supplies
+      entries:
+      - cost: 3000
+        crate: MisfitsCrateRequisitionsVaultCircuits
+      - cost: 1500
+        crate: MisfitsCrateRequisitionsVaultSteel
+      - cost: 2000
+        crate: MisfitsCrateRequisitionsVaultPlastic
+      - cost: 2000
+        crate: MisfitsCrateRequisitionsVaultThread
 
 # Apparel
 - type: entity

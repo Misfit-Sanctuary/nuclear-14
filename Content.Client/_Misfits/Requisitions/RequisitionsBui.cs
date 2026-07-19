@@ -26,7 +26,7 @@ public sealed class RequisitionsBui : BoundUserInterface
 {
     private const float CategoryMinWidth = 180f;
     private const float CategoryPanelPadding = 12f;
-    private const string GenericRewardCrate = "CrateGenericSteel";
+    private const string PrewarMoneyProto = "N14CurrencyPrewar";
 
     [Dependency] private readonly IEntityManager _entities = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
@@ -238,7 +238,7 @@ public sealed class RequisitionsBui : BoundUserInterface
             + "|" + (randomRequests == null
                 ? "x"
                 : string.Join(";", randomRequests.Select(s => s.Request is { } r
-                    ? $"{r.IsReagent}|{r.TargetId}|{r.Amount}|{r.Progress}|{r.Score}|{DictSignature(r.RewardItems)}|{CountdownBucket(r.RerollAvailableAt, now)}"
+                    ? $"{string.Join(",", r.Targets.Select(t => $"{t.IsReagent}|{t.TargetId}|{t.Amount}|{t.Progress}"))}|{r.Score}|{DictSignature(r.RewardItems)}|{CountdownBucket(r.RerollAvailableAt, now)}"
                     : $"empty|{CountdownBucket(s.NextRollAt, now)}")));
         if (!RenderChanged("bounties", sig))
             return;
@@ -262,34 +262,10 @@ public sealed class RequisitionsBui : BoundUserInterface
             var progress = _state?.BountyProgress ?? new Dictionary<string, int>();
             foreach (var bounty in bounties!)
             {
-                var name = bounty.Name is { } loc && Loc.TryGetString(loc, out var localized)
-                    ? localized
-                    : _prototypes.TryIndex<EntityPrototype>(bounty.Item, out var itemProto)
-                        ? itemProto.Name
-                        : bounty.Item.Id;
-
-                var rewardCrate = bounty.RewardCrate;
-                var rewardText = rewardCrate is { } crate
-                    ? (_prototypes.TryIndex<EntityPrototype>(crate, out var crateProto) ? crateProto.Name : crate.Id)
-                    : Loc.GetString("n14-requisitions-bounty-reward-cash", ("reward", bounty.Reward));
-
-                string markup;
-                if (completed.Contains(bounty.Id))
-                {
-                    markup = Loc.GetString("n14-requisitions-bounty-row-done",
-                        ("amount", bounty.Amount), ("item", name), ("reward", rewardText));
-                }
-                else
-                {
-                    markup = Loc.GetString("n14-requisitions-bounty-row",
-                        ("done", progress.GetValueOrDefault(bounty.Id)),
-                        ("amount", bounty.Amount),
-                        ("item", name),
-                        ("reward", rewardText));
-                }
-
-                var rewardIcons = rewardCrate is { } rc ? new List<EntProtoId> { rc } : null;
-                _window.BountiesContainer.AddChild(MakeIconRow(bounty.Item.Id, markup, rewardIcons));
+                var isDone = completed.Contains(bounty.Id);
+                var borderColor = isDone ? RequisitionsUiStyles.DimGreen : RequisitionsUiStyles.DarkGreen;
+                var card = BuildBountyCard(bounty, isDone, progress.GetValueOrDefault(bounty.Id));
+                _window.BountiesContainer.AddChild(WrapCard(card, borderColor));
             }
         }
 
@@ -305,8 +281,40 @@ public sealed class RequisitionsBui : BoundUserInterface
             });
 
             for (var i = 0; i < randomRequests!.Count; i++)
-                _window.BountiesContainer.AddChild(BuildRandomRequestRow(i, randomRequests[i]));
+            {
+                var slot = randomRequests[i];
+                var borderColor = slot.Request is { IsHard: true } ? RequisitionsUiStyles.Green : RequisitionsUiStyles.DarkGreen;
+                _window.BountiesContainer.AddChild(WrapCard(BuildRandomRequestRow(i, slot), borderColor));
+            }
         }
+    }
+
+    private static Control WrapCard(Control content, Color borderColor)
+    {
+        var panel = new PanelContainer
+        {
+            PanelOverride = new StyleBoxFlat
+            {
+                BackgroundColor = RequisitionsUiStyles.PanelBackground,
+                BorderColor = borderColor,
+                BorderThickness = new Thickness(1),
+                ContentMarginLeftOverride = 6,
+                ContentMarginRightOverride = 6,
+                ContentMarginTopOverride = 4,
+                ContentMarginBottomOverride = 4,
+            },
+            HorizontalExpand = true,
+        };
+        panel.AddChild(content);
+
+        var wrapper = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            HorizontalExpand = true,
+        };
+        wrapper.AddChild(panel);
+        wrapper.AddChild(new Control { MinHeight = 6 });
+        return wrapper;
     }
 
     private Control BuildDivider()
@@ -319,9 +327,32 @@ public sealed class RequisitionsBui : BoundUserInterface
         };
     }
 
+    private Control BuildBountyCard(RequisitionsBounty bounty, bool isDone, int progress)
+    {
+        var name = bounty.Name is { } loc && Loc.TryGetString(loc, out var localized)
+            ? localized
+            : _prototypes.TryIndex<EntityPrototype>(bounty.Item, out var itemProto)
+                ? itemProto.Name
+                : bounty.Item.Id;
+
+        var markup = isDone
+            ? Loc.GetString("n14-requisitions-bounty-row-done", ("amount", bounty.Amount), ("item", name))
+            : Loc.GetString("n14-requisitions-bounty-row", ("done", progress), ("amount", bounty.Amount), ("item", name));
+
+        var requestChips = BuildChipWrap();
+        requestChips.AddChild(BuildItemChip(bounty.Item.Id, false, markup));
+
+        var rewardContent = bounty.RewardCrate is { } crate
+            ? BuildCrateContentsChips(crate.Id) ?? BuildItemChip(crate.Id, false,
+                _prototypes.TryIndex<EntityPrototype>(crate, out var crateProto) ? crateProto.Name : crate.Id)
+            : BuildCashRewardChip(bounty.Reward);
+
+        return BuildTwoSectionCard(requestChips, null, rewardContent);
+    }
+
     private Control BuildRandomRequestRow(int slotIndex, RequisitionsRandomSlot slot)
     {
-        if (slot.Request is not { } request)
+        if (slot.Request is not { } request || request.Targets.Count == 0)
         {
             var remaining = slot.NextRollAt - _timing.CurTime;
             var waitText = remaining > TimeSpan.Zero
@@ -341,64 +372,42 @@ public sealed class RequisitionsBui : BoundUserInterface
             return emptyRow;
         }
 
-        var iconProto = request.TargetId;
-        string name;
-        if (request.IsReagent)
-        {
-            name = _prototypes.TryIndex<ReagentPrototype>(request.TargetId, out var reagentProto) ? reagentProto.LocalizedName : request.TargetId;
-        }
-        else if (_prototypes.TryIndex<EntityPrototype>(request.TargetId, out var itemProto))
-        {
-            name = itemProto.Name;
-        }
-        else if (_prototypes.TryIndex<StackPrototype>(request.TargetId, out var stackProto))
-        {
-            name = Loc.GetString(stackProto.Name);
-            iconProto = stackProto.Spawn;
-        }
-        else
-        {
-            name = request.TargetId;
-        }
+        var requestChips = BuildChipWrap();
 
-        var markup = Loc.GetString("n14-requisitions-random-request-row",
-            ("done", request.Progress),
-            ("amount", request.Amount),
-            ("item", name));
-
-        var row = new BoxContainer
+        foreach (var target in request.Targets)
         {
-            Orientation = BoxContainer.LayoutOrientation.Horizontal,
-            HorizontalExpand = true,
-            Margin = new Thickness(0, 2),
-        };
+            var iconProto = target.TargetId;
+            string name;
+            if (target.IsReagent)
+            {
+                name = _prototypes.TryIndex<ReagentPrototype>(target.TargetId, out var reagentProto) ? reagentProto.LocalizedName : target.TargetId;
+            }
+            else if (_prototypes.TryIndex<EntityPrototype>(target.TargetId, out var itemProto))
+            {
+                name = itemProto.Name;
+            }
+            else if (_prototypes.TryIndex<StackPrototype>(target.TargetId, out var stackProto))
+            {
+                name = Loc.GetString(stackProto.Name);
+                iconProto = stackProto.Spawn;
+            }
+            else
+            {
+                name = target.TargetId;
+            }
 
-        if (!request.IsReagent)
-        {
-            row.AddChild(MakeIcon(iconProto, 32));
-            row.AddChild(new Control { MinWidth = 6 });
+            var markup = Loc.GetString("n14-requisitions-random-request-row",
+                ("done", target.Progress),
+                ("amount", target.Amount),
+                ("item", name));
+            requestChips.AddChild(BuildItemChip(iconProto, target.IsReagent, markup));
         }
 
-        var label = new RichTextLabel { VerticalAlignment = Control.VAlignment.Center, HorizontalExpand = true };
-        label.SetMessage(FormattedMessage.FromMarkupOrThrow(markup));
-        row.AddChild(label);
-
-        if (request.RewardItems.Count > 0)
-        {
-            var rewardHint = new RichTextLabel { VerticalAlignment = Control.VAlignment.Center };
-            rewardHint.SetMessage(FormattedMessage.FromUnformatted(Loc.GetString("n14-requisitions-random-request-reward-hint")),
-                defaultColor: RequisitionsUiStyles.TextDim);
-            row.AddChild(rewardHint);
-            row.AddChild(new Control { MinWidth = 4 });
-
-            var rewardItems = request.RewardItems;
-            var crateIcon = MakeIcon(GenericRewardCrate, 28);
-            crateIcon.TooltipSupplier = _ => BuildRewardItemsTooltip(rewardItems);
-            crateIcon.MouseFilter = Control.MouseFilterMode.Pass;
-            row.AddChild(crateIcon);
-        }
-
-        row.AddChild(new Control { MinWidth = 6 });
+        var rewardContent = request.DirectBudget
+            ? BuildBudgetRewardChip(request.Score)
+            : request.RewardItems.Count > 0
+                ? BuildRewardItemChips(request.RewardItems)
+                : new Control();
 
         var canReroll = _timing.CurTime >= request.RerollAvailableAt;
         var rerollButton = new Button
@@ -411,9 +420,123 @@ public sealed class RequisitionsBui : BoundUserInterface
         };
         RequisitionsUiStyles.ApplyQuantityButton(rerollButton);
         rerollButton.OnPressed += _ => SendMessage(new RequisitionsRerollRequestMsg(slotIndex));
-        row.AddChild(rerollButton);
 
-        return row;
+        return BuildTwoSectionCard(requestChips, rerollButton, rewardContent);
+    }
+
+    private Control BuildTwoSectionCard(Control requestContent, Button? rerollButton, Control rewardContent)
+    {
+        var outer = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            HorizontalExpand = true,
+            Margin = new Thickness(0, 2),
+        };
+
+        var requestHeader = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            HorizontalExpand = true,
+        };
+        requestHeader.AddChild(new Label
+        {
+            Text = Loc.GetString("n14-requisitions-section-request"),
+            FontColorOverride = RequisitionsUiStyles.TextDim,
+            HorizontalExpand = true,
+        });
+        if (rerollButton != null)
+            requestHeader.AddChild(rerollButton);
+        outer.AddChild(requestHeader);
+        outer.AddChild(new Control { MinHeight = 2 });
+        outer.AddChild(requestContent);
+
+        outer.AddChild(new PanelContainer
+        {
+            PanelOverride = new StyleBoxFlat { BackgroundColor = RequisitionsUiStyles.DarkGreen },
+            MinHeight = 1,
+            Margin = new Thickness(0, 6),
+        });
+
+        outer.AddChild(new Label
+        {
+            Text = Loc.GetString("n14-requisitions-section-reward"),
+            FontColorOverride = RequisitionsUiStyles.TextDim,
+        });
+        outer.AddChild(new Control { MinHeight = 2 });
+        outer.AddChild(rewardContent);
+
+        return outer;
+    }
+
+    private static WrapContainer BuildChipWrap()
+    {
+        return new WrapContainer
+        {
+            LayoutAxis = Axis.Horizontal,
+            HorizontalExpand = true,
+            SeparationOverride = 12,
+            CrossSeparationOverride = 4,
+        };
+    }
+
+    private Control BuildItemChip(string iconProto, bool isReagent, string markup)
+    {
+        var chip = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal };
+
+        if (!isReagent)
+        {
+            chip.AddChild(MakeIcon(iconProto, 28));
+            chip.AddChild(new Control { MinWidth = 4 });
+        }
+
+        var label = new RichTextLabel { VerticalAlignment = Control.VAlignment.Center };
+        label.SetMessage(FormattedMessage.FromMarkupOrThrow(markup));
+        chip.AddChild(label);
+
+        return chip;
+    }
+
+    private Control BuildRewardItemChips(Dictionary<string, int> rewardItems)
+    {
+        var wrap = BuildChipWrap();
+        foreach (var (protoId, amount) in rewardItems)
+        {
+            var name = _prototypes.TryIndex<EntityPrototype>(protoId, out var proto) ? proto.Name : protoId;
+            wrap.AddChild(BuildItemChip(protoId, false, $"{amount}x {name}"));
+        }
+        return wrap;
+    }
+
+    private Control? BuildCrateContentsChips(string crateProto)
+    {
+        if (!_prototypes.TryIndex<EntityPrototype>(crateProto, out var proto) ||
+            !proto.TryGetComponent<StorageFillComponent>("StorageFill", out var fill) ||
+            fill.Contents.Count == 0)
+        {
+            return null;
+        }
+
+        var wrap = BuildChipWrap();
+        foreach (var item in fill.Contents)
+        {
+            if (item.PrototypeId is not { } pid)
+                continue;
+
+            var name = _prototypes.TryIndex<EntityPrototype>(pid, out var itemProto) ? itemProto.Name : pid.Id;
+            wrap.AddChild(BuildItemChip(pid.Id, false, $"{item.Amount}x {name}"));
+        }
+
+        return wrap.ChildCount > 0 ? wrap : null;
+    }
+
+    private Control BuildCashRewardChip(int amount)
+    {
+        return BuildItemChip(PrewarMoneyProto, false, Loc.GetString("n14-requisitions-bounty-reward-cash", ("reward", amount)));
+    }
+
+    private Control BuildBudgetRewardChip(int score)
+    {
+        return BuildItemChip(PrewarMoneyProto, false, Loc.GetString("n14-requisitions-random-request-cash-reward", ("amount", score)));
     }
 
     private static int CountdownBucket(TimeSpan target, TimeSpan now)
@@ -855,28 +978,6 @@ public sealed class RequisitionsBui : BoundUserInterface
 
         if (contents.ChildCount == 0)
             return null;
-
-        var panel = new PanelContainer { PanelOverride = RequisitionsUiStyles.CardPanel() };
-        panel.AddChild(contents);
-        return panel;
-    }
-
-    private Control? BuildRewardItemsTooltip(Dictionary<string, int> rewardItems)
-    {
-        if (rewardItems.Count == 0)
-            return null;
-
-        var contents = new BoxContainer
-        {
-            Orientation = BoxContainer.LayoutOrientation.Vertical,
-            Margin = new Thickness(6),
-        };
-
-        foreach (var (proto, amount) in rewardItems)
-        {
-            var name = _prototypes.TryIndex<EntityPrototype>(proto, out var itemProto) ? itemProto.Name : proto;
-            contents.AddChild(MakeIconRow(proto, $"{amount}x {name}"));
-        }
 
         var panel = new PanelContainer { PanelOverride = RequisitionsUiStyles.CardPanel() };
         panel.AddChild(contents);

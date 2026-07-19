@@ -41,6 +41,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
 using Content.Server.Mail.Components;
+using Content.Server._Misfits.Requisitions;
 using Content.Shared.Chat;
 using Content.Shared.Mail;
 using Timer = Robust.Shared.Timing.Timer;
@@ -62,6 +63,7 @@ namespace Content.Server.Mail.Systems
         [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
         [Dependency] private readonly OpenableSystem _openable = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly RequisitionsSystem _requisitionsSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
@@ -231,8 +233,15 @@ namespace Content.Server.Mail.Systems
                 return;
             }
 
-            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-reward", ("bounty", component.Bounty)), uid, args.User);
+            // Misifts
+            var rewardLocKey = component.RequisitionsGroup != null ? "mail-unlocked-reward-requisitions" : "mail-unlocked-reward";
+            _popupSystem.PopupEntity(Loc.GetString(rewardLocKey, ("bounty", component.Bounty)), uid, args.User);
             component.IsProfitable = false;
+            if (component.RequisitionsGroup is { } requisitionsGroup)
+            {
+                _requisitionsSystem.TryAddBudget(requisitionsGroup, component.Bounty);
+                return;
+            }
 
             var query = EntityQueryEnumerator<StationBankAccountComponent>();
             while (query.MoveNext(out var station, out var account))
@@ -283,13 +292,22 @@ namespace Content.Server.Mail.Systems
             if (!component.IsProfitable)
                 return;
 
-            _chatSystem.TrySendInGameICMessage(uid, Loc.GetString(localizationString, ("credits", component.Penalty)), InGameICChatType.Speak, false);
+            var penaltyLocKey = component.RequisitionsGroup != null ? $"{localizationString}-requisitions" : localizationString; // Misfits
+            _chatSystem.TrySendInGameICMessage(uid, Loc.GetString(penaltyLocKey, ("credits", component.Penalty)), InGameICChatType.Speak, false); //Misfits
             _audioSystem.PlayPvs(component.PenaltySound, uid);
 
             component.IsProfitable = false;
 
             if (component.IsPriority)
                 _appearanceSystem.SetData(uid, MailVisuals.IsPriorityInactive, true);
+
+            // Misfits
+            if (component.RequisitionsGroup is { } requisitionsGroup)
+            {
+                if (localizationString != "mail-penalty-expired")
+                    _requisitionsSystem.TryAddBudget(requisitionsGroup, component.Penalty);
+                return;
+            }
 
             var query = EntityQueryEnumerator<StationBankAccountComponent>();
             while (query.MoveNext(out var station, out var account))

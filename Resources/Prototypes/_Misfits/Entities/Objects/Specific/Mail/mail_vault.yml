@@ -1,8 +1,17 @@
+- type: entity
+  abstract: true
+  parent: BaseMail
+  id: BaseMailVault
+  components:
+  - type: Mail
+    bounty: 300
+    requisitionsGroup: Vault
+
 # everyone
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultPlushie
   suffix: vault-plushie
   components:
@@ -43,7 +52,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultMedSupply
   suffix: vault-med-supply
   components:
@@ -55,7 +64,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultWrappingPaper
   suffix: vault-wrapping-paper
   components:
@@ -66,7 +75,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultScarf
   suffix: vault-scarf
   components:
@@ -99,7 +108,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultVodka
   suffix: vault-vodka
   components:
@@ -110,7 +119,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultWine
   suffix: vault-wine
   components:
@@ -121,7 +130,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultBirthdayCake
   suffix: vault-birthday-cake
   components:
@@ -131,7 +140,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultPreWarMoney
   suffix: vault-prewar-money
   components:
@@ -142,7 +151,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultCigars
   suffix: vault-cigars
   components:
@@ -157,7 +166,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultFireBomb
   suffix: vault-firebomb
   components:
@@ -167,7 +176,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultFortuneCookies
   suffix: vault-fortune-cookies
   components:
@@ -181,7 +190,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultDoctorSupplies
   suffix: vault-doc-supplies
   components:
@@ -194,7 +203,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultDoctorRadAway
   suffix: vault-doc-radaway
   components:
@@ -206,7 +215,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultDoctorStims
   suffix: vault-doc-stims
   components:
@@ -217,7 +226,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultDoctorUltraStimpak
   suffix: vault-doc-ultra
   components:
@@ -227,7 +236,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultDoctorControlled
   suffix: vault-doc-controlled
   components:
@@ -248,7 +257,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultEngineerPowerDrill
   suffix: vault-eng-drill
   components:
@@ -258,7 +267,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultEngineerGoggles
   suffix: vault-eng-goggles
   components:
@@ -276,7 +285,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultEngineerJumpsuit
   suffix: vault-eng-jumpsuit
   components:
@@ -288,7 +297,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultSecurityMeds
   suffix: vault-sec-meds
   components:
@@ -300,7 +309,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultSecurityDonuts
   suffix: vault-sec-donuts
   components:
@@ -317,7 +326,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultDwellerOutfit
   suffix: vault-dweller-outfit
   components:
@@ -335,7 +344,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultDwellerCostume
   suffix: vault-dweller-costume
   components:
@@ -352,7 +361,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultOverseerNocturine
   suffix: vault-overseer-nocturine
   components:
@@ -362,7 +371,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultWizardRobes
   suffix: vault-wizard
   components:
@@ -388,7 +397,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultDoctorCateye
   suffix: vault-doc-cateye
   components:
@@ -398,7 +407,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultDoctorSurgicalSupplies
   suffix: vault-doc-surgical
   components:
@@ -411,7 +420,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultDoctorCombatMedkit
   suffix: vault-doc-combatmedkit
   components:
@@ -421,7 +430,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultDoctorStimkit
   suffix: vault-doc-stimkit
   components:
@@ -431,7 +440,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultDoctorParamedicOutfit
   suffix: vault-doc-paramedic
   components:
@@ -442,7 +451,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultDoctorGrenadeKit
   suffix: vault-doc-grenade
   components:
@@ -454,7 +463,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultPills
   suffix: vault-pills
   components:
@@ -477,7 +486,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultEngineerWelder
   suffix: vault-eng-welder
   components:
@@ -495,7 +504,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultEngineerJawsOfLife
   suffix: vault-eng-jaws
   components:
@@ -505,7 +514,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultEngineerCircuitry
   suffix: vault-eng-circuitry
   components:
@@ -515,7 +524,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultEngineerBelt
   suffix: vault-eng-belt
   components:
@@ -525,7 +534,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultEngineerSatchel
   suffix: vault-eng-satchel
   components:
@@ -535,7 +544,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultEngineerBeret
   suffix: vault-eng-beret
   components:
@@ -547,7 +556,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultSecuritySword
   suffix: vault-sec-sword
   components:
@@ -562,7 +571,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultSecurityTearGas
   suffix: vault-sec-teargas
   components:
@@ -573,7 +582,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultSecurityEMP
   suffix: vault-sec-emp
   components:
@@ -584,7 +593,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultSecurityFlashbang
   suffix: vault-sec-flashbang
   components:
@@ -594,7 +603,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultSecurityPoliceUniform
   suffix: vault-sec-police
   components:
@@ -604,7 +613,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultSecurityPlasmaDefender
   suffix: vault-sec-plasmadefender
   components:
@@ -616,7 +625,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultDwellerPipboy
   suffix: vault-dweller-pipboy
   components:
@@ -626,7 +635,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultDwellerJoints
   suffix: vault-dweller-joints
   components:
@@ -637,7 +646,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultDwellerPirateSet
   suffix: vault-dweller-pirate
   components:
@@ -650,7 +659,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultDwellerWitchSet
   suffix: vault-dweller-witch
   components:
@@ -663,7 +672,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultOverseerPlasmaRifle
   suffix: vault-overseer-plasma
   components:
@@ -673,7 +682,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailVault
   id: MailVaultOverseerJusticeSet
   suffix: vault-overseer-justice
   components:

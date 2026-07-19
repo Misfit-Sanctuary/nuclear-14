@@ -1,6 +1,15 @@
 - type: entity
-  categories: [ HideSpawnMenu ]
+  abstract: true
   parent: BaseMail
+  id: BaseMailWasteland
+  components:
+  - type: Mail
+    bounty: 750
+    requisitionsGroup: Vault
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
   id: MailWastelandSupplyBox
   suffix: wasteland-supply-box
   components:
@@ -17,7 +26,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailWasteland
   id: MailWastelandPlushie
   suffix: wasteland-plushie
   components:
@@ -56,7 +65,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailWasteland
   id: MailWastelandScarf
   suffix: wasteland-scarf
   components:
@@ -89,7 +98,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailWasteland
   id: MailWastelandVodka
   suffix: wasteland-vodka
   components:
@@ -100,7 +109,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailWasteland
   id: MailWastelandWine
   suffix: wasteland-wine
   components:
@@ -111,7 +120,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailWasteland
   id: MailWastelandBirthdayCake
   suffix: wasteland-birthday-cake
   components:
@@ -121,7 +130,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailWasteland
   id: MailWastelandPreWarMoney
   suffix: wasteland-prewar-money
   components:
@@ -132,7 +141,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailWasteland
   id: MailWastelandCigars
   suffix: wasteland-cigars
   components:
@@ -147,7 +156,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailWasteland
   id: MailWastelandFortuneCookies
   suffix: wasteland-fortune-cookies
   components:
@@ -158,7 +167,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailWasteland
   id: MailWastelandChems
   suffix: wasteland-chems
   components:
@@ -176,7 +185,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailWasteland
   id: MailWastelandPills
   suffix: wasteland-pills
   components:
@@ -197,7 +206,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
+  parent: BaseMailWasteland
   id: MailWastelandRadTreatment
   suffix: wasteland-rad-treatment
   components:
@@ -214,8 +223,8 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseMail
-  id: MailWastelandDogTreat
+  parent: BaseMailWasteland
+  id: MailWastelandDogTreat #lmao
   suffix: wasteland-dog-treat
   components:
   - type: Mail

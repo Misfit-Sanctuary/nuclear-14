@@ -61,6 +61,31 @@
       maxAmount: 10
       valuePerUnit: 2
       weight: 0.6
+    - item: N14FloraProduceWildGlowpepper
+      minAmount: 5
+      maxAmount: 15
+      valuePerUnit: 1
+      weight: 1.2
+    - item: N14FloraProduceWildNettle
+      minAmount: 5
+      maxAmount: 15
+      valuePerUnit: 1
+      weight: 1.2
+    - item: N14FloraProduceWildOnion
+      minAmount: 5
+      maxAmount: 15
+      valuePerUnit: 1
+      weight: 1.2
+    - item: N14FloraProduceWildBarrelCactusFruit
+      minAmount: 5
+      maxAmount: 15
+      valuePerUnit: 1
+      weight: 1.2
+    - item: N14FloraProduceWildCaveFungusRad
+      minAmount: 3
+      maxAmount: 10
+      valuePerUnit: 3
+      weight: 0.7
     - item: N14Sugarcane
       minAmount: 5
       maxAmount: 15
@@ -245,27 +270,27 @@
       weight: 1.5
     # Scavenged scrap
     - material: N14Scrap
-      minAmount: 15
-      maxAmount: 40
+      minAmount: 5
+      maxAmount: 30
       valuePerUnit: 6
       weight: 1.5
     - material: N14ScrapSteel
-      minAmount: 15
-      maxAmount: 40
+      minAmount: 5
+      maxAmount: 30
       valuePerUnit: 7
       weight: 1.3
     - material: N14ScrapLead
-      minAmount: 10
+      minAmount: 5
       maxAmount: 30
       valuePerUnit: 8
       weight: 1.2
     - material: N14ScrapCopper
-      minAmount: 10
+      minAmount: 5
       maxAmount: 25
       valuePerUnit: 10
       weight: 1
     - material: N14ScrapBrass
-      minAmount: 10
+      minAmount: 5
       maxAmount: 25
       valuePerUnit: 12
       weight: 0.8
@@ -276,40 +301,46 @@
       weight: 0.5
     # Processed bars
     - material: Lead
-      minAmount: 10
-      maxAmount: 30
+      minAmount: 5
+      maxAmount: 15
       valuePerUnit: 20
       weight: 1
     - material: Aluminum
-      minAmount: 10
-      maxAmount: 25
+      minAmount: 5
+      maxAmount: 12
       valuePerUnit: 14
       weight: 0.9
     - material: N14Copper
-      minAmount: 10
-      maxAmount: 25
+      minAmount: 5
+      maxAmount: 12
       valuePerUnit: 20
       weight: 0.9
     - material: N14Iron
-      minAmount: 10
-      maxAmount: 30
+      minAmount: 5
+      maxAmount: 15
       valuePerUnit: 20
       weight: 1
     - material: N14Brass
-      minAmount: 10
-      maxAmount: 25
+      minAmount: 5
+      maxAmount: 12
       valuePerUnit: 20
       weight: 0.8
     - material: N14Gold
-      minAmount: 5
-      maxAmount: 20
+      minAmount: 3
+      maxAmount: 10
       valuePerUnit: 40
       weight: 0.6
     - material: N14Silver
-      minAmount: 5
-      maxAmount: 20
+      minAmount: 3
+      maxAmount: 10
       valuePerUnit: 20
       weight: 0.7
+    - material: PrewarMoney
+      minAmount: 200
+      maxAmount: 800
+      valuePerUnit: 1.5
+      weight: 0.8
+      directBudget: true
   reagents:
     - reagent: N14MilkBrahmin
       minAmount: 40
@@ -406,6 +437,21 @@
       maxAmount: 50
       valuePerUnit: 10
       weight: 0.3
+    - reagent: Razorium
+      minAmount: 10
+      maxAmount: 30
+      valuePerUnit: 15
+      weight: 0.5
+    - reagent: ChloralHydrate
+      minAmount: 15
+      maxAmount: 40
+      valuePerUnit: 8
+      weight: 0.7
+    - reagent: MovespeedMixture # why is jet called this??
+      minAmount: 15
+      maxAmount: 40
+      valuePerUnit: 10
+      weight: 0.6
 
 - type: requisitionsRewardPool
   id: VaultRewardPool
@@ -414,12 +460,12 @@
     - item: SheetSteel1
       cost: 3
       minAmount: 5
-      maxAmount: 10
+      maxAmount: 30
       weight: 2.5
     - item: SheetPlastic1
       cost: 4
-      minAmount: 5
-      maxAmount: 10
+      minAmount: 1
+      maxAmount: 30
       weight: 2
     - item: MaterialWoodPlank1
       cost: 2
@@ -428,12 +474,12 @@
       weight: 2
     - item: N14MaterialCircuitry1
       cost: 15
-      minAmount: 10
-      maxAmount: 10
+      minAmount: 1
+      maxAmount: 20
       weight: 1
     - item: N14ScrapElectronic1
       cost: 10
-      minAmount: 10
+      minAmount: 1
       maxAmount: 10
       weight: 1.2
     - item: SheetPlasma1
@@ -441,6 +487,11 @@
       minAmount: 2
       maxAmount: 5
       weight: 1
+    - item: N14MaterialThread1
+      cost: 3
+      minAmount: 5
+      maxAmount: 10
+      weight: 2
 
     # Currency
     - item: N14CurrencyPrewar
@@ -451,7 +502,7 @@
 
     # Medicine
     - item: N14Stimpak
-      cost: 8
+      cost: 25
       minAmount: 2
       maxAmount: 5
       weight: 2
@@ -461,27 +512,27 @@
       maxAmount: 3
       weight: 1.5
     - item: MisfitsEmptyStimpakSyringe
-      cost: 2
+      cost: 15
       minAmount: 3
       maxAmount: 6
       weight: 2
     - item: MedicatedSuture
-      cost: 10
-      minAmount: 2
-      maxAmount: 4
+      cost: 40
+      minAmount: 1
+      maxAmount: 10
       weight: 1.3
     - item: RegenerativeMesh
-      cost: 10
+      cost: 40
       minAmount: 1
-      maxAmount: 3
+      maxAmount: 10
       weight: 1.1
     - item: N14SuperStimpak
-      cost: 20
+      cost: 100
       minAmount: 1
       maxAmount: 2
       weight: 0.6
     - item: N14Bandage
-      cost: 3
+      cost: 10
       minAmount: 3
       maxAmount: 6
       weight: 2
@@ -491,65 +542,65 @@
       maxAmount: 10
       weight: 1
     - item: N14MedkitStimkitFilled
-      cost: 45
+      cost: 75
       weight: 0.6
     - item: N14MedkitCombatFilled
       cost: 55
       weight: 0.45
     - item: StimkitFilled
-      cost: 35
+      cost: 75
       weight: 0.6
 
     # Grenades
     - item: GrenadeFlashBang
-      cost: 15
+      cost: 100
       minAmount: 1
       maxAmount: 2
       weight: 1.2
     - item: TearGasGrenade
-      cost: 15
+      cost: 75
       minAmount: 1
       maxAmount: 2
       weight: 1.2
     - item: GrenadeShrapnel
-      cost: 25
+      cost: 75
       minAmount: 1
       maxAmount: 2
-      weight: 0.8
+      weight: 0.35
     - item: GrenadeStinger
-      cost: 25
+      cost: 75
       minAmount: 1
       maxAmount: 2
-      weight: 0.8
+      weight: 0.35
     - item: SmokeGrenade
-      cost: 15
+      cost: 30
       minAmount: 1
       maxAmount: 2
       weight: 1
     - item: EmpGrenade
-      cost: 30
+      cost: 100
       minAmount: 1
       maxAmount: 2
-      weight: 0.7
+      weight: 0.3
     - item: N14CryoGrenade
-      cost: 30
+      cost: 100
       minAmount: 1
       maxAmount: 2
-      weight: 0.7
+      weight: 0.3
 
     # Modular grenade
     - item: ModularGrenade
       cost: 20
       minAmount: 1
       maxAmount: 2
-      weight: 0.1
+      weight: 0.04
     - item: ChemicalPayload
-      cost: 15
+      cost: 50
       minAmount: 1
       maxAmount: 2
       weight: 0.8
     - item: TimerTrigger
-      cost: 10
+      cost: 40
       minAmount: 1
       maxAmount: 2
       weight: 1
@@ -567,19 +618,19 @@
       maxAmount: 3
       weight: 1.2
     - item: N14WeaponLaserPistol
-      cost: 60
+      cost: 125
       weight: 0.5
     - item: N14PowerCellSmall
       cost: 6
-      minAmount: 2
+      minAmount: 1
       maxAmount: 4
       weight: 1.5
     - item: N14WeaponPlasmaRifle
-      cost: 150
-      weight: 0.35
+      cost: 300
+      weight: 0.15
     - item: N14WeaponPlasmaDefender
-      cost: 100
-      weight: 0.4
+      cost: 250
+      weight: 0.18
     - item: N14WeaponRifle556Carbine
       cost: 85
       weight: 0.3
@@ -592,30 +643,30 @@
       cost: 75
       weight: 0.35
     - item: N14WeaponShotgunAuto
-      cost: 95
+      cost: 125
       weight: 0.25
     - item: N14WeaponRifle762M14
       cost: 90
       weight: 0.3
     - item: N14WeaponPlasmaRifleCrude
-      cost: 65
-      weight: 0.4
+      cost: 200
+      weight: 0.2
     - item: N14WeaponPlasmaPistol
-      cost: 65
-      weight: 0.45
+      cost: 250
+      weight: 0.2
     - item: N14WeaponLaserRifle
       cost: 100
       weight: 0.25
     - item: N14PlasmaCartridge
-      cost: 5
+      cost: 160
       minAmount: 2
       maxAmount: 5
-      weight: 1.5
+      weight: 0.5
     - item: N14PlasmaShell
-      cost: 8
+      cost: 160
       minAmount: 2
       maxAmount: 4
-      weight: 1.2
+      weight: 0.5
 
     # Ammo boxes
     - item: MagazineBox10mm
@@ -669,23 +720,23 @@
       cost: 25
       weight: 0.7
     - item: N14ClothingOuterMarineArmor
-      cost: 75
-      weight: 0.3
+      cost: 300
+      weight: 0.12
     - item: N14ClothingHeadHatBaseHelmetmarine
-      cost: 40
-      weight: 0.4
+      cost: 300
+      weight: 0.15
     - item: M14ClothingOuterVaultAdvancedVest
-      cost: 55
+      cost: 100
       weight: 0.4
     - item: M14ClothingHeadHatVaultRiotHelmet
-      cost: 35
+      cost: 50
       weight: 0.5
     - item: M14ClothingOuterVaultCombatArmor
-      cost: 80
-      weight: 0.3
+      cost: 300
+      weight: 0.12
     - item: M14ClothingHeadHatVaultCombatHelmet
-      cost: 50
-      weight: 0.4
+      cost: 300
+      weight: 0.15
 
     # Special reagents
     - item: VestineChemistryVial
@@ -697,63 +748,63 @@
 
     # limbs
     - item: JawsOfLifeLeftArm
-      cost: 60
-      weight: 0.3
+      cost: 400
+      weight: 0.1
     - item: JawsOfLifeRightArm
-      cost: 60
-      weight: 0.3
+      cost: 400
+      weight: 0.1
     - item: SpeedLeftLeg
-      cost: 60
-      weight: 0.3
+      cost: 400
+      weight: 0.1
     - item: SpeedRightLeg
-      cost: 60
-      weight: 0.3
+      cost: 400
+      weight: 0.1
     - item: LeftHandCybernetic
       cost: 30
       weight: 0.5
     - item: RightHandCybernetic
-      cost: 30
+      cost: 60
       weight: 0.5
     - item: LeftFootCybernetic
-      cost: 30
+      cost: 60
       weight: 0.5
     - item: RightFootCybernetic
-      cost: 30
+      cost: 60
       weight: 0.5
 
     - item: N14IngotLead1
       cost: 20
-      minAmount: 10
+      minAmount: 1
       maxAmount: 10
       weight: 1
     - item: N14IngotAluminum1
       cost: 25
-      minAmount: 10
+      minAmount: 1
       maxAmount: 10
       weight: 0.9
     - item: N14IngotCopper1
       cost: 28
-      minAmount: 10
+      minAmount: 1
       maxAmount: 10
       weight: 0.8
     - item: N14IngotIron1
       cost: 22
-      minAmount: 10
+      minAmount: 1
       maxAmount: 10
       weight: 1
     - item: N14IngotBrass1
       cost: 32
-      minAmount: 10
+      minAmount: 1
       maxAmount: 10
       weight: 0.6
     - item: N14IngotSilver1
       cost: 45
-      minAmount: 10
+      minAmount: 1
       maxAmount: 10
       weight: 0.4
     - item: N14IngotGold1
       cost: 60
-      minAmount: 10
+      minAmount: 1
       maxAmount: 10
       weight: 0.3
 
@@ -766,4 +817,4 @@
       weight: 0.2
     - item: MisfitsVehicleJanicartKeyed
       cost: 350
-      weight: 0.03 # gambling
+      weight: 0.03 # did you see it?
