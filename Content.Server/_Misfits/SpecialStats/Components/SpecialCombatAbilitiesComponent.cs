@@ -35,6 +35,18 @@ public sealed partial class SpecialCombatAbilitiesComponent : Component
     [DataField]
     public float ChargeSpeed = 15f;
 
+    /// <summary>
+    /// Stun applied to a mob the user collides with mid-charge.
+    /// </summary>
+    [DataField]
+    public TimeSpan ChargeStaggerTime = TimeSpan.FromSeconds(0.5);
+
+    /// <summary>
+    /// Incoming damage multiplier while the charge lunge is in flight.
+    /// </summary>
+    [DataField]
+    public float ChargeDamageMultiplier = 0.5f;
+
     [DataField]
     public TimeSpan ParryWindow = TimeSpan.FromSeconds(2);
 

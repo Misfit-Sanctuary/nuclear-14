@@ -105,6 +105,71 @@ public sealed class SpecialCombatAbilityTest
     }
 
     [Test]
+    public async Task ChargeResistsDamageAndStaggersOnImpact()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var map = await pair.CreateTestMap();
+
+        EntityUid charger = default;
+        EntityUid victim = default;
+
+        await server.WaitAssertion(() =>
+        {
+            var spawning = server.EntMan.System<StationSpawningSystem>();
+            var damageable = server.EntMan.System<Content.Shared.Damage.DamageableSystem>();
+
+            charger = spawning.SpawnPlayerMob(map.GridCoords, null, ProfileWithStats(5, 5, 8), null);
+            victim = spawning.SpawnPlayerMob(map.GridCoords.Offset(new System.Numerics.Vector2(2f, 0f)), null, ProfileWithStats(5, 5, 5), null);
+
+            var ev = new SpecialChargeActionEvent
+            {
+                Performer = charger,
+                Target = map.GridCoords.Offset(new System.Numerics.Vector2(4f, 0f)),
+            };
+            server.EntMan.EventBus.RaiseLocalEvent(charger, ev);
+            Assert.That(ev.Handled, Is.True);
+
+            Assert.That(server.EntMan.HasComponent<SpecialChargingComponent>(charger), Is.True,
+                "charging state should be active during the lunge");
+
+            var damage = new Content.Shared.Damage.DamageSpecifier();
+            damage.DamageDict.Add("Blunt", 10);
+            var result = damageable.TryChangeDamage(charger, damage, origin: victim);
+
+            Assert.That(result, Is.Not.Null);
+            Assert.Multiple(() =>
+            {
+                Assert.That(result!.GetTotal(), Is.GreaterThan(Content.Shared.FixedPoint.FixedPoint2.Zero),
+                    "charging is resistance, not immunity");
+                Assert.That(result.GetTotal(), Is.LessThan(Content.Shared.FixedPoint.FixedPoint2.New(10)),
+                    "damage should be reduced while charging");
+            });
+        });
+
+        // Collision with the victim happens ~4 ticks in (2 tiles at speed 15);
+        // check the stagger before its 0.5 s stun expires.
+        await pair.RunTicksSync(10);
+
+        await server.WaitAssertion(() =>
+        {
+            Assert.That(server.EntMan.HasComponent<Content.Shared.Stunnable.StunnedComponent>(victim), Is.True,
+                "mob hit by the charge should be staggered");
+        });
+
+        // Then let the lunge finish and the safety expiry run.
+        await pair.RunTicksSync(70);
+
+        await server.WaitAssertion(() =>
+        {
+            Assert.That(server.EntMan.HasComponent<SpecialChargingComponent>(charger), Is.False,
+                "charging state should end when the lunge stops");
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
     public async Task ParryReflectsAndNegatesMelee()
     {
         await using var pair = await PoolManager.GetServerClient();

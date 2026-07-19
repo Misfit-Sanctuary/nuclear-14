@@ -43,6 +43,9 @@ public sealed class SpecialCombatAbilitySystem : EntitySystem
         SubscribeLocalEvent<SpecialParryActiveComponent, AttackedEvent>(OnParryAttacked);
         SubscribeLocalEvent<SpecialParryActiveComponent, DamageModifyEvent>(OnParryDamageModify);
         SubscribeLocalEvent<SpecialCombatAbilitiesComponent, SpecialCrippleActionEvent>(OnCripple);
+        SubscribeLocalEvent<SpecialChargingComponent, ThrowDoHitEvent>(OnChargingDoHit);
+        SubscribeLocalEvent<SpecialChargingComponent, StopThrowEvent>(OnChargingStop);
+        SubscribeLocalEvent<SpecialChargingComponent, DamageModifyEvent>(OnChargingDamageModify);
     }
 
     private void OnSpecialChanged(ref SpecialChangedEvent args)
@@ -111,7 +114,29 @@ public sealed class SpecialCombatAbilitySystem : EntitySystem
         // A throw, not a teleport: walls and obstacles stop the lunge naturally.
         _throwing.TryThrow(user, direction, ent.Comp.ChargeSpeed, user,
             pushbackRatio: 0f, compensateFriction: true, recoil: false, doSpin: false);
+
+        var charging = EnsureComp<SpecialChargingComponent>(user);
+        charging.EndTime = _timing.CurTime + TimeSpan.FromSeconds(2);
+        charging.StaggerTime = ent.Comp.ChargeStaggerTime;
+        charging.DamageMultiplier = ent.Comp.ChargeDamageMultiplier;
+
         args.Handled = true;
+    }
+
+    private void OnChargingDoHit(Entity<SpecialChargingComponent> ent, ref ThrowDoHitEvent args)
+    {
+        // Silently does nothing against non-mobs (walls, furniture).
+        _stun.TryStun(args.Target, ent.Comp.StaggerTime, refresh: true);
+    }
+
+    private void OnChargingDamageModify(Entity<SpecialChargingComponent> ent, ref DamageModifyEvent args)
+    {
+        args.Damage *= ent.Comp.DamageMultiplier;
+    }
+
+    private void OnChargingStop(Entity<SpecialChargingComponent> ent, ref StopThrowEvent args)
+    {
+        RemComp<SpecialChargingComponent>(ent.Owner);
     }
 
     public override void Update(float frameTime)
@@ -123,6 +148,14 @@ public sealed class SpecialCombatAbilitySystem : EntitySystem
         {
             if (_timing.CurTime >= active.EndTime)
                 EndParry(uid, active);
+        }
+
+        // Safety net: StopThrowEvent normally ends the charging state.
+        var chargeQuery = EntityQueryEnumerator<SpecialChargingComponent>();
+        while (chargeQuery.MoveNext(out var uid, out var charging))
+        {
+            if (_timing.CurTime >= charging.EndTime)
+                RemComp<SpecialChargingComponent>(uid);
         }
     }
 
