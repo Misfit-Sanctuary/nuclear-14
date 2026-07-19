@@ -522,7 +522,7 @@
       maxAmount: 10
       weight: 1.1
     - item: N14SuperStimpak
-      cost: 100
+      cost: 400
       minAmount: 1
       maxAmount: 2
       weight: 0.6
@@ -548,54 +548,54 @@
 
     # Grenades
     - item: GrenadeFlashBang
-      cost: 100
+      cost: 200
       minAmount: 1
       maxAmount: 2
       weight: 1.2
     - item: TearGasGrenade
-      cost: 75
+      cost: 150
       minAmount: 1
       maxAmount: 2
       weight: 1.2
     - item: GrenadeShrapnel
-      cost: 75
+      cost: 150
       minAmount: 1
       maxAmount: 2
       weight: 0.35
     - item: GrenadeStinger
-      cost: 75
+      cost: 150
       minAmount: 1
       maxAmount: 2
       weight: 0.35
     - item: SmokeGrenade
-      cost: 30
+      cost: 60
       minAmount: 1
       maxAmount: 2
       weight: 1
     - item: EmpGrenade
-      cost: 100
+      cost: 250
       minAmount: 1
       maxAmount: 2
       weight: 0.3
     - item: N14CryoGrenade
-      cost: 100
+      cost: 250
       minAmount: 1
       maxAmount: 2
       weight: 0.3
 
     # Modular grenade
     - item: ModularGrenade
-      cost: 20
+      cost: 40
       minAmount: 1
       maxAmount: 2
       weight: 0.04
     - item: ChemicalPayload
-      cost: 50
+      cost: 150
       minAmount: 1
       maxAmount: 2
       weight: 0.8
     - item: TimerTrigger
-      cost: 40
+      cost: 100
       minAmount: 1
       maxAmount: 2
       weight: 1
@@ -691,11 +691,11 @@
 
     # Special reagents
     - item: VestineChemistryVial
-      cost: 25
-      weight: 0.6
-    - item: NocturineChemistryBottle
-      cost: 30
+      cost: 400
       weight: 0.5
+    - item: NocturineChemistryBottle
+      cost: 500
+      weight: 0.3
 
     - item: N14IngotLead1
       cost: 20
