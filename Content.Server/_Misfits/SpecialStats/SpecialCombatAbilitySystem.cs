@@ -4,7 +4,13 @@ using Content.Server.Actions;
 using Content.Shared._Misfits.Special;
 using Content.Shared._Misfits.Special.Components;
 using Content.Shared._Misfits.SpecialStats;
+using Content.Shared.Damage;
+using Content.Shared.Popups;
+using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
+using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Weapons.Reflect;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Misfits.SpecialStats;
 
@@ -18,6 +24,9 @@ public sealed class SpecialCombatAbilitySystem : EntitySystem
     [Dependency] private readonly SharedSpecialSystem _special = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
 
     public override void Initialize()
     {
@@ -28,6 +37,9 @@ public sealed class SpecialCombatAbilitySystem : EntitySystem
         SubscribeLocalEvent<SpecialShutdownEvent>(OnSpecialShutdown);
         SubscribeLocalEvent<SpecialCombatAbilitiesComponent, ComponentShutdown>(OnAbilitiesShutdown);
         SubscribeLocalEvent<SpecialCombatAbilitiesComponent, SpecialChargeActionEvent>(OnCharge);
+        SubscribeLocalEvent<SpecialCombatAbilitiesComponent, SpecialParryActionEvent>(OnParry);
+        SubscribeLocalEvent<SpecialParryActiveComponent, AttackedEvent>(OnParryAttacked);
+        SubscribeLocalEvent<SpecialParryActiveComponent, DamageModifyEvent>(OnParryDamageModify);
     }
 
     private void OnSpecialChanged(ref SpecialChangedEvent args)
@@ -97,6 +109,87 @@ public sealed class SpecialCombatAbilitySystem : EntitySystem
         _throwing.TryThrow(user, direction, ent.Comp.ChargeSpeed, user,
             pushbackRatio: 0f, compensateFriction: true, recoil: false, doSpin: false);
         args.Handled = true;
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<SpecialParryActiveComponent>();
+        while (query.MoveNext(out var uid, out var active))
+        {
+            if (_timing.CurTime >= active.EndTime)
+                EndParry(uid, active);
+        }
+    }
+
+    private void OnParry(Entity<SpecialCombatAbilitiesComponent> ent, ref SpecialParryActionEvent args)
+    {
+        if (args.Handled || HasComp<SpecialParryActiveComponent>(ent.Owner))
+            return;
+
+        var uid = ent.Owner;
+        var active = AddComp<SpecialParryActiveComponent>(uid);
+        active.EndTime = _timing.CurTime + ent.Comp.ParryWindow;
+        active.StunTime = ent.Comp.ParryStunTime;
+
+        if (TryComp<ReflectComponent>(uid, out var reflect))
+        {
+            active.HadReflect = true;
+            active.PrevReflects = reflect.Reflects;
+            active.PrevProb = reflect.ReflectProb;
+            active.PrevProbByType = reflect.ReflectProbByType;
+        }
+        else
+        {
+            reflect = AddComp<ReflectComponent>(uid);
+        }
+
+        reflect.Reflects = ReflectType.Energy | ReflectType.NonEnergy | ReflectType.SmallCaliber | ReflectType.MediumCaliber;
+        reflect.ReflectProb = 1f;
+        reflect.ReflectProbByType = new();
+        Dirty(uid, reflect);
+
+        _popup.PopupEntity(Loc.GetString("special-parry-window", ("user", uid)), uid, PopupType.MediumCaution);
+        args.Handled = true;
+    }
+
+    private void OnParryAttacked(Entity<SpecialParryActiveComponent> ent, ref AttackedEvent args)
+    {
+        if (args.User == ent.Owner)
+            return;
+
+        ent.Comp.PendingNegateAttacker = args.User;
+        _stun.TryStun(args.User, ent.Comp.StunTime, refresh: true);
+    }
+
+    private void OnParryDamageModify(Entity<SpecialParryActiveComponent> ent, ref DamageModifyEvent args)
+    {
+        if (args.Origin == null || args.Origin != ent.Comp.PendingNegateAttacker)
+            return;
+
+        args.Damage = new DamageSpecifier();
+        ent.Comp.PendingNegateAttacker = null;
+    }
+
+    private void EndParry(EntityUid uid, SpecialParryActiveComponent active)
+    {
+        if (TryComp<ReflectComponent>(uid, out var reflect))
+        {
+            if (active.HadReflect)
+            {
+                reflect.Reflects = active.PrevReflects;
+                reflect.ReflectProb = active.PrevProb;
+                reflect.ReflectProbByType = active.PrevProbByType ?? new();
+                Dirty(uid, reflect);
+            }
+            else
+            {
+                RemComp<ReflectComponent>(uid);
+            }
+        }
+
+        RemComp<SpecialParryActiveComponent>(uid);
     }
 
     private void OnAbilitiesShutdown(Entity<SpecialCombatAbilitiesComponent> ent, ref ComponentShutdown args)

@@ -4,6 +4,7 @@ using Content.Server.Station.Systems;
 using Content.Shared._Misfits.Special;
 using Content.Shared._Misfits.SpecialStats;
 using Content.Shared.Preferences;
+using Robust.Shared.GameObjects;
 
 namespace Content.IntegrationTests.Tests._Misfits.Special;
 
@@ -86,6 +87,83 @@ public sealed class SpecialCombatAbilityTest
                 Assert.That(ev.Handled, Is.True, "charge event should be handled");
                 Assert.That(server.EntMan.HasComponent<Content.Shared.Throwing.ThrownItemComponent>(mob), Is.True,
                     "charging should put the user in thrown (lunging) state");
+            });
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task ParryReflectsAndNegatesMelee()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var map = await pair.CreateTestMap();
+
+        await server.WaitAssertion(() =>
+        {
+            var spawning = server.EntMan.System<StationSpawningSystem>();
+            var damageable = server.EntMan.System<Content.Shared.Damage.DamageableSystem>();
+
+            var parrier = spawning.SpawnPlayerMob(map.GridCoords, null, ProfileWithStats(5, 8, 5), null);
+            var attacker = spawning.SpawnPlayerMob(map.GridCoords.Offset(new System.Numerics.Vector2(1f, 0f)), null, ProfileWithStats(5, 5, 5), null);
+
+            var ev = new SpecialParryActionEvent { Performer = parrier };
+            server.EntMan.EventBus.RaiseLocalEvent(parrier, ev);
+            Assert.That(ev.Handled, Is.True);
+
+            Assert.That(server.EntMan.TryGetComponent<Content.Shared.Weapons.Reflect.ReflectComponent>(parrier, out var reflect), Is.True,
+                "parry window should add reflect");
+            Assert.That(reflect!.ReflectProb, Is.EqualTo(1f));
+
+            // Simulate the melee path: AttackedEvent then damage with the attacker as origin.
+            var attacked = new Content.Shared.Weapons.Melee.Events.AttackedEvent(attacker, attacker, server.EntMan.GetComponent<TransformComponent>(parrier).Coordinates);
+            server.EntMan.EventBus.RaiseLocalEvent(parrier, attacked);
+
+            var damage = new Content.Shared.Damage.DamageSpecifier();
+            damage.DamageDict.Add("Blunt", 10);
+            var result = damageable.TryChangeDamage(parrier, damage, origin: attacker);
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(result == null || result.GetTotal() == 0, "parried melee damage should be negated");
+                Assert.That(server.EntMan.HasComponent<Content.Shared.Stunnable.StunnedComponent>(attacker), Is.True,
+                    "parried attacker should be staggered");
+            });
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task ParryWindowExpires()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var map = await pair.CreateTestMap();
+
+        EntityUid parrier = default;
+        await server.WaitAssertion(() =>
+        {
+            var spawning = server.EntMan.System<StationSpawningSystem>();
+            parrier = spawning.SpawnPlayerMob(map.GridCoords, null, ProfileWithStats(5, 8, 5), null);
+
+            var ev = new SpecialParryActionEvent { Performer = parrier };
+            server.EntMan.EventBus.RaiseLocalEvent(parrier, ev);
+            Assert.That(ev.Handled, Is.True);
+        });
+
+        // 2 second window at the test tickrate plus margin.
+        await pair.RunTicksSync(80);
+
+        await server.WaitAssertion(() =>
+        {
+            Assert.Multiple(() =>
+            {
+                Assert.That(server.EntMan.HasComponent<SpecialParryActiveComponent>(parrier), Is.False,
+                    "parry window should expire");
+                Assert.That(server.EntMan.HasComponent<Content.Shared.Weapons.Reflect.ReflectComponent>(parrier), Is.False,
+                    "granted reflect should be removed when the window ends");
             });
         });
 
