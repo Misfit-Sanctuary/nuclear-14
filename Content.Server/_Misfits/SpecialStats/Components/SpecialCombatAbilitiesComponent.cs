@@ -19,9 +19,21 @@ public sealed partial class SpecialCombatAbilitiesComponent : Component
     [DataField]
     public string CrippleAction = "ActionSpecialCripple";
 
+    [DataField]
+    public string KeenEyeAction = "ActionSpecialKeenEye";
+
+    [DataField]
+    public string RallyAction = "ActionSpecialRally";
+
+    [DataField]
+    public string LuckyBreakAction = "ActionSpecialLuckyBreak";
+
     public EntityUid? ChargeActionEntity;
     public EntityUid? ParryActionEntity;
     public EntityUid? CrippleActionEntity;
+    public EntityUid? KeenEyeActionEntity;
+    public EntityUid? RallyActionEntity;
+    public EntityUid? LuckyBreakActionEntity;
 
     /// <summary>
     /// Maximum dash distance in tiles.
@@ -64,4 +76,34 @@ public sealed partial class SpecialCombatAbilitiesComponent : Component
     /// </summary>
     [DataField]
     public float CrippleSpeedMultiplier = 0.25f;
+
+    /// <summary>
+    /// Eye zoom while scoped with keen eye (>1 widens the view).
+    /// </summary>
+    [DataField]
+    public float KeenEyeZoom = 1.8f;
+
+    /// <summary>
+    /// How long it takes to leave the keen eye stance.
+    /// </summary>
+    [DataField]
+    public TimeSpan KeenEyeExitDelay = TimeSpan.FromSeconds(2);
+
+    [DataField]
+    public float RallyRange = 6f;
+
+    [DataField]
+    public TimeSpan RallyDuration = TimeSpan.FromSeconds(8);
+
+    /// <summary>
+    /// Fractional movement speed bonus for rallied allies (0.2 = +20%).
+    /// </summary>
+    [DataField]
+    public float RallySpeedBonus = 0.2f;
+
+    [DataField]
+    public int LuckyBreakBoost = 4;
+
+    [DataField]
+    public TimeSpan LuckyBreakDuration = TimeSpan.FromSeconds(6);
 }

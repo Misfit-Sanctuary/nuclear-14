@@ -31,6 +31,145 @@ public sealed class SpecialCombatAbilityTest
             });
     }
 
+    private static HumanoidCharacterProfile ProfileWithMentalStats(int perception, int charisma, int luck)
+    {
+        // Intelligence is dumped to 1 to keep triple-8 mental builds inside
+        // the point budget, mirroring ProfileWithStats.
+        return HumanoidCharacterProfile.DefaultWithSpecies()
+            .WithName("Mental Tester")
+            .WithSpecial(new SpecialProfile
+            {
+                Strength = 5,
+                Perception = perception,
+                Endurance = 5,
+                Charisma = charisma,
+                Intelligence = 1,
+                Agility = 5,
+                Luck = luck,
+            });
+    }
+
+    [Test]
+    public async Task KeenEyeScopesBlocksMovementAndDelaysExit()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var map = await pair.CreateTestMap();
+
+        EntityUid user = default;
+
+        await server.WaitAssertion(() =>
+        {
+            var spawning = server.EntMan.System<StationSpawningSystem>();
+            user = spawning.SpawnPlayerMob(map.GridCoords, null, ProfileWithMentalStats(8, 5, 5), null);
+
+            var abilities = server.EntMan.GetComponent<SpecialCombatAbilitiesComponent>(user);
+            Assert.That(abilities.KeenEyeActionEntity, Is.Not.Null, "Perception 8 should grant keen eye");
+
+            var scopeOn = new SpecialKeenEyeActionEvent { Performer = user };
+            server.EntMan.EventBus.RaiseLocalEvent(user, scopeOn);
+            Assert.That(scopeOn.Handled, Is.True);
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(server.EntMan.HasComponent<Content.Shared.Interaction.Components.BlockMovementComponent>(user), Is.True,
+                    "scoping in should immobilize");
+                var eye = server.EntMan.GetComponent<Content.Shared.Movement.Components.ContentEyeComponent>(user);
+                Assert.That(eye.TargetZoom.X, Is.GreaterThan(1f), "scoping in should zoom out");
+            });
+
+            // Request scope-out: starts the 2 second do-after, still immobile.
+            var scopeOff = new SpecialKeenEyeActionEvent { Performer = user };
+            server.EntMan.EventBus.RaiseLocalEvent(user, scopeOff);
+            Assert.That(server.EntMan.HasComponent<Content.Shared.Interaction.Components.BlockMovementComponent>(user), Is.True,
+                "scope-out is not instant");
+        });
+
+        // 2 s do-after at 30 tps plus margin.
+        await pair.RunTicksSync(75);
+
+        await server.WaitAssertion(() =>
+        {
+            Assert.Multiple(() =>
+            {
+                Assert.That(server.EntMan.HasComponent<Content.Shared.Interaction.Components.BlockMovementComponent>(user), Is.False,
+                    "movement should be restored after the exit delay");
+                var eye = server.EntMan.GetComponent<Content.Shared.Movement.Components.ContentEyeComponent>(user);
+                Assert.That(eye.TargetZoom.X, Is.EqualTo(1f), "zoom should reset after scoping out");
+            });
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task RallyBuffsSelfAndFriendlyAllies()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var map = await pair.CreateTestMap();
+
+        await server.WaitAssertion(() =>
+        {
+            var spawning = server.EntMan.System<StationSpawningSystem>();
+            var factions = server.EntMan.System<Content.Shared.NPC.Systems.NpcFactionSystem>();
+
+            var user = spawning.SpawnPlayerMob(map.GridCoords, null, ProfileWithMentalStats(5, 8, 5), null);
+            var ally = spawning.SpawnPlayerMob(map.GridCoords.Offset(new System.Numerics.Vector2(2f, 0f)), null, ProfileWithMentalStats(5, 5, 5), null);
+            var stranger = spawning.SpawnPlayerMob(map.GridCoords.Offset(new System.Numerics.Vector2(-2f, 0f)), null, ProfileWithMentalStats(5, 5, 5), null);
+
+            factions.AddFaction(user, "NanoTrasen");
+            factions.AddFaction(ally, "NanoTrasen");
+            // Spawned humans share a default faction, so strip the stranger's
+            // to make it genuinely unaffiliated.
+            factions.ClearFactions(stranger);
+
+            var ev = new SpecialRallyActionEvent { Performer = user };
+            server.EntMan.EventBus.RaiseLocalEvent(user, ev);
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(ev.Handled, Is.True);
+                Assert.That(server.EntMan.HasComponent<Content.Shared._Misfits.Warcry.WarcryBuffComponent>(user), Is.True,
+                    "rally should buff the user");
+                Assert.That(server.EntMan.HasComponent<Content.Shared._Misfits.Warcry.WarcryBuffComponent>(ally), Is.True,
+                    "rally should buff same-faction allies");
+                Assert.That(server.EntMan.HasComponent<Content.Shared._Misfits.Warcry.WarcryBuffComponent>(stranger), Is.False,
+                    "rally should not buff non-allied mobs");
+            });
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task LuckyBreakTemporarilyBoostsLuck()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var map = await pair.CreateTestMap();
+
+        await server.WaitAssertion(() =>
+        {
+            var spawning = server.EntMan.System<StationSpawningSystem>();
+            var special = server.EntMan.System<SharedSpecialSystem>();
+
+            var user = spawning.SpawnPlayerMob(map.GridCoords, null, ProfileWithMentalStats(5, 5, 8), null);
+
+            var ev = new SpecialLuckyBreakActionEvent { Performer = user };
+            server.EntMan.EventBus.RaiseLocalEvent(user, ev);
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(ev.Handled, Is.True);
+                Assert.That(special.GetEffective(user, SpecialStat.Luck), Is.EqualTo(10),
+                    "lucky break should boost effective luck to the cap");
+            });
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
     [Test]
     public async Task HighStatsGrantAbilitiesAndDropRevokes()
     {

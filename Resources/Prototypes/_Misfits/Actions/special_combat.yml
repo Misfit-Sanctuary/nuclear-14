@@ -33,6 +33,43 @@
     event: !type:SpecialParryActionEvent
 
 - type: entity
+  id: ActionSpecialKeenEye
+  name: Keen Eye
+  description: Brace and scope out your surroundings. You cannot move while scoped, and settling back takes 2 seconds. Requires Perception 8.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 4
+    icon:
+      sprite: _Misfits/Objects/Devices/binoculars.rsi
+      state: binoculars_civ
+    event: !type:SpecialKeenEyeActionEvent
+
+- type: entity
+  id: ActionSpecialRally
+  name: Rally
+  description: Shout encouragement, granting nearby allies a short burst of speed. Requires Charisma 8. 45-second cooldown.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 45
+    icon: _Misfits/Interface/Actions/warcry.png
+    event: !type:SpecialRallyActionEvent
+
+- type: entity
+  id: ActionSpecialLuckyBreak
+  name: Lucky Break
+  description: Fortune favors you for a few seconds, sharply raising your Luck. Requires Luck 8. 60-second cooldown.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 60
+    icon:
+      sprite: Objects/Fun/dice.rsi
+      state: d20_20
+    event: !type:SpecialLuckyBreakActionEvent
+
+- type: entity
   id: ActionSpecialCripple
   name: Cripple
   description: Strike an adjacent target with your melee weapon, slowing their movement by 75% for 4 seconds. Requires Strength 8. 20-second cooldown.

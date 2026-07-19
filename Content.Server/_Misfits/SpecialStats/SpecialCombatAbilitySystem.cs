@@ -4,7 +4,14 @@ using Content.Server.Actions;
 using Content.Shared._Misfits.Special;
 using Content.Shared._Misfits.Special.Components;
 using Content.Shared._Misfits.SpecialStats;
+using Content.Shared._Misfits.Warcry;
 using Content.Shared.Damage;
+using Content.Shared.DoAfter;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Systems;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
@@ -29,6 +36,14 @@ public sealed class SpecialCombatAbilitySystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private readonly SharedContentEyeSystem _eye = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
+
+    private readonly HashSet<EntityUid> _rallyTargets = new();
 
     public override void Initialize()
     {
@@ -43,6 +58,10 @@ public sealed class SpecialCombatAbilitySystem : EntitySystem
         SubscribeLocalEvent<SpecialParryActiveComponent, AttackedEvent>(OnParryAttacked);
         SubscribeLocalEvent<SpecialParryActiveComponent, DamageModifyEvent>(OnParryDamageModify);
         SubscribeLocalEvent<SpecialCombatAbilitiesComponent, SpecialCrippleActionEvent>(OnCripple);
+        SubscribeLocalEvent<SpecialCombatAbilitiesComponent, SpecialKeenEyeActionEvent>(OnKeenEye);
+        SubscribeLocalEvent<SpecialCombatAbilitiesComponent, SpecialKeenEyeStopDoAfterEvent>(OnKeenEyeStop);
+        SubscribeLocalEvent<SpecialCombatAbilitiesComponent, SpecialRallyActionEvent>(OnRally);
+        SubscribeLocalEvent<SpecialCombatAbilitiesComponent, SpecialLuckyBreakActionEvent>(OnLuckyBreak);
         SubscribeLocalEvent<SpecialChargingComponent, ThrowDoHitEvent>(OnChargingDoHit);
         SubscribeLocalEvent<SpecialChargingComponent, StopThrowEvent>(OnChargingStop);
         SubscribeLocalEvent<SpecialChargingComponent, DamageModifyEvent>(OnChargingDamageModify);
@@ -72,6 +91,13 @@ public sealed class SpecialCombatAbilitySystem : EntitySystem
         UpdateAbility(ent, comp, SpecialStat.Agility, ref comp.ChargeActionEntity, comp.ChargeAction);
         UpdateAbility(ent, comp, SpecialStat.Endurance, ref comp.ParryActionEntity, comp.ParryAction);
         UpdateAbility(ent, comp, SpecialStat.Strength, ref comp.CrippleActionEntity, comp.CrippleAction);
+        UpdateAbility(ent, comp, SpecialStat.Perception, ref comp.KeenEyeActionEntity, comp.KeenEyeAction);
+        UpdateAbility(ent, comp, SpecialStat.Charisma, ref comp.RallyActionEntity, comp.RallyAction);
+        UpdateAbility(ent, comp, SpecialStat.Luck, ref comp.LuckyBreakActionEntity, comp.LuckyBreakAction);
+
+        // Losing the ability while scoped must not leave the user immobile.
+        if (comp.KeenEyeActionEntity == null)
+            EndKeenEye(ent.Owner, comp);
     }
 
     private void UpdateAbility(
@@ -253,10 +279,125 @@ public sealed class SpecialCombatAbilitySystem : EntitySystem
         args.Handled = true;
     }
 
+    private void OnKeenEye(Entity<SpecialCombatAbilitiesComponent> ent, ref SpecialKeenEyeActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        var uid = ent.Owner;
+
+        if (TryComp<SpecialKeenEyeScopedComponent>(uid, out var scoped))
+        {
+            if (scoped.Stopping)
+                return;
+
+            var doAfterArgs = new DoAfterArgs(EntityManager, uid, ent.Comp.KeenEyeExitDelay,
+                new SpecialKeenEyeStopDoAfterEvent(), uid)
+            {
+                BreakOnMove = false,
+                BreakOnDamage = false,
+                RequireCanInteract = false,
+            };
+
+            if (_doAfter.TryStartDoAfter(doAfterArgs))
+                scoped.Stopping = true;
+
+            args.Handled = true;
+            return;
+        }
+
+        AddComp<SpecialKeenEyeScopedComponent>(uid);
+        // ponytail: shares BlockMovementComponent with other systems; track ownership if that ever collides.
+        var blocker = EnsureComp<BlockMovementComponent>(uid);
+        blocker.BlockInteraction = false;
+        EnsureComp<ContentEyeComponent>(uid);
+        _eye.SetZoom(uid, new Vector2(ent.Comp.KeenEyeZoom, ent.Comp.KeenEyeZoom), ignoreLimits: true);
+        _actions.SetToggled(ent.Comp.KeenEyeActionEntity, true);
+        args.Handled = true;
+    }
+
+    private void OnKeenEyeStop(Entity<SpecialCombatAbilitiesComponent> ent, ref SpecialKeenEyeStopDoAfterEvent args)
+    {
+        if (args.Cancelled)
+        {
+            if (TryComp<SpecialKeenEyeScopedComponent>(ent.Owner, out var scoped))
+                scoped.Stopping = false;
+            return;
+        }
+
+        if (args.Handled)
+            return;
+
+        EndKeenEye(ent.Owner, ent.Comp);
+        args.Handled = true;
+    }
+
+    private void EndKeenEye(EntityUid uid, SpecialCombatAbilitiesComponent comp)
+    {
+        if (!HasComp<SpecialKeenEyeScopedComponent>(uid))
+            return;
+
+        RemComp<SpecialKeenEyeScopedComponent>(uid);
+        RemComp<BlockMovementComponent>(uid);
+        _eye.ResetZoom(uid);
+        _actions.SetToggled(comp.KeenEyeActionEntity, false);
+    }
+
+    private void OnRally(Entity<SpecialCombatAbilitiesComponent> ent, ref SpecialRallyActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        var uid = ent.Owner;
+        var expiry = _timing.CurTime + ent.Comp.RallyDuration;
+
+        _rallyTargets.Clear();
+        _rallyTargets.Add(uid);
+        _lookup.GetEntitiesInRange(Transform(uid).Coordinates, ent.Comp.RallyRange, _rallyTargets);
+
+        foreach (var target in _rallyTargets)
+        {
+            if (target != uid && (_mobState.IsDead(target) || !_faction.IsEntityFriendly(uid, target)))
+                continue;
+
+            if (!HasComp<MovementSpeedModifierComponent>(target))
+                continue;
+
+            var buff = EnsureComp<WarcryBuffComponent>(target);
+            buff.SpeedBonus = MathF.Max(buff.SpeedBonus, ent.Comp.RallySpeedBonus);
+            if (expiry > buff.ExpiresAt)
+                buff.ExpiresAt = expiry;
+
+            Dirty(target, buff);
+            _movementSpeed.RefreshMovementSpeedModifiers(target);
+        }
+
+        _popup.PopupCoordinates(Loc.GetString("special-rally-nearby", ("user", uid)),
+            Transform(uid).Coordinates, PopupType.Medium);
+        args.Handled = true;
+    }
+
+    private void OnLuckyBreak(Entity<SpecialCombatAbilitiesComponent> ent, ref SpecialLuckyBreakActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!_special.TryModifyTemporary(ent.Owner, SpecialStat.Luck, ent.Comp.LuckyBreakBoost,
+                ent.Comp.LuckyBreakDuration, "lucky-break"))
+            return;
+
+        _popup.PopupEntity(Loc.GetString("special-lucky-break"), ent.Owner, ent.Owner);
+        args.Handled = true;
+    }
+
     private void OnAbilitiesShutdown(Entity<SpecialCombatAbilitiesComponent> ent, ref ComponentShutdown args)
     {
+        EndKeenEye(ent.Owner, ent.Comp);
         _actions.RemoveAction(ent.Owner, ent.Comp.ChargeActionEntity);
         _actions.RemoveAction(ent.Owner, ent.Comp.ParryActionEntity);
         _actions.RemoveAction(ent.Owner, ent.Comp.CrippleActionEntity);
+        _actions.RemoveAction(ent.Owner, ent.Comp.KeenEyeActionEntity);
+        _actions.RemoveAction(ent.Owner, ent.Comp.RallyActionEntity);
+        _actions.RemoveAction(ent.Owner, ent.Comp.LuckyBreakActionEntity);
     }
 }
