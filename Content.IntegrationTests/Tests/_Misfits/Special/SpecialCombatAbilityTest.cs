@@ -78,6 +78,17 @@ public sealed class SpecialCombatAbilityTest
             var spawning = server.EntMan.System<StationSpawningSystem>();
             var mob = spawning.SpawnPlayerMob(map.GridCoords, null, ProfileWithStats(5, 5, 8), null);
 
+            // The action must allow clicks beyond interaction range; the handler
+            // clamps the dash distance itself. Regression: default checkCanAccess
+            // limited the action to ~1.5 tiles.
+            var abilities = server.EntMan.GetComponent<SpecialCombatAbilitiesComponent>(mob);
+            var chargeAction = server.EntMan.GetComponent<Content.Shared.Actions.WorldTargetActionComponent>(abilities.ChargeActionEntity!.Value);
+            Assert.Multiple(() =>
+            {
+                Assert.That(chargeAction.CheckCanAccess, Is.False, "charge must not be limited to interaction range");
+                Assert.That(chargeAction.Range, Is.LessThanOrEqualTo(0f), "charge range gating is done by the handler clamp");
+            });
+
             var destination = map.GridCoords.Offset(new System.Numerics.Vector2(3f, 0f));
             var ev = new SpecialChargeActionEvent { Performer = mob, Target = destination };
             server.EntMan.EventBus.RaiseLocalEvent(mob, ev);
