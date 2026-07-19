@@ -152,28 +152,6 @@
 
 - type: entity
   parent: N14CrateRequisitions
-  id: MisfitsCrateRequisitionsVaultCyberneticLimbs
-  name: cybernetic limb crate
-  components:
-  - type: Icon
-    sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
-  - type: RequisitionsCrate
-    reward: 50
-  - type: StorageFill
-    contents:
-    - id: JawsOfLifeLeftArm
-    - id: JawsOfLifeRightArm
-    - id: SpeedLeftLeg
-    - id: SpeedRightLeg
-    - id: LeftHandCybernetic
-    - id: RightHandCybernetic
-    - id: LeftFootCybernetic
-    - id: RightFootCybernetic
-
-- type: entity
-  parent: N14CrateRequisitions
   id: MisfitsCrateRequisitionsVaultVials
   name: vial crate
   components:
@@ -250,6 +228,8 @@
     - id: CannabisSeeds
       amount: 2
     - id: NettleSeeds
+      amount: 2
+    - id: BungoSeeds
       amount: 2
 
 - type: entity

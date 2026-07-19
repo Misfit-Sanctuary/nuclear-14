@@ -1,0 +1,12 @@
+- type: entity
+  name: Vault-Tec rubber stamp
+  parent: RubberStampBase
+  id: RubberStampVault14
+  description: An official Vault-Tec Industries rubber stamp.
+  components:
+  - type: Stamp
+    stampedName: Vault-Tec Industries
+    stampedColor: "#e8c547"
+    stampState: "paper_stamp-vaulttec"
+  - type: Sprite
+    state: stamp-ok

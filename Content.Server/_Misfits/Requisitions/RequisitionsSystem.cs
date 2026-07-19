@@ -251,7 +251,7 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
         if (config.RewardPool is not { } rewardPoolId || !_prototypeManager.TryIndex(rewardPoolId, out var rewardPool))
             return;
 
-        RollRequestIntoSlot(slot, pool, rewardPool, config.RandomRequestRerollDelay, args.Slot < config.HardRequestSlots, config.HardRequestScoreMultiplier,
+        RollRequestIntoSlot(slot, pool, rewardPool, config.RandomRequestRerollDelay, IsHardSlot(args.Slot, config), config.HardRequestScoreMultiplier,
             CollectActiveTargetIds(account.RandomRequests, slot), config.RandomRequestMinTargets, config.RandomRequestMaxTargets,
             IsDirectBudgetSlot(args.Slot, config));
         Dirty(accountUid, account);
@@ -280,7 +280,7 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
             for (var i = 0; i < account.RandomRequests.Count; i++)
             {
                 var slot = account.RandomRequests[i];
-                RollRequestIntoSlot(slot, pool, rewardPool, config.RandomRequestRerollDelay, i < config.HardRequestSlots, config.HardRequestScoreMultiplier,
+                RollRequestIntoSlot(slot, pool, rewardPool, config.RandomRequestRerollDelay, IsHardSlot(i, config), config.HardRequestScoreMultiplier,
                     CollectActiveTargetIds(account.RandomRequests, slot), config.RandomRequestMinTargets, config.RandomRequestMaxTargets,
                     IsDirectBudgetSlot(i, config));
                 rerolled++;
@@ -919,7 +919,7 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
             if (slot.Request != null || time < slot.NextRollAt)
                 continue;
 
-            RollRequestIntoSlot(slot, pool, rewardPool, config.RandomRequestRerollDelay, i < config.HardRequestSlots, config.HardRequestScoreMultiplier,
+            RollRequestIntoSlot(slot, pool, rewardPool, config.RandomRequestRerollDelay, IsHardSlot(i, config), config.HardRequestScoreMultiplier,
                 CollectActiveTargetIds(account.Comp.RandomRequests, slot), config.RandomRequestMinTargets, config.RandomRequestMaxTargets,
                 IsDirectBudgetSlot(i, config));
             changed = true;
@@ -930,7 +930,12 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
 
     private static bool IsDirectBudgetSlot(int index, RequisitionsComputerComponent config)
     {
-        return index >= config.HardRequestSlots && index < config.HardRequestSlots + config.DirectBudgetRequestSlots;
+        return index < config.DirectBudgetRequestSlots;
+    }
+
+    private static bool IsHardSlot(int index, RequisitionsComputerComponent config)
+    {
+        return index >= config.DirectBudgetRequestSlots && index < config.DirectBudgetRequestSlots + config.HardRequestSlots;
     }
 
     private static HashSet<string> CollectActiveTargetIds(List<RequisitionsRandomSlot> slots, RequisitionsRandomSlot excludeSlot)

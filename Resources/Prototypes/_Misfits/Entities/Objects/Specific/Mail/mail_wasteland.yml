@@ -15,6 +15,7 @@
   components:
   - type: Mail
     contents:
+    - id: PaperMailWastelandNoteSupplyBox
     - id: N14BoxPlasticFilledWastelander
       orGroup: box
     - id: N14BoxPlasticFilledMilitary
@@ -27,11 +28,44 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseMailWasteland
+  id: MailWastelandAidOutreach
+  suffix: wasteland-aid-outreach
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandOutreachLetter
+    - id: N14Bandage
+      maxAmount: 3
+    - id: DrinkWaterBottleFull
+      maxAmount: 2
+    - id: N14CurrencyPrewarMoney100
+      maxAmount: 2
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandAidBulletin
+  suffix: wasteland-aid-bulletin
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandProsperityBulletin
+    - id: N14Bandage
+      maxAmount: 2
+    - id: DrinkWaterBottleFull
+      maxAmount: 3
+    - id: N14CurrencyPrewarMoney100
+      maxAmount: 1
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
   id: MailWastelandPlushie
   suffix: wasteland-plushie
   components:
   - type: Mail
     contents:
+    - id: PaperMailWastelandNotePlushie
     - id: PlushieBee
       prob: 0.1
       orGroup: plushie
@@ -71,6 +105,7 @@
   components:
   - type: Mail
     contents:
+    - id: PaperMailWastelandNoteScarf
     - id: ClothingNeckScarfStripedRed
       prob: 0.14
       orGroup: scarf
@@ -104,6 +139,7 @@
   components:
   - type: Mail
     contents:
+    - id: PaperMailWastelandNoteVodka
     - id: DrinkVodkaBottleFull
     - id: DrinkShotGlass
 
@@ -115,6 +151,7 @@
   components:
   - type: Mail
     contents:
+    - id: PaperMailWastelandNoteWine
     - id: DrinkWineBottleFull
     - id: DrinkWineGlass
 
@@ -126,6 +163,7 @@
   components:
   - type: Mail
     contents:
+    - id: PaperMailWastelandNoteBirthdayCake
     - id: FoodCakeBirthday
 
 - type: entity
@@ -136,6 +174,7 @@
   components:
   - type: Mail
     contents:
+    - id: PaperMailWastelandNotePreWarMoney
     - id: N14CurrencyPrewarMoney100
       maxAmount: 3
 
@@ -147,6 +186,7 @@
   components:
   - type: Mail
     contents:
+    - id: PaperMailWastelandNoteCigars
     - id: CigarCase
       prob: 0.7
       orGroup: cigar-case
@@ -162,6 +202,7 @@
   components:
   - type: Mail
     contents:
+    - id: PaperMailWastelandNoteFortuneCookies
     - id: FoodSnackCookieFortune
       maxAmount: 3
 
@@ -173,6 +214,7 @@
   components:
   - type: Mail
     contents:
+    - id: PaperMailWastelandNoteChems
     - id: N14Jet
       prob: 0.4
       orGroup: chem
@@ -191,6 +233,7 @@
   components:
   - type: Mail
     contents:
+    - id: PaperMailWastelandNotePills
     - id: N14BuffoutPill
       maxAmount: 4
       prob: 0.4
@@ -212,6 +255,7 @@
   components:
   - type: Mail
     contents:
+    - id: PaperMailWastelandNoteRadTreatment
     - id: N14RadAwayInhaler
       prob: 0.6
       orGroup: radaway
@@ -229,5 +273,56 @@
   components:
   - type: Mail
     contents:
+    - id: PaperMailWastelandNoteDogTreat
     - id: N14FoodDogfood
       maxAmount: 4
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandSeedAid
+  suffix: wasteland-seed-aid
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteSeedAid
+    - id: N14FloraWildCarrotClippingSeed
+    - id: N14FloraWildTatoClippingSeed
+    - id: N14FloraWildOnionClippingSeed
+    - id: N14FloraWildMutfruitClippingSeed
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandToolKit
+  suffix: wasteland-tool-kit
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteToolKit
+    - id: N14Multitool
+    - id: N14Flashlight
+    - id: N14Wrench
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandMedicalAid
+  suffix: wasteland-medical-aid
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteMedicalAid
+    - id: N14MedkitFilled
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandSaltAid
+  suffix: wasteland-salt-aid
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteSaltAid
+    - id: N14FoodCondimentPacketSalt
+      maxAmount: 8

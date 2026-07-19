@@ -56,11 +56,6 @@
       maxAmount: 12
       valuePerUnit: 1
       weight: 1
-    - item: N14FoodMimana
-      minAmount: 3
-      maxAmount: 10
-      valuePerUnit: 2
-      weight: 0.6
     - item: N14FloraProduceWildGlowpepper
       minAmount: 5
       maxAmount: 15
@@ -657,60 +652,13 @@
     - item: N14WeaponLaserRifle
       cost: 100
       weight: 0.25
-    - item: N14PlasmaCartridge
-      cost: 160
-      minAmount: 2
-      maxAmount: 5
-      weight: 0.5
-    - item: N14PlasmaShell
-      cost: 160
-      minAmount: 2
-      maxAmount: 4
-      weight: 0.5
-
     # Ammo boxes
-    - item: MagazineBox10mm
-      cost: 10
-      weight: 1
-    - item: MagazineBox9mm
-      cost: 10
-      weight: 1
-    - item: MagazineBox45
-      cost: 10
-      weight: 1
-    - item: MagazineBox44
-      cost: 10
-      weight: 1
-    - item: MagazineBox308
-      cost: 14
-      weight: 0.8
     - item: MagazineBox12gauge
       cost: 12
       weight: 0.9
-    - item: MagazineBox20gauge
-      cost: 12
-      weight: 0.9
-    - item: MagazineBox22
-      cost: 8
-      weight: 1.1
     - item: MagazineBox556
       cost: 14
       weight: 0.8
-    - item: MagazineBox762
-      cost: 14
-      weight: 0.8
-    - item: MagazineBox45-70
-      cost: 16
-      weight: 0.7
-    - item: MagazineBox12
-      cost: 18
-      weight: 0.6
-    - item: MagazineBox50
-      cost: 20
-      weight: 0.5
-    - item: MagazineBox50HEIAP
-      cost: 26
-      weight: 0.4
 
     # Armor
     - item: N14ClothingOuterVaultSecVest
@@ -737,6 +685,9 @@
     - item: M14ClothingHeadHatVaultCombatHelmet
       cost: 300
       weight: 0.15
+    - item: N14ClothingEyesNCRNVGs
+      cost: 150
+      weight: 0.5
 
     # Special reagents
     - item: VestineChemistryVial
@@ -744,32 +695,6 @@
       weight: 0.6
     - item: NocturineChemistryBottle
       cost: 30
-      weight: 0.5
-
-    # limbs
-    - item: JawsOfLifeLeftArm
-      cost: 400
-      weight: 0.1
-    - item: JawsOfLifeRightArm
-      cost: 400
-      weight: 0.1
-    - item: SpeedLeftLeg
-      cost: 400
-      weight: 0.1
-    - item: SpeedRightLeg
-      cost: 400
-      weight: 0.1
-    - item: LeftHandCybernetic
-      cost: 30
-      weight: 0.5
-    - item: RightHandCybernetic
-      cost: 60
-      weight: 0.5
-    - item: LeftFootCybernetic
-      cost: 60
-      weight: 0.5
-    - item: RightFootCybernetic
-      cost: 60
       weight: 0.5
 
     - item: N14IngotLead1

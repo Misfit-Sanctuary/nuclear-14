@@ -1,0 +1,603 @@
+#   [head=2]{TITLE}[/head]
+#   [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+#   [bold]Form:[/bold] [color=#e8c547]VT-14-XXX[/color]
+#   [color=#AAAAAA][italic]Vault 14 — {DEPARTMENT}[/italic][/color]
+#   [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+#
+#   {BODY}
+#
+#   [bold]Signed,[/bold]
+#   [color=#1b4f9c][italic]{SIGNATORY}[/italic][/color]
+#   [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+#   [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+#   [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+#
+# Pair with [PaperVisuals] headerImagePath: paper_heading_vault14.png for the logo.
+
+- type: entity
+  id: PaperMailWastelandNoteSupplyBox
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - supply box"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Ration Provision[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-210[/color]
+      [color=#AAAAAA][italic]Vault 14 — Department of Nutritional Services[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      Enclosed: one (1) standard ration box, engineered by Vault-Tec nutritionists to sustain a human adult for approximately as long as it takes to open it. Bon appétit.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]Vault 14 Department of Nutritional Services[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNotePlushie
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - plushie"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Comfort Item[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-211[/color]
+      [color=#AAAAAA][italic]Vault 14 — Department of Charitable Affairs[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      Every survivor deserves a friend. This one won't ask you to share your water ration. Please recycle the packaging; we are billed by weight.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]The Vault 14 Outreach Committee[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNoteScarf
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - scarf"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Weatherproofing Textile[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-212[/color]
+      [color=#AAAAAA][italic]Vault 14 — Department of Charitable Affairs[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      Winters on the surface are, we're told, "quite cold." Please accept this scarf as evidence that we were listening.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]The Vault 14 Outreach Committee[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNoteVodka
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - vodka"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Morale Provision[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-213[/color]
+      [color=#AAAAAA][italic]Vault 14 — Department of Charitable Affairs[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      Vault-Tec does not endorse substance use as a coping mechanism. Vault-Tec does, however, acknowledge that you live where you live. Drink responsibly, or at least quietly.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]The Vault 14 Outreach Committee[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNoteWine
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - wine"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Vintage Provision[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-214[/color]
+      [color=#AAAAAA][italic]Vault 14 — Department of Charitable Affairs[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      A bottle of pre-war vintage, aged the old-fashioned way: by nobody touching it for two hundred years. Pairs well with rubble.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]The Vault 14 Outreach Committee[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNoteBirthdayCake
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - birthday cake"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Occasion Package[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-215[/color]
+      [color=#AAAAAA][italic]Vault 14 — Department of Charitable Affairs[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      Our records indicate it may be someone's birthday. We could not confirm whose. Please distribute accordingly.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]The Vault 14 Outreach Committee[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNotePreWarMoney
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - prewar money"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Currency Stipend[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-216[/color]
+      [color=#AAAAAA][italic]Vault 14 — Department of Charitable Affairs[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      A modest cash stipend, generously provided at minimal cost to ourselves. Buy yourself something nice on us.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]The Vault 14 Outreach Committee[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNoteCigars
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - cigars"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Surplus Reclamation Notice[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-217[/color]
+      [color=#AAAAAA][italic]Vault 14 — Storage & Reclamation Division[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      Recovered during a Vault 14 storage audit and deemed "surplus." We were told these were valuable before the war. We were also told a great many things before the war.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]Vault 14 Storage & Reclamation Division[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNoteFortuneCookies
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - fortune cookies"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Novelty Item[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-218[/color]
+      [color=#AAAAAA][italic]Vault 14 — Department of Charitable Affairs[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      Vault-Tec Actuarial Services has reviewed and approved the fortunes contained within. Accuracy is not guaranteed and results may vary by up to two hundred years.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]The Vault 14 Outreach Committee[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNoteChems
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - chems"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Pharmaceutical Evaluation Notice[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-219[/color]
+      [color=#AAAAAA][italic]Vault 14 — Office of Pharmaceutical Research[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      Congratulations! You have been randomly selected to participate in a Vault-Tec pharmaceutical evaluation program, free of charge. Enclosed are your assigned test substances. Please record any side effects, hallucinations, or newfound compulsions for our records. Non-participation is not an option, as you have already participated.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]Vault 14 Office of Pharmaceutical Research[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNotePills
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - pills"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Wellness Program Dispensary[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-220[/color]
+      [color=#AAAAAA][italic]Vault 14 — Surface Wellness Program[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      A small selection of pharmaceuticals, dispensed under the Vault 14 Surface Wellness Program. Side effects may include everything.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]Vault 14 Surface Wellness Program[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNoteRadTreatment
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - rad treatment"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Medical Provision[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-221[/color]
+      [color=#AAAAAA][italic]Vault 14 — Department of Medical Affairs[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      For radiation exposure of a severity we sincerely hope you are not currently experiencing while reading this.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]Vault 14 Department of Medical Affairs[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNoteDogTreat
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - dog treat"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Companion Provision[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-222[/color]
+      [color=#AAAAAA][italic]Vault 14 — Department of Charitable Affairs[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      For the good boy or girl who has done more honest work this decade than most of Vault-Tec's board of directors.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]The Vault 14 Outreach Committee[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+# New parcel types
+
+- type: entity
+  id: PaperMailWastelandNoteSeedAid
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - seed aid"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Self-Sufficiency Initiative[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-223[/color]
+      [color=#AAAAAA][italic]Vault 14 — Department of Agricultural Outreach[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      A small assortment of viable seed stock, because Vault-Tec believes the surest path out of dependency on Vault-Tec is, ironically, learning to feed yourselves.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]Vault 14 Department of Agricultural Outreach[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNoteToolKit
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - tool kit"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Field Equipment Provision[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-224[/color]
+      [color=#AAAAAA][italic]Vault 14 — Department of Charitable Affairs[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      Basic tools for basic problems. For complex problems, we recommend not having them.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]The Vault 14 Outreach Committee[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNoteMedicalAid
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - medical aid"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Emergency Medical Kit[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-225[/color]
+      [color=#AAAAAA][italic]Vault 14 — Department of Medical Affairs[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      A fully stocked medkit, assembled by staff who have never actually needed one. We hope it shows.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]Vault 14 Department of Medical Affairs[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNoteSaltAid
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - salt aid"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Mineral Supplement Shipment[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-226[/color]
+      [color=#AAAAAA][italic]Vault 14 — Department of Charitable Affairs[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      Enclosed: salt. We understand Wendover sits atop one of the largest salt deposits in the region. We are sending you salt anyway. Nutrition studies were inconclusive; morale studies were not conducted.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]The Vault 14 Outreach Committee[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandOutreachLetter
+  name: outreach committee letter
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland outreach letter"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Community Outreach Initiative[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-204[/color]
+      [color=#AAAAAA][italic]Vault 14 — Department of Charitable Affairs[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      To Our Neighbors on the Surface,
+
+      On behalf of everyone here in Vault 14, we are delighted, genuinely delighted to extend a small token of our continued goodwill to you & yours during what we understand has been a trying several decades.
+
+      Enclosed you will find a care package curated personally by our Outreach Committee: bandages, drinking water, & a modest cash stipend, selected after careful consideration of what we believe the surface community values most.
+
+      We recognize that life beyond the vault door has not been easy. Please know that we think of you often, typically around budget season, & that your continued survival is a source of great pride to everyone here.
+
+      Should you wish to express your gratitude, we ask only that you refrain from approaching the blast door, per Overseer Directive 14-C.
+
+      [bold]Warmly,[/bold]
+      [color=#1b4f9c][italic]The Vault 14 Outreach Committee[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandProsperityBulletin
+  name: prosperity program bulletin
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland prosperity bulletin"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Prosperity Program Bulletin[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-207[/color]
+      [color=#AAAAAA][italic]Vault 14 — Office of Public Relations[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      [bold]VAULT 14 PROSPERITY PROGRAM: A RESOUNDING SUCCESS[/bold]
+
+      This quarter, the Vault 14 Prosperity Program is proud to report the successful distribution of aid to [italic]one (1)[/italic] surface recipient, bringing our lifetime total to [bold]fourteen[/bold] individuals reached.
+
+      Internal surveys indicate that 100% of recipients who did not discard this letter unread rated the experience as "acceptable." We consider this an outstanding endorsement of the program's continued value.
+
+      Vault-Tec remains fully committed to the wellbeing of the surface community, insofar as it does not require opening the vault door for longer than regulations strictly permit.
+
+      Thank you for your continued participation in this initiative. You have been randomly selected & may not decline.
+
+      [bold]In partnership,[/bold]
+      [color=#1b4f9c][italic]Vault 14 Office of Public Relations[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
