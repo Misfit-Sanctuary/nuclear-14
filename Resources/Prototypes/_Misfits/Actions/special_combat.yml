@@ -1,0 +1,47 @@
+# #Misfits Add: Active combat abilities granted by high physical SPECIAL stats
+# (effective stat >= 8). Granted/revoked live by SpecialCombatAbilitySystem.
+
+- type: entity
+  id: ActionSpecialCharge
+  name: Charge
+  description: Lunge rapidly toward a point up to 5 tiles away. Requires Agility 8. 10-second cooldown.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 10
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: blink
+    itemIconStyle: NoItem
+    event: !type:SpecialChargeActionEvent
+
+- type: entity
+  id: ActionSpecialParry
+  name: Parry
+  description: For 2 seconds, reflect incoming projectiles and negate melee hits, staggering melee attackers. Requires Endurance 8. 15-second cooldown.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 15
+    icon:
+      sprite: Objects/Weapons/Melee/shields.rsi
+      state: teleriot-icon
+    event: !type:SpecialParryActionEvent
+
+- type: entity
+  id: ActionSpecialCripple
+  name: Cripple
+  description: Strike an adjacent target with your melee weapon, slowing their movement by 75% for 4 seconds. Requires Strength 8. 20-second cooldown.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    useDelay: 20
+    range: 1.5
+    canTargetSelf: false
+    whitelist:
+      components:
+      - MobState
+    icon:
+      sprite: Objects/Weapons/Melee/sledgehammer.rsi
+      state: icon
+    event: !type:SpecialCrippleActionEvent
