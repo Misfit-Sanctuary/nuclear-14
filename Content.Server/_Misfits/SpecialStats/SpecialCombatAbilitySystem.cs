@@ -307,7 +307,8 @@ public sealed class SpecialCombatAbilitySystem : EntitySystem
         }
 
         AddComp<SpecialKeenEyeScopedComponent>(uid);
-        // ponytail: shares BlockMovementComponent with other systems; track ownership if that ever collides.
+        // BlockMovementComponent is shared with other systems; if another system
+        // ever adds it to the same mob, removal on unscope could free them early.
         var blocker = EnsureComp<BlockMovementComponent>(uid);
         blocker.BlockInteraction = false;
         EnsureComp<ContentEyeComponent>(uid);
