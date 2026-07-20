@@ -416,3 +416,18 @@
     Carbon: 1
     Water: 1
     Nitrogen: 2
+
+#adds a simple and renewable source of alcohol to the wasteland
+ - type: reaction
+   id: Fermentation
+   reactants:
+      Sugar:
+        amount: 2
+      Enzyme: 
+        amount: 5
+        catalyst: True
+    products:
+      Ethanol:
+        amount: 1
+      CarbonDioxide:
+        amount: 1
