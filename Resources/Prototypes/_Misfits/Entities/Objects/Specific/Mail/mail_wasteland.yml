@@ -326,3 +326,15 @@
     - id: PaperMailWastelandNoteSaltAid
     - id: N14FoodCondimentPacketSalt
       maxAmount: 8
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandHygieneKit
+  suffix: wasteland-hygiene-kit
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteHygieneKit
+    - id: Soap
+    - id: TowelColorWhite
