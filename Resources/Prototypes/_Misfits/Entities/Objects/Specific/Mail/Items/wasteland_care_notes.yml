@@ -631,3 +631,137 @@
       [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
       [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
       [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNoteCorrespondent
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - correspondent"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Correspondent Assignment[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-228[/color]
+      [color=#AAAAAA][italic]Vault 14 — Bureau of Surface Correspondence[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      Congratulations, you have been selected for the Vault 14 Correspondent Program. Enclosed you will find a Pip-Boy, a press uniform for credibility, and a pen and paper for field notes we assume you already know how to use.
+
+      Your assignment is simple: observe the surface, note anything of interest, settlements, hazards, hostiles, resources, and relay your findings to us at your earliest convenience over the Pip-Boy's contact channel.
+
+      Compensation will be considered on a case-by-case basis, which is to say, informally, and rarely. This is, technically, voluntary. We would still appreciate your cooperation.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]Vault 14 Bureau of Surface Correspondence[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNoteHeritage
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - heritage"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Heritage Provision[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-229[/color]
+      [color=#AAAAAA][italic]Vault 14 — Department of Cultural Preservation[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      Old Glory never fell, she just needed a new pole. Enclosed you will find one, freshly cast and stamped with the stars and stripes, along with a proper American meal, a big burger and a mountain of fries, because nothing rebuilds the spirit of a nation like red meat and fried potatoes. Plant her high and plant her proud. Let them see her from the crater.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]Vault 14 Department of Cultural Preservation[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNoteInvoice
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - invoice"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Notice of Outstanding Balance[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-230[/color]
+      [color=#AAAAAA][italic]Vault 14 — Office of Accounts Receivable[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      It has come to our attention that the aid extended to you over the past several months, ration boxes, medical supplies, a cash stipend, and yes, the soap, was processed internally as a series of interest free loans rather than outright gifts, per Vault-Tec policy VT-118(b). Please find below an itemized summary of your account.
+
+      [bold]Itemized Charges:[/bold]
+      [bullet/] Ration Provision (Form VT-14-210) — $45
+      [bullet/] Outreach Care Package (Form VT-14-204) — $220
+      [bullet/] Hygiene Provision (Form VT-14-227) — $15
+      [bullet/] Administrative Processing Fee — $500
+
+      [bold]Total Balance Due: $780[/bold]
+
+      Payment is expected in full at your earliest convenience.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]Vault 14 Office of Accounts Receivable[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]
+
+- type: entity
+  id: PaperMailWastelandNoteTrickGrenades
+  name: care package note
+  categories: [ HideSpawnMenu ]
+  suffix: "wasteland note - trick grenades"
+  parent: Paper
+  components:
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Misfits/Interface/Paper/paper_heading_vault14.png"
+    headerMargin: 0.0, 8.0, 0.0, 4.0
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#e8c547'
+      stampedName: Vault-Tec Industries
+    content: |2
+
+      [head=2]Defense Training Aid[/head]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [bold]Form:[/bold] [color=#e8c547]VT-14-231[/color]
+      [color=#AAAAAA][italic]Vault 14 — Department of Security Training[/italic][/color]
+      [color=#1b4f9c]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+
+      Enclosed: two (2) tactical distraction devices for field training purposes. Please note these are non lethal training aids - budget constraints. They will, however, startle.
+
+      [bold]Signed,[/bold]
+      [color=#1b4f9c][italic]Vault 14 Department of Security Training[/italic][/color]
+      [color=#e8c547]▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬[/color]
+      [italic][color=#AAAAAA]Please recycle this document responsibly. Vault-Tec thanks you for your commitment to sustainability.[/color][/italic]
+      [italic][color=#ff0000]Tampering with or forging this document is a violation of the Vault 14 Resident Charter.[/color][/italic]

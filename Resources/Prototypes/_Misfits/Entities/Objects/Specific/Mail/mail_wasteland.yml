@@ -338,3 +338,52 @@
     - id: PaperMailWastelandNoteHygieneKit
     - id: Soap
     - id: TowelColorWhite
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandCorrespondent
+  suffix: wasteland-correspondent
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteCorrespondent
+    - id: N14PenReporter
+    - id: Paper
+    - id: N14Pipboy
+    - id: ClothingUniformJumpsuitReporter
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandHeritage
+  suffix: wasteland-heritage
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteHeritage
+    - id: N14DecorationFlagpoleUSA
+    - id: N14CookedFoodBurgerBig
+    - id: N14CookedFoodMealFries
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandInvoice
+  suffix: wasteland-invoice
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteInvoice
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseMailWasteland
+  id: MailWastelandTrickGrenades
+  suffix: wasteland-trick-grenades
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailWastelandNoteTrickGrenades
+    - id: GrenadeDummy
+      amount: 2
