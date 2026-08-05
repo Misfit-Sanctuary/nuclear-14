@@ -74,3 +74,14 @@
     sprite: _Nuclear14/Clothing/Head/FalloutHats/ncrpatrolrangercampaignhat.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/Head/FalloutHats/ncrpatrolrangercampaignhat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: N14ClothingHeadHatNCRCommissarHat
+  name: NCR commissar hat
+  description: A standard-issue hat for NCR Commissars, with a wide brim and a tall crown.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/ncrcommissarhat.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/ncrcommissarhat.rsi

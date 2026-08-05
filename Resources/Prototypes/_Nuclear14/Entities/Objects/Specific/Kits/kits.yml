@@ -714,7 +714,7 @@
     items:
       - id: MisfitsClothingOuterNCRTrenchCoat
       - id: ClothingBeltRevolverfilled
-      - id: N14WeaponRifle308Battle
+      - id: NCRCommissarSabre
       - id: ClipMagazine308Rifle
         amount: 6
       - id: N14BoxCardboardMREBoxCFilled
@@ -744,6 +744,37 @@
       - id: N14WeaponRifle556Carbine
       - id: LongMagazine556Rifle
         amount: 3
+      - id: N14BoxCardboardMREBoxCFilled
+      - id: N14Stimpak
+      - id: N14SuperStimpak
+      - id: N14RadAwayBloodbag
+      - id: N14CleanGauze10
+        amount: 2
+      - id: N14Flare
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: lieutenant's commissar kit
+  parent: KitBase
+  id: KitNCR_LTCommissar
+  description: A crate containing all an NCR Commissar needs to execute their tro- duties.
+  components:
+  - type: Sprite
+    state: pointman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: MisfitsClothingOuterNCRCommissarPlate
+      - id: ClothingBeltNCR
+      - id: NCRCommissarSabre
+      - id: MisfitsClothingNeckNCRCommissarJacket
+      - id: N14WeaponLaserdotDesertEagle44
+      - id: N14MagazinePistol44
+        amount: 4
+      - id: ClothingMaskCommissar
+      - id: N14ClothingHeadHatNCRCommissarHat
       - id: N14BoxCardboardMREBoxCFilled
       - id: N14Stimpak
       - id: N14SuperStimpak

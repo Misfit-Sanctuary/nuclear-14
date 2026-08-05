@@ -98,6 +98,29 @@
   - type: Item
     size: Tiny
 
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskCommissar
+  name: commissar gas mask
+  description: An armor plated gas mask used by NCR Commissars.
+  components:
+  - type: Item
+    size: Tiny
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: Sprite
+    sprite: _Misfits/Clothing/Mask/ncr_commissarmask.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Mask/ncr_commissarmask.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.9
+    priceMultiplier: 0.5
+
 # NCR Rangers, Vets
 
 - type: entity

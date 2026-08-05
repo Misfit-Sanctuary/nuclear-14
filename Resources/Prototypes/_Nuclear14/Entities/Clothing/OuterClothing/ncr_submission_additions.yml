@@ -85,3 +85,14 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutncrtrenchraider.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutncrtrenchraider.rsi
+
+- type: entity
+  parent: N14ClothingOuterNCRCombatArmor
+  id: MisfitsClothingOuterNCRCommissarPlate
+  name: NCR commissar plate
+  description: A series of forged plates made for frontline NCR Commissars in charge of Penal Units.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_commissar_plate.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_commissar_plate.rsi

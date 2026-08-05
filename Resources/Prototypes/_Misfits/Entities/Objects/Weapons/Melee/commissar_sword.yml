@@ -1,0 +1,27 @@
+- type: entity
+  parent: N14Machete
+  id: NCRCommissarSabre
+  name: commissar sabre
+  description: A forged ceremonial sabre for NCR Commissars, built to be able to cleave through most close-in threats they might face.
+  components:
+  - type: Clothing
+    sprite: _Misfits/Objects/Weapons/Melee/ncrCommissarSword.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Melee/ncrCommissarSword.rsi
+    state: icon
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 25
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 45
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: _Misfits/Objects/Weapons/Melee/ncrCommissarSword.rsi
