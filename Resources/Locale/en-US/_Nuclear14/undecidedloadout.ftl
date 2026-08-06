@@ -187,6 +187,14 @@ undecided-loadout-category-lt-tactical-description =
     3 long carbine magazines, 1 C ration MRE, 1 stimpak,
     1 super stimpak, 1 RadAway blood bag, 2 gauze packs, and 1 flare.
 
+undecided-loadout-category-lt-commissar-name = LT's Commissar Kit
+undecided-loadout-category-lt-commissar-description =
+    Includes 1 NCR Commissar plate, 1 NCR commissar jacket, 
+    1 NCR commissar gas mask, 1 NCR Belt, 1 commissar sabre, 
+    1 NCR commissar hat, 1 lasered desert eagle 44, 4 .44 pistol mags, 
+    1 C ration MRE, 1 stimpak, 1 super stimpak, 1 RadAway blood bag, 
+    2 gauze packs, and 1 flare.
+
 # Ranger stuff thingies
 
 undecided-loadout-category-ranger-service-name = Ranger Service Kit

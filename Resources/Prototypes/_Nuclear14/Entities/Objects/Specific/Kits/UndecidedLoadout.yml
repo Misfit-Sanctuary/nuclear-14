@@ -193,6 +193,7 @@
     - NCRA_LTPencilSet
     - NCRA_LTScoutSet
     - NCRA_LTTacticalSet
+    - NCRA_LTCommissarSet
   - type: ActivatableUI
 
 - type: entity
@@ -654,6 +655,15 @@
   content:
   - KitNCR_LTTactical
 
+- type: UndecidedLoadoutBackpackSet
+  id: NCRA_LTCommissarSet
+  name: undecided-loadout-category-lt-commissar-name
+  description: undecided-loadout-category-lt-commissar-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: pointman
+  content:
+  - KitNCR_LTCommissar
 
   #MARK: Ranger Kits
 - type: UndecidedLoadoutBackpackSet

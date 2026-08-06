@@ -71,3 +71,16 @@
     sprite: _Nuclear14/Clothing/Neck/NCRROmantle.rsi
   - type: StaticPrice
     price: 50
+
+- type: entity
+  parent: ClothingNeckBase
+  id: MisfitsClothingNeckNCRCommissarJacket
+  name: Commissar's jacket
+  description: A long, heavy jacket worn by NCR Commissars, worn loosely to hide their arms within.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Neck/NCRCommissarJacket.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Neck/NCRCommissarJacket.rsi
+  - type: StaticPrice
+    price: 50
