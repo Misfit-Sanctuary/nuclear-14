@@ -586,7 +586,21 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         random /= Contests.MassContest(user);
         var spread = component.CurrentAngle.Theta * random;
-        var angle = new Angle(direction.Theta + spread);
+
+        // #Cythisiax Added - Accuracy penalty when shooting from a moving vehicle/buckle
+        var buckleMovementSpread = 0d;
+        if (user != null &&
+            TryComp<BuckleComponent>(user.Value, out var buckle) &&
+            buckle.BuckledTo is { } buckledTo &&
+            HasComp<VehicleComponent>(buckledTo) &&
+            TryComp<PhysicsComponent>(buckledTo, out var vehiclePhysics))
+        {
+            var vehicleSpeed = vehiclePhysics.LinearVelocity.Length();
+            if (vehicleSpeed > 1.0f) // Only penalize above walking speed
+                buckleMovementSpread = (vehicleSpeed - 1.0f) * 0.04; // ~0.12 rad (~7°) at full bike speed (~4 m/s)
+        }
+
+        var angle = new Angle(direction.Theta + spread + buckleMovementSpread);
         DebugTools.Assert(spread <= component.MaxAngleModified.Theta);
         return angle;
     }

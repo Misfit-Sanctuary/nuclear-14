@@ -48,10 +48,10 @@
     netsync: false
     noRot: true
   - type: MovementSpeedModifier
-    acceleration: 6
-    friction: 0.1
-    baseWalkSpeed: 8
-    baseSprintSpeed: 8
+    acceleration: 5 # #Cythisiax Edited - Nerfed from 6 for balance
+    friction: 0.15 # #Cythisiax Edited - Nerfed from 0.1 for balance (less slippery)
+    baseWalkSpeed: 7 # #Cythisiax Edited - Nerfed from 8 for balance
+    baseSprintSpeed: 7 # #Cythisiax Edited - Nerfed from 8 for balance
   - type: Fixtures # So they cant fit through 1 door.
     fixtures:
       fix1:
@@ -137,6 +137,8 @@
   - type: Vehicle
     renderOver: None
     overlayPrototype: VehicleBikeScramblerOverlay
+  - type: MovementSpeedModifier
+    acceleration: 0.5 # #Cythisiax Added - Scrambler takes ~4.6s to reach max speed (heavy bike feel)
 
 - type: entity
   id: VehicleBikeScramblerOverlay
