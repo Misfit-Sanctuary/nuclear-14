@@ -1,0 +1,29 @@
+# #Misfits Add - Enclave-issue power armor training manual.
+#
+# Functionally identical to TrainingManualPowerArmorOperation in training_manuals.yml
+# - it inherits the GrantPowerArmorTraining component unchanged, so using it in hand
+# grants PowerArmorProficiency and consumes the manual. Only the name, description
+# and cover colours differ.
+#
+# This exists because the base manual is explicitly Brotherhood of Steel branded,
+# which reads wrong coming off an Enclave workbench. Crafted from the
+# N14BlueprintEnclaveBooks blueprint.
+#
+# Note: all six Enclave jobs already grant PowerArmorProficiency via job specials,
+# so this is not for Enclave personnel themselves - it is a manufacturable manual
+# for training allies and auxiliaries who lack the certification.
+- type: entity
+  parent: TrainingManualPowerArmorOperation
+  id: TrainingManualEnclavePowerArmorOperation
+  name: "Enclave technical manual: advanced power armor operation"
+  description: "A classified Enclave technical manual covering operation, diagnostics and safety interlocks for X-series advanced power armor. Restricted distribution. Mastering this will let you equip and operate any power armor frame."
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#1F4020"
+    - state: decor_wingette
+      color: "#0D2410"
+    - state: icon_text

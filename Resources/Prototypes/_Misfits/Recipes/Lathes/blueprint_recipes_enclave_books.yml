@@ -1,0 +1,39 @@
+# #Misfits Add - Enclave training manual blueprint recipe.
+# Produces the Enclave-branded power armor training manual, which grants
+# PowerArmorProficiency to whoever uses it in hand. Requires the
+# N14BlueprintEnclaveBooks blueprint item placed in a workbench, plus Enclave
+# faction access.
+#
+# The manual entity itself is defined in
+# _Misfits/Entities/../MartialArts/enclave_training_manual.yml and inherits its
+# behaviour from TrainingManualPowerArmorOperation.
+#
+# Material amounts use the lathe's internal units where 100 units = 1 physical
+# sheet / piece.
+
+- type: latheCategory
+  id: N14BlueprintEnclaveBooks
+  name: lathe-category-blueprint-enclave-books
+
+# =====================================================================
+# ENCLAVE TRAINING MANUAL RECIPE
+# =====================================================================
+
+# Advanced power armor operation manual - 5 paper and 1 cloth for the binding.
+# It is a printed book, so no electronics go into it.
+#
+# Uses N14Paper, NOT the upstream Paper material. Nuclear 14 defines its own paper
+# prototype specifically so lathes eject N14Paper1 rather than vanilla SheetPaper1
+# (see the comment on N14Paper in _Nuclear14/Reagents/materials.yml). Every N14
+# recipe that consumes paper uses N14Paper - see Recipes/Lathes/identification.yml.
+- type: latheRecipe
+  id: N14BPEnclaveBookPowerArmorTraining
+  result: TrainingManualEnclavePowerArmorOperation
+  category: N14BlueprintEnclaveBooks
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    N14Paper: 500
+    Cloth: 100

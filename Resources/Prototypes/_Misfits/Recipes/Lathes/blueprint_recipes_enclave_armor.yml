@@ -1,0 +1,96 @@
+# #Misfits Add - Enclave power armor blueprint recipes.
+# X-01 and X-02 Tesla advanced power armor. Both require the N14BlueprintEnclaveArmor
+# blueprint item placed in a workbench, plus Enclave faction access.
+#
+# Each suit carries a ToggleableClothing component, so crafting the outerClothing
+# entity yields the COMPLETE rig - helmet, gauntlets, boots and backpack are spawned
+# and attached on equip. No separate helmet recipes are needed, matching the rest of
+# the repo (the only helmet recipes that exist are commented out).
+#
+# Material scale note: this file deliberately mirrors the ONLY other power armor
+# recipe in the repo, N14BPBoSArmorPowerArmorT45 in blueprint_recipes_bos_town.yml,
+# which writes Steel in the x100 convention (100 units = 1 sheet) but leaves the
+# other four materials unscaled. Writing those "correctly" as x100 would make
+# Enclave armor cost 100x more circuitry than the BoS suit and break tier parity.
+# The underlying inconsistency is pre-existing and out of scope here.
+
+- type: latheCategory
+  id: N14BlueprintEnclaveArmor
+  name: lathe-category-blueprint-enclave-armor
+
+# =====================================================================
+# ENCLAVE POWER ARMOR RECIPES
+# =====================================================================
+
+# X-01 advanced power armor - 200 steel. Enclave enlisted/NCO issue.
+- type: latheRecipe
+  id: N14BPEnclaveArmorPowerArmorX01
+  result: N14ClothingOuterPowerArmorAdvanced1
+  category: N14BlueprintEnclaveArmor
+  completetime: 35
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 20000
+    N14Iron: 45
+    Circuitry: 45
+    ScrapElectronic: 40
+    N14Brass: 20
+
+# X-02 tesla power armor - 230 steel. A step above the X-01.
+- type: latheRecipe
+  id: N14BPEnclaveArmorPowerArmorX02Tesla
+  result: N14ClothingOuterPowerArmorAdvanced2Tesla
+  category: N14BlueprintEnclaveArmor
+  completetime: 40
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 23000
+    N14Iron: 55
+    Circuitry: 55
+    ScrapElectronic: 50
+    N14Brass: 25
+
+# =====================================================================
+# ZULU SQUAD COMBAT ARMOR
+# =====================================================================
+# Unlike the power armor above, these are ordinary clothing entities with no
+# ToggleableClothing, so the helmet is a genuinely separate item and needs its
+# own recipe.
+#
+# Costs are scaled off the standard combat armor and helmet recipes in
+# blueprint_recipes_ncr_legion.yml (N14BPNCRArmorCombatArmor at 60 steel,
+# N14BPNCRArmorHelmetMetal* at 5 steel), with the ADVANCED suit priced a step
+# above the standard one.
+
+# Zulu Squad advanced combat armor - 90 steel, above the standard 60
+- type: latheRecipe
+  id: N14BPEnclaveArmorZuluAdvancedCombatArmor
+  result: N14ClothingOuterEnclaveZuluAdvancedCombatArmor
+  category: N14BlueprintEnclaveArmor
+  completetime: 20
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 9000
+    Cloth: 1500
+    Thread: 200
+    Leather: 150
+
+# Zulu Squad combat helmet - 8 steel. Pairs with the suit above.
+- type: latheRecipe
+  id: N14BPEnclaveArmorZuluCombatHelmet
+  result: N14ClothingHeadHatEnclaveZuluCombatHelmet
+  category: N14BlueprintEnclaveArmor
+  completetime: 6
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 800
+    Cloth: 60
+    Leather: 30

@@ -1,0 +1,77 @@
+# #Misfits Add - Enclave faction blueprint items.
+#
+# Players find these in the world and place them in a workbench's storage container
+# to unlock the matching recipes. Removing the blueprint hides them again - see
+# Content.Shared/_Misfits/Crafting/BlueprintComponent.cs.
+#
+# By convention each blueprint item id matches the latheCategory id declared in its
+# recipe file, so the two must be renamed together if ever changed.
+#
+# The pre-existing gauss blueprint (N14enclaveheavyordnancet5) lives in
+# enclave_blueprint.yml and is deliberately untouched by this set.
+
+# --- Enclave Armor ---
+# Recipes in _Misfits/Recipes/Lathes/blueprint_recipes_enclave_armor.yml
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEnclaveArmor
+  name: Enclave Advanced Armor Schematics
+  description: Classified Enclave fabrication plans for X-series advanced power armor and Zulu Squad combat gear. Covers the full power armor rig - shell, servo assemblies, helmet and power systems. Restricted distribution.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPEnclaveArmorPowerArmorX01
+    - N14BPEnclaveArmorPowerArmorX02Tesla
+    - N14BPEnclaveArmorZuluAdvancedCombatArmor
+    - N14BPEnclaveArmorZuluCombatHelmet
+
+# --- Enclave Weapons ---
+# Recipes in _Misfits/Recipes/Lathes/blueprint_recipes_enclave_weapons.yml
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEnclaveWeapons
+  name: Enclave Energy Armaments Schematics
+  description: Enclave ordnance schematics for the plasma and directed-energy arms carried by remnant forces - plasma rifles and sidearms, wattz and AER pattern lasers, and pulse weaponry.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPEnclaveWeaponPlasmaCutter
+    - N14BPEnclaveWeaponPlasmaPistol
+    - N14BPEnclaveWeaponPlasmaDefender
+    - N14BPEnclaveWeaponPlasmaRifle
+    - N14BPEnclaveWeaponPlasmaRifleUrban
+    - N14BPEnclaveWeaponPlasmaRifleAuto
+    - N14BPEnclaveWeaponLaserMagnetoPistol
+    - N14BPEnclaveWeaponPulsePistol
+    - N14BPEnclaveWeaponLaserRCW
+    - N14BPEnclaveWeaponPulseCarbine
+    - N14BPEnclaveWeaponLaserRifleWattz2000
+    - N14BPEnclaveWeaponLaserRifleWattz3000
+    - N14BPEnclaveWeaponLaserRifleAER9Auto
+    - N14BPEnclaveWeaponLaserRifleAER12
+
+# --- Enclave Ammo ---
+# Recipes in _Misfits/Recipes/Lathes/blueprint_recipes_enclave_ammo.yml
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEnclaveAmmo
+  name: Enclave Energy Cell Schematics
+  description: Enclave assembly notes for the cells that feed its energy arms - plasma cartridges, microfusion cells and electron charge packs.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPEnclaveAmmoPlasmaCartridge
+    - N14BPEnclaveAmmoMicrofusionCell
+    - N14BPEnclaveAmmoElectronChargePack
+
+# --- Enclave Books ---
+# Recipes in _Misfits/Recipes/Lathes/blueprint_recipes_enclave_books.yml
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEnclaveBooks
+  name: Enclave Training Manual Schematics
+  description: Printing plates and binding instructions for Enclave technical manuals. Used to run off power armor certification courses for auxiliaries and allied personnel.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPEnclaveBookPowerArmorTraining

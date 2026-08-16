@@ -1,0 +1,236 @@
+# #Misfits Add - Enclave energy weapon blueprint recipes.
+# Plasma, laser and pulse arms. All require the N14BlueprintEnclaveWeapons blueprint
+# item placed in a workbench, plus Enclave faction access.
+#
+# Every weapon here is already canon Enclave issue - enclave_rank_loadoutkits.yml
+# hands out the plasma defender, auto plasma rifle, plasma pistol, wattz 2000 and
+# AER-9 auto to Enclave ranks. This makes craftable what the faction already carries.
+#
+# Cells for these guns are crafted from the separate N14BlueprintEnclaveAmmo
+# blueprint (blueprint_recipes_enclave_ammo.yml).
+#
+# Material amounts use the lathe's internal units where 100 units = 1 physical
+# sheet / bar / ingot / piece, matching blueprint_recipes_enclave.yml.
+
+- type: latheCategory
+  id: N14BlueprintEnclaveWeapons
+  name: lathe-category-blueprint-enclave-weapons
+
+# =====================================================================
+# PLASMA WEAPONS - all feed on N14PlasmaCartridge except the cutter
+# =====================================================================
+
+# Plasma cutter - melee, no cell. The only plasma cutter in the repo; it is
+# Misfits content rather than vanilla SS14, hence the non-N14 prototype id.
+- type: latheRecipe
+  id: N14BPEnclaveWeaponPlasmaCutter
+  result: MisfitsPlasmaCutter
+  category: N14BlueprintEnclaveWeapons
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 4000
+    Glass: 1000
+    Circuitry: 500
+    Plastic: 500
+
+# Plasma pistol - 80 steel
+- type: latheRecipe
+  id: N14BPEnclaveWeaponPlasmaPistol
+  result: N14WeaponPlasmaPistol
+  category: N14BlueprintEnclaveWeapons
+  completetime: 20
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 8000
+    Glass: 2000
+    Circuitry: 1500
+    Plastic: 1000
+
+# Plasma defender - 100 steel
+- type: latheRecipe
+  id: N14BPEnclaveWeaponPlasmaDefender
+  result: N14WeaponPlasmaDefender
+  category: N14BlueprintEnclaveWeapons
+  completetime: 24
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 10000
+    Glass: 2500
+    Circuitry: 1800
+    Plastic: 1000
+
+# Plasma rifle - 140 steel
+- type: latheRecipe
+  id: N14BPEnclaveWeaponPlasmaRifle
+  result: N14WeaponPlasmaRifle
+  category: N14BlueprintEnclaveWeapons
+  completetime: 30
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 14000
+    Glass: 3000
+    Circuitry: 2200
+    Plastic: 1000
+
+# Urban plasma rifle - 150 steel
+- type: latheRecipe
+  id: N14BPEnclaveWeaponPlasmaRifleUrban
+  result: N14WeaponPlasmaRifleUrban
+  category: N14BlueprintEnclaveWeapons
+  completetime: 32
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 15000
+    Glass: 3000
+    Circuitry: 2400
+    Plastic: 1000
+
+# Automatic plasma rifle - 160 steel, top of the plasma line
+- type: latheRecipe
+  id: N14BPEnclaveWeaponPlasmaRifleAuto
+  result: N14WeaponPlasmaRifleAuto
+  category: N14BlueprintEnclaveWeapons
+  completetime: 35
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 16000
+    Glass: 3500
+    Circuitry: 2800
+    Plastic: 1000
+
+# =====================================================================
+# LASER AND PULSE WEAPONS
+# =====================================================================
+
+# Magneto-laser pistol - 80 steel. Feeds on N14MicrofusionCell.
+- type: latheRecipe
+  id: N14BPEnclaveWeaponLaserMagnetoPistol
+  result: N14WeaponLaserMagnetoPistol
+  category: N14BlueprintEnclaveWeapons
+  completetime: 20
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 8000
+    Glass: 2000
+    Circuitry: 1500
+    Plastic: 1000
+
+# Pulse pistol - 90 steel. Feeds on N14ElectronChargePack.
+- type: latheRecipe
+  id: N14BPEnclaveWeaponPulsePistol
+  result: N14WeaponPulsePistol
+  category: N14BlueprintEnclaveWeapons
+  completetime: 22
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 9000
+    Glass: 2000
+    Circuitry: 1800
+    Plastic: 1000
+
+# Laser RCW - 110 steel. Feeds on N14ElectronChargePack.
+- type: latheRecipe
+  id: N14BPEnclaveWeaponLaserRCW
+  result: N14WeaponLaserRCW
+  category: N14BlueprintEnclaveWeapons
+  completetime: 26
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 11000
+    Glass: 2500
+    Circuitry: 2000
+    Plastic: 1000
+
+# Pulse carbine - 120 steel. Feeds on N14ElectronChargePack.
+- type: latheRecipe
+  id: N14BPEnclaveWeaponPulseCarbine
+  result: N14WeaponPulseCarbine
+  category: N14BlueprintEnclaveWeapons
+  completetime: 28
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 12000
+    Glass: 2500
+    Circuitry: 2200
+    Plastic: 1000
+
+# Wattz 2000 laser rifle - 120 steel. Feeds on N14MicrofusionCell.
+- type: latheRecipe
+  id: N14BPEnclaveWeaponLaserRifleWattz2000
+  result: N14WeaponLaserRifleWattz2000
+  category: N14BlueprintEnclaveWeapons
+  completetime: 28
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 12000
+    Glass: 2500
+    Circuitry: 2000
+    Plastic: 1000
+
+# Wattz 3000 laser rifle - 130 steel. Feeds on N14MicrofusionCell.
+- type: latheRecipe
+  id: N14BPEnclaveWeaponLaserRifleWattz3000
+  result: N14WeaponLaserRifleWattz3000
+  category: N14BlueprintEnclaveWeapons
+  completetime: 30
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 13000
+    Glass: 3000
+    Circuitry: 2200
+    Plastic: 1000
+
+# AER-9 auto laser rifle - 140 steel. Feeds on N14MicrofusionCell.
+- type: latheRecipe
+  id: N14BPEnclaveWeaponLaserRifleAER9Auto
+  result: N14WeaponLaserRifleAuto
+  category: N14BlueprintEnclaveWeapons
+  completetime: 32
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 14000
+    Glass: 3000
+    Circuitry: 2400
+    Plastic: 1000
+
+# AER-12 laser rifle - 150 steel, top of the laser line. Feeds on N14MicrofusionCell.
+- type: latheRecipe
+  id: N14BPEnclaveWeaponLaserRifleAER12
+  result: N14WeaponLaserRifleAER12
+  category: N14BlueprintEnclaveWeapons
+  completetime: 34
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 15000
+    Glass: 3500
+    Circuitry: 2600
+    Plastic: 1000

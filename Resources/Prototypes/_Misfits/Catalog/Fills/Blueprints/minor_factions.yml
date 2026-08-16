@@ -41,3 +41,12 @@
   - type: StorageFill
     contents:
     - id: BoxFolderGrey
+    # #Misfits Add - Enclave faction blueprints. This crate already exists on the
+    # Enclave map and Wendover but held only the folder above, so none of the
+    # Enclave blueprints had an obtain path. The gauss ordnance plans below are
+    # pre-existing and were likewise unobtainable outside admin spawn.
+    - id: N14BlueprintEnclaveArmor
+    - id: N14BlueprintEnclaveWeapons
+    - id: N14BlueprintEnclaveAmmo
+    - id: N14BlueprintEnclaveBooks
+    - id: N14enclaveheavyordnancet5

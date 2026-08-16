@@ -1,0 +1,73 @@
+# #Misfits Add - Enclave energy cell blueprint recipes.
+# The three cell types consumed by the Enclave energy weapon set. All require the
+# N14BlueprintEnclaveAmmo blueprint item placed in a workbench, plus Enclave
+# faction access.
+#
+# Costs deliberately match the equivalent Brotherhood recipes in
+# blueprint_recipes_bos_town.yml - an identical cell costs the same to build no
+# matter which faction builds it. Only the category and faction gate differ.
+#
+# Scoped to exactly what blueprint_recipes_enclave_weapons.yml can produce:
+#   N14PlasmaCartridge    -> all five plasma guns
+#   N14MicrofusionCell    -> magneto pistol, wattz 2000/3000, AER-9 auto, AER-12
+#   N14ElectronChargePack -> pulse pistol, pulse carbine, laser RCW
+# The plasma cutter is melee and takes no cell.
+#
+# Note these are the GENERIC cell prototypes. The Red/Green/Blue/Violet variants
+# are live back-compat aliases and must not be used as recipe results - the weapon
+# controls beam colour, not the cell.
+
+- type: latheCategory
+  id: N14BlueprintEnclaveAmmo
+  name: lathe-category-blueprint-enclave-ammo
+
+# =====================================================================
+# ENCLAVE ENERGY CELL RECIPES
+# =====================================================================
+
+# Plasma cartridge - feeds every plasma weapon in the Enclave set.
+- type: latheRecipe
+  id: N14BPEnclaveAmmoPlasmaCartridge
+  result: N14PlasmaCartridge
+  category: N14BlueprintEnclaveAmmo
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Glass: 600
+    Circuitry: 100
+    ScrapElectronic: 100
+    Lead: 600
+
+# Microfusion cell - feeds the laser rifles and the magneto pistol.
+- type: latheRecipe
+  id: N14BPEnclaveAmmoMicrofusionCell
+  result: N14MicrofusionCell
+  category: N14BlueprintEnclaveAmmo
+  completetime: 4
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Glass: 300
+    Circuitry: 100
+    ScrapElectronic: 300
+    N14Gold: 200
+    N14Silver: 300
+    Lead: 500
+
+# Electron charge pack - feeds the pulse weapons and the laser RCW.
+- type: latheRecipe
+  id: N14BPEnclaveAmmoElectronChargePack
+  result: N14ElectronChargePack
+  category: N14BlueprintEnclaveAmmo
+  completetime: 4
+  requiresBlueprint: true
+  availableFaction:
+  - Enclave
+  materials:
+    Glass: 100
+    Circuitry: 100
+    ScrapElectronic: 100
+    Lead: 100
