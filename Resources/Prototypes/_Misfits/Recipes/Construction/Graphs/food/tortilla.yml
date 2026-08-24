@@ -1,0 +1,13 @@
+﻿- type: constructionGraph
+  id: N14Tortilla # new graph for N14 Tortilla dough
+  start: start
+  graph:
+  - node: start
+    entity: N14FoodDoughTortillaSlice
+    edges:
+    - to: flat
+      steps:
+      - tool: Rolling
+        doAfter: 1
+  - node: flat
+    entity: N14FoodDoughTortillaFlat

@@ -348,7 +348,7 @@
   - type: Sprite
     state: tortilladough-slice
   - type: Construction
-    graph: Tortilla
+    graph: N14Tortilla # changed to new N14 construction graph so tacos work
     node: start
 
 - type: entity
@@ -364,7 +364,7 @@
   - type: Sprite
     state: tortilladough-flat
   - type: Construction
-    graph: Tortilla
+    graph: N14Tortilla # changed to new N14 construction graph so tacos work
     node: flat
 
 - type: entity

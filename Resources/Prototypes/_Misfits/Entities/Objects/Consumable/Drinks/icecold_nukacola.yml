@@ -1,0 +1,53 @@
+# Misfits Add - Chilled Nuka-Cola. Refrigerated stock issued through the Enclave ASRS
+# terminal, so an Enclave crate delivers cold bottles instead of warm wasteland finds.
+# Each variant only overrides the display name; flavour, reagents and sprite are
+# inherited from the matching N14 bottle. Nuka-Cola Yellow deliberately has no chilled
+# variant.
+
+- type: entity
+  parent: N14DrinkNukaCola
+  id: N14DrinkNukaColaIceCold
+  name: Ice Cold Nuka-Cola
+  suffix: Ice Cold
+
+- type: entity
+  parent: N14DrinkNukaColaCherry
+  id: N14DrinkNukaColaCherryIceCold
+  name: Ice Cold Nuka-Cola Cherry
+  suffix: Ice Cold
+
+- type: entity
+  parent: N14DrinkNukaColaGrape
+  id: N14DrinkNukaColaGrapeIceCold
+  name: Ice Cold Nuka-Cola Grape
+  suffix: Ice Cold
+
+- type: entity
+  parent: N14DrinkNukaColaOrange
+  id: N14DrinkNukaColaOrangeIceCold
+  name: Ice Cold Nuka-Cola Orange
+  suffix: Ice Cold
+
+- type: entity
+  parent: N14DrinkNukaColaQuantum
+  id: N14DrinkNukaColaQuantumIceCold
+  name: Ice Cold Nuka-Cola Quantum
+  suffix: Ice Cold
+
+- type: entity
+  parent: N14DrinkNukaColaQuartz
+  id: N14DrinkNukaColaQuartzIceCold
+  name: Ice Cold Nuka-Cola Quartz
+  suffix: Ice Cold
+
+- type: entity
+  parent: N14DrinkNukaColaVictory
+  id: N14DrinkNukaColaVictoryIceCold
+  name: Ice Cold Nuka-Cola Victory
+  suffix: Ice Cold
+
+- type: entity
+  parent: N14DrinkNukaColaWild
+  id: N14DrinkNukaColaWildIceCold
+  name: Ice Cold Nuka-Cola Wild
+  suffix: Ice Cold

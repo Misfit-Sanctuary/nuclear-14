@@ -754,6 +754,18 @@ undecided-loadout-category-misfits-priestess-zealot-desc =
     spear quiver, 3 pilum, 2 Bolas, 2 Cazador acid sacs,
     2 K rations, and a ceramic flask.
 
+undecided-loadout-category-misfits-acolyte-healing-name = Acolyte Healer
+undecided-loadout-category-misfits-acolyte-healing-desc =
+    Includes 2 Smelling Salts, 1 health analyzer, 1 Bitter Drink,
+    1 Poultices, 1 Powder, 1 bandage,
+    2 K rations, and a ceramic flask.
+
+undecided-loadout-category-misfits-acolyte-zealot-name = Acolyte Zealot
+undecided-loadout-category-misfits-acolyte-zealot-desc =
+    Includes a Gladius, Legionnaire buckler,
+    spear quiver, A battle rifle, 308 clips,
+    2 K rations, and a ceramic flask.
+
 undecided-loadout-category-misfits-eighties-block-road-captain-name = Road Captain Kit
 undecided-loadout-category-misfits-eighties-block-road-captain-description =
     A kit filled with everything a block needs to rip them apart.

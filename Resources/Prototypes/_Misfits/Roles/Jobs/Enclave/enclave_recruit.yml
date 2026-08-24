@@ -17,6 +17,8 @@
       - type: NpcFactionMember
         factions:
           - Enclave
+      - type: ReplacementAccent
+        accent: n14Enclave
 
 - type: playTimeTracker
   id: EnclaveRecruit

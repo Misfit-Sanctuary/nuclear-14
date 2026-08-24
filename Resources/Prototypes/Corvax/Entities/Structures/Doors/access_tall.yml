@@ -108,6 +108,18 @@
 
 - type: entity
   parent: N14DoorMetalRedTall
+  id: N14DoorMetalSecureLockedRedLegionPriestessOfMars
+  suffix: Legion, Locked, Legion Priestess of Mars
+  components:
+  - type: AccessReader
+    access: [["CaesarLegionPriestessOfMars"]] # #Misfits Fix: Requires Priestess of Mars rank or higher.
+  - type: Wires
+    layoutId: HighSec
+  - type: Door
+    canPry: false # #Misfits Fix: Legion secure doors cannot be crowbarred.
+
+- type: entity
+  parent: N14DoorMetalRedTall
   id: N14DoorMetalSecureLockedRedLegionOptio
   suffix: Legion, Locked, Legion Optio
   components:

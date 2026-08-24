@@ -35,6 +35,8 @@
       - type: NpcFactionMember
         factions:
           - Enclave
+      - type: ReplacementAccent
+        accent: n14Enclave
       - type: PowerArmorProficiency
 
 # #Misfits Change - Reformer keeps Hellfire Advanced PA (Hellfire is now Reformer-exclusive; Commander uses APA MK II).

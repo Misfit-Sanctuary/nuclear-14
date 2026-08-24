@@ -274,8 +274,8 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatEnclaveHelmet
-  name: Enclave helmet
-  description: A combat helmet worn by Enclave soldiers.
+  name: U.S. Army helmet
+  description: A combat helmet worn by U.S. Army soldiers.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHelmets/enclavehelmet.rsi
@@ -285,8 +285,8 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatEnclaveHelmetHood
-  name: Enclave hooded helmet
-  description: A combat helmet worn by Enclave soldiers. This one has a hood covering it.
+  name: U.S. Army hooded helmet
+  description: A combat helmet worn by U.S. Army soldiers. This one has a hood covering it.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHelmets/enclavehelmethood.rsi
@@ -296,8 +296,8 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetmarine
   id: N14ClothingHeadHatEnclaveHelmetMarine
-  name: Enclave marine helmet
-  description: A marine helmet worn by elite Enclave soldiers.
+  name: U.S. Army marine helmet
+  description: A marine helmet worn by elite U.S. Army soldiers.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHelmets/enclavehelmetmarine.rsi

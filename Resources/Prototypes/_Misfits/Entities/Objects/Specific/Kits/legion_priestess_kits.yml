@@ -56,3 +56,64 @@
       - id: N14JunkCeramicFlask
     sound:
       path: /Audio/Effects/unwrap.ogg
+
+# acolyte kits
+
+- type: entity
+  name: Acolyte Zealot
+  parent: KitBase
+  id: KitAcolyteZealot
+  description: "Inspire bloodlust in allies and terror in foes."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14Gladius
+      - id: N14LegionnaireBuckler
+      - id: ClothingBeltQuiverSpear
+      - id: N14PilumSpear
+        amount: 3
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+      - id: N14WeaponRifle308Battle
+      - id: ClipMagazine308Rifle
+        amount: 2
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: Acolyte Healer
+  parent: KitBase
+  id: KitAcolyteHealing
+  description: "Keep Caesars finest ready for war."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14SmellingSalts
+        amount: 2
+      - id: N14HandheldHealthAnalyzer
+      - id: N14Bitterdrink
+        amount: 1
+      - id: ClothingBeltMedical
+      - id: N14Bandage
+        amount: 1
+      - id: N14HealingPoultice
+        amount: 1
+      - id: N14HealingPowder
+        amount: 1
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+

@@ -33,6 +33,8 @@
       - type: NpcFactionMember
         factions:
           - Enclave
+      - type: ReplacementAccent
+        accent: n14Enclave
       - type: CPRTraining
 
 - type: startingGear

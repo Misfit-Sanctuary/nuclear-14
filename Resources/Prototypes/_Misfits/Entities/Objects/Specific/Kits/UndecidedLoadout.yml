@@ -31,3 +31,39 @@
     state: base
   content:
   - KitPriestessZealot
+
+  # acolyte kits
+
+- type: entity
+  id: LegionAcolyteLoadoutKits
+  name: kit
+  description: "please only take one."
+  parent: LegionCenturionloadoutkits
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - AcolyteHealingSet
+    - AcolyteZealotSet
+
+- type: UndecidedLoadoutBackpackSet
+  id: AcolyteHealingSet
+  name: undecided-loadout-category-misfits-acolyte-healing-name
+  description: undecided-loadout-category-misfits-acolyte-healing-desc
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitAcolyteHealing
+
+- type: UndecidedLoadoutBackpackSet
+  id: AcolyteZealotSet
+  name: undecided-loadout-category-misfits-acolyte-zealot-name
+  description: undecided-loadout-category-misfits-acolyte-zealot-desc
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitAcolyteZealot

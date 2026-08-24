@@ -6,8 +6,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitEnclaveBlue
-  name: enclave uniform (blue)
-  description: A blue field-variant of the standard Enclave uniform. Worn by personnel operating in colder or more covert environments.
+  name: U.S. Army uniform (blue)
+  description: A blue field-variant of the standard U.S. Army uniform. Worn by personnel operating in colder or more covert environments.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/Uniforms/enclave_uniform_blue.rsi
@@ -18,8 +18,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitEnclaveGrey
-  name: enclave uniform (grey)
-  description: A grey field-variant of the standard Enclave uniform. Blends better in ash-grey ruins and rocky terrain.
+  name: U.S. Army uniform (grey)
+  description: A grey field-variant of the standard U.S. Army uniform. Blends better in ash-grey ruins and rocky terrain.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/Uniforms/enclave_uniform_grey.rsi
@@ -31,8 +31,8 @@
 - type: entity
   parent: N14ClothingOuterEnclaveArmor
   id: N14ClothingOuterEnclaveCombatArmor
-  name: enclave combat armor (mk2)
-  description: An updated suit of Enclave combat armor with reinforced plating. Heavier than the standard issue but offers better protection in the field.
+  name: U.S. Army combat armor (mk2)
+  description: An updated suit of U.S. Army combat armor with reinforced plating. Heavier than the standard issue but offers better protection in the field.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_combat_armor.rsi
@@ -44,8 +44,8 @@
 - type: entity
   parent: N14ClothingOuterEnclaveArmor
   id: N14ClothingOuterEnclaveCombatArmorMK2
-  name: enclave combat armor mk2
-  description: A pre-war Enclave issue Mk2 combat armor. Heavier plating and a tighter weave than the standard suit.
+  name: U.S. Army combat armor mk2
+  description: A pre-war U.S. Army issue Mk2 combat armor. Heavier plating and a tighter weave than the standard suit.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_mk2_combat_armor.rsi
@@ -56,8 +56,8 @@
 - type: entity
   parent: N14ClothingOuterEnclaveArmor
   id: N14ClothingOuterEnclaveZuluCombatArmorMK2
-  name: Zulu enclave combat armor mk2
-  description: A Mk2 combat armor worn by Enclave Zulu Squad operators. Painted with Zulu Squad markings.
+  name: Zulu U.S. Army combat armor mk2
+  description: A Mk2 combat armor worn by U.S. Army Zulu Squad operators. Painted with Zulu Squad markings.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_zulu_combat_armor.rsi
@@ -68,8 +68,8 @@
 - type: entity
   parent: N14ClothingOuterEnclaveArmor
   id: N14ClothingOuterEnclaveZuluAdvancedCombatArmor
-  name: Zulu enclave advanced combat armor
-  description: An advanced combat armor worn by Enclave Zulu Squad operators. Painted with Zulu Squad markings.
+  name: Zulu U.S. Army advanced combat armor
+  description: An advanced combat armor worn by U.S. Army Zulu Squad operators. Painted with Zulu Squad markings.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_zulu_advanced_combat_armor.rsi
@@ -80,8 +80,8 @@
 - type: entity
   parent: N14ClothingOuterEnclaveArmor
   id: N14ClothingOuterEnclaveZuluGruntCombatArmor
-  name: Zulu enclave grunt combat armor
-  description: A combat armor worn by Enclave Zulu Squad grunts. The Zulu Squad's entry-level trooper kit.
+  name: Zulu U.S. Army grunt combat armor
+  description: A combat armor worn by U.S. Army Zulu Squad grunts. The Zulu Squad's entry-level trooper kit.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_zulu_grunt_armor.rsi
@@ -93,8 +93,8 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatEnclaveCombatHelmet
-  name: enclave combat helmet
-  description: A pre-war Enclave issue combat helmet. Protects against most battlefield threats.
+  name: U.S. Army combat helmet
+  description: A pre-war U.S. Army issue combat helmet. Protects against most battlefield threats.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_combat_helmet.rsi
@@ -105,8 +105,8 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatEnclaveZuluCombatHelmet
-  name: Zulu enclave combat helmet
-  description: A combat helmet worn by Enclave Zulu Squad operators. Painted with Zulu Squad markings.
+  name: Zulu U.S. Army combat helmet
+  description: A combat helmet worn by U.S. Army Zulu Squad operators. Painted with Zulu Squad markings.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_zulu_combat_helmet.rsi

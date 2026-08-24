@@ -1421,9 +1421,24 @@
   availableFaction:
   - CaesarLegion
   materials:
-    N14Iron: 15
+    N14Iron: 6
 
-    Leather: 7
+    Leather: 0.7
+
+    Wood: 3
+
+- type: latheRecipe
+  id: N14BPLegionWeaponGladius
+  result: N14Gladius
+  category: N14BlueprintLegionWeaponsT2
+  completetime: 6
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 15
+
+    Leather: 1
 
     Wood: 5
 
@@ -1437,11 +1452,11 @@
   availableFaction:
   - CaesarLegion
   materials:
-    Steel: 25
+    Steel: 6
 
-    N14Iron: 7
+    N14Iron: 3
 
-    Leather: 2
+    Leather: 0.2
 
 
 - type: latheRecipe
@@ -1453,11 +1468,11 @@
   availableFaction:
   - CaesarLegion
   materials:
-    N14Iron: 12
+    N14Iron: 6
 
-    Wood: 15
+    Wood: 7
 
-    Leather: 2
+    Leather: 0.2
 
 
 - type: latheRecipe
@@ -1469,9 +1484,9 @@
   availableFaction:
   - CaesarLegion
   materials:
-    N14Iron: 15
+    N14Iron: 8
 
-    Leather: 7
+    Leather: 3
 
     Cloth: 2
 
@@ -1550,7 +1565,7 @@
   availableFaction:
   - CaesarLegion
   materials:
-    Steel: 60
+    Steel: 45
 
     N14Iron: 15
 

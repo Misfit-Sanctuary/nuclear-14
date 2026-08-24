@@ -55,6 +55,32 @@
     - Fruit
 
 - type: entity
+  name: cornbread muffin
+  parent: N14CookedFoodBakedBase
+  id: N14CookedFoodBakedMuffinCorn
+  description: A tasty muffin with wild maize kernels on top.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - savory
+    - corn
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Food/Baked/misc.rsi
+    state: muffin-corn
+  - type: Tag
+    tags:
+    - Corn
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6 #big muffins, they're a third of a cornbread!
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 1
+
+- type: entity
   name: honey bun #TODO honey
   parent: N14CookedFoodBakedBase
   id: N14CookedFoodBakedBunHoney

@@ -270,8 +270,8 @@
 - type: entity
   parent: N14ClothingOuterCombatArmorMK2
   id: N14ClothingOuterEnclaveArmor
-  name: enclave armor
-  description: A suit of armor used by Enclave soldiers.
+  name: U.S. Army armor
+  description: A suit of armor used by U.S. Army soldiers.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutenclavearmor.rsi
@@ -302,8 +302,8 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterEnclavePeacekeeper
-  name: enclave peacekeeper vest
-  description: A bulletproof vest used by Enclave 'peacekeepers'. Pfft. Yeah, right.
+  name: U.S. Army peacekeeper vest
+  description: A bulletproof vest used by U.S. Army 'peacekeepers'. Pfft. Yeah, right.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutpeacekeeper.rsi

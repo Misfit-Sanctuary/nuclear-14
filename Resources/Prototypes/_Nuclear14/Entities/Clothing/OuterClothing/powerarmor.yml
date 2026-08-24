@@ -286,7 +286,7 @@
   id: N14ClothingOuterPowerArmorAdvanced1
   # #Misfits Change - Renamed X-01 -> APA MK I
   name: APA MK I Power Armor
-  description: The standard issue model of power armor for Enclave infantry personnel. It offers an advanced sensors suite and improved defensive capabilities compared to standard pre-war models.
+  description: The standard issue model of power armor for U.S. Army infantry personnel. It offers an advanced sensors suite and improved defensive capabilities compared to standard pre-war models.
   components:
   - type: PowerArmorIntegrity
     brokenBleedthroughRatio: 1.0  # #Misfits Add - when broken, only armor coefficients apply
@@ -389,7 +389,7 @@
   parent: N14ClothingOuterPowerArmorAdvanced2
   id: N14ClothingOuterPowerArmorAdvanced2Hellfire
   name: Hellfire Power Armor
-  description: A deep black suit of Enclave-manufactured heavy power armor based on pre-war designs such as the T-51, and improving off of data gathered by post-war designs such as the APA MK I. Most commonly fielded on the East Coast, no suit can rival its strength.
+  description: A deep black suit of U.S. Army-manufactured heavy power armor based on pre-war designs such as the T-51, and improving off of data gathered by post-war designs such as the APA MK I. Most commonly fielded on the East Coast, no suit can rival its strength.
   components:
   - type: PowerArmorIntegrity
     maxIntegrity: 620 # #Misfits Tweak: Hellfire durability.

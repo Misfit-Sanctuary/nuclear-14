@@ -184,7 +184,7 @@
   - type: Access
     tags:
     - FotA
-    - FotADoctor 
+    - FotADoctor
 
 
 # #Misfits Change - BoS Midwest holotags commented out.
@@ -308,7 +308,7 @@
   parent: N14IDPassportBlank
   id: N14IDEnclaveTrooper
   name: holotag
-  description: An ID holotag worn by the Enclave.
+  description: An ID holotag worn by the U.S. Army.
   suffix: Trooper
   components:
   - type: Sprite
@@ -328,7 +328,7 @@
   parent: N14IDPassportBlank
   id: N14IDEnclaveOfficer
   name: holotag
-  description: An ID holotag worn by higher ranking memebers of the Enclave.
+  description: An ID holotag worn by higher ranking memebers of the U.S. Army.
   suffix: Officer
   components:
   - type: Sprite
@@ -349,7 +349,7 @@
   parent: N14IDPassportBlank
   id: N14IDEnclaveNoncombat
   name: holotag
-  description: An ID holotag worn by the non-combat members of Enclave.
+  description: An ID holotag worn by the non-combat members of U.S. Army.
   suffix: Scientist , Noncombat
   components:
   - type: Sprite
@@ -549,7 +549,7 @@
     state: passport_presidential
   - type: PresetIdCard
     job: TownShopkeeper
-  
+
 - type: entity # Forge-Add-Start
   parent: N14IDPassportTownsfolk
   id: N14IDShopkeeperHelperTown

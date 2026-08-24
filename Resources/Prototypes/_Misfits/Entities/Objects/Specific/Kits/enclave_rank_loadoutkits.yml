@@ -2,7 +2,7 @@
 
 - type: entity
   id: EnclaveOfficerloadoutkits
-  name: Undecided Enclave Officer Loadout Kit
+  name: Undecided U.S. Army Officer Loadout Kit
   parent: BaseLoadoutKit
   components:
   - type: Sprite
@@ -16,7 +16,7 @@
 
 - type: entity
   id: EnclaveSoldierloadoutkits
-  name: Undecided Enclave Soldier Loadout Kit
+  name: Undecided U.S. Army Soldier Loadout Kit
   parent: BaseLoadoutKit
   components:
   - type: Sprite
@@ -30,7 +30,7 @@
 
 - type: entity
   id: EnclaveScientistloadoutkits
-  name: Undecided Enclave Scientist Loadout Kit
+  name: Undecided U.S. Army Scientist Loadout Kit
   parent: BaseLoadoutKit
   components:
   - type: Sprite
@@ -136,7 +136,7 @@
   id: KitEnclave_CommandLaser
   name: command laser kit
   parent: KitBase
-  description: A crate containing officer-grade laser weaponry, signaling tools, and sustain items for an Enclave commander.
+  description: A crate containing officer-grade laser weaponry, signaling tools, and sustain items for a U.S. Army commander.
   components:
   - type: Sprite
     state: pointman
@@ -164,7 +164,7 @@
   id: KitEnclave_CommandShock
   name: command shock kit
   parent: KitBase
-  description: A crate containing heavier command gear for an Enclave officer leading an aggressive push.
+  description: A crate containing heavier command gear for a U.S. Army officer leading an aggressive push.
   components:
   - type: Sprite
     state: rifleman
@@ -191,7 +191,7 @@
   id: KitEnclave_CommandPlasma
   name: command plasma kit
   parent: KitBase
-  description: A crate containing compact plasma arms and battlefield control tools for an Enclave officer.
+  description: A crate containing compact plasma arms and battlefield control tools for a U.S. Army officer.
   components:
   - type: Sprite
     state: marksman
@@ -219,7 +219,7 @@
   id: KitEnclave_Rifleman
   name: trooper rifleman kit
   parent: KitBase
-  description: A crate containing a dependable Enclave line trooper package built around a recharger rifle and field sustain.
+  description: A crate containing a dependable U.S. Army line trooper package built around a recharger rifle and field sustain.
   components:
   - type: Sprite
     state: rifleman
@@ -243,7 +243,7 @@
   id: KitEnclave_Shocktrooper
   name: trooper shock kit
   parent: KitBase
-  description: A crate containing an aggressive Enclave assault package for breaching and overrunning resistance.
+  description: A crate containing an aggressive U.S. Army assault package for breaching and overrunning resistance.
   components:
   - type: Sprite
     state: gunner
@@ -271,7 +271,7 @@
   id: KitEnclave_Suppressor
   name: trooper suppressor kit
   parent: KitBase
-  description: A crate containing automatic laser arms and grenades for Enclave suppression and controlled advances.
+  description: A crate containing automatic laser arms and grenades for U.S. Army suppression and controlled advances.
   components:
   - type: Sprite
     state: marksman
@@ -297,7 +297,7 @@
   id: KitEnclave_FieldResearch
   name: field research kit
   parent: KitBase
-  description: A crate containing a sidearm and field study tools for an Enclave scientist operating beyond the bunker.
+  description: A crate containing a sidearm and field study tools for a U.S. Army scientist operating beyond the bunker.
   components:
   - type: Sprite
     state: medic
@@ -319,7 +319,7 @@
   id: KitEnclave_MedicalScience
   name: medical science kit
   parent: KitBase
-  description: A crate containing advanced trauma and radiation support for an Enclave scientist assigned to medical duties.
+  description: A crate containing advanced trauma and radiation support for a U.S. Army scientist assigned to medical duties.
   components:
   - type: Sprite
     state: medic
@@ -343,7 +343,7 @@
   id: KitEnclave_EngineeringScience
   name: engineering science kit
   parent: KitBase
-  description: A crate containing technical tools and a compact energy sidearm for an Enclave scientist maintaining infrastructure.
+  description: A crate containing technical tools and a compact energy sidearm for a U.S. Army scientist maintaining infrastructure.
   components:
   - type: Sprite
     state: pointman

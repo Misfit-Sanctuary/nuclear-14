@@ -28,7 +28,24 @@
       entity: N14FoodDough
 
 - type: reaction
-  id: N14MaizeDough
+  id: N14MaizeDoughBread
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  priority: 1 # 3 ingredient cornbread dough should go before 2 ingredient tortilla dough
+  reactants:
+    ExtractMaize:
+      amount: 15
+    N14MilkBrahmin:
+      amount: 10
+    Egg:
+      amount: 6
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: N14FoodDoughCornmeal # this is cornbread dough, for cornbread
+
+- type: reaction
+  id: N14MaizeDoughTortilla
   impact: Low
   quantized: true
   conserveEnergy: false
@@ -38,8 +55,9 @@
     Water:
       amount: 10
   effects:
-    - !type:CreateEntityReactionEffect
-      entity: N14FoodDoughCornmeal
+  - !type:CreateEntityReactionEffect
+    entity: N14FoodDoughTortilla # this is tortilla dough, for tortillas
+
 - type: reaction
   id: N14SweetBatter
   impact: Low

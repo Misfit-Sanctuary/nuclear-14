@@ -659,6 +659,14 @@
     N14FoodDoughCornmeal: 1
 
 - type: microwaveMealRecipe
+  id: N14RecipeCornbreadMuffin
+  name: cornbread muffin recipe
+  result: N14CookedFoodBakedMuffinCorn
+  time: 5
+  solids:
+    N14FoodDoughCornmealSlice: 1 # rejoice, they are no longer useless.
+
+- type: microwaveMealRecipe
   id: N14RecipeCreamCheeseBread
   name: cream cheese bread recipe
   result: N14CookedFoodBreadCreamcheese

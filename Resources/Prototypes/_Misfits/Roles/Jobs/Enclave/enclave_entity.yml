@@ -29,6 +29,19 @@
 
 - type: entity
   parent: MobHuman
+  id: MisfitsMobHumanEnclaveVertibirdPilot
+  name: Enclave Vertibird Pilot
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [EnclaveVertibirdPilotGear]
+  - type: NpcFactionMember
+    factions:
+    - Enclave
+
+- type: entity
+  parent: MobHuman
   id: MisfitsMobHumanEnclaveJuniorOfficer
   name: Enclave Junior Officer
   components:

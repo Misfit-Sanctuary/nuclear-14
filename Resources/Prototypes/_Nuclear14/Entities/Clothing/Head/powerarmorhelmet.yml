@@ -71,7 +71,7 @@
   id: MisfitsEnclavePowerArmorHelmet
   # #Misfits Change - Renamed to APA MK I (removed 'Experimental' prefix per rebalance)
   name: APA MK I Power Armor Helmet
-  description: A matching helmet to the enclave's supermutant power armor.
+  description: A matching helmet to the U.S. Army's supermutant power armor.
   components:
   - type: Sprite
     netsync: false
@@ -435,7 +435,7 @@
   id: N14ClothingHeadHelmetPowerArmorX02
   # #Misfits Change - Renamed X-02 -> APA MK II
   name: APA MK II power armor helmet
-  description: The Enclave Mark II Powered Combat Armor helmet.
+  description: The U.S. Army Mark II Powered Combat Armor helmet.
   components:
   - type: Sprite
     netsync: false
@@ -478,7 +478,7 @@
   parent: N14ClothingHeadHelmetPowerArmorX01
   id: N14ClothingHeadHelmetPowerArmorHellfire
   name: hellfire power armor helmet
-  description: A deep black helmet of Enclave-manufactured heavy Power Armor with yellow ballistic glass, based on pre-war designs such as the T-51 and improving off of data gathered by post-war designs such as the APA MK I. Most commonly fielded on the East Coast, no other helmet rivals its strength.
+  description: A deep black helmet of U.S. Army-manufactured heavy Power Armor with yellow ballistic glass, based on pre-war designs such as the T-51 and improving off of data gathered by post-war designs such as the APA MK I. Most commonly fielded on the East Coast, no other helmet rivals its strength.
   components:
   - type: Sprite
     netsync: false
