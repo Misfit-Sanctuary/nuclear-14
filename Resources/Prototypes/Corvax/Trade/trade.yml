@@ -843,6 +843,24 @@
     price: 5
 
 - type: storeCategoryStructured
+  id: CaravanBuy2_Currency
+  name: "Currency"
+  entries:
+  - proto: N14CurrencyLegionDenarius
+    price: 4
+  - proto: N14CurrencyLegionAureus
+    price: 5
+ # - proto: N14CurrencyNCRollar
+ #   price: .5
+ # - proto: N14CurrencyPrewar
+ #   price: .1 i cannot fucking figure out how to get these to work, ideally should just round up
+ # or down to the nearest whole number, because ncr and prewar should NOT be equal to caps in value. -Tytos
+
+
+
+
+
+- type: storeCategoryStructured
   id: CaravanBuy2_Plushies
   name: "Plushies"
   entries:
@@ -890,6 +908,7 @@
   - CaravanBuy2_Misc
   - CaravanBuy2_Plushies
   - CaravanBuy2_Sprouts
+  - CaravanBuy2_Currency
 
 # ----------------------------
 # caravan_sell2 categories
@@ -1377,7 +1396,7 @@
   - proto: N14IngotIron1
     price: 10
   - proto: N14IngotBrass1
-    price: 10
+    price: 40
   - proto: N14IngotLead1
     price: 10
   - proto: N14IngotSilver1
@@ -1397,6 +1416,23 @@
     price: 3
   - proto: DrinkCognacBottleFull
     price: 3
+
+- type: storeCategoryStructured
+  id: CaravanSell2_Currency
+  name: "Currency"
+  entries:
+  - proto: N14CurrencyLegionDenarius
+    price: 4
+  - proto: N14CurrencyLegionAureus
+    price: 5
+ # - proto: N14CurrencyNCRollar
+ #   price: .5
+ # - proto: N14CurrencyPrewar
+ #   price: .1 i cannot fucking figure out how to get these to work, ideally should just round up
+ # or down to the nearest whole number, because ncr and prewar should NOT be equal to caps in value. -Tytos
+
+
+
 
 - type: storePresetStructured
   id: caravan_sell2
@@ -1420,3 +1456,8 @@
   - CaravanSell2_Alcohol
   - CaravanSell2_Fish
   - CaravanSell2_Currency
+
+
+
+
+
