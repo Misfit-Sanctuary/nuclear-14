@@ -30,6 +30,15 @@
     group: Vault
     accountProto: N14ASRSAccountVault
     acceptedCurrency: PrewarMoney
+    requestPool: VaultRequestPool
+    rewardPool: VaultRewardPool
+    randomRequestSlots: 7
+    randomRequestRerollDelay: 900
+    randomRequestMinTargets: 1
+    randomRequestMaxTargets: 3
+    hardRequestSlots: 1
+    hardRequestScoreMultiplier: 4
+    directBudgetRequestSlots: 4
     sellEntries:
     - item: N14DrinkNukaColaEmpty
       value: 5
@@ -52,6 +61,11 @@
         crate: N14CrateRequisitionsVaultPipboy
       - cost: 400
         crate: N14CrateRequisitionsVaultPowerCells
+      - cost: 3000
+        crate: MisfitsCrateRequisitionsVaultBinoculars
+      - cost: 2000
+        stock: 1
+        crate: MisfitsCrateRequisitionsVaultMMI
     - name: n14-requisitions-category-security
       entries:
       - cost: 1500
@@ -61,6 +75,16 @@
       - cost: 500
         stock: 2
         crate: N14CrateRequisitionsVaultLaser
+      - cost: 2000
+        crate: MisfitsCrateRequisitionsVaultModularGrenade
+      - cost: 2500
+        crate: MisfitsCrateRequisitionsVaultRiot
+      - cost: 2000
+        crate: MisfitsCrateRequisitionsVaultFlashbang
+      - cost: 2000
+        crate: MisfitsCrateRequisitionsVaultTearGas
+      - cost: 1800
+        crate: MisfitsCrateRequisitionsVaultAdvancedSecurity
     - name: n14-requisitions-category-maintenance
       entries:
       - cost: 400
@@ -75,6 +99,10 @@
         crate: N14CrateRequisitionsVaultSurgical
       - cost: 800
         crate: N14CrateRequisitionsVaultMedkits
+      - cost: 300
+        crate: MisfitsCrateRequisitionsVaultSyringes
+      - cost: 100
+        crate: MisfitsCrateRequisitionsVaultVials
     - name: n14-requisitions-category-provisions
       entries:
       - cost: 200
@@ -85,6 +113,20 @@
         crate: N14CrateRequisitionsVaultPizzaParty
       - cost: 200
         crate: N14CrateRequisitionsVaultCanned
+      - cost: 250
+        crate: MisfitsCrateRequisitionsVaultBirthdayParty
+      - cost: 300
+        crate: MisfitsCrateRequisitionsVaultExoticSeeds
+    - name: n14-requisitions-category-supplies
+      entries:
+      - cost: 5000
+        crate: MisfitsCrateRequisitionsVaultCircuits
+      - cost: 1500
+        crate: MisfitsCrateRequisitionsVaultSteel
+      - cost: 2000
+        crate: MisfitsCrateRequisitionsVaultPlastic
+      - cost: 4000
+        crate: MisfitsCrateRequisitionsVaultThread
 
 # Apparel
 - type: entity
@@ -96,6 +138,8 @@
     sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
+  - type: RequisitionsCrate
+    reward: 50
   - type: StorageFill
     contents:
     - id: N14ClothingUniformJumpsuitVault
@@ -145,6 +189,8 @@
     sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
+  - type: RequisitionsCrate
+    reward: 50
   - type: StorageFill
     contents:
     - id: N14PowerCellSmall
@@ -200,7 +246,7 @@
     contents:
     - id: N14WeaponLaserPistol
       amount: 1
-    - id: N14MicrofusionCellRed
+    - id: N14PowerCellSmall
       amount: 3
 
 # Maintenance
@@ -213,6 +259,8 @@
     sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
   - type: StorageFill
     contents:
     - id: N14Wrench
@@ -250,7 +298,7 @@
   - type: Sprite
     sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
   - type: RequisitionsCrate
-    reward: 0
+    reward: 50
   - type: StorageFill
     contents:
     - id: N14RadXPill

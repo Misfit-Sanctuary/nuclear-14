@@ -46,6 +46,11 @@ public sealed partial class PuddleSystem
                 continue;
 
             var reagentTick = evaporation.EvaporationAmount * EvaporationCooldown.TotalSeconds;
+			// only speed up the evaporation if there are reagents with FastEvaporation
+			if(puddleSolution.GetTotalPrototypeQuantity(FastEvaporationReagents)  > FixedPoint2.Zero){
+			reagentTick = reagentTick * 50; // change this number to change FastEvaporation speed
+			}
+
             puddleSolution.SplitSolutionWithOnly(reagentTick, EvaporationReagents);
 
             // Despawn if we're done

@@ -12,5 +12,7 @@ ent-N14CleansingPowder = cleansing powder
     .desc = A bag of anti-rad powder used by tribal and Legion healers.
 ent-N14HealingPoultice = healing poultice
     .desc = A bag of poultice to help with all common ailments if slowly.
+ent-N14BerserkerPowder = berserker powder
+    .desc = A pouch of berserker powder, enhances physical abilities with some side effects.
 ent-N14Bitterdrink = Bitterdrink
     .desc = A bottle containing a mixture of plants to aid against poisons and radiation.

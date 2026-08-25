@@ -261,3 +261,35 @@
       - type: RidingPerk
     soundOnUse:
       path: /Audio/Items/Handling/book_pickup.ogg
+
+# legion latin language book, to be used by cent to teach in-round recruits latin
+- type: entity
+  name: "Legion Latin Language Manual"
+  id: TrainingManualLegionLatin
+  parent: BaseItem
+  description: "A comprehensive guide to the Latin language, used by Caesar's Legion to teach recruits the ancient tongue."
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_old
+      color: "#b72121"
+    - state: decor_wingette
+      color: "#e4432d"
+    - state: icon_legion
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+      - Book
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/book_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+  - type: GrantTrait
+    trait: LanguageLatin
+    learnMessage: grant-trait-latin-learned
+    alreadyKnownMessage: grant-trait-latin-already-known
+    soundOnUse:
+      path: /Audio/Items/Handling/book_pickup.ogg

@@ -48,7 +48,13 @@ public sealed partial class TriggerSystem
             args.Verbs.Add(new AlternativeVerb()
             {
                 Text = Loc.GetString("verb-start-detonation"),
-                Act = () => StartTimer((uid, component), args.User),
+                Act = () =>
+                {
+                    if (TryPacifiedBlockArm(uid, args.User))
+                        return;
+
+                    StartTimer((uid, component), args.User);
+                },
                 Priority = 2
             });
         }
@@ -157,6 +163,12 @@ public sealed partial class TriggerSystem
     {
         if (args.Handled || HasComp<AutomatedTimerComponent>(uid) || component.UseVerbInstead)
             return;
+
+        if (TryPacifiedBlockArm(uid, args.User))
+        {
+            args.Handled = true;
+            return;
+        }
 
         _popupSystem.PopupEntity(Loc.GetString("trigger-activated", ("device", uid)), args.User, args.User);
 

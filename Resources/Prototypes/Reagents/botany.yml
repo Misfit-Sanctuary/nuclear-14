@@ -190,6 +190,7 @@
   color: "#77b58e"
   boilingPoint: -33.0
   meltingPoint: -77.7
+  FastEvaporation: true # look at Content.Server/Fluids/EntitySystems/PuddleSystem.Evaporation.cs line 50 to change the FastEvaporation Modifier
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 1

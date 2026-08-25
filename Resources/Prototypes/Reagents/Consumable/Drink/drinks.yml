@@ -384,6 +384,7 @@
   flavor: fizzy
   color: "#619494"
   fizziness: 0.8
+  FastEvaporation: true # look at Content.Server/Fluids/EntitySystems/PuddleSystem.Evaporation.cs line 50 to change the FastEvaporation Modifier
 
 - type: reagent
   id: SoyLatte
@@ -448,6 +449,7 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+  FastEvaporation: true # look at Content.Server/Fluids/EntitySystems/PuddleSystem.Evaporation.cs line 50 to change the FastEvaporation Modifier
 
 - type: reagent
   id: Water
@@ -470,6 +472,8 @@
         damage:
           types:
             Dehydration: -0.5
+  FastEvaporation: true # the first FastEvaporation test, water alone should evaporate X times faster
+  # look at Content.Server/Fluids/EntitySystems/PuddleSystem.Evaporation.cs line 50 to change the FastEvaporation Modifier
 
 - type: reagent
   id: Ice
@@ -490,6 +494,7 @@
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
+  FastEvaporation: true # look at Content.Server/Fluids/EntitySystems/PuddleSystem.Evaporation.cs line 50 to change the FastEvaporation Modifier
 
 - type: reagent
   id: DryRamen

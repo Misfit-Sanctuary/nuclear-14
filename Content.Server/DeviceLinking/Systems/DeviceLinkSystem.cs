@@ -38,6 +38,20 @@ public sealed class DeviceLinkSystem : SharedDeviceLinkSystem
         }
     }
 
+    public bool TryGetLinkedSinks(EntityUid uid, string port, out HashSet<EntityUid> sinks, DeviceLinkSourceComponent? sourceComponent = null)
+    {
+        if (Resolve(uid, ref sourceComponent, false) && sourceComponent.Outputs.TryGetValue(port, out var found))
+        {
+            sinks = found;
+            return true;
+        }
+
+        sinks = EmptySinks;
+        return false;
+    }
+
+    private static readonly HashSet<EntityUid> EmptySinks = new();
+
     #region Sending & Receiving
     public override void InvokePort(EntityUid uid, string port, NetworkPayload? data = null, DeviceLinkSourceComponent? sourceComponent = null)
     {

@@ -38,6 +38,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
 
         InitializeSpillable();
         InitializeEvaporation();
+        InitializeFastEvaporation();
     }
 
     private void OnRefillableCanDrag(Entity<RefillableSolutionComponent> entity, ref CanDragEvent args)

@@ -823,6 +823,30 @@
         - ReagentId: CleansingPowder
           Quantity: 10 # Misfits Change - Cleansing Powder is bargain bin anti-rad. Low quantity with side-effects.
 
+#Misfits Change add: Berserker Powder
+- type: entity
+  parent: N14HealingPowder
+  id: N14BerserkerPowder
+  name: berserker powder
+  description: A pouch of berserker powder, enhances physical abilities with some side effects.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    layers:
+    - state: berserkerpowder
+  - type: Item
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    size: Small
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Berserkermix
+          Quantity: 25 # less than what youd get from minmaxxing with chem, od is 26.
+
+
+
 - type: entity
   parent: DrinkBase
   id: N14AntidoteBottleBase

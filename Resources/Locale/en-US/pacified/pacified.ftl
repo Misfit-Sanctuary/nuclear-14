@@ -13,3 +13,4 @@ pacified-cannot-throw-snare = I can't throw { THE($projectile) }, what if someon
 pacified-cannot-harm-directly = I can't bring myself to hurt { THE($entity) }!
 pacified-cannot-harm-indirect = I can't damage { THE($entity) }, it could hurt someone!
 pacified-cannot-fire-gun = I can't fire { THE($entity) }, it could hurt someone!
+pacified-cannot-arm-explosive = I can't bring myself to arm { THE($device) }, that could hurt someone!

@@ -11,6 +11,7 @@
   - type: ClusterGrenadeVisuals
     state: base
   - type: ClusterGrenade
+  - type: PacifismBlocked
   - type: OnUseTimerTrigger
     delay: 3.5
   - type: ContainerContainer
@@ -33,6 +34,7 @@
     fillPrototype: GrenadeFlashBang
     distance: 7
     velocity: 7
+  - type: PacifismBlocked
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/countdown.ogg
@@ -64,6 +66,7 @@
     fillPrototype: ExGrenade
     velocity: 3.5
     distance: 5
+  - type: PacifismBlocked
   - type: OnUseTimerTrigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"
@@ -92,6 +95,7 @@
     fillPrototype: TrashBananaPeelExplosive
     maxGrenadesCount: 6
     baseTriggerDelay: 20
+  - type: PacifismBlocked
   - type: DamageOnLand
     damage:
       types:
@@ -130,6 +134,7 @@
     fillPrototype: PelletClusterRubber
     maxGrenadesCount: 30
     grenadeType: enum.GrenadeType.Shoot
+  - type: PacifismBlocked
   - type: FlashOnTrigger
     range: 7
   - type: EmitSoundOnTrigger
@@ -159,6 +164,7 @@
     fillPrototype: PelletClusterIncendiary
     maxGrenadesCount: 30
     grenadeType: enum.GrenadeType.Shoot
+  - type: PacifismBlocked
   - type: OnUseTimerTrigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"
@@ -188,6 +194,7 @@
     fillPrototype: PelletClusterLethal
     maxGrenadesCount: 30
     grenadeType: enum.GrenadeType.Shoot
+  - type: PacifismBlocked
   - type: OnUseTimerTrigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"
@@ -221,6 +228,7 @@
     baseTriggerDelay: 60
     randomSpread: true
     velocity: 3
+  - type: PacifismBlocked
   - type: DamageOnLand
     damage:
       types:
@@ -245,7 +253,7 @@
       cluster-payload: !type:Container
 
 - type: entity
-  parent: GrenadeShrapnel
+  parent: GrenadeBase
   id: GrenadeFoamDart
   name: foam dart grenade
   description: Releases a bothersome spray of foam darts that cause severe welching.
@@ -262,3 +270,16 @@
     maxGrenadesCount: 30
     grenadeType: enum.GrenadeType.Throw
     velocity: 70
+  - type: OnUseTimerTrigger
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 5
+    initialBeepDelay: 0
+    beepInterval: 2
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container

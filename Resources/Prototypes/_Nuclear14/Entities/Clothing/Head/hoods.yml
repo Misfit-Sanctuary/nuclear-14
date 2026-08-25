@@ -165,3 +165,19 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+
+- type: entity
+  parent: ClothingHeadBase
+  id: N14ClothingHeadAcolyteCloakHood
+  name: Acolyte's hood
+  description: The hood of an Acolyte's cloak.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/acolytehood.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/acolytehood.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+

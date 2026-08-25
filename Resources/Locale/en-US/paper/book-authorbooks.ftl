@@ -342,3 +342,146 @@ book-text-janitor = [bold][color=black][head=3]The Tales of a Tired Janitor[/hea
       Speaking of jumpsuits, the lack of respect is astronomical. The scientists and astronauts zoom past in their sleek suits, utterly oblivious to the fact that I'm the unsung hero keeping this place from turning into a cosmic trash heap. I bet they don't even know my name. "Hey, Space Janitor!" That's what I get. No appreciation for the elbow grease I put into keeping their precious station spick and span.
       And let's remember the hazards. Cleaning up alien slime? Yeah, that's a regular Tuesday for me. One wrong move and I'm dealing with an intergalactic biohazard. It's like playing Russian roulette with space critters that could burst out of some hidden nook and cranny. I signed up to mop floors, not play host to extraterrestrial invaders.
       Being a janitor on this so-called Space Station 14 is a cosmic joke. Where did the other 13 stations go? It's not all spacewalks and futuristic gadgets; it's scrubbing toilets and battling alien goo. If anyone thinks space is glamorous, they clearly haven't seen the mess we space janitors deal with every single day. It's time they appreciate the unsung heroes of the space station – the custodians of the cosmos.
+
+book-text-legion-law =
+ == Legio Vera Codicem Iuris ==
+ The following is the codification of the law of the Legio as convened by a council of Centurions and Priestesses of Mars under the guidance of the Legatus Jesicus Evileenie and approved by the Augustus Verus Caldius. True to Mars.
+
+ === LEGAL  DEFINITIONS ===
+
+ Legio - All land which falls under the control of the children of Mars, loyal to the god of bellum and his Augustus, and all those who fight or preach in the name of Mars.
+
+ Plebian - any adult person who lives within the land of the Legio and pays tribute but does not fight for Mars or live and march with Legio Bellatores. This includes people living in tribute towns and Caravaneers given the right to trade in Legio land.
+
+ Dissolute - any person who lives outside of Legio land and does not follow Mars.
+
+ Servus - property, they are those whose duty is to serve and obey their masters. All children under 18, women, and monstrum are considered servus by default.
+
+ Monstrum - any non-human who has the intelligence to speak and act as a human does.
+
+ Legionary - Member of the Legion directly within its command structure.
+
+ Sins - any act considered an affront to Mars
+
+ Civil and Military law - Civil governments are the laws and rulers of those towns that pay tribute to the Legio, and any Legio officer assigned to oversee them. Military, or ‘legio’ government is the rule of and by the Bellatores of Mars directly.
+
+ === CRIMINAL  CODE ===
+
+ Murder of a Plebian - the illegal killing of a Plebian. an 'illegal' killing refers to one without just cause - such as self defence or punishing degeneracy.
+
+ Murder of a Legionary - The illegal killing of any Legionary. The killing of women who perform duties adjacent to bellum - such as Auxiliary, Frumentarii, and Explorers is to be treated for all intents and purposes as killing of a Legionary.
+
+ Damage of Property - The damaging of an item of value belonging to another, including servi.
+
+ Sacrilege - any Act that is a direct attack on Mars or his earthly representatives. This includes the damage of temples and shrines as well as attacks on members of the Priesthood
+
+ Treason - An act undertaken by a Plebian or Legionary that is intended to disadvantage or disrupt the Legion
+
+ Disobedience - A plebian Ignoring an order from a Legionary, or a Legionary ignoring orders from a superior officer.
+
+ Desertion - Abandoning the Legion whilst having been an active Legionary
+
+ Degeneracy - Actions that are morally or spiritually corrupt or lead to the long-term corruption of a Legionary or the Legion as a whole, especially when taken with one's own self-interest or pleasure in mind.
+
+ Cowardice - Refusal to fight a winnable battle on the grounds of fear.
+
+ Corruption - A Legionary utilising the Legion’s resources for his own personal goals, especially when those goals are entirely of their own self-interest
+
+ Theft - see 'property' section.
+
+ === ILLEGAL SUBSTANCES ===
+
+ While no list can possibly cover everything, a general rule of thumb is that if a substance is a highly manufactured chemical that would need an advanced lab or prewar chemicals to make, or has significant addictive or mind altering effects on the user, it is Illegal.
+
+ -PSYCHO
+ -JET
+ -MEDX
+ -MENTATS
+ -TURBO
+ -SLASHER
+ -BUFFOUT
+ -CATEYE
+ -STIMPACK AND SUPER STIMPACK
+ -ALCOHOL
+ -TOBACCO
+ -FIXER - of particular disdain, as it allows one to hide their addiction and indulge in degeneracy without consequence.
+
+ ==== PUNISHMENT ====
+
+ Punishments for a crime are divided based on one’s rank within the Legio. Generally, the same crime warrants a more severe punishment if committed by a high ranking legionary than if it is committed by a servus, Plebiean, or lower ranked Legionary
+
+ To re-iterate, Centurions have ultimate life and death control over the men of their Cohort, and can typically issue any punishment for any crime, within reason. However, a Centurion should seek to ensure the punishment fits the crime. A legionary who speaks with disrespect may have his tongue removed, one who flees from battle may be placed in a pit with a Yao guai armed with nothing but a knife, and so on. But in general, there are six tiers of punishments
+
+ 1-Verbal : criminal is shamed, mocked, and is to be treated with disrespect, their failing told to all and even lower ranks may treat and speak to them without respect.
+
+ 2-Corporal: criminal is beaten, whipped, flogged, or mutilated in some way
+
+ 3-Demotion : criminal is demoted or, if they are already a low rank and their crime severe enough, enslaved.
+
+ 4-Crucifixion : criminal is placed upon the cross
+
+ 5-Fustuarium : criminal is beaten and stabbed to death by an assemblage of all Legio present, and then revived with demotion
+
+ 6-Permanent death: Criminal is killed in such a way they can not be revived. By default, burning to ash so that the fire of Mars may cleanse their soul.
+
+ ==== PROPERTY ====
+
+ In the Legio, no one but Mars and Caesar truly ‘own’ property. However, members of the Legio and plebians may ‘own’ equipment and possessions in respect to the ideas of theft, sabotage, and keeping personal weapons, armor, wealth, and provisions for pragmatic purposes. For another to take these things without just cause, especially in secret or an underhanded fashion is the crime of theft and a dishonorable act.
+
+ Higher ranking Legio officers retain the right to requisition or transfer these items with three exceptions:
+
+ Any weapon or armor claimed by a bellator on the field of battle as a result of slaying an enemy is theirs to keep in the truest sense, As Mars has gifted it to them as a boon for their strength and bravery. A higher officer may not demand weapons and armor looted by a lower Legionary from their own fair kill simply because the higher officer desires it. However, if such equipment bears the iconography of another nation, tribe, faith, or such, said marking must be covered or converted in some way before the equipment may be used in battle.
+
+ Standard-issue equipment: Equipment that is the standard, default issue of the Legio for a specific rank or role may not be arbitrarily revoked or restricted by a higher officer, except on an individual basis as punishment for a specific infraction. It is standard issue for a reason.
+
+ ==== DUELING ====
+
+ Duels are initiations of mutual combat between two individuals, to be initiated as a result of either disrespected honor or perceived weakness on one or both combatants. Any Legionary can challenge any other Legionary to a duel, the exception being Centurions may only be challenged for their position by an Optio or Decanus. If a legal duel is denied it is taken as admission of fault by the challenged party.
+
+ Duels are to be conducted with no armor, and weapons of equal measure, there must be a neutral third party, ideally a priestess or higher officer than either of the duelists present to officiate the duel.
+
+ After a victor is decided, the defeated must be restored to health. The loser may not be put to death for defeat, unless the accusation was one that would typically result in a death sentence. IE: accused is a Centurion said to have used illegal chems.
+
+ Specific parameters for what each party is offering must be determined before the Duel. For example, if the duel is to challenge a higher officer for his position, then this must be stated beforehand. The accuser must offer something of equal value to what they demand of the accused, to prevent a glut petty duels with no consequence for the accuser should they lose.
+
+ === ADMINISTRATION ===
+
+ Civilian administration - This refers to the internal governing bodies of any settlements of Plebians. These governments are generally free to be entirely self-governing and self-policing, with a few important exceptions:
+
+ -The plebian government must obey all commands and requisitions made of it by the Legio. If a demand is found to be excessive or corrupt, the government may petition the Legatus to overturn it, but must still follow it until then. Abuses of this power by a Centurion demand harsh punishment.
+
+ -The plebian government may not pass laws or allow behavior that blatantly contradict the laws and morals of the Legio and Mars
+
+ -The plebian government may not privately enter into diplomatic relations of its own volition with any other entity without the consent of the Legio.
+
+ Legio administration - Each administrative district of the Legio is typically centered around a castrum or similar military installation. These installations will be commanded by a Centurion. The centurion assigned to a region holds absolute life and death authority over the Bellatores assigned to him. This does not mean his power to execute is without checks. A Centurion found to kill or punish his Bellatores without just cause will be subject to punishment.
+
+ The powers for the assigned Centurion of a region include the ability to pass laws for that area’s plebian population, so long as they do not conflict with the Law of the Legio, and to make requisitions of resources and men from Plebian populations. The Centurion may enslave any dissolute found within their administration area.
+
+ ==== ROLES AND DIVISION OF POWERS BETWEEN PRIESTHOOD AND LEGION ====
+
+ The Priesthood of Mars includes all women who serve as the speakers and judges of Mars’ will within the Legio. They are to be viewed legally as the property of Mars, thus any attack or harm unto them is seen as an attack on Mars himself. Any accusation against a priestess of committing a crime or sin must be treated with special care and scrutiny.
+
+ Priestesses of Mars hold absolute authority within her assigned temple, and command all Auxiliary and Acolytes and Servus under them as a Centurion does his bellatores. The ranking Priestess of an Area has the power to accuse and investigate anyone of crimes of a religious nature, such as blasphemy, the use of sinful substances, and has the authority to determine punishment for such infractions.
+
+ The Command between a ranking Legio officer and ranking priestess is a balance in which neither must step outside of their assigned roles and powers.
+
+ ==== STATUS OF DISSOLUTE AND LESSER GROUPS ====
+
+ Women - Those born of Venus, Women may not own property and may never be legionaries. Women who are members of the Priesthood are considered the property of Mars, owned directly by him.
+
+ Servus - any person owned by another. In the case of Legio castrum slaves they are considered owned by the Legio as a whole and are beholden to the assigned Centurion or anyone he places in command of them. Servus must obey commands given by their master.
+
+ Monstrum - creatures that show human level intelligence but are not human. They may become servus, but may never become bellatores or members of the Priesthood.
+
+ The dissolute - those that live outside the Legio and its laws. They have no protections within Legio land, even less so than Servus. Special exceptions may be given on a case by case basis, such as visiting diplomats from dissolute nations.
+
+ ==== TREATMENT OF SERVUS ====
+
+ Servus who are under direct ownership of the Legio are to obey any and all Legio, with priority given to Auxiliary and members of the priesthood. A servus must obey the command of the highest officer in such a case as they receive conflicting commands. Servus have more leniency in their punishments than others, as they are the newest and lowest members of the Legio, they must be shaped into proper form by many smaller punishments. Things that would warrant death or crucifixion for a higher rank such as talking back, use of degenerate substances, profligate clothes, hairstyles, behavior, or beliefs should be met with whipping and verbal correction.
+
+ This does not, however, mean that Servus are to be abused. A servus is a Legionarie or Auxiliary to be, their purpose is to serve, learn, and be shaped into a mighty weapon of Mars. To punish, beat, or mistreat a Servus who has done no wrong, or has even been diligent and steadfast in their work is in a way a form of low treason, poisoning the image of the Legio in the eyes of its future. Unwarranted abuses of the servus teach them the Legio is not ‘hard but fair’, but simply cruel for its own sake. This cannot be tolerated.
+
+ ==== FRUMENTARII ====
+
+ Frumentarii are an exception to all rules listed hereto. Due to their unique status in the Legio, they may operate with impunity so long as they can provide reasonable evidence that their actions were necessary for the operation they were engaging in, that said operation provided a net benefit over any disadvantage it may have caused, and that they operated wholly with the interests of the Legio in mind. Any case in which a frumentarii is believed to have acted in excessive of what is necessary in regards to violating normal rules of the Legio should be taken to the ranking Centurion or Legatus.

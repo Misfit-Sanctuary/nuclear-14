@@ -34,6 +34,7 @@
   recognizable: true
   boilingPoint: 147.0 # Made this up, loosely based on bleach
   meltingPoint: -11.0
+  FastEvaporation: true # look at Content.Server/Fluids/EntitySystems/PuddleSystem.Evaporation.cs line 50 to change the FastEvaporation Modifier
   tileReactions:
     - !type:CleanTileReaction {}
     - !type:CleanDecalsReaction {}

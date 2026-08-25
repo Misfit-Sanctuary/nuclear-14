@@ -45,6 +45,25 @@
     - node: cleansingpowder
       entity: N14CleansingPowder
 
+# Berserker Powder
+- type: constructionGraph
+  id: N14BerserkerPowder
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: berserkerpowder
+          steps:
+            - material: WildWhiteHorsenettle
+            - material: Nettles
+            - material: WildGlowpepper
+            - material: XanderRoot
+            - material: BrocFlower # easier to make it with the ingredients that healing powder is made from than healing powder itself
+
+    - node: berserkerpowder
+      entity: N14BerserkerPowder
+
+
 # Stimpaks
 - type: constructionGraph
   id: N14Stimpak

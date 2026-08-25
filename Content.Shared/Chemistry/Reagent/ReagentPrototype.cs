@@ -102,6 +102,11 @@ namespace Content.Shared.Chemistry.Reagent
         [DataField]
         public bool Evaporates { get; private set; } = true;
 
+        // this is a new bool for if the reagent should evaporate at X times the base evaporation speed
+        // X is under Content.Server/Fluids/EntitySystems/PuddleSystem.Evaporation.cs line 50
+        [DataField("FastEvaporation")]
+        public bool FastEvaporation { get; private set; } = false;
+
         /// <summary>
         /// If this reagent is part of a puddle is it slippery.
         /// </summary>

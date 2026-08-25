@@ -160,6 +160,9 @@ public sealed class LandMineSystem : EntitySystem
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/exclamation.svg.192dpi.png")),
                 Act = () =>
                 {
+                    if (_trigger.TryPacifiedBlockArm(uid, args.User))
+                        return;
+
                     _popupSystem.PopupEntity(
                         Loc.GetString("land-mine-arm-start", ("mine", uid)),
                         uid, args.User);

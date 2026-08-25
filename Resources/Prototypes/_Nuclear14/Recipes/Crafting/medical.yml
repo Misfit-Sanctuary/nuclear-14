@@ -43,6 +43,21 @@
     state: healingpowder
   objectType: Item
 
+# Berserker Powder
+- type: construction
+  name: berserker powder
+  id: N14BerserkerPowder
+  graph: N14BerserkerPowder
+  startNode: start
+  targetNode: berserkerpowder
+  category: construction-category-medical
+  description: A pouch of berserker powder.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    state: berserkerpowder
+  objectType: Item
+
 # Stimpaks
 - type: construction
   name: stimpak

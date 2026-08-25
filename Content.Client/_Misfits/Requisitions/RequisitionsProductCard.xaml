@@ -1,0 +1,52 @@
+<controls:RequisitionsProductCard
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._Misfits.Requisitions"
+    Orientation="Vertical"
+    HorizontalExpand="True">
+    <PanelContainer StyleClasses="N14RequisitionsCard" HorizontalExpand="True">
+        <BoxContainer Orientation="Horizontal" Margin="6" HorizontalExpand="True">
+            <LayeredTextureRect Name="Icon"
+                                Access="Public"
+                                SetSize="64 64"
+                                Stretch="KeepAspectCentered"
+                                RectClipContent="True" />
+            <Control MinWidth="8" />
+            <BoxContainer Orientation="Vertical"
+                          HorizontalExpand="True"
+                          VerticalAlignment="Top">
+                <RichTextLabel Name="ProductName"
+                               Access="Public"
+                               HorizontalExpand="True"
+                               VerticalAlignment="Top" />
+                <RichTextLabel Name="Description"
+                               Access="Public"
+                               HorizontalExpand="True"
+                               VerticalAlignment="Top" />
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                    <Label Name="Cost" Access="Public" />
+                    <Control HorizontalExpand="True" />
+                    <Button Name="RemoveButton"
+                            Access="Public"
+                            Text="-"
+                            ToolTip="{Loc n14-requisitions-remove-tooltip}"
+                            MinWidth="32" />
+                    <Label Name="Quantity"
+                           Access="Public"
+                           Text="0"
+                           Align="Center"
+                           MinWidth="32" />
+                    <Button Name="AddButton"
+                            Access="Public"
+                            Text="+"
+                            ToolTip="{Loc n14-requisitions-add-tooltip}"
+                            MinWidth="32" />
+                    <Button Name="MaxButton"
+                            Access="Public"
+                            Text="{Loc n14-requisitions-max}"
+                            MinWidth="48" />
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+    <Control MinHeight="6" />
+</controls:RequisitionsProductCard>

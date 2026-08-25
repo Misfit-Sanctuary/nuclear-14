@@ -1,0 +1,307 @@
+
+# Shop crates
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultBinoculars
+  name: binoculars crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14Binoculars
+      amount: 2
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultMMI
+  name: M.M.I. crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultbig.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultbig.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14MMI
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultModularGrenade
+  name: modular grenade crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: ModularGrenade
+      amount: 4
+    - id: ChemicalPayload
+      amount: 4
+    - id: TimerTrigger
+      amount: 4
+    - id: CableApcStack
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultRiot
+  name: riot crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterArmorRiot
+    - id: N14WeaponShotgunRiot
+    - id: RiotShield
+    - id: ClothingNeckPatriotScarf
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultFlashbang
+  name: flashbang crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: GrenadeFlashBang
+      amount: 4
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultTearGas
+  name: tear gas crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: TearGasGrenade
+      amount: 4
+
+- type: entity
+  parent: N14BaseSyringe
+  id: MisfitsEmptyStimpakSyringe
+  name: stimpak
+  description: A syringe filled with a wondrous mixture of medical reagents. Essential for those with little to no medical knowledge.
+  components:
+  - type: Sprite
+    scale: 0.75, 0.75
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_stimpak.rsi
+    layers:
+    - state: stimpakfill1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+    - state: stimpak-empty
+      map: [ "enum.SolutionContainerLayers.Base" ]
+  - type: Icon
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_stimpak.rsi
+    state: "stimpak-empty"
+  - type: Item
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_stimpak.rsi
+    heldPrefix: stimpak
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: true
+    fillBaseName: stimpakfill
+    emptySpriteName: stimpak-empty
+  - type: Tag
+    tags:
+    - Syringe
+    - N14EmptySyringe
+    - Trash
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultSyringes
+  name: empty syringe crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: MisfitsEmptyStimpakSyringe
+      amount: 12
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultVials
+  name: vial crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: BoxVial
+      amount: 3
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultAdvancedSecurity
+  name: advanced security crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: M14ClothingOuterVaultAdvancedVest
+      amount: 2
+    - id: M14ClothingHeadHatVaultRiotHelmet
+      amount: 2
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultBirthdayParty
+  name: birthday party crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: FoodCakeBirthday
+      amount: 3
+    - id: ClothingHeadHatPartyRed
+    - id: ClothingHeadHatPartyYellow
+    - id: ClothingHeadHatPartyGreen
+    - id: ClothingHeadHatPartyBlue
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultExoticSeeds
+  name: exotic seeds crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: BananaSeeds
+      amount: 2
+    - id: EggySeeds
+      amount: 2
+    - id: TowercapSeeds
+      amount: 2
+    - id: TobaccoSeeds
+      amount: 2
+    - id: CannabisSeeds
+      amount: 2
+    - id: NettleSeeds
+      amount: 2
+    - id: BungoSeeds
+      amount: 2
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultCircuits
+  name: circuit crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14MaterialCircuitry1
+      amount: 10
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultSteel
+  name: steel crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: SheetSteel1
+      amount: 30
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultPlastic
+  name: plastic crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: SheetPlastic1
+      amount: 30
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsVaultThread
+  name: thread crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14MaterialThread1
+      amount: 30
+
+- type: entity
+  parent: VehicleJanicart
+  id: MisfitsVehicleJanicartKeyed
+  suffix: Keyed
+  components:
+  - type: ItemSlots
+    slots:
+      key_slot:
+        startingItem: VehicleKeyJanicart

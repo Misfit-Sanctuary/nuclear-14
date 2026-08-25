@@ -50,6 +50,9 @@ namespace Content.Server.Explosion.EntitySystems
 
             if (!string.IsNullOrWhiteSpace(component.KeyPhrase) && message.Contains(component.KeyPhrase, StringComparison.InvariantCultureIgnoreCase))
             {
+                if (TryPacifiedBlockArm(ent, args.Source))
+                    return;
+
                 _adminLogger.Add(LogType.Trigger, LogImpact.High,
                         $"A voice-trigger on {ToPrettyString(ent):entity} was triggered by {ToPrettyString(args.Source):speaker} speaking the key-phrase {component.KeyPhrase}.");
                 Trigger(ent, args.Source);
@@ -70,9 +73,15 @@ namespace Content.Server.Explosion.EntitySystems
                 Act = () =>
                 {
                     if (component.IsRecording)
+                    {
                         StopRecording(ent);
-                    else
-                        StartRecording(ent, @event.User);
+                        return;
+                    }
+
+                    if (TryPacifiedBlockArm(ent, @event.User))
+                        return;
+
+                    StartRecording(ent, @event.User);
                 },
                 Priority = 1
             });

@@ -303,6 +303,7 @@
     fillPrototype: BulletPlasma
     maxGrenadesCount: 16
     grenadeType: enum.GrenadeType.Shoot
+  - type: PacifismBlocked
   - type: OnUseTimerTrigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"
@@ -332,6 +333,7 @@
     fillPrototype: BoilingWaterShot #maybe instead copy projectile water guns use. SHOULDNT SET ON FIRE, JUST CAUSE low-medium BURN DAMAGE
     maxGrenadesCount: 20
     grenadeType: enum.GrenadeType.Shoot
+  - type: PacifismBlocked
   - type: OnUseTimerTrigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg" #has to be whistling sound
@@ -362,6 +364,7 @@
     maxGrenadesCount: 3
     distance: 15
     velocity: 3
+  - type: PacifismBlocked
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/_Nuclear14/Weapons/Guns/Battery/N14WeaponPlasmaAutoRifle/shot1.ogg" # NEEDS small explosion sound probably from those popping thingies
@@ -389,6 +392,7 @@
     maxGrenadesCount: 4
     distance: 7
     velocity: 2
+  - type: PacifismBlocked
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Effects/snap.ogg" 

@@ -12,6 +12,7 @@ public sealed class SignallerSystem : EntitySystem
     [Dependency] private readonly DeviceLinkSystem _link = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly TriggerSystem _trigger = default!;
 
     public override void Initialize()
     {
@@ -31,6 +32,12 @@ public sealed class SignallerSystem : EntitySystem
     {
         if (args.Handled)
             return;
+
+        if (_trigger.TryPacifiedBlockLinkedArm(uid, component.Port, args.User))
+        {
+            args.Handled = true;
+            return;
+        }
 
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):actor} triggered signaler {ToPrettyString(uid):tool}");
         _link.InvokePort(uid, component.Port);

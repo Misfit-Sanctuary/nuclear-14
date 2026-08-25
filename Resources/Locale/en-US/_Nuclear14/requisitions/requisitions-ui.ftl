@@ -42,8 +42,21 @@ n14-requisitions-tab-bounties = Bounties
 # Bounties
 n14-requisitions-bounties-empty = No bounties posted.
 n14-requisitions-bounty-reward-cash = ${$reward}
-n14-requisitions-bounty-row = {$item}  [color=#5fbf5f]({$done}/{$amount})[/color] → [color=#33FF33]{$reward}[/color]
-n14-requisitions-bounty-row-done = [color=#1a5c1a]{$item} ({$amount}/{$amount}) → {$reward} ✓ COMPLETE[/color]
+n14-requisitions-bounty-row = {$item}  [color=#5fbf5f]({$done}/{$amount})[/color]
+n14-requisitions-bounty-row-done = [color=#1a5c1a]{$item} ({$amount}/{$amount}) ✓ COMPLETE[/color]
+
+# Randomized requests
+n14-requisitions-random-requests-title = Requests
+n14-requisitions-random-request-row = {$item}  [color=#5fbf5f]({$done}/{$amount})[/color]
+n14-requisitions-random-request-cash-reward = [color=#33FF33]+${$amount} budget[/color]
+
+# Request/bounty card sections
+n14-requisitions-section-request = REQUEST
+n14-requisitions-section-reward = REWARD
+n14-requisitions-random-request-reroll = Reroll
+n14-requisitions-random-request-reroll-wait = Reroll ({$time})
+n14-requisitions-random-request-refilling = New request in {$time}
+n14-requisitions-random-request-refilling-soon = New request arriving...
 
 # History
 n14-requisitions-history-empty = No orders yet.
@@ -57,15 +70,16 @@ n14-requisitions-sell-item = {$item}  [color=#5fbf5f]x{$count}[/color]  [color=#
 n14-requisitions-sell-item-trade = {$item}  [color=#5fbf5f]x{$count}[/color]  [color=#33FF33]trade[/color]
 n14-requisitions-sell-total = [bold]Appraised total: ${$value}[/bold]
 n14-requisitions-sell-refresh = Refresh
+n14-requisitions-sell-empty = Nothing of value on the platform.
+n14-requisitions-sell-catalog-title = Accepted goods
+n14-requisitions-sell-catalog-empty = This terminal lists no buy-back goods.
+n14-requisitions-sell-catalog-row = {$item} → {$reward}
+
 # Storage
 n14-requisitions-storage-empty = Storage is empty. Trade goods on the platform to fill it.
 n14-requisitions-storage-item = {$item}  [color=#5fbf5f]x{$count}[/color]
 n14-requisitions-storage-bring-up = Bring up
 n14-requisitions-storage-withdraw = Bring up everything
-n14-requisitions-sell-empty = Nothing of value on the platform.
-n14-requisitions-sell-catalog-title = Accepted goods
-n14-requisitions-sell-catalog-empty = This terminal lists no buy-back goods.
-n14-requisitions-sell-catalog-row = {$item} → {$reward}
 
 # Product cards
 n14-requisitions-products-empty = No products available.

@@ -1,5 +1,6 @@
 using Content.Server.DeviceLinking.Components;
 using Content.Server.DeviceNetwork;
+using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Interaction;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -10,6 +11,7 @@ public sealed class SignalSwitchSystem : EntitySystem
 {
     [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly TriggerSystem _trigger = default!;
 
     public override void Initialize()
     {
@@ -29,8 +31,17 @@ public sealed class SignalSwitchSystem : EntitySystem
         if (args.Handled || !args.Complex)
             return;
 
-        comp.State = !comp.State;
-        _deviceLink.InvokePort(uid, comp.State ? comp.OnPort : comp.OffPort);
+        var nextState = !comp.State;
+        var nextPort = nextState ? comp.OnPort : comp.OffPort;
+
+        if (_trigger.TryPacifiedBlockLinkedArm(uid, nextPort, args.User))
+        {
+            args.Handled = true;
+            return;
+        }
+
+        comp.State = nextState;
+        _deviceLink.InvokePort(uid, nextPort);
 
         // only send status if it's a toggle switch and not a button
         if (comp.OnPort != comp.OffPort)

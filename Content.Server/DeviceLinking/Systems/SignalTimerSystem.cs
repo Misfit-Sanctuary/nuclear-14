@@ -1,5 +1,6 @@
 using Content.Server.DeviceLinking.Components;
 using Content.Server.DeviceLinking.Events;
+using Content.Server.Explosion.EntitySystems;
 using Content.Shared.UserInterface;
 using Content.Shared.Access.Systems;
 using Content.Shared.MachineLinking;
@@ -18,6 +19,7 @@ public sealed class SignalTimerSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+    [Dependency] private readonly TriggerSystem _trigger = default!;
 
     /// <summary>
     /// Per-tick timer cache.
@@ -168,11 +170,19 @@ public sealed class SignalTimerSystem : EntitySystem
         // feedback received: pressing the timer button while a timer is running should cancel the timer.
         if (HasComp<ActiveSignalTimerComponent>(uid))
         {
+            if (_trigger.TryPacifiedBlockLinkedArm(uid, component.TriggerPort, args.Actor))
+                return;
+
             _appearanceSystem.SetData(uid, TextScreenVisuals.TargetTime, _gameTiming.CurTime);
             Trigger(uid, component);
         }
         else
+        {
+            if (_trigger.TryPacifiedBlockLinkedArm(uid, component.StartPort, args.Actor))
+                return;
+
             OnStartTimer(uid, component);
+        }
     }
 
     private void OnSignalReceived(EntityUid uid, SignalTimerComponent component, ref SignalReceivedEvent args)
