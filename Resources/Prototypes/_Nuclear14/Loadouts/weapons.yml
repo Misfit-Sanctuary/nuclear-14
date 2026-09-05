@@ -1895,3 +1895,23 @@
       group: N14LoadoutMelee
   items:
     - CaneBlade
+
+- type: loadout
+  id: ThrowingKnife
+  category: Weapons
+  cost: 1
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutMelee
+  items:
+    - ThrowingKnife
+
+- type: loadout
+  id: ThrowingKnivesKit
+  category: Weapons
+  cost: 4
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutMelee
+  items:
+    - ThrowingKnivesKit

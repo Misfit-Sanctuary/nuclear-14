@@ -97,7 +97,7 @@
   # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Chef)
   - type: Scalpel
     speed: 0.3
-  - type: BoneSaw 
+  - type: BoneSaw
     speed: 0.5
 
 - type: entity
@@ -309,12 +309,13 @@
   name: throwing knife
   parent: BaseKnife
   id: ThrowingKnife
-  description: This bloodred knife is very aerodynamic and easy to throw, but good luck trying to fight someone hand-to-hand.
+  description: This knife is very aerodynamic and easy to throw, but good luck trying to fight someone hand-to-hand.
   components:
   - type: Tag
     tags:
     - CombatKnife
     - Knife
+    - ThrowingKnife
   - type: Sprite
     sprite: Objects/Weapons/Melee/throwing_knife.rsi
     state: icon
@@ -336,3 +337,20 @@
         Piercing: 15
   - type: Item
     sprite: Objects/Weapons/Melee/throwing_knife.rsi
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 5
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionInjectOnEmbed
+    transferAmount: 5
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 2
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
