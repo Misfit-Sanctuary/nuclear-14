@@ -1,0 +1,16 @@
+- type: entity
+  abstract: true
+  id: BaseArea
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: AreaMarker
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Area
+  - type: Sprite
+    drawdepth: Overdoors
+    sprite: _RMC14/Areas/areas.rsi
+    state: unknown
