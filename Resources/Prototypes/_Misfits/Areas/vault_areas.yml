@@ -1,0 +1,280 @@
+- type: Tag
+  id: VaultArea
+
+- type: entity
+  abstract: true
+  id: BaseVaultArea
+  parent: BaseArea
+  components:
+  - type: Tag
+    tags:
+    - VaultArea
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVault
+  name: vault area marker
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultMainHallway
+  name: vault main hallway area marker
+  components:
+  - type: Sprite
+    state: halla
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultWestWingHallway
+  name: vault west wing hallway area marker
+  components:
+  - type: Sprite
+    state: hallp
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultEastWingHallway
+  name: vault east wing hallway area marker
+  components:
+  - type: Sprite
+    state: hallf
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultDoorAirlock
+  name: vault door airlock area marker
+  components:
+  - type: Sprite
+    state: eva
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultDoorObservatory
+  name: vault door observatory area marker
+  components:
+  - type: Sprite
+    state: observatory
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultElevator
+  name: vault elevator area marker
+  components:
+  - type: Sprite
+    state: shuttle
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaOverseerOffice
+  name: overseer office area marker
+  components:
+  - type: Sprite
+    state: captain
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaOverseerReception
+  name: overseer reception area marker
+  components:
+  - type: Sprite
+    state: conference
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultSecurity
+  name: vault security area marker
+  components:
+  - type: Sprite
+    state: security
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultCells
+  name: vault cells area marker
+  components:
+  - type: Sprite
+    state: sec_prison
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultArmory
+  name: vault armory area marker
+  components:
+  - type: Sprite
+    state: armory
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultMedical
+  name: vault medical area marker
+  components:
+  - type: Sprite
+    state: medbay
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultSurgery
+  name: vault surgery area marker
+  components:
+  - type: Sprite
+    state: surgery
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultChemistry
+  name: vault chemistry area marker
+  components:
+  - type: Sprite
+    state: chem
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultCryo
+  name: vault cryo area marker
+  components:
+  - type: Sprite
+    state: cryo
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultTherapyOffice
+  name: vault therapy office area marker
+  components:
+  - type: Sprite
+    state: law
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultCrematorium
+  name: vault crematorium area marker
+  components:
+  - type: Sprite
+    state: morgue
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultKitchen
+  name: vault kitchen area marker
+  components:
+  - type: Sprite
+    state: kitchen
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultCanteen
+  name: vault canteen area marker
+  components:
+  - type: Sprite
+    state: cafeteria
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultHousing
+  name: vault housing area marker
+  components:
+  - type: Sprite
+    state: crew_quarters
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultLibrary
+  name: vault library area marker
+  components:
+  - type: Sprite
+    state: library
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultHydroponics
+  name: vault hydroponics area marker
+  components:
+  - type: Sprite
+    state: hydro
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultCargo
+  name: vault cargo area marker
+  components:
+  - type: Sprite
+    state: quart
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultSalvage
+  name: vault salvage area marker
+  components:
+  - type: Sprite
+    state: mining
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultEngineering
+  name: vault engineering area marker
+  components:
+  - type: Sprite
+    state: engine_control
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultReactor
+  name: vault reactor area marker
+  components:
+  - type: Sprite
+    state: prototype_engine
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultReactorObservatory
+  name: vault reactor observatory area marker
+  components:
+  - type: Sprite
+    state: engine_monitoring
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultReactorHallway
+  name: vault reactor hallway area marker
+  components:
+  - type: Sprite
+    state: engine_hallway
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultAtmos
+  name: vault atmos area marker
+  components:
+  - type: Sprite
+    state: atmos
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultJanitorCloset
+  name: vault janitor closet area marker
+  components:
+  - type: Sprite
+    state: janitor
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultStorageCloset
+  name: vault storage closet area marker
+  components:
+  - type: Sprite
+    state: storage
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultCryoPod
+  name: vault cryo pod area marker
+  components:
+  - type: Sprite
+    state: sleep
+
+- type: entity
+  parent: BaseVaultArea
+  id: AreaVaultHydroponicGarden
+  name: vault hydroponic garden area marker
+  components:
+  - type: Sprite
+    state: garden
