@@ -129,8 +129,8 @@
   - type: SpawnItemsOnUse
     items:
       - id: N14WeaponRifleM1GarandRepublicsDemise # #Misfits Change: Republic's Demise scoped M1C for Centurion marksman
-      - id: ClipMagazine308Rifle # #Misfits Change - replaced GarandEnbloc308
-        amount: 4
+      - id: Magazine308Rifle # #Misfits Change - replaced GarandEnbloc308
+        amount: 2
       - id: ClothingBeltRope
       - id: SmokeGrenade
       - id: N14HealingPoultice #Misfits Change /Tweak/: replaces dirty stimpak, Legion uses tribal medicine

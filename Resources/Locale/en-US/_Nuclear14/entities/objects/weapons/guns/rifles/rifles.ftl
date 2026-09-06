@@ -10,10 +10,10 @@ ent-N14WeaponRifleM1GarandPawolskis = Pawolski's Retribution
     .desc = An NCR veteran's M1 Garand, engraved with the motto "I am your rifle, you are on guard duty." Named after the first NCR soldier to fall at Hoover Dam.
 
 ent-N14WeaponRifleM1GarandRepublicsPride = Republic's Pride
-    .desc = A well-tuned scoped M1C rifle crafted by a master gunsmith from the Gunrunners. Proudly issued to NCR Scout Captains. Chambered in 7.62x51 and fitted with a long-range optic.
+    .desc = A well-tuned scoped M1C rifle crafted by a master gunsmith from the Gunrunners. Modified to accept standard 21-round magazines. Proudly issued to NCR Scout Captains. Chambered in .308 and fitted with a long-range optic.
 
 ent-N14WeaponRifleM1GarandRepublicsDemise = Republic's Demise
-    .desc = A well-tuned scoped M1C rifle looted from a dead NCR lieutenant by the Legion. The NCR star on the stock has been crudely replaced with a Legion bull. Chambered in 7.62x51.
+    .desc = A well-tuned scoped M1C rifle looted from a dead NCR Scout Captain by the Legion. The NCR star on the stock has been crudely replaced with a Legion bull. Chambered in .308 and fitted with a long-range optic.
 
 ent-N14WeaponRifleSKS = SKS
     .desc = An old hunting rifle taken from discovered stockpiles and refurbished in Legion workshops. The standard heavy rifle of the Legion, still rare. Semi-auto only, fed by a 10-round en-bloc clip.

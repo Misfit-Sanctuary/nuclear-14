@@ -19,7 +19,7 @@
       - Ghoul
     - !type:CharacterDepartmentTimeRequirement # T5 faction timelock (16h Enclave)
       department: Enclave
-      min: 57600 # 16 hours
+      min: 288000 # 80 hours
   startingGear: EnclaveVertibirdPilotGear
   icon: "JobIconEnclaveJuniorOfficer"
   supervisors: job-supervisors-enclave-vertibird-pilot

@@ -249,7 +249,7 @@ undecided-loadout-category-corvax-centurion-command-description =
 undecided-loadout-category-corvax-centurion-marksman-name = Centurion Marksman
 undecided-loadout-category-corvax-centurion-marksman-description =
     Includes Republic's Demise, a scoped M1C looted from a dead NCR lieutenant,
-    4 en-bloc clips, a rope belt, a smoke grenade,
+    2 spare magazines, a rope belt, a smoke grenade,
     2 healing poultice, 2 K rations, and a ceramic flask.
 
 undecided-loadout-category-corvax-centurion-vanquisher-name = Centurion Vanquisher
@@ -666,7 +666,7 @@ undecided-loadout-category-misfits-ncra-captain-command-description =
 undecided-loadout-category-misfits-ncra-captain-marksman-name = Captain Frontier Marksman Kit
 undecided-loadout-category-misfits-ncra-captain-marksman-description =
     Includes an NCR trench coat, a loaded captain's revolver belt,
-    Republic's Pride with 4 en-bloc clips,
+    Republic's Pride with 2 308 magazines,
     a handheld radio, a smoke grenade, a C ration MRE,
     a stimpak, a super stimpak, a RadAway blood bag,
     2 gauze packs, and a flare.
