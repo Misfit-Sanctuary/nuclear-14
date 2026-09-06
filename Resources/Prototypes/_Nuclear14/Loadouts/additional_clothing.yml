@@ -626,7 +626,7 @@
   cost: 1
   requirements:
     - !type:CharacterJobRequirement
-        departments:
+      departments:
         - Townsfolk
   items:
     - ClothingBeltMountie
