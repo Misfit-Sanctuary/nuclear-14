@@ -144,17 +144,13 @@
           CaesarLegionCitizen: [ 6, 6 ] #
           CaesarLegionTrader: [ 1, 1 ] #
           CaesarLegionSlave: [ 3, 3 ] # Forge-Legion
-          # #Misfits Change - Khan removed (deactivated); Eighties expanded to 5-rank department.
+          # #Misfits Change - Khan restored as the single Great Khan role.
           EightiesTheBlock:  [ 1, 1 ] # leader
           EightiesCylinders: [ 1, 1 ] # officer tier
           EightiesPistons:   [ 4, 4 ] # NCO tier
           EightiesOilers:    [ 4, 4 ] # specialist tier
           EightiesRoadRash:  [ 4, 4 ] # recruit tier
-          WhiteLegs: [ 16, 16 ] # #Misfits Change - keep the compatible White Legs base role live at 16 slots until ranked markers are placed.
-          WhiteLegsWarChief: [ 0, 0 ] # #Misfits Add - prototype-ready rank, no placed map marker yet.
-          WhiteLegsBoneBreaker: [ 0, 0 ] # #Misfits Add - prototype-ready rank, no placed map marker yet.
-          WhiteLegsStormDrummer: [ 0, 0 ] # #Misfits Add - prototype-ready rank, no placed map marker yet.
-          # WhiteLegsPainMaker: [ 0, 0 ] # #Misfits Change - legacy hidden rank removed from join rotation; WhiteLegs now covers the visible tribal entry slot.
+          GreatKhan: [ 5, 5 ] # #Misfits Change - five Great Khan slots.
           FollowerVolunteer: [ 2, 2 ] # #Misfits Change - Followers job replaced by ranked hierarchy
           FollowerGuard: [ 2, 2 ]      # #Misfits Add - FOTA compound guards
           FollowerDoctor: [ 2, 2 ]   # #Misfits Add - Doctor rank slot

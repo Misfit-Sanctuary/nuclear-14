@@ -990,17 +990,13 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        # #Misfits Change - Khan removed (job deactivated); old Eighties replaced by 5-rank department.
+        # #Misfits Change - Great Khan restored alongside the Eighties department.
         - EightiesTheBlock
         - EightiesCylinders
         - EightiesPistons
         - EightiesOilers
         - EightiesRoadRash
-        - WhiteLegs
-        - WhiteLegsWarChief
-        - WhiteLegsBoneBreaker
-        - WhiteLegsStormDrummer
-        - WhiteLegsPainMaker
+        - GreatKhan
   items:
     - N14ClothingShoesRaider
 

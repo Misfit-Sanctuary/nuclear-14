@@ -2,6 +2,7 @@
 using Content.Server.Body.Components;
 using Content.Server.Body.Events;
 using Content.Server.Chemistry.Containers.EntitySystems;
+using Content.Server.Decals;
 using Content.Server.EntityEffects.Effects;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics;
@@ -39,6 +40,7 @@ public sealed class BloodstreamSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly PuddleSystem _puddleSystem = default!;
+    [Dependency] private readonly DecalSystem _decalSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedDrunkSystem _drunkSystem = default!;
     [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
@@ -414,13 +416,33 @@ public sealed class BloodstreamSystem : EntitySystem
             {
                 _forensicsSystem.TransferDna(puddleUid, uid, canDnaBeCleaned: false);
             }
-
-            tempSolution.RemoveAllSolution();
         }
+
+        // Leave a visible splash as well as the floor-bound puddle. Footprints
+        // handle movement trails; this also makes smaller fresh bleeds visible.
+        if (newSol.Volume >= 0.5f)
+            AddBloodSplatter(uid);
+
+        tempSolution.RemoveAllSolution();
 
         _solutionContainerSystem.UpdateChemicals(component.TemporarySolution.Value);
 
         return true;
+    }
+
+    private void AddBloodSplatter(EntityUid uid)
+    {
+        if (!TryComp<TransformComponent>(uid, out var transform) || transform.GridUid is null)
+            return;
+
+        _decalSystem.TryAddDecal(
+            "splatter",
+            transform.Coordinates.Offset(_robustRandom.NextVector2(0.35f)),
+            out _,
+            Color.FromHex("#990000B0"),
+            _robustRandom.NextAngle(),
+            zIndex: 5,
+            cleanable: true);
     }
 
     /// <summary>

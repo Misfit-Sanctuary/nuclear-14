@@ -1,8 +1,8 @@
 n14-expedition-board-title = Expedition Board
 n14-expedition-board-name = Expedition Board
 
-n14-expedition-exit-name = Expedition Exit Zone
-n14-expedition-exit-desc = Step onto the green flare and remain for 10 seconds to extract from the expedition. Leaving the zone cancels extraction.
+n14-expedition-exit-name = expedition return rope
+n14-expedition-exit-desc = Climb this rope to return through the surface entrance that brought you here. Anything you are pulling comes with you.
 
 n14-expedition-spawn-name = Expedition Spawn Point
 n14-expedition-spawn-desc = Marker for where expedition players arrive. Only visible in the editor.
@@ -47,6 +47,14 @@ n14-expedition-difficulty-abandoned-vault = Abandoned Vault
 n14-expedition-difficulty-vault-procgen = Abandoned Vault (Procedural)
 n14-expedition-difficulty-sewer-procgen = Sewers (Procedural)
 n14-expedition-difficulty-metro-procgen = Metro Tunnels (Procedural)
+n14-expedition-difficulty-unknown-procgen = Unknown Underground Site
+n14-expedition-entrance-name = auspicious entry
+n14-expedition-entrance-desc = Something lies below. Interact to launch an expedition; the destination is unknown.
+n14-expedition-entrance-map-label = Auspicious Entry
+n14-expedition-entrance-busy = This entrance is already linked to an active expedition.
+n14-expedition-entrance-cooldown = The passage is unstable. It will be usable again in {$minutes} minutes.
+n14-expedition-entrance-too-far = Stay near the entrance to launch this expedition.
+n14-expedition-disabled = Expeditions are temporarily unavailable.
 
 # Temporarily disabled (RAM/engine constraints — server OOM at 8 GB):
 # n14-expedition-difficulty-surface = Surface

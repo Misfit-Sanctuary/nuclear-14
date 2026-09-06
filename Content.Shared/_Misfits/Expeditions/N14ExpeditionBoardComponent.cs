@@ -87,6 +87,17 @@ public sealed class N14ExpeditionLaunchMessage : BoundUserInterfaceMessage
 public sealed partial class N14ExpeditionBoardComponent : Component
 {
     /// <summary>
+    /// Launch directly from world interaction instead of opening the legacy board UI.
+    /// Used by randomly placed expedition entrances.
+    /// </summary>
+    [DataField]
+    public bool DirectLaunch;
+
+    /// <summary>Difficulty pool launched by a direct world entrance.</summary>
+    [DataField]
+    public string DirectDifficultyId = "N14ExpeditionUnknownProcedural";
+
+    /// <summary>
     /// Radius around the board to detect players for group teleportation.
     /// </summary>
     [DataField]
@@ -102,7 +113,7 @@ public sealed partial class N14ExpeditionBoardComponent : Component
     /// Cooldown in seconds between expeditions from this board.
     /// </summary>
     [DataField]
-    public float CooldownSeconds = 300f;
+    public float CooldownSeconds = 1800f;
 
     /// <summary>
     /// Server time when the pending launch will fire, null if idle.
@@ -133,3 +144,9 @@ public sealed partial class N14ExpeditionBoardComponent : Component
     [DataField]
     public TimeSpan? CooldownEnd;
 }
+
+/// <summary>
+/// Marks a round-scoped surface entrance for tactical-map display.
+/// </summary>
+[RegisterComponent]
+public sealed partial class N14ExpeditionEntranceLandmarkComponent : Component;

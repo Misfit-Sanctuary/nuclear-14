@@ -70,19 +70,6 @@
   - type: NcContractRoster
 
 - type: storeCategoryStructured
-  id: LegionBuy2_Animals
-  name: "Animals"
-  entries:
-  - proto: N14MobBrahdoLightLegion
-    price: 125
-    count: 2
-  - proto: N14MobBrahmin
-    price: 60
-  - proto: N14MobPetDogLegion
-    price: 75
-
-
-- type: storeCategoryStructured
   id: LegionBuy2_MachineGuns
   name: "Machine Guns"
   entries:

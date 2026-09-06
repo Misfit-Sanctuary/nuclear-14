@@ -192,8 +192,9 @@
 # #Misfits Add - Procedural underground expedition difficulties
 # Three themes (Vault, Sewer, Metro) each at their own tier.
 # Maps are generated fresh every launch from a per-launch seed.
-# Grid size 80×80 gives roughly 6400 tiles of underground space.
-# Players always spawn at grid centre (central congregation room).
+# Grid size 128×128 gives enough separation for long routes and optional branches.
+# Entries without factionSpawns use one shared staging hub. Additional hubs are
+# only generated when explicit faction spawn groups exist.
 
 - type: n14ExpeditionDifficulty
   id: N14ExpeditionVaultProcedural
@@ -204,11 +205,11 @@
   maps:
     - runtimeProcedural: true
       proceduralTheme: Vault
-      proceduralGridSize: 80
+      proceduralGridSize: 128
       proceduralDifficultyTier: 1
-      proceduralMinRooms: 7
-      proceduralMaxRooms: 12
-      proceduralHubCount: 3
+      proceduralMinRooms: 14
+      proceduralMaxRooms: 20
+      proceduralHubCount: 1
 
 - type: n14ExpeditionDifficulty
   id: N14ExpeditionSewerProcedural
@@ -219,11 +220,11 @@
   maps:
     - runtimeProcedural: true
       proceduralTheme: Sewer
-      proceduralGridSize: 80
+      proceduralGridSize: 128
       proceduralDifficultyTier: 1
-      proceduralMinRooms: 6
-      proceduralMaxRooms: 10
-      proceduralHubCount: 2
+      proceduralMinRooms: 14
+      proceduralMaxRooms: 22
+      proceduralHubCount: 1
 
 - type: n14ExpeditionDifficulty
   id: N14ExpeditionMetroProcedural
@@ -234,8 +235,39 @@
   maps:
     - runtimeProcedural: true
       proceduralTheme: Metro
-      proceduralGridSize: 80
+      proceduralGridSize: 128
       proceduralDifficultyTier: 1
-      proceduralMinRooms: 8
-      proceduralMaxRooms: 14
-      proceduralHubCount: 4
+      proceduralMinRooms: 15
+      proceduralMaxRooms: 24
+      proceduralHubCount: 1
+
+# Blind pool used by world entrances. The selected theme is intentionally not
+# revealed before launch.
+- type: n14ExpeditionDifficulty
+  id: N14ExpeditionUnknownProcedural
+  name: n14-expedition-difficulty-unknown-procgen
+  color: "#6B8E5A"
+  duration: 1200
+  sortOrder: 100
+  maps:
+    - runtimeProcedural: true
+      proceduralTheme: Vault
+      proceduralGridSize: 128
+      proceduralDifficultyTier: 1
+      proceduralMinRooms: 14
+      proceduralMaxRooms: 20
+      proceduralHubCount: 1
+    - runtimeProcedural: true
+      proceduralTheme: Sewer
+      proceduralGridSize: 128
+      proceduralDifficultyTier: 1
+      proceduralMinRooms: 14
+      proceduralMaxRooms: 22
+      proceduralHubCount: 1
+    - runtimeProcedural: true
+      proceduralTheme: Metro
+      proceduralGridSize: 128
+      proceduralDifficultyTier: 1
+      proceduralMinRooms: 15
+      proceduralMaxRooms: 24
+      proceduralHubCount: 1

@@ -18,6 +18,7 @@ using Content.Shared.Mobs.Systems; // #Misfits Add - MobStateSystem
 using Content.Shared.Tag;
 using Content.Shared._Misfits.WastelandMap;
 using Content.Shared._Misfits.MaterialExtractor;
+using Content.Shared._Misfits.Expeditions;
 using Content.Shared._Misfits.TreeOfLife;
 using Content.Shared._Misfits.Deathclaw;
 using Content.Shared._Misfits.TribalHunt;
@@ -759,6 +760,7 @@ public sealed class WastelandMapSystem : EntitySystem
             _blipScratch.Clear();
             AppendFactionBlips(_blipScratch, feed, mapId, bounds);
             AppendMaterialExtractorBlips(_blipScratch, mapId, bounds);
+            AppendExpeditionEntranceBlips(_blipScratch, mapId, bounds);
             if (AllowsSharedOverlays(feed)) // #Misfits Change - Tribe maps are tagged-ID-only.
                 AppendTribalHuntTargetBlips(_blipScratch, mapId, bounds);
             nonActorBlips = _blipScratch.ToArray();
@@ -912,6 +914,29 @@ public sealed class WastelandMapSystem : EntitySystem
                 position.Y,
                 label,
                 WastelandMapTrackedBlipKind.MaterialExtractor));
+        }
+    }
+
+    private void AppendExpeditionEntranceBlips(List<WastelandMapTrackedBlip> buffer, MapId mapId, Box2 bounds)
+    {
+        // DirectLaunch is the authoritative marker: if an entrance is actually
+        // usable, every faction tacmap must show it. Do not depend on a second
+        // optional landmark component drifting from the functional prototype.
+        var query = EntityQueryEnumerator<N14ExpeditionBoardComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var entrance, out var xform))
+        {
+            if (!entrance.DirectLaunch)
+                continue;
+
+            var coordinates = _transform.GetMapCoordinates(uid, xform);
+            if (coordinates.MapId != mapId || !bounds.Contains(coordinates.Position))
+                continue;
+
+            buffer.Add(new WastelandMapTrackedBlip(
+                coordinates.Position.X,
+                coordinates.Position.Y,
+                Loc.GetString("n14-expedition-entrance-map-label"),
+                WastelandMapTrackedBlipKind.ExpeditionEntrance));
         }
     }
 

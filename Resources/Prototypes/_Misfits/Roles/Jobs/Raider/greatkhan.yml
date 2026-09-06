@@ -1,0 +1,48 @@
+# #Misfits Change - Great Khan single-role Minor Faction.
+
+- type: job
+  id: GreatKhan
+  setPreference: true
+  name: job-name-great-khan
+  description: job-description-great-khan
+  playTimeTracker: GreatKhan
+  whitelisted: false # #Misfits Change - open Great Khan role to normal character setup.
+  requirements:
+  - !type:MinPlayersRequirement
+    min: 0
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+    - Ghoul
+  startingGear: GreatKhanGear
+  alwaysUseSpawner: true
+  icon: "JobIconKhan"
+  supervisors: job-supervisors-great-khan
+  canBeAntag: false
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - PlayerRaider
+
+- type: startingGear
+  id: GreatKhanGear
+  equipment:
+    head: MisfitsClothingHeadKhanHelmet
+    outerClothing: MisfitsClothingOuterKhansJacket
+    jumpsuit: M14ClothingUniformKhansUniform
+    shoes: MisfitsMilitarySteelTippedBoots
+    ears: MisfitsClothingHeadsetWastelandScrap
+    suitstorage: N14WeaponSMGGreaseGun
+    back: M14OldSatchel
+    belt: ClothingBeltMilitary
+  storage:
+    back:
+    - N14BoxPlasticFilledWastelander
+    belt:
+    - Magazine45SubMachineGun
+    - Magazine45SubMachineGun
+
+- type: playTimeTracker
+  id: GreatKhan

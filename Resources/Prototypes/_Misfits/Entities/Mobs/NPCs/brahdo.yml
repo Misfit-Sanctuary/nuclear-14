@@ -1,0 +1,216 @@
+﻿- type: entity
+  parent: SimpleMobBase
+  id: N14MobBrahdo
+  name: brahdo
+  description: "Mutated horses common as mounts and pack animals, they'll bite your fingers if you aren't careful."
+  components:
+  - type: Vehicle # for some reason this is the only comp that forces it to take just one hand.
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: base
+      sprite: _Misfits/Mobs/Animals/brahdo.rsi
+      scale: 0.9, 0.9
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: true
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.75
+        density: 50
+        mask:
+        - MobMask
+#        layer:
+#        - MobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: base
+      Dead:
+        Base: base-dead
+  - type: Stamina
+    critThreshold: 200
+  - type: Strap
+    # #Misfits Change - brahdo riding now requires the shared riding perk instead of any humanoid.
+    whitelist:
+      requireAll: true
+      components:
+      - HumanoidAppearance
+      - RidingPerk
+    # #Misfits Fix - Super Mutants and Power Armor wearers are too heavy to ride
+    blacklist:
+      tags:
+      - CannotRide
+      components:
+      - PowerArmorWorn
+    buckleSound:
+      path: /Audio/_NC/Effects/lift-saddle.ogg
+      params:
+        volume: 20 # It's normal
+    unbuckleSound:
+      path: /Audio/_NC/Effects/dismount-saddle.ogg
+      params:
+        volume: 20 # It's normal
+  - type: Mountable
+  - type: BrahdoSpooked
+    spookDuration: 5
+    buckChance: 0.15
+  - type: Tag
+    tags:
+    - FootstepSound
+    - Brahdo
+  - type: Butcherable
+    spawned:
+    - id: N14FoodMeatRadRaw
+      amount: 4
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: WastelandAnimal
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4.5
+    baseSprintSpeed : 4.5
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: Horsestep
+  - type: TimedSpawner
+    prototypes:
+      - N14Dung
+    chance: 0.4
+    intervalSeconds: 300
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+    ignoreSpawnBlock: true # Forge-Change
+  - type: Reproductive
+    breedChance: 0.005 # Low
+    birthPopup: reproductive-birth-popup
+    makeOffspringInfant: false
+    partnerWhitelist:
+      tags:
+      - Brahdo
+    offspring:
+    - id: N14MobBrahdo
+      maxAmount: 1
+  - type: ReproductivePartner
+  - type: HTN
+    rootTask:
+      task: RuminantCompound
+  - type: Body
+    prototype: AnimalRuminant
+  - type: MobPrice
+    price: 300
+
+- type: entity
+  parent: N14MobBrahdo
+  id: N14MobBrahdoLight
+  name: saddled brahdo
+  description: "Mutated horses popular among couriers and scouts, treat it right and it'll never let you down."
+  suffix: Light
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: light
+      sprite: _Misfits/Mobs/Animals/brahdo.rsi
+      scale: 0.9, 0.9
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: light
+      Dead:
+        Base: light-dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 5.5
+    baseSprintSpeed : 5.5
+
+- type: entity
+  parent: N14MobBrahdo
+  id: N14MobBrahdoArmor
+  name: armored brahdo
+  description: "Mutated horses that have found purpose as cavalry, hopefully this protection keeps it from meeting its oblivion."
+  suffix: Armor
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: armor
+      sprite: _Misfits/Mobs/Animals/brahdo.rsi
+      scale: 0.9, 0.9
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: armor
+      Dead:
+        Base: armor-dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4
+    baseSprintSpeed : 4
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: WastelandArmoredAnimal
+
+- type: entity
+  parent: N14MobBrahdoArmor
+  id: N14MobBrahdoArmorNCR
+  name: republic brahdo
+  description: "Mutated horses that have become extremely popular among couriers, ranchers, and soldiers of the NCR. Its the dream of many children to own a brahdo."
+  suffix: NCR
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: ncr
+      sprite: _Misfits/Mobs/Animals/brahdo.rsi
+      scale: 0.9, 0.9
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: ncr
+      Dead:
+        Base: ncr-dead
+
+- type: entity
+  parent: N14MobBrahdoLight
+  id: N14MobBrahdoLightLegion
+  name: legion brahdo
+  description: "Mutated horses that have found use in the structure of Caesar's Legion, for raiding skirmishes and scouting missions. The Legion's mounts have a famous discipline."
+  suffix: Legion
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: legion
+      sprite: _Misfits/Mobs/Animals/brahdo.rsi
+      scale: 0.9, 0.9
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: legion
+      Dead:
+        Base: legion-dead
+
+- type: entity
+  parent: N14MobBrahdoLight
+  id: N14MobBrahdoLighttribal
+  name: tribal brahdo
+  description: "Mutated horses that have become an essential part of many tribes, allowing them to migrate with the seasons and outrun the approaching post-war nations and their borders."
+  suffix: tribal
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: light
+      sprite: _Misfits/Mobs/Animals/brahdo.rsi
+      scale: 0.9, 0.9
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: light
+      Dead:
+        Base: base-dead

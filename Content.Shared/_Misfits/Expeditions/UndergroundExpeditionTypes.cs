@@ -398,7 +398,7 @@ public sealed class RoomDef
 
 /// <summary>
 /// Classifies what a room is used for during generation and dressing.
-/// #Misfits Change - Expanded to 16 thematic variants per Underground Expedition design spec
+/// #Misfits Change - Expanded to thematic variants per Underground Expedition design spec
 /// </summary>
 public enum RoomType
 {
@@ -426,6 +426,12 @@ public enum RoomType
 
     /// <summary>Research and medical laboratory.</summary>
     VaultLab,
+
+    /// <summary>Entrance screening, monitoring, and guard station.</summary>
+    VaultSecurity,
+
+    /// <summary>Mechanical plant and service access supporting the reactor.</summary>
+    VaultMaintenance,
 
     /// <summary>Weapons cache and security armory.</summary>
     VaultArmory,

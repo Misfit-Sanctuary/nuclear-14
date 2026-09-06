@@ -38,6 +38,8 @@ public static class UndergroundThemeProfiles
 
         MandatoryAnchors = new List<RoomType>
         {
+            RoomType.VaultSecurity,
+            RoomType.VaultMaintenance,
             RoomType.VaultReactor,
             RoomType.VaultOverseer,
             RoomType.VaultArmory,
@@ -92,6 +94,25 @@ public static class UndergroundThemeProfiles
                 RequiredFeatures = { "N14WorkbenchChemistryset" },
                 AdjacencyPreferences = { RoomType.VaultReactor },
                 AdjacencyExclusions = { RoomType.VaultKitchen },
+            },
+            // Security — singular checkpoint between the entrance and atrium
+            new()
+            {
+                RoomType = RoomType.VaultSecurity, Weight = 8, MaxCount = 1,
+                MinW = 8, MaxW = 12, MinH = 8, MaxH = 12,
+                FurniturePoolKey = "security",
+                RequiredFeatures = { "N14ComputerTerminal" },
+                AdjacencyPreferences = { RoomType.Central, RoomType.VaultArmory },
+            },
+            // Maintenance — service plant separating occupied rooms from the reactor
+            new()
+            {
+                RoomType = RoomType.VaultMaintenance, Weight = 8, MaxCount = 1,
+                MinW = 8, MaxW = 13, MinH = 8, MaxH = 13,
+                FurniturePoolKey = "maintenance",
+                RequiredFeatures = { "N14APCBreaker" },
+                AdjacencyPreferences = { RoomType.VaultReactor, RoomType.VaultLab },
+                AdjacencyExclusions = { RoomType.VaultBarracks },
             },
             // Armory — high-value, contested
             new()
@@ -155,8 +176,11 @@ public static class UndergroundThemeProfiles
             RoomWallEntity     = "N14WallConcreteSlantedIndestructible",
             HubWallEntity      = "N14WallBunkerSlantedIndestructible",
             BackgroundTile     = "FloorAsteroidSand",
-            RoomDoorEntity     = "N14DoorBunker",
-            HubDoorEntity      = "N14DoorMetalReinforced",
+            // The one-tile Vault-Tec airlock. The four-tile N14DoorVault gear door
+            // requires a dedicated entrance module and controls, so it is not a
+            // safe generic corridor threshold.
+            RoomDoorEntity     = "N14DoorBunkerVault",
+            HubDoorEntity      = "N14DoorBunkerVault",
         },
 
         LightConfig = new LightConfig
@@ -175,6 +199,8 @@ public static class UndergroundThemeProfiles
                 { RoomType.VaultKitchen,     2 },
                 { RoomType.VaultHydroponics, 2 },
                 { RoomType.VaultLab,         2 },
+                { RoomType.VaultSecurity,    2 },
+                { RoomType.VaultMaintenance, 2 },
                 { RoomType.VaultArmory,      2 },
             },
         },
@@ -311,6 +337,22 @@ public static class UndergroundThemeProfiles
                 "N14DecorFloorPaper2",
             },
 
+            // Entrance checkpoint: surveillance, barriers, and controlled storage.
+            ["security"] = new[]
+            {
+                "N14BarricadeMetal", "N14ComputerTerminal", "N14ClosetGunCabinet",
+                "N14ChairMetalFolding", "N14NoticeBoard", "N14SignVaultTec",
+                "N14ShelfMetal", "N14DecorFloorPaper1", "N14DecorFloorGlass2",
+            },
+
+            // Reactor support plant: tools, distribution, spares, and exposed services.
+            ["maintenance"] = new[]
+            {
+                "N14WorkbenchMetal", "N14APCBreaker", "N14ShelfMetal",
+                "N14GasPipeStraight", "N14GasPipeBend", "N14Wrench",
+                "N14ComputerTerminalRusted", "N14YellowBarrel", "N14JunkPile7",
+            },
+
             // ── Vault Armory ───────────────────────────────────────────────────
             // Tier 2: weapon bench, ammo cans, army crate, locker, terminal, chair
             // Tier 3: junk pile, broken glass, fallen board
@@ -395,12 +437,26 @@ public static class UndergroundThemeProfiles
 
         MobGroups = new[]
         {
-            new[] { ("N14MobGhoulFeral", 30), ("N14MobGhoulFeralReaver", 20), ("N14MobGhoulFeralRotter", 15) },
-            new[] { ("N14MobRobotProtectronHostile", 15), ("N14MobRobotAssaultronHostile", 10) },
+            new[]
+            {
+                ("N14MobGhoulFeral", 30), ("N14MobGhoulFeralRotter", 20),
+                ("N14MobGhoulFeralReaver", 10), ("N14MobCentaur", 5),
+            },
+            new[]
+            {
+                ("N14MobRobotProtectronHostile", 24), ("N14MobRobotProtectronPoliceHostile", 16),
+                ("N14MobRobotProtectronFireHostile", 10), ("N14MobRobotAssaultronHostile", 7),
+                ("N14MobRobotSecuritronGrayRustedHostile", 5),
+            },
+            new[]
+            {
+                ("N14MobRadroach", 28), ("N14MobMolerat", 20), ("N14MobBloatfly", 12),
+                ("N14MobDogFeral", 8),
+            },
         },
 
         DecalPool        = new[] { "DirtHeavy", "DirtMedium", "Damaged", "Rust", "burnt1", "burnt2", "Remains" },
-        HazardPool       = new[] { "RadiationPulse", "SignRadiation" },
+        HazardPool       = new[] { "N14BlackBarrel", "N14BlackBarrelOpen", "SignRadiation" },
         JunkPool         = new[] { "N14JunkPile1", "N14JunkPile2", "N14JunkPile3", "N14JunkPile4", "N14JunkPile5", "N14JunkPile6", "N14JunkPile1Refilling2", "N14JunkPile1Refilling5" },
         FloorScatterPool = new[] { "N14DecorFloorPaper", "N14DecorFloorPaper1", "N14DecorFloorCardboard", "N14DecorFloorTrashbags1", "N14DecorFloorTrashbags2", "N14DecorFloorTrashbags3", "N14DecorFloorFood1", "N14DecorFloorFood3", "N14DecorFloorFood6", "N14DecorFloorGlass1", "N14DecorFloorSkeleton", "N14DecorFloorSkeletonOver", "N14DecorFloorBookPile1", "N14DecorFloorBookPile4", "N14DecorFloorBookstack1" },
         BlueprintPool    = new[] { "N14BlueprintVaultWeaponsT1", "N14BlueprintVaultWeaponsT2", "N14BlueprintVaultWeaponsT3", "N14BlueprintVaultWeaponsT4", "N14BlueprintVaultArmorT1", "N14BlueprintVaultArmorT2", "N14BlueprintVaultAmmoT1", "N14BlueprintVaultAmmoT2", "N14BlueprintNCRWeaponsT1", "N14BlueprintLegionWeaponsT1", "N14BlueprintNCRArmorT1", "N14BlueprintLegionArmorT1" },
@@ -429,7 +485,7 @@ public static class UndergroundThemeProfiles
             // Tunnel — the most common passage type
             new()
             {
-                RoomType = RoomType.SewerTunnel, Weight = 35, MaxCount = 4,
+                RoomType = RoomType.SewerTunnel, Weight = 35, MaxCount = 8,
                 MinW = 5, MaxW = 9, MinH = 12, MaxH = 22,
                 FurniturePoolKey = "tunnel",
                 RequiredFeatures = { "N14GasPipeStraight" },
@@ -437,7 +493,7 @@ public static class UndergroundThemeProfiles
             // Junction — intersection chamber
             new()
             {
-                RoomType = RoomType.SewerJunction, Weight = 15, MaxCount = 3,
+                RoomType = RoomType.SewerJunction, Weight = 15, MaxCount = 5,
                 MinW = 7, MaxW = 13, MinH = 7, MaxH = 13,
                 FurniturePoolKey = "junction",
                 RequiredFeatures = { "N14APCBreaker" },
@@ -446,7 +502,7 @@ public static class UndergroundThemeProfiles
             // Grotto — natural cavern
             new()
             {
-                RoomType = RoomType.SewerGrotto, Weight = 12, MaxCount = 3,
+                RoomType = RoomType.SewerGrotto, Weight = 12, MaxCount = 4,
                 MinW = 7, MaxW = 13, MinH = 7, MaxH = 13,
                 FurniturePoolKey = "grotto",
                 RequiredFeatures = { "N14DecorStalagmite1" },
@@ -454,7 +510,7 @@ public static class UndergroundThemeProfiles
             // Pump station — utility, rare
             new()
             {
-                RoomType = RoomType.SewerPump, Weight = 10, MaxCount = 2,
+                RoomType = RoomType.SewerPump, Weight = 10, MaxCount = 3,
                 MinW = 9, MaxW = 15, MinH = 9, MaxH = 15,
                 FurniturePoolKey = "pump",
                 RequiredFeatures = { "N14MachineWaterTreatmentBroken" },
@@ -463,7 +519,7 @@ public static class UndergroundThemeProfiles
             // Nest — creature lair, dangerous
             new()
             {
-                RoomType = RoomType.SewerNest, Weight = 10, MaxCount = 2,
+                RoomType = RoomType.SewerNest, Weight = 10, MaxCount = 3,
                 MinW = 7, MaxW = 13, MinH = 7, MaxH = 13,
                 FurniturePoolKey = "nest",
                 RequiredFeatures = { "N14DecorFloorSkeleton" },
@@ -472,7 +528,7 @@ public static class UndergroundThemeProfiles
             // Camp — survivor camp, moderate
             new()
             {
-                RoomType = RoomType.SewerCamp, Weight = 18, MaxCount = 2,
+                RoomType = RoomType.SewerCamp, Weight = 18, MaxCount = 4,
                 MinW = 7, MaxW = 13, MinH = 7, MaxH = 13,
                 FurniturePoolKey = "camp",
                 RequiredFeatures = { "N14Bedroll" },
@@ -491,7 +547,7 @@ public static class UndergroundThemeProfiles
 
         CorridorStyle = new CorridorStyle
         {
-            Width = 2,
+            Width = 1,
             BranchingFactor = 0.35f,
             LoopProbability = 0.30f,
         },
@@ -504,8 +560,10 @@ public static class UndergroundThemeProfiles
             RoomWallEntity     = "N14WallBrickSlantedIndestructible",
             HubWallEntity      = "N14WallBrickGraySlantedIndestructible",
             BackgroundTile     = "FloorAsteroidSand",
-            RoomDoorEntity     = "N14DoorRoomRepaired",
-            HubDoorEntity      = "N14DoorMakeshift",
+            // Barred metal service doors match the authored Mercer sewer language
+            // and remain visually/non-atmospherically open to the tunnel network.
+            RoomDoorEntity     = "N14DoorCellMetal",
+            HubDoorEntity      = "N14DoorCellMetal",
         },
 
         LightConfig = new LightConfig
@@ -651,12 +709,25 @@ public static class UndergroundThemeProfiles
 
         MobGroups = new[]
         {
-            new[] { ("N14MobRadroach", 35), ("N14MobRadscorpion", 15), ("N14MobBloatfly", 10) },
-            new[] { ("N14MobGhoulFeral", 25), ("N14MobGhoulFeralRotter", 15) },
+            new[]
+            {
+                ("N14MobRadroach", 30), ("N14MobBloatfly", 18), ("N14MobMolerat", 16),
+                ("N14MobGiantAnt", 10), ("N14MobRadscorpion", 7),
+            },
+            new[]
+            {
+                ("N14MobMirelurk", 30), ("N14MobRadMirelurk", 10),
+                ("N14MobRadhog", 8), ("N14MobNightstalker", 4),
+            },
+            new[]
+            {
+                ("N14MobGhoulFeral", 30), ("N14MobGhoulFeralRotter", 20),
+                ("N14MobGhoulFeralReaver", 8),
+            },
         },
 
         DecalPool        = new[] { "DirtHeavy", "DirtLight", "DirtMedium", "Dirt", "Damaged", "Rust", "DirtHeavyMonotile" },
-        HazardPool       = new[] { "Acidifier", "SignBiohazard" },
+        HazardPool       = new[] { "N14BlackBarrelOpen", "N14YellowBarrelOpen", "SignBiohazard" },
         JunkPool         = new[] { "N14JunkPile4", "N14JunkPile5", "N14JunkPile6", "N14JunkPile7", "N14JunkPile8", "N14JunkPile1Refilling3", "N14JunkPile1Refilling4", "N14JunkPile1Refilling9" },
         FloorScatterPool = new[] { "N14DecorFloorCardboard", "N14DecorFloorBrickrubble", "N14DecorFloorBrickStack", "N14DecorFloorTrashbags1", "N14DecorFloorTrashbags4", "N14DecorFloorTrashbags6", "N14DecorFloorFood1", "N14DecorFloorFood2", "N14DecorFloorScrapwood", "N14DecorFloorSkeleton", "N14DecorFloorPallet" },
         BlueprintPool    = new[] { "N14BlueprintVaultWeaponsT1", "N14BlueprintVaultWeaponsT2", "N14BlueprintVaultArmorT1", "N14BlueprintVaultAmmoT1" },
@@ -685,7 +756,7 @@ public static class UndergroundThemeProfiles
             // Platform — long station areas, most common
             new()
             {
-                RoomType = RoomType.MetroPlatform, Weight = 30, MaxCount = 4,
+                RoomType = RoomType.MetroPlatform, Weight = 30, MaxCount = 7,
                 MinW = 16, MaxW = 26, MinH = 6, MaxH = 10,
                 FurniturePoolKey = "platform",
                 RequiredFeatures = { "N14JunkBench" },
@@ -694,7 +765,7 @@ public static class UndergroundThemeProfiles
             // Tunnel — transit passages
             new()
             {
-                RoomType = RoomType.MetroTunnel, Weight = 20, MaxCount = 3,
+                RoomType = RoomType.MetroTunnel, Weight = 20, MaxCount = 7,
                 MinW = 6, MaxW = 10, MinH = 16, MaxH = 26,
                 FurniturePoolKey = "tunnel",
                 RequiredFeatures = { "N14Rails" },
@@ -702,7 +773,7 @@ public static class UndergroundThemeProfiles
             // Maintenance — utility back-rooms
             new()
             {
-                RoomType = RoomType.MetroMaintenance, Weight = 20, MaxCount = 3,
+                RoomType = RoomType.MetroMaintenance, Weight = 20, MaxCount = 5,
                 MinW = 10, MaxW = 16, MinH = 10, MaxH = 16,
                 FurniturePoolKey = "maintenance",
                 RequiredFeatures = { "N14WorkbenchMetal", "N14ShelfMetal" },
@@ -711,7 +782,7 @@ public static class UndergroundThemeProfiles
             // Depot — cargo area, moderate
             new()
             {
-                RoomType = RoomType.MetroDepot, Weight = 15, MaxCount = 2,
+                RoomType = RoomType.MetroDepot, Weight = 15, MaxCount = 4,
                 MinW = 10, MaxW = 16, MinH = 10, MaxH = 16,
                 FurniturePoolKey = "depot",
                 RequiredFeatures = { "N14BlackBarrelFull" },
@@ -748,7 +819,7 @@ public static class UndergroundThemeProfiles
             CorridorFloorTiles = new[] { "FloorMetalGreyDark", "FloorMS13MetalGrate", "FloorMS13MetalTile", "FloorMS13MetalIndustrial", "FloorSteelDirty" },
             HubFloorTiles      = new[] { "FloorMetalGreyDark", "FloorMS13MetalTile", "FloorMS13MetalIndustrial" },
             RoomWallEntity     = "N14WallDungeonSlantedIndestructible",
-            HubWallEntity      = "N14WallCombSlantedIndestructible",
+            HubWallEntity      = "N14WallIndustrialRustSlantedIndestructible",
             BackgroundTile     = "FloorAsteroidSand",
             RoomDoorEntity     = "N14DoorWoodRoom",
             HubDoorEntity      = "N14DoorBunker",
@@ -890,12 +961,26 @@ public static class UndergroundThemeProfiles
 
         MobGroups = new[]
         {
-            new[] { ("N14MobGhoulFeral", 30), ("N14MobGhoulFeralReaver", 25), ("N14MobGhoulFeralRotter", 10) },
-            new[] { ("N14MobRaiderPsycho", 20), ("N14MobRaiderFernMelee", 15) },
+            new[]
+            {
+                ("N14MobGhoulFeral", 30), ("N14MobGhoulFeralRotter", 20),
+                ("N14MobGhoulFeralReaver", 10),
+            },
+            new[]
+            {
+                ("N14MobRaiderPsycho", 25), ("N14MobRaiderFernMelee", 18),
+                ("N14MobRaiderEnforcerMelee", 12), ("N14MobRaiderPsychoRanged", 10),
+                ("N14MobRaiderHunter", 6), ("N14MobRaiderSkrimisher", 6),
+            },
+            new[]
+            {
+                ("N14MobRadroach", 28), ("N14MobMolerat", 20), ("N14MobDogFeral", 12),
+                ("N14MobNightstalkerCub", 8), ("N14MobNightstalker", 4),
+            },
         },
 
         DecalPool        = new[] { "DirtLight", "DirtMedium", "Damaged", "Rust", "burnt3", "burnt4", "Remains" },
-        HazardPool       = new[] { "RadiationPulse", "SignCorrosives" },
+        HazardPool       = new[] { "N14BlackBarrel", "N14YellowBarrelOpen", "SignCorrosives" },
         JunkPool         = new[] { "N14JunkPile7", "N14JunkPile8", "N14JunkPile9", "N14JunkPile10", "N14JunkPile11", "N14JunkPile12", "N14JunkPile1Refilling7", "N14JunkPile1Refilling10" },
         FloorScatterPool = new[] { "N14DecorFloorPaper", "N14DecorFloorGlass1", "N14DecorFloorCardboard", "N14DecorFloorScrapwood", "N14DecorFloorTrashbags2", "N14DecorFloorTrashbags5", "N14DecorFloorFood4", "N14DecorFloorFood5", "N14DecorFloorBrickrubble", "N14DecorFloorBookPile2" },
         BlueprintPool    = new[] { "N14BlueprintVaultWeaponsT1", "N14BlueprintVaultArmorT1", "N14BlueprintNCRWeaponsT1", "N14BlueprintLegionWeaponsT1" },

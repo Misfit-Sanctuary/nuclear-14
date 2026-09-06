@@ -1,0 +1,66 @@
+- type: entity
+  id: N14ExpeditionEntranceBase
+  name: n14-expedition-entrance-name
+  description: n14-expedition-entrance-desc
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: N14ExpeditionEntranceLandmark
+  - type: N14ExpeditionBoard
+    directLaunch: true
+    directDifficultyId: N14ExpeditionUnknownProcedural
+    gatherRadius: 7
+    launchCountdownSeconds: 10
+    cooldownSeconds: 1800
+
+- type: entity
+  parent: N14ExpeditionEntranceBase
+  id: N14ExpeditionEntranceBunker
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Misc/laddersms13.rsi
+    state: bunker_open
+    noRot: true
+    netsync: false
+    offset: 0, 0.25
+
+- type: entity
+  parent: N14ExpeditionEntranceBase
+  id: N14ExpeditionEntranceManhole
+  components:
+  - type: Sprite
+    drawdepth: FloorTiles
+    sprite: _Nuclear14/Structures/Misc/laddersms13.rsi
+    state: manhole_open
+    noRot: true
+    netsync: false
+
+- type: entity
+  parent: N14ExpeditionEntranceBase
+  id: N14ExpeditionEntranceSquareLadder
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Misc/laddersms13.rsi
+    state: ladder01
+    noRot: true
+    netsync: false
+    offset: 0, 0.25
+
+- type: entity
+  parent: N14ExpeditionEntranceBase
+  id: N14ExpeditionEntranceBoardedWell
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Misc/well.rsi
+    state: well
+    noRot: true
+    netsync: false
+

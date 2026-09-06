@@ -69,19 +69,6 @@
   - type: NcContractRoster
 
 - type: storeCategoryStructured
-  id: WasterBuy2_Animals
-  name: "Animals"
-  entries:
-  - proto: N14MobBrahdoLight
-    price: 500
-    count: 2
-  - proto: N14MobBrahmin
-    price: 250
-  - proto: N14MobPetDog
-    price: 250
-
-
-- type: storeCategoryStructured
   id: WasterBuy2_Drinks
   name: "Drinks"
   entries:

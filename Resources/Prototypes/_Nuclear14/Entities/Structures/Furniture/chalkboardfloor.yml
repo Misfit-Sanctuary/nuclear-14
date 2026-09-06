@@ -147,24 +147,11 @@
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor12
-  # #Misfits Change - This chalkboard is the expedition board activation point.
-  # Opens the expedition GUI instead of being a plain decorative board.
-  name: Expedition Board
-  description: A dusty chalkboard covered in expedition notes and maps. Interact to plan an expedition.
-  suffix: expedition
+  name: chalkboard
+  description: A dusty chalkboard covered in old expedition notes and maps.
   components:
   - type: Sprite
     state: board_text3
-  - type: N14ExpeditionBoard
-    gatherRadius: 7
-    launchCountdownSeconds: 10
-    cooldownSeconds: 300
-  - type: ActivatableUI
-    key: enum.N14ExpeditionBoardUiKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.N14ExpeditionBoardUiKey.Key:
-        type: N14ExpeditionBoardBoundUserInterface
     
 - type: entity
   parent: N14ChalkboardFloor

@@ -1072,44 +1072,11 @@
 
 - type: entity
   parent: MisfitsSpawnPointEightiesBase
-  id: MisfitsSpawnPointWhiteLegs
-  name: White Legs
+  id: MisfitsSpawnPointGreatKhan
+  name: Great Khan
   components:
   - type: SpawnPoint
-    job_id: WhiteLegs
-
-# #Misfits Add - ranked White Legs spawner prototypes for future map placement.
-- type: entity
-  parent: MisfitsSpawnPointWhiteLegs
-  id: MisfitsSpawnPointWhiteLegsWarChief
-  name: White Legs War Chief
-  components:
-  - type: SpawnPoint
-    job_id: WhiteLegsWarChief
-
-- type: entity
-  parent: MisfitsSpawnPointWhiteLegs
-  id: MisfitsSpawnPointWhiteLegsBoneBreaker
-  name: White Legs Bone Breaker
-  components:
-  - type: SpawnPoint
-    job_id: WhiteLegsBoneBreaker
-
-- type: entity
-  parent: MisfitsSpawnPointWhiteLegs
-  id: MisfitsSpawnPointWhiteLegsStormDrummer
-  name: White Legs Storm Drummer
-  components:
-  - type: SpawnPoint
-    job_id: WhiteLegsStormDrummer
-
-- type: entity
-  parent: MisfitsSpawnPointWhiteLegs
-  id: MisfitsSpawnPointWhiteLegsPainMaker
-  name: White Legs Pain Maker
-  components:
-  - type: SpawnPoint
-    job_id: WhiteLegsPainMaker
+    job_id: GreatKhan
 
 #Misfits Add: Legacy Washington BoS spawnpoint aliases kept for old map compatibility.
 - type: entity

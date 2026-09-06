@@ -1,7 +1,6 @@
-# Expedition exit zone entity — spawned at every faction spawn coordinate
-# when a map defines factionSpawns. Emits a bright green glow so players
-# know this is where they can leave.  Walking onto it OR pressing E both
-# trigger the return teleport.
+# Expedition return ladder. It is bound by the server to the exact surface
+# entrance that launched this generated map. Interaction uses the normal warp
+# helper, so pulled people and crates travel with the user.
 
 - type: entity
   id: N14ExpeditionExitPoint
@@ -14,36 +13,34 @@
   - type: Transform
     anchored: true
   - type: Sprite
-    sprite: Markers/cross.rsi
-    state: green
-    visible: true
-    color: "#52FF39"
+    noRot: true
+    netsync: false
+    layers:
+    - sprite: _Nuclear14/Structures/Misc/ladder.rsi
+      state: b_rope
+    - sprite: Markers/cross.rsi
+      state: green
+      color: "#52FF39"
+      scale: 0.6, 0.6
   - type: PointLight
     radius: 3
     energy: 4
-    color: "#52FF39"       # bright neon green — covers the 3×3 extraction zone
+    color: "#52FF39"
     castShadows: false
   - type: InteractionOutline
   - type: Clickable
-  # Walk-on trigger — teleport as soon as a mob steps onto the flare
-  - type: StepTrigger
-    requiredTriggeredSpeed: 0   # any speed counts, even standing
-    intersectRatio: 0.1
-    stepOn: true                # CRITICAL — without this, StepTriggeredOnEvent is never raised
   - type: Physics
     bodyType: Static
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-1.5, -1.5, 1.5, 1.5"   # 3×3 tile extraction zone
-        density: 80
-        hard: false          # non-blocking — players walk through the flare
-        layer:
-        - LowImpassable
-        mask:
-        - Impassable
+    canCollide: false
+
+# Concrete, invisible target used only for the instant that WarperSystem moves
+# a participant (and any pulled entities/followers) to an arbitrary expedition
+# coordinate. MarkerBase itself is abstract and must never be spawned directly.
+- type: entity
+  parent: MarkerBase
+  id: N14ExpeditionWarpMarker
+  name: expedition transit target
+  categories: [ HideSpawnMenu ]
 
 # DEPRECATED — Expedition spawn marker is no longer used by the system.
 # Spawn location is now determined by majority-faction voting in difficulties.yml.
