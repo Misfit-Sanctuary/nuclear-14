@@ -620,6 +620,17 @@
   items:
     - N14ClothingBootsMountie
 
+  - type: loadout
+  id: ClothingBeltMountie
+  category: Roles
+  cost: 1
+  requirements:
+    - !type:CharacterJobRequirement
+        departments:
+        - Townsfolk
+  items:
+    - ClothingBeltMountie
+
 - type: loadout
   id: N14LoadoutUniversalMPUniformNCRDesert
   category: Uniform
