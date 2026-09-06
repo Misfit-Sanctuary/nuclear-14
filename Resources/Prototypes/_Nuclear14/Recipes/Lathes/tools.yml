@@ -273,3 +273,12 @@
     N14Copper: 50
     Plastic: 300
     Circuitry: 100
+
+- type: latheRecipe
+  id: N14Binoculars
+  result: N14Binoculars
+  category: N14Tools
+  completetime: 2
+  materials:
+    Glass: 100
+    Steel: 100
