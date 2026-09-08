@@ -1,0 +1,162 @@
+- type: entityTable
+  id: M14PartsLootTier1_ElectricComp
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14JunkComponentBoard1
+    - !type:EntSelector
+      id: N14JunkComponentBulb1
+    - !type:EntSelector
+      id: N14JunkComponentCapacitor1
+    - !type:EntSelector
+      id: N14JunkComponentDiode1
+    - !type:EntSelector
+      id: N14JunkComponentFuse1
+    - !type:EntSelector
+      id: N14JunkComponentTransistor1
+    - !type:EntSelector
+      id: N14JunkComponentResistor1
+
+- type: entityTable
+  id: M14PartsLootNoTier_EletricMisc
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14JunkComponentSensor
+      weight: 1
+    - !type:EntSelector
+      id: N14JunkComponentSensorModule
+      weight: 1
+    - !type:EntSelector
+      id: N14JunkComponentSwitch
+      weight: 1
+    - !type:EntSelector
+      id: N14JunkComponentMainboard
+      weight: 1
+    - !type:EntSelector
+      id: PowerCellHigh
+      weight: 1
+
+# stuff like pistons and industrial kinda stuff here too
+- type: entityTable
+  id: M14PartsLootTier1_Machine
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14JunkComponentGearLarge
+      weight: 1
+    - !type:EntSelector
+      id: N14JunkComponentGearSmall
+      weight: 1
+    - !type:EntSelector
+      id: N14JunkComponentIgniter
+      weight: 1
+    - !type:EntSelector
+      id: N14JunkComponentScrew
+      weight: 1
+
+# need metalscrap and electronic scrap for repair kit
+# good way to generalize metal/eletronic stuff too
+# get stuff like casings/shells too
+- type: entityTable
+  id: M14PartsLootTier1_RepairKitRecipe
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14JunkDuctTape
+      weight: 1
+    - !type:EntSelector
+      id: N14JunkWonderglue
+      weight: 1
+    - !type:EntSelector
+      id: N14JunkComponentScrew
+      weight: 1
+    - !type:EntSelector
+      id: N14JunkComponentScrew
+      weight: 1
+
+- type: entityTable
+  id: M14PartsLootTier1_Adhesives
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14JunkDuctTape
+      weight: 1
+    - !type:EntSelector
+      id: N14JunkWonderglue
+      weight: 1
+
+- type: entityTable
+  id: M14PartsLootTier1_Chemicals
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14JunkTurpentine
+      weight: 1
+    - !type:EntSelector
+      id: N14JunkAbraxoCleaner
+      weight: 1
+
+- type: entityTable
+  id: M14PartsLootTier1_GunParts
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14JunkGunpartsBarrel
+      weight: 5
+    - !type:EntSelector
+      id: N14JunkGunpartsBolt
+      weight: 8
+    - !type:EntSelector
+      id: N14JunkGunpartsFramePistol
+      weight: 3
+    - !type:EntSelector
+      id: N14JunkGunpartsTrigger
+      weight: 10
+    - !type:EntSelector
+      id: N14JunkGunpartsWeaponParts1
+      weight: 1
+
+- type: entityTable
+  id: M14PartsLootTier2_GunParts
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14JunkGunpartsStock # craftable
+      weight: 2
+    - !type:EntSelector
+      id: N14JunkGunpartsStockWood # craftable
+      weight: 2
+    - !type:EntSelector
+      id: N14JunkGunpartsFrame # craftable
+      weight: 8
+    - !type:EntSelector
+      id: N14JunkGunpartsRifleFrame
+      weight: 4
+    - !type:EntSelector
+      id: N14JunkGunpartsRifleScope
+      weight: 4
+    - !type:EntSelector
+      id: N14JunkGunpartsWeaponParts2
+      weight: 1
+
+- type: entityTable
+  id: M14PartsLootTier3_GunParts
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14JunkGunpartsAdvancedFrame
+      weight: 10
+    - !type:EntSelector
+      id: N14JunkGunpartsRecoilComp
+      weight: 10
+    - !type:EntSelector
+      id: N14JunkGunpartsReceiver
+      weight: 10
+    - !type:EntSelector
+      id: N14JunkGunpartsWeaponParts3
+      weight: 1
+
+
+
+

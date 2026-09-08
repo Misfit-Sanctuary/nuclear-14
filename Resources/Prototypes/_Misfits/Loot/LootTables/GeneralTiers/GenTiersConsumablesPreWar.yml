@@ -1,0 +1,74 @@
+- type: entityTable
+  id: M14ConsumableLootNoTier_PreWarAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: M14ConsumableLootNoTier_PreWarGrocery
+    - !type:NestedSelector
+      tableId: M14ConsumableLootNoTier_PreWarCanned
+    - !type:EntSelector
+      id: N14FoodMouldy
+
+- type: entityTable
+  id: M14ConsumableLootNoTier_PreWarGrocery
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FoodBlamcomaccheese
+    - !type:EntSelector
+      id: N14FoodBlamcomaccheeseLarge
+    - !type:EntSelector
+      id: N14FoodCrisps
+    - !type:EntSelector
+      id: N14FoodDandyboyapples
+    - !type:EntSelector
+      id: N14FoodSalisburysteak
+    - !type:EntSelector
+      id: N14FoodYumyumdeviledeggs
+    - !type:EntSelector
+      id: N14FoodInstamash
+      # sweets
+    - !type:EntSelector
+      id: N14FoodBubblegum
+    - !type:EntSelector
+      id: N14FoodSugarbombs
+    - !type:EntSelector
+      id: N14FoodFancyladssnackcakes
+
+- type: entityTable
+  id: M14ConsumableLootNoTier_PreWarCanned
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: M14ConsumableLootNoTier_PreWarCannedDogFood
+    - !type:NestedSelector
+      tableId: M14ConsumableLootNoTier_PreWarCannedNoDogFood
+
+- type: entityTable
+  id: M14ConsumableLootNoTier_PreWarCannedDogFood
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FoodDogfood
+    - !type:EntSelector
+      id: N14FoodDinki-Di
+
+- type: entityTable
+  id: M14ConsumableLootNoTier_PreWarCannedNoDogFood
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FoodCram
+    - !type:EntSelector
+      id: N14FoodPorkBeans
+
+- type: entityTable
+  id: M14ConsumableLootNoTier_PreWarSweets
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FoodBubblegum
+    - !type:EntSelector
+      id: N14FoodSugarbombs
+    - !type:EntSelector
+      id: N14FoodFancyladssnackcakes

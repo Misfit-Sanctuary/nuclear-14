@@ -1059,6 +1059,8 @@
     damageContainers:
       - Biological
     damage:
+      groups:
+        Burn: -2
       types:
         Slash: -10 # Was 5
         Piercing: -15 # Was 10, Buffed due to limb damage changes

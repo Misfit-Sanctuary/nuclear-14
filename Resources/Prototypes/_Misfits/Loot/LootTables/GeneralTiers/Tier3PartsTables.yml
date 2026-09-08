@@ -1,0 +1,18 @@
+- type: entityTable
+  id: M34PartsLootTier3_ElectricComp
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N34JunkComponentBoard3
+    - !type:EntSelector
+      id: N34JunkComponentBulb3
+    - !type:EntSelector
+      id: N34JunkComponentCapacitor3
+    - !type:EntSelector
+      id: N34JunkComponentDiode3
+    - !type:EntSelector
+      id: N34JunkComponentFuse2
+    - !type:EntSelector
+      id: N34JunkComponentTransistor3
+    - !type:EntSelector
+      id: N34JunkComponentResistor3

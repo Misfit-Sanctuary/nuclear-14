@@ -35,6 +35,8 @@
         Slash: -7
         Piercing: -7
         Poison: 1
+      groups:
+        Burn: -2
     bloodlossModifier: -7
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
@@ -85,6 +87,8 @@
       types:
         Slash: -10
         Piercing: -10
+      groups:
+        Burn: -3
     bloodlossModifier: -10
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
@@ -129,11 +133,9 @@
       - Biological
     damage:
       types:
-        Blunt: -5
-        Heat: -5
-        Cold: -5
-        Shock: -5
-        Caustic: -5
+        Blunt: -2
+      groups:
+        Burn: -5
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
     healingEndSound:
@@ -152,6 +154,35 @@
   - type: Stack
     stackType: N14Ointment10
     count: 1
+#misfit add
+
+- type: entity
+  id: N14OintmentAdv10
+  parent: RegenerativeMesh
+  suffix: full
+  components:
+  - type: Stack
+    stackType: N14OintmentAdv10
+    count: 10
+  - type: Healing
+    damageContainers:
+      - Biological
+    damage:
+      types:
+        Blunt: -4
+      groups:
+        Burn: -20
+
+- type: entity
+  id: N14OintmentAdv1
+  parent: N14OintmentAdv10
+  suffix: Single
+  components:
+  - type: Stack
+    stackType: N14OintmentAdv10
+    count: 1
+
+#misfit end
 
 - type: entity
   name: Malnutrition topical

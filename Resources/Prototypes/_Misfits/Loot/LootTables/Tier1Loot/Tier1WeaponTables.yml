@@ -1,18 +1,23 @@
-# Tier 1: improvised and civilian weapons. These should make a character armed,
-# not decisively equipped.
-- type: entity
-  name: Weapon Loot Spawner
-  suffix: Tier 1
-  id: N14WeaponLootTier1Spawner
-  parent: MarkerBase
-  components:
-  - type: EntityTableSpawner
-    table: !type:NestedSelector
-      tableId: N14WeaponLootTier1
-      prob: 0.85
-
 - type: entityTable
   id: N14WeaponLootTier1
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponGunLootTier1
+      - !type:NestedSelector
+          tableId: M14WeaponMeleeLootTier1
+
+- type: entityTable
+  id: M14WeaponLootTier1
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponGunLootTier1
+      - !type:NestedSelector
+          tableId: M14WeaponMeleeLootTier1
+
+- type: entityTable
+  id: M14WeaponGunLootTier1
   table: !type:GroupSelector
     children:
     - !type:EntSelector
@@ -87,7 +92,11 @@
     - !type:EntSelector
       id: N14WeaponLaserRifleMakeshift
       weight: 2
-    # Common melee, improvised explosives, and unloaded map weapons.
+
+- type: entityTable
+  id: M14WeaponMeleeLootTier1
+  table: !type:GroupSelector
+    children:
     - !type:EntSelector
       id: MisfitsNCRMPShockBaton
     - !type:EntSelector

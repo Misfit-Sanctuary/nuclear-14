@@ -1,7 +1,29 @@
+- type: reagent
+  id: M14BaseProduceExtract
+  parent: BaseDrink
+  abstract: true
+  group: Extracts
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .2
+      - !type:AdjustReagent
+        reagent: Water
+        amount: .2
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: .1 # TODO: need more in-depth and nuanced way to handle radiation
+
+
 # Alphabetical
 # Extracts
 - type: reagent
-  parent: BaseDrink
+  parent: M14BaseProduceExtract
   id: ExtractAgaveNectar
   name: reagent-name-extract-agave-nectar
   group: Extracts
@@ -9,9 +31,31 @@
   physicalDesc: reagent-physical-desc-syrupy
   flavor: syrupy
   color: "#babf4d"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .2
+      - !type:AdjustReagent
+        reagent: Water
+        amount: 1
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -0.1
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: .1
+
 
 - type: reagent
-  parent: BaseDrink
+  parent: M14BaseProduceExtract
   id: ExtractBananaYucca
   name: reagent-name-extract-banana-yucca
   group: Extracts
@@ -21,7 +65,7 @@
   color: "#c2d64d"
 
 - type: reagent
-  parent: BaseDrink
+  parent: M14BaseProduceExtract
   id: ExtractBlackberries
   name: reagent-name-extract-blackberries
   group: Extracts
@@ -29,8 +73,28 @@
   physicalDesc: reagent-physical-desc-sugary
   flavor: sweet
   color: "#2746b8"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .2
+      - !type:AdjustReagent
+        reagent: Sugar
+        amount: 0.1
+      - !type:AdjustReagent
+        reagent: Water
+        amount: .3
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: .1
+
 
 - type: reagent
+  parent: M14BaseProduceExtract
   id: ExtractBroc
   name: reagent-name-extract-broc
   group: Extracts
@@ -39,18 +103,29 @@
   flavor: leafy
   color: "#004d08"
   metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .2
+      - !type:AdjustReagent
+        reagent: Water
+        amount: .2
     Medicine:
       effects:
       - !type:HealthChange
         damage:
           groups:
-            Burn: -0.1
             Brute: -0.1
-      - !type:ChemVomit
-        probability: 0.1
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: .1
 
 - type: reagent
-  parent: BaseDrink
+  parent: M14BaseProduceExtract
   id: ExtractBuffaloGourd
   name: reagent-name-extract-buffalo-gourd
   group: Extracts
@@ -58,9 +133,27 @@
   physicalDesc: reagent-physical-desc-cloudy
   flavor: watermelon
   color: "#f0ff8c"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .4
+      - !type:AdjustReagent
+        reagent: Sugar
+        amount: 0.2
+      - !type:AdjustReagent
+        reagent: Water
+        amount: .8
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: .2
 
 - type: reagent
-  parent: BaseDrink
+  parent: M14BaseProduceExtract
   id: ExtractCabbage
   name: reagent-name-extract-cabbage
   group: Extracts
@@ -69,24 +162,53 @@
   flavor: leafy
   color: "#99a845"
   metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .2
+      - !type:AdjustReagent
+        reagent: Water
+        amount: .2
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: .2
     Medicine:
       effects:
       - !type:ModifyBloodLevel
-        amount: 0.5
+        amount: 0.5 # I think spinnach is good for ur iron not cabbage
 
 - type: reagent
-  parent: BaseDrink
+  parent: M14BaseProduceExtract
   id: ExtractCactusWater #barrel cactus
   name: reagent-name-extract-cactus-water
   group: Extracts
   desc: reagent-desc-extract-cactus-water
   physicalDesc: reagent-physical-desc-odorless
   color: "#5f959c"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .2
+      - !type:AdjustReagent
+        reagent: Water
+        amount: 1
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: .1
 
 - type: reagent
   id: ExtractCarrot
   name: reagent-name-extract-carrot
-  parent: BaseDrink
+  parent: M14BaseProduceExtract
   desc: reagent-desc-extract-carrot
   physicalDesc: reagent-physical-desc-crisp
   flavor: carrot
@@ -94,14 +216,21 @@
   metabolisms:
     Drink:
       effects:
-      - !type:SatiateThirst
-        factor: 2
       - !type:AdjustReagent
         reagent: Oculine
         amount: 0.15
       - !type:AdjustReagent
         reagent: Nutriment
-        amount: 0.5
+        amount: .2
+      - !type:AdjustReagent
+        reagent: Water
+        amount: .1
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: .1
 
 # Cave fungus = no reagent
 
@@ -116,6 +245,19 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent #something that make u shoot bettterter
+        reagent: Nicotine
+        amount: 0.15
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: .1
+
 
 - type: reagent
   id: ExtractDatura #HeartbreakerToxin
@@ -132,12 +274,13 @@
         damage:
           types:
             Asphyxiation: 2
+            Radiation: .1
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
 
 - type: reagent
-  parent: BaseDrink
+  parent: M14BaseProduceExtract
   id: ExtractHoneyMesquitePod
   name: reagent-name-extract-honey-mesquite-pod
   group: Extracts
@@ -145,9 +288,27 @@
   physicalDesc: reagent-physical-desc-sugary
   flavor: sweet
   color: "#f0ff8c"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .2
+      - !type:AdjustReagent
+        reagent: Water
+        amount: .2
+      - !type:AdjustReagent
+        reagent: Sugar
+        amount: 1 # hone is yummy
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: .1
 
 - type: reagent
-  parent: BaseDrink
+  parent: M14BaseProduceExtract
   id: ExtractGlowpepper #N14 change
   name: reagent-name-extract-glowpepper #N14 change
   group: Extracts
@@ -155,6 +316,19 @@
   physicalDesc: reagent-physical-desc-spicy
   flavor: spicy
   color: "#d12519"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -1 # spicyyyy
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.2
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -0.1
+            Radiation: -0.1
 
 - type: reagent
   id: ExtractMaize
@@ -164,17 +338,9 @@
   physicalDesc: reagent-physical-desc-coarse
   flavor: fiber
   color: "#a2ab6f"
-  metabolisms:
-    Food:
-      effects:
-      - !type:SatiateThirst
-        factor: -0.2
-      - !type:AdjustReagent
-        reagent: Nutriment
-        amount: 0.2
 
 - type: reagent
-  parent: BaseDrink
+  parent: M14BaseProduceExtract
   id: ExtractMutfruit
   name: reagent-name-extract-mutfruit
   group: Extracts
@@ -182,9 +348,25 @@
   physicalDesc: reagent-physical-desc-pulpy
   flavor: fiber
   color: "#6ab854"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .3
+      - !type:AdjustReagent
+        reagent: Water
+        amount: .4
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: 1.5
 
+# nettle tea dont forget
 - type: reagent
-  parent: BaseDrink
+  parent: M14BaseProduceExtract
   id: ExtractNettle
   name: reagent-name-extract-nettle
   group: Extracts
@@ -192,9 +374,24 @@
   physicalDesc: reagent-physical-desc-chalky
   flavor: bitter
   color: "#009900"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .2
+      - !type:AdjustReagent
+        reagent: Water
+        amount: .01
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: .1
 
 - type: reagent
-  parent: BaseDrink
+  parent: M14BaseProduceExtract
   id: ExtractPinyon
   name: reagent-name-extract-pinyon
   group: Extracts
@@ -202,9 +399,24 @@
   physicalDesc: reagent-physical-desc-chalky
   flavor: sweet
   color: "#5e1756"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .2
+      - !type:AdjustReagent
+        reagent: Water
+        amount: .01
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: .1
 
 - type: reagent
-  parent: BaseDrink
+  parent: M14BaseProduceExtract
   id: ExtractPricklyPearFruit
   name: reagent-name-extract-pricky-pear-fruit
   group: Extracts
@@ -223,19 +435,23 @@
   color: white
   recognizable: true
   metabolisms:
-    Food:
+    Drink:
       effects:
       - !type:AdjustReagent
-        reagent: Sugar
-        amount: 0.4
-      - !type:SatiateThirst
-        factor: -0.2
-      - !type:AdjustReagent
         reagent: Nutriment
-        amount: 0.1
+        amount: .2
+      - !type:AdjustReagent
+        reagent: Water
+        amount: .01
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: .1
 
 - type: reagent
-  parent: BaseDrink
+  parent: M14BaseProduceExtract
   id: ExtractStarlightBerries
   name: reagent-name-extract-starlight-berries
   group: Extracts
@@ -243,9 +459,27 @@
   physicalDesc: reagent-physical-desc-sugary
   flavor: sweet
   color: "#fc2c03"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .2
+      - !type:AdjustReagent
+        reagent: Water
+        amount: .3
+      - !type:AdjustReagent
+        reagent: Sugar
+        amount: .2
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: .1
 
 - type: reagent
-  parent: BaseDrink
+  parent: M14BaseProduceExtract
   id: ExtractTarberries
   name: reagent-name-extract-tarberries
   group: Extracts
@@ -253,9 +487,27 @@
   physicalDesc: reagent-physical-desc-sugary
   flavor: sweet
   color: "#2746b8"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .2
+      - !type:AdjustReagent
+        reagent: Water
+        amount: .3
+      - !type:AdjustReagent
+        reagent: Sugar
+        amount: .2
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: .1
 
 - type: reagent
-  parent: BaseDrink
+  parent: M14BaseProduceExtract
   id: ExtractTato
   name: reagent-name-extract-tato
   group: Extracts
@@ -279,6 +531,7 @@
         damage:
           types:
             Asphyxiation: 2
+            Radiation: .1
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
@@ -291,15 +544,22 @@
   physicalDesc: reagent-physical-desc-soothing
   color: "#4d1e00"
   metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .2
+      - !type:AdjustReagent
+        reagent: Water
+        amount: .2
     Medicine:
       effects:
       - !type:HealthChange
         damage:
           groups:
-            Burn: -0.1
-            Brute: -0.1
+            Brute: 0.2
       - !type:ChemVomit
-        probability: 0.1
+        probability: 0.5
 
 - type: reagent
   id: ExtractFungus
@@ -309,12 +569,20 @@
   physicalDesc: reagent-physical-desc-fizzy
   color: "#4eff3b"
   metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .4
+      - !type:AdjustReagent
+        reagent: Water
+        amount: .4
     Poison:
       effects:
       - !type:HealthChange
         damage:
           types:
-            Poison: 0.2
+            Poison: 1
             Radiation: 0.1
       - !type:ChemVomit
         probability: 0.1
@@ -327,12 +595,20 @@
   physicalDesc: reagent-physical-desc-fizzy
   color: "#4eff3b"
   metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .4
+      - !type:AdjustReagent
+        reagent: Water
+        amount: .4
     Poison:
       effects:
       - !type:HealthChange
         damage:
           types:
             Poison: 1
-            Radiation: 0.5
+            Radiation: 3 # the thing friggin glows
       - !type:ChemVomit
-        probability: 0.2
+        probability: 0.3

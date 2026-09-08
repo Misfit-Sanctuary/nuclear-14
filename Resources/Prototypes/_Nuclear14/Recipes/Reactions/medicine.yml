@@ -9,14 +9,14 @@
       Antiseptic: 2
 
 - type: reaction
-  id: AntidoteMixture
+  id: AntidoteWeak
   reactants:
     ExtractTarberries:
       amount: 1
     ScorpionTail:
       amount: 1
   products:
-    AntidoteMixture: 2
+    AntidoteWeak: 2
 
 - type: reaction
   id: AntidoteBottleConversion
@@ -34,7 +34,7 @@
   id: Antidote
   minTemp: 354 # 80 degrees Celcius.
   reactants:
-    AntidoteMixture:
+    AntidoteWeak:
       amount: 1
     Ethanol:
       amount: 1

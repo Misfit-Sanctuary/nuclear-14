@@ -256,9 +256,9 @@
       damage:
         Asphyxiation: 3
   cures:
-    # #Misfits Tweak - AntidoteMixture for fungal spore toxin
+    # #Misfits Tweak - AntidoteWeak for fungal spore toxin
     - !type:DiseaseReagentCure
-      reagent: AntidoteMixture
+      reagent: AntidoteWeak
       minAmount: 10.0
     - !type:DiseaseBodyTemperatureCure
       threshold: 320.0

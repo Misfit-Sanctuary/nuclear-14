@@ -1,0 +1,250 @@
+
+- type: entityTable
+  id: M14PartsLootTier1_ScrapHomeAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_ScrapKitchenAll
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_ScrapHomeLaundry
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_ScrapHomeEntertainment
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_PaperAshSource
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_ScrapHomeGarage
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_ScrapHomeBathroom
+    - !type:EntSelector
+      id: MopItem
+    - !type:EntSelector
+      id: N14JunkCrutch
+
+- type: entityTable
+  id: M14PartsLootTier1_ScrapHomeGarage
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_UsablesTools
+
+- type: entityTable
+  id: M14PartsLootTier1_ScrapHomeEntertainment
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_ScrapToys
+    - !type:EntSelector
+      id: AcousticGuitarInstrument
+    - !type:EntSelector
+      id: SaxophoneInstrument
+
+- type: entityTable
+  id: M14PartsLootTier1_ScrapHomeLaundry
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14ClothingBeltCleanerFilled
+    - !type:EntSelector
+      id: N14JunkIron
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_Chemicals
+
+- type: entityTable
+  id: M14PartsLootTier1_ScrapKitchenAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_ScrapKitchenCeramics
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_ScrapKitchenAppliances
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_ScrapKitchenOther
+
+- type: entityTable
+  id: M14PartsLootTier1_ScrapKitchenCeramics
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14JunkCookpot
+    - !type:EntSelector
+      id: N14JunkCoffeepot
+    - !type:EntSelector
+      id: N14JunkTeapot
+
+- type: entityTable
+  id: M14PartsLootTier1_ScrapKitchenAppliances
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14JunkToaster
+
+- type: entityTable
+  id: M14PartsLootTier1_ScrapKitchenOther
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14JunkTincan
+    - !type:EntSelector
+      id: N14FoodTinCanTrash
+    - !type:EntSelector
+      id: N14JunkTimer
+    - !type:EntSelector
+      id: N14JunkLunchbox
+    - !type:EntSelector
+      id: N14DrinkNukaColaBroken
+    - !type:EntSelector
+      id: N14JunkVaultCanteen
+
+- type: entityTable
+  id: M14PartsLootTier1_ScrapToys
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Junk8Ball
+    - !type:EntSelector
+      id: N14JunkToyNukaTruck
+    - !type:EntSelector
+      id: N14JunkToyRacecar
+    - !type:EntSelector
+      id: N14JunkBaseball
+
+- type: entityTable
+  id: M14PartsLootTier1_ScrapHomeBathroom
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DoctorSyringe
+# drugss herrree
+
+- type: entityTable
+  id: M14PartsLootTier1_PaperAshSource
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id:: PaperOffice
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_Cigars
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_MoneyPreWar
+
+- type: entityTable
+  id: M14PartsLootTier1_Cigars
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Cigarette
+    - !type:EntSelector
+      id: CigarCase
+
+- type: entityTable
+  id: M14PartsLootTier1_MoneyPreWar
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14CurrencyPrewarMoney10
+    - !type:EntSelector
+      id: N14CurrencyPrewarMoney50
+    - !type:EntSelector
+      id: N14CurrencyPrewarMoney100
+
+- type: entityTable
+  id: M14PartsLootTier1_Usables
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_UsablesElectric
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_UsablesTools
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_UsablesOther
+
+- type: entityTable
+  id: M14PartsLootTier1_UsablesElectric
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: GeigerCounter
+    - !type:EntSelector
+      id: RadioHandheld
+
+- type: entityTable
+  id: M14PartsLootTier1_UsablesTools
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Crowbar
+    - !type:EntSelector
+      id: N14Wrench
+    - !type:EntSelector
+      id: N14Screwdriver
+    - !type:EntSelector
+      id: N14Wirecutter
+    - !type:EntSelector
+      id: N14Welder
+    - !type:EntSelector
+      id: N14Multitool
+
+
+- type: entityTable
+  id: M14PartsLootTier1_UsablesOther
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: AcousticGuitarInstrument
+    - !type:EntSelector
+      id: SaxophoneInstrument
+    - !type:EntSelector
+      id: BriefcaseBrown
+    - !type:EntSelector
+      id: N14JunkCrutch
+
+
+- type: entityTable
+  id: M14PartsLootTier1_TrashFood
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FoodTinCanTrash
+    - !type:EntSelector
+      id: N14FoodPacketTrash
+    - !type:EntSelector
+      id: N14FoodBlamcomaccheeseTrash
+    - !type:EntSelector
+      id: N14FoodBlamcomaccheeseLargeTrash
+    - !type:EntSelector
+      id: N14FoodBubblegumTrash
+    - !type:EntSelector
+      id: N14FoodCramTrash
+    - !type:EntSelector
+      id: N14FoodCrispsTrash
+    - !type:EntSelector
+      id: N14FoodDandyboyapplesTrash
+    - !type:EntSelector
+      id: N14FoodFancyladssnackcakesTrash
+    - !type:EntSelector
+      id: N14FoodInstamashTrash
+    - !type:EntSelector
+      id: N14FoodSalisburysteakTrash
+    - !type:EntSelector
+      id: N14FoodSugarbombsTrash
+    - !type:EntSelector
+      id: N14FoodYumyumdeviledeggsTrash
+    - !type:EntSelector
+      id: N14DrinkNukaColaBroken
+
+        #- id: Torch craft it
+
+- type: entityTable
+  id: M14PartsLootTier1_ScrapHomeSafeItems
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14JunkVaultCanteen
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_MoneyPreWar
+# gun, low chance gold lol, and other stuff we will see
+
+
+
+
+
