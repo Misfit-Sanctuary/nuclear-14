@@ -1,0 +1,164 @@
+# Tier 5: end-game heavy weapons. rewritting WIP
+
+- type: entityTable
+  id: M14WeaponLootTier5_Any
+  table: !type:GroupSelector
+    children:
+    table: !type:NestedSelector
+      tableId: M14WeaponLootTier5_HeavyAll
+      weight: 25
+    table: !type:NestedSelector
+      tableId: M14WeaponLootTier5_GunsBulletLMG
+      weight: 30
+    table: !type:NestedSelector
+      tableId: M14WeaponLootTier5_RifleAll
+      weight: 50
+    table: !type:NestedSelector
+      tableId: M14WeaponLootTier5_CallIn
+      weight: 10
+
+- type: entityTable
+  id: M14WeaponLootTier5_GunsBulletLMG
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: M14WeaponLMGchinese
+      weight: 1
+    - !type:EntSelector
+      id: M14WeaponHMGcanadian
+      weight: 1
+    - !type:EntSelector
+      id: M14WeaponM60GPMG
+      weight: 1
+
+- type: entityTable
+  id: M14WeaponLootTier5_HeavyAll
+  table: !type:GroupSelector
+    children:
+    table: !type:NestedSelector
+      tableId: M14WeaponLootTier5_HeavyBullet
+      weight: 10
+    table: !type:NestedSelector
+      tableId: M14WeaponLootTier5_HeavyEnergy
+      weight: 10
+    table: !type:NestedSelector
+      tableId: M14WeaponLootTier5_HeavyExplosive
+      weight: 5
+
+- type: entityTable
+  id: M14WeaponLootTier5_HeavyBullet
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: M14WeaponMinigun
+      weight: 3
+    - !type:EntSelector
+      id: M14WeaponMinigunAvenger
+      weight: 1
+
+- type: entityTable
+  id: M14WeaponLootTier5_HeavyExplosive
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: M14WeaponLauncherMissile
+      weight: 2
+
+- type: entityTable
+  id: M14WeaponLootTier5_HeavyEnergy
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: M14WeaponPlasmaCaster
+      weight: 2
+    - !type:EntSelector
+      id: M14WeaponLaserGatling
+      weight: 2
+    - !type:EntSelector
+      id: M14WeaponTeslaCannon
+      weight: 2
+
+- type: entityTable
+  id: M14WeaponLootTier5_RifleAll
+  table: !type:GroupSelector
+    children:
+    table: !type:NestedSelector
+      tableId: M14WeaponLootTier5_RifleBullet
+      weight: 10
+    table: !type:NestedSelector
+      tableId: M14WeaponLootTier5_RifleEnergy
+      weight: 10
+
+- type: entityTable
+  id: M14WeaponLootTier5_RifleBullet
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: M14WeaponSniper50AntiMateriel
+      weight: 3
+    - !type:EntSelector
+      id: M14WeaponSniper50NCRRifle
+      weight: 2
+
+- type: entityTable
+  id: M14WeaponLootTier5_RifleEnergy
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: M14WeaponLaserRiflePrototypeAER14
+      weight: 2
+    - !type:EntSelector
+      id: M14WeaponPulseRifle
+      weight: 2
+
+- type: entityTable
+  id: M14WeaponLootTier5_CallIn
+  table: !type:GroupSelector
+    - !type:EntSelector
+      id: M14ArtilleryFlare
+    - !type:EntSelector
+      id: M14AttackPlaneFlare
+
+  # Mounted weapons and call-in devices are catalogued for map migration.
+  # They remain Tier 5 so normal world spawners only reach them via the 1% roll.
+
+
+ # turret spawns for every faction?? why here????
+- type: entityTable
+  id: M14TurretTable_Any
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: M14WeaponTurretBroken
+    - !type:EntSelector
+      id: M14WeaponTurretBrotherhoodMidwest
+    - !type:EntSelector
+      id: M14WeaponTurretBrotherhoodMidwestSecureArea
+    - !type:EntSelector
+      id: M14WeaponTurretBrotherhoodMidwestSpawnpoint
+    - !type:EntSelector
+      id: M14WeaponTurretBrotherhoodWashington
+    - !type:EntSelector
+      id: M14WeaponTurretBrotherhoodWashingtonSecureArea
+    - !type:EntSelector
+      id: M14WeaponTurretBrotherhoodWashingtonSpawnpoint
+    - !type:EntSelector
+      id: M14WeaponTurretCaravan
+    - !type:EntSelector
+      id: M14WeaponTurretMobileBroken
+    - !type:EntSelector
+      id: M14WeaponTurretNCR
+    - !type:EntSelector
+      id: M14WeaponTurretNCRSecureArea
+    - !type:EntSelector
+      id: M14WeaponTurretNCRSpawnpoint
+    - !type:EntSelector
+      id: M14WeaponTurretRaider
+    - !type:EntSelector
+      id: M14WeaponTurretRobot
+    - !type:EntSelector
+      id: M14WeaponTurretVault
+    - !type:EntSelector
+      id: M14WeaponTurretVaultSecureArea
+    - !type:EntSelector
+      id: M14WeaponTurretVaultSpawnpoint

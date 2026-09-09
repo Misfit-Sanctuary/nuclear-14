@@ -23,16 +23,16 @@
     children:
     - !type:EntSelector
       id: N14JunkComponentSensor
-      weight: 1
+      weight: 5
     - !type:EntSelector
       id: N14JunkComponentSensorModule
-      weight: 1
+      weight: 5
     - !type:EntSelector
       id: N14JunkComponentSwitch
-      weight: 1
+      weight: 5
     - !type:EntSelector
       id: N14JunkComponentMainboard
-      weight: 1
+      weight: 5
     - !type:EntSelector
       id: PowerCellHigh
       weight: 1

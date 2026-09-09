@@ -121,7 +121,7 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id:: PaperOffice
+      id: PaperOffice
     - !type:NestedSelector
       tableId: M14PartsLootTier1_Cigars
     - !type:NestedSelector
@@ -184,7 +184,6 @@
     - !type:EntSelector
       id: N14Multitool
 
-
 - type: entityTable
   id: M14PartsLootTier1_UsablesOther
   table: !type:GroupSelector
@@ -246,5 +245,64 @@
 
 
 
+- type: entityTable
+  id: M14PartsLootTier1_JunkElectronics
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14JunkTimer
+    - !type:NestedSelector
+      id: N14JunkIron
+    - !type:EntSelector
+      id: N14Junk8Ball
+    - !type:EntSelector
+      id: N14JunkToaster
+    - !type:EntSelector
+      id: N14Multitool
+    - !type:NestedSelector
+      id: M14PartsLootNoTier_EletricMisc
+    - !type:NestedSelector
+      id: M14PartsLootTier1_UsablesElectric
+    - !type:NestedSelector
+      id: M14PartsLootTier1_ElectricComp
 
+- type: entityTable
+  id: M14PartsLootTier1_JunkMetalFocus
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14JunkTincan
+    - !type:EntSelector
+      id: N14FoodTinCanTrash
+    - !type:EntSelector
+      id: N14JunkTimer
+    - !type:EntSelector
+      id: N14JunkLunchbox
+    - !type:NestedSelector
+      id: N14JunkIron
+    - !type:EntSelector
+      id: N14JunkVaultCanteen
+    - !type:NestedSelector
+      id: N14JunkTurpentine
+    - !type:EntSelector
+      id: SaxophoneInstrument
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_UsablesTools
 
+- type: entityTable
+  id: M14PartsLootTier1_JunkPlasticFocus
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_TrashFood
+    - !type:NestedSelector
+      tableId: M14PartsLootTier1_ScrapToys
+    - !type:EntSelector
+      id: N14IDPassport
+
+#- type: entityTable
+#  id: M14PartsLootTier1_JunkOddParts
+#  table: !type:GroupSelector
+#    children:
+#    - !type:EntSelector
+#      id: N14IDPassport

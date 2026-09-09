@@ -1,5 +1,192 @@
 - type: entityTable
-  id: M14ConsumableLootNoTier_AllDrinks
+  id: M14ConsumableLootNoTier_DrinksAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: M14ConsumableLootNoTier_DrinksNukaCola
+    - !type:NestedSelector
+      tableId: M14ConsumableLootNoTier_DrinksOther
+
+- type: entityTable
+  id: M14ConsumableLootNoTier_DrinksOther
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: M14ConsumableLootNoTier_DrinksVim
+    - !type:NestedSelector
+      tableId: M14ConsumableLootNoTier_DrinksAlcoholAll
+
+# shit tier
+- type: entityTable
+  id: M14ConsumableLootTier1_DrinksNukaCola
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaCola
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaEmpty
+      weight: 5
+    - !type:EntSelector
+      id: N14DrinkNukaColaBroken
+      weight: 5
+    - !type:EntSelector
+      id: N14DrinkIrradiatedNukaColaBottleFull # crafting part
+      weight: 1
+
+- type: entityTable
+  id: M14ConsumableLootTier1_DrinksNukaColaRadEnvironment
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaColaEmpty
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaBroken
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkIrradiatedNukaColaBottleFull # crafting part
+      weight: 5
+
+# tier 2 and up
+- type: entityTable
+  id: M14ConsumableLootNoTier_DrinksNukaColaDefault
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaCola
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaEmpty
+      weight: 5
+    - !type:EntSelector
+      id: N14DrinkIrradiatedNukaColaBottleFull # crafting part
+      weight: 1
+
+# tier 2 and up in rad environments
+- type: entityTable
+  id: M14ConsumableLootNoTier_DrinksNukaColaRadEnvironmentDefault
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaColaEmpty
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaBroken
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkIrradiatedNukaColaBottleFull # crafting part
+      weight: 10
+
+- type: entityTable
+  id: M14ConsumableLootTier2_DrinksNukaColaUncommon
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaCola
+      weight: 5
+    - !type:EntSelector
+      id: N14DrinkNukaColaCherry
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaGrape
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaOrange
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaYellow
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaQuantum
+      weight: 1
+
+#tier 3
+
+- type: entityTable
+  id: M14ConsumableLootTier3Up_DrinksNukaCola
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaCola
+      weight: 5
+    - !type:EntSelector
+      id: N14DrinkNukaColaCherry
+      weight: 10
+
+- type: entityTable
+  id: M14ConsumableLootTier3Up_DrinksNukaColaRad
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaCola
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaCherry
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkIrradiatedNukaColaBottleFull # crafting part
+      weight: 6
+
+- type: entityTable
+  id: M14ConsumableLootTier3_DrinksNukaColaUncommon
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaColaGrape
+      weight: 5
+    - !type:EntSelector
+      id: N14DrinkNukaColaOrange
+      weight: 5
+    - !type:EntSelector
+      id: N14DrinkNukaColaYellow
+      weight: 5
+    - !type:EntSelector
+      id: N14DrinkNukaColaQuartz
+      weight: 2
+    - !type:EntSelector
+      id: N14DrinkNukaColaVictory
+      weight: 2
+    - !type:EntSelector
+      id: N14DrinkNukaColaWild
+      weight: 2
+    - !type:EntSelector
+      id: N14DrinkNukaColaQuantum
+      weight: 1
+
+- type: entityTable
+  id: M14ConsumableLootTier3_DrinksNukaColaRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaColaQuartz
+      weight: 3
+    - !type:EntSelector
+      id: N14DrinkNukaColaVictory
+      weight: 3
+    - !type:EntSelector
+      id: N14DrinkNukaColaWild
+      weight: 3
+    - !type:EntSelector
+      id: N14DrinkNukaColaQuantum
+      weight: 1
+#tier 3+++and up
+- type: entityTable
+  id: M14ConsumableLootTier4_DrinksNukaColaSupeRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaColaQuartz
+      weight: 2
+    - !type:EntSelector
+      id: N14DrinkNukaColaVictory
+      weight: 2
+    - !type:EntSelector
+      id: N14DrinkNukaColaQuantum
+      weight: 1
+
+- type: entityTable
+  id: M14ConsumableLootNoTier_DrinksNukaCola
   table: !type:GroupSelector
     children:
     - !type:EntSelector
@@ -23,6 +210,23 @@
     - !type:EntSelector
       id: N14DrinkNukaColaWild
 
+- type: entityTable
+  id: M14ConsumableLootNoTier_DrinksAlcoholAll
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkGammagulpBeer
+    - !type:EntSelector
+      id: N14DrinkRoentgenRum
+    - !type:EntSelector
+      id: N14DrinkWhisky
+    - !type:EntSelector
+      id: N14DrinkWine
+
+- type: entityTable
+  id: M14ConsumableLootNoTier_DrinksVim
+  table: !type:GroupSelector
+    children:
     - !type:EntSelector
       id: N14DrinkVim
     - !type:EntSelector
@@ -32,10 +236,35 @@
     - !type:EntSelector
       id: N14DrinkVimQuartz
     - !type:EntSelector
-      id: N14DrinkGammagulpBeer
+
+# I dunno what vim is
+- type: entityTable
+  id: M14ConsumableLootNoTier_DrinksVimWeighted
+  table: !type:GroupSelector
+    children:
     - !type:EntSelector
-      id: N14DrinkRoentgenRum
+      id: N14DrinkVim
+      weight: 20
     - !type:EntSelector
-      id: N14DrinkWhisky
+      id: N14DrinkVimCaptainsBlend
+      weight: 15
     - !type:EntSelector
-      id: N14DrinkWine
+      id: N14DrinkVimRefresh
+      weight: 15
+    - !type:EntSelector
+      id: N14DrinkVimQuartz
+      weight: 5
+
+- type: entityTable
+  id: M14ConsumableLootNoTier_DrinksVimWeightedRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkVimCaptainsBlend
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkVimRefresh
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkVimQuartz
+      weight: 5
