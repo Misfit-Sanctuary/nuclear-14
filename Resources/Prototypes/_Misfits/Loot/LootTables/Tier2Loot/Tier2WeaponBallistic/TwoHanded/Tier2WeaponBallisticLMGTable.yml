@@ -3,16 +3,16 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: M14WeaponLMGchinese # 776
+      id: N14WeaponLMGchinese # 776
       weight: 1
     - !type:EntSelector
-      id: M14WeaponHMGcanadian # 776
+      id: N14WeaponHMGcanadian # 776
       weight: 1
     - !type:EntSelector
       id: N14WeaponUSHMG #Legion canadian
       weight: 1
     - !type:EntSelector
-      id: M14WeaponM60GPMG #308
+      id: N14WeaponM60GPMG #308
       weight: 1
     - !type:EntSelector
       id: MisfitsWeaponRangerPowerArmorLMG # 556

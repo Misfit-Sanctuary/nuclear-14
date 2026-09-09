@@ -77,11 +77,6 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponMeleeLootTier1_ThrowablesExplosive
-# scrap throwables
-#- type: entityTable
-#  id: M14WeaponMeleeLootTier1_Throwables
-#  table: !type:GroupSelector
-#    children:
 
 - type: entityTable
   id: M14WeaponMeleeLootTier1_ThrowablesExplosive

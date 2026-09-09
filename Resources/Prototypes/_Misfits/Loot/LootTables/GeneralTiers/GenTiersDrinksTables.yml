@@ -1,9 +1,10 @@
+
 - type: entityTable
   id: M14ConsumableLootNoTier_DrinksAll
   table: !type:GroupSelector
     children:
     - !type:NestedSelector
-      tableId: M14ConsumableLootNoTier_DrinksNukaCola
+      tableId: M14ConsumableLootNoTier_DrinksNukaColaDefault
     - !type:NestedSelector
       tableId: M14ConsumableLootNoTier_DrinksOther
 
@@ -170,9 +171,10 @@
     - !type:EntSelector
       id: N14DrinkNukaColaQuantum
       weight: 1
+
 #tier 3+++and up
 - type: entityTable
-  id: M14ConsumableLootTier4_DrinksNukaColaSupeRare
+  id: M14ConsumableLootTier4_DrinksNukaColaSuperRare
   table: !type:GroupSelector
     children:
     - !type:EntSelector
@@ -235,7 +237,6 @@
       id: N14DrinkVimRefresh
     - !type:EntSelector
       id: N14DrinkVimQuartz
-    - !type:EntSelector
 
 # I dunno what vim is
 - type: entityTable

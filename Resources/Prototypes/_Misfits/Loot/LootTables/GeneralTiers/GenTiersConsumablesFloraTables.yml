@@ -28,7 +28,7 @@
       id: N14FloraProduceWildBananaYucca
       weight: 5
     - !type:EntSelector
-      id: N14FloraProduceWildBarrelCactus
+      id: N14FloraProduceWildBarrelCactusFruit
       weight: 10
     - !type:EntSelector
       id: N14FloraProduceWildBlackberries
@@ -52,7 +52,7 @@
       id: N14FloraProduceWildMutfruit
       weight: 1
     - !type:EntSelector
-      id: N14FloraProduceWildPricklypear
+      id: N14FloraProduceWildPricklyPearFruit
       weight: 10
     - !type:EntSelector
       id: N14FloraProduceWildRazorgrain
@@ -70,19 +70,19 @@
       id: N14FloraProduceWildCaveFungus
       weight: 5
     - !type:EntSelector
-      id: N14FloraProduceWildCotton
+      id: N14WastelandFloraWildCotton
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildCoyote
+      id: N14FloraProduceWildCoyoteTobacco
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildDatura
+      id: N14FloraProduceWildDaturaFlower
       weight: 1
     - !type:EntSelector
-      id: N14FloraProduceWildMesquite
+      id: N14FloraProduceWildMesquitePods
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildPinyon
+      id: N14FloraProduceWildPinyonNuts
       weight: 10
     - !type:EntSelector
       id: N14FloraProduceWildNettle
@@ -96,7 +96,7 @@
       id: N14FloraProduceWildNettle
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildBarrelCactus
+      id: N14FloraProduceWildBarrelCactusFruit
       weight: 10
     - !type:EntSelector
       id: N14FloraProduceWildBlackberries
@@ -117,7 +117,7 @@
       id: N14FloraProduceWildOnion
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildPricklypear
+      id: N14FloraProduceWildPricklyPearFruit
       weight: 10
     - !type:EntSelector
       id: N14FloraProduceWildRazorgrain
@@ -129,13 +129,13 @@
       id: N14FloraProduceWildTato
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildCotton
+      id: N14WastelandFloraWildCotton
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildMesquite
+      id: N14FloraProduceWildMesquitePods
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildPinyon
+      id: N14FloraProduceWildPinyonNuts
       weight: 10
     - !type:EntSelector
       id: N14FloraProduceWildNettle
@@ -148,7 +148,7 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: N14FloraProduceWildBarrelCactus
+      id: N14FloraProduceWildBarrelCactusFruit
       weight: 10
     - !type:EntSelector
       id: N14FloraProduceWildBlackberries
@@ -160,7 +160,7 @@
       id: N14FloraProduceWildOnion
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildPricklypear
+      id: N14FloraProduceWildPricklyPearFruit
       weight: 10
     - !type:EntSelector
       id: N14FloraProduceWildRazorgrain
@@ -169,7 +169,7 @@
       id: N14FloraProduceWildTato
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildPinyon
+      id: N14FloraProduceWildPinyonNuts
       weight: 10
 
 
@@ -178,10 +178,10 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: N14FloraProduceWildCotton
+      id: N14WastelandFloraWildCotton
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildPinyon
+      id: N14FloraProduceWildPinyonNuts
       weight: 10
     - !type:EntSelector
       id: N14FloraProduceWildCarrot
@@ -193,7 +193,7 @@
       id: N14FloraProduceWildOnion
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildPricklypear
+      id: N14FloraProduceWildPricklyPearFruit
       weight: 10
     - !type:EntSelector
       id: N14FloraProduceWildRazorgrain
@@ -202,7 +202,7 @@
       id: N14FloraProduceWildTato
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildPinyon
+      id: N14FloraProduceWildPinyonNuts
       weight: 10
     - !type:EntSelector
       id: N14FloraProduceWildBuffaloGourd
@@ -237,7 +237,7 @@
       id: N14FloraProduceWildBananaYucca
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildBarrelCactus
+      id: N14FloraProduceWildBarrelCactusFruit
       weight: 10
     - !type:EntSelector
       id: N14FloraProduceWildStarlightBerries
@@ -246,13 +246,13 @@
       id: N14FloraProduceWildTarberries
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildCoyote
+      id: N14FloraProduceWildCoyoteTobacco
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildDatura
+      id: N14FloraProduceWildDaturaFlower
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildMesquite
+      id: N14FloraProduceWildMesquitePods
       weight: 10
     - !type:EntSelector
       id: N14FloraProduceWildNettle
@@ -283,7 +283,7 @@
       id: N14FloraProduceWildTarberries
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildCoyote
+      id: N14FloraProduceWildCoyoteTobacco
       weight: 10
     - !type:EntSelector
       id: N14FloraProduceWildCaveFungus
@@ -305,7 +305,7 @@
       id: N14FloraProduceWildMutfruit
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildDatura
+      id: N14FloraProduceWildDaturaFlower
       weight: 10
 
 
@@ -325,5 +325,5 @@
       id: N14FloraProduceWildWhiteHorsenettle
       weight: 10
     - !type:EntSelector
-      id: N14FloraProduceWildDatura
+      id: N14FloraProduceWildDaturaFlower
       weight: 10

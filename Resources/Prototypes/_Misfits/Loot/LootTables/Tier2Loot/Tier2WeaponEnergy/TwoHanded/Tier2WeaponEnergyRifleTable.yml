@@ -1,6 +1,7 @@
 - type: entityTable
   id: M14WeaponLootTier2_LaserRifleAuto
   table: !type:GroupSelector
+    children:
     - !type:EntSelector
       id: N14WeaponLaserRifleAuto
       weight: 1
@@ -20,6 +21,7 @@
 - type: entityTable
   id: M14WeaponLootTier2_PlasmaRifleAuto
   table: !type:GroupSelector
+    children:
     - !type:EntSelector
       id: N14WeaponPlasmaRifleAuto
       weight: 1
@@ -30,6 +32,7 @@
 - type: entityTable
   id: M14WeaponLootTier2_OtherRifleAuto
   table: !type:GroupSelector
+    children:
     - !type:EntSelector
       id: N14WeaponFlamer
       weight: 1
@@ -41,6 +44,7 @@
 - type: entityTable
   id: M14WeaponLootTier2_LaserRifleSemi
   table: !type:GroupSelector
+    children:
     - !type:EntSelector
       id: N14WeaponLaserRifleCrude
       weight: 1
@@ -63,6 +67,7 @@
 - type: entityTable
   id: M14WeaponLootTier2_PlasmaRifleSemi
   table: !type:GroupSelector
+    children:
     - !type:EntSelector
       id: N14WeaponPlasmaRifleCrude
       weight: 1
@@ -79,6 +84,7 @@
 - type: entityTable
   id: M14WeaponLootTier2_OtherRifleSemi
   table: !type:GroupSelector
+    children:
     - !type:EntSelector
       id: N14WeaponPulseCarbine # light pulse
       weight: 1

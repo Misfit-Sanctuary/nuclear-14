@@ -1,19 +1,19 @@
 # Tier 5: end-game heavy weapons. rewritting WIP
-
+#(Line: 10, Col: 7, Idx: 244) - (Line: 10, Col: 27, Idx: 264)
 - type: entityTable
   id: M14WeaponLootTier5_Any
   table: !type:GroupSelector
     children:
-    table: !type:NestedSelector
+    - !type:NestedSelector
       tableId: M14WeaponLootTier5_HeavyAll
       weight: 25
-    table: !type:NestedSelector
+    - !type:NestedSelector
       tableId: M14WeaponLootTier5_GunsBulletLMG
       weight: 30
-    table: !type:NestedSelector
+    - !type:NestedSelector
       tableId: M14WeaponLootTier5_RifleAll
       weight: 50
-    table: !type:NestedSelector
+    - !type:NestedSelector
       tableId: M14WeaponLootTier5_CallIn
       weight: 10
 
@@ -22,26 +22,26 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: M14WeaponLMGchinese
+      id: N14WeaponLMGchinese
       weight: 1
     - !type:EntSelector
-      id: M14WeaponHMGcanadian
+      id: N14WeaponHMGcanadian
       weight: 1
     - !type:EntSelector
-      id: M14WeaponM60GPMG
+      id: N14WeaponM60GPMG
       weight: 1
 
 - type: entityTable
   id: M14WeaponLootTier5_HeavyAll
   table: !type:GroupSelector
     children:
-    table: !type:NestedSelector
+    - !type:NestedSelector
       tableId: M14WeaponLootTier5_HeavyBullet
       weight: 10
-    table: !type:NestedSelector
+    - !type:NestedSelector
       tableId: M14WeaponLootTier5_HeavyEnergy
       weight: 10
-    table: !type:NestedSelector
+    - !type:NestedSelector
       tableId: M14WeaponLootTier5_HeavyExplosive
       weight: 5
 
@@ -50,10 +50,10 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: M14WeaponMinigun
+      id: N14WeaponMinigun
       weight: 3
     - !type:EntSelector
-      id: M14WeaponMinigunAvenger
+      id: N14WeaponMinigunAvenger
       weight: 1
 
 - type: entityTable
@@ -61,7 +61,7 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: M14WeaponLauncherMissile
+      id: N14WeaponLauncherMissile
       weight: 2
 
 - type: entityTable
@@ -69,23 +69,23 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: M14WeaponPlasmaCaster
+      id: N14WeaponPlasmaCaster
       weight: 2
     - !type:EntSelector
-      id: M14WeaponLaserGatling
+      id: N14WeaponLaserGatling
       weight: 2
     - !type:EntSelector
-      id: M14WeaponTeslaCannon
+      id: N14WeaponTeslaCannon
       weight: 2
 
 - type: entityTable
   id: M14WeaponLootTier5_RifleAll
   table: !type:GroupSelector
     children:
-    table: !type:NestedSelector
+    - !type:NestedSelector
       tableId: M14WeaponLootTier5_RifleBullet
       weight: 10
-    table: !type:NestedSelector
+    - !type:NestedSelector
       tableId: M14WeaponLootTier5_RifleEnergy
       weight: 10
 
@@ -94,10 +94,10 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: M14WeaponSniper50AntiMateriel
+      id: N14WeaponSniper50AntiMateriel
       weight: 3
     - !type:EntSelector
-      id: M14WeaponSniper50NCRRifle
+      id: N14WeaponSniper50NCRRifle
       weight: 2
 
 - type: entityTable
@@ -105,19 +105,19 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: M14WeaponLaserRiflePrototypeAER14
+      id: N14WeaponLaserRiflePrototypeAER14
       weight: 2
     - !type:EntSelector
-      id: M14WeaponPulseRifle
+      id: N14WeaponPulseRifle
       weight: 2
 
 - type: entityTable
   id: M14WeaponLootTier5_CallIn
   table: !type:GroupSelector
     - !type:EntSelector
-      id: M14ArtilleryFlare
+      id: N14ArtilleryFlare
     - !type:EntSelector
-      id: M14AttackPlaneFlare
+      id: N14AttackPlaneFlare
 
   # Mounted weapons and call-in devices are catalogued for map migration.
   # They remain Tier 5 so normal world spawners only reach them via the 1% roll.
@@ -129,36 +129,36 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: M14WeaponTurretBroken
+      id: N14WeaponTurretBroken
     - !type:EntSelector
-      id: M14WeaponTurretBrotherhoodMidwest
+      id: N14WeaponTurretBrotherhoodMidwest
     - !type:EntSelector
-      id: M14WeaponTurretBrotherhoodMidwestSecureArea
+      id: N14WeaponTurretBrotherhoodMidwestSecureArea
     - !type:EntSelector
-      id: M14WeaponTurretBrotherhoodMidwestSpawnpoint
+      id: N14WeaponTurretBrotherhoodMidwestSpawnpoint
     - !type:EntSelector
-      id: M14WeaponTurretBrotherhoodWashington
+      id: N14WeaponTurretBrotherhoodWashington
     - !type:EntSelector
-      id: M14WeaponTurretBrotherhoodWashingtonSecureArea
+      id: N14WeaponTurretBrotherhoodWashingtonSecureArea
     - !type:EntSelector
-      id: M14WeaponTurretBrotherhoodWashingtonSpawnpoint
+      id: N14WeaponTurretBrotherhoodWashingtonSpawnpoint
     - !type:EntSelector
-      id: M14WeaponTurretCaravan
+      id: N14WeaponTurretCaravan
     - !type:EntSelector
-      id: M14WeaponTurretMobileBroken
+      id: N14WeaponTurretMobileBroken
     - !type:EntSelector
-      id: M14WeaponTurretNCR
+      id: N14WeaponTurretNCR
     - !type:EntSelector
-      id: M14WeaponTurretNCRSecureArea
+      id: N14WeaponTurretNCRSecureArea
     - !type:EntSelector
-      id: M14WeaponTurretNCRSpawnpoint
+      id: N14WeaponTurretNCRSpawnpoint
     - !type:EntSelector
-      id: M14WeaponTurretRaider
+      id: N14WeaponTurretRaider
     - !type:EntSelector
-      id: M14WeaponTurretRobot
+      id: N14WeaponTurretRobot
     - !type:EntSelector
-      id: M14WeaponTurretVault
+      id: N14WeaponTurretVault
     - !type:EntSelector
-      id: M14WeaponTurretVaultSecureArea
+      id: N14WeaponTurretVaultSecureArea
     - !type:EntSelector
-      id: M14WeaponTurretVaultSpawnpoint
+      id: N14WeaponTurretVaultSpawnpoint

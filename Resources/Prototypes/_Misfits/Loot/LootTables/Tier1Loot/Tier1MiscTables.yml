@@ -251,7 +251,7 @@
     children:
     - !type:EntSelector
       id: N14JunkTimer
-    - !type:NestedSelector
+    - !type:EntSelector
       id: N14JunkIron
     - !type:EntSelector
       id: N14Junk8Ball
@@ -260,11 +260,11 @@
     - !type:EntSelector
       id: N14Multitool
     - !type:NestedSelector
-      id: M14PartsLootNoTier_EletricMisc
+      tableId: M14PartsLootNoTier_EletricMisc
     - !type:NestedSelector
-      id: M14PartsLootTier1_UsablesElectric
+      tableId: M14PartsLootTier1_UsablesElectric
     - !type:NestedSelector
-      id: M14PartsLootTier1_ElectricComp
+      tableId: M14PartsLootTier1_ElectricComp
 
 - type: entityTable
   id: M14PartsLootTier1_JunkMetalFocus
@@ -278,11 +278,11 @@
       id: N14JunkTimer
     - !type:EntSelector
       id: N14JunkLunchbox
-    - !type:NestedSelector
+    - !type:EntSelector
       id: N14JunkIron
     - !type:EntSelector
       id: N14JunkVaultCanteen
-    - !type:NestedSelector
+    - !type:EntSelector
       id: N14JunkTurpentine
     - !type:EntSelector
       id: SaxophoneInstrument

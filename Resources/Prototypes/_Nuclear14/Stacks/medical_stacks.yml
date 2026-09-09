@@ -37,3 +37,11 @@
   spawn: N14Ointment1
   maxCount: 10
   itemSize: 1
+# misfit add:
+- type: stack
+  id: N14OintmentAdv10
+  name: regenerative-mesh
+  icon: {sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: regenerative-mesh}
+  spawn: N14OintmentAdv1
+  maxCount: 10
+  itemSize: 1

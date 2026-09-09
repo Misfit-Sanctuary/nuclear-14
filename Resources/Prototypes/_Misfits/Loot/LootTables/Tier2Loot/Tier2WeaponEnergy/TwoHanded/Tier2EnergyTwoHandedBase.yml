@@ -17,7 +17,7 @@
       - !type:NestedSelector
           tableId: M14WeaponLootTier2_PlasmaRifleAuto
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_OtherEnergyRifleAuto
+          tableId: M14WeaponLootTier2_OtherRifleAuto
 
 - type: entityTable
   id: M14WeaponLootTier2_EnergyRifleSemi
@@ -28,7 +28,7 @@
       - !type:NestedSelector
           tableId: M14WeaponLootTier2_PlasmaRifleSemi
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_OtherEnergyRifleSemi
+          tableId: M14WeaponLootTier2_OtherRifleSemi
 
 
 - type: entityTable
@@ -40,4 +40,4 @@
       - !type:NestedSelector
           tableId: M14WeaponLootTier2_PlasmaHeavy
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_OtherEnergyHeavy
+          tableId: M14WeaponLootTier2_OtherHeavy
