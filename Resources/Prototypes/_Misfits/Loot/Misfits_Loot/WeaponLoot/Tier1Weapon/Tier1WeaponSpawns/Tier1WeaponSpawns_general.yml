@@ -1,0 +1,434 @@
+#TODO: holy fuck pls let me finish this by tomorrow I STILL NEED TO DO AMMO SPAWNS FUCK MEEE
+#TODO: DONT FORGET, COLORS, SPRITE TO REP EACH CATEGORY, ORGANIZE INTO DIFF FILES ECT..
+# parent to get color for this tier
+- type: entity
+  name: Tier1 Weapon Spawner
+  abstract: true
+  suffix: Tier1
+  id: M14Tier1Spawner_Ref
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+      state: icon
+
+# Every weapon on this tiers table(melee,guns, energy ect...)
+
+- type: entity
+  name: Tier1 Weapon Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_All
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        tableId: M14WeaponLootTier1
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1
+
+# PISTOL BALLISTICS!!!!!!!!
+
+- type: entity
+  name: Tier1 Pistol Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsBulletPistol
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsBulletPistol
+
+# RIFLE BALLISTICS(semi and auto)!!!!!!!!
+
+- type: entity
+  name: Tier1 Rifle Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsBulletRifle
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsBulletRifle
+
+# REVOLVER BALLISTICS!!!!!
+
+- type: entity
+  name: Tier1 Revolver Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsBulletRevolver
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsBulletRevolver
+
+# SMG BALLISTICS!!!!!
+
+- type: entity
+  name: Tier1 SMG Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsBulletSMG
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsBulletSMG
+
+# "LIGHT" MACHINE GUN(LMG) BALLISTICS!!!!!
+
+- type: entity
+  name: Tier1 LMG Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsBulletLMG
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsBulletLMG
+
+
+# SHOTGUN BALLISTICS!!!!!
+
+- type: entity
+  name: Tier1 Shotgun Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsBulletShotgun
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsBulletShotgun
+
+# HEAVY BALLISTIC GUNS!!!!!
+
+- type: entity
+  name: Tier1 Heavy Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsBulletHeavy
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsBulletHeavy
+
+# SEMI BALLISTIC RIFLES(includes snipers)!!!!!!!
+
+- type: entity
+  name: Tier1 Rifle Semi Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsBulletRifleSemi
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsBulletRifleSemi
+
+# AUTO BALLISTIC RIFLES!!!!!!!
+
+- type: entity
+  name: Tier1 Rifle Auto Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsBulletRifleAuto
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsBulletRifleAuto
+
+# GUN EXPLOSIVES ALL!!!!!!
+
+- type: entity
+  name: Tier1 Gun Explosive Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsExplosiveAll
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsExplosive
+
+# SMALL ARM EXPLOSIVES(IE LAUNCHERS)!!!!!!
+
+- type: entity
+  name: Tier1 SmallArm Explosive Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsExplosiveSmallArm
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsExplosiveSmallArm
+
+# HEAVY GUN EXPLOSIVES(IE MISSLE LAUNCHER, ROCKETS)!!!!!!
+
+- type: entity
+  name: Tier1 Heavy Explosive Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsExplosiveHeavy
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsExplosiveHeavy
+
+# ENERGY WEAPONS!!!!!!
+
+- type: entity
+  name: Tier1 Gun Energy Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsEnergyAll
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsEnergyAll
+
+# PISTOL ENERGY!!!!!!
+
+- type: entity
+  name: Tier1 Pistol Energy Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_EnergyPistol
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_EnergyPistol
+
+# RIFLE ENERGY!!!!!!
+
+- type: entity
+  name: Tier1 Rifle Energy Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_EnergyRifle
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_EnergyRifle
+
+
+# HEAVY ENERGY!!!!!!
+
+- type: entity
+  name: Tier1 Heavy Energy Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_EnergyHeavy
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_EnergyHeavy
+
+
+# MELEE WEAPONS!!!!!!
+
+- type: entity
+  name: Tier1 Melee Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_MeleeAll
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponMeleeLootTier1_MeleeAll
+
+# MELEE ONE HANDED!!!!!
+
+- type: entity
+  name: Tier1 Melee OneHanded Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_MeleeOneHanded
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        children:
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier1_MeleeSharpOneHanded
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier1_MeleeBluntOneHanded
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier1_MeleeOtherOneHanded
+
+# MELEE TWO HANDED WEAPONS!!!!
+
+- type: entity
+  name: Tier1 Melee TwoHanded Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_MeleeTwoHanded
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        children:
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier1_MeleeSharpTwoHanded
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier1_MeleeBluntTwoHanded
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier1_MeleeOtherTwoHanded
+
+# THROWABLES!!!!!!!!!!
+
+- type: entity
+  name: Tier1 Throwables Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_ThrowablesAll
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponMeleeLootTier1_ThrowablesAll
+
+# EXPLOSIVE THROWABLES(IE NADES)!!!!!!
+
+- type: entity
+  name: Tier1 Throwables Explosive Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_ThrowablesExplosive
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponMeleeLootTier1_ThrowablesExplosive
+
+# ""NORMAL"" THROWABLES(IE SHURIKANS)!!!!!!
+
+- type: entity
+  name: Tier1 Throwables Normal Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_Throwables
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponMeleeLootTier1_Throwables
+
+- type: entity
+  name: Tier1 Weapon Spawner 0-3
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult0_3_All
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier1
+
+- type: entity
+  name: Tier1 Pistol Spawner 0-3
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult0_3_GunsBulletPistol
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier1_GunsBulletPistol
+
+
+- type: entity
+  name: Tier1 Weapon Spawner 1-2
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult1_2_All
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier1
+
+- type: entity
+  name: Tier1 Pistol Spawner 1-2
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult1_2_GunsBulletPistol
+  parent: M14Tier1Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      DeleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier1_GunsBulletPistol

@@ -26,7 +26,7 @@
   table: !type:GroupSelector
     children:
     - !type:NestedSelector
-      tableId: N14WeaponLootTier1
+      tableId: M14WeaponLootTier1
       weight: 60
     - !type:NestedSelector
       tableId: M14WeaponLootTier2
