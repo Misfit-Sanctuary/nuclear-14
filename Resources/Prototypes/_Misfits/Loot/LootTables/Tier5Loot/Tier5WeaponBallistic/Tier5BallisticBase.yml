@@ -1,18 +1,18 @@
 - type: entityTable
-  id: M14WeaponLootTier2_GunsBulletAll
+  id: M14WeaponLootTier5_GunsBulletAll
   table: !type:GroupSelector
     children:
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_GunsBulletHeavy
+          tableId: M14WeaponLootTier5_GunsBulletHeavy
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_GunsBulletLMG
+          tableId: M14WeaponLootTier5_GunsBulletLMG
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_GunsBulletRifle
+          tableId: M14WeaponLootTier5_GunsBulletRifle
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_GunsBulletShotgun
+          tableId: M14WeaponLootTier5_GunsBulletShotgun
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_GunsBulletSMG
+          tableId: M14WeaponLootTier5_GunsBulletSMG
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_GunsBulletPistol
+          tableId: M14WeaponLootTier5_GunsBulletPistol
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_GunsBulletRevolver
+          tableId: M14WeaponLootTier5_GunsBulletRevolver

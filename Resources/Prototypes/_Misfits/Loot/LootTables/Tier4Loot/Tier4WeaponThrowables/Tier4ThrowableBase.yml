@@ -1,8 +1,8 @@
 - type: entityTable
-  id: M14WeaponMeleeLootTier2_ThrowablesAll
+  id: M14WeaponMeleeLootTier4_ThrowablesAll
   table: !type:GroupSelector
     children:
       - !type:NestedSelector
-          tableId: M14WeaponMeleeLootTier2_Throwables
+          tableId: M14WeaponMeleeLootTier4_Throwables
       - !type:NestedSelector
-          tableId: M14WeaponMeleeLootTier2_ThrowablesExplosive
+          tableId: M14WeaponMeleeLootTier4_ThrowablesExplosive

@@ -1,8 +1,8 @@
 - type: entityTable
-  id: M14WeaponLootTier2_GunsExplosiveAll
+  id: M14WeaponLootTier1_GunsExplosiveAll
   table: !type:GroupSelector
     children:
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_GunsExplosiveSmallArm
+          tableId: M14WeaponLootTier1_GunsExplosiveSmallArm
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_GunsHeavyExplosive
+          tableId: M14WeaponLootTier1_GunsHeavyExplosive

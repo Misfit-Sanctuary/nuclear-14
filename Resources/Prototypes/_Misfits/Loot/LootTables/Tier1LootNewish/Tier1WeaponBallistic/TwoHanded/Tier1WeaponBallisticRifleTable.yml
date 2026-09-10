@@ -1,7 +1,7 @@
 
 #temp!!!
 - type: entityTable
-  id: M14WeaponLootTier2_GunsBulletRifleAuto
+  id: M14WeaponLootTier1_GunsBulletRifleAuto
   table: !type:GroupSelector
     children:
     - !type:EntSelector
@@ -50,7 +50,7 @@
 
 #temp!!!
 - type: entityTable
-  id: M14WeaponLootTier2_GunsBulletRifleSemi
+  id: M14WeaponLootTier1_GunsBulletRifleSemi
   table: !type:GroupSelector
     children:
     - !type:EntSelector

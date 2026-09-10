@@ -1,43 +1,43 @@
 - type: entityTable
-  id: M14WeaponLootTier2_EnergyRifle
+  id: M14WeaponLootTier1_EnergyRifle
   table: !type:GroupSelector
     children:
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_EnergyRifleAuto
+          tableId: M14WeaponLootTier1_EnergyRifleAuto
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_EnergyRifleSemi
+          tableId: M14WeaponLootTier1_EnergyRifleSemi
 
 
 - type: entityTable
-  id: M14WeaponLootTier2_EnergyRifleAuto
+  id: M14WeaponLootTier1_EnergyRifleAuto
   table: !type:GroupSelector
     children:
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_LaserRifleAuto
+          tableId: M14WeaponLootTier1_LaserRifleAuto
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_PlasmaRifleAuto
+          tableId: M14WeaponLootTier1_PlasmaRifleAuto
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_OtherRifleAuto
+          tableId: M14WeaponLootTier1_OtherRifleAuto
 
 - type: entityTable
-  id: M14WeaponLootTier2_EnergyRifleSemi
+  id: M14WeaponLootTier1_EnergyRifleSemi
   table: !type:GroupSelector
     children:
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_LaserRifleSemi
+          tableId: M14WeaponLootTier1_LaserRifleSemi
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_PlasmaRifleSemi
+          tableId: M14WeaponLootTier1_PlasmaRifleSemi
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_OtherRifleSemi
+          tableId: M14WeaponLootTier1_OtherRifleSemi
 
 
 - type: entityTable
-  id: M14WeaponLootTier2_EnergyHeavy
+  id: M14WeaponLootTier1_EnergyHeavy
   table: !type:GroupSelector
     children:
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_LaserHeavy
+          tableId: M14WeaponLootTier1_LaserHeavy
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_PlasmaHeavy
+          tableId: M14WeaponLootTier1_PlasmaHeavy
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_OtherHeavy
+          tableId: M14WeaponLootTier1_OtherHeavy

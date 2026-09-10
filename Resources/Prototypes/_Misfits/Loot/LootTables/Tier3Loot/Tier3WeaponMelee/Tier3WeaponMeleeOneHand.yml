@@ -1,5 +1,5 @@
 - type: entityTable
-  id: M14WeaponLootTier2_MeleeBluntOneHanded
+  id: M14WeaponLootTier3_MeleeBluntOneHanded
   table: !type:GroupSelector
     children:
     - !type:EntSelector
@@ -15,7 +15,7 @@
       id: N14PoliceBaton
 
 - type: entityTable
-  id: M14WeaponLootTier2_MeleeSharpOneHanded
+  id: M14WeaponLootTier3_MeleeSharpOneHanded
   table: !type:GroupSelector
     children:
     - !type:EntSelector
@@ -58,7 +58,7 @@
       id: N14Whip
 
 - type: entityTable
-  id: M14WeaponLootTier2_MeleeOtherOneHanded
+  id: M14WeaponLootTier3_MeleeOtherOneHanded
   table: !type:GroupSelector
     children:
     - !type:EntSelector
@@ -66,7 +66,7 @@
 
 
 - type: entityTable
-  id: M14WeaponLootTier2_Shield
+  id: M14WeaponLootTier3_Shield
   table: !type:GroupSelector
     children:
     - !type:EntSelector

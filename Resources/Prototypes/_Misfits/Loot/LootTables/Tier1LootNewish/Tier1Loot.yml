@@ -1,23 +1,23 @@
 # Tier 2: scavenged weapons
 
 - type: entityTable
-  id: M14WeaponLootTier2
+  id: M14WeaponLootTier1
   table: !type:GroupSelector
     children:
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_GunsAll
+          tableId: M14WeaponLootTier1_GunsAll
       - !type:NestedSelector
-          tableId: M14WeaponMeleeLootTier2_MeleeAll
+          tableId: M14WeaponMeleeLootTier1_MeleeAll
       - !type:NestedSelector
-          tableId: M14WeaponMeleeLootTier2_ThrowablesAll
+          tableId: M14WeaponMeleeLootTier1_ThrowablesAll
 
 - type: entityTable
-  id: M14WeaponLootTier2_GunsAll
+  id: M14WeaponLootTier1_GunsAll
   table: !type:GroupSelector
     children:
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_GunsBulletAll
+          tableId: M14WeaponLootTier1_GunsBulletAll
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_GunsEnergyAll
+          tableId: M14WeaponLootTier1_GunsEnergyAll
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_GunsExplosiveAll
+          tableId: M14WeaponLootTier1_GunsExplosiveAll

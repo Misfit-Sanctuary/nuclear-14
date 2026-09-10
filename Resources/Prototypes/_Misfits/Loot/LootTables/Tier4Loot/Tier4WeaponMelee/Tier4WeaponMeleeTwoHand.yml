@@ -1,5 +1,5 @@
 - type: entityTable
-  id: M14WeaponLootTier2_MeleeBluntTwoHanded
+  id: M14WeaponLootTier4_MeleeBluntTwoHanded
   table: !type:GroupSelector
     children:
     - !type:EntSelector
@@ -23,7 +23,7 @@
 
 
 - type: entityTable
-  id: M14WeaponLootTier2_MeleeSharpTwoHanded
+  id: M14WeaponLootTier4_MeleeSharpTwoHanded
   table: !type:GroupSelector
     children:
     - !type:EntSelector
@@ -47,7 +47,7 @@
       id: N14PilumSpear # wegion
 
 - type: entityTable
-  id: M14WeaponLootTier2_MeleeOtherTwoHanded
+  id: M14WeaponLootTier4_MeleeOtherTwoHanded
   table: !type:GroupSelector
     children:
     - !type:EntSelector

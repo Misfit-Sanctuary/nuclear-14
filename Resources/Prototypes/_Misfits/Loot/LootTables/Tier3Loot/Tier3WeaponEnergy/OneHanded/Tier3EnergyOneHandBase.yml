@@ -1,10 +1,10 @@
 - type: entityTable
-  id: M14WeaponLootTier2_EnergyPistol
+  id: M14WeaponLootTier3_EnergyPistol
   table: !type:GroupSelector
     children:
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_LaserPistol
+          tableId: M14WeaponLootTier3_LaserPistol
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_PlasmaPistol
+          tableId: M14WeaponLootTier3_PlasmaPistol
       - !type:NestedSelector
-          tableId: M14WeaponLootTier2_OtherPistol
+          tableId: M14WeaponLootTier3_OtherPistol

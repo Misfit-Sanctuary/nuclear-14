@@ -1,5 +1,5 @@
 - type: entityTable
-  id: M14WeaponLootTier2_LaserRifleAuto
+  id: M14WeaponLootTier1_LaserRifleAuto
   table: !type:GroupSelector
     children:
     - !type:EntSelector
@@ -19,7 +19,7 @@
       weight: 1
 
 - type: entityTable
-  id: M14WeaponLootTier2_PlasmaRifleAuto
+  id: M14WeaponLootTier1_PlasmaRifleAuto
   table: !type:GroupSelector
     children:
     - !type:EntSelector
@@ -30,7 +30,7 @@
       weight: 1
 
 - type: entityTable
-  id: M14WeaponLootTier2_OtherRifleAuto
+  id: M14WeaponLootTier1_OtherRifleAuto
   table: !type:GroupSelector
     children:
     - !type:EntSelector
@@ -42,7 +42,7 @@
 
 
 - type: entityTable
-  id: M14WeaponLootTier2_LaserRifleSemi
+  id: M14WeaponLootTier1_LaserRifleSemi
   table: !type:GroupSelector
     children:
     - !type:EntSelector
@@ -65,7 +65,7 @@
       weight: 1
 
 - type: entityTable
-  id: M14WeaponLootTier2_PlasmaRifleSemi
+  id: M14WeaponLootTier1_PlasmaRifleSemi
   table: !type:GroupSelector
     children:
     - !type:EntSelector
@@ -82,7 +82,7 @@
       weight: 1
 
 - type: entityTable
-  id: M14WeaponLootTier2_OtherRifleSemi
+  id: M14WeaponLootTier1_OtherRifleSemi
   table: !type:GroupSelector
     children:
     - !type:EntSelector
