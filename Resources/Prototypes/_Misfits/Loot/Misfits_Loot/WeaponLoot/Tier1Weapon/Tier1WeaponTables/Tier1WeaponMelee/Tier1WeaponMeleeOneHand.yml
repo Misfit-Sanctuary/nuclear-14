@@ -1,0 +1,36 @@
+- type: entityTable
+  id: M14WeaponLootTier1_MeleeBluntOneHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14BrokenPipe
+    - !type:EntSelector
+      id: N14PoliceBaton
+#omfg we need more one handed blunt
+
+- type: entityTable
+  id: M14WeaponLootTier1_MeleeSharpOneHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14ScrapMachete
+    - !type:EntSelector
+      id: N14KitchenKnife
+    - !type:EntSelector
+      id: N14ButchersCleaver
+
+
+- type: entityTable
+  id: M14WeaponLootTier1_MeleeOtherOneHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: Error
+
+
+- type: entityTable
+  id: M14WeaponLootTier1_Shield
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: Error

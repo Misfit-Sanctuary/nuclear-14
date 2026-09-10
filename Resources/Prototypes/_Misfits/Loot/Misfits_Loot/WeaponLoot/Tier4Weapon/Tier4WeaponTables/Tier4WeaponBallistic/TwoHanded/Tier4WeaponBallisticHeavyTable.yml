@@ -1,0 +1,7 @@
+- type: entityTable
+  id: M14WeaponLootTier4_GunsBulletHeavy
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponMinigun
+      weight: 7

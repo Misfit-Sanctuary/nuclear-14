@@ -1,8 +1,0 @@
-- type: entityTable
-  id: M14WeaponLootTier1_GunsBulletRifle
-  table: !type:GroupSelector
-    children:
-      - !type:NestedSelector
-          tableId: M14WeaponLootTier1_GunsBulletRifleAuto
-      - !type:NestedSelector
-          tableId: M14WeaponLootTier1_GunsBulletRifleSemi

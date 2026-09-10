@@ -1,0 +1,6 @@
+- type: entityTable
+  id: M14WeaponLootTier2_GunsBulletLMG
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: Error

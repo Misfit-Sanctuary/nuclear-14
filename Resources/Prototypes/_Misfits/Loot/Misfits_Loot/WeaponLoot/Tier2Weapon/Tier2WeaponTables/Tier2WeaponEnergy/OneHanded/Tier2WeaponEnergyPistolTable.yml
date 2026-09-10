@@ -1,0 +1,24 @@
+
+- type: entityTable
+  id: M14WeaponLootTier2_LaserPistol
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponLaserPistolRecharger
+      weight: 2
+# need like crude/makeshift pistols
+- type: entityTable
+  id: M14WeaponLootTier2_PlasmaPistol
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: Error
+#Resources/Maps/, Recipes/, Changelog/, Migrations/, Kits/, tags.yml, Materials/, Blueprints/, Mail/, Machines/, Loadouts/, SoundCollections/, Trade/
+
+- type: entityTable
+  id: M14WeaponLootTier2_OtherPistol
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: Error
+

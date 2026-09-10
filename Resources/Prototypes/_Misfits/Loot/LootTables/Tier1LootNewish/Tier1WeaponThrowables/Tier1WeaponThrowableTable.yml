@@ -1,9 +1,0 @@
-#temp!!!!
-- type: entityTable
-  id: M14WeaponMeleeLootTier1_Throwables
-  table: !type:GroupSelector
-    children:
-    - !type:EntSelector
-      id: N14WastelandTribalJavelin
-    - !type:EntSelector
-      id: ThrowingKnife

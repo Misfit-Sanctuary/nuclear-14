@@ -1,0 +1,72 @@
+#Tier N: Just a reference of every weapon. So basically template to copy paste any individual section or entire Tier
+# if a new tier is added
+- type: entityTable
+  id: M14WeaponLootTierN
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponLootTierN_GunsAll
+      - !type:NestedSelector
+          tableId: M14WeaponMeleeLootTierN_MeleeAll
+      - !type:NestedSelector
+          tableId: M14WeaponMeleeLootTierN_ThrowablesAll
+
+- type: entityTable
+  id: M14WeaponLootTierN_GunsAll
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponLootTierN_GunsBulletAll
+      - !type:NestedSelector
+          tableId: M14WeaponLootTierN_GunsEnergyAll
+      - !type:NestedSelector
+          tableId: M14WeaponLootTierN_GunsExplosiveAll
+
+# unused
+- type: entityTable
+  id: M14WeaponLootTierN_CallIn
+  table: !type:GroupSelector
+    - !type:EntSelector
+      id: N14ArtilleryFlare
+    - !type:EntSelector
+      id: N14AttackPlaneFlare
+
+#unused
+- type: entityTable
+  id: M14TurretTableTierN_Any_Unused
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponTurretBroken
+    - !type:EntSelector
+      id: N14WeaponTurretBrotherhoodMidwest
+    - !type:EntSelector
+      id: N14WeaponTurretBrotherhoodMidwestSecureArea
+    - !type:EntSelector
+      id: N14WeaponTurretBrotherhoodMidwestSpawnpoint
+    - !type:EntSelector
+      id: N14WeaponTurretBrotherhoodWashington
+    - !type:EntSelector
+      id: N14WeaponTurretBrotherhoodWashingtonSecureArea
+    - !type:EntSelector
+      id: N14WeaponTurretBrotherhoodWashingtonSpawnpoint
+    - !type:EntSelector
+      id: N14WeaponTurretCaravan
+    - !type:EntSelector
+      id: N14WeaponTurretMobileBroken
+    - !type:EntSelector
+      id: N14WeaponTurretNCR
+    - !type:EntSelector
+      id: N14WeaponTurretNCRSecureArea
+    - !type:EntSelector
+      id: N14WeaponTurretNCRSpawnpoint
+    - !type:EntSelector
+      id: N14WeaponTurretRaider
+    - !type:EntSelector
+      id: N14WeaponTurretRobot
+    - !type:EntSelector
+      id: N14WeaponTurretVault
+    - !type:EntSelector
+      id: N14WeaponTurretVaultSecureArea
+    - !type:EntSelector
+      id: N14WeaponTurretVaultSpawnpoint

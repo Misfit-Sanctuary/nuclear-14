@@ -1,0 +1,10 @@
+- type: entityTable
+  id: M14WeaponLootTier1_GunsEnergyAll
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier1_EnergyRifle
+#      - !type:NestedSelector
+#          tableId: M14WeaponLootTier1_EnergyHeavy
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier1_EnergyPistol

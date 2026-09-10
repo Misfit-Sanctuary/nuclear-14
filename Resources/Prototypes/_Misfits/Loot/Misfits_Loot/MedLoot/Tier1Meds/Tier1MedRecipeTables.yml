@@ -1,0 +1,68 @@
+- type: entityTable
+  id: M14MedsConsumableLootTier1_HealRecipeBasket
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FloraProduceWildBrocFlower
+      weight: 10
+    - !type:EntSelector
+      id: N14FloraProduceWildXander
+      weight: 10
+
+- type: entityTable
+  id: M14MedsConsumableLootTier1_UncommonPoulticeRecipeBasket
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FloraProduceWildBrocFlower
+      weight: 10
+    - !type:EntSelector
+      id: N14FloraProduceWildXander
+      weight: 10
+    - !type:EntSelector
+      id: N14FloraProduceWildCaveFungusRad
+      weight: 10
+    - !type:EntSelector
+      id: N14FloraProduceWildAgave
+      weight: 10
+
+- type: entityTable
+  id: M14MedsConsumableLootTier2_UncommonBitterDrinkRecipeBasket
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FloraProduceWildGlowpepper
+      weight: 10
+    - !type:EntSelector
+      id: N14FloraProduceWildPinyonNuts
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkMilkBrahmin
+      weight: 10
+
+- type: entityTable
+  id: M14MedsConsumableLootTier1_UncommonAntidoteWeakRecipeBasket
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FloraProduceWildTarberries
+      weight: 10
+    - !type:EntSelector
+      id: N14MaterialRadscorpionTail
+      weight: 10
+
+- type: entityTable
+  id: M14MedsConsumableLootTier2_UncommonAntidoteRecipeBasket
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FloraProduceWildTarberries
+      weight: 10
+    - !type:EntSelector
+      id: N14MaterialRadscorpionTail
+      weight: 10
+    - !type:EntSelector
+      id: N14JunkAbraxoCleaner
+      weight: 10
+
+

@@ -1,0 +1,7 @@
+#temp!!!!
+- type: entityTable
+  id: M14WeaponMeleeLootTier1_Throwables
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: ThrowingKnife

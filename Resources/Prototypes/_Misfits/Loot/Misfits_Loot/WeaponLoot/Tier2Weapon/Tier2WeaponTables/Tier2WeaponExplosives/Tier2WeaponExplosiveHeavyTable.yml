@@ -1,0 +1,6 @@
+- type: entityTable
+  id: M14WeaponLootTier2_GunsHeavyExplosive
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: Error

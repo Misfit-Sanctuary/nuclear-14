@@ -1,0 +1,7 @@
+- type: entityTable
+  id: M14WeaponLootTierN_GunsHeavyExplosive
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponLauncherMissile
+      weight: 7

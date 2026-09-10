@@ -1,0 +1,11 @@
+- type: entityTable
+  id: M14WeaponMeleeLootTier1_ThrowablesExplosive
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14TinNade
+    - !type:EntSelector
+      id: N14FirecrackerHalf
+    - !type:EntSelector
+      id: N14Firecracker
+

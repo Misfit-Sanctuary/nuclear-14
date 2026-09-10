@@ -1,0 +1,43 @@
+- type: entityTable
+  id: M14WeaponLootTier4_EnergyRifle
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier4_EnergyRifleAuto
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier4_EnergyRifleSemi
+
+
+- type: entityTable
+  id: M14WeaponLootTier4_EnergyRifleAuto
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier4_LaserRifleAuto
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier4_PlasmaRifleAuto
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier4_OtherRifleAuto
+
+- type: entityTable
+  id: M14WeaponLootTier4_EnergyRifleSemi
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier4_LaserRifleSemi
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier4_PlasmaRifleSemi
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier4_OtherRifleSemi
+
+
+- type: entityTable
+  id: M14WeaponLootTier4_EnergyHeavy
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier4_LaserHeavy
+#      - !type:NestedSelector
+#          tableId: M14WeaponLootTier4_PlasmaHeavy
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier4_OtherHeavy

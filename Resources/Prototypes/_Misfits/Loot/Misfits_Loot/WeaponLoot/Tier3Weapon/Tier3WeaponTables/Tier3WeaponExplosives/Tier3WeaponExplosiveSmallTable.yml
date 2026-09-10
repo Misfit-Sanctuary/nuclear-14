@@ -1,0 +1,7 @@
+- type: entityTable
+  id: M14WeaponLootTier3_GunsExplosiveSmallArm
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponRifleGrenade # single shot
+      weight: 1

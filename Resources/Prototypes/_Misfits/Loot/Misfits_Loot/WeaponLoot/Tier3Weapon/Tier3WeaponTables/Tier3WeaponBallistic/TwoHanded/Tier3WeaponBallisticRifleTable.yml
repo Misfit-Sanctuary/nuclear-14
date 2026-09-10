@@ -1,0 +1,60 @@
+
+#temp!!!
+- type: entityTable
+  id: M14WeaponLootTier3_GunsBulletRifleAuto
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponRifle556Carbine
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle556CarbineOld
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle556Pipe
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle556R91
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifleAk112 #BOS??
+      weight: 4
+
+#temp!!!
+- type: entityTable
+  id: M14WeaponLootTier3_GunsBulletRifleSemi
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponSniper308PipeRifle
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle10mmM1Carbine
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniper556VarmintRifle
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniper556Tribal
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle556Butchered
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle556Service
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle556Scout
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniper308Tribal
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniperHunting
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniperCowboyRepeater #.357
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniper44LeverShortCarbine
+      weight: 4

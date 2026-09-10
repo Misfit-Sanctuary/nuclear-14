@@ -1,0 +1,796 @@
+- type: entityTable
+  id: M14MedsLootTier1
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DirtyGauze10
+      weight: 15
+
+- type: entityTable
+  id: M14MedsLootTier1_Plus
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14StimpakDirty
+      weight: 5
+    - !type:EntSelector
+      id: N14HealingPowder
+      weight: 5
+
+- type: entityTable
+  id: M14MedsLootTier1_UncommonAntiRad
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadXPill
+      weight: 10
+    - !type:EntSelector
+      id: N14CleansingPowder
+      weight: 20
+
+- type: entityTable
+  id: M14MedsLootTier1_PlusSuperRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14StimpakDirty
+      weight: 5
+    - !type:EntSelector
+      id: N14HealingPowder
+      weight: 5
+    - !type:EntSelector
+      id: N14SmellingSalts
+      weight: 5
+
+
+- type: entityTable
+  id: M14MedsLootTier1_DrugsUncommon
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadXPill
+    - !type:EntSelector
+      id: N14CateyePill
+    - !type:EntSelector
+      id: N14MentatsPill
+
+- type: entityTable
+  id: M14MedsLootTier1_DrugsRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadXPill
+    - !type:EntSelector
+      id: N14BuffoutPill
+
+- type: entityTable
+  id: M14MedsLootTier1_DrugsSuperRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14BuffoutCanisterFilled
+    - !type:EntSelector
+      id: N14RadXCanisterFilled
+
+# tier 2
+- type: entityTable
+  id: M14MedsLootTier2
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14HealingPowder
+      weight: 20
+    - !type:EntSelector
+      id: N14StimpakDirty
+      weight: 10
+    - !type:EntSelector
+      id: N14CleanGauze10
+      weight: 20
+    - !type:EntSelector
+      id: N14DirtyGauze10
+      weight: 30
+    - !type:EntSelector
+      id: N14RadAwayInhalerTrash
+      weight: 15
+
+- type: entityTable
+  id: M14MedsLootTier2_AntiRad
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadAwayInhalerTrash
+      weight: 10
+    - !type:EntSelector
+      id: N14RadXPill
+      weight: 25
+    - !type:EntSelector
+      id: N14CleansingPowder
+      weight: 10
+
+- type: entityTable
+  id: M14MedsLootTier2Plus_AntiRadRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadAwayInhaler
+      weight: 10
+    - !type:EntSelector
+      id: N14RadXCanisterFilled
+      weight: 10
+    - !type:EntSelector
+      id: N14RadAwayBloodbag
+      weight: 5
+
+- type: entityTable
+  id: M14MedsLootTier2_UncommonPowder
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14HealingPowder
+      weight: 15
+    - !type:EntSelector
+      id: N14CleanGauze10
+      weight: 4
+    - !type:EntSelector
+      id: N14DirtyGauze10
+      weight: 10
+
+- type: entityTable
+  id: M14MedsLootTier2_UncommonStim
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14StimpakDirty
+      weight: 8
+    - !type:EntSelector
+      id: N14CleanGauze10
+      weight: 6
+    - !type:EntSelector
+      id: N14DirtyGauze10
+      weight: 12
+
+- type: entityTable
+  id: M14MedsLootTier2_UncommonPureHeal
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14HealingPowder
+      weight: 12
+    - !type:EntSelector
+      id: N14StimpakDirty
+      weight: 6
+
+- type: entityTable
+  id: M14MedsLootTier2_PlusRareTribal
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14SmellingSalts
+      weight: 6
+    - !type:EntSelector
+      id: N14HealingPoultice
+      weight: 10
+    - !type:EntSelector
+      id: N14Bitterdrink
+      weight: 8
+
+- type: entityTable
+  id: M14MedsLootTier2_PlusRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14SmellingSalts
+      weight: 5
+    - !type:EntSelector
+      id: N14Stimpak
+      weight: 8
+    - !type:EntSelector
+      id: N14HealingPoultice
+      weight: 8
+    - !type:EntSelector
+      id: N14RadAwayInhaler
+      weight: 8
+
+- type: entityTable
+  id: M14MedsLootTier2_SuperRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14SmellingSalts
+      weight: 4
+    - !type:EntSelector
+      id: N14Stimpak
+      weight: 2
+    - !type:EntSelector
+      id: N14RadAwayBloodbag
+      weight: 2
+
+- type: entityTable
+  id: M14MedsLootTier2_Drugs
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadXPill
+      weight: 10
+    - !type:EntSelector
+      id: N14CateyePill
+      weight: 5
+    - !type:EntSelector
+      id: N14MentatsPill
+      weight: 10
+    - !type:EntSelector
+      id: N14BuffoutPill
+      weight: 8
+    - !type:EntSelector
+      id: N14BuffjetPill
+      weight: 1
+    - !type:EntSelector
+      id: N14BufftatsPill
+      weight: 1
+
+- type: entityTable
+  id: M14MedsLootTier2_DrugsUncommon
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadXPill
+      weight: 10
+    - !type:EntSelector
+      id: N14MentatsPill
+      weight: 10
+    - !type:EntSelector
+      id: N14BuffoutPill
+      weight: 8
+    - !type:EntSelector
+      id: N14BuffjetPill
+      weight: 1
+    - !type:EntSelector
+      id: N14BufftatsPill
+      weight: 1
+
+- type: entityTable
+  id: M14MedsLootTier2_DrugsUncommonAlt
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadXPill
+      weight: 8
+    - !type:EntSelector
+      id: N14MentatsPill
+      weight: 8
+    - !type:EntSelector
+      id: N14BuffoutPill
+      weight: 15
+    - !type:EntSelector
+      id: N14CateyeCanisterFilled
+      weight: 8
+
+
+
+- type: entityTable
+  id: M14MedsLootTier2Plus_DrugsRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadXCanisterFilled
+      weight: 10
+    - !type:EntSelector
+      id: N14BuffoutCanisterFilled
+      weight: 10
+    - !type:EntSelector
+      id: N14MentatsCanisterFilled
+      weight: 15
+    - !type:EntSelector
+      id: N14BuffjetPill
+      weight: 25
+    - !type:EntSelector
+      id: N14BufftatsPill
+      weight: 25
+    - !type:EntSelector
+      id: N14JetInhaler
+      weight: 20
+
+- type: entityTable
+  id: M14MedsLootTier2Plus_DrugsSuperRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14BuffoutCanisterFilled
+      weight: 50
+    - !type:EntSelector
+      id: N14FixerPill
+      weight: 10
+
+- type: entityTable
+  id: M14MedsLootTier2Plus_AltDrugsSuperRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Med-X
+      weight: 10
+    - !type:EntSelector
+      id: N14Psycho
+      weight: 15
+    - !type:EntSelector
+      id: N14Hydra
+      weight: 5
+    - !type:EntSelector
+      id: N14Turbo
+      weight: 5
+
+# tier 3
+- type: entityTable
+  id: M14MedsLootTier3
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Stimpak
+      weight: 10
+    - !type:EntSelector
+      id: N14StimpakDirty
+      weight: 5
+    - !type:EntSelector
+      id: N14RadAwayInhalerTrash
+      weight: 8
+    - !type:EntSelector
+      id: N14RadAwayInhaler
+      weight: 5
+
+- type: entityTable
+  id: M14MedsLootTier3_UncommonSalts
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14SmellingSalts
+      weight: 15
+    - !type:EntSelector
+      id: N14Stimpak
+      weight: 5
+
+- type: entityTable
+  id: M14MedsLootTier3_Topicals
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14CleanGauze10
+      weight: 10
+    - !type:EntSelector
+      id: N14Bandage
+      weight: 8
+    - !type:EntSelector
+      id: N14Traumapack
+      weight: 1
+    - !type:EntSelector
+      id: N14Ointment10
+      weight: 5
+    - !type:EntSelector
+      id: N14AloeSalve
+      weight: 2
+
+- type: entityTable
+  id: M14MedsLootTier3_BloodlossMult
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14CleanGauze10
+      weight: 10
+    - !type:EntSelector
+      id: N14Bandage
+      amount: !type:IntegerRangeNumberRNGSelector
+        min: 2
+        max: 3
+      weight: 35
+
+- type: entityTable
+  id: M14MedsLootTier3_BurnMult
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Ointment10
+      amount: !type:IntegerRangeNumberRNGSelector
+        min: 2
+        max: 3
+      weight: 35
+    - !type:EntSelector
+      id: N14AloeSalve
+      weight: 15
+
+- type: entityTable
+  id: M14MedsLootTier3_Rare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Stimpak
+      weight: 10
+    - !type:EntSelector
+      id: N14RadAwayInhaler
+      weight: 5
+
+- type: entityTable
+  id: M14MedsLootTier3_PlusRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Stimpak
+      weight: 10
+    - !type:EntSelector
+      id: N14RadAwayInhaler
+      weight: 5
+    - !type:EntSelector
+      id: N14Stimpak
+      weight: 10
+    - !type:EntSelector
+      id: N14RadAwayInhaler
+      weight: 5
+
+# tribals peak here lol
+- type: entityTable
+  id: M14MedsLootTier3_Tribal
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14HealingPoultice
+      weight: 10
+    - !type:EntSelector
+      id: N14Bitterdrink
+      weight: 7
+    - !type:EntSelector
+      id: N14BerserkerPowder
+      weight: 7
+
+- type: entityTable
+  id: M14MedsLootTier3_TribalUncommon
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14HealingPoultice
+      weight: 4
+    - !type:EntSelector
+      id: N14Bitterdrink
+      weight: 10
+    - !type:EntSelector
+      id: N14BerserkerPowder
+      weight: 12
+
+- type: entityTable
+  id: M14MedsLootTier3_AntiRad
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadAwayInhaler
+      weight: 20
+    - !type:EntSelector
+      id: N14Bitterdrink
+      weight: 5
+    - !type:EntSelector
+      id: N14RadAwayBloodbag
+      weight: 15
+
+- type: entityTable
+  id: M14MedsLootTier3_AntiRadUncommon
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadAwayInhaler
+      weight: 10
+    - !type:EntSelector
+      id: N14RadXCanisterFilled
+      weight: 15
+    - !type:EntSelector
+      id: N14RadAwayBloodbag
+      weight: 30
+
+- type: entityTable
+  id: M14MedsLootTier3_Drugs
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Med-X
+      weight: 1
+    - !type:EntSelector
+      id: N14Psycho
+      weight: 5
+    - !type:EntSelector
+      id: N14JetInhaler
+      weight: 5
+
+
+- type: entityTable
+  id: M14MedsLootTier3_DrugsAlt
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14BufftatsPill
+      weight: 5
+    - !type:EntSelector
+      id: N14BuffjetPill
+      weight: 5
+    - !type:EntSelector
+      id: N14BuffoutPill
+      weight: 5
+
+- type: entityTable
+  id: M14MedsLootTier3_DrugsUncommonCanisters
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14BufftatsCanisterFilled
+      weight: 5
+    - !type:EntSelector
+      id: N14BuffjetCanisterFilled
+      weight: 5
+    - !type:EntSelector
+      id: N14BuffoutCanisterFilled
+      weight: 5
+    - !type:EntSelector
+      id: N14CateyeCanisterFilled
+      weight: 5
+    - !type:EntSelector
+      id: N14MentatsCanisterFilled
+      weight: 5
+
+
+- type: entityTable
+  id: M14MedsLootTier3_DrugsRareFixer
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FixerPill
+      weight: 15
+    - !type:EntSelector
+      id: N14Med-X
+      weight: 10
+
+
+- type: entityTable
+  id: M14MedsLootTier3Plus_DrugsUncommon
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Med-X
+      weight: 15
+    - !type:EntSelector
+      id: N14Hydra
+      weight: 10
+    - !type:EntSelector
+      id: N14Turbo
+      weight: 10
+    - !type:EntSelector
+      id: N14FixerPill
+      weight: 1
+
+- type: entityTable
+  id: M14MedsLootTier3_DrugsSuperRareFixer
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FixerPill
+      weight: 50
+    - !type:EntSelector
+      id: N14FixerCanisterFilled
+      weight: 5
+    - !type:EntSelector
+      id: N14Med-X
+      weight: 5
+
+# tier 4
+- type: entityTable
+  id: M14MedsLootTier4
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadAwayInhaler
+      weight: 8
+    - !type:EntSelector
+      id: N14RadAwayBloodbag
+      weight: 5
+    - !type:EntSelector
+      id: N14Stimpak
+      weight: 15
+    - !type:EntSelector
+      id: N14SuperStimpak
+      weight: 1
+
+- type: entityTable
+  id: M14MedsLootTier4_Stim
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Stimpak
+      weight: 15
+    - !type:EntSelector
+      id: N14SuperStimpak
+      weight: 1
+
+- type: entityTable
+  id: M14MedsLootTier4_AntiRad
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadAwayInhaler
+      weight: 25
+    - !type:EntSelector
+      id: N14RadAwayBloodbag
+      weight: 20
+
+- type: entityTable
+  id: M14MedsLootTier4_Drugs
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Med-X
+      weight: 8
+    - !type:EntSelector
+      id: N14Psycho
+      weight: 10
+    - !type:EntSelector
+      id: N14JetInhaler
+      weight: 10
+    - !type:EntSelector
+      id: N14Hydra
+      weight: 6
+    - !type:EntSelector
+      id: N14Turbo
+      weight: 6
+    - !type:EntSelector
+      id: N14FixerPill
+      weight: 1
+
+- type: entityTable
+  id: M14MedsLootTier4_DrugsUncommon
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Med-X
+      weight: 8
+    - !type:EntSelector
+      id: N14Hydra
+      weight: 5
+    - !type:EntSelector
+      id: N14Turbo
+      weight: 5
+    - !type:EntSelector
+      id: N14FixerPill
+      weight: 3
+    - !type:EntSelector
+      id: N14FixerCanisterFilled
+      weight: 1
+
+- type: entityTable
+  id: M14MedsLootTier4_DrugsRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Hydra
+      weight: 6
+    - !type:EntSelector
+      id: N14Turbo
+      weight: 6
+    - !type:EntSelector
+      id: N14FixerPill
+      weight: 5
+    - !type:EntSelector
+      id: N14FixerCanisterFilled
+      weight: 5
+
+- type: entityTable
+  id: M14MedsLootTier4_Topicals
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Bandage
+      weight: 10
+    - !type:EntSelector
+      id: N14Traumapack
+      weight: 5
+    - !type:EntSelector
+      id: N14Ointment10
+      weight: 5
+    - !type:EntSelector
+      id: N14AloeSalve
+      weight: 10
+#N14OintmentAdv10
+
+- type: entityTable
+  id: M14MedsLootTier4_BloodlossMultRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14CleanGauze10
+      amount: !type:IntegerRangeNumberRNGSelector
+        min: 2
+        max: 3
+      weight: 20
+    - !type:EntSelector
+      id: N14Bandage
+      amount: !type:IntegerRangeNumberRNGSelector
+        min: 2
+        max: 3
+      weight: 35
+
+
+- type: entityTable
+  id: M14MedsConsumableLootTier1_HealRecipeBasket
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FloraProduceWildBrocFlower
+      weight: 10
+    - !type:EntSelector
+      id: N14FloraProduceWildXander
+      weight: 10
+
+- type: entityTable
+  id: M14MedsConsumableLootTier1_UncommonPoulticeRecipeBasket
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FloraProduceWildBrocFlower
+      weight: 10
+    - !type:EntSelector
+      id: N14FloraProduceWildXander
+      weight: 10
+    - !type:EntSelector
+      id: N14FloraProduceWildCaveFungusRad
+      weight: 10
+    - !type:EntSelector
+      id: N14FloraProduceWildAgave
+      weight: 10
+
+- type: entityTable
+  id: M14MedsConsumableLootTier2_UncommonBitterDrinkRecipeBasket
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FloraProduceWildGlowpepper
+      weight: 10
+    - !type:EntSelector
+      id: N14FloraProduceWildPinyonNuts
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkMilkBrahmin
+      weight: 10
+
+- type: entityTable
+  id: M14MedsConsumableLootTier1_UncommonAntidoteWeakRecipeBasket
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FloraProduceWildTarberries
+      weight: 10
+    - !type:EntSelector
+      id: N14MaterialRadscorpionTail
+      weight: 10
+
+- type: entityTable
+  id: M14MedsConsumableLootTier2_UncommonAntidoteRecipeBasket
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FloraProduceWildTarberries
+      weight: 10
+    - !type:EntSelector
+      id: N14MaterialRadscorpionTail
+      weight: 10
+    - !type:EntSelector
+      id: N14JunkAbraxoCleaner
+      weight: 10
+
+
+  # epotin + other converted base ss14 meds need to use deathclaw semen or something lmao
+# TODO:
+# yup basic content covered
+# still need to handle N14SmellingSalts , doafter healers need to be converted to fallout, tier5 maybe,
+# things like ethanol or other healing craftables need their own category. generally allow for crafting above tier
+
+
+       # - id: N14MourningPoultice prolly for another category
+
+       # - id: N14UltraStimpak crafting only for now
+       # - id: N14Ethanol craft material
+       # - id: N14SmellingSalts rework crafting
+       # - id: N14Antidote craftonly
+       # - id: N14ChemicalSyringeAntidote craftonly
+
+       # - id: N14CombatInjector supa rare
+

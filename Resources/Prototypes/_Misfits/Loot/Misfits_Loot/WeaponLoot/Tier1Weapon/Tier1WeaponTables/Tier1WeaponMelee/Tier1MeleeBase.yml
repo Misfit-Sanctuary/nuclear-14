@@ -1,0 +1,38 @@
+- type: entityTable
+  id: M14WeaponMeleeLootTier1_MeleeAll
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier1_MeleeBlunt
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier1_MeleeSharp
+#      - !type:NestedSelector
+#          tableId: M14WeaponLootTier1_MeleeOther
+# stuff here
+
+- type: entityTable
+  id: M14WeaponLootTier1_MeleeBlunt
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier1_MeleeBluntOneHanded
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier1_MeleeBluntTwoHanded
+
+- type: entityTable
+  id: M14WeaponLootTier1_MeleeSharp
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier1_MeleeSharpOneHanded
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier1_MeleeSharpTwoHanded
+
+- type: entityTable
+  id: M14WeaponLootTier1_MeleeOther
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier1_MeleeOtherOneHanded
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier1_MeleeOtherTwoHanded
