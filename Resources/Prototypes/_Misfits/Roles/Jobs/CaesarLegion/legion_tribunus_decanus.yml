@@ -1,22 +1,16 @@
 - type: job
-  id: CaesarLegionPrimeDecanus
+  id: CaesarLegionTribunusDecanus
   setPreference: true
   hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
   jobWhitelistBypassesRoleTimers: true # #Misfits Change
   weight: 140
-  name: job-name-caesar-legion-prime-decanus
-  description: job-description-caesar-legion-prime-decanus
-  playTimeTracker: CaesarLegionPrimeDecanus
+  name: job-name-caesar-legion-tribunus-decanus
+  description: job-description-caesar-legion-tribunus-decanus
+  playTimeTracker: CaesarLegionTribunusDecanus
   requirements:
-    - !type:CharacterDepartmentTimeRequirement # Legion total timelock
-      department: CaesarLegion
-      min: 108000 # 30 hours
     - !type:CharacterPlaytimeRequirement
-      tracker: CaesarLegionDean
-      min: 21600 # 6 hours
-    # TEMP REMOVED - !type:CharacterDepartmentTimeRequirement
-    #   department: CaesarLegion
-    #   min: 162000 # 45 hours
+      tracker: CaesarLegionPrimeDecanus
+      min: 72000 # 20 hours, same as previous time req for gravis
     - !type:CharacterSpeciesRequirement
       species:
       - Human
@@ -24,7 +18,7 @@
       sex: Male
     - !type:CharacterGenderRequirement
       gender: Male
-  startingGear: CaesarLegionPrimeDecanusGear
+  startingGear: CaesarLegionTribunusDecanusGear
   alwaysUseSpawner: true
   icon: "JobIconlegionerDean"
   supervisors: job-name-caesar-legion-supervisors
@@ -68,7 +62,7 @@
     traits: [ LanguageLatin ]
 
 - type: startingGear
-  id: CaesarLegionPrimeDecanusGear
+  id: CaesarLegionTribunusDecanusGear
   equipment:
     wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitLegionnaire
@@ -79,7 +73,7 @@
     shoes: N14ClothingBootsCombatFilled
     head: N14ClothingHeadHatDeanPrimeHelmet
     gloves: N14ClothingHandsGlovesTribal
-    outerClothing: MisfitsLegionPrimeDecanusArmor # #Misfits Tweak: T6 armor (0.65/0.60) — Prime Decanus tier
+    outerClothing: N14ClothingOuterPowerArmorLegion #whole point of the tribunus and praefectus roles
     belt: N14Gladius
     pocket1: LegionDeanloadoutkits
     id: N14IDLegionaryMedalPrimeDecanus
@@ -88,6 +82,8 @@
     back:
     - N14BoxPlasticFilledMilitaryLegion #Misfits Change /Tweak/: Legion uses tribal medicine, not stimpaks
     - N14HealingPowder
+    - N14WelderIndustrial # self explainatory for pa user
+    - N14ClothingEyesGlassesWelding
 
 - type: playTimeTracker
-  id: CaesarLegionPrimeDecanus
+  id: CaesarLegionTribunusDecanus

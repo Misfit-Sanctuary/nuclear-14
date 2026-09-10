@@ -207,20 +207,21 @@
   items:
     - N14ClothingNeckCloakLegionRed
 
-- type: loadout
-  id: LoadoutLegionPrimeHeavyArmor
-  category: Outer
-  cost: 14 # EVERY. SINGLE. POINT.
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - CaesarLegionPrimeDecanus
-    - !type:CharacterPlaytimeRequirement
-      tracker: CaesarLegionPrimeDecanus
-      min: 72000 # 20 hours
-  items:
-    - N14ClothingOuterPowerArmorLegion
+#- type: loadout
+#  id: LoadoutLegionPrimeHeavyArmor
+#  category: Outer
+#  cost: 14 # EVERY. SINGLE. POINT.
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - CaesarLegionPrimeDecanus
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: CaesarLegionPrimeDecanus
+#      min: 72000 # 20 hours
+#  items:
+#    - N14ClothingOuterPowerArmorLegion
+# no longer a loadout option primes unlock, but its own job called tribunus
 
 - type: loadout
   id: LoadoutLegionExplorerVeteranArmor
