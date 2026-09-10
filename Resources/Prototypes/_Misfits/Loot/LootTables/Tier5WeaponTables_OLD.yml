@@ -1,7 +1,7 @@
 # Tier 5: end-game heavy weapons. rewritting WIP
 #(Line: 10, Col: 7, Idx: 244) - (Line: 10, Col: 27, Idx: 264)
 - type: entityTable
-  id: M14WeaponLootTier5_Any
+  id: M14WeaponLootTier5
   table: !type:GroupSelector
     children:
     - !type:NestedSelector

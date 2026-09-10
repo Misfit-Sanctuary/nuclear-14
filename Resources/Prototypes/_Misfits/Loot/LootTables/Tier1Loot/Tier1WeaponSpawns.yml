@@ -11,9 +11,9 @@
     deleteSpawnerAfterSpawn: false
     offset: 0
     table: !type:GroupSelector
-    rolls: !type:IntegerRangeNumberRNGSelector
-      min: 1
-      max: 3
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 3
       children:
         - !type:NestedSelector
           tableId: M14WeaponLootTier1
@@ -50,6 +50,6 @@
           tableId: M14WeaponLootTier1
           weight: 80
         - !type:NestedSelector
-          tableId: N14WeaponLootTier2
+          tableId: M14WeaponLootTier2
           weight: 20
 

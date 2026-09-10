@@ -29,14 +29,14 @@
       tableId: N14WeaponLootTier1
       weight: 60
     - !type:NestedSelector
-      tableId: N14WeaponLootTier2
+      tableId: M14WeaponLootTier2
       weight: 25
     - !type:NestedSelector
-      tableId: N14WeaponLootTier3
+      tableId: M14WeaponLootTier3
       weight: 10
     - !type:NestedSelector
-      tableId: N14WeaponLootTier4
+      tableId: M14WeaponLootTier4
       weight: 4
     - !type:NestedSelector
-      tableId: M14WeaponLootTier5_Any
+      tableId: M14WeaponLootTier5
       weight: 1

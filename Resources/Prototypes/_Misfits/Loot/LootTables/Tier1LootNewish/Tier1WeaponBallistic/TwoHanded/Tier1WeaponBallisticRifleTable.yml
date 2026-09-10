@@ -1,0 +1,172 @@
+
+#temp!!!
+- type: entityTable
+  id: M14WeaponLootTier2_GunsBulletRifleAuto
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponRifle556Carbine
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle556CarbineOld
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponAutoRifle556Legion
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle556Pipe
+      weight: 4
+
+    - !type:EntSelector
+      id: N14WeaponRifle556R91
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifleInfiltrator # stealth R91
+      weight: 4
+
+    - !type:EntSelector
+      id: N14WeaponRifle556EM2
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle762Fal
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle762Canadian
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle762Chinese
+      weight: 4
+      #AK 5.45
+    - !type:EntSelector
+      id: N14WeaponRifleAk112 #BOS??
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifleAk112pn # extended mag
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifleBozarGRA # BOAZARRR!!!
+      weight: 4
+
+
+#temp!!!
+- type: entityTable
+  id: M14WeaponLootTier2_GunsBulletRifleSemi
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponSniper308PipeRifle
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniper50Pipe
+      weight: 4
+
+
+    - !type:EntSelector
+      id: N14WeaponRifle10mmM1Carbine
+      weight: 4
+
+    - !type:EntSelector
+      id: N14WeaponSniper556VarmintRifle
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniper556Tribal
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniper556TribalUpgraded
+      weight: 4
+
+    - !type:EntSelector
+      id: N14WeaponRifle556Butchered
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle556Service
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle556ServiceScoped
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle556Scout
+      weight: 4
+
+    - !type:EntSelector
+      id: N14WeaponSniper308Tribal
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniper308TribalUpgraded
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniper308Canadian
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniper308Ross
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle308SniperRifle
+      weight: 4
+
+
+    - !type:EntSelector
+      id: N14WeaponRifle762Rangemaster # bayonet
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle762Marksman
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle762M14
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle762MarksmanCanadian
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle762MarksmanChinese
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle762SKS
+      weight: 4
+
+
+
+    - !type:EntSelector
+      id: N14WeaponSniperHunting
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniperEnfield
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniper50NCRRifle # shit 1 one shot .50
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniper50AntiMateriel
+      weight: 4
+
+
+    - !type:EntSelector
+      id: N14WeaponSniperCowboyRepeater #.357
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniper44LeverShortCarbine
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniper44LeverCarbine
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniper308LeverRifle
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniper45-70BrushGun
+      weight: 4
+
+
+
+    - !type:EntSelector
+      id: N14WeaponRifle308Battle
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifleM1Garand
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifle762SKS
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponRifleSKS #Legion
+      weight: 4

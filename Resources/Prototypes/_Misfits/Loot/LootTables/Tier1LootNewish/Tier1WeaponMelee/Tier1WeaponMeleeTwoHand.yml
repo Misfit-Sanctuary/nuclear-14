@@ -1,0 +1,54 @@
+- type: entityTable
+  id: M14WeaponLootTier2_MeleeBluntTwoHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14SledgeHammer
+    - !type:EntSelector
+      id: N14SuperSledgeHammer
+
+    - !type:EntSelector
+      id: N14BaseBallBat
+    - !type:EntSelector
+      id: N14NailBoard
+    - !type:EntSelector
+      id: N14PoolCue
+    - !type:EntSelector
+      id: N14GolfClub
+
+    - !type:EntSelector
+      id: N14TribalBigClub
+    - !type:EntSelector
+      id: N14TribalBigClubDecorated
+
+
+- type: entityTable
+  id: M14WeaponLootTier2_MeleeSharpTwoHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WastelandFlagSpear
+    - !type:EntSelector
+      id: N14WastelandSpear
+    - !type:EntSelector
+      id: N14WastelandTribalSpear
+    - !type:EntSelector
+      id: N14WastelandPolearm
+
+    - !type:EntSelector
+      id: N14FireAxe
+    - !type:EntSelector
+      id: N14BaseAxe
+    - !type:EntSelector
+      id: N14WastelandFlagSpear
+    - !type:EntSelector
+      id: N14WastelandSpear
+    - !type:EntSelector
+      id: N14PilumSpear # wegion
+
+- type: entityTable
+  id: M14WeaponLootTier2_MeleeOtherTwoHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponThermospear

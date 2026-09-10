@@ -29,7 +29,7 @@
         - N14CombatKnife
         - N14Machete
       rareChance: 0.15
-      
+
 - type: entity
   name: Random Weapon Spawner
   suffix: Small Guns
@@ -45,7 +45,7 @@
       table: !type:NestedSelector
         tableId: N14WeaponLootTier1
         prob: 0.85
-      
+
 - type: entity
   name: Random Weapon Spawner
   suffix: Shotguns & Rifles
@@ -59,9 +59,9 @@
           state: icon
     - type: EntityTableSpawner
       table: !type:NestedSelector
-        tableId: N14WeaponLootTier2
+        tableId: M14WeaponLootTier2
         prob: 0.75
-      
+
 - type: entity
   name: Random Weapon Spawner
   suffix: Laser
@@ -106,7 +106,7 @@
         - N14BuffoutCanisterFilled
         - N14RadXCanisterFilled
       rareChance: 0.1
-      
+
 - type: entity
   name: Random Food Spawner
   suffix: pre-war
@@ -138,7 +138,7 @@
       rarePrototypes:
         - N14FoodMouldy
       rareChance: 0.1
-      
+
 - type: entity
   name: Random Food Trash Spawner
   suffix: pre-war
@@ -169,7 +169,7 @@
       rarePrototypes:
         - N14FoodMouldy
       rareChance: 0.1
-      
+
 # Tools & Supplies
 - type: entity
   name: Random Tool Spawner
@@ -197,5 +197,5 @@
         - N14WelderIndustrialAdvanced
         - N14SuperStimpak
       rareChance: 0.1
-      
-      
+
+
