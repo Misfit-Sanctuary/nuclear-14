@@ -1,0 +1,710 @@
+﻿# Misfits - tribal / field medicine entities + construction recipes
+
+# Shared base for single-use topical medicines.
+- type: stack
+  id: MisfitsDaturaHide
+  name: datura hide
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    state: healingpoultice
+  spawn: MisfitsDaturaHide
+  maxCount: 10
+  itemSize: 1
+
+- type: stack
+  id: MisfitsSnakebiteTourniquet
+  name: snakebite tourniquet
+  icon:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: tourniquet
+  spawn: MisfitsSnakebiteTourniquet
+  maxCount: 5
+  itemSize: 1
+
+- type: stack
+  id: MisfitsHealingSalve
+  name: healing salve
+  icon:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: ointment
+  spawn: MisfitsHealingSalve
+  maxCount: 10
+  itemSize: 1
+
+- type: stack
+  id: MisfitsHerbalAnodyne
+  name: herbal anodyne
+  icon:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: ointment
+  spawn: MisfitsHerbalAnodyne
+  maxCount: 10
+  itemSize: 1
+
+- type: stack
+  id: MisfitsHerbalAntimicrobial
+  name: herbal antimicrobial
+  icon:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: ointment
+  spawn: MisfitsHerbalAntimicrobial
+  maxCount: 10
+  itemSize: 1
+
+- type: entity
+  parent: BaseHealingItem
+  id: MisfitsDaturaHide
+  name: datura hide
+  description: A thick datura ointment rubbed over bruises and burns to numb pain and make injuries easier to bear.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    state: healingpoultice
+  - type: Item
+    heldPrefix: ointment
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      groups:
+        Brute: -6
+        Burn: -4
+    delay: 2.5
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+    stackType: MisfitsDaturaHide
+    count: 2
+  - type: Construction
+    graph: MisfitsDaturaHide
+    node: daturahide
+
+- type: entity
+  parent: BaseHealingItem
+  id: MisfitsSnakebiteTourniquet
+  name: snakebite tourniquet
+  description: A treated binding packed with ground buffalo gourd for venomous bites and severe bleeding.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: tourniquet
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      types:
+        Poison: -2
+      groups:
+        Brute: 2
+    bloodlossModifier: -10
+    delay: 1.5
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+  - type: Stack
+    stackType: MisfitsSnakebiteTourniquet
+    count: 3
+  - type: Construction
+    graph: MisfitsSnakebiteTourniquet
+    node: snakebitetourniquet
+
+- type: entity
+  parent: N14HealingPowder
+  id: MisfitsFieryPurgative
+  name: fiery purgative
+  description: A viciously hot herbal purge used to flush venom and radiation from the body.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: MisfitsFieryPurgative
+          Quantity: 10
+  - type: Construction
+    graph: MisfitsFieryPurgative
+    node: fierypurgative
+
+- type: entity
+  parent: N14HealingPowder
+  id: MisfitsBloodShield
+  name: blood shield
+  description: A bitter herbal mash used to strengthen the body against poison.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: MisfitsBloodShield
+          Quantity: 10
+  - type: Construction
+    graph: MisfitsBloodShield
+    node: bloodshield
+
+- type: entity
+  parent: N14HealingPowder
+  id: MisfitsPilgrimsRemedy
+  name: pilgrim's remedy
+  description: A mild wasteland mixture of medicinal roots, fungus and agave intended for long journeys.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: MisfitsPilgrimsRemedy
+          Quantity: 15
+  - type: Construction
+    graph: MisfitsPilgrimsRemedy
+    node: pilgrimsremedy
+
+- type: entity
+  parent: BaseHealingItem
+  id: MisfitsHealingSalve
+  name: healing salve
+  description: A sticky herbal salve spread over cuts, burns and other ordinary wasteland injuries.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: ointment
+  - type: Item
+    heldPrefix: ointment
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      groups:
+        Brute: -8
+        Burn: -8
+    delay: 2
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+    stackType: MisfitsHealingSalve
+    count: 2
+  - type: Construction
+    graph: MisfitsHealingSalve
+    node: healingsalve
+
+- type: entity
+  parent: N14HealingPowder
+  id: MisfitsGravesalt
+  name: gravesalt
+  description: A harsh pouch of ash, bitter herbs and mineral-rich plant matter used as an emergency poison purge.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
+    state: powder1
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: MisfitsGravesalt
+          Quantity: 5
+  - type: Construction
+    graph: MisfitsGravesalt
+    node: gravesalt
+
+# ============================================================================
+# CONSTRUCTION MENU ENTRIES
+# ============================================================================
+
+- type: construction
+  name: datura hide
+  id: MisfitsDaturaHide
+  graph: MisfitsDaturaHide
+  startNode: start
+  targetNode: daturahide
+  category: construction-category-medical
+  description: Grind sacred datura and bind it into a skin-hardening ointment.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    state: healingpoultice
+  objectType: Item
+
+- type: construction
+  name: snakebite tourniquet
+  id: MisfitsSnakebiteTourniquet
+  graph: MisfitsSnakebiteTourniquet
+  startNode: start
+  targetNode: snakebitetourniquet
+  category: construction-category-medical
+  description: A buffalo-gourd dressing tied tight for venomous wounds.
+  hide: false
+  icon:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: tourniquet
+  objectType: Item
+
+- type: construction
+  name: fiery purgative
+  id: MisfitsFieryPurgative
+  graph: MisfitsFieryPurgative
+  startNode: start
+  targetNode: fierypurgative
+  category: construction-category-medical
+  description: Brew vodka, glowpepper and white horsenettle into a brutal medicinal purge.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    state: healingpowder
+  objectType: Item
+
+- type: construction
+  name: blood shield
+  id: MisfitsBloodShield
+  graph: MisfitsBloodShield
+  startNode: start
+  targetNode: bloodshield
+  category: construction-category-medical
+  description: Mash cactus fruit, cave fungus and medicinal flowers into a poison-resistant remedy.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    state: healingpoultice
+  objectType: Item
+
+- type: construction
+  name: pilgrim's remedy
+  id: MisfitsPilgrimsRemedy
+  graph: MisfitsPilgrimsRemedy
+  startNode: start
+  targetNode: pilgrimsremedy
+  category: construction-category-medical
+  description: Prepare a slow, dependable remedy from common wasteland medicinal plants.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    state: healingpowder
+  objectType: Item
+
+- type: construction
+  name: healing salve
+  id: MisfitsHealingSalve
+  graph: MisfitsHealingSalve
+  startNode: start
+  targetNode: healingsalve
+  category: construction-category-medical
+  description: Crush medicinal plants into a simple topical wound salve.
+  hide: false
+  icon:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: ointment
+  objectType: Item
+
+- type: construction
+  name: gravesalt
+  id: MisfitsGravesalt
+  graph: MisfitsGravesalt
+  startNode: start
+  targetNode: gravesalt
+  category: construction-category-medical
+  description: Grind ash, fungus and bitter antitoxic herbs into a brutal emergency purge.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
+    state: powder1
+  objectType: Item
+
+# ============================================================================
+# CONSTRUCTION GRAPHS
+# ============================================================================
+
+# Honest Hearts canon: Sacred Datura Root x4 + Wonderglue x1.
+- type: constructionGraph
+  id: MisfitsDaturaHide
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: daturahide
+      steps:
+      - material: DaturaFlower
+        amount: 4
+      - tag: WonderGlue
+        name: Wonderglue
+        icon:
+          sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+          state: wonderglue
+        doAfter: 3
+  - node: daturahide
+    entity: MisfitsDaturaHide
+
+# Lonesome Road canon: Buffalo Gourd Seed x1 + Surgical Tubing x1.
+# Surgical tubing does not currently exist as a crafting material, so Cloth is used.
+- type: constructionGraph
+  id: MisfitsSnakebiteTourniquet
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: snakebitetourniquet
+      steps:
+      - material: WildBuffaloGourd
+      - material: Cloth
+        amount: 1
+      - material: Plastic
+        amount: 1
+        doAfter: 2
+  - node: snakebitetourniquet
+    entity: MisfitsSnakebiteTourniquet
+
+# Lonesome Road canon: Vodka or Ethanol x1 + Jalapeno x1 + White Horsenettle x1.
+# WildGlowpepper substitutes for jalapeno
+- type: constructionGraph
+  id: MisfitsFieryPurgative
+  start: start
+  graph:
+  - node: start
+    edges:
+    # Medical ethanol route.
+    - to: fierypurgative
+      steps:
+      - tag: MisfitsEthanolBottle
+        name: ethanol bottle
+        icon:
+          sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+          state: ethanol
+      - material: WildGlowpepper
+      - material: WildWhiteHorsenettle
+        doAfter: 4
+  - node: fierypurgative
+    entity: MisfitsFieryPurgative
+
+# Honest Hearts canon: Spore Plant Pods x1 + Barrel Cactus Fruit x1 + Cave Fungus x1.
+# Broc Flower substitutes for unavailable spore-plant pods as the medicinal binder.
+- type: constructionGraph
+  id: MisfitsBloodShield
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bloodshield
+      steps:
+      - material: BarrelCactusFruit
+        amount: 2
+      - material: CaveFungus
+        amount: 2
+      - material: BrocFlower
+        amount: 2
+        doAfter: 4
+  - node: bloodshield
+    entity: MisfitsBloodShield
+
+# Misfits-original tribal remedy.
+- type: constructionGraph
+  id: MisfitsPilgrimsRemedy
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pilgrimsremedy
+      steps:
+      - material: BrocFlower
+      - material: XanderRoot
+      - material: CaveFungus
+      - material: AgaveLeaf
+      - material: DaturaFlower
+        doAfter: 3
+  - node: pilgrimsremedy
+    entity: MisfitsPilgrimsRemedy
+
+# Fallout 76's regional salves use local medicinal plants + boiled water.
+# This version uses the same local-survival idea with Broc, Xander and Agave.
+- type: constructionGraph
+  id: MisfitsHealingSalve
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: healingsalve
+      steps:
+      - material: BrocFlower
+      - material: XanderRoot
+      - material: AgaveLeaf
+        doAfter: 2
+  - node: healingsalve
+    entity: MisfitsHealingSalve
+
+
+# Misfits-original field purgative.
+# The laboratory formulation uses Antidote + TableSalt + Ammonia.
+- type: constructionGraph
+  id: MisfitsGravesalt
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: gravesalt
+      steps:
+      - tag: Ash
+        name: ash
+        icon:
+          sprite: Objects/Materials/materials.rsi
+          state: ash
+      - material: CaveFungus
+      - material: WildWhiteHorsenettle
+        amount: 2
+      - material: AgaveLeaf
+        doAfter: 4
+  - node: gravesalt
+    entity: MisfitsGravesalt
+
+# ============================================================================
+# CRAFTED MEDICINE ITEMS
+# ============================================================================
+
+# Uses the working RadAway bloodbag injector as its functional base, then swaps
+# the contained reagent to MisfitsGlowingBloodPack.
+- type: entity
+  parent: N14RadAwayBloodbag
+  id: MisfitsGlowingBloodPack
+  name: glowing blood pack
+  description: A blood pack treated with irradiated fungus and medical alcohol. It emits a faint, unhealthy glow.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 10
+        reagents:
+        - ReagentId: MisfitsGlowingBloodPack
+          Quantity: 10
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 10
+  - type: Construction
+    graph: MisfitsGlowingBloodPack
+    node: glowingbloodpack
+
+- type: entity
+  parent: BaseHealingItem
+  id: MisfitsHerbalAnodyne
+  name: herbal anodyne
+  description: A soothing herbal balm rubbed into sore or injured flesh to ease aches and minor trauma.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: ointment
+  - type: Item
+    heldPrefix: ointment
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      groups:
+        Brute: -6
+      types:
+        Heat: -3
+    delay: 2.5
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+    stackType: MisfitsHerbalAnodyne
+    count: 2
+  - type: Construction
+    graph: MisfitsHerbalAnodyne
+    node: herbalanodyne
+
+- type: entity
+  parent: BaseHealingItem
+  id: MisfitsHerbalAntimicrobial
+  name: herbal antimicrobial
+  description: A pungent herbal poultice spread over contaminated wounds and irritated skin.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: ointment
+  - type: Item
+    heldPrefix: ointment
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      types:
+        Poison: -3
+        Caustic: -3
+        Heat: -2
+    delay: 2.5
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+    stackType: MisfitsHerbalAntimicrobial
+    count: 3
+  - type: Construction
+    graph: MisfitsHerbalAntimicrobial
+    node: herbalantimicrobial
+
+- type: entity
+  parent: N14HealingPowder
+  id: MisfitsHerbalStimulant
+  name: herbal stimulant
+  description: A sharp herbal mixture prepared to keep an exhausted traveler awake and moving.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: MisfitsHerbalStimulant
+          Quantity: 10
+  - type: Construction
+    graph: MisfitsHerbalStimulant
+    node: herbalstimulant
+
+# ============================================================================
+# CONSTRUCTION MENU ENTRIES
+# ============================================================================
+
+- type: construction
+  name: glowing blood pack
+  id: MisfitsGlowingBloodPack
+  graph: MisfitsGlowingBloodPack
+  startNode: start
+  targetNode: glowingbloodpack
+  category: construction-category-medical
+  description: Treat a blood pack with irradiated fungus and medical ethanol to create a radioprotective transfusion.
+  hide: false
+  icon:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: bloodpack
+  objectType: Item
+
+- type: construction
+  name: herbal anodyne
+  id: MisfitsHerbalAnodyne
+  graph: MisfitsHerbalAnodyne
+  startNode: start
+  targetNode: herbalanodyne
+  category: construction-category-medical
+  description: Grind medicinal plants into an agave-bound topical balm for persistent pain.
+  hide: false
+  icon:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: ointment
+  objectType: Item
+
+- type: construction
+  name: herbal antimicrobial
+  id: MisfitsHerbalAntimicrobial
+  graph: MisfitsHerbalAntimicrobial
+  startNode: start
+  targetNode: herbalantimicrobial
+  category: construction-category-medical
+  description: Prepare an agave-bound herbal poultice for contaminated wounds and irritated skin.
+  hide: false
+  icon:
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: ointment
+  objectType: Item
+
+- type: construction
+  name: herbal stimulant
+  id: MisfitsHerbalStimulant
+  graph: MisfitsHerbalStimulant
+  startNode: start
+  targetNode: herbalstimulant
+  category: construction-category-medical
+  description: Grind energizing wasteland plants into a crude stimulant powder.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    state: healingpowder
+  objectType: Item
+
+# ============================================================================
+# CONSTRUCTION GRAPHS
+# ============================================================================
+
+# Field-medic Glowing Blood Pack.
+# The normal Bloodpack already carries the Bloodpack crafting tag.
+# MisfitsEthanolBottle specifically targets the N14 medical ethanol bottle.
+- type: constructionGraph
+  id: MisfitsGlowingBloodPack
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: glowingbloodpack
+      steps:
+      - tag: Bloodpack
+        name: blood pack
+        icon:
+          sprite: Objects/Specific/Medical/medical.rsi
+          state: bloodpack
+      - material: CaveFungusRad
+        amount: 2
+      - tag: MisfitsEthanolBottle
+        name: ethanol bottle
+        icon:
+          sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+          state: ethanol
+        doAfter: 5
+  - node: glowingbloodpack
+    entity: MisfitsGlowingBloodPack
+
+# Fallout 4-inspired preventative herbal medicine.
+- type: constructionGraph
+  id: MisfitsHerbalAnodyne
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: herbalanodyne
+      steps:
+      - material: WildCarrot
+        amount: 2
+      - material: CaveFungusRad
+      - material: Nettles
+        amount: 2
+      - material: WildWhiteHorsenettle
+      - material: AgaveLeaf
+        doAfter: 4
+  - node: herbalanodyne
+    entity: MisfitsHerbalAnodyne
+
+- type: constructionGraph
+  id: MisfitsHerbalAntimicrobial
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: herbalantimicrobial
+      steps:
+      - material: WildCarrot
+      - material: CaveFungusRad
+      - material: WildBuffaloGourd
+        amount: 2
+      - material: Nettles
+      - material: AgaveLeaf
+        doAfter: 4
+  - node: herbalantimicrobial
+    entity: MisfitsHerbalAntimicrobial
+
+- type: constructionGraph
+  id: MisfitsHerbalStimulant
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: herbalstimulant
+      steps:
+      - material: CaveFungusRad
+      - material: WildBuffaloGourd
+      - material: Nettles
+      - material: WildWhiteHorsenettle
+        amount: 2
+        doAfter: 4
+  - node: herbalstimulant
+    entity: MisfitsHerbalStimulant

@@ -1,0 +1,32 @@
+﻿# extra recipes so Brahmin milk works too I guess
+- type: reaction
+  id: MisfitsCafeLatte
+  reactants:
+    Coffee:
+      amount: 1
+    N14MilkBrahmin:
+      amount: 1
+  products:
+    CafeLatte: 2
+
+- type: reaction
+  id: MisfitsCreamOfCoconut
+  reactants:
+    CoconutWater:
+      amount: 1
+    Sugar:
+      amount: 1
+    N14MilkBrahmin:
+      amount: 1
+  products:
+    CreamOfCoconut: 3
+
+- type: reaction
+  id: MisfitsWhiteGilgamesh
+  reactants:
+    Beer:
+      amount: 2
+    N14MilkBrahmin:
+      amount: 1
+  products:
+    WhiteGilgamesh: 3

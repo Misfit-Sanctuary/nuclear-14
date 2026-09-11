@@ -165,7 +165,7 @@
     prob: 0.75
     amount: 1
     maxAmount: 3
-    
+
 - type: entityLootTable
   id: CottonSeeds
   entries:
@@ -186,6 +186,23 @@
   id: WildCoyoteTobaccoClippers
   entries:
   - id: N14FloraWildCoyoteTobaccoClippingSeed
+    prob: 0.75
+    amount: 1
+    maxAmount: 1
+
+
+- type: entityLootTable
+  id: WildCannabisAll
+  entries:
+  - id: N14FloraProduceWildCannabis
+    prob: 0.75
+    amount: 1
+    maxAmount: 3
+
+- type: entityLootTable
+  id: WildCannabisClippers
+  entries:
+  - id: N14FloraWildCannabisClippingSeed
     prob: 0.75
     amount: 1
     maxAmount: 1

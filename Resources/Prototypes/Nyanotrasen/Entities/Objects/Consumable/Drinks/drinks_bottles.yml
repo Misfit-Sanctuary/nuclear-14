@@ -22,6 +22,8 @@
   name: soju bottle
   description: It's like sake but if you're trying to get FUCKED. UP.
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.0625"
   - type: SolutionContainerManager
     solutions:
       drink:

@@ -1,0 +1,161 @@
+﻿# This file contains ONLY alternate stack-count entity variants.
+
+# ============================================================================
+# DATURA HIDE
+# ============================================================================
+
+- type: entity
+  parent: MisfitsDaturaHide
+  id: MisfitsDaturaHide3
+  suffix: 3
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stack
+    stackType: MisfitsDaturaHide
+    count: 3
+
+- type: entity
+  parent: MisfitsDaturaHide
+  id: MisfitsDaturaHide5
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: MisfitsDaturaHide
+    count: 5
+
+- type: entity
+  parent: MisfitsDaturaHide
+  id: MisfitsDaturaHide10
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: MisfitsDaturaHide
+    count: 10
+
+# ============================================================================
+# SNAKEBITE TOURNIQUET
+# ============================================================================
+
+- type: entity
+  parent: MisfitsSnakebiteTourniquet
+  id: MisfitsSnakebiteTourniquet3
+  suffix: 3
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stack
+    stackType: MisfitsSnakebiteTourniquet
+    count: 3
+
+- type: entity
+  parent: MisfitsSnakebiteTourniquet
+  id: MisfitsSnakebiteTourniquet5
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: MisfitsSnakebiteTourniquet
+    count: 5
+
+- type: entity
+  parent: MisfitsSnakebiteTourniquet
+  id: MisfitsSnakebiteTourniquet10
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: MisfitsSnakebiteTourniquet
+    count: 10
+
+# ============================================================================
+# HEALING SALVE
+# ============================================================================
+
+- type: entity
+  parent: MisfitsHealingSalve
+  id: MisfitsHealingSalve3
+  suffix: 3
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stack
+    stackType: MisfitsHealingSalve
+    count: 3
+
+- type: entity
+  parent: MisfitsHealingSalve
+  id: MisfitsHealingSalve5
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: MisfitsHealingSalve
+    count: 5
+
+- type: entity
+  parent: MisfitsHealingSalve
+  id: MisfitsHealingSalve10
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: MisfitsHealingSalve
+    count: 10
+
+# ============================================================================
+# HERBAL ANODYNE
+# ============================================================================
+
+- type: entity
+  parent: MisfitsHerbalAnodyne
+  id: MisfitsHerbalAnodyne3
+  suffix: 3
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stack
+    stackType: MisfitsHerbalAnodyne
+    count: 3
+
+- type: entity
+  parent: MisfitsHerbalAnodyne
+  id: MisfitsHerbalAnodyne5
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: MisfitsHerbalAnodyne
+    count: 5
+
+- type: entity
+  parent: MisfitsHerbalAnodyne
+  id: MisfitsHerbalAnodyne10
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: MisfitsHerbalAnodyne
+    count: 10
+
+# ============================================================================
+# HERBAL ANTIMICROBIAL
+# ============================================================================
+
+- type: entity
+  parent: MisfitsHerbalAntimicrobial
+  id: MisfitsHerbalAntimicrobial3
+  suffix: 3
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stack
+    stackType: MisfitsHerbalAntimicrobial
+    count: 3
+
+- type: entity
+  parent: MisfitsHerbalAntimicrobial
+  id: MisfitsHerbalAntimicrobial5
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: MisfitsHerbalAntimicrobial
+    count: 5
+
+- type: entity
+  parent: MisfitsHerbalAntimicrobial
+  id: MisfitsHerbalAntimicrobial10
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: MisfitsHerbalAntimicrobial
+    count: 10

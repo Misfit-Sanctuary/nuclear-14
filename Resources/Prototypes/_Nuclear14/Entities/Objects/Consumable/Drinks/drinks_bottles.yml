@@ -40,6 +40,8 @@
   name: milk bottle
   description: Looks good at holding milky substances.
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.0625"
   - type: Sprite
     sprite: _Nuclear14/Objects/Consumable/Drinks/milk.rsi
 
@@ -50,6 +52,8 @@
   name: brahmin milk
   description: A glass bottle of brahmin milk.
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.0625" # Match the empty milk bottle.
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -141,6 +145,13 @@
   name: Nuka-Cola bottle
   description: A refreshing beverage that has a extremely sugary taste. Reminds you of vanilla and cinnamon.
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.0625"
+  - type: DamageOnLand
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 5
   - type: Openable # Forge-Change
     closeable: false
   - type: SpawnWhenOpened # Forge-Add
@@ -163,6 +174,13 @@
   name: irradiated Nuka-Cola bottle
   description: An unrefreshing beverage that has a extremely sugary taste. The aftertaste is bitter and burnt.
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.0625" # Match the standard Nuka-Cola bottle.
+  - type: DamageOnLand
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 5
   - type: Openable # Forge-Change
     closeable: false
   - type: SpawnWhenOpened # Forge-Add
@@ -217,6 +235,13 @@
         acts: [ "Destruction" ]
   - type: Item
     size: Small
+  - type: DamageOnLand
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 5
+  - type: MolotovConvertible
+    wickOffset: "0,-0.15625" # Five pixels down for the short empty-bottle sprite.
 
 - type: entity
   parent: BrokenBottle
@@ -235,6 +260,8 @@
   description: The leading cola since 2044.
   suffix: full
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.125" # Four pixels down; inherited by the flavored Nuka-Cola bottles.
   - type: Sprite
     sprite: _Nuclear14/Objects/Consumable/Drinks/nuka_cola_new.rsi
     state: cola

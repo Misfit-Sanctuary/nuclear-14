@@ -45,6 +45,7 @@
       table: !type:NestedSelector
         tableId: N14WeaponLootTier1
         prob: 0.85
+      deleteSpawnerAfterSpawn: false
       
 - type: entity
   name: Random Weapon Spawner
@@ -61,6 +62,7 @@
       table: !type:NestedSelector
         tableId: N14WeaponLootTier2
         prob: 0.75
+      deleteSpawnerAfterSpawn: false
       
 - type: entity
   name: Random Weapon Spawner
@@ -77,6 +79,7 @@
       table: !type:NestedSelector
         tableId: N14WeaponLootTier3
         prob: 0.65
+      deleteSpawnerAfterSpawn: false
 
 # Drugs & Consumables
 - type: entity

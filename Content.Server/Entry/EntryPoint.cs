@@ -89,6 +89,9 @@ namespace Content.Server.Entry
                 .ToArray();
             if (rmcIgnored.Length > 0)
                 factory.RegisterIgnore(rmcIgnored);
+
+            // Misifts
+            factory.RegisterIgnore(MisfitsIgnoredComponents.List);
             prototypes.RegisterIgnore("guideEntry");
             prototypes.RegisterIgnore("parallax");
             prototypes.RegisterIgnore("latheRecipePack"); // #Misfits Add: RMC prototype type not in this fork

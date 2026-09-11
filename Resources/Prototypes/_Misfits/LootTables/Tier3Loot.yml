@@ -9,6 +9,7 @@
     table: !type:NestedSelector
       tableId: N14WeaponLootTier3
       prob: 0.65
+    deleteSpawnerAfterSpawn: false
 
 - type: entityTable
   id: N14WeaponLootTier3

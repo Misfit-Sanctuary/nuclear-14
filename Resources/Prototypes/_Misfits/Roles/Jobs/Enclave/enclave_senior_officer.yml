@@ -16,9 +16,9 @@
       species:
       - Human
       - Ghoul
-    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T6 faction timelock (20h Enclave)
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - senior officer faction timelock
       department: Enclave
-      min: 360000 # 100 hours
+      min: 72000 # 20 hours
   startingGear: EnclaveSeniorOfficerGear
   icon: "JobIconEnclaveSeniorOfficer"
   supervisors: job-supervisors-enclave-senior-officer
@@ -42,7 +42,6 @@
     head: N14ClothingHeadHatEnclaveOfficer
     back: N14ClothingBackpackMilitary
     jumpsuit: N14ClothingUniformJumpsuitEnclave
-    outerClothing: N14ClothingOuterPowerArmorAdvanced2
     shoes: N14ClothingBootsCombatFilled
     gloves: N14ClothingHandsGlovesCombat
     belt: ClothingBeltMilitary

@@ -40,11 +40,160 @@
       value: 5
     - item: N14ScrapSteel
       value: 3
-    # R&D collection jobs. Four are drawn at random from the pool defined in
-    # Requisitions/Bounties/enclave.yml, and each one is replaced as it is handed in.
-    # Hand-in is the normal delivery pass: items on the platform, then lower it.
-    bountyPool: Enclave
-    maxActiveBounties: 4
+    # Farm produce. The Enclave's MegaSeed Servitor grows the vanilla Food* set;
+    # the N14Food* twins are what wasteland foraging turns up. Both are bought so
+    # neither source is dead weight.
+    - item: CottonBol
+      value: 2
+    - item: FoodAloe
+      value: 2
+    - item: FoodAmbrosiaVulgaris
+      value: 2
+    - item: FoodApple
+      value: 2
+    - item: FoodBanana
+      value: 2
+    - item: FoodBerries
+      value: 2
+    - item: FoodCabbage
+      value: 2
+    - item: FoodCarrot
+      value: 2
+    - item: FoodCherry
+      value: 2
+    - item: FoodChiliPepper
+      value: 2
+    - item: FoodCocoaPod
+      value: 2
+    - item: FoodCorn
+      value: 2
+    - item: FoodEgg
+      value: 2
+    - item: FoodEggplant
+      value: 2
+    - item: FoodGalaxythistle
+      value: 2
+    - item: FoodGarlic
+      value: 2
+    - item: FoodGrape
+      value: 2
+    - item: FoodLemon
+      value: 2
+    - item: FoodLime
+      value: 2
+    - item: FoodLingzhi
+      value: 2
+    - item: FoodMushroom
+      value: 2
+    - item: FoodOnion
+      value: 2
+    - item: FoodOnionRed
+      value: 2
+    - item: FoodOrange
+      value: 2
+    - item: FoodPeaPod
+      value: 2
+    - item: FoodPoppy
+      value: 2
+    - item: FoodPotato
+      value: 2
+    - item: FoodPumpkin
+      value: 2
+    - item: FoodSoybeans
+      value: 2
+    - item: FoodTomato
+      value: 2
+    - item: FoodWatermelon
+      value: 2
+    - item: Log
+      value: 2
+    - item: OatBushel
+      value: 2
+    - item: RiceBushel
+      value: 2
+    - item: Sugarcane
+      value: 2
+    - item: WheatBushel
+      value: 2
+    - item: N14CottonBol
+      value: 2
+    - item: N14FoodAloe
+      value: 2
+    - item: N14FoodAmbrosiaVulgaris
+      value: 2
+    - item: N14FoodApple
+      value: 2
+    - item: N14FoodBanana
+      value: 2
+    - item: N14FoodBerries
+      value: 2
+    - item: N14FoodCabbage
+      value: 2
+    - item: N14FoodCarrot
+      value: 2
+    - item: N14FoodCocoaPod
+      value: 2
+    - item: N14FoodCorn
+      value: 2
+    - item: N14FoodEggplant
+      value: 2
+    - item: N14FoodGalaxythistle
+      value: 2
+    - item: N14FoodGarlic
+      value: 2
+    - item: N14FoodGrape
+      value: 2
+    - item: N14FoodLemon
+      value: 2
+    - item: N14FoodLime
+      value: 2
+    - item: N14FoodLingzhi
+      value: 2
+    - item: N14FoodMushroom
+      value: 2
+    - item: N14FoodOnion
+      value: 2
+    - item: N14FoodOnionRed
+      value: 2
+    - item: N14FoodOrange
+      value: 2
+    - item: N14FoodPeaPod
+      value: 2
+    - item: N14FoodPoppy
+      value: 2
+    - item: N14FoodPotato
+      value: 2
+    - item: N14FoodPumpkin
+      value: 2
+    - item: N14FoodSoybeans
+      value: 2
+    - item: N14FoodTomato
+      value: 2
+    - item: N14FoodWatermelon
+      value: 2
+    - item: N14Log
+      value: 2
+    - item: N14OatBushel
+      value: 2
+    - item: N14RiceBushel
+      value: 2
+    - item: N14Sugarcane
+      value: 2
+    - item: N14WheatBushel
+      value: 2
+    # R&D collection board. Every request is for researched genetics disks, gated on
+    # the rarity of the mutation encoded on them - blanks never count. Slots seed at
+    # round start and refill as they are handed in.
+    requestPool: EnclaveRequestPool
+    rewardPool: EnclaveRewardPool
+    randomRequestSlots: 4
+    randomRequestRerollDelay: 900
+    randomRequestMinTargets: 1
+    randomRequestMaxTargets: 2
+    # No hard slot: payouts track the per-disk rates exactly (Common 100, Rare 400,
+    # Mythical 1200), so a request is worth the same as handing the disks over would
+    # have been. A score multiplier here would break that parity.
+    hardRequestSlots: 0
     categories:
     - name: n14-requisitions-category-security
       entries:

@@ -87,3 +87,30 @@ accent-n14-vault-words-replace-29 = no siree
 
 accent-n14-vault-words-30 = really
 accent-n14-vault-words-replace-30 = truly
+
+accent-n14-vault-words-31 = whore
+accent-n14-vault-words-replace-31 = harlot
+
+accent-n14-vault-words-32 = slut
+accent-n14-vault-words-replace-32 = trollop
+
+accent-n14-vault-words-33 = dick
+accent-n14-vault-words-replace-33 = willy
+
+accent-n14-vault-words-34 = bullshit
+accent-n14-vault-words-replace-34 = baloney
+
+accent-n14-vault-words-35 = murder
+accent-n14-vault-words-replace-35 = put down
+
+accent-n14-vault-words-36 = murdered
+accent-n14-vault-words-replace-36 = done in
+
+accent-n14-vault-words-37 = murderer
+accent-n14-vault-words-replace-37 = manslayer
+
+accent-n14-vault-words-38 = insane
+accent-n14-vault-words-replace-38 = bonkers
+
+accent-n14-vault-words-39 = motherfucker
+accent-n14-vault-words-replace-39 = big meanie

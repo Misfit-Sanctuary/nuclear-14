@@ -38,7 +38,7 @@
     bodyType: Static
   - type: Anchorable
   - type: Pullable
-          
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor1
@@ -46,7 +46,7 @@
   components:
   - type: Sprite
     state: board_mess2
-    
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor2
@@ -54,28 +54,28 @@
   components:
   - type: Sprite
     state: board_mess2
-    
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor3
   components:
   - type: Sprite
     state: board_mess3
-    
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor4
   components:
   - type: Sprite
     state: board_mess4
-    
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor5
   components:
   - type: Sprite
     state: board_mess5
-    
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor6
@@ -83,7 +83,7 @@
   components:
   - type: Sprite
     state: board_mess6
-    
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor7
@@ -91,7 +91,7 @@
   components:
   - type: Sprite
     state: board_mess7
-    
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor8
@@ -99,7 +99,7 @@
   components:
   - type: Sprite
     state: board_mess8
-    
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor9
@@ -107,14 +107,14 @@
   components:
   - type: Sprite
     state: board_mess9
-    
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor10
   components:
   - type: Sprite
     state: board_text1
-    
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor11
@@ -136,6 +136,10 @@
     - CaesarLegionLegate
     - CaesarLegionCenturion
     - CaesarLegionOptio
+  - type: OverwatchConsole
+    monitorTitle: overwatch-monitor-title-ncr
+    trackedTags:
+    - IdCardLegion
   - type: ActivatableUI
     key: enum.WastelandMapUiKey.Key
   - type: UserInterface
@@ -143,28 +147,15 @@
       enum.WastelandMapUiKey.Key:
         type: WastelandMapBoundUserInterface
   # End Misfits Add
-    
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor12
-  # #Misfits Change - This chalkboard is the expedition board activation point.
-  # Opens the expedition GUI instead of being a plain decorative board.
-  name: Expedition Board
-  description: A dusty chalkboard covered in expedition notes and maps. Interact to plan an expedition.
-  suffix: expedition
+  name: chalkboard
+  description: A dusty chalkboard covered in old expedition notes and maps.
   components:
   - type: Sprite
     state: board_text3
-  - type: N14ExpeditionBoard
-    gatherRadius: 7
-    launchCountdownSeconds: 10
-    cooldownSeconds: 300
-  - type: ActivatableUI
-    key: enum.N14ExpeditionBoardUiKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.N14ExpeditionBoardUiKey.Key:
-        type: N14ExpeditionBoardBoundUserInterface
     
 - type: entity
   parent: N14ChalkboardFloor
@@ -172,14 +163,14 @@
   components:
   - type: Sprite
     state: board_text4
-    
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor14
   components:
   - type: Sprite
     state: board_text5
-    
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor15
@@ -187,7 +178,7 @@
   components:
   - type: Sprite
     state: board_text6
-    
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor16
@@ -195,7 +186,7 @@
   components:
   - type: Sprite
     state: board_text7
-    
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor17
@@ -203,7 +194,7 @@
   components:
   - type: Sprite
     state: board_text8
-    
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor18
@@ -211,7 +202,7 @@
   components:
   - type: Sprite
     state: board_text9
-    
+
 - type: entity
   parent: N14ChalkboardFloor
   id: N14ChalkboardFloor19

@@ -8,8 +8,7 @@ job-name-ncr-mp-investigator = NCR Military Police Investigator
 job-name-ncr-prisoner = NCR Prisoner
 job-name-raider = Raider
 job-name-townshopkeeperhelper = Town Shopkeeper Helper
-# #Misfits Removed - Khan deactivated when Outlaws/Raider department dissolved into Eighties.
-# job-name-khan = Khan
+job-name-great-khan = Great Khan
 # #Misfits Removed - Jackal/Viper/Gunner/Fiend jobs removed as part of Outlaws faction overhaul
 # job-name-jackal = Jackal
 # job-name-viper = Viper
@@ -39,8 +38,7 @@ job-description-ncr-mp-investegator = You are a Military Police Investigator for
 job-description-ncr-prisoner = You are a prisoner held by the New California Republic. Serve your sentence, follow orders, and perhaps find a way to earn your freedom — or take it.
 job-description-raider = You are a raider of the wasteland. Scavenge, fight, and survive by any means necessary. The strong take what they want.
 job-description-townshopkeeperhelper = You are a shopkeeper's helper in town. Assist with inventory, serve customers, and keep the shop running smoothly. It's honest work in a dishonest world.
-# #Misfits Removed - Khan description deactivated with Khan job.
-# job-description-khan = You are a Khan of the Outlaws. Keep your crew supplied, fight smart, and hold your ground.
+job-description-great-khan = You are a Great Khan. Lead your warband, raid the wasteland, and make every enemy regret challenging your tribe.
 # #Misfits Removed - Jackal/Viper/Gunner/Fiend descriptions removed as part of Outlaws faction overhaul
 # job-description-jackal = You are a Jackal of the Outlaws. Strike quickly, loot efficiently, and disappear before the counterattack.
 # job-description-viper = You are a Viper of the Outlaws. Use intimidation and speed to break resistance and secure the haul.
@@ -62,18 +60,16 @@ job-description-whitelegs-pain-maker = You are a White Leg Sower. Close the gap,
 # #Misfits Add - "Yuma" or Willower Elder role description
 job-description-willow-elder = You are a Willower Elder, a sagely old tribal whose wisdom guides the tribe. Mentor the young, advise the Chieftan, and lighten the Shaman's burden. You are deeply respected, but you are not a commander — the Chieftan leads.
 
-# #Misfits Removed - Outlaws supervisors replaced by Eighties-specific keys.
-# job-supervisors-outlaws = the Outlaws leadership
+job-supervisors-great-khan = your own judgement
 # #Misfits Add - Eighties supervisor keys
 job-supervisors-eighties = The Block
 job-supervisors-eighties-the-block = your own judgement
 job-supervisors-whitelegs = the White Leg Chief
 job-supervisors-whitelegs-war-chief = your own judgement
 
-# #Misfits Add - dedicated White Legs department locale.
-WhiteLegs = White Leg Tribe
-department-WhiteLegs = White Leg Tribe
-department-WhiteLegs-description = A White Leg Tribe warband built around brutal raids, fast attacks, and tribal shock troops.
+GreatKhans = Great Khans
+department-GreatKhans = Great Khans
+department-GreatKhans-description = A feared raider tribe built around speed, firepower, and brutal attacks.
 
 # #Misfits Add - Vault Management: admin-only command role above Overseer
 job-name-vaultmanagement = Vault Management

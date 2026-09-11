@@ -342,3 +342,12 @@
   materials:
     Aluminum: 100
     Sulfur: 400
+
+- type: latheRecipe
+  id: ThrowingKnife
+  result: ThrowingKnife
+  category: N14Weapons
+  completetime: 5
+  materials:
+    Steel: 500
+    N14Iron: 100

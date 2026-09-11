@@ -1,0 +1,62 @@
+# Expedition-only reward markers.  Ambient N14 weapon markers intentionally
+# retain their probability gates; these markers are used only for encounters
+# the expedition generator has already classified as guaranteed rewards.
+- type: entity
+  name: Expedition Weapon Loot Spawner
+  suffix: Guaranteed Tier 1
+  id: N14ExpeditionWeaponLootTier1Guaranteed
+  parent: MarkerBase
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: N14WeaponLootTier1
+      prob: 1.0
+    deleteSpawnerAfterSpawn: false
+
+- type: entity
+  name: Expedition Weapon Loot Spawner
+  suffix: Guaranteed Tier 2
+  id: N14ExpeditionWeaponLootTier2Guaranteed
+  parent: MarkerBase
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: N14WeaponLootTier2
+      prob: 1.0
+    deleteSpawnerAfterSpawn: false
+
+- type: entity
+  name: Expedition Weapon Loot Spawner
+  suffix: Guaranteed Tier 3
+  id: N14ExpeditionWeaponLootTier3Guaranteed
+  parent: MarkerBase
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: N14WeaponLootTier3
+      prob: 1.0
+    deleteSpawnerAfterSpawn: false
+
+- type: entity
+  name: Expedition Weapon Loot Spawner
+  suffix: Guaranteed Tier 4
+  id: N14ExpeditionWeaponLootTier4Guaranteed
+  parent: MarkerBase
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: N14WeaponLootTier4
+      prob: 1.0
+    deleteSpawnerAfterSpawn: false
+
+- type: entity
+  name: Expedition Weapon Loot Spawner
+  suffix: Guaranteed Tier 5
+  id: N14ExpeditionWeaponLootTier5Guaranteed
+  parent: MarkerBase
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: N14WeaponLootTier5
+      prob: 1.0
+    deleteSpawnerAfterSpawn: false

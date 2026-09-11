@@ -1,0 +1,15 @@
+# #Misfits Add - Improvised road-spike construction.
+
+- type: construction
+  name: road spikes
+  id: MisfitsRoadSpikesConstruction
+  graph: MisfitsRoadSpikesConstruction
+  startNode: start
+  targetNode: roadSpikes
+  category: construction-category-weapons
+  description: A strip of sharpened steel spikes for injuring pedestrians and disabling motorcycles. Requires three steel and three metal rods.
+  icon:
+    sprite: _Misfits/Objects/Misc/road_spikes.rsi
+    state: road_spikes
+  objectType: Item
+  hide: false

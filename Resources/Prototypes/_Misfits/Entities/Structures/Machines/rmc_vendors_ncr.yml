@@ -58,7 +58,6 @@
       - { id: SmokeGrenade, category: Explosives, tier: 1 }
       - { id: N14ripper, category: Melee, tier: 1 }
       - { id: C4, category: Explosives, tier: 1 }
-      - { id: N14TinNade, category: Explosives, tier: 1 }
       - { id: N14Dynamite, category: Explosives, tier: 1 }
       - { id: N14WeaponRifleGrenade, category: Explosives, tier: 1 }
       - { id: N14WeaponRifle308SniperRifle, category: Ballistic, tier: 1 }
@@ -67,6 +66,27 @@
       entries:
       - { id: SmokeGrenade, category: Explosives, tier: 2 }
       - { id: N14Dynamite, category: Explosives, tier: 2 }
+      - { id: MisfitsGrenadeImpact, category: Explosives, tier: 2 }
+      - { id: MisfitsHawkinsDevice, category: Explosives, tier: 2 }
+    # #Misfits Add - faction council grenade allowances. Choices are tracked per
+    # character, while the individual entries continue to use shared armory stock.
+    - name: Tier 1 - Utility grenade allocation
+      choices: { MisfitsNCRGrenadeTier1: 7 }
+      entries:
+      - { id: GrenadeFlashBang, category: Explosives, tier: 1 }
+      - { id: MisfitsGrenadeWhitePhosphorus, category: Explosives, tier: 1 }
+      - { id: SmokeGrenade, category: Explosives, tier: 1 }
+    - name: Tier 2 - Conventional grenade allocation
+      choices: { MisfitsNCRGrenadeTier2: 5 }
+      entries:
+      - { id: GrenadeIncendiary, category: Explosives, tier: 2 }
+      - { id: GrenadeShrapnel, category: Explosives, tier: 2 }
+      - { id: MisfitsGrenadeFragDefensive, category: Explosives, tier: 2 }
+    - name: Tier 3 - Advanced grenade allocation
+      choices: { MisfitsNCRGrenadeTier3: 5 }
+      entries:
+      - { id: MisfitsGrenadePlasma, category: Explosives, tier: 3 }
+      - { id: EmpGrenade, category: Explosives, tier: 3 }
     - name: Tier 4 - Executive Officer / Platoon Leader allocation
       entries:
       # A laser sight does not make this .44 Magnum pistol an energy weapon.

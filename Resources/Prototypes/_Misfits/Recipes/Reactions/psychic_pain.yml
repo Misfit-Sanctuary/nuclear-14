@@ -1,0 +1,256 @@
+﻿# Misfits - Psychiatric / pain-management chemistry reactions
+
+# ============================================================================
+# PSYCHIATRIC / HALLUCINATION TREATMENT
+# ============================================================================
+
+- type: reaction
+  id: MisfitsClearhead
+  reactants:
+    Fixer:
+      amount: 2
+    Haloperidol:
+      amount: 1
+    Mentats:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    MisfitsClearhead: 3
+
+- type: reaction
+  id: MisfitsChlorpromazine
+  minTemp: 330
+  reactants:
+    MisfitsClearhead:
+      amount: 2
+    Haloperidol:
+      amount: 2
+    Pax:
+      amount: 1
+    MisfitsCalmex:
+      amount: 1
+    Antiseptic:
+      amount: 1
+  products:
+    MisfitsChlorpromazine: 2
+
+- type: reaction
+  id: MisfitsLucidine
+  minTemp: 340
+  reactants:
+    MisfitsChlorpromazine:
+      amount: 2
+    Fixer:
+      amount: 2
+    Mentats:
+      amount: 2
+    Epoetine:
+      amount: 1
+  products:
+    MisfitsLucidine: 2
+
+- type: reaction
+  id: MisfitsPsychocline
+  minTemp: 345
+  reactants:
+    MisfitsLucidine:
+      amount: 2
+    MisfitsCalmex:
+      amount: 2
+    Antidote:
+      amount: 2
+    Epinephrine:
+      amount: 2
+    Pax:
+      amount: 1
+  products:
+    MisfitsPsychocline: 2
+
+- type: reaction
+  id: MisfitsNeurostatic
+  minTemp: 360
+  reactants:
+    MisfitsPsychocline:
+      amount: 2
+    Promethine:
+      amount: 2
+    Phalanximine:
+      amount: 2
+    Epoetine:
+      amount: 2
+    Silicon:
+      amount: 1
+  products:
+    MisfitsNeurostatic: 2
+
+# ============================================================================
+# PAIN MANAGEMENT
+# ============================================================================
+
+- type: reaction
+  id: MisfitsAnodyne
+  reactants:
+    MisfitsWillowbark:
+      amount: 2
+    Antiseptic:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    MisfitsAnodyne: 2
+
+- type: reaction
+  id: MisfitsAnalgesine
+  minTemp: 325
+  reactants:
+    MisfitsAnodyne:
+      amount: 2
+    Fixer:
+      amount: 1
+    Ethanol:
+      amount: 1
+  products:
+    MisfitsAnalgesine: 2
+
+- type: reaction
+  id: MisfitsNerveblock
+  minTemp: 340
+  reactants:
+    MisfitsAnalgesine:
+      amount: 2
+    MisfitsCalmex:
+      amount: 1
+    Epoetine:
+      amount: 1
+    Antiseptic:
+      amount: 1
+  products:
+    MisfitsNerveblock: 2
+
+- type: reaction
+  id: MisfitsTraumadol
+  reactants:
+    MisfitsAnalgesine:
+      amount: 2
+    HealingMixture:
+      amount: 2
+    HealingPowder:
+      amount: 1
+    Antiseptic:
+      amount: 1
+  products:
+    MisfitsTraumadol: 2
+
+- type: reaction
+  id: MisfitsAnesthezine
+  minTemp: 345
+  reactants:
+    MisfitsNerveblock:
+      amount: 2
+    ChloralHydrate:
+      amount: 2
+    Ethanol:
+      amount: 1
+    Pax:
+      amount: 1
+  products:
+    MisfitsAnesthezine: 2
+
+- type: reaction
+  id: MisfitsNeuroblock
+  minTemp: 360
+  reactants:
+    MisfitsNerveblock:
+      amount: 2
+    Promethine:
+      amount: 1
+    Epoetine:
+      amount: 2
+    Phalanximine:
+      amount: 2
+  products:
+    MisfitsNeuroblock: 2
+
+# ============================================================================
+# CROSS-SPECIALTY ENDGAME
+# ============================================================================
+
+- type: reaction
+  id: MisfitsNeuroreguline
+  minTemp: 370
+  reactants:
+    MisfitsNeurostatic:
+      amount: 2
+    MisfitsNeuroblock:
+      amount: 2
+    Promethine:
+      amount: 2
+    Epoetine:
+      amount: 1
+    Phalanximine:
+      amount: 1
+  products:
+    MisfitsNeuroreguline: 2
+
+# ============================================================================
+# CHEAP CLINICAL NARC PRECURSOR
+# ============================================================================
+
+- type: reaction
+  id: MisfitsVigilazine
+  reactants:
+    Ephedrine:
+      amount: 2
+    Water:
+      amount: 1
+    Pax:
+      amount: 1
+  products:
+    MisfitsVigilazine: 2
+
+# ============================================================================
+# NARC ROUTINE MAINTENANCE
+# ============================================================================
+
+- type: reaction
+  id: MisfitsWakeguard
+  minTemp: 325
+  reactants:
+    MisfitsVigilazine:
+      amount: 2
+    Ephedrine:
+      amount: 1
+    Epoetine:
+      amount: 1
+    Mentats:
+      amount: 1
+    Antiseptic:
+      amount: 1
+  products:
+    MisfitsWakeguard: 2
+
+# ============================================================================
+# SPECIALIST LONG-DURATION NARC TREATMENT
+# ============================================================================
+
+- type: reaction
+  id: MisfitsSomnoreguline
+  minTemp: 355
+  reactants:
+    MisfitsWakeguard:
+      amount: 2
+    MisfitsClearwake:
+      amount: 1
+    Ephedrine:
+      amount: 2
+    Epoetine:
+      amount: 2
+    Mentats:
+      amount: 1
+    Promethine:
+      amount: 1
+    Phalanximine:
+      amount: 1
+  products:
+    MisfitsSomnoreguline: 2

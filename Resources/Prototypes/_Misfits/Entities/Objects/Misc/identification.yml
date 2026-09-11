@@ -19,3 +19,15 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+
+- type: entity
+  parent: N14IDPassportTownsfolk
+  id: MisfitsIDBadgeAmbassador
+  name: Ambassador Badge
+  description: An ID for an Ambassador of the ACI
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/identification.rsi
+    state: mayor
+  - type: PresetIdCard
+    job: Ambassador

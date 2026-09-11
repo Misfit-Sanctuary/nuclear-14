@@ -78,6 +78,7 @@
   equipment:
     wallet: N14Wallet
     jumpsuit: ClothingSuperMutantVaultSuit
+    id: N14ClothingNeckDogtags # #Misfits Fix - Nightkin spawned with an empty ID slot, so they had no name, access or station record
     ears: MisfitsClothingHeadsetWastelandScrap
   # #Misfits Change - removed spawn stealthboy, the implant is innate now
 - type: playTimeTracker
@@ -491,6 +492,7 @@
           factions:
             - PlayerSuperMutant
             - Enclave
+            - Wastelander
         - type: ReplacementAccent
           accent: n14Enclave
         - type: PowerArmorProficiency

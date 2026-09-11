@@ -12,6 +12,7 @@ reagent-physical-desc-buzzy = buzzy
 reagent-physical-desc-chalky = chalky
 reagent-physical-desc-chewy = chewy
 reagent-physical-desc-citric = citric
+reagent-physical-desc-clear = clear
 reagent-physical-desc-cloudy = cloudy
 reagent-physical-desc-clumpy = clumpy
 reagent-physical-desc-coarse = coarse

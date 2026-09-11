@@ -1,0 +1,29 @@
+﻿- type: entity # this should already exist, somehow it didn't
+  parent: [DrinkCartonVisualsOpenable, DrinkCartonBaseFull]
+  id: DrinkJuiceLemonCarton
+  name: lemon juice
+  description: First it's sour, then it's still sour.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: JuiceLemon
+          Quantity: 60
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Drinks/lemonjuice.rsi
+
+- type: entity # same here, large carton didn't exist
+  parent: [DrinkCartonVisualsOpenable, DrinkCartonBaseFull]
+  id: DrinkJuicePineappleCarton
+  name: pineapple juice
+  description: Tastes like a tropical vacation far from space.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: JuicePineapple
+          Quantity: 60
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Drinks/pineapplejuice.rsi

@@ -1,3 +1,4 @@
+using Content.Shared._Misfits.Genetics.Mutations;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Stacks;
 using Robust.Shared.Prototypes;
@@ -38,6 +39,14 @@ public sealed partial class RequisitionsItemRequestEntry
 
     [DataField]
     public float Weight = 1f;
+
+    /// <summary>
+    /// When set, only a genetics disk carrying a mutation of this rarity counts toward the
+    /// request. A blank disk is the same prototype as a researched one, so without this a
+    /// lathe-printed blank would complete the bounty.
+    /// </summary>
+    [DataField]
+    public MutationRarity? MutationRarity;
 }
 
 [DataDefinition, Serializable, NetSerializable]

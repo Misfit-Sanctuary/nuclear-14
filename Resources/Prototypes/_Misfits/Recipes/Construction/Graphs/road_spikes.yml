@@ -1,0 +1,18 @@
+# The graph is kept separate from the construction-menu entry so its material
+# requirement is reliably resolved and displayed by the construction UI.
+
+- type: constructionGraph
+  id: MisfitsRoadSpikesConstruction
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: roadSpikes
+      steps:
+      - material: Steel
+        amount: 3
+      - material: MetalRod
+        amount: 3
+        doAfter: 3
+  - node: roadSpikes
+    entity: MisfitsRoadSpikes

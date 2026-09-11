@@ -1,4 +1,14 @@
 - type: reaction
+  id: DeadRum
+  reactants:
+    Rum:
+      amount: 2 # Misfits tweak, remove saline and double the rum
+    TableSalt:
+      amount: 1
+  products:
+    DeadRum: 3
+
+- type: reaction
   id: HealthViolation
   reactants:
     GargleBlaster:
@@ -50,6 +60,8 @@
 
 - type: reaction
   id: Daiquiri
+  requiredMixerCategories:
+  - Stir
   reactants:
     DeadRum:
       amount: 5
@@ -87,4 +99,4 @@
     BlueCuracao:
       amount: 1
   products:
-    Mothamphetamine: 3  
+    Mothamphetamine: 3

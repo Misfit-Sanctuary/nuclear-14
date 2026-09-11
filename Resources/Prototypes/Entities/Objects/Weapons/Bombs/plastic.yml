@@ -65,6 +65,9 @@
     maxIntensity: 30
     canCreateVacuum: false
   - type: ExplodeOnTrigger
+  # #Misfits Add - when planted, bring the exact destructible wall/door up to its
+  # destruction threshold. Targets without one (such as the Vault door) are immune.
+  - type: DestroyStuckTargetOnTrigger
   - type: HolidayVisuals
     holidays:
       festive:

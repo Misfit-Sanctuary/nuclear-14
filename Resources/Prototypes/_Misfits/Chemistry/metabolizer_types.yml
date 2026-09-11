@@ -6,3 +6,10 @@
 - type: metabolizerType
   id: SuperMutant
   name: metabolizer-type-supermutant
+
+# #Misfits Add - Nightkin metabolizer type. Nightkin organs carry BOTH SuperMutant and
+# Nightkin, so every existing SuperMutant reagent exemption (raw meat, brains, oxygen)
+# keeps firing while Nightkin-only effects can be gated on this type alone.
+- type: metabolizerType
+  id: Nightkin
+  name: metabolizer-type-nightkin

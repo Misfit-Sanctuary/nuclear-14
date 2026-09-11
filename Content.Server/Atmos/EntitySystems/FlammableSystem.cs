@@ -6,6 +6,7 @@ using Content.Server.Stunnable;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Server.Damage.Components;
+using Content.Server.Explosion.EntitySystems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
@@ -63,6 +64,7 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private readonly UseDelaySystem _useDelay = default!;
         [Dependency] private readonly AudioSystem _audio = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly TriggerSystem _trigger = default!;
 
         private EntityQuery<InventoryComponent> _inventoryQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -163,6 +165,12 @@ namespace Content.Server.Atmos.EntitySystems
 
             if (!isHotEvent.IsHot)
                 return;
+
+            if (_trigger.TryPacifiedBlockArm(uid, args.User))
+            {
+                args.Handled = true;
+                return;
+            }
 
             Ignite(uid, args.Used, flammable, args.User);
             args.Handled = true;

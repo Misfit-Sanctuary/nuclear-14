@@ -1,3 +1,8 @@
+# #Misfits Change - Nightkin have FEV-hardened guts: toxins they swallow or are injected
+# with do nothing to them. This is gated per-effect with `OrganType: Nightkin, shouldHave: false`
+# rather than by cancelling poison damage outright, because the metabolizer type only sits on
+# their heart and stomach - never their lungs. That means anything INHALED still hurts them
+# normally, and the reagent is still consumed, so toxins do not pile up in the bloodstream.
 - type: reagent
   id: Toxin
   name: reagent-name-toxin
@@ -15,6 +20,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         damage:
           types:
             Poison: 4
@@ -36,6 +45,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         damage:
           types:
             Poison: 4
@@ -74,6 +87,9 @@
         - !type:ReagentThreshold
           reagent: ChloralHydrate
           min: 20
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         damage:
           types:
             Poison: 1.5
@@ -90,6 +106,10 @@
     Poison:
       effects:
         - !type:HealthChange
+          conditions:
+          - !type:OrganType
+            type: Nightkin
+            shouldHave: false
           damage:
             types:
               Poison: 2
@@ -112,6 +132,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         damage:
           types:
             Poison: 1
@@ -138,6 +162,10 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         scaleByQuantity: true
         ignoreResistances: false
         damage:
@@ -151,6 +179,10 @@
       metabolismRate : 3.00 # High damage, high metabolism rate. You need a lot of units to crit. Simulates acid burning through you fast.
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         damage:
           types:
             Caustic: 11.0
@@ -178,6 +210,10 @@
       - !type:SatiateThirst
         factor: -1.5
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -200,6 +236,10 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         scaleByQuantity: true
         ignoreResistances: false
         damage:
@@ -213,6 +253,10 @@
       metabolismRate: 3.00 # High damage, high metabolism rate. You need a lot of units to crit. Simulates acid burning through you fast.
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         damage:
           types:
             Caustic: 8
@@ -248,6 +292,10 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         scaleByQuantity: true
         ignoreResistances: false
         damage:
@@ -261,6 +309,10 @@
       metabolismRate: 3.00 # Okay damage, high metabolism rate. You need a lot of units to crit. Simulates acid burning through you fast.
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         damage:
           types:
             Caustic: 5
@@ -290,6 +342,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         damage:
           types:
             Radiation: 3
@@ -305,6 +361,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         damage:
           types:
             Asphyxiation: 5
@@ -323,6 +383,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         damage:
           groups:
             Airloss: 10
@@ -365,6 +429,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         probability: 0.1
         damage:
           groups:
@@ -374,6 +442,9 @@
         conditions:
         - !type:ReagentThreshold
           min: 45
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         damage:
           groups:
             Brute: 2
@@ -434,6 +505,10 @@
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         damage:
           types:
             Poison: 3
@@ -450,6 +525,10 @@
     Poison:
       effects:
         - !type:HealthChange
+          conditions:
+          - !type:OrganType
+            type: Nightkin
+            shouldHave: false
           damage:
             types:
               Poison: 2
@@ -628,6 +707,10 @@
       metabolismRate: 0.2
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         damage:
           types:
             Poison: 1.8
@@ -651,6 +734,10 @@
         walkSpeedModifier: 0.8
         sprintSpeedModifier: 0.8
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         damage:
           groups:
             Airloss: 2
@@ -684,6 +771,9 @@
         conditions:
         - !type:Hunger
           max: 50
+        - !type:OrganType
+          type: Nightkin
+          shouldHave: false
         damage:
           types:
             Poison: 2

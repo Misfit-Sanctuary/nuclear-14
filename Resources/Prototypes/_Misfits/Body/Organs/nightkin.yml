@@ -1,0 +1,35 @@
+# #Misfits Add - Nightkin organs.
+#
+# These are the SuperMutant organs with the Nightkin metabolizer type added alongside
+# SuperMutant. Only the two organs that actually need Nightkin-specific behaviour are
+# overridden; every other slot in the Nightkin body still points at the SuperMutant organ.
+#
+# The metabolizerTypes list MUST keep SuperMutant. It is a HashSet DataField, so declaring
+# it replaces the parent's list outright - and roughly a hundred reagent effects (raw meat,
+# brains, and oxygen among them) are gated on allowlist-style SuperMutant/Human conditions.
+# A bare [Nightkin] would silently suffocate them.
+
+- type: entity
+  id: MisfitsOrganNightkinHeart
+  parent: MisfitsOrganSuperMutantHeart
+  components:
+  # The heart owns the Poison metabolism group, so this is where uranium and every other
+  # toxin is actually processed - not the stomach.
+  - type: Metabolizer
+    metabolizerTypes: [SuperMutant, Nightkin]
+
+- type: entity
+  id: MisfitsOrganNightkinStomach
+  parent: MisfitsOrganSuperMutantStomach
+  description: "Nightkin will swallow anything that fits. Most of it even stays down."
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [SuperMutant, Nightkin]
+  # Lets Nightkin eat anything flagged requiresSpecialDigestion.
+  # The `Food` component entry is load-bearing: FoodSystem.IsDigestibleBy returns early on
+  # the first stomach that has a SpecialDigestible at all, so a whitelist that does not also
+  # match ordinary food would leave them unable to eat anything else.
+  - type: Stomach
+    specialDigestible:
+      components:
+      - Food

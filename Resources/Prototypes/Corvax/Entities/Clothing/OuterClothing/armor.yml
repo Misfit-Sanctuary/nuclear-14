@@ -209,8 +209,8 @@
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/reconnaissancearmor.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 1.05 #same as ranger recon
-    sprintModifier: 1.05
+    walkModifier: 1.10
+    sprintModifier: 1.10
   - type: Armor
     modifiers:
       coefficients:
@@ -232,8 +232,8 @@
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/lightreconnaissancearmor.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 1.10 #A little faster than the previous recon
-    sprintModifier: 1.10
+    walkModifier: 1.15 #A little faster than the previous recon
+    sprintModifier: 1.15
   - type: Armor
     modifiers:
       coefficients:

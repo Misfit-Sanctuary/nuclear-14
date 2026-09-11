@@ -1,0 +1,910 @@
+﻿# Misfits - proposed Fallout medicine / chem reagents
+# ============================================================================
+# MEDICINE / SURVIVAL
+# ============================================================================
+
+- type: reagent
+  id: MisfitsAntibiotics
+  name: reagent-name-antibiotics
+  group: Medicine
+  desc: reagent-desc-antibiotics
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: medicine
+  color: "#e8f0dc"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      # Diseases are not in yet, but we larp.
+      - !type:ChemVomit
+        probability: 0.01
+
+- type: reagent
+  id: MisfitsRadShield
+  name: reagent-name-radshield
+  group: Medicine
+  desc: reagent-desc-radshield
+  physicalDesc: reagent-physical-desc-oily
+  flavor: medicine
+  color: "#4ba356"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      # Existing RadiationProtection uses PotassiumIodide: Radiation coefficient 0.1.
+      # This means 90% incoming radiation damage reduction while active.
+      - !type:GenericStatusEffect
+        key: RadiationProtection
+        component: RadiationProtection
+        type: Add
+        time: 12
+        refresh: true
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        damage:
+          types:
+            Poison: 0.4
+
+- type: reagent
+  id: MisfitsX111Compound
+  name: reagent-name-x111-compound
+  group: Medicine
+  desc: reagent-desc-x111-compound
+  physicalDesc: reagent-physical-desc-gleaming
+  flavor: medicine
+  color: "#56d7df"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.5
+      effects:
+      # Emergency anti-rad. Very fast compared with RadAway.
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: -10
+      - !type:ModifyFeralization
+        delta: -2
+
+- type: reagent
+  id: MisfitsRushingWater
+  name: reagent-name-rushing-water
+  group: Medicine
+  desc: reagent-desc-rushing-water
+  physicalDesc: reagent-physical-desc-refreshing
+  flavor: medicine
+  color: "#7fc9e8"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.10
+        sprintSpeedModifier: 1.10
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -0.25
+            Burn: -0.25
+      - !type:Jitter
+
+- type: reagent
+  id: MisfitsBloodShield
+  name: reagent-name-blood-shield
+  group: Medicine
+  desc: reagent-desc-blood-shield
+  physicalDesc: reagent-physical-desc-thick
+  flavor: medicine
+  color: "#731e26"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -0.25
+            Burn: -0.25
+          types:
+            Poison: -0.5
+      # TODO: replace Poison healing with a proper temporary poison-resistance status
+
+- type: reagent
+  id: MisfitsDaturaHide
+  name: reagent-name-datura-hide
+  group: Medicine
+  desc: reagent-desc-datura-hide
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: medicine
+  color: "#6b5c35"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:GenericStatusEffect
+        key: MedXProtection
+        component: MedXProtection
+        type: Add
+        time: 3
+        refresh: true
+
+- type: reagent
+  id: MisfitsSnakebiteTourniquet
+  name: reagent-name-snakebite-tourniquet
+  group: Medicine
+  desc: reagent-desc-snakebite-tourniquet
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: medicine
+  color: "#d0c38a"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.5
+      effects:
+      - !type:AdjustReagent
+        reagent: CazadorVenom
+        amount: -3
+      - !type:AdjustReagent
+        reagent: NightstalkerVenom
+        amount: -3
+      - !type:AdjustReagent
+        reagent: MisfitsAshViperVenom
+        amount: -3
+      - !type:AdjustReagent
+        reagent: FireToxin
+        amount: -2
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -1
+      - !type:ModifyBleedAmount
+        amount: -0.5
+
+- type: reagent
+  id: MisfitsFieryPurgative
+  name: reagent-name-fiery-purgative
+  group: Medicine
+  desc: reagent-desc-fiery-purgative
+  physicalDesc: reagent-physical-desc-burning
+  flavor: bitter
+  color: "#d46622"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -2
+            Radiation: -2
+            Heat: 0.2
+      - !type:AdjustReagent
+        reagent: CazadorVenom
+        amount: -1
+      - !type:AdjustReagent
+        reagent: NightstalkerVenom
+        amount: -1
+      - !type:AdjustReagent
+        reagent: MisfitsAshViperVenom
+        amount: -1
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.90
+        sprintSpeedModifier: 0.90
+      - !type:ChemVomit
+        probability: 0.08
+
+- type: reagent
+  id: MisfitsRefreshingBeverage
+  name: reagent-name-refreshing-beverage
+  group: Medicine
+  desc: reagent-desc-refreshing-beverage
+  physicalDesc: reagent-physical-desc-refreshing
+  flavor: medicine
+  color: "#4bd4c7"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -1
+            Burn: -1
+            Airloss: -3
+          types:
+            Poison: -2
+            Radiation: -6
+      - !type:ModifyBleedAmount
+        amount: -2
+      - !type:ModifyFeralization
+        delta: -1
+      - !type:SuppressAddiction
+        time: 600
+
+- type: reagent
+  id: MisfitsGlowingBloodPack
+  name: reagent-name-glowing-blood-pack
+  group: Medicine
+  desc: reagent-desc-glowing-blood-pack
+  physicalDesc: reagent-physical-desc-gleaming
+  flavor: metallic
+  color: "#57d35d"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.25
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -0.5
+            Burn: -0.5
+          types:
+            Asphyxiation: -0.5
+            Bloodloss: -1.5
+      # Same underlying component as MisfitsRadShield, but the faster metabolism makes
+      # the protection considerably shorter-lived.
+      - !type:GenericStatusEffect
+        key: RadiationProtection
+        component: RadiationProtection
+        type: Add
+        time: 7
+        refresh: true
+
+- type: reagent
+  id: MisfitsHerbalAnodyne
+  name: reagent-name-herbal-anodyne
+  group: Medicine
+  desc: reagent-desc-herbal-anodyne
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: leafy
+  color: "#8b9c63"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:SuppressChronicPainReagent
+        SuppressionTime: 180
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 1
+        type: Remove
+
+- type: reagent
+  id: MisfitsHerbalAntimicrobial
+  name: reagent-name-herbal-antimicrobial
+  group: Medicine
+  desc: reagent-desc-herbal-antimicrobial
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: leafy
+  color: "#4d8250"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -0.15
+
+- type: reagent
+  id: MisfitsHerbalStimulant
+  name: reagent-name-herbal-stimulant
+  group: Medicine
+  desc: reagent-desc-herbal-stimulant
+  physicalDesc: reagent-physical-desc-refreshing
+  flavor: leafy
+  color: "#a1ad59"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 2
+        type: Remove
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.05
+        sprintSpeedModifier: 1.05
+
+- type: reagent
+  id: MisfitsSkeetoSpit
+  name: reagent-name-skeeto-spit
+  group: Medicine
+  desc: reagent-desc-skeeto-spit
+  physicalDesc: reagent-physical-desc-sticky
+  flavor: leafy
+  color: "#b7954f"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:SpecialStatBoostEffect
+        enduranceBoost: 2
+# no idea if this actually works
+
+- type: reagent
+  id: MisfitsPenicillin
+  name: reagent-name-penicillin
+  group: Medicine
+  desc: reagent-desc-penicillin
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: medicine
+  color: "#f0e7bd"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.15
+      effects:
+      # Bacterial diseases should list MisfitsPenicillin under DiseaseReagentCure.
+      - !type:ChemVomit
+        probability: 0.005
+
+- type: reagent
+  id: MisfitsPrussianBlue
+  name: reagent-name-prussian-blue
+  group: Medicine
+  desc: reagent-desc-prussian-blue
+  physicalDesc: reagent-physical-desc-grainy
+  flavor: medicine
+  color: "#003153"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      # Slow contamination treatment, deliberately much slower than X-111.
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: -1.5
+      - !type:ModifyFeralization
+        delta: -0.2
+
+- type: reagent
+  id: MisfitsPilgrimsRemedy
+  name: reagent-name-pilgrims-remedy
+  group: Medicine
+  desc: reagent-desc-pilgrims-remedy
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: leafy
+  color: "#847a45"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -0.35
+            Burn: -0.35
+          types:
+            Poison: -0.35
+            Radiation: -0.25
+      - !type:ModifyBleedAmount
+        amount: 0.1
+      - !type:ModifyFeralization
+        delta: -0.05
+
+- type: reagent
+  id: MisfitsHealingSalve
+  name: reagent-name-healing-salve
+  group: Medicine
+  desc: reagent-desc-healing-salve
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: leafy
+  color: "#9ca66b"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.25
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -1.25
+            Burn: -1.25
+      - !type:ModifyBleedAmount
+        amount: -0.25
+
+# ============================================================================
+# COMBAT / PERFORMANCE CHEMS
+# ============================================================================
+
+- type: reagent
+  id: MisfitsFury
+  name: reagent-name-fury
+  group: Chems
+  desc: reagent-desc-fury
+  physicalDesc: reagent-physical-desc-enraging
+  flavor: bitter
+  color: "#8f2a20"
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:SpecialStatBoostEffect
+        strengthBoost: 13
+      - !type:GenericStatusEffect
+        key: MedXProtection
+        component: MedXProtection
+        type: Add
+        time: 12
+        refresh: true
+      - !type:Addicting
+        time: 8
+        withdrawalDamage:
+          groups:
+            Brute: 0.25
+        withdrawalStaminaDrain: 8
+      - !type:ModifyFeralization
+        delta: 0.5
+      - !type:Jitter
+      - !type:ModifyBleedAmount
+        amount: 0.25
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 6
+        damage:
+          types:
+            Poison: 1.5
+
+- type: reagent
+  id: MisfitsCalmex
+  name: reagent-name-calmex
+  group: Chems
+  desc: reagent-desc-calmex
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: medicine
+  color: "#8fa8bc"
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:SpecialStatBoostEffect
+        perceptionBoost: 3
+        agilityBoost: 3
+      - !type:Addicting
+        time: 5
+        withdrawalSpeedPenalty: 0.80
+        withdrawalStaminaDrain: 3
+
+- type: reagent
+  id: MisfitsOverdrive
+  name: reagent-name-overdrive
+  group: Chems
+  desc: reagent-desc-overdrive
+  physicalDesc: reagent-physical-desc-volatile
+  flavor: bitter
+  color: "#ef6b2e"
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:SpecialStatBoostEffect
+        strengthBoost: 4
+        luckBoost: 3
+      - !type:Addicting
+        time: 8
+        withdrawalStaminaDrain: 7
+        withdrawalDamage:
+          types:
+            Poison: 0.15
+      - !type:Jitter
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        damage:
+          types:
+            Poison: 2
+
+- type: reagent
+  id: MisfitsXCell
+  name: reagent-name-x-cell
+  group: Chems
+  desc: reagent-desc-x-cell
+  physicalDesc: reagent-physical-desc-gleaming
+  flavor: medicine
+  color: "#b58fe0"
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:SpecialStatBoostEffect
+        strengthBoost: 2
+        perceptionBoost: 2
+        enduranceBoost: 2
+        charismaBoost: 2
+        intelligenceBoost: 2
+        agilityBoost: 2
+        luckBoost: 2
+      - !type:Addicting
+        time: 10
+        withdrawalSpeedPenalty: 0.85
+        withdrawalStaminaDrain: 7
+        withdrawalDamage:
+          groups:
+            Brute: 0.15
+          types:
+            Poison: 0.10
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 6
+        damage:
+          types:
+            Poison: 2
+
+- type: reagent
+  id: MisfitsCrank
+  name: reagent-name-crank
+  group: Chems
+  desc: reagent-desc-crank
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: bitter
+  color: "#d7d0c1"
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.1
+      effects:
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.15
+        sprintSpeedModifier: 1.15
+      - !type:SpecialStatBoostEffect
+        agilityBoost: 3
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 3
+        type: Remove
+      - !type:Jitter
+      - !type:Addicting
+        time: 10
+        withdrawalSpeedPenalty: 0.70
+        withdrawalStaminaDrain: 9
+        withdrawalDamage:
+          types:
+            Poison: 0.2
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 11
+        damage:
+          types:
+            Poison: 2
+            Asphyxiation: 1
+
+# ============================================================================
+# POISONS
+# ============================================================================
+
+- type: reagent
+  id: MisfitsGhostcapExtract
+  name: reagent-name-ghostcap-extract
+  group: Toxins
+  desc: reagent-desc-ghostcap-extract
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: terrible
+  color: "#74629b"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.5
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 12
+        refresh: true
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
+        type: Add
+        time: 2
+        refresh: true
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.75
+        sprintSpeedModifier: 0.75
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        type: Add
+        time: 1
+        probability: 0.12
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+      # TODO: wire this reagent into HallucinationsSystem for true phantom/audio events.
+
+- type: reagent
+  id: MisfitsWidowsMercy
+  name: reagent-name-widows-mercy
+  group: Toxins
+  desc: reagent-desc-widows-mercy
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: terrible
+  color: "#301f38"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+          groups:
+            Airloss: 1
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.85
+        sprintSpeedModifier: 0.85
+        conditions:
+        - !type:ReagentThreshold
+          min: 8
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        component: Drowsiness
+        type: Add
+        time: 3
+        refresh: true
+        conditions:
+        - !type:ReagentThreshold
+          min: 12
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        type: Add
+        time: 0.75
+        probability: 0.08
+        conditions:
+        - !type:ReagentThreshold
+          min: 18
+
+- type: reagent
+  id: MisfitsRedBellPoison
+  name: reagent-name-red-bell-poison
+  group: Toxins
+  desc: reagent-desc-red-bell-poison
+  physicalDesc: reagent-physical-desc-burning
+  flavor: terrible
+  color: "#9f1e2d"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.75
+            Asphyxiation: 1
+      - !type:Jitter
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.80
+        sprintSpeedModifier: 0.80
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        type: Add
+        time: 1
+        probability: 0.10
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+
+- type: reagent
+  id: MisfitsAshViperVenom
+  name: reagent-name-ash-viper-venom
+  group: Toxins
+  desc: reagent-desc-ash-viper-venom
+  physicalDesc: reagent-physical-desc-viscous
+  flavor: terrible
+  color: "#b88642"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.25
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1.25
+          groups:
+            Airloss: 0.5
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.90
+        sprintSpeedModifier: 0.90
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        type: Add
+        time: 0.75
+        probability: 0.10
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+
+# ============================================================================
+# ANTIDOTES / EMERGENCY MEDICINE
+# ============================================================================
+
+- type: reagent
+  id: MisfitsLazarusCompound
+  name: reagent-name-lazarus-compound
+  group: Medicine
+  desc: reagent-desc-lazarus-compound
+  physicalDesc: reagent-physical-desc-volatile
+  flavor: medicine
+  color: "#ece3bd"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.5
+      effects:
+      # Extremely potent only in critical condition.
+      - !type:HealthChange
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+        damage:
+          groups:
+            Brute: -1.5
+            Burn: -1.5
+            Airloss: -6
+          types:
+            Poison: -1
+      - !type:ModifyBleedAmount
+        amount: -1
+        conditions:
+        - !type:MobStateCondition
+          mobstate: Critical
+      # The price of forcing the body back from the edge.
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 0.5
+            Poison: 0.25
+      - !type:Jitter
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 12
+        damage:
+          types:
+            Cellular: 1
+            Poison: 2
+
+- type: reagent
+  id: MisfitsClearwake
+  name: reagent-name-clearwake
+  group: Medicine
+  desc: reagent-desc-clearwake
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: bitter
+  color: "#d9eef2"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.25
+      effects:
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 4
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 1.5
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 1.5
+        type: Remove
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: -2
+            Poison: 0.25
+      - !type:Jitter
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 11
+        damage:
+          types:
+            Poison: 2
+            Asphyxiation: 1
+      - !type:ResetNarcolepsy
+        TimerReset: 300
+
+
+- type: reagent
+  id: MisfitsWidowbane
+  name: reagent-name-widowbane
+  group: Medicine
+  desc: reagent-desc-widowbane
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: medicine
+  color: "#c7b3d8"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.5
+      effects:
+      - !type:AdjustReagent
+        reagent: MisfitsWidowsMercy
+        amount: -2
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -1
+          groups:
+            Airloss: -0.5
+      - !type:ChemVomit
+        probability: 0.02
+
+- type: reagent
+  id: MisfitsCinderSerum
+  name: reagent-name-cinder-serum
+  group: Medicine
+  desc: reagent-desc-cinder-serum
+  physicalDesc: reagent-physical-desc-soothing
+  flavor: medicine
+  color: "#d69c72"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.5
+      effects:
+      - !type:AdjustReagent
+        reagent: MisfitsRedBellPoison
+        amount: -2
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -0.75
+            Asphyxiation: -0.75
+      - !type:Jitter
+        probability: 0.05
+
+- type: reagent
+  id: MisfitsGravesalt
+  name: reagent-name-gravesalt
+  group: Medicine
+  desc: reagent-desc-gravesalt
+  physicalDesc: reagent-physical-desc-grainy
+  flavor: salty
+  color: "#c8c3b3"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.5
+      effects:
+      # Emergency broad purge for the poison family.
+      - !type:AdjustReagent
+        reagent: MisfitsGhostcapExtract
+        amount: -1.5
+      - !type:AdjustReagent
+        reagent: MisfitsWidowsMercy
+        amount: -1.5
+      - !type:AdjustReagent
+        reagent: MisfitsRedBellPoison
+        amount: -1.5
+      - !type:AdjustReagent
+        reagent: MisfitsAshViperVenom
+        amount: -1.5
+      - !type:AdjustReagent
+        reagent: CazadorVenom
+        amount: -1
+      - !type:AdjustReagent
+        reagent: NightstalkerVenom
+        amount: -1
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -1
+          groups:
+            Brute: 0.4
+      - !type:ChemVomit
+        probability: 0.20

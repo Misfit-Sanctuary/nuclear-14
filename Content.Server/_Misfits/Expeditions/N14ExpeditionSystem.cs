@@ -1,21 +1,26 @@
 using System.Linq;
 using System.Numerics;
+using Content.Server.Administration;
 using Content.Server.Atmos.EntitySystems; // #Misfits Add - SetMapAtmosphere for static breathable air on expedition maps
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Gravity;
 using Content.Server.Procedural;
+using Content.Server.Warps;
 using Content.Shared.Atmos; // #Misfits Add - GasMixture, Gas enum, Atmospherics constants
 using Content.Shared.Atmos.Components; // #Misfits Add - MapAtmosphereComponent
+using Content.Shared._Misfits.CCVar;
 using Content.Shared._Misfits.Expeditions;
+using Robust.Shared.Configuration;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Procedural;
-using Content.Shared.StepTrigger.Systems;
 using Content.Shared.UserInterface;
+using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.EntitySerialization.Systems;
@@ -39,8 +44,10 @@ namespace Content.Server._Misfits.Expeditions;
 public sealed class N14ExpeditionSystem : EntitySystem
 {
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -52,12 +59,13 @@ public sealed class N14ExpeditionSystem : EntitySystem
     [Dependency] private readonly NpcFactionSystem _factions = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly WarperSystem _warper = default!;
     // #Misfits Add - procedural underground expedition generator
     [Dependency] private readonly UndergroundExpeditionMapGenerator _proceduralGen = default!;
 
     private int _expeditionSeedCounter;
+    private bool _enabled;
 
     // #Misfits Tweak - Throttle session-timer scanning. Warnings fire at 10-min, 5-min, 1-min, 30-sec
     // intervals — sub-second resolution is unnecessary. Per-tick scan at 30 Hz is wasteful.
@@ -67,16 +75,21 @@ public sealed class N14ExpeditionSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        Subs.CVar(_config, ExpeditionCVars.Enabled, enabled => _enabled = enabled, true);
 
         // BUI events
         SubscribeLocalEvent<N14ExpeditionBoardComponent, AfterActivatableUIOpenEvent>(OnBoardOpened);
         SubscribeLocalEvent<N14ExpeditionBoardComponent, N14ExpeditionLaunchMessage>(OnLaunchMessage);
+        SubscribeLocalEvent<N14ExpeditionBoardComponent, InteractHandEvent>(OnDirectEntranceInteracted);
+        SubscribeLocalEvent<N14ExpeditionBoardComponent, ActivateInWorldEvent>(OnDirectEntranceActivated);
+        SubscribeLocalEvent<N14ExpeditionBoardComponent, GetVerbsEvent<AlternativeVerb>>(OnDirectEntranceVerbs);
 
-        // Exit point interaction (press E) and step-on/off trigger (walk over green flare)
+        // Return rope interaction (press E/click).
         SubscribeLocalEvent<N14ExpeditionExitComponent, ActivateInWorldEvent>(OnExitActivated);
-        SubscribeLocalEvent<N14ExpeditionExitComponent, StepTriggeredOnEvent>(OnExitSteppedOn);
-        SubscribeLocalEvent<N14ExpeditionExitComponent, StepTriggeredOffEvent>(OnExitSteppedOff);
-        SubscribeLocalEvent<N14ExpeditionExitComponent, StepTriggerAttemptEvent>(OnExitStepAttempt);
+        // Do not subscribe this system on MobStateComponent: SharedStunSystem
+        // owns that directed component/event pair. The unrestricted event still
+        // reaches every state change and is filtered to expedition members below.
+        SubscribeLocalEvent<MobStateChangedEvent>(OnParticipantMobStateChanged);
     }
 
     public override void Update(float frameTime)
@@ -118,6 +131,18 @@ public sealed class N14ExpeditionSystem : EntitySystem
                 var session = expedition.Sessions[i];
                 if (session.Finished)
                     continue;
+
+                // A direct ladder traversal or external teleport can move a member
+                // off-map without waiting for the expedition timer. Once nobody
+                // from this session remains underground, complete and regenerate
+                // on the next post-cooldown launch.
+                session.Players.RemoveWhere(player =>
+                    !Exists(player) || Deleted(player) || Transform(player).MapID != Transform(mapUid).MapID);
+                if (session.Players.Count == 0)
+                {
+                    EndSession(mapUid, expedition, session);
+                    continue;
+                }
 
                 var remaining = session.EndTime - now;
 
@@ -197,69 +222,6 @@ public sealed class N14ExpeditionSystem : EntitySystem
         }
         } // end if (_sessionScanAccumulator >= SessionScanInterval)
 
-        // --- Process exit-zone extraction countdowns (multi-session aware) ---
-        var exitQuery = EntityQueryEnumerator<N14ExpeditionExitComponent>();
-        while (exitQuery.MoveNext(out var exitUid, out var exit))
-        {
-            if (exit.PendingExtractions.Count == 0)
-                continue;
-
-            if (!TryComp<N14ExpeditionComponent>(exit.ExpeditionMap, out var exp))
-            {
-                exit.PendingExtractions.Clear();
-                continue;
-            }
-
-            // Check each pending extraction — extract if countdown elapsed
-            var toExtract = new List<EntityUid>();
-            foreach (var (entUid, extractTime) in exit.PendingExtractions)
-            {
-                if (now >= extractTime)
-                    toExtract.Add(entUid);
-            }
-
-            // When any countdown fires, extract that player
-            if (toExtract.Count > 0)
-            {
-                foreach (var entToExtract in toExtract)
-                {
-                    // Find which session this entity belongs to
-                    N14ExpeditionSession? owningSession = null;
-                    foreach (var session in exp.Sessions)
-                    {
-                        if (session.Players.Contains(entToExtract))
-                        {
-                            owningSession = session;
-                            break;
-                        }
-                    }
-
-                    if (owningSession == null)
-                    {
-                        // Not in any session — shouldn't happen, but handle gracefully
-                        exit.PendingExtractions.Remove(entToExtract);
-                        continue;
-                    }
-
-                    // Teleport the extracting entity back to its session's return point
-                    if (Exists(entToExtract) && !Deleted(entToExtract))
-                    {
-                        TeleportEntitySafely(entToExtract, owningSession.ReturnPoint);
-
-                        if (_playerManager.TryGetSessionByEntity(entToExtract, out var retSess))
-                        {
-                            var returnMsg = Loc.GetString("n14-expedition-returned");
-                            _popup.PopupEntity(returnMsg, entToExtract, entToExtract, PopupType.Medium);
-                            _chatManager.DispatchServerMessage(retSess, returnMsg);
-                        }
-
-                        owningSession.Players.Remove(entToExtract);
-                    }
-
-                    exit.PendingExtractions.Remove(entToExtract);
-                }
-            }
-        }
     }
 
     #region BUI Handlers
@@ -280,6 +242,141 @@ public sealed class N14ExpeditionSystem : EntitySystem
         StartLaunchCountdown(uid, board, args.DifficultyId);
     }
 
+    private void OnDirectEntranceInteracted(
+        EntityUid uid,
+        N14ExpeditionBoardComponent board,
+        InteractHandEvent args)
+    {
+        if (args.Handled || !board.DirectLaunch)
+            return;
+        OpenDirectLaunchPrompt(uid, board, args.User);
+        args.Handled = true;
+    }
+
+    private void OnDirectEntranceActivated(
+        EntityUid uid,
+        N14ExpeditionBoardComponent board,
+        ActivateInWorldEvent args)
+    {
+        if (args.Handled || !board.DirectLaunch)
+            return;
+        OpenDirectLaunchPrompt(uid, board, args.User);
+        args.Handled = true;
+    }
+
+    private void OpenDirectLaunchPrompt(EntityUid entranceUid, N14ExpeditionBoardComponent entrance, EntityUid user)
+    {
+        if (!_enabled)
+        {
+            _popup.PopupEntity(Loc.GetString("n14-expedition-disabled"), entranceUid, user);
+            return;
+        }
+
+        if (!_playerManager.TryGetSessionByEntity(user, out var playerSession))
+            return;
+
+        _quickDialog.OpenConfirmationDialog(
+            playerSession,
+            Loc.GetString("n14-expedition-entrance-name"),
+            Loc.GetString("n14-expedition-launch-button"),
+            Loc.GetString("quick-dialog-ui-cancel"),
+            () =>
+            {
+                if (!Exists(entranceUid) || Deleted(entranceUid) || !Exists(user) || Deleted(user))
+                    return;
+
+                if (!Transform(user).Coordinates.TryDistance(
+                        EntityManager,
+                        Transform(entranceUid).Coordinates,
+                        out var distance)
+                    || distance > entrance.GatherRadius)
+                {
+                    _popup.PopupEntity(Loc.GetString("n14-expedition-entrance-too-far"), entranceUid, user);
+                    return;
+                }
+
+                TryStartDirectLaunch(entranceUid, entrance, user);
+            },
+            () => { },
+            showCancel: false);
+    }
+
+    private bool TryStartDirectLaunch(EntityUid entranceUid, N14ExpeditionBoardComponent entrance, EntityUid user)
+    {
+        if (!_enabled)
+        {
+            _popup.PopupEntity(Loc.GetString("n14-expedition-disabled"), entranceUid, user);
+            return false;
+        }
+
+        if (entrance.ActiveExpedition is { } active && Exists(active) && !Deleted(active))
+        {
+            return TryJoinActiveExpedition(entranceUid, active, user);
+        }
+
+        if (entrance.CooldownEnd is { } cooldownEnd && _timing.CurTime < cooldownEnd)
+        {
+            var minutes = Math.Max(1, (int) Math.Ceiling((cooldownEnd - _timing.CurTime).TotalMinutes));
+            _popup.PopupEntity(Loc.GetString("n14-expedition-entrance-cooldown", ("minutes", minutes)), entranceUid, user);
+            return false;
+        }
+
+        entrance.ActiveExpedition = null;
+        StartLaunchCountdown(entranceUid, entrance, entrance.DirectDifficultyId);
+        return entrance.PendingLaunchTime != null;
+    }
+
+    /// <summary>
+    /// An active surface entrance remains an entrance.  Latecomers join the
+    /// existing session at its recorded safe hub; they never make a second map
+    /// or restart its timer/encounter scaling.
+    /// </summary>
+    private bool TryJoinActiveExpedition(EntityUid entranceUid, EntityUid mapUid, EntityUid user)
+    {
+        if (!TryComp<N14ExpeditionComponent>(mapUid, out var expedition))
+            return false;
+
+        var session = expedition.Sessions.FirstOrDefault(candidate =>
+            !candidate.Finished && candidate.SourceBoard == entranceUid && candidate.EndTime > _timing.CurTime);
+        if (session == null)
+        {
+            _popup.PopupEntity(Loc.GetString("n14-expedition-entrance-busy"), entranceUid, user);
+            return false;
+        }
+
+        // Do not duplicate a roster entry if somebody clicks the ladder after
+        // their warp has already completed.
+        if (session.Players.Contains(user))
+            return true;
+
+        if (!TeleportEntitySafely(user, session.EntryPoint))
+            return false;
+
+        session.Players.Add(user);
+        var joined = Loc.GetString("n14-expedition-joined");
+        _popup.PopupEntity(joined, user, user, PopupType.Medium);
+        if (_playerManager.TryGetSessionByEntity(user, out var playerSession))
+            _chatManager.DispatchServerMessage(playerSession, joined);
+        return true;
+    }
+
+    private void OnDirectEntranceVerbs(
+        EntityUid uid,
+        N14ExpeditionBoardComponent board,
+        ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!board.DirectLaunch || !args.CanAccess || !args.CanInteract)
+            return;
+
+        var user = args.User;
+        args.Verbs.Add(new AlternativeVerb
+        {
+            Text = Loc.GetString("n14-expedition-launch-button"),
+            Act = () => TryStartDirectLaunch(uid, board, user),
+            ConfirmationPopup = true,
+        });
+    }
+
     #endregion
 
     #region Launch
@@ -289,6 +386,9 @@ public sealed class N14ExpeditionSystem : EntitySystem
     /// </summary>
     private void StartLaunchCountdown(EntityUid boardUid, N14ExpeditionBoardComponent board, string difficultyId)
     {
+        if (!_enabled)
+            return;
+
         // Block if busy or cooling down
         if (board.ActiveExpedition != null || board.PendingLaunchTime != null)
             return;
@@ -332,6 +432,13 @@ public sealed class N14ExpeditionSystem : EntitySystem
 
         if (diff.Maps.Count == 0)
             return;
+
+        // Lock the expedition roster before generating a procedural map. This is
+        // the authoritative party size for encounter scaling; late arrivals
+        // cannot change a ruin that is already being generated.
+        var nearby = new HashSet<Entity<MobStateComponent>>();
+        _lookup.GetEntitiesInRange(boardXform.Coordinates, board.GatherRadius, nearby);
+        nearby.RemoveWhere(ent => !_playerManager.TryGetSessionByEntity(ent, out _));
 
         // Pick a random map entry from the difficulty pool
         var mapEntry = _random.Pick(diff.Maps);
@@ -417,6 +524,16 @@ public sealed class N14ExpeditionSystem : EntitySystem
             // #Misfits Add - runtime procedural underground map generation path
             else if (mapEntry.RuntimeProcedural && mapEntry.ProceduralTheme.HasValue)
             {
+                // Larger groups receive a broader ruin as well as denser encounters.
+                // One step per additional entrant grows the map by 12 tiles per side
+                // and 1.5 rooms (rounded across the group), capped at five players / 144x144.
+                var partySize = Math.Max(1, nearby.Count);
+                var partyScaleSteps = Math.Min(partySize - 1, 4);
+                var scaledGridSize = mapEntry.ProceduralGridSize + partyScaleSteps * 12;
+                var scaledRoomIncrease = (int) Math.Ceiling(partyScaleSteps * 1.5);
+                var scaledMinRooms = mapEntry.ProceduralMinRooms + scaledRoomIncrease;
+                var scaledMaxRooms = mapEntry.ProceduralMaxRooms + scaledRoomIncrease;
+
                 // Create a fresh map and grid, then run the procedural generator
                 mapUid = _mapSystem.CreateMap(out var mapId);
                 var gridEnt = _mapManager.CreateGridEntity(mapId);
@@ -435,11 +552,12 @@ public sealed class N14ExpeditionSystem : EntitySystem
                 {
                     Seed               = runtimeSeed,
                     Theme              = mapEntry.ProceduralTheme.Value,
-                    GridWidth          = mapEntry.ProceduralGridSize,
-                    GridHeight         = mapEntry.ProceduralGridSize,
+                    GridWidth          = scaledGridSize,
+                    GridHeight         = scaledGridSize,
                     DifficultyTier     = mapEntry.ProceduralDifficultyTier,
-                    MinRooms           = mapEntry.ProceduralMinRooms,
-                    MaxRooms           = mapEntry.ProceduralMaxRooms,
+                    PartySize          = partySize,
+                    MinRooms           = scaledMinRooms,
+                    MaxRooms           = scaledMaxRooms,
                     HubCount           = mapEntry.ProceduralHubCount,
                     FactionSpawnGroups = mapEntry.FactionSpawns ?? new System.Collections.Generic.List<N14FactionSpawnGroup>(),
                     // #Misfits Add - Forward YAML-pinned environmental states to the generator
@@ -498,10 +616,6 @@ public sealed class N14ExpeditionSystem : EntitySystem
             _gravity.EnableGravity(gridUid);
         }
 
-        // Gather all mobs near the board
-        var nearby = new HashSet<Entity<MobStateComponent>>();
-        _lookup.GetEntitiesInRange(boardXform.Coordinates, board.GatherRadius, nearby);
-
         // Determine spawn — per-faction hub for procedural maps, majority-faction vote for YAML maps
         // #Misfits Fix - Procedural maps now spawn each faction at their hub instead of grid center
         EntityCoordinates defaultSpawn;
@@ -544,6 +658,7 @@ public sealed class N14ExpeditionSystem : EntitySystem
         {
             SourceBoard = boardUid,
             ReturnPoint = boardXform.Coordinates,
+            EntryPoint = defaultSpawn,
             EndTime = _timing.CurTime + TimeSpan.FromSeconds(diff.Duration),
             DifficultyId = board.PendingDifficulty,
         };
@@ -570,8 +685,8 @@ public sealed class N14ExpeditionSystem : EntitySystem
                 }
             }
 
-            session.Players.Add(ent);
-            TeleportEntitySafely(ent, dest);
+            if (TeleportEntitySafely(ent, dest))
+                session.Players.Add(ent);
         }
 
         // #Misfits Fix - Re-register session, spawn exits, link board state
@@ -671,14 +786,55 @@ public sealed class N14ExpeditionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Safely teleports an entity to the destination coordinates.
-    /// SetCoordinates handles both position and parent re-parenting correctly,
-    /// and for player-controlled entities we should NOT call AttachToGridOrMap
-    /// as it can detach players from their bodies.
+    /// Moves an expedition participant through the same transport path as a
+    /// normal ladder. The temporary destination marker lets WarperSystem carry
+    /// a pulled person/crate and recruited followers to arbitrary coordinates.
     /// </summary>
-    private void TeleportEntitySafely(EntityUid uid, EntityCoordinates destination)
+    private bool TeleportEntitySafely(EntityUid uid, EntityCoordinates destination)
     {
-        _xform.SetCoordinates(uid, destination);
+        var marker = Spawn("N14ExpeditionWarpMarker", destination);
+        var warped = _warper.WarpEntityTo(uid, marker);
+        QueueDel(marker);
+        return warped;
+    }
+
+    /// <summary>
+    /// Critical is recoverable inside an expedition.  A full death is not: move
+    /// the body back through the source ladder immediately and remove it from
+    /// the session so it cannot be stranded until the timer expires.
+    /// </summary>
+    private void OnParticipantMobStateChanged(MobStateChangedEvent args)
+    {
+        if (args.NewMobState != MobState.Dead)
+            return;
+
+        var uid = args.Target;
+
+        var expQuery = EntityQueryEnumerator<N14ExpeditionComponent>();
+        while (expQuery.MoveNext(out var mapUid, out var expedition))
+        {
+            if (Transform(uid).MapID != Transform(mapUid).MapID)
+                continue;
+
+            var session = expedition.Sessions.FirstOrDefault(candidate =>
+                !candidate.Finished && candidate.Players.Contains(uid));
+            if (session == null)
+                continue;
+
+            if (TeleportEntitySafely(uid, session.ReturnPoint))
+            {
+                session.Players.Remove(uid);
+                var extracted = Loc.GetString("n14-expedition-death-extracting");
+                _popup.PopupEntity(extracted, uid, uid, PopupType.Medium);
+                if (_playerManager.TryGetSessionByEntity(uid, out var playerSession))
+                    _chatManager.DispatchServerMessage(playerSession, extracted);
+            }
+
+            if (session.Players.Count == 0)
+                EndSession(mapUid, expedition, session);
+
+            return;
+        }
     }
 
     #endregion
@@ -754,9 +910,7 @@ public sealed class N14ExpeditionSystem : EntitySystem
         }
     }
 
-    /// <summary>
-    /// When a player activates (presses E on) the exit point, start the extraction countdown.
-    /// </summary>
+    /// <summary>Returns a player through the rope to this session's surface entrance.</summary>
     private void OnExitActivated(EntityUid uid, N14ExpeditionExitComponent exit, ActivateInWorldEvent args)
     {
         if (args.Handled)
@@ -765,73 +919,24 @@ public sealed class N14ExpeditionSystem : EntitySystem
         if (!TryComp<N14ExpeditionComponent>(exit.ExpeditionMap, out var expedition))
             return;
 
-        if (expedition.Sessions.All(s => s.Finished))
+        var session = expedition.Sessions.FirstOrDefault(candidate =>
+            !candidate.Finished && candidate.Players.Contains(args.User));
+        if (session == null || !Exists(session.SourceBoard) || Deleted(session.SourceBoard))
             return;
 
-        StartExitCountdown(uid, exit, args.User);
+        if (!_warper.WarpEntityTo(args.User, session.SourceBoard))
+            return;
+
+        session.Players.Remove(args.User);
+        var returnMsg = Loc.GetString("n14-expedition-returned");
+        _popup.PopupEntity(returnMsg, args.User, args.User, PopupType.Medium);
+        if (_playerManager.TryGetSessionByEntity(args.User, out var playerSession))
+            _chatManager.DispatchServerMessage(playerSession, returnMsg);
+
+        if (session.Players.Count == 0)
+            EndSession(exit.ExpeditionMap, expedition, session);
+
         args.Handled = true;
-    }
-
-    /// <summary>
-    /// Allow any entity to trigger the exit by stepping on it (no speed requirement).
-    /// </summary>
-    private static void OnExitStepAttempt(EntityUid uid, N14ExpeditionExitComponent comp, ref StepTriggerAttemptEvent args)
-    {
-        args.Continue = true;
-    }
-
-    /// <summary>
-    /// When a mob walks onto the green flare, start the extraction countdown.
-    /// </summary>
-    private void OnExitSteppedOn(EntityUid uid, N14ExpeditionExitComponent exit, ref StepTriggeredOnEvent args)
-    {
-        if (!TryComp<N14ExpeditionComponent>(exit.ExpeditionMap, out var expedition))
-            return;
-
-        if (expedition.Sessions.All(s => s.Finished))
-            return;
-
-        // Only affect mobs (players/NPCs), not thrown items
-        if (!HasComp<MobStateComponent>(args.Tripper))
-            return;
-
-        StartExitCountdown(uid, exit, args.Tripper);
-    }
-
-    /// <summary>
-    /// When a mob steps off the exit flare, cancel their extraction countdown.
-    /// </summary>
-    private void OnExitSteppedOff(EntityUid uid, N14ExpeditionExitComponent exit, ref StepTriggeredOffEvent args)
-    {
-        if (!exit.PendingExtractions.Remove(args.Tripper))
-            return;
-
-        var cancelMsg = Loc.GetString("n14-expedition-exit-cancelled");
-        _popup.PopupEntity(cancelMsg, args.Tripper, args.Tripper, PopupType.Medium);
-
-        // Chat confirmation of cancellation
-        if (_playerManager.TryGetSessionByEntity(args.Tripper, out var cancelSess))
-            _chatManager.DispatchServerMessage(cancelSess, cancelMsg);
-    }
-
-    /// <summary>
-    /// Starts (or refreshes) an extraction countdown for the given entity on this exit zone.
-    /// </summary>
-    private void StartExitCountdown(EntityUid exitUid, N14ExpeditionExitComponent exit, EntityUid who)
-    {
-        // Already counting down on this exit — don't restart
-        if (exit.PendingExtractions.ContainsKey(who))
-            return;
-
-        exit.PendingExtractions[who] = _timing.CurTime + TimeSpan.FromSeconds(exit.CountdownSeconds);
-
-        var countdownMsg = Loc.GetString("n14-expedition-exit-countdown",
-            ("seconds", (int) exit.CountdownSeconds));
-        _popup.PopupEntity(countdownMsg, who, who, PopupType.LargeCaution);
-
-        // Also show in chat so the player has a persistent log entry
-        if (_playerManager.TryGetSessionByEntity(who, out var sess))
-            _chatManager.DispatchServerMessage(sess, countdownMsg);
     }
 
     #endregion
@@ -904,6 +1009,9 @@ public sealed class N14ExpeditionSystem : EntitySystem
     /// </summary>
     public void UpdateBoardUi(EntityUid boardUid, N14ExpeditionBoardComponent board)
     {
+        if (!HasComp<UserInterfaceComponent>(boardUid))
+            return;
+
         var tiers = new List<N14ExpeditionTierInfo>();
 
         foreach (var proto in _proto.EnumeratePrototypes<N14ExpeditionDifficultyPrototype>()

@@ -1,0 +1,68 @@
+# #Misfits Add - dual-purpose Hawkins demolition charge / heavy pressure mine.
+- type: entity
+  parent: BaseLandMine
+  id: MisfitsHawkinsDevice
+  name: Hawkins device
+  description: A compact anti-vehicle demolition charge. It can be linked to a remote signaller, stuck to a structure, or armed and placed as a pressure mine for motorbikes and power armor.
+  components:
+  - type: Sprite
+    drawdepth: Items
+    sprite: _Misfits/Objects/Devices/hawkins_device.rsi
+    layers:
+    - state: icon
+      map: ["inactive"]
+    - state: icon
+      visible: false
+      map: ["armed"]
+  - type: Item
+    size: Normal
+    sprite: _Misfits/Objects/Devices/hawkins_device.rsi
+  - type: LandMine
+    allowUnanchoredArming: true
+    heavyTargetsOnly: true
+    sound:
+      path: /Audio/Effects/beep_landmine.ogg
+      params:
+        maxDistance: 10
+  # Trigger immediately when a valid heavy target enters the pressure plate.
+  - type: StepTrigger
+    stepOn: false
+    requiredTriggeredSpeed: 0
+    triggerGroups:
+      types:
+      - Landmine
+  - type: Sticky
+    stickDelay: 5
+    unstickDelay: 5
+    stickPopupStart: comp-sticky-start-stick-bomb
+    stickPopupSuccess: comp-sticky-success-stick-bomb
+    unstickPopupStart: comp-sticky-start-unstick-bomb
+    unstickPopupSuccess: comp-sticky-success-unstick-bomb
+    blacklist:
+      components:
+      - Item
+  - type: StickyVisualizer
+  # No timer trigger: a planted charge must be initiated through a linked signalling device.
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  - type: Explosive
+    explosionType: DemolitionCharge
+    # The shaped-charge systems below handle PA, vehicles, and planted structures.
+    # Keep the exposed rider blast dangerous (~72 raw personal damage at center)
+    # without making a bike crossing a guaranteed full-body delimbing event.
+    totalIntensity: 24
+    intensitySlope: 20
+    maxIntensity: 8
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger
+  - type: DestroyStuckTargetOnTrigger
+  # Adds the focused anti-materiel hit independently of the ordinary blast. Because it
+  # runs from TriggerEvent, it also works when remotely fired while airborne.
+  - type: HawkinsShapedCharge
+    range: 1.25
+    armorDamage: 150
+    vehicleDamage: 150
+  - type: StaticPrice
+    price: 150

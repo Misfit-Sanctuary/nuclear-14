@@ -200,6 +200,28 @@
       PotencyDivisor: 20
 
 - type: seed
+  id: N14WildCannabis
+  name: clipping-cannabis-name
+  noun: clipping-cannabis-noun
+  displayName: clipping-cannabis-display-name
+  plantRsi: _Nuclear14/Objects/Specific/Hydroponics/cannabis.rsi
+  packetPrototype: N14FloraWildCannabisClippingSeed
+  productPrototypes:
+  - N14FloraProduceWildCannabis
+  lifespan: 25
+  maturation: 20
+  production: 1
+  yield: 5
+  potency: 10
+  growthStages: 4
+  waterConsumption: 2
+  chemicals:
+    ExtractCannabis:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 20
+
+- type: seed
   id: N14Datura
   name: clipping-datura-name
   noun: clipping-datura-noun

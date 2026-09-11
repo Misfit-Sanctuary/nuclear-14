@@ -1,0 +1,11 @@
+- type: entity
+  parent: N14IDCard
+  id: MisfitsKhansIDCard
+  name: Great Khans ID tattoo card
+  description: A tattoo of the symbol of the Great Khans.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Identification.rsi
+    state: Khans_ID
+  - type: PresetIdCard
+    job: GreatKhan

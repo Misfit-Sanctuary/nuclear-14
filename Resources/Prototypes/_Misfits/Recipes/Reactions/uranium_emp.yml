@@ -7,7 +7,11 @@
       amount: 10
   effects:
   - !type:EmpReactionEffect
-      rangePerUnit: 0.2
-      maxRange: 6
-      energyConsumption: 12500
-      duration: 15
+      # One reaction unit consumes 5u uranium and 10u iron. Five units (25u/50u)
+      # reach the chemical EMP cap, which is half the strength of a pulse grenade.
+      rangePerUnit: 0.4
+      maxRange: 2
+      energyConsumptionPerUnit: 270000
+      maxEnergyConsumption: 1350000
+      disableDurationPerUnit: 6
+      maxDisableDuration: 30

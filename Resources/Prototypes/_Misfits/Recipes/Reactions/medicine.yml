@@ -1,0 +1,536 @@
+﻿# Misfits - proposed chemistry reactions for additional Fallout medicines / chems
+#
+# ============================================================================
+# MEDICINE / SURVIVAL
+# ============================================================================
+
+# Broad-spectrum medicine refined from MisfitsPenicillin and Antiseptic.
+- type: reaction
+  id: MisfitsReactionAntibiotics
+  reactants:
+    MisfitsPenicillin:
+      amount: 2
+    Antiseptic:
+      amount: 2
+    Water:
+      amount: 1
+  products:
+    MisfitsAntibiotics: 3
+
+- type: reaction
+  id: MisfitsReactionRadShield
+  minTemp: 354
+  reactants:
+    Antiseptic:
+      amount: 3
+    Water:
+      amount: 1
+    ExtractFungusRad:
+      amount: 2
+    RadX:
+      amount: 3
+    Uranium:
+      amount: 1
+      catalyst: true
+  products:
+    MisfitsRadShield: 6
+
+# Rare, high-tech emergency decontaminant.
+- type: reaction
+  id: MisfitsReactionX111Compound
+  minTemp: 434
+  reactants:
+    RadAway:
+      amount: 2
+    RadX:
+      amount: 1
+    Hyronalin:
+      amount: 1
+    Promethine:
+      amount: 1
+    Antidote:
+      amount: 1
+    Uranium:
+      amount: 1
+      catalyst: true
+  products:
+    MisfitsX111Compound: 4
+
+# Fallout: New Vegas canon: Jet + Purified Water.
+- type: reaction
+  id: MisfitsReactionRushingWater
+  reactants:
+    MovespeedMixture:
+      amount: 1
+    Water:
+      amount: 1
+    Fixer:
+      amount: 1
+  products:
+    MisfitsRushingWater: 2
+
+- type: reaction
+  id: MisfitsReactionBloodShield
+  reactants:
+    ExtractCactusWater:
+      amount: 1
+    ExtractFungus:
+      amount: 1
+    ExtractBroc:
+      amount: 1
+  products:
+    MisfitsBloodShield: 2
+
+- type: reaction
+  id: MisfitsReactionDaturaHide
+  reactants:
+    ExtractDatura:
+      amount: 2
+    Wonderglue:
+      amount: 1
+  products:
+    MisfitsDaturaHide: 2
+
+# Laboratory shortcut for the field-crafted tourniquet.
+# Field crafting below is closer to canon: buffalo gourd + binding material.
+- type: reaction
+  id: MisfitsReactionSnakebiteTourniquet
+  reactants:
+    ExtractBuffaloGourd:
+      amount: 1
+    Antiseptic:
+      amount: 1
+  products:
+    MisfitsSnakebiteTourniquet: 2
+
+# Lonesome Road canon: vodka + jalapeno + white horsenettle.
+# Glowpepper is N14's wasteland hot-pepper substitute.
+- type: reaction
+  id: MisfitsReactionFieryPurgative
+  minTemp: 354
+  reactants:
+    Vodka:
+      amount: 1
+    ExtractGlowpepper:
+      amount: 1
+    ExtractWhiteHorsenettle:
+      amount: 1
+  products:
+    MisfitsFieryPurgative: 3
+
+# Fallout 4 canon: 3 Antiseptic + 1 Blood Pack + 2 Purified Water +
+# 2 RadAway + 1 Stimpak. Blood and HealingMixture represent those container items.
+- type: reaction
+  id: MisfitsReactionRefreshingBeverage
+  minTemp: 354
+  reactants:
+    Antiseptic:
+      amount: 3
+    Blood:
+      amount: 3
+    Water:
+      amount: 2
+    RadAway:
+      amount: 3
+    RobustHealingMixture:
+      amount: 2
+    Antidote:
+      amount: 1
+  products:
+    MisfitsRefreshingBeverage: 4
+
+# Fallout 76-inspired irradiated blood-pack mixture.
+- type: reaction
+  id: MisfitsReactionGlowingBloodPack
+  reactants:
+    Blood:
+      amount: 3
+    Antiseptic:
+      amount: 2
+    RadX:
+      amount: 1
+    Uranium:
+      amount: 1
+      catalyst: true
+  products:
+    MisfitsGlowingBloodPack: 2
+
+# Fallout 4 herbal anodyne adapted to available N14 flora.
+# Carrot, fungus, nettle and razorgrain stand in for carrot flower, glowing fungus,
+# thistle/melon blossom and wild razorgrain.
+- type: reaction
+  id: MisfitsReactionHerbalAnodyne
+  reactants:
+    ExtractCarrot:
+      amount: 2
+    ExtractFungusRad:
+      amount: 1
+    ExtractNettle:
+      amount: 2
+    ExtractRazorgrainFlour:
+      amount: 1
+    Water:
+      amount: 2
+  products:
+    MisfitsHerbalAnodyne: 8
+
+# Fallout 4 herbal antimicrobial adapted to available N14 flora.
+- type: reaction
+  id: MisfitsReactionHerbalAntimicrobial
+  reactants:
+    ExtractCarrot:
+      amount: 1
+    ExtractFungusRad:
+      amount: 1
+    ExtractBuffaloGourd:
+      amount: 2
+    ExtractNettle:
+      amount: 1
+    Water:
+      amount: 2
+  products:
+    MisfitsHerbalAntimicrobial: 7
+
+# Fallout 4 herbal stimulant adapted to available N14 flora.
+- type: reaction
+  id: MisfitsReactionHerbalStimulant
+  reactants:
+    ExtractFungusRad:
+      amount: 1
+    ExtractBuffaloGourd:
+      amount: 1
+    ExtractNettle:
+      amount: 1
+    ExtractRazorgrainFlour:
+      amount: 2
+    Water:
+      amount: 2
+  products:
+    MisfitsHerbalStimulant: 7
+
+# Fallout 76 canon uses blood sac + bloodleaf + glass + steel.
+# Blood and Broc substitute for blood sac/bloodleaf while Silicon/Iron retain the
+# manufactured transfusion-pack feel.
+- type: reaction
+  id: MisfitsReactionSkeetoSpit
+  reactants:
+    Blood:
+      amount: 2
+    ExtractBroc:
+      amount: 2
+    Silicon:
+      amount: 1
+    Iron:
+      amount: 1
+    Epinephrine:
+      amount: 1
+  products:
+    MisfitsSkeetoSpit: 2
+
+# Wasteland-grown MisfitsPenicillin from fungal culture.
+- type: reaction
+  id: MisfitsReactionPenicillin
+  reactants:
+    ExtractFungus:
+      amount: 2
+    Sugar:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    MisfitsPenicillin: 4
+
+# Prussian-blue inspired ferric pigment chemistry.
+- type: reaction
+  id: MisfitsReactionPrussianBlue
+  minTemp: 340
+  reactants:
+    Iron:
+      amount: 2
+    Carbon:
+      amount: 2
+    Nitrogen:
+      amount: 2
+    Hyronalin:
+      amount: 1
+  products:
+    MisfitsPrussianBlue: 3
+
+# Original Misfits wasteland remedy.
+- type: reaction
+  id: MisfitsReactionPilgrimsRemedy
+  reactants:
+    ExtractAgaveNectar:
+      amount: 1
+    ExtractBroc:
+      amount: 1
+    ExtractXander:
+      amount: 1
+    ExtractFungus:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    MisfitsPilgrimsRemedy: 5
+
+# Fallout 76-inspired basic healing salve, translated to N14 medicinal flora.
+- type: reaction
+  id: MisfitsReactionHealingSalve
+  minTemp: 330
+  reactants:
+    ExtractBroc:
+      amount: 1
+    ExtractXander:
+      amount: 1
+    ExtractAgaveNectar:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    MisfitsHealingSalve: 4
+
+# ============================================================================
+# COMBAT / PERFORMANCE CHEMS
+# ============================================================================
+
+# Fury is canonically made with a Berserk syringe + Buffout in Fallout 4.
+# Misfits already has Berserkermix, so use the real server precursor instead of
+# approximating it with Psycho. This also makes Fury meaningfully expensive.
+- type: reaction
+  id: MisfitsReactionFury
+  minTemp: 340
+  reactants:
+    Berserkermix:
+      amount: 3
+    Buffout:
+      amount: 2
+    DamageResistMixture:
+      amount: 1
+  products:
+    MisfitsFury: 2
+
+# MisfitsCalmex is rare/non-craftable in Fallout 4; this is a Misfits chemistry route.
+- type: reaction
+  id: MisfitsReactionCalmex
+  minTemp: 354
+  reactants:
+    Mentats:
+      amount: 2
+    DamageResistMixture:
+      amount: 2
+    Daytripper:
+      amount: 1
+    Ethanol:
+      amount: 1
+  products:
+    MisfitsCalmex: 2
+
+# Fallout 4 canon: Acid x2 + Nuka-Cola x1 + Psycho x1.
+- type: reaction
+  id: MisfitsReactionOverdrive
+  minTemp: 340
+  reactants:
+    SulfuricAcid:
+      amount: 2
+    NukaCola:
+      amount: 2
+    DamageModifyingMixture:
+      amount: 2
+    Epinephrine:
+      amount: 1
+  products:
+    MisfitsOverdrive: 2
+
+# X-Cell was a pre-war prototype and is not normally craftable.
+# This route intentionally consumes two of Misfits' own premium precursors:
+# Berserkermix supplies the extreme physical stimulant base while Promethine
+# supplies the advanced cellular stabilizer. A batch should hurt to lose.
+- type: reaction
+  id: MisfitsReactionXCell
+  minTemp: 374
+  reactants:
+    Buffout:
+      amount: 2
+    Mentats:
+      amount: 2
+    Daytripper:
+      amount: 2
+    RadX:
+      amount: 2
+    Epinephrine:
+      amount: 2
+    DamageResistMixture:
+      amount: 1
+    RobustMovespeedMixture:
+      amount: 1
+    Berserkermix:
+      amount: 2
+    Promethine:
+      amount: 1
+  products:
+    MisfitsXCell: 2
+
+# MisfitsCrank has no canonical Fallout crafting formula; server-original stimulant route.
+- type: reaction
+  id: MisfitsReactionCrank
+  minTemp: 354
+  reactants:
+    Epinephrine:
+      amount: 1
+    Ammonia:
+      amount: 1
+    Ethanol:
+      amount: 1
+  products:
+    MisfitsCrank: 3
+
+# ============================================================================
+# CUSTOM POISONS / ANTIDOTES / EMERGENCY MEDICINE
+# ============================================================================
+
+- type: reaction
+  id: MisfitsReactionGhostcapExtract
+  reactants:
+    ExtractFungus:
+      amount: 2
+    ExtractDatura:
+      amount: 1
+  products:
+    MisfitsGhostcapExtract: 3
+
+# Black Goo is used as the toxic carrier. Since blackgoo itself destroys valuable
+# healing medicine during synthesis, this makes Widows' Mercy costly even before
+# the creature venoms are added.
+- type: reaction
+  id: MisfitsReactionWidowsMercy
+  reactants:
+    blackgoo:
+      amount: 2
+    CazadorVenom:
+      amount: 2
+    NightstalkerVenom:
+      amount: 1
+    ExtractDatura:
+      amount: 2
+    ExtractWhiteHorsenettle:
+      amount: 2
+  products:
+    MisfitsWidowsMercy: 2
+
+# Black Goo serves as the unstable medical-toxin base, then FireToxin and datura
+# turn it into a fast, aggressive poison.
+- type: reaction
+  id: MisfitsReactionRedBellPoison
+  reactants:
+    blackgoo:
+      amount: 1
+    FireToxin:
+      amount: 2
+    CazadorVenom:
+      amount: 1
+    ExtractDatura:
+      amount: 2
+    ExtractGlowpepper:
+      amount: 2
+  products:
+    MisfitsRedBellPoison: 2
+
+# Concentrated hybrid venom. Kept simple so it can also plausibly be harvested/synthesized.
+- type: reaction
+  id: MisfitsReactionAshViperVenom
+  reactants:
+    NightstalkerVenom:
+      amount: 2
+    FireToxin:
+      amount: 2
+    CazadorVenom:
+      amount: 1
+  products:
+    MisfitsAshViperVenom: 2
+
+# Experimental resuscitation cocktail.
+# This is intentionally one of the most expensive medicines in the tree.
+# Promethine stabilizes catastrophic cellular damage, Berserkermix forces the body
+# to keep moving, and a trace of Black Goo represents the dangerous incompatible-med
+# intermediate that makes Lazarus as hazardous as it is effective.
+- type: reaction
+  id: MisfitsReactionLazarusCompound
+  minTemp: 374
+  reactants:
+    Epinephrine:
+      amount: 3
+    Epoetine:
+      amount: 2
+    RobustHealingMixture:
+      amount: 2
+    Antidote:
+      amount: 2
+    Phalanximine:
+      amount: 1
+    Hyronalin:
+      amount: 1
+    Promethine:
+      amount: 2
+    Berserkermix:
+      amount: 1
+    blackgoo:
+      amount: 1
+  products:
+    MisfitsLazarusCompound: 2
+
+# Emergency wakefulness stimulant.
+- type: reaction
+  id: MisfitsReactionClearwake
+  reactants:
+    Epinephrine:
+      amount: 2
+    SmellingSalts:
+      amount: 2
+    NukaCola:
+      amount: 1
+    MovespeedMixture:
+      amount: 1
+  products:
+    MisfitsClearwake: 2
+
+# Specific antidote. A trace of Widows' Mercy is a catalyst/sample and is not consumed.
+- type: reaction
+  id: MisfitsReactionWidowbane
+  reactants:
+    Antidote:
+      amount: 2
+    ExtractTarberries:
+      amount: 2
+    MisfitsWidowsMercy:
+      amount: 1
+      catalyst: true
+  products:
+    MisfitsWidowbane: 2
+
+# Specific antidote for Red Bell Poison; poison sample acts as a catalyst/reference.
+- type: reaction
+  id: MisfitsReactionCinderSerum
+  reactants:
+    Antidote:
+      amount: 2
+    ExtractCactusWater:
+      amount: 2
+    MisfitsRedBellPoison:
+      amount: 1
+      catalyst: true
+  products:
+    MisfitsCinderSerum: 2
+
+# Brutal broad toxin purge.
+- type: reaction
+  id: MisfitsReactionGravesalt
+  minTemp: 354
+  reactants:
+    Antidote:
+      amount: 2
+    TableSalt:
+      amount: 2
+    Ammonia:
+      amount: 1
+  products:
+    MisfitsGravesalt: 2

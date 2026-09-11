@@ -48,14 +48,14 @@ undecided-loadout-category-dean-gladiator-description =
     A box with everything needed for combat.
     Contains: 1 Legion SKS, 4 SKS clips (.308),
     1 .45 Colt pistol, 2 pistol magazines (.45 ACP),
-    1 Legion shield, 1 rope belt, 1 Trench club,
+    1 Legion shield, a ceremonial sword, 1 rope belt,
     2 bola, 1 box of handcuffs, 2 healing Poultice,
     2 K-rations, 1 ceramic flask, and 1 mustard.
 
 undecided-loadout-category-dean-sagitaria-name = Decanus-Sagittarius Kit
 undecided-loadout-category-dean-sagitaria-description =
     A box with everything needed for ranged combat.
-    Contains: 1 Legion SKS, 4 SKS clips (.308),
+    Contains: 1 Legion SKS, 4 SKS clips (.308), a gladius,
     1 .45 Colt pistol, 2 pistol magazines (.45 ACP),
     1 rope belt, 1 smoke grenade, 2 healing Poultice,
     2 K-rations, 1 ceramic flask, and 1 mustard.
@@ -249,7 +249,7 @@ undecided-loadout-category-corvax-centurion-command-description =
 undecided-loadout-category-corvax-centurion-marksman-name = Centurion Marksman
 undecided-loadout-category-corvax-centurion-marksman-description =
     Includes Republic's Demise, a scoped M1C looted from a dead NCR lieutenant,
-    4 en-bloc clips, a rope belt, a smoke grenade,
+    2 spare magazines, a rope belt, a smoke grenade,
     2 healing poultice, 2 K rations, and a ceramic flask.
 
 undecided-loadout-category-corvax-centurion-vanquisher-name = Centurion Vanquisher
@@ -476,7 +476,7 @@ undecided-loadout-category-corvax-veteran-rifleman-description =
 undecided-loadout-category-corvax-veteran-berserker-name = Veteran Berserker
 undecided-loadout-category-corvax-veteran-berserker-description =
     Includes a .45 SMG with 4 mags, a .45 Colt pistol,
-    2 .45 magazines, a rope belt, a fire axe,
+    2 .45 magazines, a rope belt, a tribal decorated heavy club,
     3 throwing knives, 2 healing poultice,
     2 K rations, a ceramic flask, and mustard.
 
@@ -689,7 +689,7 @@ undecided-loadout-category-misfits-ncra-captain-command-description =
 undecided-loadout-category-misfits-ncra-captain-marksman-name = Captain Frontier Marksman Kit
 undecided-loadout-category-misfits-ncra-captain-marksman-description =
     Includes an NCR trench coat, a loaded captain's revolver belt,
-    Republic's Pride with 4 en-bloc clips,
+    Republic's Pride with 2 308 magazines,
     a handheld radio, a smoke grenade, a C ration MRE,
     a stimpak, a super stimpak, a RadAway blood bag,
     2 gauze packs, and a flare.
@@ -766,19 +766,20 @@ c27-armor-set-bos-heavy-description =
 
 undecided-loadout-category-misfits-priestess-healing-name = Priestess of Restoration
 undecided-loadout-category-misfits-priestess-healing-desc =
-    Includes 4 Smelling Salts, 1 health analyzer, 2 Bitter Drinks,
+    Includes a Gladius, a 45 colt pistol with a spare mag,
+    4 Smelling Salts, 1 health analyzer, 2 Bitter Drinks,
     2 Poultices, 2 Powders, 2 Hydras, 3 bandages,
     a medical belt, 2 K rations, and a ceramic flask.
 
 undecided-loadout-category-misfits-priestess-zealot-name = Priestess of Zealotry
 undecided-loadout-category-misfits-priestess-zealot-desc =
-    Includes a Ceremonial Sword, Legionnaire Shield,
+    Includes a Ceremonial Sword, Legionnaire Shield, A combat shotgun with two extra drums,
     spear quiver, 3 pilum, 2 Bolas, 2 Cazador acid sacs,
     2 K rations, and a ceramic flask.
 
 undecided-loadout-category-misfits-acolyte-healing-name = Acolyte Healer
 undecided-loadout-category-misfits-acolyte-healing-desc =
-    Includes a 45 pistol, a gladius, 2 Smelling Salts, 1 health analyzer, 1 Bitter Drink,
+    Includes a 45 pistol, a machete, 2 Smelling Salts, 1 health analyzer, 1 Bitter Drink,
     1 Poultices, 1 Powder, 1 bandage,
     2 K rations, and a ceramic flask.
 

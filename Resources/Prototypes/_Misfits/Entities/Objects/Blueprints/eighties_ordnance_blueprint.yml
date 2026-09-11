@@ -1,0 +1,186 @@
+- type: entity
+  parent: N14BlueprintBase
+  id: MisfitsBlueprintEightiesOrdnance
+  name: Eighties ordnance schematic
+  description: A stained collection of demolition sketches for improvised baseball and Nuka-Cola grenades.
+  components:
+  - type: Blueprint
+    recipes:
+    - MisfitsBPEightiesNukaGrenade
+    - MisfitsBPEightiesBaseballGrenade # #Misfits Add - inexpensive gang ordnance
+
+# --- Eighties Weapons ---
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEightiesWeaponsT1
+  name: Eighties Scrap Arsenal
+  description: Schematics for crude raider firearms and pipe weapons. Tier 1 weapons.
+  components:
+  - type: Blueprint
+    recipes:
+    - BlueprintPipePistolEighties
+    - BlueprintPipeRifleEighties
+    - BlueprintPipeShotgunEighties
+    - BlueprintPipeSniperEighties
+    - BlueprintPipeSubMachineGunEighties
+    - BlueprintPipeAssaultRifleEighties
+    - BlueprintPipeSubMachineGun12mmEighties
+
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEightiesWeaponsT2
+  name: Eighties Sidearm Schematics
+  description: Schematics for the Eighties's common pistols. Tier 2 weapons.
+  components:
+  - type: Blueprint
+    recipes:
+    - BlueprintPistol45Eighties
+    - BlueprintPistol9mmEighties
+    - BlueprintPistol10mmEighties
+
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEightiesWeaponsT3
+  name: Eighties SMG Schematics
+  description: Schematics for reliable Eighties submachine guns. Tier 3 weapons.
+  components:
+  - type: Blueprint
+    recipes:
+    - BlueprintSmg9mmEighties
+    - BlueprintSmg10mmEighties
+
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEightiesWeaponsT4
+  name: Eighties Veteran Arsenal
+  description: Advanced schematics for the Eighties' veteran firearms. Tier 4 weapons.
+  components:
+  - type: Blueprint
+    recipes:
+    - BlueprintDesertEagleEighties
+    - BlueprintHuntingRevolverEighties
+    - BlueprintDouglasSmgEighties
+    - BlueprintCanadiaSmgEighties
+    - BlueprintShotgunLeverEighties
+
+# --- Eighties Weapons T5 ---
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEightiesWeaponsT5
+  name: Eighties Heavy Arsenal
+  description: Schematics for the Eighties' most expensive and destructive weapons. Tier 5 weapons.
+  components:
+  - type: Blueprint
+    recipes:
+    - BlueprintAssaultCarbineEighties
+    - BlueprintPipeSniper50Eighties
+    - BlueprintSmg180Eighties
+    - BlueprintSmg127AdvancedEighties
+    - BlueprintChinaLakeEighties
+
+# --- Eighties Armor ---
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEightiesArmorT1
+  name: Eighties Roadsign Armor Guide
+  description: Instructions for assembling the Eighties' basic roadsign armor and helmets. Tier 1 armor.
+  components:
+  - type: Blueprint
+    recipes:
+    - BlueprintEightiesArmor
+    - BlueprintEightiesHelmet
+    - BlueprintEightiesHelmetWhite
+    - BlueprintEightiesHelmetRed
+    - BlueprintEightiesHelmetBlack
+    - BlueprintEightiesHelmetYellow
+    - BlueprintEightiesHelmetOlive
+    - BlueprintEightiesHelmetBeige
+
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEightiesArmorT2
+  name: Eighties Scavenged Armor Guide
+  description: Instructions for reinforcing roadsign armor with scavenged materials. Tier 2 armor.
+  components:
+  - type: Blueprint
+    recipes:
+    - BlueprintEightiesArmorHeavy
+    - BlueprintRaiderArmorEighties
+
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEightiesArmorT3
+  name: Eighties Elite Armor Guide
+  description: Advanced instructions for assembling elite Eighties armor. Tier 3 armor.
+  components:
+  - type: Blueprint
+    recipes:
+    - BlueprintRaiderArmorHeavyEighties
+    - BlueprintRaiderCombatArmorEighties
+
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEightiesArmorT4
+  name: Eighties Boss Armor Guide
+  description: The most advanced armor construction known to the Eighties. Tier 4 armor.
+  components:
+  - type: Blueprint
+    recipes:
+    - BlueprintRaiderMk2ArmorEighties
+
+# --- Eighties Ammo ---
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEightiesAmmoT1
+  name: Eighties Small-Caliber Ammunition
+  description: Instructions for producing the common ammunition used by Eighties sidearms. Tier 1 ammo.
+  components:
+  - type: Blueprint
+    recipes:
+    - BlueprintEightiesAmmoBox10mm
+    - BlueprintEightiesAmmoBox45
+    - BlueprintEightiesAmmoBox9mm
+    - BlueprintEightiesAmmoBox22lr
+    - BlueprintEightiesAmmoMag10mmPistol
+    - BlueprintEightiesAmmoMag9mmPistol
+    - BlueprintEightiesAmmoMag45Pistol
+
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEightiesAmmoT2
+  name: Eighties Military Ammunition
+  description: Instructions for producing shotgun shells, rifle rounds, and SMG magazines. Tier 2 ammo.
+  components:
+  - type: Blueprint
+    recipes:
+    - BlueprintEightiesAmmoBox12gauge
+    - BlueprintEightiesAmmoBox556
+    - BlueprintEightiesAmmoMag9mmSMG
+    - BlueprintEightiesAmmoMag10mmSMG
+    - BlueprintEightiesAmmoMag556Long
+    - BlueprintEightiesMagazineBox20gauge
+
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEightiesAmmoT3
+  name: Eighties Heavy Ammunition
+  description: Instructions for producing heavy rifle and magnum ammunition. Tier 3 ammo.
+  components:
+  - type: Blueprint
+    recipes:
+    - BlueprintEightiesAmmoBox308
+    - BlueprintEightiesAmmoBox44
+    - BlueprintEightiesAmmoMag44Pistol
+
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintEightiesAmmoT4
+  name: Eighties Master Munitions
+  description: Instructions for producing anti-materiel, drum-fed, and explosive ammunition. Tier 4 ammo.
+  components:
+  - type: Blueprint
+    recipes:
+    - BlueprintEightiesAmmoBox50
+    - BlueprintEightiesAmmoMag12mmSMG
+    - BlueprintEightiesAmmoMagAmerican180
+    - BlueprintEightiesAmmo40mm

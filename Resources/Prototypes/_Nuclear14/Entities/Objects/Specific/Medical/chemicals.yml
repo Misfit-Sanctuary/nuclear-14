@@ -1088,6 +1088,8 @@
   name: ethanol bottle
   description: A small brown glass bottle containing ethanol. Great for disinfecting wounds.
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.125" # Four pixels down to meet the bottle neck.
   - type: SurgeryCleansDirt #Misfits Add - Lets the ethanol bottle directly sanitize contaminated surgery tools.
     dirtAmount: 12
     dnaAmount: 1
@@ -1105,6 +1107,7 @@
   - type: Tag
     tags:
     - Bottle # #Cythisiax Added - lets the medical belt store the ethanol bottle
+    - MisfitsEthanolBottle # for use in crafting recipes
 
 - type: entity
   name: aloe salve

@@ -112,6 +112,10 @@
     angle: 180
   - type: Shovel
     speedModifier: 0.1 # you can try
+  - type: ReactionMixer # no timeToMix in ReactionMixer, mixes instantly!
+    mixMessage: "stir-mixing-success"
+    reactionTypes:
+    - Stir
 
 - type: entity
   parent: UtensilBasePlastic
@@ -128,6 +132,10 @@
     - Spoon
   - type: Shovel
     speedModifier: 0.1 # you can try
+  - type: ReactionMixer # no timeToMix in ReactionMixer, mixes instantly!
+    mixMessage: "stir-mixing-success"
+    reactionTypes:
+    - Stir
 
 - type: entity
   parent: UtensilBasePlastic
@@ -173,3 +181,7 @@
     angle: 180
   - type: Shovel
     speedModifier: 0.05 # nah
+  - type: ReactionMixer # no timeToMix in ReactionMixer, mixes instantly!
+    mixMessage: "stir-mixing-success"
+    reactionTypes:
+    - Stir

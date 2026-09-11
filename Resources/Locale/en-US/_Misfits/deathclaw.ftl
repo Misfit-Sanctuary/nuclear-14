@@ -3,7 +3,6 @@ misfits-emote-name-deathclaw-roar = Deathclaw Roar
 misfits-emote-message-deathclaw-growl = growls from deep within his chest
 misfits-emote-message-deathclaw-roar = unleashes a grave-shaking roar.
 
-bwonsamdi-arrival-announcement = A cold wind carries the scent of grave-earth. Bwonsamdi roams the wastes.
 bwonsamdi-grave-announcement = Bwonsamdi has carried another soul beyond the veil.
 bwonsamdi-death-sense-critical = Your soul compass detects { $name }, fading at ({ $x }, { $y }) — { $distance } tiles to the { $direction }.
 bwonsamdi-death-sense-dead = Your soul compass detects { $name }, beyond the veil at ({ $x }, { $y }) — { $distance } tiles to the { $direction }.

@@ -18,7 +18,7 @@
       - Ghoul
     - !type:CharacterDepartmentTimeRequirement
       department: Enclave
-      min: 288000 # 80 hours
+      min: 43200 # 12 hours
   startingGear: EnclaveJuniorOfficerGear
   icon: "JobIconEnclaveJuniorOfficer"
   supervisors: job-supervisors-enclave-junior-officer
@@ -43,7 +43,6 @@
     head: N14ClothingHeadHatEnclaveOfficer
     back: N14ClothingBackpackMilitary
     jumpsuit: N14ClothingUniformJumpsuitEnclave
-    outerClothing: N14ClothingOuterPowerArmorAdvanced2
     shoes: N14ClothingBootsCombatFilled
     gloves: N14ClothingHandsGlovesCombat
     belt: ClothingBeltMilitary

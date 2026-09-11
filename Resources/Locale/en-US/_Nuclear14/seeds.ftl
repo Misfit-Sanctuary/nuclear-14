@@ -35,6 +35,10 @@ clipping-coyote-tobacco-name = coyote tobacco
 clipping-coyote-tobacco-noun = clippings
 clipping-coyote-tobacco-display-name = coyote tobacco
 
+clipping-cannabis-name = cannabis
+clipping-cannabis-noun = clippings
+clipping-cannabis-display-name = cannabis
+
 clipping-datura-name = datura
 clipping-datura-noun = clippings
 clipping-datura-display-name = datura

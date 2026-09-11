@@ -51,7 +51,9 @@ public enum EnclaveDetonatorUiKey : byte
 }
 
 [Serializable, NetSerializable]
-public readonly record struct EnclaveMicroBombEntry(NetEntity Entity, string Name, string Role);
+// Misfits Tweak - IsDead lets the detonator list corpses instead of hiding them,
+// so an implant can still be blown after the wearer is killed.
+public readonly record struct EnclaveMicroBombEntry(NetEntity Entity, string Name, string Role, bool IsDead);
 
 [Serializable, NetSerializable]
 public sealed class EnclaveDetonatorBoundUserInterfaceState : BoundUserInterfaceState

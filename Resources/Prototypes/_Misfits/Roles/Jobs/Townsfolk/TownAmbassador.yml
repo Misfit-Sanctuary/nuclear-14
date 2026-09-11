@@ -1,0 +1,53 @@
+- type: job
+  id: Ambassador
+  setPreference: true
+  whitelisted: true
+  hideWithoutJobWhitelist: false # #Misfits Tweak - visible in all menus (no whitelist gate)
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - always visible in selection
+  jobWhitelistBypassesRoleTimers: false # #Misfits Change - allow non-whitelisted players to join
+  weight: 150
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: Ambassador
+  description: The Ambassador from the ACI, Alliance of Common Interests.
+  playTimeTracker: Ambassador
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+      - Ghoul
+      - GhoulGlowing
+  startingGear: AmbassadorGear
+  icon: "JobIconTownMayor" # Corvax-Change
+  supervisors: job-supervisors-townsfolk
+  accessGroups:
+  - Townie
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - Townsfolk
+
+- type: startingGear
+  id: AmbassadorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitLawyerBlack
+    head: ClothingHeadHatTophat
+    ears: MisfitsClothingHeadsetTown
+    back: N14ClothingBackpackExplorer
+    shoes: N14ClothingBootsBlack
+    id: MisfitsIDBadgeAmbassador
+    gloves: ClothingHandsGlovesColorBlack
+    pocket1: RadioHandheld
+    wallet: N14WalletLottaCash
+  innerClothingSkirt: N14ClothingUniformJumpskirtFalloutBlack
+  satchel: N14ClothingBackpackSatchelMayorFilled
+  duffelbag: N14ClothingBackpackDuffelMayorFilled
+  storage:
+    back:
+    - N14BoxPlasticFilledWastelander
+
+- type: playTimeTracker
+  id: Ambassador

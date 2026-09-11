@@ -1,0 +1,39 @@
+# Brahdo vendor categories are Misfits-owned, alongside their Misfits Brahdo prototypes.
+- type: storeCategoryStructured
+  id: WasterBuy2_Animals
+  name: "Animals"
+  entries:
+  - proto: N14MobBrahdoLight
+    price: 500
+    count: 2
+  - proto: N14MobBrahmin
+    price: 250
+  - proto: N14MobPetDog
+    price: 250
+
+- type: storeCategoryStructured
+  id: NCRBuy2_Animals
+  name: "Animals"
+  entries:
+  - proto: N14MobBrahdoArmorNCR
+    price: 1000
+    count: 2
+  - proto: N14MobBrahmin
+    price: 500
+  - proto: N14MobPetDogNCR
+    price: 600
+  - proto: N14MobPetDogNCRMedicK9
+    price: 850
+
+- type: storeCategoryStructured
+  id: LegionBuy2_Animals
+  name: "Animals"
+  entries:
+  - proto: N14MobBrahdoLightLegion
+    price: 125
+    count: 2
+  - proto: N14MobBrahmin
+    price: 60
+  - proto: N14MobPetDogLegion
+    price: 75
+

@@ -1,0 +1,157 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Blood decal artwork from Trauma-Station; see the matching RSI metadata for
+# the original CC-BY-SA-3.0 sources and attribution.
+
+- type: decal
+  id: MisfitsBloodSplatter1
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: splatter1 }
+- type: decal
+  id: MisfitsBloodSplatter2
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: splatter2 }
+- type: decal
+  id: MisfitsBloodSplatter3
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: splatter3 }
+- type: decal
+  id: MisfitsBloodSplatter4
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: splatter4 }
+- type: decal
+  id: MisfitsBloodSplatter5
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: splatter5 }
+- type: decal
+  id: MisfitsBloodSplatter6
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: splatter6 }
+
+- type: decal
+  id: MisfitsBloodFloor1
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: floor1 }
+- type: decal
+  id: MisfitsBloodFloor2
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: floor2 }
+- type: decal
+  id: MisfitsBloodFloor3
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: floor3 }
+- type: decal
+  id: MisfitsBloodFloor4
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: floor4 }
+- type: decal
+  id: MisfitsBloodFloor5
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: floor5 }
+- type: decal
+  id: MisfitsBloodFloor6
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: floor6 }
+- type: decal
+  id: MisfitsBloodFloor7
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: floor7 }
+
+- type: decal
+  id: MisfitsGiblet1
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: giblet1 }
+- type: decal
+  id: MisfitsGiblet2
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: giblet2 }
+- type: decal
+  id: MisfitsGiblet3
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: giblet3 }
+- type: decal
+  id: MisfitsGiblet4
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: giblet4 }
+- type: decal
+  id: MisfitsGiblet5
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/blood.rsi, state: giblet5 }
+
+- type: decal
+  id: MisfitsMinorBloodFloor1
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/bloodSplatterMinor.rsi, state: floor1 }
+- type: decal
+  id: MisfitsMinorBloodFloor2
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/bloodSplatterMinor.rsi, state: floor2 }
+- type: decal
+  id: MisfitsMinorBloodFloor3
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/bloodSplatterMinor.rsi, state: floor3 }
+- type: decal
+  id: MisfitsMinorBloodFloor4
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/bloodSplatterMinor.rsi, state: floor4 }
+- type: decal
+  id: MisfitsMinorBloodFloor5
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/bloodSplatterMinor.rsi, state: floor5 }
+- type: decal
+  id: MisfitsMinorBloodFloor6
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/bloodSplatterMinor.rsi, state: floor6 }
+- type: decal
+  id: MisfitsMinorBloodFloor7
+  defaultCleanable: true
+  defaultCustomColor: true
+  defaultSnap: false
+  sprite: { sprite: _Misfits/Effects/bloodSplatterMinor.rsi, state: floor7 }

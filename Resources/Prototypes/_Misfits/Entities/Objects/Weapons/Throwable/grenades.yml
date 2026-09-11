@@ -1,0 +1,220 @@
+# Misfits grenade variants and their hidden payload entities.
+
+# Shared physical setup for manually armed impact grenades. The soft sensor
+# remains after the throwing fixture is removed, allowing impacts with mobs and
+# occupied vehicles to trigger reliably without making the grenade obstructive.
+- type: entity
+  id: MisfitsBaseImpactGrenade
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Belt
+  - type: Appearance
+  - type: ImpactGrenade
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      impact:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        hard: false
+        mask:
+        - ThrownItem
+
+# #Misfits Add - T13-inspired impact fragmentation grenade. It has no timed
+# fuse: using it in hand removes the safety, and the shared ImpactGrenadeSystem
+# triggers it when the subsequent throw hits a surface, mob, vehicle, or stops.
+- type: entity
+  id: MisfitsGrenadeImpact
+  name: impact grenade
+  description: A ball-shaped fragmentation grenade with an impact fuze. Arm it before throwing; there is no timed fuse.
+  parent: MisfitsBaseImpactGrenade
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Throwable/beano_grenade.rsi
+    layers:
+    - state: icon
+      map: ["enum.TriggerVisualLayers.Base"]
+  - type: AnimationPlayer
+  - type: GenericVisualizer
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        enum.TriggerVisualLayers.Base:
+          Primed: { state: primed }
+          Unprimed: { state: icon }
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:TriggerBehavior
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: ClusterGrenade
+    fillPrototype: PelletClusterLethal
+    maxGrenadesCount: 20
+    grenadeType: enum.GrenadeType.Shoot
+  - type: SpawnOnTrigger
+    proto: MisfitsGrenadeFragExplosion
+  - type: PacifismBlocked
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+
+# #Misfits Add - The tin grenade spawns this blast after its light fragments are
+# dispersed, avoiding trigger-order deletion of the fragment payload.
+- type: entity
+  id: MisfitsGrenadeTinExplosion
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: N14DefaultStructural
+    maxIntensity: 3
+    intensitySlope: 10
+    totalIntensity: 30
+    canCreateVacuum: false
+    maxTileBreak: 0
+    tileBreakScale: 0
+
+- type: entity
+  parent: GrenadeBase
+  id: MisfitsGrenadeFragDefensive
+  name: defensive frag grenade
+  description: A fragmentation-heavy grenade intended to be thrown from cover. Its small blast scatters lethal fragments across a wide area.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Throwable/defensive_frag_grenade.rsi
+    layers:
+    - state: icon
+      map: ["enum.TriggerVisualLayers.Base"]
+  - type: ClusterGrenade
+    fillPrototype: MisfitsPelletClusterDefensive
+    maxGrenadesCount: 45
+    grenadeType: enum.GrenadeType.Shoot
+  - type: SpawnOnTrigger
+    proto: MisfitsGrenadeFragDefensiveExplosion
+  - type: PacifismBlocked
+  - type: OnUseTimerTrigger
+    delay: 4
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 5
+    initialBeepDelay: 0
+    beepInterval: 2
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+
+- type: entity
+  id: MisfitsGrenadeFragExplosion
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: N14DefaultStructural
+    maxIntensity: 8
+    intensitySlope: 4
+    totalIntensity: 50
+    canCreateVacuum: false
+    maxTileBreak: 0
+    tileBreakScale: 0
+
+- type: entity
+  id: MisfitsGrenadeFragDefensiveExplosion
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: N14DefaultStructural
+    maxIntensity: 4
+    intensitySlope: 4
+    totalIntensity: 20
+    canCreateVacuum: false
+    maxTileBreak: 0
+    tileBreakScale: 0
+
+- type: entity
+  id: MisfitsPulseGrenadeExplosion
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: MisfitsPulse
+    maxIntensity: 5
+    intensitySlope: 5
+    totalIntensity: 20
+    canCreateVacuum: false
+    maxTileBreak: 0
+    tileBreakScale: 0
+
+- type: entity
+  name: plasma grenade
+  description: A high-energy grenade that erupts in a devastating burst of caustic green plasma.
+  parent: GrenadeBase
+  id: MisfitsGrenadePlasma
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/empgrenade.rsi
+    color: "#53FF38"
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: MisfitsPlasma
+    maxIntensity: 8
+    intensitySlope: 4
+    totalIntensity: 55
+    canCreateVacuum: false
+    maxTileBreak: 0
+    tileBreakScale: 0
+  - type: OnUseTimerTrigger
+    beepSound:
+      path: "/Audio/Effects/beep1.ogg"
+      params:
+        volume: 5
+    initialBeepDelay: 0
+    beepInterval: 2
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Effects/countdown.ogg
+
+- type: entity
+  parent: SmokeGrenade
+  id: MisfitsGrenadeWhitePhosphorus
+  name: white phosphorus grenade
+  description: A screening grenade that releases pale, corrosive smoke. Prolonged exposure causes severe chemical burns.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/smoke.rsi
+    color: "#E8E8E8"
+  - type: SmokeOnTrigger
+    duration: 25
+    spreadAmount: 50
+    solution:
+      reagents:
+      - ReagentId: MisfitsWhitePhosphorusSmoke
+        Quantity: 50

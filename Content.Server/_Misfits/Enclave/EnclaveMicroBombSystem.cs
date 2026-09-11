@@ -230,18 +230,24 @@ public sealed class EnclaveMicroBombSystem : EntitySystem
 
         while (query.MoveNext(out _, out _, out var subdermal))
         {
+            // Misfits Tweak - the dead are listed rather than skipped. The detonation
+            // path never cared about mob state, so hiding corpses here was the only
+            // thing stopping an implant being blown post-mortem.
             if (subdermal.ImplantedEntity is not { } body ||
                 TerminatingOrDeleted(body) ||
-                !listed.Add(body) ||
-                TryComp<MobStateComponent>(body, out var mobState) && mobState.CurrentState == MobState.Dead)
+                !listed.Add(body))
             {
                 continue;
             }
 
+            var isDead = TryComp<MobStateComponent>(body, out var mobState) &&
+                         mobState.CurrentState == MobState.Dead;
+
             personnel.Add(new EnclaveMicroBombEntry(
                 GetNetEntity(body),
                 Identity.Name(body, EntityManager),
-                GetEnclaveRole(body)));
+                GetEnclaveRole(body),
+                isDead));
         }
 
         return new EnclaveDetonatorBoundUserInterfaceState(personnel

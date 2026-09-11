@@ -1,0 +1,49 @@
+# #Misfits Change - Great Khan single-role Minor Faction.
+
+- type: job
+  id: GreatKhan
+  setPreference: true
+  name: job-name-great-khan
+  description: job-description-great-khan
+  playTimeTracker: GreatKhan
+  whitelisted: false # #Misfits Change - open Great Khan role to normal character setup.
+  requirements:
+  - !type:MinPlayersRequirement
+    min: 0
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+    - Ghoul
+  - !type:CharacterPlaytimeRequirement
+    tracker: Wastelander
+    min: 28800 # 8 hours. Same as RoadRash for Eighties.
+  startingGear: GreatKhanGear
+  alwaysUseSpawner: true
+  icon: "JobIconKhan"
+  supervisors: job-supervisors-great-khan
+  canBeAntag: false
+
+- type: startingGear
+  id: GreatKhanGear
+  equipment:
+    wallet: N14Wallet
+    id: MisfitsKhansIDCard
+    head: MisfitsClothingHeadKhanHelmet
+    eyes: MisfitsEyesGlassesSunglassesBig
+    outerClothing: MisfitsClothingOuterKhansJacket
+    jumpsuit: M14ClothingUniformKhansUniform
+    shoes: MisfitsMilitarySteelTippedBoots
+    ears: MisfitsClothingHeadsetWastelandScrap
+    suitstorage: N14WeaponSMGGreaseGun
+    back: M14OldSatchel
+    belt: ClothingBeltMilitary
+  storage:
+    back:
+    - N14BoxPlasticFilledRaider
+    - MisfitsClothingHeadRedBandana
+    belt:
+    - Magazine45SubMachineGun
+    - Magazine45SubMachineGun
+
+- type: playTimeTracker
+  id: GreatKhan

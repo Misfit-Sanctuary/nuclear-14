@@ -1,0 +1,119 @@
+# Misfits Add - Buckshot is fired at the muzzle, not emitted radially on impact.
+# ProjectileSpread counts the initial projectile: count 20 means exactly 20 pellets.
+- type: entity
+  id: Misfits40mmBuckshotPellet
+  parent: PelletShotgun12
+  name: 40mm buckshot pellet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    # Keep the twenty-pellet identity without allowing a point-blank hit to deal
+    # the previous 200 raw damage. All twenty hits now total 80 before mitigation.
+    damage:
+      types:
+        Piercing: 4
+    deleteOnCollide: true
+
+- type: entity
+  id: Misfits40mmBuckshotSpread
+  parent: Misfits40mmBuckshotPellet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ProjectileSpread
+    proto: Misfits40mmBuckshotPellet
+    count: 20
+    spread: 20
+
+# Utility rounds inherit only the zero-impact-damage projectile and its
+# spawn/delete trigger behavior. No explosive blast is attached to these rounds.
+- type: entity
+  id: Misfits40mmSmokeProjectile
+  parent: Misfits40mmHEDPProjectile
+  name: smoke round
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnTrigger
+    proto: Misfits40mmSmokePayload
+
+- type: entity
+  id: Misfits40mmWhitePhosphorusProjectile
+  parent: Misfits40mmHEDPProjectile
+  name: white phosphorus round
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnTrigger
+    proto: Misfits40mmWhitePhosphorusPayload
+
+- type: entity
+  id: Misfits40mmTearGasProjectile
+  parent: Misfits40mmHEDPProjectile
+  name: tear gas round
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnTrigger
+    proto: Misfits40mmTearGasPayload
+
+- type: entity
+  id: Misfits40mmFlashbangProjectile
+  parent: Misfits40mmHEDPProjectile
+  name: flashbang round
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnTrigger
+    proto: Misfits40mmFlashbangPayload
+
+# Match the handheld smoke's lifetime and spread. Spread is a tile budget,
+# not a circular radius; walls and available space affect the final cloud.
+- type: entity
+  id: Misfits40mmSmokePayload
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: SmokeOnTrigger
+    duration: 30
+    spreadAmount: 50
+  - type: SoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+  - type: DeleteOnTrigger
+
+# Reuse the existing caustic WP reagent; deliberately no fire stacks or ignition.
+- type: entity
+  id: Misfits40mmWhitePhosphorusPayload
+  parent: Misfits40mmSmokePayload
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SmokeOnTrigger
+    duration: 25
+    spreadAmount: 50
+    solution:
+      reagents:
+      - ReagentId: MisfitsWhitePhosphorusSmoke
+        Quantity: 50
+
+- type: entity
+  id: Misfits40mmTearGasPayload
+  parent: Misfits40mmSmokePayload
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SmokeOnTrigger
+    duration: 10
+    spreadAmount: 30
+    solution:
+      reagents:
+      - ReagentId: TearGas
+        Quantity: 50
+
+# Reuse standard flash handling, including visibility and flash protection.
+- type: entity
+  id: Misfits40mmFlashbangPayload
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: FlashOnTrigger
+    range: 7
+  - type: SoundOnTrigger
+    sound:
+      path: /Audio/Effects/flash_bang.ogg
+  - type: SpawnOnTrigger
+    proto: GrenadeFlashEffect
+  - type: DeleteOnTrigger

@@ -1,0 +1,100 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: DecalSpawnerBase
+  id: MisfitsBloodSplatters
+  suffix: Blood Splatters
+  components:
+  - type: RandomDecalSpawner
+    decals:
+    - MisfitsBloodSplatter1
+    - MisfitsBloodSplatter2
+    - MisfitsBloodSplatter3
+    - MisfitsBloodSplatter4
+    - MisfitsBloodSplatter5
+    - MisfitsBloodSplatter6
+    - MisfitsBloodFloor1
+    - MisfitsBloodFloor2
+    - MisfitsBloodFloor3
+    - MisfitsBloodFloor4
+    - MisfitsBloodFloor5
+    - MisfitsBloodFloor6
+    - MisfitsBloodFloor7
+    radius: 1
+    randomRotation: true
+    maxDecals: 1
+    prob: 1
+    zIndex: 5
+    color: '#990000B0'
+    cleanable: true
+    deleteSpawnerAfterSpawn: true
+
+- type: entity
+  parent: DecalSpawnerBase
+  id: MisfitsMinorBloodSplatters
+  suffix: Minor Blood Splatters
+  components:
+  - type: RandomDecalSpawner
+    decals:
+    - MisfitsMinorBloodFloor1
+    - MisfitsMinorBloodFloor2
+    - MisfitsMinorBloodFloor3
+    - MisfitsMinorBloodFloor4
+    - MisfitsMinorBloodFloor5
+    - MisfitsMinorBloodFloor6
+    - MisfitsMinorBloodFloor7
+    radius: 0.5
+    randomRotation: true
+    maxDecals: 1
+    prob: 1
+    zIndex: 5
+    color: '#990000B0'
+    cleanable: true
+    deleteSpawnerAfterSpawn: true
+
+- type: entity
+  parent: DecalSpawnerBase
+  id: MisfitsGibBloodSplatters
+  suffix: Gib Blood Splatters
+  components:
+  - type: RandomDecalSpawner
+    decals:
+    - MisfitsGiblet1
+    - MisfitsGiblet2
+    - MisfitsGiblet3
+    - MisfitsGiblet4
+    - MisfitsGiblet5
+    - MisfitsBloodSplatter4
+    - MisfitsBloodSplatter5
+    - MisfitsBloodSplatter6
+    - MisfitsBloodFloor6
+    - MisfitsBloodFloor7
+    radius: 3
+    randomRotation: true
+    maxDecals: 25
+    prob: 0.6
+    zIndex: 5
+    color: '#9900007F'
+    cleanable: true
+    deleteSpawnerAfterSpawn: true
+
+- type: entity
+  parent: DecalSpawnerBase
+  id: MisfitsBrainBloodSplatters
+  suffix: Brain Blood Splatters
+  components:
+  - type: RandomDecalSpawner
+    decals:
+    - MisfitsGiblet1
+    - MisfitsGiblet2
+    - MisfitsGiblet3
+    - MisfitsGiblet4
+    - MisfitsGiblet5
+    radius: 0.7
+    randomRotation: true
+    maxDecals: 5
+    prob: 1
+    zIndex: 5
+    color: '#C584B8'
+    cleanable: true
+    deleteSpawnerAfterSpawn: true

@@ -18,9 +18,9 @@
       species:
       - Human
       - Ghoul
-    - !type:CharacterDepartmentTimeRequirement # #Misfits Add - admin-only timelock (70h Enclave)
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Add - admin-only leadership timelock
       department: Enclave
-      min: 252000 # 70 hours — admin role
+      min: 144000 # 40 hours — admin role
   startingGear: EnclaveReformerGear # #Misfits Change - dedicated Reformer gear keeps Hellfire (Commander moved to APA MK II)
   icon: "JobIconEnclaveReformer"
   supervisors: job-supervisors-enclave-reformer

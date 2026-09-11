@@ -1,0 +1,17 @@
+﻿# This is the auditory version of the Paracusia.
+# It produces sounds at randomized intervals.
+# Can make it hard to differentiate what is real and what is not.
+
+- type: trait
+  id: TraitParacusiaAuditory
+  category: Auditory
+  points: 2
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: Paracusia
+      minTimeBetweenIncidents: 30
+      maxTimeBetweenIncidents: 60
+      maxSoundDistance: 7
+      sounds:
+        collection: Paracusia

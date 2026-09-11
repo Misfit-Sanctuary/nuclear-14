@@ -118,6 +118,18 @@
     amount: -5
 
 - type: reagent
+  id: ExtractCannabis
+  name: reagent-name-extract-cannabis
+  group: Extracts
+  desc: reagent-desc-extract-cannabis
+  flavor: bitter
+  color: "#4F6B3A"
+  physicalDesc: reagent-physical-desc-strong-smelling
+  plantMetabolism:
+  - !type:PlantAdjustHealth
+    amount: 0
+
+- type: reagent
   id: ExtractDatura #HeartbreakerToxin
   name: reagent-name-extract-datura
   group: Toxins

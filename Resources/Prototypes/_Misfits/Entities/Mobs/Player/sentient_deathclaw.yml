@@ -338,7 +338,7 @@
   - type: MeleeWeapon # #Cythisiax - massive structural damage on top of the inherited claw damage
     altDisarm: false
     hidden: true
-    attackRate: 0.3 # #Cythisiax - one claw swing every 0.3s (attackRate is seconds between attacks)
+    attackRate: 1.0 # Match the regular Deathclaw's melee cadence; Bwonsamdi is not stronger per second.
     soundHit:
       collection: N14DeathclawAttack
     angle: 60

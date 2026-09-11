@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingEyesGlassesSunglasses
+  id: MisfitsEyesGlassesSunglassesBig
+  name: big sunglasses
+  description: Makes the strong desert sun a lot more bearable. Some protection against blinding lights is a bonus.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Eyes/Glasses/bigsunglasses.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Eyes/Glasses/bigsunglasses.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon

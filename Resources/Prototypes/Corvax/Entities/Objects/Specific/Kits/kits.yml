@@ -129,8 +129,8 @@
   - type: SpawnItemsOnUse
     items:
       - id: N14WeaponRifleM1GarandRepublicsDemise # #Misfits Change: Republic's Demise scoped M1C for Centurion marksman
-      - id: ClipMagazine308Rifle # #Misfits Change - replaced GarandEnbloc308
-        amount: 4
+      - id: Magazine308Rifle # #Misfits Change - replaced GarandEnbloc308
+        amount: 2
       - id: ClothingBeltRope
       - id: SmokeGrenade
       - id: N14HealingPoultice #Misfits Change /Tweak/: replaces dirty stimpak, Legion uses tribal medicine
@@ -264,7 +264,7 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: N14CeremonialSword # #Misfits Change: hunting rifle as Legion baseline primary
+      - id: N14CeremonialSword #
       - id: N14ClothingHandsPowerFistGoliath
       - id: N14LegionnaireShield
       - id: ClothingBeltQuiverSpear
@@ -889,7 +889,7 @@
       - id: N14WeaponPistol45Colt # #Misfits Change: .45 pistol Legion sidearm
       - id: N14MagazinePistol45
         amount: 2
-      - id: N14FireAxe
+      - id: N14TribalBigClubDecorated #swapped with fireaxe, the fireaxe is utter trash
       - id: ThrowingKnife
         amount: 3
       - id: N14HealingPoultice #Misfits Change /Tweak/: Legion uses tribal medicine, not stimpaks

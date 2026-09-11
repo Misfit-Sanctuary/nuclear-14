@@ -1141,6 +1141,8 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14ClothingOuterCombatArmorSeniorBOS
+      - id: MisfitsGrenadeFragDefensive # #Misfits Add - faction council Senior Knight ordnance
+      - id: EmpGrenade
 
 - type: entity
   name: BoS Senior Knight Laser Kit
@@ -1164,6 +1166,8 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14ClothingOuterCombatArmorSeniorBOS
+      - id: MisfitsGrenadeFragDefensive # #Misfits Add - faction council Senior Knight ordnance
+      - id: EmpGrenade
 
 - type: entity
   name: BoS Recon Knight Kit
@@ -1186,6 +1190,7 @@
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14ClothingOuterMidwestReconArmor
       - id: N14ClothingHeadHatBrotherhoodMidwestHelmetRecon
+      - id: SmokeGrenade # #Misfits Add - faction council Recon Knight ordnance
 
 - type: entity
   name: BoS Knight Ballistic Kit
@@ -1235,6 +1240,7 @@
       - id: N14WeaponLaserPistol
       - id: N14PowerCellSmall
         amount: 2
+      - id: MisfitsGrenadeWhitePhosphorus # #Misfits Add - faction council Medical Scribe ordnance
 
 # MBoS Scribe Field Kit
 - type: entity
@@ -1260,6 +1266,7 @@
       - id: N14WeaponLaserPistol
       - id: N14PowerCellSmall
         amount: 2
+      - id: MisfitsGrenadePlasma # #Misfits Add - faction council Field Scribe ordnance
 
 # MBoS Scribe Engineer Kit
 - type: entity
@@ -1284,6 +1291,8 @@
       - id: N14WeaponLaserPistol
       - id: N14PowerCellSmall
         amount: 2
+      - id: EmpGrenade # #Misfits Add - faction council Engineering Scribe ordnance
+      - id: MisfitsMilitaryDetonator # #Misfits Add - long-range initiator for Scribe demolition work
 
 # MBoS Paladin Kits
 #Misfits Change /Tweak/: Replaced auto laser rifle with auto shotgun + laser pistol sidearm.

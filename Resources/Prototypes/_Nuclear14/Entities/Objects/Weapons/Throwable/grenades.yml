@@ -39,16 +39,17 @@
 
 - type: entity
   name: dynamite
-  description: A stick of dynamite.
+  description: A stick of dynamite that produces a broad, powerful pressure wave without fragmentation.
   parent: IgnitableGrenadeBase
   id: N14Dynamite
   components:
   - type: Explosive
-    #Misfits Change - use the structural-capable N14 explosion profile.
-    explosionType: N14DefaultStructural
-    maxIntensity: 4
-    intensitySlope: 14
-    totalIntensity: 50 #medium range mid damage takes about 2-3 to crit
+    # #Misfits Change - broad pure blast: 6 intensity produces 60 blunt and 30
+    # heat at the epicenter, with no piercing or spawned fragmentation.
+    explosionType: MisfitsDynamite
+    maxIntensity: 6
+    intensitySlope: 5
+    totalIntensity: 100
     canCreateVacuum: false
     maxTileBreak: 0
     tileBreakScale: 0
@@ -93,17 +94,10 @@
     
 - type: entity
   name: Baseball grenade
-  description: Hollowed out baseball filled with explosives that explodes on impact.
-  parent: BaseItem
+  description: A hollowed-out baseball filled with explosives. Prime it in hand before throwing to detonate on impact.
+  parent: MisfitsBaseImpactGrenade
   id: N14BaseballNade
   components:
-  - type: Item
-    size: Small
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - Belt
-  - type: Appearance
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Grenades/Baseballnade.rsi
     layers:
@@ -118,43 +112,26 @@
     canCreateVacuum: false
     maxTileBreak: 0
     tileBreakScale: 0
-  - type: DamageOnLand
-    damage:
-      types:
-        Blunt: 3
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 1
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:ExplodeBehavior
-  - type: Damageable
-    damageContainer: Inorganic
   - type: Construction
     graph: N14BaseballNade
     node: baseballnade
 
 - type: entity
   name: Tin-nade
-  description: Grenade made out of Tincan and bunch of scrap.
+  description: An improvised grenade whose thin casing scatters a small amount of weak shrapnel.
   parent: GrenadeBase
   id: N14TinNade
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Grenades/TincanNade.rsi
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    #Misfits Change - use the structural-capable N14 explosion profile.
-    explosionType: N14DefaultStructural
-    maxIntensity: 3
-    intensitySlope: 10 #dynamite but smaller area?
-    totalIntensity: 30
-    canCreateVacuum: false
-    maxTileBreak: 0
-    tileBreakScale: 0
+  # #Misfits Add - 10 x 15-piercing fragments. This is deliberately far below
+  # the offensive frag grenade's 20 x 45-piercing military fragmentation.
+  - type: ClusterGrenade
+    fillPrototype: MisfitsPelletTinFragment
+    maxGrenadesCount: 10
+    grenadeType: enum.GrenadeType.Shoot
+  - type: SpawnOnTrigger
+    proto: MisfitsGrenadeTinExplosion
   - type: OnUseTimerTrigger
     examinable: false
     delay: 1
@@ -168,10 +145,13 @@
   - type: Construction
     graph: N14TinNade
     node: TinNade
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
 
 - type: entity
   name: Nuka-nade
-  description: Highly radioactive grenade made with Nuka-Cola and love.
+  description: An improvised Nuka-Cola grenade that erupts in a compact burst of Quantum-blue caustic plasma.
   parent: GrenadeBase
   id: N14NukaNade
   components:
@@ -179,11 +159,12 @@
     sprite: _Nuclear14/Objects/Weapons/Grenades/NukaNade.rsi
   - type: ExplodeOnTrigger
   - type: Explosive
-    #Misfits Change - use the structural-capable N14 explosion profile.
-    explosionType: N14DefaultStructural
+    # Misfits Change - lighter plasma: 5 x 15 = 75 maximum caustic damage,
+    # with a smaller footprint than the standard plasma grenade. No ignition.
+    explosionType: MisfitsNukaPlasma
     maxIntensity: 5
-    intensitySlope: 1
-    totalIntensity: 1
+    intensitySlope: 4
+    totalIntensity: 25
     canCreateVacuum: false
     maxTileBreak: 0
     tileBreakScale: 0
@@ -197,15 +178,6 @@
   - type: RandomTimerTrigger
     min: 3
     max: 4
-  - type: SmokeOnTrigger
-    duration: 3
-    spreadAmount: 25
-    solution:
-      reagents:
-      - ReagentId: TearGas
-        Quantity: 5
-      - ReagentId: Radium
-        Quantity: 15
   - type: Construction
     graph: N14NukaNade
     node: NukaNade

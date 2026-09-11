@@ -14,3 +14,107 @@
   lightColor: Orange
   texturePath: /Textures/Effects/fire.rsi
   fireStates: 3
+
+# #Misfits Add - Dynamite produces a broad pressure wave without the piercing
+# damage associated with purpose-built fragmentation casings.
+- type: explosion
+  id: MisfitsDynamite
+  damagePerIntensity:
+    types:
+      Heat: 5
+      Blunt: 10
+      Structural: 60
+  tileBreakChance: [0]
+  tileBreakIntensity: [0]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+
+# Misfits Add - 40mm HE trades limb-severing piercing damage for a predictable
+# 100-damage epicenter and crowd-control knockdown on the surrounding tiles.
+- type: explosion
+  id: Misfits40mmHE
+  damagePerIntensity:
+    types:
+      Heat: 6.25
+      Blunt: 6.25
+      Structural: 60
+  tileBreakChance: [0]
+  tileBreakIntensity: [0]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+
+# Misfits Add - Incendiary 40mm relies on ignition rather than blast damage.
+# Its intensity is kept below the explosion system's knockdown threshold.
+- type: explosion
+  id: Misfits40mmIncendiary
+  damagePerIntensity:
+    types:
+      Heat: 0
+  fireStacks: 4
+  tileBreakChance: [0]
+  tileBreakIntensity: [0]
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+
+# Misfits Add - Missiles retain a lethal 220-damage epicenter while their
+# broader intensity curve supplies knockdown through roughly three tiles.
+- type: explosion
+  id: MisfitsMissile
+  damagePerIntensity:
+    types:
+      Heat: 5
+      Blunt: 5
+      Structural: 60
+  tileBreakChance: [0]
+  tileBreakIntensity: [0]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+
+# Misfits Add - Visual-only blue energy burst used by Fallout-style pulse explosives.
+# EMP handlers provide battery disruption and species/equipment-specific Shock damage. Keeping
+# conventional blast damage at zero protects ordinary mobs and prevents chain detonations.
+- type: explosion
+  id: MisfitsPulse
+  damagePerIntensity:
+    types:
+      Heat: 0
+  tileBreakChance: [0]
+  tileBreakIntensity: [0]
+  lightColor: "#278CFF"
+  fireColor: "#278CFF"
+  texturePath: /Textures/Effects/fire_greyscale.rsi
+  fireStates: 3
+
+# Misfits Add - Quantum-blue variant for the lighter improvised Nuka grenade.
+# Separate visuals keep standard plasma green; the grenade sets its lower cap.
+- type: explosion
+  id: MisfitsNukaPlasma
+  damagePerIntensity:
+    types:
+      Caustic: 15
+  tileBreakChance: [0]
+  tileBreakIntensity: [0]
+  lightColor: "#80E8FF"
+  fireColor: "#80E8FF"
+  texturePath: /Textures/Effects/fire_greyscale.rsi
+  fireStates: 3
+
+# Misfits Add - Green caustic burst used by Fallout-style plasma explosives.
+- type: explosion
+  id: MisfitsPlasma
+  damagePerIntensity:
+    types:
+      Caustic: 15
+  tileBreakChance: [0]
+  tileBreakIntensity: [0]
+  lightColor: "#53FF38"
+  fireColor: "#53FF38"
+  texturePath: /Textures/Effects/fire_greyscale.rsi
+  fireStates: 3

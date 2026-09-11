@@ -9,6 +9,8 @@ using Content.Server.Paper;
 using Content.Server.Stack;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
+using Content.Shared._Misfits.Genetics.Console;
+using Content.Shared._Misfits.Genetics.Mutations;
 using Content.Shared._Misfits.Currency.Components;
 using Content.Shared._Misfits.Requisitions;
 using Content.Shared._Misfits.Requisitions.Prototypes;
@@ -633,6 +635,7 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
             nameOverride: Loc.GetString("n14-requisition-paperwork-receiver-name"));
 
         _audio.PlayPvs(computerComp.IncomingSurplus, computerEnt);
+        _popup.PopupEntity(flavorText, computerEnt, PopupType.Medium);
     }
 
     private void SendUIFeedback(string group, string flavorText)
@@ -780,6 +783,7 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
         var rewards = 0;
         var exchanged = new List<EntProtoId>();
         var delivered = new Dictionary<string, int>();
+        var deliveredDisks = new Dictionary<MutationRarity, int>();
         var deliveredReagents = new Dictionary<string, FixedPoint2>();
         var soldLog = new Dictionary<string, (int Count, int Value)>();
         foreach (var entity in entities)
@@ -791,6 +795,11 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
             var qty = TryComp(entity, out StackComponent? stack) ? stack.Count : 1;
             if (proto != null)
                 delivered[proto] = delivered.GetValueOrDefault(proto) + qty;
+
+            // Misfits Add - a researched disk shares its prototype with a blank one, so
+            // tally encoded disks separately by rarity for rarity-gated request targets.
+            if (TryGetDiskRarity(entity, out var deliveredRarity))
+                deliveredDisks[deliveredRarity] = deliveredDisks.GetValueOrDefault(deliveredRarity) + qty;
 
             ScanDeliveredReagents(entity, deliveredReagents);
 
@@ -810,7 +819,7 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
         }
 
         rewards += CompleteBounties(elevator, account, delivered);
-        CompleteRandomRequests(elevator, account, delivered, deliveredReagents);
+        CompleteRandomRequests(elevator, account, delivered, deliveredReagents, deliveredDisks);
         RecordSales(account, soldLog);
 
         var storageFull = false;
@@ -1046,7 +1055,7 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
         return set;
     }
 
-    private readonly record struct RolledRequestTarget(string TargetId, bool IsReagent, int Amount, int Score, bool DirectBudget);
+    private readonly record struct RolledRequestTarget(string TargetId, bool IsReagent, int Amount, int Score, bool DirectBudget, MutationRarity? DiskRarity = null);
 
     private RolledRequestTarget? TryRollSingleTarget(RequisitionsRequestPoolPrototype pool, HashSet<string> excludeIds, bool isHard, float hardScoreMultiplier)
     {
@@ -1090,7 +1099,7 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
             var score = (int) MathF.Round(item.ValuePerUnit * amount);
             if (isHard)
                 score = (int) MathF.Round(score * hardScoreMultiplier);
-            return new RolledRequestTarget(item.Item.Id, false, amount, score, false);
+            return new RolledRequestTarget(item.Item.Id, false, amount, score, false, item.MutationRarity);
         }
 
         foreach (var material in pool.Materials)
@@ -1161,6 +1170,7 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
                 TargetId = rolled.TargetId,
                 Amount = rolled.Amount,
                 Progress = 0,
+                DiskRarity = rolled.DiskRarity,
             });
 
             totalScore += rolled.Score;
@@ -1191,7 +1201,8 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
         Entity<RequisitionsElevatorComponent> elevator,
         Entity<RequisitionsAccountComponent> account,
         Dictionary<string, int> delivered,
-        Dictionary<string, FixedPoint2> deliveredReagents)
+        Dictionary<string, FixedPoint2> deliveredReagents,
+        Dictionary<MutationRarity, int> deliveredDisks)
     {
         var group = elevator.Comp.Group;
         var config = GetRequestBoardConfig(group);
@@ -1211,9 +1222,11 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
                 if (needed <= 0)
                     continue;
 
-                var delivCount = target.IsReagent
-                    ? deliveredReagents.GetValueOrDefault(target.TargetId).Int()
-                    : delivered.GetValueOrDefault(target.TargetId);
+                var delivCount = target.DiskRarity is { } wantedRarity
+                    ? deliveredDisks.GetValueOrDefault(wantedRarity)
+                    : target.IsReagent
+                        ? deliveredReagents.GetValueOrDefault(target.TargetId).Int()
+                        : delivered.GetValueOrDefault(target.TargetId);
 
                 if (delivCount <= 0)
                     continue;
@@ -1238,6 +1251,8 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
             }
             else
             {
+                // RewardItems already holds base prototypes and true unit counts,
+                // resolved in PickRewardItems, so this banks them directly.
                 foreach (var (item, amount) in request.RewardItems)
                     AddToStorage(account.Comp, item, amount);
 
@@ -1250,6 +1265,8 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
             _adminLogs.Add(LogType.Action,
                 $"Requisitions account {group} completed random request for {targetsLog} " +
                 $"(score {request.Score}, reward {rewardLog})");
+
+            SendUIFeedback(group, Loc.GetString("n14-requisition-request-fulfilled"));
 
             slot.Request = null;
             slot.NextRollAt = _timing.CurTime + config.RandomRequestRefillDelay;
@@ -1302,7 +1319,12 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
                 break;
 
             var amount = _random.Next(picked.MinAmount, picked.MaxAmount + 1);
-            result[picked.Item.Id] = result.GetValueOrDefault(picked.Item.Id) + amount;
+
+            // Misfits Fix - store the base prototype and true unit count, not the stack
+            // entity and a stack count. Picking N14CurrencyPrewarMoney100 x4 is 400
+            // pre-war money, and the board preview, payout and admin log all read this.
+            var (rewardKey, rewardUnits) = ResolveStorageUnit(picked.Item);
+            result[rewardKey] = result.GetValueOrDefault(rewardKey) + rewardUnits * amount;
             budget -= picked.Cost * amount;
         }
 
@@ -1315,7 +1337,8 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
                     cheapest = entry;
             }
 
-            result[cheapest.Item.Id] = cheapest.MinAmount;
+            var (cheapestKey, cheapestUnits) = ResolveStorageUnit(cheapest.Item);
+            result[cheapestKey] = cheapestUnits * cheapest.MinAmount;
         }
 
         return result;
@@ -1386,6 +1409,25 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
     }
 
     private static readonly List<EntProtoId> EmptyExchange = new();
+
+    /// <summary>
+    /// True when the entity is a genetics disk carrying a mutation, yielding that
+    /// mutation's rarity. Blank disks return false.
+    /// </summary>
+    private bool TryGetDiskRarity(EntityUid entity, out MutationRarity rarity)
+    {
+        rarity = default;
+
+        if (!TryComp<GeneticsDiskComponent>(entity, out var disk) || disk.Mutation is not { } mutationId)
+            return false;
+
+        if (!_prototypeManager.TryIndex<EntityPrototype>(mutationId, out var mutationProto) ||
+            !mutationProto.TryGetComponent<MutationComponent>(out var mutation))
+            return false;
+
+        rarity = mutation.Rarity;
+        return true;
+    }
 
     private int SellValue(EntityUid entity)
     {

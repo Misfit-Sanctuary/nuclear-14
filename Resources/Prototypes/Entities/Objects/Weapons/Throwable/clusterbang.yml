@@ -153,18 +153,20 @@
   parent: GrenadeBase
   id: GrenadeIncendiary
   name: incendiary grenade
-  description: Guaranteed to light up the mood.
+  description: Releases a cloud of burning orange smoke that immolates anyone caught inside.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/pyrogrenade.rsi
     layers:
     - state: icon
       map: ["enum.TriggerVisualLayers.Base"]
-  - type: ClusterGrenade
-    fillPrototype: PelletClusterIncendiary
-    maxGrenadesCount: 30
-    grenadeType: enum.GrenadeType.Shoot
-  - type: PacifismBlocked
+  - type: SmokeOnTrigger
+    duration: 10
+    spreadAmount: 25
+    solution:
+      reagents:
+      - ReagentId: Phlogiston
+        Quantity: 30
   - type: OnUseTimerTrigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"
@@ -172,18 +174,15 @@
         volume: 5
     initialBeepDelay: 0
     beepInterval: 2
-  - type: EmitSoundOnTrigger
-    sound:
-      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
-  - type: ContainerContainer
-    containers:
-      cluster-payload: !type:Container
+  - type: SoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+  - type: DeleteOnTrigger
 
 - type: entity
   parent: GrenadeBase
   id: GrenadeShrapnel
-  name: shrapnel grenade
-  description: Releases a deadly spray of shrapnel that causes severe bleeding.
+  name: offensive frag grenade
+  description: A blast-focused hand grenade with a limited spray of lethal fragmentation.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi
@@ -192,8 +191,10 @@
       map: ["enum.TriggerVisualLayers.Base"]
   - type: ClusterGrenade
     fillPrototype: PelletClusterLethal
-    maxGrenadesCount: 30
+    maxGrenadesCount: 20
     grenadeType: enum.GrenadeType.Shoot
+  - type: SpawnOnTrigger # Trigger the blast after dispersing the fragments.
+    proto: MisfitsGrenadeFragExplosion
   - type: PacifismBlocked
   - type: OnUseTimerTrigger
     beepSound:

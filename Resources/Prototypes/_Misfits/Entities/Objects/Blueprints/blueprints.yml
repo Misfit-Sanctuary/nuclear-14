@@ -250,6 +250,18 @@
     - N14BPNCRAmmoMag10mmSMG
     - N14BPNCRAmmoMag12mmSMG
     - N14BPNCRAmmo40mmGrenade
+    - MisfitsBPNCRGrenadeShrapnel # #Misfits Add - Issue #968 NCR fragmentation ordnance
+    - MisfitsBPNCRGrenadeFragDefensive # #Misfits Add - faction council defensive fragmentation ordnance
+    - MisfitsBPNCRGrenadeImpact # #Misfits Add - reduced-cost impact ordnance
+    - MisfitsBPNCRHawkinsDevice # #Misfits Add - reduced-cost anti-materiel charge
+    # #Misfits Add - complete NCR 40mm family; utility and buckshot rounds use reduced production costs.
+    - MisfitsBPNCR40mmBuckshot
+    - MisfitsBPNCR40mmSmoke
+    - MisfitsBPNCR40mmWhitePhosphorus
+    - MisfitsBPNCR40mmFlashbang
+    - MisfitsBPNCR40mmTearGas
+    - MisfitsBPNCR40mmHEDP
+    - MisfitsBPNCR40mmIncendiary
 
 - type: entity
   parent: N14BlueprintBase
@@ -301,6 +313,7 @@
     - N14BPLegionWeaponRifle556EM2
     - N14BPLegionWeaponTribalMachete
     - N14BPLegionWeaponMachete
+    - N14BPLegionWeaponGladius
     - N14BPLegionWeaponRevolver44TribalUpgraded
     - N14BPLegionWeaponShotgunPipe
     - N14BPLegionWeaponTrenchClub
@@ -400,6 +413,8 @@
   - type: Blueprint
     recipes:
     - N14BPLegionArmorVeteranArmor
+    - N14BPLegionArmorExplorerArmor
+    - N14BPLegionArmorVexillariusArmor
     - N14BPLegionArmorReconnaissanceArmor
     # #Misfits Add - paired veteran headgear (hunter hoods and trophy skulls)
     - N14BPLegionArmorHelmetTribalHunterHood
@@ -468,6 +483,17 @@
     - N14BPLegionAmmoBox762       # #Misfits Add - 7.62mm box (for SKS)
     - N14BPLegionWeaponDynamite   # #Misfits Add - craftable dynamite
     - N14BPLegionAmmoSKSEnbloc308
+    - MisfitsBPLegionGrenadeTin # #Misfits Add - Issue #968 Legion improvised ordnance
+    - MisfitsBPLegionGrenadeFragOffensive # #Misfits Add - faction council fragmentation ordnance
+    # #Misfits Add - HE already uses N14BPLegionAmmo40mmGrenade; add remaining variants.
+    - MisfitsBPLegion40mmBuckshot
+    - MisfitsBPLegion40mmSmoke
+    - MisfitsBPLegion40mmWhitePhosphorus
+    - MisfitsBPLegion40mmFlashbang
+    - MisfitsBPLegion40mmTearGas
+    - MisfitsBPLegion40mmHEDP
+    - MisfitsBPLegion40mmIncendiary
+    - MisfitsBPLegionGrenadeFragDefensive
 
 - type: entity
   parent: N14BlueprintBase
@@ -676,6 +702,17 @@
     - N14BPBoSAmmoElectronChargePackBlue
     - N14BPBoSAmmoPlasmaShell
     - N14BPBoSAmmoPlasmaCartridgeMultiplas
+    - MisfitsBPBoSGrenadeFragOffensive # #Misfits Add - efficient conventional ordnance
+    - MisfitsBPBoSGrenadeFragDefensive
+    # #Misfits Add - complete 40mm family.
+    - MisfitsBPBoS40mmHE
+    - MisfitsBPBoS40mmBuckshot
+    - MisfitsBPBoS40mmSmoke
+    - MisfitsBPBoS40mmWhitePhosphorus
+    - MisfitsBPBoS40mmFlashbang
+    - MisfitsBPBoS40mmTearGas
+    - MisfitsBPBoS40mmHEDP
+    - MisfitsBPBoS40mmIncendiary
 
 - type: entity
   parent: N14BlueprintBase
@@ -910,6 +947,7 @@
     - N14BPTownAmmoBox44Magnum
     - N14BPTownAmmoMag762Rifle
     - N14BPTownAmmoMag10mmSMG
+    - MisfitsBPTownGrenadeImpact # #Misfits Add - reduced-cost impact ordnance
 
 - type: entity
   parent: N14BlueprintBase
@@ -1276,6 +1314,8 @@
     - N14BPTribeAmmoBox127
     - N14BPTribeAmmoBox308
     - N14BPTribeAmmoSpeedLoader45-70
+    - MisfitsBPTribeGrenadeTin # #Misfits Add - Willower faction-council improvised explosives
+    - MisfitsBPTribeDynamite
 
 - type: entity
   parent: N14BlueprintBase

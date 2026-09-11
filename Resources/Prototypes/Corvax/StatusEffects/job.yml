@@ -12,13 +12,12 @@
     sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
     state: Raider
 
-# #Misfits Removed - Khan job icon deactivated alongside Khan job. Kept for reference.
-# - type: jobIcon
-#   parent: JobIcon
-#   id: JobIconKhan
-#   icon:
-#     sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
-#     state: Khan
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconKhan
+  icon:
+    sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi
+    state: Khan
 
 - type: jobIcon
   parent: JobIcon

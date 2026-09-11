@@ -101,20 +101,30 @@
     useDelay: 1
 
 - type: entity
-  parent: Bible
-  name: Codex of Mars
-  description: Prayer book used by the Legion Priesthood
+  parent: BaseItem
+  name: Flame of Mars
+  description: A Special Torch carried by the Priesthood of Mars, ignited with an unnaturally red flame, said to be able to heal those he favors.
   id: BibleMars
   components:
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Items/Flare/flare_on.ogg
+    soundDeactivate:
+      path: /Audio/Items/candle_blowing.ogg
   - type: Sprite
-    sprite: Objects/Misc/books.rsi
+    sprite: Objects/Misc/torch.rsi
     layers:
-    - state: paper
-    - state: cover_old
-      color: "#b72121"
-    - state: decor_wingette
-      color: "#e4432d"
-    - state: icon_legion
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: torch_unlit
+    # #Misfits Fix: Use plain string key so ToggleableLightVisualsSystem (SpriteLayer is string?) can find this layer via LayerMapTryGet.
+    # Previously used enum.ExpendableLightVisualLayers.Glow which caused a string/enum key mismatch, preventing the fire sprite from showing on the ground.
+    - map: [ "torch_glow" ]
+      state: lit_overlay
+      color: "#df0f0f"
+      visible: false
+      shader: unshaded
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: torch_nocloth
   - type: UseDelay
     delay: 10.0
   - type: Bible
@@ -136,36 +146,45 @@
     mixMessage: "bible-mixing-success"
     reactionTypes:
     - Holy
+  - type: Icon
+    sprite: Objects/Misc/torch.rsi
+    state: icon
   - type: Item
-    size: Small
-    sprite: Objects/Specific/Chapel/bible.rsi
+    sprite: Objects/Misc/torch.rsi
+    heldPrefix: unlit
+  - type: ToggleableLightVisuals
+    spriteLayer: torch_glow
+    inhandVisuals:
+      left:
+      - state: lit-inhand-left
+        shader: unshaded
+      right:
+      - state: lit-inhand-right
+        shader: unshaded
+  - type: Appearance
+  - type: PointLight
+    enabled: false
+    color: "#df0f0f"
+    radius: 5.0
+    energy: 7.0
+    netsync: false
   - type: Clothing
     slots:
     - Belt
-  - type: Storage
-    grid:
-    - 0,0,0,1
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
   - type: MeleeWeapon # Nyanotrasen - Bibles do Holy damage
     damage:
       types:
         Blunt: 5
-        Holy: 30 # more in line with Misfits melee meta.
+        Heat: 35 # more in line with Misfits melee meta.
     heavyRateModifier: 1.25
     heavyDamageBaseModifier: 1
     heavyStaminaCost: 5
     maxTargets: 4
+  - type: IgnitionSource
+    temperature: 400
+    ignited: false
+  - type: ItemToggleHot
+  - type: ItemTogglePointLight
   - type: Tag
     tags:
-    - Book
-  - type: StealTarget
-    stealGroup: Bible
-  - type: EmitSoundOnPickup
-    sound: /Audio/SimpleStation14/Items/Handling/book_pickup.ogg
-  - type: EmitSoundOnDrop
-    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
-  - type: EmitSoundOnLand
-    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+    - Torch

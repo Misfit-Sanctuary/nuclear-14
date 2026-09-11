@@ -59,6 +59,17 @@
   components:
   - type: Blueprint
     recipes:
+    - MisfitsBPEnclaveGrenadeFragOffensive # #Misfits Add - BoS-equivalent conventional ordnance
+    - MisfitsBPEnclaveGrenadeFragDefensive
+    # #Misfits Add - complete 40mm family.
+    - MisfitsBPEnclave40mmHE
+    - MisfitsBPEnclave40mmBuckshot
+    - MisfitsBPEnclave40mmSmoke
+    - MisfitsBPEnclave40mmWhitePhosphorus
+    - MisfitsBPEnclave40mmFlashbang
+    - MisfitsBPEnclave40mmTearGas
+    - MisfitsBPEnclave40mmHEDP
+    - MisfitsBPEnclave40mmIncendiary
     - N14BPEnclaveAmmoPlasmaCartridge
     - N14BPEnclaveAmmoMicrofusionCell
     - N14BPEnclaveAmmoElectronChargePack

@@ -1,0 +1,107 @@
+# Misfits Add - Impact rounds use separate payload entities because projectile
+# collision removes the bullet. ClusterGrenade emits its fragments on the next
+# update, so it must survive independently of the colliding projectile.
+- type: entity
+  id: Misfits40mmHEDPProjectile
+  parent: BaseBulletTrigger
+  name: HEDP grenade
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 0
+  - type: SpawnOnTrigger
+    proto: Misfits40mmHEDPPayload
+  - type: DeleteOnTrigger
+
+- type: entity
+  id: Misfits40mmHEDPPayload
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: ClusterGrenade
+    fillPrototype: Misfits40mmHEDPFragment
+    maxGrenadesCount: 20
+    grenadeType: enum.GrenadeType.Shoot
+    triggerGrenades: false
+  - type: SpawnOnTrigger
+    proto: Misfits40mmHEDPExplosion
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+
+- type: entity
+  id: Misfits40mmHEDPFragment
+  parent: PelletClusterLethal
+  name: HEDP fragment
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    # Stop at the first collision rather than piercing through multiple targets.
+    deleteOnCollide: true
+    damage:
+      types:
+        Piercing: 10
+  - type: TimedDespawn
+    lifetime: 0.25
+
+- type: entity
+  id: Misfits40mmHEDPExplosion
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    # 4.8 x (6.25 Heat + 6.25 Blunt) = 60 maximum blast damage.
+    # Fragment hits are additional and depend on direction, cover, and distance.
+    explosionType: Misfits40mmHE
+    maxIntensity: 4.8
+    intensitySlope: 4
+    totalIntensity: 20
+    canCreateVacuum: false
+    maxTileBreak: 0
+    tileBreakScale: 0
+
+- type: entity
+  id: Misfits40mmPulseProjectile
+  parent: Misfits40mmHEDPProjectile
+  name: pulse grenade
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnTrigger
+    proto: Misfits40mmPulsePayload
+
+- type: entity
+  id: Misfits40mmPulsePayload
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: EmpOnTrigger
+    # Reuse the hand-pulse EMP behavior, including battery drain and synthetic damage.
+    range: 4
+    energyConsumption: 2700000
+  - type: SpawnOnTrigger
+    proto: MisfitsPulseGrenadeExplosion
+  - type: DeleteOnTrigger
+
+- type: entity
+  id: Misfits40mmPlasmaProjectile
+  parent: BaseBulletTrigger
+  name: plasma grenade
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 0
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    # 6 x 15 = 90 maximum caustic damage; smaller than the hand grenade.
+    explosionType: MisfitsPlasma
+    maxIntensity: 6
+    intensitySlope: 4
+    totalIntensity: 30
+    canCreateVacuum: false
+    maxTileBreak: 0
+    tileBreakScale: 0

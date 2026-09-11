@@ -231,8 +231,11 @@ public sealed class ThemeProfile
     /// <summary>Furniture entity pools keyed by pool name (matched via RoomTypeDefinition.FurniturePoolKey).</summary>
     public Dictionary<string, string[]> FurniturePools { get; init; } = new();
 
-    /// <summary>Mob faction sub-groups: each room randomly picks one group, then weighted-random within it.</summary>
-    public (string, int)[][] MobGroups { get; init; } = System.Array.Empty<(string, int)[]>();
+    /// <summary>
+    /// Expedition-wide hostile population themes. The generator chooses one
+    /// focused theme (or one faction-safe hodgepodge theme) for the whole map.
+    /// </summary>
+    public MobThemeDefinition[] MobThemes { get; init; } = System.Array.Empty<MobThemeDefinition>();
 
     /// <summary>Decal pool for thematic visual overlays.</summary>
     public string[] DecalPool { get; init; } = System.Array.Empty<string>();
@@ -277,6 +280,40 @@ public sealed class ThemeProfile
     {
         return LightConfig.CountPerRoomType.TryGetValue(rt, out var count) ? count : LightConfig.DefaultCount;
     }
+}
+
+/// <summary>
+/// Broad encounter family used for population caps and family-specific bosses.
+/// Every member of a definition must share its declared NPC faction.
+/// </summary>
+public enum ExpeditionMobFamily
+{
+    Wildlife,
+    Mirelurk,
+    Nightstalker,
+    Radscorpion,
+    Ant,
+    Deathclaw,
+    SuperMutant,
+    Ghoul,
+    Robot,
+    Raider,
+}
+
+/// <summary>
+/// A coherent population that can occupy an entire procedural expedition.
+/// SelectionWeight applies within either the focused or hodgepodge category;
+/// individual mob weights apply after the expedition theme has been selected.
+/// </summary>
+public sealed class MobThemeDefinition
+{
+    public string Name { get; init; } = string.Empty;
+    public string Faction { get; init; } = string.Empty;
+    public ExpeditionMobFamily Family { get; init; }
+    public int SelectionWeight { get; init; } = 1;
+    public bool IsHodgepodge { get; init; }
+    public (string Prototype, int Weight)[] MobPool { get; init; } =
+        System.Array.Empty<(string Prototype, int Weight)>();
 }
 
 /// <summary>
@@ -333,6 +370,12 @@ public sealed class UndergroundGenParams
 
     /// <summary>0 = Easy, 1 = Medium, 2 = Hard.</summary>
     public int DifficultyTier { get; set; }
+
+    /// <summary>
+    /// Number of player-controlled expedition members present at launch.
+    /// Captured once by the server and used to scale encounter density and apex selection.
+    /// </summary>
+    public int PartySize { get; set; } = 1;
 
     /// <summary>Minimum number of standard rooms to guarantee.</summary>
     public int MinRooms { get; set; } = 6;
@@ -398,7 +441,7 @@ public sealed class RoomDef
 
 /// <summary>
 /// Classifies what a room is used for during generation and dressing.
-/// #Misfits Change - Expanded to 16 thematic variants per Underground Expedition design spec
+/// #Misfits Change - Expanded to thematic variants per Underground Expedition design spec
 /// </summary>
 public enum RoomType
 {
@@ -426,6 +469,12 @@ public enum RoomType
 
     /// <summary>Research and medical laboratory.</summary>
     VaultLab,
+
+    /// <summary>Entrance screening, monitoring, and guard station.</summary>
+    VaultSecurity,
+
+    /// <summary>Mechanical plant and service access supporting the reactor.</summary>
+    VaultMaintenance,
 
     /// <summary>Weapons cache and security armory.</summary>
     VaultArmory,

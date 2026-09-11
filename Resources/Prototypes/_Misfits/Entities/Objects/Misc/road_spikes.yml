@@ -1,0 +1,64 @@
+- type: entity
+  parent: BaseItem
+  id: MisfitsRoadSpikes
+  name: road spikes
+  description: A strip of sharpened metal spikes made to punish careless feet and motorcycle tires.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/road_spikes.rsi
+    state: road_spikes
+  - type: Item
+    sprite: _Misfits/Objects/Misc/road_spikes.rsi
+    size: Small
+  # Required by hand construction so the finished entity can enter the graph's
+  # roadSpikes node instead of being rejected and deleted after materials are consumed.
+  - type: Construction
+    graph: MisfitsRoadSpikesConstruction
+    node: roadSpikes
+  - type: Sharp
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Piercing: 4
+  - type: CollisionWake
+    enabled: false
+  - type: Fixtures
+    fixtures:
+      spikes:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.18,0.45,0.18"
+        hard: false
+        layer:
+        - LowImpassable
+      item:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.18,0.45,0.18"
+        density: 30
+        mask:
+        - ItemMask
+  - type: StepTrigger
+    triggerGroups:
+      types:
+      - Shard
+    intersectRatio: 0.2
+  - type: ClothingRequiredStepTrigger
+  - type: Slippery
+    slipSound:
+      path: /Audio/Effects/glass_step.ogg
+    launchForwardsMultiplier: 0
+  - type: TriggerOnStepTrigger
+  - type: DamageUserOnTrigger
+    damage:
+      types:
+        Piercing: 4.5
+    targetPart: Legs
+  - type: RoadSpikes
+    riderKnockdownTime: 3
+    bikeDamage:
+      types:
+        Piercing: 60
+  - type: StaticPrice
+    price: 5

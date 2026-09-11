@@ -95,4 +95,17 @@ lathe-category-blueprint-c27-combat = C-27 Combat Armor
 lathe-category-blueprint-zax-equipment = Z.A.X Equipment
 
 lathe-category-blueprint-eighties-motorbikes = Eighties Motorbike Flatpacks
-
+lathe-category-blueprint-eighties-ordnance = Eighties Ordnance
+lathe-category-blueprint-eighties-armor-t1 = Eighties Armor - Tier 1
+lathe-category-blueprint-eighties-armor-t2 = Eighties Armor - Tier 2
+lathe-category-blueprint-eighties-armor-t3 = Eighties Armor - Tier 3
+lathe-category-blueprint-eighties-armor-t4 = Eighties Armor - Tier 4
+lathe-category-blueprint-eighties-weapons-t1 = Eighties Weapons - Tier 1
+lathe-category-blueprint-eighties-weapons-t2 = Eighties Weapons - Tier 2
+lathe-category-blueprint-eighties-weapons-t3 = Eighties Weapons - Tier 3
+lathe-category-blueprint-eighties-weapons-t4 = Eighties Weapons - Tier 4
+lathe-category-blueprint-eighties-weapons-t5 = Eighties Weapons - Tier 5
+lathe-category-blueprint-eighties-ammo-t1 = Eighties Ammo - Tier 1
+lathe-category-blueprint-eighties-ammo-t2 = Eighties Ammo - Tier 2
+lathe-category-blueprint-eighties-ammo-t3 = Eighties Ammo - Tier 3
+lathe-category-blueprint-eighties-ammo-t4 = Eighties Ammo - Tier 4

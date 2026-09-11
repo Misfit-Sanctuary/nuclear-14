@@ -1,5 +1,6 @@
 using Content.Server.GameTicking;
 using Content.Server.Maps;
+using Content.Server._Misfits.Expeditions;
 using Content.Shared.GameTicking;
 using Content.Shared.Maps;
 using Robust.Shared.GameObjects;
@@ -26,6 +27,7 @@ public sealed partial class MaterialExtractorSpawnerSystem : EntitySystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedMapSystem _map = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private N14ExpeditionEntranceSpawnerSystem _expeditionEntrances = default!;
 
     private readonly HashSet<MapId> _wendoverMaps = [];
     private ISawmill _log = default!;
@@ -87,6 +89,11 @@ public sealed partial class MaterialExtractorSpawnerSystem : EntitySystem
         // so anchor them here to satisfy the portable-generator start path.
         _transform.AnchorEntity(extractor, Transform(extractor));
         _log.Info($"Spawned the round's material extractor at {tile} beside boulder {rockTile} on Wendover map {mapId}.");
+
+        // The extractor is visible proof that this established round-start path
+        // ran for Wendover. Enforce expedition entrances from the same path so
+        // every Wendover/faction tacmap has usable expedition GPS targets too.
+        _expeditionEntrances.EnsureEntrancesForMap(mapId);
     }
 
     private bool TryGetWendoverGrid(MapId mapId, out EntityUid gridUid, out MapGridComponent grid)

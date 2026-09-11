@@ -73,6 +73,16 @@ public sealed partial class NPCCombatSystem
             if (comp.Status == CombatStatus.Unspecified)
                 continue;
 
+            // An NPC can remain in this query for the tick in which its grid/map
+            // is being removed.  Nullspace has MapId 0, which cannot be used to
+            // create a projectile's map-level coordinates.
+            if (xform.MapID == MapId.Nullspace || xform.MapUid == null)
+            {
+                comp.Status = CombatStatus.TargetUnreachable;
+                comp.ShootAccumulator = 0f;
+                continue;
+            }
+
             if (_steeringQuery.TryGetComponent(uid, out var steering) && steering.Status == SteeringStatus.NoPath)
             {
                 // Steering is blocked but we may still have line of sight — request a new path
@@ -82,6 +92,13 @@ public sealed partial class NPCCombatSystem
 
             if (!_xformQuery.TryGetComponent(comp.Target, out var targetXform) ||
                 !_physicsQuery.TryGetComponent(comp.Target, out var targetBody))
+            {
+                comp.Status = CombatStatus.TargetUnreachable;
+                comp.ShootAccumulator = 0f;
+                continue;
+            }
+
+            if (targetXform.MapID == MapId.Nullspace || targetXform.MapUid == null)
             {
                 comp.Status = CombatStatus.TargetUnreachable;
                 comp.ShootAccumulator = 0f;

@@ -292,6 +292,26 @@
 
 - type: entity
   parent: N14WastelandFlora
+  id: N14WastelandFloraWildCannabis
+  name: wild cannabis plant
+  description: A cannabis plant growing wild. It's healthy.
+  components:
+  - type: Sprite
+    state: wild_cannabis
+  - type: OreVein
+    currentOre: WildCannabis
+  - type: Gatherable
+    toolWhitelist:
+      components:
+      - Hands
+      tags:
+      - PlantSampleTaker
+    loot:
+      All: WildCannabisAll
+      PlantSampleTaker: WildCannabisClippers
+
+- type: entity
+  parent: N14WastelandFlora
   id: N14WastelandFloraWildDatura
   name: wild datura plant
   description: A datura plant growing wild. It's healthy.
@@ -965,6 +985,33 @@
         Quantity: 10
   - type: Produce
     seedId: N14CoyoteTobacco
+
+- type: entity
+  parent: N14FloraProduce
+  id: N14FloraProduceWildCannabis
+  name: cannabis leaves
+  description: Wild cannabis plant leaves.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Hydroponics/cannabis.rsi
+    state: produce
+  - type: Stack
+    stackType: Cannabis
+    count: 1
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: ExtractCannabis
+          Quantity: 10
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: ExtractCannabis
+        Quantity: 10
+  - type: Produce
+    seedId: N14WildCannabis
 
 - type: entity
   parent: N14FloraProduce

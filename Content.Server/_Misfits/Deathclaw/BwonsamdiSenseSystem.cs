@@ -21,24 +21,12 @@ public sealed partial class BwonsamdiSenseSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private readonly Dictionary<(EntityUid Seer, EntityUid Victim, MobState State), TimeSpan> _nextSense = new();
-    private bool _arrivalAnnounced;
-
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BwonsamdiComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
-    }
-
-    private void OnMapInit(Entity<BwonsamdiComponent> ent, ref MapInitEvent args)
-    {
-        if (_arrivalAnnounced)
-            return;
-
-        _arrivalAnnounced = true;
-        _chat.DispatchServerAnnouncement(Loc.GetString("bwonsamdi-arrival-announcement"), Color.DarkSeaGreen);
     }
 
     private void OnMobStateChanged(MobStateChangedEvent args)
@@ -94,7 +82,6 @@ public sealed partial class BwonsamdiSenseSystem : EntitySystem
 
     private void OnRoundRestart(RoundRestartCleanupEvent args)
     {
-        _arrivalAnnounced = false;
         _nextSense.Clear();
     }
 

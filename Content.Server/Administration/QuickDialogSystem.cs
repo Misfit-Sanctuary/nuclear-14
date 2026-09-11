@@ -108,13 +108,20 @@ public sealed partial class QuickDialogSystem : EntitySystem
     /// <summary>
     /// Opens a confirmation dialog with custom button text and no input fields.
     /// </summary>
-    public void OpenConfirmationDialog(ICommonSession session, string title, string okText, string cancelText, Action approveAction, Action denyAction)
+    public void OpenConfirmationDialog(
+        ICommonSession session,
+        string title,
+        string okText,
+        string cancelText,
+        Action approveAction,
+        Action denyAction,
+        bool showCancel = true)
     {
         OpenDialogInternal(
             session,
             title,
             new List<QuickDialogEntry>(),
-            QuickDialogButtonFlag.OkButton | QuickDialogButtonFlag.CancelButton,
+            QuickDialogButtonFlag.OkButton | (showCancel ? QuickDialogButtonFlag.CancelButton : 0),
             _ => approveAction.Invoke(),
             denyAction,
             okText,

@@ -14,6 +14,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
 using Content.Server._Misfits.Group;
+using Content.Shared.Chat;
 using Content.Shared._Misfits.FactionWar;
 using Content.Shared.GameTicking;
 using Content.Shared.Ghost;
@@ -34,6 +35,7 @@ using Robust.Shared.Maths;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server._Misfits.FactionWar;
 
@@ -288,7 +290,7 @@ public sealed class FactionWarSystem : EntitySystem
                     var prop = _pendingCeasefireProposals[key];
                     _pendingCeasefireProposals.Remove(key);
                     RemoveWar(prop.War);
-                    _chat.DispatchServerAnnouncement(
+                    DispatchWarAnnouncement(prop.War,
                         $"CEASEFIRE ACCEPTED\n" +
                         $"No response was received in time. {prop.War.SideName1} and {prop.War.SideName2} have agreed to a ceasefire.",
                         Color.SkyBlue);
@@ -693,7 +695,7 @@ public sealed class FactionWarSystem : EntitySystem
         BroadcastWarState();
         SendPanelDataToAll();
 
-        _chat.DispatchServerAnnouncement(
+        DispatchWarAnnouncement(warEntry,
             $"WAR DECLARED\n" +
             $"{warEntry.DeclaredByCharacterName} has declared war on {warEntry.DeclaredAgainstCharacterName}!\n" +
             $"Reason: \"{reason}\"\n\n" +
@@ -753,7 +755,7 @@ public sealed class FactionWarSystem : EntitySystem
         BroadcastWarState();
         SendPanelDataToAll();
 
-        _chat.DispatchServerAnnouncement(
+        DispatchWarAnnouncement(war,
             $"WAR ACCEPTED\n" +
             $"{Name(player.AttachedEntity ?? EntityUid.Invalid)} has accepted the war and named their side!\n" +
             $"{war.SideName1} vs {war.SideName2}\n\n" +
@@ -802,7 +804,7 @@ public sealed class FactionWarSystem : EntitySystem
         BroadcastWarState();
         SendPanelDataToAll();
 
-        _chat.DispatchServerAnnouncement(
+        DispatchWarAnnouncement(war,
             $"WAR REJECTED\n" +
             $"{Name(rejectEntity)} rejected the war declaration.",
             Color.Gray);
@@ -882,7 +884,7 @@ public sealed class FactionWarSystem : EntitySystem
                 otherSession);
         }
 
-        _chat.DispatchServerAnnouncement(
+        DispatchWarAnnouncement(war,
             $"CEASEFIRE PROPOSED\n" +
             $"{proposal.ProposingPlayerName} proposes a ceasefire.\n" +
             $"The other party has 5 minutes to respond.",
@@ -937,7 +939,7 @@ public sealed class FactionWarSystem : EntitySystem
         _pendingCeasefireProposals.Remove(warKey);
         RemoveWar(war);
 
-        _chat.DispatchServerAnnouncement(
+        DispatchWarAnnouncement(war,
             $"CEASEFIRE\n" +
             $"{war.SideName1} and {war.SideName2} have agreed to cease hostilities.",
             Color.SkyBlue);
@@ -992,7 +994,7 @@ public sealed class FactionWarSystem : EntitySystem
         _pendingCeasefireProposals.Remove(warKey);
         SendPanelDataToAll();
 
-        _chat.DispatchServerAnnouncement(
+        DispatchWarAnnouncement(war,
             $"CEASEFIRE REJECTED\n" +
             $"The ceasefire proposal was rejected. The war continues.",
             Color.OrangeRed);
@@ -2068,7 +2070,7 @@ public sealed class FactionWarSystem : EntitySystem
             ? "Side review timed out. Unsubmitted sides defaulted to Keep."
             : "Side review complete.";
 
-        _chat.DispatchServerAnnouncement(
+        DispatchWarAnnouncement(war,
             $"WAR HAS BEGUN\n" +
             $"The conflict between {war.SideName1} and {war.SideName2} is now active!\n" +
             $"{reviewNote}\n" +
@@ -2577,6 +2579,44 @@ public sealed class FactionWarSystem : EntitySystem
             if (_npcFaction.IsMember(entity, canonicalFaction))
                 yield return actor.PlayerSession;
         }
+    }
+
+    /// <summary>
+    /// Sends a server-style announcement only to players currently participating in the war.
+    /// The participant roster includes original declarers, auto-enlisted faction/group members,
+    /// and voluntary joiners, so unrelated factions never receive war status updates.
+    /// </summary>
+    private void DispatchWarAnnouncement(PlayerWarEntry war, string message, Color color)
+    {
+        var recipients = new Dictionary<NetUserId, ICommonSession>();
+
+        foreach (var participant in war.Participants.Keys)
+        {
+            var entity = GetEntity(participant);
+            if (!Exists(entity) || !TryComp<ActorComponent>(entity, out var actor))
+                continue;
+
+            var session = actor.PlayerSession;
+            if (session.Status == SessionStatus.InGame)
+                recipients.TryAdd(session.UserId, session);
+        }
+
+        if (recipients.Count == 0)
+            return;
+
+        var wrappedMessage = Loc.GetString(
+            "chat-manager-server-wrap-message",
+            ("message", FormattedMessage.EscapeText(message)));
+
+        _chat.ChatMessageToMany(
+            ChatChannel.Server,
+            message,
+            wrappedMessage,
+            EntityUid.Invalid,
+            hideChat: false,
+            recordReplay: true,
+            recipients.Values.Select(session => session.Channel),
+            color);
     }
 
     private int GetJobWeight(EntityUid mindId) =>

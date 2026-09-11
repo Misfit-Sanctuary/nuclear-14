@@ -326,8 +326,8 @@
     baseWalkSpeed: 5.0
     baseSprintSpeed: 5.0
   - type: MisfitsC27
-    empShockDamage: 200
-    empDamagePerKiloJoule: 0
+    # ZAX-derived C-27s use a 75-damage full-pulse ceiling; weaker EMPs scale below it.
+    maxEmpShockDamage: 75
     siliconRepairDelayMultiplier: 2
   - type: ActionGrant
     actions:

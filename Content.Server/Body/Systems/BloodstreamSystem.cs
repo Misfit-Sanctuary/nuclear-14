@@ -293,6 +293,7 @@ public sealed class BloodstreamSystem : EntitySystem
     private void OnBeingGibbed(Entity<BloodstreamComponent> ent, ref BeingGibbedEvent args)
     {
         SpillAllSolutions(ent, ent);
+        SpawnBloodEffect(ent.Owner, "MisfitsGibBloodSplatters");
     }
 
     private void OnApplyMetabolicMultiplier(
@@ -414,13 +415,28 @@ public sealed class BloodstreamSystem : EntitySystem
             {
                 _forensicsSystem.TransferDna(puddleUid, uid, canDnaBeCleaned: false);
             }
-
-            tempSolution.RemoveAllSolution();
         }
+
+        // Leave a visible splash as well as the floor-bound puddle. Footprints
+        // handle movement trails; this also makes smaller fresh bleeds visible.
+        if (newSol.Volume >= 0.5f)
+            SpawnBloodEffect(uid, newSol.Volume >= component.BleedPuddleThreshold
+                ? "MisfitsBloodSplatters"
+                : "MisfitsMinorBloodSplatters");
+
+        tempSolution.RemoveAllSolution();
 
         _solutionContainerSystem.UpdateChemicals(component.TemporarySolution.Value);
 
         return true;
+    }
+
+    private void SpawnBloodEffect(EntityUid uid, EntProtoId effect)
+    {
+        if (!TryComp<TransformComponent>(uid, out var transform) || transform.GridUid is null)
+            return;
+
+        Spawn(effect, transform.Coordinates);
     }
 
     /// <summary>

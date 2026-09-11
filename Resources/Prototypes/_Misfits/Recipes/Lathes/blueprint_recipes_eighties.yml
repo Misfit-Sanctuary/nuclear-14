@@ -1,0 +1,744 @@
+
+# t1 weapons
+
+- type: latheRecipe
+  id: BlueprintPipePistolEighties
+  result: N14WeaponPistol10mmPipe
+  category: N14BlueprintEightiesWeaponsT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 2
+  materials:
+    Steel: 1000
+    Wood: 500
+- type: latheRecipe
+  id: BlueprintPipeRifleEighties
+  result: N14WeaponRifle556Pipe
+  category: N14BlueprintEightiesWeaponsT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 2
+  materials:
+    Steel: 1500
+    Wood: 1000
+- type: latheRecipe
+  id: BlueprintPipeShotgunEighties
+  result: N14WeaponShotgunPipe
+  category: N14BlueprintEightiesWeaponsT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 2
+  materials:
+    Steel: 1500
+    Wood: 1000
+- type: latheRecipe
+  id: BlueprintPipeSniperEighties
+  result: N14WeaponSniper308PipeRifle
+  category: N14BlueprintEightiesWeaponsT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 2
+  materials:
+    Steel: 2000
+    Wood: 1500
+- type: latheRecipe
+  id: BlueprintPipeSubMachineGunEighties
+  result: N14WeaponSMG10mmPipe
+  category: N14BlueprintEightiesWeaponsT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 2
+  materials:
+    Steel: 1500
+    Wood: 500
+- type: latheRecipe
+  id: BlueprintPipeAssaultRifleEighties
+  result: N14WeaponRifle556Pipe
+  category: N14BlueprintEightiesWeaponsT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 2
+  materials:
+    Steel: 2500
+    Wood: 1000
+- type: latheRecipe
+  id: BlueprintPipeSubMachineGun12mmEighties
+  result: N14WeaponSMG12mmPipe
+  category: N14BlueprintEightiesWeaponsT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 2
+  materials:
+    Steel: 2500
+    Wood: 1000
+
+# t2 weapons
+
+- type: latheRecipe
+  id: BlueprintPistol45Eighties
+  result: N14WeaponPistol45Colt
+  category: N14BlueprintEightiesWeaponsT2
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 4
+  materials:
+    Steel: 2500
+    Plastic: 500
+- type: latheRecipe
+  id: BlueprintPistol9mmEighties
+  result: N14WeaponPistol9mm
+  category: N14BlueprintEightiesWeaponsT2
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 4
+  materials:
+    Steel: 2000
+    Plastic: 500
+- type: latheRecipe
+  id: BlueprintPistol10mmEighties
+  result: N14WeaponPistol10mm
+  category: N14BlueprintEightiesWeaponsT2
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 4
+  materials:
+    Steel: 2500
+    Plastic: 500
+
+# t3 weapons
+
+- type: latheRecipe
+  id: BlueprintSmg9mmEighties
+  result: N14WeaponSMG9mm
+  category: N14BlueprintEightiesWeaponsT3
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 6
+  materials:
+    Steel: 4000
+    Plastic: 1000
+    Silver: 300
+- type: latheRecipe
+  id: BlueprintSmg10mmEighties
+  result: N14WeaponSMG10mm
+  category: N14BlueprintEightiesWeaponsT3
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 6
+  materials:
+    Steel: 4000
+    Plastic: 1000
+    Silver: 300
+
+# t4 weapons
+
+- type: latheRecipe
+  id: BlueprintShotgunLeverEighties
+  result: N14WeaponShotgunLever
+  category: N14BlueprintEightiesWeaponsT3
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 6
+  materials:
+    Steel: 4000
+    Plastic: 1000
+    Silver: 300
+- type: latheRecipe
+  id: BlueprintDesertEagleEighties
+  result: N14WeaponDesertEagle44
+  category: N14BlueprintEightiesWeaponsT4
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 8
+  materials:
+    Steel: 5000
+    Plastic: 1000
+    Silver: 300
+- type: latheRecipe
+  id: BlueprintHuntingRevolverEighties
+  result: N14WeaponRevolver45-70Hunter
+  category: N14BlueprintEightiesWeaponsT4
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 8
+  materials:
+    Steel: 5000
+    Wood: 1500
+    Silver: 200
+- type: latheRecipe
+  id: BlueprintDouglasSmgEighties
+  result: N14WeaponSMG12mmAdvancedCanadian
+  category: N14BlueprintEightiesWeaponsT4
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 8
+  materials:
+    Steel: 6000
+    Plastic: 1000
+    Silver: 400
+- type: latheRecipe
+  id: BlueprintCanadiaSmgEighties
+  result: N14WeaponSMG9mmCanadian
+  category: N14BlueprintEightiesWeaponsT4
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 8
+  materials:
+    Steel: 6000
+    Plastic: 1000
+    Silver: 400
+
+# t5 weapons
+
+- type: latheRecipe
+  id: BlueprintAssaultCarbineEighties
+  result: N14WeaponRifle556Carbine
+  category: N14BlueprintEightiesWeaponsT5
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 12
+  materials:
+    Steel: 7000
+    Plastic: 1500
+    Silver: 500
+    Gold: 300
+- type: latheRecipe
+  id: BlueprintPipeSniper50Eighties
+  result: N14WeaponSniper50Pipe
+  category: N14BlueprintEightiesWeaponsT5
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 12
+  materials:
+    Steel: 7000
+    Wood: 1500
+    Silver: 500
+    Gold: 300
+- type: latheRecipe
+  id: BlueprintSmg180Eighties
+  result: N14WeaponSMGAmerican180
+  category: N14BlueprintEightiesWeaponsT5
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 12
+  materials:
+    Steel: 8000
+    Plastic: 1500
+    Silver: 500
+    Gold: 300
+- type: latheRecipe
+  id: BlueprintSmg127AdvancedEighties
+  result: N14WeaponSMG12mmAdvanced
+  category: N14BlueprintEightiesWeaponsT5
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 14
+  materials:
+    Steel: 9000
+    Plastic: 2000
+    Silver: 500
+    Gold: 300
+- type: latheRecipe
+  id: BlueprintChinaLakeEighties
+  result: N14WeaponLauncherGrenade
+  category: N14BlueprintEightiesWeaponsT5
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 20
+  materials:
+    Steel: 20000
+    Plastic: 2000
+    Silver: 2000
+    Gold: 2000
+
+
+# ammo
+
+- type: latheRecipe
+  id: BlueprintEightiesAmmoBox10mm
+  result: N14AmmoBox10mm
+  category: N14BlueprintEightiesAmmoT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 4
+  materials:
+    Lead: 10
+    N14Brass: 5
+    N14Gunpowder: 5
+- type: latheRecipe
+  id: BlueprintEightiesAmmoBox308
+  result: N14AmmoBox308
+  category: N14BlueprintEightiesAmmoT3
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 5
+  materials:
+    Lead: 15
+    N14Brass: 10
+    N14Gunpowder: 10
+- type: latheRecipe
+  id: BlueprintEightiesAmmoBox12gauge
+  result: N14AmmoBox12gauge
+  category: N14BlueprintEightiesAmmoT2
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 4
+  materials:
+    Lead: 12
+    N14Brass: 6
+    N14Gunpowder: 6
+- type: latheRecipe
+  id: BlueprintEightiesAmmoBox556
+  result: N14AmmoBox556
+  category: N14BlueprintEightiesAmmoT2
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 5
+  materials:
+    Lead: 15
+    N14Brass: 10
+    N14Gunpowder: 10
+- type: latheRecipe
+  id: BlueprintEightiesAmmoBox45
+  result: N14AmmoBox45
+  category: N14BlueprintEightiesAmmoT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 4
+  materials:
+    Lead: 10
+    N14Brass: 5
+    N14Gunpowder: 5
+- type: latheRecipe
+  id: BlueprintEightiesAmmoBox9mm
+  result: N14AmmoBox9mm
+  category: N14BlueprintEightiesAmmoT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 4
+  materials:
+    Lead: 10
+    N14Brass: 5
+    N14Gunpowder: 5
+- type: latheRecipe
+  id: BlueprintEightiesAmmoBox44
+  result: N14AmmoBox44Magnum
+  category: N14BlueprintEightiesAmmoT3
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 5
+  materials:
+    Lead: 15
+    N14Brass: 10
+    N14Gunpowder: 10
+- type: latheRecipe
+  id: BlueprintEightiesAmmoBox50
+  result: N14AmmoBox50
+  category: N14BlueprintEightiesAmmoT4
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 6
+  materials:
+    Lead: 20
+    N14Brass: 15
+    N14Gunpowder: 15
+- type: latheRecipe
+  id: BlueprintEightiesAmmoBox22lr
+  result: N14AmmoBox22lr
+  category: N14BlueprintEightiesAmmoT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 3
+  materials:
+    Lead: 80
+    N14Brass: 4
+    N14Gunpowder: 4
+- type: latheRecipe
+  id: BlueprintEightiesAmmoMag10mmPistol
+  result: N14MagazinePistol10mm
+  category: N14BlueprintEightiesAmmoT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 3
+  materials:
+    Steel: 70
+    Lead: 5
+    N14Gunpowder: 5
+- type: latheRecipe
+  id: BlueprintEightiesAmmoMag9mmPistol
+  result: N14MagazinePistol9mm
+  category: N14BlueprintEightiesAmmoT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 3
+  materials:
+    Steel: 60
+    Lead: 5
+    N14Gunpowder: 5
+- type: latheRecipe
+  id: BlueprintEightiesAmmoMag45Pistol
+  result: N14MagazinePistol45
+  category: N14BlueprintEightiesAmmoT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 4
+  materials:
+    Steel: 80
+    Lead: 5
+    N14Gunpowder: 5
+- type: latheRecipe
+  id: BlueprintEightiesAmmoMag44Pistol
+  result: N14MagazinePistol44
+  category: N14BlueprintEightiesAmmoT3
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 4
+  materials:
+    Steel: 90
+    Lead: 6
+    N14Gunpowder: 6
+- type: latheRecipe
+  id: BlueprintEightiesAmmoMag9mmSMG
+  result: N14MagazineSMG9mm
+  category: N14BlueprintEightiesAmmoT2
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 5
+  materials:
+    Steel: 100
+    Lead: 10
+    N14Gunpowder: 10
+- type: latheRecipe
+  id: BlueprintEightiesAmmoMag10mmSMG
+  result: N14MagazineSMG10mm
+  category: N14BlueprintEightiesAmmoT2
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 5
+  materials:
+    Steel: 110
+    Lead: 10
+    N14Gunpowder: 10
+- type: latheRecipe
+  id: BlueprintEightiesAmmoMag12mmSMG
+  result: N14MagazineSMG12mm
+  category: N14BlueprintEightiesAmmoT4
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 6
+  materials:
+    Steel: 120
+    Lead: 12
+    N14Gunpowder: 12
+- type: latheRecipe
+  id: BlueprintEightiesAmmoMag556Long
+  result: LongMagazine556Rifle
+  category: N14BlueprintEightiesAmmoT2
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 6
+  materials:
+    Steel: 205
+    Lead: 70
+    N14Gunpowder: 70
+- type: latheRecipe
+  id: BlueprintEightiesAmmoMagAmerican180
+  result: N14MagazineAmerican180Drum
+  category: N14BlueprintEightiesAmmoT4
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 6
+  materials:
+    Steel: 120
+    Lead: 20
+    N14Gunpowder: 20
+- type: latheRecipe
+  id: BlueprintEightiesAmmo40mm
+  result: N14CartridgeGrenade40mm
+  category: N14BlueprintEightiesAmmoT4
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 5
+  materials:
+    Steel: 200
+    N14Gunpowder: 20
+    Plastic: 10
+- type: latheRecipe
+  id: BlueprintEightiesMagazineBox20gauge
+  result: MagazineBox20gauge
+  category: N14BlueprintEightiesAmmoT4
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 5
+  materials:
+    Steel: 200
+    N14Gunpowder: 20
+    Plastic: 10
+
+# t1 armor
+
+- type: latheRecipe
+  id: BlueprintEightiesArmor
+  result: MisfitsClothingOuterEightiesArmor
+  category: N14BlueprintEightiesArmorT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 5
+  materials:
+    Steel: 1000
+    Cloth: 500
+    Plastic: 200
+- type: latheRecipe
+  id: BlueprintEightiesHelmet
+  result: MisfitsClothingHeadBikeHelmet
+  category: N14BlueprintEightiesArmorT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 5
+  materials:
+    Steel: 1000
+    Cloth: 500
+    Plastic: 200
+- type: latheRecipe
+  id: BlueprintEightiesHelmetWhite
+  result: MisfitsClothingHeadBikeHelmetWhite
+  category: N14BlueprintEightiesArmorT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 5
+  materials:
+    Steel: 1000
+    Cloth: 500
+    Plastic: 200
+- type: latheRecipe
+  id: BlueprintEightiesHelmetRed
+  result: MisfitsClothingHeadBikeHelmetRed
+  category: N14BlueprintEightiesArmorT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 5
+  materials:
+    Steel: 1000
+    Cloth: 500
+    Plastic: 200
+- type: latheRecipe
+  id: BlueprintEightiesHelmetBlack
+  result: MisfitsClothingHeadBikeHelmetBlack
+  category: N14BlueprintEightiesArmorT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 5
+  materials:
+    Steel: 1000
+    Cloth: 500
+    Plastic: 200
+- type: latheRecipe
+  id: BlueprintEightiesHelmetYellow
+  result: MisfitsClothingHeadBikeHelmetYellow
+  category: N14BlueprintEightiesArmorT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 5
+  materials:
+    Steel: 1000
+    Cloth: 500
+    Plastic: 200
+- type: latheRecipe
+  id: BlueprintEightiesHelmetOlive
+  result: MisfitsClothingHeadBikeHelmetOlive
+  category: N14BlueprintEightiesArmorT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 5
+  materials:
+    Steel: 1000
+    Cloth: 500
+    Plastic: 200
+- type: latheRecipe
+  id: BlueprintEightiesHelmetBeige
+  result: MisfitsClothingHeadBikeHelmetBeige
+  category: N14BlueprintEightiesArmorT1
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 5
+  materials:
+    Steel: 1000
+    Cloth: 500
+    Plastic: 200
+
+# t2 armor
+
+- type: latheRecipe
+  id: BlueprintEightiesArmorHeavy
+  result: MisfitsClothingOuterEightiesArmorHeavy
+  category: N14BlueprintEightiesArmorT2
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 8
+  materials:
+    Steel: 3000
+    Cloth: 500
+    Plastic: 300
+- type: latheRecipe
+  id: BlueprintRaiderArmorEighties
+  result: MisfitsClothingOuterEightiesArmorHeavy
+  category: N14BlueprintEightiesArmorT2
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 6
+  materials:
+    Steel: 3000
+    Cloth: 500
+    Leather: 200
+
+# t3 armor
+
+- type: latheRecipe
+  id: BlueprintRaiderArmorHeavyEighties
+  result: MisfitsClothingOuterEightiesArmorHeavyElite
+  category: N14BlueprintEightiesArmorT3
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 9
+  materials:
+    Steel: 4000
+    Cloth: 600
+    Leather: 300
+- type: latheRecipe
+  id: BlueprintRaiderCombatArmorEighties
+  result: MisfitsClothingOuterEightiesArmorHeavyElite
+  category: N14BlueprintEightiesArmorT3
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 9
+  materials:
+    Steel: 4000
+    Cloth: 600
+    Leather: 300
+    Plastic: 200
+
+# t4 armor
+
+- type: latheRecipe
+  id: BlueprintRaiderMk2ArmorEighties
+  result: MisfitsClothingOuterEightiesArmorHeavyBoss
+  category: N14BlueprintEightiesArmorT4
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  completetime: 12
+  materials:
+    Steel: 6000
+    Cloth: 700
+    Leather: 300
+    Plastic: 300
+    Silver: 100

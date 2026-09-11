@@ -27,6 +27,18 @@
           type: SuperMutant
         reagent: Protein
         amount: 0.5
+      # #Misfits Add - the rads in raw wasteland meat feed a Nightkin rather than hurt them.
+      # Deliberately weaker than a uranium sheet; a meal is a top-up, not a medkit.
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+        damage:
+          types:
+            Blunt: -0.5
+            Slash: -0.5
+            Piercing: -0.5
+            Heat: -0.5
 
 - type: reagent
   id: N14RadParticleFood

@@ -391,6 +391,11 @@ public sealed class MapViewerControl : Control
                 handle.DrawRect(UIBox2.FromDimensions(markerPos + new Vector2(-2f, -8f), new Vector2(4f, 16f)), Color.White);
                 handle.DrawRect(UIBox2.FromDimensions(markerPos + new Vector2(-8f, -2f), new Vector2(16f, 4f)), Color.White);
                 break;
+            case WastelandMapTrackedBlipKind.ExpeditionEntrance:
+                handle.DrawCircle(markerPos, 12f, color);
+                handle.DrawCircle(markerPos, 7f, Color.Black);
+                DrawDiamond(handle, markerPos, 4f, Color.White);
+                break;
             // End Misfits Add
         }
     }
@@ -594,6 +599,7 @@ public sealed class MapViewerControl : Control
             WastelandMapTrackedBlipKind.DeadSoul => new Color(0.68f, 0.80f, 0.72f, 1f),
             WastelandMapTrackedBlipKind.TribeCritical => new Color(0.25f, 0.95f, 1f, 1f),
             WastelandMapTrackedBlipKind.MaterialExtractor => new Color(1f, 0.55f, 0.08f, 1f),
+            WastelandMapTrackedBlipKind.ExpeditionEntrance => new Color(0.68f, 0.70f, 0.72f, 1f),
             // End Misfits Add
             _ => new Color(0.98f, 0.84f, 0.15f, 0.95f),
         };

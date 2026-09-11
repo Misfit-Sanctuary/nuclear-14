@@ -117,18 +117,14 @@
   - EightiesOilers      # specialist tier, 4 slots
   - EightiesRoadRash    # recruit tier, 4 slots
 
-# #Misfits Change - White Legs remains defined for compatibility, but is hidden
-# from character setup until the faction is intentionally brought back.
+# #Misfits Change - White Legs remains defined for compatibility, but Great Khans
+# are now the visible single-role Minor Faction replacement.
 - type: department
-  id: WhiteLegs
-  description: department-WhiteLegs-description
-  color: "#d8d0c4"
-  weight: -98
-  editorHidden: true
+  id: GreatKhans
+  description: department-GreatKhans-description
+  color: "#9b1c1c"
+  weight: -99
   uiCategory: MinorFaction
   roles:
-  - WhiteLegsWarChief
-  - WhiteLegsBoneBreaker
-  - WhiteLegsStormDrummer
-  - WhiteLegs
+  - GreatKhan
 

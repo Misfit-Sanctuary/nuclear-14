@@ -16,6 +16,9 @@
     table: !type:NestedSelector
       tableId: N14WeaponLootAllTiers
       prob: 0.75
+    # Keep the MarkerBase after its one map-init roll so mappers can reveal and
+    # delete it with Show Spawns, like the existing N14 map spawners.
+    deleteSpawnerAfterSpawn: false
 
 # The broad world distribution deliberately falls off hard at higher tiers.
 # Add map markers rather than fixed guns to keep a location's exact loot unknown.

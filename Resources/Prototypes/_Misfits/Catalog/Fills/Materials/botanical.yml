@@ -27,6 +27,8 @@
       amount: 1
     - id: N14FloraWildCoyoteTobaccoClippingSeed
       amount: 1
+    - id: N14FloraWildCannabisClippingSeed
+      amount: 1
     - id: N14FloraWildBlackberryClippingSeed
       amount: 1
     - id: N14FloraWildBuffaloGourdClippingSeed
@@ -76,6 +78,9 @@
     - id: N14FloraWildCoyoteTobaccoClippingSeed
       amount: 1
       prob: 0.5
+    - id: N14FloraWildCannabisClippingSeed
+      amount: 1
+      prob: 0.5
     - id: N14FloraWildBlackberryClippingSeed
       amount: 1
       prob: 0.5
@@ -108,10 +113,28 @@
       amount: 2
     - id: N14FloraWildXanderRootClippingSeed
       amount: 2
-    - id: N14FloraProduceWildAgave
+    - id: N14FloraWildAgaveClippingSeed
       amount: 2
+    - id: N14FloraWildWhiteHorsenettleClippingSeed
+      amount: 2
+    - id: N14FloraWildTarberryClippingSeed
+      amount: 2
+    - id: N14FloraWildGlowpepperClippingSeed
+      amount: 2
+    - id: N14FloraDaturaClippingSeed
+      amount: 2
+    - id: N14FloraWildNettleClippingSeed
+      amount: 2
+    - id: N14FloraWildBarrelCactusClippingSeed
+      amount: 1
+    - id: N14FloraWildBuffaloGourdClippingSeed
+      amount: 1
     - id: CottonSeeds
       amount: 2
+    - id: PoppySeeds
+      amount: 1
+    - id: GalaxythistleSeeds
+      amount: 1
 
 - type: entity
   id: MisfitsCrateBreakPlainDamagedBotanyTools

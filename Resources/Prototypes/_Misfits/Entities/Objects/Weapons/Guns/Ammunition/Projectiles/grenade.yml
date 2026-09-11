@@ -1,0 +1,25 @@
+- type: entity
+  id: MisfitsPelletClusterDefensive
+  name: defensive grenade fragment
+  categories: [ HideSpawnMenu ]
+  parent: PelletClusterLethal
+  components:
+  - type: TimedDespawn
+    lifetime: 0.4
+
+
+# #Misfits Add - Irregular scraps from an improvised tin casing. These are much
+# weaker and shorter-lived than the fragments from a military frag grenade.
+- type: entity
+  id: MisfitsPelletTinFragment
+  name: tin grenade fragment
+  categories: [ HideSpawnMenu ]
+  parent: PelletClusterLethal
+  components:
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Piercing: 15
+  - type: TimedDespawn
+    lifetime: 0.2

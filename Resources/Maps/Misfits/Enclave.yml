@@ -34700,21 +34700,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 24.5,16.5
-  - uid: 18460
-    components:
-    - type: Transform
-      parent: 2
-      pos: 39.5,26.5
-  - uid: 18461
-    components:
-    - type: Transform
-      parent: 2
-      pos: 39.5,24.5
-  - uid: 18462
-    components:
-    - type: Transform
-      parent: 2
-      pos: 39.5,22.5
 - proto: MisfitsSpawnPointEnclaveHeadScientist
   entities:
   - uid: 10847
@@ -34768,16 +34753,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 25.5,43.5
-  - uid: 10334
-    components:
-    - type: Transform
-      parent: 2
-      pos: 30.5,43.5
-  - uid: 10843
-    components:
-    - type: Transform
-      parent: 2
-      pos: 30.5,41.5
 - proto: MisfitsSpawnPointEnclaveScientist
   entities:
   - uid: 10865
@@ -34800,28 +34775,20 @@ entities:
     - type: Transform
       parent: 2
       pos: 34.5,22.5
-- proto: MisfitsSpawnPointEnclaveSeniorOfficer
+- proto: MisfitsSpawnPointEnclaveReformer
   entities:
   - uid: 10848
     components:
     - type: Transform
       parent: 2
       pos: 25.5,33.5
+- proto: MisfitsSpawnPointEnclaveSeniorOfficer
+  entities:
   - uid: 10849
     components:
     - type: Transform
       parent: 2
       pos: 25.5,35.5
-  - uid: 10850
-    components:
-    - type: Transform
-      parent: 2
-      pos: 30.5,35.5
-  - uid: 10851
-    components:
-    - type: Transform
-      parent: 2
-      pos: 30.5,33.5
 - proto: MisfitsSpawnPointEnclaveVertibirdPilot
   entities:
   - uid: 18463

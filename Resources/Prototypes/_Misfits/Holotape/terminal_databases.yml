@@ -69,11 +69,13 @@
   - NCRExecutiveOfficer
   - NCRPlatoonLeader
   - NCRFirstSergeant
-  # #Cythisiax Added - OSI Chief Scientist already carries NCR terminal access; treat them
-  # as NCR leadership so they can use the "move" (tidying) power on the Salt Dogs DB too.
+  # #Cythisiax Added - OSI Chief Scientist already carries NCR terminal access and is
+  # the highest OSI rank, so grant them the same database administration powers as
+  # NCR High Command (including moving and deleting folders/documents).
   - OSIChiefScientist
   adminJobs:
   - NCRMajor
+  - OSIChiefScientist
 
 # ── Caesar's Legion: Legio Vera ──────────────────────────────────────────────
 # #Misfits Tweak - Legion has no canonical "leadership tier"; using the closest

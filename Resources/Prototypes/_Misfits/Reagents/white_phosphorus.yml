@@ -1,0 +1,18 @@
+- type: reagent
+  id: MisfitsWhitePhosphorusSmoke
+  name: reagent-name-white-phosphorus-smoke
+  group: Elements
+  desc: reagent-desc-white-phosphorus-smoke
+  physicalDesc: reagent-physical-desc-powdery
+  color: "#F8F8F8B0"
+  recognizable: true
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Caustic: 4

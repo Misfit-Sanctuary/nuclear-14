@@ -1,0 +1,449 @@
+# #Misfits Add - Issue #968 faction-council explosive production.
+# These recipes deliberately use applyMaterialDiscount: false so the listed costs
+# remain the faction's final, predictable price after a blueprint is researched.
+
+# === NCR HAND GRENADES ===
+- type: latheRecipe
+  id: MisfitsBPNCRGrenadeImpact
+  result: MisfitsGrenadeImpact
+  category: N14BlueprintNCRAmmoT3
+  completetime: 10
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction: [ NCR ]
+  materials:
+    Steel: 1200
+    N14Gunpowder: 1000
+    N14Iron: 400
+
+- type: latheRecipe
+  id: MisfitsBPNCRHawkinsDevice
+  result: MisfitsHawkinsDevice
+  category: N14BlueprintNCRAmmoT3
+  completetime: 12
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction: [ NCR ]
+  materials:
+    Steel: 1500
+    N14Gunpowder: 1500
+    Circuitry: 500
+    Plastic: 500
+
+- type: latheRecipe
+  id: MisfitsBPNCRGrenadeFragDefensive
+  result: MisfitsGrenadeFragDefensive
+  category: N14BlueprintNCRAmmoT3
+  completetime: 10
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 1700
+    N14Gunpowder: 1000
+    N14Iron: 700
+
+# === TOWNSFOLK HAND GRENADES ===
+- type: latheRecipe
+  id: MisfitsBPTownGrenadeImpact
+  result: MisfitsGrenadeImpact
+  category: N14BlueprintTownAmmoT3
+  completetime: 10
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction: [ Townsfolk ]
+  materials:
+    Steel: 1200
+    N14Gunpowder: 1000
+    N14Iron: 400
+
+# === LEGION HAND GRENADES ===
+- type: latheRecipe
+  id: MisfitsBPLegionGrenadeFragOffensive
+  result: GrenadeShrapnel
+  category: N14BlueprintLegionAmmoT3
+  completetime: 10
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 1200
+    N14Gunpowder: 1000
+    N14Iron: 400
+
+- type: latheRecipe
+  id: MisfitsBPLegionGrenadeFragDefensive
+  result: MisfitsGrenadeFragDefensive
+  category: N14BlueprintLegionAmmoT3
+  completetime: 10
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 1500
+    N14Gunpowder: 900
+    N14Iron: 600
+
+# === BROTHERHOOD OF STEEL HAND GRENADES ===
+# Uses the same efficient final costs as the Legion fragmentation schematics.
+- type: latheRecipe
+  id: MisfitsBPBoSGrenadeFragOffensive
+  result: GrenadeShrapnel
+  category: N14BlueprintBoSAmmoT3
+  completetime: 10
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - BrotherhoodOfSteel
+  materials:
+    Steel: 1200
+    N14Gunpowder: 1000
+    N14Iron: 400
+
+- type: latheRecipe
+  id: MisfitsBPBoSGrenadeFragDefensive
+  result: MisfitsGrenadeFragDefensive
+  category: N14BlueprintBoSAmmoT3
+  completetime: 10
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - BrotherhoodOfSteel
+  materials:
+    Steel: 1500
+    N14Gunpowder: 900
+    N14Iron: 600
+
+# === ENCLAVE HAND GRENADES ===
+# Enclave fabrication mirrors the Brotherhood's efficient fragmentation access.
+- type: latheRecipe
+  id: MisfitsBPEnclaveGrenadeFragOffensive
+  result: GrenadeShrapnel
+  category: N14BlueprintEnclaveAmmo
+  completetime: 10
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 1200
+    N14Gunpowder: 1000
+    N14Iron: 400
+
+- type: latheRecipe
+  id: MisfitsBPEnclaveGrenadeFragDefensive
+  result: MisfitsGrenadeFragDefensive
+  category: N14BlueprintEnclaveAmmo
+  completetime: 10
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Enclave
+  materials:
+    Steel: 1500
+    N14Gunpowder: 900
+    N14Iron: 600
+
+# === WILLOWER / TRIBE IMPROVISED EXPLOSIVES ===
+- type: latheRecipe
+  id: MisfitsBPTribeGrenadeTin
+  result: N14TinNade
+  category: N14BlueprintTribeAmmoT3
+  completetime: 8
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Tribe
+  materials:
+    Steel: 400
+    N14Gunpowder: 600
+    Scrap: 400
+
+- type: latheRecipe
+  id: MisfitsBPTribeDynamite
+  result: N14Dynamite
+  category: N14BlueprintTribeAmmoT3
+  completetime: 8
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Tribe
+  materials:
+    N14Gunpowder: 100
+    Cloth: 100
+    N14Iron: 100
+
+# === EIGHTIES SPECIAL ORDNANCE ===
+- type: latheRecipe
+  id: MisfitsBPEightiesBaseballGrenade
+  result: N14BaseballNade
+  category: MisfitsBlueprintEightiesOrdnance
+  completetime: 6
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction: [ Eighties ]
+  materials:
+    Steel: 300
+    Plastic: 200
+    N14Gunpowder: 400
+    Cloth: 100
+
+- type: latheRecipe
+  id: MisfitsBPEightiesNukaGrenade
+  result: N14NukaNade
+  category: MisfitsBlueprintEightiesOrdnance
+  completetime: 10
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - Eighties
+  materials:
+    Steel: 500
+    Glass: 500
+    N14Gunpowder: 500
+    ScrapElectronic: 300
+
+# === NCR 40MM FAMILY ===
+# Buckshot is intentionally the cheapest combat round so grenadiers always have
+# practical direct-fire ammunition when true grenades cannot be supplied.
+- type: latheRecipe
+  id: MisfitsBPNCR40mmBuckshot
+  result: Misfits40mmGrenadeBuckshot
+  category: N14BlueprintNCRAmmoT3
+  completetime: 4
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 150
+    Lead: 150
+    N14Gunpowder: 100
+
+# Screening and utility payloads are deliberately inexpensive.
+- type: latheRecipe
+  id: MisfitsBPNCR40mmSmoke
+  result: Misfits40mmGrenadeSmoke
+  category: N14BlueprintNCRAmmoT3
+  completetime: 4
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 200
+    N14Gunpowder: 100
+    Cloth: 100
+
+- type: latheRecipe
+  id: MisfitsBPNCR40mmWhitePhosphorus
+  result: Misfits40mmGrenadeWhitePhosphorus
+  category: N14BlueprintNCRAmmoT3
+  completetime: 5
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 250
+    N14Gunpowder: 150
+    N14Iron: 150
+
+- type: latheRecipe
+  id: MisfitsBPNCR40mmFlashbang
+  result: Misfits40mmGrenadeFlashbang
+  category: N14BlueprintNCRAmmoT3
+  completetime: 4
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 200
+    N14Gunpowder: 150
+    Glass: 100
+
+- type: latheRecipe
+  id: MisfitsBPNCR40mmTearGas
+  result: Misfits40mmGrenadeTearGas
+  category: N14BlueprintNCRAmmoT3
+  completetime: 5
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 250
+    N14Gunpowder: 150
+    Glass: 150
+
+- type: latheRecipe
+  id: MisfitsBPNCR40mmHEDP
+  result: Misfits40mmGrenadeHEDP
+  category: N14BlueprintNCRAmmoT3
+  completetime: 8
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 900
+    N14Gunpowder: 900
+    N14Iron: 500
+
+- type: latheRecipe
+  id: MisfitsBPNCR40mmIncendiary
+  result: 40mmGrenadeFire
+  category: N14BlueprintNCRAmmoT3
+  completetime: 7
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 500
+    N14Gunpowder: 500
+    Cloth: 300
+
+# === SHARED FACTION 40MM FAMILY ===
+# These inherit NCR costs/results so later balance changes remain synchronized.
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmBuckshot
+  id: MisfitsBPBoS40mmBuckshot
+  category: N14BlueprintBoSAmmoT3
+  availableFaction: [ BrotherhoodOfSteel ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmSmoke
+  id: MisfitsBPBoS40mmSmoke
+  category: N14BlueprintBoSAmmoT3
+  availableFaction: [ BrotherhoodOfSteel ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmWhitePhosphorus
+  id: MisfitsBPBoS40mmWhitePhosphorus
+  category: N14BlueprintBoSAmmoT3
+  availableFaction: [ BrotherhoodOfSteel ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmFlashbang
+  id: MisfitsBPBoS40mmFlashbang
+  category: N14BlueprintBoSAmmoT3
+  availableFaction: [ BrotherhoodOfSteel ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmTearGas
+  id: MisfitsBPBoS40mmTearGas
+  category: N14BlueprintBoSAmmoT3
+  availableFaction: [ BrotherhoodOfSteel ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmHEDP
+  id: MisfitsBPBoS40mmHEDP
+  category: N14BlueprintBoSAmmoT3
+  availableFaction: [ BrotherhoodOfSteel ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmIncendiary
+  id: MisfitsBPBoS40mmIncendiary
+  category: N14BlueprintBoSAmmoT3
+  availableFaction: [ BrotherhoodOfSteel ]
+
+- type: latheRecipe
+  parent: N14BPNCRAmmo40mmGrenade
+  id: MisfitsBPBoS40mmHE
+  category: N14BlueprintBoSAmmoT3
+  availableFaction: [ BrotherhoodOfSteel ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmBuckshot
+  id: MisfitsBPEnclave40mmBuckshot
+  category: N14BlueprintEnclaveAmmo
+  availableFaction: [ Enclave ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmSmoke
+  id: MisfitsBPEnclave40mmSmoke
+  category: N14BlueprintEnclaveAmmo
+  availableFaction: [ Enclave ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmWhitePhosphorus
+  id: MisfitsBPEnclave40mmWhitePhosphorus
+  category: N14BlueprintEnclaveAmmo
+  availableFaction: [ Enclave ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmFlashbang
+  id: MisfitsBPEnclave40mmFlashbang
+  category: N14BlueprintEnclaveAmmo
+  availableFaction: [ Enclave ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmTearGas
+  id: MisfitsBPEnclave40mmTearGas
+  category: N14BlueprintEnclaveAmmo
+  availableFaction: [ Enclave ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmHEDP
+  id: MisfitsBPEnclave40mmHEDP
+  category: N14BlueprintEnclaveAmmo
+  availableFaction: [ Enclave ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmIncendiary
+  id: MisfitsBPEnclave40mmIncendiary
+  category: N14BlueprintEnclaveAmmo
+  availableFaction: [ Enclave ]
+
+- type: latheRecipe
+  parent: N14BPNCRAmmo40mmGrenade
+  id: MisfitsBPEnclave40mmHE
+  category: N14BlueprintEnclaveAmmo
+  availableFaction: [ Enclave ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmBuckshot
+  id: MisfitsBPLegion40mmBuckshot
+  category: N14BlueprintLegionAmmoT3
+  availableFaction: [ CaesarLegion ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmSmoke
+  id: MisfitsBPLegion40mmSmoke
+  category: N14BlueprintLegionAmmoT3
+  availableFaction: [ CaesarLegion ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmWhitePhosphorus
+  id: MisfitsBPLegion40mmWhitePhosphorus
+  category: N14BlueprintLegionAmmoT3
+  availableFaction: [ CaesarLegion ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmFlashbang
+  id: MisfitsBPLegion40mmFlashbang
+  category: N14BlueprintLegionAmmoT3
+  availableFaction: [ CaesarLegion ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmTearGas
+  id: MisfitsBPLegion40mmTearGas
+  category: N14BlueprintLegionAmmoT3
+  availableFaction: [ CaesarLegion ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmHEDP
+  id: MisfitsBPLegion40mmHEDP
+  category: N14BlueprintLegionAmmoT3
+  availableFaction: [ CaesarLegion ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCR40mmIncendiary
+  id: MisfitsBPLegion40mmIncendiary
+  category: N14BlueprintLegionAmmoT3
+  availableFaction: [ CaesarLegion ]

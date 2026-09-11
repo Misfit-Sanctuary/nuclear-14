@@ -96,6 +96,7 @@
   - type: PhysicalComposition
     materialComposition:
       Glass: 100
+  - type: MolotovConvertible
 
 - type: entity
   id: DrinkBottleVisualsOpenable
@@ -142,6 +143,8 @@
   name: Jailbreaker Verte
   description: One sip of this and you just know you're gonna have a good time.
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.1875" # Six pixels down to meet this bottle's neck.
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -182,6 +185,8 @@
   name: bottle of nothing
   description: A bottle filled with nothing.
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,0.03125"
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -215,6 +220,8 @@
   name: cognac bottle
   description: A strong and sweet booze, made after numerous distillations and years of maturing. A classy way to get drunk before you break the bottle over someone's head.
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.0625"
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -251,6 +258,8 @@
   name: briar rose grenadine syrup bottle
   description: Sweet and tangy, a bar syrup used to add color or flavor to drinks.
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.0625" # Two pixels down to meet this bottle's neck.
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -305,6 +314,8 @@
   name: coffee liqueur bottle
   description: The great taste of coffee with none of the benifits.
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.0625"
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -510,6 +521,8 @@
   name: doublebearded bearded special wine bottle
   description: A faint aura of unease and asspainery surrounds the bottle.
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,0.03125"
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -534,6 +547,8 @@
   name: beer  # beer it is. coffee. beer? coff-ee? be-er? c-o... b-e
   description: An alcoholic beverage made from malted grains, hops, yeast, and water.
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.0625"
   - type: Item
     size: Small
   - type: SolutionContainerManager
@@ -558,6 +573,8 @@
   name: Beer Growler  # beer it is. coffee. beer? coff-ee? be-er? c-o... b-e
   description: An alcoholic beverage made from malted grains, hops, yeast, and water. XL growler bottle.
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.0625"
   - type: SolutionContainerManager
     solutions:
       drink:

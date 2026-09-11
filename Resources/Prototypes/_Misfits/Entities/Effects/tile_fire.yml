@@ -34,3 +34,33 @@
     fireStacks: 0.35
     standingDamage: 0.15
     touchCooldown: 1
+
+- type: entity
+  parent: MisfitsTileFire
+  id: MisfitsTileFireOil
+  name: lingering fire
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TileFire
+    duration: 30
+    bigFireDuration: 0.5
+    extinguishInstantly: true
+    vaporExtinguishSeconds: 2
+    fireStacks: 0.35
+    standingDamage: 0.15
+    touchCooldown: 1
+
+- type: entity
+  parent: MisfitsTileFire
+  id: MisfitsTileFireNapalm
+  name: napalm fire
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TileFire
+    duration: 45
+    bigFireDuration: 0.75
+    extinguishInstantly: true
+    vaporExtinguishSeconds: 3
+    fireStacks: 0.5
+    standingDamage: 0.3
+    touchCooldown: 1

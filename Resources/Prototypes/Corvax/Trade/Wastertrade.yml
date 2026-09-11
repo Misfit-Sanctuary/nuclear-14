@@ -69,19 +69,6 @@
   - type: NcContractRoster
 
 - type: storeCategoryStructured
-  id: WasterBuy2_Animals
-  name: "Animals"
-  entries:
-  - proto: N14MobBrahdoLight
-    price: 500
-    count: 2
-  - proto: N14MobBrahmin
-    price: 250
-  - proto: N14MobPetDog
-    price: 250
-
-
-- type: storeCategoryStructured
   id: WasterBuy2_Drinks
   name: "Drinks"
   entries:
@@ -240,18 +227,12 @@
   id: WasterBuy2_Armor
   name: "Armor"
   entries:
-  - proto: MisfitsClothingOuterKhansArmoredJacket
-    price: 250
   - proto: N14ClothingOuterCombatTribal
     price: 350
   - proto: N14ClothingOuterCombatArmorRCMP
     price: 450
   - proto: N14ClothingOuterRaiderCombat1
     price: 500
-  - proto: MisfitsClothingOuterKhansBattlecoatBlack
-    price: 300
-  - proto: MisfitsClothingOuterKhansVest
-    price: 200
   - proto: N14ClothingOuterPoliceCombat
     price: 300
   - proto: N14ClothingOuterCombatArmorMK2
@@ -269,21 +250,13 @@
   entries:
   - proto: N14ClothingUniformJumpsuitChinese
     price: 100
-  - proto: M14ClothingUniformKhansUniform
-    price: 100
-  - proto: M14ClothingUniformKhansUniformShorts
-    price: 100
 
 - type: storeCategoryStructured
   id: WasterBuy2_Headgear
   name: "Headgear"
   entries:
-  - proto: MisfitsClothingHeadKhanFullHelmet
-    price: 75
   - proto: N14ClothingHeadHatCombatHelmetMK2Cargo
     price: 150
-  - proto: MisfitsClothingHeadKhanHelmet
-    price: 50
   - proto: N14ClothingHeadHatChineseHelmet
     price: 100
   - proto: N14ClothingHeadHatChinese
@@ -419,6 +392,8 @@
   - proto: N14FloraWildCarrotClippingSeed
     price: 5
   - proto: N14FloraWildCoyoteTobaccoClippingSeed
+    price: 5
+  - proto: N14FloraWildCannabisClippingSeed
     price: 5
   - proto: N14FloraDaturaClippingSeed
     price: 5
@@ -634,18 +609,12 @@
   id: WasterSell2_Armor
   name: "Armor"
   entries:
-  - proto: MisfitsClothingOuterKhansArmoredJacket
-    price: 125
   - proto: N14ClothingOuterCombatTribal
     price: 175
   - proto: N14ClothingOuterCombatArmorRCMP
     price: 225
   - proto: N14ClothingOuterRaiderCombat1
     price: 250
-  - proto: MisfitsClothingOuterKhansBattlecoatBlack
-    price: 150
-  - proto: MisfitsClothingOuterKhansVest
-    price: 100
   - proto: N14ClothingOuterPoliceCombat
     price: 150
   - proto: N14ClothingOuterCombatArmorMK2
@@ -663,21 +632,13 @@
   entries:
   - proto: N14ClothingUniformJumpsuitChinese
     price: 50
-  - proto: M14ClothingUniformKhansUniform
-    price: 50
-  - proto: M14ClothingUniformKhansUniformShorts
-    price: 50
 
 - type: storeCategoryStructured
   id: WasterSell2_Headgear
   name: "Headgear"
   entries:
-  - proto: MisfitsClothingHeadKhanFullHelmet
-    price: 38
   - proto: N14ClothingHeadHatCombatHelmetMK2Cargo
     price: 75
-  - proto: MisfitsClothingHeadKhanHelmet
-    price: 25
   - proto: N14ClothingHeadHatChineseHelmet
     price: 50
   - proto: N14ClothingHeadHatChinese

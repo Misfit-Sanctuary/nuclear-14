@@ -16,6 +16,13 @@ public sealed partial class N14ExpeditionSession
     /// <summary>Coordinates to teleport this session's players back to.</summary>
     [DataField] public EntityCoordinates ReturnPoint;
 
+    /// <summary>
+    /// Safe hub coordinate for players who join this expedition after launch.
+    /// This is deliberately recorded per session rather than inferred from the
+    /// map centre: a procedural map can have several faction hubs.
+    /// </summary>
+    [DataField] public EntityCoordinates EntryPoint;
+
     /// <summary>Server time when this session expires.</summary>
     [DataField] public TimeSpan EndTime;
 

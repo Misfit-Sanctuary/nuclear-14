@@ -1,6 +1,7 @@
 - type: entity
   id: 40mmGrenadeFrag
-  name: 40mm grenade
+  name: 40mm HE grenade
+  description: A high-explosive 40mm round with a broad concussive blast and no fragmentation.
   parent: BaseGrenade
   components:
   - type: Tag

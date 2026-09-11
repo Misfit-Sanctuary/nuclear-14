@@ -39,3 +39,15 @@
   - type: Clothing
     sprite: _Misfits/Clothing/Shoes/FalloutBoots/steeltippedboots.rsi
   - type: NoSlip
+
+- type: entity
+  parent: ClothingShoesMilitaryBase
+  id: MisfitsMilitaryPeltBoots
+  name: tall pelt boots
+  description: A pair of soft pelt boots with fur lining.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Shoes/FalloutBoots/peltboots.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Shoes/FalloutBoots/peltboots.rsi
+  - type: NoSlip

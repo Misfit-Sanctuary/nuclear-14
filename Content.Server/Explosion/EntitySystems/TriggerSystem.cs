@@ -212,8 +212,15 @@ namespace Content.Server.Explosion.EntitySystems
 
         private void OnTriggerCollide(EntityUid uid, TriggerOnCollideComponent component, ref StartCollideEvent args)
         {
-            if (args.OurFixtureId == component.FixtureID && (!component.IgnoreOtherNonHard || args.OtherFixture.Hard))
-                Trigger(uid);
+            if (component.Triggered || args.OurFixtureId != component.FixtureID ||
+                component.IgnoreOtherNonHard && !args.OtherFixture.Hard)
+                return;
+
+            // A projectile can report several fixture contacts during the same physics step.
+            // Mark it first so payload-spawning impact rounds cannot trigger repeatedly while
+            // their queued deletion is still pending.
+            component.Triggered = true;
+            Trigger(uid);
         }
 
         private void OnSpawnTriggered(EntityUid uid, TriggerOnSpawnComponent component, MapInitEvent args)

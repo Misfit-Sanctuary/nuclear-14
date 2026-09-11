@@ -1018,12 +1018,10 @@ public sealed partial class HolotapeWindow : DefaultWindow
         {
             Orientation = BoxContainer.LayoutOrientation.Horizontal,
             SeparationOverride = 6,
-            Visible = false,
+            // Keep row actions visible so users can discover MOVE, RENAME, and
+            // deletion controls without needing to know about hover-only UI.
+            Visible = true,
         };
-
-        // The action strip stays available while crossing from the entry to an action.
-        row.OnMouseEntered += _ => actions.Visible = true;
-        row.OnMouseExited += _ => actions.Visible = false;
         row.AddChild(actions);
         return actions;
     }

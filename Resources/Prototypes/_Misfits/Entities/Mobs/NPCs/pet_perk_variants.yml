@@ -683,13 +683,19 @@
         volume: -5
         maxDistance: 5
 
-# Wim - imma be honest, this is a joke but i also would love to manifest wim
+# Wim - unique Legion dog companion.
 - type: entity
   name: Wim
   id: MisfitsMobPetWim
   parent: N14MobPetDogLegion
   description: A husky-wolf mix reaching most people to their hips. Wears a torn NCR tarp as a collar, with some etching inside.
   components:
+  - type: RandomMetadataExcluded # Keep Wim's name instead of a random Legion dog name.
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: wolf
+      sprite: _Misfits/Mobs/Pets/wim.rsi
   - type: WimDogTranslator
   - type: Emoting
   - type: MobThresholds # #Misfits Add - allow revival by medics

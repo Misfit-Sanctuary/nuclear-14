@@ -1,0 +1,61 @@
+﻿# Misfits - low-tech pain-treatment entry point
+
+# ============================================================================
+# CONSUMABLE ENTITY
+# ============================================================================
+
+- type: entity
+  parent: N14HealingPowder
+  id: MisfitsWillowbark
+  name: willowbark analgesic
+  description: A bitter pouch of crushed wasteland herbs used to dull persistent pain.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: MisfitsWillowbark
+          Quantity: 10
+  - type: Construction
+    graph: MisfitsWillowbark
+    node: willowbark
+
+# ============================================================================
+# CONSTRUCTION MENU
+# ============================================================================
+
+- type: construction
+  name: willowbark analgesic
+  id: MisfitsWillowbark
+  graph: MisfitsWillowbark
+  startNode: start
+  targetNode: willowbark
+  category: construction-category-medical
+  description: A simple tribal analgesic made from soothing wasteland herbs.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    state: healingpowder
+  objectType: Item
+
+# ============================================================================
+# CONSTRUCTION GRAPH
+# ============================================================================
+
+- type: constructionGraph
+  id: MisfitsWillowbark
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: willowbark
+      steps:
+      - material: BrocFlower
+      - material: XanderRoot
+      - material: AgaveLeaf
+      - material: BrocFlower
+        doAfter: 2
+
+  - node: willowbark
+    entity: MisfitsWillowbark

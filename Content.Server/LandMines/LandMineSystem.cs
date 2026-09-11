@@ -3,6 +3,8 @@ using Content.Server.DoAfter;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared._Misfits.LandMines;
 using Content.Shared._Misfits.Special;
+using Content.Shared._Misfits.PowerArmor;
+using Content.Shared.Vehicles;
 using Robust.Shared.GameObjects;
 using Content.Shared.Audio;
 using Content.Shared.Construction.Components;
@@ -15,6 +17,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
 
@@ -32,6 +35,10 @@ public sealed class LandMineSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedSpecialSystem _special = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+
+    private readonly HashSet<EntityUid> _nearbyMines = new();
 
     public override void Initialize()
     {
@@ -48,6 +55,9 @@ public sealed class LandMineSystem : EntitySystem
         SubscribeLocalEvent<LandMineComponent, TriggerEvent>(HandleKnockdownTrigger);
         // #Misfits Add - trigger when a thrown entity lands on an armed mine
         SubscribeLocalEvent<LandMineComponent, ThrowHitByEvent>(HandleThrowHit);
+        // #Misfits Add - PA wearers suppress ordinary collision displacement, which can prevent
+        // StepTrigger from observing them. Check Hawkins-type mines when the wearer moves instead.
+        SubscribeLocalEvent<PowerArmorWornComponent, MoveEvent>(HandlePowerArmorMove);
     }
 
     private void HandleStepOnTriggered(EntityUid uid, LandMineComponent component, ref StepTriggeredOnEvent args)
@@ -67,9 +77,12 @@ public sealed class LandMineSystem : EntitySystem
     }
 
     // #Misfits Tweak - only allow trigger when armed; disarmed mines are inert
-    private static void HandleStepTriggerAttempt(EntityUid uid, LandMineComponent component, ref StepTriggerAttemptEvent args)
+    private void HandleStepTriggerAttempt(EntityUid uid, LandMineComponent component, ref StepTriggerAttemptEvent args)
     {
-        args.Continue = component.Armed;
+        args.Continue = component.Armed &&
+                        (!component.HeavyTargetsOnly ||
+                         HasComp<MotorbikeComponent>(args.Tripper) ||
+                         HasComp<PowerArmorWornComponent>(args.Tripper));
     }
 
     // #Misfits Add - detonate when a thrown entity hits an armed, anchored mine
@@ -107,7 +120,7 @@ public sealed class LandMineSystem : EntitySystem
     // #Misfits Add - block unanchoring an armed mine with a wrench
     private void OnUnanchorAttempt(EntityUid uid, LandMineComponent component, UnanchorAttemptEvent args)
     {
-        if (!component.Armed)
+        if (!component.Armed || component.AllowUnanchoredArming)
             return;
 
         args.Cancel();
@@ -150,8 +163,8 @@ public sealed class LandMineSystem : EntitySystem
         }
         else
         {
-            // --- Arm verb (only available when anchored) ---
-            if (!Transform(uid).Anchored)
+            // --- Arm verb (normally only available when anchored) ---
+            if (!Transform(uid).Anchored && !component.AllowUnanchoredArming)
                 return;
 
             args.Verbs.Add(new AlternativeVerb
@@ -188,8 +201,9 @@ public sealed class LandMineSystem : EntitySystem
         if (args.Cancelled || args.Handled || Deleted(uid))
             return;
 
-        // Safety check: must still be anchored
-        if (!Transform(uid).Anchored)
+        // Ordinary mines must remain anchored. Hawkins devices explicitly opt out so they can
+        // be armed in hand and then set down as pressure charges.
+        if (!Transform(uid).Anchored && !component.AllowUnanchoredArming)
         {
             _popupSystem.PopupEntity(
                 Loc.GetString("land-mine-arm-fail-unanchored", ("mine", uid)),
@@ -252,5 +266,41 @@ public sealed class LandMineSystem : EntitySystem
         var seconds = MathF.Max(0.5f, baseSeconds * (1f + modifier));
 
         return TimeSpan.FromSeconds(seconds);
+    }
+
+    /// <summary>
+    /// PowerArmorWorn cancels normal mob displacement collisions. That is desirable for pushing,
+    /// but it also means an ordinary StepTrigger may never see a wearer walking onto a mine.
+    /// This movement fallback triggers only armed, heavy-target-only mines at contact distance.
+    /// </summary>
+    private void HandlePowerArmorMove(EntityUid uid, PowerArmorWornComponent component, ref MoveEvent args)
+    {
+        _nearbyMines.Clear();
+        _lookup.GetEntitiesInRange(args.NewPosition, 0.55f, _nearbyMines);
+
+        foreach (var mine in _nearbyMines)
+        {
+            if (!TryComp<LandMineComponent>(mine, out var landMine) ||
+                !landMine.Armed ||
+                !landMine.HeavyTargetsOnly ||
+                // Held, worn, and stored mines are inside containers. Only loose/anchored mines
+                // physically placed in the world may act as pressure devices.
+                _container.IsEntityInContainer(mine) ||
+                Deleted(mine))
+            {
+                continue;
+            }
+
+            _popupSystem.PopupCoordinates(
+                Loc.GetString("land-mine-triggered", ("mine", mine)),
+                Transform(mine).Coordinates,
+                uid,
+                PopupType.LargeCaution);
+            _audioSystem.PlayPvs(landMine.Sound, mine);
+            _trigger.Trigger(mine, uid);
+            break;
+        }
+
+        _nearbyMines.Clear();
     }
 }

@@ -120,6 +120,23 @@
         Piercing: 0.95
 
 - type: entity
+  parent: ClothingHeadBase
+  id: MisfitsClothingHeadKhanFurHelmet
+  name: khan fur helmet
+  description: A helmet with traditional horns, but wasteland-chique fur trimming instead of the classic leather cover. For the Khan who wants to show off their hair.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/khanfur.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/khanfur.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+
+- type: entity
   parent: N14ClothingHeadHatCombatHelmet
   id: MisfitsClothingHeadKhanFullHelmet
   name: khan full helmet

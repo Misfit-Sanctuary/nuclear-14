@@ -3,6 +3,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Language;
 using Content.Server.Power.Components;
 using Content.Server.Radio.Components;
+using Content.Shared._Misfits.Expeditions;
 using Content.Shared._Misfits.Special;
 using Content.Shared._MultiZ.Core.Components;
 using Content.Server._MultiZ.Core;
@@ -375,8 +376,17 @@ public sealed class RadioSystem : EntitySystem
         if (map == sourceMap)
             return true;
 
+        // Expeditions are deliberately isolated game maps, not MultiZ levels.
+        // A live expedition therefore acts as a radio relay to the main server
+        // without turning every normal map pair into long-range radio.
+        if (IsExpeditionMap(sourceMap) || IsExpeditionMap(map))
+            return true;
+
         return map != null && sourceZNetwork is { } network && _multiZ.IsMapInNetwork(network, map.Value);
     }
+
+    private bool IsExpeditionMap(EntityUid? map) =>
+        map is { } mapUid && HasComp<N14ExpeditionComponent>(mapUid);
 
     /// <inheritdoc cref="TelecomServerComponent"/>
     private bool HasActiveServer(EntityUid? sourceMap, Entity<MZNetworkComponent>? sourceZNetwork, string channelId)

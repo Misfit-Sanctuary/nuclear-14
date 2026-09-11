@@ -331,9 +331,10 @@
     price: 25
 
 - type: entity
-  name: EMP grenade
-  description: A grenade designed to wreak havoc on electronic systems.
+  name: pulse grenade
+  description: A grenade that releases a damaging blue energy pulse, devastating robots and electronic systems.
   parent: GrenadeBase
+  # Retain the old ID so existing maps, recipes, and loadouts receive the pulse grenade.
   id: EmpGrenade
   components:
   - type: Sprite
@@ -341,6 +342,8 @@
   - type: EmpOnTrigger
     range: 4
     energyConsumption: 2700000
+  - type: SpawnOnTrigger
+    proto: MisfitsPulseGrenadeExplosion
   - type: DeleteOnTrigger
   - type: Appearance
   - type: TimerTriggerVisuals
@@ -379,7 +382,7 @@
   description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/smoke.rsi
+    sprite: _Misfits/Objects/Weapons/Throwable/smoke_grenade.rsi
   - type: SmokeOnTrigger
     duration: 30
     spreadAmount: 50

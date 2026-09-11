@@ -179,10 +179,11 @@
         Slash: 32
         Piercing: 18
   - type: MeleeWeapon
+    attackRate: 0.9
     damage:
       types:
         Slash: 40
-        Piercing: 10
+        Piercing: 15
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item

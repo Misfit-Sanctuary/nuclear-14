@@ -20,6 +20,22 @@ public sealed partial class LandMineComponent : Component
     public bool Armed;
 
     /// <summary>
+    /// Whether this mine may be armed while it is loose or held. Hawkins devices use this so
+    /// they can be armed first and then placed on the ground without wrenching them down.
+    /// Ordinary landmines still require anchoring.
+    /// </summary>
+    [DataField]
+    public bool AllowUnanchoredArming;
+
+    /// <summary>
+    /// Restricts pressure activation to motorbikes and characters currently wearing power armor.
+    /// This is intentionally explicit rather than mass-based: carried inventories and physics
+    /// mass are not reliable measures of whether a target is an armored vehicle.
+    /// </summary>
+    [DataField]
+    public bool HeavyTargetsOnly;
+
+    /// <summary>
     /// #Misfits Add - if set, knocks down the tripper for this duration on trigger.
     /// Used by the concussion mine to floor targets without killing/delimbing.
     /// </summary>
