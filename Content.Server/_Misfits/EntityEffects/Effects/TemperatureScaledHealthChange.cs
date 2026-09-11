@@ -36,7 +36,7 @@ public sealed partial class TemperatureScaledHealthChange : EntityEffect
     public float MaxMultiplier = 3f;
 
     [DataField]
-    public float OutsidePodFraction = 0.05f;
+    public float OutsidePodFraction = 0.01f;
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) => null;
 
