@@ -384,6 +384,25 @@
 
 - type: entity
   parent: N14IDPassportBlank
+  id: N14IDLegionaryMedalTribunusDecanus
+  name: legion tribunus decanus medallion
+  description: "A medal marking the rank of a Decanus Tribunus."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/identification.rsi
+    state: medal-silver-3
+  - type: IdCard # #Misfits Add - display "medallion" instead of default "ID card"
+    nameLocId: n14-id-medallion-name
+    fullNameLocId: n14-id-medallion-full-name
+  - type: PresetIdCard
+    job: CaesarLegionTribunusDecanus
+  #Misfits Add - IdCardLegion enables this medallion to appear on the Centurion's tactical map terminal
+  - type: Tag
+    tags:
+    - IdCardLegion
+
+- type: entity
+  parent: N14IDPassportBlank
   id: N14IDLegionaryMedalVeteranDecanus
   name: legion veteran decanus medallion
   description: "A distinctive medal carried by a veteran decanus."
@@ -396,6 +415,25 @@
     fullNameLocId: n14-id-medallion-full-name
   - type: PresetIdCard
     job: CaesarLegionVeteranDecanus
+  #Misfits Add - IdCardLegion enables this medallion to appear on the Centurion's tactical map terminal
+  - type: Tag
+    tags:
+    - IdCardLegion
+
+- type: entity
+  parent: N14IDPassportBlank
+  id: N14IDLegionaryMedalPraefectusDecanus
+  name: legion praefectus decanus medallion
+  description: "A distinctive medal carried by a decanus praefectus."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/identification.rsi
+    state: medal-silver-3
+  - type: IdCard # #Misfits Add - display "medallion" instead of default "ID card"
+    nameLocId: n14-id-medallion-name
+    fullNameLocId: n14-id-medallion-full-name
+  - type: PresetIdCard
+    job: CaesarLegionPraefectusDecanus
   #Misfits Add - IdCardLegion enables this medallion to appear on the Centurion's tactical map terminal
   - type: Tag
     tags:

@@ -1,22 +1,18 @@
 - type: job
-  id: CaesarLegionPrimeDecanus
+  id: CaesarLegionPraefectusDecanus
   setPreference: true
+  hideWithoutJobWhitelist: false # #Misfits Tweak - accessible up to Vet Decanus, no whitelist
   hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
   jobWhitelistBypassesRoleTimers: true # #Misfits Change
-  weight: 140
-  name: job-name-caesar-legion-prime-decanus
-  description: job-description-caesar-legion-prime-decanus
-  playTimeTracker: CaesarLegionPrimeDecanus
+  weight: 150
+  showBorder: true
+  name: job-name-caesar-legion-praefectus-decanus
+  description: job-description-caesar-legion-praefectus-decanus
+  playTimeTracker: CaesarLegionPraefectusDecanus
   requirements:
-    - !type:CharacterDepartmentTimeRequirement # Legion total timelock
-      department: CaesarLegion
-      min: 108000 # 30 hours
     - !type:CharacterPlaytimeRequirement
-      tracker: CaesarLegionDean
-      min: 21600 # 6 hours
-    # TEMP REMOVED - !type:CharacterDepartmentTimeRequirement
-    #   department: CaesarLegion
-    #   min: 162000 # 45 hours
+      tracker: CaesarLegionVeteranDecanus
+      min: 100000 # 30 hours for the big vet pa role
     - !type:CharacterSpeciesRequirement
       species:
       - Human
@@ -24,13 +20,13 @@
       sex: Male
     - !type:CharacterGenderRequirement
       gender: Male
-  startingGear: CaesarLegionPrimeDecanusGear
+  startingGear: CaesarLegionVeteranDecanusGear
   alwaysUseSpawner: true
   icon: "JobIconlegionerDean"
   supervisors: job-name-caesar-legion-supervisors
   canBeAntag: false
   accessGroups:
-  - CaesarLegionDean
+  - CaesarLegionVeteranDecanus
   special:
   - !type:AddComponentSpecial
     components:
@@ -68,7 +64,7 @@
     traits: [ LanguageLatin ]
 
 - type: startingGear
-  id: CaesarLegionPrimeDecanusGear
+  id: CaesarLegionPraefectusDecanusGear
   equipment:
     wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitLegionnaire
@@ -77,17 +73,17 @@
     eyes: N14ClothingEyesGlassesWelding
     back: N14ClothingBackpackMilitary
     shoes: N14ClothingBootsCombatFilled
-    head: N14ClothingHeadHatDeanPrimeHelmet
-    gloves: N14ClothingHandsGlovesTribal
-    outerClothing: MisfitsLegionPrimeDecanusArmor # #Misfits Tweak: T6 armor (0.65/0.60) — Prime Decanus tier
+    outerClothing: N14ClothingOuterPowerArmorLegionPrinceps # whole point of tribunus and praefectus roles
     belt: N14Gladius
-    pocket1: LegionDeanloadoutkits
-    id: N14IDLegionaryMedalPrimeDecanus
+    pocket1: LegionDecanusPAloadoutkits
+    id: N14IDLegionaryMedalVeteranDecanus
   innerClothingSkirt: N14ClothingUniformJumpsuitLegionnaireOther
   storage:
     back:
     - N14BoxPlasticFilledMilitaryLegion #Misfits Change /Tweak/: Legion uses tribal medicine, not stimpaks
     - N14HealingPowder
+    - N14WelderIndustrial # self explainatory for pa user
+    - N14ClothingEyesGlassesWelding
 
 - type: playTimeTracker
-  id: CaesarLegionPrimeDecanus
+  id: CaesarLegionPraefectusDecanus
