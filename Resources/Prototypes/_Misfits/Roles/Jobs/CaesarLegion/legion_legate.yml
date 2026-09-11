@@ -15,10 +15,6 @@
   - !type:CharacterSpeciesRequirement
     species:
     - Human
-  - !type:CharacterSexRequirement
-    sex: Male
-  - !type:CharacterGenderRequirement
-    gender: Male
   startingGear: CaesarLegionLegateGear
   alwaysUseSpawner: true
   icon: "JobIconlegionerCenturion"
