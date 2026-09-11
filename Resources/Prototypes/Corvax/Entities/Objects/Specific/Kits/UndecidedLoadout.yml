@@ -174,8 +174,24 @@
   - type: UndecidedLoadoutBackpack
     possibleSets:
     - DecanusGladiatorSet
-    - DecanusSagitariaSet
-    - DecanusBerserkerSet
+    - DecanusCrusherSet
+    - DecanusDemolitionistSet
+    - DecanusSharpshooterSet
+
+- type: entity
+  id: LegionDecanusPAloadoutkits
+  name: kit
+  description: "please only take one."
+  parent: LegionCenturionloadoutkits
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - DecanusPADestroyerSet
+    - DecanusPASuppressorSet
+    - DecanusPABerserkerSet
 
 - type: entity
   id: LegionVeteranloadoutkits
@@ -776,24 +792,64 @@
   - KitDeanGladiator
 
 - type: UndecidedLoadoutBackpackSet
-  id: DecanusSagitariaSet
-  name: undecided-loadout-category-corvax-decanus-sagitaria-name
-  description: undecided-loadout-category-corvax-decanus-sagitaria-description
+  id: DecanusCrusherSet
+  name: undecided-loadout-category-corvax-decanus-crusher-name
+  description: undecided-loadout-category-corvax-decanus-crusher-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
   content:
-  - KitDeanSagitaria
+  - KitDeanCrusher
 
 - type: UndecidedLoadoutBackpackSet
-  id: DecanusBerserkerSet
-  name: undecided-loadout-category-corvax-decanus-berserker-name
-  description: undecided-loadout-category-corvax-decanus-berserker-description
+  id: DecanusDemolitionistSet
+  name: undecided-loadout-category-corvax-decanus-demolitionist-name
+  description: undecided-loadout-category-corvax-decanus-demolitionist-description
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitDeanDemolitionist
+
+- type: UndecidedLoadoutBackpackSet
+  id: DecanusSharpshooterSet
+  name: undecided-loadout-category-corvax-decanus-sharpshooter-name
+  description: undecided-loadout-category-corvax-decanus-sharpshooter-description
   sprite:
     sprite: Corvax/Objects/Misc/kits.rsi
     state: base
   content:
   - KitDeanBerserker
+
+- type: UndecidedLoadoutBackpackSet
+  id: DecanusPASuppressorSet
+  name: undecided-loadout-category-corvax-decanus-pa-suppressor-name
+  description: undecided-loadout-category-corvax-decanus-pa-suppressor-description
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitDeanPASuppressor
+
+- type: UndecidedLoadoutBackpackSet
+  id: DecanusPADestroyerSet
+  name: undecided-loadout-category-corvax-decanus-pa-destroyer-name
+  description: undecided-loadout-category-corvax-decanus-pa-destroyer-description
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitDeanPADestroyer
+
+- type: UndecidedLoadoutBackpackSet
+  id: DecanusPABerserkerSet
+  name: undecided-loadout-category-corvax-decanus-pa-berserker-name
+  description: undecided-loadout-category-corvax-decanus-pa-berserker-description
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitDeanPABerserker
 
 - type: UndecidedLoadoutBackpackSet
   id: VeteranRiflemanSet
