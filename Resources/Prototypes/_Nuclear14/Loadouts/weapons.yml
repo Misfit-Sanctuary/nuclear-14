@@ -1899,10 +1899,10 @@
 - type: loadout
   id: ThrowingKnife
   category: Weapons
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutAmmo
   cost: 1
   requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutAmmo
   items:
     - ThrowingKnife
 
