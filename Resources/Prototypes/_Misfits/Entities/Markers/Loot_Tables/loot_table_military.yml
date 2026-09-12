@@ -1,0 +1,668 @@
+﻿# #Misfits Add - Military loot tables and mapper spawners.
+#
+# Five internal rarity tiers:
+# Common 50%, Uncommon 27%, Rare 14%, Very Rare 7%, Legendary 2%.
+#
+# Visible mapper markers; spawned loot uses offset: 0.45.
+# Lists are ordered from lower-value/common items toward rarer items.
+#
+
+# ============================================================================
+# BARRACKS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLootBarracks
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14BoxCardboardMREBoxCFilled
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingBackpackMilitary
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitMilUniform
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingUniformNCRDesert
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingBootsCombatFilled
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatCombatHelmet
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterCombatArmor
+        weight: 3
+
+
+# ============================================================================
+# OFFICER SUPPLIES
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLootOfficerSupplies
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Wallet
+        weight: 3
+      - !type:EntSelector
+        id: N14CurrencyNCRDollar10
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: RadioHandheld
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRSlouch
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformNCRCFUniform
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreNCRRecon
+        weight: 3
+
+
+# ============================================================================
+# FIELD EQUIPMENT
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLootFieldEquipment
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Flashlight
+        weight: 3
+      - !type:EntSelector
+        id: BoxFlare
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingBeltUtilityFilled
+        weight: 3
+      - !type:EntSelector
+        id: N14ShieldMetalHeavy
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ToolboxMechanical
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: RadioHandheld
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ClothingBackpackMilitary
+        weight: 3
+
+
+# ============================================================================
+# COMMUNICATIONS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLootCommunications
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: RadioHandheld
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: MisfitsClothingHeadsetWastelandScrap
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRHelmetMetalRadioWood
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRHelmetMetalRadioSnow
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: RemoteSignaller
+        weight: 3
+
+
+# ============================================================================
+# LOGISTICS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLootLogistics
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14BoxCardboardMREBoxCFilled
+        weight: 3
+      - !type:EntSelector
+        id: ToolboxMechanicalFilled
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: ToolboxElectricalFilled
+        weight: 3
+      - !type:EntSelector
+        id: N14AmmoBox9mm
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14AmmoBox556
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14AmmoBox12gauge
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: PowerCellHigh
+        weight: 3
+
+
+# ============================================================================
+# MILITARY MEDICAL
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLootMilitaryMedical
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14CleanGauze10
+        weight: 3
+      - !type:EntSelector
+        id: Bloodpack
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14Stimpak
+        weight: 3
+      - !type:EntSelector
+        id: N14RadAwayBloodbag
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14MedkitCombatFilled
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14SuperStimpak
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: DefibrillatorCompact
+        weight: 3
+
+
+# ============================================================================
+# WEAPONS MAINTENANCE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLootWeaponsMaintenance
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14JunkAbraxoCleaner
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkDuctTape
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14Wrench
+        weight: 3
+      - !type:EntSelector
+        id: N14Screwdriver
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14Welder
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14Multitool
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14PowerDrill
+        weight: 3
+
+
+# ============================================================================
+# INTELLIGENCE / DOCUMENTS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLootIntelligenceDocuments
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: MisfitsWendoverMap
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreMilitaryMemo
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreNCRRecon
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreBOSField
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreEnclaveDirective
+        weight: 3
+
+
+# ============================================================================
+# HIGH-SECURITY MILITARY
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLootHighSecurityMilitary
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14WeaponSniper50AntiMateriel
+        weight: 3
+      - !type:EntSelector
+        id: N14WeaponLaserRiflePrototypeAER14
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterMarineArmor
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterPowerArmorT45Sierra
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterPowerArmorAdvanced1NCR
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreEnclaveDirective
+        weight: 3
+
+
+# ============================================================================
+# MASTER MILITARY TABLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootBarracks
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootOfficerSupplies
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootFieldEquipment
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootCommunications
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootLogistics
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootMilitaryMedical
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootWeaponsMaintenance
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootIntelligenceDocuments
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootHighSecurityMilitary
+      weight: 2
+
+
+# ============================================================================
+# VISIBLE MAPPER SPAWNER BASE
+# ============================================================================
+
+- type: entity
+  abstract: true
+  name: military loot spawner
+  id: MisfitsMilitaryLootSpawnerBase
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutcombat.rsi
+      state: icon
+
+- type: entity
+  parent: MisfitsMilitaryLootSpawnerBase
+  id: MisfitsMilitaryLootSpawnerBarracks
+  name: barracks loot spawner
+  suffix: Misfits, Barracks, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLootBarracks
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMilitaryLootSpawnerBase
+  id: MisfitsMilitaryLootSpawnerOfficerSupplies
+  name: officer supplies loot spawner
+  suffix: Misfits, Officer Supplies, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLootOfficerSupplies
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMilitaryLootSpawnerBase
+  id: MisfitsMilitaryLootSpawnerFieldEquipment
+  name: field equipment loot spawner
+  suffix: Misfits, Field Equipment, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLootFieldEquipment
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMilitaryLootSpawnerBase
+  id: MisfitsMilitaryLootSpawnerCommunications
+  name: communications loot spawner
+  suffix: Misfits, Communications, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLootCommunications
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMilitaryLootSpawnerBase
+  id: MisfitsMilitaryLootSpawnerLogistics
+  name: logistics loot spawner
+  suffix: Misfits, Logistics, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLootLogistics
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMilitaryLootSpawnerBase
+  id: MisfitsMilitaryLootSpawnerMilitaryMedical
+  name: military medical loot spawner
+  suffix: Misfits, Military Medical, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLootMilitaryMedical
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMilitaryLootSpawnerBase
+  id: MisfitsMilitaryLootSpawnerWeaponsMaintenance
+  name: weapons maintenance loot spawner
+  suffix: Misfits, Weapons Maintenance, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLootWeaponsMaintenance
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMilitaryLootSpawnerBase
+  id: MisfitsMilitaryLootSpawnerIntelligenceDocuments
+  name: intelligence / documents loot spawner
+  suffix: Misfits, Intelligence / Documents, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLootIntelligenceDocuments
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMilitaryLootSpawnerBase
+  id: MisfitsMilitaryLootSpawnerHighSecurityMilitary
+  name: high-security military loot spawner
+  suffix: Misfits, High-Security Military, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLootHighSecurityMilitary
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMilitaryLootSpawnerBase
+  id: MisfitsMilitaryLootSpawnerAll
+  name: mixed military loot spawner
+  suffix: Misfits, Mixed, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45

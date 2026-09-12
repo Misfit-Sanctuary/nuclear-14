@@ -1,0 +1,522 @@
+﻿# #Misfits Add - Armor loot tables and mapper spawners
+#
+# Five rarity tiers:
+#   Common      50
+#   Uncommon    27
+#   Rare        14
+#   Very Rare    7
+#   Legendary    2
+#
+# Categories:
+# - Light armor
+# - Medium armor
+# - Heavy armor
+# - Military armor
+# - Helmets
+# - Mixed armor
+#
+# Mapper spawners are visible and use offset: 0.45.
+# Armor spawners intentionally roll fewer items than medicine/industrial loot.
+# Power armor is intentionally excluded from all random armor loot.
+
+# ============================================================================
+# LIGHT ARMOR
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsArmorLootLight
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterVestLeather
+        weight: 4
+      - !type:EntSelector
+        id: N14ClothingOuterTribalArmor
+        weight: 4
+      - !type:EntSelector
+        id: N14ClothingOuterLeatherArmor
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterVaultSecVest
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingOuterCoatFollowersArmored
+        weight: 2
+      - !type:EntSelector
+        id: N14ClothingOuterZealotDuster
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterPoliceCombat
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingOuterCombatTribal
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterMetalArmor
+        weight: 2
+      - !type:EntSelector
+        id: N14ClothingScavengerHeavyArmor
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterCombatArmor
+
+
+# ============================================================================
+# MEDIUM ARMOR
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsArmorLootMedium
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterLeatherArmor
+        weight: 4
+      - !type:EntSelector
+        id: N14ClothingOuterVaultSecVest
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingOuterCombatTribal
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingOuterPoliceCombat
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterMetalArmor
+        weight: 4
+      - !type:EntSelector
+        id: N14ClothingScavengerHeavyArmor
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingOuterTribalArmorHeavy
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterCombatArmor
+        weight: 4
+      - !type:EntSelector
+        id: N14ClothingOuterEnclavePeacekeeper
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterCombatArmorMK2
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingOuterEnclaveArmor
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterMarineArmor
+
+
+# ============================================================================
+# HEAVY ARMOR
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsArmorLootHeavy
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingScavengerHeavyArmor
+        weight: 4
+      - !type:EntSelector
+        id: N14ClothingOuterMetalArmor
+        weight: 4
+      - !type:EntSelector
+        id: N14ClothingOuterTribalArmorHeavy
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterCombatArmor
+        weight: 4
+      - !type:EntSelector
+        id: N14ClothingOuterEnclavePeacekeeper
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterCombatArmorMK2
+        weight: 4
+      - !type:EntSelector
+        id: N14ClothingOuterEnclaveArmor
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterMarineArmor
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsNCREliteCombatArmor
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterMarineArmor
+        weight: 2
+      - !type:EntSelector
+        id: MisfitsNCREliteCombatArmor
+
+# ============================================================================
+# MILITARY / FACTION ARMOR
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsArmorLootMilitary
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterCombatArmor
+        weight: 4
+      - !type:EntSelector
+        id: N14ClothingOuterVaultSecVest
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingOuterEnclavePeacekeeper
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterCombatArmorMK2
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingOuterRangerFieldArmor
+        weight: 2
+      - !type:EntSelector
+        id: N14ClothingOuterNCRTrenchRaider
+        weight: 2
+      - !type:EntSelector
+        id: N14ClothingOuterNCRPouchedVestDesert
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: MisfitsNCREliteCombatArmor
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsNCRMPCombatArmor
+        weight: 2
+      - !type:EntSelector
+        id: N14ClothingOuterEnclaveArmor
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterMarineArmor
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterMarineArmor
+        weight: 2
+      - !type:EntSelector
+        id: MisfitsNCREliteCombatArmor
+
+# ============================================================================
+# HELMETS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsArmorLootHelmets
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatCombatHelmet
+        weight: 4
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRHelmetMetalDesert
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRHelmetMetalWoods
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRHelmetMetalSnow
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRCombatHelmet
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingHeadHatBrotherhoodHelmet
+        weight: 2
+      - !type:EntSelector
+        id: N14ClothingHeadHatEnclaveHelmet
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatCombatHelmetMK2
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingHeadHatBrotherhoodHelmetKnight
+        weight: 2
+      - !type:EntSelector
+        id: N14ClothingHeadHatRangerHelmet
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatBrotherhoodHelmetPaladin
+        weight: 2
+      - !type:EntSelector
+        id: N14ClothingHeadHatBrotherhoodHelmetMK2
+        weight: 2
+      - !type:EntSelector
+        id: N14ClothingHeadHatEnclaveHelmetMarine
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatEnclaveHelmetMarine
+        weight: 2
+      - !type:EntSelector
+        id: N14ClothingHeadHatRangerHelmet
+
+
+
+# ============================================================================
+# MIXED ARMOR
+# Power armor is intentionally excluded from random loot.
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsArmorLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootLight
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootMedium
+      weight: 27
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootHeavy
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootMilitary
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootHelmets
+      weight: 10
+
+
+# ============================================================================
+# VISIBLE ARMOR SPAWNER BASE
+# ============================================================================
+
+- type: entity
+  abstract: true
+  name: armor loot spawner
+  id: MisfitsArmorLootSpawnerBase
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutcombat.rsi
+      state: icon
+
+
+# ============================================================================
+# CATEGORY SPAWNERS
+# ============================================================================
+
+- type: entity
+  parent: MisfitsArmorLootSpawnerBase
+  id: MisfitsArmorLootSpawnerLight
+  name: light armor loot spawner
+  suffix: Misfits, Light, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsArmorLootLight
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsArmorLootSpawnerBase
+  id: MisfitsArmorLootSpawnerMedium
+  name: medium armor loot spawner
+  suffix: Misfits, Medium, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsArmorLootMedium
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsArmorLootSpawnerBase
+  id: MisfitsArmorLootSpawnerHeavy
+  name: heavy armor loot spawner
+  suffix: Misfits, Heavy, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsArmorLootHeavy
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsArmorLootSpawnerBase
+  id: MisfitsArmorLootSpawnerMilitary
+  name: military armor loot spawner
+  suffix: Misfits, Military, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsArmorLootMilitary
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsArmorLootSpawnerBase
+  id: MisfitsArmorLootSpawnerHelmets
+  name: helmet loot spawner
+  suffix: Misfits, Helmets, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsArmorLootHelmets
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+
+# ============================================================================
+# MIXED ARMOR SPAWNERS
+# ============================================================================
+
+- type: entity
+  parent: MisfitsArmorLootSpawnerBase
+  id: MisfitsArmorLootSpawnerSmall
+  name: mixed armor loot spawner
+  suffix: Misfits, Small, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsArmorLootSpawnerBase
+  id: MisfitsArmorLootSpawnerMediumMixed
+  name: mixed armor loot spawner
+  suffix: Misfits, Medium, 2-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      rolls: !type:RangeNumberSelector
+        range: 2, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsArmorLootSpawnerBase
+  id: MisfitsArmorLootSpawnerLarge
+  name: mixed armor loot spawner
+  suffix: Misfits, Large, 3-5
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      rolls: !type:RangeNumberSelector
+        range: 3, 5
+    offset: 0.45

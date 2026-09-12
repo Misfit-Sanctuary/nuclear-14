@@ -1,0 +1,1013 @@
+﻿# #Misfits Add - Categorized weapon loot tables and mapper spawners.
+#
+# Each category table returns exactly one weapon. The master table selects a
+# category first, then rolls one of five internal rarity tiers:
+# Common 50%, Uncommon 27%, Rare 14%, Very Rare 7%, Legendary 2%.
+#
+# Two parallel classifications are provided:
+# - Location/use categories: improvised, melee, civilian, military, energy,
+#   explosives, heavy, and rare.
+# - Weapon families: melee, ballistic, laser, and plasma.
+# Ammunition is intentionally excluded and should use separate loot tables.
+
+# ============================================================================
+# IMPROVISED WEAPONS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponLootImprovised
+  table: !type:GroupSelector
+    children:
+    # Common - 50%.
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14BrokenPipe
+        weight: 3
+      - !type:EntSelector
+        id: N14NailBoard
+        weight: 3
+      - !type:EntSelector
+        id: N14KitchenKnife
+        weight: 2
+      - !type:EntSelector
+        id: N14PoolCue
+        weight: 2
+    # Uncommon - 27%.
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ScrapMachete
+        weight: 2
+      - !type:EntSelector
+        id: BowImprovised
+      - !type:EntSelector
+        id: N14WeaponPistol10mmPipe
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponShotgunPipe
+        weight: 2
+    # Rare - 14%.
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14WeaponSniper308PipeRifle
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponRifle556Pipe
+      - !type:EntSelector
+        id: N14WeaponSMG10mmPipe
+    # Very Rare - 7%.
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14WeaponSMG12mmPipe
+      - !type:EntSelector
+        id: N14WeaponShotgunBloodyStick
+    # Legendary - 2%.
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14WeaponSniper50Pipe
+      - !type:EntSelector
+        id: N14WeaponRevolver45-70HandcannonUpgraded
+
+# ============================================================================
+# MELEE WEAPONS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponLootMelee
+  table: !type:GroupSelector
+    children:
+    # Common - 50%.
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Hatchet
+        weight: 2
+      - !type:EntSelector
+        id: N14BaseBallBat
+        weight: 2
+      - !type:EntSelector
+        id: N14GolfClub
+      - !type:EntSelector
+        id: N14Machete
+        weight: 2
+      - !type:EntSelector
+        id: N14CombatKnife
+        weight: 2
+    # Uncommon - 27%.
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14WastelandTribalSpear
+      - !type:EntSelector
+        id: N14FireAxe
+      - !type:EntSelector
+        id: N14SledgeHammer
+      - !type:EntSelector
+        id: N14TrenchClub
+    # Rare - 14%.
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14WastelandPolearm
+      - !type:EntSelector
+        id: N14ChineseSword
+      - !type:EntSelector
+        id: N14LongSword
+    # Very Rare - 7%.
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14CeremonialSword
+      - !type:EntSelector
+        id: N14TribalClubElders
+    # Legendary - 2%.
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14SuperSledgeHammer
+      - !type:EntSelector
+        id: N14ripper
+
+# ============================================================================
+# CIVILIAN FIREARMS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponLootCivilianFirearms
+  table: !type:GroupSelector
+    children:
+    # Common - 50%.
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14WeaponPistol22lr
+        weight: 3
+      - !type:EntSelector
+        id: N14WeaponPistol9mm
+        weight: 3
+      - !type:EntSelector
+        id: N14WeaponPistol10mm
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponRevolver9mm
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponRevolver10mm
+        weight: 2
+    # Uncommon - 27%.
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14WeaponShotgunDoubleBarrel
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponShotgunSawedOff
+      - !type:EntSelector
+        id: N14WeaponSniper556VarmintRifle
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponSniperHunting
+        weight: 2
+    # Rare - 14%.
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14WeaponSniper44LeverCarbine
+      - !type:EntSelector
+        id: N14WeaponPistol45Colt
+      - !type:EntSelector
+        id: N14WeaponPistolWebley
+      - !type:EntSelector
+        id: N14WeaponRevolverWebley
+      - !type:EntSelector
+        id: N14WeaponShotgunCaravan
+    # Very Rare - 7%.
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14WeaponRevolver44Magnun
+      - !type:EntSelector
+        id: N14WeaponShotgunLever
+      - !type:EntSelector
+        id: N14WeaponSniper308LeverRifle
+      - !type:EntSelector
+        id: N14WeaponSniper45-70BrushGun
+    # Legendary - 2%.
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14WeaponDesertEagle44
+      - !type:EntSelector
+        id: N14WeaponRevolver45-70Hunter
+      - !type:EntSelector
+        id: N14WeaponShotgunBoomstick
+
+# ============================================================================
+# MILITARY FIREARMS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponLootMilitaryFirearms
+  table: !type:GroupSelector
+    children:
+    # Common - 50%.
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14WeaponRifle556Service
+        weight: 3
+      - !type:EntSelector
+        id: N14WeaponRifle556R91
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponRifle556CarbineOld
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponSMG9mm
+        weight: 2
+    # Uncommon - 27%.
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14WeaponSMG10mm
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponShotgunAuto
+      - !type:EntSelector
+        id: N14WeaponShotgunRiot
+      - !type:EntSelector
+        id: N14WeaponRifle556Carbine
+    # Rare - 14%.
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14WeaponRifle762Chinese
+      - !type:EntSelector
+        id: N14WeaponRifle308Battle
+      - !type:EntSelector
+        id: N14WeaponRifle762Fal
+      - !type:EntSelector
+        id: N14WeaponRifle762M14
+      - !type:EntSelector
+        id: N14WeaponRifle762SKS
+    # Very Rare - 7%.
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14WeaponRifle556ServiceScoped
+      - !type:EntSelector
+        id: N14WeaponRifle556Scout
+      - !type:EntSelector
+        id: N14WeaponRifle762Marksman
+      - !type:EntSelector
+        id: N14WeaponSMG10mmSuppressed
+      - !type:EntSelector
+        id: N14WeaponSMG12mmAdvanced
+    # Legendary - 2%.
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14WeaponRifle762Canadian
+      - !type:EntSelector
+        id: N14WeaponRifle556EM2
+      - !type:EntSelector
+        id: N14WeaponSniper308Canadian
+
+# ============================================================================
+# ENERGY WEAPONS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponLootEnergy
+  table: !type:GroupSelector
+    children:
+    # Common - 50%.
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14WeaponLaserRevolver
+        weight: 3
+      - !type:EntSelector
+        id: N14WeaponLaserRifleMakeshift
+        weight: 3
+      - !type:EntSelector
+        id: N14WeaponLaserRifleCrude
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponLaserPistol
+        weight: 2
+    # Uncommon - 27%.
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14WeaponLaserPistolRecharger
+      - !type:EntSelector
+        id: N14WeaponLaserRifleRecharger
+      - !type:EntSelector
+        id: N14WeaponLaserRifle
+        weight: 2
+    # Rare - 14%.
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14WeaponLaserRifleWattz2000
+      - !type:EntSelector
+        id: N14WeaponLaserRifleWattz3000
+      - !type:EntSelector
+        id: N14WeaponPlasmaPistol
+      - !type:EntSelector
+        id: N14WeaponPlasmaDefender
+      - !type:EntSelector
+        id: N14WeaponPlasmaRifleCrude
+    # Very Rare - 7%.
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14WeaponLaserRifleAuto
+      - !type:EntSelector
+        id: N14WeaponPlasmaRifleAuto
+      - !type:EntSelector
+        id: N14WeaponPlasmaRifle
+    # Legendary - 2%.
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14WeaponLaserRiflePrototypeAER14
+      - !type:EntSelector
+        id: N14WeaponPlasmaRifleUrban
+
+# ============================================================================
+# EXPLOSIVES
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponLootExplosives
+  table: !type:GroupSelector
+    children:
+    # Common - 50%.
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Dynamite
+        weight: 4
+      - !type:EntSelector
+        id: N14FirecrackerFull
+    # Uncommon - 27%.
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14TinNade
+        weight: 3
+      - !type:EntSelector
+        id: N14KettleBomb
+        weight: 2
+    # Rare - 14%.
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14BaseballNade
+    # Very Rare - 7%.
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14PlasmaGrenade
+        weight: 2
+      - !type:EntSelector
+        id: N14CryoGrenade
+    # Legendary - 2%.
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14NukaNade
+
+# ============================================================================
+# HEAVY WEAPONS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponLootHeavy
+  table: !type:GroupSelector
+    children:
+    # Common - 50%.
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14WeaponRifleGrenade
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponLMGAutoRifle
+      - !type:EntSelector
+        id: N14WeaponLMG
+    # Uncommon - 27%.
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14WeaponLMGBren
+      - !type:EntSelector
+        id: N14WeaponLMGchinese
+      - !type:EntSelector
+        id: N14WeaponFlamer
+    # Rare - 14%.
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14WeaponLauncherGrenade
+      - !type:EntSelector
+        id: N14WeaponM60GPMG
+      - !type:EntSelector
+        id: N14WeaponHMGcanadian
+    # Very Rare - 7%.
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14WeaponLauncherMissile
+      - !type:EntSelector
+        id: N14WeaponPlasmaCaster
+      - !type:EntSelector
+        id: N14WeaponLaserGatling
+    # Legendary - 2%.
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14WeaponMinigun
+      - !type:EntSelector
+        id: N14WeaponMinigunAvenger
+
+# ============================================================================
+# RARE WEAPONS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponLootRare
+  table: !type:GroupSelector
+    children:
+    # Common within the rare pool - 50%.
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14WeaponRevolver45-70RangerSequoia
+      - !type:EntSelector
+        id: N14WeaponRevolver44MagnumCaptain
+      - !type:EntSelector
+        id: N14WeaponPistol9mmSpy
+      - !type:EntSelector
+        id: N14WeaponSMG9mminfiltrator
+    # Uncommon within the rare pool - 27%.
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14WeaponRevolver45-70WildWhisper
+      - !type:EntSelector
+        id: N14WeaponSMG12mmAdvanced
+      - !type:EntSelector
+        id: N14WeaponSniper50AntiMateriel
+    # Rare within the rare pool - 14%.
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14SuperSledgeHammer
+      - !type:EntSelector
+        id: N14ripper
+      - !type:EntSelector
+        id: N14WeaponLaserdotDesertEagle44
+    # Very Rare within the rare pool - 7%.
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14WeaponLaserRiflePrototypeAER14
+      - !type:EntSelector
+        id: N14WeaponPlasmaCaster
+      - !type:EntSelector
+        id: N14WeaponLaserGatling
+      - !type:EntSelector
+        id: N14WeaponSniper50NCRRifle
+    # Legendary - 2%.
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14WeaponMinigunAvenger
+      - !type:EntSelector
+        id: N14WeaponPlasmaRifleUrban
+      - !type:EntSelector
+        id: N14WeaponLaserGatling
+
+# ============================================================================
+# WEAPON FAMILIES - MELEE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponLootFamilyMelee
+  table: !type:GroupSelector
+    children:
+    # Common - 50%.
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14BrokenPipe
+        weight: 3
+      - !type:EntSelector
+        id: N14NailBoard
+        weight: 2
+      - !type:EntSelector
+        id: N14KitchenKnife
+        weight: 2
+      - !type:EntSelector
+        id: N14PoolCue
+        weight: 2
+      - !type:EntSelector
+        id: N14BaseBallBat
+        weight: 2
+      - !type:EntSelector
+        id: N14GolfClub
+      - !type:EntSelector
+        id: N14Hatchet
+        weight: 2
+    # Uncommon - 27%.
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ScrapMachete
+      - !type:EntSelector
+        id: N14CombatKnife
+      - !type:EntSelector
+        id: N14Machete
+      - !type:EntSelector
+        id: N14WastelandTribalSpear
+      - !type:EntSelector
+        id: N14TrenchClub
+      - !type:EntSelector
+        id: N14FireAxe
+    # Rare - 14%.
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14SledgeHammer
+      - !type:EntSelector
+        id: N14WastelandPolearm
+      - !type:EntSelector
+        id: N14ChineseSword
+      - !type:EntSelector
+        id: N14LongSword
+    # Very Rare - 7%.
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14CeremonialSword
+      - !type:EntSelector
+        id: N14TribalClubElders
+    # Legendary - 2%.
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14SuperSledgeHammer
+      - !type:EntSelector
+        id: N14ripper
+
+# ============================================================================
+# WEAPON FAMILIES - BALLISTIC
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponLootFamilyBallistic
+  table: !type:GroupSelector
+    children:
+    # Common - 50%.
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14WeaponPistol10mmPipe
+        weight: 3
+      - !type:EntSelector
+        id: N14WeaponShotgunPipe
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponPistol22lr
+        weight: 3
+      - !type:EntSelector
+        id: N14WeaponPistol9mm
+        weight: 3
+      - !type:EntSelector
+        id: N14WeaponPistol10mm
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponRevolver9mm
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponShotgunDoubleBarrel
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponSniper556VarmintRifle
+        weight: 2
+    # Uncommon - 27%.
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14WeaponSniperHunting
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponRifle556Service
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponShotgunSawedOff
+      - !type:EntSelector
+        id: N14WeaponSniper44LeverCarbine
+      - !type:EntSelector
+        id: N14WeaponPistol45Colt
+      - !type:EntSelector
+        id: N14WeaponPistolWebley
+      - !type:EntSelector
+        id: N14WeaponShotgunCaravan
+      - !type:EntSelector
+        id: N14WeaponSMG9mm
+      - !type:EntSelector
+        id: N14WeaponRifle556R91
+    # Rare - 14%.
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14WeaponRevolver44Magnun
+      - !type:EntSelector
+        id: N14WeaponShotgunLever
+      - !type:EntSelector
+        id: N14WeaponSniper308LeverRifle
+      - !type:EntSelector
+        id: N14WeaponSniper45-70BrushGun
+      - !type:EntSelector
+        id: N14WeaponShotgunAuto
+      - !type:EntSelector
+        id: N14WeaponShotgunRiot
+      - !type:EntSelector
+        id: N14WeaponRifle308Battle
+      - !type:EntSelector
+        id: N14WeaponRifle762Fal
+      - !type:EntSelector
+        id: N14WeaponRifle762M14
+      - !type:EntSelector
+        id: N14WeaponRifle762SKS
+    # Very Rare - 7%.
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14WeaponRifle556Carbine
+      - !type:EntSelector
+        id: N14WeaponRifle762Chinese
+      - !type:EntSelector
+        id: N14WeaponRifle556ServiceScoped
+      - !type:EntSelector
+        id: N14WeaponRifle762Marksman
+      - !type:EntSelector
+        id: N14WeaponSMG12mmAdvanced
+      - !type:EntSelector
+        id: N14WeaponSMG10mmSuppressed
+      - !type:EntSelector
+        id: N14WeaponSniper50AntiMateriel
+      - !type:EntSelector
+        id: N14WeaponMinigun
+    # Legendary - 2%.
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14WeaponRevolver45-70RangerSequoia
+      - !type:EntSelector
+        id: N14WeaponRevolver45-70WildWhisper
+      - !type:EntSelector
+        id: N14WeaponRevolver44MagnumCaptain
+      - !type:EntSelector
+        id: N14WeaponPistol9mmSpy
+      - !type:EntSelector
+        id: N14WeaponSMG9mminfiltrator
+      - !type:EntSelector
+        id: N14WeaponSniper50NCRRifle
+      - !type:EntSelector
+        id: N14WeaponMinigunAvenger
+
+# ============================================================================
+# WEAPON FAMILIES - LASER
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponLootFamilyLaser
+  table: !type:GroupSelector
+    children:
+    # Common - 50%.
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14WeaponLaserRevolver
+        weight: 3
+      - !type:EntSelector
+        id: N14WeaponLaserRifleMakeshift
+        weight: 3
+      - !type:EntSelector
+        id: N14WeaponLaserRifleCrude
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponLaserPistol
+        weight: 2
+    # Uncommon - 27%.
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14WeaponLaserPistolRecharger
+      - !type:EntSelector
+        id: N14WeaponLaserRifleRecharger
+      - !type:EntSelector
+        id: N14WeaponLaserRifle
+        weight: 2
+    # Rare - 14%.
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14WeaponLaserRifleWattz2000
+      - !type:EntSelector
+        id: N14WeaponLaserRifleWattz3000
+    # Very Rare - 7%.
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14WeaponLaserRifleAuto
+      - !type:EntSelector
+        id: N14WeaponLaserGatling
+    # Legendary - 2%.
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14WeaponLaserRiflePrototypeAER14
+
+# ============================================================================
+# WEAPON FAMILIES - PLASMA
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponLootFamilyPlasma
+  table: !type:GroupSelector
+    children:
+    # Common - 50%.
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14WeaponPlasmaPistol
+        weight: 2
+      - !type:EntSelector
+        id: N14WeaponPlasmaRifleCrude
+        weight: 3
+    # Uncommon - 27%.
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14WeaponPlasmaDefender
+      - !type:EntSelector
+        id: N14WeaponPlasmaRifle
+    # Rare - 14%.
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14PlasmaGrenade
+      - !type:EntSelector
+        id: N14WeaponPlasmaRifleAuto
+    # Very Rare - 7%.
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14WeaponPlasmaRifleUrban
+    # Legendary - 2%.
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14WeaponPlasmaCaster
+
+# ============================================================================
+# MASTER WEAPON TABLE
+# ============================================================================
+# Category chance when this table is rolled:
+# Improvised 30%, Melee 25%, Civilian 22%, Military 12%, Energy 6%,
+# Explosives 3%, Heavy 1.5%, Rare 0.5%.
+
+- type: entityTable
+  id: MisfitsWeaponLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootImprovised
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootMelee
+      weight: 25
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootCivilianFirearms
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootMilitaryFirearms
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootEnergy
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootExplosives
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootHeavy
+      weight: 1.5
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootRare
+      weight: 0.5
+
+# ============================================================================
+# MAPPER SPAWNERS
+# ============================================================================
+# These markers always roll once. Add `prob:` under NestedSelector if a mapper
+# needs a chance for the marker to produce nothing.
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponLootSpawnerImprovised
+  name: improvised weapon loot spawner
+  suffix: Misfits
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponLootImprovised
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponLootSpawnerMelee
+  name: melee weapon loot spawner
+  suffix: Misfits
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponLootMelee
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponLootSpawnerCivilianFirearms
+  name: civilian firearm loot spawner
+  suffix: Misfits
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponLootCivilianFirearms
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponLootSpawnerMilitaryFirearms
+  name: military firearm loot spawner
+  suffix: Misfits
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponLootMilitaryFirearms
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponLootSpawnerEnergy
+  name: energy weapon loot spawner
+  suffix: Misfits
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponLootEnergy
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponLootSpawnerExplosives
+  name: explosive weapon loot spawner
+  suffix: Misfits
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponLootExplosives
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponLootSpawnerHeavy
+  name: heavy weapon loot spawner
+  suffix: Misfits
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponLootHeavy
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponLootSpawnerRare
+  name: rare weapon loot spawner
+  suffix: Misfits
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponLootRare
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponLootSpawnerFamilyMelee
+  name: melee-family weapon loot spawner
+  suffix: Misfits
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponLootFamilyMelee
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponLootSpawnerFamilyBallistic
+  name: ballistic weapon loot spawner
+  suffix: Misfits
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponLootFamilyBallistic
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponLootSpawnerFamilyLaser
+  name: laser weapon loot spawner
+  suffix: Misfits
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponLootFamilyLaser
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponLootSpawnerFamilyPlasma
+  name: plasma weapon loot spawner
+  suffix: Misfits
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponLootFamilyPlasma
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponLootSpawnerAll
+  name: mixed weapon loot spawner
+  suffix: Misfits
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponLootAll

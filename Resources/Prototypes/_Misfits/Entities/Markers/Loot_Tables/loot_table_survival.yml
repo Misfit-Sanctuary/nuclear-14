@@ -1,0 +1,529 @@
+﻿# #Misfits Add - Survival loot tables and mapper spawners.
+#
+# Five internal rarity tiers:
+# Common 50%, Uncommon 27%, Rare 14%, Very Rare 7%, Legendary 2%.
+#
+# Visible mapper markers; spawned loot uses offset: 0.45.
+# Lists are ordered from lower-value/common items toward rarer items.
+#
+
+# ============================================================================
+# CAMPING GEAR
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsSurvivalLootCampingGear
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: Torch
+        weight: 3
+      - !type:EntSelector
+        id: BoxFlare
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14Flashlight
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: ClothingBackpackSatchelLeather
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: ClothingBackpackSatchelSalvage
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: ClothingBackpackDuffel
+        weight: 3
+
+
+# ============================================================================
+# NAVIGATION
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsSurvivalLootNavigation
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: MisfitsWendoverMap
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14Flashlight
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: GeigerCounter
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: RadioHandheld
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: HandHeldMassScanner
+        weight: 3
+
+
+# ============================================================================
+# HUNTING SUPPLIES
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsSurvivalLootHuntingSupplies
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: SurvivalKnife
+        weight: 3
+      - !type:EntSelector
+        id: KukriKnife
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14Hatchet
+        weight: 3
+      - !type:EntSelector
+        id: N14WeaponSniper556VarmintRifle
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14WeaponSniperHunting
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14AmmoBox556
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14AmmoBox308
+        weight: 3
+
+
+# ============================================================================
+# WATER SUPPLIES
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsSurvivalLootWaterSupplies
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: DrinkWaterBottleFull
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ReagentContainerFlourSmall
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14FoodInstamash
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14DrinkNukaCola
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14DrinkNukaColaIceCold
+        weight: 3
+
+
+# ============================================================================
+# FIRE STARTING
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsSurvivalLootFireStarting
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: Torch
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: BoxFlare
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: Charcoal1
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14Flare
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14Welder
+        weight: 3
+
+
+# ============================================================================
+# FIELD MEDICAL
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsSurvivalLootFieldMedical
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14CleanGauze10
+        weight: 3
+      - !type:EntSelector
+        id: N14HealingPowder
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14HealingPoultice
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsHealingSalve10
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: MisfitsSnakebiteTourniquet10
+        weight: 3
+      - !type:EntSelector
+        id: N14Stimpak
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: MisfitsPilgrimsRemedy
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: MisfitsMedkitFieldFilled
+        weight: 3
+
+
+# ============================================================================
+# WILDERNESS GEAR
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsSurvivalLootWildernessGear
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Shovel
+        weight: 3
+      - !type:EntSelector
+        id: Pickaxe
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: OreBag
+        weight: 3
+      - !type:EntSelector
+        id: SurvivalKnife
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14Flashlight
+        weight: 3
+      - !type:EntSelector
+        id: GeigerCounter
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ShieldMetalLight
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: ClothingBackpackSatchelSalvage
+        weight: 3
+
+
+# ============================================================================
+# MASTER SURVIVAL TABLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsSurvivalLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootCampingGear
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootNavigation
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootHuntingSupplies
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootWaterSupplies
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootFireStarting
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootFieldMedical
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootWildernessGear
+      weight: 10
+
+
+# ============================================================================
+# VISIBLE MAPPER SPAWNER BASE
+# ============================================================================
+
+- type: entity
+  abstract: true
+  name: survival loot spawner
+  id: MisfitsSurvivalLootSpawnerBase
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Tools/wrench.rsi
+      state: icon
+
+- type: entity
+  parent: MisfitsSurvivalLootSpawnerBase
+  id: MisfitsSurvivalLootSpawnerCampingGear
+  name: camping gear loot spawner
+  suffix: Misfits, Camping Gear, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsSurvivalLootCampingGear
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsSurvivalLootSpawnerBase
+  id: MisfitsSurvivalLootSpawnerNavigation
+  name: navigation loot spawner
+  suffix: Misfits, Navigation, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsSurvivalLootNavigation
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsSurvivalLootSpawnerBase
+  id: MisfitsSurvivalLootSpawnerHuntingSupplies
+  name: hunting supplies loot spawner
+  suffix: Misfits, Hunting Supplies, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsSurvivalLootHuntingSupplies
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsSurvivalLootSpawnerBase
+  id: MisfitsSurvivalLootSpawnerWaterSupplies
+  name: water supplies loot spawner
+  suffix: Misfits, Water Supplies, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsSurvivalLootWaterSupplies
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsSurvivalLootSpawnerBase
+  id: MisfitsSurvivalLootSpawnerFireStarting
+  name: fire starting loot spawner
+  suffix: Misfits, Fire Starting, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsSurvivalLootFireStarting
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsSurvivalLootSpawnerBase
+  id: MisfitsSurvivalLootSpawnerFieldMedical
+  name: field medical loot spawner
+  suffix: Misfits, Field Medical, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsSurvivalLootFieldMedical
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsSurvivalLootSpawnerBase
+  id: MisfitsSurvivalLootSpawnerWildernessGear
+  name: wilderness gear loot spawner
+  suffix: Misfits, Wilderness Gear, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsSurvivalLootWildernessGear
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsSurvivalLootSpawnerBase
+  id: MisfitsSurvivalLootSpawnerAll
+  name: mixed survival loot spawner
+  suffix: Misfits, Mixed, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45

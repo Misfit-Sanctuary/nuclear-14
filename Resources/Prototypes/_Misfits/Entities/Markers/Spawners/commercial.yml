@@ -1,0 +1,768 @@
+﻿# #Misfits Add - Commercial location/context loot.
+#
+# These tables mix the existing category master tables.
+# Rarity is inherited from the underlying item-category tables.
+# Every mapper spawner is visible and uses offset: 0.45.
+#
+
+# ============================================================================
+# GENERAL STORE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsCommercialLootGeneralStore
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsCommercialLootSpawnerGeneralStore
+  name: general store loot spawner
+  suffix: Commercial, General Store, 4-9
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsCommercialLootGeneralStore
+      rolls: !type:RangeNumberSelector
+        range: 4, 9
+    offset: 0.45
+
+
+# ============================================================================
+# HARDWARE STORE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsCommercialLootHardwareStore
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 28
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsCommercialLootSpawnerHardwareStore
+  name: hardware store loot spawner
+  suffix: Commercial, Hardware Store, 5-11
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Tools/wrench.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsCommercialLootHardwareStore
+      rolls: !type:RangeNumberSelector
+        range: 5, 11
+    offset: 0.45
+
+
+# ============================================================================
+# PHARMACY
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsCommercialLootPharmacy
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 52
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsCommercialLootSpawnerPharmacy
+  name: pharmacy loot spawner
+  suffix: Commercial, Pharmacy, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsCommercialLootPharmacy
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# GUN STORE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsCommercialLootGunStore
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 28
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 28
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsCommercialLootSpawnerGunStore
+  name: gun store loot spawner
+  suffix: Commercial, Gun Store, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsCommercialLootGunStore
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# CLOTHING STORE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsCommercialLootClothingStore
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 60
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsCommercialLootSpawnerClothingStore
+  name: clothing store loot spawner
+  suffix: Commercial, Clothing Store, 3-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutcombat.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsCommercialLootClothingStore
+      rolls: !type:RangeNumberSelector
+        range: 3, 8
+    offset: 0.45
+
+
+# ============================================================================
+# ELECTRONICS STORE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsCommercialLootElectronicsStore
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 42
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsCommercialLootSpawnerElectronicsStore
+  name: electronics store loot spawner
+  suffix: Commercial, Electronics Store, 3-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Misc/proximity_sensor.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsCommercialLootElectronicsStore
+      rolls: !type:RangeNumberSelector
+        range: 3, 8
+    offset: 0.45
+
+
+# ============================================================================
+# GROCERY STORE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsCommercialLootGroceryStore
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 62
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsCommercialLootSpawnerGroceryStore
+  name: grocery store loot spawner
+  suffix: Commercial, Grocery Store, 5-12
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsCommercialLootGroceryStore
+      rolls: !type:RangeNumberSelector
+        range: 5, 12
+    offset: 0.45
+
+
+# ============================================================================
+# RESTAURANT / DINER
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsCommercialLootRestaurantDiner
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 55
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsCommercialLootSpawnerRestaurantDiner
+  name: restaurant / diner loot spawner
+  suffix: Commercial, Restaurant / Diner, 4-10
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: coffeepot
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsCommercialLootRestaurantDiner
+      rolls: !type:RangeNumberSelector
+        range: 4, 10
+    offset: 0.45
+
+
+# ============================================================================
+# BAR
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsCommercialLootBar
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 34
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsCommercialLootSpawnerBar
+  name: bar loot spawner
+  suffix: Commercial, Bar, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: coffeepot
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsCommercialLootBar
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# PAWN SHOP
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsCommercialLootPawnShop
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsCommercialLootSpawnerPawnShop
+  name: pawn shop loot spawner
+  suffix: Commercial, Pawn Shop, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_gold
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsCommercialLootPawnShop
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# MECHANIC SHOP
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsCommercialLootMechanicShop
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 27
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsCommercialLootSpawnerMechanicShop
+  name: mechanic shop loot spawner
+  suffix: Commercial, Mechanic Shop, 5-10
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Tools/wrench.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsCommercialLootMechanicShop
+      rolls: !type:RangeNumberSelector
+        range: 5, 10
+    offset: 0.45
+
+
+# ============================================================================
+# GAS STATION
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsCommercialLootGasStation
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsCommercialLootSpawnerGasStation
+  name: gas station loot spawner
+  suffix: Commercial, Gas Station, 3-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: vault_113_canteen
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsCommercialLootGasStation
+      rolls: !type:RangeNumberSelector
+        range: 3, 8
+    offset: 0.45
+
+
+# ============================================================================
+# MIXED COMMERCIAL
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsCommercialLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsCommercialLootGeneralStore
+    - !type:NestedSelector
+      tableId: MisfitsCommercialLootHardwareStore
+    - !type:NestedSelector
+      tableId: MisfitsCommercialLootPharmacy
+    - !type:NestedSelector
+      tableId: MisfitsCommercialLootGunStore
+    - !type:NestedSelector
+      tableId: MisfitsCommercialLootClothingStore
+    - !type:NestedSelector
+      tableId: MisfitsCommercialLootElectronicsStore
+    - !type:NestedSelector
+      tableId: MisfitsCommercialLootGroceryStore
+    - !type:NestedSelector
+      tableId: MisfitsCommercialLootRestaurantDiner
+    - !type:NestedSelector
+      tableId: MisfitsCommercialLootBar
+    - !type:NestedSelector
+      tableId: MisfitsCommercialLootPawnShop
+    - !type:NestedSelector
+      tableId: MisfitsCommercialLootMechanicShop
+    - !type:NestedSelector
+      tableId: MisfitsCommercialLootGasStation
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsCommercialLootSpawnerAll
+  name: mixed commercial loot spawner
+  suffix: Commercial, Mixed, 5-10
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsCommercialLootAll
+      rolls: !type:RangeNumberSelector
+        range: 5, 10
+    offset: 0.45

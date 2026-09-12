@@ -1,0 +1,507 @@
+﻿# #Misfits Add - Law Enforcement location/context loot.
+#
+# These tables mix the existing category master tables.
+# Rarity is inherited from the underlying item-category tables.
+# Every mapper spawner is visible and uses offset: 0.45.
+#
+
+# ============================================================================
+# POLICE LOCKER
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsLawEnforcementLootPoliceLocker
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsLawEnforcementLootSpawnerPoliceLocker
+  name: police locker loot spawner
+  suffix: Law Enforcement, Police Locker, 1-3
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutcombat.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsLawEnforcementLootPoliceLocker
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+
+# ============================================================================
+# EVIDENCE LOCKER
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsLawEnforcementLootEvidenceLocker
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 3
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsLawEnforcementLootSpawnerEvidenceLocker
+  name: evidence locker loot spawner
+  suffix: Law Enforcement, Evidence Locker, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_red
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsLawEnforcementLootEvidenceLocker
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# POLICE ARMORY
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsLawEnforcementLootPoliceArmory
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 32
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsLawEnforcementLootSpawnerPoliceArmory
+  name: police armory loot spawner
+  suffix: Law Enforcement, Police Armory, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsLawEnforcementLootPoliceArmory
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# DETECTIVE OFFICE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsLawEnforcementLootDetectiveOffice
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 34
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsLawEnforcementLootSpawnerDetectiveOffice
+  name: detective office loot spawner
+  suffix: Law Enforcement, Detective Office, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_blue
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsLawEnforcementLootDetectiveOffice
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# HOLDING CELL
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsLawEnforcementLootHoldingCell
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 26
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsLawEnforcementLootSpawnerHoldingCell
+  name: holding cell loot spawner
+  suffix: Law Enforcement, Holding Cell, 1-4
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: tincan
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsLawEnforcementLootHoldingCell
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
+    offset: 0.45
+
+
+# ============================================================================
+# RIOT EQUIPMENT
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsLawEnforcementLootRiotEquipment
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 34
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsLawEnforcementLootSpawnerRiotEquipment
+  name: riot equipment loot spawner
+  suffix: Law Enforcement, Riot Equipment, 1-3
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutcombat.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsLawEnforcementLootRiotEquipment
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+
+# ============================================================================
+# CONTRABAND STORAGE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsLawEnforcementLootContrabandStorage
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 38
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsLawEnforcementLootSpawnerContrabandStorage
+  name: contraband storage loot spawner
+  suffix: Law Enforcement, Contraband Storage, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_red
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsLawEnforcementLootContrabandStorage
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# RECORDS ROOM
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsLawEnforcementLootRecordsRoom
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 62
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsLawEnforcementLootSpawnerRecordsRoom
+  name: records room loot spawner
+  suffix: Law Enforcement, Records Room, 3-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_blue
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsLawEnforcementLootRecordsRoom
+      rolls: !type:RangeNumberSelector
+        range: 3, 8
+    offset: 0.45
+
+
+# ============================================================================
+# MIXED LAW ENFORCEMENT
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsLawEnforcementLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsLawEnforcementLootPoliceLocker
+    - !type:NestedSelector
+      tableId: MisfitsLawEnforcementLootEvidenceLocker
+    - !type:NestedSelector
+      tableId: MisfitsLawEnforcementLootPoliceArmory
+    - !type:NestedSelector
+      tableId: MisfitsLawEnforcementLootDetectiveOffice
+    - !type:NestedSelector
+      tableId: MisfitsLawEnforcementLootHoldingCell
+    - !type:NestedSelector
+      tableId: MisfitsLawEnforcementLootRiotEquipment
+    - !type:NestedSelector
+      tableId: MisfitsLawEnforcementLootContrabandStorage
+    - !type:NestedSelector
+      tableId: MisfitsLawEnforcementLootRecordsRoom
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsLawEnforcementLootSpawnerAll
+  name: mixed law enforcement loot spawner
+  suffix: Law Enforcement, Mixed, 3-6
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/Head/FalloutHelmets/ncrhelmet3.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsLawEnforcementLootAll
+      rolls: !type:RangeNumberSelector
+        range: 3, 6
+    offset: 0.45

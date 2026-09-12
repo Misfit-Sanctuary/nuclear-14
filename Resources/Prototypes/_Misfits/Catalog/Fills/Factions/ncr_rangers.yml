@@ -1,0 +1,98 @@
+﻿# #Misfits Add - NCR Ranger rank-specific clothing lockers for mapping.
+
+- type: entity
+  id: MisfitsLockerNCRRangerRecruitClothing
+  name: NCR Ranger recruit locker
+  description: A locker containing spare clothing for a newly inducted NCR Ranger recruit.
+  suffix: Filled, NCR Rangers, Recruit, Clothing
+  parent: N14ClosetBaseW
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatRanger
+    - id: N14ClothingUniformRangerV1
+    - id: N14ClothingOuterNCRFlakVestOpen
+    - id: N14ClothingBootsLeather
+    - id: ClothingBeltRevolverdesertfilled
+
+- type: entity
+  id: MisfitsLockerNCRPatrolRangerClothing
+  name: NCR Patrol Ranger locker
+  description: A locker containing spare clothing for an NCR Patrol Ranger.
+  suffix: Filled, NCR Rangers, Patrol, Clothing
+  parent: N14ClosetBaseW
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatNCRPatrolRangerCampaign
+    - id: N14ClothingUniformNCRPatrolRanger
+    - id: N14ClothingOuterNCRPatrolRangerArmorVariant
+    - id: N14ClothingBootsLeather
+    - id: N14ClothingHandsGlovesBlackLeather
+    - id: ClothingEyesGlassesSunglasses
+    - id: ClothingBeltRevolverdesertfilled
+
+- type: entity
+  id: MisfitsLockerNCRFieldRangerClothing
+  name: NCR Field Ranger locker
+  description: A locker containing spare clothing and protective gear for an NCR Field Ranger.
+  suffix: Filled, NCR Rangers, Field, Clothing
+  parent: N14ClosetBaseW
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatRangerB
+    - id: N14ClothingUniformRangerV2
+    - id: N14ClothingBootsCombatFilled
+    - id: N14ClothingHandsGlovesBlackLeather
+    - id: ClothingMaskGasRangerDesert
+    - id: ClothingEyesGlassesSunglasses
+    - id: ClothingBeltRevolverdesertfilled
+
+- type: entity
+  id: MisfitsLockerNCRRangerClothing
+  name: NCR Ranger locker
+  description: A locker containing the traditional field uniform of an NCR Ranger.
+  suffix: Filled, NCR Rangers, Ranger, Clothing
+  parent: N14ClosetBaseW
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatRanger
+    - id: N14ClothingUniformRangerPatrol
+    - id: N14ClothingOuterRangerArmor
+    - id: N14ClothingBootsCombatFilled
+    - id: ClothingEyesGlassesSunglasses
+    - id: N14ClothingNeckCloakRangerPoncho
+    - id: ClothingBeltRevolverdesertfilled
+
+- type: entity
+  id: MisfitsLockerNCRVeteranRangerClothing
+  name: NCR Veteran Ranger locker
+  description: A locker containing the distinctive armor and clothing of an NCR Veteran Ranger.
+  suffix: Filled, NCR Rangers, Veteran, Clothing
+  parent: N14ClosetBaseW
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformRangerVeteran
+    - id: N14ClothingBootsCombatFilled
+    - id: N14ClothingHandsGlovesCombat
+    - id: ClothingEyesGlassesSunglasses
+    - id: N14ClothingNeckRangerDuster
+    - id: ClothingBeltRevolvervetfilled
+
+- type: entity
+  id: MisfitsLockerNCRChiefRangerClothing
+  name: NCR Chief Ranger locker
+  description: A high-value locker containing the issued field clothing and armor of an NCR Chief Ranger.
+  suffix: Filled, NCR Rangers, Chief, Clothing
+  parent: N14ClosetBaseW
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformRanger
+    - id: N14ClothingBootsCombatFilled
+    - id: N14ClothingHandsGlovesCombat
+    - id: ClothingEyesGlassesSunglasses
+    - id: ClothingBeltRevolvervetfilled

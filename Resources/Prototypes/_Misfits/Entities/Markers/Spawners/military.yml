@@ -1,0 +1,786 @@
+﻿# #Misfits Add - Military Locations location/context loot.
+#
+# These tables mix the existing category master tables.
+# Rarity is inherited from the underlying item-category tables.
+# Every mapper spawner is visible and uses offset: 0.45.
+#
+
+# ============================================================================
+# BARRACKS LOCKER
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLocationLootBarracksLocker
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 26
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 3
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMilitaryLocationLootSpawnerBarracksLocker
+  name: barracks locker loot spawner
+  suffix: Military Locations, Barracks Locker, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutcombat.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootBarracksLocker
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# QUARTERMASTER
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLocationLootQuartermaster
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMilitaryLocationLootSpawnerQuartermaster
+  name: quartermaster loot spawner
+  suffix: Military Locations, Quartermaster, 4-9
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/Head/FalloutHelmets/ncrhelmet3.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootQuartermaster
+      rolls: !type:RangeNumberSelector
+        range: 4, 9
+    offset: 0.45
+
+
+# ============================================================================
+# ARMORY
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLocationLootArmory
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 28
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMilitaryLocationLootSpawnerArmory
+  name: armory loot spawner
+  suffix: Military Locations, Armory, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootArmory
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# AMMUNITION STORAGE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLocationLootAmmunitionStorage
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 58
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMilitaryLocationLootSpawnerAmmunitionStorage
+  name: ammunition storage loot spawner
+  suffix: Military Locations, Ammunition Storage, 4-10
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootAmmunitionStorage
+      rolls: !type:RangeNumberSelector
+        range: 4, 10
+    offset: 0.45
+
+
+# ============================================================================
+# MOTOR POOL
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLocationLootMotorPool
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMilitaryLocationLootSpawnerMotorPool
+  name: motor pool loot spawner
+  suffix: Military Locations, Motor Pool, 4-9
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Tools/wrench.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootMotorPool
+      rolls: !type:RangeNumberSelector
+        range: 4, 9
+    offset: 0.45
+
+
+# ============================================================================
+# COMMUNICATIONS ROOM
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLocationLootCommunicationsRoom
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 34
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMilitaryLocationLootSpawnerCommunicationsRoom
+  name: communications room loot spawner
+  suffix: Military Locations, Communications Room, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_blue
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootCommunicationsRoom
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# COMMAND OFFICE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLocationLootCommandOffice
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMilitaryLocationLootSpawnerCommandOffice
+  name: command office loot spawner
+  suffix: Military Locations, Command Office, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_yellow
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootCommandOffice
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# FIELD HOSPITAL
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLocationLootFieldHospital
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 48
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMilitaryLocationLootSpawnerFieldHospital
+  name: field hospital loot spawner
+  suffix: Military Locations, Field Hospital, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootFieldHospital
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# CHECKPOINT
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLocationLootCheckpoint
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMilitaryLocationLootSpawnerCheckpoint
+  name: checkpoint loot spawner
+  suffix: Military Locations, Checkpoint, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/Head/FalloutHelmets/ncrhelmet3.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootCheckpoint
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# BUNKER STORAGE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLocationLootBunkerStorage
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMilitaryLocationLootSpawnerBunkerStorage
+  name: bunker storage loot spawner
+  suffix: Military Locations, Bunker Storage, 5-11
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootBunkerStorage
+      rolls: !type:RangeNumberSelector
+        range: 5, 11
+    offset: 0.45
+
+
+# ============================================================================
+# ABANDONED BATTLEFIELD
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLocationLootAbandonedBattlefield
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMilitaryLocationLootSpawnerAbandonedBattlefield
+  name: abandoned battlefield loot spawner
+  suffix: Military Locations, Abandoned Battlefield, 4-10
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: scrap_2
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootAbandonedBattlefield
+      rolls: !type:RangeNumberSelector
+        range: 4, 10
+    offset: 0.45
+
+
+# ============================================================================
+# MILITARY INTELLIGENCE OFFICE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLocationLootMilitaryIntelligenceOffice
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 36
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMilitaryLocationLootSpawnerMilitaryIntelligenceOffice
+  name: military intelligence office loot spawner
+  suffix: Military Locations, Military Intelligence Office, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_red
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootMilitaryIntelligenceOffice
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# MIXED MILITARY LOCATIONS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMilitaryLocationLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootBarracksLocker
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootQuartermaster
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootArmory
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootAmmunitionStorage
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootMotorPool
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootCommunicationsRoom
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootCommandOffice
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootFieldHospital
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootCheckpoint
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootBunkerStorage
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootAbandonedBattlefield
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootMilitaryIntelligenceOffice
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMilitaryLocationLootSpawnerAll
+  name: mixed military locations loot spawner
+  suffix: Military Locations, Mixed, 4-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/Head/FalloutHelmets/ncrhelmet3.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMilitaryLocationLootAll
+      rolls: !type:RangeNumberSelector
+        range: 4, 8
+    offset: 0.45

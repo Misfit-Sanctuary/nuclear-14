@@ -1,0 +1,535 @@
+﻿# #Misfits Add - Science / Laboratory loot tables and mapper spawners.
+#
+# Five internal rarity tiers:
+# Common 50%, Uncommon 27%, Rare 14%, Very Rare 7%, Legendary 2%.
+#
+# Visible mapper markers; spawned loot uses offset: 0.45.
+# Lists are ordered from lower-value/common items toward rarer items.
+#
+
+# ============================================================================
+# LABORATORY SUPPLIES
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsScienceLootLaboratorySupplies
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: BoxBeaker
+        weight: 3
+      - !type:EntSelector
+        id: BoxVial
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: BoxBottle
+        weight: 3
+      - !type:EntSelector
+        id: Dropper
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: Jug
+        weight: 3
+      - !type:EntSelector
+        id: HandLabeler
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: ClothingHandsGlovesChemist
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: ClothingEyesGlassesChemist
+        weight: 3
+
+
+# ============================================================================
+# CHEMICALS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsScienceLootChemicals
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Ethanol
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsAntibioticsChemistryBottle
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: MisfitsRushingWaterChemistryBottle
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsBloodShieldChemistryBottle
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: MisfitsFieryPurgativeChemistryBottle
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsRadShieldChemistryBottle
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: MisfitsX111CompoundChemistryBottle
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: MisfitsLazarusCompoundChemistryBottle
+        weight: 3
+
+
+# ============================================================================
+# GLASSWARE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsScienceLootGlassware
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: BoxBeaker
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: BoxVial
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: BoxBottle
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: Dropper
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: Jug
+        weight: 3
+
+
+# ============================================================================
+# RESEARCH EQUIPMENT
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsScienceLootResearchEquipment
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: HandLabeler
+        weight: 3
+      - !type:EntSelector
+        id: N14MortarpestleGrinder
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: GeigerCounter
+        weight: 3
+      - !type:EntSelector
+        id: HandHeldMassScanner
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14HandheldHealthAnalyzer
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14Multitool
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: PowerCellHigh
+        weight: 3
+
+
+# ============================================================================
+# BIOLOGICAL SAMPLES
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsScienceLootBiologicalSamples
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: Bloodpack
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: MisfitsGlowingBloodPack
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14FoodMeatGeckoCooked
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14FoodMeatRadscorpionCooked
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14FoodMeatRadstagCooked
+        weight: 3
+
+
+# ============================================================================
+# EXPERIMENTAL COMPONENTS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsScienceLootExperimentalComponents
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentSensorModule
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentCapacitor1
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentBoard3
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentMainboard
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: MicroManipulatorStockPart
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: MatterBinStockPart
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: PowerCellHigh
+        weight: 3
+
+
+# ============================================================================
+# RARE RESEARCH LOOT
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsScienceLootRareResearchLoot
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: HandHeldMassScanner
+        weight: 3
+      - !type:EntSelector
+        id: N14HandheldHealthAnalyzer
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: PowerCellHigh
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: MisfitsX111CompoundChemistryBottle
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: MisfitsLazarusCompoundChemistryBottle
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: RCD
+        weight: 3
+
+
+# ============================================================================
+# MASTER SCIENCE / LABORATORY TABLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsScienceLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootLaboratorySupplies
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootChemicals
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootGlassware
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootResearchEquipment
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootBiologicalSamples
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootExperimentalComponents
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootRareResearchLoot
+      weight: 2
+
+
+# ============================================================================
+# VISIBLE MAPPER SPAWNER BASE
+# ============================================================================
+
+- type: entity
+  abstract: true
+  name: science / laboratory loot spawner
+  id: MisfitsScienceLootSpawnerBase
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Misc/proximity_sensor.rsi
+      state: icon
+
+- type: entity
+  parent: MisfitsScienceLootSpawnerBase
+  id: MisfitsScienceLootSpawnerLaboratorySupplies
+  name: laboratory supplies loot spawner
+  suffix: Misfits, Laboratory Supplies, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsScienceLootLaboratorySupplies
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsScienceLootSpawnerBase
+  id: MisfitsScienceLootSpawnerChemicals
+  name: chemicals loot spawner
+  suffix: Misfits, Chemicals, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsScienceLootChemicals
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsScienceLootSpawnerBase
+  id: MisfitsScienceLootSpawnerGlassware
+  name: glassware loot spawner
+  suffix: Misfits, Glassware, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsScienceLootGlassware
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsScienceLootSpawnerBase
+  id: MisfitsScienceLootSpawnerResearchEquipment
+  name: research equipment loot spawner
+  suffix: Misfits, Research Equipment, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsScienceLootResearchEquipment
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsScienceLootSpawnerBase
+  id: MisfitsScienceLootSpawnerBiologicalSamples
+  name: biological samples loot spawner
+  suffix: Misfits, Biological Samples, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsScienceLootBiologicalSamples
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsScienceLootSpawnerBase
+  id: MisfitsScienceLootSpawnerExperimentalComponents
+  name: experimental components loot spawner
+  suffix: Misfits, Experimental Components, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsScienceLootExperimentalComponents
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsScienceLootSpawnerBase
+  id: MisfitsScienceLootSpawnerRareResearchLoot
+  name: rare research loot loot spawner
+  suffix: Misfits, Rare Research Loot, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsScienceLootRareResearchLoot
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsScienceLootSpawnerBase
+  id: MisfitsScienceLootSpawnerAll
+  name: mixed science / laboratory loot spawner
+  suffix: Misfits, Mixed, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45

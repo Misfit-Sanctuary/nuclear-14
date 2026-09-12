@@ -1,0 +1,570 @@
+﻿# #Misfits Add - Material loot tables and mapper spawners
+#
+# Rarity weights:
+# Common 50, Uncommon 27, Rare 14, Very Rare 7, Legendary 2
+#
+# All mapper markers are visible.
+# Spawned loot uses offset: 0.45.
+
+# ============================================================================
+# BUILDING MATERIALS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMaterialLootBuilding
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector # Common
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: SheetSteel1
+        weight: 4
+      - !type:EntSelector
+        id: SheetPlastic1
+        weight: 3
+      - !type:EntSelector
+        id: SheetGlass1
+        weight: 3
+      - !type:EntSelector
+        id: MaterialWoodPlank1
+        weight: 3
+
+    - !type:GroupSelector # Uncommon
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: MaterialWoodPlank2
+        weight: 3
+      - !type:EntSelector
+        id: SheetSteel15
+        weight: 2
+      - !type:EntSelector
+        id: SheetPlastic15
+        weight: 2
+
+    - !type:GroupSelector # Rare
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: SheetGlass15
+        weight: 3
+      - !type:EntSelector
+        id: MaterialWoodPlank15
+        weight: 2
+      - !type:EntSelector
+        id: MaterialCloth15
+
+    - !type:GroupSelector # Very Rare
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: SheetSteel
+        weight: 3
+      - !type:EntSelector
+        id: SheetPlastic
+        weight: 2
+      - !type:EntSelector
+        id: SheetGlass
+
+    - !type:GroupSelector # Legendary
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: MaterialWoodPlank
+        weight: 2
+      - !type:EntSelector
+        id: SheetSteel
+
+
+# ============================================================================
+# METAL INGOTS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMaterialLootMetals
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14IngotIron5
+        weight: 4
+      - !type:EntSelector
+        id: N14IngotAluminum5
+        weight: 4
+      - !type:EntSelector
+        id: N14IngotLead5
+        weight: 3
+
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14IngotCopper5
+        weight: 3
+      - !type:EntSelector
+        id: N14IngotBrass5
+        weight: 3
+      - !type:EntSelector
+        id: N14IngotIron10
+        weight: 2
+      - !type:EntSelector
+        id: N14IngotAluminum10
+        weight: 2
+
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14IngotLead10
+        weight: 3
+      - !type:EntSelector
+        id: N14IngotCopper10
+        weight: 2
+      - !type:EntSelector
+        id: N14IngotBrass10
+        weight: 2
+
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14IngotSilver5
+        weight: 3
+      - !type:EntSelector
+        id: N14IngotGold5
+
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14IngotSilver10
+        weight: 2
+      - !type:EntSelector
+        id: N14IngotGold10
+
+
+# ============================================================================
+# ORGANIC / TEXTILE MATERIALS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMaterialLootOrganic
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14MaterialThread5
+        weight: 4
+      - !type:EntSelector
+        id: N14MaterialRawLeather5
+        weight: 3
+      - !type:EntSelector
+        id: N14MaterialLeather5
+        weight: 3
+
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14MaterialThread10
+        weight: 3
+      - !type:EntSelector
+        id: N14MaterialRawLeather10
+        weight: 2
+      - !type:EntSelector
+        id: N14MaterialLeather10
+        weight: 2
+
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: MaterialCloth15
+        weight: 3
+      - !type:EntSelector
+        id: N14MaterialAntChitin1
+        weight: 2
+
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14MaterialExoskeleton
+        weight: 2
+      - !type:EntSelector
+        id: N14MaterialAntChitin1
+
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14MaterialExoskeleton
+
+
+# ============================================================================
+# CIRCUITRY / TECH MATERIALS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMaterialLootCircuitry
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14MaterialCircuitry1
+        weight: 4
+      - !type:EntSelector
+        id: N14ScrapElectronic1
+        weight: 3
+
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14MaterialCircuitry5
+        weight: 4
+      - !type:EntSelector
+        id: N14ScrapElectronic5
+        weight: 3
+
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14MaterialCircuitry10
+        weight: 3
+      - !type:EntSelector
+        id: N14ScrapElectronic10
+        weight: 2
+
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentBoard3
+        weight: 2
+      - !type:EntSelector
+        id: N14JunkComponentSensorModule
+
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentMainboard
+
+
+# ============================================================================
+# POWDERS / PROCESSING MATERIALS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMaterialLootPowders
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: Charcoal1
+        weight: 4
+      - !type:EntSelector
+        id: SulfurPowder1
+        weight: 3
+
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: Charcoal5
+        weight: 3
+      - !type:EntSelector
+        id: N14Gunpowder1
+        weight: 2
+
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: Charcoal10
+        weight: 3
+      - !type:EntSelector
+        id: SulfurPowder10
+        weight: 2
+
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14Gunpowder10
+        weight: 2
+      - !type:EntSelector
+        id: SulfurPowder10
+
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14Gunpowder10
+
+
+# ============================================================================
+# RARE MATERIALS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMaterialLootRare
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14IngotCopper5
+        weight: 3
+      - !type:EntSelector
+        id: N14IngotBrass5
+        weight: 3
+      - !type:EntSelector
+        id: N14MaterialCircuitry5
+
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14IngotSilver5
+        weight: 3
+      - !type:EntSelector
+        id: N14MaterialExoskeleton
+        weight: 2
+      - !type:EntSelector
+        id: N14MaterialCircuitry10
+
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14IngotGold5
+        weight: 3
+      - !type:EntSelector
+        id: N14IngotSilver10
+        weight: 2
+
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14IngotGold10
+        weight: 2
+      - !type:EntSelector
+        id: N14JunkComponentMainboard
+
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14IngotGold10
+        weight: 2
+      - !type:EntSelector
+        id: N14JunkComponentMainboard
+
+
+# ============================================================================
+# MASTER MATERIAL TABLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMaterialLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootBuilding
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootMetals
+      weight: 25
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootOrganic
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootCircuitry
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootPowders
+      weight: 13
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootRare
+      weight: 5
+
+
+# ============================================================================
+# MATERIAL SPAWNERS
+# ============================================================================
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMaterialLootSpawnerBuilding
+  name: building material loot spawner
+  suffix: Materials, Building, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_iron
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMaterialLootBuilding
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMaterialLootSpawnerMetals
+  name: metal material loot spawner
+  suffix: Materials, Metals, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_aluminum
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMaterialLootMetals
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMaterialLootSpawnerOrganic
+  name: organic material loot spawner
+  suffix: Materials, Organic, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: leather_3
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMaterialLootOrganic
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMaterialLootSpawnerCircuitry
+  name: circuitry material loot spawner
+  suffix: Materials, Circuitry, 2-4
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: circuits_3
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMaterialLootCircuitry
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMaterialLootSpawnerPowders
+  name: powder material loot spawner
+  suffix: Materials, Powders, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: powder_lead
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMaterialLootPowders
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMaterialLootSpawnerRare
+  name: rare material loot spawner
+  suffix: Materials, Rare, 1-3
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_gold
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMaterialLootRare
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMaterialLootSpawnerSmall
+  name: mixed material loot spawner
+  suffix: Materials, Small, 2-4
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_copper
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMaterialLootSpawnerMedium
+  name: mixed material loot spawner
+  suffix: Materials, Medium, 5-9
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_copper
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      rolls: !type:RangeNumberSelector
+        range: 5, 9
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMaterialLootSpawnerLarge
+  name: mixed material loot spawner
+  suffix: Materials, Large, 10-16
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_copper
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      rolls: !type:RangeNumberSelector
+        range: 10, 16
+    offset: 0.45

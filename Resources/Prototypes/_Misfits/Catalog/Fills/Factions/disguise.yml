@@ -1,0 +1,79 @@
+﻿# ---------------------------------------------------------------------------
+# DISGUISE LOCKER
+# ---------------------------------------------------------------------------
+
+- type: entity
+  id: MisfitsLockerDisguiseWasteland
+  name: wasteland disguise locker
+  description: A shared locker containing false wastelander identities, inconspicuous communications gear, and clothing for assembling several different cover identities.
+  suffix: Filled, Disguise, Wasteland, 4-Person
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    # Identity and communications gear for a team of up to four.
+    - id: N14ClothingNeckDogtags
+      amount: 4
+    - id: MisfitsClothingHeadsetWastelandScrap
+      amount: 4
+    - id: RadioHandheld
+      amount: 4
+
+    # Civilian, caravan, worker, medical, and rough wastelander covers.
+    - id: N14ClothingUniformJumpsuitSettlerRags
+    - id: N14ClothingUniformJumpsuitRags
+    - id: N14ClothingUniformJumpsuitPreWarCasual
+    - id: N14ClothingUniformJumpsuitPreWarLumberjack
+    - id: N14ClothingUniformJumpsuitBrahminFarmer
+    - id: N14ClothingUniformJumpsuitCaravan
+    - id: N14ClothingUniformJumpsuitMerchant
+    - id: N14ClothingUniformJumpsuitTrader
+    - id: N14ClothingUniformJumpsuitMechanic
+    - id: N14ClothingUniformJumpsuitWastelandDoc
+    - id: N14ClothingUniformJumpskirtWastelandDoc
+    - id: N14ClothingUniformJumpsuitMerc
+
+    # Tribal covers.
+    - id: N14ClothingUniformJumpsuitTribal
+    - id: N14ClothingUniformJumpskirtTribal
+    - id: N14ClothingUniformJumpsuitdrylanderTribal
+    - id: N14ClothingUniformJumpsuittribalpantsm
+    - id: N14ClothingUniformJumpsuittribalpantsf
+    - id: N14ClothingUniformJumpsuittribalpantsnecklace
+
+    # Coats, hats, masks, and gloves for changing silhouettes.
+    - id: N14ClothingOuterCoatDuster
+    - id: N14ClothingOuterCoatLeatherDuster
+    - id: N14ClothingOuterBattlecoatTan
+    - id: N14ClothingOuterCoatFollowerLab
+    - id: N14ClothingHeadHatBaseball
+    - id: N14ClothingHeadHatCowboyGrey
+    - id: N14ClothingHeadHatCowboyBrown
+    - id: N14ClothingHeadHatBandit
+    - id: N14ClothingHeadHatTribalOutcastHood
+    - id: N14ClothingMaskRedMask
+    - id: N14ClothingMaskDesertMask
+    - id: N14ClothingHandsGlovesLeather
+      amount: 2
+    - id: N14ClothingHandsGlovesDriver
+      amount: 2
+    - id: N14ClothingHandsGlovesNitrile
+      amount: 2
+
+    # Interchangeable eyewear.
+    - id: N14ClothingEyesGlasses
+    - id: N14ClothingEyesSunGlasses
+    - id: N14ClothingEyesGlassesGoggles
+    - id: N14ClothingEyesGlassesPilot
+    - id: N14ClothingEyesGlassesWelding
+    - id: ClothingEyesEyepatch
+
+    # Mixed footwear and utility belts.
+    - id: N14ClothingBootsLeather
+      amount: 2
+    - id: N14ClothingBootsCowboy
+    - id: N14ClothingShoesTribal
+      amount: 2
+    - id: N14ClothingShoesRags
+    - id: ClothingBeltUtility
+      amount: 2

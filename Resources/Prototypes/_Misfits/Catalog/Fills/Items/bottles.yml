@@ -1,0 +1,654 @@
+﻿# Misfits - medicine chemistry bottles
+#
+# Chemistry bottles are 30u stock containers for medics and chemists.
+# They are NOT a recommendation to administer the full 30u at once.
+#
+# Topical-only medicines use their stackable topical entities instead.
+# Glowing Blood Pack remains a transfusion bag.
+# Poisons are deliberately not included in this medical stock file.
+#
+# ANTIBIOTICS
+- type: entity
+  id: MisfitsAntibioticsChemistryBottle
+  name: antibiotics bottle
+  description: A broad-spectrum antimicrobial treatment intended for serious or uncertain infections.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: antibiotics 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsAntibiotics
+          Quantity: 30
+
+# RAD SHIELD
+- type: entity
+  id: MisfitsRadShieldChemistryBottle
+  name: rad shield bottle
+  description: A potent radioprotective compound that shields the body from incoming radiation without removing contamination already absorbed.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: rad shield 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsRadShield
+          Quantity: 30
+
+# X-111 COMPOUND
+- type: entity
+  id: MisfitsX111CompoundChemistryBottle
+  name: x-111 compound bottle
+  description: An advanced emergency radiological treatment that strips large amounts of radiation from the body very quickly.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: x-111 compound 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsX111Compound
+          Quantity: 30
+
+# RUSHING WATER
+- type: entity
+  id: MisfitsRushingWaterChemistryBottle
+  name: rushing water bottle
+  description: A circulation-stimulating treatment specialized for cold injury, with a small mobility boost.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: rushing water 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsRushingWater
+          Quantity: 30
+
+# BLOOD SHIELD
+- type: entity
+  id: MisfitsBloodShieldChemistryBottle
+  name: blood shield bottle
+  description: A penetrating-trauma medicine specialized for piercing wounds, blood loss, and persistent bleeding.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: blood shield 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsBloodShield
+          Quantity: 30
+
+# FIERY PURGATIVE
+- type: entity
+  id: MisfitsFieryPurgativeChemistryBottle
+  name: fiery purgative bottle
+  description: A harsh wasteland purgative used to clear poisons and radiation at the cost of nausea and weakness.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: fiery purgative 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsFieryPurgative
+          Quantity: 30
+
+# REFRESHING BEVERAGE
+- type: entity
+  id: MisfitsRefreshingBeverageChemistryBottle
+  name: refreshing beverage bottle
+  description: A premium detox and recovery drink for toxins, radiation exposure, respiratory stress, and withdrawal.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: refreshing beverage 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsRefreshingBeverage
+          Quantity: 30
+
+# HERBAL STIMULANT
+- type: entity
+  id: MisfitsHerbalStimulantChemistryBottle
+  name: herbal stimulant bottle
+  description: A sharp herbal stimulant used to drive away drowsiness and keep an exhausted patient moving.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: herbal stimulant 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsHerbalStimulant
+          Quantity: 30
+
+# SKEETO SPIT
+- type: entity
+  id: MisfitsSkeetoSpitChemistryBottle
+  name: skeeto spit bottle
+  description: A crude endurance tonic made from wasteland ingredients.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: skeeto spit 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsSkeetoSpit
+          Quantity: 30
+
+# PENICILLIN
+- type: entity
+  id: MisfitsPenicillinChemistryBottle
+  name: penicillin bottle
+  description: A classic antibacterial medicine intended for susceptible bacterial infections.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: penicillin 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsPenicillin
+          Quantity: 30
+
+# PRUSSIAN BLUE
+- type: entity
+  id: MisfitsPrussianBlueChemistryBottle
+  name: prussian blue bottle
+  description: A slow radiological binding treatment used to clear radioactive contamination.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: prussian blue 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsPrussianBlue
+          Quantity: 30
+
+# PILGRIM'S REMEDY
+- type: entity
+  id: MisfitsPilgrimsRemedyChemistryBottle
+  name: pilgrim's remedy bottle
+  description: A weak low-tech general remedy for minor injuries, toxins, and radiation exposure.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: pilgrim's remedy 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsPilgrimsRemedy
+          Quantity: 30
+
+# FURY
+- type: entity
+  id: MisfitsFuryChemistryBottle
+  name: fury bottle
+  description: A violent combat chem that dramatically increases close-quarters performance and pain tolerance.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: fury 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsFury
+          Quantity: 30
+
+# CALMEX
+- type: entity
+  id: MisfitsCalmexChemistryBottle
+  name: calmex bottle
+  description: A refined performance drug that sharpens perception and coordination while producing an unnatural calm.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: calmex 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsCalmex
+          Quantity: 30
+
+# OVERDRIVE
+- type: entity
+  id: MisfitsOverdriveChemistryBottle
+  name: overdrive bottle
+  description: A potent combat stimulant designed to push physical and combat performance beyond safe limits.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: overdrive 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsOverdrive
+          Quantity: 30
+
+# X-CELL
+- type: entity
+  id: MisfitsXCellChemistryBottle
+  name: x-cell bottle
+  description: A rare pre-war prototype chem that temporarily enhances nearly every SPECIAL attribute.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: x-cell 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsXCell
+          Quantity: 30
+
+# CRANK
+- type: entity
+  id: MisfitsCrankChemistryBottle
+  name: crank bottle
+  description: A harsh improvised stimulant that increases speed and wakefulness while placing strain on the body.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: crank 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsCrank
+          Quantity: 30
+
+# LAZARUS COMPOUND
+- type: entity
+  id: MisfitsLazarusCompoundChemistryBottle
+  name: lazarus compound bottle
+  description: A last-resort critical-care drug that restores breathing and circulation without repairing the underlying wounds.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: lazarus compound 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsLazarusCompound
+          Quantity: 30
+
+# CLEARWAKE
+- type: entity
+  id: MisfitsClearwakeChemistryBottle
+  name: clearwake bottle
+  description: An emergency wakefulness and neurological-support drug that also treats electrical shock injury.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: clearwake 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsClearwake
+          Quantity: 30
+
+# WIDOWBANE
+- type: entity
+  id: MisfitsWidowbaneChemistryBottle
+  name: widowbane bottle
+  description: A specialized antidote formulated to neutralize widow's mercy.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: widowbane 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsWidowbane
+          Quantity: 30
+
+# CINDER SERUM
+- type: entity
+  id: MisfitsCinderSerumChemistryBottle
+  name: cinder serum bottle
+  description: A specialized antidote designed to neutralize red bell poison.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: cinder serum 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsCinderSerum
+          Quantity: 30
+
+# GRAVESALT
+- type: entity
+  id: MisfitsGravesaltChemistryBottle
+  name: gravesalt bottle
+  description: A brutal broad-spectrum emergency purge for dangerous wasteland venoms and poisons.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: gravesalt 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsGravesalt
+          Quantity: 30
+
+# CLEARHEAD
+- type: entity
+  id: MisfitsClearheadChemistryBottle
+  name: clearhead bottle
+  description: An entry-level psychiatric stabilizer used for mild drug haze and perceptual disturbances.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: clearhead 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsClearhead
+          Quantity: 30
+
+# CHLORPROMAZINE
+- type: entity
+  id: MisfitsChlorpromazineChemistryBottle
+  name: chlorpromazine bottle
+  description: A sedating antipsychotic used for agitation, delirium, and hallucination-like effects.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: chlorpromazine 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsChlorpromazine
+          Quantity: 30
+
+# LUCIDINE
+- type: entity
+  id: MisfitsLucidineChemistryBottle
+  name: lucidine bottle
+  description: A refined neural stabilizer intended for persistent perceptual disturbances with less sedation.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: lucidine 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsLucidine
+          Quantity: 30
+
+# PSYCHOCLINE
+- type: entity
+  id: MisfitsPsychoclineChemistryBottle
+  name: psychocline bottle
+  description: A powerful emergency psychiatric drug for severe delirium and psychotic episodes.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: psychocline 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsPsychocline
+          Quantity: 30
+
+# NEUROSTATIC
+- type: entity
+  id: MisfitsNeurostaticChemistryBottle
+  name: neurostatic bottle
+  description: An advanced long-duration neurological stabilizer with little routine sedation.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: neurostatic 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsNeurostatic
+          Quantity: 30
+
+# WILLOWBARK ANALGESIC
+- type: entity
+  id: MisfitsWillowbarkChemistryBottle
+  name: willowbark analgesic bottle
+  description: A simple low-tech analgesic that suppresses persistent pain.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: willowbark analgesic 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsWillowbark
+          Quantity: 30
+
+# ANODYNE
+- type: entity
+  id: MisfitsAnodyneChemistryBottle
+  name: anodyne bottle
+  description: A basic clinical painkiller that suppresses chronic pain with mild sedation.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: anodyne 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsAnodyne
+          Quantity: 30
+
+# ANALGESINE
+- type: entity
+  id: MisfitsAnalgesineChemistryBottle
+  name: analgesine bottle
+  description: A refined long-lasting analgesic for persistent pain.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: analgesine 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsAnalgesine
+          Quantity: 30
+
+# NERVEBLOCK
+- type: entity
+  id: MisfitsNerveblockChemistryBottle
+  name: nerveblock bottle
+  description: A heavy nerve-blocking analgesic that strongly suppresses pain but can slow the patient.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: nerveblock 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsNerveblock
+          Quantity: 30
+
+# TRAUMADOL
+- type: entity
+  id: MisfitsTraumadolChemistryBottle
+  name: traumadol bottle
+  description: A battlefield analgesic focused on pain control and hemorrhage support rather than wound repair.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: traumadol 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsTraumadol
+          Quantity: 30
+
+# ANESTHEZINE
+- type: entity
+  id: MisfitsAnesthezineChemistryBottle
+  name: anesthezine bottle
+  description: A surgical anesthetic that produces profound pain suppression and heavy sedation.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: anesthezine 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsAnesthezine
+          Quantity: 30
+
+# NEUROBLOCK
+- type: entity
+  id: MisfitsNeuroblockChemistryBottle
+  name: neuroblock bottle
+  description: A high-grade long-duration neural analgesic with relatively little routine sedation.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: neuroblock 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsNeuroblock
+          Quantity: 30
+
+# NEUROREGULINE
+- type: entity
+  id: MisfitsNeuroregulineChemistryBottle
+  name: neuroreguline bottle
+  description: An experimental neural regulator combining prolonged pain suppression with neurological stabilization.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: neuroreguline 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsNeuroreguline
+          Quantity: 30
+
+# VIGILAZINE
+- type: entity
+  id: MisfitsVigilazineChemistryBottle
+  name: vigilazine bottle
+  description: A short-acting narcolepsy medicine that delays sleep attacks without acting like a full combat stimulant.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: vigilazine 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsVigilazine
+          Quantity: 30
+
+# WAKEGUARD
+- type: entity
+  id: MisfitsWakeguardChemistryBottle
+  name: wakeguard bottle
+  description: A maintenance drug that keeps narcoleptic sleep attacks at bay for an extended period.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: wakeguard 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsWakeguard
+          Quantity: 30
+
+# SOMNOREGULINE
+- type: entity
+  id: MisfitsSomnoregulineChemistryBottle
+  name: somnoreguline bottle
+  description: An advanced long-duration sleep-regulation medicine that can also break through forced sleep.
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: somnoreguline 30u
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: MisfitsSomnoreguline
+          Quantity: 30

@@ -1,0 +1,663 @@
+﻿# #Misfits Add - Vault Loot location/context loot.
+#
+# These tables mix the existing category master tables.
+# Rarity is inherited from the underlying item-category tables.
+# Every mapper spawner is visible and uses offset: 0.45.
+#
+
+# ============================================================================
+# VAULT RESIDENTIAL
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVaultLootVaultResidential
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVaultLootSpawnerVaultResidential
+  name: vault residential loot spawner
+  suffix: Vault Loot, Vault Residential, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVaultLootVaultResidential
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# VAULT MAINTENANCE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVaultLootVaultMaintenance
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 25
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 21
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVaultLootSpawnerVaultMaintenance
+  name: vault maintenance loot spawner
+  suffix: Vault Loot, Vault Maintenance, 4-9
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Tools/wrench.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVaultLootVaultMaintenance
+      rolls: !type:RangeNumberSelector
+        range: 4, 9
+    offset: 0.45
+
+
+# ============================================================================
+# VAULT SECURITY
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVaultLootVaultSecurity
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 25
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVaultLootSpawnerVaultSecurity
+  name: vault security loot spawner
+  suffix: Vault Loot, Vault Security, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutcombat.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVaultLootVaultSecurity
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# VAULT MEDICAL
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVaultLootVaultMedical
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 50
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVaultLootSpawnerVaultMedical
+  name: vault medical loot spawner
+  suffix: Vault Loot, Vault Medical, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVaultLootVaultMedical
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# VAULT SCIENCE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVaultLootVaultScience
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 38
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVaultLootSpawnerVaultScience
+  name: vault science loot spawner
+  suffix: Vault Loot, Vault Science, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Misc/proximity_sensor.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVaultLootVaultScience
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# VAULT HYDROPONICS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVaultLootVaultHydroponics
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 36
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 13
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVaultLootSpawnerVaultHydroponics
+  name: vault hydroponics loot spawner
+  suffix: Vault Loot, Vault Hydroponics, 4-9
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: vault_113_canteen
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVaultLootVaultHydroponics
+      rolls: !type:RangeNumberSelector
+        range: 4, 9
+    offset: 0.45
+
+
+# ============================================================================
+# VAULT OVERSEER
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVaultLootVaultOverseer
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVaultLootSpawnerVaultOverseer
+  name: vault overseer loot spawner
+  suffix: Vault Loot, Vault Overseer, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_yellow
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVaultLootVaultOverseer
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# VAULT EMERGENCY CACHE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVaultLootVaultEmergencyCache
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 17
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVaultLootSpawnerVaultEmergencyCache
+  name: vault emergency cache loot spawner
+  suffix: Vault Loot, Vault Emergency Cache, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: vault_113_canteen
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVaultLootVaultEmergencyCache
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# SEALED VAULT STORAGE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVaultLootSealedVaultStorage
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 13
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVaultLootSpawnerSealedVaultStorage
+  name: sealed vault storage loot spawner
+  suffix: Vault Loot, Sealed Vault Storage, 3-6
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_green
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVaultLootSealedVaultStorage
+      rolls: !type:RangeNumberSelector
+        range: 3, 6
+    offset: 0.45
+
+
+# ============================================================================
+# ABANDONED VAULT
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVaultLootAbandonedVault
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVaultLootSpawnerAbandonedVault
+  name: abandoned vault loot spawner
+  suffix: Vault Loot, Abandoned Vault, 4-10
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_red
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVaultLootAbandonedVault
+      rolls: !type:RangeNumberSelector
+        range: 4, 10
+    offset: 0.45
+
+
+# ============================================================================
+# MIXED VAULT LOOT
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVaultLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsVaultLootVaultResidential
+    - !type:NestedSelector
+      tableId: MisfitsVaultLootVaultMaintenance
+    - !type:NestedSelector
+      tableId: MisfitsVaultLootVaultSecurity
+    - !type:NestedSelector
+      tableId: MisfitsVaultLootVaultMedical
+    - !type:NestedSelector
+      tableId: MisfitsVaultLootVaultScience
+    - !type:NestedSelector
+      tableId: MisfitsVaultLootVaultHydroponics
+    - !type:NestedSelector
+      tableId: MisfitsVaultLootVaultOverseer
+    - !type:NestedSelector
+      tableId: MisfitsVaultLootVaultEmergencyCache
+    - !type:NestedSelector
+      tableId: MisfitsVaultLootSealedVaultStorage
+    - !type:NestedSelector
+      tableId: MisfitsVaultLootAbandonedVault
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVaultLootSpawnerAll
+  name: mixed vault loot loot spawner
+  suffix: Vault Loot, Mixed, 4-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_blue
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVaultLootAll
+      rolls: !type:RangeNumberSelector
+        range: 4, 8
+    offset: 0.45

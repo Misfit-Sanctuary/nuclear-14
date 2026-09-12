@@ -1,0 +1,558 @@
+﻿# #Misfits Add - Residential / Civilian location/context loot.
+#
+# These tables mix the existing category master tables.
+# Rarity is inherited from the underlying item-category tables.
+# Every mapper spawner is visible and uses offset: 0.45.
+#
+
+# ============================================================================
+# KITCHEN
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResidentialLootKitchen
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 45
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 4
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResidentialLootSpawnerKitchen
+  name: kitchen loot spawner
+  suffix: Residential / Civilian, Kitchen, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: coffeepot
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResidentialLootKitchen
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# BATHROOM
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResidentialLootBathroom
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 28
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 26
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 3
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResidentialLootSpawnerBathroom
+  name: bathroom loot spawner
+  suffix: Residential / Civilian, Bathroom, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResidentialLootBathroom
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# BEDROOM
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResidentialLootBedroom
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 3
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResidentialLootSpawnerBedroom
+  name: bedroom loot spawner
+  suffix: Residential / Civilian, Bedroom, 2-6
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: 8_ball
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResidentialLootBedroom
+      rolls: !type:RangeNumberSelector
+        range: 2, 6
+    offset: 0.45
+
+
+# ============================================================================
+# GARAGE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResidentialLootGarage
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 25
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResidentialLootSpawnerGarage
+  name: garage loot spawner
+  suffix: Residential / Civilian, Garage, 4-9
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Tools/wrench.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResidentialLootGarage
+      rolls: !type:RangeNumberSelector
+        range: 4, 9
+    offset: 0.45
+
+
+# ============================================================================
+# BASEMENT
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResidentialLootBasement
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 25
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResidentialLootSpawnerBasement
+  name: basement loot spawner
+  suffix: Residential / Civilian, Basement, 4-10
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: tincan
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResidentialLootBasement
+      rolls: !type:RangeNumberSelector
+        range: 4, 10
+    offset: 0.45
+
+
+# ============================================================================
+# HOME OFFICE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResidentialLootHomeOffice
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 35
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResidentialLootSpawnerHomeOffice
+  name: home office loot spawner
+  suffix: Residential / Civilian, Home Office, 2-6
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_blue
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResidentialLootHomeOffice
+      rolls: !type:RangeNumberSelector
+        range: 2, 6
+    offset: 0.45
+
+
+# ============================================================================
+# SURVIVALIST HOME
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResidentialLootSurvivalistHome
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 25
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 4
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResidentialLootSpawnerSurvivalistHome
+  name: survivalist home loot spawner
+  suffix: Residential / Civilian, Survivalist Home, 4-9
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: vault_113_canteen
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResidentialLootSurvivalistHome
+      rolls: !type:RangeNumberSelector
+        range: 4, 9
+    offset: 0.45
+
+
+# ============================================================================
+# WEALTHY HOME
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResidentialLootWealthyHome
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 3
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResidentialLootSpawnerWealthyHome
+  name: wealthy home loot spawner
+  suffix: Residential / Civilian, Wealthy Home, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_gold
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResidentialLootWealthyHome
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# ABANDONED / PICKED-CLEAN HOME
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResidentialLootAbandonedPickedCleanHome
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 40
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 3
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResidentialLootSpawnerAbandonedPickedCleanHome
+  name: abandoned / picked-clean home loot spawner
+  suffix: Residential / Civilian, Abandoned / Picked-Clean Home, 1-4
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: tincan
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResidentialLootAbandonedPickedCleanHome
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
+    offset: 0.45
+
+
+# ============================================================================
+# MIXED RESIDENTIAL / CIVILIAN
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResidentialLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsResidentialLootKitchen
+    - !type:NestedSelector
+      tableId: MisfitsResidentialLootBathroom
+    - !type:NestedSelector
+      tableId: MisfitsResidentialLootBedroom
+    - !type:NestedSelector
+      tableId: MisfitsResidentialLootGarage
+    - !type:NestedSelector
+      tableId: MisfitsResidentialLootBasement
+    - !type:NestedSelector
+      tableId: MisfitsResidentialLootHomeOffice
+    - !type:NestedSelector
+      tableId: MisfitsResidentialLootSurvivalistHome
+    - !type:NestedSelector
+      tableId: MisfitsResidentialLootWealthyHome
+    - !type:NestedSelector
+      tableId: MisfitsResidentialLootAbandonedPickedCleanHome
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResidentialLootSpawnerAll
+  name: mixed residential / civilian loot spawner
+  suffix: Residential / Civilian, Mixed, 4-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResidentialLootAll
+      rolls: !type:RangeNumberSelector
+        range: 4, 8
+    offset: 0.45

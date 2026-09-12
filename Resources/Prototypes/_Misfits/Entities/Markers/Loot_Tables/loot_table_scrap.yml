@@ -1,0 +1,522 @@
+﻿# #Misfits Add - Scrap loot tables and mapper spawners
+#
+# Scrap tables favor small stacks at low rarity and larger / more valuable
+# scrap stacks at higher rarity.
+#
+# All mapper markers are visible.
+# Spawned loot uses offset: 0.45.
+
+# ============================================================================
+# GENERAL SCRAP
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsScrapLootGeneral
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Scrap1
+        weight: 5
+      - !type:EntSelector
+        id: N14ScrapSteel1
+        weight: 3
+
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14Scrap5
+        weight: 4
+      - !type:EntSelector
+        id: N14ScrapSteel5
+        weight: 3
+
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14Scrap10
+        weight: 3
+      - !type:EntSelector
+        id: N14ScrapSteel10
+        weight: 2
+
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ScrapElectronic5
+        weight: 2
+      - !type:EntSelector
+        id: N14ScrapCopper5
+
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ScrapElectronic10
+        weight: 2
+      - !type:EntSelector
+        id: N14ScrapCopper10
+
+
+# ============================================================================
+# STEEL SCRAP
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsScrapLootSteel
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ScrapSteel1
+
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ScrapSteel5
+
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ScrapSteel10
+
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ScrapSteel10
+        weight: 2
+      - !type:EntSelector
+        id: N14Scrap10
+
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ScrapSteel10
+
+
+# ============================================================================
+# ELECTRONIC SCRAP
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsScrapLootElectronic
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ScrapElectronic1
+
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ScrapElectronic5
+
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ScrapElectronic10
+
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14MaterialCircuitry5
+        weight: 2
+      - !type:EntSelector
+        id: N14JunkComponentBoard3
+
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentMainboard
+
+
+# ============================================================================
+# NONFERROUS SCRAP
+# Copper, brass and lead.
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsScrapLootNonferrous
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ScrapCopper1
+        weight: 3
+      - !type:EntSelector
+        id: N14ScrapBrass1
+        weight: 3
+      - !type:EntSelector
+        id: N14ScrapLead1
+        weight: 2
+
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ScrapCopper5
+        weight: 3
+      - !type:EntSelector
+        id: N14ScrapBrass5
+        weight: 3
+      - !type:EntSelector
+        id: N14ScrapLead5
+        weight: 2
+
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ScrapCopper10
+        weight: 3
+      - !type:EntSelector
+        id: N14ScrapBrass10
+        weight: 2
+      - !type:EntSelector
+        id: N14ScrapLead10
+        weight: 2
+
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ScrapCopper10
+        weight: 2
+      - !type:EntSelector
+        id: N14ScrapBrass10
+        weight: 2
+      - !type:EntSelector
+        id: N14ScrapLead10
+
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ScrapCopper10
+      - !type:EntSelector
+        id: N14ScrapBrass10
+
+
+# ============================================================================
+# PRECIOUS SCRAP
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsScrapLootPrecious
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ScrapCopper5
+        weight: 3
+      - !type:EntSelector
+        id: N14ScrapBrass5
+        weight: 2
+
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ScrapGold1
+        weight: 3
+      - !type:EntSelector
+        id: N14ScrapCopper10
+        weight: 2
+
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ScrapGold5
+        weight: 3
+      - !type:EntSelector
+        id: N14ScrapBrass10
+
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ScrapGold10
+
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ScrapGold10
+
+
+# ============================================================================
+# COMPONENT SCRAP
+# Broken parts that still have salvage value.
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsScrapLootComponents
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentScrew
+        weight: 4
+      - !type:EntSelector
+        id: N14JunkComponentGearSmall
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentFuse1
+        weight: 3
+
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentGearLarge
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentDiode1
+        weight: 2
+      - !type:EntSelector
+        id: N14JunkComponentCapacitor1
+        weight: 2
+
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentBoard1
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentBoard2
+        weight: 2
+
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentBoard3
+        weight: 2
+      - !type:EntSelector
+        id: N14JunkComponentSensorModule
+
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentMainboard
+
+
+# ============================================================================
+# MASTER SCRAP TABLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsScrapLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootGeneral
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootSteel
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootElectronic
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootNonferrous
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootComponents
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootPrecious
+      weight: 5
+
+
+# ============================================================================
+# SCRAP SPAWNERS
+# ============================================================================
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsScrapLootSpawnerGeneral
+  name: general scrap loot spawner
+  suffix: Scrap, General, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: scrap_2
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsScrapLootGeneral
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsScrapLootSpawnerSteel
+  name: steel scrap loot spawner
+  suffix: Scrap, Steel, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: scrap_steel_2
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsScrapLootSteel
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsScrapLootSpawnerElectronic
+  name: electronic scrap loot spawner
+  suffix: Scrap, Electronic, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: scrap_electronic_2
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsScrapLootElectronic
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsScrapLootSpawnerNonferrous
+  name: nonferrous scrap loot spawner
+  suffix: Scrap, Copper-Brass-Lead, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: scrap_copper
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsScrapLootNonferrous
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsScrapLootSpawnerPrecious
+  name: precious scrap loot spawner
+  suffix: Scrap, Precious, 1-3
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: scrap_gold
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsScrapLootPrecious
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsScrapLootSpawnerComponents
+  name: component scrap loot spawner
+  suffix: Scrap, Components, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: circuits_3
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsScrapLootComponents
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsScrapLootSpawnerSmall
+  name: mixed scrap loot spawner
+  suffix: Scrap, Small, 3-6
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: scrap_2
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      rolls: !type:RangeNumberSelector
+        range: 3, 6
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsScrapLootSpawnerMedium
+  name: mixed scrap loot spawner
+  suffix: Scrap, Medium, 7-12
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: scrap_2
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      rolls: !type:RangeNumberSelector
+        range: 7, 12
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsScrapLootSpawnerLarge
+  name: mixed scrap loot spawner
+  suffix: Scrap, Large, 13-20
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: scrap_2
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      rolls: !type:RangeNumberSelector
+        range: 13, 20
+    offset: 0.45

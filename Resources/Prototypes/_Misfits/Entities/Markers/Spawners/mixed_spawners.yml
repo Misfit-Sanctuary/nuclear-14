@@ -1,0 +1,796 @@
+﻿# #Misfits Add - Mixed loot tables and mapper spawners
+#
+# These tables reference the MASTER tables from the category loot files:
+#
+#   MisfitsMedicalLootAll
+#   MisfitsFoodDrinkLootAll
+#   MisfitsClothingLootAll
+#   MisfitsWeaponLootAll
+#   MisfitsAmmoLootAll
+#   MisfitsArmorLootAll
+#   MisfitsToolsLootAll
+#   MisfitsIndustrialLootAll
+#   MisfitsElectronicsLootAll
+#   MisfitsScienceLootAll
+#   MisfitsSurvivalLootAll
+#   MisfitsMilitaryLootAll
+#   MisfitsFactionLootAll
+#   MisfitsDocumentsLootAll
+#   MisfitsValuablesLootAll
+#   MisfitsJunkLootAll
+#   MisfitsContrabandLootAll
+#
+# The mixed pools deliberately use different category weights.
+# Spawn amount is controlled by the spawner's roll range.
+#
+# All mapper markers are visible and spawned loot uses offset: 0.45.
+
+
+# ============================================================================
+# GENERAL WASTELAND LOOT
+# ============================================================================
+# Broad everyday loot.
+# Junk, food, survival gear, tools and industrial items dominate.
+# Weapons, armor and contraband are possible but uncommon.
+
+- type: entityTable
+  id: MisfitsMixedLootGeneral
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 11
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 0.5
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 0.3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 0.2
+
+
+# ============================================================================
+# CIVILIAN / HOUSEHOLD LOOT
+# ============================================================================
+# Homes, apartments, diners, motels, shops and abandoned civilian spaces.
+
+- type: entityTable
+  id: MisfitsMixedLootCivilian
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 25
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 1.5
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 0.5
+
+
+# ============================================================================
+# WORKSHOP / GARAGE LOOT
+# ============================================================================
+# Workshops, garages, factories, repair shops, utility rooms.
+
+- type: entityTable
+  id: MisfitsMixedLootWorkshop
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 25
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+
+# ============================================================================
+# MEDICAL FACILITY LOOT
+# ============================================================================
+# Clinics, hospitals, ambulances and treatment rooms.
+
+- type: entityTable
+  id: MisfitsMixedLootMedical
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 52
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+
+
+# ============================================================================
+# MILITARY CACHE LOOT
+# ============================================================================
+# Bunkers, armories, checkpoints, bases and military supply rooms.
+
+- type: entityTable
+  id: MisfitsMixedLootMilitary
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+
+
+# ============================================================================
+# SCIENCE / LAB CACHE
+# ============================================================================
+# Laboratories, research facilities, technical offices and sealed test rooms.
+
+- type: entityTable
+  id: MisfitsMixedLootScience
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 35
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+
+
+# ============================================================================
+# FACTION CACHE
+# ============================================================================
+# Faction offices, safehouses, checkpoints and occupied bases.
+
+- type: entityTable
+  id: MisfitsMixedLootFaction
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+
+
+# ============================================================================
+# CONTRABAND / BLACK MARKET CACHE
+# ============================================================================
+# Hidden rooms, raider stashes, smuggler caches, criminal safehouses.
+
+- type: entityTable
+  id: MisfitsMixedLootContraband
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 35
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 2
+
+
+# ============================================================================
+# HIGH-VALUE CACHE
+# ============================================================================
+# Safes, sealed vaults, boss rooms and reward caches.
+# Much more likely to draw from dangerous / valuable categories.
+
+- type: entityTable
+  id: MisfitsMixedLootHighValue
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 13
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 13
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+
+
+# ============================================================================
+# TRUE RANDOM / ALL CATEGORIES
+# ============================================================================
+# Every master category has equal weight.
+# Useful when you genuinely do not care what kind of loot appears.
+
+- type: entityTable
+  id: MisfitsMixedLootAllCategoriesEqual
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+
+
+# ============================================================================
+# VISIBLE MIXED LOOT SPAWNER BASE
+# ============================================================================
+
+- type: entity
+  abstract: true
+  name: mixed loot spawner
+  id: MisfitsMixedLootSpawnerBase
+  parent: MarkerBase
+
+
+# Sprite legend:
+# Tiny       -> 8-ball
+# Small      -> tin can
+# Medium     -> Vault-Tec lunchbox
+# Large      -> toaster
+# Huge       -> coffee pot
+# Civilian   -> Cram
+# Workshop   -> wrench
+# Medical    -> healing salve
+# Military   -> 9mm pistol
+# Science    -> proximity sensor
+# Faction    -> NCR helmet
+# Contraband -> suppressed 10mm SMG
+# High Value -> money bag
+# Random     -> blue / green / red holotapes by size
+#
+# ============================================================================
+# GENERAL LOOT - VARYING AMOUNTS
+# ============================================================================
+
+- type: entity
+  parent: MisfitsMixedLootSpawnerBase
+  id: MisfitsMixedLootSpawnerTiny
+  name: mixed loot spawner
+  suffix: General, Tiny, 1-2
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: 8_ball
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMixedLootGeneral
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMixedLootSpawnerBase
+  id: MisfitsMixedLootSpawnerSmall
+  name: mixed loot spawner
+  suffix: General, Small, 2-4
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: tincan
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMixedLootGeneral
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMixedLootSpawnerBase
+  id: MisfitsMixedLootSpawnerMedium
+  name: mixed loot spawner
+  suffix: General, Medium, 4-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMixedLootGeneral
+      rolls: !type:RangeNumberSelector
+        range: 4, 7
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMixedLootSpawnerBase
+  id: MisfitsMixedLootSpawnerLarge
+  name: mixed loot spawner
+  suffix: General, Large, 8-14
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: toaster
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMixedLootGeneral
+      rolls: !type:RangeNumberSelector
+        range: 8, 14
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMixedLootSpawnerBase
+  id: MisfitsMixedLootSpawnerHuge
+  name: mixed loot spawner
+  suffix: General, Huge, 15-25
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: coffeepot
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMixedLootGeneral
+      rolls: !type:RangeNumberSelector
+        range: 15, 25
+    offset: 0.45
+
+
+# ============================================================================
+# THEMED MIXED SPAWNERS
+# ============================================================================
+
+- type: entity
+  parent: MisfitsMixedLootSpawnerBase
+  id: MisfitsMixedLootSpawnerCivilian
+  name: civilian mixed loot spawner
+  suffix: Civilian, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Consumable/Food/pre-war.rsi
+      state: cram
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMixedLootCivilian
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMixedLootSpawnerBase
+  id: MisfitsMixedLootSpawnerWorkshop
+  name: workshop mixed loot spawner
+  suffix: Workshop, 4-9
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Tools/wrench.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMixedLootWorkshop
+      rolls: !type:RangeNumberSelector
+        range: 4, 9
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMixedLootSpawnerBase
+  id: MisfitsMixedLootSpawnerMedical
+  name: medical facility mixed loot spawner
+  suffix: Medical, 3-6
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMixedLootMedical
+      rolls: !type:RangeNumberSelector
+        range: 3, 6
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMixedLootSpawnerBase
+  id: MisfitsMixedLootSpawnerMilitary
+  name: military mixed loot spawner
+  suffix: Military, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMixedLootMilitary
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMixedLootSpawnerBase
+  id: MisfitsMixedLootSpawnerScience
+  name: science mixed loot spawner
+  suffix: Science, 3-6
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Misc/proximity_sensor.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMixedLootScience
+      rolls: !type:RangeNumberSelector
+        range: 3, 6
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMixedLootSpawnerBase
+  id: MisfitsMixedLootSpawnerFaction
+  name: faction mixed loot spawner
+  suffix: Faction, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/Head/FalloutHelmets/ncrhelmet3.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMixedLootFaction
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMixedLootSpawnerBase
+  id: MisfitsMixedLootSpawnerContraband
+  name: contraband mixed loot spawner
+  suffix: Contraband, 1-3
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/10mmSMGsuppressed.rsi
+      state: base
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMixedLootContraband
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMixedLootSpawnerBase
+  id: MisfitsMixedLootSpawnerHighValue
+  name: high-value mixed loot spawner
+  suffix: High Value, 2-4
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/storage.rsi
+      state: moneybag
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMixedLootHighValue
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+
+# ============================================================================
+# CHAOS / TRUE RANDOM SPAWNERS
+# ============================================================================
+# Equal chance of selecting any of the 17 master categories.
+
+- type: entity
+  parent: MisfitsMixedLootSpawnerBase
+  id: MisfitsMixedLootSpawnerRandomSmall
+  name: completely random loot spawner
+  suffix: All Categories, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_blue
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMixedLootAllCategoriesEqual
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMixedLootSpawnerBase
+  id: MisfitsMixedLootSpawnerRandomLarge
+  name: completely random loot spawner
+  suffix: All Categories, 6-12
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_green
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMixedLootAllCategoriesEqual
+      rolls: !type:RangeNumberSelector
+        range: 6, 12
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMixedLootSpawnerBase
+  id: MisfitsMixedLootSpawnerRandomHuge
+  name: completely random loot spawner
+  suffix: All Categories, 12-24
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_red
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMixedLootAllCategoriesEqual
+      rolls: !type:RangeNumberSelector
+        range: 12, 24
+    offset: 0.45

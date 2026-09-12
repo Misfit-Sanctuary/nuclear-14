@@ -1,0 +1,49 @@
+﻿# #Misfits Add - NCR Army group uniform lockers for mapping.
+
+- type: entity
+  id: MisfitsLockerNCRArmyUniform2Person
+  name: NCR Army two-person uniform locker
+  description: A locker containing basic NCR Army clothing for two personnel.
+  suffix: Filled, NCR Army, 2 People, Clothing Only
+  parent: N14ClosetBaseW
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatNCRSidecap
+      amount: 2
+    - id: N14ClothingUniformNCRDesert
+      amount: 2
+    - id: N14ClothingBootsLeather
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerNCRArmyUniform3Person
+  name: NCR Army three-person uniform locker
+  description: A locker containing basic NCR Army clothing for three personnel.
+  suffix: Filled, NCR Army, 3 People, Clothing Only
+  parent: N14ClosetBaseW
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatNCRSidecap
+      amount: 3
+    - id: N14ClothingUniformNCRDesert
+      amount: 3
+    - id: N14ClothingBootsLeather
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerNCRArmyUniform4Person
+  name: NCR Army four-person uniform locker
+  description: A locker containing basic NCR Army clothing for four personnel.
+  suffix: Filled, NCR Army, 4 People, Clothing Only
+  parent: N14ClosetBaseW
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatNCRSidecap
+      amount: 4
+    - id: N14ClothingUniformNCRDesert
+      amount: 4
+    - id: N14ClothingBootsLeather
+      amount: 4

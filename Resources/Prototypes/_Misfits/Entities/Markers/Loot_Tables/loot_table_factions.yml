@@ -1,0 +1,618 @@
+﻿# #Misfits Add - Faction loot tables and mapper spawners.
+#
+# Five internal rarity tiers:
+# Common 50%, Uncommon 27%, Rare 14%, Very Rare 7%, Legendary 2%.
+#
+# Visible mapper markers; spawned loot uses offset: 0.45.
+# Lists are ordered from lower-value/common items toward rarer items.
+#
+
+# ============================================================================
+# NCR
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFactionLootNcr
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14CurrencyNCRDollar10
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingUniformNCRDesert
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRHelmetMetalDesert
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingOuterNCRVestDesert
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14WeaponRifle556Service
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingOuterNCRPouchedVestDesert
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreNCRRecon
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: MisfitsNCREliteCombatArmor
+        weight: 3
+
+
+# ============================================================================
+# NCR RANGERS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFactionLootNcrRangers
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformRangerV1
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingOuterRangerFieldArmor
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatRangerHelmet
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14WeaponRevolver45-70RangerSequoia
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14WeaponSniper50NCRRifle
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreNCRRecon
+        weight: 3
+
+
+# ============================================================================
+# BROTHERHOOD OF STEEL
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFactionLootBrotherhoodOfSteel
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatBrotherhoodHelmet
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingHeadHatBrotherhoodHelmetKnight
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14WeaponLaserRifle
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingHeadHatBrotherhoodHelmetPaladin
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatBrotherhoodHelmetMK2
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14WeaponLaserGatling
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreBOSField
+        weight: 3
+
+
+# ============================================================================
+# LEGION
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFactionLootLegion
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14CurrencyLegionDenarius10
+        weight: 3
+      - !type:EntSelector
+        id: N14WastelandTribalSpear
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterLegionnaireBaseArmor
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsLegionWarriorArmor
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14CurrencyLegionAureus
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterPowerArmorLegion
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreLegionOrders
+        weight: 3
+
+
+# ============================================================================
+# FOLLOWERS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFactionLootFollowers
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitFollowers
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingOuterCoatFollowersArmored
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14CleanGauze10
+        weight: 3
+      - !type:EntSelector
+        id: N14HealingPowder
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14Stimpak
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14HandheldHealthAnalyzer
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: MisfitsMedkitFieldFilled
+        weight: 3
+
+
+# ============================================================================
+# RAIDERS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFactionLootRaiders
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitRags
+        weight: 3
+      - !type:EntSelector
+        id: N14BrokenPipe
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14NailBoard
+        weight: 3
+      - !type:EntSelector
+        id: N14WeaponPistol10mmPipe
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterRaiderCombat1
+        weight: 3
+      - !type:EntSelector
+        id: N14WeaponSMG10mmPipe
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterPowerArmorRaider
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreRaiderBoss
+        weight: 3
+
+
+# ============================================================================
+# ENCLAVE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFactionLootEnclave
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitEnclave
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingHeadHatEnclaveHelmet
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterEnclavePeacekeeper
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingOuterEnclaveArmor
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterRadSuitEnclave
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterPowerArmorAdvanced2
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreEnclaveDirective
+        weight: 3
+
+
+# ============================================================================
+# LOCAL / MINOR FACTIONS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFactionLootLocalMinorFactions
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitCaravan
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitMerchant
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitTribal
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingOuterTribalArmor
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14WeaponSniperHunting
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreCaravanLedger
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreProspector
+        weight: 3
+
+
+# ============================================================================
+# MASTER FACTION TABLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFactionLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootNcr
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootNcrRangers
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootBrotherhoodOfSteel
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootLegion
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootFollowers
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootRaiders
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootEnclave
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootLocalMinorFactions
+      weight: 10
+
+
+# ============================================================================
+# VISIBLE MAPPER SPAWNER BASE
+# ============================================================================
+
+- type: entity
+  abstract: true
+  name: faction loot spawner
+  id: MisfitsFactionLootSpawnerBase
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutcombat.rsi
+      state: icon
+
+- type: entity
+  parent: MisfitsFactionLootSpawnerBase
+  id: MisfitsFactionLootSpawnerNcr
+  name: ncr loot spawner
+  suffix: Misfits, NCR, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFactionLootNcr
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsFactionLootSpawnerBase
+  id: MisfitsFactionLootSpawnerNcrRangers
+  name: ncr rangers loot spawner
+  suffix: Misfits, NCR Rangers, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFactionLootNcrRangers
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsFactionLootSpawnerBase
+  id: MisfitsFactionLootSpawnerBrotherhoodOfSteel
+  name: brotherhood of steel loot spawner
+  suffix: Misfits, Brotherhood of Steel, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFactionLootBrotherhoodOfSteel
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsFactionLootSpawnerBase
+  id: MisfitsFactionLootSpawnerLegion
+  name: legion loot spawner
+  suffix: Misfits, Legion, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFactionLootLegion
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsFactionLootSpawnerBase
+  id: MisfitsFactionLootSpawnerFollowers
+  name: followers loot spawner
+  suffix: Misfits, Followers, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFactionLootFollowers
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsFactionLootSpawnerBase
+  id: MisfitsFactionLootSpawnerRaiders
+  name: raiders loot spawner
+  suffix: Misfits, Raiders, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFactionLootRaiders
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsFactionLootSpawnerBase
+  id: MisfitsFactionLootSpawnerEnclave
+  name: enclave loot spawner
+  suffix: Misfits, Enclave, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFactionLootEnclave
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsFactionLootSpawnerBase
+  id: MisfitsFactionLootSpawnerLocalMinorFactions
+  name: local / minor factions loot spawner
+  suffix: Misfits, Local / Minor Factions, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFactionLootLocalMinorFactions
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsFactionLootSpawnerBase
+  id: MisfitsFactionLootSpawnerAll
+  name: mixed faction loot spawner
+  suffix: Misfits, Mixed, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
