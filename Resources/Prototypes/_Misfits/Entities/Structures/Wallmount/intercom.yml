@@ -1,0 +1,195 @@
+﻿- type: entity
+  id: MisfitsIntercomFollowers
+  parent: Intercom
+  suffix: Followers
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyFollowers
+    keysUnlocked: false
+
+- type: entity
+  id: MisfitsIntercomLegion
+  parent: Intercom
+  suffix: Legion
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyLegion
+    keysUnlocked: false
+
+- type: entity
+  id: MisfitsIntercomNCR
+  parent: Intercom
+  suffix: NCR
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyNCR
+    keysUnlocked: false
+
+- type: entity
+  id: MisfitsIntercomNCRRanger
+  parent: Intercom
+  suffix: NCR Ranger
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyNCRRanger
+    keysUnlocked: false
+
+- type: entity
+  id: MisfitsIntercomOSI
+  parent: Intercom
+  suffix: OSI
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyOSI
+    keysUnlocked: false
+
+- type: entity
+  id: MisfitsIntercomEnclave
+  parent: Intercom
+  suffix: Enclave
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyEnclave
+    keysUnlocked: false
+
+- type: entity
+  id: MisfitsIntercomVaultScience
+  parent: Intercom
+  suffix: Vault Science
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyScience
+    keysUnlocked: false
+
+- type: entity
+  id: MisfitsIntercomVaultEngineering
+  parent: Intercom
+  suffix: Vault Engineering
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyEngineering
+    keysUnlocked: false
+
+- type: entity
+  id: MisfitsIntercomVaultMedical
+  parent: Intercom
+  suffix: Vault Medical
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyMedical
+    keysUnlocked: false
+
+- type: entity
+  id: MisfitsIntercomVaultSecurity
+  parent: Intercom
+  suffix: Vault Security
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeySecurity
+    keysUnlocked: false
+
+- type: entity
+  id: MisfitsIntercomVault
+  parent: Intercom
+  suffix: Vault
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyVault
+    keysUnlocked: false
+
+- type: entity
+  id: MisfitsIntercomEighties
+  parent: Intercom
+  suffix: Eighties
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyEighties
+    keysUnlocked: false
+
+- type: entity
+  id: MisfitsIntercomTown
+  parent: Intercom
+  suffix: Town
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyTown
+    keysUnlocked: false
+
+- type: entity
+  id: MisfitsIntercomBrotherhoodOfSteel
+  parent: Intercom
+  suffix: BrotherhoodOfSteel
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyWastelandGlobal
+      - EncryptionKeyBrotherhoodOfSteel
+    keysUnlocked: false
