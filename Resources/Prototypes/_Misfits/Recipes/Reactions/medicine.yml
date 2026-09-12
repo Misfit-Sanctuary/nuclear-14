@@ -130,14 +130,14 @@
       amount: 3
     Water:
       amount: 2
-    RadAway:
+    RadAwayDiluted:
       amount: 3
     HealingMixture:
       amount: 2
     Antidote:
       amount: 1
   products:
-    MisfitsRefreshingBeverage: 7 # increased to 7 due to cost of inputs
+    MisfitsRefreshingBeverage: 4 # left at 4 due to effectiveness
 
 # Fallout 76-inspired irradiated blood-pack mixture.
 - type: reaction
@@ -258,9 +258,7 @@
   reactants:
     ExtractAgaveNectar:
       amount: 1
-    ExtractBroc:
-      amount: 1
-    ExtractXander:
+    HealingPowder:
       amount: 1
     ExtractFungus:
       amount: 1
@@ -274,16 +272,14 @@
   id: MisfitsReactionHealingSalve
   minTemp: 330
   reactants:
-    ExtractBroc:
-      amount: 1
-    ExtractXander:
+    HealingPowder:
       amount: 1
     ExtractAgaveNectar:
       amount: 1
     Water:
       amount: 1
   products:
-    MisfitsHealingSalve: 4
+    MisfitsHealingSalve: 3
 
 # ============================================================================
 # COMBAT / PERFORMANCE CHEMS

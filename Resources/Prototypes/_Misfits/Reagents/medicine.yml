@@ -208,12 +208,12 @@
       - !type:HealthChange #Overall amazing all-round drug.
         damage:
           groups:
-            Brute: -4.2 #1.4 of every burn and brute type, 5 x 1.4 = 7 of every type in 5 seconds
-            Burn: -4.2
+            Brute: -4.5 #1.5 of every burn and brute type, 5 x 1.5 = 7.5 of every type in 5 seconds
+            Burn: -4.5 #one full reaction (4U) is 30 damage of every burn/brute type in 20 seconds
             Airloss: -3
           types:
             Poison: -1
-            Radiation: -3
+            Radiation: -1 # thats not counting the rad and poison healing
       - !type:ModifyBleedAmount
         amount: -2
       - !type:ModifyFeralization
