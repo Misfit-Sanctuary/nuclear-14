@@ -1,0 +1,472 @@
+﻿# #Misfits Add - Weapon + matching ammunition loot spawners
+#
+# Each weapon package uses !type:AllSelector so the weapon and its matching
+# ammunition spawn together.
+#
+# Detachable-magazine firearms:
+#   50% extra fitting magazine
+#   50% fitting ammo box
+#
+# Internal-magazine / revolver / tube-fed firearms:
+#   fitting ammo box
+#
+# Energy weapons:
+#   fitting power cell / microfusion cell
+#
+# All mapper markers are visible.
+# Spawned entities use offset: 0.45.
+
+
+# ============================================================================
+# PISTOLS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponAmmoLootPistols
+  table: !type:GroupSelector
+    children:
+
+    - !type:AllSelector
+      weight: 4
+      children:
+      - !type:EntSelector
+        id: N14WeaponPistol22lr
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: N14MagazinePistol22lr
+        - !type:EntSelector
+          id: N14AmmoBox22lr
+
+    - !type:AllSelector
+      weight: 5
+      children:
+      - !type:EntSelector
+        id: N14WeaponPistol9mm
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: N14MagazinePistol9mm
+        - !type:EntSelector
+          id: N14AmmoBox9mm
+
+    - !type:AllSelector
+      weight: 4
+      children:
+      - !type:EntSelector
+        id: N14WeaponPistol10mm
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: N14MagazinePistol10mm
+        - !type:EntSelector
+          id: N14AmmoBox10mm
+
+
+# ============================================================================
+# SMGS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponAmmoLootSMGs
+  table: !type:GroupSelector
+    children:
+
+    - !type:AllSelector
+      weight: 5
+      children:
+      - !type:EntSelector
+        id: N14WeaponSMG9mm
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: N14MagazineSMG9mm
+        - !type:EntSelector
+          id: N14AmmoBox9mm
+
+    - !type:AllSelector
+      weight: 5
+      children:
+      - !type:EntSelector
+        id: N14WeaponSMG10mm
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: N14MagazineSMG10mm
+        - !type:EntSelector
+          id: N14AmmoBox10mm
+
+    - !type:AllSelector
+      weight: 3
+      children:
+      - !type:EntSelector
+        id: N14WeaponSMG12mm
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: N14MagazineSMG12mm
+        - !type:EntSelector
+          id: N14AmmoBox127
+
+    - !type:AllSelector
+      weight: 1
+      children:
+      - !type:EntSelector
+        id: N14WeaponSMG12mmAdvanced
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: N14TopMagazineSMG12mm
+        - !type:EntSelector
+          id: N14AmmoBox127
+
+
+# ============================================================================
+# 5.56 RIFLES
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponAmmoLoot556Rifles
+  table: !type:GroupSelector
+    children:
+
+    - !type:AllSelector
+      weight: 5
+      children:
+      - !type:EntSelector
+        id: N14WeaponRifle556Service
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: Magazine556Rifle
+        - !type:EntSelector
+          id: N14AmmoBox556
+
+    - !type:AllSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14WeaponRifle556ServiceScoped
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: Magazine556Rifle
+        - !type:EntSelector
+          id: N14AmmoBox556
+
+
+# ============================================================================
+# 7.62 RIFLES
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponAmmoLoot762Rifles
+  table: !type:GroupSelector
+    children:
+
+    - !type:AllSelector
+      children:
+      - !type:EntSelector
+        id: N14WeaponRifle762Chinese
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: Magazine762Rifle
+        - !type:EntSelector
+          id: N14AmmoBox762
+
+
+# ============================================================================
+# SHOTGUNS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponAmmoLootShotguns
+  table: !type:GroupSelector
+    children:
+
+    # Magazine-fed combat shotgun.
+    - !type:AllSelector
+      weight: 3
+      children:
+      - !type:EntSelector
+        id: N14WeaponShotgunAuto
+      - !type:GroupSelector
+        children:
+        - !type:EntSelector
+          id: N14MagazineShotgun12
+        - !type:EntSelector
+          id: N14AmmoBox12gauge
+
+    # Tube / break action shotguns receive a shell box.
+    - !type:AllSelector
+      weight: 4
+      children:
+      - !type:EntSelector
+        id: N14WeaponShotgunDoubleBarrel
+      - !type:EntSelector
+        id: N14AmmoBox12gauge
+
+    - !type:AllSelector
+      weight: 3
+      children:
+      - !type:EntSelector
+        id: N14WeaponShotgunSawedOff
+      - !type:EntSelector
+        id: N14AmmoBox12gauge
+
+    - !type:AllSelector
+      weight: 3
+      children:
+      - !type:EntSelector
+        id: N14WeaponShotgunCaravan
+      - !type:EntSelector
+        id: N14AmmoBox12gauge
+
+    - !type:AllSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14WeaponShotgunLever
+      - !type:EntSelector
+        id: N14AmmoBox12gauge
+
+
+# ============================================================================
+# HUNTING / REVOLVER / LEVER ACTION
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponAmmoLootHunting
+  table: !type:GroupSelector
+    children:
+
+    - !type:AllSelector
+      weight: 5
+      children:
+      - !type:EntSelector
+        id: N14WeaponSniperHunting
+      - !type:EntSelector
+        id: N14AmmoBox308
+
+    - !type:AllSelector
+      weight: 4
+      children:
+      - !type:EntSelector
+        id: N14WeaponRevolver44Magnum
+      - !type:EntSelector
+        id: N14AmmoBox44Magnum
+
+    - !type:AllSelector
+      weight: 3
+      children:
+      - !type:EntSelector
+        id: N14WeaponSniper308LeverRifle
+      - !type:EntSelector
+        id: N14AmmoBox308
+
+    - !type:AllSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14WeaponSniper45-70BrushGun
+      - !type:EntSelector
+        id: N14AmmoBox45-70
+
+    - !type:AllSelector
+      weight: 1
+      children:
+      - !type:EntSelector
+        id: N14WeaponRevolver45-70RangerSequoia
+      - !type:EntSelector
+        id: N14AmmoBox45-70
+
+
+# ============================================================================
+# ENERGY WEAPONS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponAmmoLootEnergy
+  table: !type:GroupSelector
+    children:
+
+    - !type:AllSelector
+      weight: 5
+      children:
+      - !type:EntSelector
+        id: N14WeaponLaserPistol
+      - !type:EntSelector
+        id: N14PowerCellSmall
+
+    - !type:AllSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14WeaponLaserRifleWattz3000
+      - !type:EntSelector
+        id: N14MicrofusionCellRed
+
+
+# ============================================================================
+# MIXED WEAPON + AMMO TABLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWeaponAmmoLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsWeaponAmmoLootPistols
+      weight: 25
+    - !type:NestedSelector
+      tableId: MisfitsWeaponAmmoLootSMGs
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsWeaponAmmoLoot556Rifles
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsWeaponAmmoLoot762Rifles
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsWeaponAmmoLootShotguns
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsWeaponAmmoLootHunting
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsWeaponAmmoLootEnergy
+      weight: 4
+
+
+# ============================================================================
+# VISIBLE MAPPER SPAWNERS
+# ============================================================================
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponAmmoLootSpawnerPistols
+  name: pistol with ammo loot spawner
+  suffix: Weapon + Magazine/Ammo Box, Pistols
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponAmmoLootPistols
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponAmmoLootSpawnerSMGs
+  name: SMG with ammo loot spawner
+  suffix: Weapon + Magazine/Ammo Box, SMG
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/10mmSMG.rsi
+      state: base
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponAmmoLootSMGs
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponAmmoLootSpawner556Rifles
+  name: 5.56 rifle with ammo loot spawner
+  suffix: Weapon + Magazine/Ammo Box, 5.56
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/servicerifle.rsi
+      state: base
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponAmmoLoot556Rifles
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponAmmoLootSpawner762Rifles
+  name: 7.62 rifle with ammo loot spawner
+  suffix: Weapon + Magazine/Ammo Box, 7.62
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/chineseassault.rsi
+      state: base
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponAmmoLoot762Rifles
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponAmmoLootSpawnerShotguns
+  name: shotgun with ammo loot spawner
+  suffix: Weapon + Magazine/Ammo Box, Shotgun
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/combat_shotgun.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponAmmoLootShotguns
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponAmmoLootSpawnerHunting
+  name: hunting weapon with ammo loot spawner
+  suffix: Weapon + Ammo Box, Hunting/Revolver
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/huntingrifle.rsi
+      state: base
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponAmmoLootHunting
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponAmmoLootSpawnerEnergy
+  name: energy weapon with cell loot spawner
+  suffix: Weapon + Cell, Energy
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_pistol.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponAmmoLootEnergy
+    offset: 0.45
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWeaponAmmoLootSpawnerMixed
+  name: weapon with matching ammo loot spawner
+  suffix: Mixed Weapon + Matching Ammo
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWeaponAmmoLootAll
+    offset: 0.45

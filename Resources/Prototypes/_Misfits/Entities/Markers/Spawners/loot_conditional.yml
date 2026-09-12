@@ -1,0 +1,523 @@
+﻿# #Misfits Add - Loot Condition location/context loot.
+#
+# These tables mix the existing category master tables.
+# Rarity is inherited from the underlying item-category tables.
+# Every mapper spawner is visible and uses offset: 0.45.
+#
+
+# ============================================================================
+# PICKED CLEAN
+# ============================================================================
+
+# Very sparse leftovers. Intended for visibly looted areas.
+- type: entityTable
+  id: MisfitsConditionLootPickedClean
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 40
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsConditionLootSpawnerPickedClean
+  name: picked clean loot spawner
+  suffix: Loot Condition, Picked Clean, 1-3
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: tincan
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsConditionLootPickedClean
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+
+# ============================================================================
+# POOR
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsConditionLootPoor
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 28
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsConditionLootSpawnerPoor
+  name: poor loot spawner
+  suffix: Loot Condition, Poor, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: scrap_2
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsConditionLootPoor
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# NORMAL
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsConditionLootNormal
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsConditionLootSpawnerNormal
+  name: normal loot spawner
+  suffix: Loot Condition, Normal, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsConditionLootNormal
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# UNTOUCHED
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsConditionLootUntouched
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsConditionLootSpawnerUntouched
+  name: untouched loot spawner
+  suffix: Loot Condition, Untouched, 5-10
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: toaster
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsConditionLootUntouched
+      rolls: !type:RangeNumberSelector
+        range: 5, 10
+    offset: 0.45
+
+
+# ============================================================================
+# SEALED
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsConditionLootSealed
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 11
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsConditionLootSpawnerSealed
+  name: sealed loot spawner
+  suffix: Loot Condition, Sealed, 3-6
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_green
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsConditionLootSealed
+      rolls: !type:RangeNumberSelector
+        range: 3, 6
+    offset: 0.45
+
+
+# ============================================================================
+# HIGH VALUE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsConditionLootHighValue
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 13
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsConditionLootSpawnerHighValue
+  name: high value loot spawner
+  suffix: Loot Condition, High Value, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_gold
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsConditionLootHighValue
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# PRE-WAR PRESERVED
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsConditionLootPreWarPreserved
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsConditionLootSpawnerPreWarPreserved
+  name: pre-war preserved loot spawner
+  suffix: Loot Condition, Pre-War Preserved, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_yellow
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsConditionLootPreWarPreserved
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# MIXED LOOT CONDITION
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsConditionLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsConditionLootPickedClean
+    - !type:NestedSelector
+      tableId: MisfitsConditionLootPoor
+    - !type:NestedSelector
+      tableId: MisfitsConditionLootNormal
+    - !type:NestedSelector
+      tableId: MisfitsConditionLootUntouched
+    - !type:NestedSelector
+      tableId: MisfitsConditionLootSealed
+    - !type:NestedSelector
+      tableId: MisfitsConditionLootHighValue
+    - !type:NestedSelector
+      tableId: MisfitsConditionLootPreWarPreserved
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsConditionLootSpawnerAll
+  name: mixed loot condition loot spawner
+  suffix: Loot Condition, Mixed, 3-6
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_gold
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsConditionLootAll
+      rolls: !type:RangeNumberSelector
+        range: 3, 6
+    offset: 0.45

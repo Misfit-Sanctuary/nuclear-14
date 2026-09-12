@@ -1,0 +1,669 @@
+﻿# #Misfits Add - Hidden Caches location/context loot.
+#
+# These tables mix the existing category master tables.
+# Rarity is inherited from the underlying item-category tables.
+# Every mapper spawner is visible and uses offset: 0.45.
+#
+
+# ============================================================================
+# CIVILIAN STASH
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsHiddenCacheLootCivilianStash
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 3
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsHiddenCacheLootSpawnerCivilianStash
+  name: civilian stash loot spawner
+  suffix: Hidden Caches, Civilian Stash, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_gold
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootCivilianStash
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# SURVIVALIST CACHE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsHiddenCacheLootSurvivalistCache
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsHiddenCacheLootSpawnerSurvivalistCache
+  name: survivalist cache loot spawner
+  suffix: Hidden Caches, Survivalist Cache, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: vault_113_canteen
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootSurvivalistCache
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# SMUGGLER CACHE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsHiddenCacheLootSmugglerCache
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsHiddenCacheLootSpawnerSmugglerCache
+  name: smuggler cache loot spawner
+  suffix: Hidden Caches, Smuggler Cache, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_red
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootSmugglerCache
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# RAIDER CACHE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsHiddenCacheLootRaiderCache
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsHiddenCacheLootSpawnerRaiderCache
+  name: raider cache loot spawner
+  suffix: Hidden Caches, Raider Cache, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootRaiderCache
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# MILITARY CACHE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsHiddenCacheLootMilitaryCache
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsHiddenCacheLootSpawnerMilitaryCache
+  name: military cache loot spawner
+  suffix: Hidden Caches, Military Cache, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/Head/FalloutHelmets/ncrhelmet3.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootMilitaryCache
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# MEDICAL CACHE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsHiddenCacheLootMedicalCache
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 58
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsHiddenCacheLootSpawnerMedicalCache
+  name: medical cache loot spawner
+  suffix: Hidden Caches, Medical Cache, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootMedicalCache
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# TECHNOLOGY CACHE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsHiddenCacheLootTechnologyCache
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 32
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsHiddenCacheLootSpawnerTechnologyCache
+  name: technology cache loot spawner
+  suffix: Hidden Caches, Technology Cache, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: circuits_3
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootTechnologyCache
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# FACTION DEAD DROP
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsHiddenCacheLootFactionDeadDrop
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 28
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsHiddenCacheLootSpawnerFactionDeadDrop
+  name: faction dead drop loot spawner
+  suffix: Hidden Caches, Faction Dead Drop, 1-4
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_red
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootFactionDeadDrop
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
+    offset: 0.45
+
+
+# ============================================================================
+# BURIED CACHE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsHiddenCacheLootBuriedCache
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 3
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsHiddenCacheLootSpawnerBuriedCache
+  name: buried cache loot spawner
+  suffix: Hidden Caches, Buried Cache, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_gold
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootBuriedCache
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# HIGH-VALUE SAFE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsHiddenCacheLootHighValueSafe
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsHiddenCacheLootSpawnerHighValueSafe
+  name: high-value safe loot spawner
+  suffix: Hidden Caches, High-Value Safe, 1-3
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_gold
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootHighValueSafe
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+
+# ============================================================================
+# MIXED HIDDEN CACHES
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsHiddenCacheLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootCivilianStash
+    - !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootSurvivalistCache
+    - !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootSmugglerCache
+    - !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootRaiderCache
+    - !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootMilitaryCache
+    - !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootMedicalCache
+    - !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootTechnologyCache
+    - !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootFactionDeadDrop
+    - !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootBuriedCache
+    - !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootHighValueSafe
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsHiddenCacheLootSpawnerAll
+  name: mixed hidden caches loot spawner
+  suffix: Hidden Caches, Mixed, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_red
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsHiddenCacheLootAll
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45

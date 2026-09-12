@@ -1,0 +1,807 @@
+﻿# #Misfits Add - Wasteland Locations location/context loot.
+#
+# These tables mix the existing category master tables.
+# Rarity is inherited from the underlying item-category tables.
+# Every mapper spawner is visible and uses offset: 0.45.
+#
+
+# ============================================================================
+# CAMPSITE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWastelandLocationLootCampsite
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 28
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWastelandLocationLootSpawnerCampsite
+  name: campsite loot spawner
+  suffix: Wasteland Locations, Campsite, 2-6
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: vault_113_canteen
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootCampsite
+      rolls: !type:RangeNumberSelector
+        range: 2, 6
+    offset: 0.45
+
+
+# ============================================================================
+# HUNTER CAMP
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWastelandLocationLootHunterCamp
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWastelandLocationLootSpawnerHunterCamp
+  name: hunter camp loot spawner
+  suffix: Wasteland Locations, Hunter Camp, 2-6
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootHunterCamp
+      rolls: !type:RangeNumberSelector
+        range: 2, 6
+    offset: 0.45
+
+
+# ============================================================================
+# PROSPECTOR CAMP
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWastelandLocationLootProspectorCamp
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWastelandLocationLootSpawnerProspectorCamp
+  name: prospector camp loot spawner
+  suffix: Wasteland Locations, Prospector Camp, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_copper
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootProspectorCamp
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# TRIBAL CAMP
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWastelandLocationLootTribalCamp
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWastelandLocationLootSpawnerTribalCamp
+  name: tribal camp loot spawner
+  suffix: Wasteland Locations, Tribal Camp, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: vault_113_canteen
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootTribalCamp
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# SETTLER HOME
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWastelandLocationLootSettlerHome
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWastelandLocationLootSpawnerSettlerHome
+  name: settler home loot spawner
+  suffix: Wasteland Locations, Settler Home, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootSettlerHome
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# CARAVAN CAMP
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWastelandLocationLootCaravanCamp
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 3
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWastelandLocationLootSpawnerCaravanCamp
+  name: caravan camp loot spawner
+  suffix: Wasteland Locations, Caravan Camp, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootCaravanCamp
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# SCAVENGER CAMP
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWastelandLocationLootScavengerCamp
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWastelandLocationLootSpawnerScavengerCamp
+  name: scavenger camp loot spawner
+  suffix: Wasteland Locations, Scavenger Camp, 4-9
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: scrap_2
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootScavengerCamp
+      rolls: !type:RangeNumberSelector
+        range: 4, 9
+    offset: 0.45
+
+
+# ============================================================================
+# RAIDER CAMP
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWastelandLocationLootRaiderCamp
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 17
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWastelandLocationLootSpawnerRaiderCamp
+  name: raider camp loot spawner
+  suffix: Wasteland Locations, Raider Camp, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootRaiderCamp
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# RAIDER BOSS STASH
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWastelandLocationLootRaiderBossStash
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWastelandLocationLootSpawnerRaiderBossStash
+  name: raider boss stash loot spawner
+  suffix: Wasteland Locations, Raider Boss Stash, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_red
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootRaiderBossStash
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# ABANDONED VEHICLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWastelandLocationLootAbandonedVehicle
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 28
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 17
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 13
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWastelandLocationLootSpawnerAbandonedVehicle
+  name: abandoned vehicle loot spawner
+  suffix: Wasteland Locations, Abandoned Vehicle, 2-6
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Tools/wrench.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootAbandonedVehicle
+      rolls: !type:RangeNumberSelector
+        range: 2, 6
+    offset: 0.45
+
+
+# ============================================================================
+# ROADSIDE CORPSE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWastelandLocationLootRoadsideCorpse
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 11
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWastelandLocationLootSpawnerRoadsideCorpse
+  name: roadside corpse loot spawner
+  suffix: Wasteland Locations, Roadside Corpse, 1-4
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_blue
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootRoadsideCorpse
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
+    offset: 0.45
+
+
+# ============================================================================
+# BATTLEFIELD CORPSE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWastelandLocationLootBattlefieldCorpse
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 17
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWastelandLocationLootSpawnerBattlefieldCorpse
+  name: battlefield corpse loot spawner
+  suffix: Wasteland Locations, Battlefield Corpse, 1-4
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutcombat.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootBattlefieldCorpse
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
+    offset: 0.45
+
+
+# ============================================================================
+# MIXED WASTELAND LOCATIONS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsWastelandLocationLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootCampsite
+    - !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootHunterCamp
+    - !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootProspectorCamp
+    - !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootTribalCamp
+    - !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootSettlerHome
+    - !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootCaravanCamp
+    - !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootScavengerCamp
+    - !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootRaiderCamp
+    - !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootRaiderBossStash
+    - !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootAbandonedVehicle
+    - !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootRoadsideCorpse
+    - !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootBattlefieldCorpse
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsWastelandLocationLootSpawnerAll
+  name: mixed wasteland locations loot spawner
+  suffix: Wasteland Locations, Mixed, 4-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: vault_113_canteen
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsWastelandLocationLootAll
+      rolls: !type:RangeNumberSelector
+        range: 4, 8
+    offset: 0.45

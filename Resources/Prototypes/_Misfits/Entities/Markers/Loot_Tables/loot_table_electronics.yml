@@ -1,0 +1,594 @@
+﻿# #Misfits Add - Electronics loot tables and mapper spawners.
+#
+# Five internal rarity tiers:
+# Common 50%, Uncommon 27%, Rare 14%, Very Rare 7%, Legendary 2%.
+#
+# Visible mapper markers; spawned loot uses offset: 0.45.
+# Lists are ordered from lower-value/common items toward rarer items.
+#
+
+# ============================================================================
+# COMMON ELECTRONICS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsElectronicsLootCommonElectronics
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: CableApcStack
+        weight: 3
+      - !type:EntSelector
+        id: N14ScrapElectronic1
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: ProximitySensor
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: RemoteSignaller
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: PowerCellSmallPrinted
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: RadioHandheld
+        weight: 3
+
+
+# ============================================================================
+# CIRCUIT COMPONENTS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsElectronicsLootCircuitComponents
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentFuse1
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentDiode1
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentCapacitor1
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentBoard1
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentBoard2
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentBoard3
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentMainboard
+        weight: 3
+
+
+# ============================================================================
+# BATTERIES
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsElectronicsLootBatteries
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: PowerCellSmallPrinted
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14PowerCellSmall
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14MicrofusionCell
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14MicrofusionCell
+        weight: 3
+      - !type:EntSelector
+        id: PowerCellHigh
+        weight: 2
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: PowerCellHigh
+        weight: 3
+
+
+# ============================================================================
+# RADIOS / COMMUNICATION
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsElectronicsLootRadiosCommunication
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: RadioHandheld
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: RemoteSignaller
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: MisfitsClothingHeadsetWastelandScrap
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRHelmetMetalRadioWood
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRHelmetMetalRadioSnow
+        weight: 3
+
+
+# ============================================================================
+# COMPUTERS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsElectronicsLootComputers
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentBoard1
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentBoard2
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentBoard3
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentMainboard
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: MicroManipulatorStockPart
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: MatterBinStockPart
+        weight: 3
+
+
+# ============================================================================
+# SENSORS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsElectronicsLootSensors
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: ProximitySensor
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentSensorModule
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: GeigerCounter
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: HandHeldMassScanner
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HandheldHealthAnalyzer
+        weight: 3
+
+
+# ============================================================================
+# ROBOTICS PARTS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsElectronicsLootRoboticsParts
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: ProximitySensor
+        weight: 3
+      - !type:EntSelector
+        id: RemoteSignaller
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: SciFlash
+        weight: 3
+      - !type:EntSelector
+        id: MicroManipulatorStockPart
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: MatterBinStockPart
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentSensorModule
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: PowerCellHigh
+        weight: 3
+
+
+# ============================================================================
+# RARE ELECTRONICS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsElectronicsLootRareElectronics
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentBoard3
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentMainboard
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentSensorModule
+        weight: 3
+      - !type:EntSelector
+        id: PowerCellHigh
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: HandHeldMassScanner
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14Multitool
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: RCD
+        weight: 3
+
+
+# ============================================================================
+# MASTER ELECTRONICS TABLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsElectronicsLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootCommonElectronics
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootCircuitComponents
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootBatteries
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootRadiosCommunication
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootComputers
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootSensors
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootRoboticsParts
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootRareElectronics
+      weight: 2
+
+
+# ============================================================================
+# VISIBLE MAPPER SPAWNER BASE
+# ============================================================================
+
+- type: entity
+  abstract: true
+  name: electronics loot spawner
+  id: MisfitsElectronicsLootSpawnerBase
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Misc/proximity_sensor.rsi
+      state: icon
+
+- type: entity
+  parent: MisfitsElectronicsLootSpawnerBase
+  id: MisfitsElectronicsLootSpawnerCommonElectronics
+  name: common electronics loot spawner
+  suffix: Misfits, Common Electronics, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsElectronicsLootCommonElectronics
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsElectronicsLootSpawnerBase
+  id: MisfitsElectronicsLootSpawnerCircuitComponents
+  name: circuit components loot spawner
+  suffix: Misfits, Circuit Components, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsElectronicsLootCircuitComponents
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsElectronicsLootSpawnerBase
+  id: MisfitsElectronicsLootSpawnerBatteries
+  name: batteries loot spawner
+  suffix: Misfits, Batteries, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsElectronicsLootBatteries
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsElectronicsLootSpawnerBase
+  id: MisfitsElectronicsLootSpawnerRadiosCommunication
+  name: radios / communication loot spawner
+  suffix: Misfits, Radios / Communication, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsElectronicsLootRadiosCommunication
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsElectronicsLootSpawnerBase
+  id: MisfitsElectronicsLootSpawnerComputers
+  name: computers loot spawner
+  suffix: Misfits, Computers, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsElectronicsLootComputers
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsElectronicsLootSpawnerBase
+  id: MisfitsElectronicsLootSpawnerSensors
+  name: sensors loot spawner
+  suffix: Misfits, Sensors, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsElectronicsLootSensors
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsElectronicsLootSpawnerBase
+  id: MisfitsElectronicsLootSpawnerRoboticsParts
+  name: robotics parts loot spawner
+  suffix: Misfits, Robotics Parts, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsElectronicsLootRoboticsParts
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsElectronicsLootSpawnerBase
+  id: MisfitsElectronicsLootSpawnerRareElectronics
+  name: rare electronics loot spawner
+  suffix: Misfits, Rare Electronics, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsElectronicsLootRareElectronics
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsElectronicsLootSpawnerBase
+  id: MisfitsElectronicsLootSpawnerAll
+  name: mixed electronics loot spawner
+  suffix: Misfits, Mixed, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45

@@ -1,0 +1,602 @@
+﻿# #Misfits Add - Tools loot tables and mapper spawners.
+#
+# Five internal rarity tiers:
+# Common 50%, Uncommon 27%, Rare 14%, Very Rare 7%, Legendary 2%.
+#
+# Visible mapper markers; spawned loot uses offset: 0.45.
+# Lists are ordered from lower-value/common items toward rarer items.
+#
+# NOTE: No dedicated verified lockpick/bobby-pin prototype was found; Locksmith Tools uses real access-oriented prying/electrical tools.
+#
+
+# ============================================================================
+# BASIC TOOLS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsToolsLootBasicTools
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Wrench
+        weight: 3
+      - !type:EntSelector
+        id: N14Screwdriver
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14Wirecutter
+        weight: 3
+      - !type:EntSelector
+        id: N14Welder
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14Shovel
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14Saw
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14Multitool
+        weight: 3
+
+
+# ============================================================================
+# MECHANIC TOOLS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsToolsLootMechanicTools
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Wrench
+        weight: 3
+      - !type:EntSelector
+        id: N14Screwdriver
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14Welder
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14PowerDrill
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: ToolboxMechanicalFilled
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14Multitool
+        weight: 3
+
+
+# ============================================================================
+# ELECTRICAL TOOLS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsToolsLootElectricalTools
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Screwdriver
+        weight: 3
+      - !type:EntSelector
+        id: N14Wirecutter
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14Multitool
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14Welder
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: ToolboxElectricalFilled
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: PowerCellHigh
+        weight: 3
+
+
+# ============================================================================
+# CONSTRUCTION TOOLS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsToolsLootConstructionTools
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Shovel
+        weight: 3
+      - !type:EntSelector
+        id: N14Saw
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14Wrench
+        weight: 3
+      - !type:EntSelector
+        id: N14Welder
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: Pickaxe
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14PowerDrill
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: RCD
+        weight: 3
+
+
+# ============================================================================
+# LOCKSMITH TOOLS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsToolsLootLocksmithTools
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Screwdriver
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14Wirecutter
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14Multitool
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: Crowbar
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14PowerDrill
+        weight: 3
+
+
+# ============================================================================
+# MEDICAL TOOLS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsToolsLootMedicalTools
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14DoctorSyringe
+        weight: 3
+      - !type:EntSelector
+        id: N14ChemicalSyringe
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14HandheldHealthAnalyzer
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: SurgicalSterilanSpray
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: Portafib
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: DefibrillatorCompact
+        weight: 3
+
+
+# ============================================================================
+# SCIENTIFIC TOOLS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsToolsLootScientificTools
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: Dropper
+        weight: 3
+      - !type:EntSelector
+        id: HandLabeler
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14MortarpestleGrinder
+        weight: 3
+      - !type:EntSelector
+        id: GeigerCounter
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: HandHeldMassScanner
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14Multitool
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HandheldHealthAnalyzer
+        weight: 3
+
+
+# ============================================================================
+# SPECIALIZED TOOLS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsToolsLootSpecializedTools
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Multitool
+        weight: 3
+      - !type:EntSelector
+        id: N14PowerDrill
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: GeigerCounter
+        weight: 3
+      - !type:EntSelector
+        id: HandHeldMassScanner
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14HandheldHealthAnalyzer
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: PowerCellHigh
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: RCD
+        weight: 3
+
+
+# ============================================================================
+# MASTER TOOLS TABLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsToolsLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootBasicTools
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootMechanicTools
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootElectricalTools
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootConstructionTools
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootLocksmithTools
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootMedicalTools
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootScientificTools
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootSpecializedTools
+      weight: 10
+
+
+# ============================================================================
+# VISIBLE MAPPER SPAWNER BASE
+# ============================================================================
+
+- type: entity
+  abstract: true
+  name: tools loot spawner
+  id: MisfitsToolsLootSpawnerBase
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Tools/wrench.rsi
+      state: icon
+
+- type: entity
+  parent: MisfitsToolsLootSpawnerBase
+  id: MisfitsToolsLootSpawnerBasicTools
+  name: basic tools loot spawner
+  suffix: Misfits, Basic Tools, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsToolsLootBasicTools
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsToolsLootSpawnerBase
+  id: MisfitsToolsLootSpawnerMechanicTools
+  name: mechanic tools loot spawner
+  suffix: Misfits, Mechanic Tools, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsToolsLootMechanicTools
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsToolsLootSpawnerBase
+  id: MisfitsToolsLootSpawnerElectricalTools
+  name: electrical tools loot spawner
+  suffix: Misfits, Electrical Tools, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsToolsLootElectricalTools
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsToolsLootSpawnerBase
+  id: MisfitsToolsLootSpawnerConstructionTools
+  name: construction tools loot spawner
+  suffix: Misfits, Construction Tools, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsToolsLootConstructionTools
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsToolsLootSpawnerBase
+  id: MisfitsToolsLootSpawnerLocksmithTools
+  name: locksmith tools loot spawner
+  suffix: Misfits, Locksmith Tools, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsToolsLootLocksmithTools
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsToolsLootSpawnerBase
+  id: MisfitsToolsLootSpawnerMedicalTools
+  name: medical tools loot spawner
+  suffix: Misfits, Medical Tools, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsToolsLootMedicalTools
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsToolsLootSpawnerBase
+  id: MisfitsToolsLootSpawnerScientificTools
+  name: scientific tools loot spawner
+  suffix: Misfits, Scientific Tools, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsToolsLootScientificTools
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsToolsLootSpawnerBase
+  id: MisfitsToolsLootSpawnerSpecializedTools
+  name: specialized tools loot spawner
+  suffix: Misfits, Specialized Tools, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsToolsLootSpecializedTools
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsToolsLootSpawnerBase
+  id: MisfitsToolsLootSpawnerAll
+  name: mixed tools loot spawner
+  suffix: Misfits, Mixed, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45

@@ -1,0 +1,481 @@
+﻿# #Misfits Add - Food & Drink loot tables and mapper spawners.
+#
+# Five internal rarity tiers:
+# Common 50%, Uncommon 27%, Rare 14%, Very Rare 7%, Legendary 2%.
+#
+# Visible mapper markers; spawned loot uses offset: 0.45.
+# Lists are ordered from lower-value/common items toward rarer items.
+#
+
+# ============================================================================
+# PACKAGED FOOD
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFoodDrinkLootPackagedFood
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14FoodDogfood
+        weight: 3
+      - !type:EntSelector
+        id: N14FoodCrisps
+        weight: 2
+      - !type:EntSelector
+        id: N14FoodInstamash
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14FoodPorkBeans
+        weight: 3
+      - !type:EntSelector
+        id: N14FoodCram
+        weight: 2
+      - !type:EntSelector
+        id: N14FoodBlamcomaccheese
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14FoodSalisburysteak
+        weight: 3
+      - !type:EntSelector
+        id: N14FoodDandyboyapples
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14FoodFancyladssnackcakes
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14FoodSugarbombs
+        weight: 3
+
+
+# ============================================================================
+# FRESH / WASTELAND FOOD
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFoodDrinkLootFreshWastelandFood
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14FoodMeatGeckoCooked
+        weight: 3
+      - !type:EntSelector
+        id: N14FoodMeatBrahminCooked
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14FoodMeatRadstagCooked
+        weight: 3
+      - !type:EntSelector
+        id: N14FoodMeatBighornerCooked
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14FoodMeatRadscorpionCooked
+        weight: 3
+      - !type:EntSelector
+        id: N14FoodCheeseSlice
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14FoodChevreSlice
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14FoodTofu
+        weight: 3
+
+
+# ============================================================================
+# DRINKS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFoodDrinkLootDrinks
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: DrinkWaterBottleFull
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14DrinkNukaCola
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14DrinkNukaColaIceCold
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14DrinkNukaColaCherryIceCold
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14DrinkNukaColaGrapeIceCold
+        weight: 3
+
+
+# ============================================================================
+# ALCOHOL
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFoodDrinkLootAlcohol
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: DrinkBeerCan
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: DrinkBeerBottleFull
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14DrinkWhisky
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14DrinkWhisky
+        weight: 3
+      - !type:EntSelector
+        id: N14DrinkRoentgenRum
+        weight: 2
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14DrinkRoentgenRum
+        weight: 3
+
+
+# ============================================================================
+# COOKING INGREDIENTS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFoodDrinkLootCookingIngredients
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ReagentContainerFlourSmall
+        weight: 3
+      - !type:EntSelector
+        id: N14ReagentContainerCornmealSmall
+        weight: 2
+      - !type:EntSelector
+        id: N14ReagentContainerRiceSmall
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ReagentContainerSugarSmall
+        weight: 3
+      - !type:EntSelector
+        id: N14FoodButter
+        weight: 2
+      - !type:EntSelector
+        id: N14FoodCheese
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ReagentContainerOliveoil
+        weight: 3
+      - !type:EntSelector
+        id: N14ReagentContainerMayo
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ReagentContainerFlour
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ReagentContainerRice
+        weight: 3
+
+
+# ============================================================================
+# RARE / PRE-WAR FOOD
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFoodDrinkLootRarePreWarFood
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14FoodBubblegum
+        weight: 3
+      - !type:EntSelector
+        id: N14FoodDinki-Di
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14FoodYumyumdeviledeggs
+        weight: 3
+      - !type:EntSelector
+        id: N14FoodDandyboyapples
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14FoodFancyladssnackcakes
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14FoodBlamcomaccheeseLarge
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14FoodSugarbombs
+        weight: 3
+
+
+# ============================================================================
+# MASTER FOOD & DRINK TABLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFoodDrinkLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootPackagedFood
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootFreshWastelandFood
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootDrinks
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAlcohol
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootCookingIngredients
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootRarePreWarFood
+      weight: 2
+
+
+# ============================================================================
+# VISIBLE MAPPER SPAWNER BASE
+# ============================================================================
+
+- type: entity
+  abstract: true
+  name: food & drink loot spawner
+  id: MisfitsFoodDrinkLootSpawnerBase
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Consumable/Food/pre-war.rsi
+      state: cram
+
+- type: entity
+  parent: MisfitsFoodDrinkLootSpawnerBase
+  id: MisfitsFoodDrinkLootSpawnerPackagedFood
+  name: packaged food loot spawner
+  suffix: Misfits, Packaged Food, 2-5
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootPackagedFood
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsFoodDrinkLootSpawnerBase
+  id: MisfitsFoodDrinkLootSpawnerFreshWastelandFood
+  name: fresh / wasteland food loot spawner
+  suffix: Misfits, Fresh / Wasteland Food, 2-5
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootFreshWastelandFood
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsFoodDrinkLootSpawnerBase
+  id: MisfitsFoodDrinkLootSpawnerDrinks
+  name: drinks loot spawner
+  suffix: Misfits, Drinks, 2-5
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootDrinks
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsFoodDrinkLootSpawnerBase
+  id: MisfitsFoodDrinkLootSpawnerAlcohol
+  name: alcohol loot spawner
+  suffix: Misfits, Alcohol, 2-5
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAlcohol
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsFoodDrinkLootSpawnerBase
+  id: MisfitsFoodDrinkLootSpawnerCookingIngredients
+  name: cooking ingredients loot spawner
+  suffix: Misfits, Cooking Ingredients, 2-5
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootCookingIngredients
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsFoodDrinkLootSpawnerBase
+  id: MisfitsFoodDrinkLootSpawnerRarePreWarFood
+  name: rare / pre-war food loot spawner
+  suffix: Misfits, Rare / Pre-War Food, 2-5
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootRarePreWarFood
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsFoodDrinkLootSpawnerBase
+  id: MisfitsFoodDrinkLootSpawnerAll
+  name: mixed food & drink loot spawner
+  suffix: Misfits, Mixed, 2-5
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45

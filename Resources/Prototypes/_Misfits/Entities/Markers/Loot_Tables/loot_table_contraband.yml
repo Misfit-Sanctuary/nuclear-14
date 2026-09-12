@@ -1,0 +1,473 @@
+﻿# #Misfits Add - Contraband loot tables and mapper spawners.
+#
+# Five internal rarity tiers:
+# Common 50%, Uncommon 27%, Rare 14%, Very Rare 7%, Legendary 2%.
+#
+# Visible mapper markers; spawned loot uses offset: 0.45.
+# Lists are ordered from lower-value/common items toward rarer items.
+#
+# NOTE: Forged Documents uses real identity-document prototypes as stand-ins; dedicated forged variants can replace them later without changing the table structure.
+#
+
+# ============================================================================
+# ILLEGAL CHEMS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsContrabandLootIllegalChems
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Jet
+        weight: 3
+      - !type:EntSelector
+        id: N14Psycho
+        weight: 2
+      - !type:EntSelector
+        id: N14BuffoutCanisterFilled
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14Med-X
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsPillCanisterCrank
+        weight: 2
+      - !type:EntSelector
+        id: MisfitsPillCanisterFury
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: MisfitsPillCanisterCalmex
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsPillCanisterOverdrive
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14Turbo
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: MisfitsPillCanisterXCell
+        weight: 3
+
+
+# ============================================================================
+# STOLEN MILITARY EQUIPMENT
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsContrabandLootStolenMilitaryEquipment
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatCombatHelmet
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingOuterCombatArmor
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14WeaponRifle556Service
+        weight: 3
+      - !type:EntSelector
+        id: N14AmmoBox556
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingBackpackMilitary
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterCombatArmorMK2
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14WeaponSniper50AntiMateriel
+        weight: 3
+
+
+# ============================================================================
+# RESTRICTED TECHNOLOGY
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsContrabandLootRestrictedTechnology
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentMainboard
+        weight: 3
+      - !type:EntSelector
+        id: PowerCellHigh
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: RCD
+        weight: 3
+      - !type:EntSelector
+        id: N14WeaponLaserRiflePrototypeAER14
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14WeaponPlasmaCaster
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterPowerArmorAdvanced2Tesla
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ClothingOuterPowerArmorAdvanced2HellfireMisfit
+        weight: 3
+
+
+# ============================================================================
+# FORGED DOCUMENTS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsContrabandLootForgedDocuments
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14IDNCRPassportCitizen
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14IDNCRPassportTrader
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14IDBadgeNCRDesertRanger
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: BoxFolderGrey
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: Paper
+        weight: 3
+
+
+# ============================================================================
+# FACTION INTELLIGENCE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsContrabandLootFactionIntelligence
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreNCRRecon
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreLegionOrders
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreBOSField
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreMilitaryMemo
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreEnclaveDirective
+        weight: 3
+
+
+# ============================================================================
+# BLACK MARKET GOODS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsContrabandLootBlackMarketGoods
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14CurrencyCap100
+        weight: 3
+      - !type:EntSelector
+        id: N14Jet
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14Psycho
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsPillCanisterOverdrive
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14WeaponSMG10mmSuppressed
+        weight: 3
+      - !type:EntSelector
+        id: N14WeaponDesertEagle44
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14WeaponPlasmaRifleUrban
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14CurrencyLegionAureus10
+        weight: 3
+
+
+# ============================================================================
+# MASTER CONTRABAND TABLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsContrabandLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootIllegalChems
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootStolenMilitaryEquipment
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootRestrictedTechnology
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootForgedDocuments
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootFactionIntelligence
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootBlackMarketGoods
+      weight: 10
+
+
+# ============================================================================
+# VISIBLE MAPPER SPAWNER BASE
+# ============================================================================
+
+- type: entity
+  abstract: true
+  name: contraband loot spawner
+  id: MisfitsContrabandLootSpawnerBase
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+      state: icon
+
+- type: entity
+  parent: MisfitsContrabandLootSpawnerBase
+  id: MisfitsContrabandLootSpawnerIllegalChems
+  name: illegal chems loot spawner
+  suffix: Misfits, Illegal Chems, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsContrabandLootIllegalChems
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsContrabandLootSpawnerBase
+  id: MisfitsContrabandLootSpawnerStolenMilitaryEquipment
+  name: stolen military equipment loot spawner
+  suffix: Misfits, Stolen Military Equipment, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsContrabandLootStolenMilitaryEquipment
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsContrabandLootSpawnerBase
+  id: MisfitsContrabandLootSpawnerRestrictedTechnology
+  name: restricted technology loot spawner
+  suffix: Misfits, Restricted Technology, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsContrabandLootRestrictedTechnology
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsContrabandLootSpawnerBase
+  id: MisfitsContrabandLootSpawnerForgedDocuments
+  name: forged documents loot spawner
+  suffix: Misfits, Forged Documents, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsContrabandLootForgedDocuments
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsContrabandLootSpawnerBase
+  id: MisfitsContrabandLootSpawnerFactionIntelligence
+  name: faction intelligence loot spawner
+  suffix: Misfits, Faction Intelligence, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsContrabandLootFactionIntelligence
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsContrabandLootSpawnerBase
+  id: MisfitsContrabandLootSpawnerBlackMarketGoods
+  name: black market goods loot spawner
+  suffix: Misfits, Black Market Goods, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsContrabandLootBlackMarketGoods
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsContrabandLootSpawnerBase
+  id: MisfitsContrabandLootSpawnerAll
+  name: mixed contraband loot spawner
+  suffix: Misfits, Mixed, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45

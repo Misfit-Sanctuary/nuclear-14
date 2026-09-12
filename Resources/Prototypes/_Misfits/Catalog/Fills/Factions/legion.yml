@@ -1,0 +1,825 @@
+﻿- type: entity
+  id: MisfitsLockerLegionLegionnaireRecruitUniform2Person
+  name: Caesar's Legion legionnaire recruit two-person uniform locker
+  description: A locker containing Legionnaire Recruit clothing for two personnel.
+  suffix: Filled, Legion Legionnaire Recruit, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 2
+    - id: N14ClothingMaskBrownMask
+      amount: 2
+    - id: N14ClothingEyesGlassesWelding
+      amount: 2
+    - id: N14ClothingShoesKaligi
+      amount: 2
+    - id: N14ClothingHandsGlovesTribal
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerLegionLegionnaireRecruitUniform3Person
+  name: Caesar's Legion legionnaire recruit three-person uniform locker
+  description: A locker containing Legionnaire Recruit clothing for three personnel.
+  suffix: Filled, Legion Legionnaire Recruit, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 3
+    - id: N14ClothingMaskBrownMask
+      amount: 3
+    - id: N14ClothingEyesGlassesWelding
+      amount: 3
+    - id: N14ClothingShoesKaligi
+      amount: 3
+    - id: N14ClothingHandsGlovesTribal
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerLegionLegionnaireRecruitUniform4Person
+  name: Caesar's Legion legionnaire recruit four-person uniform locker
+  description: A locker containing Legionnaire Recruit clothing for four personnel.
+  suffix: Filled, Legion Legionnaire Recruit, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 4
+    - id: N14ClothingMaskBrownMask
+      amount: 4
+    - id: N14ClothingEyesGlassesWelding
+      amount: 4
+    - id: N14ClothingShoesKaligi
+      amount: 4
+    - id: N14ClothingHandsGlovesTribal
+      amount: 4
+
+- type: entity
+  id: MisfitsLockerLegionLegionnaireWarriorUniform2Person
+  name: Caesar's Legion legionnaire warrior two-person uniform locker
+  description: A locker containing Legionnaire Warrior clothing for two personnel.
+  suffix: Filled, Legion Legionnaire Warrior, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 2
+    - id: ClothingNeckRedScarf
+      amount: 2
+    - id: N14ClothingEyesGlassesWelding
+      amount: 2
+    - id: N14ClothingShoesKaligi
+      amount: 2
+    - id: N14ClothingHandsGlovesTribal
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerLegionLegionnaireWarriorUniform3Person
+  name: Caesar's Legion legionnaire warrior three-person uniform locker
+  description: A locker containing Legionnaire Warrior clothing for three personnel.
+  suffix: Filled, Legion Legionnaire Warrior, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 3
+    - id: ClothingNeckRedScarf
+      amount: 3
+    - id: N14ClothingEyesGlassesWelding
+      amount: 3
+    - id: N14ClothingShoesKaligi
+      amount: 3
+    - id: N14ClothingHandsGlovesTribal
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerLegionLegionnaireWarriorUniform4Person
+  name: Caesar's Legion legionnaire warrior four-person uniform locker
+  description: A locker containing Legionnaire Warrior clothing for four personnel.
+  suffix: Filled, Legion Legionnaire Warrior, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 4
+    - id: ClothingNeckRedScarf
+      amount: 4
+    - id: N14ClothingEyesGlassesWelding
+      amount: 4
+    - id: N14ClothingShoesKaligi
+      amount: 4
+    - id: N14ClothingHandsGlovesTribal
+      amount: 4
+
+- type: entity
+  id: MisfitsLockerLegionLegionnaireVeteranUniform2Person
+  name: Caesar's Legion legionnaire veteran two-person uniform locker
+  description: A locker containing Legionnaire Veteran clothing for two personnel.
+  suffix: Filled, Legion Legionnaire Veteran, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 2
+    - id: ClothingNeckRedScarf
+      amount: 2
+    - id: N14ClothingEyesGlassesWelding
+      amount: 2
+    - id: N14ClothingBootsBlack
+      amount: 2
+    - id: N14ClothingHandsGlovesTribal
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerLegionLegionnaireVeteranUniform3Person
+  name: Caesar's Legion legionnaire veteran three-person uniform locker
+  description: A locker containing Legionnaire Veteran clothing for three personnel.
+  suffix: Filled, Legion Legionnaire Veteran, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 3
+    - id: ClothingNeckRedScarf
+      amount: 3
+    - id: N14ClothingEyesGlassesWelding
+      amount: 3
+    - id: N14ClothingBootsBlack
+      amount: 3
+    - id: N14ClothingHandsGlovesTribal
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerLegionLegionnaireVeteranUniform4Person
+  name: Caesar's Legion legionnaire veteran four-person uniform locker
+  description: A locker containing Legionnaire Veteran clothing for four personnel.
+  suffix: Filled, Legion Legionnaire Veteran, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 4
+    - id: ClothingNeckRedScarf
+      amount: 4
+    - id: N14ClothingEyesGlassesWelding
+      amount: 4
+    - id: N14ClothingBootsBlack
+      amount: 4
+    - id: N14ClothingHandsGlovesTribal
+      amount: 4
+
+- type: entity
+  id: MisfitsLockerLegionDecanusUniform2Person
+  name: Caesar's Legion decanus two-person uniform locker
+  description: A locker containing Decanus clothing for two personnel.
+  suffix: Filled, Legion Decanus, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 2
+    - id: ClothingNeckRedScarf
+      amount: 2
+    - id: N14ClothingEyesGlassesWelding
+      amount: 2
+    - id: N14ClothingBootsCombat
+      amount: 2
+    - id: N14ClothingHandsGlovesTribal
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerLegionDecanusUniform3Person
+  name: Caesar's Legion decanus three-person uniform locker
+  description: A locker containing Decanus clothing for three personnel.
+  suffix: Filled, Legion Decanus, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 3
+    - id: ClothingNeckRedScarf
+      amount: 3
+    - id: N14ClothingEyesGlassesWelding
+      amount: 3
+    - id: N14ClothingBootsCombat
+      amount: 3
+    - id: N14ClothingHandsGlovesTribal
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerLegionDecanusUniform4Person
+  name: Caesar's Legion decanus four-person uniform locker
+  description: A locker containing Decanus clothing for four personnel.
+  suffix: Filled, Legion Decanus, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 4
+    - id: ClothingNeckRedScarf
+      amount: 4
+    - id: N14ClothingEyesGlassesWelding
+      amount: 4
+    - id: N14ClothingBootsCombat
+      amount: 4
+    - id: N14ClothingHandsGlovesTribal
+      amount: 4
+
+- type: entity
+  id: MisfitsLockerLegionVeteranDecanusUniform2Person
+  name: Caesar's Legion veteran decanus two-person uniform locker
+  description: A locker containing Veteran Decanus clothing for two personnel.
+  suffix: Filled, Legion Veteran Decanus, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 2
+    - id: ClothingNeckRedScarf
+      amount: 2
+    - id: N14ClothingEyesGlassesWelding
+      amount: 2
+    - id: N14ClothingBootsCombat
+      amount: 2
+    - id: N14ClothingHandsGlovesTribal
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerLegionVeteranDecanusUniform3Person
+  name: Caesar's Legion veteran decanus three-person uniform locker
+  description: A locker containing Veteran Decanus clothing for three personnel.
+  suffix: Filled, Legion Veteran Decanus, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 3
+    - id: ClothingNeckRedScarf
+      amount: 3
+    - id: N14ClothingEyesGlassesWelding
+      amount: 3
+    - id: N14ClothingBootsCombat
+      amount: 3
+    - id: N14ClothingHandsGlovesTribal
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerLegionVeteranDecanusUniform4Person
+  name: Caesar's Legion veteran decanus four-person uniform locker
+  description: A locker containing Veteran Decanus clothing for four personnel.
+  suffix: Filled, Legion Veteran Decanus, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 4
+    - id: ClothingNeckRedScarf
+      amount: 4
+    - id: N14ClothingEyesGlassesWelding
+      amount: 4
+    - id: N14ClothingBootsCombat
+      amount: 4
+    - id: N14ClothingHandsGlovesTribal
+      amount: 4
+
+- type: entity
+  id: MisfitsLockerLegionPrimeDecanusUniform2Person
+  name: Caesar's Legion prime decanus two-person uniform locker
+  description: A locker containing Prime Decanus clothing for two personnel.
+  suffix: Filled, Legion Prime Decanus, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 2
+    - id: ClothingNeckRedScarf
+      amount: 2
+    - id: N14ClothingEyesGlassesWelding
+      amount: 2
+    - id: N14ClothingBootsCombat
+      amount: 2
+    - id: N14ClothingHandsGlovesTribal
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerLegionPrimeDecanusUniform3Person
+  name: Caesar's Legion prime decanus three-person uniform locker
+  description: A locker containing Prime Decanus clothing for three personnel.
+  suffix: Filled, Legion Prime Decanus, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 3
+    - id: ClothingNeckRedScarf
+      amount: 3
+    - id: N14ClothingEyesGlassesWelding
+      amount: 3
+    - id: N14ClothingBootsCombat
+      amount: 3
+    - id: N14ClothingHandsGlovesTribal
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerLegionPrimeDecanusUniform4Person
+  name: Caesar's Legion prime decanus four-person uniform locker
+  description: A locker containing Prime Decanus clothing for four personnel.
+  suffix: Filled, Legion Prime Decanus, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 4
+    - id: ClothingNeckRedScarf
+      amount: 4
+    - id: N14ClothingEyesGlassesWelding
+      amount: 4
+    - id: N14ClothingBootsCombat
+      amount: 4
+    - id: N14ClothingHandsGlovesTribal
+      amount: 4
+
+- type: entity
+  id: MisfitsLockerLegionOptioUniform2Person
+  name: Caesar's Legion optio two-person uniform locker
+  description: A locker containing Optio clothing for two personnel.
+  suffix: Filled, Legion Optio
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+    - id: M14ClothingNeckLegionMantle
+    - id: N14ClothingMaskBrownMask
+    - id: N14ClothingShoesKaligi
+    - id: N14ClothingHandsGlovesTribal
+
+- type: entity
+  id: MisfitsLockerLegionCenturionUniform2Person
+  name: Caesar's Legion centurion two-person uniform locker
+  description: A locker containingCenturion clothing.
+  suffix: Filled, Legion Centurion
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+    - id: ClothingNeckBlackScarf
+    - id: N14ClothingEyesGlassesWelding
+    - id: N14ClothingBootsCenturion
+    - id: N14ClothingHandsGlovesCenturion
+
+- type: entity
+  id: MisfitsLockerLegionLegateUniform2Person
+  name: Caesar's Legion legate two-person uniform locker
+  description: A locker containing Legate clothing.
+  suffix: Filled, Legion Legate
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+    - id: ClothingNeckRedScarf
+    - id: N14ClothingEyesGlassesWelding
+    - id: N14ClothingBootsLegate
+    - id: N14ClothingHandsGlovesLegate
+
+- type: entity
+  id: MisfitsLockerLegionExplorerUniform2Person
+  name: Caesar's Legion explorer two-person uniform locker
+  description: A locker containing Explorer clothing for two personnel.
+  suffix: Filled, Legion Explorer, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 2
+    - id: N14ClothingNeckCloakLegionBlack
+      amount: 2
+    - id: N14ClothingMaskBrownMask
+      amount: 2
+    - id: N14ClothingShoesKaligi
+      amount: 2
+    - id: N14ClothingHandsGlovesTribal
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerLegionExplorerUniform3Person
+  name: Caesar's Legion explorer three-person uniform locker
+  description: A locker containing Explorer clothing for three personnel.
+  suffix: Filled, Legion Explorer, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 3
+    - id: N14ClothingNeckCloakLegionBlack
+      amount: 3
+    - id: N14ClothingMaskBrownMask
+      amount: 3
+    - id: N14ClothingShoesKaligi
+      amount: 3
+    - id: N14ClothingHandsGlovesTribal
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerLegionExplorerUniform4Person
+  name: Caesar's Legion explorer four-person uniform locker
+  description: A locker containing Explorer clothing for four personnel.
+  suffix: Filled, Legion Explorer, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 4
+    - id: N14ClothingNeckCloakLegionBlack
+      amount: 4
+    - id: N14ClothingMaskBrownMask
+      amount: 4
+    - id: N14ClothingShoesKaligi
+      amount: 4
+    - id: N14ClothingHandsGlovesTribal
+      amount: 4
+
+- type: entity
+  id: MisfitsLockerLegionFrumentariusUniform2Person
+  name: Caesar's Legion frumentarius two-person uniform locker
+  description: A locker containing Frumentarius clothing for two personnel.
+  suffix: Filled, Legion Frumentarius, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 2
+    - id: N14ClothingMaskBrownMask
+      amount: 2
+    - id: N14ClothingShoesKaligi
+      amount: 2
+    - id: N14ClothingHandsGlovesTribal
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerLegionFrumentariusUniform3Person
+  name: Caesar's Legion frumentarius three-person uniform locker
+  description: A locker containing Frumentarius clothing for three personnel.
+  suffix: Filled, Legion Frumentarius, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 3
+    - id: N14ClothingMaskBrownMask
+      amount: 3
+    - id: N14ClothingShoesKaligi
+      amount: 3
+    - id: N14ClothingHandsGlovesTribal
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerLegionFrumentariusUniform4Person
+  name: Caesar's Legion frumentarius four-person uniform locker
+  description: A locker containing Frumentarius clothing for four personnel.
+  suffix: Filled, Legion Frumentarius, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 4
+    - id: N14ClothingMaskBrownMask
+      amount: 4
+    - id: N14ClothingShoesKaligi
+      amount: 4
+    - id: N14ClothingHandsGlovesTribal
+      amount: 4
+
+- type: entity
+  id: MisfitsLockerLegionHoundmasterUniform2Person
+  name: Caesar's Legion houndmaster two-person uniform locker
+  description: A locker containing Houndmaster clothing for two personnel.
+  suffix: Filled, Legion Houndmaster, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 2
+    - id: N14ClothingMaskBrownMask
+      amount: 2
+    - id: N14ClothingShoesKaligi
+      amount: 2
+    - id: N14ClothingHandsGlovesTribal
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerLegionHoundmasterUniform3Person
+  name: Caesar's Legion houndmaster three-person uniform locker
+  description: A locker containing Houndmaster clothing for three personnel.
+  suffix: Filled, Legion Houndmaster, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 3
+    - id: N14ClothingMaskBrownMask
+      amount: 3
+    - id: N14ClothingShoesKaligi
+      amount: 3
+    - id: N14ClothingHandsGlovesTribal
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerLegionHoundmasterUniform4Person
+  name: Caesar's Legion houndmaster four-person uniform locker
+  description: A locker containing Houndmaster clothing for four personnel.
+  suffix: Filled, Legion Houndmaster, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 4
+    - id: N14ClothingMaskBrownMask
+      amount: 4
+    - id: N14ClothingShoesKaligi
+      amount: 4
+    - id: N14ClothingHandsGlovesTribal
+      amount: 4
+
+- type: entity
+  id: MisfitsLockerLegionVexillariusUniform2Person
+  name: Caesar's Legion vexillarius two-person uniform locker
+  description: A locker containing Vexillarius clothing for two personnel.
+  suffix: Filled, Legion Vexillarius, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 2
+    - id: N14ClothingNeckCloakLegionWhite
+      amount: 2
+    - id: N14ClothingMaskBrownMask
+      amount: 2
+    - id: N14ClothingShoesKaligi
+      amount: 2
+    - id: N14ClothingHandsGlovesTribal
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerLegionVexillariusUniform3Person
+  name: Caesar's Legion vexillarius three-person uniform locker
+  description: A locker containing Vexillarius clothing for three personnel.
+  suffix: Filled, Legion Vexillarius, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 3
+    - id: N14ClothingNeckCloakLegionWhite
+      amount: 3
+    - id: N14ClothingMaskBrownMask
+      amount: 3
+    - id: N14ClothingShoesKaligi
+      amount: 3
+    - id: N14ClothingHandsGlovesTribal
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerLegionVexillariusUniform4Person
+  name: Caesar's Legion vexillarius four-person uniform locker
+  description: A locker containing Vexillarius clothing for four personnel.
+  suffix: Filled, Legion Vexillarius, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 4
+    - id: N14ClothingNeckCloakLegionWhite
+      amount: 4
+    - id: N14ClothingMaskBrownMask
+      amount: 4
+    - id: N14ClothingShoesKaligi
+      amount: 4
+    - id: N14ClothingHandsGlovesTribal
+      amount: 4
+
+- type: entity
+  id: MisfitsLockerLegionForgemasterUniform2Person
+  name: Caesar's Legion forgemaster two-person uniform locker
+  description: A locker containing Forgemaster clothing for two personnel.
+  suffix: Filled, Legion Forgemaster, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 2
+    - id: ClothingNeckRedScarf
+      amount: 2
+    - id: N14ClothingEyesGlassesWelding
+      amount: 2
+    - id: N14ClothingBootsCombat
+      amount: 2
+    - id: N14ClothingHandsGlovesTribal
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerLegionAcolyteOfMarsUniform2Person
+  name: Caesar's Legion acolyte of mars two-person uniform locker
+  description: A locker containing Acolyte of Mars clothing for two personnel.
+  suffix: Filled, Legion Acolyte of Mars
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+    - id: N14ClothingMaskBrownMask
+    - id: N14ClothingBootsLeather
+    - id: N14ClothingHandsGlovesTribal
+
+- type: entity
+  id: MisfitsLockerLegionPriestessOfMarsUniform2Person
+  name: Caesar's Legion priestess of mars two-person uniform locker
+  description: A locker containing Priestess of Mars clothing for two personnel.
+  suffix: Filled, Legion Priestess of Mars
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14PriestessOfMarsRobes
+    - id: N14PriestessOfMarsVeil
+    - id: N14PriestessOfMarsBoots
+
+- type: entity
+  id: MisfitsLockerLegionAuxiliaUniform2Person
+  name: Caesar's Legion auxilia two-person uniform locker
+  description: A locker containing Auxilia clothing for two personnel.
+  suffix: Filled, Legion Auxilia, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 2
+    - id: N14ClothingMaskBrownMask
+      amount: 2
+    - id: N14ClothingBootsLeather
+      amount: 2
+    - id: N14ClothingHandsGlovesTribal
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerLegionAuxiliaUniform3Person
+  name: Caesar's Legion auxilia three-person uniform locker
+  description: A locker containing Auxilia clothing for three personnel.
+  suffix: Filled, Legion Auxilia, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 3
+    - id: N14ClothingMaskBrownMask
+      amount: 3
+    - id: N14ClothingBootsLeather
+      amount: 3
+    - id: N14ClothingHandsGlovesTribal
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerLegionAuxiliaUniform4Person
+  name: Caesar's Legion auxilia four-person uniform locker
+  description: A locker containing Auxilia clothing for four personnel.
+  suffix: Filled, Legion Auxilia, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitLegionnaire
+      amount: 4
+    - id: N14ClothingMaskBrownMask
+      amount: 4
+    - id: N14ClothingBootsLeather
+      amount: 4
+    - id: N14ClothingHandsGlovesTribal
+      amount: 4
+
+- type: entity
+  id: MisfitsLockerLegionCitizenUniform2Person
+  name: Caesar's Legion citizen two-person uniform locker
+  description: A locker containing Citizen clothing for two personnel.
+  suffix: Filled, Legion Citizen, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitRags
+      amount: 2
+    - id: N14ClothingShoesBlack
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerLegionCitizenUniform3Person
+  name: Caesar's Legion citizen three-person uniform locker
+  description: A locker containing Citizen clothing for three personnel.
+  suffix: Filled, Legion Citizen, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitRags
+      amount: 3
+    - id: N14ClothingShoesBlack
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerLegionCitizenUniform4Person
+  name: Caesar's Legion citizen four-person uniform locker
+  description: A locker containing Citizen clothing for four personnel.
+  suffix: Filled, Legion Citizen, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitRags
+      amount: 4
+    - id: N14ClothingShoesBlack
+      amount: 4
+
+- type: entity
+  id: MisfitsLockerLegionTraderUniform2Person
+  name: Caesar's Legion trader two-person uniform locker
+  description: A locker containing Trader clothing for two personnel.
+  suffix: Filled, Legion Trader, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitMerchant
+      amount: 2
+    - id: N14ClothingShoesBlack
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerLegionSlaveUniform2Person
+  name: Caesar's Legion slave two-person uniform locker
+  description: A locker containing Slave clothing for two personnel.
+  suffix: Filled, Legion Slave, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitRags
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerLegionSlaveUniform3Person
+  name: Caesar's Legion slave three-person uniform locker
+  description: A locker containing Slave clothing for three personnel.
+  suffix: Filled, Legion Slave, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitRags
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerLegionSlaveUniform4Person
+  name: Caesar's Legion slave four-person uniform locker
+  description: A locker containing Slave clothing for four personnel.
+  suffix: Filled, Legion Slave, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpsuitRags
+      amount: 4

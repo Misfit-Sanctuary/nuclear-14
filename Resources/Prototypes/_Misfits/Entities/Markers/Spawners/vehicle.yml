@@ -1,0 +1,669 @@
+﻿# #Misfits Add - Vehicle Loot location/context loot.
+#
+# These tables mix the existing category master tables.
+# Rarity is inherited from the underlying item-category tables.
+# Every mapper spawner is visible and uses offset: 0.45.
+#
+
+# ============================================================================
+# CIVILIAN CAR
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVehicleLootCivilianCar
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 3
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVehicleLootSpawnerCivilianCar
+  name: civilian car loot spawner
+  suffix: Vehicle Loot, Civilian Car, 1-4
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: 8_ball
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVehicleLootCivilianCar
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
+    offset: 0.45
+
+
+# ============================================================================
+# PICKUP / WORK TRUCK
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVehicleLootPickupWorkTruck
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 13
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVehicleLootSpawnerPickupWorkTruck
+  name: pickup / work truck loot spawner
+  suffix: Vehicle Loot, Pickup / Work Truck, 2-6
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Tools/wrench.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVehicleLootPickupWorkTruck
+      rolls: !type:RangeNumberSelector
+        range: 2, 6
+    offset: 0.45
+
+
+# ============================================================================
+# AMBULANCE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVehicleLootAmbulance
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 50
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVehicleLootSpawnerAmbulance
+  name: ambulance loot spawner
+  suffix: Vehicle Loot, Ambulance, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVehicleLootAmbulance
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# POLICE VEHICLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVehicleLootPoliceVehicle
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 3
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVehicleLootSpawnerPoliceVehicle
+  name: police vehicle loot spawner
+  suffix: Vehicle Loot, Police Vehicle, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVehicleLootPoliceVehicle
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# MILITARY TRUCK
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVehicleLootMilitaryTruck
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVehicleLootSpawnerMilitaryTruck
+  name: military truck loot spawner
+  suffix: Vehicle Loot, Military Truck, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/Head/FalloutHelmets/ncrhelmet3.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVehicleLootMilitaryTruck
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# CARAVAN WAGON
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVehicleLootCaravanWagon
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVehicleLootSpawnerCaravanWagon
+  name: caravan wagon loot spawner
+  suffix: Vehicle Loot, Caravan Wagon, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVehicleLootCaravanWagon
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# MECHANIC VEHICLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVehicleLootMechanicVehicle
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 28
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVehicleLootSpawnerMechanicVehicle
+  name: mechanic vehicle loot spawner
+  suffix: Vehicle Loot, Mechanic Vehicle, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Tools/wrench.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVehicleLootMechanicVehicle
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# WRECKED VEHICLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVehicleLootWreckedVehicle
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 38
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 11
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVehicleLootSpawnerWreckedVehicle
+  name: wrecked vehicle loot spawner
+  suffix: Vehicle Loot, Wrecked Vehicle, 3-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: scrap_2
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVehicleLootWreckedVehicle
+      rolls: !type:RangeNumberSelector
+        range: 3, 8
+    offset: 0.45
+
+
+# ============================================================================
+# CARGO TRUCK
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVehicleLootCargoTruck
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVehicleLootSpawnerCargoTruck
+  name: cargo truck loot spawner
+  suffix: Vehicle Loot, Cargo Truck, 5-12
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_iron
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVehicleLootCargoTruck
+      rolls: !type:RangeNumberSelector
+        range: 5, 12
+    offset: 0.45
+
+
+# ============================================================================
+# RARE PRE-WAR VEHICLE CACHE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVehicleLootRarePreWarVehicleCache
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 17
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVehicleLootSpawnerRarePreWarVehicleCache
+  name: rare pre-war vehicle cache loot spawner
+  suffix: Vehicle Loot, Rare Pre-War Vehicle Cache, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_gold
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVehicleLootRarePreWarVehicleCache
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# MIXED VEHICLE LOOT
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsVehicleLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsVehicleLootCivilianCar
+    - !type:NestedSelector
+      tableId: MisfitsVehicleLootPickupWorkTruck
+    - !type:NestedSelector
+      tableId: MisfitsVehicleLootAmbulance
+    - !type:NestedSelector
+      tableId: MisfitsVehicleLootPoliceVehicle
+    - !type:NestedSelector
+      tableId: MisfitsVehicleLootMilitaryTruck
+    - !type:NestedSelector
+      tableId: MisfitsVehicleLootCaravanWagon
+    - !type:NestedSelector
+      tableId: MisfitsVehicleLootMechanicVehicle
+    - !type:NestedSelector
+      tableId: MisfitsVehicleLootWreckedVehicle
+    - !type:NestedSelector
+      tableId: MisfitsVehicleLootCargoTruck
+    - !type:NestedSelector
+      tableId: MisfitsVehicleLootRarePreWarVehicleCache
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsVehicleLootSpawnerAll
+  name: mixed vehicle loot loot spawner
+  suffix: Vehicle Loot, Mixed, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Tools/wrench.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsVehicleLootAll
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45

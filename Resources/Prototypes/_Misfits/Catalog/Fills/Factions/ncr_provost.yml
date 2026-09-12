@@ -1,0 +1,56 @@
+﻿# #Misfits Add - NCR Provost group uniform lockers for mapping.
+# Clothing only.
+
+- type: entity
+  id: MisfitsLockerNCRProvostUniform2Person
+  name: NCR Provost two-person uniform locker
+  description: A locker containing NCR Provost clothing for two personnel.
+  suffix: Filled, NCR Provost, 2 People
+  parent: N14ClosetBaseW
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatNCRSlouch
+      amount: 2
+    - id: N14ClothingUniformNCRCFUniform
+      amount: 2
+    - id: N14ClothingBootsCombat
+      amount: 2
+    - id: ClothingEyesGlassesSunglasses
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerNCRProvostUniform3Person
+  name: NCR Provost three-person uniform locker
+  description: A locker containing NCR Provost clothing for three personnel.
+  suffix: Filled, NCR Provost, 3 People
+  parent: N14ClosetBaseW
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatNCRSlouch
+      amount: 3
+    - id: N14ClothingUniformNCRCFUniform
+      amount: 3
+    - id: N14ClothingBootsCombat
+      amount: 3
+    - id: ClothingEyesGlassesSunglasses
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerNCRProvostUniform4Person
+  name: NCR Provost four-person uniform locker
+  description: A locker containing NCR Provost clothing for four personnel.
+  suffix: Filled, NCR Provost, 4 People
+  parent: N14ClosetBaseW
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatNCRSlouch
+      amount: 4
+    - id: N14ClothingUniformNCRCFUniform
+      amount: 4
+    - id: N14ClothingBootsCombat
+      amount: 4
+    - id: ClothingEyesGlassesSunglasses
+      amount: 4

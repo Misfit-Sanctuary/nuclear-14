@@ -1,0 +1,630 @@
+﻿# #Misfits Add - Medical Locations location/context loot.
+#
+# These tables mix the existing category master tables.
+# Rarity is inherited from the underlying item-category tables.
+# Every mapper spawner is visible and uses offset: 0.45.
+#
+
+# ============================================================================
+# DOCTOR'S OFFICE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLocationLootDoctorSOffice
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 42
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMedicalLocationLootSpawnerDoctorSOffice
+  name: doctor's office loot spawner
+  suffix: Medical Locations, Doctor's Office, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootDoctorSOffice
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# CLINIC
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLocationLootClinic
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 48
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMedicalLocationLootSpawnerClinic
+  name: clinic loot spawner
+  suffix: Medical Locations, Clinic, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootClinic
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# PHARMACY STORAGE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLocationLootPharmacyStorage
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 55
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMedicalLocationLootSpawnerPharmacyStorage
+  name: pharmacy storage loot spawner
+  suffix: Medical Locations, Pharmacy Storage, 4-9
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootPharmacyStorage
+      rolls: !type:RangeNumberSelector
+        range: 4, 9
+    offset: 0.45
+
+
+# ============================================================================
+# HOSPITAL WARD
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLocationLootHospitalWard
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 40
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 13
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMedicalLocationLootSpawnerHospitalWard
+  name: hospital ward loot spawner
+  suffix: Medical Locations, Hospital Ward, 4-9
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootHospitalWard
+      rolls: !type:RangeNumberSelector
+        range: 4, 9
+    offset: 0.45
+
+
+# ============================================================================
+# EMERGENCY ROOM
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLocationLootEmergencyRoom
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 55
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMedicalLocationLootSpawnerEmergencyRoom
+  name: emergency room loot spawner
+  suffix: Medical Locations, Emergency Room, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootEmergencyRoom
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# OPERATING ROOM
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLocationLootOperatingRoom
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 48
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMedicalLocationLootSpawnerOperatingRoom
+  name: operating room loot spawner
+  suffix: Medical Locations, Operating Room, 3-6
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootOperatingRoom
+      rolls: !type:RangeNumberSelector
+        range: 3, 6
+    offset: 0.45
+
+
+# ============================================================================
+# MORGUE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLocationLootMorgue
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 25
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMedicalLocationLootSpawnerMorgue
+  name: morgue loot spawner
+  suffix: Medical Locations, Morgue, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_blue
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootMorgue
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# AMBULANCE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLocationLootAmbulance
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 48
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMedicalLocationLootSpawnerAmbulance
+  name: ambulance loot spawner
+  suffix: Medical Locations, Ambulance, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootAmbulance
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# QUARANTINE ROOM
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLocationLootQuarantineRoom
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 34
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 25
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMedicalLocationLootSpawnerQuarantineRoom
+  name: quarantine room loot spawner
+  suffix: Medical Locations, Quarantine Room, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Misc/proximity_sensor.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootQuarantineRoom
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# MEDICAL WAREHOUSE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLocationLootMedicalWarehouse
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 45
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMedicalLocationLootSpawnerMedicalWarehouse
+  name: medical warehouse loot spawner
+  suffix: Medical Locations, Medical Warehouse, 6-14
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootMedicalWarehouse
+      rolls: !type:RangeNumberSelector
+        range: 6, 14
+    offset: 0.45
+
+
+# ============================================================================
+# MIXED MEDICAL LOCATIONS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLocationLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootDoctorSOffice
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootClinic
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootPharmacyStorage
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootHospitalWard
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootEmergencyRoom
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootOperatingRoom
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootMorgue
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootAmbulance
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootQuarantineRoom
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootMedicalWarehouse
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsMedicalLocationLootSpawnerAll
+  name: mixed medical locations loot spawner
+  suffix: Medical Locations, Mixed, 4-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLocationLootAll
+      rolls: !type:RangeNumberSelector
+        range: 4, 8
+    offset: 0.45

@@ -1,0 +1,457 @@
+﻿# #Misfits Add - Valuables loot tables and mapper spawners.
+#
+# Five internal rarity tiers:
+# Common 50%, Uncommon 27%, Rare 14%, Very Rare 7%, Legendary 2%.
+#
+# Visible mapper markers; spawned loot uses offset: 0.45.
+# Lists are ordered from lower-value/common items toward rarer items.
+#
+# NOTE: The verified repository does not expose a broad jewelry catalog. Jewelry uses real precious-metal currency/scrap rather than fabricated jewelry prototypes.
+#
+
+# ============================================================================
+# CAPS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsValuablesLootCaps
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14CurrencyCap
+        weight: 3
+      - !type:EntSelector
+        id: N14CurrencyCap4
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14CurrencyCap10
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14CurrencyCap50
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14CurrencyCap100
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14CurrencyCap500
+        weight: 3
+
+
+# ============================================================================
+# JEWELRY
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsValuablesLootJewelry
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14CurrencyLegionDenarius
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ScrapCopper10
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ScrapBrass5
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14CurrencyLegionAureus
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ScrapGold5
+        weight: 3
+
+
+# ============================================================================
+# PRE-WAR MONEY
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsValuablesLootPreWarMoney
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14CurrencyPrewar
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14CurrencyPrewarMoney10
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14CurrencyPrewarMoney50
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14CurrencyPrewarMoney100
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14CurrencyPrewarMoney500
+        weight: 3
+
+
+# ============================================================================
+# COLLECTIBLES
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsValuablesLootCollectibles
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Junk8Ball
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkBaseball
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14FoodBubblegum
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14HolotapeMisfitsRandom
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreProspector
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreOverseer
+        weight: 3
+
+
+# ============================================================================
+# LUXURY GOODS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsValuablesLootLuxuryGoods
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14DrinkWhisky
+        weight: 3
+      - !type:EntSelector
+        id: N14DrinkRoentgenRum
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14FoodFancyladssnackcakes
+        weight: 3
+      - !type:EntSelector
+        id: N14FoodDandyboyapples
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14CurrencyPrewarMoney50
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14CurrencyLegionAureus
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ScrapGold5
+        weight: 3
+
+
+# ============================================================================
+# RARE VALUABLES
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsValuablesLootRareValuables
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14CurrencyCap100
+        weight: 3
+      - !type:EntSelector
+        id: N14CurrencyPrewarMoney100
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14CurrencyNCRDollar100
+        weight: 3
+      - !type:EntSelector
+        id: N14CurrencyLegionAureus10
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ScrapGold5
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14CurrencyCap500
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14CurrencyPrewarMoney500
+        weight: 3
+
+
+# ============================================================================
+# MASTER VALUABLES TABLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsValuablesLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootCaps
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootJewelry
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootPreWarMoney
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootCollectibles
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootLuxuryGoods
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootRareValuables
+      weight: 2
+
+
+# ============================================================================
+# VISIBLE MAPPER SPAWNER BASE
+# ============================================================================
+
+- type: entity
+  abstract: true
+  name: valuables loot spawner
+  id: MisfitsValuablesLootSpawnerBase
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/currency.rsi
+      state: caps3
+
+- type: entity
+  parent: MisfitsValuablesLootSpawnerBase
+  id: MisfitsValuablesLootSpawnerCaps
+  name: caps loot spawner
+  suffix: Misfits, Caps, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsValuablesLootCaps
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsValuablesLootSpawnerBase
+  id: MisfitsValuablesLootSpawnerJewelry
+  name: jewelry loot spawner
+  suffix: Misfits, Jewelry, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsValuablesLootJewelry
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsValuablesLootSpawnerBase
+  id: MisfitsValuablesLootSpawnerPreWarMoney
+  name: pre-war money loot spawner
+  suffix: Misfits, Pre-War Money, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsValuablesLootPreWarMoney
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsValuablesLootSpawnerBase
+  id: MisfitsValuablesLootSpawnerCollectibles
+  name: collectibles loot spawner
+  suffix: Misfits, Collectibles, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsValuablesLootCollectibles
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsValuablesLootSpawnerBase
+  id: MisfitsValuablesLootSpawnerLuxuryGoods
+  name: luxury goods loot spawner
+  suffix: Misfits, Luxury Goods, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsValuablesLootLuxuryGoods
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsValuablesLootSpawnerBase
+  id: MisfitsValuablesLootSpawnerRareValuables
+  name: rare valuables loot spawner
+  suffix: Misfits, Rare Valuables, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsValuablesLootRareValuables
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsValuablesLootSpawnerBase
+  id: MisfitsValuablesLootSpawnerAll
+  name: mixed valuables loot spawner
+  suffix: Misfits, Mixed, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45

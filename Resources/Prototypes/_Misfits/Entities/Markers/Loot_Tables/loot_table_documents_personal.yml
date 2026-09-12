@@ -1,0 +1,664 @@
+﻿# #Misfits Add - Documents & Personal Items loot tables and mapper spawners.
+#
+# Five internal rarity tiers:
+# Common 50%, Uncommon 27%, Rare 14%, Very Rare 7%, Legendary 2%.
+#
+# Visible mapper markers; spawned loot uses offset: 0.45.
+# Lists are ordered from lower-value/common items toward rarer items.
+#
+# NOTE: No dedicated photograph prototype was found in the verified repository search. The Photographs table uses paper/personal-record stand-ins instead of invented IDs.
+#
+
+# ============================================================================
+# PAPERS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsDocumentsLootPapers
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: Paper
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: BoxFolderGrey
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: Clipboard
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: Clipboard
+        weight: 3
+      - !type:EntSelector
+        id: BookRandom
+        weight: 2
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: BookRandom
+        weight: 3
+
+
+# ============================================================================
+# LETTERS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsDocumentsLootLetters
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: Paper
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: BoxFolderGrey
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: Clipboard
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: Clipboard
+        weight: 3
+      - !type:EntSelector
+        id: N14HolotapeLoreSettlerDiary
+        weight: 2
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreSettlerDiary
+        weight: 3
+
+
+# ============================================================================
+# HOLOTAPES
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsDocumentsLootHolotapes
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14HolotapeMisfitsRandom
+        weight: 3
+      - !type:EntSelector
+        id: N14HolotapeMisfitsRandomBlue
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14HolotapeMisfitsRandomGreen
+        weight: 3
+      - !type:EntSelector
+        id: N14HolotapeMisfitsRandomRed
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14HolotapeMisfitsRandomYellow
+        weight: 3
+      - !type:EntSelector
+        id: N14HolotapeLoreProspector
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreSettlerDiary
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreCaravanLedger
+        weight: 3
+
+
+# ============================================================================
+# IDENTIFICATION
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsDocumentsLootIdentification
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14IDNCRPassportCitizen
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14IDNCRPassportCitizen
+        weight: 3
+      - !type:EntSelector
+        id: N14IDNCRPassportTrader
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14IDNCRPassportTrader
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14IDBadgeNCRDesertRanger
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14IDBadgeNCRDesertRanger
+        weight: 3
+
+
+# ============================================================================
+# MAPS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsDocumentsLootMaps
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: MisfitsWendoverMap
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: MisfitsWendoverMap
+        weight: 3
+      - !type:EntSelector
+        id: N14HolotapeLoreProspector
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreProspector
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreNCRRecon
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreNCRRecon
+        weight: 3
+
+
+# ============================================================================
+# BOOKS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsDocumentsLootBooks
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: BookRandom
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: BookRandom
+        weight: 3
+      - !type:EntSelector
+        id: BookSalvageEpistemics
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: BookSalvageEpistemics
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: BookSalvageEpistemicsRandom
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: BookSalvageEpistemicsRandom
+        weight: 3
+
+
+# ============================================================================
+# PHOTOGRAPHS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsDocumentsLootPhotographs
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: Paper
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: Paper
+        weight: 3
+      - !type:EntSelector
+        id: N14HolotapeLoreSettlerDiary
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreSettlerDiary
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreProspector
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreProspector
+        weight: 3
+
+
+# ============================================================================
+# PERSONAL EFFECTS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsDocumentsLootPersonalEffects
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Wallet
+        weight: 3
+      - !type:EntSelector
+        id: N14Junk8Ball
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14JunkBaseball
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14CurrencyCap10
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreSettlerDiary
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HolotapeMisfitsRandom
+        weight: 3
+
+
+# ============================================================================
+# SENSITIVE DOCUMENTS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsDocumentsLootSensitiveDocuments
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreNCRRecon
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreLegionOrders
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreBOSField
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreMilitaryMemo
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14HolotapeLoreEnclaveDirective
+        weight: 3
+
+
+# ============================================================================
+# MASTER DOCUMENTS & PERSONAL ITEMS TABLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsDocumentsLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootPapers
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootLetters
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootHolotapes
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootIdentification
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootMaps
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootBooks
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootPhotographs
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootPersonalEffects
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootSensitiveDocuments
+      weight: 2
+
+
+# ============================================================================
+# VISIBLE MAPPER SPAWNER BASE
+# ============================================================================
+
+- type: entity
+  abstract: true
+  name: documents & personal items loot spawner
+  id: MisfitsDocumentsLootSpawnerBase
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/currency.rsi
+      state: prewar3
+
+- type: entity
+  parent: MisfitsDocumentsLootSpawnerBase
+  id: MisfitsDocumentsLootSpawnerPapers
+  name: papers loot spawner
+  suffix: Misfits, Papers, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsDocumentsLootPapers
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsDocumentsLootSpawnerBase
+  id: MisfitsDocumentsLootSpawnerLetters
+  name: letters loot spawner
+  suffix: Misfits, Letters, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsDocumentsLootLetters
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsDocumentsLootSpawnerBase
+  id: MisfitsDocumentsLootSpawnerHolotapes
+  name: holotapes loot spawner
+  suffix: Misfits, Holotapes, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsDocumentsLootHolotapes
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsDocumentsLootSpawnerBase
+  id: MisfitsDocumentsLootSpawnerIdentification
+  name: identification loot spawner
+  suffix: Misfits, Identification, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsDocumentsLootIdentification
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsDocumentsLootSpawnerBase
+  id: MisfitsDocumentsLootSpawnerMaps
+  name: maps loot spawner
+  suffix: Misfits, Maps, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsDocumentsLootMaps
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsDocumentsLootSpawnerBase
+  id: MisfitsDocumentsLootSpawnerBooks
+  name: books loot spawner
+  suffix: Misfits, Books, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsDocumentsLootBooks
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsDocumentsLootSpawnerBase
+  id: MisfitsDocumentsLootSpawnerPhotographs
+  name: photographs loot spawner
+  suffix: Misfits, Photographs, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsDocumentsLootPhotographs
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsDocumentsLootSpawnerBase
+  id: MisfitsDocumentsLootSpawnerPersonalEffects
+  name: personal effects loot spawner
+  suffix: Misfits, Personal Effects, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsDocumentsLootPersonalEffects
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsDocumentsLootSpawnerBase
+  id: MisfitsDocumentsLootSpawnerSensitiveDocuments
+  name: sensitive documents loot spawner
+  suffix: Misfits, Sensitive Documents, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsDocumentsLootSensitiveDocuments
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsDocumentsLootSpawnerBase
+  id: MisfitsDocumentsLootSpawnerAll
+  name: mixed documents & personal items loot spawner
+  suffix: Misfits, Mixed, 1-3
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45

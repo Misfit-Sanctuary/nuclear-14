@@ -1,0 +1,240 @@
+﻿- type: entity
+  id: MisfitsLockerBoSInitiateUniform2Person
+  name: Brotherhood Initiate two-person uniform locker
+  description: A locker containing basic Brotherhood Initiate clothing for two personnel.
+  suffix: Filled, BoS Initiate, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpskirtBOSBlack
+      amount: 2
+    - id: N14ClothingBootsLeather
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerBoSInitiateUniform3Person
+  name: Brotherhood Initiate three-person uniform locker
+  description: A locker containing basic Brotherhood Initiate clothing for three personnel.
+  suffix: Filled, BoS Initiate, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpskirtBOSBlack
+      amount: 3
+    - id: N14ClothingBootsLeather
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerBoSInitiateUniform4Person
+  name: Brotherhood Initiate four-person uniform locker
+  description: A locker containing basic Brotherhood Initiate clothing for four personnel.
+  suffix: Filled, BoS Initiate, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpskirtBOSBlack
+      amount: 4
+    - id: N14ClothingBootsLeather
+      amount: 4
+
+- type: entity
+  id: MisfitsLockerBoSSquireUniform2Person
+  name: Brotherhood Squire two-person uniform locker
+  description: A locker containing basic Brotherhood Squire clothing for two personnel.
+  suffix: Filled, BoS Squire, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatBanganeBoS
+      amount: 2
+    - id: N14ClothingUniformJumpskirtBOSBlack
+      amount: 2
+    - id: N14ClothingBootsLeather
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerBoSSquireUniform3Person
+  name: Brotherhood Squire three-person uniform locker
+  description: A locker containing basic Brotherhood Squire clothing for three personnel.
+  suffix: Filled, BoS Squire, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatBanganeBoS
+      amount: 3
+    - id: N14ClothingUniformJumpskirtBOSBlack
+      amount: 3
+    - id: N14ClothingBootsLeather
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerBoSSquireUniform4Person
+  name: Brotherhood Squire four-person uniform locker
+  description: A locker containing basic Brotherhood Squire clothing for four personnel.
+  suffix: Filled, BoS Squire, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatBanganeBoS
+      amount: 4
+    - id: N14ClothingUniformJumpskirtBOSBlack
+      amount: 4
+    - id: N14ClothingBootsLeather
+      amount: 4
+
+- type: entity
+  id: MisfitsLockerBoSScribeUniform2Person
+  name: Brotherhood Scribe two-person uniform locker
+  description: A locker containing basic Brotherhood Scribe clothing for two personnel.
+  suffix: Filled, BoS Scribe, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpskirtBOSBlack
+      amount: 2
+    - id: N14ClothingBootsLeather
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerBoSScribeUniform3Person
+  name: Brotherhood Scribe three-person uniform locker
+  description: A locker containing basic Brotherhood Scribe clothing for three personnel.
+  suffix: Filled, BoS Scribe, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpskirtBOSBlack
+      amount: 3
+    - id: N14ClothingBootsLeather
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerBoSScribeUniform4Person
+  name: Brotherhood Scribe four-person uniform locker
+  description: A locker containing basic Brotherhood Scribe clothing for four personnel.
+  suffix: Filled, BoS Scribe, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingUniformJumpskirtBOSBlack
+      amount: 4
+    - id: N14ClothingBootsLeather
+      amount: 4
+
+- type: entity
+  id: MisfitsLockerBoSKnightUniform2Person
+  name: Brotherhood Knight two-person uniform locker
+  description: A locker containing unarmored Brotherhood Knight clothing for two personnel.
+  suffix: Filled, BoS Knight, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatCapkhighBoS
+      amount: 2
+    - id: N14ClothingUniformJumpskirtBOSBlack
+      amount: 2
+    - id: N14ClothingHandsGlovesCombat
+      amount: 2
+    - id: N14ClothingBootsLeather
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerBoSKnightUniform3Person
+  name: Brotherhood Knight three-person uniform locker
+  description: A locker containing unarmored Brotherhood Knight clothing for three personnel.
+  suffix: Filled, BoS Knight, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatCapkhighBoS
+      amount: 3
+    - id: N14ClothingUniformJumpskirtBOSBlack
+      amount: 3
+    - id: N14ClothingHandsGlovesCombat
+      amount: 3
+    - id: N14ClothingBootsLeather
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerBoSKnightUniform4Person
+  name: Brotherhood Knight four-person uniform locker
+  description: A locker containing unarmored Brotherhood Knight clothing for four personnel.
+  suffix: Filled, BoS Knight, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatCapkhighBoS
+      amount: 4
+    - id: N14ClothingUniformJumpskirtBOSBlack
+      amount: 4
+    - id: N14ClothingHandsGlovesCombat
+      amount: 4
+    - id: N14ClothingBootsLeather
+      amount: 4
+
+- type: entity
+  id: MisfitsLockerBoSPaladinUniform2Person
+  name: Brotherhood Paladin two-person uniform locker
+  description: A locker containing unarmored Brotherhood Paladin clothing for two personnel.
+  suffix: Filled, BoS Paladin, 2 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatCapkhighBoS
+      amount: 2
+    - id: N14ClothingUniformBosRecon
+      amount: 2
+    - id: N14ClothingHandsGlovesCombat
+      amount: 2
+    - id: N14ClothingBootsLeather
+      amount: 2
+
+- type: entity
+  id: MisfitsLockerBoSPaladinUniform3Person
+  name: Brotherhood Paladin three-person uniform locker
+  description: A locker containing unarmored Brotherhood Paladin clothing for three personnel.
+  suffix: Filled, BoS Paladin, 3 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatCapkhighBoS
+      amount: 3
+    - id: N14ClothingUniformBosRecon
+      amount: 3
+    - id: N14ClothingHandsGlovesCombat
+      amount: 3
+    - id: N14ClothingBootsLeather
+      amount: 3
+
+- type: entity
+  id: MisfitsLockerBoSPaladinUniform4Person
+  name: Brotherhood Paladin four-person uniform locker
+  description: A locker containing unarmored Brotherhood Paladin clothing for four personnel.
+  suffix: Filled, BoS Paladin, 4 People
+  parent: N14ClosetGrey1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ClothingHeadHatCapkhighBoS
+      amount: 4
+    - id: N14ClothingUniformBosRecon
+      amount: 4
+    - id: N14ClothingHandsGlovesCombat
+      amount: 4
+    - id: N14ClothingBootsLeather
+      amount: 4
+

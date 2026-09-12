@@ -1,0 +1,672 @@
+﻿# #Misfits Add - Industrial Locations location/context loot.
+#
+# These tables mix the existing category master tables.
+# Rarity is inherited from the underlying item-category tables.
+# Every mapper spawner is visible and uses offset: 0.45.
+#
+
+# ============================================================================
+# FACTORY FLOOR
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLocationLootFactoryFloor
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 28
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsIndustrialLocationLootSpawnerFactoryFloor
+  name: factory floor loot spawner
+  suffix: Industrial Locations, Factory Floor, 5-12
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_iron
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootFactoryFloor
+      rolls: !type:RangeNumberSelector
+        range: 5, 12
+    offset: 0.45
+
+
+# ============================================================================
+# MACHINE SHOP
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLocationLootMachineShop
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 28
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 25
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsIndustrialLocationLootSpawnerMachineShop
+  name: machine shop loot spawner
+  suffix: Industrial Locations, Machine Shop, 4-9
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Tools/wrench.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootMachineShop
+      rolls: !type:RangeNumberSelector
+        range: 4, 9
+    offset: 0.45
+
+
+# ============================================================================
+# MAINTENANCE ROOM
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLocationLootMaintenanceRoom
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsIndustrialLocationLootSpawnerMaintenanceRoom
+  name: maintenance room loot spawner
+  suffix: Industrial Locations, Maintenance Room, 3-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Tools/wrench.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootMaintenanceRoom
+      rolls: !type:RangeNumberSelector
+        range: 3, 8
+    offset: 0.45
+
+
+# ============================================================================
+# GENERATOR ROOM
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLocationLootGeneratorRoom
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 23
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsIndustrialLocationLootSpawnerGeneratorRoom
+  name: generator room loot spawner
+  suffix: Industrial Locations, Generator Room, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: circuits_3
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootGeneratorRoom
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# ELECTRICAL ROOM
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLocationLootElectricalRoom
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 38
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsIndustrialLocationLootSpawnerElectricalRoom
+  name: electrical room loot spawner
+  suffix: Industrial Locations, Electrical Room, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: scrap_electronic_2
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootElectricalRoom
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# WAREHOUSE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLocationLootWarehouse
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsIndustrialLocationLootSpawnerWarehouse
+  name: warehouse loot spawner
+  suffix: Industrial Locations, Warehouse, 6-14
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootWarehouse
+      rolls: !type:RangeNumberSelector
+        range: 6, 14
+    offset: 0.45
+
+
+# ============================================================================
+# CONSTRUCTION SITE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLocationLootConstructionSite
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsIndustrialLocationLootSpawnerConstructionSite
+  name: construction site loot spawner
+  suffix: Industrial Locations, Construction Site, 5-12
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_iron
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootConstructionSite
+      rolls: !type:RangeNumberSelector
+        range: 5, 12
+    offset: 0.45
+
+
+# ============================================================================
+# SCRAPYARD
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLocationLootScrapyard
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 42
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsIndustrialLocationLootSpawnerScrapyard
+  name: scrapyard loot spawner
+  suffix: Industrial Locations, Scrapyard, 7-16
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: scrap_2
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootScrapyard
+      rolls: !type:RangeNumberSelector
+        range: 7, 16
+    offset: 0.45
+
+
+# ============================================================================
+# MINE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLocationLootMine
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsIndustrialLocationLootSpawnerMine
+  name: mine loot spawner
+  suffix: Industrial Locations, Mine, 4-9
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_copper
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootMine
+      rolls: !type:RangeNumberSelector
+        range: 4, 9
+    offset: 0.45
+
+
+# ============================================================================
+# REFINERY
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLocationLootRefinery
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 28
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 15
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsIndustrialLocationLootSpawnerRefinery
+  name: refinery loot spawner
+  suffix: Industrial Locations, Refinery, 4-9
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: powder_lead
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootRefinery
+      rolls: !type:RangeNumberSelector
+        range: 4, 9
+    offset: 0.45
+
+
+# ============================================================================
+# UTILITY TUNNEL
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLocationLootUtilityTunnel
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsIndustrialLocationLootSpawnerUtilityTunnel
+  name: utility tunnel loot spawner
+  suffix: Industrial Locations, Utility Tunnel, 3-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: scrap_2
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootUtilityTunnel
+      rolls: !type:RangeNumberSelector
+        range: 3, 8
+    offset: 0.45
+
+
+# ============================================================================
+# MIXED INDUSTRIAL LOCATIONS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLocationLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootFactoryFloor
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootMachineShop
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootMaintenanceRoom
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootGeneratorRoom
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootElectricalRoom
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootWarehouse
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootConstructionSite
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootScrapyard
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootMine
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootRefinery
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootUtilityTunnel
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsIndustrialLocationLootSpawnerAll
+  name: mixed industrial locations loot spawner
+  suffix: Industrial Locations, Mixed, 6-12
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_iron
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLocationLootAll
+      rolls: !type:RangeNumberSelector
+        range: 6, 12
+    offset: 0.45

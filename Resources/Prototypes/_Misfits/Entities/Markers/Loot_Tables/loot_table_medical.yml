@@ -1,0 +1,738 @@
+﻿# #Misfits Add - Medical loot tables and mapper spawners.
+#
+# Five internal rarity tiers:
+# Common 50%, Uncommon 27%, Rare 14%, Very Rare 7%, Legendary 2%.
+#
+# Visible mapper markers; spawned loot uses offset: 0.45.
+# Lists are ordered from lower-value/common items toward rarer items.
+#
+
+# ============================================================================
+# BASIC MEDICAL
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLootBasicMedical
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14CleanGauze10
+        weight: 3
+      - !type:EntSelector
+        id: N14Ointment10
+        weight: 2
+      - !type:EntSelector
+        id: Brutepack
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: Bloodpack
+        weight: 3
+      - !type:EntSelector
+        id: N14HealingPowder
+        weight: 2
+      - !type:EntSelector
+        id: N14HealingPoultice
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: MisfitsHealingSalve10
+        weight: 3
+      - !type:EntSelector
+        id: N14Stimpak
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14Antidote
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14SuperStimpak
+        weight: 3
+
+
+# ============================================================================
+# ADVANCED MEDICAL
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLootAdvancedMedical
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Stimpak
+        weight: 3
+      - !type:EntSelector
+        id: N14ChemicalSyringeAntidote
+        weight: 2
+      - !type:EntSelector
+        id: N14HandheldHealthAnalyzer
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: MisfitsPillCanisterAntibiotics
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsPillCanisterBloodShield
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: MisfitsGlowingBloodPack
+        weight: 3
+      - !type:EntSelector
+        id: N14SuperStimpak
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: MisfitsLazarusCompoundChemistryBottle
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: MisfitsMedkitCriticalCareFilled
+        weight: 3
+
+
+# ============================================================================
+# SURGICAL
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLootSurgical
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: BoxNitrileGloves
+        weight: 3
+      - !type:EntSelector
+        id: BoxSterileMask
+        weight: 2
+      - !type:EntSelector
+        id: SurgicalSterileWipe
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: SurgicalSterilanSpray
+        weight: 3
+      - !type:EntSelector
+        id: Bloodpack
+        weight: 2
+      - !type:EntSelector
+        id: N14DoctorSyringe
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ChemicalSyringe
+        weight: 3
+      - !type:EntSelector
+        id: N14HandheldHealthAnalyzer
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: Portafib
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: ClothingBackpackDuffelSurgeryFilled
+        weight: 3
+
+
+# ============================================================================
+# TRAUMA / EMERGENCY
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLootTraumaEmergency
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14CleanGauze10
+        weight: 3
+      - !type:EntSelector
+        id: Brutepack
+        weight: 2
+      - !type:EntSelector
+        id: Bloodpack
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: MisfitsHealingSalve10
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsHerbalAnodyne10
+        weight: 2
+      - !type:EntSelector
+        id: N14Stimpak
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: MisfitsPillCanisterBloodShield
+        weight: 3
+      - !type:EntSelector
+        id: N14SuperStimpak
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: MisfitsMedkitEmergencyStabilizationFilled
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: MisfitsMedkitBruteSpecialistFilled
+        weight: 3
+
+
+# ============================================================================
+# PHARMACEUTICALS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLootPharmaceuticals
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14SmellingSalts
+        weight: 3
+      - !type:EntSelector
+        id: N14Antidote
+        weight: 2
+      - !type:EntSelector
+        id: MisfitsPillCanisterWillowbark
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: MisfitsPillCanisterAntibiotics
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsPillCanisterPenicillin
+        weight: 2
+      - !type:EntSelector
+        id: MisfitsPillCanisterAnodyne
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: MisfitsPillCanisterAnalgesine
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsPillCanisterTraumadol
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: MisfitsPillCanisterNerveblock
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: MisfitsPillCanisterNeuroreguline
+        weight: 3
+
+
+# ============================================================================
+# CHEMS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLootChems
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Jet
+        weight: 3
+      - !type:EntSelector
+        id: N14Psycho
+        weight: 2
+      - !type:EntSelector
+        id: N14BuffoutCanisterFilled
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14Med-X
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsPillCanisterCrank
+        weight: 2
+      - !type:EntSelector
+        id: MisfitsPillCanisterFury
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: MisfitsPillCanisterCalmex
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsPillCanisterOverdrive
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14Turbo
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: MisfitsPillCanisterXCell
+        weight: 3
+
+
+# ============================================================================
+# RADIATION TREATMENT
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLootRadiationTreatment
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14RadXCanisterFilled
+        weight: 3
+      - !type:EntSelector
+        id: N14RadAwayBloodbag
+        weight: 2
+      - !type:EntSelector
+        id: N14FixerCanisterFilled
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: MisfitsPillCanisterPrussianBlue
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsPillCanisterRadShield
+        weight: 2
+      - !type:EntSelector
+        id: MisfitsGlowingBloodPack
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: MisfitsPillCanisterX111Compound
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsRadShieldChemistryBottle
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: MisfitsX111CompoundChemistryBottle
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: MisfitsMedkitRadiationFilled
+        weight: 3
+
+
+# ============================================================================
+# MEDICAL JUNK / SUPPLIES
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLootMedicalJunkSupplies
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14DirtyGauze10
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkAbraxoCleaner
+        weight: 2
+      - !type:EntSelector
+        id: BoxNitrileGloves
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: BoxSterileMask
+        weight: 3
+      - !type:EntSelector
+        id: SurgicalSterileWipe
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: SurgicalSterilanSpray
+        weight: 3
+      - !type:EntSelector
+        id: N14ChemicalSyringe
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14DoctorSyringe
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: Bloodpack
+        weight: 3
+
+
+# ============================================================================
+# RARE MEDICAL
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLootRareMedical
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14SuperStimpak
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsGlowingBloodPack
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: MisfitsPillCanisterX111Compound
+        weight: 3
+      - !type:EntSelector
+        id: MisfitsPillCanisterLazarusCompound
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: MisfitsX111CompoundChemistryBottle
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: MisfitsLazarusCompoundChemistryBottle
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: MisfitsMedkitCriticalCareFilled
+        weight: 3
+
+
+# ============================================================================
+# MASTER MEDICAL TABLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsMedicalLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootBasicMedical
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAdvancedMedical
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootSurgical
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootTraumaEmergency
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootPharmaceuticals
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootChems
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootRadiationTreatment
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootMedicalJunkSupplies
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootRareMedical
+      weight: 2
+
+
+# ============================================================================
+# VISIBLE MAPPER SPAWNER BASE
+# ============================================================================
+
+- type: entity
+  abstract: true
+  name: medical loot spawner
+  id: MisfitsMedicalLootSpawnerBase
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+
+- type: entity
+  parent: MisfitsMedicalLootSpawnerBase
+  id: MisfitsMedicalLootSpawnerBasicMedical
+  name: basic medical loot spawner
+  suffix: Misfits, Basic Medical, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLootBasicMedical
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMedicalLootSpawnerBase
+  id: MisfitsMedicalLootSpawnerAdvancedMedical
+  name: advanced medical loot spawner
+  suffix: Misfits, Advanced Medical, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLootAdvancedMedical
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMedicalLootSpawnerBase
+  id: MisfitsMedicalLootSpawnerSurgical
+  name: surgical loot spawner
+  suffix: Misfits, Surgical, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLootSurgical
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMedicalLootSpawnerBase
+  id: MisfitsMedicalLootSpawnerTraumaEmergency
+  name: trauma / emergency loot spawner
+  suffix: Misfits, Trauma / Emergency, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLootTraumaEmergency
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMedicalLootSpawnerBase
+  id: MisfitsMedicalLootSpawnerPharmaceuticals
+  name: pharmaceuticals loot spawner
+  suffix: Misfits, Pharmaceuticals, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLootPharmaceuticals
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMedicalLootSpawnerBase
+  id: MisfitsMedicalLootSpawnerChems
+  name: chems loot spawner
+  suffix: Misfits, Chems, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLootChems
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMedicalLootSpawnerBase
+  id: MisfitsMedicalLootSpawnerRadiationTreatment
+  name: radiation treatment loot spawner
+  suffix: Misfits, Radiation Treatment, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLootRadiationTreatment
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMedicalLootSpawnerBase
+  id: MisfitsMedicalLootSpawnerMedicalJunkSupplies
+  name: medical junk / supplies loot spawner
+  suffix: Misfits, Medical Junk / Supplies, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLootMedicalJunkSupplies
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMedicalLootSpawnerBase
+  id: MisfitsMedicalLootSpawnerRareMedical
+  name: rare medical loot spawner
+  suffix: Misfits, Rare Medical, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLootRareMedical
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsMedicalLootSpawnerBase
+  id: MisfitsMedicalLootSpawnerAll
+  name: mixed medical loot spawner
+  suffix: Misfits, Mixed, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45

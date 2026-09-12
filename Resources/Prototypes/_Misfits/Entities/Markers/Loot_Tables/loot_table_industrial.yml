@@ -1,0 +1,549 @@
+﻿
+# #Misfits Add - Industrial loot tables
+#
+# Five rarity tiers:
+#   Common      50
+#   Uncommon    27
+#   Rare        14
+#   Very Rare    7
+#   Legendary    2
+#
+# Includes:
+# - Hand tools
+# - Mechanical parts
+# - Electrical parts
+# - Construction materials
+# - Workshop / heavy industrial gear
+# - Mixed industrial loot
+#
+# Mapper spawners are visible and scatter spawned loot with offset: 0.45.
+
+# ============================================================================
+# HAND TOOLS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLootTools
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Wrench
+        weight: 4
+      - !type:EntSelector
+        id: N14Screwdriver
+        weight: 4
+      - !type:EntSelector
+        id: N14Wirecutter
+        weight: 3
+      - !type:EntSelector
+        id: N14Shovel
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14Welder
+        weight: 4
+      - !type:EntSelector
+        id: N14Saw
+        weight: 3
+      - !type:EntSelector
+        id: N14Multitool
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14PowerDrill
+        weight: 3
+      - !type:EntSelector
+        id: N14Multitool
+        weight: 2
+      - !type:EntSelector
+        id: ToolboxMechanicalFilled
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: ToolboxMechanicalFilled
+        weight: 2
+      - !type:EntSelector
+        id: ToolboxElectricalFilled
+        weight: 2
+      - !type:EntSelector
+        id: PowerCellHigh
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: RCD
+
+
+# ============================================================================
+# MECHANICAL COMPONENTS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLootMechanical
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentScrew
+        weight: 5
+      - !type:EntSelector
+        id: N14JunkComponentGearSmall
+        weight: 4
+      - !type:EntSelector
+        id: N14JunkDuctTape
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentGearLarge
+        weight: 4
+      - !type:EntSelector
+        id: N14JunkComponentScrew
+        weight: 2
+      - !type:EntSelector
+        id: N14JunkTimer
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentGearLarge
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkTimer
+        weight: 2
+      - !type:EntSelector
+        id: ToolboxMechanicalFilled
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: ToolboxMechanicalFilled
+        weight: 2
+      - !type:EntSelector
+        id: N14PowerDrill
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14CrateBreakPlainFilledMechanicParts
+
+
+# ============================================================================
+# ELECTRICAL / ELECTRONICS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLootElectrical
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: CableApcStack
+        weight: 4
+      - !type:EntSelector
+        id: N14JunkComponentBoard1
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentFuse1
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentDiode1
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: CableMVStack
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentBoard2
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentCapacitor1
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentSensorModule
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: CableHVStack
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentBoard3
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentMainboard
+        weight: 2
+      - !type:EntSelector
+        id: N14Multitool
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: PowerCellHigh
+        weight: 3
+      - !type:EntSelector
+        id: ToolboxElectricalFilled
+        weight: 2
+      - !type:EntSelector
+        id: N14JunkComponentMainboard
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: RCD
+
+
+# ============================================================================
+# RAW MATERIALS / SALVAGE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLootMaterials
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: SheetSteel1
+        weight: 5
+      - !type:EntSelector
+        id: SheetPlastic1
+        weight: 4
+      - !type:EntSelector
+        id: MaterialWoodPlank1
+        weight: 4
+      - !type:EntSelector
+        id: SheetGlass1
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14IngotAluminum1
+        weight: 4
+      - !type:EntSelector
+        id: N14IngotLead1
+        weight: 3
+      - !type:EntSelector
+        id: SheetSteel1
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14IngotLead20
+        weight: 2
+      - !type:EntSelector
+        id: SheetSteel
+        weight: 2
+      - !type:EntSelector
+        id: SheetPlastic
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: SheetSteel
+        weight: 3
+      - !type:EntSelector
+        id: SheetGlass
+        weight: 2
+      - !type:EntSelector
+        id: MaterialWoodPlank
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14CrateBreakPlainFilledSteelSheet
+      - !type:EntSelector
+        id: N14CrateBreakPlainFilledLeadBar
+
+
+# ============================================================================
+# WORKSHOP / HEAVY INDUSTRIAL
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLootWorkshop
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Welder
+        weight: 4
+      - !type:EntSelector
+        id: N14Wrench
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkDuctTape
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentGearSmall
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14PowerDrill
+        weight: 3
+      - !type:EntSelector
+        id: N14Multitool
+        weight: 2
+      - !type:EntSelector
+        id: N14JunkComponentGearLarge
+        weight: 2
+      - !type:EntSelector
+        id: N14FuelTankHandy
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: PowerCellHigh
+        weight: 3
+      - !type:EntSelector
+        id: ToolboxMechanicalFilled
+        weight: 2
+      - !type:EntSelector
+        id: ToolboxElectricalFilled
+        weight: 2
+      - !type:EntSelector
+        id: N14FuelTankHandy
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: PowerCellHigh
+        weight: 2
+      - !type:EntSelector
+        id: RCD
+      - !type:EntSelector
+        id: N14CrateBreakPlainFilledMechanicParts
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: RCD
+        weight: 2
+      - !type:EntSelector
+        id: N14CrateBreakPlainFilledMechanicParts
+
+
+# ============================================================================
+# MIXED INDUSTRIAL LOOT
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsIndustrialLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootTools
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootMechanical
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootElectrical
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootMaterials
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootWorkshop
+      weight: 12
+
+
+# ============================================================================
+# VISIBLE INDUSTRIAL SPAWNER BASE
+# ============================================================================
+
+- type: entity
+  abstract: true
+  name: industrial loot spawner
+  id: MisfitsIndustrialLootSpawnerBase
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Tools/wrench.rsi
+      state: icon
+
+
+# ============================================================================
+# CATEGORY SPAWNERS
+# ============================================================================
+
+- type: entity
+  parent: MisfitsIndustrialLootSpawnerBase
+  id: MisfitsIndustrialLootSpawnerTools
+  name: industrial tool loot spawner
+  suffix: Misfits, Tools, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLootTools
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsIndustrialLootSpawnerBase
+  id: MisfitsIndustrialLootSpawnerMechanical
+  name: mechanical component loot spawner
+  suffix: Misfits, Mechanical, 2-5
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLootMechanical
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsIndustrialLootSpawnerBase
+  id: MisfitsIndustrialLootSpawnerElectrical
+  name: electrical loot spawner
+  suffix: Misfits, Electrical, 2-5
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLootElectrical
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsIndustrialLootSpawnerBase
+  id: MisfitsIndustrialLootSpawnerMaterials
+  name: industrial material loot spawner
+  suffix: Misfits, Materials, 3-6
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLootMaterials
+      rolls: !type:RangeNumberSelector
+        range: 3, 6
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsIndustrialLootSpawnerBase
+  id: MisfitsIndustrialLootSpawnerWorkshop
+  name: workshop loot spawner
+  suffix: Misfits, Workshop, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLootWorkshop
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+
+# ============================================================================
+# MIXED INDUSTRIAL SPAWNERS
+# ============================================================================
+
+- type: entity
+  parent: MisfitsIndustrialLootSpawnerBase
+  id: MisfitsIndustrialLootSpawnerSmall
+  name: mixed industrial loot spawner
+  suffix: Misfits, Small, 2-4
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      rolls: !type:RangeNumberSelector
+        range: 2, 4
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsIndustrialLootSpawnerBase
+  id: MisfitsIndustrialLootSpawnerMedium
+  name: mixed industrial loot spawner
+  suffix: Misfits, Medium, 4-7
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      rolls: !type:RangeNumberSelector
+        range: 4, 7
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsIndustrialLootSpawnerBase
+  id: MisfitsIndustrialLootSpawnerLarge
+  name: mixed industrial loot spawner
+  suffix: Misfits, Large, 7-12
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      rolls: !type:RangeNumberSelector
+        range: 7, 12
+    offset: 0.45

@@ -1,0 +1,685 @@
+﻿# #Misfits Add - Clothing loot tables and mapper spawners.
+#
+# Five internal rarity tiers:
+# Common 50%, Uncommon 27%, Rare 14%, Very Rare 7%, Legendary 2%.
+#
+# Visible mapper markers; spawned loot uses offset: 0.45.
+# Lists are ordered from lower-value/common items toward rarer items.
+#
+
+# ============================================================================
+# CIVILIAN CLOTHING
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsClothingLootCivilianClothing
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitRags
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitCaravan
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitMerchant
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitCowboyOld
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitChinese
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingBootsLeather
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: ClothingShoesBootsJack
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: ClothingBackpackSatchelLeather
+        weight: 3
+
+
+# ============================================================================
+# WORKWEAR
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsClothingLootWorkwear
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitBrahminFarmer
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitRags
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: ClothingShoesBootsWork
+        weight: 3
+      - !type:EntSelector
+        id: ClothingOuterVestHazard
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: ClothingHandsGlovesColorYellow
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRHelmetNoCover
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ClothingBeltUtilityFilled
+        weight: 3
+
+
+# ============================================================================
+# FORMAL CLOTHING
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsClothingLootFormalClothing
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitRDFormal
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpskirtRDFormal
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformRangerV1
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformRangerV1
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRSlouch
+        weight: 2
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRSlouch
+        weight: 3
+
+
+# ============================================================================
+# MILITARY CLOTHING
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsClothingLootMilitaryClothing
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitMilUniform
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingUniformNCRDesert
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingBootsCombatFilled
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingBackpackMilitary
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRHelmetMetalDesert
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitEnclave
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ClothingBootsCombatMK2Filled
+        weight: 3
+
+
+# ============================================================================
+# MEDICAL CLOTHING
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsClothingLootMedicalClothing
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: UniformScrubsColorBlue
+        weight: 3
+      - !type:EntSelector
+        id: UniformScrubsColorGreen
+        weight: 2
+      - !type:EntSelector
+        id: UniformScrubsColorCyan
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: UniformScrubsColorPurple
+        weight: 3
+      - !type:EntSelector
+        id: ClothingHeadHatSurgcapBlue
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: ClothingHeadHatSurgcapGreen
+        weight: 3
+      - !type:EntSelector
+        id: ClothingOuterHospitalGown
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingHandsGlovesNitrile
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: ClothingMaskSterile
+        weight: 3
+
+
+# ============================================================================
+# FACTION CLOTHING
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsClothingLootFactionClothing
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformNCRDesert
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingUniformNCRMedicVariant
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitFollowers
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitTribal
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitEnclave
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformNCRCFUniform
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRSlouch
+        weight: 3
+
+
+# ============================================================================
+# DISGUISES
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsClothingLootDisguises
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitRags
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitCaravan
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitMerchant
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitChinese
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitFollowers
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformNCRDesert
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitEnclave
+        weight: 3
+
+
+# ============================================================================
+# HATS / HEADWEAR
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsClothingLootHatsHeadwear
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatChinese
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRSlouch
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatChineseHelmet
+        weight: 3
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRHelmetMetalDesert
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatNCRCombatHelmet
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatChineseHelmetMk2
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatRangerHelmet
+        weight: 3
+
+
+# ============================================================================
+# RARE CLOTHING
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsClothingLootRareClothing
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitVault14
+        weight: 3
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformRangerV1
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformNCRCFUniform
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ClothingUniformJumpsuitEnclave
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ClothingHeadHatRangerHelmet
+        weight: 3
+
+
+# ============================================================================
+# MASTER CLOTHING TABLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsClothingLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootCivilianClothing
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootWorkwear
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootFormalClothing
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootMilitaryClothing
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootMedicalClothing
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootFactionClothing
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootDisguises
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootHatsHeadwear
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootRareClothing
+      weight: 2
+
+
+# ============================================================================
+# VISIBLE MAPPER SPAWNER BASE
+# ============================================================================
+
+- type: entity
+  abstract: true
+  name: clothing loot spawner
+  id: MisfitsClothingLootSpawnerBase
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutleather.rsi
+      state: icon
+
+- type: entity
+  parent: MisfitsClothingLootSpawnerBase
+  id: MisfitsClothingLootSpawnerCivilianClothing
+  name: civilian clothing loot spawner
+  suffix: Misfits, Civilian Clothing, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsClothingLootCivilianClothing
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsClothingLootSpawnerBase
+  id: MisfitsClothingLootSpawnerWorkwear
+  name: workwear loot spawner
+  suffix: Misfits, Workwear, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsClothingLootWorkwear
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsClothingLootSpawnerBase
+  id: MisfitsClothingLootSpawnerFormalClothing
+  name: formal clothing loot spawner
+  suffix: Misfits, Formal Clothing, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsClothingLootFormalClothing
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsClothingLootSpawnerBase
+  id: MisfitsClothingLootSpawnerMilitaryClothing
+  name: military clothing loot spawner
+  suffix: Misfits, Military Clothing, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsClothingLootMilitaryClothing
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsClothingLootSpawnerBase
+  id: MisfitsClothingLootSpawnerMedicalClothing
+  name: medical clothing loot spawner
+  suffix: Misfits, Medical Clothing, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsClothingLootMedicalClothing
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsClothingLootSpawnerBase
+  id: MisfitsClothingLootSpawnerFactionClothing
+  name: faction clothing loot spawner
+  suffix: Misfits, Faction Clothing, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsClothingLootFactionClothing
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsClothingLootSpawnerBase
+  id: MisfitsClothingLootSpawnerDisguises
+  name: disguises loot spawner
+  suffix: Misfits, Disguises, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsClothingLootDisguises
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsClothingLootSpawnerBase
+  id: MisfitsClothingLootSpawnerHatsHeadwear
+  name: hats / headwear loot spawner
+  suffix: Misfits, Hats / Headwear, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsClothingLootHatsHeadwear
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsClothingLootSpawnerBase
+  id: MisfitsClothingLootSpawnerRareClothing
+  name: rare clothing loot spawner
+  suffix: Misfits, Rare Clothing, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsClothingLootRareClothing
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsClothingLootSpawnerBase
+  id: MisfitsClothingLootSpawnerAll
+  name: mixed clothing loot spawner
+  suffix: Misfits, Mixed, 1-2
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+    offset: 0.45

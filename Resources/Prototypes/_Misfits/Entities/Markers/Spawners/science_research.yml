@@ -1,0 +1,636 @@
+﻿# #Misfits Add - Science / Pre-War Research location/context loot.
+#
+# These tables mix the existing category master tables.
+# Rarity is inherited from the underlying item-category tables.
+# Every mapper spawner is visible and uses offset: 0.45.
+#
+
+# ============================================================================
+# CHEMISTRY LAB
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResearchLocationLootChemistryLab
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 38
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResearchLocationLootSpawnerChemistryLab
+  name: chemistry lab loot spawner
+  suffix: Science / Pre-War Research, Chemistry Lab, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Misc/proximity_sensor.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResearchLocationLootChemistryLab
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# BIOLOGY LAB
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResearchLocationLootBiologyLab
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 40
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResearchLocationLootSpawnerBiologyLab
+  name: biology lab loot spawner
+  suffix: Science / Pre-War Research, Biology Lab, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Misc/proximity_sensor.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResearchLocationLootBiologyLab
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# ROBOTICS LAB
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResearchLocationLootRoboticsLab
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 32
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 28
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResearchLocationLootSpawnerRoboticsLab
+  name: robotics lab loot spawner
+  suffix: Science / Pre-War Research, Robotics Lab, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: circuits_3
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResearchLocationLootRoboticsLab
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# ELECTRONICS LAB
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResearchLocationLootElectronicsLab
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 38
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 11
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResearchLocationLootSpawnerElectronicsLab
+  name: electronics lab loot spawner
+  suffix: Science / Pre-War Research, Electronics Lab, 3-7
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: scrap_electronic_2
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResearchLocationLootElectronicsLab
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+
+# ============================================================================
+# WEAPONS RESEARCH
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResearchLocationLootWeaponsResearch
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResearchLocationLootSpawnerWeaponsResearch
+  name: weapons research loot spawner
+  suffix: Science / Pre-War Research, Weapons Research, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResearchLocationLootWeaponsResearch
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# RADIATION LAB
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResearchLocationLootRadiationLab
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 34
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 25
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResearchLocationLootSpawnerRadiationLab
+  name: radiation lab loot spawner
+  suffix: Science / Pre-War Research, Radiation Lab, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Misc/proximity_sensor.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResearchLocationLootRadiationLab
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# EXPERIMENTAL MEDICINE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResearchLocationLootExperimentalMedicine
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 34
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResearchLocationLootSpawnerExperimentalMedicine
+  name: experimental medicine loot spawner
+  suffix: Science / Pre-War Research, Experimental Medicine, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+      state: ointment1
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResearchLocationLootExperimentalMedicine
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# RESEARCH OFFICE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResearchLocationLootResearchOffice
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 35
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResearchLocationLootSpawnerResearchOffice
+  name: research office loot spawner
+  suffix: Science / Pre-War Research, Research Office, 2-6
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_blue
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResearchLocationLootResearchOffice
+      rolls: !type:RangeNumberSelector
+        range: 2, 6
+    offset: 0.45
+
+
+# ============================================================================
+# SECURE RESEARCH STORAGE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResearchLocationLootSecureResearchStorage
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 22
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResearchLocationLootSpawnerSecureResearchStorage
+  name: secure research storage loot spawner
+  suffix: Science / Pre-War Research, Secure Research Storage, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_green
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResearchLocationLootSecureResearchStorage
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# FAILED EXPERIMENT SITE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResearchLocationLootFailedExperimentSite
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResearchLocationLootSpawnerFailedExperimentSite
+  name: failed experiment site loot spawner
+  suffix: Science / Pre-War Research, Failed Experiment Site, 3-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_red
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResearchLocationLootFailedExperimentSite
+      rolls: !type:RangeNumberSelector
+        range: 3, 8
+    offset: 0.45
+
+
+# ============================================================================
+# MIXED SCIENCE / PRE-WAR RESEARCH
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsResearchLocationLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsResearchLocationLootChemistryLab
+    - !type:NestedSelector
+      tableId: MisfitsResearchLocationLootBiologyLab
+    - !type:NestedSelector
+      tableId: MisfitsResearchLocationLootRoboticsLab
+    - !type:NestedSelector
+      tableId: MisfitsResearchLocationLootElectronicsLab
+    - !type:NestedSelector
+      tableId: MisfitsResearchLocationLootWeaponsResearch
+    - !type:NestedSelector
+      tableId: MisfitsResearchLocationLootRadiationLab
+    - !type:NestedSelector
+      tableId: MisfitsResearchLocationLootExperimentalMedicine
+    - !type:NestedSelector
+      tableId: MisfitsResearchLocationLootResearchOffice
+    - !type:NestedSelector
+      tableId: MisfitsResearchLocationLootSecureResearchStorage
+    - !type:NestedSelector
+      tableId: MisfitsResearchLocationLootFailedExperimentSite
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsResearchLocationLootSpawnerAll
+  name: mixed science / pre-war research loot spawner
+  suffix: Science / Pre-War Research, Mixed, 4-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Misc/proximity_sensor.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsResearchLocationLootAll
+      rolls: !type:RangeNumberSelector
+        range: 4, 8
+    offset: 0.45

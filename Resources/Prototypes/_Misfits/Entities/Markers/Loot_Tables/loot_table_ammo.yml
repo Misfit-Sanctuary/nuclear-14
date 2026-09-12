@@ -1,0 +1,529 @@
+﻿# #Misfits Add - Ammunition loot tables and mapper spawners.
+#
+# Five internal rarity tiers:
+# Common 50%, Uncommon 27%, Rare 14%, Very Rare 7%, Legendary 2%.
+#
+# Visible mapper markers; spawned loot uses offset: 0.45.
+# Lists are ordered from lower-value/common items toward rarer items.
+#
+
+# ============================================================================
+# COMMON AMMO
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsAmmoLootCommonAmmo
+  table: !type:GroupSelector
+      children:
+          # Common - 50
+          - !type:GroupSelector
+              weight: 50
+              children:
+                  - !type:EntSelector
+                      id: N14AmmoBox22lr
+                      weight: 3
+                  - !type:EntSelector
+                      id: N14AmmoBox9mm
+                      weight: 2
+
+          # Uncommon - 27
+          - !type:GroupSelector
+              weight: 27
+              children:
+                  - !type:EntSelector
+                      id: N14AmmoBox10mm
+                      weight: 3
+
+          # Rare - 14
+          - !type:GroupSelector
+              weight: 14
+              children:
+                  - !type:EntSelector
+                      id: MagazineBox20gauge
+                      weight: 3
+
+          # Very Rare - 7
+          - !type:GroupSelector
+              weight: 7
+              children:
+                  - !type:EntSelector
+                      id: N14AmmoBox12gauge
+                      weight: 3
+
+          # Legendary - 2
+          - !type:GroupSelector
+              weight: 2
+              children:
+                  - !type:EntSelector
+                      id: N14AmmoBox45
+                      weight: 3
+
+
+# ============================================================================
+# RIFLE AMMO
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsAmmoLootRifleAmmo
+  table: !type:GroupSelector
+      children:
+          # Common - 50
+          - !type:GroupSelector
+              weight: 50
+              children:
+                  - !type:EntSelector
+                      id: N14AmmoBox556
+                      weight: 3
+                  - !type:EntSelector
+                      id: N14AmmoBox308
+                      weight: 2
+
+          # Uncommon - 27
+          - !type:GroupSelector
+              weight: 27
+              children:
+                  - !type:EntSelector
+                      id: N14AmmoBox44Magnum
+                      weight: 3
+
+          # Rare - 14
+          - !type:GroupSelector
+              weight: 14
+              children:
+                  - !type:EntSelector
+                      id: N14AmmoBox45-70
+                      weight: 3
+
+          # Very Rare - 7
+          - !type:GroupSelector
+              weight: 7
+              children:
+                  - !type:EntSelector
+                      id: N14AmmoBox50
+                      weight: 3
+
+          # Legendary - 2
+          - !type:GroupSelector
+              weight: 2
+              children:
+                  - !type:EntSelector
+                      id: N14AmmoBox127
+                      weight: 3
+
+
+# ============================================================================
+# PISTOL AMMO
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsAmmoLootPistolAmmo
+  table: !type:GroupSelector
+      children:
+          # Common - 50
+          - !type:GroupSelector
+              weight: 50
+              children:
+                  - !type:EntSelector
+                      id: N14AmmoBox22lr
+                      weight: 3
+                  - !type:EntSelector
+                      id: N14AmmoBox9mm
+                      weight: 2
+
+          # Uncommon - 27
+          - !type:GroupSelector
+              weight: 27
+              children:
+                  - !type:EntSelector
+                      id: N14AmmoBox10mm
+                      weight: 3
+
+          # Rare - 14
+          - !type:GroupSelector
+              weight: 14
+              children:
+                  - !type:EntSelector
+                      id: N14MagazinePistol10mm
+                      weight: 3
+
+          # Very Rare - 7
+          - !type:GroupSelector
+              weight: 7
+              children:
+                  - !type:EntSelector
+                      id: N14MagazinePistol12mm
+                      weight: 3
+
+          # Legendary - 2
+          - !type:GroupSelector
+              weight: 2
+              children:
+                  - !type:EntSelector
+                      id: N14AmmoBox44Magnum
+                      weight: 3
+
+
+# ============================================================================
+# SHOTGUN AMMO
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsAmmoLootShotgunAmmo
+  table: !type:GroupSelector
+      children:
+          # Common - 50
+          - !type:GroupSelector
+              weight: 50
+              children:
+                  - !type:EntSelector
+                      id: MagazineBox20gauge
+                      weight: 3
+
+          # Uncommon - 27
+          - !type:GroupSelector
+              weight: 27
+              children:
+                  - !type:EntSelector
+                      id: MagazineBox12gauge
+                      weight: 3
+
+          # Rare - 14
+          - !type:GroupSelector
+              weight: 14
+              children:
+                  - !type:EntSelector
+                      id: N14AmmoBox12gauge
+                      weight: 3
+
+          # Very Rare - 7
+          - !type:GroupSelector
+              weight: 7
+              children:
+                  - !type:EntSelector
+                      id: N14MagazineShotgun12
+                      weight: 3
+
+          # Legendary - 2
+          - !type:GroupSelector
+              weight: 2
+              children:
+                  - !type:EntSelector
+                      id: MisfitsMagazineBox12GaugeBeanbag
+                      weight: 3
+
+
+# ============================================================================
+# ENERGY AMMO
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsAmmoLootEnergyAmmo
+  table: !type:GroupSelector
+      children:
+          # Common - 50
+          - !type:GroupSelector
+              weight: 50
+              children:
+                  - !type:EntSelector
+                      id: PowerCellSmallPrinted
+                      weight: 3
+
+          # Uncommon - 27
+          - !type:GroupSelector
+              weight: 27
+              children:
+                  - !type:EntSelector
+                      id: N14PowerCellSmall
+                      weight: 3
+
+          # Rare - 14
+          - !type:GroupSelector
+              weight: 14
+              children:
+                  - !type:EntSelector
+                      id: N14MicrofusionCell
+                      weight: 3
+
+          # Very Rare - 7
+          - !type:GroupSelector
+              weight: 7
+              children:
+                  - !type:EntSelector
+                      id: N14MicrofusionCell
+                      weight: 3
+                  - !type:EntSelector
+                      id: PowerCellHigh
+                      weight: 2
+
+          # Legendary - 2
+          - !type:GroupSelector
+              weight: 2
+              children:
+                  - !type:EntSelector
+                      id: PowerCellHigh
+                      weight: 3
+
+
+# ============================================================================
+# EXPLOSIVES / GRENADES
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsAmmoLootExplosivesGrenades
+  table: !type:GroupSelector
+      children:
+          # Common - 50
+          - !type:GroupSelector
+              weight: 50
+              children:
+                  - !type:EntSelector
+                      id: N14Dynamite
+                      weight: 3
+                  - !type:EntSelector
+                      id: N14FirecrackerFull
+                      weight: 2
+
+          # Uncommon - 27
+          - !type:GroupSelector
+              weight: 27
+              children:
+                  - !type:EntSelector
+                      id: N14TinNade
+                      weight: 3
+                  - !type:EntSelector
+                      id: N14KettleBomb
+                      weight: 2
+
+          # Rare - 14
+          - !type:GroupSelector
+              weight: 14
+              children:
+                  - !type:EntSelector
+                      id: N14BaseballNade
+                      weight: 3
+                  - !type:EntSelector
+                      id: N14PlasmaGrenade
+                      weight: 2
+
+          # Very Rare - 7
+          - !type:GroupSelector
+              weight: 7
+              children:
+                  - !type:EntSelector
+                      id: N14CryoGrenade
+                      weight: 3
+
+          # Legendary - 2
+          - !type:GroupSelector
+              weight: 2
+              children:
+                  - !type:EntSelector
+                      id: N14NukaNade
+                      weight: 3
+
+
+# ============================================================================
+# RARE AMMO
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsAmmoLootRareAmmo
+  table: !type:GroupSelector
+      children:
+          # Common - 50
+          - !type:GroupSelector
+              weight: 50
+              children:
+                  - !type:EntSelector
+                      id: N14AmmoBox45-70
+                      weight: 3
+                  - !type:EntSelector
+                      id: N14AmmoBox50
+                      weight: 2
+
+          # Uncommon - 27
+          - !type:GroupSelector
+              weight: 27
+              children:
+                  - !type:EntSelector
+                      id: N14AmmoBox127
+                      weight: 3
+                  - !type:EntSelector
+                      id: N14MicrofusionCell
+                      weight: 2
+
+          # Rare - 14
+          - !type:GroupSelector
+              weight: 14
+              children:
+                  - !type:EntSelector
+                      id: PowerCellHigh
+                      weight: 3
+
+          # Very Rare - 7
+          - !type:GroupSelector
+              weight: 7
+              children:
+                  - !type:EntSelector
+                      id: N14PlasmaGrenade
+                      weight: 3
+
+          # Legendary - 2
+          - !type:GroupSelector
+              weight: 2
+              children:
+                  - !type:EntSelector
+                      id: N14NukaNade
+                      weight: 3
+
+
+# ============================================================================
+# MASTER AMMUNITION TABLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsAmmoLootAll
+  table: !type:GroupSelector
+      children:
+          - !type:NestedSelector
+              tableId: MisfitsAmmoLootCommonAmmo
+              weight: 10
+          - !type:NestedSelector
+              tableId: MisfitsAmmoLootRifleAmmo
+              weight: 10
+          - !type:NestedSelector
+              tableId: MisfitsAmmoLootPistolAmmo
+              weight: 10
+          - !type:NestedSelector
+              tableId: MisfitsAmmoLootShotgunAmmo
+              weight: 10
+          - !type:NestedSelector
+              tableId: MisfitsAmmoLootEnergyAmmo
+              weight: 10
+          - !type:NestedSelector
+              tableId: MisfitsAmmoLootExplosivesGrenades
+              weight: 10
+          - !type:NestedSelector
+              tableId: MisfitsAmmoLootRareAmmo
+              weight: 2
+
+
+# ============================================================================
+# VISIBLE MAPPER SPAWNER BASE
+# ============================================================================
+
+- type: entity
+  abstract: true
+  name: ammunition loot spawner
+  id: MisfitsAmmoLootSpawnerBase
+  parent: MarkerBase
+  components:
+      - type: Sprite
+        layers:
+            - state: red
+            - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+              state: icon
+
+- type: entity
+  parent: MisfitsAmmoLootSpawnerBase
+  id: MisfitsAmmoLootSpawnerCommonAmmo
+  name: common ammo loot spawner
+  suffix: Misfits, Common Ammo, 2-4
+  components:
+      - type: EntityTableSpawner
+        table: !type:NestedSelector
+            tableId: MisfitsAmmoLootCommonAmmo
+            rolls: !type:RangeNumberSelector
+                range: 2, 4
+        offset: 0.45
+
+- type: entity
+  parent: MisfitsAmmoLootSpawnerBase
+  id: MisfitsAmmoLootSpawnerRifleAmmo
+  name: rifle ammo loot spawner
+  suffix: Misfits, Rifle Ammo, 2-4
+  components:
+      - type: EntityTableSpawner
+        table: !type:NestedSelector
+            tableId: MisfitsAmmoLootRifleAmmo
+            rolls: !type:RangeNumberSelector
+                range: 2, 4
+        offset: 0.45
+
+- type: entity
+  parent: MisfitsAmmoLootSpawnerBase
+  id: MisfitsAmmoLootSpawnerPistolAmmo
+  name: pistol ammo loot spawner
+  suffix: Misfits, Pistol Ammo, 2-4
+  components:
+      - type: EntityTableSpawner
+        table: !type:NestedSelector
+            tableId: MisfitsAmmoLootPistolAmmo
+            rolls: !type:RangeNumberSelector
+                range: 2, 4
+        offset: 0.45
+
+- type: entity
+  parent: MisfitsAmmoLootSpawnerBase
+  id: MisfitsAmmoLootSpawnerShotgunAmmo
+  name: shotgun ammo loot spawner
+  suffix: Misfits, Shotgun Ammo, 2-4
+  components:
+      - type: EntityTableSpawner
+        table: !type:NestedSelector
+            tableId: MisfitsAmmoLootShotgunAmmo
+            rolls: !type:RangeNumberSelector
+                range: 2, 4
+        offset: 0.45
+
+- type: entity
+  parent: MisfitsAmmoLootSpawnerBase
+  id: MisfitsAmmoLootSpawnerEnergyAmmo
+  name: energy ammo loot spawner
+  suffix: Misfits, Energy Ammo, 2-4
+  components:
+      - type: EntityTableSpawner
+        table: !type:NestedSelector
+            tableId: MisfitsAmmoLootEnergyAmmo
+            rolls: !type:RangeNumberSelector
+                range: 2, 4
+        offset: 0.45
+
+- type: entity
+  parent: MisfitsAmmoLootSpawnerBase
+  id: MisfitsAmmoLootSpawnerExplosivesGrenades
+  name: explosives / grenades loot spawner
+  suffix: Misfits, Explosives / Grenades, 2-4
+  components:
+      - type: EntityTableSpawner
+        table: !type:NestedSelector
+            tableId: MisfitsAmmoLootExplosivesGrenades
+            rolls: !type:RangeNumberSelector
+                range: 2, 4
+        offset: 0.45
+
+- type: entity
+  parent: MisfitsAmmoLootSpawnerBase
+  id: MisfitsAmmoLootSpawnerRareAmmo
+  name: rare ammo loot spawner
+  suffix: Misfits, Rare Ammo, 2-4
+  components:
+      - type: EntityTableSpawner
+        table: !type:NestedSelector
+            tableId: MisfitsAmmoLootRareAmmo
+            rolls: !type:RangeNumberSelector
+                range: 2, 4
+        offset: 0.45
+
+- type: entity
+  parent: MisfitsAmmoLootSpawnerBase
+  id: MisfitsAmmoLootSpawnerAll
+  name: mixed ammunition loot spawner
+  suffix: Misfits, Mixed, 2-4
+  components:
+      - type: EntityTableSpawner
+        table: !type:NestedSelector
+            tableId: MisfitsAmmoLootAll
+            rolls: !type:RangeNumberSelector
+                range: 2, 4
+        offset: 0.45

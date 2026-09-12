@@ -1,0 +1,588 @@
+﻿# #Misfits Add - Office / Administrative location/context loot.
+#
+# These tables mix the existing category master tables.
+# Rarity is inherited from the underlying item-category tables.
+# Every mapper spawner is visible and uses offset: 0.45.
+#
+
+# ============================================================================
+# DESK
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsOfficeLootDesk
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 34
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsOfficeLootSpawnerDesk
+  name: desk loot spawner
+  suffix: Office / Administrative, Desk, 1-4
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_blue
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsOfficeLootDesk
+      rolls: !type:RangeNumberSelector
+        range: 1, 4
+    offset: 0.45
+
+
+# ============================================================================
+# FILING CABINET
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsOfficeLootFilingCabinet
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 62
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsOfficeLootSpawnerFilingCabinet
+  name: filing cabinet loot spawner
+  suffix: Office / Administrative, Filing Cabinet, 2-6
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_blue
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsOfficeLootFilingCabinet
+      rolls: !type:RangeNumberSelector
+        range: 2, 6
+    offset: 0.45
+
+
+# ============================================================================
+# RECEPTION
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsOfficeLootReception
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 28
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsOfficeLootSpawnerReception
+  name: reception loot spawner
+  suffix: Office / Administrative, Reception, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_blue
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsOfficeLootReception
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# MANAGER OFFICE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsOfficeLootManagerOffice
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 30
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 13
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsOfficeLootSpawnerManagerOffice
+  name: manager office loot spawner
+  suffix: Office / Administrative, Manager Office, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_green
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsOfficeLootManagerOffice
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# EXECUTIVE OFFICE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsOfficeLootExecutiveOffice
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 25
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 2
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsOfficeLootSpawnerExecutiveOffice
+  name: executive office loot spawner
+  suffix: Office / Administrative, Executive Office, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: ingot_gold
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsOfficeLootExecutiveOffice
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# RECORDS STORAGE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsOfficeLootRecordsStorage
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 70
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsOfficeLootSpawnerRecordsStorage
+  name: records storage loot spawner
+  suffix: Office / Administrative, Records Storage, 3-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_blue
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsOfficeLootRecordsStorage
+      rolls: !type:RangeNumberSelector
+        range: 3, 8
+    offset: 0.45
+
+
+# ============================================================================
+# SECURITY OFFICE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsOfficeLootSecurityOffice
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 24
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 16
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 3
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsOfficeLootSpawnerSecurityOffice
+  name: security office loot spawner
+  suffix: Office / Administrative, Security Office, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsOfficeLootSecurityOffice
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# GOVERNMENT OFFICE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsOfficeLootGovernmentOffice
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 32
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsOfficeLootSpawnerGovernmentOffice
+  name: government office loot spawner
+  suffix: Office / Administrative, Government Office, 2-5
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Clothing/Head/FalloutHelmets/ncrhelmet3.rsi
+      state: icon
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsOfficeLootGovernmentOffice
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+    offset: 0.45
+
+
+# ============================================================================
+# CLASSIFIED RECORDS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsOfficeLootClassifiedRecords
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 38
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 18
+    - !type:NestedSelector
+      tableId: MisfitsFactionLootAll
+      weight: 14
+    - !type:NestedSelector
+      tableId: MisfitsMilitaryLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsArmorLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsScienceLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsOfficeLootSpawnerClassifiedRecords
+  name: classified records loot spawner
+  suffix: Office / Administrative, Classified Records, 1-3
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_red
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsOfficeLootClassifiedRecords
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+    offset: 0.45
+
+
+# ============================================================================
+# MIXED OFFICE / ADMINISTRATIVE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsOfficeLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsOfficeLootDesk
+    - !type:NestedSelector
+      tableId: MisfitsOfficeLootFilingCabinet
+    - !type:NestedSelector
+      tableId: MisfitsOfficeLootReception
+    - !type:NestedSelector
+      tableId: MisfitsOfficeLootManagerOffice
+    - !type:NestedSelector
+      tableId: MisfitsOfficeLootExecutiveOffice
+    - !type:NestedSelector
+      tableId: MisfitsOfficeLootRecordsStorage
+    - !type:NestedSelector
+      tableId: MisfitsOfficeLootSecurityOffice
+    - !type:NestedSelector
+      tableId: MisfitsOfficeLootGovernmentOffice
+    - !type:NestedSelector
+      tableId: MisfitsOfficeLootClassifiedRecords
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsOfficeLootSpawnerAll
+  name: mixed office / administrative loot spawner
+  suffix: Office / Administrative, Mixed, 3-6
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_blue
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsOfficeLootAll
+      rolls: !type:RangeNumberSelector
+        range: 3, 6
+    offset: 0.45

@@ -1,0 +1,541 @@
+﻿# #Misfits Add - Junk loot tables and mapper spawners.
+#
+# Five internal rarity tiers:
+# Common 50%, Uncommon 27%, Rare 14%, Very Rare 7%, Legendary 2%.
+#
+# Visible mapper markers; spawned loot uses offset: 0.45.
+# Lists are ordered from lower-value/common items toward rarer items.
+#
+
+# ============================================================================
+# HOUSEHOLD JUNK
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsJunkLootHouseholdJunk
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Junk8Ball
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkBaseball
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14JunkCoffeepot
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkCookpot
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14JunkToaster
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14JunkAbraxoCleaner
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14FoodTinCanTrash
+        weight: 3
+
+
+# ============================================================================
+# OFFICE JUNK
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsJunkLootOfficeJunk
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: Paper
+        weight: 3
+      - !type:EntSelector
+        id: Pen
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: BoxFolderGrey
+        weight: 3
+      - !type:EntSelector
+        id: Clipboard
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: BookRandom
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14Junk8Ball
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14CurrencyPrewarMoney10
+        weight: 3
+
+
+# ============================================================================
+# INDUSTRIAL JUNK
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsJunkLootIndustrialJunk
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentScrew
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentGearSmall
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentGearLarge
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkDuctTape
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14JunkTimer
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14Scrap1
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ScrapSteel1
+        weight: 3
+
+
+# ============================================================================
+# MEDICAL JUNK
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsJunkLootMedicalJunk
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14DirtyGauze10
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkAbraxoCleaner
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: SurgicalSterileWipe
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: BoxNitrileGloves
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: BoxSterileMask
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ChemicalSyringe
+        weight: 3
+
+
+# ============================================================================
+# ELECTRONIC JUNK
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsJunkLootElectronicJunk
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14ScrapElectronic1
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentFuse1
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentDiode1
+        weight: 3
+      - !type:EntSelector
+        id: N14JunkComponentCapacitor1
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentBoard1
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentBoard2
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentBoard3
+        weight: 3
+
+
+# ============================================================================
+# MILITARY JUNK
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsJunkLootMilitaryJunk
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14JunkDuctTape
+        weight: 3
+      - !type:EntSelector
+        id: N14ScrapSteel1
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentScrew
+        weight: 3
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14JunkComponentGearSmall
+        weight: 3
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14FoodTinCanTrash
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14JunkAbraxoCleaner
+        weight: 3
+
+
+# ============================================================================
+# SCRAP
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsJunkLootScrap
+  table: !type:GroupSelector
+    children:
+    # Common - 50
+    - !type:GroupSelector
+      weight: 50
+      children:
+      - !type:EntSelector
+        id: N14Scrap1
+        weight: 3
+      - !type:EntSelector
+        id: N14ScrapSteel1
+        weight: 2
+
+    # Uncommon - 27
+    - !type:GroupSelector
+      weight: 27
+      children:
+      - !type:EntSelector
+        id: N14ScrapElectronic1
+        weight: 3
+      - !type:EntSelector
+        id: N14Scrap10
+        weight: 2
+
+    # Rare - 14
+    - !type:GroupSelector
+      weight: 14
+      children:
+      - !type:EntSelector
+        id: N14ScrapCopper10
+        weight: 3
+      - !type:EntSelector
+        id: N14ScrapBrass5
+        weight: 2
+
+    # Very Rare - 7
+    - !type:GroupSelector
+      weight: 7
+      children:
+      - !type:EntSelector
+        id: N14ScrapGold5
+        weight: 3
+
+    # Legendary - 2
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - !type:EntSelector
+        id: N14ScrapElectronic10
+        weight: 3
+
+
+# ============================================================================
+# MASTER JUNK TABLE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsJunkLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootHouseholdJunk
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootOfficeJunk
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootIndustrialJunk
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootMedicalJunk
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootElectronicJunk
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootMilitaryJunk
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootScrap
+      weight: 10
+
+
+# ============================================================================
+# VISIBLE MAPPER SPAWNER BASE
+# ============================================================================
+
+- type: entity
+  abstract: true
+  name: junk loot spawner
+  id: MisfitsJunkLootSpawnerBase
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: abraxo
+
+- type: entity
+  parent: MisfitsJunkLootSpawnerBase
+  id: MisfitsJunkLootSpawnerHouseholdJunk
+  name: household junk loot spawner
+  suffix: Misfits, Household Junk, 3-7
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsJunkLootHouseholdJunk
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsJunkLootSpawnerBase
+  id: MisfitsJunkLootSpawnerOfficeJunk
+  name: office junk loot spawner
+  suffix: Misfits, Office Junk, 3-7
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsJunkLootOfficeJunk
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsJunkLootSpawnerBase
+  id: MisfitsJunkLootSpawnerIndustrialJunk
+  name: industrial junk loot spawner
+  suffix: Misfits, Industrial Junk, 3-7
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsJunkLootIndustrialJunk
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsJunkLootSpawnerBase
+  id: MisfitsJunkLootSpawnerMedicalJunk
+  name: medical junk loot spawner
+  suffix: Misfits, Medical Junk, 3-7
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsJunkLootMedicalJunk
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsJunkLootSpawnerBase
+  id: MisfitsJunkLootSpawnerElectronicJunk
+  name: electronic junk loot spawner
+  suffix: Misfits, Electronic Junk, 3-7
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsJunkLootElectronicJunk
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsJunkLootSpawnerBase
+  id: MisfitsJunkLootSpawnerMilitaryJunk
+  name: military junk loot spawner
+  suffix: Misfits, Military Junk, 3-7
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsJunkLootMilitaryJunk
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsJunkLootSpawnerBase
+  id: MisfitsJunkLootSpawnerScrap
+  name: scrap loot spawner
+  suffix: Misfits, Scrap, 3-7
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsJunkLootScrap
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45
+
+- type: entity
+  parent: MisfitsJunkLootSpawnerBase
+  id: MisfitsJunkLootSpawnerAll
+  name: mixed junk loot spawner
+  suffix: Misfits, Mixed, 3-7
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      rolls: !type:RangeNumberSelector
+        range: 3, 7
+    offset: 0.45

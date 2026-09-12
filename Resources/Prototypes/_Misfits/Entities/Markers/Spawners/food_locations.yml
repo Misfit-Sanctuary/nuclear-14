@@ -1,0 +1,564 @@
+﻿# #Misfits Add - Food-Specific Locations location/context loot.
+#
+# These tables mix the existing category master tables.
+# Rarity is inherited from the underlying item-category tables.
+# Every mapper spawner is visible and uses offset: 0.45.
+#
+
+# ============================================================================
+# KITCHEN PANTRY
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFoodLocationLootKitchenPantry
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 65
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsFoodLocationLootSpawnerKitchenPantry
+  name: kitchen pantry loot spawner
+  suffix: Food-Specific Locations, Kitchen Pantry, 4-10
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFoodLocationLootKitchenPantry
+      rolls: !type:RangeNumberSelector
+        range: 4, 10
+    offset: 0.45
+
+
+# ============================================================================
+# REFRIGERATOR
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFoodLocationLootRefrigerator
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 80
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsFoodLocationLootSpawnerRefrigerator
+  name: refrigerator loot spawner
+  suffix: Food-Specific Locations, Refrigerator, 3-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFoodLocationLootRefrigerator
+      rolls: !type:RangeNumberSelector
+        range: 3, 8
+    offset: 0.45
+
+
+# ============================================================================
+# RESTAURANT KITCHEN
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFoodLocationLootRestaurantKitchen
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 58
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsFoodLocationLootSpawnerRestaurantKitchen
+  name: restaurant kitchen loot spawner
+  suffix: Food-Specific Locations, Restaurant Kitchen, 5-12
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: coffeepot
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFoodLocationLootRestaurantKitchen
+      rolls: !type:RangeNumberSelector
+        range: 5, 12
+    offset: 0.45
+
+
+# ============================================================================
+# DINER STORAGE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFoodLocationLootDinerStorage
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 60
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 10
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsFoodLocationLootSpawnerDinerStorage
+  name: diner storage loot spawner
+  suffix: Food-Specific Locations, Diner Storage, 5-12
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: coffeepot
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFoodLocationLootDinerStorage
+      rolls: !type:RangeNumberSelector
+        range: 5, 12
+    offset: 0.45
+
+
+# ============================================================================
+# GROCERY SHELF
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFoodLocationLootGroceryShelf
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 78
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsFoodLocationLootSpawnerGroceryShelf
+  name: grocery shelf loot spawner
+  suffix: Food-Specific Locations, Grocery Shelf, 4-10
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFoodLocationLootGroceryShelf
+      rolls: !type:RangeNumberSelector
+        range: 4, 10
+    offset: 0.45
+
+
+# ============================================================================
+# GROCERY WAREHOUSE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFoodLocationLootGroceryWarehouse
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 58
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsIndustrialLootAll
+      weight: 6
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsFoodLocationLootSpawnerGroceryWarehouse
+  name: grocery warehouse loot spawner
+  suffix: Food-Specific Locations, Grocery Warehouse, 8-18
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFoodLocationLootGroceryWarehouse
+      rolls: !type:RangeNumberSelector
+        range: 8, 18
+    offset: 0.45
+
+
+# ============================================================================
+# BAR STORAGE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFoodLocationLootBarStorage
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 48
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 12
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 11
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 9
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsClothingLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsScrapLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsFoodLocationLootSpawnerBarStorage
+  name: bar storage loot spawner
+  suffix: Food-Specific Locations, Bar Storage, 3-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: coffeepot
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFoodLocationLootBarStorage
+      rolls: !type:RangeNumberSelector
+        range: 3, 8
+    offset: 0.45
+
+
+# ============================================================================
+# PRE-WAR VENDING STOCK
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFoodLocationLootPreWarVendingStock
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 72
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 7
+    - !type:NestedSelector
+      tableId: MisfitsElectronicsLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsContrabandLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 1
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsFoodLocationLootSpawnerPreWarVendingStock
+  name: pre-war vending stock loot spawner
+  suffix: Food-Specific Locations, Pre-War Vending Stock, 3-8
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFoodLocationLootPreWarVendingStock
+      rolls: !type:RangeNumberSelector
+        range: 3, 8
+    offset: 0.45
+
+
+# ============================================================================
+# EMERGENCY FOOD CACHE
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFoodLocationLootEmergencyFoodCache
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodDrinkLootAll
+      weight: 52
+    - !type:NestedSelector
+      tableId: MisfitsSurvivalLootAll
+      weight: 20
+    - !type:NestedSelector
+      tableId: MisfitsMedicalLootAll
+      weight: 8
+    - !type:NestedSelector
+      tableId: MisfitsToolsLootAll
+      weight: 5
+    - !type:NestedSelector
+      tableId: MisfitsAmmoLootAll
+      weight: 4
+    - !type:NestedSelector
+      tableId: MisfitsWeaponLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsDocumentsLootAll
+      weight: 3
+    - !type:NestedSelector
+      tableId: MisfitsMaterialLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsValuablesLootAll
+      weight: 2
+    - !type:NestedSelector
+      tableId: MisfitsJunkLootAll
+      weight: 1
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsFoodLocationLootSpawnerEmergencyFoodCache
+  name: emergency food cache loot spawner
+  suffix: Food-Specific Locations, Emergency Food Cache, 4-9
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: vault_113_canteen
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFoodLocationLootEmergencyFoodCache
+      rolls: !type:RangeNumberSelector
+        range: 4, 9
+    offset: 0.45
+
+
+# ============================================================================
+# MIXED FOOD-SPECIFIC LOCATIONS
+# ============================================================================
+
+- type: entityTable
+  id: MisfitsFoodLocationLootAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: MisfitsFoodLocationLootKitchenPantry
+    - !type:NestedSelector
+      tableId: MisfitsFoodLocationLootRefrigerator
+    - !type:NestedSelector
+      tableId: MisfitsFoodLocationLootRestaurantKitchen
+    - !type:NestedSelector
+      tableId: MisfitsFoodLocationLootDinerStorage
+    - !type:NestedSelector
+      tableId: MisfitsFoodLocationLootGroceryShelf
+    - !type:NestedSelector
+      tableId: MisfitsFoodLocationLootGroceryWarehouse
+    - !type:NestedSelector
+      tableId: MisfitsFoodLocationLootBarStorage
+    - !type:NestedSelector
+      tableId: MisfitsFoodLocationLootPreWarVendingStock
+    - !type:NestedSelector
+      tableId: MisfitsFoodLocationLootEmergencyFoodCache
+
+- type: entity
+  parent: MarkerBase
+  id: MisfitsFoodLocationLootSpawnerAll
+  name: mixed food-specific locations loot spawner
+  suffix: Food-Specific Locations, Mixed, 5-10
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+      state: lunchbox
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: MisfitsFoodLocationLootAll
+      rolls: !type:RangeNumberSelector
+        range: 5, 10
+    offset: 0.45
