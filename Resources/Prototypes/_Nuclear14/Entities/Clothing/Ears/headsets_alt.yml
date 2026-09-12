@@ -68,7 +68,7 @@
     containers:
       key_slots:
       - EncryptionKeyVault
-      keysUnlocked: false
+    keysUnlocked: false
   - type: Sprite
     sprite: _Misfits/Clothing/Ears/Headsets/vault.rsi
   - type: Clothing
@@ -85,7 +85,7 @@
       - EncryptionKeyMedical
       - EncryptionKeyCommon
       - EncryptionKeyWastelandGlobal
-      keysUnlocked: false
+    keysUnlocked: false
   - type: Sprite
     sprite: Clothing/Ears/Headsets/medical.rsi
   - type: Clothing
@@ -102,7 +102,7 @@
       - EncryptionKeySecurity
       - EncryptionKeyCommon
       - EncryptionKeyWastelandGlobal
-      keysUnlocked: false
+    keysUnlocked: false
   - type: Sprite
     sprite: Clothing/Ears/Headsets/security.rsi
   - type: Clothing
@@ -119,7 +119,7 @@
       - EncryptionKeyEngineering
       - EncryptionKeyCommon
       - EncryptionKeyWastelandGlobal
-      keysUnlocked: false
+    keysUnlocked: false
   - type: Sprite
     sprite: Clothing/Ears/Headsets/engineering.rsi
   - type: Clothing
@@ -136,7 +136,7 @@
       - EncryptionKeyScience
       - EncryptionKeyCommon
       - EncryptionKeyWastelandGlobal
-      keysUnlocked: false
+    keysUnlocked: false
   - type: Sprite
     sprite: Clothing/Ears/Headsets/science.rsi
   - type: Clothing
@@ -185,7 +185,7 @@
       key_slots:
       - EncryptionKeyEnclave
       - EncryptionKeyWastelandGlobal
-      keysUnlocked: false
+    keysUnlocked: false
   - type: Sprite
     sprite: _Misfits/Clothing/Ears/Headsets/enclave_headset.rsi
   - type: Clothing
@@ -219,7 +219,7 @@
       - EncryptionKeyNCR
       - EncryptionKeyOSI
       - EncryptionKeyWastelandGlobal
-      keysUnlocked: false
+    keysUnlocked: false
 
 - type: entity
   parent: N14ClothingHeadsetNCR
@@ -233,6 +233,7 @@
       - EncryptionKeyNCR
       - EncryptionKeyNCRRangers
       - EncryptionKeyWastelandGlobal
+    keysUnlocked: false
 
 # #Misfits Change - Legion headset
 - type: entity
@@ -245,7 +246,7 @@
       key_slots:
       - EncryptionKeyLegion
       - EncryptionKeyWastelandGlobal
-      keysUnlocked: false
+    keysUnlocked: false
   - type: Sprite
     sprite: _Misfits/Clothing/Ears/Headsets/legion.rsi
   - type: Clothing
@@ -265,7 +266,7 @@
       key_slots:
       - EncryptionKeyFollowers
       - EncryptionKeyWastelandGlobal
-      keysUnlocked: false
+    keysUnlocked: false
   - type: Sprite
     sprite: _Misfits/Clothing/Ears/Headsets/followerslight.rsi
     layers:

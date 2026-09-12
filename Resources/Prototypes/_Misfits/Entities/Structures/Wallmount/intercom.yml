@@ -10,7 +10,7 @@
       key_slots:
       - EncryptionKeyWastelandGlobal
       - EncryptionKeyFollowers
-      keysUnlocked: false
+    keysUnlocked: false
 
 - type: entity
   id: MisfitsIntercomLegion
@@ -24,7 +24,7 @@
       key_slots:
       - EncryptionKeyWastelandGlobal
       - EncryptionKeyLegion
-      keysUnlocked: false
+    keysUnlocked: false
 
 - type: entity
   id: MisfitsIntercomNCR
@@ -38,7 +38,7 @@
       key_slots:
       - EncryptionKeyWastelandGlobal
       - EncryptionKeyNCR
-      keysUnlocked: false
+    keysUnlocked: false
 
 - type: entity
   id: MisfitsIntercomNCRRanger
@@ -52,7 +52,7 @@
       key_slots:
       - EncryptionKeyWastelandGlobal
       - EncryptionKeyNCRRanger
-      keysUnlocked: false
+    keysUnlocked: false
 
 - type: entity
   id: MisfitsIntercomOSI
@@ -66,7 +66,7 @@
       key_slots:
       - EncryptionKeyWastelandGlobal
       - EncryptionKeyOSI
-      keysUnlocked: false
+    keysUnlocked: false
 
 - type: entity
   id: MisfitsIntercomEnclave
@@ -80,21 +80,7 @@
       key_slots:
       - EncryptionKeyWastelandGlobal
       - EncryptionKeyEnclave
-      keysUnlocked: false
-
-- type: entity
-  id: MisfitsIntercomEnclave
-  parent: Intercom
-  suffix: Enclave
-  components:
-  - type: ContainerFill
-    containers:
-      board:
-      - IntercomElectronics
-      key_slots:
-      - EncryptionKeyWastelandGlobal
-      - EncryptionKeyEnclave
-      keysUnlocked: false
+    keysUnlocked: false
 
 - type: entity
   id: MisfitsIntercomVaultScience
@@ -108,7 +94,7 @@
       key_slots:
       - EncryptionKeyWastelandGlobal
       - EncryptionKeyScience
-      keysUnlocked: false
+    keysUnlocked: false
 
 - type: entity
   id: MisfitsIntercomVaultEngineering
@@ -122,7 +108,7 @@
       key_slots:
       - EncryptionKeyWastelandGlobal
       - EncryptionKeyEngineering
-      keysUnlocked: false
+    keysUnlocked: false
 
 - type: entity
   id: MisfitsIntercomVaultMedical
@@ -136,7 +122,7 @@
       key_slots:
       - EncryptionKeyWastelandGlobal
       - EncryptionKeyMedical
-      keysUnlocked: false
+    keysUnlocked: false
 
 - type: entity
   id: MisfitsIntercomVaultSecurity
@@ -150,7 +136,7 @@
       key_slots:
       - EncryptionKeyWastelandGlobal
       - EncryptionKeySecurity
-      keysUnlocked: false
+    keysUnlocked: false
 
 - type: entity
   id: MisfitsIntercomVault
@@ -164,7 +150,7 @@
       key_slots:
       - EncryptionKeyWastelandGlobal
       - EncryptionKeyVault
-      keysUnlocked: false
+    keysUnlocked: false
 
 - type: entity
   id: MisfitsIntercomEighties
@@ -178,7 +164,7 @@
       key_slots:
       - EncryptionKeyWastelandGlobal
       - EncryptionKeyEighties
-      keysUnlocked: false
+    keysUnlocked: false
 
 - type: entity
   id: MisfitsIntercomTown
@@ -192,7 +178,7 @@
       key_slots:
       - EncryptionKeyWastelandGlobal
       - EncryptionKeyTown
-      keysUnlocked: false
+    keysUnlocked: false
 
 - type: entity
   id: MisfitsIntercomBrotherhoodOfSteel
@@ -206,17 +192,4 @@
       key_slots:
       - EncryptionKeyWastelandGlobal
       - EncryptionKeyBrotherhoodOfSteel
-      keysUnlocked: false
-
-- type: entity
-  id: MisfitsIntercomTown
-  parent: Intercom
-  suffix: Town
-  components:
-  - type: ContainerFill
-    containers:
-      board:
-      - IntercomElectronics
-      key_slots:
-      - EncryptionKeyWastelandGlobal
-      - EncryptionKeyTown
+    keysUnlocked: false
