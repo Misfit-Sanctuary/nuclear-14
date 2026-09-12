@@ -1,0 +1,519 @@
+﻿# Misfits - medicine pills
+#
+# ROUTE POLICY:
+# - Pills are only used for medicines that make sense as stable oral/tablet doses.
+# - Potent drugs use smaller doses; routine medicines use larger doses.
+# - Liquid field remedies, surgical drugs, topicals, transfusions and poisons
+#   are intentionally not represented as pills.
+# - Each pill carries a Label showing the actual reagent dose.
+#
+# ANTIBIOTICS
+- type: entity
+  name: antibiotics
+  parent: Pill
+  id: MisfitsPillAntibiotics
+  description: A broad-spectrum antimicrobial treatment intended for serious or uncertain infections.
+  components:
+  - type: Label
+    currentLabel: antibiotics 20u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsAntibiotics
+          Quantity: 20
+
+# RAD SHIELD
+- type: entity
+  name: rad shield
+  parent: Pill
+  id: MisfitsPillRadShield
+  description: A potent radioprotective compound that shields the body from incoming radiation without removing contamination already absorbed.
+  components:
+  - type: Label
+    currentLabel: rad shield 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsRadShield
+          Quantity: 15
+
+# X-111 COMPOUND
+- type: entity
+  name: x-111 compound
+  parent: Pill
+  id: MisfitsPillX111Compound
+  description: An advanced emergency radiological treatment that strips large amounts of radiation from the body very quickly.
+  components:
+  - type: Label
+    currentLabel: x-111 compound 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsX111Compound
+          Quantity: 5
+
+# BLOOD SHIELD
+- type: entity
+  name: blood shield
+  parent: Pill
+  id: MisfitsPillBloodShield
+  description: A penetrating-trauma medicine specialized for piercing wounds, blood loss, and persistent bleeding.
+  components:
+  - type: Label
+    currentLabel: blood shield 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsBloodShield
+          Quantity: 15
+
+# HERBAL STIMULANT
+- type: entity
+  name: herbal stimulant
+  parent: Pill
+  id: MisfitsPillHerbalStimulant
+  description: A sharp herbal stimulant used to drive away drowsiness and keep an exhausted patient moving.
+  components:
+  - type: Label
+    currentLabel: herbal stimulant 20u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsHerbalStimulant
+          Quantity: 20
+
+# PENICILLIN
+- type: entity
+  name: penicillin
+  parent: Pill
+  id: MisfitsPillPenicillin
+  description: A classic antibacterial medicine intended for susceptible bacterial infections.
+  components:
+  - type: Label
+    currentLabel: penicillin 20u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsPenicillin
+          Quantity: 20
+
+# PRUSSIAN BLUE
+- type: entity
+  name: prussian blue
+  parent: Pill
+  id: MisfitsPillPrussianBlue
+  description: A slow radiological binding treatment used to clear radioactive contamination.
+  components:
+  - type: Label
+    currentLabel: prussian blue 20u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsPrussianBlue
+          Quantity: 20
+
+# FURY
+- type: entity
+  name: fury
+  parent: Pill
+  id: MisfitsPillFury
+  description: A violent combat chem that dramatically increases close-quarters performance and pain tolerance.
+  components:
+  - type: Label
+    currentLabel: fury 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsFury
+          Quantity: 5
+
+# CALMEX
+- type: entity
+  name: calmex
+  parent: Pill
+  id: MisfitsPillCalmex
+  description: A refined performance drug that sharpens perception and coordination while producing an unnatural calm.
+  components:
+  - type: Label
+    currentLabel: calmex 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsCalmex
+          Quantity: 5
+
+# OVERDRIVE
+- type: entity
+  name: overdrive
+  parent: Pill
+  id: MisfitsPillOverdrive
+  description: A potent combat stimulant designed to push physical and combat performance beyond safe limits.
+  components:
+  - type: Label
+    currentLabel: overdrive 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsOverdrive
+          Quantity: 5
+
+# X-CELL
+- type: entity
+  name: x-cell
+  parent: Pill
+  id: MisfitsPillXCell
+  description: A rare pre-war prototype chem that temporarily enhances nearly every SPECIAL attribute.
+  components:
+  - type: Label
+    currentLabel: x-cell 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsXCell
+          Quantity: 5
+
+# CRANK
+- type: entity
+  name: crank
+  parent: Pill
+  id: MisfitsPillCrank
+  description: A harsh improvised stimulant that increases speed and wakefulness while placing strain on the body.
+  components:
+  - type: Label
+    currentLabel: crank 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsCrank
+          Quantity: 5
+
+# CLEARWAKE
+- type: entity
+  name: clearwake
+  parent: Pill
+  id: MisfitsPillClearwake
+  description: An emergency wakefulness and neurological-support drug that also treats electrical shock injury.
+  components:
+  - type: Label
+    currentLabel: clearwake 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsClearwake
+          Quantity: 5
+
+# WIDOWBANE
+- type: entity
+  name: widowbane
+  parent: Pill
+  id: MisfitsPillWidowbane
+  description: A specialized antidote formulated to neutralize widow's mercy.
+  components:
+  - type: Label
+    currentLabel: widowbane 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsWidowbane
+          Quantity: 10
+
+# CINDER SERUM
+- type: entity
+  name: cinder serum
+  parent: Pill
+  id: MisfitsPillCinderSerum
+  description: A specialized antidote designed to neutralize red bell poison.
+  components:
+  - type: Label
+    currentLabel: cinder serum 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsCinderSerum
+          Quantity: 10
+
+# GRAVESALT
+- type: entity
+  name: gravesalt
+  parent: Pill
+  id: MisfitsPillGravesalt
+  description: A brutal broad-spectrum emergency purge for dangerous wasteland venoms and poisons.
+  components:
+  - type: Label
+    currentLabel: gravesalt 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsGravesalt
+          Quantity: 5
+
+# CLEARHEAD
+- type: entity
+  name: clearhead
+  parent: Pill
+  id: MisfitsPillClearhead
+  description: An entry-level psychiatric stabilizer used for mild drug haze and perceptual disturbances.
+  components:
+  - type: Label
+    currentLabel: clearhead 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsClearhead
+          Quantity: 15
+
+# CHLORPROMAZINE
+- type: entity
+  name: chlorpromazine
+  parent: Pill
+  id: MisfitsPillChlorpromazine
+  description: A sedating antipsychotic used for agitation, delirium, and hallucination-like effects.
+  components:
+  - type: Label
+    currentLabel: chlorpromazine 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsChlorpromazine
+          Quantity: 10
+
+# LUCIDINE
+- type: entity
+  name: lucidine
+  parent: Pill
+  id: MisfitsPillLucidine
+  description: A refined neural stabilizer intended for persistent perceptual disturbances with less sedation.
+  components:
+  - type: Label
+    currentLabel: lucidine 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsLucidine
+          Quantity: 10
+
+# PSYCHOCLINE
+- type: entity
+  name: psychocline
+  parent: Pill
+  id: MisfitsPillPsychocline
+  description: A powerful emergency psychiatric drug for severe delirium and psychotic episodes.
+  components:
+  - type: Label
+    currentLabel: psychocline 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsPsychocline
+          Quantity: 5
+
+# NEUROSTATIC
+- type: entity
+  name: neurostatic
+  parent: Pill
+  id: MisfitsPillNeurostatic
+  description: An advanced long-duration neurological stabilizer with little routine sedation.
+  components:
+  - type: Label
+    currentLabel: neurostatic 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsNeurostatic
+          Quantity: 5
+
+# ANODYNE
+- type: entity
+  name: anodyne
+  parent: Pill
+  id: MisfitsPillAnodyne
+  description: A basic clinical painkiller that suppresses chronic pain with mild sedation.
+  components:
+  - type: Label
+    currentLabel: anodyne 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsAnodyne
+          Quantity: 15
+
+# ANALGESINE
+- type: entity
+  name: analgesine
+  parent: Pill
+  id: MisfitsPillAnalgesine
+  description: A refined long-lasting analgesic for persistent pain.
+  components:
+  - type: Label
+    currentLabel: analgesine 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsAnalgesine
+          Quantity: 10
+
+# NERVEBLOCK
+- type: entity
+  name: nerveblock
+  parent: Pill
+  id: MisfitsPillNerveblock
+  description: A heavy nerve-blocking analgesic that strongly suppresses pain but can slow the patient.
+  components:
+  - type: Label
+    currentLabel: nerveblock 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsNerveblock
+          Quantity: 5
+
+# TRAUMADOL
+- type: entity
+  name: traumadol
+  parent: Pill
+  id: MisfitsPillTraumadol
+  description: A battlefield analgesic focused on pain control and hemorrhage support rather than wound repair.
+  components:
+  - type: Label
+    currentLabel: traumadol 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsTraumadol
+          Quantity: 10
+
+# NEUROBLOCK
+- type: entity
+  name: neuroblock
+  parent: Pill
+  id: MisfitsPillNeuroblock
+  description: A high-grade long-duration neural analgesic with relatively little routine sedation.
+  components:
+  - type: Label
+    currentLabel: neuroblock 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsNeuroblock
+          Quantity: 5
+
+# NEUROREGULINE
+- type: entity
+  name: neuroreguline
+  parent: Pill
+  id: MisfitsPillNeuroreguline
+  description: An experimental neural regulator combining prolonged pain suppression with neurological stabilization.
+  components:
+  - type: Label
+    currentLabel: neuroreguline 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsNeuroreguline
+          Quantity: 5
+
+# VIGILAZINE
+- type: entity
+  name: vigilazine
+  parent: Pill
+  id: MisfitsPillVigilazine
+  description: A short-acting narcolepsy medicine that delays sleep attacks without acting like a full combat stimulant.
+  components:
+  - type: Label
+    currentLabel: vigilazine 15u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsVigilazine
+          Quantity: 15
+
+# WAKEGUARD
+- type: entity
+  name: wakeguard
+  parent: Pill
+  id: MisfitsPillWakeguard
+  description: A maintenance drug that keeps narcoleptic sleep attacks at bay for an extended period.
+  components:
+  - type: Label
+    currentLabel: wakeguard 10u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsWakeguard
+          Quantity: 10
+
+# SOMNOREGULINE
+- type: entity
+  name: somnoreguline
+  parent: Pill
+  id: MisfitsPillSomnoreguline
+  description: An advanced long-duration sleep-regulation medicine that can also break through forced sleep.
+  components:
+  - type: Label
+    currentLabel: somnoreguline 5u
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MisfitsSomnoreguline
+          Quantity: 5
+

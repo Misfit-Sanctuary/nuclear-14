@@ -1,12 +1,49 @@
 ﻿# Misfits - tribal / field medicine entities + construction recipes
+#
+#
+# This file intentionally contains entity, construction and constructionGraph prototypes
+# together so the recipes are self-contained.
+#
+# Field medicines intentionally use different administration routes.
+# Ingested remedies use the existing food/reagent route. Topical medicines use
+# the built-in Healing component and require no custom C#.
+
+# ============================================================================
+# SPRITE REUSE
+# ============================================================================
+#
+# These medicines deliberately reuse different sprites already present in the
+# Nuclear 14 texture tree so the tribal crafting menu is visually readable.
+# No new texture assets are required.
+#
+# Topicals:
+# - Datura Hide          -> ms13_medical_new.rsi / ointment4
+# - Snakebite Tourniquet -> ms13_medical_new.rsi / tourniquet
+# - Healing Salve        -> ms13_medical_new.rsi / ointment1
+# - Herbal Anodyne       -> ms13_medical_new.rsi / ointment2
+# - Herbal Antimicrobial -> ms13_medical_new.rsi / ointment3
+#
+# Field preparations:
+# - Fiery Purgative      -> drugs.rsi / bitterdrink
+# - Blood Shield         -> drugs.rsi / bottle_primitive
+# - Pilgrim's Remedy     -> ms13_medical.rsi / powder2
+# - Gravesalt            -> ms13_medical.rsi / powder1
+# - Herbal Stimulant     -> drugs.rsi / berserkerpowder
+#
+# Glowing Blood Pack keeps the parent entity's solution visuals, but its
+# construction-menu icon uses ms13_medical_new.rsi / ivbag-irradiated.
+#
+- type: Tag
+  id: MisfitsEthanolBottle
+
 
 # Shared base for single-use topical medicines.
 - type: stack
   id: MisfitsDaturaHide
   name: datura hide
   icon:
-    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
-    state: healingpoultice
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: ointment4
   spawn: MisfitsDaturaHide
   maxCount: 10
   itemSize: 1
@@ -15,18 +52,17 @@
   id: MisfitsSnakebiteTourniquet
   name: snakebite tourniquet
   icon:
-    sprite: Objects/Specific/Medical/medical.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
     state: tourniquet
   spawn: MisfitsSnakebiteTourniquet
-  maxCount: 5
+  maxCount: 10
   itemSize: 1
-
 - type: stack
   id: MisfitsHealingSalve
   name: healing salve
   icon:
-    sprite: Objects/Specific/Medical/medical.rsi
-    state: ointment
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: ointment1
   spawn: MisfitsHealingSalve
   maxCount: 10
   itemSize: 1
@@ -35,8 +71,8 @@
   id: MisfitsHerbalAnodyne
   name: herbal anodyne
   icon:
-    sprite: Objects/Specific/Medical/medical.rsi
-    state: ointment
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: aloe2
   spawn: MisfitsHerbalAnodyne
   maxCount: 10
   itemSize: 1
@@ -45,8 +81,8 @@
   id: MisfitsHerbalAntimicrobial
   name: herbal antimicrobial
   icon:
-    sprite: Objects/Specific/Medical/medical.rsi
-    state: ointment
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: aloe3
   spawn: MisfitsHerbalAntimicrobial
   maxCount: 10
   itemSize: 1
@@ -55,20 +91,21 @@
   parent: BaseHealingItem
   id: MisfitsDaturaHide
   name: datura hide
-  description: A thick datura ointment rubbed over bruises and burns to numb pain and make injuries easier to bear.
+  description: A numbing datura ointment for severe thermal burns. It is specialized for Heat damage and is poor treatment for other wounds.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
-    state: healingpoultice
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: ointment4
   - type: Item
     heldPrefix: ointment
   - type: Healing
     damageContainers:
     - Biological
+    # BURN SPECIALIST: HEAT.
+    # Strong single-type healing is the reward for diagnosing the injury correctly.
     damage:
-      groups:
-        Brute: -6
-        Burn: -4
+      types:
+        Heat: -12
     delay: 2.5
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
@@ -76,10 +113,41 @@
       path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: Stack
     stackType: MisfitsDaturaHide
-    count: 2
+    count: 1
   - type: Construction
     graph: MisfitsDaturaHide
     node: daturahide
+
+- type: entity
+  parent: MisfitsDaturaHide
+  id: MisfitsDaturaHide3
+  name: datura hide
+  suffix: 3
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stack
+    stackType: MisfitsDaturaHide
+    count: 3
+
+- type: entity
+  parent: MisfitsDaturaHide
+  id: MisfitsDaturaHide5
+  name: datura hide
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: MisfitsDaturaHide
+    count: 5
+
+- type: entity
+  parent: MisfitsDaturaHide
+  id: MisfitsDaturaHide10
+  name: datura hide
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: MisfitsDaturaHide
+    count: 10
 
 - type: entity
   parent: BaseHealingItem
@@ -88,7 +156,7 @@
   description: A treated binding packed with ground buffalo gourd for venomous bites and severe bleeding.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/medical.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
     state: tourniquet
   - type: Healing
     damageContainers:
@@ -106,10 +174,41 @@
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: MisfitsSnakebiteTourniquet
-    count: 3
+    count: 1
   - type: Construction
     graph: MisfitsSnakebiteTourniquet
     node: snakebitetourniquet
+
+- type: entity
+  parent: MisfitsSnakebiteTourniquet
+  id: MisfitsSnakebiteTourniquet3
+  name: snakebite tourniquet
+  suffix: 3
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stack
+    stackType: MisfitsSnakebiteTourniquet
+    count: 3
+
+- type: entity
+  parent: MisfitsSnakebiteTourniquet
+  id: MisfitsSnakebiteTourniquet5
+  name: snakebite tourniquet
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: MisfitsSnakebiteTourniquet
+    count: 5
+
+- type: entity
+  parent: MisfitsSnakebiteTourniquet
+  id: MisfitsSnakebiteTourniquet10
+  name: snakebite tourniquet
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: MisfitsSnakebiteTourniquet
+    count: 10
 
 - type: entity
   parent: N14HealingPowder
@@ -117,6 +216,9 @@
   name: fiery purgative
   description: A viciously hot herbal purge used to flush venom and radiation from the body.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    state: bitterdrink
   - type: SolutionContainerManager
     solutions:
       food:
@@ -134,6 +236,9 @@
   name: blood shield
   description: A bitter herbal mash used to strengthen the body against poison.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    state: bottle_primitive
   - type: SolutionContainerManager
     solutions:
       food:
@@ -151,6 +256,9 @@
   name: pilgrim's remedy
   description: A mild wasteland mixture of medicinal roots, fungus and agave intended for long journeys.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
+    state: bottle
   - type: SolutionContainerManager
     solutions:
       food:
@@ -166,20 +274,22 @@
   parent: BaseHealingItem
   id: MisfitsHealingSalve
   name: healing salve
-  description: A sticky herbal salve spread over cuts, burns and other ordinary wasteland injuries.
+  description: A sticky herbal salve used to close lacerations and other slashing wounds. It is deliberately specialized rather than a universal ointment.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/medical.rsi
-    state: ointment
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: ointment1
   - type: Item
     heldPrefix: ointment
   - type: Healing
     damageContainers:
     - Biological
+    # BRUTE SPECIALIST: SLASH.
     damage:
-      groups:
-        Brute: -8
-        Burn: -8
+      types:
+        Slash: -12
+    # Helps with the hemorrhage associated with open lacerations.
+    bloodlossModifier: -3
     delay: 2
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
@@ -187,10 +297,41 @@
       path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: Stack
     stackType: MisfitsHealingSalve
-    count: 2
+    count: 1
   - type: Construction
     graph: MisfitsHealingSalve
     node: healingsalve
+
+- type: entity
+  parent: MisfitsHealingSalve
+  id: MisfitsHealingSalve3
+  name: healing salve
+  suffix: 3
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stack
+    stackType: MisfitsHealingSalve
+    count: 3
+
+- type: entity
+  parent: MisfitsHealingSalve
+  id: MisfitsHealingSalve5
+  name: healing salve
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: MisfitsHealingSalve
+    count: 5
+
+- type: entity
+  parent: MisfitsHealingSalve
+  id: MisfitsHealingSalve10
+  name: healing salve
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: MisfitsHealingSalve
+    count: 10
 
 - type: entity
   parent: N14HealingPowder
@@ -199,8 +340,8 @@
   description: A harsh pouch of ash, bitter herbs and mineral-rich plant matter used as an emergency poison purge.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
-    state: powder1
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    state: smellingsalts
   - type: SolutionContainerManager
     solutions:
       food:
@@ -226,8 +367,8 @@
   description: Grind sacred datura and bind it into a skin-hardening ointment.
   hide: false
   icon:
-    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
-    state: healingpoultice
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: ointment4
   objectType: Item
 
 - type: construction
@@ -240,7 +381,7 @@
   description: A buffalo-gourd dressing tied tight for venomous wounds.
   hide: false
   icon:
-    sprite: Objects/Specific/Medical/medical.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
     state: tourniquet
   objectType: Item
 
@@ -255,7 +396,7 @@
   hide: false
   icon:
     sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
-    state: healingpowder
+    state: bitterdrink
   objectType: Item
 
 - type: construction
@@ -269,7 +410,7 @@
   hide: false
   icon:
     sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
-    state: healingpoultice
+    state: bottle_primitive
   objectType: Item
 
 - type: construction
@@ -282,8 +423,8 @@
   description: Prepare a slow, dependable remedy from common wasteland medicinal plants.
   hide: false
   icon:
-    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
-    state: healingpowder
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
+    state: bottle
   objectType: Item
 
 - type: construction
@@ -296,8 +437,8 @@
   description: Crush medicinal plants into a simple topical wound salve.
   hide: false
   icon:
-    sprite: Objects/Specific/Medical/medical.rsi
-    state: ointment
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: ointment1
   objectType: Item
 
 - type: construction
@@ -310,8 +451,8 @@
   description: Grind ash, fungus and bitter antitoxic herbs into a brutal emergency purge.
   hide: false
   icon:
-    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
-    state: powder1
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    state: smellingsalts
   objectType: Item
 
 # ============================================================================
@@ -336,10 +477,10 @@
           state: wonderglue
         doAfter: 3
   - node: daturahide
-    entity: MisfitsDaturaHide
+    entity: MisfitsDaturaHide10
 
 # Lonesome Road canon: Buffalo Gourd Seed x1 + Surgical Tubing x1.
-# Surgical tubing does not currently exist as a crafting material, so Cloth is used.
+# Surgical tubing does not currently exist as an N14 crafting material, so Cloth & Plastic is used.
 - type: constructionGraph
   id: MisfitsSnakebiteTourniquet
   start: start
@@ -355,7 +496,7 @@
         amount: 1
         doAfter: 2
   - node: snakebitetourniquet
-    entity: MisfitsSnakebiteTourniquet
+    entity: MisfitsSnakebiteTourniquet3
 
 # Lonesome Road canon: Vodka or Ethanol x1 + Jalapeno x1 + White Horsenettle x1.
 # WildGlowpepper substitutes for jalapeno
@@ -418,7 +559,7 @@
     entity: MisfitsPilgrimsRemedy
 
 # Fallout 76's regional salves use local medicinal plants + boiled water.
-# This version uses the same local-survival idea with Broc, Xander and Agave.
+# This N14 version uses the same local-survival idea with Broc, Xander and Agave.
 - type: constructionGraph
   id: MisfitsHealingSalve
   start: start
@@ -432,11 +573,12 @@
       - material: AgaveLeaf
         doAfter: 2
   - node: healingsalve
-    entity: MisfitsHealingSalve
+    entity: MisfitsHealingSalve3
 
 
 # Misfits-original field purgative.
 # The laboratory formulation uses Antidote + TableSalt + Ammonia.
+# This rough field version substitutes ash and antitoxic wasteland plants.
 - type: constructionGraph
   id: MisfitsGravesalt
   start: start
@@ -457,6 +599,18 @@
         doAfter: 4
   - node: gravesalt
     entity: MisfitsGravesalt
+
+# Misfits - additional field medicine crafting
+#
+# Adds:
+# - Glowing Blood Pack
+# - Herbal Anodyne
+# - Herbal Antimicrobial
+# - Herbal Stimulant
+#
+# Requires the MisfitsEthanolBottle tag introduced by the Fiery Purgative
+# ethanol-bottle crafting update.
+#
 
 # ============================================================================
 # CRAFTED MEDICINE ITEMS
@@ -488,21 +642,20 @@
   parent: BaseHealingItem
   id: MisfitsHerbalAnodyne
   name: herbal anodyne
-  description: A soothing herbal balm rubbed into sore or injured flesh to ease aches and minor trauma.
+  description: A soothing herbal balm massaged into bruised and battered tissue. It is specialized for blunt trauma rather than cuts or burns.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/medical.rsi
-    state: ointment
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: aloe2
   - type: Item
     heldPrefix: ointment
   - type: Healing
     damageContainers:
     - Biological
+    # BRUTE SPECIALIST: BLUNT.
     damage:
-      groups:
-        Brute: -6
       types:
-        Heat: -3
+        Blunt: -10
     delay: 2.5
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
@@ -510,30 +663,63 @@
       path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: Stack
     stackType: MisfitsHerbalAnodyne
-    count: 2
+    count: 1
   - type: Construction
     graph: MisfitsHerbalAnodyne
     node: herbalanodyne
 
 - type: entity
+  parent: MisfitsHerbalAnodyne
+  id: MisfitsHerbalAnodyne3
+  name: herbal anodyne
+  suffix: 3
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stack
+    stackType: MisfitsHerbalAnodyne
+    count: 3
+
+- type: entity
+  parent: MisfitsHerbalAnodyne
+  id: MisfitsHerbalAnodyne5
+  name: herbal anodyne
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: MisfitsHerbalAnodyne
+    count: 5
+
+- type: entity
+  parent: MisfitsHerbalAnodyne
+  id: MisfitsHerbalAnodyne10
+  name: herbal anodyne
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: MisfitsHerbalAnodyne
+    count: 10
+
+- type: entity
   parent: BaseHealingItem
   id: MisfitsHerbalAntimicrobial
   name: herbal antimicrobial
-  description: A pungent herbal poultice spread over contaminated wounds and irritated skin.
+  description: A pungent herbal poultice used to neutralize chemical burns and clean contaminated tissue.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/medical.rsi
-    state: ointment
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: aloe3
   - type: Item
     heldPrefix: ointment
   - type: Healing
     damageContainers:
     - Biological
+    # BURN SPECIALIST: CAUSTIC.
+    # A small Poison heal represents cleaning contaminated tissue without turning
+    # this into a general antidote.
     damage:
       types:
-        Poison: -3
-        Caustic: -3
-        Heat: -2
+        Caustic: -10
+        Poison: -2
     delay: 2.5
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
@@ -541,10 +727,41 @@
       path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: Stack
     stackType: MisfitsHerbalAntimicrobial
-    count: 3
+    count: 1
   - type: Construction
     graph: MisfitsHerbalAntimicrobial
     node: herbalantimicrobial
+
+- type: entity
+  parent: MisfitsHerbalAntimicrobial
+  id: MisfitsHerbalAntimicrobial3
+  name: herbal antimicrobial
+  suffix: 3
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Stack
+    stackType: MisfitsHerbalAntimicrobial
+    count: 3
+
+- type: entity
+  parent: MisfitsHerbalAntimicrobial
+  id: MisfitsHerbalAntimicrobial5
+  name: herbal antimicrobial
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: MisfitsHerbalAntimicrobial
+    count: 5
+
+- type: entity
+  parent: MisfitsHerbalAntimicrobial
+  id: MisfitsHerbalAntimicrobial10
+  name: herbal antimicrobial
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: MisfitsHerbalAntimicrobial
+    count: 10
 
 - type: entity
   parent: N14HealingPowder
@@ -552,6 +769,9 @@
   name: herbal stimulant
   description: A sharp herbal mixture prepared to keep an exhausted traveler awake and moving.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
+    state: bitterdrank
   - type: SolutionContainerManager
     solutions:
       food:
@@ -577,8 +797,8 @@
   description: Treat a blood pack with irradiated fungus and medical ethanol to create a radioprotective transfusion.
   hide: false
   icon:
-    sprite: Objects/Specific/Medical/medical.rsi
-    state: bloodpack
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: ivbag-irradiated
   objectType: Item
 
 - type: construction
@@ -591,8 +811,8 @@
   description: Grind medicinal plants into an agave-bound topical balm for persistent pain.
   hide: false
   icon:
-    sprite: Objects/Specific/Medical/medical.rsi
-    state: ointment
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: aloe2
   objectType: Item
 
 - type: construction
@@ -605,8 +825,8 @@
   description: Prepare an agave-bound herbal poultice for contaminated wounds and irritated skin.
   hide: false
   icon:
-    sprite: Objects/Specific/Medical/medical.rsi
-    state: ointment
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: aloe3
   objectType: Item
 
 - type: construction
@@ -619,8 +839,8 @@
   description: Grind energizing wasteland plants into a crude stimulant powder.
   hide: false
   icon:
-    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
-    state: healingpowder
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
+    state: bitterdrank
   objectType: Item
 
 # ============================================================================
@@ -672,7 +892,7 @@
       - material: AgaveLeaf
         doAfter: 4
   - node: herbalanodyne
-    entity: MisfitsHerbalAnodyne
+    entity: MisfitsHerbalAnodyne3
 
 - type: constructionGraph
   id: MisfitsHerbalAntimicrobial
@@ -690,7 +910,7 @@
       - material: AgaveLeaf
         doAfter: 4
   - node: herbalantimicrobial
-    entity: MisfitsHerbalAntimicrobial
+    entity: MisfitsHerbalAntimicrobial3
 
 - type: constructionGraph
   id: MisfitsHerbalStimulant
