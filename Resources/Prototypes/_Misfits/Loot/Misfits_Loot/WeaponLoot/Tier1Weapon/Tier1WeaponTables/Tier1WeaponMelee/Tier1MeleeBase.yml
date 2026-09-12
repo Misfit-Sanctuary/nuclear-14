@@ -1,5 +1,5 @@
 - type: entityTable
-  id: M14WeaponMeleeLootTier1_MeleeAll
+  id: M14WeaponLootTier1_MeleeAll
   table: !type:GroupSelector
     children:
       - !type:NestedSelector

@@ -6,9 +6,9 @@
       - !type:NestedSelector
           tableId: M14WeaponLootTier1_GunsAll
       - !type:NestedSelector
-          tableId: M14WeaponMeleeLootTier1_MeleeAll
+          tableId: M14WeaponLootTier1_MeleeAll
       - !type:NestedSelector
-          tableId: M14WeaponMeleeLootTier1_ThrowablesAll
+          tableId: M14WeaponLootTier1_ThrowablesAll
 
 - type: entityTable
   id: M14WeaponLootTier1_GunsAll

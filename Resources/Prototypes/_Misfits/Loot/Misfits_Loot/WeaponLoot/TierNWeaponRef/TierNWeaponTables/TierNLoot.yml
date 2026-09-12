@@ -7,9 +7,9 @@
       - !type:NestedSelector
           tableId: M14WeaponLootTierN_GunsAll
       - !type:NestedSelector
-          tableId: M14WeaponMeleeLootTierN_MeleeAll
+          tableId: M14WeaponLootTierN_MeleeAll
       - !type:NestedSelector
-          tableId: M14WeaponMeleeLootTierN_ThrowablesAll
+          tableId: M14WeaponLootTierN_ThrowablesAll
 
 - type: entityTable
   id: M14WeaponLootTierN_GunsAll
@@ -26,6 +26,7 @@
 - type: entityTable
   id: M14WeaponLootTierN_CallIn
   table: !type:GroupSelector
+    children:
     - !type:EntSelector
       id: N14ArtilleryFlare
     - !type:EntSelector

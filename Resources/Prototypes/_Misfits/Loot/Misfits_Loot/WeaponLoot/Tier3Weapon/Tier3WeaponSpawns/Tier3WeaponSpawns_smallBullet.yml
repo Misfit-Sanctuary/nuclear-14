@@ -1,0 +1,171 @@
+# PISTOL SPRITE/COLOR REF
+- type: entity
+  name: Tier3 Weapon Spawner
+  abstract: true
+  suffix: Tier3
+  id: M14Tier3Spawner_RefPistol
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: '#00b3ff'
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+      state: icon
+
+# PISTOL BALLISTICS!!!!!!!!
+- type: entity
+  name: Tier3 Pistol Spawner
+  suffix: Tier3
+  id: M14Tier3WeaponSpawner_Single_GunsBulletPistol
+  parent: M14Tier3Spawner_RefPistol
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier3_GunsBulletPistol
+
+- type: entity
+  name: Tier3 Pistol Spawner 0-3
+  suffix: Tier3
+  id: M14Tier3WeaponSpawner_Mult0_3_GunsBulletPistol
+  parent: M14Tier3Spawner_RefPistol
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier3_GunsBulletPistol
+
+- type: entity
+  name: Tier3 Pistol Spawner 1-2
+  suffix: Tier3
+  id: M14Tier3WeaponSpawner_Mult1_2_GunsBulletPistol
+  parent: M14Tier3Spawner_RefPistol
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier3_GunsBulletPistol
+
+# REVOLVER SPRITE/COLOR REF
+- type: entity
+  name: Tier3 Weapon Spawner
+  abstract: true
+  suffix: Tier3
+  id: M14Tier3Spawner_RefRevolver
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: '#00b3ff'
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/mysterious44.rsi
+      state: icon
+
+# REVOLVER BALLISTICS!!!!!
+- type: entity
+  name: Tier3 Revolver Spawner
+  suffix: Tier3
+  id: M14Tier3WeaponSpawner_Single_GunsBulletRevolver
+  parent: M14Tier3Spawner_RefRevolver
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier3_GunsBulletRevolver
+
+- type: entity
+  name: Tier3 Revolver Spawner 0-3
+  suffix: Tier3
+  id: M14Tier3WeaponSpawner_Mult0_3_GunsBulletRevolver
+  parent: M14Tier3Spawner_RefRevolver
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier3_GunsBulletRevolver
+
+- type: entity
+  name: Tier3 Revolver Spawner 1-2
+  suffix: Tier3
+  id: M14Tier3WeaponSpawner_Mult1_2_GunsBulletRevolver
+  parent: M14Tier3Spawner_RefRevolver
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier3_GunsBulletRevolver
+
+# SMG SPRITE/COLOR REF
+- type: entity
+  name: Tier3 Weapon Spawner
+  abstract: true
+  suffix: Tier3
+  id: M14Tier3Spawner_RefSMG
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: '#00b3ff'
+    - sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/greasegun.rsi
+      state: icon
+
+# SMG BALLISTICS!!!!!
+- type: entity
+  name: Tier3 SMG Spawner
+  suffix: Tier3
+  id: M14Tier3WeaponSpawner_Single_GunsBulletSMG
+  parent: M14Tier3Spawner_RefSMG
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier3_GunsBulletSMG
+
+- type: entity
+  name: Tier3 SMG Spawner 0-3
+  suffix: Tier3
+  id: M14Tier3WeaponSpawner_Mult0_3_GunsBulletSMG
+  parent: M14Tier3Spawner_RefSMG
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier3_GunsBulletSMG
+
+- type: entity
+  name: Tier3 SMG Spawner 1-2
+  suffix: Tier3
+  id: M14Tier3WeaponSpawner_Mult1_2_GunsBulletSMG
+  parent: M14Tier3Spawner_RefSMG
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier3_GunsBulletSMG
+

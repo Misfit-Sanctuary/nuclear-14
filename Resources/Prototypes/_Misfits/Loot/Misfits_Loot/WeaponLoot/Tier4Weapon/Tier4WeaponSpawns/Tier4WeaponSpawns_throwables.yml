@@ -1,0 +1,178 @@
+# THROWABLES SPRITE/COLOR REF
+- type: entity
+  name: Tier4 Weapon Spawner
+  abstract: true
+  suffix: Tier4
+  id: M14Tier4Spawner_RefThrowablesAll
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: '#ff7b00'
+    - sprite: _Nuclear14/Objects/Weapons/Grenades/Dynamite.rsi
+      state: icon
+    - sprite: Objects/Weapons/Melee/throwing_knife.rsi
+      state: icon
+
+# THROWABLES!!!!!!!!!!
+- type: entity
+  name: Tier4 Throwables All
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Single_ThrowablesAll
+  parent: M14Tier4Spawner_RefThrowablesAll
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier4_ThrowablesAll
+
+- type: entity
+  name: Tier4 Throwables All 0-3
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Mult0_3_ThrowablesAll
+  parent: M14Tier4Spawner_RefThrowablesAll
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier4_ThrowablesAll
+
+- type: entity
+  name: Tier4 Throwables All 1-2
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Mult1_2_ThrowablesAll
+  parent: M14Tier4Spawner_RefThrowablesAll
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier4_ThrowablesAll
+
+
+# THROWABLES EXPLOSIVES SPRITE/COLOR REF
+- type: entity
+  name: Tier4 Weapon Spawner
+  abstract: true
+  suffix: Tier4
+  id: M14Tier4Spawner_RefThrowablesExplosive
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: '#ff7b00'
+    - sprite: _Nuclear14/Objects/Weapons/Grenades/Dynamite.rsi
+      state: icon
+
+
+# EXPLOSIVE THROWABLES(IE NADES)!!!!!!
+
+- type: entity
+  name: Tier4 Throwables Explosive Spawner
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Single_ThrowablesExplosive
+  parent: M14Tier4Spawner_RefThrowablesExplosive
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier4_ThrowablesExplosive
+
+- type: entity
+  name: Tier4 Throwables Explosive Spawner 0-3
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Mult0_3_ThrowablesExplosive
+  parent: M14Tier4Spawner_RefThrowablesExplosive
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier4_ThrowablesExplosive
+
+- type: entity
+  name: Tier4 Throwables Explosive Spawner 1-2
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Mult1_2_ThrowablesExplosive
+  parent: M14Tier4Spawner_RefThrowablesExplosive
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier4_ThrowablesExplosive
+
+# NORMAL THROWABLES SPRITE/COLOR REF
+- type: entity
+  name: Tier4 Weapon Spawner
+  abstract: true
+  suffix: Tier4
+  id: M14Tier4Spawner_RefThrowables
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: '#ff7b00'
+    - sprite: Objects/Weapons/Melee/throwing_knife.rsi
+      state: icon
+
+
+
+# ""NORMAL"" THROWABLES(IE SHURIKANS)!!!!!!
+
+- type: entity
+  name: Tier4 Throwables Normal Spawner
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Single_Throwables
+  parent: M14Tier4Spawner_RefThrowables
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier4_Throwables
+
+- type: entity
+  name: Tier4 Throwables Normal Spawner 0-3
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Mult0_3_Throwables
+  parent: M14Tier4Spawner_RefThrowables
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier4_Throwables
+
+- type: entity
+  name: Tier4 Throwables Normal Spawner 1-2
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Mult1_2_Throwables
+  parent: M14Tier4Spawner_RefThrowables
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier4_Throwables

@@ -1,0 +1,287 @@
+
+# HEAVY BALLISTIC SPRITE/COLOR REF
+- type: entity
+  name: Tier1 Weapon Spawner
+  abstract: true
+  suffix: Tier1
+  id: M14Tier1Spawner_RefBulletHeavy
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: lightGray
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/minigun.rsi
+      state: icon
+
+# HEAVY BALLISTIC GUNS!!!!!
+- type: entity
+  name: Tier1 Heavy Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsBulletHeavy
+  parent: M14Tier1Spawner_RefBulletHeavy
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsBulletHeavy
+
+- type: entity
+  name: Tier1 Heavy Spawner 0-3
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult0_3_GunsBulletHeavy
+  parent: M14Tier1Spawner_RefBulletHeavy
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier1_GunsBulletHeavy
+
+- type: entity
+  name: Tier1 Heavy Spawner 1-2
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult1_2_GunsBulletHeavy
+  parent: M14Tier1Spawner_RefBulletHeavy
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier1_GunsBulletHeavy
+
+# EXPLOSIVES ALL SPRITE/COLOR REF
+- type: entity
+  name: Tier1 Weapon Spawner
+  abstract: true
+  suffix: Tier1
+  id: M14Tier1Spawner_RefGunsExplosiveAll
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: lightGray
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/missilelauncher.rsi
+      state: icon
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/grenaderifle.rsi
+      state: icon
+      offset: 0, 0.2
+# GUN EXPLOSIVES ALL!!!!!!
+- type: entity
+  name: Tier1 Gun All Explosive Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsExplosiveAll
+  parent: M14Tier1Spawner_RefGunsExplosiveAll
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsExplosiveAll
+
+- type: entity
+  name: Tier1 Gun All Explosive Spawner 0-3
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult0_3_GunsExplosive
+  parent: M14Tier1Spawner_RefGunsExplosiveAll
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier1_GunsExplosiveAll
+
+- type: entity
+  name: Tier1 Gun All Explosive Spawner 1-2
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult1_2_GunsExplosive
+  parent: M14Tier1Spawner_RefGunsExplosiveAll
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier1_GunsExplosiveAll
+
+# SMALL ARM EXPLOSIVES SPRITE/COLOR REF
+- type: entity
+  name: Tier1 Weapon Spawner
+  abstract: true
+  suffix: Tier1
+  id: M14Tier1Spawner_RefGunsExplosiveSmallArm
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: lightGray
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/grenaderifle.rsi
+      state: icon
+
+# SMALL ARM EXPLOSIVES(IE LAUNCHERS)!!!!!!
+- type: entity
+  name: Tier1 SmallArm Explosive Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsExplosiveSmallArm
+  parent: M14Tier1Spawner_RefGunsExplosiveSmallArm
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsExplosiveSmallArm
+
+- type: entity
+  name: Tier1 SmallArm Explosive Spawner 0-3
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult0_3_GunsExplosiveSmallArm
+  parent: M14Tier1Spawner_RefGunsExplosiveSmallArm
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier1_GunsExplosiveSmallArm
+
+- type: entity
+  name: Tier1 SmallArm Explosive Spawner 1-2
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult1_2_GunsExplosiveSmallArm
+  parent: M14Tier1Spawner_RefGunsExplosiveSmallArm
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier1_GunsExplosiveSmallArm
+
+# HEAVY GUN EXPLOSIVES SPRITE/COLOR REF
+- type: entity
+  name: Tier1 Weapon Spawner
+  abstract: true
+  suffix: Tier1
+  id: M14Tier1Spawner_RefGunsExplosiveHeavy
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: lightGray
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/missilelauncher.rsi
+      state: icon
+
+# HEAVY GUN EXPLOSIVES(IE MISSLE LAUNCHER, ROCKETS)!!!!!!
+- type: entity
+  name: Tier1 Heavy Explosive Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsExplosiveHeavy
+  parent: M14Tier1Spawner_RefGunsExplosiveHeavy
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsExplosiveHeavy
+
+- type: entity
+  name: Tier1 Heavy Explosive Spawner 0-3
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult0_3_GunsExplosiveHeavy
+  parent: M14Tier1Spawner_RefGunsExplosiveHeavy
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier1_GunsExplosiveHeavy
+
+- type: entity
+  name: Tier1 Heavy Explosive Spawner 1-2
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult1_2_GunsExplosiveHeavy
+  parent: M14Tier1Spawner_RefGunsExplosiveHeavy
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier1_GunsExplosiveHeavy
+
+# HEAVY ENERGY SPRITE/COLOR REF
+- type: entity
+  name: Tier1 Weapon Spawner
+  abstract: true
+  suffix: Tier1
+  id: M14Tier1Spawner_RefEnergyHeavy
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: lightGray
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/gatlinglaser.rsi
+      state: icon
+
+# HEAVY ENERGY!!!!!!
+- type: entity
+  name: Tier1 Heavy Energy Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_EnergyHeavy
+  parent: M14Tier1Spawner_RefEnergyHeavy
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_EnergyHeavy
+
+- type: entity
+  name: Tier1 Heavy Energy Spawner 0-3
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult0_3_EnergyHeavy
+  parent: M14Tier1Spawner_RefEnergyHeavy
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier1_EnergyHeavy
+
+- type: entity
+  name: Tier1 Heavy Energy Spawner 1-2
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult1_2_EnergyHeavy
+  parent: M14Tier1Spawner_RefEnergyHeavy
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier1_EnergyHeavy

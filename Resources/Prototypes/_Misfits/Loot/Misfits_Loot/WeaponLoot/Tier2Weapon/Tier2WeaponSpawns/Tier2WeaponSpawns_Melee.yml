@@ -1,0 +1,211 @@
+# MELEE SPRITE/COLOR REF
+- type: entity
+  name: Tier2 Weapon Spawner
+  abstract: true
+  suffix: Tier2
+  id: M14Tier2Spawner_RefMeleeAll
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: limeGreen
+    - sprite: _Nuclear14/Objects/Weapons/Melee/baseball_bat.rsi
+      state: icon
+    - sprite: Objects/Weapons/Melee/fireaxe.rsi
+      state: icon
+# MELEE WEAPONS!!!!!!
+- type: entity
+  name: Tier2 Melee All Spawner
+  suffix: Tier2
+  id: M14Tier2WeaponSpawner_Single_MeleeAll
+  parent: M14Tier2Spawner_RefMeleeAll
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier2_MeleeAll
+
+- type: entity
+  name: Tier2 Melee All Spawner 0-3
+  suffix: Tier2
+  id: M14Tier2WeaponSpawner_Mult0_3_MeleeAll
+  parent: M14Tier2Spawner_RefMeleeAll
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier2_MeleeAll
+
+- type: entity
+  name: Tier2 Melee All Spawner 1-2
+  suffix: Tier2
+  id: M14Tier2WeaponSpawner_Mult1_2_MeleeAll
+  parent: M14Tier2Spawner_RefMeleeAll
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier2_MeleeAll
+
+
+# MELEE ONE HANDED SPRITE/COLOR REF
+- type: entity
+  name: Tier2 Weapon Spawner
+  abstract: true
+  suffix: Tier2
+  id: M14Tier2Spawner_RefMeleeOneHanded
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: limeGreen
+    - sprite: _Nuclear14/Objects/Weapons/Melee/baseball_bat.rsi
+      state: icon
+
+
+# MELEE ONE HANDED!!!!!
+- type: entity
+  name: Tier2 Melee OneHanded Spawner
+  suffix: Tier2
+  id: M14Tier2WeaponSpawner_Single_MeleeOneHanded
+  parent: M14Tier2Spawner_RefMeleeOneHanded
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        children:
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeSharpOneHanded
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeBluntOneHanded
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeOtherOneHanded
+
+- type: entity
+  name: Tier2 Melee OneHanded Spawner 0-3
+  suffix: Tier2
+  id: M14Tier2WeaponSpawner_Mult0_3_MeleeOneHanded
+  parent: M14Tier2Spawner_RefMeleeOneHanded
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        children:
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeSharpOneHanded
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeBluntOneHanded
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeOtherOneHanded
+
+- type: entity
+  name: Tier2 Melee OneHanded Spawner 1-2
+  suffix: Tier2
+  id: M14Tier2WeaponSpawner_Mult1_2_MeleeOneHanded
+  parent: M14Tier2Spawner_RefMeleeOneHanded
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        children:
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeSharpOneHanded
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeBluntOneHanded
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeOtherOneHanded
+
+# MELEE TWO HANDED SPRITE/COLOR REF
+- type: entity
+  name: Tier2 Weapon Spawner
+  abstract: true
+  suffix: Tier2
+  id: M14Tier2Spawner_RefMeleeTwoHanded
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: limeGreen
+    - sprite: Objects/Weapons/Melee/fireaxe.rsi
+      state: icon
+
+
+
+# MELEE TWO HANDED WEAPONS!!!!
+- type: entity
+  name: Tier2 Melee TwoHanded Spawner
+  suffix: Tier2
+  id: M14Tier2WeaponSpawner_Single_MeleeTwoHanded
+  parent: M14Tier2Spawner_RefMeleeTwoHanded
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        children:
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeSharpTwoHanded
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeBluntTwoHanded
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeOtherTwoHanded
+
+- type: entity
+  name: Tier2 Melee TwoHanded Spawner 0-3
+  suffix: Tier2
+  id: M14Tier2WeaponSpawner_Mult0_3_MeleeTwoHanded
+  parent: M14Tier2Spawner_RefMeleeTwoHanded
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        children:
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeSharpTwoHanded
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeBluntTwoHanded
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeOtherTwoHanded
+
+- type: entity
+  name: Tier2 Melee TwoHanded Spawner 1-2
+  suffix: Tier2
+  id: M14Tier2WeaponSpawner_Mult1_2_MeleeTwoHanded
+  parent: M14Tier2Spawner_RefMeleeTwoHanded
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        children:
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeSharpTwoHanded
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeBluntTwoHanded
+        - !type:NestedSelector
+            tableId: M14WeaponLootTier2_MeleeOtherTwoHanded
