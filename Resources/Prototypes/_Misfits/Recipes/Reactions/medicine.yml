@@ -22,7 +22,7 @@
   minTemp: 354
   reactants:
     Antiseptic:
-      amount: 3
+      amount: 1
     Water:
       amount: 1
     ExtractFungusRad:
@@ -67,7 +67,7 @@
     Fixer:
       amount: 1
   products:
-    MisfitsRushingWater: 2
+    MisfitsRushingWater: 3
 
 - type: reaction
   id: MisfitsReactionBloodShield
@@ -132,12 +132,12 @@
       amount: 2
     RadAway:
       amount: 3
-    RobustHealingMixture:
+    HealingMixture:
       amount: 2
     Antidote:
       amount: 1
   products:
-    MisfitsRefreshingBeverage: 4
+    MisfitsRefreshingBeverage: 7 # increased to 7 due to cost of inputs
 
 # Fallout 76-inspired irradiated blood-pack mixture.
 - type: reaction
@@ -153,7 +153,7 @@
       amount: 1
       catalyst: true
   products:
-    MisfitsGlowingBloodPack: 2
+    MisfitsGlowingBloodPack: 4
 
 # Fallout 4 herbal anodyne adapted to available N14 flora.
 # Carrot, fungus, nettle and razorgrain stand in for carrot flower, glowing fungus,
@@ -222,10 +222,8 @@
       amount: 1
     Iron:
       amount: 1
-    Epinephrine:
-      amount: 1
   products:
-    MisfitsSkeetoSpit: 2
+    MisfitsSkeetoSpit: 3
 
 # Wasteland-grown MisfitsPenicillin from fungal culture.
 - type: reaction
@@ -246,13 +244,11 @@
   minTemp: 340
   reactants:
     Iron:
-      amount: 2
+      amount: 3  # Real prussian blue chemical has more iron.
     Carbon:
       amount: 2
     Nitrogen:
       amount: 2
-    Hyronalin:
-      amount: 1
   products:
     MisfitsPrussianBlue: 3
 
@@ -271,7 +267,7 @@
     Water:
       amount: 1
   products:
-    MisfitsPilgrimsRemedy: 5
+    MisfitsPilgrimsRemedy: 4 # lowered due to effectiveness.
 
 # Fallout 76-inspired basic healing salve, translated to N14 medicinal flora.
 - type: reaction
@@ -446,7 +442,7 @@
     CazadorVenom:
       amount: 1
   products:
-    MisfitsAshViperVenom: 2
+    MisfitsAshViperVenom: 4 # increased product due to poor effectiveness
 
 # Experimental resuscitation cocktail.
 # This is intentionally one of the most expensive medicines in the tree.
@@ -491,7 +487,7 @@
     MovespeedMixture:
       amount: 1
   products:
-    MisfitsClearwake: 2
+    MisfitsClearwake: 5
 
 # Specific antidote. A trace of Widows' Mercy is a catalyst/sample and is not consumed.
 - type: reaction

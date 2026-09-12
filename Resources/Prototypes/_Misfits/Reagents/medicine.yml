@@ -85,8 +85,8 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -0.25
-            Burn: -0.25
+            Brute: -0.9
+            Burn: -0.9
       - !type:Jitter
 
 - type: reagent
@@ -104,8 +104,8 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -0.25
-            Burn: -0.25
+            Brute: -1.5
+            Burn: -1
           types:
             Poison: -0.5
       # TODO: replace Poison healing with a proper temporary poison-resistance status
@@ -203,17 +203,17 @@
   color: "#4bd4c7"
   metabolisms:
     Medicine:
-      metabolismRate: 0.2
+      metabolismRate: 0.2 # Lasts much longer than a standard stimpak, longer than a superstim as well
       effects:
-      - !type:HealthChange
+      - !type:HealthChange #Overall amazing all-round drug.
         damage:
           groups:
-            Brute: -1
-            Burn: -1
+            Brute: -4.2 #1.4 of every burn and brute type, 5 x 1.4 = 7 of every type in 5 seconds
+            Burn: -4.2
             Airloss: -3
           types:
-            Poison: -2
-            Radiation: -6
+            Poison: -1
+            Radiation: -3
       - !type:ModifyBleedAmount
         amount: -2
       - !type:ModifyFeralization
@@ -236,8 +236,8 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -0.5
-            Burn: -0.5
+            Brute: -1.2
+            Burn: -1.2
           types:
             Asphyxiation: -0.5
             Bloodloss: -1.5
@@ -284,7 +284,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -0.15
+            Poison: -0.75 # 75 poison over 100 seconds with 10u, not bad!
 
 - type: reagent
   id: MisfitsHerbalStimulant
@@ -319,7 +319,7 @@
       metabolismRate: 0.1
       effects:
       - !type:SpecialStatBoostEffect
-        enduranceBoost: 2
+        enduranceBoost: 3
 # no idea if this actually works
 
 - type: reagent
@@ -368,18 +368,18 @@
   color: "#847a45"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1
+      metabolismRate: 0.2
       effects:
       - !type:HealthChange
         damage:
           groups:
-            Brute: -0.35
-            Burn: -0.35
+            Brute: -4.5 # has all the ingredients for poultice;
+            Burn: -4.5 # therefor, is a better poultice
           types:
             Poison: -0.35
             Radiation: -0.25
       - !type:ModifyBleedAmount
-        amount: 0.1
+        amount: -0.5
       - !type:ModifyFeralization
         delta: -0.05
 
@@ -393,13 +393,13 @@
   color: "#9ca66b"
   metabolisms:
     Medicine:
-      metabolismRate: 0.25
+      metabolismRate: 0.2 # burns off faster.
       effects:
       - !type:HealthChange
         damage:
           groups:
-            Brute: -1.25
-            Burn: -1.25
+            Brute: -3.0 # all the ingredients of powder;
+            Burn: -2.0 # therefor, better powder!
       - !type:ModifyBleedAmount
         amount: -0.25
 
@@ -594,7 +594,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 0.5
+            Poison: 2 # 1u = 20 poison in 10 seconds.
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows
@@ -641,7 +641,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 1
+            Poison: 4 # lethal in 3u
           groups:
             Airloss: 1
       - !type:MovespeedModifier
@@ -683,8 +683,8 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 0.75
-            Asphyxiation: 1
+            Poison: 2 # 10 poison, 10 asphyx. lethal at 4u
+            Asphyxiation: 2 # death by suffocation
       - !type:Jitter
       - !type:MovespeedModifier
         walkSpeedModifier: 0.80
@@ -745,7 +745,7 @@
   color: "#ece3bd"
   metabolisms:
     Medicine:
-      metabolismRate: 0.5
+      metabolismRate: 0.2 # meant to be used in a small amount. Even a little is more than enough.
       effects:
       # Extremely potent only in critical condition.
       - !type:HealthChange
@@ -754,13 +754,13 @@
           mobstate: Critical
         damage:
           groups:
-            Brute: -1.5
-            Burn: -1.5
-            Airloss: -6
+            Brute: -10 # 1u is 50 of everything. But only works on crit people.
+            Burn: -10
+            Airloss: -10
           types:
-            Poison: -1
+            Poison: -10
       - !type:ModifyBleedAmount
-        amount: -1
+        amount: -5
         conditions:
         - !type:MobStateCondition
           mobstate: Critical
@@ -840,7 +840,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -1
+            Poison: -2
           groups:
             Airloss: -0.5
       - !type:ChemVomit
@@ -865,7 +865,7 @@
         damage:
           types:
             Poison: -0.75
-            Asphyxiation: -0.75
+            Asphyxiation: -1
       - !type:Jitter
         probability: 0.05
 
@@ -905,6 +905,6 @@
           types:
             Poison: -1
           groups:
-            Brute: 0.4
+            Brute: 0.25
       - !type:ChemVomit
         probability: 0.20

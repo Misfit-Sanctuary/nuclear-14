@@ -37,3 +37,276 @@
       amount: 1
   products:
     blackgoo: 1
+
+ # Everything below this is meant to make chemchuds suffer. Direct threats towards Bill Clinton and nobody else.
+ # All-or-nothing ideal. If you want upstream, then you have to use borderline pure upstream. Otherwise, use the tools given.
+
+- type: reaction
+  id: blackgooBerserkerStim
+  reactants:
+    Berserkermix:
+      amount: 1
+    HealingMixture:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooBerserkerSuper
+  reactants:
+    Berserkermix:
+      amount: 1
+    RobustHealingMixture:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooPunctStim
+  reactants:
+    Puncturase:
+      amount: 1
+    HealingMixture:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooPunctSuper
+  reactants:
+    Puncturase:
+      amount: 1
+    RobustHealingMixture:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooPunctPowder
+  reactants:
+    Puncturase:
+      amount: 1
+    HealingPowder:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooPunctPoultice
+  reactants:
+    Puncturase:
+      amount: 1
+    HealingPoultice:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooPunctBerserker
+  reactants:
+    Puncturase:
+      amount: 1
+    Berserkermix:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooBruizStim
+  reactants:
+    Bruizine:
+      amount: 1
+    HealingMixture:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooBruizSuper
+  reactants:
+    Bruizine:
+      amount: 1
+    RobustHealingMixture:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooBruizPowder
+  reactants:
+    Bruizine:
+      amount: 1
+    HealingPowder:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooBruizPoultice
+  reactants:
+    Bruizine:
+      amount: 1
+    HealingPoultice:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooBruizBerserker
+  reactants:
+    Bruizine:
+      amount: 1
+    Berserkermix:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooBicStim
+  reactants:
+    Bicaridine:
+      amount: 1
+    HealingMixture:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooBicSuper
+  reactants:
+    Bicaridine:
+      amount: 1
+    RobustHealingMixture:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooBicPowder
+  reactants:
+    Bicaridine:
+      amount: 1
+    HealingPowder:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooBicPoultice
+  reactants:
+    Bicaridine:
+      amount: 1
+    HealingPoultice:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooBicBerserker
+  reactants:
+    Bicaridine:
+      amount: 1
+    Berserkermix:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooLacerStim
+  reactants:
+    Lacerinol:
+      amount: 1
+    HealingMixture:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooLacerSuper
+  reactants:
+    Lacerinol:
+      amount: 1
+    RobustHealingMixture:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooLacerPowder
+  reactants:
+    Lacerinol:
+      amount: 1
+    HealingPowder:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooLacerPoultice
+  reactants:
+    Lacerinol:
+      amount: 1
+    HealingPoultice:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooLacerBerserker
+  reactants:
+    Lacerinol:
+      amount: 1
+    Berserkermix:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooDermaStim
+  reactants:
+    Dermaline:
+      amount: 1
+    HealingMixture:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooDermaSuper
+  reactants:
+    Dermaline:
+      amount: 1
+    RobustHealingMixture:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooDermaPowder
+  reactants:
+    Dermaline:
+      amount: 1
+    HealingPowder:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooDermaPoultice
+  reactants:
+    Dermaline:
+      amount: 1
+    HealingPoultice:
+      amount: 1
+  products:
+    blackgoo: 1
+
+- type: reaction
+  id: blackgooDermaBerserker
+  reactants:
+    Dermaline:
+      amount: 1
+    Berserkermix:
+      amount: 1
+  products:
+    blackgoo: 1
