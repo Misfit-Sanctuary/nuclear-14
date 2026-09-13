@@ -259,7 +259,7 @@
     ExtractAgaveNectar:
       amount: 1
     HealingPowder:
-      amount: 1
+      amount: 3 # increased due to effectiveness.
     ExtractFungus:
       amount: 1
     Water:
@@ -273,7 +273,7 @@
   minTemp: 330
   reactants:
     HealingPowder:
-      amount: 1
+      amount: 3 # increased due to its effectiveness.
     ExtractAgaveNectar:
       amount: 1
     Water:

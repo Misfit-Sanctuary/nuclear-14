@@ -104,8 +104,8 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -1.5
-            Burn: -1
+            Brute: -0.3
+            Burn: -0.3
           types:
             Poison: -0.5
       # TODO: replace Poison healing with a proper temporary poison-resistance status
@@ -213,9 +213,9 @@
             Airloss: -3
           types:
             Poison: -1
-            Radiation: -1 # thats not counting the rad and poison healing
+            Radiation: -3 # diluted radaway, 15 rads healed per U
       - !type:ModifyBleedAmount
-        amount: -2
+        amount: -1
       - !type:ModifyFeralization
         delta: -1
       - !type:SuppressAddiction
@@ -284,7 +284,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -0.75 # 75 poison over 100 seconds with 10u, not bad!
+            Poison: -0.25 # 25 poison over 100 seconds with 10u, not bad!
 
 - type: reagent
   id: MisfitsHerbalStimulant
@@ -319,8 +319,8 @@
       metabolismRate: 0.1
       effects:
       - !type:SpecialStatBoostEffect
-        enduranceBoost: 3
-# no idea if this actually works
+        enduranceBoost: 2
+# this does work.
 
 - type: reagent
   id: MisfitsPenicillin
@@ -379,7 +379,7 @@
             Poison: -0.35
             Radiation: -0.25
       - !type:ModifyBleedAmount
-        amount: -0.5
+        amount: 0.1
       - !type:ModifyFeralization
         delta: -0.05
 
