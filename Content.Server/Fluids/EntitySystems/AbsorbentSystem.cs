@@ -95,8 +95,26 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
 
     private void OnAfterInteract(EntityUid uid, AbsorbentComponent component, AfterInteractEvent args)
     {
-        if (!args.CanReach || args.Handled || args.Target == null)
+        if (!args.CanReach || args.Handled)
             return;
+
+        // Decals are grid data rather than entities, so a click on a bare blood
+        // splatter has no target. Clean those directly at the clicked tile.
+        if (args.Target == null)
+        {
+            if (TryComp<UseDelayComponent>(args.Used, out var useDelay)
+                && _useDelay.IsDelayed((args.Used, useDelay)))
+                return;
+
+            if (TryCleanNearbyDecals(args.ClickLocation, component) <= 0)
+                return;
+
+            if (useDelay != null)
+                _useDelay.TryResetDelay((args.Used, useDelay));
+
+            args.Handled = true;
+            return;
+        }
 
         Mop(args.User, args.Target.Value, args.Used, component);
         args.Handled = true;
@@ -111,15 +129,24 @@ public sealed partial class AbsorbentSystem : SharedAbsorbentSystem
             && _useDelay.IsDelayed((used, useDelay)))
             return;
 
-        // If it's a puddle try to grab from
-        if (!TryPuddleInteract(user, used, target, component, useDelay, absorberSoln.Value))
+        // If it's a puddle try to grab from.
+        var interacted = TryPuddleInteract(user, used, target, component, useDelay, absorberSoln.Value);
+        if (!interacted)
         {
             // If it's refillable try to transfer
-            if (!TryRefillableInteract(user, used, target, component, useDelay, absorberSoln.Value))
-                return;
+            interacted = TryRefillableInteract(user, used, target, component, useDelay, absorberSoln.Value);
         }
 
-        TryCleanNearbyFootprints(user, target, (used, component), absorberSoln.Value);
+        var footprints = TryCleanNearbyFootprints(user, target, (used, component), absorberSoln.Value);
+        var decals = TryCleanNearbyDecals(Transform(target).Coordinates, component);
+
+        // A mop can clean floor decals even when no puddle or refillable is targeted.
+        // Give that successful interaction the same use delay as regular mopping.
+        if (!interacted && decals > 0 && useDelay != null)
+            _useDelay.TryResetDelay((used, useDelay));
+
+        if (!interacted && footprints == 0 && decals == 0)
+            return;
     }
 
     /// <summary>

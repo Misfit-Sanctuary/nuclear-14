@@ -329,20 +329,17 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
     private void ClearAllMarkings(HumanoidAppearanceComponent humanoid, SpriteComponent sprite)
     {
-        // #Cythisiax Fixed - reliably remove every marking layer this client has added. This
-        // no longer depends solely on ClientOldMarkings being in sync: if that set drifts (e.g.
-        // barber scissors rapid appearance changes), the tracked layer keys still get cleared,
-        // preventing stale haircuts from being layered under the new one for observers.
+        // ClientOldMarkings is local bookkeeping, so it can be empty after this entity's client
+        // state is refreshed while its sprite still contains an old haircut layer. Remove both
+        // the layers we tracked and every possible hair/facial-hair layer before rebuilding.
         foreach (var layerId in humanoid.ClientMarkingLayerKeys)
         {
-            if (!sprite.LayerMapTryGet(layerId, out var index))
-                continue;
-
-            sprite.LayerMapRemove(layerId);
-            sprite.RemoveLayer(index);
+            RemoveMarkingLayer(layerId, sprite);
         }
 
         humanoid.ClientMarkingLayerKeys.Clear();
+
+        RemoveHairLayers(sprite);
 
         foreach (var markingList in humanoid.ClientOldMarkings.Markings.Values)
         {
@@ -363,6 +360,38 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         }
     }
 
+    /// <summary>
+    /// Clears hair layers even if the client lost its local marking history, such as when an
+    /// observer regains PVS of a humanoid. They are rebuilt immediately from the replicated
+    /// marking set.
+    /// </summary>
+    private void RemoveHairLayers(SpriteComponent sprite)
+    {
+        RemoveMarkingCategoryLayers(MarkingCategories.Hair, sprite);
+        RemoveMarkingCategoryLayers(MarkingCategories.FacialHair, sprite);
+    }
+
+    private void RemoveMarkingCategoryLayers(MarkingCategories category, SpriteComponent sprite)
+    {
+        foreach (var marking in _markingManager.MarkingsByCategory(category).Values)
+        {
+            foreach (var markingSprite in marking.Sprites)
+            {
+                if (markingSprite is SpriteSpecifier.Rsi rsi)
+                    RemoveMarkingLayer($"{marking.ID}-{rsi.RsiState}", sprite);
+            }
+        }
+    }
+
+    private static void RemoveMarkingLayer(string layerId, SpriteComponent sprite)
+    {
+        if (!sprite.LayerMapTryGet(layerId, out var index))
+            return;
+
+        sprite.LayerMapRemove(layerId);
+        sprite.RemoveLayer(index);
+    }
+
     private void RemoveMarking(Marking marking, SpriteComponent spriteComp)
     {
         if (!_markingManager.TryGetMarking(marking, out var prototype))
@@ -378,13 +407,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             }
 
             var layerId = $"{marking.MarkingId}-{rsi.RsiState}";
-            if (!spriteComp.LayerMapTryGet(layerId, out var index))
-            {
-                continue;
-            }
-
-            spriteComp.LayerMapRemove(layerId);
-            spriteComp.RemoveLayer(index);
+            RemoveMarkingLayer(layerId, spriteComp);
         }
     }
 

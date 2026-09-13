@@ -5,6 +5,8 @@
   desc: reagent-desc-abraxocleaner
   physicalDesc: reagent-physical-desc-abrasive
   color: "#e0dbd1"
+  tileReactions:
+    - !type:CleanDecalsReaction {}
   reactiveEffects:
     SurgicalInstrument:
       methods: [ Touch ]
