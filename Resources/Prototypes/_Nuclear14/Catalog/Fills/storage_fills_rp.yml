@@ -1701,9 +1701,9 @@
         # #Misfits Change - Extremely rare pipboy (0.5%) and low-chance wasteland scrap headset (2%) for junk pile finds
         - id: N14Pipboy
           prob: 0.005
-        # #Misfits Add - Shoddy power armor manual, same rare drop chance as the pipboy (0.5%)
+        # #Misfits Add - Shoddy power armor manual, even rarer than the pipboy (0.1%)
         - id: WastelandPowerArmor
-          prob: 0.005
+          prob: 0.001
         - id: MisfitsClothingHeadsetWastelandScrap
           prob: 0.02
         - id: N14CurrencyCap

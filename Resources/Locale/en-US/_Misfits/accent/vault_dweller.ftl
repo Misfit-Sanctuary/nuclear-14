@@ -114,3 +114,9 @@ accent-n14-vault-words-replace-38 = bonkers
 
 accent-n14-vault-words-39 = motherfucker
 accent-n14-vault-words-replace-39 = big meanie
+
+accent-n14-vault-words-40 = fucking
+accent-n14-vault-words-replace-40 = fudging
+
+accent-n14-vault-words-41 = fucked
+accent-n14-vault-words-replace-41 = fudged
