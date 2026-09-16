@@ -366,3 +366,59 @@
   - type: Clothing
     sprite: _Nuclear14/Clothing/Belt/mountiebandolier.rsi
   - type: Appearance
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltWasterKatanaBeltT1
+  name: Waster Katana sheaths
+  description: A simple crudely made sheath for a waster katana.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Belt/Wastersheatt1.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Belt/Wastersheatt1.rsi
+  - type: Storage
+    grid:
+      - 0,0,3,1
+    whitelist:
+      tags:
+        - WasterKatanaT1
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - WasterKatanaT1
+  - type: Appearance
+  - type: Tag
+    tags:
+      - BeltSlotNotBelt
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltWasterKatanaBeltT2
+  name: Waster Katana sheaths
+  description: An upgraded version of the waster katana sheath.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Belt/Wastersheatt2.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Belt/Wastersheatt2.rsi
+  - type: Storage
+    grid:
+      - 0,0,3,1
+    whitelist:
+      tags:
+        - WasterKatanaT2
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - WasterKatanaT2
+  - type: Appearance
+  - type: Tag
+    tags:
+      - BeltSlotNotBelt

@@ -269,3 +269,49 @@
     sprite: _Nuclear14/Objects/Weapons/Melee/tribal_sword.rsi
   - type: StaticPrice
     price: 50
+
+- type: entity
+  name: tribal sword
+  parent: N14Machete
+  id: N14WasterKatanaT1
+  description: A crudely made katana, this weapon is a simple blade with a simple hilt, but it can still cut through flesh and bone.
+  components:
+    tags:
+      - WasterKatanaT1
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Melee/wasterkatanat1.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 25
+        Slash: 20
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: _Nuclear14/Objects/Weapons/Melee/wasterkatanat1.rsi
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  name: tribal sword
+  parent: N14Machete
+  id: N14WasterKatanaT2
+  description: A crudely made katana, this weapon is a simple blade with a simple hilt. This one appears upgraded with a better hilt and a sharper blade, making it more effective.
+  components:
+    tags:
+      - WasterKatanaT2
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Melee/wasterkatanat2.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 30
+        Slash: 25
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: _Nuclear14/Objects/Weapons/Melee/wasterkatanat2.rsi
+  - type: StaticPrice
+    price: 50
