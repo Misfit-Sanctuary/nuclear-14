@@ -10,9 +10,12 @@
   description: job-description-caesar-legion-praefectus
   playTimeTracker: CaesarLegionPraefectus
   requirements:
+    - !type:CharacterDepartmentTimeRequirement # Legion total timelock
+      department: CaesarLegion
+      min: 162000 # 45 hours
     - !type:CharacterPlaytimeRequirement
-      tracker: CaesarLegionVeteranDecanus
-      min: 100000 # 30 hours for the big vet pa role
+      tracker: CaesarLegionDean
+      min: 28800 # 8 hours
     - !type:CharacterSpeciesRequirement
       species:
       - Human

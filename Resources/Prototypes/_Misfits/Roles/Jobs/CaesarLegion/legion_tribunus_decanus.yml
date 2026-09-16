@@ -8,9 +8,12 @@
   description: job-description-caesar-legion-tribunus
   playTimeTracker: CaesarLegionTribunus
   requirements:
+    - !type:CharacterDepartmentTimeRequirement # Legion total timelock
+      department: CaesarLegion
+      min: 126000 # 35 hours
     - !type:CharacterPlaytimeRequirement
-      tracker: CaesarLegionPrimeDecanus
-      min: 72000 # 20 hours, same as previous time req for gravis
+      tracker: CaesarLegionLegionnaireVeteran
+      min: 28800 # 8 hours
     - !type:CharacterSpeciesRequirement
       species:
       - Human
