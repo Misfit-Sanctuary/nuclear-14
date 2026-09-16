@@ -51,12 +51,12 @@
   name: id-card-access-level-legion-veteran-decanus
 
 - type: accessLevel
-  id: CaesarLegionTribunusDecanus
-  name: id-card-access-level-legion-tribunus-decanus
+  id: CaesarLegionTribunus
+  name: id-card-access-level-legion-tribunus
 
 - type: accessLevel
-  id: CaesarLegionPraefectusDecanus
-  name: id-card-access-level-legion-praefectus-decanus
+  id: CaesarLegionPraefectus
+  name: id-card-access-level-legion-praefectus
 
 - type: accessLevel
   id: CaesarLegionPriestessOfMars
@@ -172,9 +172,11 @@
   - CaesarLegionLegionnaireWarrior
   - CaesarLegionLegionnaireVeteran
   - CaesarLegionDean
+  - CaesarLegionTribunus
+  - CaesarLegionPraefectus
 
 - type: accessGroup
-  id: CaesarLegionTribunusDecanus
+  id: CaesarLegionTribunus
   tags:
   - CaesarLegion
   - CaesarLegionRecruit
@@ -182,7 +184,7 @@
   - CaesarLegionLegionnaireWarrior
   - CaesarLegionLegionnaireVeteran
   - CaesarLegionDean
-  - CaesarLegionTribunusDecanus
+  - CaesarLegionTribunus
 
 - type: accessGroup
   id: CaesarLegionVeteranDecanus
@@ -194,9 +196,11 @@
   - CaesarLegionLegionnaireVeteran
   - CaesarLegionDean
   - CaesarLegionVeteranDecanus
+  - CaesarLegionTribunus
+  - CaesarLegionPraefectus
 
 - type: accessGroup
-  id: CaesarLegionPraefectusDecanus
+  id: CaesarLegionPraefectus
   tags:
   - CaesarLegion
   - CaesarLegionRecruit
@@ -205,8 +209,8 @@
   - CaesarLegionLegionnaireVeteran
   - CaesarLegionDean
   - CaesarLegionVeteranDecanus
-  - CaesarLegionTribunusDecanus
-  - CaesarLegionPraefectusDecanus
+  - CaesarLegionTribunus
+  - CaesarLegionPraefectus
 
 - type: accessGroup
   id: CaesarLegionPriestessOfMars
@@ -245,6 +249,8 @@
   - CaesarLegionOptio
   - CaesarLegionLegionnaireRecruit
   - CaesarLegionLegionnaireWarrior
+  - CaesarLegionTribunus
+  - CaesarLegionPraefectus
   - CaesarLegionLegionnaireVeteran
   - CaesarLegionDean
   - CaesarLegionVeteranDecanus
@@ -266,6 +272,8 @@
   - CaesarLegionLegionnaireRecruit
   - CaesarLegionLegionnaireWarrior
   - CaesarLegionLegionnaireVeteran
+  - CaesarLegionTribunus
+  - CaesarLegionPraefectus
   - CaesarLegionDean
   - CaesarLegionVeteranDecanus
   - CaesarLegionCenturion
@@ -286,6 +294,8 @@
   - CaesarLegionLegionnaireRecruit
   - CaesarLegionLegionnaireWarrior
   - CaesarLegionLegionnaireVeteran
+  - CaesarLegionTribunus
+  - CaesarLegionPraefectus
   - CaesarLegionDean
   - CaesarLegionAcolyteOfMars
   - CaesarLegionVeteranDecanus

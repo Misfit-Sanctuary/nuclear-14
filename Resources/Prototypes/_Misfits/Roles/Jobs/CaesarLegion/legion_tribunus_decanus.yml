@@ -1,12 +1,12 @@
 - type: job
-  id: CaesarLegionTribunusDecanus
+  id: CaesarLegionTribunus
   setPreference: true
   hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
   jobWhitelistBypassesRoleTimers: true # #Misfits Change
   weight: 140
-  name: job-name-caesar-legion-tribunus-decanus
-  description: job-description-caesar-legion-tribunus-decanus
-  playTimeTracker: CaesarLegionTribunusDecanus
+  name: job-name-caesar-legion-tribunus
+  description: job-description-caesar-legion-tribunus
+  playTimeTracker: CaesarLegionTribunus
   requirements:
     - !type:CharacterPlaytimeRequirement
       tracker: CaesarLegionPrimeDecanus
@@ -18,7 +18,7 @@
       sex: Male
     - !type:CharacterGenderRequirement
       gender: Male
-  startingGear: CaesarLegionTribunusDecanusGear
+  startingGear: CaesarLegionTribunusGear
   alwaysUseSpawner: true
   icon: "JobIconlegionerDean"
   supervisors: job-name-caesar-legion-supervisors
@@ -56,13 +56,13 @@
         - CaesarLegionLegate
         - CaesarLegionOptio
         - CaesarLegionPriestessOfMars
-        - CaesarLegionPraefectusDecanus
-        - CaesarLegionTribunusDecanus
+        - CaesarLegionPraefectus
+        - CaesarLegionTribunus
   - !type:AddTraitSpecial
     traits: [ LanguageLatin ]
 
 - type: startingGear
-  id: CaesarLegionTribunusDecanusGear
+  id: CaesarLegionTribunusGear
   equipment:
     wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitLegionnaire
@@ -84,4 +84,4 @@
     - N14ClothingEyesGlassesWelding
 
 - type: playTimeTracker
-  id: CaesarLegionTribunusDecanus
+  id: CaesarLegionTribunus

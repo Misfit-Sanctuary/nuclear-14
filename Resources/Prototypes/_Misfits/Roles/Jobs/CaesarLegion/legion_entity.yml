@@ -39,13 +39,13 @@
 
 - type: entity
   parent: MobHuman
-  id: N14MobHumanCaesarLegionPraefectusDecanus
-  name: Decanus Praefectus
+  id: N14MobHumanCaesarLegionPraefectus
+  name: Legion Praefectus
   components:
     - type: RandomHumanoidAppearance
       randomizeName: true
     - type: Loadout
-      prototypes: [CaesarLegionPraefectusDecanusGear]
+      prototypes: [CaesarLegionPraefectusGear]
     - type: NpcFactionMember
       factions:
       - CaesarLegion
@@ -78,13 +78,13 @@
 
 - type: entity
   parent: MobHuman
-  id: N14MobHumanCaesarLegionTribunusDecanus
-  name: Decanus Tribunus
+  id: N14MobHumanCaesarLegionTribunus
+  name: Legion Tribunus
   components:
     - type: RandomHumanoidAppearance
       randomizeName: true
     - type: Loadout
-      prototypes: [CaesarLegionTribunusDecanusGear]
+      prototypes: [CaesarLegionTribunusGear]
     - type: NpcFactionMember
       factions:
       - CaesarLegion

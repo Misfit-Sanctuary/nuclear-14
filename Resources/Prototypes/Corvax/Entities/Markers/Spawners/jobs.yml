@@ -37,24 +37,24 @@
       - state: dean
 
 - type: entity
-  id: N14SpawnPointPraefectusDecanus
+  id: N14SpawnPointPraefectus
   parent: N14SpawnPointCenturion
-  name: legion decanus praefectus
+  name: legion praefectus
   components:
   - type: SpawnPoint
-    job_id: CaesarLegionPraefectusDecanus
+    job_id: CaesarLegionPraefectus
   - type: Sprite
     layers:
       - state: green
       - state: dean
 
 - type: entity
-  id: N14SpawnPointTribunusDecanus
+  id: N14SpawnPointTribunus
   parent: N14SpawnPointCenturion
-  name: legion decanus tribunus
+  name: legion tribunus
   components:
   - type: SpawnPoint
-    job_id: CaesarLegionPrimeDecanus
+    job_id: CaesarLegionTribunus
   - type: Sprite
     layers:
       - state: green

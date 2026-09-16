@@ -226,11 +226,11 @@
 
 - type: entity
   parent: MisfitsSpawnPointCaesarLegionCenturion
-  id: MisfitsSpawnPointCaesarLegionPraefectusDecanus
-  name: Legion Praefectus Decanus
+  id: MisfitsSpawnPointCaesarLegionPraefectus
+  name: Legion Praefectus
   components:
   - type: SpawnPoint
-    job_id: CaesarLegionPraefectusDecanus
+    job_id: CaesarLegionPraefectus
   - type: Sprite
     layers:
       - state: green
@@ -287,11 +287,11 @@
 
 - type: entity
   parent: MisfitsSpawnPointCaesarLegionCenturion
-  id: MisfitsSpawnPointCaesarLegionTribunusDecanus
-  name: Legion Tribunus Decanus
+  id: MisfitsSpawnPointCaesarLegionTribunus
+  name: Legion Tribunus
   components:
   - type: SpawnPoint
-    job_id: CaesarLegionTribunusDecanus
+    job_id: CaesarLegionTribunus
   - type: Sprite
     layers:
       - state: green
