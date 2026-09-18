@@ -47,6 +47,21 @@
   texturePath: /Textures/Effects/fire.rsi
   fireStates: 3
 
+# Misfits Add - 30mm HE. A much weaker sibling of the 40mm HE warhead: capped at
+# roughly 20 total damage at the epicenter and only reaching the adjacent tiles.
+- type: explosion
+  id: Misfits30mmHE
+  damagePerIntensity:
+    types:
+      Heat: 5
+      Blunt: 5
+  tileBreakChance: [0]
+  tileBreakIntensity: [0]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+
 # Misfits Add - Incendiary 40mm relies on ignition rather than blast damage.
 # Its intensity is kept below the explosion system's knockdown threshold.
 - type: explosion

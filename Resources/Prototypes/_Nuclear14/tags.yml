@@ -282,6 +282,10 @@
 - type: Tag
   id: N14Cartridge50HEIAP
 
+# #Misfits Add - armor-affected .50 HMG round.
+- type: Tag
+  id: N14Cartridge50HMG
+
 - type: Tag
   id: N14ShellShotgun12
 
@@ -409,6 +413,19 @@
 
 - type: Tag
   id: N14Magazine50AMRHEIAP
+
+# #Misfits Add
+- type: Tag
+  id: N14Magazine50HMG
+
+- type: Tag
+  id: N14Magazine50HMGHEIAP
+
+- type: Tag
+  id: N14Magazine30mm
+
+- type: Tag
+  id: N14Grenade30mm
 
 - type: Tag
   id:  SpeedLoader

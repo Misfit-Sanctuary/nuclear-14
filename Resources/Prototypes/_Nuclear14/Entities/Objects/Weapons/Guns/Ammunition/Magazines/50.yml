@@ -50,3 +50,47 @@
   components:
   - type: BallisticAmmoProvider
     proto: N14Cartridge50HEIAP
+
+# #Misfits Add - high-capacity linked belts for the super-heavy .50 HMG.
+- type: entity
+  id: N14Magazine50HMG
+  name: "ammo belt (.50 BMG)"
+  parent: BaseMagazine50AMR
+  components:
+  - type: Tag
+    tags:
+      - N14Magazine50HMG
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50HMG
+    capacity: 250
+    whitelist:
+      tags:
+        - N14Cartridge50HMG
+        - N14Cartridge50HEIAP
+  - type: Item
+    size: Large
+    storedRotation: 0
+  - type: Sprite
+    netsync: false
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/7.62/belt.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+
+- type: entity
+  id: N14Magazine50HMGHEIAP
+  name: "ammo belt (.50 BMG HEIAP)"
+  parent: N14Magazine50HMG
+  suffix: HEIAP
+  components:
+  - type: Tag
+    tags:
+      - N14Magazine50HMGHEIAP
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50HEIAP

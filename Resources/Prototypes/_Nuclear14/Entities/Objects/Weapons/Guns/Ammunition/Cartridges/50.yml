@@ -64,3 +64,38 @@
       collection: N14RifleCasingEject
       params:
         volume: -1
+
+# #Misfits Add - .50 HMG round. Unlike N14Cartridge50, its projectile is subject to
+# target armor instead of ignoring resistances.
+- type: entity
+  parent: BaseCartridge
+  id: N14Cartridge50HMG
+  name: cartridge (.50 HMG)
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - N14Cartridge50HMG
+  - type: CartridgeAmmo
+    proto: N14Bullet50HMG
+    soundEject:
+      collection: N14RifleCasingEject
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 3
+  - type: EmitSoundOnLand
+    sound:
+      collection: N14RifleCasingEject
+      params:
+        volume: -1
+  - type: EmitSoundOnCollide
+    sound:
+      collection: N14RifleCasingEject
+      params:
+        volume: -1

@@ -1,0 +1,58 @@
+- type: entity
+  name: automatic grenade launcher
+  parent: BaseWeaponLauncher
+  id: N14WeaponLauncherGrenadeAuto
+  description: A belt-fed, fully automatic grenade launcher that hurls 30mm grenades downrange in a steady stream. Its bulk and recoil demand exceptional strength or a suit of power armor to control.
+  components:
+  - type: Wieldable
+    wieldedSpeedModifier: 0.6
+  - type: GunRequiresWield
+  - type: GunWieldBonus
+    minAngle: -19
+    maxAngle: -60
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/grenadelauncher.rsi
+    layers:
+      - state: icon
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/grenadelauncher.rsi
+    quickEquip: false
+    slots:
+    - Back
+  - type: Item
+    size: Ginormous
+  - type: AmmoCounter
+  - type: Gun
+    minAngle: 22
+    maxAngle: 90
+    angleIncrease: 4
+    angleDecay: 12
+    fireRate: 3
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      collection: N14LauncherGrenadeGunshot
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14Magazine30mmBelt
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - N14Magazine30mm
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: Appearance
+  - type: FollowDistance
+    backStrength: 6
+  - type: N14SuperHeavyWeapon
+    minStrength: 7
+  - type: StaticPrice
+    price: 1200
