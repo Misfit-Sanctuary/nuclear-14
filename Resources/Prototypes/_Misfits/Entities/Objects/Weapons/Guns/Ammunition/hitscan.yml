@@ -81,7 +81,8 @@
   id: N14MFLaserViolet
   damage:
     types:
-      Heat: 30
+      Heat: 25
+      Shock: 5
   tintColor: "#8B00FF"
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
@@ -127,13 +128,13 @@
 
 # #Misfits Add - Yellow beam for Wattz 2000/3000 focused laser rifles.
 # Uses red beam sprites tinted bright yellow. Base damage matches Red;
-# actual output is higher due to GunDamageBonusComponent on the Wattz weapons.
+# actual output is higher due to GunDamageBonusComponent on the Wattz weapons - also adds their Shock damage to emphasize DMR role
 # Wider beam (1.5x) simulates focused optics — Assaultron is 3.0 for comparison.
 - type: hitscan
   id: N14MFLaserYellow
   damage:
     types:
-      Heat: 17
+      Heat: 30
   tintColor: "#FFD700"
   beamWidth: 1.5
   muzzleFlash:

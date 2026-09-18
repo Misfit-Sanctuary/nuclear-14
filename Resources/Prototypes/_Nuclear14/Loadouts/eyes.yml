@@ -47,6 +47,25 @@
     - N14ClothingEyesGlasses
 
 - type: loadout
+  id: N14ClothingEyesJamjars
+  category: Accessories
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutEyes
+  - !type:CharacterTraitRequirement
+    traits:
+    - N14Nearsighted
+  - !type:CharacterJobRequirement # Forge-Change
+    inverted: true
+    jobs:
+    - BoSMidSerf
+    - CaesarLegionSlave
+    - NCRPrisoner
+  items:
+  - N14ClothingEyesJamjars
+
+- type: loadout
   id: N14LoadoutEyesEyepatch
   category: Accessories
   cost: 0

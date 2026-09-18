@@ -184,7 +184,8 @@ job-description-enclave-eyebot = Serve the Enclave as a loyal robotic reconnaiss
 undecided-loadout-category-misfits-sqr-basic-name = Basic Kit
 undecided-loadout-category-misfits-sqr-basic-description =
     A cache containing belongings of a Brotherhood chapter member.
-    Includes 1 AEP-7, 2 energy cells, 1 combat knife, 1 roll of gauze,
+    Includes a 10mm SMG, 2 spare magazines, 1 AEP-7, 2 energy cells,
+    1 combat knife, 1 roll of gauze, a pair of welding goggles,
     1 stimpak, and 1 K ration MRE.
 
 # #Misfits Tweak: Paladin-tier kit reverted from Wattz 2000 back to Bozar.

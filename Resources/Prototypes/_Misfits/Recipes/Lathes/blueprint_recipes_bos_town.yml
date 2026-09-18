@@ -320,13 +320,17 @@
   availableFaction:
   - BrotherhoodOfSteel
   materials:
-    Steel: 6000
+    Steel: 7500
 
-    Glass: 400
+    Glass: 3000
 
-    Circuitry: 700
+    Circuitry: 1400
 
     ScrapElectronic: 450
+
+    N14Silver: 300
+
+    N14Gold: 300
 
 
 - type: latheRecipe
@@ -356,11 +360,11 @@
   availableFaction:
   - BrotherhoodOfSteel
   materials:
-    Steel: 5000
+    Steel: 7000
 
     Glass: 900
 
-    Circuitry: 300
+    Circuitry: 500
 
     ScrapElectronic: 450
 
@@ -418,13 +422,13 @@
   availableFaction:
   - BrotherhoodOfSteel
   materials:
-    Steel: 11500
+    Steel: 9000
 
     N14Gold: 100
 
-    N14Brass: 2000
+    N14Brass: 500
 
-    ScrapElectronic: 150
+    ScrapElectronic: 1500
 
     Glass: 300 #scope
 
@@ -447,6 +451,8 @@
     ScrapElectronic: 1000
 
     N14Silver: 600
+
+    N14Gold: 600
 
 # #Misfits Add - AER-15 recipe at T5; highest-damage blue-beam laser rifle
 - type: latheRecipe
@@ -731,15 +737,15 @@
   availableFaction:
   - BrotherhoodOfSteel
   materials:
-    Steel: 12000
+    Steel: 20000
 
-    N14Iron: 37
+    N14Iron: 350
 
-    Circuitry: 35
+    Circuitry: 350
 
-    ScrapElectronic: 30
+    ScrapElectronic: 3000
 
-    N14Brass: 15
+    N14Brass: 150
 
 
 
@@ -748,27 +754,6 @@
 # =====================================================================
 
 # --- BoS Tier 1 Ammo ---
-- type: latheRecipe
-  id: N14BPBoSAmmoPowerCellSmall
-  result: N14MicrofusionCell
-  category: N14BlueprintBoSAmmoT1
-  completetime: 4
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Glass: 300
-
-    Circuitry: 100
-
-    ScrapElectronic: 300
-
-    N14Gold: 200
-
-    N14Silver: 300
-
-    Lead: 500
-
 
 - type: latheRecipe
   id: N14BPBoSAmmoElectronChargePackRed
@@ -779,13 +764,13 @@
   availableFaction:
   - BrotherhoodOfSteel
   materials:
-    Glass: 100
+    Glass: 200
 
     Circuitry: 100
 
-    ScrapElectronic: 100
+    ScrapElectronic: 200
 
-    Lead: 100
+    Lead: 200
 
 
 - type: latheRecipe
@@ -939,20 +924,6 @@
     Lead: 200
 
 - type: latheRecipe
-  id: N14BPBoSAmmoElectronChargePackGreen
-  result: N14ElectronChargePack
-  category: N14BlueprintBoSAmmoT2
-  completetime: 8
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Glass: 200
-    Circuitry: 100
-    ScrapElectronic: 100
-    Lead: 200
-
-- type: latheRecipe
   id: N14BPBoSAmmoPlasmaCartridge
   result: N14PlasmaCartridge
   category: N14BlueprintBoSAmmoT3
@@ -971,35 +942,6 @@
 
 
 # --- BoS Tier 3 Ammo ---
-- type: latheRecipe
-  id: N14BPBoSAmmoPowerCellAdvanced
-  result: N14MicrofusionCell
-  category: N14BlueprintBoSAmmoT3
-  completetime: 12
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Glass: 350
-    Circuitry: 100
-    ScrapElectronic: 100
-    Lead: 350
-    N14Silver: 50
-
-- type: latheRecipe
-  id: N14BPBoSAmmoElectronChargePackBlue
-  result: N14ElectronChargePack
-  category: N14BlueprintBoSAmmoT3
-  completetime: 12
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Glass: 350
-    Circuitry: 100
-    ScrapElectronic: 100
-    Lead: 350
-    N14Silver: 50
 
 - type: latheRecipe
   id: N14BPBoSAmmoPlasmaShell
@@ -1080,35 +1022,6 @@
 
 
 # --- BoS Tier 5 Ammo ---
-- type: latheRecipe
-  id: N14BPBoSAmmoMicrofusionViolet
-  result: N14MicrofusionCell
-  category: N14BlueprintBoSAmmoT5
-  completetime: 20
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Glass: 500
-    Circuitry: 100
-    ScrapElectronic: 100
-    N14Gold: 50
-    Lead: 500
-
-- type: latheRecipe
-  id: N14BPBoSAmmoElectronChargePackViolet
-  result: N14ElectronChargePack
-  category: N14BlueprintBoSAmmoT5
-  completetime: 20
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Glass: 500
-    Circuitry: 100
-    ScrapElectronic: 100
-    N14Gold: 50
-    Lead: 500
 
 
 # =====================================================================

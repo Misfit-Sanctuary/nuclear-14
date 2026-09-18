@@ -1111,7 +1111,7 @@
     items:
       - id: N14WeaponLaserRifleCrude
       - id: N14MicrofusionCellRed
-        amount: 1
+        amount: 2
       - id: N14WeaponPistol12mm
       - id: N14MagazinePistol12mm
         amount: 2
@@ -1158,7 +1158,7 @@
     items:
       - id: N14WeaponLaserRifle
       - id: N14MicrofusionCell
-        amount: 1
+        amount: 2
       - id: N14WeaponPistol12mm
       - id: N14MagazinePistol12mm
         amount: 2
@@ -1215,6 +1215,53 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
 
+# Head Knight Kits
+- type: entity
+  name: Head Knight Bunker Warden Kit
+  parent: KitBase
+  id: KitHead_KniBun
+  description: A crate containing everything a member of the Brotherhood might need.
+  components:
+  - type: Sprite
+    state: rifleman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+    - id: N14WeaponShotgunNeosteadBoS
+    - id: MagazineBox12gauge
+      amount: 1
+    - id: N14WeaponPistolT60
+    - id: N14MagazinePistol44
+      amount: 2
+    - id: N14CleanGauze10
+    - id: N14Stimpak
+      amount: 2
+    - id: N14BoxCardboardMREBoxKFilled
+
+- type: entity
+  name: Head Knight Support Fire Kit
+  parent: KitBase
+  id: KitHead_KniSup
+  description: A crate containing everything a member of the Brotherhood might need.
+  components:
+  - type: Sprite
+    state: rifleman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+    - id: N14WeaponRifle556Carbine
+    - id: LongMagazine556Rifle
+      amount: 2
+    - id: N14WeaponPistolT60
+    - id: N14MagazinePistol44
+      amount: 2
+    - id: N14CleanGauze10
+    - id: N14Stimpak
+      amount: 2
+    - id: N14BoxCardboardMREBoxKFilled
+
 # MBoS Scribe Medic Kit
 - type: entity
   name: BoS Scribe Medical Kit
@@ -1240,6 +1287,7 @@
       - id: N14WeaponLaserPistol
       - id: N14PowerCellSmall
         amount: 2
+      - id: N14WeaponLaserRifleRecharger
       - id: MisfitsGrenadeWhitePhosphorus # #Misfits Add - faction council Medical Scribe ordnance
 
 # MBoS Scribe Field Kit
@@ -1266,6 +1314,7 @@
       - id: N14WeaponLaserPistol
       - id: N14PowerCellSmall
         amount: 2
+      - id: N14WeaponLaserRifleRecharger
       - id: MisfitsGrenadePlasma # #Misfits Add - faction council Field Scribe ordnance
 
 # MBoS Scribe Engineer Kit
@@ -1291,8 +1340,91 @@
       - id: N14WeaponLaserPistol
       - id: N14PowerCellSmall
         amount: 2
+      - id: N14WeaponLaserRifleRecharger
       - id: EmpGrenade # #Misfits Add - faction council Engineering Scribe ordnance
       - id: MisfitsMilitaryDetonator # #Misfits Add - long-range initiator for Scribe demolition work
+
+# Head Scribe Medic Kit
+- type: entity
+  name: BoS Head Scribe Medical Kit
+  parent: KitBase
+  id: KitHead_ScrMed
+  description: A crate containing everything a Head Scribe might need for keeping the fighting forces alive.
+  components:
+  - type: Sprite
+    state: medic
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+    - id: N14HandheldHealthAnalyzer # #Misfits Add - BoS medics should spawn with health analyzer
+    - id: N14CleanGauze10
+    - id: N14Ointment10
+    - id: N14SuperStimpak
+    - id: N14ClothingBeltMedicalFilled
+    - id: ClothingMaskSterile
+    - id: N14ClothingOuterBrotherhoodMidwestMedicalScribeRobes
+    - id: ClothingHandsGlovesChemist
+    - id: N14BoxCardboardMREBoxKFilled
+    - id: N14WeaponLaserRifle
+    - id: N14MicrofusionCell
+      amount: 2
+    - id: N14WeaponLaserPistolRecharger
+    - id: MisfitsGrenadeWhitePhosphorus # #Misfits Add - faction council Medical Scribe ordnance
+
+# Head Scribe Field Kit
+- type: entity
+  name: BoS Scribe Field Kit
+  parent: KitBase
+  id: KitHead_ScrFld
+  description: A crate containing everything a Head Scribe might need for supporting their Chapter in the field.
+  components:
+  - type: Sprite
+    state: pointman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+    - id: N14CleanGauze10
+    - id: N14Ointment10
+    - id: N14MedkitCombatFilled
+    - id: N14HandheldHealthAnalyzer
+    - id: N14ClothingHandsGlovesCombat
+    - id: N14ClothingBeltBoSWebbing
+    - id: N14ClothingOuterBrotherhoodMidwestFieldScribeCoat
+    - id: N14BoxCardboardMREBoxKFilled
+    - id: N14WeaponLaserRifle
+    - id: N14MicrofusionCell
+      amount: 2
+    - id: N14WeaponLaserPistolRecharger
+    - id: MisfitsGrenadePlasma # #Misfits Add - faction council Field Scribe ordnance
+
+# Head Scribe Engineer Kit
+- type: entity
+  name: BoS Scribe Engineer Kit
+  parent: KitBase
+  id: KitHead_ScrEng
+  description: A crate containing everything a Head Scribe might need for their general engineering needs.
+  components:
+  - type: Sprite
+    state: pointman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+    - id: N14CleanGauze10
+    - id: N14Ointment10
+    - id: N14ClothingOuterMidwestBoSCoat
+    - id: N14ClothingEyesGlassesWelding
+    - id: ClothingHandsGlovesColorYellow
+    - id: N14ClothingBeltUtilityFilled
+    - id: N14BoxCardboardMREBoxKFilled
+    - id: N14WeaponLaserRifle
+    - id: N14MicrofusionCell
+      amount: 2
+    - id: N14WeaponLaserPistolRecharger
+    - id: EmpGrenade # #Misfits Add - faction council Engineering Scribe ordnance
+    - id: MisfitsMilitaryDetonator # #Misfits Add - long-range initiator for Scribe demolition work
 
 # MBoS Paladin Kits
 #Misfits Change /Tweak/: Replaced auto laser rifle with auto shotgun + laser pistol sidearm.
@@ -1311,9 +1443,9 @@
       - id: N14WeaponShotgunAuto
       - id: N14MagazineShotgun12
         amount: 3
-      - id: N14WeaponLaserPistol
-      - id: N14PowerCellSmall
-        amount: 4
+      - id: N14WeaponPistolT60
+      - id: N14MagazinePistol44
+        amount: 2
       - id: N14CleanGauze10
       - id: N14Stimpak
         amount: 2
@@ -1352,9 +1484,9 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: N14WeaponRifle556Carbine
-      - id: LongMagazine556Rifle
-        amount: 3
+      - id: N14WeaponRifle556HeavyAssault
+      - id: N14MagazineHeavy556Rifle
+        amount: 2
       - id: N14WeaponLaserPistol
       - id: N14PowerCellSmall
         amount: 2
@@ -1377,7 +1509,7 @@
     items:
       - id: N14WeaponLaserRifle
       - id: N14MicrofusionCell
-        amount: 1
+        amount: 2
       - id: N14WeaponPistol12mm
       - id: N14MagazinePistol12mm
         amount: 2
