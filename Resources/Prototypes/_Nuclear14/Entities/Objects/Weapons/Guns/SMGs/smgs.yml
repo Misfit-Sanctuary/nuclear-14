@@ -1032,7 +1032,7 @@
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
-    fireRate: 6
+    fireRate: 5.5
     minAngle: 1
     maxAngle: 6
     angleIncrease: 1.5
@@ -1050,13 +1050,13 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazinePistolSubMachineGunTopMounted
+        startingItem: N14MagazineSMGwt550
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - MagazinePistolSubMachineGunTopMounted
+            - N14MagazineSMGwt550
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistol
