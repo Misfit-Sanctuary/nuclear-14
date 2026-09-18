@@ -48,3 +48,20 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
+
+# #Misfits Add - loose .50 HMG rounds. Deliberately does not accept the HEIAP variant.
+- type: entity
+  parent: BaseMagazineBox50
+  id: MagazineBox50HMG
+  name: ammunition box (.50 HMG)
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50HMG
+    capacity: 125
+    whitelist:
+      tags:
+        - N14Cartridge50HMG
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]

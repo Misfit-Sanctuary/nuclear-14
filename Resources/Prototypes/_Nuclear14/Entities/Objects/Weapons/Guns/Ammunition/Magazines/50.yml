@@ -54,7 +54,7 @@
 # #Misfits Add - high-capacity linked belts for the super-heavy .50 HMG.
 - type: entity
   id: N14Magazine50HMG
-  name: "ammo belt (.50 BMG)"
+  name: "ammo belt (.50 HMG)"
   parent: BaseMagazine50AMR
   components:
   - type: Tag
@@ -85,7 +85,7 @@
 
 - type: entity
   id: N14Magazine50HMGHEIAP
-  name: "ammo belt (.50 BMG HEIAP)"
+  name: "ammo belt (.50 HMG HEIAP)"
   parent: N14Magazine50HMG
   suffix: HEIAP
   components:
