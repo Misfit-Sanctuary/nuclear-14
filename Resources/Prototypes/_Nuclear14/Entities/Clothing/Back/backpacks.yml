@@ -80,7 +80,52 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Back/Backpacks/ncrrucksack.rsi
-    
+
+# #Misfits Add - belt-fed ammo pack for the .50 machine gun. The pack feeds the gun directly.
+- type: entity
+  parent: ClothingBackpack
+  id: N14ClothingBackpackHMG
+  name: .50 HMG ammo backpack
+  description: A heavy pack with a linked feed belt that feeds ammunition directly into the .50 machine gun. The gun rides in its own dedicated cradle on the outside, leaving only a small compartment for odds and ends. The wearer cannot load it - another pair of hands has to.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Backpacks/heavycarrier.rsi
+  - type: Tag
+    tags:
+      - N14HMGBackpack
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50HMG
+    capacity: 250
+    cycleable: false
+    whitelist:
+      tags:
+        - N14Cartridge50HMG
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      ballistic-ammo: !type:Container
+  - type: ItemSlots
+    slots:
+      gun_holder:
+        name: hmg-pack-gun-slot-name
+        insertVerbText: hmg-pack-gun-insert-verb
+        ejectVerbText: hmg-pack-gun-eject-verb
+        insertSound: /Audio/SimpleStation14/Items/Handling/sword_sheath.ogg
+        ejectSound: /Audio/SimpleStation14/Items/Handling/sword_unsheath.ogg
+        whitelist:
+          tags:
+            - N14HMG50
+        startingItem: N14WeaponHMG50
+  - type: ClothingSpeedModifier
+    walkModifier: 0.6
+    sprintModifier: 0.6
+  - type: Storage
+    grid:
+    - 0,0,2,2
+    maxItemSize: Normal
+    blacklist:
+      components:
 # Tribals
 - type: entity
   parent: ClothingBackpack

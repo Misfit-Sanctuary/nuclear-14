@@ -58,6 +58,7 @@
   - type: BallisticAmmoProvider
     proto: N14Cartridge50HMG
     capacity: 125
+    fillDelay: 2.0 # Misfits: hand-fed, 5 rounds at a time, slow
     whitelist:
       tags:
         - N14Cartridge50HMG
