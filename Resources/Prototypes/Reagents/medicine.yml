@@ -779,7 +779,7 @@
       - !type:HealthChange
         conditions:
         - !type:TotalDamage
-          max: 50
+          max: 100
         damage:
           groups:
             Brute: -1
