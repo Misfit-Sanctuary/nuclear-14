@@ -1,4 +1,7 @@
 ﻿# Misfits - low-tech pain-treatment entry point
+#
+# Contains the Willowbark consumable entity, construction entry, and graph.
+#
 
 # ============================================================================
 # CONSUMABLE ENTITY
@@ -10,6 +13,9 @@
   name: willowbark analgesic
   description: A bitter pouch of crushed wasteland herbs used to dull persistent pain.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: tin
   - type: SolutionContainerManager
     solutions:
       food:
@@ -35,8 +41,8 @@
   description: A simple tribal analgesic made from soothing wasteland herbs.
   hide: false
   icon:
-    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
-    state: healingpowder
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: tin
   objectType: Item
 
 # ============================================================================

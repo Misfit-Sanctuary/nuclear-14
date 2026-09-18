@@ -203,6 +203,8 @@ job-description-synthetic-protectron-tribal = An agricultural robot that has bee
 # Legion Acolyte of Mars
 job-name-caesar-legion-Acolyte-of-mars = Acolyte of Mars
 job-description-caesar-legion-Acolyte-of-mars = You are a devoted Acolyte of Mars, you answer to the Priestess directly.
+job-name-caesar-legion-temple-guard = Temple Guard
+job-description-caesar-legion-temple-guard = Protect and fight for the Priestess and her acolytes, defend the sacred Temples, and enforce the law of Mars.
 
 job-name-bos-off-duty = Off Duty BOS
 job-description-bos-off-duty = You are an off-duty member of the Brotherhood of Steel. You are not to participate in operations as this week you are not on duty. To do so is to violate the codex.

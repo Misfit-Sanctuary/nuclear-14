@@ -423,25 +423,48 @@ undecided-loadout-category-corvax-recruit-decanus-crusher-description =
 
 undecided-loadout-category-corvax-decanus-gladiator-name = Decanus Gladiator
 undecided-loadout-category-corvax-decanus-gladiator-description =
+    Includes an m60 GPMG machine gun, an extra ammo box, a ceremonial sword,
+    a rope belt, 2 healing poultices, 2 K rations, a .45 Colt pistol, 2 .45 magazines,
+    the divine mustard, and a ceramic flask.
+
+undecided-loadout-category-corvax-decanus-crusher-name = Decanus Crusher
+undecided-loadout-category-corvax-decanus-crusher-description =
+    Includes a Goliath power fist, A Neostead shotgun, 2 12 gauge ammo boxes,
+    a rope belt, 2 healing poultices, 2 K rations, a .45 Colt pistol, 2 .45 magazines,
+    the delictable mustard, and a ceramic flask.
+
+undecided-loadout-category-corvax-decanus-demolitionist-name = Decanus Demolitionist
+undecided-loadout-category-corvax-decanus-demolitionist-description =
+    Includes a Grenade rifle, 6 40mm frag grenades, 2 40mm fire grenades, a thrown frag grenade,
+    a decorated tribal heavy club, a rope belt, 2 healing poultices, 2 K rations,
+    a .45 Colt pistol, 2 .45 magazines, the delicious mustard, and a ceramic flask.
+
+undecided-loadout-category-corvax-decanus-sharpshooter-name = Decanus Sharpshooter
+undecided-loadout-category-corvax-decanus-sharpshooter-description =
+    Includes a pipe 50 sniper rifle, a PPSh41 smg, two 9mm drum mags, a box of 50 cal rounds,
+    a rope belt, 2 healing poultices, 2 K rations, the divine mustard, a .45 Colt pistol,
+    2 .45 magazines, and a ceramic flask.
+
+undecided-loadout-category-corvax-decanus-pa-berserker-name = Decanus Heavy Berserker
+undecided-loadout-category-corvax-decanus-pa-berserker-description =
+    Includes a Bren with an extra magazine, a smoke grenade,
+    a .45 Colt pistol, 2 .45 magazines, a power fist,
+    a rope belt, 2 healing poultice, 2 K rations,
+    a ceramic flask, and sweet sweet mustard.
+
+undecided-loadout-category-corvax-decanus-pa-suppressor-name = Decanus Heavy Suppressor
+undecided-loadout-category-corvax-decanus-pa-suppressor-description =
+    Includes a Heavy Assault Rifle, two heavy 556 magazines, a .45 Colt pistol,
+    two extra .45 magazines, a rope belt, 2 healing poultice, 2 k rations, a ceramic flask,
+    a colt .45 pistol, and the precious mustard.
+
+undecided-loadout-category-corvax-decanus-pa-destroyer-name = Decanus Heavy Destroyer
+undecided-loadout-category-corvax-decanus-pa-destroyer-description =
     Includes a M240B with a spare belt, a .45 Colt pistol,
     2 .45 magazines, a Legion shield, a rope belt,
     a singular smoke grenade and a box of handcuffs,
     2 healing poultice, 2 K rations,
     a ceramic flask, and mustard.
-
-undecided-loadout-category-corvax-decanus-sagitaria-name = Decanus Sagitaria
-undecided-loadout-category-corvax-decanus-sagitaria-description =
-    Includes a salvaged M60 with a single extra box,
-    a .45 Colt pistol, 2 .45 magazines, a rope belt,
-    a smoke grenade, 2 healing poultice, 2 K rations,
-    a ceramic flask, and mustard.
-
-undecided-loadout-category-corvax-decanus-berserker-name = Decanus Berserker
-undecided-loadout-category-corvax-decanus-berserker-description =
-    Includes a Bren with an extra magazine, a smoke grenade,
-    a .45 Colt pistol, 2 .45 magazines, a power fist,
-    a rope belt, 2 healing poultice, 2 K rations,
-    a ceramic flask, and sweet sweet mustard.
 
 undecided-loadout-category-corvax-veteran-rifleman-name = Veteran Rifleman
 undecided-loadout-category-corvax-veteran-rifleman-description =
@@ -750,8 +773,14 @@ undecided-loadout-category-misfits-priestess-healing-desc =
 
 undecided-loadout-category-misfits-priestess-zealot-name = Priestess of Zealotry
 undecided-loadout-category-misfits-priestess-zealot-desc =
-    Includes a Ceremonial Sword, Legionnaire Shield, A combat shotgun with two extra drums,
+    Includes a Neostead, Legionnaire Shield, two 12 guage ammo boxes,
     spear quiver, 3 pilum, 2 Bolas, 2 Cazador acid sacs,
+    2 K rations, and a ceramic flask.
+
+undecided-loadout-category-misfits-priestess-purifier-name = Priestess of Purification
+undecided-loadout-category-misfits-priestess-purifier-desc =
+    Includes a flaming blade of Mars, 2 incendiary grenades, a heater shield,
+    a colt 45 with two magazines, 1 bandage, 1 Healing Poultice, 1 Healing Powder,
     2 K rations, and a ceramic flask.
 
 undecided-loadout-category-misfits-acolyte-healing-name = Acolyte Healer
@@ -765,6 +794,29 @@ undecided-loadout-category-misfits-acolyte-zealot-desc =
     Includes a Gladius, Legionnaire buckler,
     spear quiver, An SKS, 308 clips,
     2 K rations, and a ceramic flask.
+
+undecided-loadout-category-misfits-acolyte-slaver-name = Acolyte Slaver
+undecided-loadout-category-misfits-acolyte-slaver-desc =
+    Includes an automatic shotgun, three boxes of beanbag ammo, handcuffs,
+    bolas, a baton, slave collars, a colt 45 with two magazines,
+    1 bandage, 1 Healing Poultice, 1 Healing Powder,
+    2 K rations, and a ceramic flask.
+
+undecided-loadout-category-misfits-temple-guard-protector-name = Temple Guard Protector
+undecided-loadout-category-misfits-temple-guard-protector-desc =
+    Includes a poleaxe, a heater shield, a colt 45 with two magazines,
+    1 bandage, 2 Healing Powders, 2 K rations, and a ceramic flask.
+
+undecided-loadout-category-misfits-temple-guard-enforcer-name = Temple Guard Enforcer
+undecided-loadout-category-misfits-temple-guard-enforcer-desc =
+    Includes an automatic shotgun, a gladius, three boxes of 12 gauge ammo,
+    1 bandage, 2 Healing Powders, 2 K rations, and a ceramic flask.
+
+undecided-loadout-category-misfits-temple-guard-executor-name = Temple Guard Executor
+undecided-loadout-category-misfits-temple-guard-executor-desc =
+    Includes a kebab, a buckler, a colt 45 with two magazines,
+    1 bandage, 2 Healing Powders, 2 K rations, and a ceramic flask.
+
 
 undecided-loadout-category-misfits-eighties-block-road-captain-name = Road Captain Kit
 undecided-loadout-category-misfits-eighties-block-road-captain-description =

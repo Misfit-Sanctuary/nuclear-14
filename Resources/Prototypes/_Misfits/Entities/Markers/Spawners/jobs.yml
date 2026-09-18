@@ -226,6 +226,18 @@
 
 - type: entity
   parent: MisfitsSpawnPointCaesarLegionCenturion
+  id: MisfitsSpawnPointCaesarLegionPraefectusDecanus
+  name: Legion Praefectus Decanus
+  components:
+  - type: SpawnPoint
+    job_id: CaesarLegionPraefectusDecanus
+  - type: Sprite
+    layers:
+      - state: green
+      - state: dean
+
+- type: entity
+  parent: MisfitsSpawnPointCaesarLegionCenturion
   id: MisfitsSpawnPointCaesarLegionVenator
   name: Legion Frumentarii
   components:
@@ -268,6 +280,18 @@
   components:
   - type: SpawnPoint
     job_id: CaesarLegionPrimeDecanus
+  - type: Sprite
+    layers:
+      - state: green
+      - state: dean
+
+- type: entity
+  parent: MisfitsSpawnPointCaesarLegionCenturion
+  id: MisfitsSpawnPointCaesarLegionTribunusDecanus
+  name: Legion Tribunus Decanus
+  components:
+  - type: SpawnPoint
+    job_id: CaesarLegionTribunusDecanus
   - type: Sprite
     layers:
       - state: green
@@ -345,11 +369,23 @@
       - state: green
       - state: recruit
 
+- type: entity
+  parent: MisfitsSpawnPointCaesarLegionCenturion
+  id: MisfitsSpawnPointCaesarLegionTempleGuard
+  name: Legion Temple Guard
+  components:
+  - type: SpawnPoint
+    job_id: CaesarLegionTempleGuard
+  - type: Sprite
+    layers:
+      - state: green
+      - state: warrior
+
 # Priestess of Mars spawner — 1 slot, same Legion camp area as Auxilia.
 - type: entity
   parent: MisfitsSpawnPointCaesarLegionCenturion
   id: MisfitsSpawnPointCaesarLegionPriestessOfMars
-  name: Priestess of Mars
+  name: Legion Priestess of Mars
   components:
   - type: SpawnPoint
     job_id: CaesarLegionPriestessOfMars
@@ -362,7 +398,7 @@
 - type: entity
   parent: MisfitsSpawnPointCaesarLegionCenturion
   id: MisfitsSpawnPointCaesarLegionAcolyteOfMars
-  name: Acolyte of Mars
+  name: Legion Acolyte of Mars
   components:
   - type: SpawnPoint
     job_id: CaesarLegionAcolyteOfMars

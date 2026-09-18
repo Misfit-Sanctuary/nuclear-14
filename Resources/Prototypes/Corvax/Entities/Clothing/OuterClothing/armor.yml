@@ -603,3 +603,49 @@
     sprite: Corvax/Clothing/OuterClothing/Armor/RangerStandartArmor.rsi
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/RangerStandartArmor.rsi
+
+- type: entity
+  parent: N14ClothingOuterBase
+  id: N14ClothingOuterPriestessMarsArmor
+  name: Priestess of Mars' armored robes
+  description: Armored robes, made with special care and skill, worn by the rankining Priestess of a Castrum, the pulsating cage of fire is said to contain a small piece of Mars' divide power.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/priestessarmor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/priestessarmor.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.05
+    sprintModifier: 1.05
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65 #pom is meant to be at the level of a vet decanus, dont @ me
+        Heat: 0.55 # yeah boo hoo the priestess of the fire god is resistant to fire
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
+
+- type: entity
+  parent: N14ClothingOuterBase
+  id: N14ClothingOuterMarsCultRobes
+  name: Cult of Mars armored robes
+  description: red robes worn by lower ranks among the cult of Mars, with forged armored plates over top.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/armoredrobes.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/armoredrobes.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.10
+    sprintModifier: 1.10
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.75
+        Heat: 0.65 # yeah boo hoo the priestess of the fire god is resistant to fire
+  - type: ExplosionResistance
+    damageCoefficient: 0.9

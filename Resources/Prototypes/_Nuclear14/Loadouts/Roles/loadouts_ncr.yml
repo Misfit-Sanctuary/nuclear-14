@@ -31,6 +31,10 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingEyesGlassesGoggles
 
@@ -59,6 +63,10 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingHandsGlovesNCR
 
@@ -87,6 +95,10 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingHeadHatWinterBoonie
 
@@ -115,6 +127,10 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingHeadHatWoodBoonie
 
@@ -143,6 +159,10 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingHeadHatDesertBoonie
 
@@ -170,6 +190,10 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingNeckCloakNCR
 
@@ -197,6 +221,10 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingNeckCloakGhillie
 
@@ -224,6 +252,10 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingNeckCloakNCRSnow
 
@@ -251,6 +283,10 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingNeckCloakNCRWoods
 
@@ -278,6 +314,10 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingMaskBrownBalaclava
 
@@ -311,6 +351,10 @@
         - NCRCitizen
         - NCRTrader
         - NCRRO
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingUniformDesertPants
 
@@ -344,6 +388,11 @@
         - NCRCitizen
         - NCRTrader
         - NCRRO
+
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingUniformDesertPantsFull
 
@@ -376,6 +425,11 @@
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
+
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
     - !type:CharacterDepartmentTimeRequirement # T7 faction timelock (40h NCR)
       department: NCR
       min: 36000 # 10 hours
@@ -411,6 +465,10 @@
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
     - !type:CharacterDepartmentTimeRequirement # T7 faction timelock (40h NCR)
       department: NCR
       min: 36000 # 10 hours
@@ -446,6 +504,10 @@
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 144000 # 40 hours, work for them shorts!
@@ -481,6 +543,10 @@
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
     - !type:CharacterDepartmentTimeRequirement # T7 faction timelock (40h NCR)
       department: NCR
       min: 36000 # 10 hours
@@ -516,6 +582,10 @@
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 18000 # 5 hours
@@ -551,6 +621,10 @@
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 72000 # 20 hours
@@ -585,6 +659,10 @@
         - NCRPatrolRanger
         - NCRVeteranRanger
         - NCRRO
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - ClothingBeltNCRHarness
 
@@ -617,6 +695,10 @@
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 144000 # 40 hours, work for that hat!
@@ -655,6 +737,10 @@
         - NCRVeteranRanger
         - NCRCitizen
         - NCRTrader
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 144000 # 40 hours, work for that hat!

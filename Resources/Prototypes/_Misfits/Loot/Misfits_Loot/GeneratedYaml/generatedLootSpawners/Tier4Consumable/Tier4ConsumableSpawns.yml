@@ -1,0 +1,38 @@
+- type: entity
+  name: Tier4 Consumable DrinksNukaColaSuperRare Single
+  suffix: Tier4
+  id: M14ConsumableTier4Spawner_Single_DrinksNukaColaSuperRare
+  parent: M14Tier4Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier4_DrinksNukaColaSuperRare
+- type: entity
+  name: Tier4 Consumable DrinksNukaColaSuperRare 0-3
+  suffix: Tier4
+  id: M14ConsumableTier4Spawner_Mult0_3_DrinksNukaColaSuperRare
+  parent: M14Tier4Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier4_DrinksNukaColaSuperRare
+- type: entity
+  name: Tier4 Consumable DrinksNukaColaSuperRare 1-2
+  suffix: Tier4
+  id: M14ConsumableTier4Spawner_Mult1_2_DrinksNukaColaSuperRare
+  parent: M14Tier4Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier4_DrinksNukaColaSuperRare

@@ -1,0 +1,11 @@
+- type: entity
+  abstract: true
+  id: M14Tier1Spawner_RefMeds
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: lightGray
+    - sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+      state: stimpak

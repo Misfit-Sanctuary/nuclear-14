@@ -1,0 +1,11 @@
+- type: entity
+  abstract: true
+  id: M14Tier2Spawner_RefParts
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: limeGreen
+    - sprite: _Nuclear14/Objects/Misc/materials.rsi
+      state: scrap_parts_3

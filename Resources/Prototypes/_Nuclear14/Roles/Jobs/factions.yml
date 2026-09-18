@@ -250,14 +250,18 @@
   - CaesarLegionOptio          # Optio                | _Misfits/Roles/Jobs/CaesarLegion/legion_optio.yml # #Misfits Add
   - CaesarLegionPriestessOfMars # Priestess of Mars   | _Misfits/Roles/Jobs/CaesarLegion/legion_priestess_of_mars.yml # #Misfits Add
   # Senior NCOs
+  - CaesarLegionPraefectusDecanus # Vet with pa       | _Misfits/Roles/Jobs/CaesarLegion/legion_praefectus_decanus.yml # #Misfits Add
+  - CaesarLegionTribunusDecanus  # prime with pa      | _Misfits/Roles/Jobs/CaesarLegion/legion_tribunus_decanus.yml # #Misfits Add
   - CaesarLegionVeteranDecanus  # Veteran Decanus     | _Misfits/Roles/Jobs/CaesarLegion/legion_veteran_decanus.yml # #Misfits Add
   - CaesarLegionPrimeDecanus    # Prime Decanus       | _Misfits/Roles/Jobs/CaesarLegion/legion_prime_decanus.yml # #Misfits Add
   - CaesarLegionDean            # Decanus             | _Misfits/Roles/Jobs/CaesarLegion/legion_decanus.yml # #Misfits Add
   - CaesarLegionForgemaster     # Forgemaster         | _Misfits/Roles/Jobs/CaesarLegion/legion_forgemaster.yml # #Misfits Add
+  - CaesarLegionAcolyteOfMars   # Acolyte of Mars     | _Misfits/Roles/Jobs/CaesarLegion/legion_Acolyte.yml # #Misfits Add
   # Warriors
   - CaesarLegionLegionnaireVeteran  # Veteran Legionnaire | _Misfits/Roles/Jobs/CaesarLegion/legion_legionnaire_veteran.yml # #Misfits Add
   - CaesarLegionLegionnaireWarrior  # Legionnaire Warrior | _Misfits/Roles/Jobs/CaesarLegion/legion_legionnaire_warrior.yml # #Misfits Add
   - CaesarLegionLegionnaireRecruit  # Legionnaire Recruit | _Misfits/Roles/Jobs/CaesarLegion/legion_legionnaire_recruit.yml # #Misfits Add
+  - CaesarLegionTempleGuard         # Temple Guard        | _Misfits/Roles/Jobs/CaesarLegion/legion_temple_guard.yml # #Misfits Add
   # Specialists # #Misfits Change /Fix/: Match Character Setup and Latejoin order to the requested Legion rank grouping.
   - CaesarLegionHoundmaster     # Houndmaster         | _Misfits/Roles/Jobs/CaesarLegion/legion_houndmaster.yml # #Misfits Add
   - CaesarLegionFrumentarii     # Frumentarii         | _Misfits/Roles/Jobs/CaesarLegion/legion_frumentarii.yml  # #Misfits Fix - renamed from legion_venator.yml to match in-game role name
@@ -271,4 +275,4 @@
   - CaesarLegionSlave           # Slave               | _Misfits/Roles/Jobs/CaesarLegion/legion_slave.yml # #Misfits Add
   - CaesarLegionCitizen         # Civilian            | _Misfits/Roles/Jobs/CaesarLegion/legion_civilian.yml # #Misfits Add
   - CaesarLegionTrader          # Trader              | _Misfits/Roles/Jobs/CaesarLegion/legion_trader.yml # #Misfits Add
-  - CaesarLegionAcolyteOfMars      # Acolyte of Mars     | _Misfits/Roles/Jobs/CaesarLegion/legion_Acolyte.yml # #Misfits Add
+  

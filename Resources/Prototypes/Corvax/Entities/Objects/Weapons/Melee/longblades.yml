@@ -235,3 +235,111 @@
   - type: RequiresEyeProtection
   - type: IgnitionSource
     temperature: 700
+
+- type: entity
+  parent: N14WeaponKebab
+  id: N14WeaponMarsblade
+  name: Blade of Mars
+  description: "An enhanced version of the shishkebab made and used by the Priesthood of Mars, said to be fueled by his own divine fire. in reality its gasoline."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Weapons/Melee/marsblade.rsi
+    layers:
+    - state: icon
+    - state: welder_flame
+      visible: false
+      shader: unshaded
+      map: ["enum.ToggleVisuals.Layer"]
+  - type: Item
+    sprite: Corvax/Objects/Weapons/Melee/marsblade.rsi
+    size: Huge
+    # Misfits Fix - explicit inhand visuals so the weapon sprite shows correctly when held
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Clothing
+    sprite: Corvax/Objects/Weapons/Melee/marsblade.rsi
+    quickEquip: false
+    slots:
+    - belt
+    - Back
+    - suitStorage
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ItemToggleSize
+    activatedSize: Large
+  - type: ItemToggleHot
+  - type: ToggleableLightVisuals
+    spriteLayer: flame
+    inhandVisuals:
+      left:
+      - state: inhand-left-flame
+        shader: unshaded
+      right:
+      - state: inhand-right-flame
+        shader: unshaded
+  - type: UseDelay
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      collection: WelderOn
+      params:
+        variation: 0.125
+        volume: -5
+    soundDeactivate:
+      collection: WelderOff
+      params:
+        variation: 0.125
+        volume: -5
+  - type: MeleeWeapon
+    attackRate: 1
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+      params:
+        volume: -3
+    damage:
+      groups:
+        Brute: 5
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -12
+    deactivatedSoundOnHitNoDamage:
+      collection: MetalThud
+    activatedDamage:
+        types:
+            Heat: 60
+  # Misfits Fix - WelderComponent restores fuel quantity display when held
+  - type: Welder
+  - type: RefillableSolution
+    solution: Welder
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 400
+        maxVol: 400
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    color: orange
+    netsync: false
+  - type: Appearance
+  - type: RequiresEyeProtection
+  - type: IgnitionSource
+    temperature: 700
+

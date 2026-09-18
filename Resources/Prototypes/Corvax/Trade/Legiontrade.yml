@@ -426,6 +426,8 @@
     price: 450
   - proto: N14WeaponRifleAk112
     price: 400
+  - proto: N14WeaponLMG
+    price: 100
 
 - type: storeCategoryStructured
   id: LegionSell2_Rifles
@@ -438,28 +440,103 @@
   - proto: N14WeaponRifle762Chinese
     price: 10
   - proto: N14WeaponSniper308Ross
-    price: 16
+    price: 35
   - proto: N14WeaponRifle308Battle
-    price: 13
+    price: 30
   - proto: N14WeaponSniper308Tribal
-    price: 10
+    price: 20
   - proto: N14WeaponSniper308TribalUpgraded
+    price: 25
+  - proto: N14WeaponLMGAutoRifle
+    price: 94
+  - proto: N14WeaponSniper50NCRRifle
+    price: 156
+  - proto: N14WeaponSniperEnfield
+    price: 25
+  - proto: N14WeaponSniper45-70BrushGun
+    price: 41
+  - proto: N14WeaponRifle10mmM1Carbine
+    price: 18
+  - proto: N14WeaponRifleM1Garand
+    price: 19
+  - proto: N14WeaponRifle762Fal
+    price: 44
+  - proto: N14WeaponRifle556Carbine
+    price: 50
+  - proto: N14WeaponRifle762Marksman
+    price: 53
+  - proto: N14WeaponRifle556Service
+    price: 19
+  - proto: N14WeaponRifle556R91
+    price: 26
+  - proto: N14WeaponRifle556Scout
+    price: 56
+  - proto: N14WeaponSniper50Pipe
+    price: 88
+  - proto: N14WeaponSniperHunting
+    price: 15
+  - proto: N14WeaponRifle556Pipe
+    price: 15
+  - proto: N14WeaponSniper556Tribal
     price: 13
+  - proto: N14WeaponSniper556TribalUpgraded
+    price: 13
+  - proto: N14WeaponSniper308LeverRifle
+    price: 15
+  - proto: N14WeaponSniper44LeverCarbine
+    price: 15
+  - proto: N14WeaponRifle308SniperRifle
+    price: 64
+  - proto: N14WeaponRifle556ServiceScoped
+    price: 25
+  - proto: N14WeaponRifle762M14
+    price: 28
+  - proto: N14WeaponRifle762Canadian
+    price: 78
+  - proto: N14WeaponRifle762MarksmanCanadian
+    price: 55
+  - proto: N14WeaponRifle556CarbineOld
+    price: 30
 
 - type: storeCategoryStructured
   id: LegionSell2_Smgs
   name: "SMGs"
   entries:
-  - proto: N14WeaponSMG45
-    price: 19
-  - proto: N14WeaponSMGGreaseGun
-    price: 20
   - proto: N14WeaponSMG10mmChinese
     price: 23
-  - proto: N14WeaponSMGPPSh41
-    price: 25
+  - proto: N14WeaponSMG45
+    price: 19
+  - proto: N14WeaponSMG12mm
+    price: 28
   - proto: N14WeaponSMG10mm
+    price: 30
+  - proto: N14WeaponSMG10mmPipe
+    price: 21
+  - proto: N14WeaponSMGPPSh41
+    price: 28
+  - proto: N14WeaponSMG12mmPipe
+    price: 15
+  - proto: N14WeaponHMGcanadian
+    price: 210
+  - proto: N14WeaponSMGAmerican180
+    price: 8
+  - proto: N14WeaponSMG9mm
+    price: 18
+  - proto: N14WeaponSMGGreaseGun
+    price: 20
+  - proto: N14WeaponSMG9mminfiltrator
     price: 32
+  - proto: N14WeaponSMG10mmSuppressed
+    price: 40
+  - proto: N14WeaponSMG9mmCanadian
+    price: 25
+  - proto: N14WeaponSMG12mmAdvancedChinese
+    price: 50
+  - proto: N14WeaponSMG12mmAdvancedCanadian
+    price: 35
+  - proto: N14WeaponSMG12mmAdvanced
+    price: 75
+
 
 - type: storeCategoryStructured
   id: LegionSell2_Shotguns
@@ -475,13 +552,34 @@
     price: 38
   - proto: N14WeaponShotgunSawedOff
     price: 16
+  - proto: N14WeaponShotgunRiot
+    price: 38
+  - proto: N14WeaponShotgunCaravan
+    price: 2
+  - proto: N14WeaponShotgunTrench
+    price: 25
+  - proto: N14WeaponShotgunCanadian
+    price: 56
+  - proto: N14WeaponShotgunChinese
+    price: 56
+  - proto: N14WeaponShotgun
+    price: 6
+  - proto: N14WeaponShotgunPipe
+    price: 3
+  - proto: N14WeaponShotgunLever
+    price: 3
+  - proto: N14WeaponShotgunDoubleBarrel
+    price: 4
+  - proto: N14WeaponShotgunBloodyStick
+    price: 4
+  - proto: N14WeaponShotgunShort
+    price: 4
+
 
 - type: storeCategoryStructured
   id: LegionSell2_Pistols
   name: "Pistols"
   entries:
-  - proto: N14WeaponSMG10mmPipe
-    price: 22
   - proto: N14WeaponRevolver44TribalUpgradedExtra
     price: 15
   - proto: N14WeaponPistol45Colt
@@ -494,6 +592,38 @@
     price: 10
   - proto: N14WeaponRevolver44Tribal
     price: 7
+  - proto: N14WeaponPistolWebley
+    price: 8
+  - proto: N14WeaponPistol12mm
+    price: 9
+  - proto: N14WeaponPistol22lr
+    price: 5
+  - proto: N14WeaponLaserPistol
+    price: 15
+  - proto: N14WeaponPistol9mmChinese
+    price: 5
+  - proto: N14WeaponRevolver9mm
+    price: 7
+  - proto: N14WeaponRevolver10mm
+    price: 9
+  - proto: N14WeaponRevolver44TribalUpgraded
+    price: 22
+  - proto: N14WeaponRevolverWebley
+    price: 22
+  - proto: N14WeaponRevolver45-70Hunter
+    price: 44
+  - proto: N14WeaponPistol9mm
+    price: 5
+  - proto: N14WeaponPistol10mmPipe
+    price: 4
+  - proto: N14WeaponPistol10mm
+    price: 5
+  - proto: N14WeaponPistol9mmSpy
+    price: 15
+  - proto: N14WeaponDesertEagle44
+    price: 55
+  - proto: N14WeaponLaserdotDesertEagle44
+    price: 75
 
 - type: storeCategoryStructured
   id: LegionSell2_Armor
@@ -517,6 +647,100 @@
     price: 100
   - proto: N14ClothingOuterDeanLegionnaireRecruitArmor
     price: 90
+  - proto: N14ClothingOuterNCRPlateDesert
+    price: 50
+  - proto: N14ClothingOuterRangerCoat
+    price: 88
+  - proto: N14ClothingOuterNCRPatrolRangerArmorVariant
+    price: 81
+  - proto: N14ClothingOuterRangerFieldArmor
+    price: 86
+  - proto: N14ClothingOuterRangerVest
+    price: 62
+  - proto: N14ClothingOuterNCRPouchedVestSnow
+    price: 44
+  - proto: N14ClothingOuterNCRPouchedVestWoods
+    price: 44
+  - proto: N14ClothingOuterNCRPouchedVestDesert
+    price: 40
+  - proto: N14ClothingOuterNCRVestpaddedWebDesert
+    price: 44
+  - proto: N14ClothingOuterNCRCombatArmor
+    price: 80
+  - proto: N14ClothingOuterNCRCombatArmorMK2
+    price: 105
+  - proto: N14ClothingOuterCombatTribal
+    price: 44
+  - proto: N14ClothingOuterCombatArmorRCMP
+    price: 56
+  - proto: N14ClothingOuterRaiderCombat1
+    price: 62
+  - proto: N14ClothingOuterPoliceCombat
+    price: 38
+  - proto: N14ClothingOuterCombatArmorMK2
+    price: 100
+  - proto: N14ClothingOuterCombatArmorChinese
+    price: 62
+  - proto: N14ClothingOuterPainspike
+    price: 12
+  - proto: N14ClothingOuterVestChinese
+    price: 25
+  - proto: N14ClothingOuterCoatDuster
+    price: 2
+  - proto: N14ClothingOuterCoatLeatherDuster
+    price: 2
+  - proto: N14ClothingOuterCoatLeatherCoat
+    price: 2
+  - proto: N14ClothingOuterRaiderBadlands
+    price: 2
+  - proto: N14ClothingOuterRaiderBlastmaster
+    price: 2
+  - proto: N14ClothingOuterPoliceOfficer
+    price: 2
+  - proto: N14ClothingOuterTownCoat
+    price: 3
+  - proto: N14ClothingOuterPoliceLieutenant
+    price: 3
+  - proto: N14ClothingOuterTownSpecialCoat
+    price: 3
+  - proto: N14ClothingOuterBattlecoatCoat
+    price: 3
+  - proto: N14ClothingOuterBattlecoatTan
+    price: 3
+  - proto: N14ClothingOuterVestLeather
+    price: 5
+  - proto: N14ClothingOuterMetalArmor
+    price: 12
+  - proto: N14ClothingOuterTownMediumCoat
+    price: 13
+  - proto: N14ClothingOuterTownHeavyCoat
+    price: 15
+  - proto: N14ClothingOuterCoatCombatDuster
+    price: 15
+  - proto: N14ClothingOuterCoatFollowersArmored
+    price: 8
+  - proto: N14ClothingOuterInsectArmor
+    price: 8
+  - proto: N14ClothingOuterLightMetalArmor
+    price: 8
+  - proto: N14ClothingOuterLeatherArmor
+    price: 8
+  - proto: N14ClothingOuterPressArmor
+    price: 8
+  - proto: N14ClothingOuterPoliceVest
+    price: 28
+  - proto: ClothingOuterArmorBasicSlim
+    price: 9
+  - proto: N14ClothingOuterCombatRusted
+    price: 9
+  - proto: N14ClothingOuterCombatRaider
+    price: 9
+  - proto: N14ClothingOuterVaultSecVest
+    price: 9
+  - proto: N14ClothingOuterCombatPainspike
+    price: 28
+  - proto: N14ClothingOuterCombatArmor
+    price: 17
 
 - type: storeCategoryStructured
   id: LegionSell2_Helmets
@@ -699,6 +923,83 @@
     price: 2
   #if you screw with the price of one currency, silver, or gold, you must change everything else to match.
 
+- type: storeCategoryStructured
+  id: LegionSell2_Bulk
+  name: "Bulk"
+  entries:
+  - proto: MaterialCloth1
+    price: 1
+  - proto: N14JunkDuctTape
+    price: 1
+  - proto: N14ScrapElectronic1
+    price: 2
+  - proto: N14ScrapGold1
+    price: 2
+  - proto: N14FoodMeatPigrat
+    price: 1
+  - proto: N14FoodMeatRadRaw
+    price: 1
+  - proto: N14JunkAbraxoCleaner
+    price: 2
+  - proto: N14MaterialLeather1
+    price: 3
+  - proto: N14MaterialAntChitin1
+    price: 3
+  - proto: N14MaterialHideGecko
+    price: 4
+  - proto: N14MaterialHideGeckoFire
+    price: 4
+  - proto: N14FoodFireantNectar
+    price: 4
+  - proto: N14FoodMeatGeckoGolden
+    price: 4
+  - proto: N14FoodMeatMirelurkClaw
+    price: 4
+  - proto: N14MaterialCircuitry1
+    price: 5
+  - proto: N14FoodMeatRadlurkClaw
+    price: 5
+  - proto: N14FoodEggDeathclaw
+    price: 10
+  - proto: N14MaterialYaoguaiHide
+    price: 10
+  - proto: N14MaterialNightstalkerPelt
+    price: 10
+  - proto: N14FoodCazadorAcidSac
+    price: 11
+  - proto: N14MaterialRadscorpionTail
+    price: 13
+  - proto: N14FoodMeatBrahmin
+    price: 6
+  - proto: N14FoodMeatRadstag
+    price: 8
+  - proto: FoodMeatRedfishRaw
+    price: 5
+  - proto: FoodMeatWhitefishRaw
+    price: 4
+  - proto: FoodRedCaviar
+    price: 8
+  - proto: N14WeaponLaserRevolver
+    price: 20
+  - proto: N14WeaponLaserRifleMakeshift
+    price: 16
+  - proto: N14WeaponLaserRifleCrude
+    price: 25
+  - proto: N14WeaponLaserPistol
+    price: 16
+  - proto: N14WeaponLaserRifle
+    price: 62
+  - proto: N14WeaponLaserPistolRecharger
+    price: 14
+  - proto: N14WeaponLaserRiflePrototypeAER14
+    price: 90
+  - proto: N14WeaponPlasmaDefender
+    price: 45
+  - proto: N14WeaponPlasmaRifle
+    price: 47
+  - proto: N14WeaponPlasmaRifleUrban
+    price: 52
+
 - type: storePresetStructured #list of categories
   id: legion_sell2
   currency: LegionDenarius
@@ -716,4 +1017,5 @@
   - LegionSell2_Survival
   - LegionSell2_Cosmetics
   - LegionSell2_Currency
+  - LegionSell2_Bulk
 

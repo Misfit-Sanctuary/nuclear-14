@@ -11,7 +11,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Misfits.Scavenging;
-
+// TODO: make more general not just junk
 /// <summary>
 /// Gives mapped junk piles a deliberate, shared search interaction and a cooldown that begins on a successful search.
 /// </summary>

@@ -1,0 +1,74 @@
+- type: entityTable
+  id: M14MedsLootTier1_Common
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DirtyGauze10
+      weight: 15
+
+- type: entityTable
+  id: M14MedsLootTier1_CommonPlus
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14StimpakDirty
+      weight: 5
+    - !type:EntSelector
+      id: N14HealingPowder
+      weight: 5
+
+- type: entityTable
+  id: M14MedsLootTier1_UncommonAntiRad
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadXPill
+      weight: 10
+    - !type:EntSelector
+      id: N14CleansingPowder
+      weight: 20
+
+- type: entityTable
+  id: M14MedsLootTier1_PlusSuperRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14StimpakDirty
+      weight: 5
+    - !type:EntSelector
+      id: N14HealingPowder
+      weight: 5
+    - !type:EntSelector
+      id: N14SmellingSalts
+      weight: 5
+
+
+- type: entityTable
+  id: M14MedsLootTier1_DrugsUncommon
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadXPill
+    - !type:EntSelector
+      id: N14CateyePill
+    - !type:EntSelector
+      id: N14MentatsPill
+
+- type: entityTable
+  id: M14MedsLootTier1_DrugsRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadXPill
+    - !type:EntSelector
+      id: N14BuffoutPill
+
+- type: entityTable
+  id: M14MedsLootTier1_DrugsSuperRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14BuffoutCanisterFilled
+    - !type:EntSelector
+      id: N14RadXCanisterFilled
+

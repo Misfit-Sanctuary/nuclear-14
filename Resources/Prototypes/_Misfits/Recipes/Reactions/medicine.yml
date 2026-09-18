@@ -289,6 +289,23 @@
   products:
     MisfitsHealingSalve: 4
 
+# DAYTRIPPER
+# Cheap recreational psychoactive chem.
+- type: reaction
+  id: MisfitsDaytripper
+  impact: Low
+  reactants:
+    Mentats:
+      amount: 1
+    NukaCola:
+      amount: 1
+    Ethanol:
+      amount: 1
+    Sugar:
+      amount: 1
+  products:
+    Daytripper: 4
+
 # ============================================================================
 # COMBAT / PERFORMANCE CHEMS
 # ============================================================================

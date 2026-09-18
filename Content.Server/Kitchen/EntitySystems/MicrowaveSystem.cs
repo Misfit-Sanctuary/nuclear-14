@@ -9,6 +9,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Kitchen.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Stack;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Body.Components;
@@ -61,6 +62,7 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly ExplosionSystem _explosion = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
+        [Dependency] private readonly StackSystem _stackSystem = default!;
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly TemperatureSystem _temperature = default!;
         [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
@@ -367,7 +369,28 @@ namespace Content.Server.Kitchen.EntitySystems
             }
 
             args.Handled = true;
-            _handsSystem.TryDropIntoContainer(args.User, args.Used, ent.Comp.Storage);
+            
+            if (TryComp<StackComponent>(args.Used, out var stack))
+            {
+                var storageAvailable = ent.Comp.Capacity - ent.Comp.Storage.Count;
+                
+                // do while enough remaining storage and stack has items
+                while (storageAvailable > 0 && stack.Count > 0) 
+                {
+                    var newEntity = _stackSystem.Split(args.Used,1, Transform(ent).Coordinates, stack);
+
+                    if (newEntity is not {} entity) // stop when no new entity, else unpack into 'entity' 
+                        break;
+                    
+                    _container.Insert(entity, ent.Comp.Storage);
+                    storageAvailable--;
+                }
+            }
+            else
+            {
+                _handsSystem.TryDropIntoContainer(args.User, args.Used, ent.Comp.Storage);
+            }
+            
             UpdateUserInterfaceState(ent, ent.Comp);
         }
 

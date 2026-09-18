@@ -166,22 +166,19 @@
     ScrapElectronic: 300
 
 
-- type: latheRecipe
-  id: N14BPBoSWeaponPlasmaDefender
-  result: N14WeaponPlasmaDefender
-  category: N14BlueprintBoSWeaponsT2
-  completetime: 11
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Steel: 3500
-
-    Glass: 800
-
-    Circuitry: 400
-
-    ScrapElectronic: 500
+#- type: latheRecipe
+#  id: N14BPBoSWeaponPlasmaDefender
+#  result: N14WeaponPlasmaDefender
+#  category: N14BlueprintBoSWeaponsT2
+# completetime: 11
+# requiresBlueprint: true
+# availableFaction:
+# - BrotherhoodOfSteel
+# materials:
+#   Steel: 3500
+#   Glass: 800
+#   Circuitry: 400
+#    ScrapElectronic: 500
 
 # #Misfits Add - mediocre kinetic surplus rifles (T2)
 - type: latheRecipe

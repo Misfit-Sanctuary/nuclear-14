@@ -1,14 +1,15 @@
-- type: loadout
-  id: LoadoutLegionPrincipes
-  category: Roles
-  cost: 16
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - CaesarLegionVeteranDecanus
-    - !type:CharacterPlaytimeRequirement
-      tracker: CaesarLegionVeteranDecanus
-      min: 90000 # 25 hours
-  items:
-    - MisfitsLegionPrincepsArmor
+#- type: loadout
+#  id: LoadoutLegionPrincipes
+#  category: Roles
+#  cost: 16
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#     jobs:
+#        - CaesarLegionVeteranDecanus
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: CaesarLegionVeteranDecanus
+#      min: 90000 # 25 hours
+#  items:
+#    - N14ClothingOuterPowerArmorLegionPrinceps
+# no longer an item that veteran decanus get in loadout, instead gaurentted with the new praefectus role.

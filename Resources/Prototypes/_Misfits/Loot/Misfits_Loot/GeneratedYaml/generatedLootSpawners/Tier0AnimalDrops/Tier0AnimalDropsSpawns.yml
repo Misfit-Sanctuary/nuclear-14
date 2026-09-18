@@ -1,0 +1,1102 @@
+- type: entity
+  name: Tier0 AnimalDrops All Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_All
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_All
+- type: entity
+  name: Tier0 AnimalDrops All 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_All
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_All
+- type: entity
+  name: Tier0 AnimalDrops All 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_All
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_All
+- type: entity
+  name: Tier0 AnimalDrops Generic Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_Generic
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_Generic
+- type: entity
+  name: Tier0 AnimalDrops Generic 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_Generic
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_Generic
+- type: entity
+  name: Tier0 AnimalDrops Generic 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_Generic
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_Generic
+- type: entity
+  name: Tier0 AnimalDrops GenericMammal Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_GenericMammal
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_GenericMammal
+- type: entity
+  name: Tier0 AnimalDrops GenericMammal 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_GenericMammal
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_GenericMammal
+- type: entity
+  name: Tier0 AnimalDrops GenericMammal 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_GenericMammal
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_GenericMammal
+- type: entity
+  name: Tier0 AnimalDrops GenericInsect Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_GenericInsect
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_GenericInsect
+- type: entity
+  name: Tier0 AnimalDrops GenericInsect 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_GenericInsect
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_GenericInsect
+- type: entity
+  name: Tier0 AnimalDrops GenericInsect 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_GenericInsect
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_GenericInsect
+- type: entity
+  name: Tier0 AnimalDrops AnyInsect Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_AnyInsect
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_AnyInsect
+- type: entity
+  name: Tier0 AnimalDrops AnyInsect 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_AnyInsect
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_AnyInsect
+- type: entity
+  name: Tier0 AnimalDrops AnyInsect 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_AnyInsect
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_AnyInsect
+- type: entity
+  name: Tier0 AnimalDrops MoleRat Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_MoleRat
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_MoleRat
+- type: entity
+  name: Tier0 AnimalDrops MoleRat 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_MoleRat
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_MoleRat
+- type: entity
+  name: Tier0 AnimalDrops MoleRat 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_MoleRat
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_MoleRat
+- type: entity
+  name: Tier0 AnimalDrops MirelurkFull Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_MirelurkFull
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_MirelurkFull
+- type: entity
+  name: Tier0 AnimalDrops MirelurkFull 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_MirelurkFull
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_MirelurkFull
+- type: entity
+  name: Tier0 AnimalDrops MirelurkFull 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_MirelurkFull
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_MirelurkFull
+- type: entity
+  name: Tier0 AnimalDrops RadroachFull Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_RadroachFull
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_RadroachFull
+- type: entity
+  name: Tier0 AnimalDrops RadroachFull 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_RadroachFull
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_RadroachFull
+- type: entity
+  name: Tier0 AnimalDrops RadroachFull 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_RadroachFull
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_RadroachFull
+- type: entity
+  name: Tier0 AnimalDrops NightstalkerFull Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_NightstalkerFull
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_NightstalkerFull
+- type: entity
+  name: Tier0 AnimalDrops NightstalkerFull 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_NightstalkerFull
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_NightstalkerFull
+- type: entity
+  name: Tier0 AnimalDrops NightstalkerFull 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_NightstalkerFull
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_NightstalkerFull
+- type: entity
+  name: Tier0 AnimalDrops InsectOrgans Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_InsectOrgans
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_InsectOrgans
+- type: entity
+  name: Tier0 AnimalDrops InsectOrgans 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_InsectOrgans
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_InsectOrgans
+- type: entity
+  name: Tier0 AnimalDrops InsectOrgans 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_InsectOrgans
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_InsectOrgans
+- type: entity
+  name: Tier0 AnimalDrops RadScorp Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_RadScorp
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_RadScorp
+- type: entity
+  name: Tier0 AnimalDrops RadScorp 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_RadScorp
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_RadScorp
+- type: entity
+  name: Tier0 AnimalDrops RadScorp 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_RadScorp
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_RadScorp
+- type: entity
+  name: Tier0 AnimalDrops AllGecko Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_AllGecko
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_AllGecko
+- type: entity
+  name: Tier0 AnimalDrops AllGecko 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_AllGecko
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_AllGecko
+- type: entity
+  name: Tier0 AnimalDrops AllGecko 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_AllGecko
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_AllGecko
+- type: entity
+  name: Tier0 AnimalDrops Gecko Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_Gecko
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_Gecko
+- type: entity
+  name: Tier0 AnimalDrops Gecko 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_Gecko
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_Gecko
+- type: entity
+  name: Tier0 AnimalDrops Gecko 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_Gecko
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_Gecko
+- type: entity
+  name: Tier0 AnimalDrops FireGecko Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_FireGecko
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_FireGecko
+- type: entity
+  name: Tier0 AnimalDrops FireGecko 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_FireGecko
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_FireGecko
+- type: entity
+  name: Tier0 AnimalDrops FireGecko 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_FireGecko
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_FireGecko
+- type: entity
+  name: Tier0 AnimalDrops GoldGecko Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_GoldGecko
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_GoldGecko
+- type: entity
+  name: Tier0 AnimalDrops GoldGecko 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_GoldGecko
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_GoldGecko
+- type: entity
+  name: Tier0 AnimalDrops GoldGecko 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_GoldGecko
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_GoldGecko
+- type: entity
+  name: Tier0 AnimalDrops YaoGuai Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_YaoGuai
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_YaoGuai
+- type: entity
+  name: Tier0 AnimalDrops YaoGuai 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_YaoGuai
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_YaoGuai
+- type: entity
+  name: Tier0 AnimalDrops YaoGuai 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_YaoGuai
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_YaoGuai
+- type: entity
+  name: Tier0 AnimalDrops Bovine Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_Bovine
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_Bovine
+- type: entity
+  name: Tier0 AnimalDrops Bovine 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_Bovine
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_Bovine
+- type: entity
+  name: Tier0 AnimalDrops Bovine 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_Bovine
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_Bovine
+- type: entity
+  name: Tier0 AnimalDrops BovineComplete Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_BovineComplete
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_BovineComplete
+- type: entity
+  name: Tier0 AnimalDrops BovineComplete 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_BovineComplete
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_BovineComplete
+- type: entity
+  name: Tier0 AnimalDrops BovineComplete 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_BovineComplete
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_BovineComplete
+- type: entity
+  name: Tier0 AnimalDrops BovineSkulls Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_BovineSkulls
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_BovineSkulls
+- type: entity
+  name: Tier0 AnimalDrops BovineSkulls 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_BovineSkulls
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_BovineSkulls
+- type: entity
+  name: Tier0 AnimalDrops BovineSkulls 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_BovineSkulls
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_BovineSkulls
+- type: entity
+  name: Tier0 AnimalDrops BovineMeats Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_BovineMeats
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_BovineMeats
+- type: entity
+  name: Tier0 AnimalDrops BovineMeats 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_BovineMeats
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_BovineMeats
+- type: entity
+  name: Tier0 AnimalDrops BovineMeats 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_BovineMeats
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_BovineMeats
+- type: entity
+  name: Tier0 AnimalDrops MammalAll Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_MammalAll
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_MammalAll
+- type: entity
+  name: Tier0 AnimalDrops MammalAll 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_MammalAll
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_MammalAll
+- type: entity
+  name: Tier0 AnimalDrops MammalAll 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_MammalAll
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_MammalAll
+- type: entity
+  name: Tier0 AnimalDrops Brahmin Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_Brahmin
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_Brahmin
+- type: entity
+  name: Tier0 AnimalDrops Brahmin 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_Brahmin
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_Brahmin
+- type: entity
+  name: Tier0 AnimalDrops Brahmin 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_Brahmin
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_Brahmin
+- type: entity
+  name: Tier0 AnimalDrops Bighorner Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_Bighorner
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_Bighorner
+- type: entity
+  name: Tier0 AnimalDrops Bighorner 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_Bighorner
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_Bighorner
+- type: entity
+  name: Tier0 AnimalDrops Bighorner 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_Bighorner
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_Bighorner
+- type: entity
+  name: Tier0 AnimalDrops Ragstag Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_Ragstag
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_Ragstag
+- type: entity
+  name: Tier0 AnimalDrops Ragstag 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_Ragstag
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_Ragstag
+- type: entity
+  name: Tier0 AnimalDrops Ragstag 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_Ragstag
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_Ragstag
+- type: entity
+  name: Tier0 AnimalDrops AllMeats Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_AllMeats
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_AllMeats
+- type: entity
+  name: Tier0 AnimalDrops AllMeats 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_AllMeats
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_AllMeats
+- type: entity
+  name: Tier0 AnimalDrops AllMeats 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_AllMeats
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_AllMeats
+- type: entity
+  name: Tier0 AnimalDrops AllHides Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_AllHides
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_AllHides
+- type: entity
+  name: Tier0 AnimalDrops AllHides 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_AllHides
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_AllHides
+- type: entity
+  name: Tier0 AnimalDrops AllHides 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_AllHides
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_AllHides
+- type: entity
+  name: Tier0 AnimalDrops AllHidesExoSkeleton Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_AllHidesExoSkeleton
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_AllHidesExoSkeleton
+- type: entity
+  name: Tier0 AnimalDrops AllHidesExoSkeleton 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_AllHidesExoSkeleton
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_AllHidesExoSkeleton
+- type: entity
+  name: Tier0 AnimalDrops AllHidesExoSkeleton 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_AllHidesExoSkeleton
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_AllHidesExoSkeleton
+- type: entity
+  name: Tier0 AnimalDrops AllHidesReptile Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_AllHidesReptile
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_AllHidesReptile
+- type: entity
+  name: Tier0 AnimalDrops AllHidesReptile 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_AllHidesReptile
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_AllHidesReptile
+- type: entity
+  name: Tier0 AnimalDrops AllHidesReptile 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_AllHidesReptile
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_AllHidesReptile
+- type: entity
+  name: Tier0 AnimalDrops AllHidesMammal Single
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Single_AllHidesMammal
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14AnimalDropsLootTier0_AllHidesMammal
+- type: entity
+  name: Tier0 AnimalDrops AllHidesMammal 0-3
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult0_3_AllHidesMammal
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14AnimalDropsLootTier0_AllHidesMammal
+- type: entity
+  name: Tier0 AnimalDrops AllHidesMammal 1-2
+  suffix: Tier0
+  id: M14AnimalDropsTier0Spawner_Mult1_2_AllHidesMammal
+  parent: M14Tier0Spawner_RefAnimalDrops
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14AnimalDropsLootTier0_AllHidesMammal

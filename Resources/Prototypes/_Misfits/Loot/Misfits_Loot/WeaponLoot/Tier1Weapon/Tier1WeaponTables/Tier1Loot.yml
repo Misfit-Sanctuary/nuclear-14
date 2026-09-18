@@ -1,0 +1,22 @@
+
+- type: entityTable
+  id: M14WeaponLootTier1
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier1_GunsAll
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier1_MeleeAll
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier1_ThrowablesAll
+
+- type: entityTable
+  id: M14WeaponLootTier1_GunsAll
+  table: !type:GroupSelector
+    children:
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier1_GunsBulletAll
+      - !type:NestedSelector
+          tableId: M14WeaponLootTier1_GunsEnergyAll
+#      - !type:NestedSelector
+#          tableId: M14WeaponLootTier1_GunsExplosiveAll

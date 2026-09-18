@@ -51,12 +51,24 @@
   name: id-card-access-level-legion-veteran-decanus
 
 - type: accessLevel
+  id: CaesarLegionTribunusDecanus
+  name: id-card-access-level-legion-tribunus-decanus
+
+- type: accessLevel
+  id: CaesarLegionPraefectusDecanus
+  name: id-card-access-level-legion-praefectus-decanus
+
+- type: accessLevel
   id: CaesarLegionPriestessOfMars
   name: id-card-access-level-legion-priestess-of-mars
 
 - type: accessLevel
   id: CaesarLegionAcolyteOfMars
   name: id-card-access-level-legion-acolyte-of-mars
+
+- type: accessLevel
+  id: CaesarLegionTempleGuard
+  name: id-card-access-level-legion-temple-guard
 
 - type: accessLevel
   id: CaesarLegionOptio
@@ -162,6 +174,17 @@
   - CaesarLegionDean
 
 - type: accessGroup
+  id: CaesarLegionTribunusDecanus
+  tags:
+  - CaesarLegion
+  - CaesarLegionRecruit
+  - CaesarLegionLegionnaireRecruit
+  - CaesarLegionLegionnaireWarrior
+  - CaesarLegionLegionnaireVeteran
+  - CaesarLegionDean
+  - CaesarLegionTribunusDecanus
+
+- type: accessGroup
   id: CaesarLegionVeteranDecanus
   tags:
   - CaesarLegion
@@ -173,10 +196,24 @@
   - CaesarLegionVeteranDecanus
 
 - type: accessGroup
+  id: CaesarLegionPraefectusDecanus
+  tags:
+  - CaesarLegion
+  - CaesarLegionRecruit
+  - CaesarLegionLegionnaireRecruit
+  - CaesarLegionLegionnaireWarrior
+  - CaesarLegionLegionnaireVeteran
+  - CaesarLegionDean
+  - CaesarLegionVeteranDecanus
+  - CaesarLegionTribunusDecanus
+  - CaesarLegionPraefectusDecanus
+
+- type: accessGroup
   id: CaesarLegionPriestessOfMars
   tags:
   - CaesarLegion
   - CaesarLegionRecruit
+  - CaesarLegionTempleGuard
   - CaesarLegionAcolyteOfMars
   - CaesarLegionPriestessOfMars
 
@@ -185,7 +222,15 @@
   tags:
   - CaesarLegion
   - CaesarLegionRecruit
+  - CaesarLegionTempleGuard
   - CaesarLegionAcolyteOfMars
+
+- type: accessGroup
+  id: CaesarLegionTempleGuard
+  tags:
+  - CaesarLegion
+  - CaesarLegionRecruit
+  - CaesarLegionTempleGuard
 
 - type: accessGroup
   id: CaesarLegionOptio

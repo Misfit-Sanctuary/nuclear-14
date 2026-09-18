@@ -279,6 +279,7 @@
         damage:
           groups:
             Brute: -0.3
+            Burn: -0.3
       - !type:HealthChange #Misfits Change /Add:/ Overdose — suffocates the player when stacking too much Buffout
         conditions:
         - !type:ReagentThreshold

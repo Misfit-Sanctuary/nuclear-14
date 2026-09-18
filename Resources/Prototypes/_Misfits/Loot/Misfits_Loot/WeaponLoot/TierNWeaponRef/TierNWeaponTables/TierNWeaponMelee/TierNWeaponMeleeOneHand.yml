@@ -1,0 +1,73 @@
+- type: entityTable
+  id: M14WeaponLootTierN_MeleeBluntOneHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14BrokenPipe
+    - !type:EntSelector
+      id: N14PoliceBaton
+    - !type:EntSelector
+      id: N14TribalClub
+
+- type: entityTable
+  id: M14WeaponLootTierN_MeleeSharpOneHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14ScrapMachete
+    - !type:EntSelector
+      id: N14Machete
+    - !type:EntSelector
+      id: N14TribalMachete
+    - !type:EntSelector
+      id: N14CeremonialSword
+    - !type:EntSelector
+      id: N14ChineseSword
+    - !type:EntSelector
+      id: N14LongSword
+    - !type:EntSelector
+      id: N14TribalSword
+    - !type:EntSelector
+      id: N14Gladius
+
+    - !type:EntSelector
+      id: N14ripper
+
+    - !type:EntSelector
+      id: N14Hatchet
+    - !type:EntSelector
+      id: N14TribalHatchet
+    - !type:EntSelector
+      id: N14KitchenKnife
+    - !type:EntSelector
+      id: N14TribalKnife
+    - !type:EntSelector
+      id: N14BrassKnife
+    - !type:EntSelector
+      id: N14ButchersCleaver
+    - !type:EntSelector
+      id: N14CombatKnife
+
+    - !type:EntSelector
+      id: N14Whip
+
+- type: entityTable
+  id: M14WeaponLootTierN_MeleeOtherOneHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponKebab
+
+
+- type: entityTable
+  id: M14WeaponLootTierN_Shield
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14LegionnaireShield
+    - !type:EntSelector
+      id: N14LegionnaireBuckler
+    - !type:EntSelector
+      id: N14InsectShield
+    - !type:EntSelector
+      id: MakeshiftShield

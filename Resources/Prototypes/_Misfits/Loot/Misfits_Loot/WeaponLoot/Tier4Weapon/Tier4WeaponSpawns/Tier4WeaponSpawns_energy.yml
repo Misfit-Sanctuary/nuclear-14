@@ -1,0 +1,180 @@
+# ENERGY WEAPONS SPRITE/COLOR REF
+- type: entity
+  name: Tier4 Weapon Spawner
+  abstract: true
+  suffix: Tier4
+  id: M14Tier4Spawner_RefGunsEnergyAll
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: '#ff7b00'
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Battery/recharger_pistol.rsi
+      state: icon
+      scale: .8, .8
+      offset: 0, 0.1
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/gatlinglaser.rsi
+      scale: .7, .7
+      state: icon
+      offset: 0, 0
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_autorifle_icon.rsi
+      scale: .7, .7
+      state: icon
+      offset: 0, -0.2
+
+# ENERGY WEAPONS!!!!!!
+- type: entity
+  name: Tier4 Gun Energy Spawner
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Single_GunsEnergyAll
+  parent: M14Tier4Spawner_RefGunsEnergyAll
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier4_GunsEnergyAll
+
+- type: entity
+  name: Tier4 Gun Energy Spawner 0-3
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Mult0_3_GunsEnergyAll
+  parent: M14Tier4Spawner_RefGunsEnergyAll
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier4_GunsEnergyAll
+
+- type: entity
+  name: Tier4 Gun Energy Spawner 1-2
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Mult1_2_GunsEnergyAll
+  parent: M14Tier4Spawner_RefGunsEnergyAll
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier4_GunsEnergyAll
+
+# PISTOL ENERGY SPRITE/COLOR REF
+- type: entity
+  name: Tier4 Weapon Spawner
+  abstract: true
+  suffix: Tier4
+  id: M14Tier4Spawner_RefEnergyPistol
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: '#ff7b00'
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Battery/recharger_pistol.rsi
+      state: icon
+
+# PISTOL ENERGY!!!!!!
+- type: entity
+  name: Tier4 Pistol Energy Spawner
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Single_EnergyPistol
+  parent: M14Tier4Spawner_RefEnergyPistol
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier4_EnergyPistol
+
+- type: entity
+  name: Tier4 Pistol Energy Spawner 0-3
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Mult0_3_EnergyPistol
+  parent: M14Tier4Spawner_RefEnergyPistol
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier4_EnergyPistol
+
+- type: entity
+  name: Tier4 Pistol Energy Spawner 1-2
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Mult1_2_EnergyPistol
+  parent: M14Tier4Spawner_RefEnergyPistol
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier4_EnergyPistol
+
+# RIFLE ENERGY SPRITE/COLOR REF
+- type: entity
+  name: Tier4 Weapon Spawner
+  abstract: true
+  suffix: Tier4
+  id: M14Tier4Spawner_RefEnergyRifle
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: '#ff7b00'
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_autorifle_icon.rsi
+      state: icon
+
+# RIFLE ENERGY!!!!!!
+- type: entity
+  name: Tier4 Rifle Energy Spawner
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Single_EnergyRifle
+  parent: M14Tier4Spawner_RefEnergyRifle
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier4_EnergyRifle
+
+- type: entity
+  name: Tier4 Rifle Energy Spawner 0-3
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Mult0_3_EnergyRifle
+  parent: M14Tier4Spawner_RefEnergyRifle
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier4_EnergyRifle
+
+- type: entity
+  name: Tier4 Rifle Energy Spawner 1-2
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Mult1_2_EnergyRifle
+  parent: M14Tier4Spawner_RefEnergyRifle
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier4_EnergyRifle

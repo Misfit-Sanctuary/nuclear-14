@@ -1,0 +1,87 @@
+- type: job
+  id: CaesarLegionTribunusDecanus
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 140
+  name: job-name-caesar-legion-tribunus-decanus
+  description: job-description-caesar-legion-tribunus-decanus
+  playTimeTracker: CaesarLegionTribunusDecanus
+  requirements:
+    - !type:CharacterPlaytimeRequirement
+      tracker: CaesarLegionPrimeDecanus
+      min: 72000 # 20 hours, same as previous time req for gravis
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+    - !type:CharacterSexRequirement
+      sex: Male
+    - !type:CharacterGenderRequirement
+      gender: Male
+  startingGear: CaesarLegionTribunusDecanusGear
+  alwaysUseSpawner: true
+  icon: "JobIconlegionerDean"
+  supervisors: job-name-caesar-legion-supervisors
+  canBeAntag: false
+  accessGroups:
+  - CaesarLegionDean
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - CaesarLegion
+      - type: ReplacementAccent
+        accent: latin
+      - type: Warcry
+        action: ActionLegionWarcry
+        targetDepartment: CaesarLegion
+        range: 6
+        speedBonus: 0.30 # #Misfits Tweak - reduced from 0.50, was too strong
+        duration: 10
+        overlayColor: "#D64545"
+        speechVerb: MisfitsLegionWarcry
+        warcryMessage: warcry-message-legion
+        warcryMessageCount: 6
+        buffPopup: warcry-popup-buffed-legion
+        excludedJobs:
+        - SuperMutantGladiator
+        cautionPopup: true
+        activatorJobs:
+        - CaesarLegionVexillarius
+        - CaesarLegionDean
+        - CaesarLegionPrimeDecanus
+        - CaesarLegionVeteranDecanus
+        - CaesarLegionCenturion
+        - CaesarLegionLegate
+        - CaesarLegionOptio
+        - CaesarLegionPriestessOfMars
+        - CaesarLegionPraefectusDecanus
+        - CaesarLegionTribunusDecanus
+  - !type:AddTraitSpecial
+    traits: [ LanguageLatin ]
+
+- type: startingGear
+  id: CaesarLegionTribunusDecanusGear
+  equipment:
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitLegionnaire
+    ears: N14ClothingHeadsetLegion
+    neck: ClothingNeckRedScarf
+    eyes: N14ClothingEyesGlassesWelding
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingBootsCombatFilled
+    outerClothing: N14ClothingOuterPowerArmorLegion #whole point of the tribunus and praefectus roles
+    belt: N14Gladius
+    pocket1: LegionDecanusPAloadoutkits
+    id: N14IDLegionaryMedalPrimeDecanus
+  innerClothingSkirt: N14ClothingUniformJumpsuitLegionnaireOther
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryLegion #Misfits Change /Tweak/: Legion uses tribal medicine, not stimpaks
+    - N14HealingPowder
+    - N14WelderIndustrial # self explainatory for pa user
+    - N14ClothingEyesGlassesWelding
+
+- type: playTimeTracker
+  id: CaesarLegionTribunusDecanus

@@ -1,0 +1,288 @@
+# SHOTGUN SPRITE/COLOR REF
+- type: entity
+  name: Tier1 Weapon Spawner
+  abstract: true
+  suffix: Tier1
+  id: M14Tier1Spawner_RefShotgun
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: lightGray
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/double_shotgun.rsi
+      state: icon
+
+# SHOTGUN BALLISTICS!!!!!
+- type: entity
+  name: Tier1 Shotgun Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsBulletShotgun
+  parent: M14Tier1Spawner_RefShotgun
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsBulletShotgun
+
+- type: entity
+  name: Tier1 Shotgun Spawner 0-3
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult0_3_GunsBulletShotgun
+  parent: M14Tier1Spawner_RefShotgun
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier1_GunsBulletShotgun
+
+- type: entity
+  name: Tier1 Shotgun Spawner 1-2
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult1_2_GunsBulletShotgun
+  parent: M14Tier1Spawner_RefShotgun
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier1_GunsBulletShotgun
+
+
+# RIFLE SPRITE/COLOR REF
+- type: entity
+  name: Tier1 Weapon Spawner
+  abstract: true
+  suffix: Tier1
+  id: M14Tier1Spawner_RefRifle
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: lightGray
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/assaultcarbine.rsi
+      state: icon
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/battlerifle.rsi
+      state: icon
+      offset: 0, 0.2
+# RIFLE BALLISTICS(semi and auto)!!!!!!!!
+- type: entity
+  name: Tier1 Rifle All Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsBulletRifle
+  parent: M14Tier1Spawner_RefRifle
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsBulletRifle
+
+- type: entity
+  name: Tier1 Rifle All Spawner 0-3
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult0_3_GunsBulletRifle
+  parent: M14Tier1Spawner_RefRifle
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier1_GunsBulletRifle
+
+- type: entity
+  name: Tier1 Rifle All Spawner 1-2
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult1_2_GunsBulletRifle
+  parent: M14Tier1Spawner_RefRifle
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier1_GunsBulletRifle
+
+# RIFLE SEMI SPRITE/COLOR REF
+- type: entity
+  name: Tier1 Weapon Spawner
+  abstract: true
+  suffix: Tier1
+  id: M14Tier1Spawner_RefRifleSemi
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: lightGray
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/battlerifle.rsi
+      state: icon
+
+# SEMI BALLISTIC RIFLES(includes snipers)!!!!!!!
+- type: entity
+  name: Tier1 Rifle Semi Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsBulletRifleSemi
+  parent: M14Tier1Spawner_RefRifleSemi
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsBulletRifleSemi
+
+- type: entity
+  name: Tier1 Rifle Semi Spawner 0-3
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult0_3_GunsBulletRifleSemi
+  parent: M14Tier1Spawner_RefRifleSemi
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier1_GunsBulletRifleSemi
+
+- type: entity
+  name: Tier1 Rifle Semi Spawner 1-2
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult1_2_GunsBulletRifleSemi
+  parent: M14Tier1Spawner_RefRifleSemi
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier1_GunsBulletRifleSemi
+
+# RIFLE AUTO SPRITE/COLOR REF
+- type: entity
+  name: Tier1 Weapon Spawner
+  abstract: true
+  suffix: Tier1
+  id: M14Tier1Spawner_RefRifleAuto
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: lightGray
+    - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/assaultcarbine.rsi
+      state: icon
+
+# AUTO BALLISTIC RIFLES!!!!!!!
+- type: entity
+  name: Tier1 Rifle Auto Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsBulletRifleAuto
+  parent: M14Tier1Spawner_RefRifleAuto
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsBulletRifleAuto
+
+- type: entity
+  name: Tier1 Rifle Auto Spawner 0-3
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult0_3_GunsBulletRifleAuto
+  parent: M14Tier1Spawner_RefRifleAuto
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier1_GunsBulletRifleAuto
+
+- type: entity
+  name: Tier1 Rifle Auto Spawner 1-2
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult1_2_GunsBulletRifleAuto
+  parent: M14Tier1Spawner_RefRifleAuto
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier1_GunsBulletRifleAuto
+
+
+# LMG SPRITE/COLOR REF
+- type: entity
+  name: Tier1 Weapon Spawner
+  abstract: true
+  suffix: Tier1
+  id: M14Tier1Spawner_RefLMG
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: lightGray
+    - sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/chineselmg.rsi
+      state: icon
+
+# "LIGHT" MACHINE GUN(LMG) BALLISTICS!!!!!
+- type: entity
+  name: Tier1 LMG Spawner
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Single_GunsBulletLMG
+  parent: M14Tier1Spawner_RefLMG
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier1_GunsBulletLMG
+
+- type: entity
+  name: Tier1 LMG Spawner 0-3
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult0_3_GunsBulletLMG
+  parent: M14Tier1Spawner_RefLMG
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier1_GunsBulletLMG
+
+- type: entity
+  name: Tier1 LMG Spawner 1-2
+  suffix: Tier1
+  id: M14Tier1WeaponSpawner_Mult1_2_GunsBulletLMG
+  parent: M14Tier1Spawner_RefLMG
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier1_GunsBulletLMG

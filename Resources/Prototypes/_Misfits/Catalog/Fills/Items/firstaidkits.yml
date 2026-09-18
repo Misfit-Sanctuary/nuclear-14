@@ -1,0 +1,250 @@
+# Misfits - filled first aid kits
+#
+# DESIGN:
+# Stimpaks are emergency broad stabilizers.
+# The specialist kits therefore stock the medicine for the actual damage type.
+#
+# BRUTE:
+#   Piercing -> Blood Shield
+#   Slash    -> Healing Salve
+#   Blunt    -> Herbal Anodyne
+#
+# BURN:
+#   Heat     -> Datura Hide
+#   Cold     -> Rushing Water
+#   Shock    -> Clearwake
+#   Caustic  -> Herbal Antimicrobial
+#
+# Existing upstream IDs are referenced unchanged. All new prototype IDs use
+# the Misfits prefix.
+# ============================================================================
+# GENERAL FIRST AID
+# Basic wounds, burns, pain, and routine infection coverage.
+# ============================================================================
+
+- type: entity
+  id: MisfitsMedkitGeneralFilled
+  name: general first aid kit
+  suffix: Filled, Misfits
+  parent: Medkit
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14CleanGauze10
+    - id: N14Ointment10
+    - id: N14Stimpak
+      amount: 2
+    - id: MisfitsPillCanisterAntibiotics
+    - id: MisfitsPillCanisterAnodyne
+
+# ============================================================================
+# TRAUMA
+# Heavy bleeding, blunt/ballistic trauma, blood loss, and battlefield pain.
+# ============================================================================
+
+- type: entity
+  id: MisfitsMedkitTraumaFilled
+  name: trauma treatment kit
+  suffix: Filled, Misfits
+  parent: MedkitBrute
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14CleanGauze10
+      amount: 2
+    - id: Bloodpack
+    - id: N14Stimpak
+    - id: MisfitsPillCanisterTraumadol
+    - id: MisfitsPillCanisterAnodyne
+
+# ============================================================================
+# BURN
+# Thermal injuries and follow-up wound care.
+# ============================================================================
+
+- type: entity
+  id: MisfitsMedkitBurnFilled
+  name: burn treatment kit
+  suffix: Filled, Misfits
+  parent: MedkitBurn
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14Ointment10
+      amount: 2
+    - id: MisfitsHealingSalve10
+    - id: N14Stimpak
+    - id: MisfitsPillCanisterAnodyne
+
+# ============================================================================
+# TOXIN / VENOM
+# General poisoning plus specific wasteland venom coverage.
+# ============================================================================
+
+- type: entity
+  id: MisfitsMedkitToxinFilled
+  name: toxin and venom treatment kit
+  suffix: Filled, Misfits
+  parent: MedkitToxin
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ChemicalSyringeAntidote
+      amount: 2
+    - id: MisfitsPillCanisterWidowbane
+    - id: MisfitsPillCanisterCinderSerum
+    - id: MisfitsPillCanisterGravesalt
+    - id: MisfitsSnakebiteTourniquet10
+
+# ============================================================================
+# RADIATION
+# One preventative drug, one aggressive decontamination drug, and RadAway.
+# ============================================================================
+
+- type: entity
+  id: MisfitsMedkitRadiationFilled
+  name: radiation treatment kit
+  suffix: Filled, Misfits
+  parent: MedkitRadiation
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14RadAwayBloodbag
+      amount: 2
+    - id: MisfitsPillCanisterRadShield
+    - id: MisfitsPillCanisterX111Compound
+    - id: MisfitsPillCanisterPrussianBlue
+
+# ============================================================================
+# COMBAT
+# Fast stabilization.
+# ============================================================================
+
+- type: entity
+  id: MisfitsMedkitCombatFilled
+  name: combat medical kit
+  suffix: Filled, Misfits
+  parent: MedkitCombat
+  components:
+  - type: StorageFill
+    contents:
+    - id: MedicatedSuture
+    - id: RegenerativeMesh
+    - id: N14Stimpak
+      amount: 2
+    - id: MisfitsPillCanisterTraumadol
+    - id: MisfitsPillCanisterClearwake
+
+# ============================================================================
+# PAIN MANAGEMENT
+# Escalating pain control, from routine analgesia to heavy nerve blockade.
+# ============================================================================
+
+- type: entity
+  id: MisfitsMedkitPainManagementFilled
+  name: pain management kit
+  suffix: Filled, Misfits
+  parent: MedkitAdvanced
+  components:
+  - type: StorageFill
+    contents:
+    - id: MisfitsPillCanisterAnodyne
+    - id: MisfitsPillCanisterAnalgesine
+    - id: MisfitsPillCanisterNerveblock
+    - id: MisfitsPillCanisterTraumadol
+    - id: MisfitsHerbalAnodyne10
+
+# ============================================================================
+# PSYCHIATRIC
+# Mild stabilization through emergency antipsychotic treatment.
+# ============================================================================
+
+- type: entity
+  id: MisfitsMedkitPsychiatricFilled
+  name: psychiatric treatment kit
+  suffix: Filled, Misfits
+  parent: MedkitAdvanced
+  components:
+  - type: StorageFill
+    contents:
+    - id: MisfitsPillCanisterClearhead
+    - id: MisfitsPillCanisterChlorpromazine
+    - id: MisfitsPillCanisterLucidine
+    - id: MisfitsPillCanisterPsychocline
+    - id: MisfitsPillCanisterNeurostatic
+
+# ============================================================================
+# NARCOLEPSY / WAKEFULNESS
+# Routine maintenance, long-duration control, and emergency wakefulness.
+# ============================================================================
+
+- type: entity
+  id: MisfitsMedkitNarcolepsyFilled
+  name: sleep disorder treatment kit
+  suffix: Filled, Misfits
+  parent: MedkitO2
+  components:
+  - type: StorageFill
+    contents:
+    - id: MisfitsPillCanisterVigilazine
+    - id: MisfitsPillCanisterWakeguard
+    - id: MisfitsPillCanisterSomnoreguline
+    - id: MisfitsPillCanisterClearwake
+
+# ============================================================================
+# INFECTION CONTROL
+# Systemic antibiotics plus wound-cleaning supplies.
+# ============================================================================
+
+- type: entity
+  id: MisfitsMedkitInfectionFilled
+  name: infection treatment kit
+  suffix: Filled, Misfits
+  parent: MedkitToxin
+  components:
+  - type: StorageFill
+    contents:
+    - id: MisfitsPillCanisterAntibiotics
+    - id: MisfitsPillCanisterPenicillin
+    - id: MisfitsHerbalAntimicrobial10
+    - id: N14CleanGauze10
+      amount: 2
+
+# ============================================================================
+# FIELD / TRIBAL
+# Low-tech wound, venom, pain, and contamination treatment.
+# ============================================================================
+
+- type: entity
+  id: MisfitsMedkitFieldFilled
+  name: field medicine kit
+  suffix: Filled, Misfits
+  parent: Medkit
+  components:
+  - type: StorageFill
+    contents:
+    - id: MisfitsHealingSalve10
+    - id: MisfitsHerbalAnodyne10
+    - id: MisfitsHerbalAntimicrobial10
+    - id: MisfitsSnakebiteTourniquet10
+    - id: MisfitsPillCanisterPilgrimsRemedy
+
+# ============================================================================
+# ADVANCED EMERGENCY
+# High-end tools for severe, mixed trauma cases.
+# ============================================================================
+
+- type: entity
+  id: MisfitsMedkitAdvancedEmergencyFilled
+  name: advanced emergency medical kit
+  suffix: Filled, Misfits
+  parent: MedkitAdvanced
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14SuperStimpak
+    - id: Bloodpack
+    - id: MedicatedSuture
+    - id: RegenerativeMesh
+    - id: MisfitsPillCanisterClearwake
+    - id: MisfitsPillCanisterLazarusCompound

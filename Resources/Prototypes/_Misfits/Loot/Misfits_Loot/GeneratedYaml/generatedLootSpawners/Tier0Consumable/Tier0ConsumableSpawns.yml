@@ -1,0 +1,760 @@
+- type: entity
+  name: Tier0 Consumable FloraAll Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_FloraAll
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_FloraAll
+- type: entity
+  name: Tier0 Consumable FloraAll 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_FloraAll
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_FloraAll
+- type: entity
+  name: Tier0 Consumable FloraAll 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_FloraAll
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_FloraAll
+- type: entity
+  name: Tier0 Consumable FloraCommon Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_FloraCommon
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_FloraCommon
+- type: entity
+  name: Tier0 Consumable FloraCommon 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_FloraCommon
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_FloraCommon
+- type: entity
+  name: Tier0 Consumable FloraCommon 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_FloraCommon
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_FloraCommon
+- type: entity
+  name: Tier0 Consumable FloraBad Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_FloraBad
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_FloraBad
+- type: entity
+  name: Tier0 Consumable FloraBad 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_FloraBad
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_FloraBad
+- type: entity
+  name: Tier0 Consumable FloraBad 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_FloraBad
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_FloraBad
+- type: entity
+  name: Tier0 Consumable FloraFarm Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_FloraFarm
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_FloraFarm
+- type: entity
+  name: Tier0 Consumable FloraFarm 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_FloraFarm
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_FloraFarm
+- type: entity
+  name: Tier0 Consumable FloraFarm 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_FloraFarm
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_FloraFarm
+- type: entity
+  name: Tier0 Consumable FloraTribal Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_FloraTribal
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_FloraTribal
+- type: entity
+  name: Tier0 Consumable FloraTribal 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_FloraTribal
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_FloraTribal
+- type: entity
+  name: Tier0 Consumable FloraTribal 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_FloraTribal
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_FloraTribal
+- type: entity
+  name: Tier0 Consumable PreWarAll Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_PreWarAll
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_PreWarAll
+- type: entity
+  name: Tier0 Consumable PreWarAll 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_PreWarAll
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_PreWarAll
+- type: entity
+  name: Tier0 Consumable PreWarAll 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_PreWarAll
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_PreWarAll
+- type: entity
+  name: Tier0 Consumable PreWarGrocery Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_PreWarGrocery
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_PreWarGrocery
+- type: entity
+  name: Tier0 Consumable PreWarGrocery 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_PreWarGrocery
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_PreWarGrocery
+- type: entity
+  name: Tier0 Consumable PreWarGrocery 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_PreWarGrocery
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_PreWarGrocery
+- type: entity
+  name: Tier0 Consumable PreWarCanned Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_PreWarCanned
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_PreWarCanned
+- type: entity
+  name: Tier0 Consumable PreWarCanned 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_PreWarCanned
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_PreWarCanned
+- type: entity
+  name: Tier0 Consumable PreWarCanned 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_PreWarCanned
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_PreWarCanned
+- type: entity
+  name: Tier0 Consumable PreWarCannedDogFood Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_PreWarCannedDogFood
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_PreWarCannedDogFood
+- type: entity
+  name: Tier0 Consumable PreWarCannedDogFood 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_PreWarCannedDogFood
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_PreWarCannedDogFood
+- type: entity
+  name: Tier0 Consumable PreWarCannedDogFood 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_PreWarCannedDogFood
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_PreWarCannedDogFood
+- type: entity
+  name: Tier0 Consumable PreWarCannedNoDogFood Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_PreWarCannedNoDogFood
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_PreWarCannedNoDogFood
+- type: entity
+  name: Tier0 Consumable PreWarCannedNoDogFood 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_PreWarCannedNoDogFood
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_PreWarCannedNoDogFood
+- type: entity
+  name: Tier0 Consumable PreWarCannedNoDogFood 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_PreWarCannedNoDogFood
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_PreWarCannedNoDogFood
+- type: entity
+  name: Tier0 Consumable PreWarSweets Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_PreWarSweets
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_PreWarSweets
+- type: entity
+  name: Tier0 Consumable PreWarSweets 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_PreWarSweets
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_PreWarSweets
+- type: entity
+  name: Tier0 Consumable PreWarSweets 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_PreWarSweets
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_PreWarSweets
+- type: entity
+  name: Tier0 Consumable DrinksAll Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_DrinksAll
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_DrinksAll
+- type: entity
+  name: Tier0 Consumable DrinksAll 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_DrinksAll
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_DrinksAll
+- type: entity
+  name: Tier0 Consumable DrinksAll 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_DrinksAll
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_DrinksAll
+- type: entity
+  name: Tier0 Consumable DrinksOther Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_DrinksOther
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_DrinksOther
+- type: entity
+  name: Tier0 Consumable DrinksOther 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_DrinksOther
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_DrinksOther
+- type: entity
+  name: Tier0 Consumable DrinksOther 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_DrinksOther
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_DrinksOther
+- type: entity
+  name: Tier0 Consumable DrinksNukaColaDefault Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_DrinksNukaColaDefault
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_DrinksNukaColaDefault
+- type: entity
+  name: Tier0 Consumable DrinksNukaColaDefault 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_DrinksNukaColaDefault
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_DrinksNukaColaDefault
+- type: entity
+  name: Tier0 Consumable DrinksNukaColaDefault 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_DrinksNukaColaDefault
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_DrinksNukaColaDefault
+- type: entity
+  name: Tier0 Consumable DrinksNukaColaRadEnvironmentDefault Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_DrinksNukaColaRadEnvironmentDefault
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_DrinksNukaColaRadEnvironmentDefault
+- type: entity
+  name: Tier0 Consumable DrinksNukaColaRadEnvironmentDefault 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_DrinksNukaColaRadEnvironmentDefault
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_DrinksNukaColaRadEnvironmentDefault
+- type: entity
+  name: Tier0 Consumable DrinksNukaColaRadEnvironmentDefault 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_DrinksNukaColaRadEnvironmentDefault
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_DrinksNukaColaRadEnvironmentDefault
+- type: entity
+  name: Tier0 Consumable DrinksNukaCola Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_DrinksNukaCola
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_DrinksNukaCola
+- type: entity
+  name: Tier0 Consumable DrinksNukaCola 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_DrinksNukaCola
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_DrinksNukaCola
+- type: entity
+  name: Tier0 Consumable DrinksNukaCola 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_DrinksNukaCola
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_DrinksNukaCola
+- type: entity
+  name: Tier0 Consumable DrinksAlcoholAll Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_DrinksAlcoholAll
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_DrinksAlcoholAll
+- type: entity
+  name: Tier0 Consumable DrinksAlcoholAll 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_DrinksAlcoholAll
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_DrinksAlcoholAll
+- type: entity
+  name: Tier0 Consumable DrinksAlcoholAll 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_DrinksAlcoholAll
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_DrinksAlcoholAll
+- type: entity
+  name: Tier0 Consumable DrinksVim Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_DrinksVim
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_DrinksVim
+- type: entity
+  name: Tier0 Consumable DrinksVim 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_DrinksVim
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_DrinksVim
+- type: entity
+  name: Tier0 Consumable DrinksVim 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_DrinksVim
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_DrinksVim
+- type: entity
+  name: Tier0 Consumable DrinksVimWeighted Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_DrinksVimWeighted
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_DrinksVimWeighted
+- type: entity
+  name: Tier0 Consumable DrinksVimWeighted 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_DrinksVimWeighted
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_DrinksVimWeighted
+- type: entity
+  name: Tier0 Consumable DrinksVimWeighted 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_DrinksVimWeighted
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_DrinksVimWeighted
+- type: entity
+  name: Tier0 Consumable DrinksVimWeightedRare Single
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Single_DrinksVimWeightedRare
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier0_DrinksVimWeightedRare
+- type: entity
+  name: Tier0 Consumable DrinksVimWeightedRare 0-3
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult0_3_DrinksVimWeightedRare
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier0_DrinksVimWeightedRare
+- type: entity
+  name: Tier0 Consumable DrinksVimWeightedRare 1-2
+  suffix: Tier0
+  id: M14ConsumableTier0Spawner_Mult1_2_DrinksVimWeightedRare
+  parent: M14Tier0Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier0_DrinksVimWeightedRare

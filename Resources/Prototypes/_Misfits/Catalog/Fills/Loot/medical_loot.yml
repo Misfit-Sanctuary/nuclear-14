@@ -1,0 +1,141 @@
+﻿# ---------------------------------------------------------------------------
+# MEDICAL SHELVES - RANDOM LOOT
+# ---------------------------------------------------------------------------
+
+- type: entity
+  id: MisfitsShelfMedicalBasicLoot
+  name: scavenged first aid shelf
+  description: A partially stocked shelf of common medical supplies.
+  suffix: Loot, Medical, Basic, Random
+  parent: N14ShelfMetalMeds
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14CleanGauze10
+      prob: 0.85
+    - id: N14CleanGauze10
+      prob: 0.65
+    - id: N14Ointment10
+      prob: 0.75
+    - id: Brutepack
+      prob: 0.55
+    - id: Bloodpack
+      prob: 0.45
+    - id: N14Stimpak
+      prob: 0.35
+    - id: N14Antidote
+      prob: 0.25
+    - id: N14SmellingSalts
+      prob: 0.30
+
+- type: entity
+  id: MisfitsShelfMedicalTraumaLoot
+  name: scavenged trauma shelf
+  description: A damaged trauma shelf with a chance of containing valuable emergency supplies.
+  suffix: Loot, Medical, Trauma, Random
+  parent: N14ShelfMetalMeds
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14CleanGauze10
+      prob: 0.80
+    - id: Brutepack
+      prob: 0.70
+    - id: Brutepack
+      prob: 0.45
+    - id: Bloodpack
+      prob: 0.65
+    - id: Bloodpack
+      prob: 0.40
+    - id: N14Stimpak
+      prob: 0.45
+    - id: N14SuperStimpak
+      prob: 0.10
+    - id: N14HandheldHealthAnalyzer
+      prob: 0.18
+    - id: Portafib
+      prob: 0.08
+
+- type: entity
+  id: MisfitsShelfMedicalRadiationLoot
+  name: scavenged radiation shelf
+  description: A partially looted shelf of anti-radiation medicine.
+  suffix: Loot, Medical, Radiation, Random
+  parent: N14ShelfMetalMeds
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14RadXCanisterFilled
+      prob: 0.55
+    - id: N14RadXCanisterFilled
+      prob: 0.30
+    - id: N14RadAwayBloodbag
+      prob: 0.60
+    - id: N14RadAwayBloodbag
+      prob: 0.30
+    - id: N14FixerCanisterFilled
+      prob: 0.25
+    - id: N14Antidote
+      prob: 0.30
+    - id: N14Stimpak
+      prob: 0.25
+    - id: N14CleanGauze10
+      prob: 0.45
+
+- type: entity
+  id: MisfitsShelfMedicalChemicalsLoot
+  name: scavenged medical chemical shelf
+  description: An old chemical shelf containing an unpredictable assortment of medicines.
+  suffix: Loot, Medical, Chemicals, Random
+  parent: N14ShelfMetalMeds
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ChemicalSyringeAntidote
+      prob: 0.25
+    - id: N14Antidote
+      prob: 0.45
+    - id: N14SmellingSalts
+      prob: 0.50
+    - id: N14HealingPoultice
+      prob: 0.55
+    - id: N14HealingPowder
+      prob: 0.55
+    - id: N14Bitterdrink
+      prob: 0.35
+    - id: N14FixerCanisterFilled
+      prob: 0.20
+    - id: N14RadXCanisterFilled
+      prob: 0.30
+    - id: N14JunkAbraxoCleaner
+      prob: 0.30
+
+- type: entity
+  id: MisfitsShelfMedicalSurgeryLoot
+  name: scavenged surgery shelf
+  description: A looted surgery shelf with a chance of retaining sterile and emergency equipment.
+  suffix: Loot, Medical, Surgery, Random
+  parent: N14ShelfMetalMeds
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxNitrileGloves
+      prob: 0.35
+    - id: BoxSterileMask
+      prob: 0.35
+    - id: SurgicalSterileWipe
+      prob: 0.60
+    - id: SurgicalSterileWipe
+      prob: 0.35
+    - id: SurgicalSterilanSpray
+      prob: 0.40
+    - id: Bloodpack
+      prob: 0.55
+    - id: Bloodpack
+      prob: 0.30
+    - id: ClothingBackpackDuffelSurgeryFilled
+      prob: 0.08
+    - id: Portafib
+      prob: 0.06
+    - id: N14HandheldHealthAnalyzer
+      prob: 0.12

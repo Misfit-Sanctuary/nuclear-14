@@ -1,0 +1,20 @@
+
+#temp!!!
+- type: entityTable
+  id: M14WeaponLootTier1_GunsBulletRifleAuto
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: Error
+
+
+- type: entityTable
+  id: M14WeaponLootTier1_GunsBulletRifleSemi
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponRifle10mmM1Carbine
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniper556VarmintRifle
+      weight: 4

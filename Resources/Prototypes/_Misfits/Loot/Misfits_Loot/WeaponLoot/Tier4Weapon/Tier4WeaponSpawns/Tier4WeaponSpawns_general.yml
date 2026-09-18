@@ -1,0 +1,61 @@
+#TODO: holy fuck pls let me finish this by tomorrow I STILL NEED TO DO AMMO SPAWNS FUCK MEEE
+#TODO: DONT FORGET, COLORS, SPRITE TO REP EACH CATEGORY, ORGANIZE INTO DIFF FILES ECT..
+# parent to get color for this tier
+- type: entity
+  name: Tier4 Weapon Spawner
+  abstract: true
+  suffix: Tier4
+  id: M14Tier4Spawner_Ref
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: '#ff7b00'
+    - sprite: Effects/crayondecals.rsi
+      state: questionmark
+      scale: 1.2, 1.2
+
+# Every weapon on this tiers table(melee,guns, energy ect...)
+
+- type: entity
+  name: Tier4 Weapon Spawner
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Single_All
+  parent: M14Tier4Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+
+      table: !type:NestedSelector
+        rolls: !type:ConstantNumberSelector
+          value: 1
+        tableId: M14WeaponLootTier4
+
+- type: entity
+  name: Tier4 Weapon Spawner 0-3
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Mult0_3_All
+  parent: M14Tier4Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 0
+          max: 3
+        tableId: M14WeaponLootTier4
+
+- type: entity
+  name: Tier4 Weapon Spawner 1-2
+  suffix: Tier4
+  id: M14Tier4WeaponSpawner_Mult1_2_All
+  parent: M14Tier4Spawner_Ref
+  components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:NestedSelector
+        rolls: !type:IntegerRangeNumberRNGSelector
+          min: 1
+          max: 2
+        tableId: M14WeaponLootTier4

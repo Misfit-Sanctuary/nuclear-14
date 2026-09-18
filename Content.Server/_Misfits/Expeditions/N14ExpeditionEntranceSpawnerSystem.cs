@@ -127,7 +127,7 @@ public sealed partial class N14ExpeditionEntranceSpawnerSystem : EntitySystem
             var stumpTile = _map.CoordinatesToTile(gridUid, grid, Transform(stump).Coordinates);
             var tile = stumpTile + AdjacentOffsets[_random.Next(AdjacentOffsets.Length)];
             var entrance = Spawn(_random.Pick(EntrancePrototypes), _map.GridTileToLocal(gridUid, grid, tile));
-            _transform.AnchorEntity(entrance, Transform(entrance));
+            //_transform.AnchorEntity(entrance, Transform(entrance)); U DONT NEED TO ANCHOR THIS CYNTHESSA ELLIOT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             placed++;
             _log.Info($"Spawned expedition entrance {MetaData(entrance).EntityPrototype?.ID} at {tile} beside {ToPrettyString(stump)} on game map {mapId}.");
         }

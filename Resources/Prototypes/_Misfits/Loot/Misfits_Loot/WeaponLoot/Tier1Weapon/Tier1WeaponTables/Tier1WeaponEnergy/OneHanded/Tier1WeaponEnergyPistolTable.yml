@@ -1,0 +1,24 @@
+
+- type: entityTable
+  id: M14WeaponLootTier1_LaserPistol
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponLaserPistolRecharger
+      weight: 2
+
+- type: entityTable
+  id: M14WeaponLootTier1_PlasmaPistol
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: Error
+
+
+- type: entityTable
+  id: M14WeaponLootTier1_OtherPistol
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: Error
+

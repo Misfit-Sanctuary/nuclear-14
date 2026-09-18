@@ -1,0 +1,32 @@
+- type: entityTable
+  id: M14WeaponLootTierN_GunsBulletLMG
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponLMGchinese # 776
+      weight: 1
+    - !type:EntSelector
+      id: N14WeaponHMGcanadian # 776
+      weight: 1
+    - !type:EntSelector
+      id: N14WeaponUSHMG #Legion canadian
+      weight: 1
+    - !type:EntSelector
+      id: N14WeaponM60GPMG #308
+      weight: 1
+    - !type:EntSelector
+      id: MisfitsWeaponRangerPowerArmorLMG # 556
+      weight: 1
+    - !type:EntSelector
+      id: N14WeaponRifle556HeavyAssault # 556 lol my testies are heavier than that
+      weight: 1
+    - !type:EntSelector
+      id: N14WeaponLMG # 556
+      weight: 1
+    - !type:EntSelector
+      id: N14WeaponLMGAutoRifle # 308
+      weight: 1
+    - !type:EntSelector
+      id: N14WeaponLMGBren # 308
+      weight: 1
+

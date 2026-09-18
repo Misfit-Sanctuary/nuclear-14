@@ -164,7 +164,7 @@
 
 # Poison
 - type: reagent
-  id: AntidoteMixture
+  id: AntidoteWeak
   name: reagent-name-antidote-mixture
   group: Chems
   desc: reagent-desc-antidote-mixture
@@ -175,7 +175,7 @@
       metabolismRate: 0.2 # Slow
       effects:
       - !type:AmbientDrugFlavorText
-        cooldownId: AntidoteMixtureAmbient
+        cooldownId: AntidoteWeakAmbient
         cooldown: 50
         messageKeys:
         - drug-ambience-antidote-mixture-1
@@ -185,7 +185,7 @@
           types:
             Poison: -1 # Misfits Change - the basic Antidote Mix heals poison only now.
       - !type:ChemVomit
-        probability: 0.01
+        probability: 0.01 # TODO: rework antidotes to heal rad/poison by vomitting
 
 - type: reagent
   id: Antidote

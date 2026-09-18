@@ -1474,7 +1474,15 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
     private string? MatchKey(EntityUid entity)
     {
         if (TryComp(entity, out StackComponent? stack))
+        {
+            if (!string.IsNullOrEmpty(stack.StackTypeId) &&
+                _prototypeManager.TryIndex<StackPrototype>(stack.StackTypeId, out var stackProto))
+            {
+                return stackProto.Spawn;
+            }
+
             return stack.StackTypeId;
+        }
 
         return MetaData(entity).EntityPrototype?.ID;
     }
