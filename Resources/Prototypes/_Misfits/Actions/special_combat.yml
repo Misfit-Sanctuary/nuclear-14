@@ -1,0 +1,88 @@
+# #Misfits Add: Active combat abilities granted by high physical SPECIAL stats
+# (effective stat >= 8). Granted/revoked live by SpecialCombatAbilitySystem.
+
+- type: entity
+  id: ActionSpecialCharge
+  name: Charge
+  description: Lunge rapidly toward a point up to 5 tiles away. Requires Agility 8. 10-second cooldown.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 10
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: blink
+    itemIconStyle: NoItem
+    # Clicks beyond interaction range must be allowed; the system clamps the
+    # dash to ChargeRange itself. See the katana dash action for the pattern.
+    checkCanAccess: false
+    range: 0
+    event: !type:SpecialChargeActionEvent
+
+- type: entity
+  id: ActionSpecialParry
+  name: Parry
+  description: For 2 seconds, reflect incoming projectiles and negate melee hits, staggering melee attackers. Requires Endurance 8. 15-second cooldown.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 15
+    icon:
+      sprite: Objects/Weapons/Melee/shields.rsi
+      state: teleriot-icon
+    event: !type:SpecialParryActionEvent
+
+- type: entity
+  id: ActionSpecialKeenEye
+  name: Keen Eye
+  description: Brace and scope out your surroundings. You cannot move while scoped, and settling back takes 2 seconds. Requires Perception 8.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 4
+    icon:
+      sprite: _Misfits/Objects/Devices/binoculars.rsi
+      state: binoculars_civ
+    event: !type:SpecialKeenEyeActionEvent
+
+- type: entity
+  id: ActionSpecialRally
+  name: Rally
+  description: Shout encouragement, granting nearby allies a short burst of speed. Requires Charisma 8. 45-second cooldown.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 45
+    icon: _Misfits/Interface/Actions/warcry.png
+    event: !type:SpecialRallyActionEvent
+
+- type: entity
+  id: ActionSpecialLuckyBreak
+  name: Lucky Break
+  description: Fortune favors you for a few seconds, sharply raising your Luck. Requires Luck 8. 60-second cooldown.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 60
+    icon:
+      sprite: Objects/Fun/dice.rsi
+      state: d20_20
+    event: !type:SpecialLuckyBreakActionEvent
+
+- type: entity
+  id: ActionSpecialCripple
+  name: Cripple
+  description: Strike an adjacent target with your melee weapon, slowing their movement by 75% for 4 seconds. Requires Strength 8. 20-second cooldown.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    useDelay: 20
+    range: 1.5
+    canTargetSelf: false
+    whitelist:
+      components:
+      - MobState
+    icon:
+      sprite: Objects/Weapons/Melee/sledgehammer.rsi
+      state: icon
+    event: !type:SpecialCrippleActionEvent
