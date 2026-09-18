@@ -8,8 +8,7 @@ namespace Content.Shared._Misfits.Weapons;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class N14SuperHeavyWeaponComponent : Component
 {
-    ///     Minimum effective SPECIAL Strength required to handle the weapon without
-    ///     power armor.
+    ///     Minimum effective SPECIAL Strength required to handle the weapon without power armor.
     [DataField, AutoNetworkedField]
     public int MinStrength = 7;
 }
