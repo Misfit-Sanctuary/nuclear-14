@@ -126,6 +126,9 @@
     maxItemSize: Normal
     blacklist:
       components:
+        - BallisticAmmoProvider
+  - type: N14HMGBackpack
+
 # Tribals
 - type: entity
   parent: ClothingBackpack
