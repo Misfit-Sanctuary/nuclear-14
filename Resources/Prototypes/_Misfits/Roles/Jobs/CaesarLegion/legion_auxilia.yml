@@ -12,10 +12,6 @@
     - !type:CharacterSpeciesRequirement
       species:
       - Human
-    - !type:CharacterSexRequirement
-      sex: Female
-    - !type:CharacterGenderRequirement
-      gender: Female
   startingGear: CaesarLegionAuxiliaGear
   alwaysUseSpawner: true
   icon: "JobIconlegionerRecruit"

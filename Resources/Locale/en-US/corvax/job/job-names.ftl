@@ -35,8 +35,8 @@ job-name-caesar-legion-houndmaster = Legion Houndmaster
 job-description-caesar-legion-houndmaster = Handle the Legion's war dogs and bring them to bear against Caesar's enemies.
 job-name-caesar-legion-auxilia = Legion Auxilia
 job-description-caesar-legion-auxilia = Keep Caesar's warriors in the fight with wasteland medicine, battlefield triage, and discipline equal to any other legionary.
-job-name-caesar-legion-priestess-of-mars = Priestess of Mars
-job-description-caesar-legion-priestess-of-mars = Serve as a sacred woman of the Legion, tending to the spiritual needs of Caesar's warriors, ministering holy rites in the name of Mars, and lending aid to those who fight in his name.
+job-name-caesar-legion-priestess-of-mars = Preacher of Mars
+job-description-caesar-legion-priestess-of-mars = Serve as a sacred person of the Legion, tending to the spiritual needs of Caesar's warriors, ministering holy rites in the name of Mars, and lending aid to those who fight in his name.
 # #Misfits Change: Legion Recruit removed — replaced by Legionnaire as the entry-level rank.
 # job-name-caesar-legion-recruit = Legion Recruit
 # job-description-caesar-legion-recruit = Enter the Legion at its lowest free rank and prove you deserve to join the legionaries.

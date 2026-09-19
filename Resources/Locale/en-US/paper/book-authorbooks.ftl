@@ -468,8 +468,6 @@ book-text-legion-law =
 
  ==== STATUS OF DISSOLUTE AND LESSER GROUPS ====
 
- Women - Those born of Venus, Women may not own property and may never be legionaries. Women who are members of the Priesthood are considered the property of Mars, owned directly by him.
-
  Servus - any person owned by another. In the case of Legio castrum slaves they are considered owned by the Legio as a whole and are beholden to the assigned Centurion or anyone he places in command of them. Servus must obey commands given by their master.
 
  Monstrum - creatures that show human level intelligence but are not human. They may become servus, but may never become bellatores or members of the Priesthood.

@@ -15,10 +15,6 @@
     - !type:CharacterSpeciesRequirement
       species:
       - Human
-    - !type:CharacterSexRequirement
-      sex: Female
-    - !type:CharacterGenderRequirement
-      gender: Female
   startingGear: CaesarLegionTempleGuardGear
   alwaysUseSpawner: true
   icon: "JobIconlegionerRecruit"

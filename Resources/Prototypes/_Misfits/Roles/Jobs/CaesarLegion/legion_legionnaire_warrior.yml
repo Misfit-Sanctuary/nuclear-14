@@ -14,10 +14,6 @@
     - !type:CharacterSpeciesRequirement
       species:
       - Human
-    - !type:CharacterSexRequirement
-      sex: Male
-    - !type:CharacterGenderRequirement
-      gender: Male
   startingGear: CaesarLegionLegionnaireWarriorGear
   alwaysUseSpawner: true
   icon: "JobIconlegionerWarrior"

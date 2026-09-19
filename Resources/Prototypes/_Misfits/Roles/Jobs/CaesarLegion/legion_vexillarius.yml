@@ -18,10 +18,6 @@
     - !type:CharacterSpeciesRequirement
       species:
       - Human
-    - !type:CharacterSexRequirement
-      sex: Male
-    - !type:CharacterGenderRequirement
-      gender: Male
   startingGear: CaesarLegionVexillariusGear
   alwaysUseSpawner: true
   icon: "JobIconlegionerVenator"
