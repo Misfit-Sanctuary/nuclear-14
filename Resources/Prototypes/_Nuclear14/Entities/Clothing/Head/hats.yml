@@ -680,8 +680,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatCaravan
-  name: railwayman's cap
-  description: A hat perfect for the working man/woman/person/ghoul.
+  name: Blue Line Worker Hat
+  description: Commonly worn by the lower class in the Kingdom of Manitoba, this cap is a popular choice for cargo haulers and security guards in the Blue Line Company.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/caravancompanyhat.rsi
@@ -693,8 +693,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatCaravanUniform
-  name: Blue Line Caravan Co. employee hat
-  description: Serving the Blue Line Caravan Company loudly and proudly.
+  name: Blue Line Merchant Hat
+  description: Once these caps were worn by American pilots from Horizon Skyways, but their acquisition of the Winnipeg International Airport was shortlived before the bombs dropped. Now the transit center serves as the headquarters of a post-war caravan company.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/caravancompanyuniformhat.rsi
@@ -706,8 +706,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatCaravanSuit
-  name: Blue Line Caravan Co. boss' hat
-  description: Hat worn by those affectionately known as the Big Cheese, the Head Honcho, or simply Boss
+  name: Blue Line Head Merchant Hat
+  description: The little golden wings on the front of this cap used to be a badge for experienced  pilots from Horizon Skyways, now they mark the head merchants of the Blue Line Company. These caps signify very influential citizens of the Kingdom of Manitoba.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/caravancompanysuithat.rsi

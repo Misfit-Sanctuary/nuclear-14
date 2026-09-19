@@ -195,8 +195,8 @@
 - type: entity
   parent: N14ClothingOuterCombatArmor
   id: N14ClothingOuterCombatArmorCargo
-  name: combat armor
-  description: A suit of combat armor that's used in combat. This one bears a hastily added trade mark of the Blue Line Caravan corp.
+  name: Blue Line Combat Armor
+  description: Surplus combat armor from the United States military, this was liberated by Canadian rebels as the world fell into chaos. It is now used by the Blue Line Company's caravan guards, painted with the old flag of Winnipeg on the shoulders.
   components:
   - type: Armor
     modifiers:
@@ -231,8 +231,8 @@
 - type: entity
   parent: N14ClothingOuterCombatArmorMK2
   id: N14ClothingOuterCombatArmorMK2Cargo
-  name: combat armor mk2
-  description: A suit of combat armor that's used in combat. It looks stronger than basic combat armor. This one bears a hastily added trade mark of the Blue Line Caravan corp.
+  name: Blue Line Combat Armor Mk2
+  description: Advanced combat armor that was used by the United States military to occupy their northern neighbors. It was peeled off the corpses and repainted with the Winnipeg city flag on its shoulders, now used by the Blue Line Company guards.
   components:
   - type: Armor
     modifiers:
@@ -664,8 +664,8 @@
 - type: entity
   parent: N14ClothingOuterBase
   id: N14ClothingOuterPoliceVest
-  name: police vest
-  description: A protective vest used for the pre-war police.
+  name: Police Vest
+  description: Used by pre-war police forces across the United States, it made some people feel safe, but that changed as the internment camps were built.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutpolicevest.rsi
@@ -688,8 +688,8 @@
 - type: entity
   parent: N14ClothingOuterPoliceVest
   id: N14ClothingOuterPoliceVestCargo
-  name: cargo vest
-  description: A protective vest used for the pre-war police. This one has a Blue Line Caravan corp trade mark sewn into the breast.
+  name: Blue Line Armor Vest
+  description: A pre-war police vest used by the Winnipeg Police Department. A common piece of surplus equipment in the Kingdom of Manitoba, seen on hunters, scavengers, settlement militias, and even seen on the caravan guards of the Blue Line Company.
   components:
   - type: Armor
     modifiers:
