@@ -60,6 +60,15 @@ undecided-loadout-category-dean-sagitaria-description =
     1 rope belt, 1 smoke grenade, 2 healing Poultice,
     2 K-rations, 1 ceramic flask, and 1 mustard.
 
+undecided-loadout-category-dean-berserker-name = Decanus-Berserker Kit
+undecided-loadout-category-dean-berserker-description =
+    A box with everything needed to charge into battle.
+    Contains: 1 Legion SKS, 4 SKS clips (.308),
+    1 .45 Colt pistol, 2 pistol magazines (.45 ACP),
+    1 rope belt, 1 pair of powerfists, 3 throwing knives,
+    2 healing poultice, 2 K-rations,
+    1 ceramic flask, and 1 mustard.
+
 undecided-loadout-category-veteran-firearm-name = Veteran Legionary Firearm Kit
 undecided-loadout-category-veteran-firearm-description =
     A box with everything needed for ranged combat.
@@ -436,8 +445,21 @@ undecided-loadout-category-corvax-decanus-sharpshooter-description =
     a rope belt, 2 healing poultices, 2 K rations, the divine mustard, a .45 Colt pistol,
     2 .45 magazines, and a ceramic flask.
 
-undecided-loadout-category-corvax-decanus-destroyer-name = Decanus Heavy Destroyer
-undecided-loadout-category-corvax-decanus-destroyer-description =
+undecided-loadout-category-corvax-decanus-pa-berserker-name = Decanus Heavy Berserker
+undecided-loadout-category-corvax-decanus-pa-berserker-description =
+    Includes a Bren with an extra magazine, a smoke grenade,
+    a .45 Colt pistol, 2 .45 magazines, a power fist,
+    a rope belt, 2 healing poultice, 2 K rations,
+    a ceramic flask, and sweet sweet mustard.
+
+undecided-loadout-category-corvax-decanus-pa-suppressor-name = Decanus Heavy Suppressor
+undecided-loadout-category-corvax-decanus-pa-suppressor-description =
+    Includes a Heavy Assault Rifle, two heavy 556 magazines, a .45 Colt pistol,
+    two extra .45 magazines, a rope belt, 2 healing poultice, 2 k rations, a ceramic flask,
+    a colt .45 pistol, and the precious mustard.
+
+undecided-loadout-category-corvax-decanus-pa-destroyer-name = Decanus Heavy Destroyer
+undecided-loadout-category-corvax-decanus-pa-destroyer-description =
     Includes a M240B with a spare belt, a .45 Colt pistol,
     2 .45 magazines, a Legion shield, a rope belt,
     a singular smoke grenade and a box of handcuffs,

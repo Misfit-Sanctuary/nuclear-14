@@ -611,7 +611,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: decanus gladiator kit
+  name: decanus-gladiator kit
   parent: KitBase
   id: KitDeanGladiator
   description: "A set of Legion equipment."
@@ -643,7 +643,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: decanus crusher kit
+  name: decanus-crusher kit
   parent: KitBase
   id: KitDeanCrusher
   description: "A set of Legion equipment."
@@ -675,7 +675,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: decanus demolitionist kit
+  name: decanus-demolitionist kit
   parent: KitBase
   id: KitDeanDemolitionist
   description: "A set of Legion equipment."
@@ -710,7 +710,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: decanus sharpshooter kit
+  name: decanus-sharpshooter kit
   parent: KitBase
   id: KitDeanSharpshooter
   description: "A set of Legion equipment."
@@ -744,9 +744,9 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: decanus destroyer kit
+  name: decanus heavy berserker kit
   parent: KitBase
-  id: KitDeanDestroyer
+  id: KitDeanPABerserker
   description: "A set of Legion equipment."
   components:
   - type: Sprite
@@ -756,23 +756,87 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-    - id: N14WeaponUSHMG
-    - id: Magazine762AmmoBelt
-      amount: 2
-    - id: SmokeGrenade
-    - id: ClothingBeltRope
-    - id: N14WeaponPistol45Colt
-    - id: N14MagazinePistol45
-    - id: Handcuffs
-      amount: 2
-    - id: N14HealingPoultice
-      amount: 2
-    - id: N14FoodTinK
-      amount: 2
-    - id: N14JunkCeramicFlask
-    - id: FoodCondimentPacketMustard
+      - id: N14WeaponLMGBren
+      - id: N14ClothingHandsPowerFistGoliath
+      - id: Magazine308RifleLong
+        amount: 2
+      - id: SmokeGrenade
+      - id: ClothingBeltRope
+      - id: N14WeaponPistol45Colt
+      - id: N14MagazinePistol45
+      - id: Handcuffs
+        amount: 2
+      - id: N14HealingPoultice
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+      - id: FoodCondimentPacketMustard
     sound:
       path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: decanus heavy suppressor kit
+  parent: KitBase
+  id: KitDeanPASuppressor
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponRifle556HeavyAssault
+      - id: N14MagazineHeavy556Rifle
+        amount: 2
+      - id: SmokeGrenade
+      - id: ClothingBeltRope
+      - id: N14WeaponPistol45Colt
+      - id: N14MagazinePistol45
+      - id: Handcuffs
+        amount: 2
+      - id: N14HealingPoultice
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: decanus heavy destroyer kit
+  parent: KitBase
+  id: KitDeanPADestroyer
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponUSHMG
+      - id: Magazine762AmmoBelt
+        amount: 2
+      - id: SmokeGrenade
+      - id: ClothingBeltRope
+      - id: N14WeaponPistol45Colt
+      - id: N14MagazinePistol45
+      - id: Handcuffs
+        amount: 2
+      - id: N14HealingPoultice
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
 
 - type: entity
   name: veteran-firearm kit

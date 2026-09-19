@@ -3048,6 +3048,21 @@
 
     N14Gunpowder: 125
 
+- type: latheRecipe
+  id: N14BPLegionAmmoMagazineHeavy556Rifle
+  result: N14MagazineHeavy556Rifle
+  category: N14BlueprintLegionAmmoT4
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 800
+
+    Lead: 1000
+
+    N14Gunpowder: 500
+
 # =====================================================================
 # #Misfits Add - HELMET RECIPES
 # Helmets pair with their armor tier so players can craft a matching head
