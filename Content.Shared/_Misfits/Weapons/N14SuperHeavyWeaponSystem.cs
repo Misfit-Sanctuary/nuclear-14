@@ -8,10 +8,7 @@ using Content.Shared.Wieldable.Components;
 
 namespace Content.Shared._Misfits.Weapons;
 
-///     #Misfits Add - Gates super-heavy weapons so they can only be wielded and fired by
-///     characters with sufficient SPECIAL Strength (<see cref="N14SuperHeavyWeaponComponent.MinStrength"/>)
-///     or by characters wearing power armor (including salvaged variants).
-///     Runs shared so client prediction cancels the wield/fire attempt immediately.
+///     Gates. Runs shared so client prediction cancels the wield/fire attempt immediately.
 public sealed class N14SuperHeavyWeaponSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -64,4 +61,13 @@ public sealed class N14SuperHeavyWeaponSystem : EntitySystem
 
         return _special.HasRequirement(user, SpecialStat.Strength, weapon.MinStrength);
     }
+}
+
+///     #Misfits Add - Marker for super-heavy weapons that can only be wielded and fired by characters with high Strength or by characters wearing power armor.
+[RegisterComponent]
+public sealed partial class N14SuperHeavyWeaponComponent : Component
+{
+    ///     Minimum effective SPECIAL Strength required to handle the weapon without power armor.
+    [DataField]
+    public int MinStrength = 9;
 }

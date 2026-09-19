@@ -2,10 +2,13 @@
   name: automatic grenade launcher
   parent: BaseWeaponLauncher
   id: N14WeaponLauncherGrenadeAuto
-  description: A belt-fed, fully automatic grenade launcher that hurls 30mm grenades downrange in a steady stream. Its bulk and recoil demand exceptional strength or a suit of power armor to control.
+  description: A belt-fed, fully automatic grenade launcher that hurls 30mm grenades downrange in a steady stream. Its bulk and recoil demand exceptional strength or a suit of power armor to control.  The ammo belt is fed from a dedicated ammo backpack rather than stored inside the weapon.
   components:
+  - type: Tag
+    tags:
+      - N14AGL
+  - type: N14BackpackFedWeapon
   - type: Wieldable
-    wieldedSpeedModifier: 0.6
   - type: GunRequiresWield
   - type: GunWieldBonus
     minAngle: -19
@@ -34,21 +37,11 @@
       - FullAuto
     soundGunshot:
       collection: N14LauncherGrenadeGunshot
-  - type: MagazineAmmoProvider
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: N14Magazine30mmBelt
-        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-            - N14Magazine30mm
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
+  - type: ClothingSlotAmmoProvider
+    targetSlot: BACK
+    providerWhitelist:
+      tags:
+        - N14AGLBackpack
   - type: Appearance
   - type: FollowDistance
     backStrength: 6

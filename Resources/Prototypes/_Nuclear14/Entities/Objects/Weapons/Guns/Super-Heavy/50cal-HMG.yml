@@ -2,12 +2,12 @@
   name: .50 machine gun
   parent: [BaseItem, BaseGunWieldable]
   id: N14WeaponHMG50
-  description: A crew-served, belt-fed heavy machine gun chambered in .50 HMG ammunition. The sheer weight and recoil mean only the exceptionally strong or those in power armor can bring it to bear. The ammo belt is fed from a dedicated ammo backpack rather than stored inside the weapon.
+  description: A crew-served, belt-fed heavy machine gun chambered in .50 HMG. Its bulk and recoil demand exceptional strength or a suit of power armor to control.  The ammo belt is fed from a dedicated ammo backpack rather than stored inside the weapon.
   components:
   - type: Tag
     tags:
       - N14HMG50
-  - type: N14HMG
+  - type: N14BackpackFedWeapon
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/canadianhmg.rsi
     quickEquip: false

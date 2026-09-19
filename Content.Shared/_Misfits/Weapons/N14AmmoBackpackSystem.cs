@@ -12,11 +12,12 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._Misfits.Weapons;
 
-///     #Misfits Add - Manages the belt-fed .50 HMG ammo backpack.
-///     The pack is loaded by another player clicking the WEARER with an ammo box or a loaded
-///     belt, and the wearer can never load their own pack.
-///     Runs shared so client prediction blocks the interaction immediately.
-public sealed class N14HMGBackpackSystem : EntitySystem
+///     #Misfits Add - Manages the belt-fed super-heavy weapon ammo backpacks.
+///     A backpack with an <see cref="N14AmmoBackpackComponent"/> carries a heavy weapon in a
+///     cradle slot and feeds it ammo directly. The pack is loaded by another player clicking
+///     the WEARER with an ammo box or a loaded belt, and the wearer can never load their own
+///     pack. Runs shared so client prediction blocks the interaction immediately.
+public sealed class N14AmmoBackpackSystem : EntitySystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
@@ -26,7 +27,7 @@ public sealed class N14HMGBackpackSystem : EntitySystem
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly INetManager _net = default!;
 
-    // Dropped HMGs waiting to snap back into their pack's gun cradle. Deferred until the next tick to avoid the dropped gun being re-inserted into the pack before the drop finishes processing.
+    // Dropped weapons waiting to snap back into their pack's gun cradle. Deferred until the next tick to avoid the dropped gun being re-inserted into the pack before the drop finishes processing.
     private readonly List<(EntityUid Gun, EntityUid Pack, EntityUid? User)> _snapBack = new();
 
     public override void Initialize()
@@ -34,13 +35,13 @@ public sealed class N14HMGBackpackSystem : EntitySystem
         base.Initialize();
 
         // Block the wearer from loading their own pack by interacting with the pack item directly.
-        SubscribeLocalEvent<N14HMGBackpackComponent, InteractUsingEvent>(OnPackItemInteract, before: [typeof(SharedGunSystem)]);
+        SubscribeLocalEvent<N14AmmoBackpackComponent, InteractUsingEvent>(OnPackItemInteract, before: [typeof(SharedGunSystem)]);
 
         // Allow others to load the worn pack by using ammo on the player wearing it.
         SubscribeLocalEvent<InteractUsingEvent>(OnInteractWearer, before: [typeof(SharedGunSystem)]);
 
-        // Snap the HMG back into the pack's cradle when it is dropped or thrown.
-        SubscribeLocalEvent<N14HMGComponent, DroppedEvent>(OnHmgDropped);
+        // Snap the backpack-fed weapon back into the pack's cradle when it is dropped or thrown.
+        SubscribeLocalEvent<N14BackpackFedWeaponComponent, DroppedEvent>(OnBackpackFedWeaponDropped);
 
         // Linked belts dump their entire contents into the pack in a single action.
         SubscribeLocalEvent<N14LinkedBeltComponent, N14BulkAmmoFillDoAfterEvent>(OnBulkAmmoFillDoAfter);
@@ -58,21 +59,21 @@ public sealed class N14HMGBackpackSystem : EntitySystem
             var (gun, pack, user) = _snapBack[i];
             _snapBack.RemoveAt(i);
 
-            if (Deleted(gun) || Deleted(pack) || !HasComp<N14HMGBackpackComponent>(pack))
+            if (Deleted(gun) || Deleted(pack) || !TryComp<N14AmmoBackpackComponent>(pack, out var packComp))
                 continue;
 
             // No longer lying on the floor (re-picked up or stowed somewhere): leave it be.
             if (_containers.IsEntityInContainer(gun))
                 continue;
 
-            if (!_itemSlots.TryGetSlot(pack, "gun_holder", out var slot) || slot.HasItem)
+            if (!_itemSlots.TryGetSlot(pack, packComp.CradleSlot, out var slot) || slot.HasItem)
                 continue;
 
-            _itemSlots.TryInsert(pack, "gun_holder", gun, user);
+            _itemSlots.TryInsert(pack, packComp.CradleSlot, gun, user);
         }
     }
 
-    private void OnPackItemInteract(EntityUid uid, N14HMGBackpackComponent comp, InteractUsingEvent args)
+    private void OnPackItemInteract(EntityUid uid, N14AmmoBackpackComponent comp, InteractUsingEvent args)
     {
         // Only interactions that could feed ammo into the pack (ammo boxes, belts) are gated.
         if (!HasComp<BallisticAmmoProviderComponent>(args.Used))
@@ -95,15 +96,16 @@ public sealed class N14HMGBackpackSystem : EntitySystem
         if (!TryComp<BallisticAmmoProviderComponent>(args.Used, out var giverComp))
             return;
 
-        // The target must be a person wearing an HMG ammo backpack on their back.
+        // The target must be a person wearing an ammo backpack on their back.
         if (!TryGetWornPack(args.Target, out var pack) ||
             !TryComp<BallisticAmmoProviderComponent>(pack, out var recieverComp))
             return;
 
-        // The wearer can never load their own pack.
+        // The wearer can never load their own pack. TryGetWornPack guarantees the marker is present, so the pack's own popup loc can be used.
         if (args.Target == args.User)
         {
-            _popup.PopupClient(Loc.GetString("hmg-backpack-cannot-self-load"), pack, args.User);
+            var packComp = Comp<N14AmmoBackpackComponent>(pack);
+            _popup.PopupClient(Loc.GetString(packComp.CannotSelfLoadPopup), pack, args.User);
             args.Handled = true;
             return;
         }
@@ -190,17 +192,18 @@ public sealed class N14HMGBackpackSystem : EntitySystem
         _gun.DoAmmoInsert(ammo, recieverComp, target, args.User);
     }
 
-    private void OnHmgDropped(EntityUid uid, N14HMGComponent comp, DroppedEvent args)
+    private void OnBackpackFedWeaponDropped(EntityUid uid, N14BackpackFedWeaponComponent comp, DroppedEvent args)
     {
-        // Snap back into the cradle of a pack worn by whoever dropped the gun.
-        if (!TryGetWornPack(args.User, out var pack))
+        // Snap back into the cradle of a pack worn by whoever dropped the weapon.
+        if (!TryGetWornPack(args.User, out var pack) ||
+            !TryComp<N14AmmoBackpackComponent>(pack, out var packComp))
             return;
 
         // Cradle already occupied: the drop stands.
-        if (!_itemSlots.TryGetSlot(pack, "gun_holder", out var slot) || slot.HasItem)
+        if (!_itemSlots.TryGetSlot(pack, packComp.CradleSlot, out var slot) || slot.HasItem)
             return;
 
-        // Deferred to the next tick - see the _snapBack note above.
+        // Deferred to the next tick - see above.
         _snapBack.Add((uid, pack, args.User));
     }
 
@@ -213,7 +216,7 @@ public sealed class N14HMGBackpackSystem : EntitySystem
 
         while (enumerator.NextItem(out var item))
         {
-            if (!HasComp<N14HMGBackpackComponent>(item))
+            if (!HasComp<N14AmmoBackpackComponent>(item))
                 continue;
 
             pack = item;
@@ -232,31 +235,32 @@ public sealed class N14HMGBackpackSystem : EntitySystem
     }
 }
 
-///     #Misfits Add - Marker for the belt-fed ammo backpack of the .50 HMG.
+///     #Misfits Add - Marker for the belt-fed ammunition backpack that carries and feeds a super-heavy weapon.
 [RegisterComponent]
-public sealed partial class N14HMGBackpackComponent : Component
+public sealed partial class N14AmmoBackpackComponent : Component
 {
     ///     Loc string shown when the wearer tries to load their own pack.
     [DataField]
-    public LocId CannotSelfLoadPopup = "hmg-backpack-cannot-self-load";
+    public LocId CannotSelfLoadPopup = "ammo-backpack-cannot-self-load";
+
+    ///     ItemSlot that holds the fed weapon in its cradle. Defaults to the shared "gun_holder" convention.
+    [DataField]
+    public string CradleSlot = "gun_holder";
 }
 
-///     #Misfits Add - Marker for the .50 HMG gun itself.
+///     #Misfits Add - Marker for a weapon fed from (and snapped back into) an <see cref="N14AmmoBackpackComponent"/>'s cradle.
 [RegisterComponent]
-public sealed partial class N14HMGComponent : Component
+public sealed partial class N14BackpackFedWeaponComponent : Component
 {
 }
 
-///     #Misfits Add - Marker for the high-capacity linked belts that feed the .50 HMG.
-///     When a belt is used on a wearer carrying the HMG backpack, it transfers its entire
-///     contents in a single action via <see cref="N14BulkAmmoFillDoAfterEvent"/>,
-///     rather than the vanilla 5-round-per-tick repeat fill used by ammo boxes.
+///     #Misfits Add - Marker for high-capacity linked belts that feed the ammo backpacks.
 [RegisterComponent]
 public sealed partial class N14LinkedBeltComponent : Component
 {
 }
 
-///     #Misfits Add - One-shot do-after for dumping a linked belt's entire contents into the HMG ammo backpack.
+///     #Misfits Add - One-shot do-after for dumping a linked belt's entire contents into an ammo backpack.
 [Serializable, NetSerializable]
 public sealed partial class N14BulkAmmoFillDoAfterEvent : SimpleDoAfterEvent
 {
