@@ -282,6 +282,26 @@
 - type: Tag
   id: N14Cartridge50HEIAP
 
+# #Misfits Add - armor-affected .50 HMG round.
+- type: Tag
+  id: N14Cartridge50HMG
+
+# #Misfits Add - the .50 machine gun itself.
+- type: Tag
+  id: N14HMG50
+
+# #Misfits Add - belt-fed ammo backpack that feeds the .50 machine gun.
+- type: Tag
+  id: N14HMGBackpack
+
+# #Misfits Add - the 30mm automatic grenade launcher itself.
+- type: Tag
+  id: N14AGL
+
+# #Misfits Add - belt-fed ammo backpack that feeds the 30mm automatic grenade launcher.
+- type: Tag
+  id: N14AGLBackpack
+
 - type: Tag
   id: N14ShellShotgun12
 
@@ -409,6 +429,19 @@
 
 - type: Tag
   id: N14Magazine50AMRHEIAP
+
+# #Misfits Add
+- type: Tag
+  id: N14Magazine50HMG
+
+- type: Tag
+  id: N14Magazine50HMGHEIAP
+
+- type: Tag
+  id: N14Magazine30mm
+
+- type: Tag
+  id: N14Grenade30mm
 
 - type: Tag
   id:  SpeedLoader

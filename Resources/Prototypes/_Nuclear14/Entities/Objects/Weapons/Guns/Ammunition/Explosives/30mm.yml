@@ -1,0 +1,58 @@
+- type: entity
+  id: 30mmGrenadeFrag
+  name: 30mm HE grenade
+  description: A high-explosive 30mm round. Lighter and markedly weaker than its 40mm cousin.
+  parent: BaseGrenade
+  components:
+  - type: Tag
+    tags:
+    - N14Grenade30mm
+  - type: CartridgeAmmo
+    proto: GrenadeProjectile30mm
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: frag
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: frag
+    suffix: false
+
+# #Misfits Add - linked belt magazine for the 30mm automatic grenade launcher.
+- type: entity
+  id: N14Magazine30mmBelt
+  name: "ammo belt (30mm)"
+  parent: BaseItem
+  components:
+  - type: Tag
+    tags:
+      - N14Magazine30mm
+  - type: N14LinkedBelt
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - N14Grenade30mm
+    proto: 30mmGrenadeFrag
+    capacity: 25
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Item
+    size: Large
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-4
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
