@@ -338,7 +338,7 @@
   name: medic's doctor kit
   parent: KitBase
   id: KitNCR_MedSurgeon
-  description: A crate containing all an NCR medic needs to perform their job.
+  description: A crate containing advanced medical and surgical equipment intended for use in NCR clinics and field hospitals.
   components:
   - type: Sprite
     state: medic
@@ -346,25 +346,36 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: N14ClothingHeadHatNCRHelmetMetalMedic
-      - id: N14ClothingOuterNCRPouchedVestDesert
-      - id: N14ClothingBeltMedicalFilled
-      - id: N14ClothingHandsGlovesNitrile
-      - id: ClothingMaskSterile
-      - id: ClothingBackpackDuffelSurgeryFilled
-      - id: N14WeaponPistol45Colt
-      - id: N14BaseMagazine45Pistol
-        amount: 2
-      - id: N14SuperStimpak
-      - id: N14Stimpak
-      - id: N14Ointment10
-      - id: Bloodpack
-      - id: N14Antidote
-      - id: N14BoxCardboardMREBoxCFilled
-      - id: N14RadAwayBloodbag
-      - id: N14CleanGauze10
-        amount: 2
-      - id: Torch
+    # Clothing
+    - id: N14ClothingHeadHatNCRBeretMedic
+    - id: N14ClothingOuterNCRPouchedVestDesert
+    - id: N14ClothingBeltMedicalFilled
+    - id: N14ClothingHandsGlovesNitrile
+    - id: ClothingMaskSterile
+    - id: ClothingNeckStethoscope
+    # Clinical / surgical equipment
+    - id: ClothingBackpackDuffelSurgeryFilled
+    - id: N14HandheldHealthAnalyzer
+    - id: SurgicalSterilanSpray
+    - id: N14SmellingSalts
+      amount: 2
+    # Handgun
+    - id: N14WeaponPistol45Colt
+    - id: N14BaseMagazine45Pistol
+      amount: 2
+    # Medical supplies
+    - id: N14SuperStimpak
+    - id: N14Stimpak
+    - id: Bloodpack
+      amount: 2
+    - id: N14Antidote
+    - id: N14RadAwayBloodbag
+    - id: N14CleanGauze10
+      amount: 2
+    - id: N14Ointment10
+    # General supplies
+    - id: N14BoxCardboardMREBoxCFilled
+    - id: Torch
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -372,7 +383,7 @@
   name: medic's field medic kit # #Misfits Change - upstream brute/blood packs and sterile wipes replaced with N14 equivalents
   parent: KitBase
   id: KitNCR_MedDoctor
-  description: A crate containing standard field medicine for an NCR medic focused on stabilising the wounded in the field.
+  description: A crate containing standard field medical equipment for an NCR medic operating alongside patrols and expeditionary forces.
   components:
   - type: Sprite
     state: medic
@@ -380,28 +391,31 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: N14ClothingHeadHatNCRHelmetMetalMedic
-      - id: N14ClothingOuterNCRPouchedVestDesert
-      - id: N14ClothingBeltMedicalFilled
-      #- id: N14ClothingOuterNCRPouchedVestWoods #Misfits Change medics already spawn with a vest.
-      - id: N14ClothingHandsGlovesNitrile
-      - id: N14ClothingHeadHatNCRHelmetMetalMedic
-      - id: N14SmellingSalts # #Misfits Change - N14 field revival item replaces upstream sterile wipes
-        amount: 2
-      - id: N14HandheldHealthAnalyzer # #Misfits Add - NCR medical doctors should spawn with health analyzer
-      - id: N14WeaponSMG9mm
-      - id: N14MagazineSMG9mm
-        amount: 3
-      - id: N14Traumapack # #Misfits Change - N14 brute treatment replaces upstream Brutepack
-      - id: N14Ointment10
-      - id: N14Antidote
-      - id: N14BoxCardboardMREBoxCFilled
-      - id: N14Stimpak
-        amount: 2
-      - id: N14RadAwayBloodbag
-      - id: N14CleanGauze10
-        amount: 2
-      - id: N14Flare
+    # Clothing
+    - id: N14ClothingHeadHatNCRHelmetMetalMedic
+    - id: N14ClothingOuterNCRPouchedVestDesert
+    - id: N14ClothingBeltMedicalFilled
+    - id: N14ClothingHandsGlovesNitrile
+    # Field medical equipment
+    - id: N14HandheldHealthAnalyzer
+    - id: N14SmellingSalts
+      amount: 2
+    - id: N14Traumapack
+    # Primary weapon
+    - id: N14WeaponSMG9mm
+    - id: N14MagazineSMG9mm
+      amount: 3
+    # Medical supplies
+    - id: N14Stimpak
+      amount: 2
+    - id: N14Ointment10
+    - id: N14Antidote
+    - id: N14RadAwayBloodbag
+    - id: N14CleanGauze10
+      amount: 2
+    # General supplies
+    - id: N14BoxCardboardMREBoxCFilled
+    - id: N14Flare
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -409,7 +423,7 @@
   name: medic's combat kit
   parent: KitBase
   id: KitNCR_MedCombat
-  description: A crate containing all an NCR medic needs to perform their job.
+  description: A crate containing frontline medical and combat equipment for an NCR combat medic operating under fire.
   components:
   - type: Sprite
     state: medic
@@ -417,23 +431,34 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: N14WeaponRifle556Service
-      - id: N14ClothingHeadHatNCRHelmetMetalMedic
-      - id: N14ClothingOuterNCRPouchedVestDesert
-      - id: DefibrillatorCompact # portable defib for frontline revival
-      - id: Magazine556Rifle
-        amount: 4
-      - id: N14WeaponPistol9mm
-      - id: N14MagazinePistol9mm
-        amount: 2
-      - id: N14MedkitCombatFilled
-      - id: N14BoxCardboardMREBoxCFilled
-      - id: N14Stimpak
-        amount: 2
-      - id: N14RadAwayBloodbag
-      - id: N14CleanGauze10
-        amount: 2
-      - id: Torch
+    # Clothing
+    - id: N14ClothingHeadHatNCRHelmetMetalMedic
+    - id: N14ClothingOuterNCRPouchedVestDesert
+    - id: N14ClothingBeltMedicalFilled
+    # Frontline medical equipment
+    - id: DefibrillatorCompact
+    - id: N14HandheldHealthAnalyzer
+    - id: N14MedkitCombatFilled
+    - id: N14SmellingSalts
+    # Primary weapon
+    - id: N14WeaponRifle556Service
+    - id: Magazine556Rifle
+      amount: 3
+    # Emergency medicine
+    - id: N14Stimpak
+      amount: 2
+    - id: N14Antidote
+    - id: N14RadAwayBloodbag
+    - id: N14CleanGauze10
+      amount: 2
+    # Field topicals
+    - id: MisfitsHealingSalve5
+    - id: MisfitsHerbalAnodyne5
+    - id: MisfitsDaturaHide5
+    - id: MisfitsSnakebiteTourniquet5
+    # General supplies
+    - id: N14BoxCardboardMREBoxCFilled
+    - id: Torch
     sound:
       path: /Audio/Effects/unwrap.ogg
 
