@@ -203,7 +203,7 @@ public sealed class N14AmmoBackpackSystem : EntitySystem
         if (!_itemSlots.TryGetSlot(pack, packComp.CradleSlot, out var slot) || slot.HasItem)
             return;
 
-        // Deferred to the next tick - see above.
+        // Deferred to the next tick.
         _snapBack.Add((uid, pack, args.User));
     }
 

@@ -108,8 +108,8 @@
         name: ammo-backpack-gun-slot-name
         insertVerbText: ammo-backpack-gun-insert-verb
         ejectVerbText: ammo-backpack-gun-eject-verb
-        insertSound: /Audio/SimpleStation14/Items/Handling/sword_sheath.ogg
-        ejectSound: /Audio/SimpleStation14/Items/Handling/sword_unsheath.ogg
+        insertSound: /Audio/_Nuclear14/Weapons/Guns/Heavy/N14WeaponHMG/whirs.ogg
+        ejectSound: /Audio/_Nuclear14/Weapons/Guns/Heavy/N14WeaponHMG/whirs.ogg
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
