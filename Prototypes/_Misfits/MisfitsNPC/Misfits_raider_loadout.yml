@@ -12,6 +12,54 @@
     pocket1: N14RaiderStash
 
 - type: startingGear
+  id: MisfitsPsychoRaiderMeleeGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTrackpants
+    shoes: N14ClothingShoesBlack
+    head: ClothingHeadHatBlacksoft
+    mask: N14ClothingMaskBrownMask
+    outerClothing: M14ClothingOuterArmorKit
+    pocket1: N14RaiderStash
+    pocket2: N14CleanGauze1
+- type: startingGear
+  id: MisfitsTalonMeleeGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSuitBlackAlt
+    shoes: ClothingShoesMilitaryBase
+    mask: N14ClothingMaskBlackBalaclava
+    outerClothing: M14ClothingOuterCombatTalon
+    pocket1: N14RaiderStash
+    pocket2: N14RaiderStash
+  inhand:
+  - N14CombatKnife
+
+- type: startingGear
+  id: MisfitsPsychoRaiderMeleeOneGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitRags
+    shoes: N14ClothingShoesBlack
+    gloves: N14ClothingHandsGlovesCloth
+    mask: N14ClothingMaskBrownMask
+    outerClothing: N14ClothingOuterRaiderBadlands
+    pocket1: N14RaiderStash
+    pocket2: Brutepack1
+  inhand:
+  - N14TrenchClub
+
+- type: startingGear
+  id: MisfitsPsychoRaiderMeleeTwoGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTrackpants
+    shoes: N14ClothingShoesBlack
+    head: ClothingHeadHatBlacksoft
+    mask: N14ClothingMaskBrownMask
+    outerClothing: M14ClothingOuterArmorKit
+    pocket1: N14RaiderStash
+    pocket2: N14CleanGauze1
+  inhand:
+  - N14Machete
+  
+- type: startingGear
   id: MisfitsFernPrivateOneGear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitCombat
@@ -26,12 +74,39 @@
   - N14CombatKnife
 
 - type: startingGear
-  id: MisfitsFernPrivateTwoGear
+  id: MisfitsTalonMeleeGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSuitBlackAlt
+    shoes: ClothingShoesMilitaryBase
+    mask: N14ClothingMaskBlackBalaclava
+    outerClothing: M14ClothingOuterCombatTalon
+    pocket1: N14RaiderStash
+    pocket2: N14RaiderStash
+  inhand:
+  - N14CombatKnife
+
+- type: startingGear
+  id: MisfitsPsychoRaiderMeleeOneGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitRags
+    shoes: N14ClothingShoesBlack
+    gloves: N14ClothingHandsGlovesCloth
+    mask: N14ClothingMaskBrownMask
+    outerClothing: N14ClothingOuterRaiderBadlands
+    pocket1: N14RaiderStash
+    pocket2: Brutepack1
+  inhand:
+  - N14BaseBallBat
+
+  #RANGED
+
+- type: startingGear
+  id: MisfitsFernPrivateTwoGear 
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitCombat
     shoes: N14ClothingBootsBlack
     gloves: N14ClothingHandsGlovesNCR
-    head: N14ClothingHeadHatCombatHelmet
+    head: N14ClothingHeadHatMilitaryHelmet
     mask: N14ClothingMaskBrownMask
     outerClothing: ClothingOuterVestFlak
     belt: ClothingBeltMilitary
@@ -48,14 +123,25 @@
     pocket2: N14RaiderStash
 
 - type: startingGear
-  id: MisfitsTalonMeleeGear
+  id: MisfitsRaiderPsychoRifleGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSuitBlackAlt
-    shoes: ClothingShoesMilitaryBase
-    mask: N14ClothingMaskBlackBalaclava
-    outerClothing: M14ClothingOuterCombatTalon
+    jumpsuit: N14ClothingUniformJumpsuitRags
+    shoes: ClothingShoesRaider
+    gloves: N14ClothingHandsGlovesLeather
+    head: ClothingHeadHelmetFire
+    mask: ClothingMaskGasFire
+    outerClothing: N14ClothingOuterRaiderBlastmaster
     pocket1: N14RaiderStash
-    pocket2: N14RaiderStash
-  inhand:
-  - N14CombatKnife
-  
+
+- type: startingGear
+  id: MisfitsFernPrivateThreeGear 
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitCombat
+    shoes: N14ClothingBootsBlack
+    gloves: N14ClothingHandsGlovesNCR
+    head: N14ClothingHeadHatMilitaryHelmet
+    back: N14ClothingBackpackRandomFill
+    mask: CLothingMaskGasExplorer
+    outerClothing: ClothingOuterVestFlak
+    belt: ClothingBeltMilitary
+    pocket1: N14RaiderStash

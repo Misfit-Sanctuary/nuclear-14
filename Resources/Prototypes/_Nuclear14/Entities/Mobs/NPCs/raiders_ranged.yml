@@ -157,7 +157,7 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/10mmPIPE.rsi
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/10mm.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
@@ -238,7 +238,7 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/double_shotgun.rsi
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/hunting.rsi
         state: inhand-right # Only part we change, the gun sprite.
 
 - type: entity
@@ -495,7 +495,7 @@
       maxAngle: 13.5
       angleIncrease: 1
       angleDecay: 4
-      fireRate: 2.5
+      fireRate: 3.0
       soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Pistols/N14WeaponPistol12mm/shot1.ogg
       useKey: false
       selectedMode: FullAuto
