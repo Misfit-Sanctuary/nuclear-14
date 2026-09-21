@@ -270,6 +270,9 @@
       - id: N14Stimpak
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
+      - id: SmokeGrenade
+        amount: 2
+      - id: MisfitsGrenadeFragDefensive
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -300,6 +303,8 @@
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
       - id: N14ToolboxMechanical
+      - id: SmokeGrenade
+        amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -328,7 +333,7 @@
       - id: N14CleanGauze10
       - id: N14TinNade
         amount: 2
-      - id: N14Dynamite
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -402,6 +407,7 @@
       - id: N14CleanGauze10
         amount: 2
       - id: N14Flare
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -434,6 +440,7 @@
       - id: N14CleanGauze10
         amount: 2
       - id: Torch
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -526,6 +533,7 @@
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
       - id: N14Flare
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -553,6 +561,8 @@
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
       - id: N14Flare
+      - id: SmokeGrenade
+        amount: 3
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -583,6 +593,7 @@
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
       - id: N14Flare
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -613,6 +624,10 @@
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
       - id: N14Flare
+        amount: 2
+      - id: SmokeGrenade
+      - id: MisfitsGrenadeFragDefensive
+        amount: 2 # This kit is way too weak compared to other NCO kits, here, have some nades
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -642,6 +657,7 @@
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
       - id: N14Flare
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -699,6 +715,9 @@
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
       - id: N14Flare
+      - id: SmokeGrenade
+        amount: 2
+      - id: MisfitsGrenadeFragDefensive
     sound:
       path: /Audio/Effects/unwrap.ogg
 

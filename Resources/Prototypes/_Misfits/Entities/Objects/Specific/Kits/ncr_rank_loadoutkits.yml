@@ -187,7 +187,8 @@
       - id: N14MagazinePistol9mm
         amount: 2
       - id: RadioHandheld
-      - id: SmokeGrenade
+      - id: GrenadeShrapnel
+        amount: 2
       - id: N14BoxCardboardMREBoxCFilled
       - id: N14Stimpak
       - id: N14Psycho
@@ -347,7 +348,9 @@
         amount: 4
       - id: SmokeGrenade
         amount: 2
-      - id: N14Dynamite # #Misfits Fix - GrenadeFrag is a GL-only round (no matching launcher in kit); replaced with throwable dynamite
+      - id: GrenadeShrapnel 
+      - id: MisfitsGrenadeFragDefensive # This kit has a much worse gun than the other ones, fixed with nades.
+      - amount: 2
       - id: N14BoxCardboardMREBoxCFilled
       - id: N14Stimpak
       - id: N14SuperStimpak
@@ -371,11 +374,7 @@
     items:
       - id: N14WeaponLMGAutoRifle
       - id: Magazine308Rifle
-        amount: 2
-      - id: SmokeGrenade
-        amount: 2
-      - id: N14Dynamite # #Misfits Fix - GrenadeFrag is a GL-only round (no matching launcher in kit); replaced with throwable dynamite
-        amount: 2
+        amount: 2 # Throwables gone from this kit. Too good of a gun.
       - id: N14BoxCardboardMREBoxCFilled
       - id: N14Stimpak
       - id: N14SuperStimpak
@@ -402,7 +401,7 @@
         amount: 2
       - id: SmokeGrenade
         amount: 2
-      - id: N14Dynamite
+      - id: MisfitsGrenadeFragDefensive # More nades for the HTL
         amount: 2
       - id: N14BoxCardboardMREBoxCFilled
       - id: N14Stimpak
@@ -427,8 +426,8 @@
     items:
     - id: N14WeaponLMG
     - id: LMGMagazine556Rifle
-    - id: N14Dynamite # #Misfits Fix - GrenadeFrag is a GL-only round (no matching launcher in kit); replaced with throwable dynamite
-      amount: 3
+    - id: MisfitsGrenadeFragDefensive
+    - id: SmokeGrenade
     - id: N14BoxCardboardMREBoxCFilled
     - id: N14Stimpak
     - id: N14SuperStimpak
