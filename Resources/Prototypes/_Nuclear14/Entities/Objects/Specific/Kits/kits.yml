@@ -857,6 +857,8 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: MisfitsGrenadeFragDefensive
+        amount: 3 # This kit is bad.
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -880,6 +882,7 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -903,6 +906,8 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: SmokeGrenade
+        amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -928,6 +933,7 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -944,13 +950,17 @@
   - type: SpawnItemsOnUse
     items:
       - id: ClothingBeltNCRPouches
-      - id: N14WeaponSniper44LeverCarbine
-      - id: MagazineBox44
+      - id: N14WeaponSniper45-70BrushGun
+      - id: SpeedLoader45-70Tube
         amount: 3
       - id: N14Stimpak
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: MisfitsGrenadeFragDefensive
+        amount: 2
+      - id: SmokeGrenade
+        amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -969,13 +979,15 @@
     items:
       - id: ClothingBeltNCRPouches
       - id: N14WeaponRifle308SniperRifle
-      - id: Magazine308RifleSniper
-        amount: 3
+      - id: MagazineOver308RifleSniper
+        amount: 4
       - id: MagazineBox308
       - id: N14Stimpak
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: SmokeGrenade
+        amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -999,6 +1011,7 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -1025,6 +1038,9 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: GrenadeShrapnel
+      - id: SmokeGrenade
+      - id: MisfitsGrenadeFragDefensive 
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -1049,6 +1065,8 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: MisfitsGrenadeFragDefensive
+        amount: 5 # A shit ton of grenades until a better solution to make this kit not plain bad is found
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -1073,6 +1091,7 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: SmokeGrenade # A single smoke grenade for the sake of parity
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -1089,14 +1108,17 @@
   - type: SpawnItemsOnUse
     items:
       - id: ClothingBeltNCR
-      - id: N14WeaponRifle556Carbine
-      - id: LongMagazine556Rifle
-        amount: 4
+      - id: N14WeaponRifleOperative # An alternative to the Scout rifle
+      - id: Magazine556Rifle
+        amount: 5 
       - id: MagazineBox556
       - id: N14Stimpak
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: GrenadeShrapnel
+        amount: 3
+      - id: MisfitsGrenadeFragDefensive 
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -1121,6 +1143,9 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: GrenadeShrapnel
+      - id: SmokeGrenade
+      - id: MisfitsGrenadeFragDefensive 
     sound:
       path: /Audio/Effects/unwrap.ogg
 
