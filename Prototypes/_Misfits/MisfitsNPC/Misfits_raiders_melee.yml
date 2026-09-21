@@ -1,0 +1,29 @@
+- type: entity
+  name: Psycho Raider Shieldman
+  parent: MisfitsBaseMobShieldRaider
+  id: N14MobRaiderShieldPsycho
+  description: Psychopatic raider holding a shield, take alot of shots before going down.
+  components:
+    - type: Loadout
+      prototypes:
+      - MisfitsPsychoRaiderShieldGear
+
+- type: entity
+  name: Gunners Private
+  parent: N14BaseMobRaider
+  id: N14MobRaiderFernPrivateOne
+  description: Professional mercenary-wannabe armed with a combat knife. Ready to stab someone's torso.
+  components:
+    - type: Loadout
+      prototypes:
+      - MisfitsFernPrivateOneGear
+      
+- type: entity
+  name: Talon Mercenary
+  parent: N14BaseMobRaider
+  id: MisfitsTalonMelee
+  description: Talon mercenary armed with a combat knife. Ready to cut someone's up.
+  components:
+    - type: Loadout
+      prototypes:
+      - MisfitsTalonMeleeGear

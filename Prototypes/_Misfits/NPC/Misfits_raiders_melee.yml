@@ -1,9 +1,0 @@
-- type: entity
-  name: Psycho Shield Raider
-  parent: MisfitsPsychoRaiderShieldGear
-  id: N14MobRaiderShieldPsycho
-  description: Psychopatic raider with a shield, take alot of shots before going down.
-  components:
-    - type: Loadout
-      prototypes:
-      - PsychoShieldRaiderGear

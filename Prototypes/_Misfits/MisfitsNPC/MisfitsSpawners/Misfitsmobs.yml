@@ -1,0 +1,76 @@
+#MARK: Misfits Raiders
+- type: entity
+  name: Gunners Spawner - Melee 1
+  id: MisfitsSpawnMobRaiderFernPrivateOne
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - N14MobRaiderFernPrivateOne
+
+- type: entity
+  name: Gunners Spawner - Private 1
+  id: MisfitsSpawnMobRaiderFernPrivateTwo
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsRaiderFernPrivateTwo
+
+
+- type: entity
+  name: Raider Spawner - Shield
+  id: MisfitsSpawnMobRaiderShield
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsBaseMobShieldRaider
+
+- type: entity
+  name: Talons Spawner - Rifle
+  id: MisfitsSpawnMobRaiderTalonRifle
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsTalonRifle
+
+- type: entity
+  name: Talon Spawner - Melee
+  id: MisfitsSpawnMobRaiderTalonMelee
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - N14MobRaiderFernPrivateOne
