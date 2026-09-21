@@ -106,6 +106,9 @@
       - id: Magazine762Rifle
         amount: 3
       - id: BoxHandcuff
+      - id: SmokeGrenade
+        amount: 2
+      - id: GrenadeShrapnel
       - id: N14HealingPoultice #Misfits Change /Tweak/: replaces dirty stimpak, Legion uses tribal medicine
         amount: 2
       #- id: N14MedkitFilled #Misfits Change /Remove/: Legion does not use stimpak medkits
@@ -138,6 +141,10 @@
       - id: N14FoodTinK
         amount: 2
       - id: N14JunkCeramicFlask
+      - id: MisfitsGrenadeFragDefensive
+        amount: 3
+      - id: SmokeGrenade
+        amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -307,6 +314,7 @@
       - id: N14PilumSpear
         amount: 3
       - id: Bola
+      - id: GrenadeShrapnel
       - id: N14HealingPoultice #Misfits Change /Tweak/: replaces dirty stimpak, Legion uses tribal medicine
       - id: N14HealingPowder
       - id: N14FoodTinK
@@ -336,6 +344,7 @@
       - id: N14MagazinePistol45
         amount: 2
       - id: SmokeGrenade
+      - id: GrenadeShrapnel
       - id: N14Bandage
         amount: 2
       - id: N14HealingPoultice
@@ -367,6 +376,8 @@
       - id: N14MagazinePistol45
         amount: 2
       - id: N14LegionnaireBuckler
+      - id: GrenadeShrapnel
+      - id: MisfitsGrenadeFragDefensive
       - id: N14PilumSpear
       - id: N14HealingPoultice #Misfits Change /Tweak/: replaces dirty stimpak, Legion uses tribal medicine
       - id: N14HealingPowder
@@ -397,6 +408,7 @@
       - id: N14MagazinePistol45
         amount: 2
       - id: N14Whip
+      - id: MisfitsGrenadeFragDefensive
       - id: Bola
         amount: 2
       - id: N14HealingPoultice
@@ -427,6 +439,7 @@
       - id: N14MagazinePistol45
         amount: 2
       - id: N14Whip
+      - id: MisfitsGrenadeFragDefensive
       - id: Zipties
         amount: 2
       - id: N14HealingPoultice #Misfits Change /Tweak/: replaces dirty stimpak, Legion uses tribal medicine
@@ -459,6 +472,9 @@
       - id: N14HealingPoultice
         amount: 2
       - id: N14Hydra
+      - id: MisfitsGrenadeFragDefensive
+        amount: 2
+      - id: SmokeGrenade
       - id: N14HealingPowder
         amount: 2
       - id: ClothingBeltMedical
@@ -694,6 +710,7 @@
         amount: 2
       - id: SmokeGrenade
       - id: ClothingBeltRope
+      - id: GrenadeShrapnel
       - id: N14WeaponPistol45Colt
       - id: N14MagazinePistol45
       - id: Handcuffs
@@ -829,6 +846,7 @@
         amount: 2
       - id: N14Gladius
       - id: SmokeGrenade
+      - id: N14Dynamite
       - id: N14HealingPoultice #Misfits Change /Tweak/: replaces dirty stimpak, Legion uses tribal medicine
         amount: 2
       - id: N14FoodTinK
@@ -861,6 +879,8 @@
       - id: N14TribalBigClubDecorated #swapped with fireaxe, the fireaxe is utter trash
       - id: ThrowingKnife
         amount: 3
+      - id: N14Dynamite
+        amount: 2
       - id: N14HealingPoultice #Misfits Change /Tweak/: Legion uses tribal medicine, not stimpaks
         amount: 2
       - id: N14FoodTinK
@@ -891,6 +911,7 @@
       - id: N14ClothingHandsPowerFistGoliath
       - id: ThrowingKnife
         amount: 3
+      - id: GrenadeShrapnel
       - id: N14HealingPoultice
         amount: 2
       - id: N14FoodTinK
@@ -2008,6 +2029,7 @@
         amount: 2
       - id: SmokeGrenade
         amount: 2
+      - id: MisfitsGrenadeFragDefensive
       - id: N14Bandage
         amount: 2
       - id: N14HealingPoultice
@@ -2038,6 +2060,7 @@
       - id: N14MagazinePistol45
         amount: 2
       - id: SmokeGrenade
+      - id: MisfitsGrenadeFragDefensive
       - id: N14HealingPoultice
         amount: 2
       - id: N14HealingPowder
@@ -2068,6 +2091,8 @@
       - id: N14MagazinePistol45
         amount: 2
       - id: N14CeremonialSword
+      - id: MisfitsGrenadeFragDefensive
+        amount: 2
       - id: Bola
       - id: Handcuffs
       - id: N14HealingPowder
