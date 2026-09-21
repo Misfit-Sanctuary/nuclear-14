@@ -83,6 +83,9 @@
     sprite: _Nuclear14/Clothing/Mask/brownbalaclava.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/Mask/brownbalaclava.rsi
+    slots:
+    - mask
+    - neck
   - type: IngestionBlocker
   - type: BreathMask
   - type: HideLayerClothing
@@ -102,6 +105,9 @@
     sprite: _Nuclear14/Clothing/Mask/blackbalaclava.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/Mask/blackbalaclava.rsi
+    slots:
+    - mask
+    - neck
   - type: IngestionBlocker
   - type: BreathMask
   - type: HideLayerClothing
@@ -120,6 +126,9 @@
     sprite: _Nuclear14/Clothing/Mask/whitebalaclava.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/Mask/whitebalaclava.rsi
+    slots:
+    - mask
+    - neck
   - type: IngestionBlocker
   - type: BreathMask
   - type: HideLayerClothing
