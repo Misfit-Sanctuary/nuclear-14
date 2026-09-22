@@ -475,6 +475,14 @@ namespace Content.Shared.Movement.Systems
                 return true;
             }
 
+            // OuterClothing slot overrides footstep sound.
+            if (_inventory.TryGetSlotEntity(uid, "outerClothing", out var outerClothing) &&
+                TryComp<FootstepModifierComponent>(outerClothing, out var outerModifier))
+            {
+                sound = outerModifier.FootstepSoundCollection;
+                return true;
+            }
+
             // If got the component in yml and no shoes = no sound. Delta V
             if (_entities.TryGetComponent(uid, out NoShoesSilentFootstepsComponent? _) &
                 !_inventory.TryGetSlotEntity(uid, "shoes", out var _))
