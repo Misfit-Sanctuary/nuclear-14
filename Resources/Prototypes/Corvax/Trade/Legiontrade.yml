@@ -497,6 +497,8 @@
     price: 55
   - proto: N14WeaponRifle556CarbineOld
     price: 30
+  - proto: N14WeaponSniperPaciencia
+    price: 5
 
 - type: storeCategoryStructured
   id: LegionSell2_Smgs
@@ -884,9 +886,9 @@
   - proto: N14ClothingNeckCloakLegionWhite
     price: 5
   - proto: N14ClothingUniformJumpsuitLegionnaire
-    price: 1
+    price: 4
   - proto: N14ClothingUniformJumpsuitLegionnaireOther
-    price: 1
+    price: 4 # cant be any less or it allows an exploit of butching for cloth then selling it for profit
   - proto: M14LegionBackpackCapeBlack
     price: 13
   - proto: M14LegionBackpackCapeRed

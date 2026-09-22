@@ -317,7 +317,7 @@
     fireCost: 50
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 20
+    autoRechargeRate: 25
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -480,7 +480,7 @@
           tags:
             - N14MicrofusionCell
   - type: Gun
-    fireRate: 2.75
+    fireRate: 4
     soundGunshot:
       collection: N14LaserAutoRifleGunshot
     selectedMode: FullAuto
@@ -590,12 +590,12 @@
           tags:
             - N14MicrofusionCell
   - type: Gun
-    fireRate: 2.5 # Low ROF compensates for highest damage output
+    fireRate: 4
     soundGunshot:
       collection: N14LaserAutoRifleGunshot
-    selectedMode: SemiAuto
+    selectedMode: FullAuto
     availableModes:
-    - SemiAuto
+    - FullAuto
   # Weapon profile controls damage and beam color; MFC supplies charge.
   - type: GunDamageBonus
     hitscanProtoOverride: N14MFLaserViolet
@@ -1000,7 +1000,7 @@
           tags:
             - N14MicrofusionCell
   - type: Gun
-    fireRate: 2
+    fireRate: 1
     soundGunshot:
       collection: N14WattzGunshot
     selectedMode: SemiAuto
@@ -1015,7 +1015,7 @@
     hitscanProtoOverride: N14MFLaserYellow
     bonusDamage:
       types:
-        Heat: 28
+        Shock: 15
     fireCostMultiplier: 2.0
 
 - type: entity
@@ -1057,7 +1057,7 @@
           tags:
             - N14MicrofusionCell
   - type: Gun
-    fireRate: 1.5
+    fireRate: 1
     soundGunshot:
       collection: N14WattzGunshot
     selectedMode: SemiAuto
@@ -1072,7 +1072,7 @@
     hitscanProtoOverride: N14MFLaserYellow
     bonusDamage:
       types:
-        Heat: 18
+        Shock: 10
     fireCostMultiplier: 2.0
 
 #MARK: Heavy

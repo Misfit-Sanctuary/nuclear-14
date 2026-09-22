@@ -77,6 +77,7 @@
     sprite: _Nuclear14/Objects/Decoration/Flags/legioncross.rsi
     state: icon
     noRot: true
+    drawdepth: Items # Below Mobs so a buckled mob renders in front instead of behind the cross
   - type: Damageable
     damageModifierSet: Wood
     damageContainer: Inorganic
