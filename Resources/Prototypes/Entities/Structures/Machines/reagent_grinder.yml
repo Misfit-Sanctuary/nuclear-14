@@ -103,3 +103,13 @@
     solution: output
   - type: ExaminableSolution
     solution: output
+  # #Misfits
+  - type: AutomationSlots
+    slots:
+    - !type:AutomatedSolution
+      input: AutomationSlotSolution
+      output: AutomationSlotSolution
+      solutionName: output
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice

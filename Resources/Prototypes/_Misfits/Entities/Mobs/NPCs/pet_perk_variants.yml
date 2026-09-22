@@ -96,20 +96,16 @@
     needsHands: false
   - type: Hands # #Misfits Add - allows dragging and item handling
   - type: BorgHands # #Misfits Add - gives cats actual holdable hand slots
-    handCount: 2
+    handCount: 1
   - type: ComplexInteraction # #Misfits Add - allows click-opening doors and other complex hand interactions
   - type: RobotWeaponPickupBlacklist # #Misfits Add - cats should not be able to pick up guns/melee weapons
     blacklist:
       components:
       - Gun
       - MeleeWeapon
+  - type: MisfitsPetNoPickup # So they cant pick up items but can drag
   - type: InventorySlots
-  - type: Strippable
   - type: PetCollarHolder
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -377,11 +373,11 @@
     sprite: _Misfits/Mobs/Pets/cat.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: spoon_thin
+      state: spoon_ncr
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: spoon_thin
+        Base: spoon_ncr
       Critical:
         Base: spoon_dead
       Dead:
@@ -697,6 +693,59 @@
       state: wolf
       sprite: _Misfits/Mobs/Pets/wim.rsi
   - type: WimDogTranslator
+  - type: Emoting
+  - type: MobThresholds # #Misfits Add - allow revival by medics
+    allowRevives: true
+  - type: Inventory
+    speciesId: cat
+    templateId: cat_pet
+  - type: Puller # #Misfits Add - explicit puller for drag mechanic
+    needsHands: false
+  - type: Hands # #Misfits Add - allows dragging and item handling
+  - type: BorgHands # #Misfits Add - gives cats actual holdable hand slots
+    handCount: 2
+  - type: ComplexInteraction # #Misfits Add - allows click-opening doors and other complex hand interactions
+  - type: RobotWeaponPickupBlacklist # #Misfits Add - cats should not be able to pick up guns/melee weapons
+    blacklist:
+      components:
+      - Gun
+      - MeleeWeapon
+  - type: InventorySlots
+  - type: Strippable
+  - type: PetCollarHolder
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VulpEmotes
+  - type: NpcFactionMember
+    factions:
+      - Wastelander
+
+# Bibbles - unique cat companion.
+- type: entity
+  name: Bibbles
+  id: MisfitsMobPetBibbles
+  parent: N14MobPetCat
+  description: A scrappy calico cat with alot of attitude, he's always ready to defend his turf.
+  components:
+  - type: RandomMetadataExcluded
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: cat
+      sprite: _Misfits/Mobs/Pets/bibbles.rsi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: cat
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
   - type: Emoting
   - type: MobThresholds # #Misfits Add - allow revival by medics
     allowRevives: true

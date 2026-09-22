@@ -1,0 +1,26 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Adapted from Goob Station / Trauma Station
+
+using Content.Shared._Misfits.Factory.Filters;
+using Content.Shared.Mobs;
+
+namespace Content.Client._Misfits.Factory.UI;
+
+public sealed class MobFilterBUI : BoundUserInterface
+{
+    private MobFilterWindow? _window;
+
+    public MobFilterBUI(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+    {
+    }
+
+    protected override void Open()
+    {
+        base.Open();
+
+        _window = this.CreateWindow<MobFilterWindow>();
+        if (EntMan.TryGetComponent<MobFilterComponent>(Owner, out var comp))
+            _window.SelectValues(comp.States);
+        _window.OnToggle += state => SendPredictedMessage(new MobFilterToggleMessage(state));
+    }
+}

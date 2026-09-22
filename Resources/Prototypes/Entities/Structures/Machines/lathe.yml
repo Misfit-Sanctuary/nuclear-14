@@ -49,6 +49,19 @@
     price: 800
   - type: ResearchClient
   - type: TechnologyDatabase
+  # Misfits - Factory automation
+  - type: LatheAutomation
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: DeviceLinkSink
+    ports:
+    - LathePrint
+    - LatheSetRecipe
+    - LatheQuantity
+  - type: DeviceLinkSource
+    ports:
+    - LatheCurrentRecipe
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -471,6 +484,12 @@
     - AutolatheMachineCircuitboard
     - CircuitImprinterMachineCircuitboard
     - OreProcessorMachineCircuitboard
+    # Misfits - Factory automation, not gated behind research
+    - RoboticArmCircuitboard
+    - ConstructorCircuitboard
+    - StorageBinCircuitboard
+    - InteractorCircuitboard
+    - PlumbingPumpCircuitboard
     - MaterialReclaimerMachineCircuitboard
     - ElectrolysisUnitMachineCircuitboard
     - CentrifugeMachineCircuitboard

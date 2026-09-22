@@ -1913,9 +1913,10 @@ namespace Content.Client.Lobby.UI
                 return;
 
             var isRobotSpecies = IsRobotSpecies(Profile.Species);
+            var isC27Species = Profile.Species is "C27" or "C27NCR" or "C27BoS" or "C27ZAX";
 
             EyesContainer.Visible = !isRobotSpecies;
-            HeightContainer.Visible = !isRobotSpecies;
+            HeightContainer.Visible = !isRobotSpecies || isC27Species;
             WidthContainer.Visible = !isRobotSpecies;
             WeightContainer.Visible = !isRobotSpecies;
             ClothingContainer.Visible = !isRobotSpecies;

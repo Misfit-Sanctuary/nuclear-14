@@ -1284,25 +1284,38 @@
   - type: StaticPrice
     price: 300
 
-# #Misfits Add — Infiltrator (suppressed R91 variant)
+# #Misfits Add — Operative (suppressed R91 variant)
 # Ported from Fortune13/LoneStar (https://github.com/Cythisiax/LoneStar/), a SS13 Fallout fork.
 
 - type: entity
-  name: Infiltrator
+  name: Operative
   parent: N14WeaponRifle556R91
-  id: N14WeaponRifleInfiltrator
+  id: N14WeaponRifleOperative
   description: A heavily modified R91 assault rifle with an integrated suppressor and polymer furniture. No official designation — whoever built it just started calling it the Infiltrator. Runs quiet and runs hot.
   components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/operative.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/operative.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    fireRate: 8
-    minAngle: 3
-    maxAngle: 20
+    fireRate: 7
+    minAngle: 24
+    maxAngle: 45
     angleIncrease: 3
     angleDecay: 16
     selectedMode: Fullauto
     availableModes:
     - Fullauto
     soundGunshot:
-      collection: N14RifleR91Gunshot
+      collection: N14PistolSpyGunshot
   - type: StaticPrice
-    price: 500
+    price: 1000

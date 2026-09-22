@@ -1,0 +1,173 @@
+# #Misfits Add - Medieval body armor. Sprites made by Chermaity for the Misfits server.
+# Crimson pieces and azure pieces come from the two sides drawn in the source sheet.
+# Armor coefficient = share of damage that still gets through (0.75 = blocks 25%).
+# Crafted from blueprints in _Misfits/Entities/Objects/Blueprints/medieval_blueprints.yml.
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterMedievalJackOfPlatesCrimson
+  name: crimson jack of plates
+  description: A leather coat with small steel plates riveted inside, trimmed in crimson. Light enough to run in.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/OuterClothing/jack_of_plates_crimson.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/OuterClothing/jack_of_plates_crimson.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 1.05
+    sprintModifier: 1.05
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterMedievalCorseletSteel
+  name: steel corselet
+  description: A steel breastplate with heavy shoulder plates, worn over a leather coat. Solid protection that still lets you move.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/OuterClothing/corselet_steel.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/OuterClothing/corselet_steel.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterMedievalHalfPlateCrimson
+  name: crimson half-plate
+  description: Steel plate over the chest, belly and shoulders, worn on a crimson-trimmed leather coat. Heavy, and hard to cut through.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/OuterClothing/half_plate_crimson.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/OuterClothing/half_plate_crimson.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterMedievalPlateCuirassCrimson
+  name: crimson plate cuirass
+  description: A thick blackened steel cuirass with a great rounded pauldron and a crimson strap. It stops a lot, and you feel every step.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/OuterClothing/plate_cuirass_crimson.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/OuterClothing/plate_cuirass_crimson.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.55
+        Piercing: 0.55
+        Heat: 0.55
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterMedievalJackOfPlatesAzure
+  name: azure jack of plates
+  description: A blue-dyed coat with small steel plates riveted inside. Light enough to run in.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/OuterClothing/jack_of_plates_azure.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/OuterClothing/jack_of_plates_azure.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 1.05
+    sprintModifier: 1.05
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterMedievalHalfPlateAzure
+  name: azure half-plate
+  description: Steel plate over the chest, belly and shoulders, worn on a blue coat. Heavy, and hard to cut through.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/OuterClothing/half_plate_azure.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/OuterClothing/half_plate_azure.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterMedievalCorseletBrass
+  name: brass-trimmed corselet
+  description: A steel breastplate and shoulder plates edged in brass, worn over leather. Solid protection that still lets you move.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/OuterClothing/corselet_brass.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/OuterClothing/corselet_brass.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+
+# The best armor in the set.
+- type: entity
+  parent: N14FalloutArmorBase
+  id: N14ClothingOuterMedievalKnightHarness
+  name: knight's full plate harness
+  description: A complete harness of tempered steel plate, fitted piece by piece over mail and padding. It is brutally heavy and slows every step, but almost nothing gets through it.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/OuterClothing/knight_harness.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/OuterClothing/knight_harness.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.45
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8

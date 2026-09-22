@@ -35,20 +35,20 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 {
     public const string ProjectileFixture = "projectile";
 
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedGunSystem _guns = default!;
-    [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedBodySystem _body = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private SharedGunSystem _guns = default!;
+    [Dependency] private SharedCameraRecoilSystem _sharedCameraRecoil = default!;
 
     public override void Initialize()
     {
@@ -81,7 +81,10 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             RemoveEmbed(uid, comp);
         }
     }
-
+    // only need to init this once. this might change in future if it needs to be init'd
+    // By ref event just passes vars when event called
+    private static ProjectileDeflectAttemptEvent _deflectAttemptEv = new();
+    // TODO: refactor code. It looks bad is also prolly also why things go red if the red flash anim is not broken itself
     public void ProjectileCollide(Entity<ProjectileComponent, PhysicsComponent> projectile, EntityUid target, bool predicted = false)
     {
         var (uid, component, ourBody) = projectile;
@@ -93,10 +96,12 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             return;
         }
 
-        var attemptEv = new ProjectileReflectAttemptEvent(uid, component, false);
-        RaiseLocalEvent(target, ref attemptEv);
-        if (attemptEv.Cancelled)
+        _deflectAttemptEv.ProjUid = uid; _deflectAttemptEv.CompProj = component; _deflectAttemptEv.Deflected = false;
+        RaiseLocalEvent(target, ref _deflectAttemptEv);
+        if (_deflectAttemptEv.Deflected)
         {
+            // clientside deflected projectiles dont get deleted on collide
+            //projectile.Comp1.DeleteOnCollide = false;
             SetShooter(uid, component, target);
             return;
         }
@@ -107,40 +112,36 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         var coordinates = Transform(projectile).Coordinates;
         var otherName = ToPrettyString(target);
         var direction = ourBody.LinearVelocity.Normalized();
-        var modifiedDamage = _netManager.IsServer
+
+        // nullable for some reason and why dont we want client to do trychange? need to check later
+        var modifiedDamage = (_netManager.IsServer
             ? _damageableSystem.TryChangeDamage(target,
                 ev.Damage,
                 component.IgnoreResistances,
                 origin: component.Shooter)
-            : new DamageSpecifier(ev.Damage);
-        var deleted = Deleted(target);
+            : new DamageSpecifier(ev.Damage)) ?? new DamageSpecifier();
 
         var filter = Filter.Pvs(coordinates, entityMan: EntityManager);
         if (_guns.GunPrediction && TryComp(projectile, out PredictedProjectileServerComponent? serverProjectile))
             filter = filter.RemovePlayer(serverProjectile.Shooter);
 
-        if (modifiedDamage is not null &&
-            (EntityManager.EntityExists(component.Shooter) || EntityManager.EntityExists(component.Weapon)))
+
+        if (!Deleted(target))
         {
-            if (modifiedDamage.AnyPositive() && !deleted)
+            _guns.PlayImpactSound(target, modifiedDamage, component.SoundHit, component.ForceSound, filter, uid);
+            if (!ourBody.LinearVelocity.IsLengthZero())
+                _sharedCameraRecoil.KickCamera(target, direction);
+            // TODO: investigate why red coloring doesnt go away
+            if (modifiedDamage.AnyPositive())
                 _color.RaiseEffect(Color.Red, new List<EntityUid> { target }, filter);
 
-            var source = EntityManager.EntityExists(component.Shooter)
-                ? component.Shooter!.Value
-                : component.Weapon!.Value;
+            var source = component.Shooter ?? component.Weapon ?? EntityUid.Invalid;
 
             _adminLogger.Add(LogType.BulletHit,
                 HasComp<ActorComponent>(target) ? LogImpact.Extreme : LogImpact.High,
                 $"Projectile {ToPrettyString(uid):projectile} shot by {ToPrettyString(source):source} hit {otherName:target} and dealt {modifiedDamage.GetTotal():damage} damage");
         }
 
-        if (!deleted)
-        {
-            _guns.PlayImpactSound(target, modifiedDamage, component.SoundHit, component.ForceSound, filter, uid);
-
-            if (!ourBody.LinearVelocity.IsLengthZero())
-                _sharedCameraRecoil.KickCamera(target, direction);
-        }
 
         component.DamagedEntity = true;
         Dirty(uid, component);
@@ -369,7 +370,7 @@ public sealed class ImpactEffectEvent : EntityEventArgs
 /// Raised when an entity is just about to be hit with a projectile but can reflect it
 /// </summary>
 [ByRefEvent]
-public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, ProjectileComponent Component, bool Cancelled);
+public record struct ProjectileDeflectAttemptEvent(EntityUid ProjUid, ProjectileComponent CompProj, bool Deflected);
 
 /// <summary>
 /// Raised when a projectile hits an entity
@@ -382,3 +383,10 @@ public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target
 /// </summary>
 [ByRefEvent]
 public record struct AfterProjectileHitEvent(DamageSpecifier Damage, EntityUid Target);
+
+
+[Serializable, NetSerializable]
+public sealed class ProjectileDeflectMsg(NetEntity deflectedEnt) : EntityEventArgs
+{
+    public NetEntity DeflectedEnt = deflectedEnt;
+};

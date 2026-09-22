@@ -15,7 +15,7 @@ public sealed partial class ExpeditionBossComponent : Component
     public string DisplayName = string.Empty;
 
     /// <summary>Entity table resolved at death, not at map generation.</summary>
-    public string RewardTable = "N14ExpeditionBossReward";
+    public string RewardTable = "M14ExpeditionBossReward";
 
     /// <summary>Stable table seed stored with the boss rather than rerolled on death.</summary>
     public int RewardSeed;

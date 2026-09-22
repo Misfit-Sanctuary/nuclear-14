@@ -35,12 +35,12 @@
   # but less imposing than a Super Mutant. SharedHumanoidAppearanceSystem.LoadProfile -> SetScale
   # applies this to SpriteComponent.Scale, uniformly scaling body AND all equipment layers.
   # Locked min=default=max so the silhouette stays consistent across all C-27 units.
-  minHeight: 1.25
+  minHeight: 1.0
   defaultHeight: 1.25
-  maxHeight: 1.25
-  minWidth: 1.25
+  maxHeight: 1.5
+  minWidth: 1.0
   defaultWidth: 1.25
-  maxWidth: 1.25
+  maxWidth: 1.5
   sexes:
   - Unsexed
   # #Misfits Add - serial-style designations (Unit-Alpha … Unit-Zulu) so default names
@@ -147,12 +147,12 @@
   dollPrototype: N14MobC27NCRDummy
   skinColoration: Hues
   defaultSkinTone: "#b59548"
-  minHeight: 1.25
+  minHeight: 1.0
   defaultHeight: 1.25
-  maxHeight: 1.25
-  minWidth: 1.25
+  maxHeight: 1.5
+  minWidth: 1.0
   defaultWidth: 1.25
-  maxWidth: 1.25
+  maxWidth: 1.5
   sexes:
   - Unsexed
   # #Misfits Add - NCR-flavored callsigns (Ranger-Alpha … Ranger-Zulu).
@@ -189,12 +189,12 @@
   dollPrototype: N14MobC27BoSDummy
   skinColoration: Hues
   defaultSkinTone: "#2c4a6e"
-  minHeight: 1.25
+  minHeight: 1.0
   defaultHeight: 1.25
-  maxHeight: 1.25
-  minWidth: 1.25
+  maxHeight: 1.5
+  minWidth: 1.0
   defaultWidth: 1.25
-  maxWidth: 1.25
+  maxWidth: 1.5
   sexes:
   - Unsexed
   # #Misfits Add - Brotherhood rank-flavored callsigns (Knight-Alpha … Knight-Zulu).
@@ -230,12 +230,12 @@
   dollPrototype: N14MobC27ZAXDummy
   skinColoration: Hues
   defaultSkinTone: "#7fb6bf"
-  minHeight: 1.25
+  minHeight: 1.0
   defaultHeight: 1.25
-  maxHeight: 1.25
-  minWidth: 1.25
+  maxHeight: 1.5
+  minWidth: 1.0
   defaultWidth: 1.25
-  maxWidth: 1.25
+  maxWidth: 1.5
   sexes:
   - Unsexed
   maleFirstNames: C27FirstZAX

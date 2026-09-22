@@ -132,6 +132,7 @@
     - NCRA_GrenadierSet
     - NCRA_SniperSet
     - NCRA_StealthSet
+    - NCRA_OperativeSet
 
 - type: entity
   id: NCRSGTloadoutkits
@@ -242,6 +243,7 @@
     - RangerTrailmanSet
     - RangerMarksmanSet
     - RangerSniperSet
+    - RangerOperativeSet
 
 - type: entity
   id: NCRveteranrangerloadoutkits
@@ -583,6 +585,16 @@
   content:
   - KitNCR_WSStealth
 
+- type: UndecidedLoadoutBackpackSet
+  id: NCRA_OperativeSet
+  name: undecided-loadout-category-ws-operative-name
+  description: undecided-loadout-category-ws-operative-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: rifleman
+  content:
+  - KitNCR_WSOperative
+
 # NCRA Sergeant Kits
 - type: UndecidedLoadoutBackpackSet
   id: NCRA_SGTRiflemanSet
@@ -726,6 +738,16 @@
     state: marksman
   content:
   - KitSniperRanger
+
+- type: UndecidedLoadoutBackpackSet
+  id: RangerOperativeSet
+  name: undecided-loadout-category-ranger-operative-name
+  description: undecided-loadout-category-ranger-operative-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: marksman
+  content:
+  - KitOperativeRanger
 
 #MARK: Veteran Kits
 - type: UndecidedLoadoutBackpackSet

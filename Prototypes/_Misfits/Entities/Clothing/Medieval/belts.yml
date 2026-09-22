@@ -1,0 +1,180 @@
+# #Misfits Add - Medieval belts and harnesses. Sprites made by Chermaity for the Misfits server.
+# A child's whitelist replaces its parent's list instead of adding to it, so both bases spell out
+# the full list. Ammo entries match N14ClothingBeltStorageBase; med entries match ClothingBeltMedical
+# plus Phial (RadAway phial) and Healing (bandages and other healing stacks).
+
+- type: entity
+  abstract: true
+  parent: N14ClothingBeltStorageBase
+  id: N14ClothingBeltMedievalBase
+  components:
+  - type: Storage
+    whitelist:
+      tags:
+      # ammo
+      - CigPack
+      - N14AmmoCell
+      - Document
+      # meds
+      - Bottle
+      - Spray
+      - Brutepack
+      - Bloodpack
+      - Gauze
+      - Ointment
+      - PillCanister
+      - N14Bandage
+      - N14TribalMedicine
+      - Phial
+      components:
+      # ammo
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      # meds
+      - Hypospray
+      - Injector
+      - Pill
+      - Healing
+  - type: Appearance
+
+# Tool entries match the utility belt (ClothingBeltUtility) plus N14Welder.
+- type: entity
+  abstract: true
+  parent: N14ClothingBeltMedievalBase
+  id: N14ClothingBeltMedievalToolBase
+  components:
+  - type: Storage
+    whitelist:
+      tags:
+      # ammo
+      - CigPack
+      - N14AmmoCell
+      - Document
+      # meds
+      - Bottle
+      - Spray
+      - Brutepack
+      - Bloodpack
+      - Gauze
+      - Ointment
+      - PillCanister
+      - N14Bandage
+      - N14TribalMedicine
+      - Phial
+      # tools
+      - Powerdrill
+      - Wirecutter
+      - Crowbar
+      - Screwdriver
+      - Flashlight
+      - Wrench
+      - GeigerCounter
+      - Flare
+      - CableCoil
+      - Radio
+      - HolofanProjector
+      - Multitool
+      - AppraisalTool
+      - JawsOfLife
+      - GPS
+      - WeldingMask
+      - Torch
+      - WeldingGoggles
+      - N14Welder
+      components:
+      # ammo
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      # meds
+      - Hypospray
+      - Injector
+      - Pill
+      - Healing
+      # tools
+      - SprayPainter
+      - NetworkConfigurator
+      - RCD
+      - RCDAmmo
+      - Welder
+      - PowerCell
+      - Geiger
+      - TrayScanner
+      - GasAnalyzer
+      - HandLabeler
+
+- type: entity
+  parent: N14ClothingBeltMedievalBase
+  id: N14ClothingBeltMedievalBaldricPouched
+  name: pouched leather baldric
+  description: A leather strap across the chest, hung with pouches for ammunition and medicine.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/Belt/baldric_pouched.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/Belt/baldric_pouched.rsi
+
+- type: entity
+  parent: N14ClothingBeltMedievalBase
+  id: N14ClothingBeltMedievalLeatherBandolier
+  name: leather bandolier
+  description: A single leather bandolier with a row of pouches for ammunition and medicine.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/Belt/leather_bandolier.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/Belt/leather_bandolier.rsi
+
+- type: entity
+  parent: N14ClothingBeltMedievalToolBase
+  id: N14ClothingBeltMedievalCraftsmanBelt
+  name: craftsman's belt
+  description: A sturdy waist belt with loops and pouches for tools, ammunition and medicine.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/Belt/craftsman_belt.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/Belt/craftsman_belt.rsi
+
+- type: entity
+  parent: N14ClothingBeltMedievalBase
+  id: N14ClothingBeltMedievalPouchHarnessAzure
+  name: azure pouch harness
+  description: Blue-dyed straps over both shoulders, hung with pouches for ammunition and medicine.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/Belt/pouch_harness_azure.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/Belt/pouch_harness_azure.rsi
+
+- type: entity
+  parent: N14ClothingBeltMedievalBase
+  id: N14ClothingBeltMedievalShoulderHarness
+  name: leather shoulder harness
+  description: Leather straps over both shoulders with pouches for ammunition and medicine.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/Belt/shoulder_harness.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/Belt/shoulder_harness.rsi
+
+- type: entity
+  parent: N14ClothingBeltMedievalToolBase
+  id: N14ClothingBeltMedievalSmithBelt
+  name: smith's belt
+  description: A heavy knotted waist belt with loops for a smith's tools, and room for ammunition and medicine.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/Belt/smith_belt.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/Belt/smith_belt.rsi
+
+- type: entity
+  parent: N14ClothingBeltMedievalBase
+  id: N14ClothingBeltMedievalCrossedBaldricCrimson
+  name: crimson crossed baldric
+  description: Two leather straps crossed over the chest, trimmed in crimson and hung with pouches for ammunition and medicine.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/Belt/crossed_baldric_crimson.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/Belt/crossed_baldric_crimson.rsi

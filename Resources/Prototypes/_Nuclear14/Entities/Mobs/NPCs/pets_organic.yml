@@ -152,12 +152,7 @@
     - DoorBumpOpener
     - VulpEmotes
   - type: InventorySlots
-  - type: Strippable
   - type: PetCollarHolder
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
   - type: Inventory
     speciesId: cat
     templateId: cat_pet
@@ -171,6 +166,7 @@
       components:
       - Gun
       - MeleeWeapon
+  - type: MisfitsPetNoPickup # So they cant pick up items but can drag
   - type: ActionGrant # #Cythisiax Added - give pet dogs the deathclaw-style melee charge ability (inherited by all N14MobPetDog variants)
     actions:
     - MisfitsActionMeleeCharge

@@ -183,6 +183,8 @@
     - N14BPNCRArmorRangerFieldArmor
     # #Misfits Add - Added Recruit Ranger sidegrade recipe
     - N14BPNCRArmorRangerFlakVest
+    # #Misfits Add - Added Medic Combat Armor
+    - MisfitsBPNCRArmorMedicCombatArmor
 
 - type: entity
   parent: N14BlueprintBase
@@ -329,6 +331,7 @@
     - N14BPLegionWeaponSMG10mmChinese
     - N14BPLegionWeaponSniper44LeverShortCarbine
     - N14BPLegionWeaponSniper308Ross
+    - N14BPLegionWeaponSniperPaciencia
 
 - type: entity
   parent: N14BlueprintBase
@@ -468,6 +471,7 @@
     - N14BPLegionAmmoMag9mmSMGDrum
     - N14BPLegionAmmoMag10mmSMG
     - N14BPLegionAmmoBox308
+    - MisfitsBPLegionSuicideVest
 
 - type: entity
   parent: N14BlueprintBase
@@ -510,7 +514,6 @@
     - N14BPLegionAmmoMagazine308M60Box     # #Misfits Add - .308 50-round box mag for M60 LMG
     - N14BPLegionAmmoOverMag308
     - N14BPLegionAmmoBoxOver308
-    - N14BPLegionAmmoMagazineHeavy556Rifle   # #Misfits Add - heavy .556 magazine for the PA decanus suppressor kit
 
 # =====================================================================
 # BROTHERHOOD OF STEEL BLUEPRINTS
@@ -763,7 +766,6 @@
     - N14BPTownWeaponPistolM1911
     - N14BPTownWeaponPistol12mm
     - N14BPTownWeaponShotgunSawedOff
-    - N14BPTownWeaponSMGAmerican180
     - N14BPTownWeaponRevolver357Detective
     - N14BPTownWeaponSniperCowboyRepeater
 
@@ -793,6 +795,7 @@
     - N14BPTownWeaponSMGPPSh41
     - N14BPTownWeaponRifleAk112
     - N14BPTownWeaponSniper308Ross
+    - N14BPTownWeaponSniperPaciencia
     - N14BPTownWeaponSniper44LeverShortCarbine
 
 - type: entity
@@ -911,7 +914,6 @@
     # #Misfits Add - ammo for T1 mediocre guns (.45 / 12mm / .22 drum / .357)
     - N14BPTownAmmoMag45Pistol
     - N14BPTownAmmoMagPistol12mm
-    - N14BPTownAmmoMagAmerican180Drum
     - N14BPTownAmmoBox357
     - N14BPTownAmmoSpeedLoader357
 
@@ -982,7 +984,6 @@
     - N14BPVaultWeaponPistol9mmChinese
     - N14BPVaultWeaponPistolM1911
     - N14BPVaultWeaponShotgunSawedOff
-    - N14BPVaultWeaponSMGAmerican180
 
 - type: entity
   parent: N14BlueprintBase
@@ -998,6 +999,7 @@
     - N14BPVaultWeaponRifle10mmM1Carbine
     - N14BPVaultWeaponShotgunTrench
     - N14BPVaultWeaponSMG10mmChinese
+    - N14BPVaultWeaponAmerican180
 
 - type: entity
   parent: N14BlueprintBase

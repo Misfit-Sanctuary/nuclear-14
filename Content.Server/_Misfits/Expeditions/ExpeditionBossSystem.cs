@@ -79,13 +79,13 @@ public sealed class ExpeditionBossSystem : EntitySystem
         boss.HealthFloor = RaiseHealthFloor(uid, prototype, partySize, isFinalGuardian);
         boss.RewardTable = isFinalGuardian
             ? family is ExpeditionMobFamily.Deathclaw or ExpeditionMobFamily.SuperMutant
-                ? "N14ExpeditionHighRiskBossReward"
-                : "N14ExpeditionBossReward"
-            : "N14ExpeditionGuardianReward";
+                ? "M14ExpeditionHighRiskBossReward"
+                : "M14ExpeditionBossReward"
+            : "M14ExpeditionGuardianReward";
         boss.RewardSeed = rng.Next();
         boss.Regenerative = profile.Regenerative;
         boss.NextRegen = _timing.CurTime + TimeSpan.FromSeconds(2);
-        Dirty(uid, boss);
+        //Dirty(uid, boss); No need to dirty a comp that isn't networked newb
 
         _metadata.SetEntityName(uid, profile.Name);
 
@@ -128,7 +128,7 @@ public sealed class ExpeditionBossSystem : EntitySystem
 
             _damageable.TryChangeDamage(uid, healing, ignoreResistances: true, interruptsDoAfters: false);
             boss.NextRegen = now + TimeSpan.FromSeconds(2);
-            Dirty(uid, boss);
+            //Dirty(uid, boss);
         }
     }
 
@@ -138,7 +138,7 @@ public sealed class ExpeditionBossSystem : EntitySystem
             return;
 
         boss.RewardClaimed = true;
-        Dirty(args.Target, boss);
+        //Dirty(args.Target, boss);
 
         if (!_prototypes.TryIndex<EntityTablePrototype>(boss.RewardTable, out var rewardTable))
         {

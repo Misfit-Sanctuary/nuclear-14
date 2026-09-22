@@ -17,8 +17,8 @@
       state: wolf
       sprite: _Nuclear14/Mobs/Animals/dogwolf.rsi
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.16
-    baseSprintSpeed: 6.33
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 6.5
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -48,6 +48,7 @@
   - type: MeleeWeapon
     altDisarm: false
     hidden: true
+    attackRate: 0.75
     soundHit:
         path: /Audio/Effects/bite.ogg
     angle: 60
@@ -56,4 +57,4 @@
     damage:
       types:
         Blunt: 10
-        Slash: 10
+        Slash: 20

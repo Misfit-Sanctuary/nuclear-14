@@ -1,7 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
-using System.Numerics;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Alert;
 using Content.Shared.Audio;
 using Content.Shared.Database;
 using Content.Shared.Hands;
@@ -14,37 +12,44 @@ using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Upload;
 
 namespace Content.Shared.Weapons.Reflect;
 
 /// <summary>
 /// This handles reflecting projectiles and hitscan shots.
 /// </summary>
-public sealed class ReflectSystem : EntitySystem
+public sealed partial class ReflectSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
+    // misfits: fix stuff deflecting from inside inventory.
+    private static SlotFlags _deflectSlots = SlotFlags.OUTERCLOTHING | SlotFlags.INNERCLOTHING | SlotFlags.SUITSTORAGE | SlotFlags.BACK;
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ReflectComponent, ProjectileReflectAttemptEvent>(OnReflectCollide);
+        // TODO MISFITS: temp until can refactor gun code. Need psuedo rng to have client and server visuals align
+        // client only visual predicts non-reflected shots/lasers now. Otherwise we will have invisible projectiles from server that dont match client visual
+        if (_netManager.IsServer)
+        {
+            SubscribeLocalEvent<ReflectComponent, ProjectileDeflectAttemptEvent>(OnReflectCollide);
+            SubscribeLocalEvent<ReflectUserComponent, ProjectileDeflectAttemptEvent>(OnReflectUserCollide);
+        }
+
         SubscribeLocalEvent<ReflectComponent, HitScanReflectAttemptEvent>(OnReflectHitscan);
         SubscribeLocalEvent<ReflectComponent, GotEquippedEvent>(OnReflectEquipped);
         SubscribeLocalEvent<ReflectComponent, GotUnequippedEvent>(OnReflectUnequipped);
@@ -52,7 +57,7 @@ public sealed class ReflectSystem : EntitySystem
         SubscribeLocalEvent<ReflectComponent, GotUnequippedHandEvent>(OnReflectHandUnequipped);
         SubscribeLocalEvent<ReflectComponent, ItemToggledEvent>(OnToggleReflect);
 
-        SubscribeLocalEvent<ReflectUserComponent, ProjectileReflectAttemptEvent>(OnReflectUserCollide);
+
         SubscribeLocalEvent<ReflectUserComponent, HitScanReflectAttemptEvent>(OnReflectUserHitscan);
     }
 
@@ -61,9 +66,12 @@ public sealed class ReflectSystem : EntitySystem
         if (args.Reflected)
             return;
 
-        foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(uid, SlotFlags.All & ~SlotFlags.POCKET))
+        foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(uid, _deflectSlots))
         {
-            if (!TryReflectHitscan(uid, ent, args.Shooter, args.SourceItem, args.Direction, out var dir))
+
+            if (!TryComp<ReflectComponent>(ent, out var reflectComp) ||
+                (reflectComp.Reflects & args.Reflective) == 0x0 ||
+                !TryReflectHitscan(uid, ent, args.Shooter, args.SourceItem, args.Direction, out var dir))
                 continue;
 
             args.Direction = dir.Value;
@@ -72,31 +80,31 @@ public sealed class ReflectSystem : EntitySystem
         }
     }
 
-    private void OnReflectUserCollide(EntityUid uid, ReflectUserComponent component, ref ProjectileReflectAttemptEvent args)
+    private void OnReflectUserCollide(EntityUid uid, ReflectUserComponent component, ref ProjectileDeflectAttemptEvent args)
     {
-        foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(uid, SlotFlags.All & ~SlotFlags.POCKET))
+        foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(uid, _deflectSlots))
         {
             if (!TryReflectProjectile(uid, ent, args.ProjUid))
                 continue;
 
-            args.Cancelled = true;
+            args.Deflected = true;
             break;
         }
     }
-
-    private void OnReflectCollide(EntityUid uid, ReflectComponent component, ref ProjectileReflectAttemptEvent args)
+    //TODO MISFITS:refactor. Client not subscribed to anymore Need psuedo rng to have client and server visuals align
+    private void OnReflectCollide(EntityUid uid, ReflectComponent component, ref ProjectileDeflectAttemptEvent args)
     {
-        if (args.Cancelled)
+        if (args.Deflected)
             return;
 
         if (TryReflectProjectile(uid, uid, args.ProjUid, reflect: component))
-            args.Cancelled = true;
+            args.Deflected = true;
     }
-
+    //TODO MISFITS:refactor. Client not subscribed to anymore Need psuedo rng to have client and server visuals align
     private bool TryReflectProjectile(EntityUid user, EntityUid reflector, EntityUid projectile, ProjectileComponent? projectileComp = null, ReflectComponent? reflect = null)
     {
         if (!Resolve(reflector, ref reflect, false) ||
-            !_toggle.IsActivated(reflector) ||
+            // !_toggle.IsActivated(reflector) ||
             !TryComp<ReflectiveComponent>(projectile, out var reflective) ||
             (reflect.Reflects & reflective.Reflective) == 0x0 ||
             !TryComp<PhysicsComponent>(projectile, out var physics))
@@ -119,6 +127,7 @@ public sealed class ReflectSystem : EntitySystem
         if (!_random.Prob(prob))
             return false;
 
+
         var rotation = _random.NextAngle(-reflect.Spread / 2, reflect.Spread / 2).Opposite();
         var existingVelocity = _physics.GetMapLinearVelocity(projectile, component: physics);
         var relativeVelocity = existingVelocity - _physics.GetMapLinearVelocity(user);
@@ -135,6 +144,8 @@ public sealed class ReflectSystem : EntitySystem
 
         if (_netManager.IsServer)
         {
+
+            RaiseNetworkEvent(new ProjectileDeflectMsg(GetNetEntity(projectile)));
             // #Misfits Change Add: Show descriptive popup for small-caliber rounds bouncing off power armor / shields.
             if ((reflective.Reflective & ReflectType.SmallCaliber) != 0)
             {
@@ -202,7 +213,7 @@ public sealed class ReflectSystem : EntitySystem
             args.Reflected = true;
         }
     }
-
+    // TODO: remove this and have hitscan/proj all use same reflect method
     private bool TryReflectHitscan(
         EntityUid user,
         EntityUid reflector,
@@ -212,26 +223,26 @@ public sealed class ReflectSystem : EntitySystem
         [NotNullWhen(true)] out Vector2? newDirection)
     {
         if (!TryComp<ReflectComponent>(reflector, out var reflect) ||
-            !_toggle.IsActivated(reflector) ||
-            !_random.Prob(reflect.ReflectProb))
+            // !_toggle.IsActivated(reflector) ||
+            !_random.Prob(reflect.ReflectProbByType[ReflectType.Energy]))
         {
             newDirection = null;
             return false;
         }
 
-        if (_netManager.IsServer)
-        {
-            _popup.PopupEntity(Loc.GetString("reflect-shot"), user);
-            _audio.PlayPvs(reflect.SoundOnReflect, user, AudioHelpers.WithVariation(0.05f, _random));
-        }
+
+        _popup.PopupPredicted(Loc.GetString("reflect-shot"), user, user);
+        _audio.PlayPredicted(reflect.SoundOnReflect, user, user, audioParams: AudioHelpers.WithVariation(0.05f, _random));
+
 
         var spread = _random.NextAngle(-reflect.Spread / 2, reflect.Spread / 2);
-        newDirection = -spread.RotateVec(direction);
 
-        if (shooter != null)
-            _adminLogger.Add(LogType.HitScanHit, LogImpact.Medium, $"{ToPrettyString(user)} reflected hitscan from {ToPrettyString(shotSource)} shot by {ToPrettyString(shooter.Value)}");
-        else
-            _adminLogger.Add(LogType.HitScanHit, LogImpact.Medium, $"{ToPrettyString(user)} reflected hitscan from {ToPrettyString(shotSource)}");
+        newDirection = spread.RotateVec(-direction.Normalized());
+
+        var strShooter = ToPrettyString(shooter) is EntityStringRepresentation shooterR ? $" shot by {shooterR}" : string.Empty;
+
+        _adminLogger.Add(LogType.HitScanHit, LogImpact.Medium, $"{ToPrettyString(user)} reflected hitscan from {ToPrettyString(shotSource)}{strShooter}");
+
 
         return true;
     }
@@ -264,7 +275,7 @@ public sealed class ReflectSystem : EntitySystem
 
     private void OnToggleReflect(EntityUid uid, ReflectComponent comp, ref ItemToggledEvent args)
     {
-        if (args.User is {} user)
+        if (args.User is { } user)
             RefreshReflectUser(user);
     }
 

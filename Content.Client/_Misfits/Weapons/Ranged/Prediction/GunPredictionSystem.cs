@@ -14,18 +14,19 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
+using Robust.Shared.Toolshed.Commands.Values;
 
 namespace Content.Client._Misfits.Weapons.Ranged.Prediction;
 
 public sealed partial class GunPredictionSystem : SharedGunPredictionSystem
 {
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly ProjectileSystem _projectile = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
+    [Dependency] private PhysicsSystem _physics = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private ProjectileSystem _projectile = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private readonly HashSet<EntityUid> _pendingProjectileDeletes = new();
 
@@ -42,10 +43,29 @@ public sealed partial class GunPredictionSystem : SharedGunPredictionSystem
         SubscribeLocalEvent<PredictedProjectileClientComponent, PreventCollideEvent>(OnClientProjectilePreventCollide);
         SubscribeLocalEvent<PredictedProjectileClientComponent, StartCollideEvent>(OnClientProjectileStartCollide);
         SubscribeLocalEvent<PredictedProjectileServerComponent, ComponentStartup>(OnServerProjectileStartup);
+        // Misfits Add:
+        SubscribeNetworkEvent<ProjectileDeflectMsg>(OnServerProjectileReflected);
 
         UpdatesBefore.Add(typeof(TransformSystem));
     }
+    /// <summary>
+    /// Misfits added: server sends msg that projectile is reflected on <see cref="Shared.ReflectSystem.TryReflectProjectile">
+    /// Client has its own predicted client version of that projectile that is visible.
+    /// The invisible server projectile is only updated when server networks its state(delayed)
+    /// the predicted projectile is deleted on impact and doesnt follow reflect code(seemingly)
+    /// So on deflect we know the client proj is deleted and so look for and find the server projectile
+    /// and make it visible
+    /// This is temporary until guncode can be refactored and psuedo rng for this can be done
+    /// so people are not being lied to by the client's fake bullets when theyre hit by invisible ones
+    /// tho this does add a noticable delay to deflects
+    /// </summary>
+    private void OnServerProjectileReflected(ProjectileDeflectMsg ev)
+    {
 
+        if (TryGetEntity(ev.DeflectedEnt, out var deflectedEnt) && TryComp(deflectedEnt, out SpriteComponent? sprite))
+            sprite.Visible = true;
+
+    }
     private void OnBeforeSolve(ref PhysicsUpdateBeforeSolveEvent ev)
     {
         var query = EntityQueryEnumerator<PredictedProjectileClientComponent>();
@@ -93,7 +113,7 @@ public sealed partial class GunPredictionSystem : SharedGunPredictionSystem
         if (HasComp<PredictedPhysicsComponent>(args.OtherEntity))
             args.Cancelled = true;
     }
-
+    // TODO MISFITS: refactor
     private void OnClientProjectileStartCollide(Entity<PredictedProjectileClientComponent> ent, ref StartCollideEvent args)
     {
         if (ent.Comp.Hit ||
@@ -118,7 +138,13 @@ public sealed partial class GunPredictionSystem : SharedGunPredictionSystem
 
         _projectile.ProjectileCollide((ent, projectile, physics), args.OtherEntity, predicted: true);
         if (projectile.DeleteOnCollide)
+        {
             _pendingProjectileDeletes.Add(ent.Owner);
+            return;
+        }
+        // clientside deflected projectiles have these reset for the next collide which could be a reflect
+        // projectile.DeleteOnCollide = true;
+        // ent.Comp.Hit = false;
     }
 
     private void OnServerProjectileStartup(Entity<PredictedProjectileServerComponent> ent, ref ComponentStartup _)

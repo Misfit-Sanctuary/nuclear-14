@@ -84,6 +84,8 @@ lathe-category-blueprint-tribe-ammo-t2 = Tribe Ammo - Tier 2
 lathe-category-blueprint-tribe-ammo-t3 = Tribe Ammo - Tier 3
 lathe-category-blueprint-tribe-ammo-t4 = Tribe Ammo - Tier 4
 
+lathe-category-blueprint-factory-automation = Factory Automation
+
 lathe-category-blueprint-robobrain = Robobrain Chassis
 lathe-category-blueprint-mmi = MMI Schematic
 

@@ -1,0 +1,9 @@
+<!-- SPDX-License-Identifier: MIT -->
+<!-- Adapted from Goob Station / Trauma Station -->
+
+<controls:FancyWindow xmlns="https://spacestation14.io"
+        xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+        Title="{Loc 'label-filter-window-title'}"
+        MinSize="300 100">
+    <LineEdit Name="LabelEdit" PlaceHolder="{Loc 'label-filter-placeholder'}"/>
+</controls:FancyWindow>

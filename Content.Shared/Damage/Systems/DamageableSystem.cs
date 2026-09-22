@@ -117,7 +117,7 @@ namespace Content.Shared.Damage
             }
             RaiseLocalEvent(uid, new DamageChangedEvent(component, damageDelta, interruptsDoAfters, origin, canSever ?? true)); // Shitmed Change
         }
-
+        //TODO: due for a massssssive refactor
         /// <summary>
         ///     Applies damage specified via a <see cref="DamageSpecifier"/>.
         /// </summary>
@@ -152,18 +152,6 @@ namespace Content.Shared.Damage
             if (before.Cancelled)
                 return null;
 
-            // Shitmed Change Start
-            if (doPartDamage)
-            {
-                var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
-                RaiseLocalEvent(uid.Value, ref partDamage);
-
-                if (partDamage.Evaded || partDamage.Cancelled)
-                    return null;
-            }
-
-            // Shitmed Change End
-
             // Apply resistances
             if (!ignoreResistances)
             {
@@ -191,7 +179,19 @@ namespace Content.Shared.Damage
                     return damage;
                 }
             }
+            //Misfit fix: just shifted the instructions down here
+            // so part damage is actually based on modified damage and doesnt ignore entire dmg systems
+            // Shitmed Change Start
+            if (doPartDamage)
+            {
+                var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
+                RaiseLocalEvent(uid.Value, ref partDamage);
 
+                if (partDamage.Evaded || partDamage.Cancelled)
+                    return null;
+            }
+
+            // Shitmed Change End
             // TODO DAMAGE PERFORMANCE
             // Consider using a local private field instead of creating a new dictionary here.
             // Would need to check that nothing ever tries to cache the delta.

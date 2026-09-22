@@ -67,13 +67,38 @@
     noRot: true
 
 - type: entity
-  parent: N14DecorationFlagpoleNCR
+  parent: N14DecorationFlagLegion
   id: N14DecorationLegionCross
-  name: legioncross
-  description: A brutal Legion crucifixion post built from scavenged timber.
+  name: Crucifix
+  description: Profligats turned facing west, so that they may watch their world die.
   suffix: Mapping
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Decoration/Flags/legioncross.rsi
     state: icon
     noRot: true
+  - type: Damageable
+    damageModifierSet: Wood
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Clickable
+  - type: SpriteFade
+  - type: NoSelfUnbuckle
+  - type: Strap
+  - type: Construction
+    graph: DecorationLegionCross
+    node: LegionCross

@@ -556,6 +556,36 @@
     sound:
       path: /Audio/Effects/unwrap.ogg
 
+- type: entity
+  name: specialist's operative kit
+  parent: KitBase
+  id: KitNCR_WSOperative
+  description: A crate containing all an NCR weapon specialist needs to perform their job.
+  components:
+  - type: Sprite
+    state: pointman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14ClothingUniformNCRRecon
+      - id: ClothingBeltNCR
+      - id: N14ClothingHeadHatNCRBeretRecon
+      - id: N14ClothingNeckCloakNCR # Forge-Change
+      - id: N14WeaponRifleOperative
+      - id: Magazine556Rifle
+        amount: 3
+      - id: N14WeaponPistol45Colt
+      - id: N14MagazinePistol45
+        amount: 2
+      - id: N14BoxCardboardMREBoxCFilled
+      - id: N14Stimpak
+      - id: N14RadAwayBloodbag
+      - id: N14CleanGauze10
+      - id: N14Flare
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
 # NCRA Sergeant Kits
 
 - type: entity
@@ -924,6 +954,29 @@
         amount: 3
       - id: MagazineBox308
       - id: N14Stimpak
+      - id: N14Stimpak
+      - id: N14BoxCardboardMREBoxKFilled
+      - id: N14CombatKnife
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: ranger operative kit
+  parent: KitBase
+  id: KitOperativeRanger
+  description: A crate containing advanced weaponry for members of the Rangers.
+  components:
+  - type: Sprite
+    state: rifleman
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: ClothingBeltNCR
+      - id: N14WeaponRifleOperative
+      - id: Magazine556Rifle
+        amount: 3
+      - id: MagazineBox556
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife

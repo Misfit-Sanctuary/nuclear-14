@@ -274,7 +274,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Service"]]
+    access: [["Service"], ["Enclave"]]
   - type: PointLight
     radius: 2
     energy: 1.6
@@ -761,7 +761,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Service"]]
+    access: [["Service"], ["Enclave"]]
   - type: PointLight
     radius: 2
     energy: 1.6
@@ -918,7 +918,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Medical"]]
+    access: [["Medical"], ["Enclave"]]
   - type: PointLight
     radius: 2
     energy: 1.6
@@ -960,7 +960,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Hydroponics"]]
+    access: [["Hydroponics"], ["Enclave"]]
   - type: PointLight
     radius: 2
     energy: 1.6
@@ -1378,7 +1378,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Research"]]
+    access: [["Research"], ["Enclave"]]
   - type: PointLight
     radius: 2
     energy: 1.6
@@ -1643,7 +1643,7 @@
     - texture: Structures/Machines/VendingMachines/maintenance_panel.png
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Medical"]]
+    access: [["Medical"], ["Enclave"]]
   # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Medical)
   - type: Transform
     noRot: false
@@ -1769,7 +1769,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Bar"]]
+    access: [["Bar"], ["Enclave"]]
 
 - type: entity
   parent: VendingMachine
@@ -1995,7 +1995,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Kitchen"]]
+    access: [["Kitchen"], ["Enclave"]]
 
 - type: entity
   parent: VendingMachine
@@ -2324,7 +2324,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Chemistry"], ["VaultChemistry"]]
+    access: [["Chemistry"], ["VaultChemistry"], ["Enclave"]]
   # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Chemicals)
 
 - type: entity

@@ -66,6 +66,7 @@
           TownShopkeeper: [ 1, 1 ]
           TownShopkeeperHelper: [ 1, 1 ] # Forge-Town
           Townsperson: [ -1, -1 ] # #Misfits Change - uncapped, now default starter role
+          NCRLTCol: [ 1, 1 ] #whitelist-only faction rep roles
           NCRMajor: [ 1, 0 ] # whitelist-only command role; 0 active late-join slots
           NCRCommander: [ 1, 1 ]
           NCRProvost: [ 1, 1 ]
@@ -127,8 +128,6 @@
           CaesarLegionLegate: [ 1, 0 ] # Forge-Legion # #Misfits Tweak - 0 active slots (admin-notify role)
           CaesarLegionCenturion: [ 1, 1 ] # Forge-Legion
           CaesarLegionVeteranDecanus: [ 1, 1 ] # Forge-Legion
-          CaesarLegionPraefectusDecanus: [ 1, 1 ] # Forge-Legion
-          CaesarLegionTribunusDecanus: [ 2, 2 ] # Forge-Legion
           CaesarLegionDean: [ 1, 2 ] # Forge-Legion
           CaesarLegionForgemaster: [ 1, 1] # Forge-Legion. heh, get it? FORGE legion
           CaesarLegionLegionnaireVeteran: [ 3, 3 ] # Forge-Legion

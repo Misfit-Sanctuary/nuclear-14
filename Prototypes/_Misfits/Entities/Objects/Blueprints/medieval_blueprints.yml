@@ -1,0 +1,76 @@
+# #Misfits Add - Medieval armor blueprints.
+#
+# Put one in a workbench's storage to unlock its recipes (blueprint_recipes_medieval.yml).
+# Made for wastelanders: not given to any faction, loadout, loot table or vendor yet, so for now
+# they only come from admin spawning.
+
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintMedievalCrimson
+  name: Crimson Armory Blueprint
+  description: An armorer's patterns for the crimson-trimmed set. Covers the plate coats, helms, gauntlets and boots.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPMedievalJackOfPlatesCrimson
+    - N14BPMedievalCorseletSteel
+    - N14BPMedievalHalfPlateCrimson
+    - N14BPMedievalPlateCuirassCrimson
+    - N14BPMedievalKettleHatCrimson
+    - N14BPMedievalKettleHatVisoredCrimson
+    - N14BPMedievalCloseHelmBarred
+    - N14BPMedievalBarbuteCrimson
+    - N14BPMedievalSalletCrimson
+    - N14BPMedievalSugarloafHelm
+    - N14BPMedievalLeatherGloves
+    - N14BPMedievalGauntletsCrimson
+    - N14BPMedievalRidingBoots
+    - N14BPMedievalPlatedBootsCrimson
+
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintMedievalAzure
+  name: Azure Armory Blueprint
+  description: An armorer's patterns for the blue-trimmed set. Covers the plate coats, helms, gauntlets and boots.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPMedievalJackOfPlatesAzure
+    - N14BPMedievalHalfPlateAzure
+    - N14BPMedievalCorseletBrass
+    - N14BPMedievalKettleHatAzure
+    - N14BPMedievalKettleHatVisoredAzure
+    - N14BPMedievalCloseHelmBarredAzure
+    - N14BPMedievalBarbuteAzure
+    - N14BPMedievalArmetGilded
+    - N14BPMedievalBlackLeatherGloves
+    - N14BPMedievalPlateGauntletsAzure
+    - N14BPMedievalBlackLeatherBoots
+    - N14BPMedievalSabatonsAzure
+
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintMedievalKnight
+  name: Knight's Harness Blueprint
+  description: A master armorer's patterns for a full plate harness and its visored sallet. Ruinously expensive to build.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPMedievalKnightHarness
+    - N14BPMedievalKnightSallet
+
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintMedievalBelts
+  name: Leatherworker's Belt Blueprint
+  description: A leatherworker's patterns for baldrics, bandoliers, harnesses and tool belts.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPMedievalBaldricPouched
+    - N14BPMedievalLeatherBandolier
+    - N14BPMedievalCraftsmanBelt
+    - N14BPMedievalPouchHarnessAzure
+    - N14BPMedievalShoulderHarness
+    - N14BPMedievalSmithBelt
+    - N14BPMedievalCrossedBaldricCrimson

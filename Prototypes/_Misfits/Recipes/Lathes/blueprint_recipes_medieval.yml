@@ -1,0 +1,420 @@
+# #Misfits Add - Medieval armor blueprint recipes.
+#
+# Gated by `requiresBlueprint: true`: a recipe only shows up in a workbench's lathe UI while the
+# matching blueprint item sits in that workbench's storage (Content.Server/Lathe/LatheSystem.cs,
+# AddBlueprintRecipesFromStorage).
+#
+# Made for wastelanders: no availableFaction, so anyone holding the blueprint can craft.
+# Deliberately very expensive. 100 units = 1 sheet, so Steel: 40000 is 400 steel sheets.
+# For scale, the heavy C-27 armor costs Steel: 22000 (blueprint_recipes_c27.yml).
+
+# =====================================================================
+# CRIMSON ARMORY
+# =====================================================================
+
+- type: latheRecipe
+  id: N14BPMedievalJackOfPlatesCrimson
+  result: N14ClothingOuterMedievalJackOfPlatesCrimson
+  category: N14BlueprintMedievalCrimson
+  completetime: 12
+  requiresBlueprint: true
+  materials:
+    Steel: 3000
+    Leather: 1500
+    Cloth: 4000
+    Thread: 2000
+
+- type: latheRecipe
+  id: N14BPMedievalCorseletSteel
+  result: N14ClothingOuterMedievalCorseletSteel
+  category: N14BlueprintMedievalCrimson
+  completetime: 14
+  requiresBlueprint: true
+  materials:
+    Steel: 12000
+    Leather: 2000
+    Cloth: 1500
+    Thread: 1000
+
+- type: latheRecipe
+  id: N14BPMedievalHalfPlateCrimson
+  result: N14ClothingOuterMedievalHalfPlateCrimson
+  category: N14BlueprintMedievalCrimson
+  completetime: 16
+  requiresBlueprint: true
+  materials:
+    Steel: 18000
+    Leather: 3000
+    Cloth: 3000
+    Thread: 1500
+
+- type: latheRecipe
+  id: N14BPMedievalPlateCuirassCrimson
+  result: N14ClothingOuterMedievalPlateCuirassCrimson
+  category: N14BlueprintMedievalCrimson
+  completetime: 18
+  requiresBlueprint: true
+  materials:
+    Steel: 25000
+    Leather: 3000
+    Cloth: 2000
+    Thread: 1500
+
+- type: latheRecipe
+  id: N14BPMedievalKettleHatCrimson
+  result: N14ClothingHeadMedievalKettleHatCrimson
+  category: N14BlueprintMedievalCrimson
+  completetime: 8
+  requiresBlueprint: true
+  materials:
+    Steel: 5000
+    Leather: 1000
+    Cloth: 500
+    Thread: 300
+
+- type: latheRecipe
+  id: N14BPMedievalKettleHatVisoredCrimson
+  result: N14ClothingHeadMedievalKettleHatVisoredCrimson
+  category: N14BlueprintMedievalCrimson
+  completetime: 8
+  requiresBlueprint: true
+  materials:
+    Steel: 5000
+    Leather: 1000
+    Cloth: 500
+    Thread: 300
+
+- type: latheRecipe
+  id: N14BPMedievalCloseHelmBarred
+  result: N14ClothingHeadMedievalCloseHelmBarred
+  category: N14BlueprintMedievalCrimson
+  completetime: 10
+  requiresBlueprint: true
+  materials:
+    Steel: 9000
+    Leather: 1500
+    Cloth: 800
+    Thread: 500
+
+- type: latheRecipe
+  id: N14BPMedievalBarbuteCrimson
+  result: N14ClothingHeadMedievalBarbuteCrimson
+  category: N14BlueprintMedievalCrimson
+  completetime: 8
+  requiresBlueprint: true
+  materials:
+    Steel: 5000
+    Leather: 1000
+    Cloth: 500
+    Thread: 300
+
+- type: latheRecipe
+  id: N14BPMedievalSalletCrimson
+  result: N14ClothingHeadMedievalSalletCrimson
+  category: N14BlueprintMedievalCrimson
+  completetime: 8
+  requiresBlueprint: true
+  materials:
+    Steel: 5000
+    Leather: 1000
+    Cloth: 500
+    Thread: 300
+
+- type: latheRecipe
+  id: N14BPMedievalSugarloafHelm
+  result: N14ClothingHeadMedievalSugarloafHelm
+  category: N14BlueprintMedievalCrimson
+  completetime: 10
+  requiresBlueprint: true
+  materials:
+    Steel: 9000
+    Leather: 1500
+    Cloth: 800
+    Thread: 500
+
+- type: latheRecipe
+  id: N14BPMedievalLeatherGloves
+  result: N14ClothingHandsMedievalLeatherGloves
+  category: N14BlueprintMedievalCrimson
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 2000
+    Thread: 500
+
+- type: latheRecipe
+  id: N14BPMedievalGauntletsCrimson
+  result: N14ClothingHandsMedievalGauntletsCrimson
+  category: N14BlueprintMedievalCrimson
+  completetime: 8
+  requiresBlueprint: true
+  materials:
+    Steel: 3000
+    Leather: 2000
+    Thread: 500
+
+- type: latheRecipe
+  id: N14BPMedievalRidingBoots
+  result: N14ClothingShoesMedievalRidingBoots
+  category: N14BlueprintMedievalCrimson
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 2000
+    Thread: 500
+
+- type: latheRecipe
+  id: N14BPMedievalPlatedBootsCrimson
+  result: N14ClothingShoesMedievalPlatedBootsCrimson
+  category: N14BlueprintMedievalCrimson
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 2000
+    Thread: 500
+
+# =====================================================================
+# AZURE ARMORY
+# =====================================================================
+
+- type: latheRecipe
+  id: N14BPMedievalJackOfPlatesAzure
+  result: N14ClothingOuterMedievalJackOfPlatesAzure
+  category: N14BlueprintMedievalAzure
+  completetime: 12
+  requiresBlueprint: true
+  materials:
+    Steel: 3000
+    Leather: 1500
+    Cloth: 4000
+    Thread: 2000
+
+- type: latheRecipe
+  id: N14BPMedievalHalfPlateAzure
+  result: N14ClothingOuterMedievalHalfPlateAzure
+  category: N14BlueprintMedievalAzure
+  completetime: 16
+  requiresBlueprint: true
+  materials:
+    Steel: 18000
+    Leather: 3000
+    Cloth: 3000
+    Thread: 1500
+
+- type: latheRecipe
+  id: N14BPMedievalCorseletBrass
+  result: N14ClothingOuterMedievalCorseletBrass
+  category: N14BlueprintMedievalAzure
+  completetime: 14
+  requiresBlueprint: true
+  materials:
+    Steel: 12000
+    Leather: 2000
+    Cloth: 1500
+    Thread: 1000
+
+- type: latheRecipe
+  id: N14BPMedievalKettleHatAzure
+  result: N14ClothingHeadMedievalKettleHatAzure
+  category: N14BlueprintMedievalAzure
+  completetime: 10
+  requiresBlueprint: true
+  materials:
+    Steel: 9000
+    Leather: 1500
+    Cloth: 800
+    Thread: 500
+
+- type: latheRecipe
+  id: N14BPMedievalKettleHatVisoredAzure
+  result: N14ClothingHeadMedievalKettleHatVisoredAzure
+  category: N14BlueprintMedievalAzure
+  completetime: 10
+  requiresBlueprint: true
+  materials:
+    Steel: 9000
+    Leather: 1500
+    Cloth: 800
+    Thread: 500
+
+- type: latheRecipe
+  id: N14BPMedievalCloseHelmBarredAzure
+  result: N14ClothingHeadMedievalCloseHelmBarredAzure
+  category: N14BlueprintMedievalAzure
+  completetime: 10
+  requiresBlueprint: true
+  materials:
+    Steel: 9000
+    Leather: 1500
+    Cloth: 800
+    Thread: 500
+
+- type: latheRecipe
+  id: N14BPMedievalBarbuteAzure
+  result: N14ClothingHeadMedievalBarbuteAzure
+  category: N14BlueprintMedievalAzure
+  completetime: 10
+  requiresBlueprint: true
+  materials:
+    Steel: 9000
+    Leather: 1500
+    Cloth: 800
+    Thread: 500
+
+- type: latheRecipe
+  id: N14BPMedievalArmetGilded
+  result: N14ClothingHeadMedievalArmetGilded
+  category: N14BlueprintMedievalAzure
+  completetime: 8
+  requiresBlueprint: true
+  materials:
+    Steel: 5000
+    Leather: 1000
+    Cloth: 500
+    Thread: 300
+
+- type: latheRecipe
+  id: N14BPMedievalBlackLeatherGloves
+  result: N14ClothingHandsMedievalBlackLeatherGloves
+  category: N14BlueprintMedievalAzure
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 2000
+    Thread: 500
+
+- type: latheRecipe
+  id: N14BPMedievalPlateGauntletsAzure
+  result: N14ClothingHandsMedievalPlateGauntletsAzure
+  category: N14BlueprintMedievalAzure
+  completetime: 8
+  requiresBlueprint: true
+  materials:
+    Steel: 6000
+    Leather: 2000
+    Thread: 500
+
+- type: latheRecipe
+  id: N14BPMedievalBlackLeatherBoots
+  result: N14ClothingShoesMedievalBlackLeatherBoots
+  category: N14BlueprintMedievalAzure
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 2000
+    Thread: 500
+
+- type: latheRecipe
+  id: N14BPMedievalSabatonsAzure
+  result: N14ClothingShoesMedievalSabatonsAzure
+  category: N14BlueprintMedievalAzure
+  completetime: 8
+  requiresBlueprint: true
+  materials:
+    Steel: 3000
+    Leather: 2000
+    Thread: 500
+
+# =====================================================================
+# KNIGHT'S HARNESS (the best set, the most expensive)
+# =====================================================================
+
+- type: latheRecipe
+  id: N14BPMedievalKnightHarness
+  result: N14ClothingOuterMedievalKnightHarness
+  category: N14BlueprintMedievalKnight
+  completetime: 25
+  requiresBlueprint: true
+  materials:
+    Steel: 40000
+    Leather: 5000
+    Cloth: 4000
+    Thread: 2500
+
+- type: latheRecipe
+  id: N14BPMedievalKnightSallet
+  result: N14ClothingHeadMedievalKnightSallet
+  category: N14BlueprintMedievalKnight
+  completetime: 12
+  requiresBlueprint: true
+  materials:
+    Steel: 15000
+    Leather: 2000
+    Cloth: 1000
+    Thread: 600
+
+# =====================================================================
+# LEATHERWORKER'S BELTS
+# =====================================================================
+
+- type: latheRecipe
+  id: N14BPMedievalBaldricPouched
+  result: N14ClothingBeltMedievalBaldricPouched
+  category: N14BlueprintMedievalBelts
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 3000
+    Thread: 800
+
+- type: latheRecipe
+  id: N14BPMedievalLeatherBandolier
+  result: N14ClothingBeltMedievalLeatherBandolier
+  category: N14BlueprintMedievalBelts
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 3000
+    Thread: 800
+
+- type: latheRecipe
+  id: N14BPMedievalCraftsmanBelt
+  result: N14ClothingBeltMedievalCraftsmanBelt
+  category: N14BlueprintMedievalBelts
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Steel: 1000
+    Leather: 3000
+    Thread: 800
+
+- type: latheRecipe
+  id: N14BPMedievalPouchHarnessAzure
+  result: N14ClothingBeltMedievalPouchHarnessAzure
+  category: N14BlueprintMedievalBelts
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 3000
+    Thread: 800
+
+- type: latheRecipe
+  id: N14BPMedievalShoulderHarness
+  result: N14ClothingBeltMedievalShoulderHarness
+  category: N14BlueprintMedievalBelts
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 3000
+    Thread: 800
+
+- type: latheRecipe
+  id: N14BPMedievalSmithBelt
+  result: N14ClothingBeltMedievalSmithBelt
+  category: N14BlueprintMedievalBelts
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Steel: 1000
+    Leather: 3000
+    Thread: 800
+
+- type: latheRecipe
+  id: N14BPMedievalCrossedBaldricCrimson
+  result: N14ClothingBeltMedievalCrossedBaldricCrimson
+  category: N14BlueprintMedievalBelts
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 3000
+    Thread: 800

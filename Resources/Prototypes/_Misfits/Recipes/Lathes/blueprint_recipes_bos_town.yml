@@ -1277,18 +1277,6 @@
     Wood: 1000
 
 - type: latheRecipe
-  id: N14BPTownWeaponSMGAmerican180
-  result: N14WeaponSMGAmerican180
-  category: N14BlueprintTownWeaponsT1
-  completetime: 7
-  requiresBlueprint: true
-  availableFaction:
-  - Townsfolk
-  materials:
-    Steel: 2500
-    N14Iron: 500
-
-- type: latheRecipe
   id: N14BPTownWeaponRevolver357Detective
   result: N14WeaponRevolver357Detective
   category: N14BlueprintTownWeaponsT1
@@ -1554,6 +1542,19 @@
   materials:
     Steel: 3500
     Wood: 1500
+    N14Iron: 500
+
+- type: latheRecipe
+  id: N14BPTownWeaponSniperPaciencia
+  result: N14WeaponSniperPaciencia
+  category: N14BlueprintTownWeaponsT2
+  completetime: 9
+  requiresBlueprint: true
+  availableFaction:
+  - Townsfolk
+  materials:
+    Steel: 4000
+    Wood: 2500
     N14Iron: 500
 
 - type: latheRecipe
@@ -2214,19 +2215,6 @@
     Steel: 90
     Lead: 6
     N14Gunpowder: 6
-
-- type: latheRecipe
-  id: N14BPTownAmmoMagAmerican180Drum
-  result: N14MagazineAmerican180Drum
-  category: N14BlueprintTownAmmoT1
-  completetime: 5
-  requiresBlueprint: true
-  availableFaction:
-  - Townsfolk
-  materials:
-    Steel: 120
-    Lead: 20
-    N14Gunpowder: 20
 
 - type: latheRecipe
   id: N14BPTownAmmoBox357

@@ -2,6 +2,16 @@
 
 - type: entity
   parent: DecalSpawnerBase
+  id: MisfitsBloodDecalSpawnerBase
+  abstract: true
+  components:
+  - type: MisfitsBloodDecalLifetime
+    lifetime: 600
+    fadeDuration: 120
+    rainFadeDuration: 120
+
+- type: entity
+  parent: MisfitsBloodDecalSpawnerBase
   id: MisfitsBloodSplatters
   suffix: Blood Splatters
   components:
@@ -30,7 +40,7 @@
     deleteSpawnerAfterSpawn: true
 
 - type: entity
-  parent: DecalSpawnerBase
+  parent: MisfitsBloodDecalSpawnerBase
   id: MisfitsMinorBloodSplatters
   suffix: Minor Blood Splatters
   components:
@@ -53,7 +63,7 @@
     deleteSpawnerAfterSpawn: true
 
 - type: entity
-  parent: DecalSpawnerBase
+  parent: MisfitsBloodDecalSpawnerBase
   id: MisfitsGibBloodSplatters
   suffix: Gib Blood Splatters
   components:
@@ -79,7 +89,7 @@
     deleteSpawnerAfterSpawn: true
 
 - type: entity
-  parent: DecalSpawnerBase
+  parent: MisfitsBloodDecalSpawnerBase
   id: MisfitsBrainBloodSplatters
   suffix: Brain Blood Splatters
   components:

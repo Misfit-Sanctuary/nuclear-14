@@ -527,6 +527,9 @@
         - id: N14WeaponSniperHunting
           prob: 0.1
           orGroup: Weapon
+        - id: N14WeaponSniperPaciencia
+          prob: 0.05
+          orGroup: Weapon
         - id: N14WeaponSniper44LeverCarbine
           prob: 0.1
           orGroup: Weapon
@@ -1833,6 +1836,9 @@
         - id: N14WeaponRifle762Chinese
           prob: 0.1
           orGroup: Weapon
+        - id: N14WeaponRifleOperative
+          prob: 0.1
+          orGroup: Weapon
         - id: N14WeaponRifle762Marksman
           prob: 0.2
           orGroup: Weapon
@@ -1865,6 +1871,9 @@
           orGroup: Weapon
         - id: N14WeaponSniperHunting
           prob: 0.2
+          orGroup: Weapon
+        - id: N14WeaponSniperPaciencia
+          prob: 0.1
           orGroup: Weapon
         - id: N14WeaponSniper44LeverCarbine
           prob: 0.1

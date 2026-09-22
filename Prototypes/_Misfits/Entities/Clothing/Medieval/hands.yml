@@ -1,0 +1,59 @@
+# #Misfits Add - Medieval gloves and gauntlets. Sprites made by Chermaity for the Misfits server.
+
+- type: entity
+  parent: ClothingHandsBase
+  id: N14ClothingHandsMedievalLeatherGloves
+  name: leather gloves
+  description: Plain leather gloves, worn soft from use.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/Hands/leather_gloves.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/Hands/leather_gloves.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: N14ClothingHandsMedievalGauntletsCrimson
+  name: crimson gauntlets
+  description: Steel-plated gauntlets with crimson cuffs.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/Hands/gauntlets_crimson.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/Hands/gauntlets_crimson.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+
+- type: entity
+  parent: ClothingHandsBase
+  id: N14ClothingHandsMedievalBlackLeatherGloves
+  name: black leather gloves
+  description: Supple gloves of black-dyed leather.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/Hands/black_leather_gloves.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/Hands/black_leather_gloves.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: N14ClothingHandsMedievalPlateGauntletsAzure
+  name: azure plate gauntlets
+  description: Fingered gauntlets of blued steel plate.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/Hands/plate_gauntlets_azure.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/Hands/plate_gauntlets_azure.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9

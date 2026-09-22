@@ -33,14 +33,14 @@
   #1 Ointment = -50 damage of those types
   #1 Cable ~= -50 (-49.8) damage of those types
   - type: Healing
-    delay: 0.6
+    delay: 1.2
     damageContainers:
     - Silicon
     damage:
       types: # these are all split across multiple types
-        Heat: -1.66
-        Shock: -1.66
-        Caustic: -1.66
+        Heat: -12
+        Shock: -12
+        Caustic: -12
 
 - type: entity
   id: CableHVStack

@@ -141,6 +141,12 @@ undecided-loadout-category-ws-stealth-description =
     4 9mm SMG magazines, 1 C ration MRE, 1 stimpak,
     1 RadAway blood bag, 1 gauze pack, and 1 flare.
 
+undecided-loadout-category-ws-operative-name = Specialist Operative Kit
+undecided-loadout-category-ws-operative-description =
+    Includes 1 NCR recon uniform, 1 NCR belt, 1 recon beret, 1 NCR cloak, 1 modified R91,
+    3 5.56 magazines, 1 .45 pistol, 2 .45 pistol magazines,
+    1 C ration MRE, 1 stimpak, 1 RadAway blood bag, 1 gauze pack, and 1 flare.
+
 # NCRA Sergeant Kits
 
 undecided-loadout-category-sgt-rifleman-name = Sergeant Rifleman Kit
@@ -226,6 +232,11 @@ undecided-loadout-category-ranger-sniper-name = Ranger Sniper Kit
 undecided-loadout-category-ranger-sniper-description =
     Includes 1 NCR pouches bandolier, 1 sniper rifle, 3 sniper magazines,
     1 box of .308 ammo, 2 stimpaks, 1 K ration MRE, and 1 combat knife.
+
+undecided-loadout-category-ranger-operative-name = Ranger Operative Kit
+undecided-loadout-category-ranger-operative-description =
+    Includes 1 NCR belt, 1 modified R91, 3 5.56 magazines,
+    1 box of 5.56 ammo, 1 stimpak, 1 K ration MRE, and 1 combat knife.
 
 undecided-loadout-category-veteran-ranger-service-name = Veteran Ranger Service Kit
 undecided-loadout-category-veteran-ranger-service-description =

@@ -1,0 +1,20 @@
+<!-- SPDX-License-Identifier: MIT -->
+<!-- Adapted from Goob Station / Trauma Station -->
+
+<controls:FancyWindow xmlns="https://spacestation14.io"
+        xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+        Title="{Loc 'stack-filter-window-title'}"
+        MinSize="280 130">
+    <BoxContainer Orientation="Vertical" Align="Center" Margin="10">
+        <BoxContainer Orientation="Horizontal" Margin="5">
+            <Label Text="{Loc 'stack-filter-min-stack-size'}"/>
+            <Control HorizontalExpand="True" MinSize="10 0"/>
+            <SpinBox Name="MinSpin" MinWidth="80"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" Margin="5">
+            <Label Text="{Loc 'stack-filter-stack-chunk-size'}"/>
+            <Control HorizontalExpand="True" MinSize="10 0"/>
+            <SpinBox Name="SizeSpin" MinWidth="80"/>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

@@ -555,6 +555,16 @@
     solution: buffer
   - type: Anchorable
   - type: Rotatable
+  # #Misfits
+  - type: AutomationSlots
+    slots:
+    - !type:AutomatedSolution
+      input: AutomationSlotSolution
+      output: AutomationSlotSolution
+      solutionName: buffer
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
 
 - type: entity
   parent: BaseStructure

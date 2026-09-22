@@ -1,0 +1,91 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Adapted from Goob Station / Trauma Station
+
+# Robotic Arm
+
+- type: sinkPort
+  id: RoboticArmInput
+  name: signal-port-name-input-machine
+  description: signal-port-description-input-machine
+
+- type: sinkPort
+  id: AutomationSlotFilter
+  name: signal-port-name-automation-slot-filter
+  description: signal-port-description-automation-slot-filter
+
+# Storage Bin
+
+- type: sinkPort
+  id: AutomationSlotStorage
+  name: signal-port-name-automation-slot-storage
+  description: signal-port-description-automation-slot-storage
+
+# Constructor / Interactor
+
+- type: sinkPort
+  id: Start
+  name: signal-port-name-machine-start
+  description: signal-port-description-machine-start
+
+- type: sinkPort
+  id: AutoStart
+  name: signal-port-name-machine-repeating
+  description: signal-port-description-machine-repeating
+
+# Interactor
+
+- type: sinkPort
+  id: AutomationSlotTool
+  name: signal-port-name-automation-slot-tool
+  description: signal-port-description-automation-slot-tool
+
+- type: sinkPort
+  id: AltInteract
+  name: signal-port-name-alt-interact
+  description: signal-port-description-alt-interact
+
+- type: sinkPort
+  id: UseInHand
+  name: signal-port-name-use-in-hand
+  description: signal-port-description-use-in-hand
+
+- type: sinkPort
+  id: HarmMode
+  name: signal-port-name-harm-mode
+  description: signal-port-description-harm-mode
+
+- type: sinkPort
+  id: ToolLocked
+  name: signal-port-name-tool-locked
+  description: signal-port-description-tool-locked
+
+# Plumbing Pump
+
+- type: sinkPort
+  id: PlumbingInput
+  name: signal-port-name-plumbing-input
+  description: signal-port-description-plumbing-input
+
+# Solution automation
+
+- type: sinkPort
+  id: AutomationSlotSolution
+  name: signal-port-name-automation-slot-solution
+  description: signal-port-description-automation-slot-solution
+
+# Lathe
+
+- type: sinkPort
+  id: LathePrint
+  name: signal-port-name-lathe-print
+  description: signal-port-description-lathe-print
+
+- type: sinkPort
+  id: LatheSetRecipe
+  name: signal-port-name-lathe-set-recipe
+  description: signal-port-description-lathe-set-recipe
+
+- type: sinkPort
+  id: LatheQuantity
+  name: signal-port-name-lathe-quantity
+  description: signal-port-description-lathe-quantity

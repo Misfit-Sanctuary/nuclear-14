@@ -11,7 +11,7 @@
       id: N14WeaponRifle556R91
       weight: 4
     - !type:EntSelector
-      id: N14WeaponRifleInfiltrator # stealth R91
+      id: N14WeaponRifleOperative # stealth R91
       weight: 4
     - !type:EntSelector
       id: N14WeaponRifle556EM2
@@ -71,6 +71,9 @@
       weight: 4
     - !type:EntSelector
       id: N14WeaponSniperHunting
+      weight: 4
+    - !type:EntSelector
+      id: N14WeaponSniperPaciencia
       weight: 4
     - !type:EntSelector
       id: N14WeaponSniperEnfield

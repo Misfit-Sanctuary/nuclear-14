@@ -139,7 +139,7 @@
   materials:
     Steel: 4000
     Plastic: 1000
-    Silver: 300
+    N14Silver: 300
 - type: latheRecipe
   id: BlueprintSmg10mmEighties
   result: N14WeaponSMG10mm
@@ -152,7 +152,7 @@
   materials:
     Steel: 4000
     Plastic: 1000
-    Silver: 300
+    N14Silver: 300
 
 # t4 weapons
 
@@ -168,7 +168,7 @@
   materials:
     Steel: 4000
     Plastic: 1000
-    Silver: 300
+    N14Silver: 300
 - type: latheRecipe
   id: BlueprintDesertEagleEighties
   result: N14WeaponDesertEagle44
@@ -181,7 +181,7 @@
   materials:
     Steel: 5000
     Plastic: 1000
-    Silver: 300
+    N14Silver: 300
 - type: latheRecipe
   id: BlueprintHuntingRevolverEighties
   result: N14WeaponRevolver45-70Hunter
@@ -194,7 +194,7 @@
   materials:
     Steel: 5000
     Wood: 1500
-    Silver: 200
+    N14Silver: 200
 - type: latheRecipe
   id: BlueprintDouglasSmgEighties
   result: N14WeaponSMG12mmAdvancedCanadian
@@ -207,7 +207,7 @@
   materials:
     Steel: 6000
     Plastic: 1000
-    Silver: 400
+    N14Silver: 400
 - type: latheRecipe
   id: BlueprintCanadiaSmgEighties
   result: N14WeaponSMG9mmCanadian
@@ -220,7 +220,7 @@
   materials:
     Steel: 6000
     Plastic: 1000
-    Silver: 400
+    N14Silver: 400
 
 # t5 weapons
 
@@ -236,8 +236,8 @@
   materials:
     Steel: 7000
     Plastic: 1500
-    Silver: 500
-    Gold: 300
+    N14Silver: 500
+    N14Gold: 300
 - type: latheRecipe
   id: BlueprintPipeSniper50Eighties
   result: N14WeaponSniper50Pipe
@@ -250,8 +250,8 @@
   materials:
     Steel: 7000
     Wood: 1500
-    Silver: 500
-    Gold: 300
+    N14Silver: 500
+    N14Gold: 300
 - type: latheRecipe
   id: BlueprintSmg180Eighties
   result: N14WeaponSMGAmerican180
@@ -264,8 +264,8 @@
   materials:
     Steel: 8000
     Plastic: 1500
-    Silver: 500
-    Gold: 300
+    N14Silver: 500
+    N14Gold: 300
 - type: latheRecipe
   id: BlueprintSmg127AdvancedEighties
   result: N14WeaponSMG12mmAdvanced
@@ -278,8 +278,8 @@
   materials:
     Steel: 9000
     Plastic: 2000
-    Silver: 500
-    Gold: 300
+    N14Silver: 500
+    N14Gold: 300
 - type: latheRecipe
   id: BlueprintChinaLakeEighties
   result: N14WeaponLauncherGrenade
@@ -292,8 +292,8 @@
   materials:
     Steel: 20000
     Plastic: 2000
-    Silver: 2000
-    Gold: 2000
+    N14Silver: 2000
+    N14Gold: 2000
 
 
 # ammo
@@ -741,4 +741,4 @@
     Cloth: 700
     Leather: 300
     Plastic: 300
-    Silver: 100
+    N14Silver: 100

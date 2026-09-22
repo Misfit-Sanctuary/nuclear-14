@@ -4,8 +4,8 @@ meta:
   engineVersion: 286.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/05/2026 18:58:50
-  entityCount: 36611
+  time: 09/17/2026 07:43:22
+  entityCount: 36614
 maps:
 - 1
 grids:
@@ -41,7 +41,6 @@ grids:
 - 35882
 - 35883
 - 35884
-- 36224
 - 35885
 - 35886
 - 35887
@@ -53,6 +52,7 @@ grids:
 - 35893
 - 35894
 - 35895
+- 36224
 orphans: []
 nullspace: []
 tilemap:
@@ -20944,7 +20944,7 @@ entities:
       pos: -63.5,42.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -7609.682
+      secondsUntilStateChange: -7787.3486
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -51879,7 +51879,10 @@ entities:
     components:
     - type: Transform
       parent: 2
-      pos: 3.4801657,7.6873517
+      pos: 3.1322842,7.5609155
+    - type: Physics
+      linearDamping: 0
+      angularDamping: 0
 - proto: ClothingHeadAreopagite
   entities:
   - uid: 6128
@@ -55249,7 +55252,7 @@ entities:
       pos: 30.5,33.5
     - type: Door
       state: Closing
-      secondsUntilStateChange: -58652.88
+      secondsUntilStateChange: -58830.547
   - uid: 6608
     components:
     - type: Transform
@@ -61382,7 +61385,7 @@ entities:
       containers:
       - drink
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.45085034
+      sprayFizzinessThresholdRoll: 0.62279487
     - type: Physics
       linearDamping: 0
       canCollide: False
@@ -61752,7 +61755,7 @@ entities:
       containers:
       - drink
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.8874958
+      sprayFizzinessThresholdRoll: 0.27070272
     - type: Physics
       linearDamping: 0
       angularDamping: 0
@@ -62170,7 +62173,7 @@ entities:
       containers:
       - drink
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.19944942
+      sprayFizzinessThresholdRoll: 0.5890882
     - type: Physics
       linearDamping: 0
       canCollide: False
@@ -70807,7 +70810,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 3.5,13.5
     - type: Drain
-      accumulator: 0.21695456
+      accumulator: 0.14101772
     - type: Fixtures
       fixtures: {}
   - uid: 9177
@@ -70816,7 +70819,7 @@ entities:
       parent: 2
       pos: -33.5,10.5
     - type: Drain
-      accumulator: 0.12437478
+      accumulator: 0.8448782
     - type: Fixtures
       fixtures: {}
   - uid: 9178
@@ -70825,7 +70828,7 @@ entities:
       parent: 2
       pos: 72.5,23.5
     - type: Drain
-      accumulator: 0.9778472
+      accumulator: 0.20183232
     - type: Fixtures
       fixtures: {}
   - uid: 9179
@@ -70835,7 +70838,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 74.5,21.5
     - type: Drain
-      accumulator: 0.08417256
+      accumulator: 0.7802547
     - type: Fixtures
       fixtures: {}
   - uid: 9180
@@ -70845,7 +70848,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 76.5,21.5
     - type: Drain
-      accumulator: 0.6365292
+      accumulator: 0.74530596
     - type: Fixtures
       fixtures: {}
   - uid: 9181
@@ -70854,7 +70857,7 @@ entities:
       parent: 2
       pos: 72.5,21.5
     - type: Drain
-      accumulator: 0.09064992
+      accumulator: 0.06779905
     - type: Fixtures
       fixtures: {}
   - uid: 9182
@@ -70864,7 +70867,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 76.5,23.5
     - type: Drain
-      accumulator: 0.450132
+      accumulator: 0.5781387
     - type: Fixtures
       fixtures: {}
   - uid: 9183
@@ -70873,7 +70876,7 @@ entities:
       parent: 2
       pos: -209.5,-5.5
     - type: Drain
-      accumulator: 0.11958198
+      accumulator: 0.482345
     - type: Fixtures
       fixtures: {}
   - uid: 9184
@@ -70882,7 +70885,7 @@ entities:
       parent: 2
       pos: -214.5,-3.5
     - type: Drain
-      accumulator: 0.021964822
+      accumulator: 0.9649023
     - type: Fixtures
       fixtures: {}
   - uid: 9185
@@ -70891,7 +70894,7 @@ entities:
       parent: 2
       pos: -106.5,-9.5
     - type: Drain
-      accumulator: 0.6529516
+      accumulator: 0.98432547
     - type: Fixtures
       fixtures: {}
   - uid: 9186
@@ -70900,7 +70903,7 @@ entities:
       parent: 2
       pos: 37.5,-0.5
     - type: Drain
-      accumulator: 0.27821696
+      accumulator: 0.7461908
     - type: Fixtures
       fixtures: {}
   - uid: 9187
@@ -70909,7 +70912,7 @@ entities:
       parent: 2
       pos: 37.5,-2.5
     - type: Drain
-      accumulator: 0.26826054
+      accumulator: 0.13949744
     - type: Fixtures
       fixtures: {}
   - uid: 9188
@@ -70918,7 +70921,7 @@ entities:
       parent: 2
       pos: -95.5,58.5
     - type: Drain
-      accumulator: 0.69742346
+      accumulator: 0.8053184
     - type: Fixtures
       fixtures: {}
   - uid: 9189
@@ -70928,7 +70931,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -81.5,72.5
     - type: Drain
-      accumulator: 0.27276388
+      accumulator: 0.00013668509
     - type: Fixtures
       fixtures: {}
   - uid: 9190
@@ -70937,7 +70940,7 @@ entities:
       parent: 2
       pos: 32.5,26.5
     - type: Drain
-      accumulator: 0.047142237
+      accumulator: 0.8992985
     - type: Fixtures
       fixtures: {}
   - uid: 9191
@@ -70946,7 +70949,7 @@ entities:
       parent: 2
       pos: 34.5,26.5
     - type: Drain
-      accumulator: 0.599203
+      accumulator: 0.61352926
     - type: Fixtures
       fixtures: {}
   - uid: 9192
@@ -70956,7 +70959,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 96.5,1.5
     - type: Drain
-      accumulator: 0.45745412
+      accumulator: 0.43967694
     - type: Fixtures
       fixtures: {}
   - uid: 9193
@@ -70966,7 +70969,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 96.5,3.5
     - type: Drain
-      accumulator: 0.9319841
+      accumulator: 0.76414484
     - type: Fixtures
       fixtures: {}
   - uid: 9194
@@ -70975,7 +70978,7 @@ entities:
       parent: 2
       pos: 91.5,21.5
     - type: Drain
-      accumulator: 0.037287667
+      accumulator: 0.098524496
     - type: Fixtures
       fixtures: {}
   - uid: 9195
@@ -70984,7 +70987,7 @@ entities:
       parent: 2
       pos: 93.5,42.5
     - type: Drain
-      accumulator: 0.6956284
+      accumulator: 0.62201047
     - type: Fixtures
       fixtures: {}
   - uid: 9196
@@ -70993,7 +70996,7 @@ entities:
       parent: 2
       pos: -52.5,12.5
     - type: Drain
-      accumulator: 0.69100845
+      accumulator: 0.7497214
     - type: Fixtures
       fixtures: {}
   - uid: 9197
@@ -71003,7 +71006,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -14.5,-21.5
     - type: Drain
-      accumulator: 0.8961545
+      accumulator: 0.9827564
     - type: Fixtures
       fixtures: {}
   - uid: 9198
@@ -71012,7 +71015,7 @@ entities:
       parent: 2
       pos: -50.5,12.5
     - type: Drain
-      accumulator: 0.5114275
+      accumulator: 0.32473013
     - type: Fixtures
       fixtures: {}
   - uid: 9199
@@ -71022,7 +71025,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -12.5,-21.5
     - type: Drain
-      accumulator: 0.6002561
+      accumulator: 0.57630605
     - type: Fixtures
       fixtures: {}
 - proto: FloorTileItemSteel
@@ -71735,7 +71738,7 @@ entities:
     components:
     - type: Transform
       parent: 2
-      pos: 2.7688715,7.7073607
+      pos: 2.425859,7.7681336
     - type: Physics
       linearDamping: 0
       angularDamping: 0
@@ -82801,6 +82804,16 @@ entities:
       canCollide: False
       angularDamping: 0
     - type: InsideEntityStorage
+- proto: InteractorCircuitboard
+  entities:
+  - uid: 36226
+    components:
+    - type: Transform
+      parent: 2
+      pos: 3.8763852,7.6268487
+    - type: Physics
+      linearDamping: 0
+      angularDamping: 0
 - proto: JanitorialTrolley
   entities:
   - uid: 10752
@@ -87482,6 +87495,17 @@ entities:
     - type: Transform
       parent: 2
       pos: 90.5,25.5
+- proto: MisfitsBlueprintFactoryAutomation
+  entities:
+  - uid: 36225
+    components:
+    - type: Transform
+      parent: 11476
+    - type: Physics
+      linearDamping: 0
+      canCollide: False
+      angularDamping: 0
+    - type: InsideEntityStorage
 - proto: MisfitsClosetCabinetWoodChemistry
   entities:
   - uid: 11471
@@ -87526,6 +87550,17 @@ entities:
     - type: Transform
       parent: 2
       pos: -10.5,13.5
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          ents:
+          - 36225
+          showEnts: False
+          occludes: True
+        paper_label: !type:ContainerSlot
+          ent: null
+          showEnts: False
+          occludes: True
 - proto: MisfitsCrateMedicalChemistry
   entities:
   - uid: 7650
@@ -89678,7 +89713,7 @@ entities:
       pos: -40.5,56.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -1332602.4
+      secondsUntilStateChange: -1332780
     - type: DeviceLinkSink
       links:
       - 31772
@@ -110434,7 +110469,7 @@ entities:
       pos: -92.5,67.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -1352154.2
+      secondsUntilStateChange: -1352331.9
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -110484,7 +110519,7 @@ entities:
       pos: 0.5,15.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -53590.24
+      secondsUntilStateChange: -53767.906
     - type: DeviceLinkSource
       linkedPorts:
         31662:
@@ -110729,7 +110764,7 @@ entities:
       pos: -20.5,4.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -59259.113
+      secondsUntilStateChange: -59436.78
     - type: DeviceLinkSource
       lastSignals:
         DoorStatus: True
@@ -111428,7 +111463,7 @@ entities:
       pos: -85.5,-47.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -587866.6
+      secondsUntilStateChange: -588044.3
       canPry: False
   - uid: 14348
     components:
@@ -111530,7 +111565,7 @@ entities:
       pos: -94.5,-48.5
     - type: Door
       state: Opening
-      secondsUntilStateChange: -587054.44
+      secondsUntilStateChange: -587232.1
       canPry: False
   - uid: 14361
     components:
@@ -112751,8 +112786,10 @@ entities:
     components:
     - type: Transform
       parent: 2
-      rot: 3.141592653589793 rad
-      pos: 2.4291756,7.6240425
+      pos: 2.1903837,7.6174297
+    - type: Physics
+      linearDamping: 0
+      angularDamping: 0
 - proto: N14DrinkTeaDatura
   entities:
   - uid: 14426
@@ -124914,7 +124951,7 @@ entities:
       pos: -80.5,4.5
     - type: Door
       state: Closing
-      secondsUntilStateChange: -1354535.4
+      secondsUntilStateChange: -1354713
   - uid: 16258
     components:
     - type: Transform
@@ -124927,7 +124964,7 @@ entities:
       pos: -171.5,-57.5
     - type: Door
       state: Closing
-      secondsUntilStateChange: -304737
+      secondsUntilStateChange: -304914.66
 - proto: N14JunkDresser
   entities:
   - uid: 16260
@@ -126444,7 +126481,7 @@ entities:
     - type: Openable
       opened: True
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.5104105
+      sprayFizzinessThresholdRoll: 0.13789801
     - type: ContainerContainer
       containers:
         solution@drink: !type:ContainerSlot
@@ -140165,6 +140202,14 @@ entities:
     - type: Transform
       parent: 2
       pos: 27.884499,6.5083613
+    - type: Physics
+      linearDamping: 0
+      angularDamping: 0
+  - uid: 36227
+    components:
+    - type: Transform
+      parent: 2
+      pos: 5.2703977,9.133889
     - type: Physics
       linearDamping: 0
       angularDamping: 0
@@ -240762,7 +240807,7 @@ entities:
         DoorStatus: True
     - type: Door
       state: Opening
-      secondsUntilStateChange: -57111.97
+      secondsUntilStateChange: -57289.637
   - uid: 32188
     components:
     - type: Transform
@@ -240773,5 +240818,5 @@ entities:
         DoorStatus: True
     - type: Door
       state: Opening
-      secondsUntilStateChange: -57114.336
+      secondsUntilStateChange: -57292.004
 ...

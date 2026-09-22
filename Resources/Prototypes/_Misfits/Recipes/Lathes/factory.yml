@@ -1,0 +1,67 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Adapted from Goob Station / Trauma Station
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: RoboticArmCircuitboard
+  icon:
+    sprite: _Misfits/Structures/Machines/robotic_arm.rsi
+    state: icon
+  result: RoboticArmCircuitboard
+  category: MisfitsBlueprintFactoryAutomation
+  requiresBlueprint: true
+  materials:
+    Steel: 100
+    Glass: 50
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ConstructorCircuitboard
+  icon:
+    sprite: _Misfits/Structures/Machines/constructor.rsi
+    state: icon
+  result: ConstructorCircuitboard
+  category: MisfitsBlueprintFactoryAutomation
+  requiresBlueprint: true
+  materials:
+    Steel: 100
+    Glass: 50
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: StorageBinCircuitboard
+  icon:
+    sprite: _Misfits/Structures/Machines/storage_bin.rsi
+    state: icon
+  result: StorageBinCircuitboard
+  category: MisfitsBlueprintFactoryAutomation
+  requiresBlueprint: true
+  materials:
+    Steel: 100
+    Glass: 50
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: InteractorCircuitboard
+  icon:
+    sprite: _Misfits/Structures/Machines/interactor.rsi
+    state: icon
+  result: InteractorCircuitboard
+  category: MisfitsBlueprintFactoryAutomation
+  requiresBlueprint: true
+  materials:
+    Steel: 100
+    Glass: 50
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: PlumbingPumpCircuitboard
+  icon:
+    sprite: _Misfits/Structures/Machines/Plumbing/liquid_pump.rsi
+    state: icon
+  result: PlumbingPumpCircuitboard
+  category: MisfitsBlueprintFactoryAutomation
+  requiresBlueprint: true
+  materials:
+    Steel: 100
+    Glass: 50

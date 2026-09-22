@@ -180,6 +180,32 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     }
 
     /// <summary>
+    /// Misfits - Removes a port from a source.
+    /// </summary>
+    public void RemoveSourcePort(EntityUid uid, ProtoId<SourcePortPrototype> port)
+    {
+        if (!TryComp<DeviceLinkSourceComponent>(uid, out var comp) || comp.Ports == null)
+            return;
+
+        comp.Ports.Remove(port);
+        if (comp.Ports.Count == 0)
+            RemCompDeferred<DeviceLinkSourceComponent>(uid);
+    }
+
+    /// <summary>
+    /// Misfits - Removes a port from a sink.
+    /// </summary>
+    public void RemoveSinkPort(EntityUid uid, ProtoId<SinkPortPrototype> port)
+    {
+        if (!TryComp<DeviceLinkSinkComponent>(uid, out var comp) || comp.Ports == null)
+            return;
+
+        comp.Ports.Remove(port);
+        if (comp.Ports.Count == 0)
+            RemCompDeferred<DeviceLinkSinkComponent>(uid);
+    }
+
+    /// <summary>
     /// Retrieves the available ports from a source
     /// </summary>
     /// <returns>A list of source port prototypes</returns>

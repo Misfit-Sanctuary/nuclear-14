@@ -1,0 +1,82 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Adapted from Goob Station / Trauma Station
+
+- type: construction
+  id: AutomationFilterLabel
+  graph: AutomationFilter
+  targetNode: label
+  category: construction-category-misc
+  objectType: Item
+  icon:
+    sprite: _Misfits/Objects/Misc/filter.rsi
+    state: icon
+
+- type: construction
+  id: AutomationFilterName
+  graph: AutomationFilter
+  targetNode: name
+  category: construction-category-misc
+  objectType: Item
+  icon:
+    sprite: _Misfits/Objects/Misc/filter.rsi
+    state: icon
+
+- type: construction
+  id: AutomationFilterStack
+  graph: AutomationFilter
+  targetNode: stack
+  category: construction-category-misc
+  objectType: Item
+  icon:
+    sprite: _Misfits/Objects/Misc/filter.rsi
+    state: icon
+
+- type: construction
+  id: AutomationFilterPressure
+  graph: AutomationFilter
+  targetNode: pressure
+  category: construction-category-misc
+  objectType: Item
+  icon:
+    sprite: _Misfits/Objects/Misc/filter.rsi
+    state: icon
+
+- type: construction
+  id: AutomationFilterCombined
+  graph: AutomationFilter
+  targetNode: combined
+  category: construction-category-misc
+  objectType: Item
+  icon:
+    sprite: _Misfits/Objects/Misc/filter.rsi
+    state: icon
+
+- type: construction
+  id: AutomationFilterAnchor
+  graph: AutomationFilter
+  targetNode: anchor
+  category: construction-category-misc
+  objectType: Item
+  icon:
+    sprite: _Misfits/Objects/Misc/filter.rsi
+    state: icon
+
+- type: construction
+  id: AutomationFilterMob
+  graph: AutomationFilter
+  targetNode: mob
+  category: construction-category-misc
+  objectType: Item
+  icon:
+    sprite: _Misfits/Objects/Misc/filter.rsi
+    state: icon
+
+- type: construction
+  id: AutomationFilterCuff
+  graph: AutomationFilter
+  targetNode: cuff
+  category: construction-category-misc
+  objectType: Item
+  icon:
+    sprite: _Misfits/Objects/Misc/filter.rsi
+    state: icon

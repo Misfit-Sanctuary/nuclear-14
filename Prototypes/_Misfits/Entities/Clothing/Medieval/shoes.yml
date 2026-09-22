@@ -1,0 +1,70 @@
+# #Misfits Add - Medieval boots. Sprites made by Chermaity for the Misfits server.
+# Every pair has a boot slot for one knife or one revolver. Pistols do not fit: the whitelist
+# checks the Knife tag or the revolver cylinder component instead of N14's usual Sidearm tag.
+
+- type: entity
+  abstract: true
+  parent: [ClothingShoesBase, ClothingSlotBase]
+  id: N14ClothingShoesMedievalBase
+  components:
+  - type: Matchbox
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        whitelist:
+          tags:
+          - Knife
+          components:
+          - RevolverAmmoProvider
+
+- type: entity
+  parent: N14ClothingShoesMedievalBase
+  id: N14ClothingShoesMedievalRidingBoots
+  name: leather riding boots
+  description: Tall strapped leather boots with room in the shaft for a knife or a revolver.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/Shoes/riding_boots.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/Shoes/riding_boots.rsi
+
+- type: entity
+  parent: N14ClothingShoesMedievalBase
+  id: N14ClothingShoesMedievalPlatedBootsCrimson
+  name: crimson plated boots
+  description: Leather boots with steel plates strapped over the shins and crimson trim. A knife or a revolver fits inside.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/Shoes/plated_boots_crimson.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/Shoes/plated_boots_crimson.rsi
+
+- type: entity
+  parent: N14ClothingShoesMedievalBase
+  id: N14ClothingShoesMedievalBlackLeatherBoots
+  name: black leather boots
+  description: Tall boots of black leather. A knife or a revolver fits inside.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/Shoes/black_leather_boots.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/Shoes/black_leather_boots.rsi
+
+- type: entity
+  parent: N14ClothingShoesMedievalBase
+  id: N14ClothingShoesMedievalSabatonsAzure
+  name: azure sabatons
+  description: Boots armored in blued steel plate from toe to knee. A knife or a revolver fits inside.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Medieval/Shoes/sabatons_azure.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Medieval/Shoes/sabatons_azure.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95

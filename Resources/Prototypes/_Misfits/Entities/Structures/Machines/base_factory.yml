@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Adapted from Goob Station / Trauma Station
+
+- type: entity
+  abstract: true
+  id: BaseAutomatedMachine
+  components:
+  - type: AutomationSlots
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
