@@ -71,12 +71,13 @@ undecided-loadout-category-engi-mechanic-name = Engineer Sapper Kit
 undecided-loadout-category-engi-mechanic-description =
     Includes 1 filled utility belt, 1 butchered service rifle,
     3 5.56 service rifle magazines, A full stack of steel, 2 stacks of wood planks,
+    2 smoke grenades and a defensive frag grenade,
     1 C ration MRE, 1 stimpak, 1 RadAway blood bag, 1 gauze pack
 
 undecided-loadout-category-engi-demo-name = Engineer Demolition Kit
 undecided-loadout-category-engi-demo-description =
     Includes 1 NCR shotgun belt, 1 9mm SMG, 3 9mm SMG magazines,
-    1 short shotgun, 1 box of 12 gauge shells,
+    1 short shotgun, 1 box of 12 gauge shells, 2 smoke grenades,
     1 mechanical toolbox, 3 C4 charge, 1 ripper,
     1 C ration MRE, 1 stimpak, 1 heavy metal shield
     1 RadAway blood bag and 1 gauze pack
@@ -86,13 +87,13 @@ undecided-loadout-category-engi-breach-description =
     Includes 1 NCR shotgun belt, 1 combat shotgun, 3 12 gauge drum magazines,
     1 mechanical toolbox, 1 9mm pistol, 2 9mm pistol magazines,
     1 C ration MRE, 1 stimpak, 1 RadAway blood bag, 1 gauze pack,
-    1 dynamite and 2 tin-grenades
+    1 smoke grenade and 2 tin-grenades
 # NCRA Medic Kits
 
 undecided-loadout-category-med-surg-name = Medic Advanced Field Kit
 undecided-loadout-category-med-surg-description =
     Includes 1 NCR medic helmet, 1 pouched leather NCR vest, 1 filled medical belt, 1 pair of nitrile gloves, 1 sterile mask,
-    1 filled surgery pack, 1 .45 Colt pistol, 2 .45 Colt magazines,
+    1 filled surgery pack, 1 .45 Colt pistol, 2 .45 Colt magazines, 
     1 super stimpak, 1 stimpak, 1 ointment pack,
     1 blood pack, 1 antidote, 1 C ration MRE,
     1 RadAway blood bag, 2 gauze packs, and 1 torch.
@@ -100,7 +101,7 @@ undecided-loadout-category-med-surg-description =
 undecided-loadout-category-med-doc-name = Medic Field Kit
 undecided-loadout-category-med-doc-description =
     Includes 1 NCR medic helmet, 1 pouched leather NCR vest, 1 filled medical belt, 1 pair of nitrile gloves,
-    1 medic beret, 2 smelling salts, 1 health analyzer,
+    1 medic beret, 2 smelling salts, 1 health analyzer, 1 smoke grenade,
     1 9mm SMG, 3 9mm SMG magazines, 1 trauma pack,
     1 ointment pack, 1 antidote bottle, 1 C ration MRE,
     2 stimpaks, 1 RadAway blood bag, 2 gauze packs, and 1 flare.
@@ -110,7 +111,7 @@ undecided-loadout-category-med-combat-description =
     Includes 1 NCR medic helmet, 1 pouched leather NCR vest, 1 NCR pouched desert vest, 1 medic metal helmet,
     1 compact defibrillator, 1 service rifle with 4 magazines,
     1 9mm pistol with 2 magazines, 1 filled combat medkit,
-    1 C ration MRE, 2 stimpaks,
+    1 C ration MRE, 2 stimpaks, 1 smoke grenade,
     1 RadAway blood bag, 2 gauze packs, and 1 torch.
 
 # NCRA Weapon Specialist Kits
@@ -131,33 +132,33 @@ undecided-loadout-category-ws-grenadier-description =
 undecided-loadout-category-ws-sniper-name = Specialist Sniper Kit
 undecided-loadout-category-ws-sniper-description =
     Includes 1 NCR recon uniform,1 NCR belt, 1 recon beret, 1 NCR cloak, 1 .308 sniper rifle,
-    1 mag of .308, 1 .45 pistol, 2 .45 pistol magazines,
+    1 mag of .308, 1 .45 pistol, 2 .45 pistol magazines, 1 smoke grenade,
     1 C ration MRE, 1 stimpak, 1 RadAway blood bag, 1 gauze pack, and 1 flare.
 
 undecided-loadout-category-ws-stealth-name = Specialist Infiltrator Kit
 undecided-loadout-category-ws-stealth-description =
     Includes 1 dark NCR vest coat, 1 black balaclava, 1 NCR belt,
-    1 pair of night-vision goggles, 1 suppressed 9mm SMG,
+    1 pair of night-vision goggles, 1 suppressed 9mm SMG, 3 smoke grenades,
     4 9mm SMG magazines, 1 C ration MRE, 1 stimpak,
     1 RadAway blood bag, 1 gauze pack, and 1 flare.
 
 undecided-loadout-category-ws-operative-name = Specialist Operative Kit
 undecided-loadout-category-ws-operative-description =
     Includes 1 NCR recon uniform, 1 NCR belt, 1 recon beret, 1 NCR cloak, 1 modified R91,
-    3 5.56 magazines, 1 .45 pistol, 2 .45 pistol magazines,
+    3 5.56 magazines, 1 .45 pistol, 2 .45 pistol magazines, 1 smoke grenade,
     1 C ration MRE, 1 stimpak, 1 RadAway blood bag, 1 gauze pack, and 1 flare.
 
 # NCRA Sergeant Kits
 
 undecided-loadout-category-sgt-rifleman-name = Sergeant Rifleman Kit
 undecided-loadout-category-sgt-rifleman-description =
-    Includes 1 metal helmet, 1 NCR belt, 1 assault carbine,
+    Includes 1 metal helmet, 1 NCR belt, 1 assault carbine, 1 smoke and 2 defensive grenades,
     3 long carbine magazines, 1 9mm pistol, 2 9mm pistol magazines,
-    1 C ration MRE, 1 stimpak, 1 RadAway blood bag, 1 gauze pack, and 1 flare.
+    1 C ration MRE, 1 stimpak, 1 RadAway blood bag, 1 gauze pack, and 2 flares.
 
 undecided-loadout-category-sgt-gunner-name = Sergeant Gunner Kit
 undecided-loadout-category-sgt-gunner-description =
-    Includes 1 metal helmet, 1 NCR belt, 1 light machine gun,
+    Includes 1 metal helmet, 1 NCR belt, 1 light machine gun, 1 smoke grenade,
     3 LMG magazines (5.56), 1 9mm pistol, 2 9mm pistol magazines,
     1 C ration MRE, 1 stimpak, 1 RadAway blood bag, 1 gauze pack, and 1 flare.
 
@@ -169,7 +170,7 @@ undecided-loadout-category-sgt-scout-description =
 
 undecided-loadout-category-sgt-point-name = Sergeant Pointman Kit
 undecided-loadout-category-sgt-point-description =
-    Includes 1 metal helmet, 1 NCR belt, 1 combat shotgun,
+    Includes 1 metal helmet, 1 NCR belt, 1 combat shotgun, 2 smoke and 1 defensive grenade,
     3 12 gauge drum magazines, 1 9mm pistol, 2 9mm pistol magazines,
     1 C ration MRE, 1 stimpak, 1 RadAway blood bag, 1 gauze pack, and 1 flare.
 
@@ -206,62 +207,73 @@ undecided-loadout-category-lt-commissar-description =
 undecided-loadout-category-ranger-service-name = Ranger Service Kit
 undecided-loadout-category-ranger-service-description =
     Includes 1 NCR belt, 1 butchered service rifle, 4 service rifle magazines,
-    1 box of 5.56 ammo, 1 stimpak, 1 K ration MRE, and 1 combat knife.
+    1 box of 5.56 ammo, 3 defensive grenades,
+    1 stimpak, 1 K ration MRE, and 1 combat knife.
 
 undecided-loadout-category-ranger-rifleman-name = Ranger Rifleman Kit
 undecided-loadout-category-ranger-rifleman-description =
     Includes 1 NCR belt, 1 assault carbine, 4 long carbine magazines,
-    1 box of 5.56 ammo, 1 stimpak, 1 K ration MRE, and 1 combat knife.
+    1 box of 5.56 ammo, 1 smoke grenade
+    1 stimpak, 1 K ration MRE, and 1 combat knife.
 
 undecided-loadout-category-ranger-marksman-name = Ranger Marksman Kit
 undecided-loadout-category-ranger-marksman-description =
     Includes 1 NCR belt, 1 marksman rifle, 4 7.62 rifle magazines,
-    1 box of 7.62 ammo, 1 stimpak, 1 K ration MRE, and 1 combat knife.
+    1 box of 7.62 ammo, 2 smoke grenades,
+    1 stimpak, 1 K ration MRE, and 1 combat knife.
 
 undecided-loadout-category-ranger-cqb-name = Ranger CQB Specialist Kit
 undecided-loadout-category-ranger-cqb-description =
     Includes 1 NCR pouches bandolier, 1 combat shotgun, 2 12 gauge drum magazines,
-    1 box of 12 gauge shells, 2 combat knives, 2 stimpaks, and 1 K ration MRE.
+    1 box of 12 gauge shells, 1 smoke grenade,
+    2 combat knives, 2 stimpaks, and 1 K ration MRE.
 
 undecided-loadout-category-ranger-trailman-name = Ranger Trailman Kit
 undecided-loadout-category-ranger-trailman-description =
-    Includes 1 NCR pouches bandolier, 1 lever-action carbine, 3 boxes of .44 ammo,
+    Includes 1 NCR pouches bandolier, 1 brush gun, 3 tubes of 45-70,
+    2 smoke and 2 defensive grenades,
     2 stimpaks, 1 K ration MRE, and 1 combat knife.
 
 undecided-loadout-category-ranger-sniper-name = Ranger Sniper Kit
 undecided-loadout-category-ranger-sniper-description =
-    Includes 1 NCR pouches bandolier, 1 sniper rifle, 3 sniper magazines,
-    1 box of .308 ammo, 2 stimpaks, 1 K ration MRE, and 1 combat knife.
+    Includes 1 NCR pouches bandolier, 1 sniper rifle, 3 overpressured sniper magazines,
+    1 box of .308 ammo, 2 smoke grenades,
+    2 stimpaks, 1 K ration MRE, and 1 combat knife.
 
 undecided-loadout-category-ranger-operative-name = Ranger Operative Kit
 undecided-loadout-category-ranger-operative-description =
     Includes 1 NCR belt, 1 modified R91, 3 5.56 magazines,
-    1 box of 5.56 ammo, 1 stimpak, 1 K ration MRE, and 1 combat knife.
+    1 box of 5.56 ammo, 1 smoke grenade,
+    1 stimpak, 1 K ration MRE, and 1 combat knife.
 
 undecided-loadout-category-veteran-ranger-service-name = Veteran Ranger Service Kit
 undecided-loadout-category-veteran-ranger-service-description =
     Includes 1 NCR belt, 1 scout rifle, 4 long scout rifle magazines,
+    1 smoke, 1 offensive and 1 defensive grenade,
     1 box of 5.56 ammo, 2 stimpaks, 1 K ration MRE, and 1 combat knife.
 
 undecided-loadout-category-veteran-ranger-precision-rifle-name = Veteran Ranger Precision Rifle Kit
 undecided-loadout-category-veteran-ranger-precision-rifle-description =
     Includes 1 NCR pouches bandolier, 1 brush gun, 4 speedloader tubes,
-    1 box of 45-70 ammo, 2 stimpaks, 1 K ration MRE, and 1 combat knife.
+    1 box of 45-70 ammo, 5 defensive grenades
+    2 stimpaks, 1 K ration MRE, and 1 combat knife.
 
 undecided-loadout-category-veteran-ranger-heavy-sniper-name = Veteran Ranger Heavy Sniper Kit
 undecided-loadout-category-veteran-ranger-heavy-sniper-description =
     Includes 1 NCR pouches bandolier, 1 anti-materiel rifle,
     4 anti-materiel magazines, 1 box of .50 ammo, 2 stimpaks,
-    1 K ration MRE, and 1 combat knife.
+    1 K ration MRE, 1 smoke grenade and 1 combat knife.
 
 undecided-loadout-category-veteran-ranger-assault-name = Veteran Ranger Assault Kit
 undecided-loadout-category-veteran-ranger-assault-description =
-    Includes 1 NCR belt, 1 assault carbine, 4 long carbine magazines,
+    Includes 1 NCR belt, 1 modified R91, 5 5.56 magazines,
+    3 offensive and 1 defensive grenade
     1 box of 5.56 ammo, 2 stimpaks, 1 K ration MRE, and 1 combat knife.
 
 undecided-loadout-category-veteran-ranger-marksman-name = Veteran Ranger Marksman Kit
 undecided-loadout-category-veteran-ranger-marksman-description =
     Includes 1 NCR belt, 1 marksman rifle, 4 7.62 rifle magazines,
+    1 smoke, 1 offensive and 1 defensive grenade,
     1 box of 7.62 ammo, 2 stimpaks, 1 K ration MRE, and 1 combat knife.
 
 
@@ -503,16 +515,17 @@ undecided-loadout-category-Tribal-pain-bringer-description =
 undecided-loadout-category-town-cere-name = Rifle Kit
 undecided-loadout-category-town-cere-description =
     Sometimes you have to look fancy and not worry about protection.
-    Includes 1 guard hat, 1 guard greatcoat, 1 .45-70 rifle,
-    3 .45-70 boxes, 1 .44 magnum, 2 .44 speedloaders,
+    Includes 1 guard hat, 1 guard greatcoat, 1 .45-70 brush gun,
+    3 defensive frag grenades, 3 .45-70 boxes,
+    1 .44 magnum, 2 .44 speedloaders,
     1 stack of gauze and basic ration supplies.
 
 undecided-loadout-category-town-patr-name = Patrolman Kit
 undecided-loadout-category-town-patr-description =
     You don't ask much from life, all you want is vanilla.
     Includes 1 brodie helmet, 1 light armour, 1 9mm sten SMG,
-    4 9mm SMG mags, 1 Webley pistol, 2 9mm pistol mags,
-    1 rain mantle, 1 stack of gauze and basic ration supplies.
+    3 defensive frag grenades, 4 9mm SMG mags, 1 Webley pistol,
+    2 9mm pistol mags, 1 rain mantle, 1 stack of gauze and basic ration supplies.
 
 undecided-loadout-category-town-lawb-name = Lawbringer Kit
 undecided-loadout-category-town-lawb-description =
@@ -526,7 +539,7 @@ undecided-loadout-category-town-brea-description =
     Only when you don't have to worry about friendly fire!
     Includes 1 visor brodie helmet(visor not included), 1 riot armor,
     1 blowback shotgun, 1 box of 12 gauge shells,
-    1 Webley pistol, 2 9mm pistol mags,
+    1 Webley pistol, 2 9mm pistol mags, 3 defensive frag grenades,
     1 stack of gauze and basic ration supplies.
 
 undecided-loadout-category-town-riot-name = Rifleman Kit
@@ -534,5 +547,6 @@ undecided-loadout-category-town-riot-description =
     Let me solo them! I mean send them home, peacefully!
     Includes 1 visor brodie helmet, 1 riot armor,
     1 Fn FAL, 3 7.62 short magazines, 1 hunting revolver,
-    2 .45-70 speedloaders, 1 town guard cloak, 1 stack of gauze,
+    2 .45-70 speedloaders, 3 defensive frag grenades,
+    1 town guard cloak, 1 stack of gauze,
     and basic ration supplies.
