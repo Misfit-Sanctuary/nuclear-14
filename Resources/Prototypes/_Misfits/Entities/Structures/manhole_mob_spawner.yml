@@ -1,0 +1,19 @@
+# Hostile mob spawner disguised as a manhole. Open = spawning; pry shut with a crowbar to seal it.
+- type: entity
+  parent: LadderTopManholeClosed
+  id: N14ManholeMobSpawner
+  name: manhole
+  suffix: mob spawner
+  description: An unassuming manhole cover. Something hungry stirs deep below...
+  components:
+  - type: InteractionOutline
+  - type: Appearance
+  - type: ManholeSpawner
+    prototypes:
+    - N14MobGhoulFeral
+    - N14MobGhoulFeralReaver
+    - N14MobGhoulFeralRotter
+    intervalSeconds: 20
+    activationRange: 30
+    maxAliveNearby: 6
+    nearbyRange: 25
