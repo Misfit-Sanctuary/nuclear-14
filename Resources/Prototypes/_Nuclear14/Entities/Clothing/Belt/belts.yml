@@ -370,8 +370,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltWasterKatanaBeltT1
-  name: Waster Katana sheaths
-  description: A simple crudely made sheath for a waster katana.
+  name: waster katana sheath
+  description: A simple crudely made leather sheath for a waster katana.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Belt/Wastersheatt1.rsi
@@ -398,8 +398,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltWasterKatanaBeltT2
-  name: Waster Katana sheaths
-  description: An upgraded version of the waster katana sheath.
+  name: reinforced waster katana sheath
+  description: An upgraded version of the waster katana sheath, built to hold a superior blade.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Belt/Wastersheatt2.rsi

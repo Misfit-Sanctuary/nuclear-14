@@ -271,13 +271,14 @@
     price: 50
 
 - type: entity
-  name: tribal sword
+  name: waster katana
   parent: N14Machete
   id: N14WasterKatanaT1
   description: A crudely made katana, this weapon is a simple blade with a simple hilt, but it can still cut through flesh and bone.
   components:
+  - type: Tag
     tags:
-      - WasterKatanaT1
+    - WasterKatanaT1
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Melee/wasterkatanat1.rsi
     state: icon
@@ -294,13 +295,14 @@
     price: 50
 
 - type: entity
-  name: tribal sword
+  name: superior waster katana
   parent: N14Machete
   id: N14WasterKatanaT2
   description: A crudely made katana, this weapon is a simple blade with a simple hilt. This one appears upgraded with a better hilt and a sharper blade, making it more effective.
   components:
+  - type: Tag
     tags:
-      - WasterKatanaT2
+    - WasterKatanaT2
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Melee/wasterkatanat2.rsi
     state: icon
@@ -314,4 +316,4 @@
   - type: Item
     sprite: _Nuclear14/Objects/Weapons/Melee/wasterkatanat2.rsi
   - type: StaticPrice
-    price: 50
+    price: 75
