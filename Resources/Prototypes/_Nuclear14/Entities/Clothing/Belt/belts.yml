@@ -394,6 +394,10 @@
   - type: Tag
     tags:
       - BeltSlotNotBelt
+      - WasterKatanaBeltT1
+  - type: Construction
+    graph: N14WasterKatanaBeltT1
+    node: wasterkatanabelt1
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -422,3 +426,6 @@
   - type: Tag
     tags:
       - BeltSlotNotBelt
+  - type: Construction
+    graph: N14WasterKatanaBeltT2
+    node: wasterkatanabelt2

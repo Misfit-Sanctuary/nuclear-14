@@ -291,6 +291,9 @@
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     sprite: _Nuclear14/Objects/Weapons/Melee/wasterkatanat1.rsi
+  - type: Construction
+    graph: N14WasterKatanaT1
+    node: wasterkatana1
   - type: StaticPrice
     price: 50
 
@@ -315,5 +318,8 @@
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     sprite: _Nuclear14/Objects/Weapons/Melee/wasterkatanat2.rsi
+  - type: Construction
+    graph: N14WasterKatanaT2
+    node: wasterkatana2
   - type: StaticPrice
     price: 75

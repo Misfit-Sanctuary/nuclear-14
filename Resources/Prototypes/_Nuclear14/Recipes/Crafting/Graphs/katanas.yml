@@ -9,8 +9,8 @@
             - material: N14Scrap
               amount: 3
             - material: Steel
-              amount: 3
-              doAfter: 5
+              amount: 10
+              doAfter: 10
     - node: wasterkatana1
       entity: N14WasterKatanaT1
 
@@ -22,10 +22,11 @@
       edges:
         - to: wasterkatana2
           steps:
+            - tag: WasterKatanaT1
             - material: N14Scrap
-              amount: 2
+              amount: 10
             - material: Steel
-              amount: 5
+              amount: 15
               doAfter: 5
     - node: wasterkatana2
       entity: N14WasterKatanaT2
@@ -54,6 +55,7 @@
       edges:
         - to: wasterkatanabelt2
           steps:
+            - tag: WasterKatanaBeltT1
             - material: Leather
               amount: 3
             - material: Cloth
