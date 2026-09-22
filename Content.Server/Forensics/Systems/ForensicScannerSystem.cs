@@ -165,6 +165,19 @@ namespace Content.Server.Forensics
             UpdateUserInterface(scanner, scanner.Comp);
 
             _uiSystem.OpenUi(scanner.Owner, ForensicScannerUiKey.Key, user);
+            
+            // Delay 1 tick before refreshing UI state to ensure contents load on first open.
+            // remove when actual underlying problem is found
+            Timer.Spawn(TimeSpan.Zero, () =>
+            {
+                if (Deleted(scanner.Owner))
+                    return;
+
+                if (!_uiSystem.HasUi(scanner.Owner, ForensicScannerUiKey.Key))
+                    return;
+
+                UpdateUserInterface(scanner, scanner.Comp);
+            });
         }
 
         private void OnPrint(EntityUid uid, ForensicScannerComponent component, ForensicScannerPrintMessage args)

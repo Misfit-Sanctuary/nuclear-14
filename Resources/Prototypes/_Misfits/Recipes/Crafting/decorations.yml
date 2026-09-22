@@ -63,13 +63,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: Flag of the U.S. Army
+  name: Flag of the 'U.S. Army'
   id: N14FlagWallEnclave
   graph: MisfitsFlagEN
   startNode: start
   targetNode: flagen
 # category: construction-category-decorations
-  description: The banner of the U.S. Army, the descendents of America's elite who claim to be the true inheritors of the United States federal government.
+  description: The banner of a group calling themselves the 'U.S. Army', descendents of America's elite who claim to be the true inheritors of the United States federal government.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Wallmounts/walldecor_flags.rsi
@@ -315,7 +315,7 @@
   startNode: start
   targetNode: FlagEnclave
 # category: construction-category-decorations
-  description: The banner of the U.S. Army, the descendents of the business and government elite of the United States, who believe it is their manifest destiny to rebuild and rule the wasteland as their birthright.
+  description: The banner of the Enclave, the descendents of the business and government elite of the United States, who believe it is their manifest destiny to rebuild and rule the wasteland as their birthright.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Decoration/flags.rsi

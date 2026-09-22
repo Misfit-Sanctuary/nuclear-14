@@ -11882,3 +11882,19 @@ Entries:
   id: 6467
   time: '2026-09-21T13:38:33.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1967
+- author: alekszejg
+  changes:
+    - type: Fix
+      message: Critical players can no longer interrupt being pulled by others.
+  id: 6468
+  time: '2026-09-22T23:15:44.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1974
+- author: RedBookcase
+  changes:
+    - type: Add
+      message: Added Town BPs for the RCMP armors and helmets
+    - type: Remove
+      message: Removed various bloat Town armor recipes
+  id: 6469
+  time: '2026-09-22T23:25:52.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1991

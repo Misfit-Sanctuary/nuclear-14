@@ -137,7 +137,7 @@
     Antidote:
       amount: 1
   products:
-    MisfitsRefreshingBeverage: 4
+    MisfitsRefreshingBeverage: 9
 
 # Fallout 76-inspired irradiated blood-pack mixture.
 - type: reaction
@@ -225,7 +225,7 @@
     Epinephrine:
       amount: 1
   products:
-    MisfitsSkeetoSpit: 2
+    MisfitsSkeetoSpit: 5
 
 # Wasteland-grown MisfitsPenicillin from fungal culture.
 - type: reaction
@@ -493,7 +493,7 @@
     blackgoo:
       amount: 1
   products:
-    MisfitsLazarusCompound: 2
+    MisfitsLazarusCompound: 10
 
 # Emergency wakefulness stimulant.
 - type: reaction
@@ -501,14 +501,12 @@
   reactants:
     Epinephrine:
       amount: 2
-    SmellingSalts:
-      amount: 2
     NukaCola:
       amount: 1
     MovespeedMixture:
       amount: 1
   products:
-    MisfitsClearwake: 2
+    MisfitsClearwake: 4
 
 # Specific antidote. A trace of Widows' Mercy is a catalyst/sample and is not consumed.
 - type: reaction
@@ -522,7 +520,7 @@
       amount: 1
       catalyst: true
   products:
-    MisfitsWidowbane: 2
+    MisfitsWidowbane: 4
 
 # Specific antidote for Red Bell Poison; poison sample acts as a catalyst/reference.
 - type: reaction
@@ -536,7 +534,7 @@
       amount: 1
       catalyst: true
   products:
-    MisfitsCinderSerum: 2
+    MisfitsCinderSerum: 4
 
 # Brutal broad toxin purge.
 - type: reaction
@@ -550,4 +548,4 @@
     Ammonia:
       amount: 1
   products:
-    MisfitsGravesalt: 2
+    MisfitsGravesalt: 4

@@ -1,3 +1,7 @@
+# Links to shield math stuff:
+# desmos for absorb numbers: https://www.desmos.com/calculator/rhaxir1rrn
+# for reflect probability: https://stattrek.com/online-calculator/binomial
+
 - type: entity
   name: base shield
   parent: BaseItem
@@ -5,6 +9,9 @@
   description: Debug item, you shouldn't see it!
   abstract: true
   components:
+    - type: Repairable
+      fuelCost: 2
+      doAfterDelay: 2
     - type: Sprite
       sprite: _Nuclear14/Objects/Weapons/Melee/shield_light.rsi
       state: icon
@@ -42,17 +49,11 @@
           Heat: 0.9
       activeBlockModifier:
         coefficients:
-          Blunt: 0.85
-          Slash: 0.85
-          Piercing: 0.85
-          Heat: 0.85
-        flatReductions:
-          Blunt: 0.5
-          Slash: 0.5
-          Piercing: 0.5
-          Heat: 1
-    - type: Reflect # #Made the deflect change 15% to interact with the heavy shields double
-      reflectProb: 0.15
+          Blunt: 0.8
+          Slash: 0.8
+          Piercing: 0.8
+          Heat: 0.7
+    - type: Reflect
       spread: 150
     - type: SpearBlock # #Misfits Change Add: Shields deflect thrown polearms; falls to ground instead of embedding.
     - type: ClothingSpeedModifier
@@ -74,7 +75,73 @@
     - type: Construction
       graph: N14LightShield
       node: start
-
+    - type: Blocking
+      passiveBlockFraction: .8 # 500 HP shield outlives player
+      activeBlockFraction: 1
+      passiveBlockModifier:
+      # 10mm has rof:8/s => 15*8 dmg per second => 120dmg per second | Shots cap 35
+      # AER9 has rof:5/s => 20*5 dmg per second => 100 dmg per second | Shots cap: 24
+        coefficients: # Mod of 0.125 to outlive player
+        # notice no mods for melee derived dmg. Good for absorbing 1 melee hit most of the time
+          Piercing: 0.625 # break: absorb 80 dmg out of 100dmg | base ttk .83s
+          Heat: 0.5 # break: absorb 100 dmg out of 125dmg | base ttk 1.2s
+          Structural: 1.5 # 1 shot destruction likely by large club, sledge, antiMat (notable weapons not exhaustive. vary by str too)
+          #Caustic: 666 # plasma projectiles already do alot of struct lol. due for an overhaul but out of scope for now
+      activeBlockModifier:
+        coefficients: # no diff really for movement based shield
+          Piercing: 0.6
+          Heat: 0.45
+          Blunt: .9 # no struct mod, lower melee dmg, mostly to save your shield from totally breaking if u got like insane reaction time lol
+          Slash: .9
+    - type: Reflect
+      innate: true # movement shield
+      reflects:
+        - Energy
+        - SmallCaliber
+        - MediumCaliber
+      reflectProb: 0.5
+      reflectProbByType:
+        Energy: 0.7 #base 5 lasers each 20 dmg needed to break. ~15 shots to have 50%< of break. 300 dmg absorb | 3 second ttk | 5 ROF
+        SmallCaliber: 0.57 #base 7 shots 15 dmg needed to break. ~15 shots to have 50%< of break. 225 dmg absorb | 2.25 ttk| 8 ROF
+        MediumCaliber: 0.4 #base 4 shots 30 dmg needed to break. ~11 shots to have 50%> of break. 220 dmg absorb | 2.2 ttk | 5 ROF(Ncr service rifle 556 rifle)
+      spread: 150
+    - type: ClothingSpeedModifier # might be too subtle tbh to matter
+      walkModifier: 0.95
+      sprintModifier: 0.95
+    - type: HeldSpeedModifier
+      mirrorClothingModifier: true
+    - type: StaticPrice
+      price: 150
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 85
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior #TODO: louder and distinct break noise
+              sound:
+                collection: MetalBreak
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                N14Scrap:
+                  min: 4
+                  max: 8
+        - trigger:
+            !type:DamageTrigger
+            damage: 50
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                N14ShieldMetalLight_broken:
+                  min: 1
+                  max: 1
 
 - type: entity
   name: heavy metal shield
@@ -93,39 +160,68 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 100 # Half'd durabillity due to insanely cheap cost
+            damage: 200
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+        - trigger:
+            !type:DamageTrigger
+            damage: 150
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
             - !type:SpawnEntitiesBehavior
               spawn:
-                N14Scrap:
-                  min: 5
-                  max: 5
-    - type: Blocking
+                N14ShieldMetalHeavy_broken:
+                  min: 1
+                  max: 1
+    - type: Blocking # For heavy type shields. Bulwark, no speed, high absorb
+      passiveBlockFraction: .9 # 1000 HP shield outlives player
+      activeBlockFraction: 1 # you prolly would die before getting shield's full use if this stayed around .9
       passiveBlockModifier:
+      # 10mm has rof:8/s => 15*8 dmg per second => 120dmg per second | Shots cap 35
+      # AER9 has rof:5/s => 20*5 dmg per second => 100 dmg per second | Shots cap: 24
+        coefficients: # Mod of 0.125 to outlive player
+          Piercing: 0.625 # break: absorb 240 dmg out of 266 | base ttk 2.2s (18~ shots of 10mm)
+          Heat: 0.5 # break: absorb 300 dmg out of 333dmg | base ttk 3.33s(17~ shots more than half of AER9)
+          Structural: 1.5 # melee, especially high struct dmg, will tear this down. and plasma and explosions
+          Caustic: .9 # plasma
+          Blunt: .9 # melee
+          Slash: .9 # melee
+          Shock: 2 #ZAP
+      activeBlockModifier: # major for pushes in close quarters with high concentration of fire against multiple people
+                           # Coordinate with yo team tho this is to give an opening and uh watch out for AMR and plasma and melee
         coefficients:
-          Blunt: 0.85
-          Slash: 0.85
-          Piercing: 0.9 # Forge-Change
-          Heat: 0.85
-      activeBlockModifier:
-        coefficients:
-          Blunt: 0.8
-          Slash: 0.8
-          Piercing: 0.85 # Forge-Change
-          Heat: 0.8
-        flatReductions:
-          Blunt: 0.5 # Forge-Change
-          Slash: 0.5 # Forge-Change
-          Piercing: 0.5 # Forge-Change
-          Heat: 1 # Forge-Change
-    - type: Reflect # # Made reflect to 20 because the shield is insane
-      reflectProb: 0.20
+          Piercing: 0.166 # break: absorb 1040~ dmg become a wall | base ttk 9.2s (75~ shots of 10mm)
+          Heat: 0.15 # break: absorb 1111~ dmg | base ttk 11.11s (56~ shots of AER9) 0.15
+          Structural: .8 # still major dmg since standing still. AMR will ignore this tho lol
+          Caustic: .8 # plasma
+          Blunt: .8 # melee
+          Slash: .8 # melee
+          Shock: 2 #ZAP
+    - type: Reflect
+      innate: false # gonna move slow anyhow, but nice precaution incase of unforseen stuff
+      reflects:
+        - Energy
+        - SmallCaliber
+        - MediumCaliber
+      reflectProb: 0.5
+      reflectProbByType: # law of big numbers is a bitch. This is numbers for active shield block. Passive matters less due to slowdown in theory
+        Energy: 0.7 #base 56 lasers each 20 dmg needed to break. ~185 shots to have 50%> of break. 3700 dmg absorb | 37s ttk LMAO | 5 ROF
+        SmallCaliber: 0.57 #base 75 shots 15 dmg needed to break. ~173 shots to have 50%> of break. 2610 dmg absorb | 21.75s ttk| 8 ROF
+        MediumCaliber: 0.5 #base 51 shots 20 dmg needed to break. ~101 shots to have 50% of break. 2020 dmg absorb | 20.2s ttk | 5 ROF(Ncr service rifle 556 rifle)
       spread: 150
+    - type: StaticPrice
+      price: 300
     - type: ClothingSpeedModifier
-      walkModifier: 0.85 # Forge-Change
-      sprintModifier: 0.85 # Forge-Change
+      walkModifier: 0.65
+      sprintModifier: 0.65
     - type: HeldSpeedModifier
       mirrorClothingModifier: false
       walkModifier: 0.875 # Forge-Change
@@ -134,6 +230,12 @@
       graph: N14HeavyShield
       node: start
 
+# using this as a niche/more specialized melee
+# pros: gives speed. Passive 100% absorb.
+# cons: 60 effective HP for heat/pierce and cannot resist anything else. Active is same as passive
+# so light caramic type shield, guaranteed to absorb 60 Dmg of most common ranged damage
+# so speed/no dmg passthrough in exchange for lowest effective block HP
+# could be good 1 time throwaway to get in close
 - type: entity
   parent: BaseItem
   id: N14InsectShield
@@ -146,37 +248,43 @@
     - type: Item
       sprite: _Nuclear14/Objects/Weapons/Melee/insectshield.rsi
       size: Large
+    - type: ClothingSpeedModifier
+      walkModifier: 1
+      sprintModifier: 1
+    - type: HeldSpeedModifier # bug power!!
+      walkModifier: 1.2
+      sprintModifier: 1.2
+    - type: Reflect # iz like ceramic vro
+      innate: false
+      reflects:
+        - None
+      reflectProb: 0.0
     - type: Blocking
+      passiveBlockFraction: 1
+      activeBlockFraction: 1
       passiveBlockModifier:
         coefficients:
-          Blunt: 0.9
-          Slash: 0.9
-          Piercing: 0.9
-          Heat: 0.9
-      activeBlockModifier:
+          Blunt: 2.0 # brittle
+          Piercing: 0.5 # 60 effective HP
+          Heat: 0.5 # 60 effective HP
+      activeBlockModifier: # exact same
         coefficients:
-          Blunt: 0.8
-          Slash: 0.8
-          Piercing: 0.8
-          Heat: 0.8
-        flatReductions:
-          Blunt: 1
-          Slash: 1
-          Piercing: 1
-          Heat: 1
+          Blunt: 2.0
+          Piercing: 0.5
+          Heat: 0.5
     - type: Damageable
       damageContainer: Shield
     - type: Destructible
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 80
+            damage: 100
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
         - trigger:
             !type:DamageTrigger
-            damage: 40 #This is probably enough damage before it breaks
+            damage: 30 # Ermmm!! this is probably enough damage before it breaks
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
@@ -185,11 +293,207 @@
                 collection: MetalBreak
             - !type:SpawnEntitiesBehavior
               spawn:
-                SheetSteel:
-                  min: 2
-                  max: 2
-                SheetGlass:
-                  min: 2
-                  max: 2
+                N14InsectShield_broken:
+                  min: 1
+                  max: 1
     - type: StaticPrice
-      price: 50
+      price: 100
+
+
+- type: entity
+  parent: N14BaseShield
+  id: N14LegionnaireShield
+  name: legionnaire heater shield #Misfits Change /Fix/: corrected visible name
+  description: He had seen worse battles.
+  components:
+    - type: StaticPrice
+      price: 500 # nice trophy
+    - type: SpearBlock # #Misfits Change Add: Legionnaire heater shield deflects thrown polearms.
+    - type: Sprite
+      sprite: Corvax/Objects/Weapons/Melee/romanshield.rsi
+      state: icon
+    - type: Item
+      sprite: Corvax/Objects/Weapons/Melee/romanshield.rsi
+      heldPrefix: null
+    - type: Clothing
+      sprite: Corvax/Objects/Weapons/Melee/romanshield.rsi
+      quickEquip: false
+      slots:
+      - Back
+      - suitStorage
+    - type: ClothingSpeedModifier # legion wood shield. Heavy is capable of some chasing. might need to lower
+      walkModifier: 0.75
+      sprintModifier: 0.75
+    - type: HeldSpeedModifier
+      mirrorClothingModifier: true
+    - type: Blocking # For heavy type shields. Bulwark, no speed, high absorb
+      passiveBlockFraction: .95 # compete with fact that metal shields can deflect which negates damage outright
+      activeBlockFraction: 1 # you prolly would die before getting shield's full use if this stayed around .9
+      passiveBlockModifier:
+      # 10mm has rof:8/s => 15*8 dmg per second => 120dmg per second | Shots cap 35
+      # AER9 has rof:5/s => 30*5 dmg per second => 150 dmg per second | Shots cap: 24
+      # Super sledge: blunt: 75+| struct: 35+ => 110 to 110*1.15 = 126.5
+      # norm sledge: blunt: 45+| struct: 60+ => 105 very similar in terms of shield dam
+      # max melee mod of 1.15 i thinkkk??? it feels higher tbh
+        coefficients:
+          Piercing: 0.625 # break: absorb 479.75 out of 505Dmg | base ttk 4.2s (33~ shots of 10mm)
+          Heat: 1.5 # break: absorb 199.5 dmg out of 210dmg | base ttk 2.10s(11~ shots) oh my ceaser dont fight the BOS(or use metal)
+          # Legion iron-wood is naturally more suited to melee damage types
+          # decentish against plasma. Not really but handles better than other shields(plasma deals heat still)
+          # Super Sledge: 101.2 total| absorb 96.14 | absorb 4~ hits perfect melee bait
+          Structural: .8
+          Caustic: .8
+          Blunt: .8
+          Slash: .8
+          Shock: .5
+      activeBlockModifier: # Statistically shouldnt out preform metal, but is consistent and is made to be anti melee ball when active
+        coefficients:
+          Piercing: 0.13 # break: absorb 2307~ dmg | base ttk 19.23s (153~ shots of 10mm)
+          Heat: 1.5 # just dont try it
+          # Super Sledge: absorb 17.5 | absorb 17~ hits | 22.4 damage cap(super mutants) per hit | 13~ hits
+          # almost as much as lanius's record of 30 super sledge hits to his naked abs
+          # He still couldla done more but was busy doing minor chores like The Battle of Hoover Dam ect ect
+          Structural: .14 # AMR will ignore this tho lolololol
+          Caustic: .14 # plasma. doesnt really matter given heat
+          Blunt: .14 # melee
+          Slash: .14 # melee
+          Shock: .10
+    - type: Reflect # IT IS FUCKING WOOD REFLECTION IS UNREALISM!!!!!
+      innate: false
+      reflects:
+        - None
+      reflectProb: 0.0
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 350
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: WoodDestroy
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                MaterialWoodPlank1:
+                  min: 8
+                  max: 20
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SheetSteel:
+                  min: 5
+                  max: 10
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                N14MaterialLeather:
+                  min: 0
+                  max: 2
+        - trigger:
+            !type:DamageTrigger
+            damage: 300
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: WoodDestroy
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                N14LegionnaireShield_broken:
+                  min: 1
+                  max: 1
+
+- type: entity
+  parent: N14BaseShield
+  id: N14LegionnaireBuckler
+  name: legionnaire buckler #Misfits Change /Fix/: corrected visible name
+  description: Lightweight legionary shield.
+  components:
+    - type: StaticPrice
+      price: 400 # sorta nice trophy
+    - type: Construction
+      graph: N14LegionnaireBuckler #Misfits Change /Add/: make shield player-craftable
+      node: start
+    - type: Sprite
+      sprite: Corvax/Objects/Weapons/Melee/romanbuckler.rsi
+      state: icon
+    - type: Item
+      sprite: Corvax/Objects/Weapons/Melee/romanbuckler.rsi
+      heldPrefix: null
+    - type: Clothing
+      sprite: Corvax/Objects/Weapons/Melee/romanbuckler.rsi
+      quickEquip: false
+      slots:
+      - Back
+      - suitStorage
+    - type: ClothingSpeedModifier # legion wood shield. pretty light cause wood
+      walkModifier: 1
+      sprintModifier: 1
+    - type: HeldSpeedModifier
+      mirrorClothingModifier: true
+    - type: Blocking
+      passiveBlockFraction: .95 # compete with fact that metal shields can deflect which negates damage outright
+      activeBlockFraction: 1 # prolly dont wanna do this with this shield
+      passiveBlockModifier:
+      # 10mm has rof:8/s => 15*8 dmg per second => 120dmg per second | Shots cap 35
+      # AER9 has rof:5/s => 30*5 dmg per second => 150 dmg per second | Shots cap: 24
+      # Super sledge: blunt: 75+| struct: 35+ => 110 to 110*1.15 = 126.5
+      # norm sledge: blunt: 45+| struct: 60+ => 105 very similar in terms of shield dam
+      # max melee mod of 1.15 i thinkkk??? it feels higher tbh
+        coefficients:
+          Piercing: 0.6 # break: absorb 166.25 out of 175 Dmg | base ttk 1.46 (12~ shots of 10mm)
+          Heat: 1.5 # nah
+          # Legion iron-wood is naturally more suited to melee damage types
+          # decentish against plasma. Not really but handles better than other shields(plasma deals heat still)
+          # Super Sledge: 63.25 total| absorb 60.08 | absorb 2~ hits | it wont break either | Sm will break it tho
+          Structural: .6
+          Caustic: .6
+          Blunt: .6
+          Slash: .6
+          Shock: .5
+      activeBlockModifier: # Statistically shouldnt out preform metal, but is consistent and is made to be anti melee ball when active
+        coefficients:
+          Piercing: 0.58 # not much better
+          Heat: 1.5 # hahaha
+          Structural: .58
+          Caustic: .58
+          Blunt: .58
+          Slash: .58
+          Shock: .4
+    - type: Reflect # IT IS FUCKING WOOD REFLECTION IS UNREALISM!!!!!
+      innate: false
+      reflects:
+        - None
+      reflectProb: 0.0
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 150
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: WoodDestroy
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                MaterialWoodPlank1:
+                  min: 2
+                  max: 5
+        - trigger:
+            !type:DamageTrigger
+            damage: 100
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: WoodDestroy
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                N14LegionnaireBuckler_broken:
+                  min: 1
+                  max: 1
+

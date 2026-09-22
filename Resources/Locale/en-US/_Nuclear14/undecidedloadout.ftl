@@ -89,29 +89,32 @@ undecided-loadout-category-engi-breach-description =
     1 dynamite and 2 tin-grenades
 # NCRA Medic Kits
 
-undecided-loadout-category-med-surg-name = Medic Advanced Field Kit
+undecided-loadout-category-med-surg-name = NCR Advanced Medical Kit
 undecided-loadout-category-med-surg-description =
-    Includes 1 NCR medic helmet, 1 pouched leather NCR vest, 1 filled medical belt, 1 pair of nitrile gloves, 1 sterile mask,
-    1 filled surgery pack, 1 .45 Colt pistol, 2 .45 Colt magazines,
-    1 super stimpak, 1 stimpak, 1 ointment pack,
-    1 blood pack, 1 antidote, 1 C ration MRE,
-    1 RadAway blood bag, 2 gauze packs, and 1 torch.
+    Includes 1 NCR medic beret, 1 pouched NCR desert vest, 1 filled medical belt, 1 pair of nitrile gloves,
+    1 sterile mask, 1 stethoscope, 1 filled surgery pack, 1 health analyzer, 1 sterile spray,
+    2 smelling salts, 1 .45 Colt pistol with 2 magazines,
+    1 super stimpak, 1 stimpak, 2 blood packs, 1 antidote,
+    1 RadAway blood bag, 2 gauze packs, 1 ointment pack,
+    1 C ration MRE, and 1 torch.
 
 undecided-loadout-category-med-doc-name = Medic Field Kit
 undecided-loadout-category-med-doc-description =
-    Includes 1 NCR medic helmet, 1 pouched leather NCR vest, 1 filled medical belt, 1 pair of nitrile gloves,
-    1 medic beret, 2 smelling salts, 1 health analyzer,
-    1 9mm SMG, 3 9mm SMG magazines, 1 trauma pack,
-    1 ointment pack, 1 antidote bottle, 1 C ration MRE,
-    2 stimpaks, 1 RadAway blood bag, 2 gauze packs, and 1 flare.
+    Includes 1 NCR medic helmet, 1 pouched NCR desert vest, 1 filled medical belt, 1 pair of nitrile gloves,
+    1 stethoscope, 1 health analyzer, 2 smelling salts, and 1 trauma pack,
+    1 9mm SMG with 3 magazines,
+    2 stimpaks, 1 ointment pack, 1 antidote,
+    1 RadAway blood bag, 2 gauze packs,
+    1 C ration MRE, and 1 flare.
 
 undecided-loadout-category-med-combat-name = NCR Combat Medic Kit
 undecided-loadout-category-med-combat-description =
-    Includes 1 NCR medic helmet, 1 pouched leather NCR vest, 1 NCR pouched desert vest, 1 medic metal helmet,
-    1 compact defibrillator, 1 service rifle with 4 magazines,
-    1 9mm pistol with 2 magazines, 1 filled combat medkit,
-    1 C ration MRE, 2 stimpaks,
-    1 RadAway blood bag, 2 gauze packs, and 1 torch.
+    Includes 1 NCR medic helmet, 1 pouched NCR desert vest, 1 filled medical belt,
+    1 compact defibrillator, 1 health analyzer, 1 filled combat medkit, and 1 smelling salts,
+    1 service rifle with 3 magazines,
+    2 stimpaks, 1 antidote, 1 RadAway blood bag, and 2 gauze packs,
+    5 healing salves, 5 herbal anodynes, 5 datura hides, and 5 snakebite tourniquets,
+    1 C ration MRE, and 1 torch.
 
 # NCRA Weapon Specialist Kits
 

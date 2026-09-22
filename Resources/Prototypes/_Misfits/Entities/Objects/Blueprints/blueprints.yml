@@ -870,7 +870,7 @@
     - N14BPTownArmorTownGuardRiot
     - N14BPTownArmorPoliceCombat
     - N14BPTownArmorSheriffVest
-    - N14BPTownArmorMetalArmor
+    - N14BPTownArmorVestRCMP
     # #Misfits Add - paired riot Brodie variants and RCMP helmet
     - N14BPTownArmorHelmetBrodieCover
     - N14BPTownArmorHelmetBrodieVisor
@@ -884,13 +884,9 @@
   components:
   - type: Blueprint
     recipes:
-    - N14BPTownArmorCombatArmor
-    - N14BPTownArmorScavengerHeavyArmor
-    - N14BPTownArmorInsectArmor
-    # #Misfits Add - paired combat and pre-war military helmets
-    - N14BPTownArmorHelmetCombat
-    - N14BPTownArmorHelmetCombatCargo
-    - N14BPTownArmorHelmetPrewarMilitary
+    - N14BPTownArmorCombatArmorRCMP
+    # #Misfits Add - paired RCMP helmets/armors
+    - N14BPTownArmorHelmetSpecRCMP
 
 # --- Town Ammo ---
 - type: entity

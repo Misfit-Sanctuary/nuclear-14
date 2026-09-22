@@ -8,7 +8,8 @@
     damage:
       types:
         Piercing: 30
-        Blunt: 20
+        Blunt: 20 # why 20 blunt lol?
+        Structural: 30 # ignores resistances so cant have this be higher
     ignoreResistances: true
   # Misfits Add - .50 BMG anti-materiel; extreme range caliber — minimal falloff
   - type: BallisticDamageFalloff

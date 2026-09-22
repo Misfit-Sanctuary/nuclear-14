@@ -103,8 +103,6 @@
     - NCRA_DemolitionSet
     - NCRA_BreacherSet
 
-# Removed NCR Surgeon kit, gave directly to NCR doctor
-
 - type: entity
   id: NCRmedicloadoutkits
   name: Undecided NCRA Medic Loadout Kit
@@ -117,6 +115,7 @@
     possibleSets:
     - NCRA_DoctorSet
     - NCRA_ComMedSet
+    - NCRA_SurgeonSet
 
 - type: entity
   id: NCRwsloadoutkits

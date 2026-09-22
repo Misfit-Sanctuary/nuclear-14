@@ -628,12 +628,20 @@
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatHelmetRCMP
   name: RCMP combat helmet
-  description: An simple combat helmet painted in black.
+  description: A simple RCMP combat helmet painted in black.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHelmets/mountiehelmet.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/Head/FalloutHelmets/mountiehelmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
+    priceMultiplier: 0.5
   - type: Tag
     tags:
     - HidesHair
@@ -642,7 +650,7 @@
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatSpecHelmetRCMP
   name: RCMP specialist helmet
-  description: An simple combat helmet painted in black, this one comes with built-in comms.
+  description: A simple RCMP combat helmet painted in black with extra facial protection.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHelmets/mountiespechelmet.rsi

@@ -1944,79 +1944,46 @@
 
 
 - type: latheRecipe
-  id: N14BPTownArmorMetalArmor
-  result: N14ClothingOuterMetalArmor
+  id: N14BPTownArmorVestRCMP
+  result: N14ClothingOuterVestRCMP
   category: N14BlueprintTownArmorT3
   completetime: 14
   requiresBlueprint: true
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 5000
+    Steel: 7000
 
-    N14Iron: 1200
+    N14Iron: 500
 
-    Leather: 70
+    Cloth: 250
 
-    Cloth: 70
+    Thread: 300
+
+    Leather: 300
 
 
 # --- Town Tier 4 Armor ---
 - type: latheRecipe
-  id: N14BPTownArmorCombatArmor
-  result: N14ClothingOuterCombatArmor
+  id: N14BPTownArmorCombatArmorRCMP
+  result: N14ClothingOuterCombatArmorRCMP
   category: N14BlueprintTownArmorT4
   completetime: 18
   requiresBlueprint: true
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 7000
-
-    Cloth: 2500
-
-    Thread: 1700
-
-    Leather: 1700
-
-    Circuitry: 100
-
-
-- type: latheRecipe
-  id: N14BPTownArmorScavengerHeavyArmor
-  result: N14ClothingScavengerHeavyArmor
-  category: N14BlueprintTownArmorT4
-  completetime: 16
-  requiresBlueprint: true
-  availableFaction:
-  - Townsfolk
-  materials:
     Steel: 9500
 
-    Leather: 1200
-
-    Scrap: 400
-
-    N14Iron: 150
-
-
-- type: latheRecipe
-  id: N14BPTownArmorInsectArmor
-  result: N14ClothingOuterInsectArmor
-  category: N14BlueprintTownArmorT4
-  completetime: 14
-  requiresBlueprint: true
-  availableFaction:
-  - Townsfolk
-  materials:
-    Leather: 510
+    N14Iron: 750
 
     Cloth: 450
 
-    Thread: 350
+    Thread: 500
 
-    Steel: 7000
+    Leather: 500
 
+    Circuitry: 200
 
 # =====================================================================
 # TOWNSFOLK AMMO RECIPES
@@ -2658,46 +2625,20 @@
     Glass: 150
 
 # --- Town Tier 4 Helmets (combat / pre-war military) ---
-- type: latheRecipe
-  id: N14BPTownArmorHelmetCombat
-  result: N14ClothingHeadHatCombatHelmet
-  category: N14BlueprintTownArmorT4
-  completetime: 9
-  requiresBlueprint: true
-  availableFaction:
-  - Townsfolk
-  materials:
-    Steel: 3000
-    Cloth: 100
-    Leather: 50
-    Plastic: 100
 
 - type: latheRecipe
-  id: N14BPTownArmorHelmetCombatCargo
-  result: N14ClothingHeadHatCombatHelmetCargo
+  id: N14BPTownArmorHelmetSpecRCMP
+  result: N14ClothingHeadHatSpecHelmetRCMP
   category: N14BlueprintTownArmorT4
   completetime: 10
   requiresBlueprint: true
   availableFaction:
   - Townsfolk
   materials:
-    Steel: 3200
-    Cloth: 100
-    Leather: 50
-    Plastic: 100
-
-- type: latheRecipe
-  id: N14BPTownArmorHelmetPrewarMilitary
-  result: N14ClothingHeadHatPrewarMilitaryHelmet
-  category: N14BlueprintTownArmorT4
-  completetime: 10
-  requiresBlueprint: true
-  availableFaction:
-  - Townsfolk
-  materials:
-    Steel: 3000
-    Cloth: 100
-    Leather: 50
+    Steel: 2200
+    Cloth: 150
+    Leather: 150
+    Plastic: 300
 
 # #Misfits Add - Vertibird turret ammunition belt.
 - type: latheRecipe

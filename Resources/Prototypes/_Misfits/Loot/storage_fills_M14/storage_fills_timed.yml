@@ -527,9 +527,6 @@
         - id: N14WeaponSniperHunting
           prob: 0.1
           orGroup: Weapon
-        - id: N14WeaponSniperPaciencia
-          prob: 0.05
-          orGroup: Weapon
         - id: N14WeaponSniper44LeverCarbine
           prob: 0.1
           orGroup: Weapon
@@ -553,6 +550,9 @@
           orGroup: Weapon
         - id: N14SuperSledgeHammer
           prob: 0.1
+          orGroup: Weapon
+        - id: N14WeaponSniperPaciencia
+          prob: 0.05
           orGroup: Weapon
         - id: N14TribalMachete
           prob: 0.4
@@ -1873,7 +1873,7 @@
           prob: 0.2
           orGroup: Weapon
         - id: N14WeaponSniperPaciencia
-          prob: 0.1
+          prob: 0.05
           orGroup: Weapon
         - id: N14WeaponSniper44LeverCarbine
           prob: 0.1

@@ -183,10 +183,10 @@
     - state: magazine_junktown_dirty
 
 - type: entity
-  name: massachusetts surgical journal
+  name: Massachusetts Surgical Journal
   parent: N14Magazine
   id: N14MagazineMass
-  description: "the massachusetts surgical journal"
+  description: "Despite all appearances, these were always more sensation than actual medical science."
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
@@ -194,10 +194,10 @@
     - state: magazine_massachusetts
 
 - type: entity
-  name: massachusetts surgical journal
+  name: Worn Out Massachusetts Surgical Journal
   parent: N14Magazine
   id: N14MagazineMassDirty
-  description: "massachusetts surgical journal, though it's a bit dirty"
+  description: "A tabloid disguised as an actual esteemed medical journal, its pages are dity and tattered, but its still good to pass the time with."
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
@@ -293,10 +293,10 @@
     - state: magazine_unstoppable_dirty
 
 - type: entity
-  name: wasteland survival guide
+  name: Wasteland Survival Guide
   parent: N14Magazine
   id: N14MagazineWasteland
-  description: "An issue of the Wasteland Survival Guide"
+  description: "An issue of the Wasteland Survival Guide, a post-war magazine that gives common sense tips for survival outside the safety of major settlements."
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
