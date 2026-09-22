@@ -119,6 +119,8 @@
     price: 50
   - proto: N14WeaponSMG10mm
     price: 63
+  - proto: N14WeaponSMGWt550
+    price: 120
 
 - type: storeCategoryStructured
   id: LegionBuy2_Shotguns
@@ -216,6 +218,8 @@
     price: 55
   - proto: N14AmmoBox45
     price: 40
+  - proto: N14AmmoBox127
+    price: 60
   - proto: 40mmGrenadeFrag
     price: 63
     count: 10
@@ -536,6 +540,8 @@
     price: 35
   - proto: N14WeaponSMG12mmAdvanced
     price: 75
+  - proto: N14WeaponSMGWt550
+    price: 60
 
 
 - type: storeCategoryStructured

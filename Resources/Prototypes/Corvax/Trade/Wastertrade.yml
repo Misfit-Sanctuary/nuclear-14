@@ -180,6 +180,8 @@
     price: 170
   - proto: N14WeaponSMG12mmPipe
     price: 125
+  - proto: N14WeaponSMGWt550
+    price: 360
   - proto: N14WeaponSMG12mmAdvancedChinese
     price: 350
     count: 2
@@ -292,6 +294,8 @@
     price: 220
   - proto: N14AmmoBox22lr
     price: 100
+  - proto: N14AmmoBox127
+    price: 220
 
 - type: storeCategoryStructured
   id: WasterBuy2_Medicine
@@ -716,6 +720,8 @@
     price: 550
   - proto: N14WeaponSMGAmerican180
     price: 30
+  - proto: N14WeaponSMGWt550
+    price: 180
   - proto: N14WeaponSMG9mm
     price: 72
   - proto: N14WeaponSMGGreaseGun
