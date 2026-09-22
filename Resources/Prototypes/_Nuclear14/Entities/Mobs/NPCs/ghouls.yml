@@ -56,13 +56,13 @@
       types:
         Slash: 7
     range: 1
-  - type: Armor #i think the armor clad should do soemthin' -wassuy
+  - type: Armor #i think the armor clad should do soemthin' -Wassuy
     modifiers:
       coefficients:
-        Blunt: 0.97.5
-        Slash: 0.97.5
-        Piercing: 0.97.5
-        Heat: 0.97.5
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
   - type: IdleSound #Misfits Change
   - type: SpamEmitSound #Misfits Change
     minInterval: 10
