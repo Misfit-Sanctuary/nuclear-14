@@ -908,7 +908,7 @@ undecided-loadout-category-misfits-eighties-road-rash-lookout-description =
 undecided-loadout-category-misfits-ncr-ht-veteran-name = Heavy Trooper Veteran Kit
 undecided-loadout-category-misfits-ncr-ht-veteran-description =
     A Veteran HT's issued equipment. A 5.56 assault carbine, 4 mags for it,
-    2 smoke, 1 offensive and 2 defensive grenades, a stim and super stim, an MRE,
+    2 smoke, 1 offensive and 1 defensive grenade, a stim and super stim, an MRE,
     a RadAway bag, and two rolls of gauze.
 
 undecided-loadout-category-misfits-ncr-ht-linebreaker-name = Heavy Trooper Linebreaker Kit
@@ -921,7 +921,7 @@ undecided-loadout-category-misfits-ncr-ht-minigun-name = Heavy Trooper Minigun K
 undecided-loadout-category-misfits-ncr-ht-minigun-description =
     The issued equipment of an HT who lays down sustained fire.
     Comes with a standard minigun, 2 minigun boxes, 2 smoke grenades,
-    2 defensive grenades, a stim and super stim, an MRE,
+    1 defensive grenade, a stim and super stim, an MRE,
     a RadAway bag, and two rolls of gauze.
 
 undecided-loadout-category-misfits-ncr-ht-defender-name = Heavy Trooper Defender Kit
