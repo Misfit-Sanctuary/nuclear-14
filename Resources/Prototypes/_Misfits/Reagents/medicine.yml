@@ -57,13 +57,13 @@
   color: "#56d7df"
   metabolisms:
     Medicine:
-      metabolismRate: 0.5
+      metabolismRate: 1
       effects:
       # Emergency anti-rad. Very fast compared with RadAway.
       - !type:HealthChange
         damage:
           types:
-            Radiation: -10
+            Radiation: -25
       - !type:ModifyFeralization
         delta: -2
 
@@ -85,8 +85,8 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -0.25
-            Burn: -0.25
+            Brute: -0.5
+            Burn: -0.5
       - !type:Jitter
 
 - type: reagent
@@ -107,7 +107,7 @@
             Brute: -0.25
             Burn: -0.25
           types:
-            Poison: -0.5
+            Poison: -1.5
       # TODO: replace Poison healing with a proper temporary poison-resistance status
 
 - type: reagent
@@ -122,6 +122,10 @@
     Medicine:
       metabolismRate: 0.2
       effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: 0.75
       - !type:GenericStatusEffect
         key: MedXProtection
         component: MedXProtection
@@ -156,9 +160,9 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -1
+            Poison: -5
       - !type:ModifyBleedAmount
-        amount: -0.5
+        amount: -5
 
 - type: reagent
   id: MisfitsFieryPurgative
@@ -175,9 +179,9 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -2
-            Radiation: -2
-            Heat: 0.2
+            Poison: -2.75
+            Radiation: -2.75
+            Heat: 0.6
       - !type:AdjustReagent
         reagent: CazadorVenom
         amount: -1
@@ -208,9 +212,9 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -1
-            Burn: -1
-            Airloss: -3
+            Brute: -1.5
+            Burn: -1.5
+            Airloss: -4
           types:
             Poison: -2
             Radiation: -6
@@ -236,11 +240,11 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -0.5
-            Burn: -0.5
+            Brute: -1
+            Burn: -1
           types:
-            Asphyxiation: -0.5
-            Bloodloss: -1.5
+            Asphyxiation: -1.5
+            Bloodloss: -3
       # Same underlying component as MisfitsRadShield, but the faster metabolism makes
       # the protection considerably shorter-lived.
       - !type:GenericStatusEffect
@@ -284,7 +288,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -0.15
+            Poison: -1
 
 - type: reagent
   id: MisfitsHerbalStimulant
@@ -320,7 +324,6 @@
       effects:
       - !type:SpecialStatBoostEffect
         enduranceBoost: 2
-# no idea if this actually works
 
 - type: reagent
   id: MisfitsPenicillin
@@ -356,7 +359,7 @@
           types:
             Radiation: -1.5
       - !type:ModifyFeralization
-        delta: -0.2
+        delta: -0.75
 
 - type: reagent
   id: MisfitsPilgrimsRemedy
@@ -373,15 +376,15 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -0.35
-            Burn: -0.35
+            Brute: -0.75
+            Burn: -0.75
           types:
-            Poison: -0.35
+            Poison: -0.5
             Radiation: -0.25
       - !type:ModifyBleedAmount
         amount: 0.1
       - !type:ModifyFeralization
-        delta: -0.05
+        delta: -0.5
 
 - type: reagent
   id: MisfitsHealingSalve
@@ -417,10 +420,10 @@
   color: "#8f2a20"
   metabolisms:
     Narcotic:
-      metabolismRate: 0.1
+      metabolismRate: 0.25
       effects:
       - !type:SpecialStatBoostEffect
-        strengthBoost: 13
+        strengthBoost: 7
       - !type:GenericStatusEffect
         key: MedXProtection
         component: MedXProtection
@@ -431,13 +434,13 @@
         time: 8
         withdrawalDamage:
           groups:
-            Brute: 0.25
-        withdrawalStaminaDrain: 8
+            Brute: 0.5
+        withdrawalStaminaDrain: 16
       - !type:ModifyFeralization
         delta: 0.5
       - !type:Jitter
       - !type:ModifyBleedAmount
-        amount: 0.25
+        amount: 0.5
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -456,7 +459,7 @@
   color: "#8fa8bc"
   metabolisms:
     Narcotic:
-      metabolismRate: 0.1
+      metabolismRate: 0.25
       effects:
       - !type:SpecialStatBoostEffect
         perceptionBoost: 3
@@ -476,7 +479,7 @@
   color: "#ef6b2e"
   metabolisms:
     Narcotic:
-      metabolismRate: 0.1
+      metabolismRate: 0.25
       effects:
       - !type:SpecialStatBoostEffect
         strengthBoost: 4
@@ -491,7 +494,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 20
+          min: 11
         damage:
           types:
             Poison: 2
@@ -522,9 +525,9 @@
         withdrawalStaminaDrain: 7
         withdrawalDamage:
           groups:
-            Brute: 0.15
+            Brute: 0.5
           types:
-            Poison: 0.10
+            Poison: 1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -754,13 +757,13 @@
           mobstate: Critical
         damage:
           groups:
-            Brute: -1.5
-            Burn: -1.5
-            Airloss: -6
+            Brute: -10
+            Burn: -10
+            Airloss: -8
           types:
-            Poison: -1
+            Poison: -4
       - !type:ModifyBleedAmount
-        amount: -1
+        amount: -10
         conditions:
         - !type:MobStateCondition
           mobstate: Critical
@@ -768,8 +771,8 @@
       - !type:HealthChange
         damage:
           types:
-            Cellular: 0.5
-            Poison: 0.25
+            Cellular: 0.75
+            Poison: 0.5
       - !type:Jitter
       - !type:HealthChange
         conditions:
@@ -807,8 +810,8 @@
       - !type:HealthChange
         damage:
           types:
-            Asphyxiation: -2
-            Poison: 0.25
+            Asphyxiation: -5
+            Poison: 0.75
       - !type:Jitter
       - !type:HealthChange
         conditions:
@@ -840,9 +843,9 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -1
+            Poison: -3
           groups:
-            Airloss: -0.5
+            Airloss: -2.5
       - !type:ChemVomit
         probability: 0.02
 
@@ -864,8 +867,8 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -0.75
-            Asphyxiation: -0.75
+            Poison: -3.5
+            Asphyxiation: -1.75
       - !type:Jitter
         probability: 0.05
 
@@ -903,7 +906,8 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -1
+            Poison: -3
+            Asphyxiation: -5
           groups:
             Brute: 0.4
       - !type:ChemVomit

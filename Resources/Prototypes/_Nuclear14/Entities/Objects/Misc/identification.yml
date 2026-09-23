@@ -3,7 +3,7 @@
   parent: Clothing
   id: N14IDCard
   name: identification card
-  description: A key to open certain doors.
+  description: Make sure you don't lose this, or you're in some deep shit.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -28,6 +28,7 @@
   parent: N14IDCard
   id: N14IDCardVault
   name: vault ID card
+  description: Proof that you belong underground, but in a good way.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
@@ -47,6 +48,7 @@
   parent: N14IDCardVault
   id: N14IDCardVaultEngineer
   name: vault engineer ID card
+  description: Real engineers don't need this to get around, but it keeps security from thinking you're a break-in artist.
   components:
   - type: PresetIdCard
     job: VaultEngineer
@@ -55,6 +57,7 @@
   parent: N14IDCardVault
   id: N14IDCardVaultSecurity
   name: vault security ID card
+  description: Down here you're the law, but only so long as there are others alive to follow that law.
   components:
   - type: PresetIdCard
     job: VaultSecurity
@@ -63,6 +66,7 @@
   parent: N14IDCardVault
   id: N14IDCardVaultDoctor
   name: vault doctor ID card
+  description: Prevention is preferable to treatment, but you can't prevent your fellow dwellers from getting themselves hurt.
   components:
   - type: PresetIdCard
     job: VaultDoctor
@@ -71,6 +75,7 @@
   parent: N14IDCardVault
   id: N14IDCardVaultOverseer
   name: vault overseer ID card
+  description: You're the person in charge down here, don't let anyone forget it. Above all else, don't mess this up.
   components:
   - type: PresetIdCard
     job: Overseer
@@ -79,6 +84,7 @@
   parent: N14IDCardVault
   id: MisfitsIDCardVaultCargo
   name: vault cargo specialist ID card
+  description: Import what's needed, export what's not. No society is truly self sustaining, not indefinitely.
   components:
   - type: PresetIdCard
     job: VaultCargoSpecialist
@@ -87,6 +93,7 @@
   parent: N14IDCardVault
   id: MisfitsIDCardVaultCourier
   name: vault courier ID card
+  description: Deliver messages and parcels to the right people, and try to make some profit out of it.
   components:
   - type: PresetIdCard
     job: VaultCourier
@@ -95,6 +102,7 @@
   parent: N14IDCardVault
   id: MisfitsIDCardVaultSalvage
   name: vault salvage specialist ID card
+  description: Each week that passes the ore and salvage gets a bit thinner, but the vault still needs to be maintained.
   components:
   - type: PresetIdCard
     job: VaultSalvageSpecialist
@@ -104,7 +112,7 @@
   parent: N14IDCard
   id: N14IDPassportBlank
   name: blank passport
-  description: A blank passport used by wastelanders.
+  description: An old pre-war passport that's been scrubbed clean of its old print, now used by wastelanders as personal ID.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -117,7 +125,7 @@
   parent: N14IDPassportBlank
   id: N14IDPassport
   name: passport
-  description: A stamped passport used by wastelanders as ID.
+  description: An old pre-war passport that's been scrubbed clean of its old print, stamped with some frontier settlement's seal and used by wastelanders as personal ID.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -156,7 +164,7 @@
   parent: N14IDPassportBlank
   id: N14IDPassportPhoto
   name: passport
-  description: A passport used by wastelanders as ID.
+  description: An old pre-war passport that's been scrubbed clean of its old print, now filled in with new information and used by wastelanders as personal ID.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -166,7 +174,7 @@
   parent: N14IDPassportBlank
   id: N14IDPassportVIP
   name: passport
-  description: A passport used by VIPs of the wasteland.
+  description: An old pre-war passport that's been scrubbed clean of its old print, this one is in relatively pristine shape and used by a better class of wastelanders as personal ID.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -176,7 +184,7 @@
   parent: N14IDPassportBlank
   id: N14IDDoctor
   name: doctors ID
-  description: An ID card worn by medical doctors.
+  description: Out in the wasteland, this is the best guarantee you have someone actually knows what they're doing when they're poking around your injuries.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -308,7 +316,7 @@
   parent: N14IDPassportBlank
   id: N14IDEnclaveTrooper
   name: holotag
-  description: An ID holotag worn by the U.S. Army.
+  description: These holotags are proof you are a loyal piece of government property.
   suffix: Trooper
   components:
   - type: Sprite
@@ -328,7 +336,7 @@
   parent: N14IDPassportBlank
   id: N14IDEnclaveOfficer
   name: holotag
-  description: An ID holotag worn by higher ranking memebers of the U.S. Army.
+  description: Lead your fellow patriots to victory, and make sure everyone else remembers why America is the best country in the world.
   suffix: Officer
   components:
   - type: Sprite
@@ -349,7 +357,7 @@
   parent: N14IDPassportBlank
   id: N14IDEnclaveNoncombat
   name: holotag
-  description: An ID holotag worn by the non-combat members of U.S. Army.
+  description: These holotags mark you as a valuable asset to the government, and a very valuable hostage to everyone else.
   suffix: Scientist , Noncombat
   components:
   - type: Sprite
@@ -371,7 +379,7 @@
   parent: N14IDPassportBlank
   id: N14IDNCRDogtag
   name: recruit's dogtags
-  description: An ID dogtag worn by members of the NCR.
+  description: With any luck, this war will be over in time for the holidays.
   suffix: Recruit #Misfits Change - was Soldier, Cadet
   components:
   - type: Sprite
@@ -392,7 +400,7 @@
   parent: N14IDNCRDogtag
   id: N14IDNCRDogtagDoctor
   name: doctor's dogtags
-  description: An ID dogtag worn by decently ranking members of the NCR.
+  description: Killing a medic is a war crime, and these dogtags should prevent that. But most people in the wasteland will make a point of shooting you first.
   suffix: Doctor
   components:
   - type: Sprite
@@ -420,7 +428,7 @@
   parent: N14IDNCRDogtag
   id: N14IDNCRDogtagEngineer
   name: engineer's dogtags
-  description: An ID dogtag worn by decently ranking members of the NCR.
+  description: You can fix just about anything in this warzone, but you can't fix a bad battle plan. That's for the commanders to worry about.
   suffix: Engineer
   components:
   - type: Sprite
@@ -433,7 +441,7 @@
   parent: N14IDNCRDogtag
   id: N14IDNCRDogtagNCO
   name: sergeant's dogtags
-  description: An ID dogtag worn by decently ranking members of the NCR.
+  description: These mark you as a competent soldier, its own kind of curse. You have all the responsibility of a leader, but none of an officer's perks.
   suffix: SGT
   components:
   - type: Sprite
@@ -446,7 +454,7 @@
   parent: N14IDNCRDogtag
   id: N14IDNCRDogtagOfficer
   name: officer's dogtags
-  description: An ID dogtag worn by high ranking members of the NCR.
+  description: These dogtags give you a special kind of authority, command over the local forces. But they can also make any incompetency, real or imagined, shine all the brighter for it.
   suffix: Officer
   components:
   - type: Sprite
@@ -460,7 +468,7 @@
   parent: N14IDNCRDogtag
   id: N14IDBadgeNCRDesertRangerRecruit
   name: ranger recruit badge
-  description: An ID badge worn by Desert Ranger Recruits.
+  description: A shiny badge that marks you as someone who still has something to prove. Try to live up to the legacy of the rangers, or sink in the sand.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -481,7 +489,7 @@
   parent: N14IDBadgeNCRDesertRangerRecruit
   id: N14IDBadgeNCRDesertRanger
   name: ranger badge
-  description: An ID badge worn by Desert Rangers.
+  description: A dull badge that marks you as someone who has worn in their boots. You're more than just a showboat, and trusted to get the job done.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -493,7 +501,7 @@
   parent: N14IDBadgeNCRDesertRangerRecruit
   id: N14IDBadgeNCRDesertRangerElite
   name: ranger elite badge
-  description: An ID badge worn by Elite Desert Rangers.
+  description: A scratched and weathered badge that marks you as the real deal. You have to serve twenty years to get one of these, and not by riding a desk.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -505,7 +513,7 @@
   parent: N14IDBadgeNCRDesertRangerRecruit
   id: N14IDBadgeNCRDesertRangerChief
   name: ranger chief badge
-  description: An ID badge worn by the Chief Desert Ranger.
+  description: An old badge from the days of the Desert Rangers, carefully polished and preserved, with new names and places engraved on it. It marks you as the person bearing all the responsibility.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -517,13 +525,13 @@
 - type: entity
   parent: N14IDBadgeNCRDesertRanger
   id: N14IDBadgeNCRRanger
-  description: An ID badge worn by Republic Rangers. Inscribed on it reads; "Quieter than a shadow and more ferocious than a deathclaw."
+  description: A badge that marks you as a particularly capable piece of equipment in the endless war that is wasteland law enforcement.
   suffix: NCR
 
 - type: entity
   parent: N14IDBadgeNCRDesertRangerElite
   id: N14IDBadgeNCRRangerElite
-  description: An ID badge worn by Elite Republic Rangers. Inscribed on it reads; "Quieter than a shadow and more ferocious than a deathclaw."
+  description: A badge that marks you as an unquestioning and loyal piece of government property, ready to do exactly as the president commands.
   suffix: NCR
 
 #MARK: Townsfolk
@@ -531,7 +539,7 @@
   parent: N14IDPassportPhoto
   id: N14IDPassportTownsfolk
   name: passport
-  description: A passport used by townsfolk as ID.
+  description: Proof that you belong in the local settlement, that you're more trustworthy than the drifters in the wasteland.
   components:
   - type: ClothingAddFaction
     faction: Townsfolk
@@ -542,7 +550,7 @@
   parent: N14IDPassportTownsfolk
   id: N14IDShopkeeperTown
   name: Shopkeepers ID
-  description: A passport ID used by a town shopkeeper.
+  description: This settlement passport marks you as a person of some importance. Without a shopkeeper there is no shop, and without a shop there is no settlement.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -554,7 +562,7 @@
   parent: N14IDPassportTownsfolk
   id: N14IDShopkeeperHelperTown
   name: ShopkeepersHelper ID
-  description: A passport ID used by a town shopkeeper helper.
+  description: Either by merit or by nepotism, you are here to help out at the general store. Learn what you can to eventually run your own caravan or shopfront.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -566,7 +574,7 @@
   parent: N14IDPassportTownsfolk
   id: N14IDPassportTownMechanic
   name: mechanics ID
-  description: A passport ID used by a town mechanic.
+  description: Good mechanics are hard to find in the wasteland, ones willing to put up with noisy drifters are even harder to find. And so your services are in demand, and well paid.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -578,7 +586,7 @@
   parent: N14IDDoctor
   id: N14IDDoctorTown
   name: doctors ID
-  description: An ID card worn by the town doctor.
+  description: Someone has to fix up your friends and neighbors when they get hurt, it might as well be someone who knows what they're doing. Hopefully that person is you.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -592,7 +600,7 @@
   parent: N14IDPassportTownsfolk
   id: N14IDReporterTown
   name: reporter ID
-  description: A passport ID used by a town reporter.
+  description: Issued by the mayor's office to the citizens that make the most noise out of local happenings, this passport gives you a non-existant level of authority to pester the dangerous and powerful in the region for radio show content.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -606,7 +614,7 @@
   parent: N14IDPassportTownsfolk
   id: N14IDBartenderTown
   name: innkeeper ID
-  description: A passport ID used by a town inkeeper.
+  description: People come to you with their problems and a desire to eat something besides pre-war processed junk food. So pour a drink, act as a non-licensed therapist, cook up some greasy eggs and meat, and possibly squeeze out a few caps.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -620,7 +628,7 @@
   parent: N14IDPassportTownsfolk
   id: N14IDBadgeTownDeputy
   name: town guard badge
-  description: An ID badge worn by a town's guardsmen.
+  description: This tin badge marks you as one of the town's deputies, a person who has volunteered to help keep your settlement safe from drifters and raiders. Its up to you to prove that you should be trusted with that responsibility.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -632,7 +640,7 @@
   parent: N14IDPassportTownsfolk
   id: N14IDBadgeTownSheriff
   name: town marshal badge
-  description: An ID badge worn by the town's marshal.
+  description: This tin badge is worn by the town's marshal, someone who survived long enough as a deputy to prove their mettle and outlive their competition for the job. Advise the mayor and keep the town of out the clutches of outsiders.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -644,7 +652,7 @@
   parent: N14IDPassportTownsfolk
   id: N14IDBadgeTownMayor
   name: town mayor badge
-  description: An ID badge worn by the town mayor.
+  description: This badge marks you as the mayor of the town, chosen by the citizens to lead them to prosperity and safety. If you fail they'll strip this off your body and toss you out of the gates.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -656,7 +664,7 @@
   parent: N14IDPassportPhoto
   id: N14IDPassportWasteChaplain
   name: chaplain ID
-  description: A passport ID used by a chaplain of the region.
+  description: These papers mark you as a community leader in the local settlement, someone who can be trusted to act as a charity worker, spiritual guide and therapist. Its up to you to make these people care.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -671,7 +679,7 @@
   parent: N14IDPassportPhoto
   id: N14IDPassportWasteFarmer
   name: farmer ID
-  description: A passport ID used by a farmer of the region.
+  description: These papers mark you as a citizen of some merit, who can be trusted to grow food to keep everyone fed and not waste the seeds. Keep the crops alive and the innkeeper's storage full, and people will appreciate your efforts.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -684,7 +692,7 @@
   parent: N14IDPassportBlank
   id: N14IDTribeSawbonePendant
   name: healer pendant
-  description: A pendant often worn by tribes as ID. This one is made of a bonesaw.
+  description: This talisman marks a member of the local village, a valued spiritual leader in the tribal community. A name has been etched into the ancient bonesaw.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -703,7 +711,7 @@
   parent: N14IDPassportBlank
   id: N14IDTribeBulletsPendant
   name: member pendant
-  description: A pendant often worn by tribes as ID. This one is made of bullets.
+  description: This talisman marks a member of the local village, someone that belongs in this community. The hollow bullet has a name engraved on it.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -722,7 +730,7 @@
   parent: N14IDPassportBlank
   id: N14IDTribeEnforcerPendant
   name: farmer pendant
-  description: A pendant often worn by tribes as ID. This one is made of a shotgun shell.
+  description: This talisman marks a member of the local village, one that helps keep the tribe fed. The empty shotgun shell has a name scratched into it.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -741,7 +749,7 @@
   parent: N14IDPassportBlank
   id: N14IDTribeBossPendant
   name: elder pendant
-  description: A pendant often worn by tribes as ID. This one is made of rifle rounds.
+  description: This talisman marks an elder of the local village, one that guides the tribe in all matters. Each of the rifle rounds is engraved with a previous elder's name.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -761,7 +769,7 @@
   parent: N14IDDoctor
   id: N14IDDoctorFollower # specifically so the yml linter stops crying
   name: followers ID
-  description: An ID card worn by the Followers of the Apocalypse.
+  description: This ID card marks you as somebody who can be trusted to help the local community. The Followers of the Apocalypse cross has been stamped on it in black ink.
   components:
   - type: Tag
     tags:
@@ -771,7 +779,7 @@
   parent: N14IDDoctor
   id: N14IDFollowerVolunteer
   name: followers (volunteer) ID
-  description: An ID card worn by the Followers of the Apocalypse.
+  description: This clean ID card marks you as an aspiring charity worker in the local community. The Followers of the Apocalypse cross has been stamped on it in black ink.
   components:
   - type: Tag
     tags:
@@ -784,7 +792,7 @@
   parent: N14IDDoctor
   id: N14IDFollowerDoctor
   name: followers (doctor) ID
-  description: An ID card worn by the Followers of the Apocalypse.
+  description: This weathered ID card marks you as a proper miracle worker in the local community. The Followers of the Apocalypse cross has been stamped on it in black ink.
   components:
   - type: Tag
     tags:
@@ -798,7 +806,7 @@
   parent: N14IDDoctor
   id: N14IDFollowerGuard
   name: followers (guard) ID
-  description: An ID card worn by the Followers of the Apocalypse.
+  description: This scratched up ID card marks you as someone who recognizes even the helpers need a helping hand. The Followers of the Apocalypse cross has been stamped on it in black ink.
   components:
   - type: Tag
     tags:
@@ -811,7 +819,7 @@
   parent: N14IDDoctor
   id: N14IDFollowerHead
   name: followers (head) ID
-  description: An ID card worn by the Followers of the Apocalypse.
+  description: This old ID card marks you as someone with the unenviable task of leading and protecting the local field hospital. The Followers of the Apocalypse cross has been stamped on it in black ink.
   components:
   - type: Tag
     tags:
@@ -828,7 +836,7 @@
   parent: N14IDCard
   id: N14IDKeyIron
   name: iron key
-  description: A worn out iron key. I wonder where it goes?
+  description: A scratched up iron key. I wonder where it goes?
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -860,7 +868,7 @@
   parent: N14IDCard
   id: N14IDKeyBronze
   name: bronze key
-  description: A worn out bronze key. I wonder where it goes?
+  description: A polished bronze key. I wonder where it goes?
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -876,7 +884,7 @@
   parent: N14IDCard
   id: N14IDKeySilver
   name: silver key
-  description: A worn out silver key. I wonder where it goes?
+  description: A tarnished silver key. I wonder where it goes?
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -893,7 +901,7 @@
   id: N14IDKeyGold
   name: gold key
   suffix: AllKeyAccess
-  description: A sparkling gold key. I wonder where it goes?
+  description: A dull gold key. I wonder where it goes?
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -960,7 +968,7 @@
 - type: entity
   parent: N14CardAccessBunkerA1
   id: N14CardAccessEnclave
-  description: A special keycard stamped with an E.
+  description: A strange keycard that has been stamped with an 'E'. What could be its purpose?
   categories: [ HideSpawnMenu ]
   suffix: Enclave
   components:
@@ -973,7 +981,7 @@
 - type: entity
   parent: N14CardAccessBunkerA1
   id: N14CardAccessEnclaveVault
-  description: A special Vault-Tec keycard stamped with an E.
+  description: This Vault-Tec keycard has no name on it, but it has been stamped with an 'E'. This raises more questions than answers, really.
   suffix: Enclave Vault
   components:
   - type: Sprite
@@ -985,7 +993,7 @@
 - type: entity
   parent: N14CardAccessBunkerA1
   id: N14CardAccessVault
-  description: A special Vault-Tec keycard.
+  description: This old Vault-Tec keycard has no name stamped on it, but might still be useful.
   suffix: Vault
   components:
   - type: Sprite
@@ -994,7 +1002,7 @@
 - type: entity
   parent: N14CardAccessBunkerA1
   id: N14CardAccessBlue
-  description: A blue keycard for opening something.
+  description: A blue keycard for opening something around here, hopefully your efforts aren't doomed.
   suffix: blue
   components:
   - type: Sprite
@@ -1006,7 +1014,7 @@
 - type: entity
   parent: N14CardAccessBunkerA1
   id: N14CardAccessYellow
-  description: A yellow keycard for opening something.
+  description: A yellow keycard for opening something around here, and if it doesn't, there'll be hell to raise.
   suffix: yellow
   components:
   - type: Sprite
@@ -1018,7 +1026,7 @@
 - type: entity
   parent: N14CardAccessBunkerA1
   id: N14CardAccessRed
-  description: A red keycard for opening something.
+  description: A red keycard for opening something around here, and if you can't open the door with this, you'll just have to rip and tear it open!
   suffix: red
   components:
   - type: Sprite
@@ -1030,7 +1038,7 @@
 - type: entity
   parent: N14CardAccessBunkerA1
   id: N14CardAccessCommon
-  description: A grey keycard stamped "common" for opening things.
+  description: A grey keycard stamped "common" for opening things, likely handed out to maintenance technicians and janitors in this old place.
   suffix: common
   components:
   - type: Sprite

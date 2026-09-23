@@ -616,6 +616,8 @@
     price: 700
   - proto: N14WeaponRifle556CarbineOld
     price: 240
+  - proto: N14WeaponSniperPaciencia
+    price: 40
 
 - type: storeCategoryStructured
   id: NCRSell2_Shotguns
@@ -746,8 +748,6 @@
     price: 825
   - proto: N14ClothingOuterCombatTribal
     price: 350
-  - proto: N14ClothingOuterCombatArmorRCMP
-    price: 450
   - proto: N14ClothingOuterRaiderCombat1
     price: 500
   - proto: N14ClothingOuterPoliceCombat

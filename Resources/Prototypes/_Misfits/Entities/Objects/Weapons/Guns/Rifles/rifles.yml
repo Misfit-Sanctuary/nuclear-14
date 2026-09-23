@@ -135,13 +135,23 @@
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
+  - type: GunRequiresWield
+  - type: GunWieldBonus
+    minAngle: -23
+    maxAngle: -43
   - type: Gun
+    fireRate: 6.5
     minAngle: 24
     maxAngle: 45
     angleIncrease: 4
     angleDecay: 16
     soundGunshot:
       collection: N14RifleR91Gunshot
+  - type: Wieldable
+    wieldedSpeedModifier: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
   - type: ItemSlots
     slots:
       gun_magazine:

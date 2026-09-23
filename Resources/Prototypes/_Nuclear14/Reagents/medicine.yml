@@ -532,9 +532,9 @@
       - !type:HealthChange
         damage:
           types:
-            Radiation: -1.5 # Misfits Change - Bitterdrink previously was dirt cheap and outperformed antidote and radaway. Now it requires actual chemistry to make but works as a solid anti-rad/poison mix.
-            Poison: -1.5
-      - !type:Emote # Misfits Change - Bitterdrink is supposed to taste fucking awful
+            Radiation: -0.5
+            Poison: -1
+      - !type:Emote
         emote: Cough
         showInChat: true
         probability: 0.05
@@ -543,7 +543,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
-      - !type:ModifyFeralization  # Misfits Add
+      - !type:ModifyFeralization
         delta: -0.5
         minimumThreshold: 80
 

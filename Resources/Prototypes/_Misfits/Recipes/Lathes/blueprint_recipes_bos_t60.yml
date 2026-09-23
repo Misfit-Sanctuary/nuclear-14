@@ -5,9 +5,8 @@
 # of Steel faction access.
 #
 # Material amounts are in the lathe's internal units where 100 units = 1 physical
-# sheet / bar / ingot / piece. Costs are anchored to the existing BoS ballistic
-# benchmark, the Bozar (N14BPBoSWeaponBozarGRA, 115 steel + 20 brass), and to the
-# 35-round carbine magazine (N14BPTownAmmoMag556Long) for the magazine.
+# sheet / bar / ingot / piece. Costs are anchored to the comparable benchmarks;
+# For the HAR, the Bozar and NCR LMG, and for the T-60 the NCR's Deagle BP.
 
 - type: latheCategory
   id: N14BlueprintBoSWeaponsT60
@@ -17,8 +16,8 @@
 # WEAPONS
 # =====================================================================
 
-# Heavy Assault Rifle - 90 steel, 15 brass, 2 scrap electronics, 4 plastic.
-# Sits just under the Bozar: a heavy pre-war receiver, but no optics or gold contacts.
+# Heavy Assault Rifle - 110 steel, 7.5 brass, 15 iron, 2 scrap electronics, 4 plastic.
+# A bigger, clunkier Bozar: a heavy pre-war receiver, but no optics or gold contacts.
 - type: latheRecipe
   id: N14BPBoSWeaponRifleHeavyAssault
   result: N14WeaponRifle556HeavyAssault
@@ -28,18 +27,20 @@
   availableFaction:
   - BrotherhoodOfSteel
   materials:
-    Steel: 9000
+    Steel: 11000
 
-    N14Brass: 1500
+    N14Brass: 750
+
+    N14Iron: 1500
 
     ScrapElectronic: 200
 
     Plastic: 400
 
 
-# T-60 Pistol - 45 steel, 8 brass, 6 circuitry, 2 glass, 2.5 scrap electronics.
-# The circuitry and glass are the integrated targeting electronics that replace the
-# missing iron sights; that is what puts it above an ordinary .44 sidearm.
+# T-60 Pistol - 45 steel, 1 brass, 3 iron, 2 glass, 2.5 scrap electronics.
+# The scrap electronics and glass are the integrated targeting electronics that replace the
+# missing iron sights.
 - type: latheRecipe
   id: N14BPBoSWeaponPistolT60
   result: N14WeaponPistolT60
@@ -51,9 +52,9 @@
   materials:
     Steel: 4500
 
-    N14Brass: 800
+    N14Brass: 100
 
-    Circuitry: 600
+    N14Iron: 300
 
     Glass: 200
 
@@ -80,4 +81,4 @@
 
     Lead: 150
 
-    N14Gunpowder: 900
+    N14Gunpowder: 300

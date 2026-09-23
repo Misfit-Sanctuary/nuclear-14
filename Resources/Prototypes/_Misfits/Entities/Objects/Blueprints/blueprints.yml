@@ -666,7 +666,6 @@
   components:
   - type: Blueprint
     recipes:
-    - N14BPBoSAmmoPowerCellSmall
     - N14BPBoSAmmoElectronChargePackRed
     - N14BPBoSAmmoBox10mm
     # #Misfits Add - kinetic ammo for T1 mediocre guns (9mm / .45 / 12ga)
@@ -685,7 +684,6 @@
   - type: Blueprint
     recipes:
     - N14BPBoSAmmoPowerCellHigh
-    - N14BPBoSAmmoElectronChargePackGreen
     - N14BPBoSAmmoPlasmaCartridge
     # #Misfits Add - kinetic ammo for T2 mediocre guns (7.62 M14 / 5.45 AK-112)
     - N14BPBoSAmmoBox762
@@ -701,8 +699,6 @@
   components:
   - type: Blueprint
     recipes:
-    - N14BPBoSAmmoPowerCellAdvanced
-    - N14BPBoSAmmoElectronChargePackBlue
     - N14BPBoSAmmoPlasmaShell
     - N14BPBoSAmmoPlasmaCartridgeMultiplas
     - MisfitsBPBoSGrenadeFragOffensive # #Misfits Add - efficient conventional ordnance
@@ -729,16 +725,15 @@
     # #Misfits Change - duplicate FC recipe removed; consolidated to single generic fusion core
     - N14BPBoSAmmoVertibirdGunBelt # #Misfits Add - vertibird turret belt
 
-- type: entity
-  parent: N14BlueprintBase
-  id: N14BlueprintBoSAmmoT5
-  name: BoS Experimental Violet-Spectrum Cell Plans
-  description: Highly classified experimental schematics for violet-spectrum energy cells. Tier 5 ammo.
-  components:
-  - type: Blueprint
-    recipes:
-    - N14BPBoSAmmoMicrofusionViolet
-    - N14BPBoSAmmoElectronChargePackViolet
+#- type: entity
+#  parent: N14BlueprintBase
+#  id: N14BlueprintBoSAmmoT5
+#  name: BoS Experimental Violet-Spectrum Cell Plans
+#  description: Highly classified experimental schematics for violet-spectrum energy cells. Tier 5 ammo.
+#  components:
+#  - type: Blueprint
+#    recipes:
+#    - N14BPBoSAmmoMicrofusionViolet
 
 # =====================================================================
 # TOWNSFOLK BLUEPRINTS
@@ -875,7 +870,7 @@
     - N14BPTownArmorTownGuardRiot
     - N14BPTownArmorPoliceCombat
     - N14BPTownArmorSheriffVest
-    - N14BPTownArmorMetalArmor
+    - N14BPTownArmorVestRCMP
     # #Misfits Add - paired riot Brodie variants and RCMP helmet
     - N14BPTownArmorHelmetBrodieCover
     - N14BPTownArmorHelmetBrodieVisor
@@ -889,13 +884,9 @@
   components:
   - type: Blueprint
     recipes:
-    - N14BPTownArmorCombatArmor
-    - N14BPTownArmorScavengerHeavyArmor
-    - N14BPTownArmorInsectArmor
-    # #Misfits Add - paired combat and pre-war military helmets
-    - N14BPTownArmorHelmetCombat
-    - N14BPTownArmorHelmetCombatCargo
-    - N14BPTownArmorHelmetPrewarMilitary
+    - N14BPTownArmorCombatArmorRCMP
+    # #Misfits Add - paired RCMP helmets/armors
+    - N14BPTownArmorHelmetSpecRCMP
 
 # --- Town Ammo ---
 - type: entity

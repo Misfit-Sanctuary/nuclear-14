@@ -78,7 +78,7 @@
   parent: N14IDPassportBlank
   id: N14IDBrotherhoodHolotag
   name: senior scribe's holotags
-  description: An ID holotag worn by the Brotherhood of Steel.
+  description: The chapter cannot be allowed to repeat the past, forgetting the teachings of the Codex. Keep them on the right path, show them the way.
   suffix: Senior Scribe
   components:
   - type: Sprite
@@ -99,7 +99,7 @@
   parent: N14IDBrotherhoodHolotag
   id: N14IDBrotherhoodHolotagSquire
   name: squire's holotags
-  description: An ID holotag worn by the Brotherhood of Steel.
+  description: You still have something to prove, and all the opportunity to mess it all up first.
   suffix: Squire
   components:
   - type: PresetIdCard
@@ -109,7 +109,7 @@
   parent: N14IDBrotherhoodHolotag
   id: MisfitsIDBOSOffDuty
   name: off-duty holotags
-  description: holotags worn by off-duty members of the Brotherhood of Steel.
+  description: You've been given a brief moment of rest, yet these holotags still feel heavy as an anchor around the neck.
   suffix: Off-Duty
   components:
   - type: PresetIdCard
@@ -119,7 +119,7 @@
   parent: N14IDBrotherhoodHolotag
   id: N14IDBrotherhoodHolotagKnight
   name: senior knight's holotags
-  description: An ID holotag worn by the Brotherhood of Steel.
+  description: These holotags are only issued to those who have proven both competent and responsible, worthy of keeping the chapter from descending into insanity.
   suffix: Senior Knight
   components:
   - type: PresetIdCard
@@ -129,7 +129,7 @@
   parent: N14IDBrotherhoodHolotag
   id: N14IDBrotherhoodHolotagPaladin
   name: senior paladin's holotags
-  description: An ID holotag worn by the Paladins of the Brotherhood of Steel.
+  description: These holotags are issued to those who have shown bravery in combat, diplomatic skill with outsiders, and loyalty towards their brothers and sisters.
   suffix: Senior Paladin
   components:
   - type: PresetIdCard
@@ -139,7 +139,7 @@
   parent: N14IDBrotherhoodHolotag
   id: N14IDBrotherhoodHolotagCommander
   name: head paladin's holotags
-  description: An ID holotag worn by the Head Paladin of the Brotherhood of Steel.
+  description: The safety of the chapter is in your hands, and all eyes are on you for a possible fumble of diplomacy or a failure to win the upcoming battles.
   suffix: Head Paladin
   components:
   - type: PresetIdCard
@@ -150,7 +150,7 @@
   parent: N14IDPassportBlank
   id: N14IDBrotherhoodOfSteelHolotagBase
   name: Brotherhood holotags
-  description: An ID holotag worn by the Brotherhood of Steel.
+  description: Holotags marking a member of the Brotherhood of Steel, words flicker over the surface, the names and ranks on its memory ready to be committed to memorial.
   suffix: Brotherhood
   components:
   - type: Sprite
@@ -169,7 +169,7 @@
   parent: N14IDBrotherhoodOfSteelHolotagBase
   id: N14IDBrotherhoodOfSteelHolotagInitiate
   name: initiate's holotags
-  description: An ID holotag worn by a Brotherhood initiate.
+  description: These holotags mark you as a hopeful of the chapter's brothers and sisters, ready to cement your life into a rigid caste system for a higher cause.
   suffix: Initiate
   components:
   - type: PresetIdCard
@@ -179,7 +179,7 @@
   parent: N14IDBrotherhoodOfSteelHolotagBase
   id: N14IDBrotherhoodOfSteelHolotagSquire
   name: squire's holotags
-  description: An ID holotag worn by a Brotherhood squire.
+  description: You still have something to prove, and all the opportunity to mess it all up first.
   suffix: Squire
   components:
   - type: PresetIdCard
@@ -189,7 +189,7 @@
   parent: N14IDBrotherhoodOfSteelHolotagBase
   id: N14IDBrotherhoodOfSteelHolotagScribe
   name: scribe's holotags
-  description: An ID holotag worn by a Brotherhood scribe.
+  description: These holotags have a heavy weight to them, that of responsibility and tradition. Bear this burden with dignity and noble purpose.
   suffix: Scribe
   components:
   - type: PresetIdCard
@@ -199,7 +199,7 @@
   parent: N14IDBrotherhoodOfSteelHolotagBase
   id: N14IDBrotherhoodOfSteelHolotagSeniorScribe
   name: senior scribe's holotags
-  description: An ID holotag worn by a Brotherhood senior scribe.
+  description: The chapter cannot be allowed to repeat the past, forgetting the teachings of the Codex. Keep them on the right path, show them the way.
   suffix: Senior Scribe
   components:
   - type: PresetIdCard
@@ -209,7 +209,7 @@
   parent: N14IDBrotherhoodOfSteelHolotagBase
   id: N14IDBrotherhoodOfSteelHolotagHeadScribe
   name: head scribe's holotags
-  description: An ID holotag worn by the Head Scribe of the Brotherhood of Steel.
+  description: The chapter looks to you for guidance. Do not just recycle past knowledge, they need you to make new discoveries for humanity's survival.
   suffix: Head Scribe
   components:
   - type: PresetIdCard
@@ -219,7 +219,7 @@
   parent: N14IDBrotherhoodOfSteelHolotagBase
   id: N14IDBrotherhoodOfSteelHolotagKnight
   name: knight's holotags
-  description: An ID holotag worn by a Brotherhood knight.
+  description: Sort the supplies, manage the defense, tend to the prisoners; yours is a practical duty, needed for the daily maintenance of life.
   suffix: Knight
   components:
   - type: PresetIdCard
@@ -229,7 +229,7 @@
   parent: N14IDBrotherhoodOfSteelHolotagBase
   id: N14IDBrotherhoodOfSteelHolotagSeniorKnight
   name: senior knight's holotags
-  description: An ID holotag worn by a Brotherhood senior knight.
+  description: These holotags are only issued to those who have proven both competent and responsible, worthy of keeping the chapter from descending into insanity.
   suffix: Senior Knight
   components:
   - type: PresetIdCard
@@ -239,7 +239,7 @@
   parent: N14IDBrotherhoodOfSteelHolotagBase
   id: N14IDBrotherhoodOfSteelHolotagHeadKnight
   name: head knight's holotags
-  description: An ID holotag worn by the Head Knight of the Brotherhood of Steel.
+  description: Issued only to those who can bear the stress of managing the problems of the chapter from the guidance of the scribes, and enforce the teachings of the Codex without failure.
   suffix: Head Knight
   components:
   - type: PresetIdCard
@@ -249,7 +249,7 @@
   parent: N14IDBrotherhoodOfSteelHolotagBase
   id: N14IDBrotherhoodOfSteelHolotagPaladin
   name: paladin's holotags
-  description: An ID holotag worn by a Brotherhood paladin.
+  description: With your rank comes great purpose, as you are expected not just to lead the chapter in combat from the frontline, but prevent it in the first place through diplomacy with untrustworthy outsiders.
   suffix: Paladin
   components:
   - type: PresetIdCard
@@ -259,7 +259,7 @@
   parent: N14IDBrotherhoodOfSteelHolotagBase
   id: N14IDBrotherhoodOfSteelHolotagSeniorPaladin
   name: senior paladin's holotags
-  description: An ID holotag worn by a Brotherhood senior paladin.
+  description: These holotags are issued to those who have shown bravery in combat, diplomatic skill with outsiders, and loyalty towards their brothers and sisters. Guide the paladins and follow the Chain of Command.
   suffix: Senior Paladin
   components:
   - type: PresetIdCard
@@ -269,7 +269,7 @@
   parent: N14IDBrotherhoodOfSteelHolotagBase
   id: N14IDBrotherhoodOfSteelHolotagHeadPaladin
   name: head paladin's holotags
-  description: An ID holotag worn by the Head Paladin of the Brotherhood of Steel.
+  description: The safety of the chapter is in your hands, and all eyes are on you for a possible fumble of diplomacy or a failure to win the upcoming battles. Take care not to let down your brothers and sisters.
   suffix: Head Paladin
   components:
   - type: PresetIdCard
@@ -291,7 +291,7 @@
   parent: N14IDBrotherhoodOfSteelHolotagBase
   id: N14IDBrotherhoodOfSteelHolotagElder
   name: elder's holotags
-  description: An ID holotag worn by the Elder of the Brotherhood of Steel.
+  description: The holotags of an elder of the Brotherhood, issued only when a new chapter is founded, or a casualty must be replaced. These belonged to someone before you, can you live up to their glory?
   suffix: Elder
   components:
   - type: PresetIdCard
@@ -302,7 +302,7 @@
   parent: N14IDBrotherhoodOfSteelHolotagBase
   id: N14IDBrotherhoodOfSteelHolotagHonorGuard
   name: honor guard's holotags
-  description: An ID holotag worn by an Honor Guard of the Brotherhood of Steel.
+  description: Your life has been sworn to the safety of the Elder who appointed you, and you will see their will done. For without them, the Brotherhood of Steel would fall.
   suffix: Honor Guard
   components:
   - type: PresetIdCard
@@ -313,7 +313,7 @@
   parent: N14IDNCRDogtag
   id: N14IDNCRDogtagWS
   name: specialist's dogtags
-  description: An ID dogtag worn by NCR specialists.
+  description: These dogtags are proof you know what you're doing, so don't expect to take it easy anytime soon.
   suffix: Specialist
   components:
   - type: Sprite
@@ -327,4 +327,5 @@
   parent: N14IDBrotherhoodOfSteelHolotagInitiate
   id: N14IDBrotherhoodWashingtonHolotagInitiate
   name: initiate's holotags
+  description: Issued to fresh recruits of the Washington Brotherhood, you have a long way to go before you are feared just yet.
   suffix: LegacyWashington

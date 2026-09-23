@@ -103,8 +103,6 @@
     - NCRA_DemolitionSet
     - NCRA_BreacherSet
 
-# Removed NCR Surgeon kit, gave directly to NCR doctor
-
 - type: entity
   id: NCRmedicloadoutkits
   name: Undecided NCRA Medic Loadout Kit
@@ -117,6 +115,7 @@
     possibleSets:
     - NCRA_DoctorSet
     - NCRA_ComMedSet
+    - NCRA_SurgeonSet
 
 - type: entity
   id: NCRwsloadoutkits
@@ -872,7 +871,28 @@
   content:
   - KitMBoS_Recon
 
-# MBoS Scribes
+# Head Knight
+- type: UndecidedLoadoutBackpackSet
+  id: Head_KniBun_Set
+  name: undecided-loadout-category-head-knight-bunker-name
+  description: undecided-loadout-category-head-knight-bunker-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: gunner
+  content:
+  - KitHead_KniBun
+
+- type: UndecidedLoadoutBackpackSet
+  id: Head_KniSup_Set
+  name: undecided-loadout-category-head-knight-support-name
+  description: undecided-loadout-category-head-knight-support-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: gunner
+  content:
+  - KitHead_KniSup
+
+# Regular/Senior Scribes
 - type: UndecidedLoadoutBackpackSet
   id: MBoS_ScrMed_Set
   name: undecided-loadout-category-mbos-scribe-medic-name
@@ -902,6 +922,37 @@
     state: gunner
   content:
   - KitMBoS_ScrEng
+
+# Head Scribe
+- type: UndecidedLoadoutBackpackSet
+  id: Head_ScrMed_Set
+  name: undecided-loadout-category-head-scribe-medic-name
+  description: undecided-loadout-category-head-scribe-medic-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: medic
+  content:
+  - KitHead_ScrMed
+
+- type: UndecidedLoadoutBackpackSet
+  id: Head_ScrFld_Set
+  name: undecided-loadout-category-head-scribe-field-name
+  description: undecided-loadout-category-head-scribe-field-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: gunner
+  content:
+  - KitHead_ScrFld
+
+- type: UndecidedLoadoutBackpackSet
+  id: Head_ScrEng_Set
+  name: undecided-loadout-category-head-scribe-engineer-name
+  description: undecided-loadout-category-headscribe-engineer-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: gunner
+  content:
+  - KitHead_ScrEng
 
 # MBoS Paladin
 - type: UndecidedLoadoutBackpackSet

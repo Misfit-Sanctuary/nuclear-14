@@ -376,10 +376,7 @@
         amount: 2 # Throwables gone from this kit. Too good of a gun.
       - id: N14BoxCardboardMREBoxCFilled
       - id: N14Stimpak
-      - id: N14SuperStimpak
-      - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
-        amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -403,10 +400,7 @@
       - id: MisfitsGrenadeFragDefensive # More nades for the HTL
       - id: N14BoxCardboardMREBoxCFilled
       - id: N14Stimpak
-      - id: N14SuperStimpak
-      - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
-        amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -428,10 +422,7 @@
     - id: SmokeGrenade
     - id: N14BoxCardboardMREBoxCFilled
     - id: N14Stimpak
-    - id: N14SuperStimpak
-    - id: N14RadAwayBloodbag
     - id: N14CleanGauze10
-      amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -499,6 +490,6 @@
     state: rifleman
   - type: UndecidedLoadoutBackpack
     possibleSets:
-    - NCR_HeavyTrooperVeteranSet
+    - NCR_HeavyTrooperLinebreakerSet
     - NCR_HeavyTrooperMinigunSet
     - NCR_HeavyTrooperDefenderSet

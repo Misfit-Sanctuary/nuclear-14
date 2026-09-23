@@ -24,7 +24,7 @@
   - type: Clothing
     sprite: _Nuclear14/Clothing/Eyes/pilotgoggles.rsi
   # - type: ClothingSpecialModifier
-    # charismaModifier: 1 
+    # charismaModifier: 1
 
 - type: entity
   parent: ClothingEyesBase
@@ -51,6 +51,18 @@
 
 - type: entity
   parent: ClothingEyesBase
+  id: N14ClothingEyesJamjars
+  name: jamjar glasses
+  description: A pair of inch-thick glasses for the truly visually impaired. Golly!
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/jamjar.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/jamjar.rsi
+  - type: VisionCorrection
+
+- type: entity
+  parent: ClothingEyesBase
   id: N14ClothingEyesSunGlasses
   name: sun glasses
   description: A pair of black sunglasses, perfect to protect against the sun.
@@ -64,7 +76,7 @@
   - type: EyeProtection
     protectionTime: 5
   # - type: ClothingSpecialModifier
-    # charismaModifier: 1 
+    # charismaModifier: 1
 
 - type: entity
   parent: ClothingEyesBase
