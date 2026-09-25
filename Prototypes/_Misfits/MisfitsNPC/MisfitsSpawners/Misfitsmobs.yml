@@ -1,0 +1,237 @@
+#MARK: Misfits Raiders
+- type: entity
+  name: Gunners Spawner - Melee 1
+  id: MisfitsSpawnMobRaiderFernPrivateOne
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsMobRaiderFernPrivateOne
+
+- type: entity
+  name: Gunners Spawner - Private 1
+  id: MisfitsSpawnMobRaiderFernPrivateTwo
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsRaiderFernPrivateTwo
+
+- type: entity
+  name: Raider Spawner - Shield
+  id: MisfitsSpawnMobRaiderShield
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsMobRaiderShield
+
+- type: entity
+  name: Talons Spawner - Assault Rifle
+  id: MisfitsSpawnMobRaiderTalonAssaultRifle
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsMobRaiderTalonRifle
+
+- type: entity
+  name: Raider Spawner - Shield
+  id: MisfitsSpawnMobRaiderShield
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsBaseMobShieldRaider
+
+- type: entity
+  name: Talons Spawner - Melee
+  id: MisfitsSpawnMobRaiderTalonMelee
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsMobRaiderTalonMeleeGear
+
+- type: entity
+  name: Raider Spawner - Melee 1
+  id: MisfitsSpawnMobRaiderPsychoMelee
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsPsychoRaiderMelee
+
+- type: entity
+  name: Raider Spawner - Melee 2
+  id: MisfitsSpawnMobRaiderPsychoMeleeOne
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsPsychoRaiderMeleeOne
+
+- type: entity
+  name: Raider Spawner - Melee 3
+  id: MisfitsSpawnMobRaiderPsychoMeleeTwo
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsPsychoRaiderMeleeTwo
+
+- type: entity
+  name: Raider Spawner - Melee 4
+  id: MisfitsSpawnMobRaiderPsychoMeleeThree
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsPsychoRaiderMeleeThree
+
+- type: entity
+  name: Raider Spawner - Assault Rifle
+  id: MisfitsSpawnMobRaiderPsychoAssaultRifle
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsPsychoRaiderRifle
+
+- type: entity
+  name: Raider Spawner - Shotgun
+  id: MisfitsSpawnMobRaiderPsychoShotgun
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsRaiderPsychoShotgun
+
+- type: entity
+  name: Gunners Spawner - Private 3
+  id: MisfitsSpawnMobRaiderFernPrivateThree
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsRaiderFernPrivateThree
+
+- type: entity
+  name: Raider Spawner - Revolver
+  id: MisfitsSpawnMobRaiderPsychoRevolver
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsRaiderPsychoRevolver
+
+- type: entity
+  name: Raider Spawner - Pistol 1
+  id: MisfitsSpawnMobRaiderPsychoPistolOne
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsRaiderPsychoPistol
+
+- type: entity
+  name: Veteran Raider Spawner - Assault Rifle
+  id: MisfitsSpawnMobRaiderPsychoVeteranAssaultRIfle
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsRaiderPsychoVeteranRifle

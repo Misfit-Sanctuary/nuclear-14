@@ -1,0 +1,69 @@
+- type: entity
+  name: Psycho Raider Shieldman
+  parent: MisfitsBaseMobRaiderShield
+  id: MisfitsMobRaiderShield
+  description: Psychopatic raider holding a shield, take alot of shots before going down.
+  components:
+    - type: Loadout
+      prototypes:
+      - MisfitsPsychoRaiderShieldGear
+
+- type: entity
+  name: Gunners Private
+  parent: N14BaseMobRaider
+  id: MisfitsMobRaiderFernPrivateOne
+  description: Professional mercenary-wannabe armed with a combat knife. Ready to stab someone's torso.
+  components:
+    - type: Loadout
+      prototypes:
+      - MisfitsFernPrivateOneGear
+      
+- type: entity
+  name: Talon Mercenary
+  parent: N14BaseMobRaider
+  id: MisfitsTalonMelee
+  description: Talon mercenary armed with a combat knife. Ready to cut someone's up.
+  components:
+    - type: Loadout
+      prototypes:
+      - MisfitsMobRaiderTalonMeleeGear
+
+- type: entity
+  name: Psycho Raider
+  parent: N14BaseMobRaider
+  id: MisfitsPsychoRaiderMelee
+  description: Psychopatic raider who will stab and rob just about anyone.
+  components:
+    - type: Loadout
+      prototypes:
+      - MisfitsPsychoRaiderMeleeGear
+
+- type: entity
+  name: Psycho Raider
+  parent: N14BaseMobRaider
+  id: MisfitsPsychoRaiderMeleeOne
+  description: Psychopatic raider who will stab and rob just about anyone.
+  components:
+    - type: Loadout
+      prototypes:
+      - MisfitsPsychoRaiderMeleeOneGear
+
+- type: entity
+  name: Psycho Raider
+  parent: N14BaseMobRaider
+  id: MisfitsPsychoRaiderMeleeTwo
+  description: Psychopatic raider who will stab and rob just about anyone.
+  components:
+    - type: Loadout
+      prototypes:
+      - MisfitsPsychoRaiderMeleeTwoGear
+      
+- type: entity
+  name: Psycho Raider
+  parent: N14BaseMobRaider
+  id: MisfitsPsychoRaiderMeleeThree
+  description: Psychopatic raider who will stab and rob just about anyone.
+  components:
+    - type: Loadout
+      prototypes:
+      - MisfitsPsychoRaiderMeleeThreeGear

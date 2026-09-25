@@ -1,0 +1,129 @@
+- type: entity          #Like normal raider but tougher -Wassuy
+  parent: BaseMobSpeciesOrganic
+  id: MisFitsBaseMobVeteranRaider
+  abstract: true
+  name: Raider
+  suffix: AI
+  components:
+    - type: Damageable    # Misfits Add - Override from BaseMobSpeciesOrganic to prevent hunger/thirst damage
+      damageContainer: MisfitsNPCBiological
+    - type: NpcFactionMember
+      factions:
+      - Raider
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        80: Dead
+    - type: Destructible #Misfits Change /Add: Drop bottle caps on death (1-7)
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 80
+        behaviors:
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            N14CurrencyCap:
+              min: 5
+              max: 20
+    - type: PassiveDamage # It's mostly for the faction NPCs, but can be here nonetheless.
+      allowedStates:
+      - Alive
+      damage:
+        groups:
+          Toxin: -1
+          Airloss: -3
+    - type: MindContainer
+      showExamineInfo: False
+    - type: InputMover
+    - type: MobMover
+    - type: SurgeryTarget
+      canOperate: false
+    - type: ProximityNPC # Misfits Add — sleep distant NPCs to reduce tick load
+    - type: HTN
+      rootTask:
+        task: N14RangedHostileCompound
+      blackboard:
+        NavSmash: !type:Bool
+          true
+        MeleeRange: !type:Single
+          1.5
+    - type: MeleeWeapon
+      hidden: true
+      attackRate: 1.5
+      range: 1.5
+      angle: 30
+      animation: WeaponArcPunch
+      damage:
+        types:
+          Blunt: 20
+    - type: Carriable
+    - type: Perishable
+      rotAfter: 1800 # Rots after half of an in-game day
+    - type: RotInto
+      entity: N14FoodMeatRadRaw # and becomes a single chunk of meat.
+    - type: Butcherable
+      butcheringType: Spike
+      spawned:
+      - id: N14FoodMeatRadRaw
+        amount: 5
+    - type: HumanoidAppearance
+      species: Human
+      hideLayersOnEquip:
+      - Hair
+      - Snout
+    - type: Sprite
+      layers:
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi #PJB on stencil clear being on the left leg: "...this is 'fine'" -https://github.com/space-wizards/space-station-14/pull/12217#issuecomment-1291677115
+        # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
+        # sprite refactor when
+        state: l_leg
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: [ "clownedon" ] # Dynamically generated
+        sprite: "Effects/creampie.rsi"
+        state: "creampie_human"
+        visible: false
