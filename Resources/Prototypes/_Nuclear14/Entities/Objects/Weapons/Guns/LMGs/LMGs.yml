@@ -19,13 +19,16 @@
   - type: Wieldable
     wieldedSpeedModifier: 0.9
   - type: GunRequiresWield
+  - type: WieldDelay # Misfits-change
+    baseDelay: 1
+    preventFiring: true
   - type: GunWieldBonus
-    minAngle: -19 # Corvax-Change
-    maxAngle: -50 # Corvax-Change
+    minAngle: -19 # Misfits-change
+    maxAngle: -50 # Misfits-change
   - type: Gun
     minAngle: 24
     maxAngle: 60
-    angleIncrease: 4
+    angleIncrease: 3
     angleDecay: 16
     fireRate: 4
     soundGunshot:
@@ -85,13 +88,16 @@
   - type: Wieldable
     wieldedSpeedModifier: 0.8
   - type: GunRequiresWield
+  - type: WieldDelay # Misfits-change
+    baseDelay: 1.5
+    preventFiring: true
   - type: GunWieldBonus
-    minAngle: -19 # Corvax-Change
-    maxAngle: -44 # Corvax-Change
+    minAngle: -21 # Misfits-change
+    maxAngle: -45 # Misfits-change
   - type: Gun
     minAngle: 24
     maxAngle: 60
-    angleIncrease: 4
+    angleIncrease: 3
     angleDecay: 16
     fireRate: 6
     soundGunshot:
@@ -151,9 +157,12 @@
   - type: Wieldable
     wieldedSpeedModifier: 0.8
   - type: GunRequiresWield
+  - type: WieldDelay # Misfits-change
+    baseDelay: 1.2
+    preventFiring: true
   - type: GunWieldBonus
-    minAngle: -22 # Corvax-Change
-    maxAngle: -49 # Corvax-Change
+    minAngle: -22 # Misfits-change
+    maxAngle: -49 # Misfits-change
   - type: Gun
     minAngle: 24
     maxAngle: 60
@@ -217,8 +226,11 @@
   - type: Wieldable
     wieldedSpeedModifier: 0.8
   - type: GunRequiresWield
+  - type: WieldDelay # Misfits-change
+    baseDelay: 1
+    preventFiring: true
   - type: GunWieldBonus
-    minAngle: -18
+    minAngle: -22
     maxAngle: -55
   - type: Gun
     minAngle: 24
@@ -286,9 +298,12 @@
     walkModifier: 0.85
     sprintModifier: 0.85
   - type: GunRequiresWield
+  - type: WieldDelay # Misfits-change
+    baseDelay: 1.2
+    preventFiring: true
   - type: GunWieldBonus
-    minAngle: -20 # Corvax-Change
-    maxAngle: -45 # Corvax-Change
+    minAngle: -20 # Misfits-change
+    maxAngle: -45 # Misfits-change
   - type: Gun
     minAngle: 22
     maxAngle: 50
@@ -352,6 +367,9 @@
     walkModifier: 0.85
     sprintModifier: 0.85
   - type: GunRequiresWield
+  - type: WieldDelay # Misfits-change
+    baseDelay: 1.2
+    preventFiring: true
   - type: GunWieldBonus
     minAngle: -21
     maxAngle: -40
