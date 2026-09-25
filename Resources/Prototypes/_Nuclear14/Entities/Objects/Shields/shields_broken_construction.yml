@@ -1,0 +1,103 @@
+- type: entity
+  name: broken shield
+  parent: BaseItem
+  id: N14ShieldBase_broken
+  abstract: true
+  description: Your shield broke! Guh! hope it doesnt look too different from another broken shield!
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Melee/shields.rsi
+      state: makeshift-icon
+      color: '#595858'
+    - type: Item
+      heldPrefix: metal
+      sprite: Objects/Weapons/Melee/shields.rsi
+      size: Normal
+    - type: Construction
+      graph: M14WeldRepair
+      node: start
+      defaultTarget: M14WeldRepairNode
+
+
+- type: entity
+  parent: N14ShieldBase_broken
+  id: N14ShieldMetalLight_broken
+  components:
+    - type: GeneralConstructs
+      generalEnts:
+        repairedShield: N14ShieldMetalLight
+
+- type: entity
+  id: N14ShieldMetalHeavy_broken
+  parent: N14ShieldBase_broken
+  components:
+    - type: GeneralConstructs
+      generalEnts:
+        repairedShield: N14ShieldMetalHeavy
+
+
+- type: entity
+  id: N14InsectShield_broken
+  parent: N14ShieldBase_broken
+  components:
+    - type: GeneralConstructs
+      generalEnts:
+        repairedShield: N14InsectShield
+
+
+- type: entity
+  id: N14LegionnaireShield_broken
+  parent: N14ShieldBase_broken
+  components:
+    - type: Item
+      heldPrefix: wood
+    - type: GeneralConstructs
+      generalEnts:
+        repairedShield: N14LegionnaireShield
+
+
+- type: entity
+  id: N14LegionnaireBuckler_broken
+  parent: N14ShieldBase_broken
+  components:
+    - type: Item
+      heldPrefix: wood
+    - type: GeneralConstructs
+      generalEnts:
+        repairedShield: N14LegionnaireBuckler
+
+- type: entity
+  id: WoodenBuckler_broken
+  parent: N14ShieldBase_broken
+  components:
+    - type: Item
+      heldPrefix: wood
+    - type: GeneralConstructs
+      generalEnts:
+        repairedShield: WoodenBuckler
+
+- type: entity
+  id: MakeshiftShield_broken
+  parent: N14ShieldBase_broken
+  components:
+    - type: GeneralConstructs
+      generalEnts:
+        repairedShield: MakeshiftShield
+
+- type: constructionGraph
+  id: M14WeldRepair
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: M14WeldRepairNode
+      steps:
+      - tool: Welding
+        doAfter: 10
+  - node: M14WeldRepairNode
+    actions:
+    - !type:GeneralNodeEntity
+      protoKey: repairedShield
+      amount: 1
+    - !type:DeleteEntity {}
+

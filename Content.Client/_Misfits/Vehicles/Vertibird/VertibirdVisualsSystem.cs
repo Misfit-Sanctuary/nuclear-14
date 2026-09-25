@@ -11,17 +11,17 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._Misfits.Vehicles.Vertibird;
 
-public sealed class VertibirdVisualsSystem : EntitySystem
+public sealed partial class VertibirdVisualsSystem : EntitySystem
 {
     private const float HoverVisualLift = 0.22f;
     private const float HoverBobAmplitude = 0.08f;
     private const float HoverBobSpeed = 2.2f;
 
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MZSharedSystem _multiZ = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MZSharedSystem _multiZ = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private readonly Dictionary<EntityUid, TimeSpan> _nextFlightEffect = new();
     private readonly Dictionary<EntityUid, bool> _hiddenOccupantVisibility = new();

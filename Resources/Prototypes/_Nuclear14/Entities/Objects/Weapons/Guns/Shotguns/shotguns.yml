@@ -696,6 +696,7 @@
   id: N14WeaponShotgunNeostead
   description: A Brotherhood-issue semi-automatic shotgun fed from twin underbarrel tubes holding ten shells total. Technology well ahead of the pre-war mainstream — This one has the markings of Legion make.
   components:
+#  - type: GunRequiresWield # hmmm
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/neostead.rsi
     quickEquip: false
