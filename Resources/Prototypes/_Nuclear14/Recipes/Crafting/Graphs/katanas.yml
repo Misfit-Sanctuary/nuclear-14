@@ -1,0 +1,65 @@
+- type: constructionGraph
+  id: N14WasterKatanaT1
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: wasterkatana1
+          steps:
+            - material: N14Scrap
+              amount: 3
+            - material: Steel
+              amount: 10
+              doAfter: 10
+    - node: wasterkatana1
+      entity: N14WasterKatanaT1
+
+- type: constructionGraph
+  id: N14WasterKatanaT2
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: wasterkatana2
+          steps:
+            - tag: WasterKatanaT1
+            - material: N14Scrap
+              amount: 10
+            - material: Steel
+              amount: 15
+              doAfter: 5
+    - node: wasterkatana2
+      entity: N14WasterKatanaT2
+
+- type: constructionGraph
+  id: N14WasterKatanaBeltT1
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: wasterkatanabelt1
+          steps:
+            - material: Leather
+              amount: 2
+            - material: Cloth
+              amount: 1
+              doAfter: 4
+    - node: wasterkatanabelt1
+      entity: ClothingBeltWasterKatanaBeltT1
+
+- type: constructionGraph
+  id: N14WasterKatanaBeltT2
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: wasterkatanabelt2
+          steps:
+            - tag: WasterKatanaBeltT1
+            - material: Leather
+              amount: 3
+            - material: Cloth
+              amount: 2
+              doAfter: 4
+    - node: wasterkatanabelt2
+      entity: ClothingBeltWasterKatanaBeltT2

@@ -1,0 +1,55 @@
+- type: construction
+  name: waster katana
+  id: N14WasterKatanaT1
+  graph: N14WasterKatanaT1
+  startNode: start
+  targetNode: wasterkatana1
+  category: construction-category-weapons
+  description: A crudely made katana, this weapon is a simple blade with a simple hilt, but it can still cut through flesh and bone.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Weapons/Melee/wasterkatanat1.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  name: superior waster katana
+  id: N14WasterKatanaT2
+  graph: N14WasterKatanaT2
+  startNode: start
+  targetNode: wasterkatana2
+  category: construction-category-weapons
+  description: A crudely made katana, this weapon is a simple blade with a simple hilt. This one appears upgraded with a better hilt and a sharper blade, making it more effective.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Weapons/Melee/wasterkatanat2.rsi
+    state: icon
+  objectType: Item
+
+- type: construction
+  name: waster katana sheath
+  id: N14WasterKatanaBeltT1
+  graph: N14WasterKatanaBeltT1
+  startNode: start
+  targetNode: wasterkatanabelt1
+  category: construction-category-storage
+  description: A simple crudely made leather sheath for a waster katana.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Clothing/Belt/Wastersheatt1.rsi
+    state: sheath
+  objectType: Item
+
+- type: construction
+  name: reinforced waster katana sheath
+  id: N14WasterKatanaBeltT2
+  graph: N14WasterKatanaBeltT2
+  startNode: start
+  targetNode: wasterkatanabelt2
+  category: construction-category-storage
+  description: An upgraded version of the waster katana sheath, built to hold a superior blade.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Clothing/Belt/Wastersheatt2.rsi
+    state: sheath
+  objectType: Item
