@@ -7,8 +7,8 @@
     - type: Gun
       minAngle: 20
       maxAngle: 40
-      angleIncrease: 10
-      angleDecay: 20
+      angleIncrease: 2
+      angleDecay: 6
       fireRate: 2.8
       soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Rifles/N14RifleR91Gunshot.ogg
       useKey: false
@@ -168,8 +168,8 @@
     - type: Gun
       minAngle: 14
       maxAngle: 20
-      angleIncrease: 10
-      angleDecay: 20
+      angleIncrease: 2
+      angleDecay: 6
       soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Rifles/N14WeaponMarksman/shot1.ogg
       fireRate: 1.8
       useKey: false
@@ -247,23 +247,23 @@
   description: Professional mercenary armed with an SMG. One might better off avoiding him.
   components:
     - type: Gun
-      minAngle: 20
-      maxAngle: 60
-      angleIncrease: 10
-      angleDecay: 20
+      minAngle: 5
+      maxAngle: 30
+      angleIncrease: 2
+      angleDecay: 6
       soundGunshot: /Audio/_Nuclear14/Weapons/Guns/SMGs/N14Weapon45SMG/shot1.ogg
       fireRate: 3.5
       useKey: false
-      selectedMode: SemiAuto
+      selectedMode: FullAuto
       availableModes:
-        - SemiAuto
+        - FullAuto
     - type: CombatMode
     - type: BasicEntityAmmoProvider
       proto: N14CartridgePistol45
       capacity: 25
       count: 25
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 5
+      rechargeCooldown: 4
       rechargeSound:
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/SMGs/smg_magin.ogg
     - type: Loadout
@@ -325,11 +325,11 @@
   name: Psycho Raider
   parent: N14BaseMobRaider
   id: MisfitsRaiderPsychoRifle
-  description: Psychopatic raider armed with a pipe rifle. Dangerous at medium-distance.
+  description: Psychopatic raider armed with a pipe assault rifle. Dangerous at medium-distance.
   components:
     - type: Gun
-      minAngle: 25
-      maxAngle: 75
+      minAngle: 6
+      maxAngle: 24
       angleIncrease: 10
       angleDecay: 20
       soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Rifles/N14WeaponService/shot1.ogg
@@ -337,7 +337,7 @@
       useKey: false
       selectedMode: FullAuto
       availableModes:
-        - Fullauto
+        - FullAuto
     - type: CombatMode
     - type: BasicEntityAmmoProvider
       proto: N14Cartridge556Rifle
@@ -400,4 +400,247 @@
         state: body-overlay-2
         visible: false
       - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/pipeassaultrifle.rsi
+        state: inhand-right # Only part we change, the gun sprite.
+
+- type: entity
+  name: Psycho Raider
+  parent: N14BaseMobRaider
+  id: MisfitsRaiderPsychoRevolver
+  description: Psychopatic raider who will stab and rob just about anyone.
+  components:
+    - type: Gun
+      minAngle: 2
+      maxAngle: 12.5
+      angleIncrease: 1
+      angleDecay: 4
+      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Revolvers/N14WeaponRevolver9mm/shot1.ogg
+      fireRate: 1.5
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+    - type: CombatMode
+    - type: BasicEntityAmmoProvider
+      proto: N14CartridgePistol9
+      capacity: 6
+      count: 6
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 4
+      rechargeSound:
+        path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
+    - type: Loadout
+      prototypes:
+        - MisfitsRaiderPsychoPistolGear
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite:  _Nuclear14/Objects/Weapons/Guns/Revolvers/small_revolver.rsi
+        state: inhand-right # Only part we change, the gun sprite.
+
+- type: entity
+  name: Psycho Raider
+  parent: N14BaseMobRaider
+  id: MisfitsRaiderPsychoPistol
+  description: Psychopatic raider who will stab and rob just about anyone.
+  components:
+    - type: Gun
+      minAngle: 4
+      maxAngle: 15
+      angleIncrease: 2
+      angleDecay: 4
+      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Pistols/N14WeaponPistolColt/shot1.ogg
+      fireRate: 1.8
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+    - type: CombatMode
+    - type: BasicEntityAmmoProvider
+      proto: N14CartridgePistol45
+      capacity: 8
+      count: 8
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 2.5
+      rechargeSound:
+        path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
+    - type: Loadout
+      prototypes:
+        - MisfitsRaiderPsychoPistolOneGear
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite:  _Nuclear14/Objects/Weapons/Guns/Pistols/colt.rsi
+        state: inhand-right # Only part we change, the gun sprite.
+
+- type: entity
+  name: Psycho Raider
+  parent: N14BaseMobRaider
+  id: MisfitsRaiderPsychoVeteranRifle
+  description: Veteran psychopatic raider. tougher than average joe, equipped with decent gears and ready to cripple someone's kneel.
+  components:
+    - type: Gun
+      minAngle: 25
+      maxAngle: 50
+      angleIncrease: 4
+      angleDecay: 15
+      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Rifles/N14WeaponCarbine/shot1.ogg
+      fireRate: 3.0
+      useKey: false
+      selectedMode: FullAuto
+      availableModes:
+        - FullAuto
+    - type: CombatMode
+    - type: BasicEntityAmmoProvider
+      proto: N14Cartridge556Rifle
+      capacity: 35
+      count: 35
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 4
+      rechargeSound:
+        path: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+    - type: Loadout
+      prototypes:
+        - MisfitsRaiderPsychoVeteranAssaultRifleGear
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/assaultcarbine.rsi
         state: inhand-right # Only part we change, the gun sprite.

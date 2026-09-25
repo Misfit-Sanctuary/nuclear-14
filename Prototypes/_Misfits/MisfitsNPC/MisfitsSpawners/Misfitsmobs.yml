@@ -45,8 +45,8 @@
       - MisfitsMobRaiderShield
 
 - type: entity
-  name: Talons Spawner - Rifle
-  id: MisfitsSpawnMobRaiderTalonRifle
+  name: Talons Spawner - Assault Rifle
+  id: MisfitsSpawnMobRaiderTalonAssaultRifle
   parent: MarkerBase
   components:
   - type: Sprite
@@ -150,8 +150,8 @@
       - MisfitsPsychoRaiderMeleeThree
 
 - type: entity
-  name: Raider Spawner - Rifle 1
-  id: MisfitsSpawnMobRaiderPsychoRifle
+  name: Raider Spawner - Assault Rifle
+  id: MisfitsSpawnMobRaiderPsychoAssaultRifle
   parent: MarkerBase
   components:
   - type: Sprite
@@ -193,3 +193,45 @@
   - type: ConditionalSpawner
     prototypes:
       - MisfitsRaiderFernPrivateThree
+
+- type: entity
+  name: Raider Spawner - Revolver
+  id: MisfitsSpawnMobRaiderPsychoRevolver
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsRaiderPsychoRevolver
+
+- type: entity
+  name: Raider Spawner - Pistol 1
+  id: MisfitsSpawnMobRaiderPsychoPistolOne
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsRaiderPsychoPistol
+
+- type: entity
+  name: Veteran Raider Spawner - Assault Rifle
+  id: MisfitsSpawnMobRaiderPsychoVeteranAssaultRIfle
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MisfitsRaiderPsychoVeteranRifle
