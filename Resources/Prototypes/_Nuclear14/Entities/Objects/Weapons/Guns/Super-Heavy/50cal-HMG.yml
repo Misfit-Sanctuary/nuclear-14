@@ -1,0 +1,77 @@
+- type: entity
+  name: .50 machine gun
+  parent: [BaseItem, BaseGunWieldable]
+  id: N14WeaponHMG50
+  description: A crew-served, belt-fed heavy machine gun chambered in .50 HMG. Its bulk and recoil demand exceptional strength or a suit of power armor to control.  The ammo belt is fed from a dedicated ammo backpack rather than stored inside the weapon.
+  components:
+  - type: Tag
+    tags:
+      - N14HMG50
+  - type: N14BackpackFedWeapon
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/canadianhmg.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/SuperHeavy/HMG.rsi
+    layers:
+      - state: icon
+  - type: Item
+    size: Ginormous
+    sprite: _Nuclear14/Objects/Weapons/Guns/SuperHeavy/HMG.rsi
+  - type: Wieldable
+    wieldedInhandPrefix: null
+  - type: GunRequiresWield
+  - type: AmmoCounter
+  - type: GunWieldBonus
+    minAngle: -24 # Misfits Change - wielding this heavy weapon almost eliminates spread
+    maxAngle: -64
+    angleIncrease: -2 # Misfits Change - slower recoil buildup while braced
+    angleDecay: 8 # Misfits Change - faster recovery while braced
+  - type: Gun
+    minAngle: 26
+    maxAngle: 70
+    angleIncrease: 4
+    angleDecay: 14
+    fireRate: 3
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      collection: N14HMGGunshot
+  - type: ClothingSlotAmmoProvider
+    targetSlot: BACK
+    providerWhitelist:
+      tags:
+        - N14HMGBackpack
+  - type: ClothingSpeedModifier
+    walkModifier: 0.6
+    sprintModifier: 0.6
+  - type: FollowDistance
+    backStrength: 6
+  - type: N14SuperHeavyWeapon
+    minStrength: 7
+  - type: StaticPrice
+    price: 1500
+  - type: Execution
+  - type: MeleeWeapon
+    attackRate: 1.3333
+    damage:
+      types:
+        Blunt: 8.5
+    bluntStaminaDamageFactor: 1.25
+    swapKeys: true
+    disableHeavy: true
+    animation: WeaponArcThrust
+    wideAnimationRotation: 180
+    soundHit:
+      collection: MetalThud
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 2.5
+  - type: DamageOtherOnHit
+    staminaCost: 7.5
+  - type: FarGunshot # #Misfits Add - distant gunshot audio for players at range

@@ -7,7 +7,7 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Back/Backpacks/trekkerpack.rsi
-    
+
 - type: entity
   parent: ClothingBackpack
   id: N14ClothingBackpackHiking
@@ -16,7 +16,7 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Back/Backpacks/hikingbackpack.rsi
-    
+
 - type: entity
   parent: ClothingBackpack
   id: N14ClothingBackpackExplorer
@@ -25,8 +25,8 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Back/Backpacks/explorerpack.rsi
- 
-# Military 
+
+# Military
 - type: entity
   parent: ClothingBackpack
   id: N14ClothingBackpackMilitary
@@ -35,7 +35,7 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Back/Backpacks/military.rsi
-    
+
 - type: entity
   parent: ClothingBackpack
   id: N14ClothingBackpackNCR
@@ -44,7 +44,7 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Back/Backpacks/backpackncr.rsi
-    
+
 - type: entity
   parent: ClothingBackpack
   id: N14ClothingBackpackRadioNCR
@@ -80,7 +80,94 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Back/Backpacks/ncrrucksack.rsi
-    
+
+# BELTFED SUPER-HEAVY WEAPON AMMO PACKS
+
+# #Misfits Add - abstract base for belt-fed super-heavy weapon ammo packs.
+# To add a new weapon+pack, ONLY do YAML, IF YOU TOUCH MY SYSTEM AND BREAK IT I WILL SKIN YOU ALIVE -Enki :
+#   - give the weapon its own tag, add - type: N14BackpackFedWeapon, and a ClothingSlotAmmoProvider whose whitelist targets the pack tag;
+#   - give the belt - type: N14LinkedBelt;
+#   - inherit this pack, set a unique pack tag, a ballistic proto/capacity/whitelist, and override the gun_holder slot with the weapon tag + startingItem.
+- type: entity
+  abstract: true
+  parent: ClothingBackpack
+  id: N14AmmoBackpackBase
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Back/Backpacks/heavycarrier.rsi
+  - type: BallisticAmmoProvider
+    cycleable: false
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      ballistic-ammo: !type:Container
+  - type: ItemSlots
+    slots:
+      gun_holder:
+        name: ammo-backpack-gun-slot-name
+        insertVerbText: ammo-backpack-gun-insert-verb
+        ejectVerbText: ammo-backpack-gun-eject-verb
+        insertSound: /Audio/_Nuclear14/Weapons/Guns/Heavy/N14WeaponHMG/whirs.ogg
+        ejectSound: /Audio/_Nuclear14/Weapons/Guns/Heavy/N14WeaponHMG/whirs.ogg
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: Storage
+    grid:
+    - 0,0,2,2
+    maxItemSize: Normal
+    blacklist:
+      components:
+        - BallisticAmmoProvider
+  - type: N14AmmoBackpack
+
+- type: entity
+  parent: N14AmmoBackpackBase
+  id: N14ClothingBackpackHMG
+  name: .50 HMG companion rack
+  description: A heavy pack with a linked feed belt that feeds ammunition directly into the .50 machine gun. The gun rides in its own dedicated cradle on the outside, leaving only a small compartment for odds and ends. The wearer cannot load it, another pair of hands has to.
+  components:
+  - type: Tag
+    tags:
+      - N14HMGBackpack
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge50HMG
+    capacity: 250
+    whitelist:
+      tags:
+        - N14Cartridge50HMG
+  - type: ItemSlots
+    slots:
+      gun_holder:
+        whitelist:
+          tags:
+            - N14HMG50
+        startingItem: N14WeaponHMG50
+
+- type: entity
+  parent: N14AmmoBackpackBase
+  id: N14ClothingBackpackAGL
+  name: 30mm grenade companion rack
+  description: A heavy pack with a linked feed belt that feeds 30mm grenades directly into the automatic grenade launcher. The launcher rides in its own dedicated cradle on the outside, leaving only a small compartment for odds and ends. The wearer cannot load it, another pair of hands has to.
+  components:
+  - type: Tag
+    tags:
+      - N14AGLBackpack
+  - type: BallisticAmmoProvider
+    proto: 30mmGrenadeFrag
+    capacity: 50
+    whitelist:
+      tags:
+        - N14Grenade30mm
+  - type: ItemSlots
+    slots:
+      gun_holder:
+        whitelist:
+          tags:
+            - N14AGL
+        startingItem: N14WeaponLauncherGrenadeAuto
+
 # Tribals
 - type: entity
   parent: ClothingBackpack
@@ -90,7 +177,7 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Back/Backpacks/trekkerpack.rsi # placeholder
-    
+
 # Vault
 - type: entity
   parent: ClothingBackpack
@@ -100,7 +187,7 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Back/Backpacks/packgenetics.rsi
-    
+
 - type: entity
   parent: ClothingBackpack
   id: N14ClothingBackpackVaultOrange
@@ -109,7 +196,7 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Back/Backpacks/packchem.rsi
-    
+
 - type: entity
   parent: ClothingBackpack
   id: N14ClothingBackpackVaultGreen
@@ -118,7 +205,7 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Back/Backpacks/packbotany.rsi
-    
+
 - type: entity
   parent: ClothingBackpack
   id: N14ClothingBackpackVaultGreenDark
@@ -127,7 +214,7 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Back/Backpacks/packviro.rsi
-    
+
 - type: entity
   parent: ClothingBackpack
   id: N14ClothingBackpackVaultPurple
@@ -136,7 +223,7 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Back/Backpacks/packtoxins.rsi
-    
+
 - type: entity
   parent: ClothingBackpack
   id: N14ClothingBackpackVaultRed
@@ -145,7 +232,7 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Back/Backpacks/packsecurity.rsi
-    
+
 - type: entity
   parent: ClothingBackpack
   id: N14ClothingBackpackVaultBlueDark
