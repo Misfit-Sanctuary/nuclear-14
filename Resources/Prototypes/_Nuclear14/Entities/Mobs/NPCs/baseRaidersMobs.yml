@@ -25,6 +25,12 @@
             N14CurrencyCap:
               min: 1
               max: 7
+      - trigger:
+          !type:DamageTrigger
+          damage: 30
+      - !type:PlaySoundBehavior
+        sound: 
+          path: /Audio/Voice/Human/malescream_1.ogg
     - type: PassiveDamage # It's mostly for the faction NPCs, but can be here nonetheless.
       allowedStates:
       - Alive
