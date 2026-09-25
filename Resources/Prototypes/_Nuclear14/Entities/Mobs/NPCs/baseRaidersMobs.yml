@@ -25,7 +25,6 @@
             N14CurrencyCap:
               min: 1
               max: 7
-
     - type: PassiveDamage # It's mostly for the faction NPCs, but can be here nonetheless.
       allowedStates:
       - Alive
