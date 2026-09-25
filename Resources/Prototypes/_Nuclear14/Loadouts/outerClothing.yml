@@ -200,6 +200,7 @@
   id: N14LoadoutOuterCoatDuster
   category: Outer
   cost: 1
+  customColorTint: true
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter

@@ -84,6 +84,7 @@
   id: N14LoadoutHeadHatTribalOutcastHood
   category: Head
   cost: 1
+  customColorTint: true
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutHead
