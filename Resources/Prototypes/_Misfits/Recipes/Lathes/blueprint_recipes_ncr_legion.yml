@@ -2815,20 +2815,20 @@
     N14Brass: 35
     N14Gunpowder: 35
 
-- type: latheRecipe
-  id: MisfitsBPLegionSuicideVest
-  result: MisfitsSuicideVest
-  category: N14BlueprintLegionAmmoT2
-  completetime: 12
-  requiresBlueprint: true
-  applyMaterialDiscount: false
-  availableFaction:
-  - CaesarLegion
-  materials:
-    Cloth: 100
-    Leather: 100
-    N14Gunpowder: 500
-    Steel: 200
+#- type: latheRecipe # #Misfits Add - Removed temporarily pending changes
+#  id: MisfitsBPLegionSuicideVest
+#  result: MisfitsSuicideVest
+#  category: N14BlueprintLegionAmmoT2
+#  completetime: 12
+#  requiresBlueprint: true
+#  applyMaterialDiscount: false
+#  availableFaction:
+#  - CaesarLegion
+#  materials:
+#    Cloth: 100
+#    Leather: 100
+#    N14Gunpowder: 500
+#    Steel: 200
 
 # --- Legion Tier 3 Ammo ---
 - type: latheRecipe
