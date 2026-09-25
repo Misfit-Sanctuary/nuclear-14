@@ -270,6 +270,9 @@
       - id: N14Stimpak
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
+      - id: SmokeGrenade
+        amount: 2
+      - id: MisfitsGrenadeFragDefensive
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -300,6 +303,8 @@
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
       - id: N14ToolboxMechanical
+      - id: SmokeGrenade
+        amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -328,7 +333,7 @@
       - id: N14CleanGauze10
       - id: N14TinNade
         amount: 2
-      - id: N14Dynamite
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -391,31 +396,32 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-    # Clothing
-    - id: N14ClothingHeadHatNCRHelmetMetalMedic
-    - id: N14ClothingOuterNCRPouchedVestDesert
-    - id: N14ClothingBeltMedicalFilled
-    - id: N14ClothingHandsGlovesNitrile
-    # Field medical equipment
-    - id: N14HandheldHealthAnalyzer
-    - id: N14SmellingSalts
-      amount: 2
-    - id: N14Traumapack
-    # Primary weapon
-    - id: N14WeaponSMG9mm
-    - id: N14MagazineSMG9mm
-      amount: 3
-    # Medical supplies
-    - id: N14Stimpak
-      amount: 2
-    - id: N14Ointment10
-    - id: N14Antidote
-    - id: N14RadAwayBloodbag
-    - id: N14CleanGauze10
-      amount: 2
-    # General supplies
-    - id: N14BoxCardboardMREBoxCFilled
-    - id: N14Flare
+      # Clothing
+      - id: N14ClothingHeadHatNCRHelmetMetalMedic
+      - id: N14ClothingOuterNCRPouchedVestDesert
+      - id: N14ClothingBeltMedicalFilled
+      - id: N14ClothingHandsGlovesNitrile
+      # Field medical equipment
+      - id: N14HandheldHealthAnalyzer
+      - id: N14SmellingSalts
+        amount: 2
+      - id: N14Traumapack
+      # Primary weapon
+      - id: N14WeaponSMG9mm
+      - id: N14MagazineSMG9mm
+        amount: 3
+      # Medical supplies
+      - id: N14Stimpak
+        amount: 2
+      - id: N14Ointment10
+      - id: N14Antidote
+      - id: N14RadAwayBloodbag
+      - id: N14CleanGauze10
+        amount: 2
+      # General supplies
+      - id: N14BoxCardboardMREBoxCFilled
+      - id: N14Flare
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -431,34 +437,35 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-    # Clothing
-    - id: N14ClothingHeadHatNCRHelmetMetalMedic
-    - id: N14ClothingOuterNCRPouchedVestDesert
-    - id: N14ClothingBeltMedicalFilled
-    # Frontline medical equipment
-    - id: DefibrillatorCompact
-    - id: N14HandheldHealthAnalyzer
-    - id: N14MedkitCombatFilled
-    - id: N14SmellingSalts
-    # Primary weapon
-    - id: N14WeaponRifle556Service
-    - id: Magazine556Rifle
-      amount: 3
-    # Emergency medicine
-    - id: N14Stimpak
-      amount: 2
-    - id: N14Antidote
-    - id: N14RadAwayBloodbag
-    - id: N14CleanGauze10
-      amount: 2
-    # Field topicals
-    - id: MisfitsHealingSalve5
-    - id: MisfitsHerbalAnodyne5
-    - id: MisfitsDaturaHide5
-    - id: MisfitsSnakebiteTourniquet5
-    # General supplies
-    - id: N14BoxCardboardMREBoxCFilled
-    - id: Torch
+      # Clothing
+      - id: N14ClothingHeadHatNCRHelmetMetalMedic
+      - id: N14ClothingOuterNCRPouchedVestDesert
+      - id: N14ClothingBeltMedicalFilled
+      # Frontline medical equipment
+      - id: DefibrillatorCompact
+      - id: N14HandheldHealthAnalyzer
+      - id: N14MedkitCombatFilled
+      - id: N14SmellingSalts
+      # Primary weapon
+      - id: N14WeaponRifle556Service
+      - id: Magazine556Rifle
+        amount: 3
+      # Emergency medicine
+      - id: N14Stimpak
+        amount: 2
+      - id: N14Antidote
+      - id: N14RadAwayBloodbag
+      - id: N14CleanGauze10
+        amount: 2
+      # Field topicals
+      - id: MisfitsHealingSalve5
+      - id: MisfitsHerbalAnodyne5
+      - id: MisfitsDaturaHide5
+      - id: MisfitsSnakebiteTourniquet5
+      # General supplies
+      - id: N14BoxCardboardMREBoxCFilled
+      - id: Torch
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -551,6 +558,7 @@
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
       - id: N14Flare
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -578,6 +586,8 @@
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
       - id: N14Flare
+      - id: SmokeGrenade
+        amount: 3
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -608,6 +618,7 @@
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
       - id: N14Flare
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -638,6 +649,10 @@
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
       - id: N14Flare
+        amount: 2
+      - id: SmokeGrenade
+      - id: MisfitsGrenadeFragDefensive
+        amount: 2 # This kit is way too weak compared to other NCO kits, here, have some nades
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -667,6 +682,7 @@
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
       - id: N14Flare
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -724,6 +740,9 @@
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
       - id: N14Flare
+      - id: SmokeGrenade
+        amount: 2
+      - id: MisfitsGrenadeFragDefensive
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -863,6 +882,8 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: MisfitsGrenadeFragDefensive
+        amount: 3 # This kit is bad.
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -886,6 +907,7 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -909,6 +931,8 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: SmokeGrenade
+        amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -934,6 +958,7 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -950,13 +975,17 @@
   - type: SpawnItemsOnUse
     items:
       - id: ClothingBeltNCRPouches
-      - id: N14WeaponSniper44LeverCarbine
-      - id: MagazineBox44
+      - id: N14WeaponSniper45-70BrushGun
+      - id: SpeedLoader45-70Tube
         amount: 3
       - id: N14Stimpak
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: MisfitsGrenadeFragDefensive
+        amount: 2
+      - id: SmokeGrenade
+        amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -975,13 +1004,15 @@
     items:
       - id: ClothingBeltNCRPouches
       - id: N14WeaponRifle308SniperRifle
-      - id: Magazine308RifleSniper
-        amount: 3
+      - id: MagazineOver308RifleSniper
+        amount: 4
       - id: MagazineBox308
       - id: N14Stimpak
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: SmokeGrenade
+        amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -1005,6 +1036,7 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: SmokeGrenade
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -1031,6 +1063,9 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: GrenadeShrapnel
+      - id: SmokeGrenade
+      - id: MisfitsGrenadeFragDefensive 
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -1055,6 +1090,8 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: MisfitsGrenadeFragDefensive
+        amount: 5 # A shit ton of grenades until a better solution to make this kit not plain bad is found
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -1079,6 +1116,7 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: SmokeGrenade # A single smoke grenade for the sake of parity
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -1095,14 +1133,17 @@
   - type: SpawnItemsOnUse
     items:
       - id: ClothingBeltNCR
-      - id: N14WeaponRifle556Carbine
-      - id: LongMagazine556Rifle
-        amount: 4
+      - id: N14WeaponRifleOperative # An alternative to the Scout rifle
+      - id: Magazine556Rifle
+        amount: 5 
       - id: MagazineBox556
       - id: N14Stimpak
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: GrenadeShrapnel
+        amount: 3
+      - id: MisfitsGrenadeFragDefensive 
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -1127,6 +1168,9 @@
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14CombatKnife
+      - id: GrenadeShrapnel
+      - id: SmokeGrenade
+      - id: MisfitsGrenadeFragDefensive 
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -1993,6 +2037,8 @@
       - id: N14WeaponSniper45-70BrushGun
       - id: MagazineBox45-70
         amount: 3
+      - id: MisfitsGrenadeFragDefensive
+        amount: 3
       - id: N14WeaponRevolver44Magnum
       - id: SpeedLoader44
         amount: 2
@@ -2021,6 +2067,8 @@
       - id: N14WeaponPistolWebley
       - id: N14MagazinePistol9mm
         amount: 2
+      - id: MisfitsGrenadeFragDefensive
+        amount: 3
       - id: N14ClothingNeckTownGuardMantle
       - id: N14CleanGauze10
       - id: N14JunkCeramicFlask
@@ -2065,6 +2113,8 @@
       - id: N14WeaponShotgunBlowback
       - id: MagazineBox12gauge
       - id: N14WeaponPistolWebley
+      - id: MisfitsGrenadeFragDefensive
+        amount: 3
       - id: N14MagazinePistol9mm
         amount: 2
       - id: N14CleanGauze10
@@ -2092,6 +2142,8 @@
       - id: N14WeaponRevolver45-70Hunter
       - id: SpeedLoader45-70
         amount: 2
+      - id: MisfitsGrenadeFragDefensive
+        amount: 3
       - id: N14ClothingNeckTownGuardCloak
       - id: N14CleanGauze10
       - id: N14JunkCeramicFlask
