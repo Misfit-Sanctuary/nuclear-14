@@ -1,0 +1,61 @@
+# #Misfits Add - Admin testing crate holding one of every medieval armor item.
+# Nothing in the game spawns this: no loot table, no map, no recipe. Admins spawn it by hand.
+# Category is never inherited (EntityPrototype.cs NeverPushInheritance), so it shows in the spawn menu
+# even though the crate bases hide themselves.
+
+- type: entity
+  parent: CrateGenericSteel
+  id: MisfitsCrateMedievalTest
+  name: medieval armor test crate
+  suffix: DEBUG
+  description: A crate holding one of every piece of the medieval set. For testing.
+  components:
+  - type: EntityStorage
+    capacity: 60
+  - type: StorageFill
+    contents:
+    # body armor (8)
+    - id: MisfitsClothingOuterMedievalJackOfPlatesCrimson # crimson jack of plates
+    - id: MisfitsClothingOuterMedievalCorseletSteel # steel corselet
+    - id: MisfitsClothingOuterMedievalHalfPlateCrimson # crimson half-plate
+    - id: MisfitsClothingOuterMedievalPlateCuirassCrimson # crimson plate cuirass
+    - id: MisfitsClothingOuterMedievalJackOfPlatesAzure # azure jack of plates
+    - id: MisfitsClothingOuterMedievalHalfPlateAzure # azure half-plate
+    - id: MisfitsClothingOuterMedievalCorseletBrass # brass-trimmed corselet
+    - id: MisfitsClothingOuterMedievalKnightHarness # knight's full plate harness
+    # helmets (12)
+    - id: MisfitsClothingHeadMedievalKettleHatCrimson # crimson kettle hat
+    - id: MisfitsClothingHeadMedievalKettleHatVisoredCrimson # crimson visored kettle hat
+    - id: MisfitsClothingHeadMedievalCloseHelmBarred # barred close helm
+    - id: MisfitsClothingHeadMedievalBarbuteCrimson # crimson barbute
+    - id: MisfitsClothingHeadMedievalSalletCrimson # crimson sallet
+    - id: MisfitsClothingHeadMedievalSugarloafHelm # sugarloaf helm
+    - id: MisfitsClothingHeadMedievalKettleHatAzure # azure kettle hat
+    - id: MisfitsClothingHeadMedievalKettleHatVisoredAzure # azure visored kettle hat
+    - id: MisfitsClothingHeadMedievalCloseHelmBarredAzure # azure barred close helm
+    - id: MisfitsClothingHeadMedievalBarbuteAzure # azure barbute
+    - id: MisfitsClothingHeadMedievalArmetGilded # gilded armet
+    - id: MisfitsClothingHeadMedievalKnightSallet # knight's visored sallet
+    # gloves (4)
+    - id: MisfitsClothingHandsMedievalLeatherGloves # leather gloves
+    - id: MisfitsClothingHandsMedievalGauntletsCrimson # crimson gauntlets
+    - id: MisfitsClothingHandsMedievalBlackLeatherGloves # black leather gloves
+    - id: MisfitsClothingHandsMedievalPlateGauntletsAzure # azure plate gauntlets
+    # boots (4)
+    - id: MisfitsClothingShoesMedievalRidingBoots # leather riding boots
+    - id: MisfitsClothingShoesMedievalPlatedBootsCrimson # crimson plated boots
+    - id: MisfitsClothingShoesMedievalBlackLeatherBoots # black leather boots
+    - id: MisfitsClothingShoesMedievalSabatonsAzure # azure sabatons
+    # belts (7)
+    - id: MisfitsClothingBeltMedievalBaldricPouched # pouched leather baldric
+    - id: MisfitsClothingBeltMedievalLeatherBandolier # leather bandolier
+    - id: MisfitsClothingBeltMedievalCraftsmanBelt # craftsman's belt
+    - id: MisfitsClothingBeltMedievalPouchHarnessAzure # azure pouch harness
+    - id: MisfitsClothingBeltMedievalShoulderHarness # leather shoulder harness
+    - id: MisfitsClothingBeltMedievalSmithBelt # smith's belt
+    - id: MisfitsClothingBeltMedievalCrossedBaldricCrimson # crimson crossed baldric
+    # blueprints (4)
+    - id: MisfitsBlueprintMedievalCrimson # Crimson Armory Blueprint
+    - id: MisfitsBlueprintMedievalAzure # Azure Armory Blueprint
+    - id: MisfitsBlueprintMedievalKnight # Knight's Harness Blueprint
+    - id: MisfitsBlueprintMedievalBelts # Leatherworker's Belt Blueprint
