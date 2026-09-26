@@ -137,6 +137,9 @@
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: GunRequiresWield
+  - type: WieldDelay # Misfits-change
+    baseDelay: 1.5
+    preventFiring: true
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -43
