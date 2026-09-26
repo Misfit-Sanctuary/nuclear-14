@@ -5,7 +5,7 @@
 
 - type: entity
   parent: N14FalloutArmorBase
-  id: N14ClothingOuterMedievalJackOfPlatesCrimson
+  id: MisfitsClothingOuterMedievalJackOfPlatesCrimson
   name: crimson jack of plates
   description: A leather coat with small steel plates riveted inside, trimmed in crimson. Light enough to run in.
   components:
@@ -26,7 +26,7 @@
 
 - type: entity
   parent: N14FalloutArmorBase
-  id: N14ClothingOuterMedievalCorseletSteel
+  id: MisfitsClothingOuterMedievalCorseletSteel
   name: steel corselet
   description: A steel breastplate with heavy shoulder plates, worn over a leather coat. Solid protection that still lets you move.
   components:
@@ -47,7 +47,7 @@
 
 - type: entity
   parent: N14FalloutArmorBase
-  id: N14ClothingOuterMedievalHalfPlateCrimson
+  id: MisfitsClothingOuterMedievalHalfPlateCrimson
   name: crimson half-plate
   description: Steel plate over the chest, belly and shoulders, worn on a crimson-trimmed leather coat. Heavy, and hard to cut through.
   components:
@@ -68,7 +68,7 @@
 
 - type: entity
   parent: N14FalloutArmorBase
-  id: N14ClothingOuterMedievalPlateCuirassCrimson
+  id: MisfitsClothingOuterMedievalPlateCuirassCrimson
   name: crimson plate cuirass
   description: A thick blackened steel cuirass with a great rounded pauldron and a crimson strap. It stops a lot, and you feel every step.
   components:
@@ -89,7 +89,7 @@
 
 - type: entity
   parent: N14FalloutArmorBase
-  id: N14ClothingOuterMedievalJackOfPlatesAzure
+  id: MisfitsClothingOuterMedievalJackOfPlatesAzure
   name: azure jack of plates
   description: A blue-dyed coat with small steel plates riveted inside. Light enough to run in.
   components:
@@ -110,7 +110,7 @@
 
 - type: entity
   parent: N14FalloutArmorBase
-  id: N14ClothingOuterMedievalHalfPlateAzure
+  id: MisfitsClothingOuterMedievalHalfPlateAzure
   name: azure half-plate
   description: Steel plate over the chest, belly and shoulders, worn on a blue coat. Heavy, and hard to cut through.
   components:
@@ -131,7 +131,7 @@
 
 - type: entity
   parent: N14FalloutArmorBase
-  id: N14ClothingOuterMedievalCorseletBrass
+  id: MisfitsClothingOuterMedievalCorseletBrass
   name: brass-trimmed corselet
   description: A steel breastplate and shoulder plates edged in brass, worn over leather. Solid protection that still lets you move.
   components:
@@ -153,7 +153,7 @@
 # The best armor in the set.
 - type: entity
   parent: N14FalloutArmorBase
-  id: N14ClothingOuterMedievalKnightHarness
+  id: MisfitsClothingOuterMedievalKnightHarness
   name: knight's full plate harness
   description: A complete harness of tempered steel plate, fitted piece by piece over mail and padding. It is brutally heavy and slows every step, but almost nothing gets through it.
   components:

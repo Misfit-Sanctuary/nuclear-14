@@ -5,7 +5,7 @@
 - type: entity
   abstract: true
   parent: [ClothingShoesBase, ClothingSlotBase]
-  id: N14ClothingShoesMedievalBase
+  id: MisfitsClothingShoesMedievalBase
   components:
   - type: Matchbox
   - type: ItemSlots
@@ -19,8 +19,8 @@
           - RevolverAmmoProvider
 
 - type: entity
-  parent: N14ClothingShoesMedievalBase
-  id: N14ClothingShoesMedievalRidingBoots
+  parent: MisfitsClothingShoesMedievalBase
+  id: MisfitsClothingShoesMedievalRidingBoots
   name: leather riding boots
   description: Tall strapped leather boots with room in the shaft for a knife or a revolver.
   components:
@@ -30,8 +30,8 @@
     sprite: _Misfits/Clothing/Medieval/Shoes/riding_boots.rsi
 
 - type: entity
-  parent: N14ClothingShoesMedievalBase
-  id: N14ClothingShoesMedievalPlatedBootsCrimson
+  parent: MisfitsClothingShoesMedievalBase
+  id: MisfitsClothingShoesMedievalPlatedBootsCrimson
   name: crimson plated boots
   description: Leather boots with steel plates strapped over the shins and crimson trim. A knife or a revolver fits inside.
   components:
@@ -41,8 +41,8 @@
     sprite: _Misfits/Clothing/Medieval/Shoes/plated_boots_crimson.rsi
 
 - type: entity
-  parent: N14ClothingShoesMedievalBase
-  id: N14ClothingShoesMedievalBlackLeatherBoots
+  parent: MisfitsClothingShoesMedievalBase
+  id: MisfitsClothingShoesMedievalBlackLeatherBoots
   name: black leather boots
   description: Tall boots of black leather. A knife or a revolver fits inside.
   components:
@@ -52,8 +52,8 @@
     sprite: _Misfits/Clothing/Medieval/Shoes/black_leather_boots.rsi
 
 - type: entity
-  parent: N14ClothingShoesMedievalBase
-  id: N14ClothingShoesMedievalSabatonsAzure
+  parent: MisfitsClothingShoesMedievalBase
+  id: MisfitsClothingShoesMedievalSabatonsAzure
   name: azure sabatons
   description: Boots armored in blued steel plate from toe to knee. A knife or a revolver fits inside.
   components:

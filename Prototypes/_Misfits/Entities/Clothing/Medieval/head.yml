@@ -5,7 +5,7 @@
 - type: entity
   abstract: true
   parent: ClothingHeadBase
-  id: N14ClothingHeadMedievalBase
+  id: MisfitsClothingHeadMedievalBase
   components:
   - type: HideLayerClothing
     slots:
@@ -13,8 +13,8 @@
     - FacialHair
 
 - type: entity
-  parent: N14ClothingHeadMedievalBase
-  id: N14ClothingHeadMedievalKettleHatCrimson
+  parent: MisfitsClothingHeadMedievalBase
+  id: MisfitsClothingHeadMedievalKettleHatCrimson
   name: crimson kettle hat
   description: A wide-brimmed steel war hat with a plate guarding the chin and a crimson scarf at the neck.
   components:
@@ -31,8 +31,8 @@
         Heat: 0.9
 
 - type: entity
-  parent: N14ClothingHeadMedievalBase
-  id: N14ClothingHeadMedievalKettleHatVisoredCrimson
+  parent: MisfitsClothingHeadMedievalBase
+  id: MisfitsClothingHeadMedievalKettleHatVisoredCrimson
   name: crimson visored kettle hat
   description: A wide-brimmed steel war hat with a slotted visor and a crimson scarf at the neck.
   components:
@@ -49,8 +49,8 @@
         Heat: 0.9
 
 - type: entity
-  parent: N14ClothingHeadMedievalBase
-  id: N14ClothingHeadMedievalCloseHelmBarred
+  parent: MisfitsClothingHeadMedievalBase
+  id: MisfitsClothingHeadMedievalCloseHelmBarred
   name: barred close helm
   description: A rounded steel helm that closes over the whole face, with bars across the visor to see through.
   components:
@@ -67,8 +67,8 @@
         Heat: 0.85
 
 - type: entity
-  parent: N14ClothingHeadMedievalBase
-  id: N14ClothingHeadMedievalBarbuteCrimson
+  parent: MisfitsClothingHeadMedievalBase
+  id: MisfitsClothingHeadMedievalBarbuteCrimson
   name: crimson barbute
   description: A tall steel helm with a narrow opening down the face and a crimson scarf at the neck.
   components:
@@ -85,8 +85,8 @@
         Heat: 0.9
 
 - type: entity
-  parent: N14ClothingHeadMedievalBase
-  id: N14ClothingHeadMedievalSalletCrimson
+  parent: MisfitsClothingHeadMedievalBase
+  id: MisfitsClothingHeadMedievalSalletCrimson
   name: crimson sallet
   description: A swept-back steel helm with a slit visor, a long tail guarding the neck and a crimson scarf.
   components:
@@ -103,8 +103,8 @@
         Heat: 0.9
 
 - type: entity
-  parent: N14ClothingHeadMedievalBase
-  id: N14ClothingHeadMedievalSugarloafHelm
+  parent: MisfitsClothingHeadMedievalBase
+  id: MisfitsClothingHeadMedievalSugarloafHelm
   name: sugarloaf helm
   description: A tall rounded great helm with a cross-shaped slit for sight and breath.
   components:
@@ -121,8 +121,8 @@
         Heat: 0.85
 
 - type: entity
-  parent: N14ClothingHeadMedievalBase
-  id: N14ClothingHeadMedievalKettleHatAzure
+  parent: MisfitsClothingHeadMedievalBase
+  id: MisfitsClothingHeadMedievalKettleHatAzure
   name: azure kettle hat
   description: A wide-brimmed war hat of blued steel with a plate guarding the chin.
   components:
@@ -139,8 +139,8 @@
         Heat: 0.85
 
 - type: entity
-  parent: N14ClothingHeadMedievalBase
-  id: N14ClothingHeadMedievalKettleHatVisoredAzure
+  parent: MisfitsClothingHeadMedievalBase
+  id: MisfitsClothingHeadMedievalKettleHatVisoredAzure
   name: azure visored kettle hat
   description: A wide-brimmed war hat of blued steel with a toothed grille visor.
   components:
@@ -157,8 +157,8 @@
         Heat: 0.85
 
 - type: entity
-  parent: N14ClothingHeadMedievalBase
-  id: N14ClothingHeadMedievalCloseHelmBarredAzure
+  parent: MisfitsClothingHeadMedievalBase
+  id: MisfitsClothingHeadMedievalCloseHelmBarredAzure
   name: azure barred close helm
   description: A tall helm of blued steel that closes over the whole face, with bars across the visor.
   components:
@@ -175,8 +175,8 @@
         Heat: 0.85
 
 - type: entity
-  parent: N14ClothingHeadMedievalBase
-  id: N14ClothingHeadMedievalBarbuteAzure
+  parent: MisfitsClothingHeadMedievalBase
+  id: MisfitsClothingHeadMedievalBarbuteAzure
   name: azure barbute
   description: A tall helm of blued steel with a narrow face opening and a cloth guard at the neck.
   components:
@@ -193,8 +193,8 @@
         Heat: 0.85
 
 - type: entity
-  parent: N14ClothingHeadMedievalBase
-  id: N14ClothingHeadMedievalArmetGilded
+  parent: MisfitsClothingHeadMedievalBase
+  id: MisfitsClothingHeadMedievalArmetGilded
   name: gilded armet
   description: A close-fitting steel helm with a hinged visor, its edges picked out in gold.
   components:
@@ -211,8 +211,8 @@
         Heat: 0.9
 
 - type: entity
-  parent: N14ClothingHeadMedievalBase
-  id: N14ClothingHeadMedievalKnightSallet
+  parent: MisfitsClothingHeadMedievalBase
+  id: MisfitsClothingHeadMedievalKnightSallet
   name: knight's visored sallet
   description: A knight's sallet of heavy steel with a full visor and a long neck guard, made to go with the full plate harness.
   components:

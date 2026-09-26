@@ -6,7 +6,7 @@
 - type: entity
   abstract: true
   parent: N14ClothingBeltStorageBase
-  id: N14ClothingBeltMedievalBase
+  id: MisfitsClothingBeltMedievalBase
   components:
   - type: Storage
     whitelist:
@@ -40,8 +40,8 @@
 # Tool entries match the utility belt (ClothingBeltUtility) plus N14Welder.
 - type: entity
   abstract: true
-  parent: N14ClothingBeltMedievalBase
-  id: N14ClothingBeltMedievalToolBase
+  parent: MisfitsClothingBeltMedievalBase
+  id: MisfitsClothingBeltMedievalToolBase
   components:
   - type: Storage
     whitelist:
@@ -103,8 +103,8 @@
       - HandLabeler
 
 - type: entity
-  parent: N14ClothingBeltMedievalBase
-  id: N14ClothingBeltMedievalBaldricPouched
+  parent: MisfitsClothingBeltMedievalBase
+  id: MisfitsClothingBeltMedievalBaldricPouched
   name: pouched leather baldric
   description: A leather strap across the chest, hung with pouches for ammunition and medicine.
   components:
@@ -114,8 +114,8 @@
     sprite: _Misfits/Clothing/Medieval/Belt/baldric_pouched.rsi
 
 - type: entity
-  parent: N14ClothingBeltMedievalBase
-  id: N14ClothingBeltMedievalLeatherBandolier
+  parent: MisfitsClothingBeltMedievalBase
+  id: MisfitsClothingBeltMedievalLeatherBandolier
   name: leather bandolier
   description: A single leather bandolier with a row of pouches for ammunition and medicine.
   components:
@@ -125,8 +125,8 @@
     sprite: _Misfits/Clothing/Medieval/Belt/leather_bandolier.rsi
 
 - type: entity
-  parent: N14ClothingBeltMedievalToolBase
-  id: N14ClothingBeltMedievalCraftsmanBelt
+  parent: MisfitsClothingBeltMedievalToolBase
+  id: MisfitsClothingBeltMedievalCraftsmanBelt
   name: craftsman's belt
   description: A sturdy waist belt with loops and pouches for tools, ammunition and medicine.
   components:
@@ -136,8 +136,8 @@
     sprite: _Misfits/Clothing/Medieval/Belt/craftsman_belt.rsi
 
 - type: entity
-  parent: N14ClothingBeltMedievalBase
-  id: N14ClothingBeltMedievalPouchHarnessAzure
+  parent: MisfitsClothingBeltMedievalBase
+  id: MisfitsClothingBeltMedievalPouchHarnessAzure
   name: azure pouch harness
   description: Blue-dyed straps over both shoulders, hung with pouches for ammunition and medicine.
   components:
@@ -147,8 +147,8 @@
     sprite: _Misfits/Clothing/Medieval/Belt/pouch_harness_azure.rsi
 
 - type: entity
-  parent: N14ClothingBeltMedievalBase
-  id: N14ClothingBeltMedievalShoulderHarness
+  parent: MisfitsClothingBeltMedievalBase
+  id: MisfitsClothingBeltMedievalShoulderHarness
   name: leather shoulder harness
   description: Leather straps over both shoulders with pouches for ammunition and medicine.
   components:
@@ -158,8 +158,8 @@
     sprite: _Misfits/Clothing/Medieval/Belt/shoulder_harness.rsi
 
 - type: entity
-  parent: N14ClothingBeltMedievalToolBase
-  id: N14ClothingBeltMedievalSmithBelt
+  parent: MisfitsClothingBeltMedievalToolBase
+  id: MisfitsClothingBeltMedievalSmithBelt
   name: smith's belt
   description: A heavy knotted waist belt with loops for a smith's tools, and room for ammunition and medicine.
   components:
@@ -169,8 +169,8 @@
     sprite: _Misfits/Clothing/Medieval/Belt/smith_belt.rsi
 
 - type: entity
-  parent: N14ClothingBeltMedievalBase
-  id: N14ClothingBeltMedievalCrossedBaldricCrimson
+  parent: MisfitsClothingBeltMedievalBase
+  id: MisfitsClothingBeltMedievalCrossedBaldricCrimson
   name: crimson crossed baldric
   description: Two leather straps crossed over the chest, trimmed in crimson and hung with pouches for ammunition and medicine.
   components:

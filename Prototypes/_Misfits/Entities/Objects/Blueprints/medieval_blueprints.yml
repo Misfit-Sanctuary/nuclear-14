@@ -6,71 +6,71 @@
 
 - type: entity
   parent: N14BlueprintBase
-  id: N14BlueprintMedievalCrimson
+  id: MisfitsBlueprintMedievalCrimson
   name: Crimson Armory Blueprint
   description: An armorer's patterns for the crimson-trimmed set. Covers the plate coats, helms, gauntlets and boots.
   components:
   - type: Blueprint
     recipes:
-    - N14BPMedievalJackOfPlatesCrimson
-    - N14BPMedievalCorseletSteel
-    - N14BPMedievalHalfPlateCrimson
-    - N14BPMedievalPlateCuirassCrimson
-    - N14BPMedievalKettleHatCrimson
-    - N14BPMedievalKettleHatVisoredCrimson
-    - N14BPMedievalCloseHelmBarred
-    - N14BPMedievalBarbuteCrimson
-    - N14BPMedievalSalletCrimson
-    - N14BPMedievalSugarloafHelm
-    - N14BPMedievalLeatherGloves
-    - N14BPMedievalGauntletsCrimson
-    - N14BPMedievalRidingBoots
-    - N14BPMedievalPlatedBootsCrimson
+    - MisfitsBPMedievalJackOfPlatesCrimson
+    - MisfitsBPMedievalCorseletSteel
+    - MisfitsBPMedievalHalfPlateCrimson
+    - MisfitsBPMedievalPlateCuirassCrimson
+    - MisfitsBPMedievalKettleHatCrimson
+    - MisfitsBPMedievalKettleHatVisoredCrimson
+    - MisfitsBPMedievalCloseHelmBarred
+    - MisfitsBPMedievalBarbuteCrimson
+    - MisfitsBPMedievalSalletCrimson
+    - MisfitsBPMedievalSugarloafHelm
+    - MisfitsBPMedievalLeatherGloves
+    - MisfitsBPMedievalGauntletsCrimson
+    - MisfitsBPMedievalRidingBoots
+    - MisfitsBPMedievalPlatedBootsCrimson
 
 - type: entity
   parent: N14BlueprintBase
-  id: N14BlueprintMedievalAzure
+  id: MisfitsBlueprintMedievalAzure
   name: Azure Armory Blueprint
   description: An armorer's patterns for the blue-trimmed set. Covers the plate coats, helms, gauntlets and boots.
   components:
   - type: Blueprint
     recipes:
-    - N14BPMedievalJackOfPlatesAzure
-    - N14BPMedievalHalfPlateAzure
-    - N14BPMedievalCorseletBrass
-    - N14BPMedievalKettleHatAzure
-    - N14BPMedievalKettleHatVisoredAzure
-    - N14BPMedievalCloseHelmBarredAzure
-    - N14BPMedievalBarbuteAzure
-    - N14BPMedievalArmetGilded
-    - N14BPMedievalBlackLeatherGloves
-    - N14BPMedievalPlateGauntletsAzure
-    - N14BPMedievalBlackLeatherBoots
-    - N14BPMedievalSabatonsAzure
+    - MisfitsBPMedievalJackOfPlatesAzure
+    - MisfitsBPMedievalHalfPlateAzure
+    - MisfitsBPMedievalCorseletBrass
+    - MisfitsBPMedievalKettleHatAzure
+    - MisfitsBPMedievalKettleHatVisoredAzure
+    - MisfitsBPMedievalCloseHelmBarredAzure
+    - MisfitsBPMedievalBarbuteAzure
+    - MisfitsBPMedievalArmetGilded
+    - MisfitsBPMedievalBlackLeatherGloves
+    - MisfitsBPMedievalPlateGauntletsAzure
+    - MisfitsBPMedievalBlackLeatherBoots
+    - MisfitsBPMedievalSabatonsAzure
 
 - type: entity
   parent: N14BlueprintBase
-  id: N14BlueprintMedievalKnight
+  id: MisfitsBlueprintMedievalKnight
   name: Knight's Harness Blueprint
   description: A master armorer's patterns for a full plate harness and its visored sallet. Ruinously expensive to build.
   components:
   - type: Blueprint
     recipes:
-    - N14BPMedievalKnightHarness
-    - N14BPMedievalKnightSallet
+    - MisfitsBPMedievalKnightHarness
+    - MisfitsBPMedievalKnightSallet
 
 - type: entity
   parent: N14BlueprintBase
-  id: N14BlueprintMedievalBelts
+  id: MisfitsBlueprintMedievalBelts
   name: Leatherworker's Belt Blueprint
   description: A leatherworker's patterns for baldrics, bandoliers, harnesses and tool belts.
   components:
   - type: Blueprint
     recipes:
-    - N14BPMedievalBaldricPouched
-    - N14BPMedievalLeatherBandolier
-    - N14BPMedievalCraftsmanBelt
-    - N14BPMedievalPouchHarnessAzure
-    - N14BPMedievalShoulderHarness
-    - N14BPMedievalSmithBelt
-    - N14BPMedievalCrossedBaldricCrimson
+    - MisfitsBPMedievalBaldricPouched
+    - MisfitsBPMedievalLeatherBandolier
+    - MisfitsBPMedievalCraftsmanBelt
+    - MisfitsBPMedievalPouchHarnessAzure
+    - MisfitsBPMedievalShoulderHarness
+    - MisfitsBPMedievalSmithBelt
+    - MisfitsBPMedievalCrossedBaldricCrimson
