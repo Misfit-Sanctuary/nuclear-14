@@ -144,7 +144,7 @@
       coefficients:
         Blunt: 0.70
         Slash: 0.70
-        Piercing: 0.75
+        Piercing: 0.70
 
 # --- Gladiator Boots ---
 - type: entity
@@ -180,7 +180,7 @@
       coefficients:
         Blunt: 0.80
         Slash: 0.80
-        Piercing: 0.85
+        Piercing: 0.80
 
 # #Misfits Add - Ranger armor for the Supermutant Ranger job.
 # Tagged SupermutantWearable so only supermutants can equip it in Outerclothing slot.
@@ -200,8 +200,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
+        Blunt: 0.70
+        Slash: 0.70
         Piercing: 0.70
 
 - type: entity
@@ -234,8 +234,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
+        Blunt: 0.80
+        Slash: 0.80
         Piercing: 0.80
 
 - type: entity
@@ -251,6 +251,12 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
 
 - type: entity
   parent: ClothingSuperMutantNeckTrinket
@@ -310,8 +316,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
+        Blunt: 0.80
+        Slash: 0.80
         Piercing: 0.80
 
 - type: entity
@@ -375,8 +381,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
+        Blunt: 0.70
+        Slash: 0.70
         Piercing: 0.70
 
 - type: entity
@@ -395,8 +401,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
+        Blunt: 0.80
+        Slash: 0.80
         Piercing: 0.80
 
 # #Misfits Add - Extra supermutant outer outfit (outfit C) — spawnable standalone wearable. (Since this item is a non-armored set of pants for now, changing the description. Feel free to change it to something else once it has proper stats and sprites.)
@@ -495,8 +501,9 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
 
 # #Misfits Add - Supermutant Tribal Gloves
 - type: entity
@@ -572,8 +579,8 @@
   - type: Armor # Same protection as ClothingSuperMutantTrooperHelmet
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
+        Blunt: 0.80
+        Slash: 0.80
         Piercing: 0.80
 
   # Fancy suits for fancy people
@@ -605,6 +612,12 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
 
 - type: entity
   parent: ClothingShoesBase
@@ -638,8 +651,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.75
-        Slash: 0.75
+        Blunt: 0.70
+        Slash: 0.70
         Piercing: 0.70
 
 # Scavenged Armor Set
@@ -662,7 +675,7 @@
       coefficients:
         Blunt: 0.70
         Slash: 0.70
-        Piercing: 0.75
+        Piercing: 0.70
 
 - type: entity
   parent: ClothingShoesBase
@@ -696,7 +709,7 @@
       coefficients:
         Blunt: 0.80
         Slash: 0.80
-        Piercing: 0.85
+        Piercing: 0.80
 
 - type: entity
   parent: ClothingHandsBase
