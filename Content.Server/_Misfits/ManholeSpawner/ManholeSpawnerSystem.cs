@@ -1,12 +1,12 @@
 using Content.Shared._Misfits.ManholeSpawner;
 using Content.Shared.Database;
-using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Prying.Components;
+using Content.Shared.Prying.Systems;
 using Content.Shared.SSDIndicator;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
@@ -17,32 +17,37 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Misfits.ManholeSpawner;
 
-/// Crowbar-pried manhole cover: open spawns hostile mobs nearby, closed freezes it.
+/// Open spawns mobs, closed does not.
 public sealed class ManholeSpawnerSystem : EntitySystem
 {
+    [Dependency] private readonly PryingSystem _prying = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
-    private EntityQuery<PryingComponent> _pryingQuery = default!;
+    // Reused buffers, clear before use.
+    private readonly HashSet<EntityUid> _playerScan = new();
+    private readonly HashSet<EntityUid> _aliveScan = new();
+
+    private EntityQuery<TransformComponent> _xformQuery = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _pryingQuery = GetEntityQuery<PryingComponent>();
+        _xformQuery = GetEntityQuery<TransformComponent>();
 
         SubscribeLocalEvent<ManholeSpawnerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ManholeSpawnerComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<ManholeSpawnerComponent, GetVerbsEvent<AlternativeVerb>>(OnAltVerb);
-        SubscribeLocalEvent<ManholeSpawnerComponent, ManholePryDoAfterEvent>(OnPryDoAfter);
+        SubscribeLocalEvent<ManholeSpawnerComponent, GetPryTimeModifierEvent>(OnPryTimeModifier);
+        SubscribeLocalEvent<ManholeSpawnerComponent, DoorPryDoAfterEvent>(OnPryDoAfter);
     }
 
-    // Periodic spawn loop: only open manholes tick, and each interval spawns a small wave.
+    // Only open manholes spawn.
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<ManholeSpawnerComponent>();
@@ -55,47 +60,63 @@ public sealed class ManholeSpawnerSystem : EntitySystem
             if (comp.TimeElapsed < comp.IntervalSeconds)
                 continue;
 
-            comp.TimeElapsed = 0;
+            comp.TimeElapsed -= comp.IntervalSeconds;
             if (CanSpawn(uid, comp))
                 SpawnMobs(uid, comp);
         }
     }
 
-    // All the gates for one spawn: player in range, local cap not hit, then the chance roll.
+    // Player near, under cap, and lucky.
     private bool CanSpawn(EntityUid uid, ManholeSpawnerComponent comp)
     {
         if (!IsPlayerNearby(uid, comp.ActivationRange))
             return false;
 
-        if (CountAliveNearby(uid, comp) >= comp.MaxAliveNearby)
+        // Zero or less means no cap.
+        if (comp.MaxAliveNearby > 0 && CountAliveNearby(uid, comp) >= comp.MaxAliveNearby)
             return false;
 
         return _random.Prob(comp.Chance);
     }
 
-    // Spawns a random count of random prototypes right on top of the manhole.
     private void SpawnMobs(EntityUid uid, ManholeSpawnerComponent comp)
     {
         if (comp.Prototypes.Count == 0)
             return;
 
+        var coordinates = _xformQuery.GetComponent(uid).Coordinates;
         var count = _random.Next(comp.MinimumEntitiesSpawned, comp.MaximumEntitiesSpawned + 1);
         for (var i = 0; i < count; i++)
-            SpawnAtPosition(_random.Pick(comp.Prototypes), Transform(uid).Coordinates);
+        {
+            var picked = _random.Pick(comp.Prototypes);
+            try
+            {
+                SpawnAtPosition(picked, coordinates);
+            }
+            catch (EntityCreationException e)
+            {
+                // One bad prototype should not stop the wave.
+                Log.Warning($"Caught an exception while trying to spawn {picked} from manhole spawner " +
+                            $"{ToPrettyString(uid)}: {e}");
+            }
+        }
     }
 
-    // True if a living, connected (non-SSD) humanoid player is within range. 0 = always.
+    // Living player in range, 0 means always.
     private bool IsPlayerNearby(EntityUid uid, float range)
     {
         if (range <= 0f)
             return true;
 
-        if (!TryComp<TransformComponent>(uid, out var xform) || xform.MapUid == null)
+        if (!_xformQuery.TryGetComponent(uid, out var xform) || xform.MapUid == null)
             return false;
 
         var mapPos = _transform.GetMapCoordinates(uid, xform: xform);
 
-        foreach (var entity in _lookup.GetEntitiesInRange(mapPos, range))
+        _playerScan.Clear();
+        _lookup.GetEntitiesInRange(mapPos.MapId, mapPos.Position, range, _playerScan);
+
+        foreach (var entity in _playerScan)
         {
             if (!Exists(entity) || entity == uid)
                 continue;
@@ -111,19 +132,22 @@ public sealed class ManholeSpawnerSystem : EntitySystem
         return false;
     }
 
-    // Counts alive mobs of the configured prototypes within NearbyRange of the manhole (local cap).
     private int CountAliveNearby(EntityUid uid, ManholeSpawnerComponent comp)
     {
-        if (comp.MaxAliveNearby <= 0 || comp.Prototypes.Count == 0)
+        // Zero or less means no cap.
+        if (comp.NearbyRange <= 0f || comp.Prototypes.Count == 0)
             return 0;
 
-        if (!TryComp<TransformComponent>(uid, out var xform) || xform.MapUid == null)
+        if (!_xformQuery.TryGetComponent(uid, out var xform) || xform.MapUid == null)
             return comp.MaxAliveNearby;
 
         var mapPos = _transform.GetMapCoordinates(uid, xform: xform);
         var count = 0;
 
-        foreach (var entity in _lookup.GetEntitiesInRange(mapPos, comp.NearbyRange))
+        _aliveScan.Clear();
+        _lookup.GetEntitiesInRange(mapPos.MapId, mapPos.Position, comp.NearbyRange, _aliveScan);
+
+        foreach (var entity in _aliveScan)
         {
             if (!Exists(entity) || entity == uid)
                 continue;
@@ -144,54 +168,52 @@ public sealed class ManholeSpawnerSystem : EntitySystem
         return count;
     }
 
-    // Refresh visuals after load so a saved open/closed state matches the sprite.
+    // Sync sprite on load.
     private void OnMapInit(EntityUid uid, ManholeSpawnerComponent comp, ref MapInitEvent args)
-        => UpdateAppearance(uid, comp);
-
-    // Click with a crowbar (PryingComponent tool) starts a pry.
-    private void OnInteractUsing(EntityUid uid, ManholeSpawnerComponent comp, InteractUsingEvent args)
     {
-        if (args.Handled || !_pryingQuery.TryGetComponent(args.Used, out var prying) || !prying.Enabled)
-            return;
+        // Warn once about empty prototype list.
+        if (comp.Prototypes.Count == 0)
+        {
+            Log.Warning($"Manhole spawner {ToPrettyString(uid)} has an empty prototype list and will " +
+                        $"never spawn anything.");
+        }
 
-        args.Handled = true;
-        TryStartPry(uid, comp, args.User, args.Used);
+        UpdateAppearance(uid, comp);
     }
 
-    // Right-click "Pry manhole open/shut" verb, only while holding a prying tool.
-    private void OnAltVerb(EntityUid uid, ManholeSpawnerComponent comp, GetVerbsEvent<AlternativeVerb> args)
+    // Starts pry with a crowbar.
+    private void OnInteractUsing(EntityUid uid, ManholeSpawnerComponent comp, InteractUsingEvent args)
     {
-        if (!args.CanInteract || !args.CanAccess || args.Using is not { } used
-            || !_pryingQuery.TryGetComponent(used, out var prying) || !prying.Enabled)
+        // Let other tools fall through.
+        if (args.Handled || !HasComp<PryingComponent>(args.Used))
             return;
 
-        var tool = used;
+        args.Handled = _prying.TryPry(uid, args.User, out _, args.Used);
+    }
+
+    // Right-click pry verb, needs a pry tool.
+    private void OnAltVerb(EntityUid uid, ManholeSpawnerComponent comp, GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanInteract || !args.CanAccess || args.Using is not { } tool
+            || !HasComp<PryingComponent>(tool))
+            return;
+
         args.Verbs.Add(new AlternativeVerb()
         {
             Text = Loc.GetString(comp.Open ? "manhole-pry-verb-close" : "manhole-pry-verb-open"),
             Impact = LogImpact.Low,
-            Act = () => TryStartPry(uid, comp, args.User, tool),
+            // Humans cannot hand-pry, pass the tool.
+            Act = () => _prying.TryPry(uid, args.User, out _, tool),
         });
     }
 
-    // Starts the timed pry hold; breaks if the user moves or takes damage.
-    private void TryStartPry(EntityUid uid, ManholeSpawnerComponent comp, EntityUid user, EntityUid tool)
+    private void OnPryTimeModifier(EntityUid uid, ManholeSpawnerComponent comp, ref GetPryTimeModifierEvent args)
     {
-        if (!_pryingQuery.TryGetComponent(tool, out var prying) || !prying.Enabled)
-            return;
-
-        var delay = TimeSpan.FromSeconds(comp.PryTime / prying.SpeedModifier);
-        var doAfter = new DoAfterArgs(EntityManager, user, delay, new ManholePryDoAfterEvent(), uid, uid, tool)
-        {
-            BreakOnDamage = true,
-            BreakOnMove = true,
-        };
-
-        _doAfter.TryStartDoAfter(doAfter);
+        args.BaseTime = comp.PryTime;
     }
 
-    // Pry finished: play the crowbar sound, toggle the cover and reset the visuals.
-    private void OnPryDoAfter(EntityUid uid, ManholeSpawnerComponent comp, ManholePryDoAfterEvent args)
+    // Manholes finish the door pry event here.
+    private void OnPryDoAfter(EntityUid uid, ManholeSpawnerComponent comp, DoorPryDoAfterEvent args)
     {
         if (args.Cancelled || args.Target is null)
             return;
@@ -206,7 +228,6 @@ public sealed class ManholeSpawnerSystem : EntitySystem
         UpdateAppearance(uid, comp);
     }
 
-    // Pushes the open/closed state to the client visualizer, which swaps the sprite.
     private void UpdateAppearance(EntityUid uid, ManholeSpawnerComponent comp)
-        => _appearance.SetData(uid, ManholeSpawnerVisuals.State, comp.Open ? ManholeSpawnerState.Open : ManholeSpawnerState.Closed);
+        => _appearance.SetData(uid, ManholeSpawnerVisuals.Open, comp.Open);
 }

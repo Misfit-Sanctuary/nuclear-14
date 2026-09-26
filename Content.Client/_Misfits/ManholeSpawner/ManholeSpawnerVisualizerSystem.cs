@@ -10,10 +10,9 @@ public sealed class ManholeSpawnerVisualizerSystem : VisualizerSystem<ManholeSpa
         if (args.Sprite == null)
             return;
 
-        if (!AppearanceSystem.TryGetData(uid, ManholeSpawnerVisuals.State, out ManholeSpawnerState state, args.Component))
+        if (!AppearanceSystem.TryGetData(uid, ManholeSpawnerVisuals.Open, out bool open, args.Component))
             return;
 
-        var spriteState = state == ManholeSpawnerState.Open ? component.OpenState : component.ClosedState;
-        args.Sprite.LayerSetState(0, spriteState);
+        SpriteSystem.LayerSetRsiState((uid, args.Sprite), 0, open ? component.OpenState : component.ClosedState);
     }
 }
