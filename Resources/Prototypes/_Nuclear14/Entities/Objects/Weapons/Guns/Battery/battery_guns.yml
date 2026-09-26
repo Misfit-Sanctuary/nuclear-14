@@ -67,6 +67,7 @@
   parent: N14BaseWeaponPowerCell
   abstract: true
   components:
+  - type: GunRequiresWield
   - type: Item
     size: Large
   - type: Clothing
