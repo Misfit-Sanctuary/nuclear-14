@@ -197,6 +197,7 @@
         - Human
         - Ghoul
         - GhoulGlowing # #Misfits Add — allow GhoulGlowing to take Bad Reflexes
+        - SuperMutant
   functions:
     - !type:TraitModifyUnarmed
       attackRateModifier: 1.1
@@ -224,6 +225,7 @@
         - Human
         - Ghoul
         - GhoulGlowing # #Misfits Add — allow GhoulGlowing to take Lightning Hands
+        - SuperMutant 
   functions:
     - !type:TraitModifyUnarmed
       attackRateModifier: 0.9
