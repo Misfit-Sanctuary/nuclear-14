@@ -1,0 +1,68 @@
+# Hostile mob spawners disguised as manholes. Open = spawning; pry shut with a crowbar to seal it.
+- type: entity
+  parent: LadderTopManholeClosed
+  id: N14ManholeMobSpawnerBase
+  abstract: true
+  components:
+  - type: InteractionOutline
+  - type: Appearance
+  - type: ManholeSpawner
+    intervalSeconds: 20
+    activationRange: 30
+    maxAliveNearby: 6
+    nearbyRange: 25
+
+- type: entity
+  parent: N14ManholeMobSpawnerBase
+  id: N14ManholeMobSpawner
+  name: manhole
+  suffix: mob spawner (ghouls)
+  description: An unassuming manhole cover. Something hungry stirs deep below...
+  components:
+  - type: ManholeSpawner
+    prototypes:
+    - N14MobGhoulFeral
+    - N14MobGhoulFeralReaver
+    - N14MobGhoulFeralRotter
+
+- type: entity
+  parent: N14ManholeMobSpawnerBase
+  id: N14ManholeMobSpawnerVermin
+  name: sewer grate
+  suffix: mob spawner (vermin)
+  description: A rusted sewer grate. You can hear wet skittering in the pipes below.
+  components:
+  - type: ManholeSpawner
+    prototypes:
+    - N14MobMolerat
+    - N14MobPigrat
+    - N14MobRadroach
+    - N14MobGiantAnt
+
+- type: entity
+  parent: N14ManholeMobSpawnerBase
+  id: N14ManholeMobSpawnerPredator
+  name: storm drain
+  suffix: mob spawner (predators)
+  description: An unmarked storm drain. The air reeks of ozone and wet fur.
+  components:
+  - type: ManholeSpawner
+    prototypes:
+    - N14MobDogFeral
+    - N14MobNightstalker
+    - N14MobRadscorpion
+    - N14MobGeckoFire
+
+- type: entity
+  parent: N14ManholeMobSpawnerBase
+  id: N14ManholeMobSpawnerRobot
+  name: maintenance grate
+  suffix: mob spawner (robots)
+  description: A corroded maintenance grate. A low mechanical whirring echoes up from below.
+  components:
+  - type: ManholeSpawner
+    prototypes:
+    - N14MobRobotProtectronHostile
+    - N14MobRobotSecuritronHostile
+    - N14MobRobotMrHandyClaw
+    - N14MobRobotMrHandySaw
