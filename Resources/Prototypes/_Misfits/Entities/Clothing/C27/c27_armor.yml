@@ -96,6 +96,15 @@
     sprintModifier: 0.75
   - type: ExplosionResistance
     damageCoefficient: 0.15 # #Misfits Tweak - 85% explosion reduction
+  - type: EmitsSoundOnMove # #Misfits Add - heavy plating = heavy stompy footsteps.
+    soundCollection:
+      path: /Audio/Effects/Footsteps/largethud.ogg
+      params:
+        volume: 3
+        maxDistance: 15
+    requiresWorn: true
+    distanceWalking: 2
+    distanceSprinting: 3
 
 - type: entity
   abstract: true
@@ -119,6 +128,15 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
+  - type: EmitsSoundOnMove # #Misfits Add - combat plating = heavy stompy footsteps.
+    soundCollection:
+      path: /Audio/Effects/Footsteps/largethud.ogg
+      params:
+        volume: 3
+        maxDistance: 15
+    requiresWorn: true
+    distanceWalking: 2
+    distanceSprinting: 3
 
 # === Concrete: Light tier ===
 
