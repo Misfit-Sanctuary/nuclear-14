@@ -235,6 +235,9 @@
         whitelist:
           tags:
             - N14Cartridge556Rifle
+  - type: WieldDelay # Misfits-change
+    baseDelay: 1.0
+    preventFiring: true
   - type: FollowDistance
     backStrength: 2
   - type: StaticPrice
