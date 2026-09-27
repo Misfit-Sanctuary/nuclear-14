@@ -4,4 +4,5 @@ action-description-MisfitsActionHarpoonReel = Start or stop haulng on the rope, 
 harpoon-hooked = {CAPITALIZE(THE($harpoon))} hooks into you!
 harpoon-reel-stuck = {CAPITALIZE(THE($target))} won't budge.
 harpoon-rope-snap = The rope snaps!
-harpoon-rope-fraying = The rope starts to fray!
+harpoon-tearing = {CAPITALIZE(THE($harpoon))} starts to tear loose!
+harpoon-torn-free = {CAPITALIZE(THE($harpoon))} tears free!

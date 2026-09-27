@@ -26,6 +26,7 @@ public sealed class HarpoonSystem : EntitySystem
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private SharedMoverController _mover = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedProjectileSystem _projectile = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
 
     private const float ReelStopMargin = 0.15f;
@@ -207,6 +208,19 @@ public sealed class HarpoonSystem : EntitySystem
         Unhook(ent);
     }
 
+    private void Dislodge(Entity<HarpoonComponent> ent)
+    {
+        if (ent.Comp.Hooked == ent.Owner || !TryComp<EmbeddableProjectileComponent>(ent, out var embed))
+        {
+            Snap(ent);
+            return;
+        }
+
+        _popup.PopupEntity(Loc.GetString("harpoon-torn-free", ("harpoon", ent)), ent, PopupType.MediumCaution);
+        _audio.PlayPvs(ent.Comp.SnapSound, ent);
+        _projectile.RemoveEmbed(ent, embed);
+    }
+
     private void Unhook(Entity<HarpoonComponent> ent)
     {
         if (_net.IsClient)
@@ -253,9 +267,15 @@ public sealed class HarpoonSystem : EntitySystem
             var distance = away.Length();
             var hauled = CanBeHauled(hooked, hookedXform);
 
-            if (distance > harpoon.SnapLength || !hauled && distance > harpoon.MaxRopeLength)
+            if (distance > harpoon.SnapLength)
             {
                 Snap((uid, harpoon));
+                continue;
+            }
+
+            if (!hauled && distance > harpoon.MaxRopeLength)
+            {
+                Dislodge((uid, harpoon));
                 continue;
             }
 
@@ -264,14 +284,14 @@ public sealed class HarpoonSystem : EntitySystem
                 harpoon.Strain += frameTime;
                 if (harpoon.Strain >= harpoon.BreakStrain)
                 {
-                    Snap((uid, harpoon));
+                    Dislodge((uid, harpoon));
                     continue;
                 }
 
                 if (!harpoon.StrainWarned && harpoon.Strain >= harpoon.BreakStrain / 2f)
                 {
                     harpoon.StrainWarned = true;
-                    _popup.PopupEntity(Loc.GetString("harpoon-rope-fraying"), hooked, PopupType.SmallCaution);
+                    _popup.PopupEntity(Loc.GetString("harpoon-tearing", ("harpoon", uid)), hooked, PopupType.SmallCaution);
                 }
             }
             else

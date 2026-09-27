@@ -10,6 +10,7 @@ namespace Content.Shared._Misfits.Harpoon;
 public sealed class HarpoonReelController : VirtualController
 {
     [Dependency] private HarpoonSystem _harpoon = default!;
+    [Dependency] private SharedMoverController _mover = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
 
@@ -49,9 +50,11 @@ public sealed class HarpoonReelController : VirtualController
 
             if (along < 0f)
             {
-                var maxAway = distance >= harpooned.MaxRopeLength
-                    ? 0f
-                    : harpooned.StruggleModifier * GetMoveSpeed(uid);
+                var maxAway = float.MaxValue;
+                if (distance >= harpooned.MaxRopeLength)
+                    maxAway = 0f;
+                else if (TryComp<InputMoverComponent>(uid, out var mover))
+                    maxAway = harpooned.StruggleModifier * GetMoveSpeed(uid, mover);
 
                 if (-along > maxAway)
                 {
@@ -62,12 +65,15 @@ public sealed class HarpoonReelController : VirtualController
 
             var pull = 0f;
             if (harpooned.Reeling && distance > harpooned.MinDistance)
-                pull = harpooned.ReelSpeed * MathF.Min(1f, distance - harpooned.MinDistance);
+            {
+                var resist = GetStruggleSpeed(uid, -toward) * harpooned.StruggleModifier;
+                pull = MathF.Max(0f, harpooned.ReelSpeed * MathF.Min(1f, distance - harpooned.MinDistance) - resist);
+            }
 
             if (distance > harpooned.MaxRopeLength)
                 pull = MathF.Max(pull, harpooned.ReelSpeed + (distance - harpooned.MaxRopeLength) * LeashStiffness);
 
-            if (along < pull)
+            if (pull > 0f && along < pull)
                 velocity += toward * (pull - along);
 
             if (velocity != body.LinearVelocity)
@@ -75,12 +81,24 @@ public sealed class HarpoonReelController : VirtualController
         }
     }
 
-    private float GetMoveSpeed(EntityUid uid)
+    private float GetStruggleSpeed(EntityUid uid, Vector2 away)
     {
-        var sprinting = !TryComp<InputMoverComponent>(uid, out var mover) || mover.Sprinting;
-        if (!TryComp<MovementSpeedModifierComponent>(uid, out var speed))
-            return sprinting ? MovementSpeedModifierComponent.DefaultBaseSprintSpeed : MovementSpeedModifierComponent.DefaultBaseWalkSpeed;
+        if (!TryComp<InputMoverComponent>(uid, out var mover) || !mover.CanMove)
+            return 0f;
 
-        return sprinting ? speed.CurrentSprintSpeed : speed.CurrentWalkSpeed;
+        var (walk, sprint) = _mover.GetVelocityInput(mover);
+        var input = _mover.GetParentGridAngle(mover).RotateVec(walk + sprint);
+        if (input.LengthSquared() < 0.01f)
+            return 0f;
+
+        return MathF.Max(0f, Vector2.Dot(input.Normalized(), away)) * GetMoveSpeed(uid, mover);
+    }
+
+    private float GetMoveSpeed(EntityUid uid, InputMoverComponent mover)
+    {
+        if (!TryComp<MovementSpeedModifierComponent>(uid, out var speed))
+            return mover.Sprinting ? MovementSpeedModifierComponent.DefaultBaseSprintSpeed : MovementSpeedModifierComponent.DefaultBaseWalkSpeed;
+
+        return mover.Sprinting ? speed.CurrentSprintSpeed : speed.CurrentWalkSpeed;
     }
 }
