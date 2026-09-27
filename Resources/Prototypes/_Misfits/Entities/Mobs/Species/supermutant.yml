@@ -93,8 +93,8 @@
     damageContainer: Biological
     damageModifierSet: SuperMutant
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.5
-    baseSprintSpeed: 4.8
+    baseWalkSpeed: 2.0
+    baseSprintSpeed: 3.5
   - type: MobThresholds
     thresholds:
       0: Alive
