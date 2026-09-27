@@ -47,13 +47,18 @@ public sealed class HarpoonSystem : EntitySystem
         SubscribeLocalEvent<HarpoonComponent, RemoveEmbedEvent>(OnRemoveEmbed);
         SubscribeLocalEvent<HarpoonComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<HarpoonComponent, EntGotInsertedIntoContainerMessage>(OnInserted);
+        SubscribeLocalEvent<HarpoonComponent, EntGotRemovedFromContainerMessage>(OnRemoved);
         SubscribeLocalEvent<HarpoonComponent, HarpoonReelActionEvent>(OnReelAction);
         SubscribeLocalEvent<HarpoonComponent, HarpoonYankActionEvent>(OnYankAction);
     }
 
     private void OnThrown(Entity<HarpoonComponent> ent, ref ThrownEvent args)
     {
-        ent.Comp.Thrower = args.User;
+        var owner = args.User;
+        if (ent.Comp.Hooked != null && ent.Comp.Thrower is { } existing && !TerminatingOrDeleted(existing))
+            owner = existing;
+
+        ent.Comp.Thrower = owner;
 
         if (TryComp<ThrownItemComponent>(ent, out var thrown)
             && thrown.ThrownTime is { } thrownTime
@@ -62,7 +67,7 @@ public sealed class HarpoonSystem : EntitySystem
             thrown.LandTime = thrownTime + MinFlightTime;
         }
 
-        if (_net.IsClient || args.User is not { } user || TerminatingOrDeleted(user))
+        if (_net.IsClient || owner is not { } user || TerminatingOrDeleted(user))
             return;
 
         Attach(ent, user, ent);
@@ -102,7 +107,47 @@ public sealed class HarpoonSystem : EntitySystem
 
     private void OnInserted(Entity<HarpoonComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
-        Unhook(ent);
+        if (_net.IsClient || ent.Comp.Hooked == null || ent.Comp.Thrower is not { } thrower)
+            return;
+
+        if (!_container.TryGetOuterContainer(ent, Transform(ent), out var outer) || outer.Owner == thrower)
+        {
+            Unhook(ent);
+            return;
+        }
+
+        Attach(ent, thrower, outer.Owner);
+    }
+
+    private void OnRemoved(Entity<HarpoonComponent> ent, ref EntGotRemovedFromContainerMessage args)
+    {
+        if (_net.IsClient
+            || TerminatingOrDeleted(ent)
+            || ent.Comp.Hooked == null
+            || ent.Comp.Thrower is not { } thrower
+            || TerminatingOrDeleted(thrower))
+            return;
+
+        if (_container.TryGetOuterContainer(ent, Transform(ent), out var outer))
+            Attach(ent, thrower, outer.Owner);
+        else
+            Attach(ent, thrower, ent);
+    }
+
+    private bool IsAttachedTo(EntityUid uid, TransformComponent xform, EntityUid hooked)
+    {
+        if (_container.TryGetOuterContainer(uid, xform, out var outer))
+            return outer.Owner == hooked;
+
+        return hooked == uid || xform.ParentUid == hooked;
+    }
+
+    private void Free(Entity<HarpoonComponent> ent)
+    {
+        if (_container.IsEntityInContainer(ent))
+            _container.TryRemoveFromContainer(ent.Owner);
+        else if (TryComp<EmbeddableProjectileComponent>(ent, out var embed))
+            _projectile.RemoveEmbed(ent, embed);
     }
 
     private void Attach(Entity<HarpoonComponent> ent, EntityUid user, EntityUid target)
@@ -193,13 +238,12 @@ public sealed class HarpoonSystem : EntitySystem
 
         if (ent.Comp.Thrower != args.Performer
             || ent.Comp.Hooked is not { } hooked
-            || hooked == ent.Owner
-            || !TryComp<EmbeddableProjectileComponent>(ent, out var embed))
+            || hooked == ent.Owner)
             return;
 
         args.Handled = true;
         _popup.PopupEntity(Loc.GetString("harpoon-yanked-free", ("harpoon", ent), ("target", hooked)), ent, PopupType.MediumCaution);
-        _projectile.RemoveEmbed(ent, embed);
+        Free(ent);
     }
 
     private bool CanGrapple(EntityUid hooked, EntityUid thrower)
@@ -254,7 +298,7 @@ public sealed class HarpoonSystem : EntitySystem
 
     private void Dislodge(Entity<HarpoonComponent> ent)
     {
-        if (ent.Comp.Hooked == ent.Owner || !TryComp<EmbeddableProjectileComponent>(ent, out var embed))
+        if (ent.Comp.Hooked == ent.Owner)
         {
             Snap(ent);
             return;
@@ -262,7 +306,7 @@ public sealed class HarpoonSystem : EntitySystem
 
         _popup.PopupEntity(Loc.GetString("harpoon-torn-free", ("harpoon", ent)), ent, PopupType.MediumCaution);
         _audio.PlayPvs(ent.Comp.SnapSound, ent);
-        _projectile.RemoveEmbed(ent, embed);
+        Free(ent);
     }
 
     private void Unhook(Entity<HarpoonComponent> ent)
@@ -293,7 +337,7 @@ public sealed class HarpoonSystem : EntitySystem
 
             if (TerminatingOrDeleted(hooked)
                 || TerminatingOrDeleted(thrower)
-                || hooked != uid && xform.ParentUid != hooked
+                || !IsAttachedTo(uid, xform, hooked)
                 || !TryComp<HarpoonedComponent>(hooked, out var harpooned))
             {
                 Unhook((uid, harpoon));
@@ -356,7 +400,8 @@ public sealed class HarpoonSystem : EntitySystem
                 && hooked != uid
                 && !hauled
                 && distance <= harpoon.MinDistance + ReelStopMargin
-                && TryComp<EmbeddableProjectileComponent>(uid, out var embed))
+                && TryComp<EmbeddableProjectileComponent>(uid, out var embed)
+                && embed.Target == hooked)
             {
                 _projectile.RemoveEmbed(uid, embed, thrower);
                 continue;
