@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
@@ -22,6 +23,7 @@ public sealed class HarpoonSystem : EntitySystem
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private SharedMoverController _mover = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
@@ -38,12 +40,18 @@ public sealed class HarpoonSystem : EntitySystem
         SubscribeLocalEvent<HarpoonComponent, EmbedEvent>(OnEmbed);
         SubscribeLocalEvent<HarpoonComponent, RemoveEmbedEvent>(OnRemoveEmbed);
         SubscribeLocalEvent<HarpoonComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<HarpoonComponent, EntGotInsertedIntoContainerMessage>(OnInserted);
         SubscribeLocalEvent<HarpoonComponent, HarpoonReelActionEvent>(OnReelAction);
     }
 
     private void OnThrown(Entity<HarpoonComponent> ent, ref ThrownEvent args)
     {
         ent.Comp.Thrower = args.User;
+
+        if (_net.IsClient || args.User is not { } user || TerminatingOrDeleted(user))
+            return;
+
+        Attach(ent, user, ent);
     }
 
     private void OnEmbed(Entity<HarpoonComponent> ent, ref EmbedEvent args)
@@ -52,24 +60,49 @@ public sealed class HarpoonSystem : EntitySystem
             return;
 
         var thrower = args.Shooter ?? ent.Comp.Thrower;
-        if (ent.Comp.Hooked != null)
-            Unhook(ent);
-
         if (thrower is not { } user || user == args.Embedded || TerminatingOrDeleted(user))
+        {
+            Unhook(ent);
+            return;
+        }
+
+        Attach(ent, user, args.Embedded);
+        _popup.PopupEntity(Loc.GetString("harpoon-hooked", ("harpoon", ent)), args.Embedded, args.Embedded, PopupType.MediumCaution);
+    }
+
+    private void OnRemoveEmbed(Entity<HarpoonComponent> ent, ref RemoveEmbedEvent args)
+    {
+        if (_net.IsClient)
             return;
 
-        if (TryComp<HarpoonedComponent>(args.Embedded, out var existing)
+        if (ent.Comp.Thrower is { } thrower && !TerminatingOrDeleted(thrower))
+            Attach(ent, thrower, ent);
+        else
+            Unhook(ent);
+    }
+
+    private void OnInserted(Entity<HarpoonComponent> ent, ref EntGotInsertedIntoContainerMessage args)
+    {
+        Unhook(ent);
+    }
+
+    private void Attach(Entity<HarpoonComponent> ent, EntityUid user, EntityUid target)
+    {
+        ClearHooked(ent);
+
+        if (TryComp<HarpoonedComponent>(target, out var existing)
+            && existing.Harpoon != ent.Owner
             && TryComp<HarpoonComponent>(existing.Harpoon, out var oldHarpoon))
         {
             Unhook((existing.Harpoon.Value, oldHarpoon));
         }
 
         ent.Comp.Thrower = user;
-        ent.Comp.Hooked = args.Embedded;
+        ent.Comp.Hooked = target;
         ent.Comp.Strain = 0f;
         ent.Comp.StrainWarned = false;
 
-        var harpooned = EnsureComp<HarpoonedComponent>(args.Embedded);
+        var harpooned = EnsureComp<HarpoonedComponent>(target);
         harpooned.Harpoon = ent;
         harpooned.Thrower = user;
         harpooned.Reeling = false;
@@ -77,7 +110,7 @@ public sealed class HarpoonSystem : EntitySystem
         harpooned.StruggleModifier = ent.Comp.StruggleModifier;
         harpooned.MinDistance = ent.Comp.MinDistance;
         harpooned.MaxRopeLength = ent.Comp.MaxRopeLength;
-        Dirty(args.Embedded, harpooned);
+        Dirty(target, harpooned);
 
         var visuals = EnsureComp<JointVisualsComponent>(ent);
         visuals.Sprite = ent.Comp.RopeSprite;
@@ -86,12 +119,15 @@ public sealed class HarpoonSystem : EntitySystem
 
         _actions.AddAction(user, ref ent.Comp.ReelActionEntity, ent.Comp.ReelAction, ent);
         _actions.SetToggled(ent.Comp.ReelActionEntity, false);
-        _popup.PopupEntity(Loc.GetString("harpoon-hooked", ("harpoon", ent)), args.Embedded, args.Embedded, PopupType.MediumCaution);
     }
 
-    private void OnRemoveEmbed(Entity<HarpoonComponent> ent, ref RemoveEmbedEvent args)
+    private void ClearHooked(Entity<HarpoonComponent> ent)
     {
-        Unhook(ent);
+        if (!TryComp<HarpoonedComponent>(ent.Comp.Hooked, out var harpooned) || harpooned.Harpoon != ent.Owner)
+            return;
+
+        harpooned.ReelStream = _audio.Stop(harpooned.ReelStream);
+        RemComp(ent.Comp.Hooked.Value, harpooned);
     }
 
     private void OnShutdown(Entity<HarpoonComponent> ent, ref ComponentShutdown args)
@@ -176,12 +212,7 @@ public sealed class HarpoonSystem : EntitySystem
         if (_net.IsClient)
             return;
 
-        if (TryComp<HarpoonedComponent>(ent.Comp.Hooked, out var harpooned) && harpooned.Harpoon == ent.Owner)
-        {
-            harpooned.ReelStream = _audio.Stop(harpooned.ReelStream);
-            RemComp(ent.Comp.Hooked.Value, harpooned);
-        }
-
+        ClearHooked(ent);
         _actions.RemoveAction(ent.Comp.ReelActionEntity);
         RemComp<JointVisualsComponent>(ent);
         ent.Comp.Thrower = null;
@@ -203,7 +234,7 @@ public sealed class HarpoonSystem : EntitySystem
 
             if (TerminatingOrDeleted(hooked)
                 || TerminatingOrDeleted(thrower)
-                || xform.ParentUid != hooked
+                || hooked != uid && xform.ParentUid != hooked
                 || !TryComp<HarpoonedComponent>(hooked, out var harpooned))
             {
                 Unhook((uid, harpoon));
@@ -246,6 +277,14 @@ public sealed class HarpoonSystem : EntitySystem
             else
             {
                 harpoon.Strain = MathF.Max(0f, harpoon.Strain - harpoon.StrainRecovery * frameTime);
+            }
+
+            if (harpooned.Reeling
+                && hooked == uid
+                && distance <= harpoon.MinDistance + ReelStopMargin
+                && _hands.TryPickupAnyHand(thrower, uid))
+            {
+                continue;
             }
 
             if (harpooned.Reeling
