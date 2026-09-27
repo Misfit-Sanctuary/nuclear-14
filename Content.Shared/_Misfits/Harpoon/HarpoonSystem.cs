@@ -1,5 +1,8 @@
+using System.Numerics;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
+using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
@@ -19,10 +22,13 @@ public sealed class HarpoonSystem : EntitySystem
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedMoverController _mover = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
 
     private const float ReelStopMargin = 0.15f;
+
+    private const float StruggleDot = 0.5f;
 
     public override void Initialize()
     {
@@ -60,6 +66,8 @@ public sealed class HarpoonSystem : EntitySystem
 
         ent.Comp.Thrower = user;
         ent.Comp.Hooked = args.Embedded;
+        ent.Comp.Strain = 0f;
+        ent.Comp.StrainWarned = false;
 
         var harpooned = EnsureComp<HarpoonedComponent>(args.Embedded);
         harpooned.Harpoon = ent;
@@ -143,11 +151,22 @@ public sealed class HarpoonSystem : EntitySystem
             hooked.Comp.ReelStream = _audio.PlayPvs(ent.Comp.ReelSound, thrower)?.Entity;
     }
 
+    private bool IsStruggling(EntityUid hooked, Vector2 away)
+    {
+        if (!TryComp<InputMoverComponent>(hooked, out var mover) || !mover.CanMove)
+            return false;
+
+        var (walk, sprint) = _mover.GetVelocityInput(mover);
+        var input = _mover.GetParentGridAngle(mover).RotateVec(walk + sprint);
+        if (input.LengthSquared() < 0.01f)
+            return false;
+
+        return Vector2.Dot(input.Normalized(), away.Normalized()) > StruggleDot;
+    }
+
     private void Snap(Entity<HarpoonComponent> ent)
     {
-        if (ent.Comp.Thrower is { } thrower)
-            _popup.PopupEntity(Loc.GetString("harpoon-rope-snap"), thrower, thrower, PopupType.SmallCaution);
-
+        _popup.PopupEntity(Loc.GetString("harpoon-rope-snap"), ent, PopupType.MediumCaution);
         _audio.PlayPvs(ent.Comp.SnapSound, ent);
         Unhook(ent);
     }
@@ -199,13 +218,34 @@ public sealed class HarpoonSystem : EntitySystem
                 continue;
             }
 
-            var distance = (_transform.GetWorldPosition(throwerXform) - _transform.GetWorldPosition(hookedXform)).Length();
+            var away = _transform.GetWorldPosition(hookedXform) - _transform.GetWorldPosition(throwerXform);
+            var distance = away.Length();
             var hauled = CanBeHauled(hooked, hookedXform);
 
             if (distance > harpoon.SnapLength || !hauled && distance > harpoon.MaxRopeLength)
             {
                 Snap((uid, harpoon));
                 continue;
+            }
+
+            if (distance > 0.01f && IsStruggling(hooked, away))
+            {
+                harpoon.Strain += frameTime;
+                if (harpoon.Strain >= harpoon.BreakStrain)
+                {
+                    Snap((uid, harpoon));
+                    continue;
+                }
+
+                if (!harpoon.StrainWarned && harpoon.Strain >= harpoon.BreakStrain / 2f)
+                {
+                    harpoon.StrainWarned = true;
+                    _popup.PopupEntity(Loc.GetString("harpoon-rope-fraying"), hooked, PopupType.SmallCaution);
+                }
+            }
+            else
+            {
+                harpoon.Strain = MathF.Max(0f, harpoon.Strain - harpoon.StrainRecovery * frameTime);
             }
 
             if (harpooned.Reeling

@@ -35,6 +35,18 @@ public sealed partial class HarpoonComponent : Component
     public float SnapLength = 10f;
 
     [DataField]
+    public float BreakStrain = 5f;
+
+    [DataField]
+    public float StrainRecovery = 0.5f;
+
+    [DataField]
+    public float Strain;
+
+    [DataField]
+    public bool StrainWarned;
+
+    [DataField]
     public SpriteSpecifier RopeSprite =
         new SpriteSpecifier.Rsi(new ResPath("Objects/Weapons/Guns/Launchers/grappling_gun.rsi"), "rope");
 
