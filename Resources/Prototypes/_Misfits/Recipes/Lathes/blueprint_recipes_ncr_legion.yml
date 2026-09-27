@@ -1696,6 +1696,19 @@
 
     Leather: 100
 
+- type: latheRecipe
+  id: N14BPLegionWeaponHarpoonSpear
+  result: MisfitsHarpoonSpear
+  category: N14BlueprintLegionWeaponsT1
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Wood: 2000
+    N14Iron: 400
+    Leather: 300
+
 # #Misfits Add - mediocre scavenged kinetic guns (T1)
 - type: latheRecipe
   id: N14BPLegionWeaponPistol9mmChinese
