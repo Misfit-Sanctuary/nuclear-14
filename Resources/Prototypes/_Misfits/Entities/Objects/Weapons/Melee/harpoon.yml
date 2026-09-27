@@ -5,6 +5,11 @@
   description: A barbed throwing spear with a length of rope lashed to the haft. Could be useful for hunting down a whale.
   components:
   - type: Harpoon
+    maxRopeLength: 12
+    snapLength: 16
+  - type: LandAtCursor
+  - type: ThrowSpeedModifier
+    multiplier: 1.4
   - type: Sprite
     sprite: _DEN/Objects/Weapons/Melee/harpoon.rsi
     layers:

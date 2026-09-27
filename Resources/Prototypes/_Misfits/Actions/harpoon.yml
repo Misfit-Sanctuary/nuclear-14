@@ -11,3 +11,17 @@
       sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
       state: hook
     event: !type:HarpoonReelActionEvent
+
+- type: entity
+  id: MisfitsActionHarpoonYank
+  name: action-name-MisfitsActionHarpoonYank
+  description: action-description-MisfitsActionHarpoonYank
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: BigItem
+    useDelay: 2
+    icon:
+      sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
+      state: hook
+    event: !type:HarpoonYankActionEvent

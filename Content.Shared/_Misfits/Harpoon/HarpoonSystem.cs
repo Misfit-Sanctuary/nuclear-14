@@ -13,6 +13,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared._Misfits.Harpoon;
 
@@ -25,6 +26,7 @@ public sealed class HarpoonSystem : EntitySystem
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private SharedMoverController _mover = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedProjectileSystem _projectile = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
@@ -33,26 +35,42 @@ public sealed class HarpoonSystem : EntitySystem
 
     private const float StruggleDot = 0.5f;
 
+    private static readonly TimeSpan MinFlightTime = TimeSpan.FromSeconds(ThrowingSystem.MinFlyTime);
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<HarpoonComponent, ThrownEvent>(OnThrown);
+        SubscribeLocalEvent<HarpoonComponent, LandEvent>(OnLand);
         SubscribeLocalEvent<HarpoonComponent, EmbedEvent>(OnEmbed);
         SubscribeLocalEvent<HarpoonComponent, RemoveEmbedEvent>(OnRemoveEmbed);
         SubscribeLocalEvent<HarpoonComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<HarpoonComponent, EntGotInsertedIntoContainerMessage>(OnInserted);
         SubscribeLocalEvent<HarpoonComponent, HarpoonReelActionEvent>(OnReelAction);
+        SubscribeLocalEvent<HarpoonComponent, HarpoonYankActionEvent>(OnYankAction);
     }
 
     private void OnThrown(Entity<HarpoonComponent> ent, ref ThrownEvent args)
     {
         ent.Comp.Thrower = args.User;
 
+        if (TryComp<ThrownItemComponent>(ent, out var thrown)
+            && thrown.ThrownTime is { } thrownTime
+            && (thrown.LandTime == null || thrown.LandTime < thrownTime + MinFlightTime))
+        {
+            thrown.LandTime = thrownTime + MinFlightTime;
+        }
+
         if (_net.IsClient || args.User is not { } user || TerminatingOrDeleted(user))
             return;
 
         Attach(ent, user, ent);
+    }
+
+    private void OnLand(Entity<HarpoonComponent> ent, ref LandEvent args)
+    {
+        _physics.SetLinearVelocity(ent, Vector2.Zero);
     }
 
     private void OnEmbed(Entity<HarpoonComponent> ent, ref EmbedEvent args)
@@ -107,7 +125,7 @@ public sealed class HarpoonSystem : EntitySystem
         harpooned.Harpoon = ent;
         harpooned.Thrower = user;
         harpooned.Reeling = false;
-        harpooned.ReelSpeed = ent.Comp.ReelSpeed;
+        harpooned.ReelSpeed = target == ent.Owner ? ent.Comp.LooseReelSpeed : ent.Comp.ReelSpeed;
         harpooned.StruggleModifier = ent.Comp.StruggleModifier;
         harpooned.MinDistance = ent.Comp.MinDistance;
         harpooned.MaxRopeLength = ent.Comp.MaxRopeLength;
@@ -120,6 +138,11 @@ public sealed class HarpoonSystem : EntitySystem
 
         _actions.AddAction(user, ref ent.Comp.ReelActionEntity, ent.Comp.ReelAction, ent);
         _actions.SetToggled(ent.Comp.ReelActionEntity, false);
+
+        if (target == ent.Owner)
+            _actions.RemoveAction(ent.Comp.YankActionEntity);
+        else
+            _actions.AddAction(user, ref ent.Comp.YankActionEntity, ent.Comp.YankAction, ent);
     }
 
     private void ClearHooked(Entity<HarpoonComponent> ent)
@@ -154,13 +177,34 @@ public sealed class HarpoonSystem : EntitySystem
             return;
         }
 
-        if (!CanBeHauled(hooked))
+        if (!CanBeHauled(hooked) && !CanGrapple(hooked, args.Performer))
         {
             _popup.PopupEntity(Loc.GetString("harpoon-reel-stuck", ("target", hooked)), args.Performer, args.Performer);
             return;
         }
 
         SetReeling(ent, (hooked, harpooned), true);
+    }
+
+    private void OnYankAction(Entity<HarpoonComponent> ent, ref HarpoonYankActionEvent args)
+    {
+        if (args.Handled || _net.IsClient)
+            return;
+
+        if (ent.Comp.Thrower != args.Performer
+            || ent.Comp.Hooked is not { } hooked
+            || hooked == ent.Owner
+            || !TryComp<EmbeddableProjectileComponent>(ent, out var embed))
+            return;
+
+        args.Handled = true;
+        _popup.PopupEntity(Loc.GetString("harpoon-yanked-free", ("harpoon", ent), ("target", hooked)), ent, PopupType.MediumCaution);
+        _projectile.RemoveEmbed(ent, embed);
+    }
+
+    private bool CanGrapple(EntityUid hooked, EntityUid thrower)
+    {
+        return !_container.IsEntityOrParentInContainer(hooked) && CanBeHauled(thrower);
     }
 
     public bool CanBeHauled(EntityUid uid, TransformComponent? xform = null, PhysicsComponent? body = null)
@@ -228,6 +272,7 @@ public sealed class HarpoonSystem : EntitySystem
 
         ClearHooked(ent);
         _actions.RemoveAction(ent.Comp.ReelActionEntity);
+        _actions.RemoveAction(ent.Comp.YankActionEntity);
         RemComp<JointVisualsComponent>(ent);
         ent.Comp.Thrower = null;
         ent.Comp.Hooked = null;
@@ -308,7 +353,17 @@ public sealed class HarpoonSystem : EntitySystem
             }
 
             if (harpooned.Reeling
-                && (!hauled
+                && hooked != uid
+                && !hauled
+                && distance <= harpoon.MinDistance + ReelStopMargin
+                && TryComp<EmbeddableProjectileComponent>(uid, out var embed))
+            {
+                _projectile.RemoveEmbed(uid, embed, thrower);
+                continue;
+            }
+
+            if (harpooned.Reeling
+                && (!hauled && !CanGrapple(hooked, thrower)
                     || distance <= harpoon.MinDistance + ReelStopMargin
                     || !_blocker.CanInteract(thrower, hooked)))
             {

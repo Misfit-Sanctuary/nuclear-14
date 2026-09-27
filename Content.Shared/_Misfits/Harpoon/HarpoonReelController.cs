@@ -30,13 +30,25 @@ public sealed class HarpoonReelController : VirtualController
         var query = EntityQueryEnumerator<HarpoonedComponent, PhysicsComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var harpooned, out var body, out var xform))
         {
-            if (prediction && !body.Predict)
-                continue;
-
             if (harpooned.Thrower is not { } thrower
                 || !TryComp<TransformComponent>(thrower, out var throwerXform)
-                || throwerXform.MapID != xform.MapID
-                || !_harpoon.CanBeHauled(uid, xform, body))
+                || throwerXform.MapID != xform.MapID)
+                continue;
+
+            if (!_harpoon.CanBeHauled(uid, xform, body))
+            {
+                if (harpooned.Reeling
+                    && TryComp<PhysicsComponent>(thrower, out var throwerBody)
+                    && (!prediction || throwerBody.Predict)
+                    && _harpoon.CanBeHauled(thrower, throwerXform, throwerBody))
+                {
+                    HaulThrower((thrower, throwerBody, throwerXform), xform, harpooned);
+                }
+
+                continue;
+            }
+
+            if (prediction && !body.Predict)
                 continue;
 
             var delta = _transform.GetWorldPosition(throwerXform) - _transform.GetWorldPosition(xform);
@@ -79,6 +91,23 @@ public sealed class HarpoonReelController : VirtualController
             if (velocity != body.LinearVelocity)
                 _physics.SetLinearVelocity(uid, velocity, body: body);
         }
+    }
+
+    private void HaulThrower(Entity<PhysicsComponent, TransformComponent> thrower, TransformComponent anchorXform, HarpoonedComponent harpooned)
+    {
+        var delta = _transform.GetWorldPosition(anchorXform) - _transform.GetWorldPosition(thrower.Comp2);
+        var distance = delta.Length();
+        if (distance <= harpooned.MinDistance)
+            return;
+
+        var toward = delta / distance;
+        var velocity = thrower.Comp1.LinearVelocity;
+        var along = Vector2.Dot(velocity, toward);
+        var pull = harpooned.ReelSpeed * MathF.Min(1f, distance - harpooned.MinDistance);
+        if (along >= pull)
+            return;
+
+        _physics.SetLinearVelocity(thrower, velocity + toward * (pull - along), body: thrower.Comp1);
     }
 
     private float GetStruggleSpeed(EntityUid uid, Vector2 away)

@@ -20,7 +20,16 @@ public sealed partial class HarpoonComponent : Component
     public EntityUid? ReelActionEntity;
 
     [DataField]
+    public EntProtoId YankAction = "MisfitsActionHarpoonYank";
+
+    [DataField]
+    public EntityUid? YankActionEntity;
+
+    [DataField]
     public float ReelSpeed = 3f;
+
+    [DataField]
+    public float LooseReelSpeed = 8f;
 
     [DataField]
     public float StruggleModifier = 0.4f;
