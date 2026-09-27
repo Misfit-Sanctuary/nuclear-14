@@ -114,3 +114,44 @@
     clothingVisuals:
       head:
       - state: equipped-HELMET
+
+### T-51 SPA reskinned from the T-51 PA
+
+ type: entity
+  parent: N14ClothingOuterPowerArmorT51NCR
+  id: MisfitsNCRHeavyTrooperLeadSalvagedPowerArmorT51
+  name: NCR Heavy Trooper Lead T-51 Salvaged Power Armor
+  description: A salvaged and stripped T-51 power armor suit reserved for NCR heavy trooper leadership.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/PowerArmor/NCR/ncr_heavy_trooper_lead_t51.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/PowerArmor/NCR/ncr_heavy_trooper_lead_t51.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: MisfitsNCRHeavyTrooperLeadT51Helmet
+      gloves: N14ClothingPAGauntlets
+      shoes: N14ClothingPABoots
+      back: N14ClothingPowerSystemsBack
+
+- type: entity
+  parent: N14ClothingHeadHelmetPowerArmorT51NCR
+  id: MisfitsNCRHeavyTrooperLeadT51SalvagedHelmet
+  name: NCR Heavy Trooper Lead T-51 Power Armor Helmet
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _Misfits/Clothing/OuterClothing/PowerArmor/NCR/ncr_heavy_trooper_lead_t51_helmet.rsi
+    layers:
+    - state: icon
+    - state: equipped-HELMET
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  # The supplied NCR helmet RSI has no light-overlay/on-equipped-HELMET states.
+  # Keep its functional PointLight, but do not request missing visual states.
+  - type: ToggleableLightVisuals
+    spriteLayer: null
+    inhandVisuals: {}
+    clothingVisuals: {}
