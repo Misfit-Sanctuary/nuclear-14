@@ -11,6 +11,11 @@
   components:
   - type: HumanoidAppearance
     species: Nightkin
+  # #Misfits Add - own body prototype so Nightkin get the Nightkin heart and stomach.
+  # Identical to the SuperMutant body apart from those two organs.
+  - type: Body
+    prototype: Nightkin
+    requiredLegs: 2
   - type: Icon
     sprite: _Misfits/Mobs/Species/Nightkin/parts.rsi
     state: full

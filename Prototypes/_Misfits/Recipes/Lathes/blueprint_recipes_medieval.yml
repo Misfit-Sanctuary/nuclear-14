@@ -1,0 +1,420 @@
+# #Misfits Add - Medieval armor blueprint recipes.
+#
+# Gated by `requiresBlueprint: true`: a recipe only shows up in a workbench's lathe UI while the
+# matching blueprint item sits in that workbench's storage (Content.Server/Lathe/LatheSystem.cs,
+# AddBlueprintRecipesFromStorage).
+#
+# Made for wastelanders: no availableFaction, so anyone holding the blueprint can craft.
+# Deliberately very expensive. 100 units = 1 sheet, so Steel: 40000 is 400 steel sheets.
+# For scale, the heavy C-27 armor costs Steel: 22000 (blueprint_recipes_c27.yml).
+
+# =====================================================================
+# CRIMSON ARMORY
+# =====================================================================
+
+- type: latheRecipe
+  id: MisfitsBPMedievalJackOfPlatesCrimson
+  result: MisfitsClothingOuterMedievalJackOfPlatesCrimson
+  category: MisfitsBlueprintMedievalCrimson
+  completetime: 12
+  requiresBlueprint: true
+  materials:
+    Steel: 3000
+    Leather: 1500
+    Cloth: 4000
+    Thread: 2000
+
+- type: latheRecipe
+  id: MisfitsBPMedievalCorseletSteel
+  result: MisfitsClothingOuterMedievalCorseletSteel
+  category: MisfitsBlueprintMedievalCrimson
+  completetime: 14
+  requiresBlueprint: true
+  materials:
+    Steel: 12000
+    Leather: 2000
+    Cloth: 1500
+    Thread: 1000
+
+- type: latheRecipe
+  id: MisfitsBPMedievalHalfPlateCrimson
+  result: MisfitsClothingOuterMedievalHalfPlateCrimson
+  category: MisfitsBlueprintMedievalCrimson
+  completetime: 16
+  requiresBlueprint: true
+  materials:
+    Steel: 18000
+    Leather: 3000
+    Cloth: 3000
+    Thread: 1500
+
+- type: latheRecipe
+  id: MisfitsBPMedievalPlateCuirassCrimson
+  result: MisfitsClothingOuterMedievalPlateCuirassCrimson
+  category: MisfitsBlueprintMedievalCrimson
+  completetime: 18
+  requiresBlueprint: true
+  materials:
+    Steel: 25000
+    Leather: 3000
+    Cloth: 2000
+    Thread: 1500
+
+- type: latheRecipe
+  id: MisfitsBPMedievalKettleHatCrimson
+  result: MisfitsClothingHeadMedievalKettleHatCrimson
+  category: MisfitsBlueprintMedievalCrimson
+  completetime: 8
+  requiresBlueprint: true
+  materials:
+    Steel: 5000
+    Leather: 1000
+    Cloth: 500
+    Thread: 300
+
+- type: latheRecipe
+  id: MisfitsBPMedievalKettleHatVisoredCrimson
+  result: MisfitsClothingHeadMedievalKettleHatVisoredCrimson
+  category: MisfitsBlueprintMedievalCrimson
+  completetime: 8
+  requiresBlueprint: true
+  materials:
+    Steel: 5000
+    Leather: 1000
+    Cloth: 500
+    Thread: 300
+
+- type: latheRecipe
+  id: MisfitsBPMedievalCloseHelmBarred
+  result: MisfitsClothingHeadMedievalCloseHelmBarred
+  category: MisfitsBlueprintMedievalCrimson
+  completetime: 10
+  requiresBlueprint: true
+  materials:
+    Steel: 9000
+    Leather: 1500
+    Cloth: 800
+    Thread: 500
+
+- type: latheRecipe
+  id: MisfitsBPMedievalBarbuteCrimson
+  result: MisfitsClothingHeadMedievalBarbuteCrimson
+  category: MisfitsBlueprintMedievalCrimson
+  completetime: 8
+  requiresBlueprint: true
+  materials:
+    Steel: 5000
+    Leather: 1000
+    Cloth: 500
+    Thread: 300
+
+- type: latheRecipe
+  id: MisfitsBPMedievalSalletCrimson
+  result: MisfitsClothingHeadMedievalSalletCrimson
+  category: MisfitsBlueprintMedievalCrimson
+  completetime: 8
+  requiresBlueprint: true
+  materials:
+    Steel: 5000
+    Leather: 1000
+    Cloth: 500
+    Thread: 300
+
+- type: latheRecipe
+  id: MisfitsBPMedievalSugarloafHelm
+  result: MisfitsClothingHeadMedievalSugarloafHelm
+  category: MisfitsBlueprintMedievalCrimson
+  completetime: 10
+  requiresBlueprint: true
+  materials:
+    Steel: 9000
+    Leather: 1500
+    Cloth: 800
+    Thread: 500
+
+- type: latheRecipe
+  id: MisfitsBPMedievalLeatherGloves
+  result: MisfitsClothingHandsMedievalLeatherGloves
+  category: MisfitsBlueprintMedievalCrimson
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 2000
+    Thread: 500
+
+- type: latheRecipe
+  id: MisfitsBPMedievalGauntletsCrimson
+  result: MisfitsClothingHandsMedievalGauntletsCrimson
+  category: MisfitsBlueprintMedievalCrimson
+  completetime: 8
+  requiresBlueprint: true
+  materials:
+    Steel: 3000
+    Leather: 2000
+    Thread: 500
+
+- type: latheRecipe
+  id: MisfitsBPMedievalRidingBoots
+  result: MisfitsClothingShoesMedievalRidingBoots
+  category: MisfitsBlueprintMedievalCrimson
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 2000
+    Thread: 500
+
+- type: latheRecipe
+  id: MisfitsBPMedievalPlatedBootsCrimson
+  result: MisfitsClothingShoesMedievalPlatedBootsCrimson
+  category: MisfitsBlueprintMedievalCrimson
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 2000
+    Thread: 500
+
+# =====================================================================
+# AZURE ARMORY
+# =====================================================================
+
+- type: latheRecipe
+  id: MisfitsBPMedievalJackOfPlatesAzure
+  result: MisfitsClothingOuterMedievalJackOfPlatesAzure
+  category: MisfitsBlueprintMedievalAzure
+  completetime: 12
+  requiresBlueprint: true
+  materials:
+    Steel: 3000
+    Leather: 1500
+    Cloth: 4000
+    Thread: 2000
+
+- type: latheRecipe
+  id: MisfitsBPMedievalHalfPlateAzure
+  result: MisfitsClothingOuterMedievalHalfPlateAzure
+  category: MisfitsBlueprintMedievalAzure
+  completetime: 16
+  requiresBlueprint: true
+  materials:
+    Steel: 18000
+    Leather: 3000
+    Cloth: 3000
+    Thread: 1500
+
+- type: latheRecipe
+  id: MisfitsBPMedievalCorseletBrass
+  result: MisfitsClothingOuterMedievalCorseletBrass
+  category: MisfitsBlueprintMedievalAzure
+  completetime: 14
+  requiresBlueprint: true
+  materials:
+    Steel: 12000
+    Leather: 2000
+    Cloth: 1500
+    Thread: 1000
+
+- type: latheRecipe
+  id: MisfitsBPMedievalKettleHatAzure
+  result: MisfitsClothingHeadMedievalKettleHatAzure
+  category: MisfitsBlueprintMedievalAzure
+  completetime: 10
+  requiresBlueprint: true
+  materials:
+    Steel: 9000
+    Leather: 1500
+    Cloth: 800
+    Thread: 500
+
+- type: latheRecipe
+  id: MisfitsBPMedievalKettleHatVisoredAzure
+  result: MisfitsClothingHeadMedievalKettleHatVisoredAzure
+  category: MisfitsBlueprintMedievalAzure
+  completetime: 10
+  requiresBlueprint: true
+  materials:
+    Steel: 9000
+    Leather: 1500
+    Cloth: 800
+    Thread: 500
+
+- type: latheRecipe
+  id: MisfitsBPMedievalCloseHelmBarredAzure
+  result: MisfitsClothingHeadMedievalCloseHelmBarredAzure
+  category: MisfitsBlueprintMedievalAzure
+  completetime: 10
+  requiresBlueprint: true
+  materials:
+    Steel: 9000
+    Leather: 1500
+    Cloth: 800
+    Thread: 500
+
+- type: latheRecipe
+  id: MisfitsBPMedievalBarbuteAzure
+  result: MisfitsClothingHeadMedievalBarbuteAzure
+  category: MisfitsBlueprintMedievalAzure
+  completetime: 10
+  requiresBlueprint: true
+  materials:
+    Steel: 9000
+    Leather: 1500
+    Cloth: 800
+    Thread: 500
+
+- type: latheRecipe
+  id: MisfitsBPMedievalArmetGilded
+  result: MisfitsClothingHeadMedievalArmetGilded
+  category: MisfitsBlueprintMedievalAzure
+  completetime: 8
+  requiresBlueprint: true
+  materials:
+    Steel: 5000
+    Leather: 1000
+    Cloth: 500
+    Thread: 300
+
+- type: latheRecipe
+  id: MisfitsBPMedievalBlackLeatherGloves
+  result: MisfitsClothingHandsMedievalBlackLeatherGloves
+  category: MisfitsBlueprintMedievalAzure
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 2000
+    Thread: 500
+
+- type: latheRecipe
+  id: MisfitsBPMedievalPlateGauntletsAzure
+  result: MisfitsClothingHandsMedievalPlateGauntletsAzure
+  category: MisfitsBlueprintMedievalAzure
+  completetime: 8
+  requiresBlueprint: true
+  materials:
+    Steel: 6000
+    Leather: 2000
+    Thread: 500
+
+- type: latheRecipe
+  id: MisfitsBPMedievalBlackLeatherBoots
+  result: MisfitsClothingShoesMedievalBlackLeatherBoots
+  category: MisfitsBlueprintMedievalAzure
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 2000
+    Thread: 500
+
+- type: latheRecipe
+  id: MisfitsBPMedievalSabatonsAzure
+  result: MisfitsClothingShoesMedievalSabatonsAzure
+  category: MisfitsBlueprintMedievalAzure
+  completetime: 8
+  requiresBlueprint: true
+  materials:
+    Steel: 3000
+    Leather: 2000
+    Thread: 500
+
+# =====================================================================
+# KNIGHT'S HARNESS (the best set, the most expensive)
+# =====================================================================
+
+- type: latheRecipe
+  id: MisfitsBPMedievalKnightHarness
+  result: MisfitsClothingOuterMedievalKnightHarness
+  category: MisfitsBlueprintMedievalKnight
+  completetime: 25
+  requiresBlueprint: true
+  materials:
+    Steel: 40000
+    Leather: 5000
+    Cloth: 4000
+    Thread: 2500
+
+- type: latheRecipe
+  id: MisfitsBPMedievalKnightSallet
+  result: MisfitsClothingHeadMedievalKnightSallet
+  category: MisfitsBlueprintMedievalKnight
+  completetime: 12
+  requiresBlueprint: true
+  materials:
+    Steel: 15000
+    Leather: 2000
+    Cloth: 1000
+    Thread: 600
+
+# =====================================================================
+# LEATHERWORKER'S BELTS
+# =====================================================================
+
+- type: latheRecipe
+  id: MisfitsBPMedievalBaldricPouched
+  result: MisfitsClothingBeltMedievalBaldricPouched
+  category: MisfitsBlueprintMedievalBelts
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 3000
+    Thread: 800
+
+- type: latheRecipe
+  id: MisfitsBPMedievalLeatherBandolier
+  result: MisfitsClothingBeltMedievalLeatherBandolier
+  category: MisfitsBlueprintMedievalBelts
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 3000
+    Thread: 800
+
+- type: latheRecipe
+  id: MisfitsBPMedievalCraftsmanBelt
+  result: MisfitsClothingBeltMedievalCraftsmanBelt
+  category: MisfitsBlueprintMedievalBelts
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Steel: 1000
+    Leather: 3000
+    Thread: 800
+
+- type: latheRecipe
+  id: MisfitsBPMedievalPouchHarnessAzure
+  result: MisfitsClothingBeltMedievalPouchHarnessAzure
+  category: MisfitsBlueprintMedievalBelts
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 3000
+    Thread: 800
+
+- type: latheRecipe
+  id: MisfitsBPMedievalShoulderHarness
+  result: MisfitsClothingBeltMedievalShoulderHarness
+  category: MisfitsBlueprintMedievalBelts
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 3000
+    Thread: 800
+
+- type: latheRecipe
+  id: MisfitsBPMedievalSmithBelt
+  result: MisfitsClothingBeltMedievalSmithBelt
+  category: MisfitsBlueprintMedievalBelts
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Steel: 1000
+    Leather: 3000
+    Thread: 800
+
+- type: latheRecipe
+  id: MisfitsBPMedievalCrossedBaldricCrimson
+  result: MisfitsClothingBeltMedievalCrossedBaldricCrimson
+  category: MisfitsBlueprintMedievalBelts
+  completetime: 6
+  requiresBlueprint: true
+  materials:
+    Leather: 3000
+    Thread: 800

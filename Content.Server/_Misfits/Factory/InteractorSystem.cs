@@ -1,0 +1,401 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Adapted from Goob Station / Trauma Station
+
+using Content.Server._Misfits.Factory.Filters;
+using Content.Server.Construction.Components;
+using Content.Server.DeviceLinking.Components;
+using Content.Server.DeviceLinking.Events;
+using Content.Server.DeviceNetwork;
+using Content.Shared._Misfits.Factory;
+using Content.Shared.CombatMode;
+using Content.Shared.DoAfter;
+using Content.Shared.Examine;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction;
+using Content.Shared.Popups;
+using Content.Shared.Throwing;
+using Content.Shared.Timing;
+using Content.Shared.Tools;
+using Content.Shared.Tools.Systems;
+using Content.Shared.Verbs;
+using Content.Shared.Weapons.Melee;
+using Robust.Shared.Containers;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Timing;
+using Robust.Shared.Utility;
+
+namespace Content.Server._Misfits.Factory;
+
+internal delegate bool Toggle();
+
+public sealed partial class InteractorSystem : EntitySystem
+{
+    [Dependency] private AutomationSystem _automation = default!;
+    [Dependency] private AutomationFilterSystem _filter = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
+    [Dependency] private StartableMachineSystem _machine = default!;
+    [Dependency] private SharedCombatModeSystem _combatMode = default!;
+    [Dependency] private SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
+
+    [Dependency] private EntityQuery<ActiveDoAfterComponent> _doAfterQuery = default!;
+    [Dependency] private EntityQuery<HandsComponent> _handsQuery = default!;
+    [Dependency] private EntityQuery<MapGridComponent> _gridQuery = default!;
+    [Dependency] private EntityQuery<ThrownItemComponent> _thrownQuery = default!;
+
+    private EntityQuery<ConstructionComponent> _constructionQuery;
+    private EntityQuery<UseDelayComponent> _useDelayQuery;
+
+    private readonly HashSet<Entity<PhysicsComponent>> _targets = new();
+
+    public static readonly SpriteSpecifier VerbIcon = new SpriteSpecifier.Rsi(new("Objects/Tools/screwdriver.rsi"), "screwdriver-map");
+    public static readonly ProtoId<ToolQualityPrototype> Screwing = "Screwing";
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _constructionQuery = GetEntityQuery<ConstructionComponent>();
+        _useDelayQuery = GetEntityQuery<UseDelayComponent>();
+
+        // hand visuals
+        SubscribeLocalEvent<InteractorComponent, EntInsertedIntoContainerMessage>(OnItemModified);
+        SubscribeLocalEvent<InteractorComponent, EntRemovedFromContainerMessage>(OnItemModified);
+        // locking
+        SubscribeLocalEvent<InteractorComponent, ContainerIsInsertingAttemptEvent>(OnItemModifyAttempt);
+        SubscribeLocalEvent<InteractorComponent, ContainerIsRemovingAttemptEvent>(OnItemModifyAttempt);
+
+        SubscribeLocalEvent<InteractorComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<InteractorComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<InteractorComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<InteractorComponent, DoAfterEndedEvent>(OnDoAfterEnded);
+        SubscribeLocalEvent<InteractorComponent, SignalReceivedEvent>(OnSignalReceived);
+        SubscribeLocalEvent<InteractorComponent, MachineStartedEvent>(OnStarted);
+    }
+
+    private void OnDoAfterEnded(Entity<InteractorComponent> ent, ref DoAfterEndedEvent args)
+    {
+        UpdateToolAppearance(ent);
+
+        if (args.Cancelled)
+            _machine.Failed(ent.Owner);
+        else
+            _machine.Completed(ent.Owner);
+    }
+
+    private void OnInit(Entity<InteractorComponent> ent, ref ComponentInit args)
+    {
+        UpdateAppearance(ent);
+    }
+
+    private void OnExamined(Entity<InteractorComponent> ent, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        args.PushMarkup(_filter.GetSlot(ent) is {} filter
+            ? Loc.GetString("robotic-arm-examine-filter", ("filter", filter))
+            : Loc.GetString("robotic-arm-examine-no-filter"));
+    }
+
+    private void OnGetVerbs(Entity<InteractorComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || !args.CanComplexInteract)
+            return;
+
+        // need to use a screwdriver to adjust the settings (or a multitool+signaller)
+        var noScrewdriver = args.Using is not {} tool || !_tool.HasQuality(tool, Screwing);
+
+        var user = args.User;
+        (string, Toggle)[] options = [
+            ("alt-interact", () => SetAltInteract(ent, !ent.Comp.AltInteract)),
+            ("use-in-hand", () => SetUseInHand(ent, !ent.Comp.UseInHand)),
+            ("harm-mode", () => SetHarmMode(ent, !ent.Comp.HarmMode)),
+            ("locked", () => SetLocked(ent, !ent.Comp.Locked))
+        ];
+        foreach (var (id, toggle) in options)
+        {
+            args.Verbs.Add(new()
+            {
+                Act = () =>
+                {
+                    var value = toggle();
+                    _popup.PopupEntity(Loc.GetString($"interactor-verb-toggled-{id}", ("enabled", value)), ent, user);
+                },
+                Text = Loc.GetString($"interactor-verb-toggle-{id}"),
+                Icon = VerbIcon,
+                Disabled = noScrewdriver,
+                Message = noScrewdriver ? Loc.GetString("interactor-verb-no-screwdriver") : null
+            });
+        }
+    }
+
+    private void OnItemModified<T>(Entity<InteractorComponent> ent, ref T args) where T: ContainerModifiedMessage
+    {
+        if (args.Container.ID != ent.Comp.ToolContainerId)
+            return;
+
+        UpdateAppearance(ent);
+    }
+
+    private void OnItemModifyAttempt<T>(Entity<InteractorComponent> ent, ref T args) where T: ContainerAttemptEventBase
+    {
+        if (!ent.Comp.Locked ||
+            _timing.ApplyingState ||
+            TerminatingOrDeleted(ent) ||
+            args.Container.ID != ent.Comp.ToolContainerId)
+            return;
+
+        args.Cancel();
+    }
+
+    private void OnSignalReceived(Entity<InteractorComponent> ent, ref SignalReceivedEvent args)
+    {
+        var state = SignalState.Momentary;
+        args.Data?.TryGetValue(DeviceNetworkConstants.LogicState, out state);
+
+        HandleSignal(ent, args.Port, state);
+    }
+
+    private void HandleSignal(Entity<InteractorComponent> ent, string port, SignalState state)
+    {
+        bool current;
+        if (port == ent.Comp.AltInteractPort)
+            current = ent.Comp.AltInteract;
+        else if (port == ent.Comp.UseInHandPort)
+            current = ent.Comp.UseInHand;
+        else if (port == ent.Comp.HarmModePort)
+            current = ent.Comp.HarmMode;
+        else if (port == ent.Comp.LockedPort)
+            current = ent.Comp.Locked;
+        else
+            return;
+
+        var value = state switch
+        {
+            SignalState.Momentary => !current,
+            SignalState.High => true,
+            _ => false
+        };
+
+        if (port == ent.Comp.AltInteractPort)
+            SetAltInteract(ent, value);
+        else if (port == ent.Comp.UseInHandPort)
+            SetUseInHand(ent, value);
+        else if (port == ent.Comp.HarmModePort)
+            SetHarmMode(ent, value);
+        else if (port == ent.Comp.LockedPort)
+            SetLocked(ent, value);
+    }
+
+    private void OnStarted(Entity<InteractorComponent> ent, ref MachineStartedEvent args)
+    {
+        // don't let it get spammed every tick to avoid lag machines
+        if (_useDelayQuery.TryComp(ent, out var delay) && !_useDelay.TryResetDelay((ent, delay), true))
+        {
+            if (TryComp<StartableMachineComponent>(ent, out var machine) && machine.AutoStart)
+                machine.AutoStartQueued = true;
+            return;
+        }
+
+        // another doafter is already running
+        if (HasDoAfter(ent))
+        {
+            _machine.Failed(ent.Owner);
+            return;
+        }
+
+        // skip finding a target for use in hand, it's unused.
+        var target = ent.Comp.UseInHand ? null : FindTarget(ent);
+
+        _constructionQuery.TryComp(target, out var construction);
+        var originalCount = construction?.InteractionQueue.Count ?? 0;
+        if (!TryInteractWith(ent, target))
+        {
+            // have to remove it since user's filter was bad due to unhandled interaction
+            _machine.Failed(ent.Owner);
+            return;
+        }
+
+        // construction supercode queues it instead of starting a doafter now, assume that queuing means it has started
+        var newCount = construction?.InteractionQueue.Count ?? 0;
+        var doing = HasDoAfter(ent);
+        _machine.Started(ent.Owner);
+        if (doing)
+        {
+            UpdateAppearance(ent, InteractorState.Active);
+        }
+        else if (newCount > originalCount)
+        {
+            UpdateAppearance(ent, InteractorState.Active);
+            _machine.Completed(ent.Owner);
+        }
+        else
+        {
+            // no doafter, complete it immediately
+            _machine.Completed(ent.Owner);
+            UpdateAppearance(ent);
+        }
+    }
+
+    public bool IsValidTarget(Entity<InteractorComponent> ent, EntityUid target)
+        => !_thrownQuery.HasComp(target) // thrown items move too fast to be "clicked" on...
+            && _automation.CanMachineDetect(target) // ignore ghosts ninjas etc
+            && _filter.IsAllowed(_filter.GetSlot(ent), target); // ignore non-filtered entities
+
+    private bool HasDoAfter(EntityUid uid) => _doAfterQuery.HasComp(uid);
+
+    private bool TryInteractWith(Entity<InteractorComponent> ent, EntityUid? target)
+    {
+        // ignore target entirely for use in hand.
+        if (ent.Comp.UseInHand)
+        {
+            if (!_hands.TryGetActiveItem(ent.Owner, out var tool))
+                return false;
+
+            _interaction.UserInteraction(ent, Transform(tool.Value).Coordinates, tool, ent.Comp.AltInteract);
+            return true; // no real idea if a system handled it so just hope it did
+        }
+
+        return target is {} uid && InteractWith(ent, uid);
+    }
+
+    private bool InteractWith(Entity<InteractorComponent> ent, EntityUid target)
+    {
+        // alt interaction checks for held items via verbs system, just defer to it
+        if (ent.Comp.AltInteract)
+            return _interaction.AltInteract(ent, target);
+
+        if (!_hands.TryGetActiveItem(ent.Owner, out var tool))
+        {
+            _interaction.InteractHand(ent, target);
+            return true;
+        }
+
+        if (!ent.Comp.HarmMode)
+        {
+            var coords = Transform(target).Coordinates;
+            return _interaction.InteractUsing(ent, tool.Value, target, coords);
+        }
+
+        // instead of interacting via the SharedInteractionSystem, attack the target with the held item
+        if (!TryComp<MeleeWeaponComponent>(tool, out var meleeWeapon))
+            return false;
+
+        // I turn on combat mode manually for the entity because otherwise the melee attack will fail
+        var prev = _combatMode.IsInCombatMode(ent.Owner);
+        _combatMode.SetInCombatMode(ent.Owner, true);
+        var result = _melee.AttemptLightAttack(ent.Owner, tool.Value, meleeWeapon, target);
+        _combatMode.SetInCombatMode(ent.Owner, prev);
+        return result;
+    }
+
+    private void UpdateAppearance(EntityUid uid)
+    {
+        if (HasDoAfter(uid))
+            UpdateAppearance(uid, InteractorState.Active);
+        else
+            UpdateToolAppearance(uid);
+    }
+
+    private void UpdateToolAppearance(EntityUid uid)
+    {
+        var state = _hands.GetActiveItem(uid) is not null
+            ? InteractorState.Inactive
+            : InteractorState.Empty;
+        UpdateAppearance(uid, state);
+    }
+
+    private void UpdateAppearance(EntityUid uid, InteractorState state) =>
+        _appearance.SetData(uid, InteractorVisuals.State, state);
+
+    /// <summary>
+    /// Set <see cref="InteractorComponent.AltInteract"/> and dirty it.
+    /// </summary>
+    public bool SetAltInteract(Entity<InteractorComponent> ent, bool alt)
+    {
+        if (ent.Comp.AltInteract == alt)
+            return alt;
+
+        ent.Comp.AltInteract = alt;
+        Dirty(ent);
+        return alt;
+    }
+
+    /// <summary>
+    /// Set <see cref="InteractorComponent.UseInHand"/> and dirty it.
+    /// </summary>
+    public bool SetUseInHand(Entity<InteractorComponent> ent, bool use)
+    {
+        if (ent.Comp.UseInHand == use)
+            return use;
+
+        ent.Comp.UseInHand = use;
+        Dirty(ent);
+        return use;
+    }
+
+    /// <summary>
+    /// Set <see cref="InteractorComponent.HarmMode"/> and dirty it.
+    /// </summary>
+    public bool SetHarmMode(Entity<InteractorComponent> ent, bool harm)
+    {
+        if (ent.Comp.HarmMode == harm)
+            return harm;
+
+        ent.Comp.HarmMode = harm;
+        Dirty(ent);
+        return harm;
+    }
+
+    /// <summary>
+    /// Set <see cref="InteractorComponent.Locked"/> and dirty it.
+    /// </summary>
+    public bool SetLocked(Entity<InteractorComponent> ent, bool locked)
+    {
+        if (ent.Comp.Locked == locked)
+            return locked;
+
+        ent.Comp.Locked = locked;
+        Dirty(ent);
+        return locked;
+    }
+
+    public EntityCoordinates TargetsPosition(EntityUid uid)
+    {
+        var xform = Transform(uid);
+        var offset = (xform.LocalRotation - Angle.FromDegrees(90)).ToVec();
+        return xform.Coordinates.Offset(offset);
+    }
+
+    /// <summary>
+    /// Find the first valid target infront of the interactor.
+    /// </summary>
+    public EntityUid? FindTarget(Entity<InteractorComponent> ent)
+    {
+        if (Transform(ent).GridUid is not {} gridUid || !_gridQuery.TryComp(gridUid, out var grid))
+            return null;
+
+        var coords = TargetsPosition(ent);
+        var tile = _map.CoordinatesToTile(gridUid, grid, coords);
+
+        _targets.Clear();
+        _lookup.GetLocalEntitiesIntersecting(gridUid, tile, _targets, flags: LookupFlags.Uncontained);
+        foreach (var target in _targets)
+        {
+            if (IsValidTarget(ent, target))
+                return target;
+        }
+        return null;
+    }
+}

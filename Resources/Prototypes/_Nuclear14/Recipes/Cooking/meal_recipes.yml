@@ -1782,3 +1782,21 @@
     N14FloraProduceWildTato: 1 #N14 change
     N14FloraProduceWildCabbage: 1 #N14 change
     N14FoodOnionRedSlice: 2 #N14 change I DID IT
+    
+
+# Not actual food, but that's how vanilla handles it
+- type: microwaveMealRecipe
+  id: N14RecipeDriedTobacco
+  name: dried tobacco leaves recipe
+  result: N14LeavesTobaccoDried
+  time: 10
+  solids:
+    N14FloraProduceWildCoyoteTobacco: 1
+
+- type: microwaveMealRecipe
+  id: N14RecipeDriedCannabis
+  name: dried cannabis leaves recipe
+  result: N14LeavesCannabisDried
+  time: 10
+  solids:
+    N14FloraProduceWildCannabis: 1

@@ -1,0 +1,266 @@
+- type: entity
+  name: Tier1 Meds Common Single
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Single_Common
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14MedsLootTier1_Common
+- type: entity
+  name: Tier1 Meds Common 0-3
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Mult0_3_Common
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14MedsLootTier1_Common
+- type: entity
+  name: Tier1 Meds Common 1-2
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Mult1_2_Common
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14MedsLootTier1_Common
+- type: entity
+  name: Tier1 Meds CommonPlus Single
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Single_CommonPlus
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14MedsLootTier1_CommonPlus
+- type: entity
+  name: Tier1 Meds CommonPlus 0-3
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Mult0_3_CommonPlus
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14MedsLootTier1_CommonPlus
+- type: entity
+  name: Tier1 Meds CommonPlus 1-2
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Mult1_2_CommonPlus
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14MedsLootTier1_CommonPlus
+- type: entity
+  name: Tier1 Meds UncommonAntiRad Single
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Single_UncommonAntiRad
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14MedsLootTier1_UncommonAntiRad
+- type: entity
+  name: Tier1 Meds UncommonAntiRad 0-3
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Mult0_3_UncommonAntiRad
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14MedsLootTier1_UncommonAntiRad
+- type: entity
+  name: Tier1 Meds UncommonAntiRad 1-2
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Mult1_2_UncommonAntiRad
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14MedsLootTier1_UncommonAntiRad
+- type: entity
+  name: Tier1 Meds PlusSuperRare Single
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Single_PlusSuperRare
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14MedsLootTier1_PlusSuperRare
+- type: entity
+  name: Tier1 Meds PlusSuperRare 0-3
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Mult0_3_PlusSuperRare
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14MedsLootTier1_PlusSuperRare
+- type: entity
+  name: Tier1 Meds PlusSuperRare 1-2
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Mult1_2_PlusSuperRare
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14MedsLootTier1_PlusSuperRare
+- type: entity
+  name: Tier1 Meds DrugsUncommon Single
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Single_DrugsUncommon
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14MedsLootTier1_DrugsUncommon
+- type: entity
+  name: Tier1 Meds DrugsUncommon 0-3
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Mult0_3_DrugsUncommon
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14MedsLootTier1_DrugsUncommon
+- type: entity
+  name: Tier1 Meds DrugsUncommon 1-2
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Mult1_2_DrugsUncommon
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14MedsLootTier1_DrugsUncommon
+- type: entity
+  name: Tier1 Meds DrugsRare Single
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Single_DrugsRare
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14MedsLootTier1_DrugsRare
+- type: entity
+  name: Tier1 Meds DrugsRare 0-3
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Mult0_3_DrugsRare
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14MedsLootTier1_DrugsRare
+- type: entity
+  name: Tier1 Meds DrugsRare 1-2
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Mult1_2_DrugsRare
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14MedsLootTier1_DrugsRare
+- type: entity
+  name: Tier1 Meds DrugsSuperRare Single
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Single_DrugsSuperRare
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14MedsLootTier1_DrugsSuperRare
+- type: entity
+  name: Tier1 Meds DrugsSuperRare 0-3
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Mult0_3_DrugsSuperRare
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14MedsLootTier1_DrugsSuperRare
+- type: entity
+  name: Tier1 Meds DrugsSuperRare 1-2
+  suffix: Tier1
+  id: M14MedsTier1Spawner_Mult1_2_DrugsSuperRare
+  parent: M14Tier1Spawner_RefMeds
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14MedsLootTier1_DrugsSuperRare

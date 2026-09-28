@@ -11,14 +11,14 @@
   icon: { sprite: _Nuclear14/Objects/Consumable/Flora/wastelandflora.rsi, state: BananaYucca }
   spawn: N14FloraProduceWildBananaYucca
   maxCount: 5
-  
+
 - type: stack
   id: WildBlackberries
   name: wild blackberries
-  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/blackberry.rsi, state: produce } 
+  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/blackberry.rsi, state: produce }
   spawn: N14FloraProduceWildBlackberries
   maxCount: 5
-  
+
 - type: stack
   id: WildBuffaloGourd
   name: wild buffalo gourd
@@ -36,7 +36,7 @@
 - type: stack
   id: WildCabbage
   name: wild cabbage
-  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/maize.rsi, state: produce } 
+  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/maize.rsi, state: produce }
   spawn: N14FloraProduceWildCabbage
   maxCount: 3
 
@@ -46,11 +46,11 @@
   icon: { sprite: _Nuclear14/Objects/Consumable/Flora/wastelandflora.rsi, state: BarrelCactusFruit }
   spawn: N14FloraProduceWildBarrelCactusFruit
   maxCount: 5
-  
+
 - type: stack
   id: WildCarrot
   name: wild carrot
-  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/carrot.rsi, state: produce } 
+  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/carrot.rsi, state: produce }
   spawn: N14FloraProduceWildCarrot
   maxCount: 5
 
@@ -60,21 +60,56 @@
   icon: { sprite: _Nuclear14/Objects/Consumable/Flora/wastelandflora.rsi, state: CaveFungus }
   spawn: N14FloraProduceWildCaveFungus
   maxCount: 5
-  
+
 - type: stack
   id: CaveFungusRad
   name: irradiated cave fungus
   icon: { sprite: _Nuclear14/Objects/Consumable/Flora/wastelandflora.rsi, state: CaveFungusRad }
   spawn: N14FloraProduceWildCaveFungusRad
   maxCount: 5
-  
+
 - type: stack
   id: CoyoteTobacco
   name: coyote tobacco leaves
   icon: { sprite: _Nuclear14/Objects/Consumable/Flora/wastelandflora.rsi, state: CoyoteTobacco }
   spawn: N14FloraProduceWildCoyoteTobacco
   maxCount: 5
-  
+
+- type: stack
+  id: Cannabis
+  name: cannabis leaves
+  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/cannabis.rsi, state: produce }
+  spawn: N14FloraProduceWildCannabis
+  maxCount: 5
+
+- type: stack
+  id: N14LeavesTobaccoDried
+  name: dried tobacco leaves
+  icon: { sprite: _Nuclear14/Objects/Consumable/Smokeables/smokeables.rsi, state: tobacco_dried_1 }
+  spawn: N14LeavesTobaccoDried
+  maxCount: 5
+
+- type: stack
+  id: N14LeavesCannabisDried
+  name: dried cannabis leaves
+  icon: { sprite: _Nuclear14/Objects/Consumable/Smokeables/smokeables.rsi, state: cannabis_dried }
+  spawn: N14LeavesCannabisDried
+  maxCount: 5
+
+- type: stack
+  id: N14GroundTobacco
+  name: ground tobacco
+  icon: { sprite: _Nuclear14/Objects/Consumable/Smokeables/smokeables.rsi, state: tobacco_powderpile }
+  spawn: N14GroundTobacco
+  maxCount: 5
+
+- type: stack
+  id: N14GroundCannabis
+  name: ground cannabis
+  icon: { sprite: _Nuclear14/Objects/Consumable/Smokeables/smokeables.rsi, state: cannabis_powderpile }
+  spawn: N14GroundCannabis
+  maxCount: 5
+
 - type: stack
   id: DaturaFlower
   name: datura flower
@@ -88,28 +123,28 @@
   icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/jalapeno.rsi, state: produce } #another potential sprite change -Hazel
   spawn: N14FloraProduceWildGlowpepper
   maxCount: 5
-  
+
 - type: stack
   id: WildMaize
   name: wild maize
-  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/maize.rsi, state: produce } 
+  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/maize.rsi, state: produce }
   spawn: N14FloraProduceWildMaize
   maxCount: 4
-  
+
 - type: stack
   id: MesquitePods
   name: mesquite pods
   icon: { sprite: _Nuclear14/Objects/Consumable/Flora/wastelandflora.rsi, state: MesquitePod }
   spawn: N14FloraProduceWildMesquitePods
   maxCount: 5
-  
+
 - type: stack
   id: Mutfruit
   name: mutfruit
   icon: { sprite: _Nuclear14/Objects/Consumable/Flora/wastelandflora.rsi, state: Mutfruit }
   spawn: N14FloraProduceWildMutfruit
   maxCount: 2
-  
+
 - type: stack
   id: Nettles
   name: nettles
@@ -120,17 +155,17 @@
 - type: stack
   id: WildOnion
   name: wild onion
-  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/onion.rsi, state: produce } 
+  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/onion.rsi, state: produce }
   spawn: N14FloraProduceWildOnion
   maxCount: 3
-  
+
 - type: stack
   id: PinyonNuts
   name: pinyon nuts
   icon: { sprite: _Nuclear14/Objects/Consumable/Flora/wastelandflora.rsi, state: PinyonNuts }
   spawn: N14FloraProduceWildPinyonNuts
   maxCount: 5
-  
+
 - type: stack
   id: PricklyPear
   name: prickly pear fruit
@@ -141,24 +176,24 @@
 - type: stack
   id: WildRazorgrain
   name: razorgrain
-  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/razorgrain.rsi, state: produce } 
+  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/razorgrain.rsi, state: produce }
   spawn: N14FloraProduceWildRazorgrain
   maxCount: 10
 
 - type: stack
   id: WildStarlightBerries
   name: wild starlight berries
-  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/starlight.rsi, state: produce } 
+  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/starlight.rsi, state: produce }
   spawn: N14FloraProduceWildStarlightBerries
   maxCount: 5
 
 - type: stack
   id: WildTarberries
   name: wild tarberries
-  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/tarberry.rsi, state: produce } 
+  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/tarberry.rsi, state: produce }
   spawn: N14FloraProduceWildTarberries
   maxCount: 5
-  
+
 - type: stack
   id: WildTato
   name: wild tato

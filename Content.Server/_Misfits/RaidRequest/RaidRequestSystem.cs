@@ -16,6 +16,7 @@ using Content.Server._Misfits.FactionWar;
 using Content.Server._Misfits.Group;
 using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
+using Content.Shared.Chat;
 using Content.Shared._Misfits.RaidRequest;
 using Content.Shared._Misfits.Group;
 using Content.Shared.GameTicking;
@@ -27,6 +28,7 @@ using Robust.Shared.Maths;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server._Misfits.RaidRequest;
 
@@ -548,8 +550,8 @@ public sealed class RaidRequestSystem : EntitySystem
         {
             _raidActivationTimes[entry.Id] = _gameTiming.CurTime + RaidPrepDuration;
 
-            // Server-wide chat heads-up so both factions can see the prep clock running.
-            _chat.DispatchServerAnnouncement(
+            // Only the involved sides receive the prep clock.
+            DispatchRaidAnnouncement(entry,
                 $"INCOMING RAID — {RaidRequestConfig.FactionDisplayName(entry.RequesterFaction)} → " +
                 $"{GetTargetDisplayName(entry)}.\n" +
                 $"Raid may begin in 5 minutes. Prepare accordingly.",
@@ -583,7 +585,7 @@ public sealed class RaidRequestSystem : EntitySystem
         // Overlay-participants dict now includes this raid's factions \u2014 [ALLY]/[ENEMY] tags appear.
         BroadcastParticipants();
 
-        _chat.DispatchServerAnnouncement(
+        DispatchRaidAnnouncement(entry,
             $"RAID HAS BEGUN — {RaidRequestConfig.FactionDisplayName(entry.RequesterFaction)} vs " +
             $"{GetTargetDisplayName(entry)}.\n" +
             $"Engagement window: 15 minutes.",
@@ -927,6 +929,46 @@ public sealed class RaidRequestSystem : EntitySystem
 
         foreach (var session in EnumerateFactionMembers(entry.TargetId))
             yield return session;
+    }
+
+    /// <summary>
+    /// Sends a server-style announcement only to the sides involved in a raid. Individual-tier
+    /// raids remain private to their requester; faction and group raids notify both sides.
+    /// </summary>
+    private void DispatchRaidAnnouncement(RaidRequestEntry entry, string message, Color color)
+    {
+        var recipients = new Dictionary<NetUserId, ICommonSession>();
+
+        if (entry.IsIndividual)
+        {
+            if (TryGetSession(entry.RequesterUserId, out var requester))
+                recipients.TryAdd(requester.UserId, requester);
+        }
+        else
+        {
+            foreach (var session in EnumerateFactionMembers(entry.RequesterFaction))
+                recipients.TryAdd(session.UserId, session);
+
+            foreach (var session in EnumerateTargetMembers(entry))
+                recipients.TryAdd(session.UserId, session);
+        }
+
+        if (recipients.Count == 0)
+            return;
+
+        var wrappedMessage = Loc.GetString(
+            "chat-manager-server-wrap-message",
+            ("message", FormattedMessage.EscapeText(message)));
+
+        _chat.ChatMessageToMany(
+            ChatChannel.Server,
+            message,
+            wrappedMessage,
+            EntityUid.Invalid,
+            hideChat: false,
+            recordReplay: true,
+            recipients.Values.Select(session => session.Channel),
+            color);
     }
 
     private bool IsEntityInTarget(EntityUid entity, RaidRequestEntry entry)

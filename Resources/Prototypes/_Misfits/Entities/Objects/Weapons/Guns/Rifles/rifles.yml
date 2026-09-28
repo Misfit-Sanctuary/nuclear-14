@@ -127,6 +127,7 @@
     - Back
     - suitStorage
   - type: Item
+    size: Huge
     sprite: _Misfits/Objects/Weapons/Guns/Rifles/t60heavyrifle.rsi
   - type: Sprite
     sprite: _Misfits/Objects/Weapons/Guns/Rifles/t60heavyrifleicon.rsi
@@ -135,13 +136,23 @@
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
+  - type: GunRequiresWield
+  - type: GunWieldBonus
+    minAngle: -23
+    maxAngle: -43
   - type: Gun
+    fireRate: 6
     minAngle: 24
     maxAngle: 45
     angleIncrease: 4
     angleDecay: 16
     soundGunshot:
       collection: N14RifleR91Gunshot
+  - type: Wieldable
+    wieldedSpeedModifier: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: ItemSlots
     slots:
       gun_magazine:

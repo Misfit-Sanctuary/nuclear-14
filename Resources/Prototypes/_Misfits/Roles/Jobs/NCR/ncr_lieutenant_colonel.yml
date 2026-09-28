@@ -1,0 +1,67 @@
+# #Misfits Add - lieutenant colonel: admin-only NCR leadership role.
+
+- type: job
+  id: NCRLTCol
+  setPreference: true
+  whitelisted: true
+  hideWithoutJobWhitelist: true
+  jobWhitelistBypassesRoleTimers: true # bypass faction timelocks — admin-only
+  alwaysUseSpawner: True
+  weight: 135
+  showBorder: true
+  canBeAntag: false
+  name: job-name-lieutenant-colonel
+  overwatchCategory: OverwatchNcrOfficers
+  description: job-description-ltcol
+  playTimeTracker: NCRLTCol
+  startingGear: NCRLTColGear
+  icon: "JobIconNcrLeader"
+  supervisors: job-supervisors-ncr-ltcol
+  requireAdminNotify: true
+  hideIfPlaytimeRequirementsNotMet: false
+  accessGroups:
+    - NCR
+    - NCRSGT
+    - NCRMedic
+    - NCRLT
+    - NCRCaptain
+    - NCRMajor
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Human
+        - Ghoul
+    - !type:CharacterDepartmentTimeRequirement
+      department: NCR
+      min: 252000 # 70 hours
+  special:
+    - !type:AddComponentSpecial
+      components:
+        - type: NpcFactionMember
+          factions:
+            - NCR
+
+- type: startingGear
+  id: NCRLTColGear
+  equipment:
+    wallet: N14Wallet
+    head: N14ClothingHeadHatNCRBeretOfficer
+    back: N14ClothingBackpackNCR
+    jumpsuit: N14ClothingOfficerUniformNCRDesert
+    outerClothing: MisfitsClothingOuterNCRTrenchCoat
+    shoes: N14ClothingBootsCombatFilled
+    neck: ClothingNeckPinNCRLtColonel
+    belt: ClothingBeltNCR
+    eyes: ClothingEyesGlassesSunglasses
+    ears: MisfitsClothingHeadsetNCRMaster
+    pocket1: NCRcaptainloadoutkits
+    pocket2: BoxFolderClipboard
+    id: N14NCRLieutenantColonelPipboy
+  innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage:
+    back:
+      - N14BoxPlasticFilledMilitaryNCR
+      - RadioHandheld
+- type: playTimeTracker
+  id: NCRLTCol

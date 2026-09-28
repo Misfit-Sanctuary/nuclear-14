@@ -28,6 +28,13 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 1.35
         sprintSpeedModifier: 1.35
+      - !type:Addicting
+        time: 8
+        withdrawalSpeedPenalty: 0.75
+        withdrawalStaminaDrain: 6.0
+        withdrawalDamage:
+          types:
+            Poison: 0.10
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
@@ -71,6 +78,10 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25
+      - !type:Addicting
+        time: 4
+        withdrawalSpeedPenalty: 0.90
+        withdrawalStaminaDrain: 3.0
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -125,6 +136,10 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 1.3
         sprintSpeedModifier: 1.3
+      - !type:Addicting
+        time: 5
+        withdrawalSpeedPenalty: 0.85
+        withdrawalStaminaDrain: 4.0
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold

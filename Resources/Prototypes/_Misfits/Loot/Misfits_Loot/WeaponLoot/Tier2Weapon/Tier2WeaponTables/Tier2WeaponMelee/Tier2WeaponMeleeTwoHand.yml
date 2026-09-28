@@ -1,0 +1,32 @@
+- type: entityTable
+  id: M14WeaponLootTier2_MeleeBluntTwoHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14SledgeHammer
+    - !type:EntSelector
+      id: N14BaseBallBat
+    - !type:EntSelector
+      id: N14NailBoard
+    - !type:EntSelector
+      id: N14PoolCue
+    - !type:EntSelector
+      id: N14GolfClub
+
+
+- type: entityTable
+  id: M14WeaponLootTier2_MeleeSharpTwoHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WastelandFlagSpear
+    - !type:EntSelector
+      id: N14WastelandSpear
+
+
+- type: entityTable
+  id: M14WeaponLootTier2_MeleeOtherTwoHanded
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: Error

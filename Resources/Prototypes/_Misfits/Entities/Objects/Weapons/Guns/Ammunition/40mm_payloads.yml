@@ -78,7 +78,7 @@
   components:
   - type: TriggerOnSpawn
   - type: EmpOnTrigger
-    # Reuse hand-pulse behavior, including the existing synthetic damage caps.
+    # Reuse the hand-pulse EMP behavior, including battery drain and synthetic damage.
     range: 4
     energyConsumption: 2700000
   - type: SpawnOnTrigger

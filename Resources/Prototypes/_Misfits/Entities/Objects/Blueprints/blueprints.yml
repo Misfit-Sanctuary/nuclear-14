@@ -183,6 +183,8 @@
     - N14BPNCRArmorRangerFieldArmor
     # #Misfits Add - Added Recruit Ranger sidegrade recipe
     - N14BPNCRArmorRangerFlakVest
+    # #Misfits Add - Added Medic Combat Armor
+    - MisfitsBPNCRArmorMedicCombatArmor
 
 - type: entity
   parent: N14BlueprintBase
@@ -262,8 +264,6 @@
     - MisfitsBPNCR40mmTearGas
     - MisfitsBPNCR40mmHEDP
     - MisfitsBPNCR40mmIncendiary
-    - MisfitsBPNCR40mmPulse
-    - MisfitsBPNCR40mmPlasma
 
 - type: entity
   parent: N14BlueprintBase
@@ -331,6 +331,7 @@
     - N14BPLegionWeaponSMG10mmChinese
     - N14BPLegionWeaponSniper44LeverShortCarbine
     - N14BPLegionWeaponSniper308Ross
+    - N14BPLegionWeaponSniperPaciencia
 
 - type: entity
   parent: N14BlueprintBase
@@ -470,6 +471,7 @@
     - N14BPLegionAmmoMag9mmSMGDrum
     - N14BPLegionAmmoMag10mmSMG
     - N14BPLegionAmmoBox308
+    - MisfitsBPLegionSuicideVest
 
 - type: entity
   parent: N14BlueprintBase
@@ -495,8 +497,6 @@
     - MisfitsBPLegion40mmTearGas
     - MisfitsBPLegion40mmHEDP
     - MisfitsBPLegion40mmIncendiary
-    - MisfitsBPLegion40mmPulse
-    - MisfitsBPLegion40mmPlasma
     - MisfitsBPLegionGrenadeFragDefensive
 
 - type: entity
@@ -548,7 +548,7 @@
     - N14BPBoSWeaponLaserRifleMakeshift
     - N14BPBoSWeaponLaserRifle
     - N14BPBoSWeaponPlasmaPistol
-    - N14BPBoSWeaponPlasmaDefender
+#   - N14BPBoSWeaponPlasmaDefender
     # #Misfits Add - mediocre kinetic surplus rifles (T2)
     - N14BPBoSWeaponRifle762M14
     - N14BPBoSWeaponShotgunTrench
@@ -666,7 +666,6 @@
   components:
   - type: Blueprint
     recipes:
-    - N14BPBoSAmmoPowerCellSmall
     - N14BPBoSAmmoElectronChargePackRed
     - N14BPBoSAmmoBox10mm
     # #Misfits Add - kinetic ammo for T1 mediocre guns (9mm / .45 / 12ga)
@@ -685,7 +684,6 @@
   - type: Blueprint
     recipes:
     - N14BPBoSAmmoPowerCellHigh
-    - N14BPBoSAmmoElectronChargePackGreen
     - N14BPBoSAmmoPlasmaCartridge
     # #Misfits Add - kinetic ammo for T2 mediocre guns (7.62 M14 / 5.45 AK-112)
     - N14BPBoSAmmoBox762
@@ -701,13 +699,10 @@
   components:
   - type: Blueprint
     recipes:
-    - N14BPBoSAmmoPowerCellAdvanced
-    - N14BPBoSAmmoElectronChargePackBlue
     - N14BPBoSAmmoPlasmaShell
     - N14BPBoSAmmoPlasmaCartridgeMultiplas
     - MisfitsBPBoSGrenadeFragOffensive # #Misfits Add - efficient conventional ordnance
     - MisfitsBPBoSGrenadeFragDefensive
-    - MisfitsBPBoSGrenadePlasma # #Misfits Add - Issue #968 Brotherhood plasma ordnance
     # #Misfits Add - complete 40mm family.
     - MisfitsBPBoS40mmHE
     - MisfitsBPBoS40mmBuckshot
@@ -717,8 +712,6 @@
     - MisfitsBPBoS40mmTearGas
     - MisfitsBPBoS40mmHEDP
     - MisfitsBPBoS40mmIncendiary
-    - MisfitsBPBoS40mmPulse
-    - MisfitsBPBoS40mmPlasma
 
 - type: entity
   parent: N14BlueprintBase
@@ -732,16 +725,15 @@
     # #Misfits Change - duplicate FC recipe removed; consolidated to single generic fusion core
     - N14BPBoSAmmoVertibirdGunBelt # #Misfits Add - vertibird turret belt
 
-- type: entity
-  parent: N14BlueprintBase
-  id: N14BlueprintBoSAmmoT5
-  name: BoS Experimental Violet-Spectrum Cell Plans
-  description: Highly classified experimental schematics for violet-spectrum energy cells. Tier 5 ammo.
-  components:
-  - type: Blueprint
-    recipes:
-    - N14BPBoSAmmoMicrofusionViolet
-    - N14BPBoSAmmoElectronChargePackViolet
+#- type: entity
+#  parent: N14BlueprintBase
+#  id: N14BlueprintBoSAmmoT5
+#  name: BoS Experimental Violet-Spectrum Cell Plans
+#  description: Highly classified experimental schematics for violet-spectrum energy cells. Tier 5 ammo.
+#  components:
+#  - type: Blueprint
+#    recipes:
+#    - N14BPBoSAmmoMicrofusionViolet
 
 # =====================================================================
 # TOWNSFOLK BLUEPRINTS
@@ -769,7 +761,6 @@
     - N14BPTownWeaponPistolM1911
     - N14BPTownWeaponPistol12mm
     - N14BPTownWeaponShotgunSawedOff
-    - N14BPTownWeaponSMGAmerican180
     - N14BPTownWeaponRevolver357Detective
     - N14BPTownWeaponSniperCowboyRepeater
 
@@ -799,6 +790,7 @@
     - N14BPTownWeaponSMGPPSh41
     - N14BPTownWeaponRifleAk112
     - N14BPTownWeaponSniper308Ross
+    - N14BPTownWeaponSniperPaciencia
     - N14BPTownWeaponSniper44LeverShortCarbine
 
 - type: entity
@@ -878,7 +870,7 @@
     - N14BPTownArmorTownGuardRiot
     - N14BPTownArmorPoliceCombat
     - N14BPTownArmorSheriffVest
-    - N14BPTownArmorMetalArmor
+    - N14BPTownArmorVestRCMP
     # #Misfits Add - paired riot Brodie variants and RCMP helmet
     - N14BPTownArmorHelmetBrodieCover
     - N14BPTownArmorHelmetBrodieVisor
@@ -892,13 +884,9 @@
   components:
   - type: Blueprint
     recipes:
-    - N14BPTownArmorCombatArmor
-    - N14BPTownArmorScavengerHeavyArmor
-    - N14BPTownArmorInsectArmor
-    # #Misfits Add - paired combat and pre-war military helmets
-    - N14BPTownArmorHelmetCombat
-    - N14BPTownArmorHelmetCombatCargo
-    - N14BPTownArmorHelmetPrewarMilitary
+    - N14BPTownArmorCombatArmorRCMP
+    # #Misfits Add - paired RCMP helmets/armors
+    - N14BPTownArmorHelmetSpecRCMP
 
 # --- Town Ammo ---
 - type: entity
@@ -917,7 +905,6 @@
     # #Misfits Add - ammo for T1 mediocre guns (.45 / 12mm / .22 drum / .357)
     - N14BPTownAmmoMag45Pistol
     - N14BPTownAmmoMagPistol12mm
-    - N14BPTownAmmoMagAmerican180Drum
     - N14BPTownAmmoBox357
     - N14BPTownAmmoSpeedLoader357
 
@@ -988,7 +975,6 @@
     - N14BPVaultWeaponPistol9mmChinese
     - N14BPVaultWeaponPistolM1911
     - N14BPVaultWeaponShotgunSawedOff
-    - N14BPVaultWeaponSMGAmerican180
 
 - type: entity
   parent: N14BlueprintBase
@@ -1004,6 +990,7 @@
     - N14BPVaultWeaponRifle10mmM1Carbine
     - N14BPVaultWeaponShotgunTrench
     - N14BPVaultWeaponSMG10mmChinese
+    - N14BPVaultWeaponAmerican180
 
 - type: entity
   parent: N14BlueprintBase
@@ -1160,6 +1147,7 @@
     - N14BPTribeWeaponWastelandSpear
     - N14BPTribeWeaponRevolver44Tribal
     - N14BPTribeWeaponBrokenPipe
+    - N14BPTribeWeaponLoveandHate
     # #Misfits Add - mediocre scavenged kinetic guns (T1)
     - N14BPTribeWeaponPistol9mmChinese
     - N14BPTribeWeaponPistol12mm

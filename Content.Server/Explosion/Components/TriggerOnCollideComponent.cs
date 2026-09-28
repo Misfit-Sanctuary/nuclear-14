@@ -11,5 +11,11 @@ namespace Content.Server.Explosion.Components
         /// </summary>
         [DataField("ignoreOtherNonHard")]
         public bool IgnoreOtherNonHard = true;
+
+        /// <summary>
+        /// Prevents a single physical impact from triggering the payload more than once when
+        /// the physics engine reports multiple fixture contacts before the entity is deleted.
+        /// </summary>
+        public bool Triggered;
     }
 }

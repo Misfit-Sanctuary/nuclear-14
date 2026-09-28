@@ -5,7 +5,7 @@ using Content.Shared.Storage;
 using Robust.Shared.Random;
 
 namespace Content.Server.Spawners.EntitySystems;
-
+// TODO: On pvs enter we check to respawn loot
 public sealed class TimedStorageFillSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
@@ -67,7 +67,7 @@ public sealed class TimedStorageFillSystem : EntitySystem
 
             // handle depending on storage component, again this should be unified after ECS
             if (entityStorageComp != null && _entityStorage.Insert(ent, uid, entityStorageComp))
-               continue;
+                continue;
 
             if (serverStorageComp != null && _storageSystem.Insert(uid, ent, out _))
                 continue;

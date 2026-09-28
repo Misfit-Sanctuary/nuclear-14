@@ -8,21 +8,11 @@ namespace Content.Shared._Misfits.C27;
 public sealed partial class MisfitsC27Component : Component
 {
     /// <summary>
-    ///     Shock damage dealt to the chassis on each EMP pulse. Represents the posibrain /
-    ///     internal-electronics shock the spec asks for. Scales linearly with the pulse's
-    ///     energy consumption so larger EMP charges hurt more.
+    ///     Shock damage dealt by a full-strength pulse grenade. Weaker EMP sources scale down
+    ///     from this ceiling using the same energy-based strength as other synthetic targets.
     /// </summary>
     [DataField]
-    public float EmpShockDamage = 25f;
-
-    /// <summary>
-    ///     Per-1000-J multiplier applied on top of <see cref="EmpShockDamage"/>. A standard
-    ///     1000 J pulse adds the flat damage; a 4000 J grenade adds 4× extra on top. The server
-    ///     caps this scaling for exceptionally large pulses so they cannot inflict five-digit
-    ///     damage and tear every limb from the C-27.
-    /// </summary>
-    [DataField]
-    public float EmpDamagePerKiloJoule = 5f;
+    public float MaxEmpShockDamage = 100f;
 
     /// <summary>
     ///     Multiplier applied to external silicon repair do-afters, such as welder repairs

@@ -1,0 +1,137 @@
+
+
+# tier 4
+- type: entityTable
+  id: M14MedsLootTier4_Common
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadAwayInhaler
+      weight: 8
+    - !type:EntSelector
+      id: N14RadAwayBloodbag
+      weight: 5
+    - !type:EntSelector
+      id: N14Stimpak
+      weight: 15
+    - !type:EntSelector
+      id: N14SuperStimpak
+      weight: 1
+
+- type: entityTable
+  id: M14MedsLootTier4_Stim
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Stimpak
+      weight: 15
+    - !type:EntSelector
+      id: N14SuperStimpak
+      weight: 1
+
+- type: entityTable
+  id: M14MedsLootTier4_AntiRad
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14RadAwayInhaler
+      weight: 25
+    - !type:EntSelector
+      id: N14RadAwayBloodbag
+      weight: 20
+
+- type: entityTable
+  id: M14MedsLootTier4_Drugs
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Med-X
+      weight: 8
+    - !type:EntSelector
+      id: N14Psycho
+      weight: 10
+    - !type:EntSelector
+      id: N14JetInhaler
+      weight: 10
+    - !type:EntSelector
+      id: N14Hydra
+      weight: 6
+    - !type:EntSelector
+      id: N14Turbo
+      weight: 6
+    - !type:EntSelector
+      id: N14FixerPill
+      weight: 1
+
+- type: entityTable
+  id: M14MedsLootTier4_DrugsUncommon
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Med-X
+      weight: 8
+    - !type:EntSelector
+      id: N14Hydra
+      weight: 5
+    - !type:EntSelector
+      id: N14Turbo
+      weight: 5
+    - !type:EntSelector
+      id: N14FixerPill
+      weight: 3
+    - !type:EntSelector
+      id: N14FixerCanisterFilled
+      weight: 1
+
+- type: entityTable
+  id: M14MedsLootTier4_DrugsRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Hydra
+      weight: 6
+    - !type:EntSelector
+      id: N14Turbo
+      weight: 6
+    - !type:EntSelector
+      id: N14FixerPill
+      weight: 5
+    - !type:EntSelector
+      id: N14FixerCanisterFilled
+      weight: 5
+
+- type: entityTable
+  id: M14MedsLootTier4_Topicals
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14Bandage
+      weight: 10
+    - !type:EntSelector
+      id: N14Traumapack
+      weight: 5
+    - !type:EntSelector
+      id: N14Ointment10
+      weight: 5
+    - !type:EntSelector
+      id: N14AloeSalve
+      weight: 10
+#N14OintmentAdv10
+
+- type: entityTable
+  id: M14MedsLootTier4_BloodlossMultRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14CleanGauze10
+      amount: !type:IntegerRangeNumberRNGSelector
+        min: 2
+        max: 3
+      weight: 20
+    - !type:EntSelector
+      id: N14Bandage
+      amount: !type:IntegerRangeNumberRNGSelector
+        min: 2
+        max: 3
+      weight: 35
+

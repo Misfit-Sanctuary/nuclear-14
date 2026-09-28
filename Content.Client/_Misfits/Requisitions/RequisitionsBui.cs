@@ -238,7 +238,7 @@ public sealed class RequisitionsBui : BoundUserInterface
             + "|" + (randomRequests == null
                 ? "x"
                 : string.Join(";", randomRequests.Select(s => s.Request is { } r
-                    ? $"{string.Join(",", r.Targets.Select(t => $"{t.IsReagent}|{t.TargetId}|{t.Amount}|{t.Progress}"))}|{r.Score}|{DictSignature(r.RewardItems)}|{CountdownBucket(r.RerollAvailableAt, now)}"
+                    ? $"{string.Join(",", r.Targets.Select(t => $"{t.IsReagent}|{t.TargetId}|{t.Amount}|{t.Progress}|{t.DiskRarity}"))}|{r.Score}|{DictSignature(r.RewardItems)}|{CountdownBucket(r.RerollAvailableAt, now)}"
                     : $"empty|{CountdownBucket(s.NextRollAt, now)}")));
         if (!RenderChanged("bounties", sig))
             return;
@@ -395,6 +395,11 @@ public sealed class RequisitionsBui : BoundUserInterface
             {
                 name = target.TargetId;
             }
+
+            // Misfits Add - a rarity-gated target only accepts a disk carrying a mutation
+            // of that rarity, so say which one instead of just "genetics disk".
+            if (target.DiskRarity is { } diskRarity)
+                name = $"{diskRarity} {name}";
 
             var markup = Loc.GetString("n14-requisitions-random-request-row",
                 ("done", target.Progress),

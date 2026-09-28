@@ -1,6 +1,6 @@
 # #Misfits Add - Followers of the Apocalypse department and ranked jobs.
 # Replaces the single upstream Followers job (now commented out in _Nuclear14/Roles/Jobs/Fun/followers.yml).
-# Hierarchy: Follower Head > Follower Doctor > Follower Guard > Follower Volunteer
+# Hierarchy: Follower Director > Follower Head > Follower Doctor > Follower Guard > Follower Volunteer
 
 - type: department
   id: FollowersOfTheApocalypse
@@ -8,11 +8,79 @@
   color: "#e8a838"
   uiCategory: MinorFaction
   roles:
+  - FollowerDirector
   - FollowerHead
   - FollowerDoctor
   - FollowerGuard
   - FollowerVolunteer
   - SuperMutantFollowerDoctor
+
+# ─── Follower Director ────────────────────────────────────────────────────────────
+- type: job
+  id: FollowerDirector
+  setPreference: true
+  whitelisted: true
+  hideWithoutJobWhitelist: true
+  jobWhitelistBypassesRoleTimers: true
+  weight: 110
+  displayWeight: 115
+  requireAdminNotify: true
+  canBeAntag: false
+  name: job-name-follower-director
+  description: job-description-follower-director
+  playTimeTracker: FollowerDirector
+  startingGear: FollowerDirectorGear
+  icon: "JobIconPassenger"
+  supervisors: job-supervisors-follower-director
+  accessGroups:
+  - FollowersApocalypse
+  - FotAHead
+  - FotADoctor
+  - FotA
+  requirements:
+  - !type:CharacterPlaytimeRequirement
+    tracker: FollowerDoctor
+    min: 36000 # 10 hours as Follower Doctor
+  - !type:CharacterDepartmentTimeRequirement
+    department: FollowersOfTheApocalypse
+    min: 54000 # 15 hours in faction
+  - !type:CharacterSpeciesRequirement
+    species:
+    - Human
+    - Ghoul
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - Followers # #Misfits Add - enables Followers death-alert targeting
+      - type: CPRTraining
+  - !type:AddTraitSpecial
+    traits:
+    - FiremanCarry
+
+- type: startingGear
+  id: FollowerDirectorGear
+  equipment:
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitFollowers
+    back: ClothingBackpackDuffelSurgeryFilled
+    shoes: N14ClothingBootsLeather
+    neck: ClothingNeckStethoscope
+    id: N14IDFollowerHead
+    ears: N14ClothingHeadsetFollowers
+    outerClothing: N14ClothingOuterCoatFollowerLab
+    belt: N14ClothingBeltMedicalFilled
+    pocket1: SurgicalSterilanSpray
+    pocket2: N14HandheldHealthAnalyzer
+    head: ClothingHeadHatBeretMedic
+  innerClothingSkirt: N14ClothingUniformJumpskirtFalloutBlack
+  satchel: N14ClothingBackpackSatchelWastelanderFilled
+  duffelbag: N14ClothingBackpackDuffelFilled
+
+- type: playTimeTracker
+  id: FollowerDirector
 
 # ─── Follower Head ────────────────────────────────────────────────────────────
 - type: job

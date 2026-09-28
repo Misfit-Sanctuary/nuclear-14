@@ -1,7 +1,6 @@
 # #Misfits Add - 509th Bonneville BoS T-51bc power armor loadout picks.
-# Role-gated loadout pick: the 509th BoS Elder suit is restricted to the Elder.
-# #Cythisiax Removed - The Head Paladin T-51bc pick was removed; the suit now belongs
-# to the hidden Honor Guard rank via its starting gear (see bos_honor_guard.yml).
+# Role-gated loadout picks: the 509th BoS Elder suit is restricted to the Elder,
+# the 509th BoS Head Paladin suit to the Head Paladin.
 # These are NOT round-join spawn gear — players must spend loadout points to receive them in-game.
 # Pattern mirrors LoadoutLegionPrincipes.
 
@@ -18,6 +17,15 @@
   items:
     - MisfitsClothingOuterPowerArmorBoS509Elder
 
-# #Cythisiax Removed - Head Paladin T-51bc loadout: the 509th T-51bc is no longer
-# accessible to the Head Paladin. The suit (now "MisfitsClothingOuterPowerArmorBoS509HonorGuard")
-# was moved to the hidden Honor Guard rank's starting gear (see bos_honor_guard.yml).
+# === Head Paladin: 509th BoS Head Paladin T-51bc ===
+- type: loadout
+  id: LoadoutBoS509HeadPaladinT51BC
+  category: Roles
+  cost: 16
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - BoSMidPaladinCommander
+  items:
+    - MisfitsClothingOuterPowerArmorBoS509HeadPaladin

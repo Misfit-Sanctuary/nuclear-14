@@ -1,0 +1,1064 @@
+- type: entity
+  name: Tier1 Parts ScrapHomeAll Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_ScrapHomeAll
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_ScrapHomeAll
+- type: entity
+  name: Tier1 Parts ScrapHomeAll 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_ScrapHomeAll
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_ScrapHomeAll
+- type: entity
+  name: Tier1 Parts ScrapHomeAll 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_ScrapHomeAll
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_ScrapHomeAll
+- type: entity
+  name: Tier1 Parts ScrapHomeGarage Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_ScrapHomeGarage
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_ScrapHomeGarage
+- type: entity
+  name: Tier1 Parts ScrapHomeGarage 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_ScrapHomeGarage
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_ScrapHomeGarage
+- type: entity
+  name: Tier1 Parts ScrapHomeGarage 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_ScrapHomeGarage
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_ScrapHomeGarage
+- type: entity
+  name: Tier1 Parts ScrapHomeEntertainment Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_ScrapHomeEntertainment
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_ScrapHomeEntertainment
+- type: entity
+  name: Tier1 Parts ScrapHomeEntertainment 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_ScrapHomeEntertainment
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_ScrapHomeEntertainment
+- type: entity
+  name: Tier1 Parts ScrapHomeEntertainment 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_ScrapHomeEntertainment
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_ScrapHomeEntertainment
+- type: entity
+  name: Tier1 Parts ScrapHomeLaundry Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_ScrapHomeLaundry
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_ScrapHomeLaundry
+- type: entity
+  name: Tier1 Parts ScrapHomeLaundry 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_ScrapHomeLaundry
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_ScrapHomeLaundry
+- type: entity
+  name: Tier1 Parts ScrapHomeLaundry 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_ScrapHomeLaundry
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_ScrapHomeLaundry
+- type: entity
+  name: Tier1 Parts ScrapKitchenAll Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_ScrapKitchenAll
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_ScrapKitchenAll
+- type: entity
+  name: Tier1 Parts ScrapKitchenAll 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_ScrapKitchenAll
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_ScrapKitchenAll
+- type: entity
+  name: Tier1 Parts ScrapKitchenAll 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_ScrapKitchenAll
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_ScrapKitchenAll
+- type: entity
+  name: Tier1 Parts ScrapKitchenCeramics Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_ScrapKitchenCeramics
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_ScrapKitchenCeramics
+- type: entity
+  name: Tier1 Parts ScrapKitchenCeramics 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_ScrapKitchenCeramics
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_ScrapKitchenCeramics
+- type: entity
+  name: Tier1 Parts ScrapKitchenCeramics 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_ScrapKitchenCeramics
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_ScrapKitchenCeramics
+- type: entity
+  name: Tier1 Parts ScrapKitchenAppliances Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_ScrapKitchenAppliances
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_ScrapKitchenAppliances
+- type: entity
+  name: Tier1 Parts ScrapKitchenAppliances 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_ScrapKitchenAppliances
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_ScrapKitchenAppliances
+- type: entity
+  name: Tier1 Parts ScrapKitchenAppliances 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_ScrapKitchenAppliances
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_ScrapKitchenAppliances
+- type: entity
+  name: Tier1 Parts ScrapKitchenOther Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_ScrapKitchenOther
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_ScrapKitchenOther
+- type: entity
+  name: Tier1 Parts ScrapKitchenOther 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_ScrapKitchenOther
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_ScrapKitchenOther
+- type: entity
+  name: Tier1 Parts ScrapKitchenOther 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_ScrapKitchenOther
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_ScrapKitchenOther
+- type: entity
+  name: Tier1 Parts ScrapToys Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_ScrapToys
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_ScrapToys
+- type: entity
+  name: Tier1 Parts ScrapToys 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_ScrapToys
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_ScrapToys
+- type: entity
+  name: Tier1 Parts ScrapToys 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_ScrapToys
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_ScrapToys
+- type: entity
+  name: Tier1 Parts ScrapHomeBathroom Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_ScrapHomeBathroom
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_ScrapHomeBathroom
+- type: entity
+  name: Tier1 Parts ScrapHomeBathroom 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_ScrapHomeBathroom
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_ScrapHomeBathroom
+- type: entity
+  name: Tier1 Parts ScrapHomeBathroom 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_ScrapHomeBathroom
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_ScrapHomeBathroom
+- type: entity
+  name: Tier1 Parts PaperAshSource Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_PaperAshSource
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_PaperAshSource
+- type: entity
+  name: Tier1 Parts PaperAshSource 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_PaperAshSource
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_PaperAshSource
+- type: entity
+  name: Tier1 Parts PaperAshSource 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_PaperAshSource
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_PaperAshSource
+- type: entity
+  name: Tier1 Parts Cigars Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_Cigars
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_Cigars
+- type: entity
+  name: Tier1 Parts Cigars 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_Cigars
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_Cigars
+- type: entity
+  name: Tier1 Parts Cigars 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_Cigars
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_Cigars
+- type: entity
+  name: Tier1 Parts MoneyPreWar Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_MoneyPreWar
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_MoneyPreWar
+- type: entity
+  name: Tier1 Parts MoneyPreWar 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_MoneyPreWar
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_MoneyPreWar
+- type: entity
+  name: Tier1 Parts MoneyPreWar 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_MoneyPreWar
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_MoneyPreWar
+- type: entity
+  name: Tier1 Parts Usables Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_Usables
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_Usables
+- type: entity
+  name: Tier1 Parts Usables 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_Usables
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_Usables
+- type: entity
+  name: Tier1 Parts Usables 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_Usables
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_Usables
+- type: entity
+  name: Tier1 Parts UsablesElectric Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_UsablesElectric
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_UsablesElectric
+- type: entity
+  name: Tier1 Parts UsablesElectric 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_UsablesElectric
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_UsablesElectric
+- type: entity
+  name: Tier1 Parts UsablesElectric 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_UsablesElectric
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_UsablesElectric
+- type: entity
+  name: Tier1 Parts UsablesTools Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_UsablesTools
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_UsablesTools
+- type: entity
+  name: Tier1 Parts UsablesTools 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_UsablesTools
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_UsablesTools
+- type: entity
+  name: Tier1 Parts UsablesTools 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_UsablesTools
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_UsablesTools
+- type: entity
+  name: Tier1 Parts UsablesOther Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_UsablesOther
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_UsablesOther
+- type: entity
+  name: Tier1 Parts UsablesOther 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_UsablesOther
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_UsablesOther
+- type: entity
+  name: Tier1 Parts UsablesOther 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_UsablesOther
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_UsablesOther
+- type: entity
+  name: Tier1 Parts TrashFood Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_TrashFood
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_TrashFood
+- type: entity
+  name: Tier1 Parts TrashFood 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_TrashFood
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_TrashFood
+- type: entity
+  name: Tier1 Parts TrashFood 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_TrashFood
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_TrashFood
+- type: entity
+  name: Tier1 Parts ScrapHomeSafeItems Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_ScrapHomeSafeItems
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_ScrapHomeSafeItems
+- type: entity
+  name: Tier1 Parts ScrapHomeSafeItems 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_ScrapHomeSafeItems
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_ScrapHomeSafeItems
+- type: entity
+  name: Tier1 Parts ScrapHomeSafeItems 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_ScrapHomeSafeItems
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_ScrapHomeSafeItems
+- type: entity
+  name: Tier1 Parts JunkElectronics Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_JunkElectronics
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_JunkElectronics
+- type: entity
+  name: Tier1 Parts JunkElectronics 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_JunkElectronics
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_JunkElectronics
+- type: entity
+  name: Tier1 Parts JunkElectronics 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_JunkElectronics
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_JunkElectronics
+- type: entity
+  name: Tier1 Parts JunkMetalFocus Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_JunkMetalFocus
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_JunkMetalFocus
+- type: entity
+  name: Tier1 Parts JunkMetalFocus 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_JunkMetalFocus
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_JunkMetalFocus
+- type: entity
+  name: Tier1 Parts JunkMetalFocus 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_JunkMetalFocus
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_JunkMetalFocus
+- type: entity
+  name: Tier1 Parts JunkPlasticFocus Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_JunkPlasticFocus
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_JunkPlasticFocus
+- type: entity
+  name: Tier1 Parts JunkPlasticFocus 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_JunkPlasticFocus
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_JunkPlasticFocus
+- type: entity
+  name: Tier1 Parts JunkPlasticFocus 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_JunkPlasticFocus
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_JunkPlasticFocus
+- type: entity
+  name: Tier1 Parts ElectricComp Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_ElectricComp
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_ElectricComp
+- type: entity
+  name: Tier1 Parts ElectricComp 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_ElectricComp
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_ElectricComp
+- type: entity
+  name: Tier1 Parts ElectricComp 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_ElectricComp
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_ElectricComp
+- type: entity
+  name: Tier1 Parts Machine Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_Machine
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_Machine
+- type: entity
+  name: Tier1 Parts Machine 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_Machine
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_Machine
+- type: entity
+  name: Tier1 Parts Machine 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_Machine
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_Machine
+- type: entity
+  name: Tier1 Parts RepairKitRecipe Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_RepairKitRecipe
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_RepairKitRecipe
+- type: entity
+  name: Tier1 Parts RepairKitRecipe 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_RepairKitRecipe
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_RepairKitRecipe
+- type: entity
+  name: Tier1 Parts RepairKitRecipe 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_RepairKitRecipe
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_RepairKitRecipe
+- type: entity
+  name: Tier1 Parts Adhesives Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_Adhesives
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_Adhesives
+- type: entity
+  name: Tier1 Parts Adhesives 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_Adhesives
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_Adhesives
+- type: entity
+  name: Tier1 Parts Adhesives 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_Adhesives
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_Adhesives
+- type: entity
+  name: Tier1 Parts Chemicals Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_Chemicals
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_Chemicals
+- type: entity
+  name: Tier1 Parts Chemicals 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_Chemicals
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_Chemicals
+- type: entity
+  name: Tier1 Parts Chemicals 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_Chemicals
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_Chemicals
+- type: entity
+  name: Tier1 Parts GunParts Single
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Single_GunParts
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier1_GunParts
+- type: entity
+  name: Tier1 Parts GunParts 0-3
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult0_3_GunParts
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier1_GunParts
+- type: entity
+  name: Tier1 Parts GunParts 1-2
+  suffix: Tier1
+  id: M14PartsTier1Spawner_Mult1_2_GunParts
+  parent: M14Tier1Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier1_GunParts

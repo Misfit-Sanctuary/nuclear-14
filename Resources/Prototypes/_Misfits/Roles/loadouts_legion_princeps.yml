@@ -5,10 +5,10 @@
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
-      jobs:
+     jobs:
         - CaesarLegionVeteranDecanus
     - !type:CharacterPlaytimeRequirement
       tracker: CaesarLegionVeteranDecanus
       min: 90000 # 25 hours
   items:
-    - MisfitsLegionPrincepsArmor
+    - N14ClothingOuterPowerArmorLegionPrinceps

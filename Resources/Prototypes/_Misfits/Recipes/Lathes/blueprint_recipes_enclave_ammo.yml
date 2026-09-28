@@ -27,23 +27,6 @@
 # ENCLAVE ENERGY CELL RECIPES
 # =====================================================================
 
-# #Misfits Add - Enclave grenade fabrication matches the Brotherhood's efficient
-# plasma-grenade blueprint. This grants crafting only; no round-start issue is added.
-- type: latheRecipe
-  id: MisfitsBPEnclaveGrenadePlasma
-  result: MisfitsGrenadePlasma
-  category: N14BlueprintEnclaveAmmo
-  completetime: 12
-  requiresBlueprint: true
-  applyMaterialDiscount: false
-  availableFaction:
-  - Enclave
-  materials:
-    Steel: 1000
-    Glass: 600
-    Circuitry: 300
-    ScrapElectronic: 500
-
 # Plasma cartridge - feeds every plasma weapon in the Enclave set.
 - type: latheRecipe
   id: N14BPEnclaveAmmoPlasmaCartridge

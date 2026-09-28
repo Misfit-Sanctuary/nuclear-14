@@ -1,4 +1,5 @@
 using Content.Server.Emp;
+using Content.Shared._Misfits.Emp;
 using Content.Shared._Misfits.PowerArmor;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -13,6 +14,7 @@ namespace Content.Server._Misfits.PowerArmor;
 /// </summary>
 public sealed class PowerArmorEmpSystem : EntitySystem
 {
+    // Power armor still conducts a significant, resistance-bypassing EMP shock into its wearer.
     private const float EmpShockDamage = 50f;
 
     private static readonly ProtoId<DamageTypePrototype> ShockDamage = "Shock";
@@ -33,12 +35,15 @@ public sealed class PowerArmorEmpSystem : EntitySystem
             return;
 
         // The armor is the immediate source because it conducts the EMP into its wearer.
-        var damage = new DamageSpecifier(shockPrototype, EmpShockDamage);
+        var damage = new DamageSpecifier(
+            shockPrototype,
+            EmpShockDamage * MisfitsEmpScaling.GetStrength(args.EnergyConsumption));
         _damageable.TryChangeDamage(
             ent.Owner,
             damage,
             ignoreResistances: true,
-            origin: ent.Comp.Armor);
+            origin: ent.Comp.Armor,
+            doPartDamage: false);
 
         args.Affected = true;
         _popup.PopupEntity(

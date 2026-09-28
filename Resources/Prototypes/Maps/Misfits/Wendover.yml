@@ -66,6 +66,7 @@
           TownShopkeeper: [ 1, 1 ]
           TownShopkeeperHelper: [ 1, 1 ] # Forge-Town
           Townsperson: [ -1, -1 ] # #Misfits Change - uncapped, now default starter role
+          NCRLTCol: [ 1, 1 ] #whitelist-only faction rep roles
           NCRMajor: [ 1, 0 ] # whitelist-only command role; 0 active late-join slots
           NCRCommander: [ 1, 1 ]
           NCRProvost: [ 1, 1 ]
@@ -139,6 +140,7 @@
           CaesarLegionOptio: [ 1, 1 ] # Misfits-Legion
           CaesarLegionPriestessOfMars: [ 1, 1 ] # Misfits-Legion — Priestess of Mars late-join slot
           CaesarLegionAcolyteOfMars: [ 3, 3 ] # Misfits-Legion — Acolyte of Mars late-join slot
+          CaesarLegionTempleGuard: [ 4, 4 ]
           CaesarLegionHoundmaster: [ 1, 1 ] # Forge-Legion
           # #Misfits Change: CaesarLegionRecruit slot removed — CaesarLegionLegionnaireRecruit (line 103) already covers entry-level.
           CaesarLegionAuxilia: [ 4, 4 ] # #Misfits Change - activated
@@ -156,6 +158,7 @@
           FollowerGuard: [ 2, 2 ]      # #Misfits Add - FOTA compound guards
           FollowerDoctor: [ 2, 2 ]   # #Misfits Add - Doctor rank slot
           FollowerHead: [ 1, 1 ]     # #Misfits Fix - allow Head to round-start as well as latejoin
+          FollowerDirector: [ 1, 1 ] # #Misfits Add - Director rank slot
           SyntheticMrHandy: [ 1, 3 ]
           SyntheticProtectron: [ 1, 3 ]
           SyntheticMrGutsy: [ 1, 3 ]

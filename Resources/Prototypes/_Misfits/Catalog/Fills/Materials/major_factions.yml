@@ -8,14 +8,21 @@
   - type: StorageFill
     contents:
     - id: N14MedkitStimkitFilled
+    # Standard medical supplies
     - id: N14Ointment10
       amount: 3
     - id: N14CleanGauze10
-      amount: 3
+      amount: 2
     - id: Bloodpack
       amount: 2
     - id: Brutepack
-      amount: 2
+    # New topicals
+    - id: MisfitsHealingSalve5
+    - id: MisfitsHerbalAnodyne5
+    - id: MisfitsHerbalAntimicrobial5
+    - id: MisfitsDaturaHide5
+    - id: MisfitsSnakebiteTourniquet5
+    # Medical equipment / drugs
     - id: N14HandheldHealthAnalyzer
     - id: N14Antidote
     - id: N14ChemicalSyringeAntidote
@@ -32,21 +39,30 @@
   components:
   - type: StorageFill
     contents:
-    - id: N14AloeSalve
-      amount: 4
-    - id: N14CleanGauze10
-      amount: 4
-    - id: Bloodpack
-      amount: 4
+    # Basic natural medicine
     - id: N14HandheldHealthAnalyzer
     - id: Portafib
-    - id: N14Bitterdrink
-      amount: 2
+    - id: N14AloeSalve
+      amount: 3
+    - id: N14CleanGauze10
+      amount: 3
     - id: N14DirtyGauze10
       amount: 3
-    - id: N14SmellingSalts
+    - id: N14Bitterdrink
       amount: 2
-    - id: N14JunkAbraxoCleaner
+    # Traditional medicine
+    - id: N14HealingPowder
+      amount: 2
+    - id: N14HealingPoultice
+      amount: 2
+    - id: N14MourningPoultice
+    # New herbal / low-tech topicals
+    - id: MisfitsHealingSalve5
+    - id: MisfitsHerbalAnodyne5
+    - id: MisfitsHerbalAntimicrobial5
+    - id: MisfitsDaturaHide5
+    - id: MisfitsSnakebiteTourniquet5
+    - id: MisfitsHerbalStimulant
       amount: 2
 
 # prison shit

@@ -1,0 +1,11 @@
+<!-- SPDX-License-Identifier: MIT -->
+<!-- Adapted from Goob Station / Trauma Station -->
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc constructor-window-title}" MinSize="300 400" SetSize="300 400">
+    <BoxContainer Orientation="Vertical" Margin="4">
+        <LineEdit Name="SearchLine" PlaceHolder="{Loc constructor-window-search}" Margin="0 0 0 4" />
+        <ItemList Name="RecipeList" VerticalExpand="True" HorizontalExpand="True" SelectMode="Button" />
+    </BoxContainer>
+</controls:FancyWindow>

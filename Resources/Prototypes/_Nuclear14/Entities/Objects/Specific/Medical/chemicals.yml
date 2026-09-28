@@ -1059,6 +1059,8 @@
     damageContainers:
       - Biological
     damage:
+      groups:
+        Burn: -2
       types:
         Slash: -10 # Was 5
         Piercing: -15 # Was 10, Buffed due to limb damage changes
@@ -1088,6 +1090,8 @@
   name: ethanol bottle
   description: A small brown glass bottle containing ethanol. Great for disinfecting wounds.
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.125" # Four pixels down to meet the bottle neck.
   - type: SurgeryCleansDirt #Misfits Add - Lets the ethanol bottle directly sanitize contaminated surgery tools.
     dirtAmount: 12
     dnaAmount: 1

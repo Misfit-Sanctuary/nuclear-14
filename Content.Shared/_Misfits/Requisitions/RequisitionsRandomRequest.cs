@@ -1,3 +1,4 @@
+using Content.Shared._Misfits.Genetics.Mutations;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Misfits.Requisitions;
@@ -51,4 +52,11 @@ public sealed partial class RequisitionsRandomRequestTarget
 
     [DataField]
     public int Progress;
+
+    /// <summary>
+    /// When set, this target is satisfied only by genetics disks carrying a mutation
+    /// of this rarity. Blank disks never count.
+    /// </summary>
+    [DataField]
+    public MutationRarity? DiskRarity;
 }

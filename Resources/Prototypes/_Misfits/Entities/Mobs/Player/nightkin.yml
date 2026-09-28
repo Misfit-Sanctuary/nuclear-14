@@ -37,11 +37,43 @@
     - type: SlowOnDamage
       speedModifierThresholds:
         200: 0.85
-    # #Misfits Add - no passive regen. instead they heal 0.5/sec in every damage
-    # type they're hurt in, but only while soaking rads. healFactor 0 turns off the
-    # inherited exposure-scaled heal so this flat rate is the only one.
+    # #Misfits Add - they heal 0.5/sec in every damage type they're hurt in, but only
+    # while soaking rads. healFactor 0 turns off the inherited exposure-scaled heal so
+    # this flat rate is the only one. Stacks on top of the PassiveDamage floor below.
     - type: RadiationHealing
       healFactor: 0
       healCap: 360
     - type: RadiationRegen
       healPerSecond: 0.5
+    # #Misfits Change - unnatural regeneration, always on.
+    # This REPLACES the regen inherited from base.yml (damageCap 20, Alive only), which was
+    # useless on a 400 HP frame - it stopped after the first scratch. The old comment here
+    # claimed Nightkin had no passive regen at all; they did, it just never did anything.
+    # Explicit types, not groups: a group value is split across its member damage types, so
+    # a Brute group value of -0.20 would only heal -0.067 per type. The Brute group is
+    # pinned to 0 rather than dropped: base.yml sets Brute -0.07 there, and leaving the key
+    # out entirely would let that inherited value ride on top of the numbers below. A group
+    # entry of 0 contributes nothing, so the types list is the whole story.
+    - type: PassiveDamage
+      allowedStates:
+      - Alive
+      - Critical # they claw their own way back out of crit, slowly
+      damageCap: 350 # 87.5% of the 400 dead threshold
+      damage:
+        groups:
+          Brute: 0
+        types:
+          Blunt: -0.20
+          Slash: -0.20
+          Piercing: -0.20
+          Heat: -0.20
+          Cold: -0.20
+          Shock: -0.20
+          Caustic: -0.20
+          Asphyxiation: -0.35 # crit drags on; getting up takes a while
+          Bloodloss: -0.10
+          # #Misfits Note - deliberately NOT healing Poison or Radiation here.
+          # At -0.10/s this regen out-healed the stealth implant's own cost (0.1 Poison
+          # every 5s = 0.02/s) five to one, so the cloak silently became free. It also
+          # masked toxic gas. Rads are already covered by RadiationHealing/RadiationRegen
+          # and NightkinIronGuts, so nothing is lost by leaving both out.

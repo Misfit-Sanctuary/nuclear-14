@@ -103,6 +103,11 @@
   - type: Stamina
     critThreshold: 1000 # 10x human
     decay: 30   # 10x recovery
+  # #Misfits Add - innate fireman carry. A mutant hauls a body one-handed; carrying or
+  # dragging someone costs them no speed. Only the two player mobs inherit from here
+  # (player supermutant and nightkin) - hostile NPCs sit on the N14MobBaseHostile chain.
+  # The FiremanCarry trait is hidden from these species so the -2 points aren't wasted.
+  - type: CanFiremanCarry
   # Misfits Change - radiation is absorbed as healing fuel rather than damage.
   # healFactor 0.1 (default) ≈ 2× super stimpack rate in a moderate rad zone (~50 rads/sec).
   # healCap scaled to SM health: 360 = 90% of 400 dead threshold (vs 90 = 90% of 100 crit for humans).

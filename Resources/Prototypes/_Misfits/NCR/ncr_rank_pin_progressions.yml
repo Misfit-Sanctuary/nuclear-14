@@ -44,8 +44,12 @@
   departmentTracker: false
   thresholds:
     - min: 0
+      entity: ClothingNeckPinNCRSecondLieutenant
+    - min: 108000  # 30 hours
+      entity: ClothingNeckPinNCRFirstLieutenant
+    - min: 216000  # 60 hours
       entity: ClothingNeckPinNCRCaptain
-    - min: 72000   # 20 hours
+    - min: 360000  # 100 hours
       entity: ClothingNeckPinNCRMajor
 
 # Executive Officer: 1LT (O-2) → Captain (O-3) at 20h
@@ -73,7 +77,7 @@
       entity: ClothingNeckPinNCRSecondLieutenant
     - min: 72000   # 20 hours
       entity: ClothingNeckPinNCRFirstLieutenant
-      
+
 # Requisition Officer 2LT (O-1) → 1LT (O-2) at 20h → Captain (O-3) at 40h
 - type: ncrRankPinProgression
   id: NCRRequisitionOfficerPins
@@ -208,7 +212,7 @@
       entity: ClothingNeckPinNCRPrivate1st
     - min: 216000  # 60 hours
       entity: ClothingNeckPinNCRSpecialist
-      
+
 # C-27: PFC (E-3) -> SPC (E-4) at 20h -> Corporal (E-4) at 40h > Sergeant (E-5) at 60h
 - type: ncrRankPinProgression
   id: NCRC27Pins

@@ -1,0 +1,86 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Adapted from Goob Station / Trauma Station
+
+- type: sourcePort
+  id: Powered
+  name: signal-port-name-powered
+  description: signal-port-description-powered
+
+# Robotic Arm
+
+- type: sourcePort
+  id: RoboticArmOutput
+  name: signal-port-name-output-machine
+  description: signal-port-description-output-machine
+
+- type: sourcePort
+  id: RoboticArmMoved
+  name: signal-port-name-item-moved
+  description: signal-port-description-item-moved
+
+- type: sourcePort
+  id: AutomationSlotFilter
+  name: signal-port-name-automation-slot-filter
+  description: signal-port-description-automation-slot-filter
+
+# Storage Bin
+
+- type: sourcePort
+  id: AutomationSlotStorage
+  name: signal-port-name-automation-slot-storage
+  description: signal-port-description-automation-slot-storage
+
+- type: sourcePort
+  id: StorageInserted
+  name: signal-port-name-storage-inserted
+  description: signal-port-description-storage-inserted
+
+- type: sourcePort
+  id: StorageRemoved
+  name: signal-port-name-storage-removed
+  description: signal-port-description-storage-removed
+
+# Constructor / Interactor
+
+- type: sourcePort
+  id: Started
+  name: signal-port-name-machine-started
+  description: signal-port-description-machine-started
+
+- type: sourcePort
+  id: Completed
+  name: signal-port-name-machine-completed
+  description: signal-port-description-machine-completed
+
+- type: sourcePort
+  id: Failed
+  name: signal-port-name-machine-failed
+  description: signal-port-description-machine-failed
+
+# Interactor
+
+- type: sourcePort
+  id: AutomationSlotTool
+  name: signal-port-name-automation-slot-tool
+  description: signal-port-description-automation-slot-tool
+
+# Plumbing Pump
+
+- type: sourcePort
+  id: PlumbingOutput
+  name: signal-port-name-plumbing-output
+  description: signal-port-description-plumbing-output
+
+# Solution automation
+
+- type: sourcePort
+  id: AutomationSlotSolution
+  name: signal-port-name-automation-slot-solution
+  description: signal-port-description-automation-slot-solution
+
+# Lathe
+
+- type: sourcePort
+  id: LatheCurrentRecipe
+  name: signal-port-name-lathe-current-recipe
+  description: signal-port-description-lathe-current-recipe

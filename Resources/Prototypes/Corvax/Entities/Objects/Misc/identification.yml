@@ -3,7 +3,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryMedalLegate
   name: legion legate medallion
-  description: "The sign of Caesar's will."
+  description: "The will of Caesar is deathless, feeling this medallion in your hands you know your destiny, to ensure his empire spreads eternal from coast to coast."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -22,7 +22,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryBadge
   name: distinctive sign
-  description: "The sign of the red bull."
+  description: "This amulet marks you as one who has proven a useful asset of the Legion, more than a mere slave."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -41,7 +41,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryBadgeCitizen
   name: Distinctive Sign
-  description: "A Sign of the red bull, this one is given to Citizen's of Legion Tribute towns. protecting them from slavery and allowing them to travel in Legion lands."
+  description: "This amulet marks you as a citizen of the Legion territories, protected from any slavery and allowing free travel in their lands without fear of ambush."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -60,7 +60,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryBadgeTrader
   name: Distinctive Sign
-  description: "A Sign of the red bull, this one is given to Caravaneers that trade in Legion lands."
+  description: "This amulet marks you as a citizen of the Legion territories, protected from any slavery and allowing free travel in their lands without fear of ambush. A small scroll in its hollowed interior show its holder is a licensed member of the Caravan Network."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -79,7 +79,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryBadgeRecruit
   name: distinctive sign
-  description: "The sign of a Legion recruit."
+  description: "This freshly minted medallion marks you as property of the Legion, a soldier who shall enforce Caesar's will at the cost of his own life."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -98,7 +98,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryMedalSilver
   name: legion legionnaire medallion
-  description: "A distinctive medal with the sign of the bull."
+  description: "This dull medallion marks you as property of the Legion, a loyal soldier who will strike down the enemies of Caesar without question or thought."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -118,7 +118,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryMedalRecruit
   name: legion recruit medallion
-  description: "A silver medal worn by a Legion recruit."
+  description: "This freshly minted medallion marks you as property of the Legion, a new soldier who shall enforce Caesar's will at the cost of his own life."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -137,7 +137,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryMedalLegionnaireRecruit
   name: legion legionnaire recruit medallion
-  description: "A silver medal awarded to a Legionnaire recruit."
+  description: "This freshly minted medallion marks you as property of the Legion, a new soldier who shall enforce Caesar's will at the cost of his own life."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -156,7 +156,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryMedalHoundmaster
   name: legion houndmaster medallion
-  description: "A medal worn by the keepers of Caesar's hounds."
+  description: "This scratched up medallion marks you as property of the Legion, a valuable soldier who will raise loyal and strong hounds to brawl and die in greater glory than the men fighting alongside them."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -176,7 +176,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryBadgeAuxilia
   name: distinctive sign
-  description: "The sign of a Legion auxilia."
+  description: "This amulet marks you as one who has proven a useful asset of the Legion, more than a mere slave."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -195,7 +195,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryBadgePriestessOfMars
   name: distinctive sign
-  description: "The sign of a Priestess of Mars."
+  description: "The intricate carvings of this amulet mark you as a Priestess of Mars, a woman bound to Mars who is entrusted to divine and interpret the will of the War God that will guide the Legion to victory."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -210,12 +210,31 @@
     tags:
     - IdCardLegion
 
+- type: entity
+  parent: N14IDPassportBlank
+  id: N14IDLegionaryBadgeTempleGuard
+  name: distinctive sign
+  description: "This amulet marks one who has been entrusted with a sacred and specific duty, the protection of the Priestess of Mars and her Temple's sanctity. Let none defile it, or it will be your head."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/identification.rsi
+    state: sign
+  - type: IdCard # #Misfits Add - display "medallion" instead of default "ID card"
+    nameLocId: n14-id-medallion-name
+    fullNameLocId: n14-id-medallion-full-name
+  - type: PresetIdCard
+    job: CaesarLegionTempleGuard
+  #Misfits Add - IdCardLegion enables this badge to appear on the Centurion's tactical map terminal
+  - type: Tag
+    tags:
+    - IdCardLegion
+
 #Misfits Change /Add/: Legion Slave sign so the role carries the same legion badge style with its own access data.
 - type: entity
   parent: N14IDPassportBlank
   id: N14IDLegionaryBadgeSlave
   name: distinctive sign
-  description: "The sign of a Legion slave."
+  description: "The mark of a slave, property of the Legion meant to work until they die. Perhaps if you have some unique skill or prove your worth, you might escape this fate."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -234,7 +253,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryMedalSilver2
   name: legion veteran legionnaire medallion
-  description: "A distinctive medal with the sign of the bull."
+  description: "This battered medallion marks you as property of the Legion, a soldier that has proven their value to Caesar's army, worthy of respect among their peers."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -253,7 +272,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryMedalVexillarius
   name: legion vexillarius medallion
-  description: "A medal granted to one who carries the Legion's standard."
+  description: "This shiny medallion marks you as property of the Legion, a soldier who has the honor of bearing the standard of the Legion, inspiring your fellow warriors past mortal wounds to eternal glory."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -272,7 +291,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryMedalSilver3
   name: legion decanus medallion
-  description: "A distinctive medal with the sign of the bull."
+  description: "This medallion marks you as property of the Legion, a valued soldier of Caesar who has earned the right of command, one who will have stories told of their exploits should they survive Caesar's many enemies."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -291,7 +310,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryMedalForgemaster
   name: legion forgemaster medallion
-  description: "A Silver Medallion bearing the symbol of the Legion Forgemaster."
+  description: "This shiny medallion marks you as property of the Legion, a valued soldier of Caesar who has earned command of the camp's logistics and ensuring the warriors are armed. You are an officer, one who merits respect should you still prove useful."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -310,7 +329,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryMedalExplorer
   name: legion explorer medallion
-  description: "A medal worn by a Legion Explorer."
+  description: "This scratched medallion marks you as property of the Legion, one who has seen many strange sights across the wasteland and survived them all, yet has remained loyal to the vision of Caesar's will."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -329,7 +348,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryMedalOptio
   name: legion optio medallion
-  description: "A medal worn by a Legion Optio."
+  description: "This decorated medallion marks you as property of the Legion, an exceptional soldier  who serves as the second in command and trusted advisor of the Centurion, the mentor you will one day replace. Aide them in diplomacy and matters of tactics."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -348,7 +367,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryMedalFrumentarii
   name: legion frumentarii medallion
-  description: "A plain medal carried by the Legion's Frumentarii."
+  description: "This simple medallion marks you as property of the Legion, a devoted spy of Caesar who has dedicated their lives to the most difficult and eternal of duties, to observe the enemy and sabotage them despite any personal risks involved."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -367,7 +386,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryMedalPrimeDecanus
   name: legion prime decanus medallion
-  description: "A medal marking the rank of a Prime Decanus."
+  description: "This dull medallion marks you as property of the Legion, a valued soldier of Caesar who has earned the right of command, one who has proven their worth beyond that of an eager gloryhound."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -386,7 +405,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryMedalVeteranDecanus
   name: legion veteran decanus medallion
-  description: "A distinctive medal carried by a veteran decanus."
+  description: "This battered medallion marks you as property of the Legion, a valued soldier of Caesar who has earned the right of command, savage in combat and wise in tactics. Yours is a valuable mind and a steady swordarm in service of Caesar's will."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -405,7 +424,7 @@
   parent: N14IDPassportBlank
   id: N14IDLegionaryMedalGold
   name: legion centurion medallion
-  description: "A distinctive medal with the sign of the bull."
+  description: "This magnificent medallion marks you as property of the Legion, slave only to the great Caesar eternal now, serving as a commander of warriors, a diplomat to external powers, and a scholar of military tactics without equal."
   components:
   - type: Sprite
     sprite: Corvax/Objects/Misc/identification.rsi
@@ -439,7 +458,7 @@
   parent: [ N14IDPassportBlank, AgentPreset ]
   id: N14IDNCRDogtagAgent
   name: soldier's dogtags
-  description: An ID dogtag worn by members of the NCR.
+  description: With any luck, this war will be over in time for the holidays.
   suffix: Soldier, Cadet, Agent
   components:
   - type: Sprite
@@ -455,7 +474,7 @@
   parent: [ N14IDPassportBlank, AgentPreset ]
   id: N14IDBrotherhoodHolotagAgent
   name: squire's holotags
-  description: An ID holotag worn by the Brotherhood of Steel.
+  description: You still have something to prove, and all the opportunity to mess it all up first.
   suffix: Squire, Agent
   components:
   - type: Sprite
@@ -583,7 +602,7 @@
   parent: N14IDPassportBlank
   id: N14IDBrotherhoodWestHolotag
   name: head scribe's holotags
-  description: An ID holotag worn by the Head Scribe of the Brotherhood of Steel.
+  description: The chapter looks to you for guidance. Do not just recycle past knowledge, they need you to make new discoveries for humanity's survival.
   suffix: Head Scribe
   components:
   - type: Sprite
@@ -605,7 +624,7 @@
   parent: N14IDBrotherhoodWestHolotag
   id: N14IDBrotherhoodWestHolotagGunsmith
   name: squire's holotags
-  description: An ID holotag worn by a Brotherhood squire.
+  description: You still have something to prove, and all the opportunity to mess it all up first.
   suffix: Squire
   components:
   - type: PresetIdCard
@@ -615,7 +634,7 @@
   parent: N14IDBrotherhoodWestHolotag
   id: N14IDBrotherhoodWestHolotagKnight
   name: senior knight's holotags
-  description: An ID holotag worn by a Brotherhood Senior Knight.
+  description: These holotags are only issued to those who have proven both competent and responsible, worthy of keeping the chapter from descending into insanity.
   suffix: Senior Knight
   components:
   - type: PresetIdCard
@@ -625,7 +644,7 @@
   parent: N14IDBrotherhoodWestHolotag
   id: N14IDBrotherhoodWestHolotagPaladin
   name: senior paladin's holotags
-  description: An ID holotag worn by a Brotherhood Senior Paladin.
+  description: These holotags are issued to those who have shown bravery in combat, diplomatic skill with outsiders, and loyalty towards their brothers and sisters. Guide the paladins and follow the Chain of Command.
   suffix: Senior Paladin
   components:
   - type: PresetIdCard
@@ -635,7 +654,7 @@
   parent: N14IDBrotherhoodWestHolotag
   id: N14IDBrotherhoodWestHolotagElderCommander
   name: elder commander's holotags
-  description: An ID holotag worn by the Elder Commander of the Brotherhood of Steel.
+  description: The holotags of an elder of the Brotherhood, issued only when a new chapter is founded, or a casualty must be replaced. These belonged to someone before you, can you live up to their glory?
   suffix: Elder
   components:
   - type: PresetIdCard

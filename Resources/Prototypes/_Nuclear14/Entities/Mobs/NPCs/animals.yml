@@ -372,7 +372,7 @@
   name: brahmin
   parent: MobCow
   id: N14MobBrahmin
-  description: The ultimate beast of burden, it can carry heavy packs, produces fertilizer for farms and milk, can be butchered for hide and meat, and you can ride it.
+  description: The ultimate beast of burden, they can carry heavy packs, produce fertilizer for farms, be milked, butchered for hide and meat, and you can even ride them. They'll gobble up any food left in the open.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -749,7 +749,7 @@
   parent: MobChicken
   id: N14MobChicken
   name: chicken
-  description: Surviving the Great War relatively untouched, they've remained one of man's greatest domesticated food sources.
+  description: Surviving the Great War relatively untouched, they've remained one of man's greatest domesticated food sources. A source of eggs.
   components:
   - type: Sprite
     drawdepth: Mobs

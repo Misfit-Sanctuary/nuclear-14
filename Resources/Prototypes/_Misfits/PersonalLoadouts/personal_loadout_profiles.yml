@@ -46,3 +46,8 @@
     - EnclaveReformer
     outerSprite: _Misfits/Clothing/OuterClothing/PowerArmor/jacksontownley_pa.rsi
     helmetSprite: _Misfits/Clothing/Head/PowerArmorHelmets/jacksontownley_helmet.rsi
+    # NCR Heavy helmets normally request equipped-HELMET. The Townley RSI uses
+    # the hardsuit-light naming contract, so explicitly select its unlit base.
+    helmetClothingVisuals:
+      head:
+      - state: off-equipped-HELMET

@@ -104,7 +104,7 @@ namespace Content.Server.Construction
                         preventStepExamine |= condition.DoExamine(args);
                     }
 
-                    if (!preventStepExamine)
+                    if (!preventStepExamine && targetEdge.Steps.Count > 0)
                         targetEdge.Steps[0].DoExamine(args);
                     return;
                 }
@@ -118,7 +118,9 @@ namespace Content.Server.Construction
                         preventStepExamine |= condition.DoExamine(args);
                     }
 
-                    if (!preventStepExamine && component.StepIndex < edge.Steps.Count)
+                    if (!preventStepExamine &&
+                        component.StepIndex >= 0 &&
+                        component.StepIndex < edge.Steps.Count)
                         edge.Steps[component.StepIndex].DoExamine(args);
                 }
             }

@@ -165,3 +165,115 @@
       amount: 2
     - id: ClothingEyesGlassesChemist
       amount: 2
+
+# ---------------------------------------------------------------------------
+# MEDICAL SHELVES - MAPPING / GUARANTEED
+# ---------------------------------------------------------------------------
+
+- type: entity
+  id: MisfitsShelfMedicalBasicMapping
+  name: stocked first aid shelf
+  description: A stocked shelf of common first aid supplies.
+  suffix: Filled, Medical, Basic, Mapping
+  parent: N14ShelfMetalMeds
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14CleanGauze10
+      amount: 4
+    - id: N14Ointment10
+      amount: 3
+    - id: Brutepack
+      amount: 2
+    - id: Bloodpack
+      amount: 2
+    - id: N14Stimpak
+      amount: 2
+    - id: N14Antidote
+    - id: N14SmellingSalts
+
+- type: entity
+  id: MisfitsShelfMedicalTraumaMapping
+  name: stocked trauma shelf
+  description: A stocked shelf for treating serious injuries.
+  suffix: Filled, Medical, Trauma, Mapping
+  parent: N14ShelfMetalMeds
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14CleanGauze10
+      amount: 4
+    - id: Brutepack
+      amount: 4
+    - id: Bloodpack
+      amount: 4
+    - id: N14Stimpak
+      amount: 3
+    - id: N14SuperStimpak
+    - id: N14HandheldHealthAnalyzer
+    - id: Portafib
+
+- type: entity
+  id: MisfitsShelfMedicalRadiationMapping
+  name: stocked radiation shelf
+  description: A stocked shelf for radiation exposure and wasteland medicine.
+  suffix: Filled, Medical, Radiation, Mapping
+  parent: N14ShelfMetalMeds
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14RadXCanisterFilled
+      amount: 2
+    - id: N14RadAwayBloodbag
+      amount: 3
+    - id: N14FixerCanisterFilled
+    - id: N14Antidote
+      amount: 2
+    - id: N14Stimpak
+      amount: 2
+    - id: N14CleanGauze10
+      amount: 2
+
+- type: entity
+  id: MisfitsShelfMedicalChemicalsMapping
+  name: stocked medical chemical shelf
+  description: A stocked shelf of common wasteland medical chemicals.
+  suffix: Filled, Medical, Chemicals, Mapping
+  parent: N14ShelfMetalMeds
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14ChemicalSyringeAntidote
+      amount: 2
+    - id: N14Antidote
+      amount: 2
+    - id: N14SmellingSalts
+      amount: 2
+    - id: N14HealingPoultice
+      amount: 2
+    - id: N14HealingPowder
+      amount: 2
+    - id: N14Bitterdrink
+    - id: N14FixerCanisterFilled
+    - id: N14RadXCanisterFilled
+
+- type: entity
+  id: MisfitsShelfMedicalSurgeryMapping
+  name: stocked surgery shelf
+  description: A stocked shelf of surgery and sterile treatment supplies.
+  suffix: Filled, Medical, Surgery, Mapping
+  parent: N14ShelfMetalMeds
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxNitrileGloves
+    - id: BoxSterileMask
+    - id: SurgicalSterileWipe
+      amount: 3
+    - id: SurgicalSterilanSpray
+      amount: 2
+    - id: ClothingBackpackDuffelSurgeryFilled
+    - id: Bloodpack
+      amount: 3
+    - id: Portafib
+    - id: N14HandheldHealthAnalyzer

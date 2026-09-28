@@ -59,6 +59,10 @@
   name: id-card-access-level-legion-acolyte-of-mars
 
 - type: accessLevel
+  id: CaesarLegionTempleGuard
+  name: id-card-access-level-legion-temple-guard
+
+- type: accessLevel
   id: CaesarLegionOptio
   name: id-card-access-level-legion-optio
 
@@ -177,6 +181,7 @@
   tags:
   - CaesarLegion
   - CaesarLegionRecruit
+  - CaesarLegionTempleGuard
   - CaesarLegionAcolyteOfMars
   - CaesarLegionPriestessOfMars
 
@@ -185,7 +190,15 @@
   tags:
   - CaesarLegion
   - CaesarLegionRecruit
+  - CaesarLegionTempleGuard
   - CaesarLegionAcolyteOfMars
+
+- type: accessGroup
+  id: CaesarLegionTempleGuard
+  tags:
+  - CaesarLegion
+  - CaesarLegionRecruit
+  - CaesarLegionTempleGuard
 
 - type: accessGroup
   id: CaesarLegionOptio

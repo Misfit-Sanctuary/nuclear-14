@@ -77,12 +77,14 @@
   texturePath: /Textures/Effects/fire.rsi
   fireStates: 3
 
-# Misfits Add - Blue energy burst used by Fallout-style pulse weaponry.
+# Misfits Add - Visual-only blue energy burst used by Fallout-style pulse explosives.
+# EMP handlers provide battery disruption and species/equipment-specific Shock damage. Keeping
+# conventional blast damage at zero protects ordinary mobs and prevents chain detonations.
 - type: explosion
   id: MisfitsPulse
   damagePerIntensity:
     types:
-      Heat: 8
+      Heat: 0
   tileBreakChance: [0]
   tileBreakIntensity: [0]
   lightColor: "#278CFF"

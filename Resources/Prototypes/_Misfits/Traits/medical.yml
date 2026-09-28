@@ -13,6 +13,11 @@
     - FollowerGuard
     - FollowerVolunteer
     - SuperMutantFollowerDoctor
+  - !type:CharacterSpeciesRequirement # #Misfits Add - these get it innately, don't sell it to them
+    inverted: true
+    species:
+    - SuperMutant
+    - Nightkin
   functions:
     - !type:TraitAddComponent
       components:

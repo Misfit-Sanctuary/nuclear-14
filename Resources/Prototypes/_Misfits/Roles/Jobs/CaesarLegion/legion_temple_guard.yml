@@ -1,0 +1,67 @@
+# #Misfits Change /Add/: Legion Auxilia job.
+- type: job
+  id: CaesarLegionTempleGuard
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 30
+  name: job-name-caesar-legion-temple-guard
+  description: job-description-caesar-legion-temple-guard
+  playTimeTracker: CaesarLegionTempleGuard
+  requirements:
+    - !type:CharacterPlaytimeRequirement
+      tracker: CaesarLegionAuxilia
+      min: 28800 # 8 hours
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+    - !type:CharacterSexRequirement
+      sex: Female
+    - !type:CharacterGenderRequirement
+      gender: Female
+  startingGear: CaesarLegionTempleGuardGear
+  alwaysUseSpawner: true
+  icon: "JobIconlegionerRecruit"
+  supervisors: job-name-caesar-legion-female # changed aux and aom to have their own command chain under priestess.
+  canBeAntag: false
+  accessGroups:
+  - CaesarLegionTempleGuard
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - CaesarLegion
+      - type: ReplacementAccent
+        accent: latin
+      - type: CPRTraining
+  - !type:AddTraitSpecial
+    traits: [ LanguageLatin ]
+
+- type: startingGear
+  id: CaesarLegionTempleGuardGear
+  equipment:
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitLegionnaire
+    ears: N14ClothingHeadsetLegion
+    mask: N14ClothingMaskBrownMask
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingBootsLeather
+    head: N14ClothingHeadHatTribalOutcastHood
+    gloves: N14ClothingHandsGlovesTribal
+    outerClothing: N14ClothingOuterMarsCultRobes
+    pocket1: LegionTempleGuardLoadoutKits
+    id: N14IDLegionaryBadge
+  innerClothingSkirt: N14ClothingUniformJumpsuitLegionnaireOther
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryLegion #Misfits Change /Tweak/: Legion uses tribal medicine, not stimpaks
+    - N14HealingPowder
+    - N14HealingPowder
+    - N14HealingPoultice
+    - N14HealingPoultice
+    - N14Hydra
+    - BookLegionLaw #law book for the enforcer
+
+- type: playTimeTracker
+  id: CaesarLegionTempleGuard

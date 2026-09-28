@@ -1,0 +1,75 @@
+#TODO add more later on
+- type: entityTable
+  id: M14ConsumableLootTier0_PreWarAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: M14ConsumableLootTier0_PreWarGrocery
+    - !type:NestedSelector
+      tableId: M14ConsumableLootTier0_PreWarCanned
+    - !type:EntSelector
+      id: N14FoodMouldy
+
+- type: entityTable
+  id: M14ConsumableLootTier0_PreWarGrocery
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FoodBlamcomaccheese
+    - !type:EntSelector
+      id: N14FoodBlamcomaccheeseLarge
+    - !type:EntSelector
+      id: N14FoodCrisps
+    - !type:EntSelector
+      id: N14FoodDandyboyapples
+    - !type:EntSelector
+      id: N14FoodSalisburysteak
+    - !type:EntSelector
+      id: N14FoodYumyumdeviledeggs
+    - !type:EntSelector
+      id: N14FoodInstamash
+      # sweets
+    - !type:EntSelector
+      id: N14FoodBubblegum
+    - !type:EntSelector
+      id: N14FoodSugarbombs
+    - !type:EntSelector
+      id: N14FoodFancyladssnackcakes
+
+- type: entityTable
+  id: M14ConsumableLootTier0_PreWarCanned
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: M14ConsumableLootTier0_PreWarCannedDogFood
+    - !type:NestedSelector
+      tableId: M14ConsumableLootTier0_PreWarCannedNoDogFood
+
+- type: entityTable
+  id: M14ConsumableLootTier0_PreWarCannedDogFood
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FoodDogfood
+    - !type:EntSelector
+      id: N14FoodDinki-Di
+
+- type: entityTable
+  id: M14ConsumableLootTier0_PreWarCannedNoDogFood
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FoodCram
+    - !type:EntSelector
+      id: N14FoodPorkBeans
+
+- type: entityTable
+  id: M14ConsumableLootTier0_PreWarSweets
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14FoodBubblegum
+    - !type:EntSelector
+      id: N14FoodSugarbombs
+    - !type:EntSelector
+      id: N14FoodFancyladssnackcakes

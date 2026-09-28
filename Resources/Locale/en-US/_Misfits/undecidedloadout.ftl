@@ -12,6 +12,11 @@ undecided-loadout-category-explorer-raider-description =
     Includes a 10mm chinese smg, 2 bolas, 2 magazines for the smg, a 1911,
     a healing poultice, a healing powder, 2 K rations, and a ceramic flask.
 
+undecided-loadout-category-explorer-hunter-name = Explorer Hunter
+undecided-loadout-category-explorer-hunter-description =
+    Includes a rapid fire hunting rifle, 2 308. Ammo boxes, a bola, healing powder,
+    a healing poultice, 2 K rations, and a ceramic flask.
+
 # Migrated Corvax legacy Legion keys
 undecided-loadout-category-bestiary-name = Centurion-Bestiary Kit
 undecided-loadout-category-bestiary-description =
@@ -59,15 +64,6 @@ undecided-loadout-category-dean-sagitaria-description =
     1 .45 Colt pistol, 2 pistol magazines (.45 ACP),
     1 rope belt, 1 smoke grenade, 2 healing Poultice,
     2 K-rations, 1 ceramic flask, and 1 mustard.
-
-undecided-loadout-category-dean-berserker-name = Decanus-Berserker Kit
-undecided-loadout-category-dean-berserker-description =
-    A box with everything needed to charge into battle.
-    Contains: 1 Legion SKS, 4 SKS clips (.308),
-    1 .45 Colt pistol, 2 pistol magazines (.45 ACP),
-    1 rope belt, 1 pair of powerfists, 3 throwing knives,
-    2 healing poultice, 2 K-rations,
-    1 ceramic flask, and 1 mustard.
 
 undecided-loadout-category-veteran-firearm-name = Veteran Legionary Firearm Kit
 undecided-loadout-category-veteran-firearm-description =
@@ -304,19 +300,28 @@ undecided-loadout-category-corvax-venator-marksman-name = Venator Marksman
 undecided-loadout-category-corvax-venator-marksman-description =
     Includes a .308 sniper rifle, a rope belt,
     4 mags of Overpressure .308, night vision goggles,
-    2 healing poultice, 2 K rations,
+    3 smoke grenades, 2 healing poultice, 2 K rations,
     a ceramic flask, and mustard.
 
 undecided-loadout-category-corvax-venator-stalker-name = Venator Stalker
 undecided-loadout-category-corvax-venator-stalker-description =
     Includes an advanced 12.7mm SMG, 3 spare 12.7 magazines,
-    a rope belt, night vision goggles, 2 healing poultice,
-    2 K rations, a ceramic flask, and mustard.
+    a rope belt, 2 smoke grenades, night vision goggles, 
+    2 healing poultice, 2 K rations,
+    a ceramic flask, and mustard.
 
 undecided-loadout-category-corvax-venator-executioner-name = Venator Executioner
 undecided-loadout-category-corvax-venator-executioner-description =
-    Includes a blowback shotgun, a rope belt,
-    2 boxes of 12 gauge shells, a ceremonial sword,
+    Includes a blowback shotgun, a ceremonial sword, 
+    a rope belt, 2 boxes of 12 gauge shells, 
+    an offensive grenade, night vision goggles,
+    2 healing poultice, 2 K rations,
+    a ceramic flask, and mustard.
+
+undecided-loadout-category-corvax-venator-operative-name = Venator Operative
+undecided-loadout-category-corvax-venator-operative-description =
+    Includes a modified and supressed R91, a rope belt,
+    3 spare 5.56 magazines, an offensive frag grenade,
     night vision goggles, 2 healing poultice, 2 K rations,
     a ceramic flask, and mustard.
 
@@ -423,25 +428,35 @@ undecided-loadout-category-corvax-recruit-decanus-crusher-description =
 
 undecided-loadout-category-corvax-decanus-gladiator-name = Decanus Gladiator
 undecided-loadout-category-corvax-decanus-gladiator-description =
+    Includes an m60 GPMG machine gun, an extra ammo box, a ceremonial sword,
+    a rope belt, 2 healing poultices, 2 K rations, a .45 Colt pistol, 2 .45 magazines,
+    the divine mustard, and a ceramic flask.
+
+undecided-loadout-category-corvax-decanus-crusher-name = Decanus Crusher
+undecided-loadout-category-corvax-decanus-crusher-description =
+    Includes a Goliath power fist, A Neostead shotgun, 2 12 gauge ammo boxes,
+    a rope belt, 2 healing poultices, 2 K rations, a .45 Colt pistol, 2 .45 magazines,
+    the delictable mustard, and a ceramic flask.
+
+undecided-loadout-category-corvax-decanus-demolitionist-name = Decanus Demolitionist
+undecided-loadout-category-corvax-decanus-demolitionist-description =
+    Includes a Grenade rifle, 6 40mm frag grenades, 2 40mm fire grenades, a thrown frag grenade,
+    a decorated tribal heavy club, a rope belt, 2 healing poultices, 2 K rations,
+    a .45 Colt pistol, 2 .45 magazines, the delicious mustard, and a ceramic flask.
+
+undecided-loadout-category-corvax-decanus-sharpshooter-name = Decanus Sharpshooter
+undecided-loadout-category-corvax-decanus-sharpshooter-description =
+    Includes a pipe 50 sniper rifle, a PPSh41 smg, two 9mm drum mags, a box of 50 cal rounds,
+    a rope belt, 2 healing poultices, 2 K rations, the divine mustard, a .45 Colt pistol,
+    2 .45 magazines, and a ceramic flask.
+
+undecided-loadout-category-corvax-decanus-destroyer-name = Decanus Heavy Destroyer
+undecided-loadout-category-corvax-decanus-destroyer-description =
     Includes a M240B with a spare belt, a .45 Colt pistol,
     2 .45 magazines, a Legion shield, a rope belt,
     a singular smoke grenade and a box of handcuffs,
     2 healing poultice, 2 K rations,
     a ceramic flask, and mustard.
-
-undecided-loadout-category-corvax-decanus-sagitaria-name = Decanus Sagitaria
-undecided-loadout-category-corvax-decanus-sagitaria-description =
-    Includes a salvaged M60 with a single extra box,
-    a .45 Colt pistol, 2 .45 magazines, a rope belt,
-    a smoke grenade, 2 healing poultice, 2 K rations,
-    a ceramic flask, and mustard.
-
-undecided-loadout-category-corvax-decanus-berserker-name = Decanus Berserker
-undecided-loadout-category-corvax-decanus-berserker-description =
-    Includes a Bren with an extra magazine, a smoke grenade,
-    a .45 Colt pistol, 2 .45 magazines, a power fist,
-    a rope belt, 2 healing poultice, 2 K rations,
-    a ceramic flask, and sweet sweet mustard.
 
 undecided-loadout-category-corvax-veteran-rifleman-name = Veteran Rifleman
 undecided-loadout-category-corvax-veteran-rifleman-description =
@@ -750,8 +765,14 @@ undecided-loadout-category-misfits-priestess-healing-desc =
 
 undecided-loadout-category-misfits-priestess-zealot-name = Priestess of Zealotry
 undecided-loadout-category-misfits-priestess-zealot-desc =
-    Includes a Ceremonial Sword, Legionnaire Shield, A combat shotgun with two extra drums,
+    Includes a Neostead, Legionnaire Shield, two 12 guage ammo boxes,
     spear quiver, 3 pilum, 2 Bolas, 2 Cazador acid sacs,
+    2 K rations, and a ceramic flask.
+
+undecided-loadout-category-misfits-priestess-purifier-name = Priestess of Purification
+undecided-loadout-category-misfits-priestess-purifier-desc =
+    Includes a flaming blade of Mars, 2 incendiary grenades, a heater shield,
+    a colt 45 with two magazines, 1 bandage, 1 Healing Poultice, 1 Healing Powder,
     2 K rations, and a ceramic flask.
 
 undecided-loadout-category-misfits-acolyte-healing-name = Acolyte Healer
@@ -765,6 +786,29 @@ undecided-loadout-category-misfits-acolyte-zealot-desc =
     Includes a Gladius, Legionnaire buckler,
     spear quiver, An SKS, 308 clips,
     2 K rations, and a ceramic flask.
+
+undecided-loadout-category-misfits-acolyte-slaver-name = Acolyte Slaver
+undecided-loadout-category-misfits-acolyte-slaver-desc =
+    Includes an automatic shotgun, three boxes of beanbag ammo, handcuffs,
+    bolas, a baton, slave collars, a colt 45 with two magazines,
+    1 bandage, 1 Healing Poultice, 1 Healing Powder,
+    2 K rations, and a ceramic flask.
+
+undecided-loadout-category-misfits-temple-guard-protector-name = Temple Guard Protector
+undecided-loadout-category-misfits-temple-guard-protector-desc =
+    Includes a poleaxe, a heater shield, a colt 45 with two magazines,
+    1 bandage, 2 Healing Powders, 2 K rations, and a ceramic flask.
+
+undecided-loadout-category-misfits-temple-guard-enforcer-name = Temple Guard Enforcer
+undecided-loadout-category-misfits-temple-guard-enforcer-desc =
+    Includes an automatic shotgun, a gladius, three boxes of 12 gauge ammo,
+    1 bandage, 2 Healing Powders, 2 K rations, and a ceramic flask.
+
+undecided-loadout-category-misfits-temple-guard-executor-name = Temple Guard Executor
+undecided-loadout-category-misfits-temple-guard-executor-desc =
+    Includes a kebab, a buckler, a colt 45 with two magazines,
+    1 bandage, 2 Healing Powders, 2 K rations, and a ceramic flask.
+
 
 undecided-loadout-category-misfits-eighties-block-road-captain-name = Road Captain Kit
 undecided-loadout-category-misfits-eighties-block-road-captain-description =

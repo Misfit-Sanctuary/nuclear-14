@@ -17,9 +17,19 @@
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/PowerArmor/bos509_elder_t51bc.rsi
 
-# #Cythisiax Edited - 509th BoS Honor Guard T-51bc (was "509th BoS Head Paladin T-51bc").
-# The suit moved off the Head Paladin's loadout and onto the hidden Honor Guard rank's
-# starting gear (bos_honor_guard.yml). Sprite path is shared with the N14MechPowerArmorT51BC509HeadPaladin mech, so it is kept as-is.
+# --- 509th BoS Head Paladin T-51bc ---
+- type: entity
+  parent: N14ClothingOuterPowerArmorT51BC
+  id: MisfitsClothingOuterPowerArmorBoS509HeadPaladin
+  name: 509th BoS Head Paladin T-51bc Power Armor
+  description: The T-51bc worn by the 509th Brotherhood of Steel Head Paladin. Scored with the scars of vanguard action on the Bonneville salt flats, it is a badge of the chapter's senior sword.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/PowerArmor/bos509_headpaladin_t51bc.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/PowerArmor/bos509_headpaladin_t51bc.rsi
+
+# --- 509th BoS Honor Guard T-51bc ---
 - type: entity
   parent: N14ClothingOuterPowerArmorT51BC
   id: MisfitsClothingOuterPowerArmorBoS509HonorGuard

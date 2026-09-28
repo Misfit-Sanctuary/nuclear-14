@@ -1,0 +1,74 @@
+﻿- type: entity
+  parent: Joint
+  id: N14Joint
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Smokeables/Cannabis/joint.rsi
+    state: unlit-icon
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+    - Cigarette
+    - Trash
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Consumable/Smokeables/Cannabis/joint.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+
+- type: entity
+  parent: N14Joint
+  id: N14JointSpent
+  suffix: spent
+  components:
+  - type: Sprite
+    state: burnt-icon
+  - type: Smokable
+    state: Burnt
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+    - Cigarette
+    - Trash
+    - Burnt
+
+- type: entity
+  id: N14Blunt
+  parent: Blunt
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Smokeables/Cannabis/blunt.rsi
+    state: unlit-icon
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+    - Cigarette
+    - Trash
+  - type: SpaceGarbage
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Consumable/Smokeables/Cannabis/blunt.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+
+- type: entity
+  parent: N14Blunt
+  id: N14BluntSpent
+  suffix: spent
+  components:
+  - type: Sprite
+    state: burnt-icon
+  - type: Smokable
+    state: Burnt
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
+  - type: Tag
+    tags:
+    - SuperMutantWearable
+    - Cigarette
+    - Trash
+    - Burnt

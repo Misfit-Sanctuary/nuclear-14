@@ -1,0 +1,38 @@
+- type: entity
+  name: Tier0 Parts EletricMisc Single
+  suffix: Tier0
+  id: M14PartsTier0Spawner_Single_EletricMisc
+  parent: M14Tier0Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14PartsLootTier0_EletricMisc
+- type: entity
+  name: Tier0 Parts EletricMisc 0-3
+  suffix: Tier0
+  id: M14PartsTier0Spawner_Mult0_3_EletricMisc
+  parent: M14Tier0Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14PartsLootTier0_EletricMisc
+- type: entity
+  name: Tier0 Parts EletricMisc 1-2
+  suffix: Tier0
+  id: M14PartsTier0Spawner_Mult1_2_EletricMisc
+  parent: M14Tier0Spawner_RefParts
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14PartsLootTier0_EletricMisc

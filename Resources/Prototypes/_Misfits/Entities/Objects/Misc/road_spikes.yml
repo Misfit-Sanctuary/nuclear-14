@@ -10,6 +10,11 @@
   - type: Item
     sprite: _Misfits/Objects/Misc/road_spikes.rsi
     size: Small
+  # Required by hand construction so the finished entity can enter the graph's
+  # roadSpikes node instead of being rejected and deleted after materials are consumed.
+  - type: Construction
+    graph: MisfitsRoadSpikesConstruction
+    node: roadSpikes
   - type: Sharp
   - type: MeleeWeapon
     attackRate: 1
@@ -50,7 +55,6 @@
       types:
         Piercing: 4.5
     targetPart: Legs
-  - type: DeleteOnTrigger
   - type: RoadSpikes
     riderKnockdownTime: 3
     bikeDamage:

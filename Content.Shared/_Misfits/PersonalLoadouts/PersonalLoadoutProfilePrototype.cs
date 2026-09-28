@@ -1,4 +1,5 @@
 using Content.Shared.Roles;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager.Attributes;
 
@@ -45,4 +46,12 @@ public sealed partial class PersonalLoadoutPowerArmorSkin
     /// <summary>RSI used by the job armor's attached helmet while equipped.</summary>
     [DataField(required: true)]
     public string HelmetSprite = string.Empty;
+
+    /// <summary>
+    /// Optional equipped visuals for the attached helmet after its RSI is replaced.
+    /// Use this when the replacement RSI has different equipped-state names from
+    /// the native helmet supplied by the job's power armor.
+    /// </summary>
+    [DataField]
+    public Dictionary<string, List<PrototypeLayerData>>? HelmetClothingVisuals;
 }

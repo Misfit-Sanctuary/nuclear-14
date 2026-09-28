@@ -38,6 +38,7 @@ public sealed class MolotovVisualSystem : EntitySystem
         }
 
         sprite.LayerSetSprite(layer, ent.Comp.Ignited ? BurningWick : UnlitWick);
+        sprite.LayerSetOffset(layer, ent.Comp.WickOffset);
     }
 
     private void OnShutdown(Entity<MolotovComponent> ent, ref ComponentShutdown args)

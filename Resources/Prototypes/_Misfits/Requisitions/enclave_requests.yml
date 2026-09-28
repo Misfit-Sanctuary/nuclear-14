@@ -1,0 +1,112 @@
+# Enclave R&D collection board.
+#
+# The Enclave pays for researched genetics data, not raw salvage. Every target is a
+# genetics disk gated on the rarity of the mutation encoded on it - a blank disk shares
+# its prototype with a researched one, so without the rarity gate a lathe-printed blank
+# would complete the bounty.
+#
+# Rarity spread across the 99 mutation prototypes: 12 Rare, 9 Mythical, rest Common.
+# Values mirror the sell-platform payout: Common 100, Rare 400, Mythical 1200.
+
+- type: requisitionsRequestPool
+  id: EnclaveRequestPool
+  items:
+    - item: GeneticsDisk
+      mutationRarity: Common
+      minAmount: 2
+      maxAmount: 4
+      valuePerUnit: 100
+      weight: 3
+    - item: GeneticsDisk
+      mutationRarity: Rare
+      minAmount: 1
+      maxAmount: 2
+      valuePerUnit: 400
+      weight: 1.5
+    - item: GeneticsDisk
+      mutationRarity: Mythical
+      minAmount: 1
+      maxAmount: 1
+      valuePerUnit: 1200
+      weight: 0.5
+
+- type: requisitionsRewardPool
+  id: EnclaveRewardPool
+  items:
+    # Pre-war money. Cost is per unit and is deducted as cost * amount, so pricing each
+    # note at its face value pays out roughly 1:1 with the request's score. This is the
+    # main way the board turns research into spendable cash - the console takes
+    # PrewarMoney deposits, so it can go straight back into the budget.
+    - item: N14CurrencyPrewarMoney10
+      cost: 10
+      minAmount: 1
+      maxAmount: 5
+      weight: 2
+    - item: N14CurrencyPrewarMoney50
+      cost: 50
+      minAmount: 1
+      maxAmount: 4
+      weight: 3
+    - item: N14CurrencyPrewarMoney100
+      cost: 100
+      minAmount: 1
+      maxAmount: 3
+      weight: 3
+    - item: N14CurrencyPrewarMoney500
+      cost: 500
+      minAmount: 1
+      maxAmount: 1
+      weight: 1
+    # Research consumables - the obvious thing to hand back for genetic data.
+    - item: GeneticsDisk
+      cost: 40
+      minAmount: 1
+      maxAmount: 4
+      weight: 3
+    - item: N14MaterialCircuitry1
+      cost: 15
+      minAmount: 2
+      maxAmount: 10
+      weight: 2
+    - item: SheetPlastic1
+      cost: 4
+      minAmount: 5
+      maxAmount: 20
+      weight: 2
+    - item: SheetGlass1
+      cost: 3
+      minAmount: 5
+      maxAmount: 20
+      weight: 2
+    # Medical, since research staff are the ones filling these.
+    - item: N14Stimpak
+      cost: 60
+      minAmount: 1
+      maxAmount: 4
+      weight: 1.5
+    - item: N14SuperStimpak
+      cost: 150
+      minAmount: 1
+      maxAmount: 2
+      weight: 0.8
+    - item: N14RadAwayBloodbag
+      cost: 80
+      minAmount: 1
+      maxAmount: 3
+      weight: 1
+    - item: N14Med-X
+      cost: 50
+      minAmount: 1
+      maxAmount: 4
+      weight: 1
+    # Power for the lab.
+    - item: N14MicrofusionCell
+      cost: 45
+      minAmount: 1
+      maxAmount: 4
+      weight: 1.2
+    - item: N14ElectronChargePack
+      cost: 50
+      minAmount: 1
+      maxAmount: 4
+      weight: 1

@@ -1,5 +1,6 @@
 using Content.Server.Emp;
 using Content.Shared._Misfits.C27;
+using Content.Shared._Misfits.Emp;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Popups;
@@ -18,12 +19,6 @@ namespace Content.Server._Misfits.C27;
 // subscribers — if the C-27 ever gets a power cell slot, it will already be handled.
 public sealed class MisfitsC27EmpSystem : EntitySystem
 {
-    // #Misfits Tweak - EMP energy is measured in joules for battery draining. Our pulse grenade
-    // uses millions of joules, so its damage multiplier is capped. Without this cap a single
-    // grenade deals five-digit damage, tears off every limb, and effectively removes the C-27
-    // from the round instead of serving as a severe anti-robot weapon.
-    private const float MaxEmpEnergyMultiplier = 15f;
-
     private static readonly ProtoId<DamageTypePrototype> ShockDamage = "Shock";
 
     [Dependency] private readonly DamageableSystem _damageable = default!;
@@ -38,16 +33,16 @@ public sealed class MisfitsC27EmpSystem : EntitySystem
 
     private void OnEmpPulse(Entity<MisfitsC27Component> ent, ref EmpPulseEvent args)
     {
-        // Scale damage by pulse energy: a stronger EMP fries the posibrain harder. The cap keeps
-        // the pulse grenade at 100 Shock with the defaults while a chemical EMP deals 87.5.
-        var energyMultiplier = MathF.Min(args.EnergyConsumption / 1000f, MaxEmpEnergyMultiplier);
-        var totalShock = ent.Comp.EmpShockDamage + ent.Comp.EmpDamagePerKiloJoule * energyMultiplier;
+        // A hand pulse grenade is full strength. Chemical and other weaker EMPs deal the same
+        // fraction of this prototype's configured damage ceiling as their battery-drain energy.
+        var totalShock = ent.Comp.MaxEmpShockDamage * MisfitsEmpScaling.GetStrength(args.EnergyConsumption);
 
-        // Build one damage packet so the body system can distribute the Shock normally.
+        // Apply the electrical trauma once to the chassis. Originless damage is otherwise treated
+        // like an explosion by the body system and copied to every limb.
         if (_proto.TryIndex(ShockDamage, out var shockProto))
         {
             var damage = new DamageSpecifier(shockProto, totalShock);
-            _damageable.TryChangeDamage(ent, damage, ignoreResistances: true, origin: null);
+            _damageable.TryChangeDamage(ent, damage, ignoreResistances: true, origin: null, doPartDamage: false);
         }
 
         // Mark Affected so the EMP visual effect spawns over the chassis.

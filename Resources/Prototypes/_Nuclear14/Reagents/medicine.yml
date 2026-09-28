@@ -164,7 +164,7 @@
 
 # Poison
 - type: reagent
-  id: AntidoteMixture
+  id: AntidoteWeak
   name: reagent-name-antidote-mixture
   group: Chems
   desc: reagent-desc-antidote-mixture
@@ -175,7 +175,7 @@
       metabolismRate: 0.2 # Slow
       effects:
       - !type:AmbientDrugFlavorText
-        cooldownId: AntidoteMixtureAmbient
+        cooldownId: AntidoteWeakAmbient
         cooldown: 50
         messageKeys:
         - drug-ambience-antidote-mixture-1
@@ -185,7 +185,7 @@
           types:
             Poison: -1 # Misfits Change - the basic Antidote Mix heals poison only now.
       - !type:ChemVomit
-        probability: 0.01
+        probability: 0.01 # TODO: rework antidotes to heal rad/poison by vomitting
 
 - type: reagent
   id: Antidote
@@ -532,9 +532,9 @@
       - !type:HealthChange
         damage:
           types:
-            Radiation: -1.5 # Misfits Change - Bitterdrink previously was dirt cheap and outperformed antidote and radaway. Now it requires actual chemistry to make but works as a solid anti-rad/poison mix.
-            Poison: -1.5
-      - !type:Emote # Misfits Change - Bitterdrink is supposed to taste fucking awful
+            Radiation: -0.5
+            Poison: -1
+      - !type:Emote
         emote: Cough
         showInChat: true
         probability: 0.05
@@ -543,7 +543,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
-      - !type:ModifyFeralization  # Misfits Add
+      - !type:ModifyFeralization
         delta: -0.5
         minimumThreshold: 80
 

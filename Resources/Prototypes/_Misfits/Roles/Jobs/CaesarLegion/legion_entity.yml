@@ -208,6 +208,19 @@
 
 - type: entity
   parent: MobHuman
+  id: N14MobHumanCaesarLegionTempleGuard
+  name: Temple Guard
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+  - type: Loadout
+    prototypes: [CaesarLegionTempleGuardGear]
+  - type: NpcFactionMember
+    factions:
+    - CaesarLegion
+
+- type: entity
+  parent: MobHuman
   id: N14MobHumanCaesarLegionForgemaster
   name: Forgemaster
   components:

@@ -533,6 +533,33 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         {
             UpdateLinkUiState(configuratorUid, targetUid.Value, configurator.ActiveDeviceLink.Value, targetSource, activeSink);
         }
+        
+        // Delay 1 tick before refreshing UI state to ensure contents load on first open.
+        // remove when actual underlying problem is found
+        Timer.Spawn(TimeSpan.Zero, () =>
+        {
+            if (Deleted(configuratorUid))
+                return;
+
+            if (!_uiSystem.HasUi(configuratorUid, NetworkConfiguratorUiKey.Link))
+                return;
+
+            if (!configurator.DeviceLinkTarget.HasValue || !configurator.ActiveDeviceLink.HasValue)
+                return;
+
+            if (TryComp(configurator.ActiveDeviceLink, out DeviceLinkSourceComponent? activeSource) 
+                && TryComp(configurator.DeviceLinkTarget, out DeviceLinkSinkComponent? targetSink))
+            {
+                UpdateLinkUiState(configuratorUid, configurator.ActiveDeviceLink.Value,
+                    configurator.DeviceLinkTarget.Value, activeSource, targetSink);
+            }
+            else if (TryComp(configurator.ActiveDeviceLink, out DeviceLinkSinkComponent? activeSink) 
+                && TryComp(configurator.DeviceLinkTarget, out DeviceLinkSourceComponent? targetSource))
+            {
+                UpdateLinkUiState(configuratorUid, configurator.DeviceLinkTarget.Value,
+                    configurator.ActiveDeviceLink.Value, targetSource, activeSink);
+            }
+        });
     }
 
     private void UpdateLinkUiState(EntityUid configuratorUid, EntityUid sourceUid, EntityUid sinkUid,

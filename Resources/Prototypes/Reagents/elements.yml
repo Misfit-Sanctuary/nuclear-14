@@ -360,9 +360,25 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # #Misfits Change - Nightkin digest uranium as fuel, not poison
+          type: Nightkin
+          shouldHave: false
         damage:
           types:
             Radiation: 2
+      # #Misfits Add - Nightkin-only. Radium and N14RadParticleFood both parent off Uranium
+      # and declare no metabolisms of their own, so irradiated wasteland food inherits this.
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Nightkin
+        damage:
+          types:
+            Blunt: -1
+            Slash: -1
+            Piercing: -1
+            Heat: -1
 
 - type: reagent
   id: Zinc

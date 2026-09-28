@@ -15,7 +15,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyCommon
+      - EncryptionKeyCommonUR
       - EncryptionKeyWastelandGlobal
   - type: EncryptionKeyHolder
     keySlots: 4
@@ -37,7 +37,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyStationMaster
+      - EncryptionKeyStationMasterUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: Clothing/Ears/Headsets/centcom.rsi
@@ -52,7 +52,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyStationMaster
+      - EncryptionKeyStationMasterUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: Clothing/Ears/Headsets/command.rsi
@@ -67,7 +67,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyVault
+      - EncryptionKeyVaultUR
   - type: Sprite
     sprite: _Misfits/Clothing/Ears/Headsets/vault.rsi
   - type: Clothing
@@ -81,8 +81,8 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyMedical
-      - EncryptionKeyCommon
+      - EncryptionKeyMedicalUR
+      - EncryptionKeyCommonUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: Clothing/Ears/Headsets/medical.rsi
@@ -97,8 +97,8 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeySecurity
-      - EncryptionKeyCommon
+      - EncryptionKeySecurityUR
+      - EncryptionKeyCommonUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: Clothing/Ears/Headsets/security.rsi
@@ -113,8 +113,8 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyEngineering
-      - EncryptionKeyCommon
+      - EncryptionKeyEngineeringUR
+      - EncryptionKeyCommonUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: Clothing/Ears/Headsets/engineering.rsi
@@ -129,8 +129,8 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyScience
-      - EncryptionKeyCommon
+      - EncryptionKeyScienceUR
+      - EncryptionKeyCommonUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: Clothing/Ears/Headsets/science.rsi
@@ -178,7 +178,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyEnclave
+      - EncryptionKeyEnclaveUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: _Misfits/Clothing/Ears/Headsets/enclave_headset.rsi
@@ -193,7 +193,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyNCR
+      - EncryptionKeyNCRUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: _Misfits/Clothing/Ears/Headsets/ncr.rsi
@@ -209,8 +209,8 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyNCR
-      - EncryptionKeyOSI
+      - EncryptionKeyNCRUR
+      - EncryptionKeyOSIUR
       - EncryptionKeyWastelandGlobal
 
 - type: entity
@@ -222,9 +222,21 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyNCR
-      - EncryptionKeyNCRRangers
+      - EncryptionKeyNCRUR
+      - EncryptionKeyNCRRangersUR
       - EncryptionKeyWastelandGlobal
+
+- type: entity
+  parent: N14ClothingHeadsetNCR
+  id: MisfitsClothingHeadsetNCRMaster
+  name: NCR radio earpiece
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyNCRMasterUR
+      - EncryptionKeyWastelandGlobal
+
 
 # #Misfits Change - Legion headset
 - type: entity
@@ -235,7 +247,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyLegion
+      - EncryptionKeyLegionUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: _Misfits/Clothing/Ears/Headsets/legion.rsi
@@ -254,7 +266,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyFollowers
+      - EncryptionKeyFollowersUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: _Misfits/Clothing/Ears/Headsets/followerslight.rsi

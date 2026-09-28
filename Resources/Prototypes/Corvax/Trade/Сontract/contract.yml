@@ -13,6 +13,8 @@
     weight: 50
   - id: caravan_contract_N14FloraProduceWildCoyoteTobacco
     weight: 50
+  - id: caravan_contract_N14FloraProduceWildCannabis
+    weight: 50
   - id: caravan_contract_N14FoodDogfood
     weight: 50
   - id: caravan_contract_N14WeaponSniper556VarmintRifle
@@ -105,13 +107,13 @@
 
 - type: storeContractsPreset
   id: PresetBazar
-  # #Misfits Change — retier system: 6 tiers replace Easy/Medium/Hard -TWEAKED, lower tiers more abundent, higher tiers more scarce
+  # #Misfits Change — retier system: 6 tiers replace Easy/Medium/Hard -TWEAKED, lower tiers more abundant, higher tiers more scarce
   limits:
-    Road Kill: 5
-    Lazy Lizard: 3
-    Junktown Rat: 2
-    Hub Mercenary: 2
-    Bunker Buster: 1
+    Road Kill: 6
+    Lazy Lizard: 5
+    Junktown Rat: 4
+    Hub Mercenary: 3
+    Bunker Buster: 2
     Wasteland Legend: 1
   packs:
   - id: PackBazar
@@ -138,7 +140,7 @@
 - type: storeContract
   id: caravan_contract_N14FloraProduceWildBrocFlower
   name: "Flowers for the Needy"
-  description: "The Followers of the Apocalypse meed to restock their medical supplies, provide broc flowers for the overworked volunteers."
+  description: "The Followers of the Apocalypse need to restock their medical supplies, provide broc flowers for the overworked volunteers."
   difficulty: Road Kill
   targets:
   - id: N14FloraProduceWildBrocFlower
@@ -282,6 +284,24 @@
   - type: Currency
     id: Caps
     amount: { min: 50, max: 75 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_bronze
+
+- type: storeContract
+  id: caravan_contract_N14FloraProduceWildCannabis
+  name: "A High Opportunity"
+  description: "A local shaman is running dangerously low on natural cannabis and claims it is needed to hear the voices of their gods. Help keep their visions alive, and perhaps our new trading relationship will flourish."
+  difficulty: Road Kill
+  targets:
+  - id: N14FloraProduceWildCannabis
+    required: { min: 5, max: 10 }
+  rewards:
+  - type: Currency
+    id: Caps
+    amount: { min: 75, max: 125 }
   - type: Pool
     amount: { min: 1, max: 3 }
     options:
@@ -882,7 +902,7 @@
 - type: storeContract
   id: caravan_contract_N14MobDeathclawGrandHunt
   name: "The Bottom Line"
-  description: "Deathclaws have attacked local merchants, leading to signficant losses of trusted caravaneers. The caravan network is offering a generous reward for those who will thin out their nests."
+  description: "Deathclaws have attacked local merchants, leading to significant losses of trusted caravaneers. The caravan network is offering a generous reward for those who will thin out their nests."
   difficulty: Wasteland Legend
   targets:
   - id: N14MobDeathclaw
@@ -919,7 +939,7 @@
 - type: storeContract
   id: caravan_contract_N14VaultPDA
   name: "Corporate Espionage"
-  description: "The pip-boys from the local vault have valuable data and the demand among the caravan network's clientelle is significant. We don't care if you have to saw it off their wrists, get it done."
+  description: "The pip-boys from the local vault have valuable data and the demand among the caravan network's clientele is significant. We don't care if you have to saw it off their wrists, get it done."
   difficulty: Wasteland Legend
   targets:
   - id: N14VaultPDA

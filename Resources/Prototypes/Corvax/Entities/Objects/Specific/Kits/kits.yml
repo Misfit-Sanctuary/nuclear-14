@@ -130,7 +130,7 @@
     items:
       - id: N14WeaponRifleM1GarandRepublicsDemise # #Misfits Change: Republic's Demise scoped M1C for Centurion marksman
       - id: Magazine308Rifle # #Misfits Change - replaced GarandEnbloc308
-        amount: 2
+        amount: 4
       - id: ClothingBeltRope
       - id: SmokeGrenade
       - id: N14HealingPoultice #Misfits Change /Tweak/: replaces dirty stimpak, Legion uses tribal medicine
@@ -186,6 +186,8 @@
       # #Misfits Change - AMR magazines removed; bolt-action uses single cartridges from ammo boxes
       - id: MagazineOver308RifleSniper
         amount: 4
+      - id: SmokeGrenade
+        amount: 3
       - id: ClothingEyesNightVisionGoggles
       - id: N14HealingPoultice #Misfits Change /Tweak/: replaces dirty stimpak, Legion uses tribal medicine
         amount: 2
@@ -213,6 +215,8 @@
       - id: N14TopMagazineSMG12mm
         amount: 3
       - id: ClothingBeltRope
+      - id: SmokeGrenade
+        amount: 2
       - id: ClothingEyesNightVisionGoggles
       - id: N14HealingPoultice #Misfits Change /Tweak/: replaces dirty stimpak, Legion uses tribal medicine
         amount: 2
@@ -240,7 +244,36 @@
       - id: ClothingBeltRope
       - id: MagazineBox12gauge
         amount: 2
+      - id: GrenadeShrapnel
       - id: N14CeremonialSword
+      - id: ClothingEyesNightVisionGoggles
+      - id: N14HealingPoultice #Misfits Change /Tweak/: replaces dirty stimpak, Legion uses tribal medicine
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: venator-operative kit
+  parent: KitBase
+  id: KitVenatorOperative
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponRifleOperative
+      - id: ClothingBeltRope
+      - id: Magazine556Rifle
+        amount: 3
+      - id: GrenadeShrapnel
       - id: ClothingEyesNightVisionGoggles
       - id: N14HealingPoultice #Misfits Change /Tweak/: replaces dirty stimpak, Legion uses tribal medicine
         amount: 2
@@ -611,7 +644,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: decanus-gladiator kit
+  name: decanus gladiator kit
   parent: KitBase
   id: KitDeanGladiator
   description: "A set of Legion equipment."
@@ -623,50 +656,17 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: N14LegionnaireShield
+      - id: N14WeaponM60GPMG
       - id: N14CeremonialSword
-      - id: N14WeaponUSHMG # #Misfits Change by BILL CLINTON!: Alternative choice to M60, gives variety.
-      - id: Magazine762AmmoBelt # #Misfits Change - replaced GarandEnbloc308
-        amount: 1
-      - id: ClothingBeltRope
-      - id: N14WeaponPistol45Colt # #Misfits Change: .45 pistol Legion sidearm
-      - id: N14MagazinePistol45
+      - id: Magazine308M60Box
         amount: 2
       - id: SmokeGrenade
-      - id: BoxHandcuff
-      - id: N14HealingPoultice #Misfits Change /Tweak/: replaces dirty stimpak, Legion uses tribal medicine
-        amount: 2
-      #- id: N14MedkitCombatFilled #Misfits Change /Remove/: Legion does not use stimpak medkits
-      - id: N14FoodTinK
-        amount: 2
-      - id: N14JunkCeramicFlask
-      - id: FoodCondimentPacketMustard
-    sound:
-      path: /Audio/Effects/unwrap.ogg
-
-- type: entity
-  name: decanus-sagitaria kit
-  parent: KitBase
-  id: KitDeanSagitaria
-  description: "A set of Legion equipment."
-  components:
-  - type: Sprite
-    sprite: Corvax/Objects/Misc/kits.rsi
-    state: base
-  - type: Item
-    size: Huge
-  - type: SpawnItemsOnUse
-    items:
-      - id: N14WeaponM60GPMG # #Misfits Change by BILL CLINTON!: HMG gunners are vet dec and prime dec.
-      - id: Magazine308M60Box # #Misfits Change - replaced GarandEnbloc308
-        amount: 1
-      - id: N14Gladius
       - id: ClothingBeltRope
-      - id: N14WeaponPistol45Colt # #Misfits Change: .45 pistol Legion sidearm
+      - id: N14WeaponPistol45Colt
       - id: N14MagazinePistol45
+      - id: Handcuffs
         amount: 2
-      - id: SmokeGrenade
-      - id: N14HealingPoultice #Misfits Change /Tweak/: replaces dirty stimpak, Legion uses tribal medicine
+      - id: N14HealingPoultice
         amount: 2
       - id: N14FoodTinK
         amount: 2
@@ -676,9 +676,9 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  name: decanus-berserker kit
+  name: decanus crusher kit
   parent: KitBase
-  id: KitDeanBerserker
+  id: KitDeanCrusher
   description: "A set of Legion equipment."
   components:
   - type: Sprite
@@ -689,21 +689,121 @@
   - type: SpawnItemsOnUse
     items:
       - id: N14ClothingHandsPowerFistGoliath
-      - id: N14WeaponLMGBren # #Misfits Change by BILL CLINTON!: Alternative choice to M60, gives variety.
-      - id: Magazine308RifleLong #Misfits Change - replaced GarandEnbloc308
-        amount: 1
-      - id: N14WeaponPistol45Colt # #Misfits Change: .45 pistol Legion sidearm
-      - id: N14MagazinePistol45
+      - id: N14WeaponShotgunNeostead
+      - id: N14AmmoBox12gauge
         amount: 2
-      - id: ClothingBeltRope
       - id: SmokeGrenade
-      - id: N14HealingPoultice #Misfits Change /Tweak/: Legion uses tribal medicine, not stimpaks
+      - id: ClothingBeltRope
+      - id: N14WeaponPistol45Colt
+      - id: N14MagazinePistol45
+      - id: Handcuffs
         amount: 2
-      #- id: N14MedkitFilled #Misfits Change /Remove/: Legion does not use stimpak medkits
+      - id: N14HealingPoultice
+        amount: 2
       - id: N14FoodTinK
         amount: 2
       - id: N14JunkCeramicFlask
       - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: decanus demolitionist kit
+  parent: KitBase
+  id: KitDeanDemolitionist
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14TribalBigClubDecorated
+      - id: N14WeaponRifleGrenade
+      - id: 40mmGrenadeFrag
+        amount: 5
+      - id: 40mmGrenadeFire
+        amount: 2
+      - id: ExGrenade
+        amount: 2
+      - id: ClothingBeltRope
+      - id: N14WeaponPistol45Colt
+      - id: N14MagazinePistol45
+      - id: Handcuffs
+        amount: 2
+      - id: N14HealingPoultice
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+      - id: FoodCondimentPacketMustard
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: decanus sharpshooter kit
+  parent: KitBase
+  id: KitDeanSharpshooter
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponSMGPPSh41
+      - id: N14WeaponSniper50Pipe
+      - id: N14AmmoBox50
+      - id: N14MagazineSMG9mmDrum
+        amount: 2
+      - id: SmokeGrenade
+      - id: ClothingBeltRope
+      - id: N14WeaponPistol45Colt
+      - id: N14MagazinePistol45
+      - id: Handcuffs
+        amount: 2
+      - id: N14HealingPoultice
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+      - id: FoodCondimentPacketMustard
+
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: decanus destroyer kit
+  parent: KitBase
+  id: KitDeanDestroyer
+  description: "A set of Legion equipment."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+    - id: N14WeaponUSHMG
+    - id: Magazine762AmmoBelt
+      amount: 2
+    - id: SmokeGrenade
+    - id: ClothingBeltRope
+    - id: N14WeaponPistol45Colt
+    - id: N14MagazinePistol45
+    - id: Handcuffs
+      amount: 2
+    - id: N14HealingPoultice
+      amount: 2
+    - id: N14FoodTinK
+      amount: 2
+    - id: N14JunkCeramicFlask
+    - id: FoodCondimentPacketMustard
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -824,7 +924,7 @@
         amount: 2
       - id: N14Bandage
         amount: 2
-      - id: Ointment
+      - id: N14AloeSalve
       - id: N14FoodTinK
         amount: 2
       - id: N14JunkCeramicFlask
@@ -979,7 +1079,7 @@
         amount: 2
       - id: N14HealingPoultice
         amount: 2
-      - id: Ointment
+      - id: N14AloeSalve
       - id: N14HealingPowder
       - id: N14FoodTinK
         amount: 2
@@ -1049,7 +1149,7 @@
       - id: N14TribalMachete
       - id: N14Bandage
         amount: 2
-      - id: Ointment
+      - id: N14AloeSalve
       - id: N14HealingPoultice
         amount: 2
       - id: N14FoodTinK
@@ -1843,6 +1943,36 @@
       - id: N14MagazineSMG10mm
         amount: 2
       - id: N14WeaponPistol45Colt # #Misfits Change: .45 pistol Legion sidearm
+      - id: N14MagazinePistol45
+        amount: 2
+      - id: ClothingBeltRope
+      - id: Bola
+        amount: 2
+      - id: N14HealingPowder
+      - id: N14HealingPoultice
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: explorer-hunter kit
+  parent: KitBase
+  id: KitExplorerHunter
+  description: "A set of Legion long-range tracking equipment."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponSniperPaciencia
+      - id: N14AmmoBox308
+        amount: 2
+      - id: N14WeaponPistol45Colt # #Misfits Change: standardised to .45 pistol Legion sidearm
       - id: N14MagazinePistol45
         amount: 2
       - id: ClothingBeltRope

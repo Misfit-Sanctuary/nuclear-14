@@ -1,5 +1,6 @@
 using Content.Server.Emp;
 using Content.Shared._Misfits.C27;
+using Content.Shared._Misfits.Emp;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Popups;
@@ -37,8 +38,11 @@ public sealed class RobotEmpSystem : EntitySystem
         if (!_prototypes.TryIndex(ShockDamage, out var shockPrototype))
             return;
 
-        var damage = new DamageSpecifier(shockPrototype, EmpShockDamage);
-        _damageable.TryChangeDamage(ent, damage, ignoreResistances: true, origin: null);
+        // Chassis-wide EMP trauma is one damage packet, not one packet per body part.
+        var damage = new DamageSpecifier(
+            shockPrototype,
+            EmpShockDamage * MisfitsEmpScaling.GetStrength(args.EnergyConsumption));
+        _damageable.TryChangeDamage(ent, damage, ignoreResistances: true, origin: null, doPartDamage: false);
 
         args.Affected = true;
         _popup.PopupEntity(Loc.GetString("robot-emp-hit"), ent, ent, PopupType.LargeCaution);

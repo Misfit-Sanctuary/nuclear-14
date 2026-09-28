@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# Adapted from Goob Station / Trauma Station
+
+- type: entity
+  parent: StorageBin
+  id: Constructor
+  name: constructor
+  description: The machine putting assistants out of a job, it can build anything using supplied materials.
+  components:
+  # Appearance
+  - type: Sprite
+    sprite: _Misfits/Structures/Machines/constructor.rsi
+  # Physics
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+    rotateWhileAnchored: true
+  # Construction
+  - type: Machine
+    board: ConstructorCircuitboard
+  # UI
+  - type: ActivatableUI
+    key: enum.ConstructorUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ConstructorUiKey.Key:
+        type: ConstructorBUI
+  # Constructor
+  - type: Hands
+    showInHands: false
+  - type: Special
+  - type: Constructor
+  - type: DoAfter
+  - type: StartableMachine
+  - type: DeviceLinkSink
+    ports:
+    - Start
+    - AutoStart
+  - type: DeviceLinkSource
+    ports:
+    - Started
+    - Completed
+    - Failed
+  # Power
+  - type: ApcPowerReceiver
+    powerLoad: 1000
