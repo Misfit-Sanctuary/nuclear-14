@@ -1,6 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._Misfits.ManholeSpawner;
 
@@ -29,25 +30,25 @@ public sealed partial class ManholeSpawnerComponent : Component
     [DataField]
     public float ActivationRange = 30f;
 
-    /// Max living mobs inside NearbyRange.
+    /// Max living mobs this spawner has released, tracked by marker rather than a range scan.
     [DataField]
     public int MaxAliveNearby = 6;
 
-    [DataField]
-    public float NearbyRange = 25f;
-
     // Client needs these for the sprite.
-    [DataField, AutoNetworkedField]
+    [DataField]
     public string OpenState = "manhole_open";
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public string ClosedState = "manhole_closed";
 
     [DataField]
     public float PryTime = 2f;
 
-    /// Spawn timer, not saved.
-    public float TimeElapsed;
+    /// Next tick to attempt a spawn on, not saved.
+    public GameTick CheckTime;
+
+    /// Mobs this spawner released that are still counted, not networked or saved.
+    public int AliveCount;
 }
 
 [Serializable, NetSerializable]

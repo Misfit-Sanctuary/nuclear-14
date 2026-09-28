@@ -1,6 +1,6 @@
+using Content.Server._Misfits.ManholeSpawner.Components;
 using Content.Shared._Misfits.ManholeSpawner;
 using Content.Shared.Database;
-using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -14,6 +14,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Misfits.ManholeSpawner;
 
@@ -27,44 +28,45 @@ public sealed class ManholeSpawnerSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
-
-    // Reused buffers, clear before use.
-    private readonly HashSet<EntityUid> _playerScan = new();
-    private readonly HashSet<EntityUid> _aliveScan = new();
-
-    private EntityQuery<TransformComponent> _xformQuery = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        _xformQuery = GetEntityQuery<TransformComponent>();
 
         SubscribeLocalEvent<ManholeSpawnerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ManholeSpawnerComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<ManholeSpawnerComponent, GetVerbsEvent<AlternativeVerb>>(OnAltVerb);
         SubscribeLocalEvent<ManholeSpawnerComponent, GetPryTimeModifierEvent>(OnPryTimeModifier);
         SubscribeLocalEvent<ManholeSpawnerComponent, DoorPryDoAfterEvent>(OnPryDoAfter);
+        SubscribeLocalEvent<ManholeSpawnerComponent, ComponentShutdown>(OnSpawnerShutdown);
+        SubscribeLocalEvent<SpawnedByManholeComponent, EntityTerminatingEvent>(OnSpawnedTerminating);
+        // Broadcast so untracking cannot silently stop if the raise site ever changes.
+        SubscribeLocalEvent<MobStateChangedEvent>(OnSpawnedMobStateChanged);
     }
 
     // Only open manholes spawn.
     public override void Update(float frameTime)
     {
+        var curTick = _timing.CurTick;
         var query = EntityQueryEnumerator<ManholeSpawnerComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (!comp.Open)
                 continue;
 
-            comp.TimeElapsed += frameTime;
-            if (comp.TimeElapsed < comp.IntervalSeconds)
+            if (curTick < comp.CheckTime)
                 continue;
 
-            comp.TimeElapsed -= comp.IntervalSeconds;
+            comp.CheckTime = curTick + CheckInterval(comp);
             if (CanSpawn(uid, comp))
                 SpawnMobs(uid, comp);
         }
     }
+
+    // YAML says seconds, compare ticks. Clamped so a sub-tick interval cannot fire every tick.
+    private uint CheckInterval(ManholeSpawnerComponent comp)
+        => Math.Max(1u, (uint) (comp.IntervalSeconds * _timing.TickRate));
 
     // Player near, under cap, and lucky.
     private bool CanSpawn(EntityUid uid, ManholeSpawnerComponent comp)
@@ -72,11 +74,12 @@ public sealed class ManholeSpawnerSystem : EntitySystem
         if (!IsPlayerNearby(uid, comp.ActivationRange))
             return false;
 
-        // Zero or less means no cap.
-        if (comp.MaxAliveNearby > 0 && CountAliveNearby(uid, comp) >= comp.MaxAliveNearby)
+        // Zero or less means no cap. Counted by event, never by scanning.
+        if (comp.MaxAliveNearby > 0 && comp.AliveCount >= comp.MaxAliveNearby)
             return false;
 
-        return _random.Prob(comp.Chance);
+        // Content-editable, so clamp rather than assert in Prob.
+        return _random.Prob(Math.Clamp(comp.Chance, 0f, 1f));
     }
 
     private void SpawnMobs(EntityUid uid, ManholeSpawnerComponent comp)
@@ -84,14 +87,18 @@ public sealed class ManholeSpawnerSystem : EntitySystem
         if (comp.Prototypes.Count == 0)
             return;
 
-        var coordinates = _xformQuery.GetComponent(uid).Coordinates;
+        var coordinates = Transform(uid).Coordinates;
         var count = _random.Next(comp.MinimumEntitiesSpawned, comp.MaximumEntitiesSpawned + 1);
         for (var i = 0; i < count; i++)
         {
+            // Roll the dice first so a failed spawn frees the slot for the next attempt.
+            if (comp.MaxAliveNearby > 0 && comp.AliveCount >= comp.MaxAliveNearby)
+                return;
+
             var picked = _random.Pick(comp.Prototypes);
             try
             {
-                SpawnAtPosition(picked, coordinates);
+                Track(uid, comp, SpawnAtPosition(picked, coordinates));
             }
             catch (EntityCreationException e)
             {
@@ -102,70 +109,57 @@ public sealed class ManholeSpawnerSystem : EntitySystem
         }
     }
 
+    private void Track(EntityUid spawner, ManholeSpawnerComponent comp, EntityUid mob)
+    {
+        var marker = EnsureComp<SpawnedByManholeComponent>(mob);
+        marker.Spawner = spawner;
+
+        comp.AliveCount++;
+    }
+
+    /// Idempotent, a mob that already stopped counting cannot double decrement.
+    private void Untrack(EntityUid spawner, EntityUid mob)
+    {
+        if (!TryComp(mob, out SpawnedByManholeComponent? marker) || !marker.Counted)
+            return;
+
+        marker.Counted = false;
+
+        if (TryComp(spawner, out ManholeSpawnerComponent? comp))
+            comp.AliveCount = Math.Max(0, comp.AliveCount - 1);
+    }
+
     // Living player in range, 0 means always.
     private bool IsPlayerNearby(EntityUid uid, float range)
     {
         if (range <= 0f)
             return true;
 
-        if (!_xformQuery.TryGetComponent(uid, out var xform) || xform.MapUid == null)
-            return false;
+        var xform = Transform(uid);
+        var mapPos = _transform.GetMapCoordinates(uid, xform);
 
-        var mapPos = _transform.GetMapCoordinates(uid, xform: xform);
-
-        _playerScan.Clear();
-        _lookup.GetEntitiesInRange(mapPos.MapId, mapPos.Position, range, _playerScan);
-
-        foreach (var entity in _playerScan)
+        // Only actors come back, so the broad phase does the filtering for us.
+        foreach (var actor in _lookup.GetEntitiesInRange<ActorComponent>(mapPos, range))
         {
-            if (!Exists(entity) || entity == uid)
-                continue;
-
-            if (TryComp(entity, out MobStateComponent? mob) &&
-                (mob.CurrentState == MobState.Alive || mob.CurrentState == MobState.Critical) &&
-                HasComp<HumanoidAppearanceComponent>(entity) &&
-                HasComp<ActorComponent>(entity) &&
-                (!TryComp<SSDIndicatorComponent>(entity, out var ssd) || !ssd.IsSSD))
+            if (actor.Owner != uid && IsActivePlayer(actor))
                 return true;
         }
 
         return false;
     }
 
-    private int CountAliveNearby(EntityUid uid, ManholeSpawnerComponent comp)
+    /// Living, actually controlled by a player, and not AFK.
+    private bool IsActivePlayer(Entity<ActorComponent> actor)
     {
-        // Zero or less means no cap.
-        if (comp.NearbyRange <= 0f || comp.Prototypes.Count == 0)
-            return 0;
+        // An actor whose session is attached elsewhere is an NPC or a visit form, not a player here.
+        if (actor.Comp.PlayerSession.AttachedEntity != actor.Owner)
+            return false;
 
-        if (!_xformQuery.TryGetComponent(uid, out var xform) || xform.MapUid == null)
-            return comp.MaxAliveNearby;
+        if (!TryComp(actor.Owner, out MobStateComponent? mob)
+            || (mob.CurrentState != MobState.Alive && mob.CurrentState != MobState.Critical))
+            return false;
 
-        var mapPos = _transform.GetMapCoordinates(uid, xform: xform);
-        var count = 0;
-
-        _aliveScan.Clear();
-        _lookup.GetEntitiesInRange(mapPos.MapId, mapPos.Position, comp.NearbyRange, _aliveScan);
-
-        foreach (var entity in _aliveScan)
-        {
-            if (!Exists(entity) || entity == uid)
-                continue;
-
-            if (!TryComp(entity, out MobStateComponent? mob) ||
-                (mob.CurrentState != MobState.Alive && mob.CurrentState != MobState.Critical))
-                continue;
-
-            if (!TryComp(entity, out MetaDataComponent? meta) ||
-                meta.EntityPrototype?.ID is not { } prototypeId ||
-                !comp.Prototypes.Contains(prototypeId))
-                continue;
-
-            if (++count >= comp.MaxAliveNearby)
-                return count;
-        }
-
-        return count;
+        return !TryComp<SSDIndicatorComponent>(actor.Owner, out var ssd) || !ssd.IsSSD;
     }
 
     // Sync sprite on load.
@@ -178,6 +172,17 @@ public sealed class ManholeSpawnerSystem : EntitySystem
                         $"never spawn anything.");
         }
 
+        // Random.Next throws on an inverted range, and this runs every tick after.
+        if (comp.MinimumEntitiesSpawned > comp.MaximumEntitiesSpawned)
+        {
+            Log.Warning($"Manhole spawner {ToPrettyString(uid)} has minimumEntitiesSpawned " +
+                        $"({comp.MinimumEntitiesSpawned}) above maximumEntitiesSpawned " +
+                        $"({comp.MaximumEntitiesSpawned}), swapping them.");
+            (comp.MinimumEntitiesSpawned, comp.MaximumEntitiesSpawned) =
+                (comp.MaximumEntitiesSpawned, comp.MinimumEntitiesSpawned);
+        }
+
+        comp.CheckTime = _timing.CurTick + CheckInterval(comp);
         UpdateAppearance(uid, comp);
     }
 
@@ -224,10 +229,38 @@ public sealed class ManholeSpawnerSystem : EntitySystem
         comp.Open = !comp.Open;
         Dirty(uid, comp);
 
+        // Re-opening a manhole rolls on the next tick instead of waiting out the old deadline.
+        if (comp.Open)
+            comp.CheckTime = _timing.CurTick;
+
         _popup.PopupClient(Loc.GetString(comp.Open ? "manhole-pry-open-popup" : "manhole-pry-close-popup"), uid, args.User);
         UpdateAppearance(uid, comp);
     }
 
     private void UpdateAppearance(EntityUid uid, ManholeSpawnerComponent comp)
         => _appearance.SetData(uid, ManholeSpawnerVisuals.Open, comp.Open);
+
+    // A dying mob stops counting immediately, corpses are reaped much later.
+    private void OnSpawnedMobStateChanged(MobStateChangedEvent args)
+    {
+        if (args.NewMobState != MobState.Dead)
+            return;
+
+        if (TryComp(args.Target, out SpawnedByManholeComponent? marker))
+            Untrack(marker.Spawner, args.Target);
+    }
+
+    // Catches queue dels, map changes and anything else that skips the death path.
+    private void OnSpawnedTerminating(EntityUid uid, SpawnedByManholeComponent marker, ref EntityTerminatingEvent args)
+    {
+        if (TerminatingOrDeleted(marker.Spawner))
+            return;
+
+        Untrack(marker.Spawner, uid);
+    }
+
+    private void OnSpawnerShutdown(EntityUid uid, ManholeSpawnerComponent comp, ComponentShutdown args)
+    {
+        comp.AliveCount = 0;
+    }
 }
