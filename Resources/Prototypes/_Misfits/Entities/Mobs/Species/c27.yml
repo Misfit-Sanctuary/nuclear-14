@@ -37,7 +37,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyWastelandGlobal
+    #  - EncryptionKeyWastelandGlobal
   - type: Body
     prototype: C27
     requiredLegs: 2
@@ -262,7 +262,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyWastelandGlobal
+    #  - EncryptionKeyWastelandGlobal
       - EncryptionKeyNCR
 
 - type: entity
@@ -278,7 +278,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyWastelandGlobal
+    #  - EncryptionKeyWastelandGlobal
       - EncryptionKeyBrotherhoodOfSteel
 
 - type: entity
@@ -294,7 +294,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyWastelandGlobal
+    #  - EncryptionKeyWastelandGlobal
       - EncryptionKeyZAX
   - type: LanguageKnowledge
     speaks:
