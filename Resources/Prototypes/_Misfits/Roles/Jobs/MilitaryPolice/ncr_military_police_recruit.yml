@@ -40,10 +40,24 @@
   id: NCRMilitaryPoliceRecruitGear
   equipment:
     wallet: N14Wallet
+    head: N14ClothingHeadHatNCRSidecap
+    back: N14ClothingBackpackNCR
     jumpsuit: N14ClothingMPUniformNCRDesert
+    outerClothing: MisfitsNCRMPRecruitArmor
     shoes: N14ClothingBootsCombatFilled
+    belt: ClothingBeltNCR
+    eyes: ClothingEyesGlassesSunglasses
+    ears: N14ClothingHeadsetNCR
+    pocket1: NCRMPKit_Set
     id: N14IDNCRDogtagMPRecruit
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage:
+    back:
+      - N14BoxPlasticFilledMilitaryNCR
+      - N14PoliceBaton
+      - N14MagazinePistol45
+      - N14MagazinePistol45
 
 - type: playTimeTracker
   id: NCRMilitaryPoliceRecruit

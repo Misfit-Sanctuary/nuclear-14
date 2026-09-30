@@ -52,10 +52,23 @@
   id: NCRMajorGear
   equipment:
     wallet: N14Wallet
+    head: N14ClothingHeadHatNCRBeretOfficer
+    back: N14ClothingBackpackNCR
     jumpsuit: N14ClothingOfficerUniformNCRDesert
+    outerClothing: N14ClothingOuterNCRDressJacketCO
     shoes: N14ClothingBootsCombatFilled
+    neck: ClothingNeckPinNCRMajor
+    belt: ClothingBeltNCR
+    eyes: ClothingEyesGlassesSunglasses
+    ears: N14ClothingHeadsetNCR
+    pocket1: NCRcaptainloadoutkits
+    pocket2: RadioHandheld
     id: N14IDNCRDogtagMajor
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage:
+    back:
+      - N14BoxPlasticFilledMilitaryNCR
 
 - type: playTimeTracker
   id: NCRMajor

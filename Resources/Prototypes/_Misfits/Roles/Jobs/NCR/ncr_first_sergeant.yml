@@ -44,11 +44,22 @@
   id: NCRFirstSergeantGear
   equipment:
     wallet: N14Wallet
+    back: N14ClothingBackpackNCR # Corvax-Change
     hands: N14ClothingHandsGlovesCombat
     jumpsuit: N14ClothingOfficerUniformNCRDesert # Corvax-Change
     shoes: N14ClothingBootsCombatFilled
+    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
+    neck: ClothingNeckPinNCRSergeant1st # #Misfits Change - sergeant first class pin for SFC rank
+    belt: ClothingBeltNCR
+    outerClothing: MisfitsNCRCommandArmor # #Misfits Tweak: T7 armor (0.60/0.55) — First Sergeant tier, top enlisted
+    pocket1: NCRfirstsergeantloadoutkits
+    pocket2: RadioHandheld
     id: N14IDNCRDogtagFirstSergeant
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert # Corvax-Change
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage: # Corvax-Change
+    back:
+    - N14BoxPlasticFilledMilitaryNCR
 
 - type: playTimeTracker
   id: NCRFirstSergeant

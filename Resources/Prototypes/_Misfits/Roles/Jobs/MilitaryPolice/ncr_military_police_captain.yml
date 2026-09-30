@@ -40,10 +40,23 @@
   id: NCRMilitaryPoliceCaptainGear
   equipment:
     wallet: N14Wallet
+    head: N14ClothingHeadHatNCRBeretOfficer
+    back: N14ClothingBackpackNCR
     jumpsuit: N14ClothingMPUniformNCRDesert
+    outerClothing: MisfitsNCRMPLieutenantArmor
     shoes: N14ClothingBootsCombatFilled
+    belt: ClothingBeltNCR
+    eyes: ClothingEyesGlassesSunglasses
+    ears: N14ClothingHeadsetNCR
+    pocket1: NCRMPKit_Set
     id: N14IDNCRDogtagMPCaptain
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage:
+    back:
+      - N14BoxPlasticFilledMilitaryNCR
+      - N14PoliceBaton
+      - N14MagazineShotgun20
 
 - type: playTimeTracker
   id: NCRMilitaryPoliceCaptain
