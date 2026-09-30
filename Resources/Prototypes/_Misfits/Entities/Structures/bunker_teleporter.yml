@@ -1,5 +1,7 @@
-# #Misfits Add - Bunker tunnel teleporter: a surface hatch that drops you somewhere in the tunnels,
-# and a sealed vault door down there that brings you back up. Press E on either, like a ladder.
+# #Misfits Add - Bunker tunnel teleporter: surface hatches that lead down to the Enclave base (or,
+# for outsiders, into the mines), and a sealed vault door down there that brings the Enclave back up.
+# Press E on either, like a ladder. Hatches are spawned at round start on N14BunkerHatchSpawnPoint
+# markers; see bunker_hatch_spawn.yml.
 #
 # Neither of these parents BaseLadder or N14Airlock on purpose:
 #   - BaseLadder carries a Warper component, and YAML cannot remove an inherited component. An
@@ -22,15 +24,31 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Misc/laddersms13.rsi
-    state: enclave_open
     drawdepth: FloorObjects
     noRot: true
     offset: 0, 0.25
+    layers:
+    - state: enclave
+      map: [ "base" ]
   # Walk-over, same as every other ladder top.
   - type: Physics
     canCollide: false
   - type: BunkerTeleporter
     isSurface: true
+  # Starts every round locked. Locked keeps outsiders out (unless they pry it for 85 s); Enclave
+  # members still pass and it locks behind them. NCOs lock/unlock it here or from the tac map.
+  - type: BunkerHatchLock
+  - type: AccessReader
+    access: [["EnclaveNCO"]]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.BunkerHatchVisuals.Locked:
+        base:
+          True: { state: enclave }
+          False: { state: enclave_open }
+  # Lets the tac map and the tunnel door menu show a camera view of the ground around the hatch.
+  - type: Eye
 
 - type: entity
   parent: N14BaseBunkerTeleporter
@@ -65,3 +83,8 @@
   - type: Airtight
   - type: BunkerTeleporter
     isSurface: false
+  # The menu Enclave members get: pick a hatch, look through it, go.
+  - type: UserInterface
+    interfaces:
+      enum.BunkerTunnelDoorUiKey.Key:
+        type: BunkerTunnelDoorBoundUserInterface

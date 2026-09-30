@@ -28,3 +28,15 @@ public sealed class WastelandMapCartridgeRemoveAnnotationMessageEvent : Cartridg
 
 [Serializable, NetSerializable]
 public sealed class WastelandMapCartridgeClearAnnotationsMessageEvent : CartridgeMessageEvent;
+
+// #Misfits Add - Pip-Boy (with an Enclave ID): look through a bunker hatch. Null stops looking.
+[Serializable, NetSerializable]
+public sealed class WastelandMapCartridgeHatchViewMessageEvent : CartridgeMessageEvent
+{
+    public readonly NetEntity? Hatch;
+
+    public WastelandMapCartridgeHatchViewMessageEvent(NetEntity? hatch)
+    {
+        Hatch = hatch;
+    }
+}

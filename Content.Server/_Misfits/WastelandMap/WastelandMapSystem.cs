@@ -7,6 +7,7 @@ using Content.Server._Misfits.Group; // #Misfits Add - group blip injection
 using Content.Server._Misfits.Overwatch;
 using Content.Server._Misfits.TribalHunt;
 using Content.Server._Misfits.TreeOfLife;
+using Content.Server._Misfits.Warps; // #Misfits Add - bunker hatches on the Enclave tac map
 using Content.Server.Radio.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Humanoid; // #Misfits Add - Followers casualty filter for humanoid player bodies only
@@ -17,6 +18,8 @@ using Content.Shared.Mobs.Components; // #Misfits Add - MobStateComponent
 using Content.Shared.Mobs.Systems; // #Misfits Add - MobStateSystem
 using Content.Shared.Tag;
 using Content.Shared._Misfits.WastelandMap;
+using Content.Shared._Misfits.Enclave; // #Misfits Add - Enclave micro-bomb implant tracking
+using Content.Shared.Implants.Components; // #Misfits Add - Enclave micro-bomb implant tracking
 using Content.Shared._Misfits.MaterialExtractor;
 using Content.Shared._Misfits.Expeditions;
 using Content.Shared._Misfits.TreeOfLife;
@@ -149,6 +152,9 @@ public sealed class WastelandMapSystem : EntitySystem
         SubscribeLocalEvent<WastelandMapComponent, WastelandMapRemoveAnnotationMessage>(OnRemoveAnnotationMessage);
         SubscribeLocalEvent<WastelandMapComponent, WastelandMapClearAnnotationsMessage>(OnClearAnnotationsMessage);
         SubscribeLocalEvent<WastelandMapComponent, WastelandMapCommunicationsMessage>(OnCommunicationsMessage);
+        // #Misfits Add - bunker hatch camera view and lock toggle
+        SubscribeLocalEvent<WastelandMapComponent, WastelandMapHatchViewMessage>(OnHatchViewMessage);
+        SubscribeLocalEvent<WastelandMapComponent, WastelandMapHatchLockMessage>(OnHatchLockMessage);
         SubscribeLocalEvent<BwonsamdiComponent, OpenUiActionEvent>(OnBwonsamdiSoulCompassOpen);
         // #Misfits Add - notify Followers players when a player humanoid dies
         SubscribeLocalEvent<MindContainerComponent, MobStateChangedEvent>(OnMindedEntityMobStateChanged);
@@ -199,6 +205,22 @@ public sealed class WastelandMapSystem : EntitySystem
         var fallbackTex = comp.MapTexturePath ?? new ResPath("_Misfits/Maps/wendover_map.png");
         var fallbackBounds = comp.WorldBounds != default ? comp.WorldBounds : ComputeMapBounds(mapId);
         return (fallbackTex, fallbackBounds);
+    }
+
+    // #Misfits Add - The loaded map whose game map matches this viewer's MapConfigId (e.g. the
+    // Wendover surface), falling back to the viewer's own map.
+    private MapId ResolvePictureMap(WastelandMapComponent comp, MapId viewerMap)
+    {
+        if (comp.MapConfigId == null || _gameMapByMapId.TryGetValue(viewerMap, out var viewerGameMap) && viewerGameMap == comp.MapConfigId)
+            return viewerMap;
+
+        foreach (var (loadedMap, gameMapId) in _gameMapByMapId)
+        {
+            if (gameMapId == comp.MapConfigId)
+                return loadedMap;
+        }
+
+        return viewerMap;
     }
 
     // #Misfits Add - Compute the combined world AABB of all grids on a MapId.
@@ -372,20 +394,62 @@ public sealed class WastelandMapSystem : EntitySystem
         UpdateMapUi(uid, comp, Transform(args.Actor).MapID);
     }
 
-    // #Misfits Add - optional actor param so group-member blips can be injected per-viewer
-    public WastelandMapBoundUserInterfaceState BuildState(WastelandMapComponent comp, MapId mapId, WastelandMapTacticalFeedKind? feedOverride = null, EntityUid? actor = null)
+    // #Misfits Add - Look through a bunker hatch. Only fixed consoles that show hatches can do this,
+    // and the view ends by itself when the map UI closes (see BunkerHatchViewSystem).
+    private void OnHatchViewMessage(EntityUid uid, WastelandMapComponent comp, WastelandMapHatchViewMessage args)
     {
-        return BuildState(null, comp, mapId, feedOverride, actor);
+        var view = EntityManager.System<BunkerHatchViewSystem>();
+        if (args.Hatch is not { } netHatch || !ShowsBunkerHatches(comp))
+        {
+            view.StopViewing(args.Actor);
+            return;
+        }
+
+        view.StartViewing(args.Actor, GetEntity(netHatch), uid, WastelandMapUiKey.Key);
+    }
+
+    // #Misfits Add - Lock or unlock a bunker hatch from the map. BunkerHatchLockSystem checks the
+    // user's access (Enclave NCO and up) and the lock cooldown, and tells them if it refuses.
+    private void OnHatchLockMessage(EntityUid uid, WastelandMapComponent comp, WastelandMapHatchLockMessage args)
+    {
+        var hatch = GetEntity(args.Hatch);
+        if (!ShowsBunkerHatches(comp) || !HasComp<BunkerHatchLockComponent>(hatch))
+            return;
+
+        var hatchLock = EntityManager.System<BunkerHatchLockSystem>();
+        var changed = args.Lock
+            ? hatchLock.TryLock(hatch, args.Actor)
+            : hatchLock.TryUnlock(hatch, args.Actor);
+
+        if (changed)
+            UpdateMapUi(uid, comp, Transform(args.Actor).MapID);
+    }
+
+    // #Misfits Add - optional actor param so group-member blips can be injected per-viewer
+    // #Misfits Add - The Enclave TacMap console, and every Enclave-feed HUD (power armor helmets),
+    // show the surface bunker hatches. Other maps can opt in with ShowBunkerHatches.
+    private bool ShowsBunkerHatches(WastelandMapComponent comp, WastelandMapTacticalFeedKind? feed = null)
+    {
+        return comp.ShowBunkerHatches || (feed ?? GetEffectiveFeed(comp)) == WastelandMapTacticalFeedKind.Enclave;
+    }
+
+    // #Misfits Add - includeBunkerHatches: Pip-Boys holding an Enclave ID also show the bunker hatches.
+    public WastelandMapBoundUserInterfaceState BuildState(WastelandMapComponent comp, MapId mapId, WastelandMapTacticalFeedKind? feedOverride = null, EntityUid? actor = null, bool includeBunkerHatches = false)
+    {
+        return BuildState(null, comp, mapId, feedOverride, actor, includeBunkerHatches);
     }
 
     // #Misfits Add - optional uid lets fixed TacMap entities expose Overwatch without leaking it to cartridges/HUDs.
-    public WastelandMapBoundUserInterfaceState BuildState(EntityUid? uid, WastelandMapComponent comp, MapId mapId, WastelandMapTacticalFeedKind? feedOverride = null, EntityUid? actor = null)
+    public WastelandMapBoundUserInterfaceState BuildState(EntityUid? uid, WastelandMapComponent comp, MapId mapId, WastelandMapTacticalFeedKind? feedOverride = null, EntityUid? actor = null, bool includeBunkerHatches = false)
     {
         // #Misfits Add - auto-detect map texture and bounds if not hardcoded
         var (texPath, bounds) = ResolveMapConfig(comp, mapId);
 
         var feed = feedOverride ?? GetEffectiveFeed(comp);
-        var trackedBlips = GetTrackedBlips(feed, mapId, bounds, actor);
+        // #Misfits Add - The Enclave TacMap sits underground but draws the Wendover surface, so its
+        // blips come from the surface map the picture shows, not the map the viewer is standing on.
+        var blipMapId = feed == WastelandMapTacticalFeedKind.Enclave ? ResolvePictureMap(comp, mapId) : mapId;
+        var trackedBlips = GetTrackedBlips(feed, blipMapId, bounds, actor);
         var sharedAnnotations = GetSharedAnnotations(comp, mapId, feed).ToArray();
         var overwatch = uid == null
             ? null
@@ -393,6 +457,12 @@ public sealed class WastelandMapSystem : EntitySystem
         var communications = uid == null || actor == null
             ? null
             : BuildCommunicationsState(uid.Value, comp, actor.Value);
+        // #Misfits Add - hatches live on the surface map the texture shows, so no viewer-map filter.
+        var bunkerHatches = !includeBunkerHatches && (uid == null || !ShowsBunkerHatches(comp, feed))
+            ? null
+            : EntityManager.System<BunkerTeleporterSystem>().BuildHatchEntries(null)
+                .Where(h => bounds.Contains(new System.Numerics.Vector2(h.X, h.Y)))
+                .ToArray();
 
         return new WastelandMapBoundUserInterfaceState(
             comp.MapTitle,
@@ -405,7 +475,8 @@ public sealed class WastelandMapSystem : EntitySystem
             trackedBlips,
             sharedAnnotations,
             overwatch,
-            communications);
+            communications,
+            bunkerHatches);
     }
 
     public WastelandMapTacticalFeedKind GetEffectiveFeed(WastelandMapComponent comp)
@@ -807,7 +878,9 @@ public sealed class WastelandMapSystem : EntitySystem
                 AppendIdCardBlips(buffer, mapId, bounds, "IdCardNCR");
                 break;
             case WastelandMapTacticalFeedKind.Enclave:
-                AppendIdCardBlips(buffer, mapId, bounds, "IdCardEnclave");
+                // #Misfits Change - Enclave are tracked by the micro-bomb in their head, like the
+                // remote detonator, not by their ID card: a dropped or stolen ID no longer shows.
+                AppendEnclaveImplantBlips(buffer, mapId, bounds);
                 break;
             case WastelandMapTacticalFeedKind.Legion:
                 AppendIdCardBlips(buffer, mapId, bounds, "IdCardLegion");
@@ -1157,6 +1230,60 @@ public sealed class WastelandMapSystem : EntitySystem
                 break;
             }
         }
+    }
+
+    // #Misfits Add - One blip per person carrying an Enclave micro-bomb implant, the same list the
+    // remote detonator shows. Labelled with their name and job; the marker shape follows rank tier.
+    private void AppendEnclaveImplantBlips(List<WastelandMapTrackedBlip> buffer, MapId mapId, Box2 bounds)
+    {
+        var listed = new HashSet<EntityUid>();
+        var query = EntityQueryEnumerator<EnclaveMicroBombComponent, SubdermalImplantComponent>();
+        while (query.MoveNext(out _, out _, out var subdermal))
+        {
+            if (subdermal.ImplantedEntity is not { } body ||
+                TerminatingOrDeleted(body) ||
+                !listed.Add(body))
+            {
+                continue;
+            }
+
+            var mapCoordinates = _transform.GetMapCoordinates(body);
+            if (mapCoordinates.MapId != mapId)
+                continue;
+
+            var pos = mapCoordinates.Position;
+            if (!bounds.Contains(pos))
+                continue;
+
+            string? jobId = null;
+            var label = Name(body);
+            if (_mind.TryGetMind(body, out var mindId, out _) &&
+                _jobs.MindTryGetJob(mindId, out _, out var job))
+            {
+                jobId = job.ID;
+                label = $"{label} ({Loc.GetString(job.Name)})";
+            }
+
+            var kind = _mobState.IsDead(body)
+                ? WastelandMapTrackedBlipKind.DeadBody
+                : GetEnclaveBlipKind(jobId);
+
+            buffer.Add(new WastelandMapTrackedBlip(pos.X, pos.Y, label, kind));
+        }
+    }
+
+    // #Misfits Add - Enclave job to marker shape, reusing the Brotherhood rank markers.
+    private static WastelandMapTrackedBlipKind GetEnclaveBlipKind(string? jobId)
+    {
+        return jobId switch
+        {
+            "EnclaveCommander" or "EnclaveReformer" => WastelandMapTrackedBlipKind.Elder,
+            "EnclaveSeniorOfficer" or "EnclaveJuniorOfficer" or "EnclaveVertibirdPilot" => WastelandMapTrackedBlipKind.Paladin,
+            "EnclaveNCO" or "EnclaveESIAgent" => WastelandMapTrackedBlipKind.Knight,
+            "EnclaveDirectorOfScience" or "EnclaveHeadScientist" or "EnclaveScientist" or "EnclaveJuniorScientist" => WastelandMapTrackedBlipKind.Scribe,
+            null => WastelandMapTrackedBlipKind.Unknown,
+            _ => WastelandMapTrackedBlipKind.Squire,
+        };
     }
 
     private void AppendIdCardBlips(List<WastelandMapTrackedBlip> buffer, MapId mapId, Box2 bounds, string requiredTag)

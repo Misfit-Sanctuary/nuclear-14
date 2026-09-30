@@ -5,6 +5,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Content.Shared._Misfits.Overwatch;
+using Content.Shared._Misfits.Warps; // #Misfits Add - bunker hatch entries
 
 namespace Content.Shared._Misfits.WastelandMap;
 
@@ -154,6 +155,8 @@ public sealed class WastelandMapBoundUserInterfaceState : BoundUserInterfaceStat
     public readonly WastelandMapAnnotation[] SharedAnnotations;
     public readonly OverwatchConsoleState? Overwatch;
     public readonly WastelandMapCommunicationsState? Communications;
+    // #Misfits Add - Enclave bunker hatches, drawn on the map and clickable for a camera view.
+    public readonly BunkerHatchEntry[] BunkerHatches;
 
     public WastelandMapBoundUserInterfaceState(string mapTitle, string mapTexturePath,
         bool compactHud,
@@ -161,7 +164,8 @@ public sealed class WastelandMapBoundUserInterfaceState : BoundUserInterfaceStat
         WastelandMapTrackedBlip[]? trackedBlips = null,
         WastelandMapAnnotation[]? sharedAnnotations = null,
         OverwatchConsoleState? overwatch = null,
-        WastelandMapCommunicationsState? communications = null)
+        WastelandMapCommunicationsState? communications = null,
+        BunkerHatchEntry[]? bunkerHatches = null)
     {
         MapTitle = mapTitle;
         MapTexturePath = mapTexturePath;
@@ -174,6 +178,7 @@ public sealed class WastelandMapBoundUserInterfaceState : BoundUserInterfaceStat
         SharedAnnotations = sharedAnnotations ?? [];
         Overwatch = overwatch;
         Communications = communications;
+        BunkerHatches = bunkerHatches ?? [];
     }
 }
 
@@ -217,6 +222,32 @@ public sealed class WastelandMapCommunicationsMessage : BoundUserInterfaceMessag
         Target = target;
         ChannelKind = channelKind;
         Revoke = revoke;
+    }
+}
+
+// #Misfits Add - Look through a bunker hatch from the tac map. Null stops looking.
+[Serializable, NetSerializable]
+public sealed class WastelandMapHatchViewMessage : BoundUserInterfaceMessage
+{
+    public readonly NetEntity? Hatch;
+
+    public WastelandMapHatchViewMessage(NetEntity? hatch)
+    {
+        Hatch = hatch;
+    }
+}
+
+// #Misfits Add - Lock or unlock a bunker hatch from the tac map. Needs Enclave NCO access.
+[Serializable, NetSerializable]
+public sealed class WastelandMapHatchLockMessage : BoundUserInterfaceMessage
+{
+    public readonly NetEntity Hatch;
+    public readonly bool Lock;
+
+    public WastelandMapHatchLockMessage(NetEntity hatch, bool @lock)
+    {
+        Hatch = hatch;
+        Lock = @lock;
     }
 }
 
@@ -292,6 +323,14 @@ public sealed partial class WastelandMapComponent : Component
     /// </summary>
     [DataField]
     public bool CompactHud;
+
+    /// <summary>
+    /// #Misfits Add - If true, the map shows the surface bunker hatches. Clicking one opens a camera
+    /// view of it with a lock/unlock button. Hatches are shown from any map, because the Enclave
+    /// console sits underground while the hatches are on the surface this map draws.
+    /// </summary>
+    [DataField]
+    public bool ShowBunkerHatches;
 
     /// <summary>
     /// Shared tactical annotations synchronized to all viewers of this map.

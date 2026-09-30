@@ -1,0 +1,21 @@
+# #Misfits Add - Possible spot for a surface bunker hatch.
+#
+# Place a pool of these on the surface in the map editor. At round start two of them are picked at
+# random and each gets a bunker hatch (labelled Hatch A and Hatch B); the rest stay empty for the
+# round. Admins can re-roll with the `bunkerhatchreroll` command.
+#
+# Like every marker it is anchored and hidden during normal play (`showmarkers` to see them).
+
+- type: entity
+  parent: MarkerBase
+  id: N14BunkerHatchSpawnPoint
+  name: bunker hatch spawn point
+  suffix: random bunker hatch
+  description: A bunker hatch may appear here this round.
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Nuclear14/Structures/Misc/laddersms13.rsi
+      state: enclave
+  - type: BunkerHatchSpawnPoint

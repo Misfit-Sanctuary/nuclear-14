@@ -1,10 +1,10 @@
-// #Misfits Add - Marker entity the bunker hatch can drop players at.
+// #Misfits Add - Marker entity the bunker hatch can drop outsiders at.
 namespace Content.Server._Misfits.Warps;
 
 /// <summary>
-/// A place the surface bunker hatch can drop you. These are placed around the tunnels in the map
-/// editor; each hatch picks one at random the first time it is used and then sticks with it.
-/// Adding another way out of the maze means placing another marker, not changing code.
+/// A spot in the mines where the surface bunker hatch can drop a non-Enclave player. Mappers place
+/// these in the map editor; every trip picks one at random. Adding another landing spot means
+/// placing another marker, not changing code.
 /// </summary>
 [RegisterComponent]
 public sealed partial class BunkerTunnelExitComponent : Component

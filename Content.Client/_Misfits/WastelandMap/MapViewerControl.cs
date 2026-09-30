@@ -1,6 +1,7 @@
 // #Misfits Change - Custom map viewer control with zoom, pan, and player position marker
 using System.Collections.Generic;
 using System.Numerics;
+using Content.Shared._Misfits.Warps; // #Misfits Add - bunker hatch icons
 using Content.Shared._Misfits.WastelandMap;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -39,6 +40,9 @@ public sealed class MapViewerControl : Control
     public event Action<WastelandMapAnnotation>? OnAddAnnotation;
     public event Action<int>? OnRemoveAnnotation;
     public event Action? OnClearAnnotations;
+    // #Misfits Add - Clicking a bunker hatch icon. Only the Enclave TacMap listens; on a Pip-Boy the
+    // icons are for looking at and a click just pans as usual.
+    public event Action<BunkerHatchEntry>? OnBunkerHatchClicked;
 
     public MapViewerControl()
     {
@@ -53,6 +57,9 @@ public sealed class MapViewerControl : Control
     private Texture? _texture;
     private Box2 _worldBounds;
     private WastelandMapTrackedBlip[] _trackedBlips = [];
+    private BunkerHatchEntry[] _bunkerHatches = []; // #Misfits Add
+    private const float BunkerHatchIconHalfSize = 9f; // #Misfits Add
+    private const float BunkerHatchClickRadius = 16f; // #Misfits Add
     private WastelandMapAnnotation[] _annotations = [];
     private AnnotationMode _annotationMode;
     private string _pendingAnnotationText = string.Empty;
@@ -94,6 +101,12 @@ public sealed class MapViewerControl : Control
     public void SetTrackedBlips(WastelandMapTrackedBlip[] trackedBlips)
     {
         _trackedBlips = trackedBlips;
+    }
+
+    // #Misfits Add - surface bunker hatches (Enclave only)
+    public void SetBunkerHatches(BunkerHatchEntry[] hatches)
+    {
+        _bunkerHatches = hatches;
     }
 
     public void SetAnnotations(WastelandMapAnnotation[] annotations)
@@ -198,6 +211,15 @@ public sealed class MapViewerControl : Control
             var blipPos = new Vector2(blipX, blipY);
             DrawTrackedHolotagMarker(handle, blipPos, blip.Kind);
             DrawTrackedHolotagLabel(handle, blipPos, blip.Label, blip.Kind);
+        }
+
+        // #Misfits Add - bunker hatches: square icon, red when locked, green when open.
+        foreach (var hatch in _bunkerHatches)
+        {
+            if (!TryGetUv(new Vector2(hatch.X, hatch.Y), out var uv))
+                continue;
+
+            DrawBunkerHatch(handle, new Vector2(x + uv.X * drawW, y + uv.Y * drawH), hatch);
         }
 
         foreach (var annotation in _annotations)
@@ -398,6 +420,58 @@ public sealed class MapViewerControl : Control
                 break;
             // End Misfits Add
         }
+    }
+
+    // #Misfits Add - one bunker hatch icon with its label and lock state.
+    private void DrawBunkerHatch(DrawingHandleScreen handle, Vector2 pos, BunkerHatchEntry hatch)
+    {
+        var color = hatch.Locked ? new Color(0.95f, 0.22f, 0.18f, 1f) : new Color(0.25f, 0.95f, 0.35f, 1f);
+        var outer = BunkerHatchIconHalfSize + 3f;
+        handle.DrawRect(new UIBox2(pos - new Vector2(outer, outer), pos + new Vector2(outer, outer)), new Color(0f, 0f, 0f, 0.75f));
+        handle.DrawRect(new UIBox2(pos - new Vector2(BunkerHatchIconHalfSize, BunkerHatchIconHalfSize),
+            pos + new Vector2(BunkerHatchIconHalfSize, BunkerHatchIconHalfSize)), color);
+        // A dark bar across the middle so it reads as a hatch lid, not a blip.
+        handle.DrawRect(new UIBox2(pos - new Vector2(BunkerHatchIconHalfSize, 1.5f),
+            pos + new Vector2(BunkerHatchIconHalfSize, 1.5f)), new Color(0f, 0f, 0f, 0.8f));
+
+        var label = $"{hatch.Label} ({(hatch.Locked ? "LOCKED" : "OPEN")})";
+        var labelPos = pos + new Vector2(14f, -14f);
+        var textDimensions = handle.GetDimensions(_blipLabelFont, label, 1f);
+        var padding = new Vector2(4f, 2f);
+        handle.DrawRect(new UIBox2(labelPos - padding, labelPos + textDimensions + padding), new Color(0f, 0f, 0f, 0.8f));
+        handle.DrawString(_blipLabelFont, labelPos, label, color);
+    }
+
+    // #Misfits Add - the bunker hatch icon under a click, if any.
+    private bool TryGetBunkerHatchAt(Vector2 controlPosition, out BunkerHatchEntry hit)
+    {
+        hit = default;
+        if (_texture == null || _bunkerHatches.Length == 0)
+            return false;
+
+        var scale = FitScale * _zoom;
+        var drawW = _texture.Width * scale;
+        var drawH = _texture.Height * scale;
+        var x = (Size.X - drawW) / 2f + _pan.X;
+        var y = (Size.Y - drawH) / 2f + _pan.Y;
+
+        var best = BunkerHatchClickRadius;
+        var found = false;
+        foreach (var hatch in _bunkerHatches)
+        {
+            if (!TryGetUv(new Vector2(hatch.X, hatch.Y), out var uv))
+                continue;
+
+            var distance = Vector2.Distance(controlPosition, new Vector2(x + uv.X * drawW, y + uv.Y * drawH));
+            if (distance > best)
+                continue;
+
+            best = distance;
+            hit = hatch;
+            found = true;
+        }
+
+        return found;
     }
 
     private void DrawTrackedHolotagLabel(DrawingHandleScreen handle, Vector2 markerPos, string label, WastelandMapTrackedBlipKind kind)
@@ -719,6 +793,14 @@ public sealed class MapViewerControl : Control
                     _annotationDragCurrentUv = uv;
                     args.Handle();
                 }
+                return;
+            }
+
+            // #Misfits Add - pan mode: clicking a bunker hatch opens its camera view.
+            if (OnBunkerHatchClicked != null && TryGetBunkerHatchAt(args.RelativePosition, out var clickedHatch))
+            {
+                OnBunkerHatchClicked.Invoke(clickedHatch);
+                args.Handle();
                 return;
             }
 

@@ -15,6 +15,7 @@ public sealed partial class WastelandMapProgramUiFragment : BoxContainer
     public event Action<WastelandMapAnnotation>? OnAddAnnotation;
     public event Action<int>? OnRemoveAnnotation;
     public event Action? OnClearAnnotations;
+    public event Action<Content.Shared._Misfits.Warps.BunkerHatchEntry>? OnBunkerHatchClicked; // #Misfits Add
 
     private readonly MapViewerControl _mapViewer;
     private ResPath? _loadedTexturePath;
@@ -37,6 +38,7 @@ public sealed partial class WastelandMapProgramUiFragment : BoxContainer
         _mapViewer.OnAddAnnotation += annotation => OnAddAnnotation?.Invoke(annotation);
         _mapViewer.OnRemoveAnnotation += index => OnRemoveAnnotation?.Invoke(index);
         _mapViewer.OnClearAnnotations += () => OnClearAnnotations?.Invoke();
+        _mapViewer.OnBunkerHatchClicked += hatch => OnBunkerHatchClicked?.Invoke(hatch); // #Misfits Add
         MapContainer.AddChild(_mapViewer);
 
         PanModeButton.OnPressed += _ =>
@@ -102,6 +104,12 @@ public sealed partial class WastelandMapProgramUiFragment : BoxContainer
             wb.OnPressed += _ => _mapViewer.SetAnnotationStrokeWidth(pw);
             ColorRow.AddChild(wb);
         }
+    }
+
+    // #Misfits Add - bunker hatch icons (only sent when an Enclave ID is in the Pip-Boy)
+    public void SetBunkerHatches(Content.Shared._Misfits.Warps.BunkerHatchEntry[] hatches)
+    {
+        _mapViewer.SetBunkerHatches(hatches);
     }
 
     public void SetMap(string title, ResPath texturePath, Robust.Shared.Maths.Box2 worldBounds, WastelandMapTrackedBlip[] trackedBlips, WastelandMapAnnotation[] sharedAnnotations)

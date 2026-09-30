@@ -1,6 +1,8 @@
 // #Misfits Change - Wasteland Map Viewer BUI
 using Content.Client.Eye;
 using Content.Client._Misfits.Overwatch;
+using Content.Client._Misfits.Warps; // #Misfits Add - bunker hatch camera window
+using Content.Shared._Misfits.Warps;
 using Content.Shared._Misfits.Overwatch;
 using Content.Shared._Misfits.WastelandMap;
 using JetBrains.Annotations;
@@ -18,6 +20,7 @@ public sealed class WastelandMapBoundUserInterface : BoundUserInterface
     private readonly EyeLerpingSystem _eyeLerpingSystem;
     private WastelandMapWindow? _window;
     private EntityUid? _currentOverwatchTarget;
+    private BunkerHatchFeedWindowHost? _hatchWindow; // #Misfits Add
 
     public WastelandMapBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -35,6 +38,11 @@ public sealed class WastelandMapBoundUserInterface : BoundUserInterface
             SendMessage(new OverwatchConsoleMessage(type, targetNumber));
         _window.OnCommunicationsAction += (target, channelKind, revoke) =>
             SendMessage(new WastelandMapCommunicationsMessage(target, channelKind, revoke));
+        // #Misfits Add - clicking a bunker hatch opens its camera window
+        _hatchWindow = new BunkerHatchFeedWindowHost(
+            hatch => SendMessage(new WastelandMapHatchViewMessage(hatch)),
+            (hatch, lockIt) => SendMessage(new WastelandMapHatchLockMessage(hatch, lockIt)));
+        _window.OnBunkerHatchClicked += _hatchWindow.Open;
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -50,6 +58,8 @@ public sealed class WastelandMapBoundUserInterface : BoundUserInterface
         var watch = EntMan.System<OverwatchConsoleSystem>().GetLocalWatch();
         _window?.UpdateOverwatch(mapState.Overwatch, watch, ResolveOverwatchEye(watch));
         _window?.UpdateCommunications(mapState.Communications);
+        _window?.SetBunkerHatches(mapState.BunkerHatches); // #Misfits Add
+        _hatchWindow?.Refresh(mapState.BunkerHatches); // #Misfits Add
     }
 
     private IEye? ResolveOverwatchEye(OverwatchWatchingComponent? watch)
@@ -88,6 +98,7 @@ public sealed class WastelandMapBoundUserInterface : BoundUserInterface
     protected override void Dispose(bool disposing)
     {
         ClearOverwatchTarget();
+        _hatchWindow?.Close(); // #Misfits Add
         base.Dispose(disposing);
     }
 }
