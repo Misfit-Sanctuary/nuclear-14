@@ -118,4 +118,41 @@
   - type: BallisticAmmoProvider
     proto: N14CartridgePistol127
 
+- type: entity
+  id: N14MagazineSMGwt550
+  name: WT550 magazine (12.7mm auto top-mounted)
+  parent: BaseItem
+  components:
+  - type: Tag
+    tags:
+      - N14MagazineSMGwt550
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    proto: N14CartridgePistol127
+    whitelist:
+      tags:
+      - N14CartridgePistol127
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-1
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
 
+- type: entity
+  id: N14MagazineSMGwt550Empty
+  name: WT550 magazine (12.7mm auto top-mounted empty)
+  parent: N14MagazineSMGwt550
+  components:
+  - type: BallisticAmmoProvider
+    proto: null

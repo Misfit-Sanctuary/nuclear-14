@@ -678,6 +678,27 @@
 
     Glass: 500
 
+- type: latheRecipe
+  id: N14BPNCRWeaponSMGWt550
+  result: N14WeaponSMGWt550
+  category: N14BlueprintNCRWeaponsT4
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 8000
+
+    N14Iron: 500
+
+    Leather: 100
+
+    ScrapElectronic: 500
+
+    Circuitry: 200
+
+    N14Brass: 300
+
 
 - type: latheRecipe
   id: N14BPNCRWeaponLMGAutoRifle
@@ -1477,6 +1498,21 @@
 - type: latheRecipe
   id: N14BPNCRAmmoMag12mmSMG
   result: N14MagazineSMG12mm
+  category: N14BlueprintNCRAmmoT3
+  completetime: 7
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 200
+
+    Lead: 40
+
+    N14Gunpowder: 20
+
+- type: latheRecipe
+  id: N14BPNCRAmmoMagSMGWt550
+  result: N14MagazineSMGwt550
   category: N14BlueprintNCRAmmoT3
   completetime: 7
   requiresBlueprint: true
@@ -2385,6 +2421,27 @@
 
     N14Brass: 300
 
+- type: latheRecipe
+  id: N14BPLegionWeaponSMGWt550
+  result: N14WeaponSMGWt550
+  category: N14BlueprintLegionWeaponsT4
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 8000
+
+    N14Iron: 500
+
+    Leather: 100
+
+    ScrapElectronic: 500
+
+    Circuitry: 200
+
+    N14Brass: 300
+
 
 
 - type: latheRecipe
@@ -2845,6 +2902,21 @@
     N14Brass: 35
 
     N14Gunpowder: 40
+
+- type: latheRecipe
+  id: N14BPLegionAmmoMagSMGWt550
+  result: N14MagazineSMGwt550
+  category: N14BlueprintLegionAmmoT3
+  completetime: 7
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 200
+
+    Lead: 40
+
+    N14Gunpowder: 20
 
 
 - type: latheRecipe
