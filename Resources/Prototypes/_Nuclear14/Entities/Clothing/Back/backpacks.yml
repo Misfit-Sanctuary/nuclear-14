@@ -93,8 +93,6 @@
   parent: ClothingBackpack
   id: N14AmmoBackpackBase
   components:
-  - type: Sprite
-    sprite: _Nuclear14/Clothing/Back/Backpacks/heavycarrier.rsi
   - type: BallisticAmmoProvider
     cycleable: false
   - type: ContainerContainer
@@ -128,6 +126,10 @@
   name: .50 HMG companion rack
   description: A heavy pack with a linked feed belt that feeds ammunition directly into the .50 machine gun. The gun rides in its own dedicated cradle on the outside, leaving only a small compartment for odds and ends. The wearer cannot load it, another pair of hands has to.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/SuperHeavy/HMG.rsi
+    layers:
+      - state: empt2
   - type: Tag
     tags:
       - N14HMGBackpack
@@ -151,6 +153,10 @@
   name: 30mm grenade companion rack
   description: A heavy pack with a linked feed belt that feeds 30mm grenades directly into the automatic grenade launcher. The launcher rides in its own dedicated cradle on the outside, leaving only a small compartment for odds and ends. The wearer cannot load it, another pair of hands has to.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/SuperHeavy/AGL.rsi
+    layers:
+      - state: empty
   - type: Tag
     tags:
       - N14AGLBackpack
@@ -167,6 +173,33 @@
           tags:
             - N14AGL
         startingItem: N14WeaponLauncherGrenadeAuto
+
+- type: entity
+  parent: N14AmmoBackpackBase
+  id: N14ClothingBackpackHAS
+  name: 20 gauge shotgun companion rack
+  description: A heavy pack with a linked feed belt that feeds 20 gauge shells directly into the heavy automatic shotgun. The shotgun rides in its own dedicated cradle on the outside, leaving only a small compartment for odds and ends. The wearer cannot load it, another pair of hands has to.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/SuperHeavy/HMG.rsi
+    layers:
+      - state: empt2
+  - type: Tag
+    tags:
+      - N14HASBackpack
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun20
+    capacity: 75
+    whitelist:
+      tags:
+        - N14ShellShotgun20
+  - type: ItemSlots
+    slots:
+      gun_holder:
+        whitelist:
+          tags:
+            - N14HAS
+        startingItem: N14WeaponHAS
 
 # Tribals
 - type: entity

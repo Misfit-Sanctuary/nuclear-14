@@ -14,9 +14,9 @@
     minAngle: -19
     maxAngle: -60
   - type: Sprite
-    sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/grenadelauncher.rsi
+    sprite: _Nuclear14/Objects/Weapons/Guns/SuperHeavy/AGL.rsi
     layers:
-      - state: icon
+      - state: icon_AGL
         map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/grenadelauncher.rsi
@@ -25,6 +25,7 @@
     - Back
   - type: Item
     size: Ginormous
+    sprite: _Nuclear14/Objects/Weapons/Guns/SuperHeavy/AGL.rsi
   - type: AmmoCounter
   - type: Gun
     minAngle: 22
