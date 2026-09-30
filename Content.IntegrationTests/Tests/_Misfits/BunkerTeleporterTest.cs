@@ -415,7 +415,7 @@ public sealed class BunkerTeleporterTest
     /// A human with a mind, and a job if one is given. No job means an outsider.
     /// </summary>
     private static EntityUid SpawnWithJob(Robust.UnitTesting.RobustIntegrationTest.ServerIntegrationInstance server,
-        EntityCoordinates coords, string? job)
+        EntityCoordinates coords, string job)
     {
         var entMan = server.ResolveDependency<IEntityManager>();
         var minds = server.System<SharedMindSystem>();
