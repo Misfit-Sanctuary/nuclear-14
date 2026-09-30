@@ -610,7 +610,7 @@
       - MisfitsBorgModuleTribalConstruction # Tribal settlement construction module
       id: # pre-load the nav module into the id inventory slot
       - MisfitsRobotNavCardTribal # #Misfits Add - Tree TacMap tracks the tribal Protectron card only
-      key_slots:
+    #  key_slots:
     #  - EncryptionKeyWastelandGlobal
   - type: BorgHands # this one only gets one functioning hand, it is decrepit
     handCount: 1
@@ -856,7 +856,7 @@
         - PositronicBrain
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
         - MisfitsRobotNavCardRobCo # RobCo Industries Navigation
-      key_slots:
+      #key_slots:
       #  - EncryptionKeyWastelandGlobal
   - type: ItemSlots
     slots:
@@ -1008,7 +1008,7 @@
         - BorgModuleTool
       id:
         - MisfitsRobotNavCardRobCo
-      key_slots:
+      #key_slots:
       #  - EncryptionKeyWastelandGlobal
   - type: ItemSlots
     slots:
