@@ -43,7 +43,7 @@ public sealed partial class BunkerTeleporterComponent : Component
     /// this same hatch. Rolled fresh every trip.
     /// </summary>
     [DataField]
-    public float OutsiderLostChance = 0.65f;
+    public float OutsiderLostChance = 0.25f;
 
     /// <summary>
     /// How long an outsider stays lost in the tunnels before they come back out.
