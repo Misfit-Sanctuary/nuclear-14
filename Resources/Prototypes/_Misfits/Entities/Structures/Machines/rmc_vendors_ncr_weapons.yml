@@ -126,6 +126,7 @@
       - { id: N14Dynamite, category: Explosives, tier: 1 }
       - { id: N14WeaponRifleGrenade, category: Explosives, tier: 1 }
       - { id: N14WeaponRifle308SniperRifle, category: Ballistic, tier: 1 }
+      - { id: N14WeaponRifleM7SpearScope, category: Ballistic, tier: 1 }
       - { id: N14WeaponSMG9mminfiltrator, category: Ballistic, tier: 1 }
       - { id: N14WeaponShotgunBlowback, category: Ballistic, tier: 1 }
       - { id: N14WeaponRevolverWebley, category: Ballistic, tier: 1 }
@@ -163,6 +164,7 @@
     - name: Tier 5 - Commander / Requisition Officer allocation
       entries:
       - { id: N14WeaponRifleM1GarandRepublicsPride, category: Ballistic, tier: 5 }
+
     replenishment:
     - currency: Bottlecaps
     - currency: NCRDollars

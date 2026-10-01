@@ -1664,6 +1664,38 @@
     N14Gunpowder: 350
 
 
+# #Misfits Add - 6.8mm magazine for the M7 Spear Rifle.
+- type: latheRecipe
+  id: N14BPNCRAmmoMag68
+  result: Magazine68Rifle
+  category: N14BlueprintNCRAmmoT4
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 250
+    Lead: 150
+    N14Brass: 50
+    N14Gunpowder: 150
+
+# #Misfits Add - magazine box (6.8mm) storage, holds 60 mags.
+- type: latheRecipe
+  id: N14BPNCRAmmoBox68
+  result: MagazineBox68
+  category: N14BlueprintNCRAmmoT4
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 100
+    Lead: 100
+    N14Brass: 50
+    N14Gunpowder: 0.50
+    Plastic: 20
+
+
 # =====================================================================
 # CAESAR'S LEGION WEAPON RECIPES
 # =====================================================================
