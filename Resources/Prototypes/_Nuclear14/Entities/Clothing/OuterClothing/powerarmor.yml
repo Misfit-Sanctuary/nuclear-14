@@ -728,7 +728,7 @@
     worldBounds: "-517,-308,484,311"
     tacticalFeed: Brotherhood
     compactHud: true
-  # #Misfits Change - tactical HUD is provided by the helmet, not the suit itself
+  # # Misfits Change - tactical HUD is provided by the helmet, not the suit itself
   - type: WastelandMapAction
     requiredSlot: HEAD
   - type: ToggleableClothing
