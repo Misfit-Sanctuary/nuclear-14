@@ -7,25 +7,32 @@
 # === Elder: 509th BoS Elder T-51bc ===
 - type: loadout
   id: LoadoutBoS509ElderT51BC
-  category: Roles
-  cost: 16
+  category: Outer
+  cost: 1
   exclusive: true
   requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - BoSWestElderCommander
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutOuter
+  - !type:CharacterJobRequirement
+    jobs:
+    - BoSWestElderCommander
   items:
     - MisfitsClothingOuterPowerArmorBoS509Elder
 
 # === Head Paladin: 509th BoS Head Paladin T-51bc ===
 - type: loadout
   id: LoadoutBoS509HeadPaladinT51BC
-  category: Roles
-  cost: 16
+  category: Outer
+  cost: 1
   exclusive: true
   requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - BoSMidPaladinCommander
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutOuter
+  - !type:CharacterJobRequirement
+    jobs:
+    - BoSMidPaladinCommander
+  - !type:CharacterPlaytimeRequirement
+    tracker: BoSMidPaladinCommander
+    min: 180000 # 50 hours as Head Paladin
   items:
     - MisfitsClothingOuterPowerArmorBoS509HeadPaladin

@@ -476,7 +476,7 @@
   parent: N14ClothingOuterPowerArmorT45 # #Misfits Add - Midwest PA are loadout options for Paladins/Senior Paladins/Head Paladins. Each parents off of the PA that role usually gets - they're drip, identical statwise.
   id: N14ClothingOuterPowerArmorMidwest
   name: Midwest Power Armor
-  description: An unknown model of power armor manufactured by the Brotherhood of Steel. It supports a lighter plating than power armor usually maintains but is more ergonomic as a result, allowing easier movement.
+  description: An unknown model of power armor manufactured by the Brotherhood of Steel. Due to the unique demands of it's maintenance, it is fielded only by seasoned veterans of the Chapter.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/midwest.rsi
@@ -509,23 +509,6 @@
       back: N14ClothingPowerSystemsBack
 
 #MIsfit
-
-- type: entity
-  parent: N14ClothingOuterPowerArmorWashT51Elite # #Misfits Add - Midwest PA are loadout options for Paladins/Senior Paladins/Head Paladins. Each parents off of the PA that role usually gets - they're drip, identical statwise.
-  id: N14ClothingOuterPowerArmorMidwestCommander
-  name: Midwest Commander Power Armor
-  description: An unknown model of power armor manufactured by the Brotherhood of Steel. This modified version is commonly used by high-ranking Brotherhood of Steel Paladins, and is a highly coveted reward.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/midwestcommander.rsi
-  - type: Clothing
-    sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/midwestcommander.rsi
-  - type: ToggleableClothing
-    clothingPrototypes:
-      head: N14ClothingHeadHelmetPowerArmorMidwestCommander
-      gloves: N14ClothingPAGauntletsMBoS
-      shoes: N14ClothingPABootsMBoS
-      back: N14ClothingPowerSystemsBack
 
 - type: entity
   parent: N14ClothingOuterPowerArmorT45
@@ -708,6 +691,8 @@
     innate: true
     spread: 90
 
+# # Head Paladin PA
+
 - type: entity
   parent: N14ClothingOuterPowerArmorWashT51
   id: N14ClothingOuterPowerArmorWashT51Elite
@@ -751,4 +736,23 @@
       head: N14ClothingHeadHelmetPowerArmorT51WashElite
       gloves: N14ClothingPAGauntlets
       shoes: N14ClothingPABoots
+      back: N14ClothingPowerSystemsBack
+
+# # Head Paladin PA Reskins - identical stats, different sprites
+
+- type: entity
+  parent: N14ClothingOuterPowerArmorWashT51Elite # #Misfits Add - Midwest PA are loadout options for Paladins/Senior Paladins/Head Paladins. Each parents off of the PA that role usually gets - they're drip, identical statwise.
+  id: N14ClothingOuterPowerArmorMidwestCommander
+  name: Midwest Commander Power Armor
+  description: An unknown model of power armor manufactured by the Brotherhood of Steel. This modified version is commonly used by high-ranking Brotherhood of Steel Paladins, and is a highly coveted reward.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/midwestcommander.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/PowerArmor/midwestcommander.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: N14ClothingHeadHelmetPowerArmorMidwestCommander
+      gloves: N14ClothingPAGauntletsMBoS
+      shoes: N14ClothingPABootsMBoS
       back: N14ClothingPowerSystemsBack

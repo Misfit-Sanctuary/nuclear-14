@@ -306,14 +306,14 @@ undecided-loadout-category-corvax-venator-marksman-description =
 undecided-loadout-category-corvax-venator-stalker-name = Venator Stalker
 undecided-loadout-category-corvax-venator-stalker-description =
     Includes an advanced 12.7mm SMG, 3 spare 12.7 magazines,
-    a rope belt, 2 smoke grenades, night vision goggles, 
+    a rope belt, 2 smoke grenades, night vision goggles,
     2 healing poultice, 2 K rations,
     a ceramic flask, and mustard.
 
 undecided-loadout-category-corvax-venator-executioner-name = Venator Executioner
 undecided-loadout-category-corvax-venator-executioner-description =
-    Includes a blowback shotgun, a ceremonial sword, 
-    a rope belt, 2 boxes of 12 gauge shells, 
+    Includes a blowback shotgun, a ceremonial sword,
+    a rope belt, 2 boxes of 12 gauge shells,
     an offensive grenade, night vision goggles,
     2 healing poultice, 2 K rations,
     a ceramic flask, and mustard.
@@ -771,7 +771,7 @@ undecided-loadout-category-misfits-priestess-zealot-desc =
 
 undecided-loadout-category-misfits-priestess-purifier-name = Priestess of Purification
 undecided-loadout-category-misfits-priestess-purifier-desc =
-    Includes a flaming blade of Mars, 2 incendiary grenades, a heater shield,
+    Includes a flaming shishkebab, 2 incendiary grenades, a heater shield,
     a colt 45 with two magazines, 1 bandage, 1 Healing Poultice, 1 Healing Powder,
     2 K rations, and a ceramic flask.
 

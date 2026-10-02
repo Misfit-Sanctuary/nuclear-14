@@ -45,9 +45,6 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Shoes/PowerBoots/dark.rsi
-  - type: Tag
-    tags:
-    - SuperMutantWearable
 
 
 - type: entity
@@ -59,13 +56,3 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Shoes/PowerBoots/midwest.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.92
-        Slash: 0.92
-        Piercing: 0.945
-        Heat: 0.945
-  - type: Tag
-    tags:
-    - SuperMutantWearable
