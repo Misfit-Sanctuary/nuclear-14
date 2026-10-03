@@ -10,10 +10,16 @@
   perceptionHeavyGunMultiplierPerPoint: 0.01333333
   perceptionMineDelayMultiplierPerPoint: 0.03333333
   perceptionFireDelayMultiplierPerPoint: 0.01333333
-  enduranceHealthModifierPerPoint: 2.6666667
-  enduranceNeedDecayMultiplierPerPoint: 0.016
-  enduranceStaminaRecoveryMultiplierPerPoint: 0.02666667
-  enduranceToxinDamageMultiplierPerPoint: 0.02
+  enduranceHealthModifierPerPoint: 5.3333333
+  enduranceNeedDecayMultiplierPerPoint: 0.06666667
+  enduranceStaminaRecoveryMultiplierPerPoint: 0.04666667
+  enduranceToxinDamageMultiplierPerPoint: 0.02666667
+  enduranceCritCrawlSpeedMultiplierPerPoint: 0.06666667
+  enduranceDamageSlowdownMultiplierPerPoint: 0.05333333
+  enduranceSecondWindMinimum: 10
+  enduranceSecondWindBonusHealth: 100
+  enduranceSecondWindDuration: 10
+  enduranceSecondWindCooldown: 480
   charismaTradeMultiplierPerPoint: 0.01333333
   charismaWarcryRangeMultiplierPerPoint: 0.006667
   charismaWarcryDurationMultiplierPerPoint: 0.006667

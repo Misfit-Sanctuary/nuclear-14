@@ -297,6 +297,27 @@ public sealed class MobThresholdSystem : EntitySystem
         VerifyThresholds(target, threshold);
     }
 
+    // Misfits
+    public void AdjustMobStateThresholds(EntityUid target, FixedPoint2 adjustment, MobState[] mobStates,
+        MobThresholdsComponent? threshold = null)
+    {
+        if (!Resolve(target, ref threshold))
+            return;
+
+        var moved = threshold.Thresholds.Where(pair => mobStates.Contains(pair.Value)).ToList();
+        if (moved.Count == 0)
+            return;
+
+        foreach (var (damageThreshold, _) in moved)
+            threshold.Thresholds.Remove(damageThreshold);
+
+        foreach (var (damageThreshold, state) in moved)
+            threshold.Thresholds[FixedPoint2.Max(1, damageThreshold + adjustment)] = state;
+
+        Dirty(target, threshold);
+        VerifyThresholds(target, threshold);
+    }
+
     /// <summary>
     /// Checks to see if we should change states based on thresholds.
     /// Call this if you change the amount of damagable without triggering a damageChangedEvent or if you change

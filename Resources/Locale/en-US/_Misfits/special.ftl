@@ -1,6 +1,10 @@
 special-low-charisma-examine-very-low = { CAPITALIZE(SUBJECT($user)) } seems hard to approach and uncomfortable to talk to.
 special-low-charisma-examine-low = { CAPITALIZE(SUBJECT($user)) } seems a little awkward to approach.
 
+special-second-wind-start = You refuse to go down!
+special-second-wind-start-others = { CAPITALIZE(THE($user)) } grits { POSS-ADJ($user) } teeth and stays standing!
+special-second-wind-end = Your second wind fades.
+
 special-low-charisma-opener-0 = No, yeah,
 special-low-charisma-opener-1 = Uh,
 special-low-charisma-opener-2 = Look,
