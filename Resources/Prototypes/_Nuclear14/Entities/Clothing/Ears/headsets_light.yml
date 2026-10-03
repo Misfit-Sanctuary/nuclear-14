@@ -32,7 +32,6 @@
     containers:
       key_slots:
       - EncryptionKeyCommon
-      - EncryptionKeyWastelandGlobal
   - type: EncryptionKeyHolder
     keySlots: 4
   - type: Appearance
@@ -92,7 +91,7 @@
 #    containers:
 #      key_slots:
 #      - EncryptionKeyBrotherhoodOfSteel
-#      - EncryptionKeyWastelandGlobal
+#
 #
 #- type: entity
 #  parent: N14ClothingHeadsetLightScribe
@@ -103,4 +102,4 @@
 #    containers:
 #      key_slots:
 #      - EncryptionKeyBrotherhoodOfSteel
-#      - EncryptionKeyWastelandGlobal
+#

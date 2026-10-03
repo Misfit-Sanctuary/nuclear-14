@@ -37,18 +37,18 @@
   id: NCRCitizenGear
   equipment:
     wallet: N14Wallet
-    ears: MisfitsClothingHeadsetWastelandScrap
+  #  ears: MisfitsClothingHeadsetWastelandScrap
     jumpsuit: N14ClothingUniformJumpsuitCaravan
     back: N14ClothingBackpackHiking
     shoes: N14ClothingBootsLeather
     id: N14IDNCRPassportCitizen
   innerClothingSkirt: N14ClothingUniformJumpskirtFalloutBlack
   satchel: N14ClothingBackpackSatchelWastelanderFilled
-  duffelbag: N14ClothingBackpackDuffelFilled  
+  duffelbag: N14ClothingBackpackDuffelFilled
   storage:
     back:
     - N14BoxPlasticFilledWastelander
-    
+
 
 - type: playTimeTracker
   id: NCRCitizen

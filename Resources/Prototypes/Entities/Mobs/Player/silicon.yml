@@ -475,7 +475,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyWastelandGlobal
+    #  - EncryptionKeyWastelandGlobal
       - EncryptionKeyZAX
   - type: Sprite
     sprite: _Misfits/Mobs/Silicon/zax_core.rsi
