@@ -532,8 +532,8 @@
       - !type:HealthChange
         damage:
           types:
-            Radiation: -0.5
-            Poison: -1
+            Radiation: -1.5
+            Poison: -1.5 # stop it. these are not combat dmg types. nerfing it just hurting qol.
       - !type:Emote
         emote: Cough
         showInChat: true
