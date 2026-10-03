@@ -42,6 +42,27 @@ public sealed class SpecialEnduranceSystem : EntitySystem
         SubscribeLocalEvent<SpecialComponent, SpecialStatsReadyEvent>(OnStatsReady);
         SubscribeLocalEvent<SpecialComponent, SpecialShutdownEvent>(OnSpecialShutdown);
         SubscribeLocalEvent<SpecialComponent, DamageModifyEvent>(OnDamageModify);
+        SubscribeLocalEvent<SpecialComponent, ModifySlowOnDamageSpeedEvent>(OnModifySlowOnDamageSpeed);
+    }
+
+    private void OnModifySlowOnDamageSpeed(Entity<SpecialComponent> ent, ref ModifySlowOnDamageSpeedEvent args)
+    {
+        // ignores damage slowdown entirely
+        if (SharedSpecialSecondWindSystem.IsActive(ent.Comp))
+        {
+            args.Speed = 1f;
+            return;
+        }
+
+        var tuning = _special.GetTuning();
+        var modifier = _special.GetCurvedEffectModifier(
+            ent.Owner,
+            SpecialStat.Endurance,
+            -tuning.EnduranceDamageSlowdownMultiplierPerPoint,
+            ent.Comp);
+        var slowdown = (1f - args.Speed) * MathF.Max(0f, 1f + modifier);
+
+        args.Speed = MathF.Max(0.1f, 1f - slowdown);
     }
 
     private void OnSpecialChanged(Entity<SpecialComponent> ent, ref SpecialChangedEvent args)

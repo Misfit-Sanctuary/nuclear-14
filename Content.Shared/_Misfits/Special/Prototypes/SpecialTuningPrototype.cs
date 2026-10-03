@@ -52,16 +52,34 @@ public sealed partial class SpecialTuningPrototype : IPrototype
     public float EnduranceStaminaCritThresholdPerPoint = 4f;
 
     [DataField("enduranceHealthModifierPerPoint")]
-    public float EnduranceHealthModifierPerPoint = 2.6666667f;
+    public float EnduranceHealthModifierPerPoint = 5.3333333f;
 
     [DataField("enduranceNeedDecayMultiplierPerPoint")]
-    public float EnduranceNeedDecayMultiplierPerPoint = 0.016f;
+    public float EnduranceNeedDecayMultiplierPerPoint = 0.06666667f;
 
     [DataField("enduranceStaminaRecoveryMultiplierPerPoint")]
-    public float EnduranceStaminaRecoveryMultiplierPerPoint = 0.02666667f;
+    public float EnduranceStaminaRecoveryMultiplierPerPoint = 0.04666667f;
 
     [DataField("enduranceToxinDamageMultiplierPerPoint")]
-    public float EnduranceToxinDamageMultiplierPerPoint = 0.02f;
+    public float EnduranceToxinDamageMultiplierPerPoint = 0.02666667f;
+
+    [DataField("enduranceCritCrawlSpeedMultiplierPerPoint")]
+    public float EnduranceCritCrawlSpeedMultiplierPerPoint = 0.06666667f;
+
+    [DataField("enduranceDamageSlowdownMultiplierPerPoint")]
+    public float EnduranceDamageSlowdownMultiplierPerPoint = 0.05333333f;
+
+    [DataField("enduranceSecondWindMinimum")]
+    public int EnduranceSecondWindMinimum = 10;
+
+    [DataField("enduranceSecondWindBonusHealth")]
+    public float EnduranceSecondWindBonusHealth = 100f;
+
+    [DataField("enduranceSecondWindDuration")]
+    public float EnduranceSecondWindDuration = 10f;
+
+    [DataField("enduranceSecondWindCooldown")]
+    public float EnduranceSecondWindCooldown = 480f;
 
     // Charisma: economy, loadout points, presentation, and leadership hooks.
     [DataField("charismaTradeMultiplierPerPoint")]
