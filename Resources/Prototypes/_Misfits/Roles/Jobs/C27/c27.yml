@@ -176,16 +176,16 @@
 #    ears: N14ClothingHeadsetBrotherhoodOfSteel
 #    id: N14IDBrotherhoodOfSteelHolotagInitiate
 
-# Generic / Unassigned: chassis jumpsuit only.
+# Generic / Unassigned: chassis, armor selector, field welder, headset, and dogtag.
 - type: startingGear
   id: C27GearGeneric
   equipment:
     wallet: N14Wallet
-    head: ClothingC27HelmetLightGeneric    
     jumpsuit: ClothingC27Chassis
-    pocket1: N14Welder #they're C-27s they cant use bandages l0l -pierow
+    pocket1: C27GenericLoadoutKit
+    pocket2: N14Welder #they're C-27s they cant use bandages l0l -pierow
+    ears: MisfitsClothingHeadsetWastelandScrap
     id: N14ClothingNeckDogtags
-    outerClothing: ClothingC27ArmorLightGeneric
 
 # NCR: chassis jumpsuit + Light NCR kit + NCR headset + NCR soldier dogtag.
 - type: startingGear

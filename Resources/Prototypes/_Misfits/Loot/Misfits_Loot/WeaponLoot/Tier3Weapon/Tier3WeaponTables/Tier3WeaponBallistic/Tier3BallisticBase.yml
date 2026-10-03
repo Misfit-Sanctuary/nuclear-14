@@ -6,13 +6,19 @@
 #          tableId: M14WeaponLootTier3_GunsBulletHeavy
       - !type:NestedSelector
           tableId: M14WeaponLootTier3_GunsBulletLMG
+          weight: 2
       - !type:NestedSelector
           tableId: M14WeaponLootTier3_GunsBulletRifle
+          weight: 5
       - !type:NestedSelector
           tableId: M14WeaponLootTier3_GunsBulletShotgun
+          weight: 5
       - !type:NestedSelector
           tableId: M14WeaponLootTier3_GunsBulletSMG
+          weight: 5
       - !type:NestedSelector
           tableId: M14WeaponLootTier3_GunsBulletPistol
+          weight: 4
       - !type:NestedSelector
           tableId: M14WeaponLootTier3_GunsBulletRevolver
+          weight: 4

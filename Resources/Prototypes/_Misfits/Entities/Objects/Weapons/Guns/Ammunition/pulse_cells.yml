@@ -11,6 +11,14 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Battery/EC.rsi
+    layers:
+      - map: [ "enum.PowerCellVisualLayers.Base" ]
+        state: empty
+        scale: 0.5, 0.5
+      - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+        state: o2
+        shader: unshaded
+        scale: 0.5, 0.5
   - type: Tag
     tags:
     - N14PulseEnergyCell
@@ -89,6 +97,12 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Battery/microfusion.rsi
+    layers:
+      - map: [ "enum.PowerCellVisualLayers.Base" ]
+        state: empty
+      - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+        state: o2
+        shader: unshaded
   - type: Tag
     tags:
     - N14PulseMicrofusionCell

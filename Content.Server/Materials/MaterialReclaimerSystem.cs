@@ -17,11 +17,13 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Materials;
 using Content.Shared.Mind;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Stacks;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Server.Administration.Logs;
+using Content.Server.Botany.Systems;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.Emag.Components;
@@ -44,6 +46,10 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly LogSystem _log = default!; // Misfits
+
+    /// Misfits
+    private static readonly TimeSpan ChoppedOutputIgnoreTime = TimeSpan.FromSeconds(3);
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -175,6 +181,17 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
 
         var xform = Transform(uid);
 
+        // Misfits
+        if (component.ChopsLogs && _log.IsGrinderChoppable(item))
+        {
+            foreach (var output in _log.ChopAt(item, xform.Coordinates))
+            {
+                MarkAsOutput(output, ChoppedOutputIgnoreTime);
+            }
+
+            return;
+        }
+
         SpawnMaterialsFromComposition(uid, item, completion * component.Efficiency, xform: xform);
 
         if (CanGib(uid, item, component))
@@ -205,9 +222,11 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         if (!Resolve(item, ref composition, false))
             return;
 
+        var stackCount = TryComp<StackComponent>(item, out var itemStack) ? itemStack.Count : 1;
+
         foreach (var (material, amount) in composition.MaterialComposition)
         {
-            var outputAmount = (int) (amount * efficiency);
+            var outputAmount = (int) (amount * efficiency * stackCount);
             _materialStorage.TryChangeMaterialAmount(reclaimer, material, outputAmount, storage);
         }
 
@@ -239,6 +258,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
             return;
 
         efficiency *= reclaimerComponent.Efficiency;
+        var stackCount = TryComp<StackComponent>(item, out var itemStack) ? itemStack.Count : 1;
 
         var totalChemicals = new Solution();
 
@@ -247,7 +267,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
             foreach (var (key, value) in composition.ChemicalComposition)
             {
                 // TODO use ReagentQuantity
-                totalChemicals.AddReagent(key, value * efficiency, false);
+                totalChemicals.AddReagent(key, value * efficiency * stackCount, false);
             }
         }
 
@@ -259,7 +279,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
                 var solution = soln.Comp.Solution;
                 foreach (var quantity in solution.Contents)
                 {
-                    totalChemicals.AddReagent(quantity.Reagent.Prototype, quantity.Quantity * efficiency, false);
+                    totalChemicals.AddReagent(quantity.Reagent.Prototype, quantity.Quantity * efficiency * stackCount, false);
                 }
             }
         }

@@ -1,0 +1,215 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingBrahdoSaddleBase
+  name: brahdo saddle
+  description: DEBUG DEBUG
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddleIcon.rsi
+    layers:
+    - state: icon-saddle
+    - state: icon-cloth
+  - type: Clothing
+    sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddle.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: base
+    slots:
+    - outerClothing
+  - type: Tag
+    tags:
+    - Brahdo
+
+# WHY IS THERE LIKE 100000 WAYS TO DO CLOTHING VISUALS????
+
+- type: entity
+  parent: ClothingBrahdoSaddleBase
+  id: ClothingBrahdoSaddle_ArmorBase
+  name: brahdo saddle armor
+  description: DEBUG DEBUG
+  abstract: true
+  components:
+  - type: Armor # little lower
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.7
+
+- type: entity
+  parent: ClothingBrahdoSaddleBase
+  id: ClothingBrahdoSaddle_StorageBase
+  name: brahdo storage saddle
+  description: DEBUG DEBUG
+  abstract: true
+  components:
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: Storage # satchel storage
+    grid:
+    - 0,0,1,3
+    - 3,0,6,3
+    - 8,0,9,3
+  - type: Item
+    size: Huge
+  - type: ExplosionResistance
+    damageCoefficient: 0.5 # horses get blown up alot
+
+- type: entity
+  parent: ClothingBrahdoSaddleBase
+  id: ClothingBrahdoSaddle_Basic
+  name: brahdo saddle basic
+  description: a saddle that can let you strap packs and such onto a brahdo. Doesnt come with armor.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-saddle
+    - state: icon-cloth
+      color: '#2b2201'
+  - type: Clothing
+    sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddle.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: base
+        color: '#2b2201'
+    slots:
+    - outerClothing
+
+
+- type: entity
+  parent: ClothingBrahdoSaddle_StorageBase
+  id: ClothingBrahdoSaddle_BasicStorage
+  name: followers brahdo saddle
+  description: a simple saddle for your brahdo. Do not need it for riding, but it allows you to put a storage pack on your brahdo. This one also acts like storage itself.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-saddle
+    - state: icon-cloth
+  - type: Clothing
+    sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddle.rsi
+  - type: GeneralConstructs
+    generalEnts:
+      saddleStorage: ClothingBrahdoSaddle_BasicStorage
+  - type: Construction
+    graph: ConstructGraph_BrahdoSaddleStorage
+    node: saddleStorage
+
+- type: entity
+  parent: ClothingBrahdoSaddle_ArmorBase
+  id: ClothingBrahdoSaddle_BasicArmor
+  name: followers brahdo saddle
+  description: an armored saddle for your brahdo. It still lets you latch backpacks!
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-saddle
+    - state: icon-cloth
+  - type: Clothing
+    sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddle.rsi
+  # - type: GeneralConstructs
+  #   generalEnts:
+  #     saddle: ClothingBrahdoSaddle_BasicArmor
+  # - type: Construction
+  #   graph: ConstructGraph_BrahdoSaddleArmor
+  #   node: saddleArmor
+
+
+- type: entity
+  parent: ClothingBrahdoSaddle_StorageBase
+  id: ClothingBrahdoSaddle_Followers
+  name: followers brahdo saddle
+  description: a brahdo saddle made by the Followers. It has pockets and a sticker asking to donate to the Fiend rehabilitation center.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon-saddle
+    - state: icon-cloth
+  - type: Clothing
+    sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddle-followers.rsi
+
+- type: entity
+  parent: ClothingBrahdoSaddle_ArmorBase
+  id: ClothingBrahdoSaddle_Legion
+  name: armored Legion brahdo saddle
+  description: an armored Legion brahdo saddle.
+  components:
+  - type: Clothing
+    sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddle-legion.rsi
+  - type: Sprite
+    layers:
+    - state: icon-saddle
+    - state: icon-cloth
+      color: '#390c06'
+    - sprite: Objects/Misc/books.rsi
+      state: icon_legion
+      offset: "-.1,-.1"
+
+
+- type: entity
+  parent: ClothingBrahdoSaddle_StorageBase
+  id: ClothingBrahdoSaddle_LegionMedic
+  name: armored Legion Medic brahdo saddle
+  description: a saddle made for Legion "medics".
+  components:
+  - type: Clothing
+    sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddle-legionMedic.rsi
+  - type: Sprite
+    layers:
+    - state: icon-saddle
+    - state: icon-cloth
+      color: '#871607'
+    - sprite: Objects/Misc/books.rsi
+      state: icon_legion
+      offset: "-.1,-.1"
+
+- type: entity
+  parent: ClothingBrahdoSaddle_ArmorBase
+  id: ClothingBrahdoSaddle_NCR
+  name: armored NCR brahdo saddle
+  description: an armored NCR brahdo saddle. Harry Cross invented the saddle.
+  components:
+  - type: Clothing
+    sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddle-ncr.rsi
+  - type: Sprite
+    layers:
+    - state: icon-saddle
+    - state: icon-cloth
+      color: '#513d39'
+
+
+- type: entity
+  parent: ClothingBrahdoSaddle_StorageBase
+  id: ClothingBrahdoSaddle_NCRMedic
+  name: armored NCR Medic brahdo saddle
+  description: a saddle specialized for NCR field medic work. Harry Cross didnt invent this one
+  components:
+  - type: Clothing
+    sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddle-ncrMedic.rsi
+  - type: Sprite
+    layers:
+    - state: icon-saddle
+    - state: icon-cloth
+      color: '#876159'
+
+- type: entity
+  parent: ClothingBrahdoSaddle_ArmorBase
+  id: ClothingBrahdoSaddle_Tribe
+  name: armored Tribal brahdo saddle
+  description: a saddle made by the Willowers
+  components:
+  - type: Clothing
+    sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddle-tribe.rsi
+  - type: Sprite
+    layers:
+    - state: icon-saddle
+    - state: icon-cloth
+      color: '#033d66'

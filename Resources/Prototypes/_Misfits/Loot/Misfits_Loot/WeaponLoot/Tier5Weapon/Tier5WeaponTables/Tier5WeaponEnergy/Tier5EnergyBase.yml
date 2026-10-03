@@ -4,7 +4,10 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_EnergyRifle
+          weight: 7
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_EnergyHeavy
+          weight: 7
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_EnergyPistol
+          weight: 4

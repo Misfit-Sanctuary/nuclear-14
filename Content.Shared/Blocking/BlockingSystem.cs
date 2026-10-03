@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Content.Shared.Actions;
+using Content.Shared.Climbing.Components;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
@@ -13,6 +14,7 @@ using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
+using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -133,90 +135,69 @@ public sealed partial class BlockingSystem : EntitySystem
             StopBlockingHelper(uid, component, component.User.Value);
         }
     }
-
+    // TODO: make this yaml defined
+    private const CollisionGroup BlockCollision = CollisionGroup.BulletImpassable
+                                    | CollisionGroup.MidImpassable
+                                    | CollisionGroup.LowImpassable;
     /// <summary>
     /// Called where you want the user to start blocking
     /// Creates a new hard fixture to bodyblock
     /// Also makes the user static to prevent prediction issues
     /// </summary>
     /// <param name="item"> The entity with the blocking component</param>
-    /// <param name="component"> The <see cref="BlockingComponent"/></param>
+    /// <param name="comp"> The <see cref="BlockingComponent"/></param>
     /// <param name="user"> The entity who's using the item to block</param>
     /// <returns></returns>
-    public bool StartBlocking(EntityUid item, BlockingComponent component, EntityUid user)
+    public bool StartBlocking(EntityUid item, BlockingComponent comp, EntityUid user)
     {
-        if (component.IsBlocking)
+        if (comp.IsBlocking ||
+            !TryComp<PhysicsComponent>(user, out var compPhys) ||
+            comp.BlockingToggleAction is null
+            )
             return false;
-
         var xform = Transform(user);
-
         var shieldName = Name(item);
 
-        var blockerName = Identity.Entity(user, EntityManager);
         var msgUser = Loc.GetString("action-popup-blocking-user", ("shield", shieldName));
-        var msgOther = Loc.GetString("action-popup-blocking-other", ("blockerName", blockerName), ("shield", shieldName));
 
-        if (component.BlockingToggleAction != null)
+        //Don't allow someone to block if they're not parented to a grid or holding a shield
+        // or coords invalid(null tileref)
+        if (xform.GridUid != xform.ParentUid ||
+            !_handsSystem.IsHolding(user, item, out _)
+            || xform.Coordinates.GetTileRef() is not TileRef tile)
         {
-            //Don't allow someone to block if they're not parented to a grid
-            if (xform.GridUid != xform.ParentUid)
-            {
-                CantBlockError(user);
-                return false;
-            }
-
-            // Don't allow someone to block if they're not holding the shield
-            if(!_handsSystem.IsHolding(user, item, out _))
-            {
-                CantBlockError(user);
-                return false;
-            }
-
-            //Don't allow someone to block if someone else is on the same tile
-            var playerTileRef = xform.Coordinates.GetTileRef();
-            if (playerTileRef != null)
-            {
-                var intersecting = _lookup.GetLocalEntitiesIntersecting(playerTileRef.Value, 0f);
-                var mobQuery = GetEntityQuery<MobStateComponent>();
-                foreach (var uid in intersecting)
-                {
-                    if (uid != user && mobQuery.HasComponent(uid))
-                    {
-                        TooCloseError(user);
-                        return false;
-                    }
-                }
-            }
-
-            //Don't allow someone to block if they're somehow not anchored.
-            _transformSystem.AnchorEntity(user, xform);
-            if (!xform.Anchored)
-            {
-                CantBlockError(user);
-                return false;
-            }
-            _actionsSystem.SetToggled(component.BlockingToggleActionEntity, true);
-            if (_gameTiming.IsFirstTimePredicted)
-            {
-                // #Misfits Change: observer popup suppressed — BlockingChatSystem sends this to the emote chat channel.
-                // _popupSystem.PopupEntity(msgOther, user, Filter.PvsExcept(user), true);
-                if(_gameTiming.InPrediction)
-                    _popupSystem.PopupEntity(msgUser, user, user);
-            }
+            CantBlockError(user);
+            return false;
         }
 
-        if (TryComp<PhysicsComponent>(user, out var physicsComponent))
-        {
-            _fixtureSystem.TryCreateFixture(user,
-                component.Shape,
-                BlockingComponent.BlockFixtureID,
-                hard: true,
-                collisionLayer: (int) CollisionGroup.WallLayer,
-                body: physicsComponent);
-        }
+        var intersecting = _lookup.AnyLocalEntitiesIntersecting(tile.GridUid, Box2.UnitCentered.Translated(tile.GridIndices), LookupFlags.Static);
+        //Don't block on a wall or someone else blocking
 
-        component.IsBlocking = true;
-        Dirty(item, component);
+        if (intersecting)
+        {
+            TooCloseError(user);
+            return false;
+        }
+        // TODO: debug checks if(!xform.Anchored) if we really want to cause OG code checked for that
+        // but if we can get a tileRef and not inside a static we can prolly anchor like wtf is gonna happen?
+        _transformSystem.AnchorEntity(user, xform);
+
+        _actionsSystem.SetToggled(comp.BlockingToggleActionEntity, true);
+        _popupSystem.PopupPredicted(msgUser, user, user);
+
+
+        _fixtureSystem.TryCreateFixture(user,
+            comp.Shape,
+            BlockingComponent.BlockFixtureID,
+            hard: true,
+            collisionLayer: (int) BlockCollision,
+            body: compPhys);
+        // TODO: in far future put into something done via ShieldBlockingStartedEvent as a perk
+        var climbComp = EnsureComp<ClimbableComponent>(user);
+        climbComp.ClimbDelay = .5f;
+        Dirty(user, climbComp);
+        comp.IsBlocking = true;
+        Dirty(item, comp);
         RaiseLocalEvent(item, new ShieldBlockingStartedEvent(user, item));
 
         return true;
@@ -247,32 +228,27 @@ public sealed partial class BlockingSystem : EntitySystem
             return false;
 
         var xform = Transform(user);
-
         var shieldName = Name(item);
-
-        var blockerName = Identity.Entity(user, EntityManager);
         var msgUser = Loc.GetString("action-popup-blocking-disabling-user", ("shield", shieldName));
-        var msgOther = Loc.GetString("action-popup-blocking-disabling-other", ("blockerName", blockerName), ("shield", shieldName));
+
 
         //If the component blocking toggle isn't null, grab the users SharedBlockingUserComponent and PhysicsComponent
         //then toggle the action to false, unanchor the user, remove the hard fixture
         //and set the users bodytype back to their original type
-        if (component.BlockingToggleAction != null && TryComp<BlockingUserComponent>(user, out var blockingUserComponent)
-                                                     && TryComp<PhysicsComponent>(user, out var physicsComponent))
+        if (component.BlockingToggleAction != null && TryComp<BlockingUserComponent>(user, out var blockComp)
+                                                     && TryComp<PhysicsComponent>(user, out var physComp)
+                                                     && TryComp<ClimbableComponent>(user, out var climbComp))
         {
-            if (xform.Anchored)
-                _transformSystem.Unanchor(user, xform);
+            //TODO: debug assert anchored
+            //if (xform.Anchored)
+            _transformSystem.Unanchor(user, xform);
 
             _actionsSystem.SetToggled(component.BlockingToggleActionEntity, false);
-            _fixtureSystem.DestroyFixture(user, BlockingComponent.BlockFixtureID, body: physicsComponent);
-            _physics.SetBodyType(user, blockingUserComponent.OriginalBodyType, body: physicsComponent);
-            if (_gameTiming.IsFirstTimePredicted)
-            {
-                // #Misfits Change: observer popup suppressed — BlockingChatSystem sends this to the emote chat channel.
-                // _popupSystem.PopupEntity(msgOther, user, Filter.PvsExcept(user), true);
-                if(_gameTiming.InPrediction)
-                    _popupSystem.PopupEntity(msgUser, user, user);
-            }
+            _fixtureSystem.DestroyFixture(user, BlockingComponent.BlockFixtureID, body: physComp);
+            _physics.SetBodyType(user, blockComp.OriginalBodyType, body: physComp);
+            RemComp<ClimbableComponent>(user);
+            _popupSystem.PopupPredicted(msgUser, user, user);
+
         }
 
         component.IsBlocking = false;

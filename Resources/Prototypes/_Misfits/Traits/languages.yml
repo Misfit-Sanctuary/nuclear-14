@@ -1,0 +1,16 @@
+- type: language
+  id: MisfitsHorse
+  isVisibleLanguage: false
+  speech:
+    color: "#FFFFFFcc"
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 1
+    replacement:
+    - neigh
+    - nicker
+    - groan
+    - whicker
+    - grunt
+    - squeal

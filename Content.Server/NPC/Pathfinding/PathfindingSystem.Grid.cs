@@ -538,11 +538,6 @@ public sealed partial class PathfindingSystem
                                     continue;
                                 }
 
-                                if (!_fixtures.TestPoint(fixture.Shape, new Transform(xform.LocalPosition, xform.LocalRotation), localPos))
-                                {
-                                    continue;
-                                }
-
                                 collisionLayer |= fixture.CollisionLayer;
                                 collisionMask |= fixture.CollisionMask;
                                 colliding = true;

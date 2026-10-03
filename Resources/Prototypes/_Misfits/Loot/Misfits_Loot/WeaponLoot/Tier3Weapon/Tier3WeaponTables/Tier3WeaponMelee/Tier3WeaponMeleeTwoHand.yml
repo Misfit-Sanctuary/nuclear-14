@@ -5,14 +5,6 @@
     - !type:EntSelector
       id: N14SledgeHammer
     - !type:EntSelector
-      id: N14BaseBallBat
-    - !type:EntSelector
-      id: N14NailBoard
-    - !type:EntSelector
-      id: N14PoolCue
-    - !type:EntSelector
-      id: N14GolfClub
-    - !type:EntSelector
       id: N14TribalBigClub
 
 
@@ -20,10 +12,6 @@
   id: M14WeaponLootTier3_MeleeSharpTwoHanded
   table: !type:GroupSelector
     children:
-    - !type:EntSelector
-      id: N14WastelandFlagSpear
-    - !type:EntSelector
-      id: N14WastelandSpear
     - !type:EntSelector
       id: N14WastelandTribalSpear
     - !type:EntSelector

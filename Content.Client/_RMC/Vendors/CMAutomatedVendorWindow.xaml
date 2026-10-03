@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<DefaultWindow xmlns="https://spacestation14.io" Title="Armory Vendor" MinSize="1000 700" MaxSize="1000 700" Resizable="False">
-  <ScrollContainer Name="VendorContents" VerticalExpand="True" HorizontalExpand="True">
-    <BoxContainer Name="Sections" Orientation="Vertical" SeparationOverride="4" />
-  </ScrollContainer>
+<DefaultWindow xmlns="https://spacestation14.io" Title="Armory Vendor" MinSize="720 620" Resizable="True">
+  <BoxContainer Orientation="Vertical" SeparationOverride="6">
+    <BoxContainer Orientation="Horizontal" Margin="6 4 6 0">
+      <Label Text="Search" VerticalAlignment="Center" />
+      <LineEdit Name="SearchBar" HorizontalExpand="True" Margin="8 0 12 0" PlaceHolder="Search equipment..." />
+      <Label Name="PointsLabel" MinWidth="150" Align="Right" VerticalAlignment="Center" />
+    </BoxContainer>
+    <BoxContainer Name="PageButtons" Orientation="Horizontal" SeparationOverride="6" Margin="6 0 6 0" />
+    <BoxContainer Orientation="Horizontal" VerticalExpand="True" SeparationOverride="8" Margin="6 0 6 0">
+      <ScrollContainer MinWidth="180" MaxWidth="220" VerticalExpand="True">
+        <BoxContainer Name="CategoryButtons" Orientation="Vertical" SeparationOverride="3" />
+      </ScrollContainer>
+      <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+        <BoxContainer Name="Sections" Orientation="Vertical" SeparationOverride="10" />
+      </ScrollContainer>
+    </BoxContainer>
+    <Label Name="ResupplyStatus" Margin="8 0 8 0" />
+    <BoxContainer Name="ActionButtons" Orientation="Horizontal" SeparationOverride="6" Margin="6 0 6 6" />
+  </BoxContainer>
 </DefaultWindow>

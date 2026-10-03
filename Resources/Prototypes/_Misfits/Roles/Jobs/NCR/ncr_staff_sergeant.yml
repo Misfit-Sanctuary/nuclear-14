@@ -40,22 +40,15 @@
   id: NCRStaffSergeantGear
   equipment:
     wallet: N14Wallet
+    neck: ClothingNeckPinNCRSergeant1st # #Misfits Change - rank pin instead of generic mantle
+    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
     back: N14ClothingBackpackNCR # Corvax-Change
     hands: N14ClothingHandsGlovesCombat
     jumpsuit: N14ClothingOfficerUniformNCRDesert # Corvax-Change
     shoes: N14ClothingBootsCombatFilled
-    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
-    neck: ClothingNeckPinNCRSergeant1st # #Misfits Change - rank pin instead of generic mantle
     belt: ClothingBeltNCR
-    outerClothing: MisfitsNCREliteCombatArmor # #Misfits Tweak: T6 armor (0.65/0.60) — Staff Sergeant tier
-    pocket1: NCRstaffsergeantloadoutkits
-    pocket2: RadioHandheld
     id: N14IDNCRDogtagStaffSergeant
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert # Corvax-Change
-  satchel: N14ClothingBackpackSatchelNCRFilled
-  storage: # Corvax-Change
-    back:
-    - N14BoxPlasticFilledMilitaryNCR
 
 - type: playTimeTracker
   id: NCRStaffSergeant

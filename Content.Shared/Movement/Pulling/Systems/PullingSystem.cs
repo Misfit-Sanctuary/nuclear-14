@@ -6,6 +6,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Conveyor;
 using Content.Shared.Database;
 using Content.Shared.Gravity;
 using Content.Shared.Hands;
@@ -136,6 +137,12 @@ public sealed class PullingSystem : EntitySystem
 
             if (pullerComp.PushingTowards is null)
                 continue;
+
+            if (TryComp(pulled, out ConveyedComponent? conveyed) && conveyed.Conveying)
+            {
+                pullerComp.PushingTowards = null;
+                continue;
+            }
 
             // If pushing but the target position is invalid, or the push action has expired or finished, stop pushing
             if (pullerComp.NextPushStop < _timing.CurTime

@@ -1126,6 +1126,9 @@
     - FullAuto
   - type: Appearance
   - type: MultiHandedItem
+  - type: WieldDelay # Misfits-change
+    baseDelay: 2.5
+    preventFiring: true
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -1205,6 +1208,9 @@
     hitscanProtoOverride: N14MFLaserRed
   - type: Appearance
   - type: MultiHandedItem
+  - type: WieldDelay # Misfits-change
+    baseDelay: 2.5
+    preventFiring: true
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9

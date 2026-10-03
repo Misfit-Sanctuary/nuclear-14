@@ -41,7 +41,50 @@
     directBudgetRequestSlots: 4
     sellEntries:
     - item: N14DrinkNukaColaEmpty
-      value: 5
+      value: 75
+    - item: N14CurrencyPrewar
+      value: 1
+    # Scrap
+    - item: N14Scrap
+      value: 30
+    - item: N14ScrapSteel
+      value: 45
+    - item: N14ScrapLead
+      value: 45
+    - item: N14ScrapCopper
+      value: 60
+    - item: N14ScrapElectronic
+      value: 60
+    - item: N14ScrapBrass
+      value: 75
+    - item: N14ScrapGold
+      value: 120
+    # Ingots
+    - item: N14IngotIron1
+      value: 120
+    - item: N14IngotLead1
+      value: 120
+    - item: N14IngotAluminum1
+      value: 90
+    - item: N14IngotCopper1
+      value: 120
+    - item: N14IngotBrass1
+      value: 120
+    - item: N14IngotSilver1
+      value: 120
+    - item: N14IngotGold1
+      value: 240
+    # Hides & stuff
+    - item: N14MaterialBrahminHide1
+      value: 1000
+    - item: N14MaterialHideGecko
+      value: 4000
+    - item: N14MaterialHideGeckoFire
+      value: 6000
+    - item: N14MaterialRadscorpionTail
+      value: 3000
+    - item: N14MaterialYaoguaiHide
+      value: 3000
     bounties:
     - id: VaultScrapGold
       item: N14ScrapGold
@@ -56,32 +99,36 @@
         crate: N14CrateRequisitionsVaultPacks
     - name: n14-requisitions-category-equipment
       entries:
-      - cost: 1500
-        stock: 3
+      - cost: 750
+        stock: 10
         crate: N14CrateRequisitionsVaultPipboy
-      - cost: 400
+      - cost: 150
         crate: N14CrateRequisitionsVaultPowerCells
-      - cost: 800
+      - cost: 300
+        crate: N14CrateRequisitionsVaultComms
+      - cost: 300
         crate: MisfitsCrateRequisitionsVaultBinoculars
+      - cost: 1000
+        crate: N14CrateRequisitionsVaultIndustrialGrinder
       - cost: 2000
         stock: 1
         crate: MisfitsCrateRequisitionsVaultMMI
     - name: n14-requisitions-category-security
       entries:
-      - cost: 1500
+      - cost: 500
         crate: N14CrateRequisitionsVaultSidearm
-      - cost: 1000
+      - cost: 500
         crate: N14CrateRequisitionsVaultSecArmor
       - cost: 500
         stock: 2
         crate: N14CrateRequisitionsVaultLaser
-      - cost: 2000
+      - cost: 1200
         crate: MisfitsCrateRequisitionsVaultModularGrenade
-      - cost: 2500
+      - cost: 1500
         crate: MisfitsCrateRequisitionsVaultRiot
-      - cost: 2000
+      - cost: 999
         crate: MisfitsCrateRequisitionsVaultFlashbang
-      - cost: 2000
+      - cost: 999
         crate: MisfitsCrateRequisitionsVaultTearGas
       - cost: 1800
         crate: MisfitsCrateRequisitionsVaultAdvancedSecurity
@@ -125,15 +172,15 @@
         crate: MisfitsCrateRequisitionsVaultPlushies
     - name: n14-requisitions-category-supplies
       entries:
-      - cost: 5000
-        crate: MisfitsCrateRequisitionsVaultCircuits
-      - cost: 1500
-        crate: MisfitsCrateRequisitionsVaultSteel
       - cost: 2000
-        crate: MisfitsCrateRequisitionsVaultPlastic
-      - cost: 4000
-        crate: MisfitsCrateRequisitionsVaultThread
+        crate: MisfitsCrateRequisitionsVaultCircuits
       - cost: 1000
+        crate: MisfitsCrateRequisitionsVaultSteel
+      - cost: 1000
+        crate: MisfitsCrateRequisitionsVaultPlastic
+      - cost: 300
+        crate: MisfitsCrateRequisitionsVaultThread
+      - cost: 800
         crate: MisfitsCrateRequisitionsVaultPlasma
 
 # Apparel
@@ -203,6 +250,37 @@
     contents:
     - id: N14PowerCellSmall
       amount: 5
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsVaultComms
+  name: vault comms crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultstandard.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: BoxHeadsetVault
+    - id: BoxEncryptionKeyVault
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsVaultIndustrialGrinder
+  name: industrial grinder board crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/vaultcrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: ReagentGrinderIndustrialMachineCircuitboard
 
 # Security
 - type: entity

@@ -67,11 +67,6 @@
             <OptionButton Name="TargetGroupSelector" HorizontalExpand="True" Access="Public"/>
         </BoxContainer>
 
-        <BoxContainer Orientation="Horizontal" Margin="10 0 10 4" SeparationOverride="8">
-            <Label Text="{Loc faction-war-target-wastelander-label}" VerticalAlignment="Center" MinWidth="100"/>
-            <OptionButton Name="TargetWastelanderSelector" HorizontalExpand="True" Access="Public"/>
-        </BoxContainer>
-
         <BoxContainer Orientation="Vertical" Margin="10 0 10 4" SeparationOverride="2">
             <Label Text="{Loc faction-war-casus-belli-label}"/>
             <LineEdit Name="CasusBelliEdit" PlaceHolder="{Loc faction-war-casus-belli-placeholder}"

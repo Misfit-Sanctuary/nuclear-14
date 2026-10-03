@@ -8,6 +8,9 @@
     sprite: Corvax/Clothing/Shoes/Boots/legateboots.rsi
   - type: Clothing
     sprite: Corvax/Clothing/Shoes/Boots/legateboots.rsi
+  - type: NoSlip
+  - type: ClothingSlowOnDamageModifier # Forge-Add
+    modifier: 0.85
 
 - type: entity
   parent: ClothingShoesBase
@@ -20,3 +23,5 @@
   - type: Clothing
     sprite: Corvax/Clothing/Shoes/Boots/centurionboots.rsi
   - type: NoSlip
+  - type: ClothingSlowOnDamageModifier # Forge-Add
+    modifier: 0.85

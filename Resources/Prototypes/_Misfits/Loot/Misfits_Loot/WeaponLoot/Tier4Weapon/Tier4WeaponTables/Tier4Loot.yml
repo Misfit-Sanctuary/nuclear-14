@@ -4,10 +4,13 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponLootTier4_GunsAll
+          weight: 10
       - !type:NestedSelector
           tableId: M14WeaponLootTier4_MeleeAll
+          weight: 8
       - !type:NestedSelector
           tableId: M14WeaponLootTier4_ThrowablesAll
+          weight: 4
 
 - type: entityTable
   id: M14WeaponLootTier4_GunsAll
@@ -15,7 +18,10 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponLootTier4_GunsBulletAll
+          weight: 10
       - !type:NestedSelector
           tableId: M14WeaponLootTier4_GunsEnergyAll
+          weight: 8
       - !type:NestedSelector
           tableId: M14WeaponLootTier4_GunsExplosiveAll
+          weight: 5

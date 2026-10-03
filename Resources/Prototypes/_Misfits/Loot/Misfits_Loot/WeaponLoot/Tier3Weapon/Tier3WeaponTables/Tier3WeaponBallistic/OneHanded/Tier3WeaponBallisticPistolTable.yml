@@ -3,33 +3,18 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: N14WeaponPistolM1911
-      weight: 7
-    - !type:EntSelector
       id: N14WeaponPistol22lr
-      weight: 7
-    - !type:EntSelector
-      id: N14WeaponPistol9mm
-      weight: 7
-    - !type:EntSelector
-      id: N14WeaponPistol10mm
-      weight: 7
+      weight: 3
     - !type:EntSelector
       id: N14WeaponPistol45Colt
-      weight: 7
+      weight: 5
     - !type:EntSelector
       id: N14WeaponPistolM1911 # .45acp
-      weight: 7
-    - !type:EntSelector
-      id: N14WeaponPistol12mm
-      weight: 7
+      weight: 5
     - !type:EntSelector
       id: N14WeaponPistolThatGun
-      weight: 7
-    - !type:EntSelector
-      id: N14WeaponPistolM1911Custom # .45acp fancy
-      weight: 7
+      weight: 5
     - !type:EntSelector
       id: N14WeaponPistol9mmSpy #stealth
-      weight: 7
+      weight: 5
 

@@ -147,6 +147,18 @@
     Blunt: 5
 
 - type: damageModifierSet
+  id: PlasticMod
+  coefficients:
+    Caustic: 2
+  flatReductions:
+    Blunt: 2
+    Slash: 2
+    Piercing: 2
+    Heat: 2
+    Cold: 2
+    Shock: 2
+
+- type: damageModifierSet
   id: Web # Very flammable, can be easily hacked and slashed, but shooting or hitting it is another story.
   coefficients:
     Blunt: 0.7

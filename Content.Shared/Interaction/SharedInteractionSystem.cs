@@ -688,8 +688,9 @@ namespace Content.Shared.Interaction
             if (!Resolve(other, ref other.Comp))
                 return false;
 
-            var ev = new InRangeOverrideEvent(origin, other);
+            var ev = new InRangeOverrideEvent(origin, other, range);
             RaiseLocalEvent(origin, ref ev);
+            RaiseLocalEvent(other, ref ev);
 
             if (ev.Handled)
             {
@@ -1294,6 +1295,7 @@ namespace Content.Shared.Interaction
             var ev = new AccessibleOverrideEvent(user, target);
 
             RaiseLocalEvent(user, ref ev);
+            RaiseLocalEvent(target, ref ev);
 
             if (ev.Handled)
                 return ev.Accessible;
@@ -1517,10 +1519,11 @@ namespace Content.Shared.Interaction
     /// Override event raised directed on a user to check InRangeUnoccluded AND InRangeUnobstructed to the target if you require custom logic.
     /// </summary>
     [ByRefEvent]
-    public record struct InRangeOverrideEvent(EntityUid User, EntityUid Target)
+    public record struct InRangeOverrideEvent(EntityUid User, EntityUid Target, float Range)
     {
         public readonly EntityUid User = User;
         public readonly EntityUid Target = Target;
+        public readonly float Range = Range;
 
         public bool Handled;
         public bool InRange = false;

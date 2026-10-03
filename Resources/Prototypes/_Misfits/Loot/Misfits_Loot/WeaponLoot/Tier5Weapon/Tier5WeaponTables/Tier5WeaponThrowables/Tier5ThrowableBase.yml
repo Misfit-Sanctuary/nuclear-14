@@ -2,7 +2,7 @@
   id: M14WeaponLootTier5_ThrowablesAll
   table: !type:GroupSelector
     children:
-      - !type:NestedSelector
-          tableId: M14WeaponLootTier5_Throwables
+#      - !type:NestedSelector
+#          tableId: M14WeaponLootTier5_Throwables
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_ThrowablesExplosive

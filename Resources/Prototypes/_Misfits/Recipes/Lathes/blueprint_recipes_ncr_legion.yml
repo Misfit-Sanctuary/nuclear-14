@@ -696,6 +696,25 @@
 
     N14Brass: 250
 
+- type: latheRecipe
+  id: N14BPNCRWeaponRifleM7Spear
+  result: N14WeaponRifleM7SpearScope
+  category: N14BlueprintNCRWeaponsT4
+  completetime: 20
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 10000
+
+    N14Iron: 300
+
+    Plastic: 200
+
+    N14Brass: 200
+
+    Glass: 200
+
 
 - type: latheRecipe
   id: N14BPNCRWeaponLMG
@@ -1395,8 +1414,40 @@
 
 
 - type: latheRecipe
+  id: N14BPNCRAmmoBox68
+  result: N14AmmoBox68
+  category: N14BlueprintNCRAmmoT3
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Lead: 45
+
+    N14Brass: 35
+
+    N14Gunpowder: 35
+
+
+- type: latheRecipe
   id: N14BPNCRAmmoClipMagazine308Rifle # #Misfits Change - replaced GarandEnbloc308 recipe
   result: ClipMagazine308Rifle
+  category: N14BlueprintNCRAmmoT3
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 200
+
+    Lead: 20
+
+    N14Gunpowder: 15
+
+
+- type: latheRecipe
+  id: N14BPNCRAmmoMag68Rifle
+  result: Magazine68Rifle
   category: N14BlueprintNCRAmmoT3
   completetime: 5
   requiresBlueprint: true

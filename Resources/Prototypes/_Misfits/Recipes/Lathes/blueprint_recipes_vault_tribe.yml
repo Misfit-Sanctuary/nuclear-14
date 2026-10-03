@@ -690,6 +690,18 @@
   - Tribe
   materials:
     Scrap: 1000
+    ScrapSteel: 300 
+
+- type: latheRecipe
+  id: N14BPTribeWeaponLoveandHate
+  result: N14MeleeHandsGoldenKnuckleSpecial
+  category: N14BlueprintTribeWeaponsT1
+  completetime: 2
+  requiresBlueprint: true
+  availableFaction:
+  - Tribe
+  materials:
+    N14Brass : 1200
     ScrapSteel: 300
 
 # #Misfits Add - mediocre scavenged kinetic guns (T1)

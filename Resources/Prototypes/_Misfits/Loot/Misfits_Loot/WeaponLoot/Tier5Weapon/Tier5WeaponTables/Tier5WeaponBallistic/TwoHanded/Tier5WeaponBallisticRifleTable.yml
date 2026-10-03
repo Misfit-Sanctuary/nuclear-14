@@ -5,47 +5,15 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: N14WeaponRifle556Carbine
-      weight: 4
-    - !type:EntSelector
-      id: N14WeaponRifle556CarbineOld
-      weight: 4
-    - !type:EntSelector
-      id: N14WeaponAutoRifle556Legion
-      weight: 4
-    - !type:EntSelector
-      id: N14WeaponRifle556Pipe
-      weight: 4
-
-    - !type:EntSelector
-      id: N14WeaponRifle556R91
-      weight: 4
-    - !type:EntSelector
-      id: N14WeaponRifleOperative # stealth R91
-      weight: 4
-
-    - !type:EntSelector
-      id: N14WeaponRifle556EM2
-      weight: 4
-    - !type:EntSelector
-      id: N14WeaponRifle762Fal
-      weight: 4
-    - !type:EntSelector
       id: N14WeaponRifle762Canadian
-      weight: 4
+      weight: 5
     - !type:EntSelector
       id: N14WeaponRifle762Chinese
-      weight: 4
+      weight: 5
       #AK 5.45
     - !type:EntSelector
-      id: N14WeaponRifleAk112 #BOS??
-      weight: 4
-    - !type:EntSelector
-      id: N14WeaponRifleAk112pn # extended mag
-      weight: 4
-    - !type:EntSelector
       id: N14WeaponRifleBozarGRA # BOAZARRR!!!
-      weight: 4
+      weight: 10
 
 
 #temp!!!

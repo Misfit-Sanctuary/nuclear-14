@@ -1,5 +1,6 @@
 using Content.Server.Decals;
 using Content.Server.Spawners.Components;
+using Content.Shared.Decals;
 using Content.Shared.Light.Components;
 using Content.Shared.Weather;
 using Robust.Shared.Map;
@@ -60,6 +61,14 @@ public sealed class MisfitsBloodDecalLifetimeSystem : EntitySystem
 
         foreach (var (key, decal) in _tracked)
         {
+            // Grids can be deleted before their tracked decals expire. Passing a
+            // deleted grid into DecalSystem causes a resolve error every update.
+            if (!TryComp<DecalGridComponent>(key.GridUid, out var decalGrid))
+            {
+                remove.Add(key);
+                continue;
+            }
+
             if (IsExposedToRain(key.GridUid, decal.Coordinates) && decal.RainFadeDuration > TimeSpan.Zero)
             {
                 var rainExpiry = now + decal.RainFadeDuration;
@@ -72,7 +81,7 @@ public sealed class MisfitsBloodDecalLifetimeSystem : EntitySystem
 
             if (now >= decal.ExpiresAt)
             {
-                _decals.RemoveDecal(key.GridUid, key.DecalId);
+                _decals.RemoveDecal(key.GridUid, key.DecalId, decalGrid);
                 remove.Add(key);
                 continue;
             }
@@ -86,7 +95,11 @@ public sealed class MisfitsBloodDecalLifetimeSystem : EntitySystem
                 : Math.Clamp((float) ((decal.ExpiresAt - now) / duration), 0f, 1f);
 
             // A false result means a janitor, cleaner, map deletion, or another system already removed it.
-            if (!_decals.SetDecalColor(key.GridUid, key.DecalId, decal.Color.WithAlpha(decal.Color.A * alpha)))
+            if (!_decals.SetDecalColor(
+                    key.GridUid,
+                    key.DecalId,
+                    decal.Color.WithAlpha(decal.Color.A * alpha),
+                    decalGrid))
                 remove.Add(key);
         }
 

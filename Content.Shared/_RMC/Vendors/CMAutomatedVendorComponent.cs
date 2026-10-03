@@ -12,6 +12,13 @@ namespace Content.Shared._RMC.Vendors;
 [Access(typeof(SharedCMAutomatedVendorSystem))]
 public sealed partial class CMAutomatedVendorComponent : Component
 {
+    /// <summary>
+    /// Optional runtime stock pool shared by every automated vendor with the same identifier.
+    /// When omitted, this vendor retains independent stock, resupply, and equipment storage.
+    /// </summary>
+    [DataField]
+    public string? SharedPool;
+
     [DataField, AutoNetworkedField]
     public List<CMVendorSection> Sections = new();
 
@@ -31,6 +38,13 @@ public sealed partial class CMAutomatedVendorComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public List<ProtoId<JobPrototype>> FullAllocationJobs = new();
+
+    /// <summary>
+    /// Jobs allowed to contribute physical currency to this vendor's resupply pool.
+    /// Empty preserves the legacy behavior where every authorized vendor user may contribute.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public List<ProtoId<JobPrototype>> ReplenishmentJobs = new();
 
     [DataField, AutoNetworkedField]
     public List<ProtoId<AccessLevelPrototype>> Access = new();
@@ -144,6 +158,25 @@ public sealed partial class CMAutomatedVendorComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public int ReplenishmentPoints;
+
+    /// <summary>
+    /// Player-facing description of the physical items accepted by the resupply action.
+    /// </summary>
+    [DataField]
+    public string ReplenishmentPrompt = "accepted resupply supplies";
+
+    /// <summary>
+    /// Optional delay between funding a depleted allocation and receiving one replacement unit.
+    /// Zero preserves immediate replenishment for faction catalogs that have not opted into timed resupply.
+    /// </summary>
+    [DataField]
+    public TimeSpan ReplenishmentInterval = TimeSpan.Zero;
+
+    /// <summary>
+    /// Runtime game time for the next funded resupply shipment. A zero value means no shipment is queued.
+    /// </summary>
+    [DataField]
+    public TimeSpan NextReplenishment = TimeSpan.Zero;
 
     /// <summary>
     /// Cost in replenishment points for one unit of stock at each authority tier.

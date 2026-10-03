@@ -77,6 +77,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "NCRMedic",
         "NCRLT",
         "NCRRanger",
+        "NCRProvost",
         "Enclave", // Misfits: Enclave Start
         "EnclaveNCO",
         "EnclaveOfficer",

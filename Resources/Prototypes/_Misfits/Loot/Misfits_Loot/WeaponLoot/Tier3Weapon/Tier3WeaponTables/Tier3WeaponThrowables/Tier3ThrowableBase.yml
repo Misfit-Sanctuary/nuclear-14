@@ -4,5 +4,7 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponLootTier3_Throwables
+          weight: 2
       - !type:NestedSelector
           tableId: M14WeaponLootTier3_ThrowablesExplosive
+          weight: 5

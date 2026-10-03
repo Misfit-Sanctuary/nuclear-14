@@ -4,5 +4,7 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponLootTier2_GunsBulletRifleAuto
+          weight: 3
       - !type:NestedSelector
           tableId: M14WeaponLootTier2_GunsBulletRifleSemi
+          weight: 5

@@ -1,0 +1,46 @@
+- type: entity
+  name: raw brahdo meat
+  parent: N14FoodMeatRadRaw
+  id: MisfitFoodMeatBrahdoRaw
+  description: A raw piece of brahdo.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/Meat/brahdo.rsi
+    state: base
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: N14UncookedAnimalProteinsRad
+          Quantity: 20
+  - type: Construction
+    graph: GraphSteakBrahdo
+    node: start
+    defaultTarget: SteakCooked
+  - type: StaticPrice # Forge-Change
+    price: 1 # PH
+
+- type: entity
+  name: cooked brahdo meat
+  parent: N14FoodMeatCooked
+  id: MisfitsFoodMeatBrahdoCooked
+  description: A cooked slab of meat. Smells primal.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/Meat/brahdo.rsi
+    state: base-cooked
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 10
+  - type: Construction
+    graph: GraphSteakBrahdo
+    node: SteakCooked
+    defaultTarget: SteakCooked
+  - type: StaticPrice # Forge-Change
+    price: 1 # PH

@@ -2,7 +2,9 @@
   id: M14WeaponLootTier4_ThrowablesAll
   table: !type:GroupSelector
     children:
-      - !type:NestedSelector
-          tableId: M14WeaponLootTier4_Throwables
+#      - !type:NestedSelector # sucks too much
+#          tableId: M14WeaponLootTier4_Throwables
+#          weight: 1
       - !type:NestedSelector
           tableId: M14WeaponLootTier4_ThrowablesExplosive
+          weight: 5

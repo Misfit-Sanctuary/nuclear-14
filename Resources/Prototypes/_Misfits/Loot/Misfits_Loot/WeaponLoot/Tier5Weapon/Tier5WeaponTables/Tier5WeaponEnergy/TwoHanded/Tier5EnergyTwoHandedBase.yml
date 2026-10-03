@@ -4,9 +4,10 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_EnergyRifleAuto
+          weight: 3
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_EnergyRifleSemi
-
+          weight: 3
 
 - type: entityTable
   id: M14WeaponLootTier5_EnergyRifleAuto
@@ -14,22 +15,26 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_LaserRifleAuto
+          weight: 3
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_PlasmaRifleAuto
+          weight: 3
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_OtherRifleAuto
-
+          weight: 3
 - type: entityTable
   id: M14WeaponLootTier5_EnergyRifleSemi
   table: !type:GroupSelector
     children:
-      - !type:NestedSelector
-          tableId: M14WeaponLootTier5_LaserRifleSemi
+#      - !type:NestedSelector
+#          tableId: M14WeaponLootTier5_LaserRifleSemi# sucks too much rn
+#          weight: 5
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_PlasmaRifleSemi
+          weight: 5
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_OtherRifleSemi
-
+          weight: 5
 
 - type: entityTable
   id: M14WeaponLootTier5_EnergyHeavy
@@ -37,7 +42,10 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_LaserHeavy
+          weight: 6
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_PlasmaHeavy
+          weight: 5
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_OtherHeavy
+          weight: 1
