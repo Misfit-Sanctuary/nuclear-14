@@ -54,6 +54,13 @@ job-name-enclave-scientist = Enclave Scientist
 job-description-enclave-scientist = Conduct field research, maintain advanced equipment, and support the cell's scientific mission. (WARNING YOU CAN BE RR'D FOR ANY REASON AS ENCLAVE BY YOUR COMMANDER)
 job-name-enclave-junior-scientist = Enclave Junior Scientist
 job-description-enclave-junior-scientist = Assist senior scientists, learn Enclave protocols, and contribute to ongoing research. (WARNING YOU CAN BE RR'D FOR ANY REASON AS ENCLAVE BY YOUR COMMANDER)
+# #Misfits Add - Director of Science, ESI Agent and Off-Duty roles.
+job-name-enclave-director-of-science = Enclave Director of Science
+job-description-enclave-director-of-science = Lead the entire Enclave science branch. Set research priorities, command the Head Scientist and every scientist below them, and answer to the Commander. (WARNING YOU CAN BE RR'D FOR ANY REASON AS ENCLAVE BY YOUR COMMANDER)
+job-name-enclave-esi-agent = Enclave ESI Agent
+job-description-enclave-esi-agent = Enclave Special Intelligence. Scout ahead of the cell, gather information on the other factions, and report back to command. Light armor and a quick step keep you alive. (WARNING YOU CAN BE RR'D FOR ANY REASON AS ENCLAVE BY YOUR COMMANDER)
+job-name-enclave-off-duty = Off-Duty Enclave
+job-description-enclave-off-duty = You are Enclave personnel out of uniform. You still carry your implant and answer to the chain of command, but today you wear plain clothes. (WARNING YOU CAN BE RR'D FOR ANY REASON AS ENCLAVE BY YOUR COMMANDER)
 
 # #Misfits Add - EnclaveRecruit: hidden job for per-round recruitment tracking.
 job-name-enclave-recruit = Enclave Recruit

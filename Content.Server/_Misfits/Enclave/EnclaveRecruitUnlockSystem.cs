@@ -18,8 +18,8 @@ using Robust.Shared.Timing;
 namespace Content.Server._Misfits.Enclave;
 
 /// <summary>
-/// Watches Enclave recruits' playtime and grants the EnclaveEnlisted and
-/// EnclaveJuniorScientist job whitelists once the EnclaveRecruit tracker
+/// Watches Enclave recruits' playtime and grants the EnclaveEnlisted,
+/// EnclaveJuniorScientist and EnclaveOffDuty job whitelists once the EnclaveRecruit tracker
 /// reaches the unlock threshold. Whitelists are persisted in the database, so
 /// the unlock survives death and round restarts even though recruitment resets.
 /// </summary>
@@ -39,6 +39,7 @@ public sealed class EnclaveRecruitUnlockSystem : EntitySystem
     [
         "EnclaveEnlisted",
         "EnclaveJuniorScientist",
+        "EnclaveOffDuty", // #Misfits Add - same tier as Enlisted
     ];
 
     /// <summary>

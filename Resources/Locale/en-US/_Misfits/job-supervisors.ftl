@@ -16,6 +16,10 @@ job-supervisors-enclave-nco = the officers and Commander
 job-supervisors-enclave-head-scientist = the Enclave Commander and your research mandate
 job-supervisors-enclave-scientist = the Head Scientist and officers
 job-supervisors-enclave-junior-scientist = the scientists and Head Scientist
+# #Misfits Add - Director of Science, ESI Agent and Off-Duty roles.
+job-supervisors-enclave-director-of-science = the Enclave Commander
+job-supervisors-enclave-esi-agent = the Senior Officers and Commander
+job-supervisors-enclave-off-duty = the NCOs and officers
 # #Cythisiax Fixed - Missing key: enclave_recruit.yml references job-supervisors-none, which was undefined, so the raw key string rendered in the role greeting. Per-round Enclave recruits answer to no one but the Enclave.
 job-supervisors-none = who recruited you, and your duty to the Enclave
 job-supervisors-synthetic = your programming and your own best judgement

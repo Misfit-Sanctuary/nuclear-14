@@ -789,6 +789,43 @@
       - state: green
       - state: soldier
 
+# #Misfits Add - Off-Duty, ESI Agent and Director of Science spawn points.
+- type: entity
+  parent: MisfitsSpawnPointEnclaveCommander
+  id: MisfitsSpawnPointEnclaveOffDuty
+  name: Enclave Off-Duty
+  components:
+  - type: SpawnPoint
+    job_id: EnclaveOffDuty
+  - type: Sprite
+    layers:
+      - state: green
+      - state: soldier
+
+- type: entity
+  parent: MisfitsSpawnPointEnclaveCommander
+  id: MisfitsSpawnPointEnclaveESIAgent
+  name: Enclave ESI Agent
+  components:
+  - type: SpawnPoint
+    job_id: EnclaveESIAgent
+  - type: Sprite
+    layers:
+      - state: green
+      - state: soldier
+
+- type: entity
+  parent: MisfitsSpawnPointEnclaveCommander
+  id: MisfitsSpawnPointEnclaveDirectorOfScience
+  name: Enclave Director of Science
+  components:
+  - type: SpawnPoint
+    job_id: EnclaveDirectorOfScience
+  - type: Sprite
+    layers:
+      - state: green
+      - state: medic
+
 - type: entity
   parent: MisfitsSpawnPointEnclaveCommander
   id: MisfitsSpawnPointEnclaveHeadScientist

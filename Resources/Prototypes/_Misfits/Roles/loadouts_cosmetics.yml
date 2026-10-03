@@ -815,6 +815,8 @@
       jobs:
         - EnclaveEnlisted
         - EnclaveNCO
+        - EnclaveESIAgent
+        - EnclaveOffDuty
         - EnclaveJuniorOfficer
         - EnclaveVertibirdPilot
         - EnclaveSeniorOfficer
@@ -823,6 +825,7 @@
         - EnclaveScientist
         - EnclaveJuniorScientist
         - EnclaveHeadScientist
+        - EnclaveDirectorOfScience
   items:
     - N14ClothingHeadHatEnclaveIntel
 
@@ -835,6 +838,8 @@
       jobs:
         - EnclaveEnlisted
         - EnclaveNCO
+        - EnclaveESIAgent
+        - EnclaveOffDuty
         - EnclaveJuniorOfficer
         - EnclaveVertibirdPilot
         - EnclaveSeniorOfficer
@@ -868,6 +873,7 @@
         - EnclaveScientist
         - EnclaveJuniorScientist
         - EnclaveHeadScientist
+        - EnclaveDirectorOfScience
   items:
     - N14ClothingHeadHatEnclaveScientist
 
@@ -1237,6 +1243,8 @@
     jobs:
     - EnclaveEnlisted
     - EnclaveNCO
+    - EnclaveESIAgent
+    - EnclaveOffDuty
     - EnclaveJuniorOfficer
     - EnclaveVertibirdPilot
     - EnclaveSeniorOfficer
@@ -1244,6 +1252,7 @@
     - EnclaveJuniorScientist
     - EnclaveScientist
     - EnclaveHeadScientist
+    - EnclaveDirectorOfScience
   items:
   - N14ClothingUniformJumpsuitEnclaveBlue
 
@@ -1259,6 +1268,8 @@
     jobs:
     - EnclaveEnlisted
     - EnclaveNCO
+    - EnclaveESIAgent
+    - EnclaveOffDuty
     - EnclaveJuniorOfficer
     - EnclaveVertibirdPilot
     - EnclaveSeniorOfficer
@@ -1266,6 +1277,7 @@
     - EnclaveJuniorScientist
     - EnclaveScientist
     - EnclaveHeadScientist
+    - EnclaveDirectorOfScience
   items:
   - N14ClothingUniformJumpsuitEnclaveGrey
 

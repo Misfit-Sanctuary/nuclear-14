@@ -172,7 +172,10 @@
           EnclaveJuniorOfficer: [ 1, 1 ]
           EnclaveVertibirdPilot: [ 1, 1 ] # #Misfits Add
           EnclaveNCO: [ 2, 2 ]
+          EnclaveESIAgent: [ 2, 2 ] # #Misfits Add
           EnclaveEnlisted: [ 4, 4 ]
+          EnclaveOffDuty: [ 4, 4 ] # #Misfits Add
+          EnclaveDirectorOfScience: [ 1, 1 ] # #Misfits Add - admin whitelist
           EnclaveHeadScientist: [ 1, 1 ]
           EnclaveScientist: [ 2, 2 ]
           EnclaveJuniorScientist: [ 2, 2 ]

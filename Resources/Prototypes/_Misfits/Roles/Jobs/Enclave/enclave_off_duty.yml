@@ -1,0 +1,57 @@
+# #Misfits Add - Enclave Off-Duty role: Enclave personnel out of uniform.
+# Same tier as Enlisted. Carries the Enclave micro-bomb like every Enclave department job.
+
+- type: job
+  id: EnclaveOffDuty
+  setPreference: true
+  jobWhitelistBypassesRoleTimers: true
+  weight: 99
+  displayWeight: 121
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-enclave-off-duty
+  description: job-description-enclave-off-duty
+  playTimeTracker: EnclaveOffDuty
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+      - Ghoul
+    - !type:CharacterDepartmentTimeRequirement # T2 faction timelock (4h Enclave), same as Enlisted
+      department: Enclave
+      min: 14400 # 4 hours
+  startingGear: EnclaveOffDutyGear
+  icon: "JobIconEnclaveEnlisted"
+  supervisors: job-supervisors-enclave-off-duty
+  alwaysUseSpawner: true
+  accessGroups:
+  - EnclaveEnlisted
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Enclave
+          - Wastelander
+      - type: ReplacementAccent
+        accent: n14Enclave
+      - type: PowerArmorProficiency
+
+- type: startingGear
+  id: EnclaveOffDutyGear
+  equipment:
+    wallet: N14Wallet
+    back: N14ClothingBackpackMilitary
+    jumpsuit: N14ClothingUniformJumpsuitPreWarCasual
+    shoes: N14ClothingBootsLeatherFilled
+    ears: N14ClothingHeadsetEnclave
+    id: N14EnclaveTrooperPipboy
+  satchel: N14ClothingBackpackSatchelMilitaryFilled
+  duffelbag: N14ClothingBackpackDuffelMilitaryFilled
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitary
+    - N14WeaponLaserPistol
+
+- type: playTimeTracker
+  id: EnclaveOffDuty

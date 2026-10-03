@@ -251,3 +251,21 @@
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
     - state: chiefphysician
+
+# #Misfits Add - Director of Science pin. Reuses the Head Scientist badge art; gold worn state tells them apart.
+- type: entity
+  parent: ClothingNeckPinEnclaveHeadScientist
+  id: ClothingNeckPinEnclaveDirectorOfScience
+  name: U.S. Army director of science pin
+  components:
+  - type: RankTitle
+    rankTitle: Director of Science
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
+    layers:
+    - state: chiefphysician
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
+    clothingVisuals:
+      neck:
+      - state: gold-equipped

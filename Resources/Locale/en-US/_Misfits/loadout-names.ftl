@@ -650,6 +650,7 @@ loadout-name-LoadoutEnclavePinGeneral = Enclave general pin
 loadout-name-LoadoutEnclavePinJuniorScientist = Enclave junior scientist pin
 loadout-name-LoadoutEnclavePinScientist = Enclave scientist pin
 loadout-name-LoadoutEnclavePinHeadScientist = Enclave head scientist pin
+loadout-name-LoadoutEnclavePinDirectorOfScience = Enclave director of science pin
 
 # Misfits Add - Enclave supermutant rank pin loadouts
 loadout-name-LoadoutEnclaveSMPinPrivate = Enclave private pin (Supermutant)

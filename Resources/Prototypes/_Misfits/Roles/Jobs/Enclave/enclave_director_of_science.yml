@@ -1,0 +1,66 @@
+# #Misfits Add - Enclave Director of Science: admin-whitelisted head of the science branch, above the Head Scientist.
+
+- type: job
+  id: EnclaveDirectorOfScience
+  setPreference: true
+  hideWithoutJobWhitelist: true
+  jobWhitelistBypassesRoleTimers: true # whitelist-only, timelock is bypassed
+  weight: 114
+  displayWeight: 126
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-enclave-director-of-science
+  description: job-description-enclave-director-of-science
+  playTimeTracker: EnclaveDirectorOfScience
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+      - Ghoul
+    - !type:CharacterDepartmentTimeRequirement # leadership timelock (bypassed by whitelist)
+      department: Enclave
+      min: 144000 # 40 hours
+  startingGear: EnclaveDirectorOfScienceGear
+  icon: "JobIconEnclaveHeadScientist"
+  supervisors: job-supervisors-enclave-director-of-science
+  requireAdminNotify: true
+  hideIfPlaytimeRequirementsNotMet: false
+  alwaysUseSpawner: true
+  accessGroups:
+  - EnclaveCommand
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Enclave
+          - Wastelander
+      - type: ReplacementAccent
+        accent: n14Enclave
+      - type: CPRTraining
+      - type: PowerArmorProficiency
+  - !type:AddTraitSpecial # Enclave scientists are issued an Enclave Eyebot companion
+    traits: [ MisfitsPetEyebotEnclave ]
+
+- type: startingGear
+  id: EnclaveDirectorOfScienceGear
+  equipment:
+    wallet: N14Wallet
+    head: N14ClothingHeadHatEnclaveScientist
+    back: N14ClothingBackpackSatchelMilitary
+    jumpsuit: N14ClothingUniformJumpsuitEnclave
+    outerClothing: N14ClothingOuterVolMatSuit # VMHE suit, upgraded radsuit with a toggleable helmet
+    shoes: N14ClothingBootsLeatherFilled
+    neck: ClothingNeckPinEnclaveDirectorOfScience
+    belt: ClothingBeltMilitary
+    ears: N14ClothingHeadsetEnclave
+    pocket1: RadioHandheld
+    pocket2: EnclaveScientistloadoutkits
+    id: N14EnclaveOfficerPipboy
+  satchel: N14ClothingBackpackSatchelMilitaryFilled
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitary
+
+- type: playTimeTracker
+  id: EnclaveDirectorOfScience

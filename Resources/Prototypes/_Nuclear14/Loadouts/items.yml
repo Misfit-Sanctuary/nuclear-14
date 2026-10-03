@@ -140,6 +140,8 @@
     jobs:
       - EnclaveEnlisted
       - EnclaveNCO
+      - EnclaveESIAgent
+      - EnclaveOffDuty
       - EnclaveJuniorOfficer
       - EnclaveVertibirdPilot
       - EnclaveSeniorOfficer
@@ -147,6 +149,7 @@
       - EnclaveJuniorScientist
       - EnclaveScientist
       - EnclaveHeadScientist
+      - EnclaveDirectorOfScience
 
   items:
   - N14CigarettePackLuckyStrike

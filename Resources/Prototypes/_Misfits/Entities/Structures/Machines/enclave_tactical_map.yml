@@ -14,6 +14,7 @@
     - EnclaveSeniorOfficer
     - EnclaveJuniorOfficer
     - EnclaveHeadScientist
+    - EnclaveDirectorOfScience
   # #Misfits Fix - Override the BOS OverwatchConsole inherited from N14BrotherhoodTacticalmap
   # so this map's Overwatch tab only tracks Enclave members (IdCardEnclave), not Brotherhood.
   # The child component replaces the parent's trackedTags.
@@ -54,6 +55,7 @@
     - EnclaveSeniorOfficer
     - EnclaveJuniorOfficer
     - EnclaveHeadScientist
+    - EnclaveDirectorOfScience
   # #Misfits Fix - Override the BOS OverwatchConsole inherited from N14BrotherhoodTacticalmap
   # so this map's Overwatch tab only tracks Enclave members (IdCardEnclave), not Brotherhood.
   # The child component replaces the parent's trackedTags.

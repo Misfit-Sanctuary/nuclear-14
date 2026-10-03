@@ -78,6 +78,7 @@ public sealed class WastelandMapSystem : EntitySystem
         "EnclaveSeniorOfficer",
         "EnclaveJuniorOfficer",
         "EnclaveHeadScientist",
+        "EnclaveDirectorOfScience", // #Misfits Add
     ];
 
     private static readonly HashSet<string> LegionCommunicationsJobs =

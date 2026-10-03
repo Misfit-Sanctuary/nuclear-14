@@ -260,6 +260,19 @@
   items:
     - ClothingNeckPinEnclaveHeadScientist
 
+# #Misfits Add - Director of Science pin.
+- type: loadout
+  id: LoadoutEnclavePinDirectorOfScience
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - EnclaveDirectorOfScience
+  items:
+    - ClothingNeckPinEnclaveDirectorOfScience
+
 # === Supermutant Ranks (SuperMutantEnclave) ===
 # Mirrors SuperMutantEnclavePins in _Misfits/Enclave/enclave_rank_pin_progressions.yml.
 

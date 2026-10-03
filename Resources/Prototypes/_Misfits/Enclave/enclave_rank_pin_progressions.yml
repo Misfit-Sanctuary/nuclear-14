@@ -10,6 +10,7 @@
 #   EnclaveCommander          — Enclave Commander
 #   EnclaveReformer           — The Reformer (fixed at General, admin-only)
 #   EnclaveVertibirdPilot     — Enclave Vertibird Pilot
+#   EnclaveESIAgent           — Enclave ESI Agent (NCO ranks)
 #   SuperMutantEnclave        — Enclave Supermutant
 
 # Enlisted: PVT (E-1) → PFC (E-3) at 20h → SPC (E-4) at 40h
@@ -33,6 +34,26 @@
   jobs:
     - EnclaveNCO
   tracker: EnclaveNCO
+  departmentTracker: false
+  thresholds:
+    - min: 0
+      entity: ClothingNeckPinEnclaveSergeant
+    - min: 72000   # 20 hours
+      entity: ClothingNeckPinEnclaveStaffSergeant
+    - min: 144000  # 40 hours
+      entity: ClothingNeckPinEnclaveSFC
+    - min: 216000  # 60 hours
+      entity: ClothingNeckPinEnclaveMasterSergeant
+    - min: 288000  # 80 hours
+      entity: ClothingNeckPinEnclaveSergeantMajor
+
+# #Misfits Add - ESI Agent: NCO rank ladder, counted on ESI Agent hours.
+# SGT (E-5) → SSG (E-6) at 20h → SFC (E-7) at 40h → MSG (E-8) at 60h → SGM (E-9) at 80h
+- type: ncrRankPinProgression
+  id: EnclaveESIAgentPins
+  jobs:
+    - EnclaveESIAgent
+  tracker: EnclaveESIAgent
   departmentTracker: false
   thresholds:
     - min: 0

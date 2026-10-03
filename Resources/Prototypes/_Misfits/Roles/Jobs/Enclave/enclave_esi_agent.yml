@@ -1,0 +1,73 @@
+# #Misfits Add - Enclave Special Intelligence (ESI) Agent: enlisted-tier scout.
+# NCO-equivalent timelock and access, Zulu advanced combat armor, +10% movement speed.
+
+- type: job
+  id: EnclaveESIAgent
+  setPreference: true
+  jobWhitelistBypassesRoleTimers: true
+  weight: 104
+  displayWeight: 123
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-enclave-esi-agent
+  description: job-description-enclave-esi-agent
+  playTimeTracker: EnclaveESIAgent
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+      - Ghoul
+    - !type:CharacterDepartmentTimeRequirement # NCO-equivalent faction timelock
+      department: Enclave
+      min: 28800 # 8 hours
+    # The job's TraitSpeedModifier below would silently replace these traits'
+    # own TraitSpeedModifier (AddComponentSpecial removes before adding), so
+    # characters with either trait can't take this job.
+    - !type:CharacterTraitRequirement
+      inverted: true
+      traits:
+        - N14MovingAsset
+        - N14SittingDuck
+  startingGear: EnclaveESIAgentGear
+  icon: "JobIconEnclaveNCO"
+  supervisors: job-supervisors-enclave-esi-agent
+  alwaysUseSpawner: true
+  accessGroups:
+  - EnclaveNCO
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Enclave
+          - Wastelander
+      - type: ReplacementAccent
+        accent: n14Enclave
+      - type: PowerArmorProficiency
+      - type: TraitSpeedModifier # +10% walk/sprint; the Moving Asset trait is +5%
+        walkModifier: 1.1
+        sprintModifier: 1.1
+        requiredTriggeredSpeedModifier: 1.1
+
+- type: startingGear
+  id: EnclaveESIAgentGear
+  equipment:
+    wallet: N14Wallet
+    head: N14ClothingHeadHatEnclaveZuluCombatHelmet
+    back: N14ClothingBackpackMilitary
+    jumpsuit: N14ClothingUniformJumpsuitEnclaveGrey
+    outerClothing: N14ClothingOuterEnclaveZuluAdvancedCombatArmor
+    shoes: N14ClothingBootsCombatFilled
+    gloves: N14ClothingHandsGlovesCombat
+    belt: ClothingBeltMilitary
+    ears: N14ClothingHeadsetEnclave
+    pocket1: EnclaveSoldierloadoutkits
+    id: N14EnclaveTrooperPipboy
+  satchel: N14ClothingBackpackSatchelMilitaryFilled
+  duffelbag: N14ClothingBackpackDuffelMilitaryFilled
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitary
+
+- type: playTimeTracker
+  id: EnclaveESIAgent
