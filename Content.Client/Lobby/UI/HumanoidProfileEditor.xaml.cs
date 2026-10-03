@@ -2967,8 +2967,17 @@ namespace Content.Client.Lobby.UI
             var toxin = SharedSpecialSystem.GetCurvedEffectModifier(
                 delta,
                 -tuning.EnduranceToxinDamageMultiplierPerPoint);
+            var crawl = SharedSpecialSystem.GetCurvedEffectModifier(
+                delta,
+                tuning.EnduranceCritCrawlSpeedMultiplierPerPoint);
+            var injurySlowdown = SharedSpecialSystem.GetCurvedEffectModifier(
+                delta,
+                -tuning.EnduranceDamageSlowdownMultiplierPerPoint);
+            var secondWind = value >= tuning.EnduranceSecondWindMinimum
+                ? ", second wind (temporory health instead of going down)"
+                : string.Empty;
 
-            return $"health thresholds {FormatSignedNumber(health)}, hunger/thirst decay {FormatSignedPercent(needs)}, stamina recovery {FormatSignedPercent(stamina)}, poison/rad damage {FormatSignedPercent(toxin)}.";
+            return $"health thresholds {FormatSignedNumber(health)}, hunger/thirst decay {FormatSignedPercent(needs)}, stamina recovery {FormatSignedPercent(stamina)}, poison/rad damage {FormatSignedPercent(toxin)}, crit crawl speed {FormatSignedPercent(crawl)}, injury slowdown {FormatSignedPercent(injurySlowdown)}{secondWind}.";
         }
 
         private static string GetCharismaEffectDetails(int value, SpecialTuningPrototype tuning)

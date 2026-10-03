@@ -1,4 +1,6 @@
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Misfits.Special.Components;
 
@@ -6,7 +8,7 @@ namespace Content.Shared._Misfits.Special.Components;
 /// Runtime SPECIAL values for a character.
 /// Base values come from the character profile; temporary modifiers are updated through SharedSpecialSystem.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), AutoGenerateComponentPause]
 public sealed partial class SpecialComponent : Component
 {
     // Base values are persistent character stats. Use SharedSpecialSystem to
@@ -71,4 +73,13 @@ public sealed partial class SpecialComponent : Component
 
     [DataField]
     public float AppliedStaminaRecoveryMultiplier = 1f;
+
+    [DataField, AutoNetworkedField]
+    public FixedPoint2 SecondWindAppliedBonus;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan SecondWindActiveUntil;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan SecondWindCooldownUntil;
 }
