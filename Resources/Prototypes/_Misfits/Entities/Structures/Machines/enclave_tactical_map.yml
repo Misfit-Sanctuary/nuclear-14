@@ -9,6 +9,8 @@
     mapConfigId: Wendover
     mapTitle: Enclave TacMap
     tacticalFeed: Enclave
+    # #Misfits Add - show the surface bunker hatches; click one for a camera view and lock toggle.
+    showBunkerHatches: true
     communicationsJobs:
     - EnclaveCommander
     - EnclaveSeniorOfficer

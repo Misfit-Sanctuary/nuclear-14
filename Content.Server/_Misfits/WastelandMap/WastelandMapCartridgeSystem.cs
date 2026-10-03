@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Content.Server._Misfits.PipBoy;
 using Content.Server.CartridgeLoader;
+using Content.Server._Misfits.Warps; // #Misfits Add - bunker hatch camera and lock
 using Content.Shared._Misfits.PipBoy;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.DeltaV.NanoChat;
@@ -20,6 +21,9 @@ public sealed class WastelandMapCartridgeSystem : EntitySystem
     [Dependency] private readonly WastelandMapSystem _wastelandMap = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly PipBoyNetworkSystem _pipBoy = default!;
+    [Dependency] private readonly BunkerHatchViewSystem _hatchView = default!; // #Misfits Add
+    [Dependency] private readonly BunkerTeleporterSystem _bunkerTeleporter = default!; // #Misfits Add
+    [Dependency] private readonly Content.Server.Popups.PopupSystem _popup = default!; // #Misfits Add
 
     // Track which (cartridge, loader) pairs have had their UIFragment set up by the client.
     // We must NOT send WastelandMapBoundUserInterfaceState until after CartridgeUiReadyEvent
@@ -63,7 +67,7 @@ public sealed class WastelandMapCartridgeSystem : EntitySystem
 
             var feed = GetLoaderFeed(loader, map);
             var mapId = GetViewerMapId(loader);
-            var state = _wastelandMap.BuildState(map, mapId, feed);
+            var state = _wastelandMap.BuildState(map, mapId, feed, includeBunkerHatches: HasEnclaveId(loader)); // #Misfits Change
 
             // #Misfits Add - Inject PipBoy contact/group blips into the tactical map
             state = AppendPipBoyBlips(state, loader);
@@ -78,7 +82,7 @@ public sealed class WastelandMapCartridgeSystem : EntitySystem
         _readyPairs.Add((uid, args.Loader));
 
         var feed = GetLoaderFeed(args.Loader, component);
-        var state = _wastelandMap.BuildState(component, GetViewerMapId(args.Loader), feed);
+        var state = _wastelandMap.BuildState(component, GetViewerMapId(args.Loader), feed, includeBunkerHatches: HasEnclaveId(args.Loader)); // #Misfits Change
 
         // #Misfits Add - Inject PipBoy contact/group blips into the tactical map
         state = AppendPipBoyBlips(state, args.Loader);
@@ -99,6 +103,14 @@ public sealed class WastelandMapCartridgeSystem : EntitySystem
             return;
 
         var actor = args.Actor;
+
+        // #Misfits Add - bunker hatch camera and lock, only with an Enclave ID in the Pip-Boy.
+        if (args is WastelandMapCartridgeHatchViewMessageEvent)
+        {
+            HandleHatchMessage(actor, loaderUid, args);
+            return;
+        }
+
         var feed = GetLoaderFeed(loaderUid, component);
         var mapId = GetViewerMapId(loaderUid);
         var changed = args switch
@@ -112,7 +124,7 @@ public sealed class WastelandMapCartridgeSystem : EntitySystem
         if (!changed)
             return;
 
-        var state = _wastelandMap.BuildState(component, mapId, feed);
+        var state = _wastelandMap.BuildState(component, mapId, feed, includeBunkerHatches: HasEnclaveId(loaderUid)); // #Misfits Change
         _cartridgeLoader.UpdateCartridgeUiState(loaderUid, state, loader: loader);
     }
 
@@ -147,6 +159,42 @@ public sealed class WastelandMapCartridgeSystem : EntitySystem
             return WastelandMapTacticalFeedKind.Enclave;
 
         return _wastelandMap.GetEffectiveFeed(component);
+    }
+
+    // #Misfits Add - The view ends by itself when the Pip-Boy UI closes (see BunkerHatchViewSystem).
+    private void HandleHatchMessage(EntityUid actor, EntityUid loaderUid, CartridgeMessageEvent args)
+    {
+        // The Pip-Boy can only LOOK through hatches (locking is at the hatch, TacMap or HUD). The camera
+        // needs an Enclave ID in the Pip-Boy AND an Enclave job: a stolen ID is not enough. (The hatch
+        // icons alone only need the ID.)
+        if (!HasEnclaveId(loaderUid) || !_bunkerTeleporter.IsEnclave(actor))
+        {
+            _hatchView.StopViewing(actor);
+            // No message when the window is just being closed.
+            if (args is not WastelandMapCartridgeHatchViewMessageEvent { Hatch: null })
+                _popup.PopupCursor(Loc.GetString("bunker-hatch-pipboy-denied"), actor);
+            return;
+        }
+
+        switch (args)
+        {
+            case WastelandMapCartridgeHatchViewMessageEvent { Hatch: { } netHatch }:
+                _hatchView.StartViewing(actor, GetEntity(netHatch), loaderUid, PdaUiKey.Key);
+                return;
+            case WastelandMapCartridgeHatchViewMessageEvent:
+                _hatchView.StopViewing(actor);
+                return;
+        }
+    }
+
+    /// <summary>
+    /// #Misfits Add - Only a Pip-Boy with an Enclave ID in it shows the surface bunker hatches.
+    /// </summary>
+    private bool HasEnclaveId(EntityUid loaderUid)
+    {
+        return TryComp<PdaComponent>(loaderUid, out var pda)
+            && pda.ContainedId is { } containedId
+            && _tag.HasTag(containedId, "IdCardEnclave");
     }
 
     /// <summary>
@@ -209,6 +257,7 @@ public sealed class WastelandMapCartridgeSystem : EntitySystem
             merged,
             state.SharedAnnotations,
             state.Overwatch,
-            state.Communications);
+            state.Communications,
+            state.BunkerHatches); // #Misfits Add - keep bunker hatches
     }
 }

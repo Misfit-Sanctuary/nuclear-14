@@ -1,16 +1,24 @@
-﻿// #Misfits Add - Integration tests for the bunker tunnel teleporter pair.
+// #Misfits Add - Integration tests for the bunker hatch tunnels.
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 using Content.Server._Misfits.Warps;
+using Content.Server.Carrying;
+using Content.Server.Roles.Jobs;
+using Content.Shared.Access.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Mind;
+using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Timing;
 
 namespace Content.IntegrationTests.Tests._Misfits;
 
 /// <summary>
-/// Covers how the bunker hatch and tunnel door decide where they send you. Every test puts its
-/// entities on their own channel, so leftovers from another test can never be picked up by mistake.
+/// Covers where the bunker hatches and tunnel door send people, the hatch lock, and round-start
+/// spawning. Every test puts its entities on their own channel, so leftovers from another test can
+/// never be picked up by mistake.
 /// </summary>
 [TestFixture]
 public sealed class BunkerTeleporterTest
@@ -18,197 +26,406 @@ public sealed class BunkerTeleporterTest
     private const string HatchProto = "N14BunkerHatchTunnel";
     private const string DoorProto = "N14BunkerTunnelDoor";
     private const string ExitProto = "N14BunkerTunnelExit";
-    private const string PlainLadderProto = "LadderTopBunkerOpen";
+    private const string SpawnPointProto = "N14BunkerHatchSpawnPoint";
+    private const string HumanProto = "MobHuman";
 
     [Test]
-    public async Task HatchPicksAnExitAndAlwaysComesOutThere()
+    public async Task EnclaveGoDownAHatchToTheDoorAndItLocksBehindThem()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var entMan = server.ResolveDependency<IEntityManager>();
+        var xform = server.System<SharedTransformSystem>();
+        var hatchLock = server.System<BunkerHatchLockSystem>();
+        var map = await pair.CreateTestMap();
+        const string channel = "test-enclave-down";
+
+        EntityUid hatch = default, door = default, user = default;
+
+        await server.WaitPost(() =>
+        {
+            RunMap(server, map.MapId);
+            door = SpawnOn(entMan, DoorProto, channel, new EntityCoordinates(map.Grid, 12f, 3f));
+            hatch = SpawnOn(entMan, HatchProto, channel, map.GridCoords);
+            SpawnExit(entMan, channel, new EntityCoordinates(map.Grid, 20f, 20f));
+            user = SpawnWithJob(server, map.GridCoords, "EnclaveEnlisted");
+        });
+
+        await server.WaitAssertion(() =>
+        {
+            // Locked or not, Enclave get through.
+            Assert.That(hatchLock.IsLocked(hatch), "hatch should start locked");
+            Use(entMan, hatch, user);
+            AssertSamePlace(xform, user, door, "Enclave member did not arrive at the tunnel door");
+
+            hatchLock.SetLocked(hatch, false);
+            xform.SetCoordinates(user, map.GridCoords);
+            Use(entMan, hatch, user);
+            AssertSamePlace(xform, user, door, "Enclave member did not arrive at the door through an open hatch");
+            Assert.That(hatchLock.IsLocked(hatch), "hatch did not lock behind the Enclave member");
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task OutsidersAreKeptOutByALockedHatch()
     {
         await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
         var entMan = server.ResolveDependency<IEntityManager>();
         var xform = server.System<SharedTransformSystem>();
         var map = await pair.CreateTestMap();
-        const string channel = "test-hatch-sticks";
+        const string channel = "test-outsider-locked";
 
-        EntityUid hatch = default;
-        EntityUid user = default;
+        EntityUid hatch = default, user = default;
+
+        await server.WaitPost(() =>
+        {
+            RunMap(server, map.MapId);
+            SpawnOn(entMan, DoorProto, channel, new EntityCoordinates(map.Grid, 12f, 3f));
+            SpawnExit(entMan, channel, new EntityCoordinates(map.Grid, 20f, 20f));
+            hatch = SpawnOn(entMan, HatchProto, channel, map.GridCoords);
+            user = SpawnWithJob(server, map.GridCoords, null);
+        });
+
+        await server.WaitAssertion(() =>
+        {
+            var before = xform.GetMapCoordinates(user).Position;
+            Use(entMan, hatch, user);
+            Assert.That(Vector2.Distance(before, xform.GetMapCoordinates(user).Position), Is.LessThan(0.01f),
+                "an outsider got through a locked hatch");
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task OutsidersLandInTheMinesOrGetLostAndComeBackOutTheSameHatch()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var entMan = server.ResolveDependency<IEntityManager>();
+        var xform = server.System<SharedTransformSystem>();
+        var hatchLock = server.System<BunkerHatchLockSystem>();
+        var timing = server.ResolveDependency<IGameTiming>();
+        var map = await pair.CreateTestMap();
+        const string channel = "test-outsider-open";
+
+        EntityUid hatch = default, user = default, door = default;
         var exits = new List<EntityUid>();
 
         await server.WaitPost(() =>
         {
             RunMap(server, map.MapId);
-
-            for (var i = 0; i < 4; i++)
-            {
-                var exit = entMan.SpawnEntity(ExitProto, new EntityCoordinates(map.Grid, 5f + i * 3f, 5f));
-                entMan.GetComponent<BunkerTunnelExitComponent>(exit).Channel = channel;
-                exits.Add(exit);
-            }
-
-            hatch = entMan.SpawnEntity(HatchProto, map.GridCoords);
-            entMan.GetComponent<BunkerTeleporterComponent>(hatch).Channel = channel;
-
-            user = entMan.SpawnEntity(null, map.GridCoords);
+            door = SpawnOn(entMan, DoorProto, channel, new EntityCoordinates(map.Grid, 12f, 3f));
+            hatch = SpawnOn(entMan, HatchProto, channel, new EntityCoordinates(map.Grid, 0f, -6f));
+            SpawnOn(entMan, HatchProto, channel, new EntityCoordinates(map.Grid, -15f, 0f));
+            for (var i = 0; i < 3; i++)
+                exits.Add(SpawnExit(entMan, channel, new EntityCoordinates(map.Grid, 5f + i * 3f, 8f)));
+            user = SpawnWithJob(server, new EntityCoordinates(map.Grid, 0f, -6f), null);
         });
 
         await server.WaitAssertion(() =>
         {
-            Use(entMan, hatch, user);
+            hatchLock.SetLocked(hatch, false);
+            var teleporter = entMan.GetComponent<BunkerTeleporterComponent>(hatch);
 
-            var component = entMan.GetComponent<BunkerTeleporterComponent>(hatch);
-            Assert.That(component.CachedDestination, Is.Not.Null, "hatch did not pick an exit");
-            var rolled = component.CachedDestination!.Value;
-            Assert.That(exits, Does.Contain(rolled), "hatch picked something that is not an exit marker");
-            AssertSamePlace(xform, user, rolled, "hatch did not move the user to the exit it picked");
-
-            // The roll has to stick, or a hatch would come out somewhere different every time.
+            // Never lost: always a mine marker, never the Enclave door.
+            teleporter.OutsiderLostChance = 0f;
             for (var i = 0; i < 10; i++)
             {
-                xform.SetCoordinates(user, map.GridCoords);
+                xform.SetCoordinates(user, new EntityCoordinates(map.Grid, 0f, -6f));
                 Use(entMan, hatch, user);
-
-                Assert.That(component.CachedDestination, Is.EqualTo(rolled), "hatch changed its exit between uses");
-                AssertSamePlace(xform, user, rolled, "hatch came out somewhere different on a later use");
+                Assert.That(exits.Any(e => SamePlace(xform, user, e)), "outsider did not land on a mine marker");
+                Assert.That(SamePlace(xform, user, door), Is.False, "outsider was let into the Enclave base");
             }
+
+            // Always lost: held inside the hatch for a while.
+            teleporter.OutsiderLostChance = 1f;
+            teleporter.OutsiderLostTime = TimeSpan.FromSeconds(1);
+            xform.SetCoordinates(user, new EntityCoordinates(map.Grid, 0f, -6f));
+            Use(entMan, hatch, user);
+            Assert.That(entMan.HasComponent<BunkerTunnelLostComponent>(user), "outsider did not get lost in the tunnels");
+            Assert.That(entMan.System<SharedContainerSystem>().IsEntityInContainer(user), "lost outsider is not held in the hatch");
+
+            // The hatch keeps working for everyone else, and none of it frees the lost person.
+            var enclave = SpawnWithJob(server, new EntityCoordinates(map.Grid, 0f, -6f), "EnclaveNCO");
+            Use(entMan, hatch, enclave);
+            AssertSamePlace(xform, enclave, door, "Enclave could not use the hatch while someone was lost in it");
+
+            hatchLock.SetLocked(hatch, false);
+            teleporter.OutsiderLostChance = 0f;
+            var otherOutsider = SpawnWithJob(server, new EntityCoordinates(map.Grid, 0f, -6f), null);
+            Use(entMan, hatch, otherOutsider);
+            Assert.That(exits.Any(e => SamePlace(xform, otherOutsider, e)), "another outsider could not use the hatch");
+
+            // Clicking the hatch from inside does nothing either.
+            Use(entMan, hatch, user);
+            Assert.That(entMan.HasComponent<BunkerTunnelLostComponent>(user), "the lost person popped out early");
+            Assert.That(entMan.System<SharedContainerSystem>().IsEntityInContainer(user), "the lost person popped out early");
+        });
+
+        await pair.RunTicksSync((int) (timing.TickRate * 2));
+
+        await server.WaitAssertion(() =>
+        {
+            Assert.That(entMan.HasComponent<BunkerTunnelLostComponent>(user), Is.False, "outsider never came back out");
+            Assert.That(entMan.System<SharedContainerSystem>().IsEntityInContainer(user), Is.False, "outsider is still stuck in the hatch");
+            AssertSamePlace(xform, user, hatch, "outsider did not come back out of the same hatch");
+
+            // Straight back down: still on their 45 s cooldown, so the mines even at a 100% lost chance.
+            var teleporter = entMan.GetComponent<BunkerTeleporterComponent>(hatch);
+            teleporter.OutsiderLostChance = 1f;
+            hatchLock.SetLocked(hatch, false);
+            Use(entMan, hatch, user);
+            Assert.That(entMan.HasComponent<BunkerTunnelLostComponent>(user), Is.False, "outsider got lost again during their cooldown");
+            Assert.That(exits.Any(e => SamePlace(xform, user, e)), "outsider on cooldown did not land in the mines");
         });
 
         await pair.CleanReturnAsync();
     }
 
     [Test]
-    public async Task HatchRerollsWhenItsExitIsDeleted()
+    public async Task DeletingAHatchDropsLostPeopleInsteadOfDeletingThem()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var entMan = server.ResolveDependency<IEntityManager>();
+        var lost = server.System<BunkerTunnelLostSystem>();
+        var map = await pair.CreateTestMap();
+
+        EntityUid hatch = default, user = default;
+
+        await server.WaitPost(() =>
+        {
+            RunMap(server, map.MapId);
+            hatch = SpawnOn(entMan, HatchProto, "test-lost-delete", map.GridCoords);
+            user = SpawnWithJob(server, map.GridCoords, null);
+            Assert.That(lost.TryLose(user, hatch, TimeSpan.FromMinutes(5), TimeSpan.FromSeconds(45)));
+            entMan.DeleteEntity(hatch);
+        });
+
+        await server.WaitAssertion(() =>
+        {
+            Assert.That(entMan.EntityExists(user), "the lost person was deleted along with the hatch");
+            Assert.That(entMan.System<SharedContainerSystem>().IsEntityInContainer(user), Is.False);
+            Assert.That(entMan.HasComponent<BunkerTunnelLostComponent>(user), Is.False);
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task DoorRefusesOutsidersAndSendsEnclaveUpTheChosenHatch()
     {
         await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
         var entMan = server.ResolveDependency<IEntityManager>();
         var xform = server.System<SharedTransformSystem>();
+        var hatchLock = server.System<BunkerHatchLockSystem>();
         var map = await pair.CreateTestMap();
-        const string channel = "test-hatch-reroll";
+        const string channel = "test-door";
+
+        EntityUid door = default, chosen = default, other = default, outsider = default, enclave = default;
+
+        await server.WaitPost(() =>
+        {
+            RunMap(server, map.MapId);
+            // Users stand next to the door, not inside it: it is a solid wall and would push them out.
+            door = SpawnOn(entMan, DoorProto, channel, new EntityCoordinates(map.Grid, 0f, 3f));
+            other = SpawnOn(entMan, HatchProto, channel, new EntityCoordinates(map.Grid, 6f, 0f));
+            chosen = SpawnOn(entMan, HatchProto, channel, new EntityCoordinates(map.Grid, 20f, 0f));
+            outsider = SpawnWithJob(server, map.GridCoords, null);
+            enclave = SpawnWithJob(server, map.GridCoords, "EnclaveNCO");
+        });
+
+        await server.WaitAssertion(() =>
+        {
+            Use(entMan, door, outsider);
+            Assert.That(SamePlace(xform, outsider, chosen) || SamePlace(xform, outsider, other), Is.False,
+                "the door sent an outsider up a hatch");
+
+            hatchLock.SetLocked(chosen, false);
+            var message = new Content.Shared._Misfits.Warps.BunkerTunnelDoorGoMessage(entMan.GetNetEntity(chosen)) { Actor = enclave };
+            entMan.EventBus.RaiseLocalEvent(door, message);
+
+            AssertSamePlace(xform, enclave, chosen, "Enclave member did not come out of the hatch they picked");
+            Assert.That(hatchLock.IsLocked(chosen), "the hatch did not lock behind the Enclave member");
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task OnlyNcoAccessWorksTheLockAndLockingHasACooldown()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var entMan = server.ResolveDependency<IEntityManager>();
+        var hatchLock = server.System<BunkerHatchLockSystem>();
+        var map = await pair.CreateTestMap();
+
+        EntityUid hatch = default, nobody = default, nco = default;
+
+        await server.WaitPost(() =>
+        {
+            RunMap(server, map.MapId);
+            hatch = SpawnOn(entMan, HatchProto, "test-lock", map.GridCoords);
+            nobody = entMan.SpawnEntity(null, map.GridCoords);
+            nco = entMan.SpawnEntity(null, map.GridCoords);
+            entMan.EnsureComponent<AccessComponent>(nco).Tags.Add("EnclaveNCO");
+        });
+
+        await server.WaitAssertion(() =>
+        {
+            Assert.That(hatchLock.TryUnlock(hatch, nobody), Is.False, "someone without NCO access unlocked the hatch");
+            Assert.That(hatchLock.TryUnlock(hatch, nco), "an NCO could not unlock the hatch");
+            Assert.That(hatchLock.TryLock(hatch, nco), "an NCO could not lock the hatch");
+            Assert.That(hatchLock.TryUnlock(hatch, nco), "an NCO could not unlock the hatch again");
+            Assert.That(hatchLock.TryLock(hatch, nco), Is.False, "the hatch locked again inside its 30 s cooldown");
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task OpenHatchLocksItselfAfterTenMinutes()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var entMan = server.ResolveDependency<IEntityManager>();
+        var timing = server.ResolveDependency<IGameTiming>();
+        var hatchLock = server.System<BunkerHatchLockSystem>();
+        var map = await pair.CreateTestMap();
 
         EntityUid hatch = default;
-        EntityUid user = default;
-        EntityUid firstExit = default;
-        EntityUid secondExit = default;
 
         await server.WaitPost(() =>
         {
             RunMap(server, map.MapId);
-
-            firstExit = entMan.SpawnEntity(ExitProto, new EntityCoordinates(map.Grid, 5f, 5f));
-            secondExit = entMan.SpawnEntity(ExitProto, new EntityCoordinates(map.Grid, 9f, 9f));
-            entMan.GetComponent<BunkerTunnelExitComponent>(firstExit).Channel = channel;
-            entMan.GetComponent<BunkerTunnelExitComponent>(secondExit).Channel = channel;
-
-            hatch = entMan.SpawnEntity(HatchProto, map.GridCoords);
-            entMan.GetComponent<BunkerTeleporterComponent>(hatch).Channel = channel;
-
-            user = entMan.SpawnEntity(null, map.GridCoords);
+            hatch = SpawnOn(entMan, HatchProto, "test-autolock", map.GridCoords);
+            var comp = entMan.GetComponent<BunkerHatchLockComponent>(hatch);
+            comp.AutoLockDelay = TimeSpan.FromSeconds(1);
+            hatchLock.SetLocked(hatch, false);
         });
 
-        EntityUid rolled = default;
-        await server.WaitAssertion(() =>
+        await server.WaitAssertion(() => Assert.That(hatchLock.IsLocked(hatch), Is.False));
+        await pair.RunTicksSync((int) (timing.TickRate * 2));
+        await server.WaitAssertion(() => Assert.That(hatchLock.IsLocked(hatch), "the open hatch never locked itself"));
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task RoundStartSpawnsTwoLabelledHatchesFromThePool()
+    {
+        await using var pair = await PoolManager.GetServerClient();
+        var server = pair.Server;
+        var entMan = server.ResolveDependency<IEntityManager>();
+        var spawner = server.System<BunkerHatchSpawnSystem>();
+        var map = await pair.CreateTestMap();
+        const string channel = "test-spawn";
+
+        await server.WaitPost(() =>
         {
-            Use(entMan, hatch, user);
-            rolled = entMan.GetComponent<BunkerTeleporterComponent>(hatch).CachedDestination!.Value;
-            Assert.That(rolled, Is.EqualTo(firstExit).Or.EqualTo(secondExit));
+            RunMap(server, map.MapId);
+            for (var i = 0; i < 5; i++)
+            {
+                var point = entMan.SpawnEntity(SpawnPointProto, new EntityCoordinates(map.Grid, i * 4f, 0f));
+                entMan.GetComponent<BunkerHatchSpawnPointComponent>(point).Channel = channel;
+            }
+
+            spawner.SpawnRoundHatches();
         });
 
-        // Deleting the exit a hatch settled on must not strand it.
-        await server.WaitPost(() => entMan.DeleteEntity(rolled));
-
         await server.WaitAssertion(() =>
         {
-            var survivor = rolled == firstExit ? secondExit : firstExit;
+            var labels = new List<string>();
+            var query = entMan.EntityQueryEnumerator<BunkerTeleporterComponent>();
+            while (query.MoveNext(out _, out var teleporter))
+            {
+                if (teleporter.IsSurface && teleporter.Channel == channel)
+                    labels.Add(teleporter.Label ?? "");
+            }
 
-            xform.SetCoordinates(user, map.GridCoords);
-            Use(entMan, hatch, user);
-
-            Assert.That(entMan.GetComponent<BunkerTeleporterComponent>(hatch).CachedDestination, Is.EqualTo(survivor),
-                "hatch did not re-roll after its exit was deleted");
-            AssertSamePlace(xform, user, survivor, "hatch did not move the user to the re-rolled exit");
+            Assert.That(labels, Has.Count.EqualTo(BunkerHatchSpawnSystem.HatchesPerRound));
+            Assert.That(labels, Is.EquivalentTo(new[] { "Hatch A", "Hatch B" }));
         });
 
         await pair.CleanReturnAsync();
     }
 
     [Test]
-    public async Task DoorReturnsToNearestHatchAndIgnoresOrdinaryLadders()
+    public async Task CarriedPeopleComeAlongAcrossMaps()
     {
         await using var pair = await PoolManager.GetServerClient();
         var server = pair.Server;
         var entMan = server.ResolveDependency<IEntityManager>();
         var xform = server.System<SharedTransformSystem>();
-        var map = await pair.CreateTestMap();
-        const string channel = "test-door-nearest";
+        var carrying = server.System<CarryingSystem>();
+        var surface = await pair.CreateTestMap();
+        var below = await pair.CreateTestMap();
+        const string channel = "test-carry";
 
-        EntityUid door = default;
-        EntityUid user = default;
-        EntityUid nearHatch = default;
+        EntityUid hatch = default, door = default, carrier = default, carried = default;
 
         await server.WaitPost(() =>
         {
-            RunMap(server, map.MapId);
-
-            door = entMan.SpawnEntity(DoorProto, map.GridCoords);
-            entMan.GetComponent<BunkerTeleporterComponent>(door).Channel = channel;
-
-            nearHatch = entMan.SpawnEntity(HatchProto, new EntityCoordinates(map.Grid, 6f, 0f));
-            entMan.GetComponent<BunkerTeleporterComponent>(nearHatch).Channel = channel;
-
-            var farHatch = entMan.SpawnEntity(HatchProto, new EntityCoordinates(map.Grid, 20f, 0f));
-            entMan.GetComponent<BunkerTeleporterComponent>(farHatch).Channel = channel;
-
-            // A plain warper ladder sitting closer than either hatch. The door must not pick it up:
-            // only entities carrying BunkerTeleporterComponent count as partners.
-            entMan.SpawnEntity(PlainLadderProto, new EntityCoordinates(map.Grid, 1f, 0f));
-
-            user = entMan.SpawnEntity(null, map.GridCoords);
+            RunMap(server, surface.MapId);
+            RunMap(server, below.MapId);
+            hatch = SpawnOn(entMan, HatchProto, channel, surface.GridCoords);
+            door = SpawnOn(entMan, DoorProto, channel, below.GridCoords);
+            carrier = SpawnWithJob(server, surface.GridCoords, "EnclaveNCO");
+            carried = entMan.SpawnEntity(HumanProto, surface.GridCoords);
+            // Carrying needs the carrier to be at least twice as heavy; make the test carrier bulky.
+            var physics = server.System<Robust.Shared.Physics.Systems.SharedPhysicsSystem>();
+            var fixtures = entMan.GetComponent<Robust.Shared.Physics.FixturesComponent>(carrier);
+            foreach (var (id, fixture) in fixtures.Fixtures)
+                physics.SetDensity(carrier, id, fixture, fixture.Density * 4f, manager: fixtures);
+            Assert.That(carrying.TryCarry(carrier, carried), "test setup: could not pick the passenger up");
         });
 
         await server.WaitAssertion(() =>
         {
-            Use(entMan, door, user);
-            AssertSamePlace(xform, user, nearHatch, "door did not return to the nearest bunker hatch");
+            Use(entMan, hatch, carrier);
+            AssertSamePlace(xform, carrier, door, "carrier did not arrive at the door");
+            AssertSamePlace(xform, carried, door, "the carried person was left behind");
+            Assert.That(entMan.HasComponent<CarryingComponent>(carrier), "the carrier dropped the person on the way");
         });
 
         await pair.CleanReturnAsync();
     }
 
-    [Test]
-    public async Task HatchFallsBackToTheDoorWhenNoExitsArePlaced()
+    private static EntityUid SpawnOn(IEntityManager entMan, string proto, string channel, EntityCoordinates coords)
     {
-        await using var pair = await PoolManager.GetServerClient();
-        var server = pair.Server;
+        var uid = entMan.SpawnEntity(proto, coords);
+        entMan.GetComponent<BunkerTeleporterComponent>(uid).Channel = channel;
+        return uid;
+    }
+
+    private static EntityUid SpawnExit(IEntityManager entMan, string channel, EntityCoordinates coords)
+    {
+        var uid = entMan.SpawnEntity(ExitProto, coords);
+        entMan.GetComponent<BunkerTunnelExitComponent>(uid).Channel = channel;
+        return uid;
+    }
+
+    /// <summary>
+    /// A human with a mind, and a job if one is given. No job means an outsider.
+    /// </summary>
+    private static EntityUid SpawnWithJob(Robust.UnitTesting.RobustIntegrationTest.ServerIntegrationInstance server,
+        EntityCoordinates coords, string job)
+    {
         var entMan = server.ResolveDependency<IEntityManager>();
-        var xform = server.System<SharedTransformSystem>();
-        var map = await pair.CreateTestMap();
-        const string channel = "test-hatch-fallback";
+        var minds = server.System<SharedMindSystem>();
+        var uid = entMan.SpawnEntity(HumanProto, coords);
+        var mind = minds.CreateMind(null);
+        minds.TransferTo(mind, uid);
+        if (job != null)
+            server.System<JobSystem>().MindAddJob(mind, job);
 
-        EntityUid hatch = default;
-        EntityUid door = default;
-        EntityUid user = default;
-
-        await server.WaitPost(() =>
-        {
-            RunMap(server, map.MapId);
-
-            door = entMan.SpawnEntity(DoorProto, new EntityCoordinates(map.Grid, 12f, 3f));
-            entMan.GetComponent<BunkerTeleporterComponent>(door).Channel = channel;
-
-            hatch = entMan.SpawnEntity(HatchProto, map.GridCoords);
-            entMan.GetComponent<BunkerTeleporterComponent>(hatch).Channel = channel;
-
-            user = entMan.SpawnEntity(null, map.GridCoords);
-        });
-
-        await server.WaitAssertion(() =>
-        {
-            // No exit markers on this channel, so an admin-spawned pair still has to work on its own.
-            Use(entMan, hatch, user);
-            AssertSamePlace(xform, user, door, "hatch did not fall back to the paired door with no exits placed");
-        });
-
-        await pair.CleanReturnAsync();
+        return uid;
     }
 
     private static void Use(IEntityManager entMan, EntityUid target, EntityUid user)
@@ -228,12 +445,15 @@ public sealed class BunkerTeleporterTest
     /// Compares world positions rather than EntityCoordinates: warping re-parents the entity, so the
     /// same spot can be expressed relative to the grid or to the map depending on what is underfoot.
     /// </summary>
-    private static void AssertSamePlace(SharedTransformSystem xform, EntityUid moved, EntityUid destination, string message)
+    private static bool SamePlace(SharedTransformSystem xform, EntityUid moved, EntityUid destination)
     {
         var actual = xform.GetMapCoordinates(moved);
         var expected = xform.GetMapCoordinates(destination);
+        return actual.MapId == expected.MapId && Vector2.Distance(actual.Position, expected.Position) < 0.01f;
+    }
 
-        Assert.That(actual.MapId, Is.EqualTo(expected.MapId), message);
-        Assert.That(Vector2.Distance(actual.Position, expected.Position), Is.LessThan(0.01f), message);
+    private static void AssertSamePlace(SharedTransformSystem xform, EntityUid moved, EntityUid destination, string message)
+    {
+        Assert.That(SamePlace(xform, moved, destination), message);
     }
 }

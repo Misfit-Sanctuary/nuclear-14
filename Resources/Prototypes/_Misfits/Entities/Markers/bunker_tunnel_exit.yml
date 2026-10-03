@@ -1,18 +1,19 @@
-# #Misfits Add - Destination marker for the bunker tunnel teleporter.
+# #Misfits Add - Where the bunker hatch drops people who are not Enclave.
 #
-# Place these around the tunnels in the map editor. Each bunker hatch picks one at random the first
-# time someone uses it and then always comes out there, so a hatch stays predictable for the round
-# while different hatches lead to different places. Adding another way out of the maze means placing
-# another marker — no code change.
+# Place these around the mines in the map editor. Every time an outsider goes down an open bunker
+# hatch they land on one of these at random (or, 65% of the time, get lost in the dark tunnels for
+# 25 s and climb back out of the same hatch). Enclave members never land here: they go to the tunnel
+# door in the base. Adding another landing spot means placing another marker, no code change.
+# Never place one inside the Enclave base: outsiders must not be able to get in on their own.
 #
-# Like every marker it is anchored and hidden during normal play.
+# Like every marker it is anchored and hidden during normal play (`showmarkers` to see them).
 
 - type: entity
   parent: MarkerBase
   id: N14BunkerTunnelExit
-  name: bunker tunnel exit
-  suffix: bunker hatch destination
-  description: Somewhere a bunker hatch can drop you.
+  name: bunker mine exit
+  suffix: bunker hatch outsider landing
+  description: Somewhere in the mines a bunker hatch can drop an outsider.
   components:
   - type: Sprite
     state: green

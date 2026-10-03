@@ -28,6 +28,7 @@ public sealed partial class WastelandMapWindow : FancyWindow
     public event Action? OnClearAnnotations;
     public event Action<OverwatchConsoleMessageType, uint?>? OnOverwatchAction;
     public event Action<NetEntity, WastelandMapCommunicationsChannelKind, bool>? OnCommunicationsAction;
+    public event Action<Content.Shared._Misfits.Warps.BunkerHatchEntry>? OnBunkerHatchClicked; // #Misfits Add
 
     private readonly MapViewerControl _mapViewer;
     private readonly Dictionary<string, bool> _overwatchGroupExpanded = new();
@@ -54,6 +55,7 @@ public sealed partial class WastelandMapWindow : FancyWindow
         _mapViewer.OnAddAnnotation += annotation => OnAddAnnotation?.Invoke(annotation);
         _mapViewer.OnRemoveAnnotation += index => OnRemoveAnnotation?.Invoke(index);
         _mapViewer.OnClearAnnotations += () => OnClearAnnotations?.Invoke();
+        _mapViewer.OnBunkerHatchClicked += hatch => OnBunkerHatchClicked?.Invoke(hatch); // #Misfits Add
         MapContainer.AddChild(_mapViewer);
 
         SepOverwatch.PanelOverride = new StyleBoxFlat(Color.FromHex("#0f3d0f"));
@@ -158,6 +160,12 @@ public sealed partial class WastelandMapWindow : FancyWindow
 
         _mapViewer.SetTrackedBlips(trackedBlips);
         _mapViewer.SetAnnotations(sharedAnnotations);
+    }
+
+    // #Misfits Add - surface bunker hatch icons
+    public void SetBunkerHatches(Content.Shared._Misfits.Warps.BunkerHatchEntry[] hatches)
+    {
+        _mapViewer.SetBunkerHatches(hatches);
     }
 
     public void UpdateOverwatch(OverwatchConsoleState? state, OverwatchWatchingComponent? watch, IEye? eye)
