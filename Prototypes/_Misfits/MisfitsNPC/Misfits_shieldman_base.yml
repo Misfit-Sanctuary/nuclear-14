@@ -1,15 +1,10 @@
-#the tanky npc with a shield that hit hard with unarmed, althrough slower meant for the shield raider#
 - type: entity
   parent: BaseMobSpeciesOrganic
-  id: N14BaseMobRaider
+  id: MisfitsBaseMobShieldRaider
   abstract: true
+  name: Shield Raider
   suffix: AI
   components:
-      
-   - type: MeleeThrowOnHit
-     speed: 10
-     lifetime: 0.025
-     minlifetime: 0.0125
     - type: Damageable    # Misfits Add - Override from BaseMobSpeciesOrganic to prevent hunger/thirst damage
       damageContainer: MisfitsNPCBiological
     - type: NpcFactionMember
@@ -29,7 +24,7 @@
           spawn:
             N14CurrencyCap:
               min: 1
-              max: 20
+              max: 7
     - type: PassiveDamage # It's mostly for the faction NPCs, but can be here nonetheless.
       allowedStates:
       - Alive
@@ -54,13 +49,26 @@
           1.5
     - type: MeleeWeapon
       hidden: true
-      attackRate: 0.75
+      attackRate: 0.5
       range: 1.5
+      soundHit:
+        collection: MetalThud
       angle: 30
       animation: WeaponArcPunch
       damage:
         types:
-          Blunt: 20
+          Blunt: 30
+    - type: MeleeThrowOnHit
+      speed: 5
+      lifetime: 0.02
+      minlifetime: 0.0125
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.75
+          Slash: 0.75
+          Piercing: 0.75
+          Heat: 0.75
     - type: Carriable
     - type: Perishable
       rotAfter: 1800 # Rots after half of an in-game day
@@ -128,9 +136,5 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - map: [ "clownedon" ] # Dynamically generated
-        sprite: "Effects/creampie.rsi"
-        state: "creampie_human"
-        visible: false
-     - sprite: _Nuclear14/Objects/Weapons/Melee/shield_heavy.rsi
+      - sprite: _Nuclear14/Objects/Weapons/Melee/shield_heavy.rsi
         state: inhand-left # Only part we change, the gun sprite.
