@@ -1,0 +1,99 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float intensity; // 0-1, overall strength, used for fading out
+uniform highp float impact;    // 0-1, spikes when second wind triggers then fades out
+uniform highp float elapsed;   // secs since second wind triggered
+uniform highp float sinceBeat; // secs since last heart beat
+
+const highp vec3 bloodBright = vec3(0.50, 0.02, 0.03);
+const highp vec3 bloodDark = vec3(0.16, 0.0, 0.01);
+const highp float dripColumns = 26.0;
+
+const highp float lubPeak = 0.03;
+const highp float dubPeak = 0.23;
+const highp float thumpWidth = 0.045;
+
+// should be in step with the beat sound
+highp float heartbeat(highp float t) {
+    highp float lubX = (t - lubPeak) / thumpWidth;
+    highp float dubX = (t - dubPeak) / thumpWidth;
+    return exp(-lubX * lubX) + 0.6 * exp(-dubX * dubX);
+}
+
+void fragment() {
+    highp vec2 uv = FRAGCOORD.xy * SCREEN_PIXEL_SIZE;
+    highp vec2 centered = uv - vec2(0.5);
+    highp float aspect = SCREEN_PIXEL_SIZE.y / SCREEN_PIXEL_SIZE.x;
+    highp vec2 shaped = vec2(centered.x * aspect, centered.y);
+
+    highp float beat = heartbeat(sinceBeat) * intensity;
+    highp float surge = clamp(beat + impact, 0.0, 1.5);
+
+    highp vec2 shift = centered * (0.006 * surge);
+    highp vec3 col;
+    col.r = zTextureSpec(SCREEN_TEXTURE, uv + shift).r;
+    col.g = zTextureSpec(SCREEN_TEXTURE, uv).g;
+    col.b = zTextureSpec(SCREEN_TEXTURE, uv - shift).b;
+
+    // drain the colour & push what is left towards red
+    highp float grey = zGrayscale(col);
+    highp vec3 drained = vec3(grey * 1.15, grey * 0.72, grey * 0.70);
+    col = mix(col, drained, 0.5 * intensity);
+
+    highp vec2 edge = abs(centered) * 2.0;
+    highp float dist = pow(pow(edge.x, 4.0) + pow(edge.y, 4.0), 0.25);
+
+    // border raggedy
+    highp float ragged = zFBM(shaped * 1.6 + vec2(0.0, TIME * 0.015)) - 0.5;
+    highp float clots = zFBM(shaped * 5.0 + vec2(7.3, 1.1)) - 0.5;
+    highp float d = dist + ragged * 0.45 + clots * 0.12;
+
+    // how far the blood reaches in
+    highp float reach = mix(1.25, 0.72, intensity) - 0.07 * beat - 0.18 * impact;
+    highp float mask = smoothstep(reach - 0.05, reach + 0.06, d);
+
+    // darker & thicker at the very edge, brighter & wetter where it meets the view
+    highp float depth = smoothstep(reach, reach + 0.45, d);
+    highp vec3 blood = mix(bloodBright, bloodDark, depth);
+
+    // thin bright rim along the border so it looks wet
+    highp float rim = smoothstep(reach - 0.05, reach, d) * (1.0 - smoothstep(reach, reach + 0.04, d));
+    blood += vec3(0.25, 0.02, 0.02) * rim;
+
+    // soft red haze just inside the blood so the edge does not look cut out
+    highp float haze = smoothstep(reach - 0.35, reach, d) * 0.25 * intensity;
+    col = mix(col, bloodBright, haze);
+
+    col = mix(col, blood, mask * min(1.0, 0.9 * intensity + 0.1 * surge));
+
+    // screen is split into thin columns & roughly
+    // half of them get a drip
+    highp float colId = floor(shaped.x * dripColumns);
+    highp vec2 rndA = zRandom(vec2(colId, 3.7)) * 0.5 + vec2(0.5);
+    highp vec2 rndB = zRandom(vec2(colId, 11.3)) * 0.5 + vec2(0.5);
+    highp float hasDrip = step(0.5, rndA.x);
+    highp float colCentre = (colId + 0.3 + 0.4 * rndB.x) / dripColumns;
+    highp float fromTop = 1.0 - uv.y;
+
+    // short delay then drip
+    highp float delay = rndB.y * 1.5;
+    highp float grow = 1.0 - exp(-max(0.0, elapsed - delay) * mix(0.25, 0.6, rndA.y));
+    highp float tip = 0.03 + (0.06 + 0.5 * rndA.y * rndA.y) * grow;
+
+    highp float wobble = sin(fromTop * 25.0 + rndA.x * 6.28) * 0.0015;
+    highp float dx = shaped.x - colCentre - wobble;
+    highp float along = clamp(fromTop / tip, 0.0, 1.0);
+    highp float width = mix(0.007, 0.0035, along) * mix(0.7, 1.3, rndB.x);
+
+    // thinning stream with heaveri tip
+    highp float stream = (1.0 - smoothstep(width * 0.6, width, abs(dx))) * step(fromTop, tip);
+    highp float beadRadius = width * 1.4;
+    highp float bead = 1.0 - smoothstep(beadRadius * 0.7, beadRadius, length(vec2(dx, fromTop - tip)));
+    highp float drip = max(stream, bead) * hasDrip * step(0.001, grow);
+
+    // narrow highlight down one side
+    highp float shine = (1.0 - smoothstep(0.0, width * 0.3, abs(dx + width * 0.35))) * drip;
+    highp vec3 dripColour = mix(bloodBright * 1.1, bloodDark, 0.35 + 0.3 * along) + vec3(0.3, 0.05, 0.05) * shine;
+    col = mix(col, dripColour, drip * intensity);
+
+    COLOR = vec4(col, 1.0);
+}
