@@ -176,3 +176,9 @@
             - N14Cartridge556Rifle
   - type: StaticPrice
     price: 150
+    
+- type: entity
+  name: makeshift auto rifle
+  parent: N14WeaponAutoRifle556Legion
+  id: N14WeaponAutoRifle556Tribal
+  description: A makeshift automatic rifle of Tribal origin, light and extremely cheap, chambered in 5.56mm

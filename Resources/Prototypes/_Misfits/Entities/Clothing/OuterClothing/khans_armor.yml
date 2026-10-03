@@ -101,6 +101,26 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/khanbatarmor.rsi
 
 - type: entity
+  parent: N14ClothingOuterKhanbatCombatArmor
+  id: N14ClothingOuterTribeCombatArmor
+  name: Tribal Combat armor
+  description: An old set of combat armor, repainted in the blue color of the Willows.
+
+- type: entity
+  parent: N14ClothingOuterKhanbatCombatArmorMK2
+  id: N14ClothingOuterTribeCombatArmorMk2
+  name: reinforced Tribal combat armor
+  description: An old set of combat armor, repainted in the colors of the willows, with a Painted Face on the back."
+  components:
+  # #Misfits Fix - RSI lives in _Misfits/Clothing/OuterClothing/Armor, path was stale (_Nuclear14).
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khanbatarmormk2.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khanbatarmormk2.rsi
+
+
+
+- type: entity
   parent: N14ClothingOuterCombatArmorMK2
   id: N14ClothingOuterKhanbatCombatArmorMK2
   name: reinforced khanbat combat armor

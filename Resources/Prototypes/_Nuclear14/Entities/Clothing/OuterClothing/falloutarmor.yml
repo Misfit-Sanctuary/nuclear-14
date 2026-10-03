@@ -353,8 +353,8 @@
   - type: Clothing
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/fallouttribalheavy.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 0.95
-    sprintModifier: 0.95
+    #walkModifier: 0.95
+    #sprintModifier: 0.95
   - type: Armor
     modifiers:
       coefficients:
