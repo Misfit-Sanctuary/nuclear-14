@@ -12,12 +12,12 @@ public sealed partial class GeneticSequencer : BoxContainer
     private readonly ScannedGenomeSystem _genome;
 
     public event Action? OnScan;
-    public event Action<uint, uint, GeneticsCycle>? OnSetBase;
-    public event Action<uint>? OnWriteMutation;
-    public event Action<uint>? OnSequence;
-    public event Action<uint>? OnResetSequence;
+    public event Action<int, uint, GeneticsCycle>? OnSetBase;
+    public event Action<int>? OnWriteMutation;
+    public event Action<int>? OnSequence;
+    public event Action<int>? OnResetSequence;
     public event Action? OnPrintScan;
-    public event Action<uint>? OnPrintSequence;
+    public event Action<int>? OnPrintSequence;
 
     private EntityUid? _mob;
     private Entity<GeneticsDiskComponent>? _disk;
@@ -38,23 +38,23 @@ public sealed partial class GeneticSequencer : BoxContainer
 
         Puzzle.OnSetBase += (i, c) =>
         {
-            if (SequenceButtons.Index is {} s)
+            if (SequenceButtons.Sequence?.Number is {} s)
                 OnSetBase?.Invoke(s, i, c);
         };
         Puzzle.OnSequence += () =>
         {
-            if (SequenceButtons.Index is {} s)
+            if (SequenceButtons.Sequence?.Number is {} s)
                 OnSequence?.Invoke(s);
         };
         Puzzle.OnResetSequence += () =>
         {
-            if (SequenceButtons.Index is {} s)
+            if (SequenceButtons.Sequence?.Number is {} s)
                 OnResetSequence?.Invoke(s);
         };
 
         WriteButton.OnPressed += _ =>
         {
-            if (SequenceButtons.Index is {} s)
+            if (SequenceButtons.Sequence?.Number is {} s)
                 OnWriteMutation?.Invoke(s);
         };
 
@@ -67,7 +67,7 @@ public sealed partial class GeneticSequencer : BoxContainer
         PrintScanButton.OnPressed += _ => OnPrintScan?.Invoke();
         PrintSequenceButton.OnPressed += _ =>
         {
-            if (SequenceButtons.Index is {} s)
+            if (SequenceButtons.Sequence?.Number is {} s)
                 OnPrintSequence?.Invoke(s);
         };
     }

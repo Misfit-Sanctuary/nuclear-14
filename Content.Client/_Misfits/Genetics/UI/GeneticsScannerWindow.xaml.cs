@@ -15,7 +15,7 @@ public sealed partial class GeneticsScannerWindow : FancyWindow
     private readonly ScannedGenomeSystem _genome;
 
     public event Action? OnScan;
-    public event Action<uint?>? OnPrint;
+    public event Action<int?>? OnPrint;
 
     private EntityQuery<GeneticsScannerComponent> _query;
     private EntityQuery<GeneticsPrintoutComponent> _printQuery;

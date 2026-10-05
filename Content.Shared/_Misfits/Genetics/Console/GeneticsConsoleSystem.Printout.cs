@@ -27,8 +27,8 @@ public sealed partial class GeneticsConsoleSystem
         var paper = PredictedSpawnAtPosition(ent.Comp.Paper, Transform(ent).Coordinates);
         _transform.SetLocalRotation(paper, 0); // chud engine
 
-        var text = args.Index is {} index
-            ? (_genome.GetSequence(mob, index) is {} sequence ? GetSequenceText(ent, sequence) : string.Empty)
+        var text = args.Number is {} number
+            ? (_genome.GetSequence(mob, number) is {} sequence ? GetSequenceText(ent, sequence) : string.Empty)
             : GetScanText(ent, mob);
         var populate = new GeneticsPrintoutPopulateEvent(text);
         RaiseLocalEvent(paper, ref populate);

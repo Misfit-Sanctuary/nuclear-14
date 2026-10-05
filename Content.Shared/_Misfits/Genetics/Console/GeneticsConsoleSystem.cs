@@ -119,7 +119,7 @@ public sealed partial class GeneticsConsoleSystem : EntitySystem
     private void OnSetBase(Entity<GeneticsConsoleComponent> ent, ref GeneticsConsoleSetBaseMessage args)
     {
         if (GetWorkableMob(ent.Owner) is not {} mob ||
-            _genome.GetSequence(mob, args.Sequence) is not {} sequence ||
+            _genome.GetSequence(mob, args.Number) is not {} sequence ||
             args.Index >= sequence.Bases.Length)
             return;
 
@@ -135,14 +135,14 @@ public sealed partial class GeneticsConsoleSystem : EntitySystem
     private void OnSequence(Entity<GeneticsConsoleComponent> ent, ref GeneticsConsoleSequenceMessage args)
     {
         if (GetWorkableMob(ent.Owner) is not {} mob ||
-            _genome.GetSequence(mob, args.Index) is not {} sequence ||
+            _genome.GetSequence(mob, args.Number) is not {} sequence ||
             _mutation.IsDiscovered(ent, sequence.Mutation))
             return;
 
         var doAfterArgs = new DoAfterArgs(EntityManager,
             args.Actor,
             ent.Comp.SequenceDelay,
-            new SequenceDoAfterEvent(GetNetEntity(mob), args.Index),
+            new SequenceDoAfterEvent(GetNetEntity(mob), args.Number),
             eventTarget: ent,
             // see OnScan, reaching the mob inside the scanner is never unobstructed
             used: ent)
@@ -158,12 +158,12 @@ public sealed partial class GeneticsConsoleSystem : EntitySystem
     private void OnResetSequence(Entity<GeneticsConsoleComponent> ent, ref GeneticsConsoleResetSequenceMessage args)
     {
         if (GetWorkableMob(ent.Owner) is not {} mob ||
-            _genome.GetSequence(mob, args.Index) is not {} sequence ||
+            _genome.GetSequence(mob, args.Number) is not {} sequence ||
             sequence.Bases == sequence.OriginalBases) // was already reset
             return;
 
         // incase some shitter runs in and erases all your progress on your monkey idk
-        _adminLog.Add(LogType.Action, LogImpact.Low, $"{mob:target} sequence {args.Index} was reset by {args.Actor:user} using console {ent.Owner:console}");
+        _adminLog.Add(LogType.Action, LogImpact.Low, $"{mob:target} sequence {args.Number} was reset by {args.Actor:user} using console {ent.Owner:console}");
 
         sequence.Bases = sequence.OriginalBases;
         UpdateUI(ent.Owner);
@@ -196,7 +196,7 @@ public sealed partial class GeneticsConsoleSystem : EntitySystem
         if (_net.IsClient)
             return;
 
-        Speak(ent, SequenceMutation(ent, mob, args.Index, args.User)
+        Speak(ent, SequenceMutation(ent, mob, args.Number, args.User)
             ? "sequenced"
             : "sequence-failed");
     }
@@ -214,7 +214,7 @@ public sealed partial class GeneticsConsoleSystem : EntitySystem
         var now = _timing.CurTime;
         if (now < ent.Comp.NextWrite ||
             GetWorkableMob(ent.Owner) is not {} mob ||
-            _genome.GetSequence(mob, args.Index) is not {} sequence)
+            _genome.GetSequence(mob, args.Number) is not {} sequence)
             return;
 
         var mutation = sequence.Mutation;
@@ -234,14 +234,14 @@ public sealed partial class GeneticsConsoleSystem : EntitySystem
     private void OnCombine(Entity<GeneticsConsoleComponent> ent, ref GeneticsConsoleCombineMessage args)
     {
         if (GetWorkableMob(ent.Owner) is not {} mob ||
-            _genome.GetSequence(mob, args.Index) is not {} sequence ||
+            _genome.GetSequence(mob, args.Number) is not {} sequence ||
             _disk.GetDisk(ent.Owner)?.Comp.Mutation == null)
             return;
 
         var doAfterArgs = new DoAfterArgs(EntityManager,
             args.Actor,
             ent.Comp.CombineDelay,
-            new CombineDoAfterEvent(GetNetEntity(mob), args.Index),
+            new CombineDoAfterEvent(GetNetEntity(mob), args.Number),
             eventTarget: ent,
             // see OnScan, reaching the mob inside the scanner is never unobstructed
             used: ent)
@@ -280,7 +280,7 @@ public sealed partial class GeneticsConsoleSystem : EntitySystem
 
         // should never happen, no message
         if (_disk.GetDisk(ent.Owner)?.Comp.Mutation is not {} diskMutation ||
-            _genome.GetSequence(mob, args.Index) is not {} sequence ||
+            _genome.GetSequence(mob, args.Number) is not {} sequence ||
             _mutation.GetMutatable(mob) is not {} mutatable)
             return;
 
@@ -387,10 +387,10 @@ public sealed partial class GeneticsConsoleSystem : EntitySystem
     /// <summary>
     /// Tries to sequences a mutation, either activating it in the mob or damaging it.
     /// </summary>
-    public bool SequenceMutation(Entity<GeneticsConsoleComponent> ent, EntityUid mob, uint index, EntityUid? user = null)
+    public bool SequenceMutation(Entity<GeneticsConsoleComponent> ent, EntityUid mob, int number, EntityUid? user = null)
     {
         if (!CanWorkOn(ent.Owner, mob) ||
-            _genome.GetSequence(mob, index) is not {} sequence)
+            _genome.GetSequence(mob, number) is not {} sequence)
             return false;
 
         var mutation = sequence.Mutation;
@@ -427,30 +427,32 @@ public sealed partial class GeneticsConsoleSystem : EntitySystem
 public sealed partial class SequenceDoAfterEvent : DoAfterEvent
 {
     public NetEntity Mob;
-    public uint Index;
 
-    public SequenceDoAfterEvent(NetEntity mob, uint index)
+    public int Number;
+
+    public SequenceDoAfterEvent(NetEntity mob, int number)
     {
         Mob = mob;
-        Index = index;
+        Number = number;
     }
 
     public override DoAfterEvent Clone()
-        => new SequenceDoAfterEvent(Mob, Index);
+        => new SequenceDoAfterEvent(Mob, Number);
 }
 
 [Serializable, NetSerializable]
 public sealed partial class CombineDoAfterEvent : DoAfterEvent
 {
     public NetEntity Mob;
-    public uint Index;
 
-    public CombineDoAfterEvent(NetEntity mob, uint index)
+    public int Number;
+
+    public CombineDoAfterEvent(NetEntity mob, int number)
     {
         Mob = mob;
-        Index = index;
+        Number = number;
     }
 
     public override DoAfterEvent Clone()
-        => new CombineDoAfterEvent(Mob, Index);
+        => new CombineDoAfterEvent(Mob, Number);
 }

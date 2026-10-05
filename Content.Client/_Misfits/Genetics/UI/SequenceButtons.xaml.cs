@@ -9,14 +9,26 @@ public sealed partial class SequenceButtons : ScrollContainer
 {
     public event Action<uint>? OnSelected;
 
-    private uint? _selected;
+    private int? _selected;
     private List<SequenceState> _sequences = new();
     private List<BaseButton> _buttons = new();
 
-    public uint? Index => _selected;
+    public uint? Index
+    {
+        get
+        {
+            for (int i = 0; i < _sequences.Count; i++)
+            {
+                if (_sequences[i].Number == _selected)
+                    return (uint) i;
+            }
+
+            return null;
+        }
+    }
 
     public SequenceState? Sequence
-        => Index is {} i && i < _sequences.Count ? _sequences[(int) i] : null;
+        => Index is {} i ? _sequences[(int) i] : null;
 
     public SequenceButtons()
     {
@@ -24,14 +36,15 @@ public sealed partial class SequenceButtons : ScrollContainer
 
         OnSelected += sel =>
         {
+            var number = sel < _sequences.Count ? _sequences[(int) sel].Number : (int?) null;
+            _selected = _selected == number
+                ? null
+                : number;
+
             for (int i = 0; i < _buttons.Count; i++)
             {
-                var index = (uint) i;
-                _buttons[i].Pressed = sel == index;
+                _buttons[i].Pressed = _selected != null && _sequences[i].Number == _selected;
             }
-            _selected = _selected == sel
-                ? null
-                : sel;
         };
     }
 
@@ -57,7 +70,7 @@ public sealed partial class SequenceButtons : ScrollContainer
                 ToggleMode = true,
                 HorizontalExpand = true
             };
-            button.Pressed = i == _selected;
+            button.Pressed = sequence.Number == _selected;
             button.OnPressed += _ => OnSelected?.Invoke(index);
             /*button.AddChild(new Label()
             {

@@ -633,7 +633,6 @@ public sealed partial class MutationSystem : CommonMutationSystem
             target.Comp.Dormant.Add(dormant);
         }
         DirtyField(target, target.Comp, nameof(MutatableComponent.Dormant));
-        ClearDormant(ent.AsNullable());
 
         // transfer the mutation entities
         Log.Debug($"Transferring {ent.Comp.Mutations.Count} mutations from {ToPrettyString(ent)} to {ToPrettyString(target)}");
@@ -646,6 +645,8 @@ public sealed partial class MutationSystem : CommonMutationSystem
             target.Comp.Mutations[id] = mutation;
         }
         ent.Comp.Mutations.Clear();
+
+        ClearDormant(ent.AsNullable());
 
         DirtyField(ent, ent.Comp, nameof(MutatableComponent.Mutations));
         DirtyField(target, target.Comp, nameof(MutatableComponent.Mutations));

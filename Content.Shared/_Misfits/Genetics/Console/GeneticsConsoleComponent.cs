@@ -214,9 +214,9 @@ public sealed partial class GeneticsConsoleScrambleMessage : BoundUserInterfaceM
 /// Message to set an unknown base to a certain char.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed partial class GeneticsConsoleSetBaseMessage(uint sequence, uint index, GeneticsCycle cycle) : BoundUserInterfaceMessage
+public sealed partial class GeneticsConsoleSetBaseMessage(int number, uint index, GeneticsCycle cycle) : BoundUserInterfaceMessage
 {
-    public readonly uint Sequence = sequence;
+    public readonly int Number = number;
     public readonly uint Index = index;
     public readonly GeneticsCycle Cycle = cycle;
 }
@@ -225,27 +225,27 @@ public sealed partial class GeneticsConsoleSetBaseMessage(uint sequence, uint in
 /// Message to start the sequencing process for a mutation.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed partial class GeneticsConsoleSequenceMessage(uint index) : BoundUserInterfaceMessage
+public sealed partial class GeneticsConsoleSequenceMessage(int number) : BoundUserInterfaceMessage
 {
-    public readonly uint Index = index;
+    public readonly int Number = number;
 }
 
 /// <summary>
 /// Message to reset a sequence in the subject to its original bases from scanning.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed partial class GeneticsConsoleResetSequenceMessage(uint index) : BoundUserInterfaceMessage
+public sealed partial class GeneticsConsoleResetSequenceMessage(int number) : BoundUserInterfaceMessage
 {
-    public readonly uint Index = index;
+    public readonly int Number = number;
 }
 
 /// <summary>
 /// Message to write a given mutation to the current disk.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed partial class GeneticsConsoleWriteMutationMessage(uint index) : BoundUserInterfaceMessage
+public sealed partial class GeneticsConsoleWriteMutationMessage(int number) : BoundUserInterfaceMessage
 {
-    public readonly uint Index = index;
+    public readonly int Number = number;
 }
 
 /// <summary>
@@ -261,9 +261,9 @@ public sealed partial class GeneticsConsolePrintMessage(uint print) : BoundUserI
 /// Message to create a new combined mutation from the current disk's mutation and a selected mutation on the mob.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed partial class GeneticsConsoleCombineMessage(uint index) : BoundUserInterfaceMessage
+public sealed partial class GeneticsConsoleCombineMessage(int number) : BoundUserInterfaceMessage
 {
-    public readonly uint Index = index;
+    public readonly int Number = number;
 }
 
 /// <summary>

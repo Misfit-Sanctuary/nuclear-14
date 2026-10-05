@@ -77,11 +77,19 @@ public sealed partial class ScannedGenomeSystem : EntitySystem
     /// Gets a sequence at a given index, or null if it doesn't exist.
     /// Does nothing on clients as they have to use BUI state.
     /// </summary>
-    public Sequence? GetSequence(EntityUid mob, uint index)
-        => _query.TryComp(mob, out var scanned)
-            && index < scanned.Sequences.Count
-            ? scanned.Sequences[(int) index]
-            : null;
+    public Sequence? GetSequence(EntityUid mob, int number)
+    {
+        if (!_query.TryComp(mob, out var scanned))
+            return null;
+
+        foreach (var sequence in scanned.Sequences)
+        {
+            if (_mutation.GetRoundData(sequence.Mutation)?.Number == number)
+                return sequence;
+        }
+
+        return null;
+    }
 
     /// <summary>
     /// Adds a randomly generated sequence for a given mutation to the given genome.
@@ -93,6 +101,12 @@ public sealed partial class ScannedGenomeSystem : EntitySystem
             _mutation.GetRoundData(id) is not {} data)
         {
             return;
+        }
+
+        foreach (var existing in ent.Comp.Sequences)
+        {
+            if (existing.Mutation == id)
+                return;
         }
 
         _builder.Clear();
