@@ -247,7 +247,8 @@ namespace Content.Server.Medical.BiomassReclaimer
                 return false;
 
             if (_configManager.GetCVar(CCVars.CloningReclaimSouledBodies)
-                && HasComp<HumanoidAppearanceComponent>(dragged)
+                && TryComp<HumanoidAppearanceComponent>(dragged, out var humanoid)
+                && !reclaimer.Comp.UnprotectedSpecies.Contains(humanoid.Species) // Misfits
                 && _minds.TryGetMind(dragged, out _, out var mind)
                 && mind.UserId != null
                 && _playerManager.TryGetSessionById(mind.UserId.Value, out _))

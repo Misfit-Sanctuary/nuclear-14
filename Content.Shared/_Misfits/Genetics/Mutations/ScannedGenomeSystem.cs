@@ -95,18 +95,6 @@ public sealed partial class ScannedGenomeSystem : EntitySystem
             return;
         }
 
-        // discovered sequences have no missing bases
-        if (data.Discovered)
-        {
-            ent.Comp.Sequences.Add(new Sequence
-            {
-                Mutation = id,
-                Bases = data.Bases,
-                OriginalBases = data.Bases
-            });
-            return;
-        }
-
         _builder.Clear();
         _builder.Append(data.Bases);
 
@@ -162,7 +150,7 @@ public sealed partial class ScannedGenomeSystem : EntitySystem
     /// <summary>
     /// Adds all client-facing sequence data for a mob to a list, if it is scanned.
     /// </summary>
-    public void AddSequenceStates(EntityUid mob, List<SequenceState> sequences)
+    public void AddSequenceStates(EntityUid mob, EntityUid scanner, List<SequenceState> sequences)
     {
         if (!_query.TryComp(mob, out var scanned))
             return;
@@ -177,9 +165,17 @@ public sealed partial class ScannedGenomeSystem : EntitySystem
             }
 
             var rarity = _mutation.GetRarity(id);
-            sequences.Add(new SequenceState(sequence.Bases, sequence.OriginalBases, data.Number, rarity, data.Discovered ? id.ToString() : null));
+            var state = _mutation.IsDiscovered(scanner, id)
+                ? new SequenceState(data.Bases, data.Bases, data.Number, rarity, id.ToString())
+                : new SequenceState(sequence.Bases, sequence.OriginalBases, data.Number, rarity, null);
+            sequences.Add(state);
         }
     }
+
+    public string GetBases(EntityUid scanner, Sequence sequence)
+        => _mutation.IsDiscovered(scanner, sequence.Mutation) && _mutation.GetRoundData(sequence.Mutation) is {} data
+            ? data.Bases
+            : sequence.Bases;
 
     /// <summary>
     /// Removes a sequence of a specific mutation by swap removing with the last mutation.

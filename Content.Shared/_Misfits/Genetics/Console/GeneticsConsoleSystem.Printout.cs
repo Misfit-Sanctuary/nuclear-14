@@ -28,8 +28,8 @@ public sealed partial class GeneticsConsoleSystem
         _transform.SetLocalRotation(paper, 0); // chud engine
 
         var text = args.Index is {} index
-            ? (_genome.GetSequence(mob, index) is {} sequence ? GetSequenceText(sequence) : string.Empty)
-            : GetScanText(mob);
+            ? (_genome.GetSequence(mob, index) is {} sequence ? GetSequenceText(ent, sequence) : string.Empty)
+            : GetScanText(ent, mob);
         var populate = new GeneticsPrintoutPopulateEvent(text);
         RaiseLocalEvent(paper, ref populate);
 
@@ -47,10 +47,10 @@ public sealed partial class GeneticsConsoleSystem
         return true;
     }
 
-    private string GetScanText(EntityUid mob)
+    private string GetScanText(EntityUid scanner, EntityUid mob)
     {
         var sequences = new List<SequenceState>();
-        _genome.AddSequenceStates(mob, sequences);
+        _genome.AddSequenceStates(mob, scanner, sequences);
         _builder.Clear();
         _builder.AppendLine(Loc.GetString("genetics-printout-title"));
         _builder.AppendLine(Loc.GetString("genetics-printout-subject", ("name", Name(mob))));
@@ -63,11 +63,12 @@ public sealed partial class GeneticsConsoleSystem
         return _builder.ToString();
     }
 
-    private string GetSequenceText(Sequence sequence)
+    private string GetSequenceText(EntityUid scanner, Sequence sequence)
     {
         if (_mutation.GetRoundData(sequence.Mutation) is not {} data)
             return string.Empty;
 
+        var bases = _genome.GetBases(scanner, sequence);
         var rarity = _mutation.GetRarity(sequence.Mutation);
         _builder.Clear();
         _builder.AppendLine(Loc.GetString("genetics-printout-title"));
@@ -82,7 +83,7 @@ public sealed partial class GeneticsConsoleSystem
             {
                 var first = o + i;
                 var last = first + 4;
-                _builder.Append(sequence.Bases[first..last]);
+                _builder.Append(bases[first..last]);
                 _builder.Append(' ');
             }
             _builder.AppendLine("|");

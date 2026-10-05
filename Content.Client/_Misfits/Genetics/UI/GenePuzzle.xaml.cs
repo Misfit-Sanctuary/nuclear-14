@@ -71,32 +71,45 @@ public sealed partial class GenePuzzle : Control
         Visible = true;
         _bases = bases;
         _originalBases = originalBases;
-        BaseButtons.RemoveAllChildren();
+
+        if (BaseButtons.ChildCount != bases.Length)
+        {
+            BaseButtons.RemoveAllChildren();
+            for (int i = 0; i < bases.Length; i++)
+            {
+                AddBase((uint) i);
+            }
+        }
+
         for (int i = 0; i < bases.Length; i++)
         {
-            AddBase((uint) i, bases[i]);
+            var button = (GeneBaseButton) BaseButtons.GetChild(i);
+            button.Disabled = originalBases[i] != 'X'; // can't cycle bases that are guaranteed known
+            button.Typable = _writable;
+            SetButtonBase(button, bases[i]);
         }
         UpdateSequenceButton();
     }
 
-    private void AddBase(uint i, char b)
+    private void AddBase(uint i)
     {
-        var button = new Button();
+        var button = new GeneBaseButton();
         void Cycle(GeneticsCycle cycle)
         {
             if (_busy || !_writable || button.Disabled)
                 return;
 
-            b = GeneticsConsoleSystem.CycleBase(b, cycle);
-            button.ModulateSelfOverride = GetColor(b);
+            var b = GeneticsConsoleSystem.CycleBase(button.Base, cycle);
+            if (b == button.Base)
+                return; // typed the base it already was
 
-            button.Text = b.ToString();
+            SetButtonBase(button, b);
+            var chars = _bases.ToCharArray();
+            chars[i] = b;
+            _bases = new string(chars);
             OnSetBase?.Invoke(i, cycle);
         }
 
-        button.Text = b.ToString();
-        button.ModulateSelfOverride = GetColor(b);
-        button.Disabled = _originalBases[(int) i] != 'X'; // can't cycle bases that are guaranteed known
         button.OnKeyBindDown += args =>
         {
             if (args.Function == EngineKeyFunctions.UIRightClick)
@@ -108,7 +121,15 @@ public sealed partial class GenePuzzle : Control
         {
             Cycle(GeneticsCycle.Next);
         };
+        button.OnTyped += Cycle;
         BaseButtons.AddChild(button);
+    }
+
+    private void SetButtonBase(GeneBaseButton button, char b)
+    {
+        button.Base = b;
+        button.Text = b.ToString();
+        button.ModulateSelfOverride = GetColor(b);
     }
 
     private Color? GetColor(char b)
@@ -120,4 +141,66 @@ public sealed partial class GenePuzzle : Control
             'C' => Blue,
             _ => null
         };
+
+    private sealed class GeneBaseButton : Button
+    {
+        public char Base = 'X';
+
+        public bool Typable = true;
+
+        public event Action<GeneticsCycle>? OnTyped;
+
+        public GeneBaseButton()
+        {
+            CanKeyboardFocus = true;
+        }
+
+        protected override void MouseEntered()
+        {
+            base.MouseEntered();
+
+            // dont steal focus from chat etc
+            if (Typable && !Disabled && UserInterfaceManager.KeyboardFocused is null or GeneBaseButton)
+                GrabKeyboardFocus();
+        }
+
+        protected override void MouseExited()
+        {
+            base.MouseExited();
+            ReleaseKeyboardFocus();
+        }
+
+        protected override void KeyboardFocusEntered()
+        {
+            base.KeyboardFocusEntered();
+            Root?.Window?.TextInputStart();
+        }
+
+        protected override void KeyboardFocusExited()
+        {
+            base.KeyboardFocusExited();
+            Root?.Window?.TextInputStop();
+        }
+
+        protected override void TextEntered(GUITextEnteredEventArgs args)
+        {
+            base.TextEntered(args);
+
+            foreach (var c in args.Text)
+            {
+                GeneticsCycle? cycle = c switch
+                {
+                    'A' or 'a' => GeneticsCycle.A,
+                    'C' or 'c' => GeneticsCycle.C,
+                    'G' or 'g' => GeneticsCycle.G,
+                    'T' or 't' => GeneticsCycle.T,
+                    'X' or 'x' => GeneticsCycle.Reset,
+                    _ => null
+                };
+
+                if (cycle is {} typed)
+                    OnTyped?.Invoke(typed);
+            }
+        }
+    }
 }

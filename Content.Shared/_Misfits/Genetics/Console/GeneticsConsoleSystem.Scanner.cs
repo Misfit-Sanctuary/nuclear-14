@@ -163,7 +163,7 @@ public sealed partial class GeneticsConsoleSystem
 
         var sequences = new List<SequenceState>();
         if (ent.Comp.ScannedMob is {} mob)
-            _genome.AddSequenceStates(mob, sequences);
+            _genome.AddSequenceStates(mob, ent.Owner, sequences);
         var state = new GeneticsConsoleState(sequences);
         _ui.SetUiState(ent.Owner, GeneticsConsoleUiKey.Key, state);
     }

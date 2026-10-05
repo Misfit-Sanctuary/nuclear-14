@@ -307,6 +307,14 @@ public sealed partial class MutationSystem : CommonMutationSystem
     public MutationData? GetRoundData(EntityUid uid)
         => GetRoundData(GetID(uid));
 
+    public bool IsDiscovered(EntityUid scanner, [ForbidLiteral] EntProtoId<MutationComponent> id)
+        => Transform(scanner).MapUid is {} map &&
+           GetRoundData(id)?.DiscoveredMaps.Contains(map) == true;
+
+    public bool Discover(EntityUid scanner, [ForbidLiteral] EntProtoId<MutationComponent> id)
+        => Transform(scanner).MapUid is {} map &&
+           GetRoundData(id)?.DiscoveredMaps.Add(map) == true;
+
     /// <summary>
     /// Returns the rarity of a mutation, throwing if the id is invalid.
     /// </summary>

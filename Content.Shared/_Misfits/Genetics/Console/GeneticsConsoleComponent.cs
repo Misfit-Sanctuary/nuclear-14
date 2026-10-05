@@ -197,7 +197,11 @@ public enum GeneticsCycle : byte
 {
     Reset,
     Next,
-    Last
+    Last,
+    A,
+    C,
+    G,
+    T
 }
 
 /// <summary>
