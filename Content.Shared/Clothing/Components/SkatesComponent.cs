@@ -49,7 +49,7 @@ public sealed partial class SkatesComponent : Component
     /// The damage per increment of speed on collision.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float SpeedDamage = 10f;
+    public float SpeedDamage = 3f;
 
 
     /// <summary>
