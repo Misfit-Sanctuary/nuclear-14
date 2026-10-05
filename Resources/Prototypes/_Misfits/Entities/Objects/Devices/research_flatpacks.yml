@@ -1,0 +1,80 @@
+- type: entity
+  parent: ResearchAndDevelopmentServer
+  id: MisfitsResearchServerField
+  name: field R&D server
+  description: A pre-war research server.
+  components:
+  - type: ResearchServer
+    serverName: FIELD RDSERVER
+
+- type: entity
+  parent: BaseFlatpack
+  id: MisfitsResearchServerFlatpack
+  name: field R&D server flatpack
+  description: Unpacks into a field R&D server where its placed. Needs a multitool to unpack.
+  components:
+  - type: Flatpack
+    entity: MisfitsResearchServerField
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#D381C9"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  parent: ResearchAndDevelopmentServer
+  id: MisfitsResearchServerVault14
+  name: Vault 14 R&D server
+  description: A Vault-Tec research mainframe.
+  components:
+  - type: ResearchServer
+    serverName: VAULT 14 RDSERVER
+
+- type: entity
+  parent: BaseFlatpack
+  id: MisfitsResearchServerVault14Flatpack
+  name: Vault 14 R&D server flatpack
+  description: Unpacks into a Vault 14 R&D server where its placed. Needs a multitool to unpack.
+  components:
+  - type: Flatpack
+    entity: MisfitsResearchServerVault14
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#1F5FAD"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  parent: ResearchAndDevelopmentServer
+  id: MisfitsResearchServerUSArmy
+  name: U.S. Army R&D server
+  description: A hardened U.S. Army research server.
+  components:
+  - type: ResearchServer
+    serverName: US ARMY RDSERVER
+
+- type: entity
+  parent: BaseFlatpack
+  id: MisfitsResearchServerUSArmyFlatpack
+  name: U.S. Army R&D server flatpack
+  description: Unpacks into a U.S. Army R&D server where its placed. Needs a multitool to unpack.
+  components:
+  - type: Flatpack
+    entity: MisfitsResearchServerUSArmy
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#4B5320"
+      map: ["enum.FlatpackVisualLayers.Overlay"]
+    - state: icon-default
+  - type: StaticPrice
+    price: 1500
