@@ -563,6 +563,41 @@
           Quantity: 1
         - ReagentId: Vitamin
           Quantity: 0.2
+          
+- type: entity
+  name: kokoa beans
+  parent: FoodProduceBase
+  id: N14FoodKokoaBeans
+  description: You can never have too much chocolate!
+  components:
+    - type: FlavorProfile
+      flavors:
+        - chocolate
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Specific/Hydroponics/kokoa.rsi
+      state: produce-beans
+    - type: Stack
+      stackType: KokoaBeans
+      count: 1
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 14
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 2
+            - ReagentId: Vitamin
+              Quantity: 1
+            - ReagentId: ExtractKokoaBean
+              Quantity: 2
+    - type: Extractable
+      juiceSolution:
+        reagents:
+          - ReagentId: ExtractKokoaBean
+            Quantity: 2
+    - type: Tag
+      tags:
+        - Ingredient
 
 - type: entity
   name: tofu
@@ -632,35 +667,6 @@
   - type: Tag
     tags:
     - Trash
-
-- type: entity
-  name: cocoa beans
-  parent: FoodProduceBase
-  id: N14FoodCocoaBeans
-  description: You can never have too much chocolate!
-  components:
-  - type: FlavorProfile
-    flavors:
-      - chocolate
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/cocoa.rsi
-    state: produce-beans
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 14
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Vitamin
-          Quantity: 1
-        - ReagentId: CocoaPowder
-          Quantity: 2
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: CocoaPowder
-        Quantity: 2
 
 - type: entity
   parent: N14BaseFoodCondimentPacket
