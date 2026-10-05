@@ -1,7 +1,6 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Timing;
 
 namespace Content.Shared._Misfits.ManholeSpawner;
 
@@ -15,7 +14,7 @@ public sealed partial class ManholeSpawnerComponent : Component
     public List<EntProtoId> Prototypes = [];
 
     [DataField]
-    public float IntervalSeconds = 20f;
+    public uint IntervalSeconds = 20;
 
     [DataField]
     public float Chance = 1f;
@@ -44,8 +43,8 @@ public sealed partial class ManholeSpawnerComponent : Component
     [DataField]
     public float PryTime = 2f;
 
-    /// Next tick to attempt a spawn on, not saved.
-    public GameTick CheckTime;
+    /// When to next attempt a spawn, not saved.
+    public TimeSpan CheckTime;
 
     /// Mobs this spawner released that are still counted, not networked or saved.
     public int AliveCount;

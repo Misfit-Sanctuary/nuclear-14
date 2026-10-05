@@ -41,32 +41,31 @@ public sealed class ManholeSpawnerSystem : EntitySystem
         SubscribeLocalEvent<ManholeSpawnerComponent, DoorPryDoAfterEvent>(OnPryDoAfter);
         SubscribeLocalEvent<ManholeSpawnerComponent, ComponentShutdown>(OnSpawnerShutdown);
         SubscribeLocalEvent<SpawnedByManholeComponent, EntityTerminatingEvent>(OnSpawnedTerminating);
-        // Broadcast so untracking cannot silently stop if the raise site ever changes.
-        SubscribeLocalEvent<MobStateChangedEvent>(OnSpawnedMobStateChanged);
+        SubscribeLocalEvent<SpawnedByManholeComponent, MobStateChangedEvent>(OnSpawnedMobStateChanged);
     }
 
     // Only open manholes spawn.
     public override void Update(float frameTime)
     {
-        var curTick = _timing.CurTick;
+        var curTime = _timing.CurTime;
         var query = EntityQueryEnumerator<ManholeSpawnerComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (!comp.Open)
                 continue;
 
-            if (curTick < comp.CheckTime)
+            if (curTime < comp.CheckTime)
                 continue;
 
-            comp.CheckTime = curTick + CheckInterval(comp);
+            comp.CheckTime = curTime + CheckInterval(comp);
             if (CanSpawn(uid, comp))
                 SpawnMobs(uid, comp);
         }
     }
 
-    // YAML says seconds, compare ticks. Clamped so a sub-tick interval cannot fire every tick.
-    private uint CheckInterval(ManholeSpawnerComponent comp)
-        => Math.Max(1u, (uint) (comp.IntervalSeconds * _timing.TickRate));
+    // Clamped so a zero interval cannot fire every frame.
+    private TimeSpan CheckInterval(ManholeSpawnerComponent comp)
+        => TimeSpan.FromSeconds(Math.Max(1u, comp.IntervalSeconds));
 
     // Player near, under cap, and lucky.
     private bool CanSpawn(EntityUid uid, ManholeSpawnerComponent comp)
@@ -172,7 +171,7 @@ public sealed class ManholeSpawnerSystem : EntitySystem
                         $"never spawn anything.");
         }
 
-        // Random.Next throws on an inverted range, and this runs every tick after.
+        // Random.Next throws on an inverted range, and this runs every update after.
         if (comp.MinimumEntitiesSpawned > comp.MaximumEntitiesSpawned)
         {
             Log.Warning($"Manhole spawner {ToPrettyString(uid)} has minimumEntitiesSpawned " +
@@ -182,7 +181,7 @@ public sealed class ManholeSpawnerSystem : EntitySystem
                 (comp.MaximumEntitiesSpawned, comp.MinimumEntitiesSpawned);
         }
 
-        comp.CheckTime = _timing.CurTick + CheckInterval(comp);
+        comp.CheckTime = _timing.CurTime + CheckInterval(comp);
         UpdateAppearance(uid, comp);
     }
 
@@ -229,9 +228,9 @@ public sealed class ManholeSpawnerSystem : EntitySystem
         comp.Open = !comp.Open;
         Dirty(uid, comp);
 
-        // Re-opening a manhole rolls on the next tick instead of waiting out the old deadline.
+        // Re-opening a manhole rolls on the next update instead of waiting out the old deadline.
         if (comp.Open)
-            comp.CheckTime = _timing.CurTick;
+            comp.CheckTime = _timing.CurTime;
 
         _popup.PopupClient(Loc.GetString(comp.Open ? "manhole-pry-open-popup" : "manhole-pry-close-popup"), uid, args.User);
         UpdateAppearance(uid, comp);
@@ -241,13 +240,12 @@ public sealed class ManholeSpawnerSystem : EntitySystem
         => _appearance.SetData(uid, ManholeSpawnerVisuals.Open, comp.Open);
 
     // A dying mob stops counting immediately, corpses are reaped much later.
-    private void OnSpawnedMobStateChanged(MobStateChangedEvent args)
+    private void OnSpawnedMobStateChanged(EntityUid uid, SpawnedByManholeComponent marker, MobStateChangedEvent args)
     {
         if (args.NewMobState != MobState.Dead)
             return;
 
-        if (TryComp(args.Target, out SpawnedByManholeComponent? marker))
-            Untrack(marker.Spawner, args.Target);
+        Untrack(marker.Spawner, uid);
     }
 
     // Catches queue dels, map changes and anything else that skips the death path.
