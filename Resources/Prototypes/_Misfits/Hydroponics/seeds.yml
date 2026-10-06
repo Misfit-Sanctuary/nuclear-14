@@ -114,6 +114,32 @@
       Min: 1
       Max: 3
       PotencyDivisor: 40
+      
+- type: seed
+  id: Kokoa
+  name: clipping-kokoa-name
+  noun: clipping-kokoa-noun
+  displayName: clipping-kokoa-display-name
+  plantRsi: _Misfits/Objects/Specific/Hydroponics/kokoa.rsi
+  packetPrototype: KokoaSeeds
+  productPrototypes:
+    - MisfitsFloraProduceWildKokoa
+  lifespan: 25
+  maturation: 15
+  production: 1
+  yield: 9
+  potency: 20
+  growthStages: 5
+  waterConsumption: 2
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 10
+    Vitamin:
+      Min: 1
+      Max: 4
+      PotencyDivisor: 25
 
 - type: seed
   id: zoybean

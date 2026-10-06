@@ -231,6 +231,69 @@
     totalIntensity: 0.01
 
 - type: entity
+  parent: FoodProduceBase
+  id: MisfitsFloraProduceWildKokoa
+  name: kokoa pods
+  description: A large red pod containing kokoa beans.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Specific/Hydroponics/kokoa.rsi
+    state: produce
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: N14RadParticleFood
+          Quantity: 1
+  - type: Produce
+    seedId: Kokoa
+  - type: SpawnItemsOnUse
+    items:
+      - id: MisfitsFloraProduceWildKokoaBean
+    sound:
+      path: /Audio/Effects/packetrip.ogg
+        
+- type: entity
+  name: kokoa beans
+  parent: FoodProduceBase
+  id: MisfitsFloraProduceWildKokoaBean
+  description: You can never have too much chocolate!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    sprite: _Misfits/Objects/Specific/Hydroponics/kokoa.rsi
+    state: produce-beans
+  - type: Stack
+    stackType: KokoaBeans
+    count: 1
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 4
+          - ReagentId: Vitamin
+            Quantity: 2
+          - ReagentId: CocoaPowder
+            Quantity: 4
+  - type: Extractable
+    juiceSolution:
+      reagents:
+        - ReagentId: CocoaPowder
+          Quantity: 4
+  - type: Tag
+    tags:
+      - Ingredient
+        
+- type: entity
   parent: TrashMimanaPeel
   id: MimanaPeelStealthy
   name: mimana peel
