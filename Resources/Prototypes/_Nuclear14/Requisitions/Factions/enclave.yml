@@ -40,6 +40,13 @@
       value: 5
     - item: N14ScrapSteel
       value: 3
+    # metals
+    - item: N14ScrapGold
+      value: 120
+    - item: N14IngotSilver1
+      value: 120
+    - item: N14IngotGold1
+      value: 240
     # Farm produce. The Enclave's MegaSeed Servitor grows the vanilla Food* set;
     # the N14Food* twins are what wasteland foraging turns up. Both are bought so
     # neither source is dead weight.
