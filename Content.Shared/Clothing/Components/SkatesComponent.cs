@@ -18,7 +18,7 @@ public sealed partial class SkatesComponent : Component
     /// Determines the turning ability of the wearer, Higher the number the less control of their turning ability.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float? FrictionNoInput = 1.5f;
+    public float? FrictionNoInput = 4f;
 
     /// <summary>
     /// Sets the speed in which the wearer accelerates to full speed, higher the number the quicker the acceleration.
@@ -30,26 +30,26 @@ public sealed partial class SkatesComponent : Component
     /// The minimum speed the wearer needs to be traveling to take damage from collision.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MinimumSpeed = 5f;
+    public float MinimumSpeed = 2f;
 
     /// <summary>
     /// The length of time the wearer is stunned for on collision.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float StunSeconds = 3f;
+    public float StunSeconds = 4f;
 
 
     /// <summary>
     /// The time duration before another collision can take place.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float DamageCooldown = 2f;
+    public float DamageCooldown = 1f;
 
     /// <summary>
     /// The damage per increment of speed on collision.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float SpeedDamage = 3f;
+    public float SpeedDamage = 8f;
 
 
     /// <summary>
