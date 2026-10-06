@@ -1,28 +1,29 @@
 using Content.Shared.Actions;
+using Content.Shared.StatusEffect;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Misfits.Talents.FanTheHammer;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(FanTheHammerSystem))]
-[AutoGenerateComponentState, AutoGenerateComponentPause]
-public sealed partial class FanTheHammerComponent : Component
+public sealed partial class FanTheHammerActionComponent : Component
 {
     [DataField]
-    public EntProtoId Action = "ActionFanTheHammer";
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? ActionEntity;
+    public ProtoId<StatusEffectPrototype> StatusEffect = "FanTheHammer";
 
     [DataField]
     public TimeSpan Duration = TimeSpan.FromSeconds(10);
 
     [DataField]
     public float FireRateMultiplier = 2f;
+}
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
-    public TimeSpan? ActiveUntil;
+[RegisterComponent, NetworkedComponent, Access(typeof(FanTheHammerSystem))]
+[AutoGenerateComponentState]
+public sealed partial class FanTheHammerComponent : Component
+{
+    [DataField, AutoNetworkedField]
+    public float FireRateMultiplier = 2f;
 }
 
 public sealed partial class FanTheHammerActionEvent : InstantActionEvent;

@@ -7,7 +7,24 @@
   - type: InstantAction
     useDelay: 40
     itemIconStyle: BigAction
+    raiseOnAction: true
     icon:
       sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/peacekeeper.rsi
       state: icon
     event: !type:FanTheHammerActionEvent
+  - type: FanTheHammerAction
+    duration: 10
+    fireRateMultiplier: 2
+
+- type: statusEffect
+  id: FanTheHammer
+  alwaysAllowed: true
+  alert: FanTheHammer
+
+- type: alert
+  id: FanTheHammer
+  icons:
+  - sprite: /Textures/_Nuclear14/Objects/Weapons/Guns/Revolvers/peacekeeper.rsi
+    state: icon
+  name: alerts-fan-the-hammer-name
+  description: alerts-fan-the-hammer-desc
