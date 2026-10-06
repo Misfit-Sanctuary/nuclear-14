@@ -565,41 +565,6 @@
           Quantity: 0.2
           
 - type: entity
-  name: kokoa beans
-  parent: FoodProduceBase
-  id: N14FoodKokoaBeans
-  description: You can never have too much chocolate!
-  components:
-    - type: FlavorProfile
-      flavors:
-        - chocolate
-    - type: Sprite
-      sprite: _Nuclear14/Objects/Specific/Hydroponics/kokoa.rsi
-      state: produce-beans
-    - type: Stack
-      stackType: KokoaBeans
-      count: 1
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 14
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 2
-            - ReagentId: Vitamin
-              Quantity: 1
-            - ReagentId: ExtractKokoaBean
-              Quantity: 2
-    - type: Extractable
-      juiceSolution:
-        reagents:
-          - ReagentId: ExtractKokoaBean
-            Quantity: 2
-    - type: Tag
-      tags:
-        - Ingredient
-
-- type: entity
   name: tofu
   parent: N14FoodBakingBase
   id: N14FoodTofu
