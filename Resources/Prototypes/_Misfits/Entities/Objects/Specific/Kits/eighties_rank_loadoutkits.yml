@@ -596,7 +596,7 @@
   id: KitEighties_RoadRashScrapper
   name: road rash scrapper kit
   parent: KitBase
-  description: Scrap weapons for someone who isn't expected to survive.
+  description: Scrap weapons for someone who isn't expected to survive. The only thing worth a damn are your skates
   components:
   - type: Sprite
     state: rifleman
@@ -607,6 +607,7 @@
     - id: N14ScrapMachete
     - id: N14WeaponPistol10mmPipe
     - id: N14MagazinePistol10mm
+    - id: ClothingShoesSkates
       amount: 2
     - id: N14Stimpak
     - id: N14Jet
