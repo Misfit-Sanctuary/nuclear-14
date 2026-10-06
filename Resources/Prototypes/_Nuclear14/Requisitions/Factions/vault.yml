@@ -138,18 +138,20 @@
         crate: N14CrateRequisitionsVaultTools
     - name: n14-requisitions-category-medical
       entries:
+      - cost: 100
+        crate: MisfitsCrateRequisitionsVaultVials
+      - cost: 300
+        crate: MisfitsCrateRequisitionsVaultSyringes
+      - cost: 300
+        crate: MisfitsCrateRequisitionsDisks
       - cost: 800
         crate: N14CrateRequisitionsVaultMedical
       - cost: 800
         crate: N14CrateRequisitionsVaultChems
-      - cost: 1000
-        crate: N14CrateRequisitionsVaultSurgical
       - cost: 800
         crate: N14CrateRequisitionsVaultMedkits
-      - cost: 300
-        crate: MisfitsCrateRequisitionsVaultSyringes
-      - cost: 100
-        crate: MisfitsCrateRequisitionsVaultVials
+      - cost: 1000
+        crate: N14CrateRequisitionsVaultSurgical
       - cost: 1500
         crate: MisfitsCrateRequisitionsVaultChemVend
     - name: n14-requisitions-category-provisions
@@ -387,8 +389,7 @@
     reward: 50
   - type: StorageFill
     contents:
-    - id: N14RadXPill
-      amount: 5
+    - id: N14RadXCanisterFilled
     - id: N14BuffoutCanisterFilled
     - id: N14MentatsCanisterFilled
 

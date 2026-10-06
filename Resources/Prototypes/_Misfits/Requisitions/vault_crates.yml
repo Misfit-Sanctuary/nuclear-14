@@ -383,3 +383,19 @@
     slots:
       key_slot:
         startingItem: VehicleKeyJanicart
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: MisfitsCrateRequisitionsDisks
+  name: blank disk crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: GeneticsDisk
+      amount: 10
