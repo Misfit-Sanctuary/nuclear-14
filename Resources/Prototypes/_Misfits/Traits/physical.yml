@@ -28,3 +28,12 @@
     components:
     - type: GibModifier
       ungibbable: true
+
+- type: trait
+  id: MisfitsFanTheHammer
+  category: Physical
+  points: -6
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: FanTheHammer

@@ -222,6 +222,10 @@ public sealed partial class GunComponent : Component
     [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public float ProjectileSpeedModified;
 
+    // Misfits
+    [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public bool ForceFullAutoModified;
+
     /// <summary>
     /// When the gun is next available to be shot.
     /// Can be set multiple times in a single tick due to guns firing faster than a single tick time.

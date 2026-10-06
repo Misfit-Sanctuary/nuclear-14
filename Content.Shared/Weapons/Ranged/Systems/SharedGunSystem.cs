@@ -351,7 +351,9 @@ public abstract partial class SharedGunSystem : EntitySystem
         // Don't do this in the loop so we still reset NextFire.
         if (!gun.BurstActivated)
         {
-            switch (gun.SelectedMode)
+            // Misfits
+            var mode = gun.ForceFullAutoModified ? SelectiveFire.FullAuto : gun.SelectedMode;
+            switch (mode)
             {
                 case SelectiveFire.SemiAuto:
                     shots = Math.Min(shots, 1 - gun.ShotCounter);
@@ -362,7 +364,7 @@ public abstract partial class SharedGunSystem : EntitySystem
                 case SelectiveFire.FullAuto:
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException($"No implemented shooting behavior for {gun.SelectedMode}!");
+                    throw new ArgumentOutOfRangeException($"No implemented shooting behavior for {mode}!");
             }
         }
         else
@@ -924,6 +926,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         comp.ShotsPerBurstModified = ev.ShotsPerBurst;
         comp.FireRateModified = ev.FireRate;
         comp.ProjectileSpeedModified = ev.ProjectileSpeed;
+        comp.ForceFullAutoModified = ev.ForceFullAuto; // Misfits
 
         Dirty(gun);
     }

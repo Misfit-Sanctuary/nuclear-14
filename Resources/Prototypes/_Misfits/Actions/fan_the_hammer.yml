@@ -1,0 +1,13 @@
+- type: entity
+  id: ActionFanTheHammer
+  name: Fan The Hammer
+  description: Rapidly fan the hammer of your revolver, firing fullauto at 2* speed for 10 seconds.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 40
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/peacekeeper.rsi
+      state: icon
+    event: !type:FanTheHammerActionEvent

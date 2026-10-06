@@ -12,3 +12,8 @@ trait-name-MisfitsFeralRage = Feral Rage
 trait-description-MisfitsFeralRage =
     You can feel it in your bones, your ticket is coming up; you're turning feral.
     You can stave off the changes with RadAway, but you can't stop what's coming forever.
+
+trait-name-MisfitsFanTheHammer = Fan The Hammer
+trait-description-MisfitsFanTheHammer =
+    You have got to have the fastest shooting & it shows
+    While holding a [color=yellow]revolver[/color], activate to fire [color=yellow]fullauto[/color] at [color=yellow]2x speed[/color] for 10 seconds.
