@@ -1,0 +1,36 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by .prosperity for the Misfits server. l_arm, l_hand and icon-left are mirrored copies of the right-arm art; icon is cropped from it.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "icon-left"
+        },
+        {
+            "name": "fist"
+        },
+        {
+            "name": "r_arm",
+            "directions": 4
+        },
+        {
+            "name": "r_hand",
+            "directions": 4
+        },
+        {
+            "name": "l_arm",
+            "directions": 4
+        },
+        {
+            "name": "l_hand",
+            "directions": 4
+        }
+    ]
+}

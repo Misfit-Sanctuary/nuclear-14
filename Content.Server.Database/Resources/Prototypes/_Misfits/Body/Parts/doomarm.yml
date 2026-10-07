@@ -1,0 +1,152 @@
+# #Misfits Add - Doomarm: a super mutant replacement arm. Art by .prosperity.
+# Admin spawn only: not in loot, crafting or loadouts. There's a left and a right one.
+# How it goes on: a surgeon removes the mutant's arm ("Remove Part"), then holds the Doomarm and does
+# "Attach Left Arm" / "Attach Right Arm". It can't be done on yourself or by the Autodoc, only fits
+# super mutants / nightkin, and a mutant can only have one. To take it off, remove it like any limb.
+# While attached it grants three abilities and puts MisfitsDoomarmFist in the gloves slot.
+
+# ── What the body looks like with it attached ─────────────────────────────
+
+- type: humanoidBaseSprite
+  id: MisfitsDoomarmRArm
+  matchSkin: false
+  baseSprite:
+    sprite: _Misfits/Mobs/Species/SuperMutant/doomarm.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MisfitsDoomarmRHand
+  matchSkin: false
+  baseSprite:
+    sprite: _Misfits/Mobs/Species/SuperMutant/doomarm.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MisfitsDoomarmLArm
+  matchSkin: false
+  baseSprite:
+    sprite: _Misfits/Mobs/Species/SuperMutant/doomarm.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MisfitsDoomarmLHand
+  matchSkin: false
+  baseSprite:
+    sprite: _Misfits/Mobs/Species/SuperMutant/doomarm.rsi
+    state: l_hand
+
+# ── The arms ──────────────────────────────────────────────────────────────
+
+- type: entity
+  id: MisfitsDoomarmRight
+  name: Doomarm
+  suffix: Right, Admin
+  description: A massive piston-driven arm built to replace a super mutant's right arm. The old arm has to come off first.
+  parent: [MisfitsPartSuperMutant, BaseRightArm]
+  components:
+  - type: Sprite
+    sprite: _Misfits/Mobs/Species/SuperMutant/doomarm.rsi
+    state: icon
+  - type: Item
+    size: Large
+  - type: BodyPart
+    baseLayerId: MisfitsDoomarmRArm
+  - type: GenerateChildPart
+    id: MisfitsDoomarmRightHand
+  - type: Doomarm
+  - type: DoomarmPlating
+  - type: StaticPrice
+    price: 2000
+
+- type: entity
+  id: MisfitsDoomarmLeft
+  name: Doomarm
+  suffix: Left, Admin
+  description: A massive piston-driven arm built to replace a super mutant's left arm. The old arm has to come off first.
+  parent: [MisfitsPartSuperMutant, BaseLeftArm]
+  components:
+  - type: Sprite
+    sprite: _Misfits/Mobs/Species/SuperMutant/doomarm.rsi
+    state: icon-left
+  - type: Item
+    size: Large
+  - type: BodyPart
+    baseLayerId: MisfitsDoomarmLArm
+  - type: GenerateChildPart
+    id: MisfitsDoomarmLeftHand
+  - type: Doomarm
+  - type: DoomarmPlating
+  - type: StaticPrice
+    price: 2000
+
+# ── Their hands (created automatically when the arm goes on) ─────────────
+
+- type: entity
+  id: MisfitsDoomarmRightHand
+  name: Doomarm fist
+  description: The piston-driven fist of a Doomarm.
+  parent: [MisfitsPartSuperMutant, BaseRightHand]
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Misfits/Mobs/Species/SuperMutant/doomarm.rsi
+    state: fist
+  - type: Item
+    size: Small
+  - type: BodyPart
+    baseLayerId: MisfitsDoomarmRHand
+  - type: DoomarmPlating
+
+- type: entity
+  id: MisfitsDoomarmLeftHand
+  name: Doomarm fist
+  description: The piston-driven fist of a Doomarm.
+  parent: [MisfitsPartSuperMutant, BaseLeftHand]
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Misfits/Mobs/Species/SuperMutant/doomarm.rsi
+    state: fist
+  - type: Item
+    size: Small
+  - type: BodyPart
+    baseLayerId: MisfitsDoomarmLHand
+  - type: DoomarmPlating
+
+# ── The punch ─────────────────────────────────────────────────────────────
+# Locked into the gloves slot while a Doomarm is attached, so no gloves can be worn. It draws nothing
+# (the arm itself is the art) and gives empty-handed punches the power-fist stats and knockback.
+- type: entity
+  parent: ClothingHandsBase
+  id: MisfitsDoomarmFist
+  name: Doomarm fist
+  description: The Doomarm's piston fist. It's part of the arm.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Misfits/Mobs/Species/SuperMutant/doomarm.rsi
+    state: fist
+  - type: Clothing
+    sprite: _Misfits/Mobs/Species/SuperMutant/doomarm.rsi
+    slots: [gloves]
+    clothingVisuals:
+      gloves: []
+  - type: MeleeWeapon
+    soundHit:
+      collection: MetalThud
+    range: 1.3
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 50
+        Structural: 50
+    animation: WeaponArcFist
+    wideAnimation: WeaponArcFist
+    mustBeEquippedToUse: true
+  - type: MeleeThrowOnHit
+    speed: 10
+    lifetime: 0.025
+  - type: DoomarmFist
+  - type: Tag
+    tags:
+    - SuperMutantWearable

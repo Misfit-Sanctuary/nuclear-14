@@ -1,0 +1,46 @@
+# #Misfits Add - Doomarm abilities. Granted while a Doomarm is attached and working.
+- type: entity
+  id: ActionDoomarmLunge
+  name: action-name-doomarm-lunge
+  description: action-desc-doomarm-lunge
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 20
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Misfits/Mobs/Species/SuperMutant/doomarm.rsi
+      state: fist
+    checkCanAccess: false
+    range: 12 # how far you can click; the lunge itself stops at 6 tiles
+    event: !type:DoomarmLungeActionEvent
+
+- type: entity
+  id: ActionDoomarmSlam
+  name: action-name-doomarm-slam
+  description: action-desc-doomarm-slam
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WorldTargetAction
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Misfits/Mobs/Species/SuperMutant/doomarm.rsi
+      state: fist
+    checkCanAccess: false
+    range: 12 # how far you can click; the leap itself stops at 4 tiles
+    event: !type:DoomarmSlamActionEvent
+
+- type: entity
+  id: ActionDoomarmDescent
+  name: action-name-doomarm-descent
+  description: action-desc-doomarm-descent
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 120
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Misfits/Mobs/Species/SuperMutant/doomarm.rsi
+      state: fist
+    event: !type:DoomarmDescentActionEvent

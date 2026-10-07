@@ -1,0 +1,21 @@
+# #Misfits Add - Red target ring on the ground under someone using the Doomarm's Orbital Descent, so
+# people below can see where they're going to land. Five tiles wide, the size of the crash.
+# Reuses the gun-sight crosshair art; the server moves and deletes it.
+- type: entity
+  id: MisfitsDoomarmLandingMarker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+    - sprite: Interface/Misc/crosshair_pointers.rsi
+      state: gun_sight
+      shader: unshaded
+      scale: 2.5, 2.5
+      color: "#ff2a2acc"
+  - type: TimedDespawn
+    lifetime: 10 # safety net only; normally deleted on landing
+  - type: Tag
+    tags:
+    - HideContextMenu
