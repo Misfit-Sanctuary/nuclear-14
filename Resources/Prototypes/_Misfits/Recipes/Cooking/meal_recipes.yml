@@ -1,0 +1,86 @@
+﻿# fixing and migrating chocolate & adjecent recipes from _Nuclear14
+# soon more! Recipes here means they are confirmed to work.
+
+- type: microwaveMealRecipe
+  id: N14RecipeBrownies
+  name: brownie recipe
+  result: N14CookedFoodBakedBrownieBatch # tmp, changing ID means replacing prototype in all map files!
+  time: 25
+  reagents:
+    ExtractRazorgrainFlour: 15
+    Sugar: 30
+  solids:
+    N14FoodButter: 2
+    MisfitsFoodChocolateBar: 2
+    N14FoodEggChicken: 3
+
+- type: microwaveMealRecipe
+  id: N14RecipeCannabisBrownies
+  name: cannabis brownie recipe
+  result: N14CookedFoodBakedCannabisBrownieBatch # tmp, changing ID means replacing prototype in all map files!
+  time: 25
+  reagents:
+    ExtractRazorgrainFlour: 15
+    Sugar: 30
+  solids:
+    N14FoodCannabisButter: 2
+    MisfitsFoodChocolateBar: 2
+    N14FoodEggChicken: 3 
+    
+- type: microwaveMealRecipe
+  id: N14RecipeCannabisButter
+  name: cannabis butter recipe
+  result: N14FoodCannabisButter # tmp, changing ID means replacing prototype in all map files!
+  time: 15
+  solids:
+    N14FoodButter: 1
+    N14FloraProduceWildCannabis: 6 # tmp before cannabis plant & produce get moved to _Misfits
+    
+- type: microwaveMealRecipe
+  id: N14RecipeChocolateCake
+  name: chocolate cake recipe
+  result: N14CookedFoodCakeChocolate # tmp, changing ID means replacing prototype in all map files!
+  time: 5
+  solids:
+    N14CookedFoodCakePlain: 1
+    MisfitsFoodChocolateBar: 2
+    
+- type: microwaveMealRecipe
+  id: N14RecipeChocolateChipPancake
+  name: chocolate chip pancake recipe
+  result: N14CookedFoodBakedPancakeCc # tmp, changing ID means replacing prototype in all map files!
+  time: 5
+  reagents:
+    ExtractRazorgrainFlour: 5
+    N14MilkBrahmin: 5 
+    Egg: 6
+  solids:
+    MisfitsFoodChocolateBar: 1
+    
+- type: microwaveMealRecipe
+  id: N14RecipeChocolateTart
+  name: chocolate lava tart recipe
+  result: N14CookedFoodTartCoco # tmp, changing ID means replacing prototype in all map files!
+  time: 15
+  reagents:
+    Sugar: 5
+    N14MilkBrahmin: 5
+  solids:
+    N14FoodDoughPie: 1
+    MisfitsFoodChocolateBar: 3
+    FoodPlateTin: 1
+    
+- type: microwaveMealRecipe
+  id: N14RecipeCookie
+  name: cookie recipe
+  result: N14CookedFoodBakedCookie # tmp, changing ID means replacing prototype in all map files!
+  time: 5
+  reagents:
+    ExtractRazorgrainFlour: 5
+    Sugar: 5
+  solids:
+    N14FoodButter: 1
+    MisfitsFoodChocolateBar: 1
+    
+
+    
