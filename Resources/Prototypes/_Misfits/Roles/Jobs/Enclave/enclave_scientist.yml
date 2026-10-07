@@ -17,9 +17,9 @@
       species:
       - Human
       - Ghoul
-    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T4 faction timelock (12h Enclave)
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - BoS-equivalent specialist faction timelock
       department: Enclave
-      min: 43200 # 12 hours
+      min: 28800 # 8 hours
   startingGear: EnclaveScientistGear
   icon: "JobIconEnclaveScientist"
   supervisors: job-supervisors-enclave-scientist

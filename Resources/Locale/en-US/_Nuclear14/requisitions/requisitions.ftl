@@ -1,6 +1,7 @@
 # Requisition Computer
 n14-requisition-paperwork-receiver-name = Logistics Branch
 n14-requisition-paperwork-reward-message = Confirmation Received! Transferred ${$amount} from budget surplus
+n14-requisition-request-fulfilled = Request fulfilled! Reward has been added to the account.
 
 # Player feedback
 n14-requisition-insufficient-funds = Insufficient budget for this order.

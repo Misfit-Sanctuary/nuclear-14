@@ -56,6 +56,44 @@
       - EncryptionKey
 
 - type: entity
+  name: ncr encryption key box
+  parent: BoxCardboard
+  id: BoxEncryptionKeyNCRRangers
+  description: A box of spare encryption keys.
+  components:
+  - type: StorageFill
+    contents:
+    - id: EncryptionKeyNCRRangers
+      amount: 6
+  - type: Sprite
+    layers:
+    - state: box
+    - state: encryptokey
+  - type: Storage
+    whitelist:
+      components:
+      - EncryptionKey
+
+- type: entity
+  name: ncr encryption key box
+  parent: BoxCardboard
+  id: BoxEncryptionKeyOSI
+  description: A box of spare encryption keys.
+  components:
+  - type: StorageFill
+    contents:
+    - id: EncryptionKeyOSI
+      amount: 6
+  - type: Sprite
+    layers:
+    - state: box
+    - state: encryptokey
+  - type: Storage
+    whitelist:
+      components:
+      - EncryptionKey
+
+- type: entity
   name: vault encryption key box
   parent: BoxCardboard
   id: BoxEncryptionKeyVault

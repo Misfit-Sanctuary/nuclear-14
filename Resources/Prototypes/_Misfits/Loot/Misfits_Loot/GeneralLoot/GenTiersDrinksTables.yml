@@ -1,0 +1,271 @@
+
+- type: entityTable
+  id: M14ConsumableLootTier0_DrinksAll
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: M14ConsumableLootTier0_DrinksNukaColaDefault
+    - !type:NestedSelector
+      tableId: M14ConsumableLootTier0_DrinksOther
+
+- type: entityTable
+  id: M14ConsumableLootTier0_DrinksOther
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: M14ConsumableLootTier0_DrinksVim
+    - !type:NestedSelector
+      tableId: M14ConsumableLootTier0_DrinksAlcoholAll
+
+# shit tier
+- type: entityTable
+  id: M14ConsumableLootTier1_DrinksNukaCola
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaCola
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaEmpty
+      weight: 5
+    - !type:EntSelector
+      id: N14DrinkNukaColaBroken
+      weight: 5
+    - !type:EntSelector
+      id: N14DrinkIrradiatedNukaColaBottleFull # crafting part
+      weight: 1
+
+- type: entityTable
+  id: M14ConsumableLootTier1_DrinksNukaColaRadEnvironment
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaColaEmpty
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaBroken
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkIrradiatedNukaColaBottleFull # crafting part
+      weight: 5
+
+# tier 2 and up
+- type: entityTable
+  id: M14ConsumableLootTier0_DrinksNukaColaDefault
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaCola
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaEmpty
+      weight: 5
+    - !type:EntSelector
+      id: N14DrinkIrradiatedNukaColaBottleFull # crafting part
+      weight: 1
+
+# tier 2 and up in rad environments
+- type: entityTable
+  id: M14ConsumableLootTier0_DrinksNukaColaRadEnvironmentDefault
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaColaEmpty
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaBroken
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkIrradiatedNukaColaBottleFull # crafting part
+      weight: 10
+
+- type: entityTable
+  id: M14ConsumableLootTier2_DrinksNukaColaUncommon
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaCola
+      weight: 5
+    - !type:EntSelector
+      id: N14DrinkNukaColaCherry
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaGrape
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaOrange
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaYellow
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaQuantum
+      weight: 1
+
+#tier 3
+
+- type: entityTable
+  id: M14ConsumableLootTier3_DrinksNukaCola
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaCola
+      weight: 5
+    - !type:EntSelector
+      id: N14DrinkNukaColaCherry
+      weight: 10
+
+- type: entityTable
+  id: M14ConsumableLootTier3_DrinksNukaColaRad
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaCola
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkNukaColaCherry
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkIrradiatedNukaColaBottleFull # crafting part
+      weight: 6
+
+- type: entityTable
+  id: M14ConsumableLootTier3_DrinksNukaColaUncommon
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaColaGrape
+      weight: 5
+    - !type:EntSelector
+      id: N14DrinkNukaColaOrange
+      weight: 5
+    - !type:EntSelector
+      id: N14DrinkNukaColaYellow
+      weight: 5
+    - !type:EntSelector
+      id: N14DrinkNukaColaQuartz
+      weight: 2
+    - !type:EntSelector
+      id: N14DrinkNukaColaVictory
+      weight: 2
+    - !type:EntSelector
+      id: N14DrinkNukaColaWild
+      weight: 2
+    - !type:EntSelector
+      id: N14DrinkNukaColaQuantum
+      weight: 1
+
+- type: entityTable
+  id: M14ConsumableLootTier3_DrinksNukaColaRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaColaQuartz
+      weight: 3
+    - !type:EntSelector
+      id: N14DrinkNukaColaVictory
+      weight: 3
+    - !type:EntSelector
+      id: N14DrinkNukaColaWild
+      weight: 3
+    - !type:EntSelector
+      id: N14DrinkNukaColaQuantum
+      weight: 1
+
+#tier 3+++and up
+- type: entityTable
+  id: M14ConsumableLootTier4_DrinksNukaColaSuperRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkNukaColaQuartz
+      weight: 2
+    - !type:EntSelector
+      id: N14DrinkNukaColaVictory
+      weight: 2
+    - !type:EntSelector
+      id: N14DrinkNukaColaQuantum
+      weight: 1
+
+- type: entityTable
+  id: M14ConsumableLootTier0_DrinksNukaCola
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkIrradiatedNukaColaBottleFull
+    - !type:EntSelector
+      id: N14DrinkNukaCola
+    - !type:EntSelector
+      id: N14DrinkNukaColaCherry
+    - !type:EntSelector
+      id: N14DrinkNukaColaGrape
+    - !type:EntSelector
+      id: N14DrinkNukaColaOrange
+    - !type:EntSelector
+      id: N14DrinkNukaColaYellow
+    - !type:EntSelector
+      id: N14DrinkNukaColaQuantum
+    - !type:EntSelector
+      id: N14DrinkNukaColaQuartz
+    - !type:EntSelector
+      id: N14DrinkNukaColaVictory
+    - !type:EntSelector
+      id: N14DrinkNukaColaWild
+
+- type: entityTable
+  id: M14ConsumableLootTier0_DrinksAlcoholAll
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkGammagulpBeer
+    - !type:EntSelector
+      id: N14DrinkRoentgenRum
+    - !type:EntSelector
+      id: N14DrinkWhisky
+    - !type:EntSelector
+      id: N14DrinkWine
+
+- type: entityTable
+  id: M14ConsumableLootTier0_DrinksVim
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkVim
+    - !type:EntSelector
+      id: N14DrinkVimCaptainsBlend
+    - !type:EntSelector
+      id: N14DrinkVimRefresh
+    - !type:EntSelector
+      id: N14DrinkVimQuartz
+
+# I dunno what vim is
+- type: entityTable
+  id: M14ConsumableLootTier0_DrinksVimWeighted
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkVim
+      weight: 20
+    - !type:EntSelector
+      id: N14DrinkVimCaptainsBlend
+      weight: 15
+    - !type:EntSelector
+      id: N14DrinkVimRefresh
+      weight: 15
+    - !type:EntSelector
+      id: N14DrinkVimQuartz
+      weight: 5
+
+- type: entityTable
+  id: M14ConsumableLootTier0_DrinksVimWeightedRare
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14DrinkVimCaptainsBlend
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkVimRefresh
+      weight: 10
+    - !type:EntSelector
+      id: N14DrinkVimQuartz
+      weight: 5

@@ -1,0 +1,22 @@
+
+
+- type: entityTable
+  id: M14WeaponLootTier3_LaserHeavy
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: Error
+- type: entityTable
+  id: M14WeaponLootTier3_PlasmaHeavy
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: Error
+
+- type: entityTable
+  id: M14WeaponLootTier3_OtherHeavy
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponLegionScorcher
+      weight: 1

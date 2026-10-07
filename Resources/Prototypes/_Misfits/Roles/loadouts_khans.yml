@@ -10,6 +10,18 @@
   items:
     - MisfitsClothingHeadKhanHelmet
 
+- type: loadout
+  id: MisfitsLoadoutHeadKhanFurHelmet
+  category: Head
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - GreatKhans
+  items:
+    - MisfitsClothingHeadKhanFurHelmet
+
 #If and when I figure out how to make handcrafting exclusive to khans then this will stay. -Oli
 - type: loadout
   id: MisfitsLoadoutHeadKhanFullHelmet
@@ -97,3 +109,18 @@
         - GreatKhans
   items:
     - M14ClothingUniformKhansUniformShorts
+
+#Shoes / Boots
+- type: loadout
+  id: MisfitsLoadoutShoesPeltBoots
+  category: Shoes
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutShoes
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - GreatKhans
+  items:
+    - MisfitsMilitaryPeltBoots

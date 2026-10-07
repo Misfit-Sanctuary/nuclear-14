@@ -1,0 +1,32 @@
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Adapted from Goob Station / Trauma Station
+
+using Content.Shared.Mobs;
+
+namespace Content.Shared._Misfits.Factory.Filters;
+
+/// <summary>
+/// Filters entities that have MobStateComponent and a state that matches a configured list.
+/// </summary>
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentState]
+public sealed partial class MobFilterComponent : Component
+{
+    /// <summary>
+    /// Mob states allowed by the filter.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public HashSet<MobState> States = new();
+}
+
+[Serializable, NetSerializable]
+public enum MobFilterUiKey : byte
+{
+    Key
+}
+
+[Serializable, NetSerializable]
+public sealed partial class MobFilterToggleMessage(MobState state) : BoundUserInterfaceMessage
+{
+    public readonly MobState State = state;
+}

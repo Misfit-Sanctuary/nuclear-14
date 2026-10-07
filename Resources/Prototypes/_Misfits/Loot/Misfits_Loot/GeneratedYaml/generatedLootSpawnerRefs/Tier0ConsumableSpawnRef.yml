@@ -1,0 +1,17 @@
+- type: entity
+  abstract: true
+  id: M14Tier0Spawner_RefConsumable
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: gray
+    - sprite: _Nuclear14/Objects/Consumable/Drinks/nuka_cola_new.rsi
+      state: quantum
+      offset: 0.15, 0
+      scale: .7, .7
+    - sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
+      state: bitterdrank
+      offset: -0.15, 0
+      scale: .7, .7

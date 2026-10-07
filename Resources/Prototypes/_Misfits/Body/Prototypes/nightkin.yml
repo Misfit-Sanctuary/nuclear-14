@@ -1,0 +1,57 @@
+# #Misfits Add - Nightkin body prototype.
+#
+# A full copy of the SuperMutant body with only `heart` and `stomach` repointed at the
+# Nightkin organs. BodyPrototype is IPrototype, not IInheritingPrototype, so `- type: body`
+# does not support `parent:` - the remaining slots have to be duplicated verbatim.
+# If SuperMutant's body layout ever changes, this file has to be updated to match.
+
+- type: body
+  id: Nightkin
+  name: "nightkin"
+  root: torso
+  slots:
+    head:
+      part: MisfitsHeadSuperMutant
+      connections:
+      - torso
+      organs:
+        brain: MisfitsOrganSuperMutantBrain
+        eyes: MisfitsOrganSuperMutantEyes
+    torso:
+      part: MisfitsTorsoSuperMutant
+      organs:
+        heart: MisfitsOrganNightkinHeart      # #Misfits Change - Nightkin metabolism
+        lungs: MisfitsOrganSuperMutantLungs
+        stomach: MisfitsOrganNightkinStomach  # #Misfits Change - Nightkin metabolism
+        liver: MisfitsOrganSuperMutantLiver
+        kidneys: MisfitsOrganSuperMutantKidneys
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head
+    right arm:
+      part: MisfitsRightArmSuperMutant
+      connections:
+      - right hand
+    left arm:
+      part: MisfitsLeftArmSuperMutant
+      connections:
+      - left hand
+    right hand:
+      part: MisfitsRightHandSuperMutant
+    left hand:
+      part: MisfitsLeftHandSuperMutant
+    right leg:
+      part: MisfitsRightLegSuperMutant
+      connections:
+      - right foot
+    left leg:
+      part: MisfitsLeftLegSuperMutant
+      connections:
+      - left foot
+    right foot:
+      part: MisfitsRightFootSuperMutant
+    left foot:
+      part: MisfitsLeftFootSuperMutant

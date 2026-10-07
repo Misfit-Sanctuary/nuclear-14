@@ -164,3 +164,25 @@
     sprite: _Misfits/Clothing/Uniforms/FalloutSuits/vault_exile_uniform.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/Uniforms/FalloutSuits/vault_exile_uniform.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformNCRMedic
+  name: NCR medic uniform
+  description: An NCR-issue duty uniform worn by the Republic's medical corps, marked with a red cross on the sleeve.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_medicuniform.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_medicuniform.rsi
+
+- type: entity
+  parent: N14ClothingUniformSkirtBase
+  id: M14ClothingUniformNCRMedicSkirt
+  name: NCR medic skirt uniform
+  description: An NCR-issue duty uniform cut down into a skirt, worn by medical staff of the Republic.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_medicskirt.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_medicskirt.rsi

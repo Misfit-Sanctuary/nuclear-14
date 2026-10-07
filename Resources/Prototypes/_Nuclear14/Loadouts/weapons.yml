@@ -1902,7 +1902,7 @@
   cost: 1
   requirements:
     - !type:CharacterItemGroupRequirement
-      group: N14LoadoutMelee
+      group: N14LoadoutAmmo
   items:
     - ThrowingKnife
 
@@ -1915,3 +1915,10 @@
       group: N14LoadoutMelee
   items:
     - ThrowingKnivesKit
+
+- type: loadout
+  id: ThrowingBrick
+  category: Weapons
+  cost: 4
+  items:
+    - ThrowingBrick

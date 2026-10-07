@@ -109,6 +109,25 @@
   # - type: Craftable # Corvax-Change  # #Misfits Remove: Stalker14 crafting system
 
 - type: entity
+  name: crowbar
+  parent: Crowbar
+  id: N14Crowbar
+  description: A multipurpose tool to pry open doors and fighting inter uhh planet invaders from China?
+  components:
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    attackRate: 1.0
+    damage:
+      types:
+        Blunt: 15
+    soundHit:
+      collection: MetalThud
+    bluntStaminaDamageFactor: 2
+    heavyStaminaCost: 5
+  - type: DamageOtherOnHit
+    staminaCost: 6
+
+- type: entity
   name: multitool
   parent: Multitool
   id: N14Multitool

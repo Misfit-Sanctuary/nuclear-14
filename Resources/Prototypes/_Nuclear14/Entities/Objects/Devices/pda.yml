@@ -103,11 +103,27 @@
 
 - type: entity
   parent: N14BasePipboy
+  id: N14NCRProvostPipboy
+  suffix: NCR Provost
+  components:
+  - type: Pda
+    id: N14IDNCRDogtagProvost
+
+- type: entity
+  parent: N14BasePipboy
   id: N14NCRCommanderPipboy
   suffix: NCR Captain
   components:
   - type: Pda
     id: N14IDNCRDogtagCaptain
+
+- type: entity
+  parent: N14BasePipboy
+  id: N14NCRLieutenantColonelPipboy
+  suffix: NCR Lt. Col.
+  components:
+  - type: Pda
+    id: N14IDNCRDogtagltcol
 
 # #Misfits Add - Wastelander Pip-Boy with pre-inserted dogtags for PipBoy Hub networking.
 - type: entity

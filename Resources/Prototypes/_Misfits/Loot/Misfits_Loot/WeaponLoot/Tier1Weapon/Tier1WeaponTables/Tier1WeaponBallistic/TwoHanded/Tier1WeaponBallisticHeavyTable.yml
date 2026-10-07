@@ -1,0 +1,6 @@
+- type: entityTable
+  id: M14WeaponLootTier1_GunsBulletHeavy
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: Error

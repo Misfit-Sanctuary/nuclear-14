@@ -628,7 +628,8 @@ loadout-name-LoadoutLegionPrincipes = Principes pattern armor
 
 # Misfits Add - 509th BoS T-51bc power armor loadout names
 loadout-name-LoadoutBoS509ElderT51BC = 509th BoS Elder T-51bc Power Armor
-# #Cythisiax Removed - Head Paladin T-51bc loadout no longer exists; the suit moved to the Honor Guard rank.
+# Misfits Add - 509th BoS Head Paladin T-51bc power armor loadout name
+loadout-name-LoadoutBoS509HeadPaladinT51BC = 509th BoS Head Paladin T-51bc Power Armor
 
 # Enclave rank pin loadouts
 loadout-name-LoadoutEnclavePinPrivate = Enclave private pin
@@ -689,6 +690,7 @@ loadout-name-MisfitsLoadoutHeadHeadMarlowHat = marlow hat
 loadout-name-MisfitsLoadoutHeadHeadSchlimmHat = schlimm hat
 loadout-name-MisfitsLoadoutHeadHeadAHPhelmet = highway patrol helmet
 loadout-name-MisfitsLoadoutHeadKhanHelmet = khan helmet
+loadout-name-MisfitsLoadoutHeadKhanFurHelmet = khan fur helmet
 loadout-name-MisfitsLoadoutHeadKhanFullHelmet = khan full helmet
 # Head — NCR soldiers
 loadout-name-MisfitsLoadoutHeadNCRSidecap = NCR sidecap
@@ -729,6 +731,7 @@ loadout-name-MisfitsLoadoutShoesTribal = tribal shoes
 loadout-name-MisfitsLoadoutShoesRaider = raider treads
 loadout-name-MisfitsLoadoutMilitaryCowboyBoots = military cowboy boots
 loadout-name-MisfitsLoadoutMilitarySteelTippedBoots = steel-tipped boots
+loadout-name-MisfitsLoadoutMilitaryPeltBoots = long pelt boots
 # Neck — faction cloaks
 loadout-name-MisfitsLoadoutNeckCloakNCR = NCR cloak
 loadout-name-MisfitsLoadoutNeckCloakNCRSnow = NCR winter cloak

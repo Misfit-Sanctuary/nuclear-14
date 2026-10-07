@@ -27,25 +27,32 @@ using Robust.Shared.Physics;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
+using Robust.Shared.Audio.Systems;
+using Content.Shared.Audio;
+using Robust.Shared.Random;
+using Content.Server.Popups;
+using Robust.Server.Audio;
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem : SharedGunSystem
 {
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly BatterySystem _battery = default!;
-    [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
-    [Dependency] private readonly PricingSystem _pricing = default!;
-    [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly ServerMisfitsLagCompensationSystem _lagCompensation = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly StaminaSystem _stamina = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly GunPredictionSystem _gunPrediction = default!;
-    [Dependency] private readonly FlamerLineSystem _flamerLine = default!;
-
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private PopupSystem _serverPopUp = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private IComponentFactory _factory = default!;
+    [Dependency] private BatterySystem _battery = default!;
+    [Dependency] private DamageExamineSystem _damageExamine = default!;
+    [Dependency] private PricingSystem _pricing = default!;
+    [Dependency] private SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private ServerMisfitsLagCompensationSystem _lagCompensation = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private StaminaSystem _stamina = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private GunPredictionSystem _gunPrediction = default!;
+    [Dependency] private FlamerLineSystem _flamerLine = default!;
+    [Dependency] private AudioSystem _audio = default!;
     private readonly HashSet<EntityUid> _lagCompCandidates = [];
     private float _lagCompAabbEnlargement;
     private float _lagCompHitscanSearchPadding;
@@ -143,7 +150,7 @@ public sealed partial class GunSystem : SharedGunSystem
                 base.ShootOrThrow(ent.Value, mapDirection, gunVelocity, gun, gunUid, user);
                 continue;
             }
-            // TODO: use ishootable like an actual interface
+            // TODO: change ishootable to generic
             switch (shootable)
             {
                 // Cartridge shoots something else
@@ -182,62 +189,68 @@ public sealed partial class GunSystem : SharedGunSystem
                     CreateAndFireProjectiles(ent.Value, newAmmo);
 
                     break;
+                // TODO: when this this refactoredto be generics rename as like "non-piercing" hitscan or something
                 case HitscanPrototype hitscan:
                     if (TryResolveGunHitscan(gunUid, out var resolvedHitscan))
                         hitscan = resolvedHitscan;
 
-                    EntityUid? lastHit = null;
+                    EntityUid lastHit = EntityUid.Invalid;
 
-                    var from = fromMap;
+                    var beamOriginMapCoords = fromMap;
                     // [Changed by MisfitsCrew/Operator] Use grid/map effect coordinates so beam
                     // sprites are not parented to bikes or other ridden entities.
-                    var fromEffect = GetShotEffectCoordinates(fromMap);
-                    var dir = mapDirection.Normalized();
+                    var beamOriginEntCoords = GetShotEffectCoordinates(fromMap);
+                    var beamDir = mapDirection.Normalized();
 
                     //in the situation when user == null, means that the cannon fires on its own (via signals). And we need the gun to not fire by itself in this case
                     var lastUser = user ?? gunUid;
                     // [Changed by MisfitsCrew/Operator] Rider-fired hitscan must ignore both
                     // the rider and their mounted vehicle; one ignored entity is not enough.
+
+                    // TODO: make this an event for the entity. Maybe broadcasted too
+                    // so do RaiseLocalEvent(uid,IgnoreEvent ev)
+                    // ev gets passed to different comps that fills a list in ev or a filter or both
+                    // for riders and cars and prolly other special behaviors
+                    // event itself also call another event for the gun
                     var rayExtraIgnore = GetShotExtraIgnoredEntity(user);
-
-                    if (hitscan.Reflective != ReflectType.None)
+                    bool beamHitSomething = TryGetHitscanResult(beamOriginMapCoords, beamDir, hitscan, lastUser,
+                                                    rayExtraIgnore, gun.Target, userSession,
+                                                    out lastHit, out var distance);
+                    // always filter out userSession, since we are still predicting the 1st shot that isnt reflected
+                    FireEffects(beamOriginEntCoords, distance, beamDir.Normalized().ToAngle(), hitscan, lastHit, shooterSession: userSession);
+                    // TODO: course this reflect logic/sequence should be in its own method to start no inline clutter
+                    if (hitscan.Reflective == ReflectType.Energy && beamHitSomething)
                     {
-                        for (var reflectAttempt = 0; reflectAttempt < 3; reflectAttempt++)
+
+                        for (int i = 0; i < 3; i++)
                         {
-                            if (!TryGetHitscanResult(
-                                    from,
-                                    dir,
-                                    hitscan,
-                                    lastUser,
-                                    rayExtraIgnore,
-                                    gun.Target,
-                                    userSession,
-                                    out var hit,
-                                    out var distance))
-                            {
-                                break;
-                            }
+                            var deflectEv = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, beamDir, false);
+                            RaiseLocalEvent(lastHit, ref deflectEv);
 
-                            lastHit = hit;
-
-                            FireEffects(fromEffect, distance, dir.Normalized().ToAngle(), hitscan, hit, userSession);
-
-                            var ev = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, dir, false);
-                            RaiseLocalEvent(hit, ref ev);
-
-                            if (!ev.Reflected)
+                            // beam reflected(only possible to reflect if it hit something before its max range)
+                            if (!deflectEv.Reflected || !beamHitSomething)
                                 break;
 
-                            fromEffect = GetShotEffectCoordinates(Transform(hit).Coordinates.ToMap(EntityManager, _transform));
-                            from = fromEffect.ToMap(EntityManager, _transform);
-                            dir = ev.Direction;
-                            lastUser = hit;
+                            // get position data and direction of deflected beam like its a new beam just "shooting" from the deflectee
+                            lastUser = lastHit; // we consider the prev hit ent to be the new beam source
+                            beamDir = deflectEv.Direction;
+                            beamOriginEntCoords = GetShotEffectCoordinates(_transform.ToMapCoordinates(Transform(lastHit).Coordinates));
+                            beamOriginMapCoords = _transform.ToMapCoordinates(beamOriginEntCoords);
+
+                            // with new deflect data we treat it like its a new beam and see if it hit something
+                            beamHitSomething = TryGetHitscanResult(beamOriginMapCoords, beamDir, hitscan, lastUser,
+                               rayExtraIgnore, gun.Target, userSession,
+                               out lastHit, out distance);
+
+                            FireEffects(beamOriginEntCoords, distance, beamDir.Normalized().ToAngle(), hitscan, lastUser);
                         }
                     }
-
-                    if (lastHit != null)
+                    // in the case of these deflecting beams, whoever was the very last to be hit gets the damage
+                    // deflect mechanics even for bullets, totally negates damage.
+                    // refactoring needed if we want diff behavior for diff lasers in general
+                    if (lastHit != EntityUid.Invalid)
                     {
-                        var hitEntity = lastHit.Value;
+                        var hitEntity = lastHit;
                         if (hitscan.StaminaDamage > 0f)
                             _stamina.TakeStaminaDamage(hitEntity, hitscan.StaminaDamage, source: user);
 
@@ -266,7 +279,7 @@ public sealed partial class GunSystem : SharedGunSystem
                         {
                             if (!Deleted(hitEntity))
                             {
-                                if (dmg.AnyPositive())
+                                if (dmg.AnyPositive() && !HasComp<ActorComponent>(hitEntity))
                                 {
                                     var filter = Filter.Pvs(hitEntity, entityManager: EntityManager);
                                     if (userSession != null)
@@ -291,19 +304,23 @@ public sealed partial class GunSystem : SharedGunSystem
                             }
                         }
                     }
-                    else
-                    {
-                        FireEffects(fromEffect, hitscan.MaxLength, dir.ToAngle(), hitscan, shooterSession: userSession);
-                    }
 
-                    if (lastHit != null && user != null)
+                    if (lastHit != EntityUid.Invalid && user != null)
                     {
-                        var hitEv = new HitscanHitEntityEvent(lastHit.Value);
+                        var hitEv = new HitscanHitEntityEvent(lastHit);
                         RaiseLocalEvent(user.Value, ref hitEv);
                     }
 
                     Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                     break;
+
+
+
+
+
+
+
+
                 case FlamerShot flamerShot:
                     if (flamerShot.ProjectileProto is { } projectileProto)
                     {
@@ -360,7 +377,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
         return shotProjectiles;
     }
-
+    // TODO rework so we dont need to loop through results and only work off a predicate for the raycast
     private bool TryGetHitscanResult(
         MapCoordinates from,
         Vector2 direction,
@@ -374,6 +391,7 @@ public sealed partial class GunSystem : SharedGunSystem
     {
         hit = default;
         distance = hitscan.MaxLength;
+        var firedFromContainer = _container.IsEntityOrParentInContainer(source);
 
         var ray = new CollisionRay(from.Position, direction, hitscan.CollisionMask);
         var rayCastResults = Physics.IntersectRayWithPredicate(
@@ -389,18 +407,13 @@ public sealed partial class GunSystem : SharedGunSystem
         if (raycastEvent.RayCastResults == null)
             return false;
 
-        var firedFromContainer = _container.IsEntityOrParentInContainer(source);
-
         if (session == null)
             return TryGetFirstValidHitscanResult(raycastEvent.RayCastResults, target, firedFromContainer, out hit, out distance);
 
         // #Cythisiax Fixed - Revert PR #1103 rider hitscan deferral: shots at a ridden bike hit the
         // bike fixture again (bike takes full damage) instead of being deferred to the rider/passing through.
-        EntityUid? staticHit = null;
-        EntityUid? currentLagCompHit = null;
-        var staticDistance = hitscan.MaxLength;
-        var currentLagCompDistance = hitscan.MaxLength;
-
+        EntityUid? firstValidHit = null;
+        var firstHitDistance = hitscan.MaxLength;
         foreach (var result in raycastEvent.RayCastResults)
         {
             if (result.HitEntity == source ||
@@ -408,48 +421,34 @@ public sealed partial class GunSystem : SharedGunSystem
                 !IsValidHitscanTarget(result.HitEntity, target, firedFromContainer))
                 continue;
 
-            if (HasComp<LagCompensationComponent>(result.HitEntity))
-            {
-                currentLagCompHit ??= result.HitEntity;
-                currentLagCompDistance = MathF.Min(currentLagCompDistance, result.Distance);
-                continue;
-            }
-
-            staticHit = result.HitEntity;
-            staticDistance = result.Distance;
+            firstValidHit = result.HitEntity;
+            firstHitDistance = result.Distance;
             break;
         }
-
+        /*
+        // TODO: rework this, change collisionMask to be physics flag LookUp
         if (TryGetLagCompensatedHitscanResult(
-                from,
-                direction,
-                hitscan.MaxLength,
-                hitscan.CollisionMask,
-                source,
-                extraIgnoredEntity,
-                target,
-                firedFromContainer,
-                session,
-                out var lagCompHit,
-                out var lagCompDistance) &&
-            lagCompDistance <= staticDistance)
+                   from,
+                   direction,
+                   hitscan.MaxLength,
+                   hitscan.CollisionMask,
+                   source,
+                   extraIgnoredEntity,
+                   target,
+                   firedFromContainer,
+                   session,
+                   out var lagCompHit,
+                   out var lagCompDistance) && lagCompDistance <= firstHitDistance)
         {
             hit = lagCompHit;
             distance = lagCompDistance;
             return true;
         }
-
-        if (staticHit != null)
+*/
+        if (firstValidHit != null)
         {
-            hit = staticHit.Value;
-            distance = staticDistance;
-            return true;
-        }
-
-        if (currentLagCompHit != null)
-        {
-            hit = currentLagCompHit.Value;
-            distance = currentLagCompDistance;
+            hit = firstValidHit.Value;
+            distance = firstHitDistance;
             return true;
         }
 
@@ -475,7 +474,7 @@ public sealed partial class GunSystem : SharedGunSystem
         var end = from.Position + direction * maxLength;
         var searchBounds = Box2.FromTwoPoints(from.Position, end).Enlarged(_lagCompHitscanSearchPadding);
         _lagCompCandidates.Clear();
-        _lookup.GetEntitiesIntersecting(from.MapId, searchBounds, _lagCompCandidates, LookupFlags.Dynamic);
+        _lookup.GetEntitiesIntersecting(from.MapId, searchBounds, _lagCompCandidates, LookupFlags.Dynamic | LookupFlags.Static);
 
         var found = false;
         foreach (var candidate in _lagCompCandidates)

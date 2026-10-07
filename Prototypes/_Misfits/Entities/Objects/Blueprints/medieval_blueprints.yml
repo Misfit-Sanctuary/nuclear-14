@@ -1,0 +1,76 @@
+# #Misfits Add - Medieval armor blueprints.
+#
+# Put one in a workbench's storage to unlock its recipes (blueprint_recipes_medieval.yml).
+# Made for wastelanders: not given to any faction, loadout, loot table or vendor yet, so for now
+# they only come from admin spawning.
+
+- type: entity
+  parent: N14BlueprintBase
+  id: MisfitsBlueprintMedievalCrimson
+  name: Crimson Armory Blueprint
+  description: An armorer's patterns for the crimson-trimmed set. Covers the plate coats, helms, gauntlets and boots.
+  components:
+  - type: Blueprint
+    recipes:
+    - MisfitsBPMedievalJackOfPlatesCrimson
+    - MisfitsBPMedievalCorseletSteel
+    - MisfitsBPMedievalHalfPlateCrimson
+    - MisfitsBPMedievalPlateCuirassCrimson
+    - MisfitsBPMedievalKettleHatCrimson
+    - MisfitsBPMedievalKettleHatVisoredCrimson
+    - MisfitsBPMedievalCloseHelmBarred
+    - MisfitsBPMedievalBarbuteCrimson
+    - MisfitsBPMedievalSalletCrimson
+    - MisfitsBPMedievalSugarloafHelm
+    - MisfitsBPMedievalLeatherGloves
+    - MisfitsBPMedievalGauntletsCrimson
+    - MisfitsBPMedievalRidingBoots
+    - MisfitsBPMedievalPlatedBootsCrimson
+
+- type: entity
+  parent: N14BlueprintBase
+  id: MisfitsBlueprintMedievalAzure
+  name: Azure Armory Blueprint
+  description: An armorer's patterns for the blue-trimmed set. Covers the plate coats, helms, gauntlets and boots.
+  components:
+  - type: Blueprint
+    recipes:
+    - MisfitsBPMedievalJackOfPlatesAzure
+    - MisfitsBPMedievalHalfPlateAzure
+    - MisfitsBPMedievalCorseletBrass
+    - MisfitsBPMedievalKettleHatAzure
+    - MisfitsBPMedievalKettleHatVisoredAzure
+    - MisfitsBPMedievalCloseHelmBarredAzure
+    - MisfitsBPMedievalBarbuteAzure
+    - MisfitsBPMedievalArmetGilded
+    - MisfitsBPMedievalBlackLeatherGloves
+    - MisfitsBPMedievalPlateGauntletsAzure
+    - MisfitsBPMedievalBlackLeatherBoots
+    - MisfitsBPMedievalSabatonsAzure
+
+- type: entity
+  parent: N14BlueprintBase
+  id: MisfitsBlueprintMedievalKnight
+  name: Knight's Harness Blueprint
+  description: A master armorer's patterns for a full plate harness and its visored sallet. Ruinously expensive to build.
+  components:
+  - type: Blueprint
+    recipes:
+    - MisfitsBPMedievalKnightHarness
+    - MisfitsBPMedievalKnightSallet
+
+- type: entity
+  parent: N14BlueprintBase
+  id: MisfitsBlueprintMedievalBelts
+  name: Leatherworker's Belt Blueprint
+  description: A leatherworker's patterns for baldrics, bandoliers, harnesses and tool belts.
+  components:
+  - type: Blueprint
+    recipes:
+    - MisfitsBPMedievalBaldricPouched
+    - MisfitsBPMedievalLeatherBandolier
+    - MisfitsBPMedievalCraftsmanBelt
+    - MisfitsBPMedievalPouchHarnessAzure
+    - MisfitsBPMedievalShoulderHarness
+    - MisfitsBPMedievalSmithBelt
+    - MisfitsBPMedievalCrossedBaldricCrimson

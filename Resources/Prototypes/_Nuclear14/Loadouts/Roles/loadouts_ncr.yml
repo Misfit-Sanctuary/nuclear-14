@@ -31,6 +31,10 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingEyesGlassesGoggles
 
@@ -59,6 +63,10 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingHandsGlovesNCR
 
@@ -87,6 +95,10 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingHeadHatWinterBoonie
 
@@ -115,6 +127,10 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingHeadHatWoodBoonie
 
@@ -143,12 +159,16 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingHeadHatDesertBoonie
 
 - type: loadout
   id: LoadoutNCRCloakNCR
-  category: Roles
+  category: Neck
   cost: 1
   exclusive: true
   requirements:
@@ -170,12 +190,16 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingNeckCloakNCR
 
 - type: loadout
   id: LoadoutNCRCloakNCRGhillie
-  category: Roles
+  category: Neck
   cost: 1
   exclusive: true
   requirements:
@@ -197,12 +221,16 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingNeckCloakGhillie
 
 - type: loadout
   id: LoadoutNCRCloakNCRSnow
-  category: Roles
+  category: Neck
   cost: 1
   exclusive: true
   requirements:
@@ -224,12 +252,16 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingNeckCloakNCRSnow
 
 - type: loadout
   id: LoadoutNCRCloakNCRWoods
-  category: Roles
+  category: Neck
   cost: 1
   exclusive: true
   requirements:
@@ -251,12 +283,16 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingNeckCloakNCRWoods
 
 - type: loadout
   id: LoadoutNCRMaskBalaclava
-  category: Roles
+  category: Mask
   cost: 1
   exclusive: true
   requirements:
@@ -278,12 +314,16 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingMaskBrownBalaclava
 
 - type: loadout
   id: LoadoutNCRuniformPants
-  category: Roles
+  category: Uniform
   cost: 1
   exclusive: true
   requirements:
@@ -311,12 +351,16 @@
         - NCRCitizen
         - NCRTrader
         - NCRRO
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingUniformDesertPants
 
 - type: loadout
   id: LoadoutNCRuniformDesertPantsFull
-  category: Roles
+  category: Uniform
   cost: 1
   exclusive: true
   requirements:
@@ -344,12 +388,17 @@
         - NCRCitizen
         - NCRTrader
         - NCRRO
+
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - N14ClothingUniformDesertPantsFull
 
 - type: loadout
   id: LoadoutNCRUniformNCRRecon
-  category: Roles
+  category: Uniform
   cost: 1
   exclusive: true
   requirements:
@@ -376,6 +425,11 @@
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
+
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
     - !type:CharacterDepartmentTimeRequirement # T7 faction timelock (40h NCR)
       department: NCR
       min: 36000 # 10 hours
@@ -384,7 +438,7 @@
 
 - type: loadout
   id: LoadoutNCRUniformNCRReconLongSleeve
-  category: Roles
+  category: Uniform
   cost: 1
   exclusive: true
   requirements:
@@ -411,6 +465,10 @@
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
     - !type:CharacterDepartmentTimeRequirement # T7 faction timelock (40h NCR)
       department: NCR
       min: 36000 # 10 hours
@@ -419,7 +477,7 @@
 
 - type: loadout
   id: LoadoutNCRUniformNCRShorts
-  category: Roles
+  category: Uniform
   cost: 1
   exclusive: true
   requirements:
@@ -446,6 +504,10 @@
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 144000 # 40 hours, work for them shorts!
@@ -454,7 +516,7 @@
 
 - type: loadout
   id: LoadoutNCRUniformNCRUtilityShirt
-  category: Roles
+  category: Uniform
   cost: 1
   exclusive: true
   requirements:
@@ -481,6 +543,10 @@
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
     - !type:CharacterDepartmentTimeRequirement # T7 faction timelock (40h NCR)
       department: NCR
       min: 36000 # 10 hours
@@ -489,7 +555,7 @@
 
 - type: loadout
   id: LoadoutNCRUniformNCRFatigueShirt
-  category: Roles
+  category: Uniform
   cost: 1
   exclusive: true
   requirements:
@@ -516,6 +582,10 @@
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 18000 # 5 hours
@@ -524,7 +594,7 @@
 
 - type: loadout
   id: LoadoutNCRUniformNCRFatiguePants
-  category: Roles
+  category: Uniform
   cost: 1
   exclusive: true
   requirements:
@@ -551,11 +621,41 @@
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 72000 # 20 hours
   items:
     - N14ClothingUniformNCRFatiguePants
+
+- type: loadout
+  id: LoadoutNCRUniformNCRMedic
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRMedic
+        - NCRDoctor
+  items:
+    - M14ClothingUniformNCRMedic
+
+- type: loadout
+  id: LoadoutNCRUniformNCRMedicSkirt
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRMedic
+        - NCRDoctor
+  items:
+    - M14ClothingUniformNCRMedicSkirt
 
 - type: loadout
   id: LoadoutNCRBeltNCRHarness
@@ -585,12 +685,16 @@
         - NCRPatrolRanger
         - NCRVeteranRanger
         - NCRRO
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
   items:
     - ClothingBeltNCRHarness
 
 - type: loadout
   id: LoadoutNCRStetson
-  category: Roles
+  category: Head
   cost: 1
   exclusive: true
   requirements:
@@ -617,6 +721,10 @@
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 144000 # 40 hours, work for that hat!
@@ -655,6 +763,10 @@
         - NCRVeteranRanger
         - NCRCitizen
         - NCRTrader
+
+        - NCRMilitaryPoliceCaptain
+        - NCRMilitaryPoliceSergeant
+        - NCRMilitaryPoliceRecruit
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 144000 # 40 hours, work for that hat!

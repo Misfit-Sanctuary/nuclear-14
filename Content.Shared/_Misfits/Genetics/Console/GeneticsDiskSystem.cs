@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Examine;
+using Robust.Shared.Prototypes;
 using Content.Shared._Misfits.Genetics.Mutations;
 
 namespace Content.Shared._Misfits.Genetics.Console;
@@ -11,11 +13,44 @@ public sealed partial class GeneticsDiskSystem : EntitySystem
 
     [Dependency] private EntityQuery<GeneticsDiskComponent> _query = default!;
     [Dependency] private EntityQuery<GeneticsDiskSlotComponent> _slotQuery = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<GeneticsDiskComponent, ExaminedEvent>(OnExamined);
+    }
+
+    // Misfits Add - a disk's contents were only readable inside a genetics console,
+    // so a courier holding several had no way to tell them apart. Examining one now
+    // names the stored mutation and its rarity.
+    private void OnExamined(Entity<GeneticsDiskComponent> ent, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        if (ent.Comp.Enzymes is { } enzymes)
+        {
+            args.PushMarkup(Loc.GetString("genetics-disk-examine-enzymes", ("name", enzymes.Name)));
+            return;
+        }
+
+        if (ent.Comp.Mutation is not { } mutationId ||
+            !_prototypes.TryIndex<EntityPrototype>(mutationId, out var mutationProto) ||
+            !mutationProto.TryGetComponent<MutationComponent>(out var mutation))
+        {
+            args.PushMarkup(Loc.GetString("genetics-disk-examine-blank"));
+            return;
+        }
+
+        // Copy to a local first - MutationComponent.Rarity is read-only to other types,
+        // and calling ToString() directly on the member counts as an Execute access.
+        var rarity = mutation.Rarity;
+
+        args.PushMarkup(Loc.GetString("genetics-disk-examine-mutation",
+            ("mutation", mutationProto.Name),
+            ("rarity", rarity.ToString())));
     }
 
     /// <summary>

@@ -11,10 +11,9 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: N14CeremonialSword
+      - id: N14WeaponShotgunNeostead
       - id: N14LegionnaireShield
-      - id: N14WeaponShotgunAuto
-      - id: N14MagazineShotgun12
+      - id: N14AmmoBox12gauge
         amount: 2
       - id: ClothingBeltQuiverSpear
       - id: N14PilumSpear
@@ -42,7 +41,7 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: N14Gladius
+      - id: N14CeremonialSword
       - id: N14WeaponPistol45Colt # #Misfits Change: .45 pistol Legion sidearm
       - id: N14MagazinePistol45
       - id: N14SmellingSalts
@@ -54,12 +53,42 @@
       - id: N14Bandage
         amount: 3
       - id: N14HealingPoultice
-        amount: 3
+        amount: 4
       - id: N14HealingPowder
-        amount: 3
+        amount: 4
       - id: N14FoodTinK
         amount: 2
       - id: N14JunkCeramicFlask
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: priestess of purification
+  parent: KitBase
+  id: KitPriestessPurifier
+  description: "Cleanse the enemies of Mars with flame."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponMarsblade
+      - id: N14LegionnaireShield
+      - id: GrenadeIncendiary
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+      - id: N14Bandage
+        amount: 1
+      - id: N14HealingPoultice
+        amount: 1
+      - id: N14WeaponPistol45Colt # #Misfits Change: .45 pistol Legion sidearm
+      - id: N14MagazinePistol45
+        amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -78,7 +107,7 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
-      - id: N14Gladius
+      - id: N14WeaponMarsblade
       - id: N14LegionnaireBuckler
       - id: ClothingBeltQuiverSpear
       - id: N14PilumSpear
@@ -107,10 +136,41 @@
     items:
       - id: N14SmellingSalts
         amount: 2
+      - id: ClothingBeltMedical
       - id: N14HandheldHealthAnalyzer
       - id: N14Bitterdrink
         amount: 1
       - id: ClothingBeltMedical
+      - id: N14Bandage
+        amount: 2
+      - id: N14HealingPoultice
+        amount: 2
+      - id: N14HealingPowder
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+      - id: N14Gladius
+      - id: N14WeaponPistol45Colt
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: Acolyte Slaver
+  parent: KitBase
+  id: KitAcolyteSlaver
+  description: "Equipped with all a Priestess needs to catch and control slaves."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponShotgunAuto
+      - id: MisfitsMagazineBox12GaugeBeanbag
+        amount: 3
       - id: N14Bandage
         amount: 1
       - id: N14HealingPoultice
@@ -120,8 +180,97 @@
       - id: N14FoodTinK
         amount: 2
       - id: N14JunkCeramicFlask
-      - id: N14Machete
+      - id: N14PoliceBaton
       - id: N14WeaponPistol45Colt
+      - id: BoxHandcuff
+      - id: Bola
+        amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
+
+# temple guard kits
+
+- type: entity
+  name: Temple Guard Protector
+  parent: KitBase
+  id: KitTempleGuardProtector
+  description: "Equipped with the proper weapons to defend the Priestess and her temple."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WastelandPolearm
+      - id: N14LegionnaireShield
+      - id: N14WeaponPistol45Colt # #Misfits Change: .45 pistol Legion sidearm
+      - id: N14MagazinePistol45
+        amount: 2
+      - id: N14Bandage
+        amount: 1
+      - id: N14HealingPowder
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: Temple Guard Enforcer
+  parent: KitBase
+  id: KitTempleGuardEnforcer
+  description: "Equipped with weapons befitting one used to punish sinners and enforce the law of the Legion."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponShotgunAuto
+      - id: N14Gladius
+      - id: MagazineBox12gauge
+        amount: 3
+      - id: N14Bandage
+        amount: 1
+      - id: N14HealingPowder
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: Temple Guard Executor
+  parent: KitBase
+  id: KitTempleGuardExecutor
+  description: "Equipped with weapons made to burn and punish profligates."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: N14WeaponKebab
+      - id: N14LegionnaireBuckler
+      - id: N14WeaponPistol45Colt # #Misfits Change: .45 pistol Legion sidearm
+      - id: N14MagazinePistol45
+        amount: 2
+      - id: N14Bandage
+        amount: 1
+      - id: N14HealingPowder
+        amount: 2
+      - id: N14FoodTinK
+        amount: 2
+      - id: N14JunkCeramicFlask
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
 

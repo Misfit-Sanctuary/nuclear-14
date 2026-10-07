@@ -5,6 +5,8 @@
   name: zoy milk
   description: A glass bottle of zoy milk.
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.0625" # Match the Nuclear 14 milk bottles.
   - type: SolutionContainerManager
     solutions:
       drink:

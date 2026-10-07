@@ -1,13 +1,45 @@
 using System.Linq;
+using Content.Server.Decals;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Coordinates.Helpers;
+using Content.Shared.Decals;
 using Content.Shared.Fluids;
 using Content.Shared.FootPrint;
+using Robust.Shared.Map;
 
 namespace Content.Server.Fluids.EntitySystems;
 
 public sealed partial class AbsorbentSystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly DecalSystem _decals = default!;
+
+    /// <summary>
+    ///     Removes cleanable grid decals in the same area that a mop cleans
+    ///     footprint entities. This includes blood splatters and other
+    ///     cleanable floor markings.
+    /// </summary>
+    private int TryCleanNearbyDecals(EntityCoordinates targetCoords, AbsorbentComponent component)
+    {
+        var gridUid = targetCoords.GetGridUid(EntityManager);
+        if (gridUid == null)
+            return 0;
+
+        var decals = _decals.GetDecalsInRange(
+            gridUid.Value,
+            targetCoords.Position,
+            component.FootprintCleaningRange,
+            decal => decal.Cleanable);
+
+        var cleaned = 0;
+        foreach (var (id, _) in decals.Take(component.MaxCleanedFootprints))
+        {
+            if (_decals.RemoveDecal(gridUid.Value, id))
+                cleaned++;
+        }
+
+        return cleaned;
+    }
 
     /// <summary>
     ///     Tries to clean a number of footprints in a range determined by the component. Returns the number of cleaned footprints.

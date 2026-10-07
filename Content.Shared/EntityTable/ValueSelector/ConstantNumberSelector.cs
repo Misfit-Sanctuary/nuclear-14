@@ -1,5 +1,3 @@
-using Robust.Shared.Prototypes;
-
 namespace Content.Shared.EntityTable.ValueSelector;
 
 /// <summary>

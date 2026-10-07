@@ -1,3 +1,4 @@
+using System.Numerics;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -13,6 +14,9 @@ public sealed partial class MolotovComponent : Component
 {
     /// <summary>The bottle's solution-container ID.</summary>
     [DataField] public string Solution = "drink";
+
+    /// <summary>Per-bottle visual offset used to align the wick with the bottle neck.</summary>
+    [DataField, AutoNetworkedField] public Vector2 WickOffset;
 
     /// <summary>Fire used for ordinary flammable reagents.</summary>
     [DataField] public EntProtoId FireTilePrototype = "MisfitsTileFire";
@@ -43,6 +47,9 @@ public sealed partial class MolotovComponent : Component
 
     /// <summary>Impact sound played when the bottle breaks and releases its contents.</summary>
     [DataField] public SoundSpecifier BreakSound = new SoundPathSpecifier("/Audio/_Misfits/Effects/molotov.ogg");
+
+    /// <summary>Ordinary glass break used when the wick was never ignited.</summary>
+    [DataField] public SoundSpecifier UnlitBreakSound = new SoundCollectionSpecifier("GlassBreak");
 
     /// <summary>Sound played when the wick is successfully ignited.</summary>
     [DataField] public SoundSpecifier IgniteSound = new SoundPathSpecifier("/Audio/_Misfits/Effects/molotov_light.ogg");

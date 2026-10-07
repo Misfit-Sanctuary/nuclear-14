@@ -1,0 +1,25 @@
+
+
+- type: entityTable
+  id: M14WeaponLootTier5_LaserHeavy
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponLaserGatling
+      weight: 1
+
+- type: entityTable
+  id: M14WeaponLootTier5_PlasmaHeavy
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponPlasmaCaster
+      weight: 1
+
+- type: entityTable
+  id: M14WeaponLootTier5_OtherHeavy
+  table: !type:GroupSelector
+    children:
+    - !type:EntSelector
+      id: N14WeaponLegionScorcher
+      weight: 1

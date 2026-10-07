@@ -373,15 +373,10 @@
       - id: Magazine308Rifle
         amount: 2
       - id: SmokeGrenade
-        amount: 2
       - id: N14Dynamite # #Misfits Fix - GrenadeFrag is a GL-only round (no matching launcher in kit); replaced with throwable dynamite
-        amount: 2
       - id: N14BoxCardboardMREBoxCFilled
       - id: N14Stimpak
-      - id: N14SuperStimpak
-      - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
-        amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -401,15 +396,10 @@
       - id: N14MagazineMinigun5mm
         amount: 2
       - id: SmokeGrenade
-        amount: 2
       - id: N14Dynamite
-        amount: 2
       - id: N14BoxCardboardMREBoxCFilled
       - id: N14Stimpak
-      - id: N14SuperStimpak
-      - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
-        amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -428,13 +418,10 @@
     - id: N14WeaponLMG
     - id: LMGMagazine556Rifle
     - id: N14Dynamite # #Misfits Fix - GrenadeFrag is a GL-only round (no matching launcher in kit); replaced with throwable dynamite
-      amount: 3
+    - id: SmokeGrenade
     - id: N14BoxCardboardMREBoxCFilled
     - id: N14Stimpak
-    - id: N14SuperStimpak
-    - id: N14RadAwayBloodbag
     - id: N14CleanGauze10
-      amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -502,6 +489,6 @@
     state: rifleman
   - type: UndecidedLoadoutBackpack
     possibleSets:
-    - NCR_HeavyTrooperVeteranSet
+    - NCR_HeavyTrooperLinebreakerSet
     - NCR_HeavyTrooperMinigunSet
     - NCR_HeavyTrooperDefenderSet

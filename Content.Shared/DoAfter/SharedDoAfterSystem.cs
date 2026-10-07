@@ -99,6 +99,10 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
 
         if (component.AwaitedDoAfters.Remove(doAfter.Index, out var tcs))
             tcs.SetResult(doAfter.Cancelled ? DoAfterStatus.Cancelled : DoAfterStatus.Finished);
+
+        // Misfits: generic "any doafter ended"
+        var endedEv = new DoAfterEndedEvent(doAfter.Args.User, doAfter.Args.Target, doAfter.Cancelled);
+        RaiseLocalEvent(doAfter.Args.User, ref endedEv);
     }
 
     private void OnDoAfterGetState(EntityUid uid, DoAfterComponent comp, ref ComponentGetState args)

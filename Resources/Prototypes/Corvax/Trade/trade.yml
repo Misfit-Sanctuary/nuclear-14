@@ -774,6 +774,8 @@
     price: 5
   - proto: N14FloraWildCoyoteTobaccoClippingSeed
     price: 5
+  - proto: N14FloraWildCannabisClippingSeed
+    price: 5
   - proto: N14FloraDaturaClippingSeed
     price: 5
   - proto: N14FloraWildGlowpepperClippingSeed
@@ -1091,6 +1093,8 @@
     price: 55
   - proto: N14WeaponRifle308SniperRifle
     price: 275
+  - proto: N14WeaponSniperPaciencia
+    price: 20
 
 - type: storeCategoryStructured
   id: CaravanSell2_EnergyWeapons

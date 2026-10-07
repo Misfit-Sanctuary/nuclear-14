@@ -308,35 +308,6 @@
     N14Gunpowder: 500
     Cloth: 300
 
-- type: latheRecipe
-  id: MisfitsBPNCR40mmPulse
-  result: Misfits40mmGrenadePulse
-  category: N14BlueprintNCRAmmoT3
-  completetime: 9
-  requiresBlueprint: true
-  applyMaterialDiscount: false
-  availableFaction:
-  - NCR
-  materials:
-    Steel: 600
-    Circuitry: 300
-    ScrapElectronic: 500
-
-- type: latheRecipe
-  id: MisfitsBPNCR40mmPlasma
-  result: Misfits40mmGrenadePlasma
-  category: N14BlueprintNCRAmmoT3
-  completetime: 9
-  requiresBlueprint: true
-  applyMaterialDiscount: false
-  availableFaction:
-  - NCR
-  materials:
-    Steel: 600
-    Glass: 400
-    Circuitry: 300
-    ScrapElectronic: 500
-
 # === SHARED FACTION 40MM FAMILY ===
 # These inherit NCR costs/results so later balance changes remain synchronized.
 - type: latheRecipe
@@ -378,18 +349,6 @@
 - type: latheRecipe
   parent: MisfitsBPNCR40mmIncendiary
   id: MisfitsBPBoS40mmIncendiary
-  category: N14BlueprintBoSAmmoT3
-  availableFaction: [ BrotherhoodOfSteel ]
-
-- type: latheRecipe
-  parent: MisfitsBPNCR40mmPulse
-  id: MisfitsBPBoS40mmPulse
-  category: N14BlueprintBoSAmmoT3
-  availableFaction: [ BrotherhoodOfSteel ]
-
-- type: latheRecipe
-  parent: MisfitsBPNCR40mmPlasma
-  id: MisfitsBPBoS40mmPlasma
   category: N14BlueprintBoSAmmoT3
   availableFaction: [ BrotherhoodOfSteel ]
 
@@ -442,18 +401,6 @@
   availableFaction: [ Enclave ]
 
 - type: latheRecipe
-  parent: MisfitsBPNCR40mmPulse
-  id: MisfitsBPEnclave40mmPulse
-  category: N14BlueprintEnclaveAmmo
-  availableFaction: [ Enclave ]
-
-- type: latheRecipe
-  parent: MisfitsBPNCR40mmPlasma
-  id: MisfitsBPEnclave40mmPlasma
-  category: N14BlueprintEnclaveAmmo
-  availableFaction: [ Enclave ]
-
-- type: latheRecipe
   parent: N14BPNCRAmmo40mmGrenade
   id: MisfitsBPEnclave40mmHE
   category: N14BlueprintEnclaveAmmo
@@ -498,17 +445,5 @@
 - type: latheRecipe
   parent: MisfitsBPNCR40mmIncendiary
   id: MisfitsBPLegion40mmIncendiary
-  category: N14BlueprintLegionAmmoT3
-  availableFaction: [ CaesarLegion ]
-
-- type: latheRecipe
-  parent: MisfitsBPNCR40mmPulse
-  id: MisfitsBPLegion40mmPulse
-  category: N14BlueprintLegionAmmoT3
-  availableFaction: [ CaesarLegion ]
-
-- type: latheRecipe
-  parent: MisfitsBPNCR40mmPlasma
-  id: MisfitsBPLegion40mmPlasma
   category: N14BlueprintLegionAmmoT3
   availableFaction: [ CaesarLegion ]

@@ -463,7 +463,7 @@
   name: deathclaw
   id: N14MobDeathclaw
   parent: N14MobBaseHostileScaley
-  description: Look at those claws.
+  description: Large and powerful ambush predators, they will slice to ribbons anything that moves near their nest.
   components:
   - type: NpcFactionMember #Misfits Add - Deathclaw is its own faction; hostile to everything except other deathclaws
     factions:
@@ -607,7 +607,7 @@
   name: albino deathclaw
   id: N14MobDeathclawAlbino
   parent: N14MobDeathclaw
-  description: Look at those white claws.
+  description: This one looks more dangerous than the average deathclaw, you better have a good plan in mind.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -657,7 +657,7 @@
   name: deathclaw maid
   id: N14MobDeathclawMaid
   parent: N14MobDeathclaw
-  description: They put maid outfit on that thing?!
+  description: This thing likely craves its own death by now, but it'll try to take you with it.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -685,7 +685,7 @@
   name: metal deathclaw
   id: N14MobDeathclawMetal
   parent: N14MobDeathclawAlbino
-  description: They put armor on that thing?!
+  description: A deathclaw wearing modified T-45 Power Armor somehow, you have no idea how or why someone would ever think this was a good idea.
   components:
   - type: Sprite
     drawdepth: Mobs

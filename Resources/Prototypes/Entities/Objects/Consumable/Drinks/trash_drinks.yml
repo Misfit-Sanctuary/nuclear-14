@@ -169,6 +169,8 @@
   parent: DrinkBottleBaseEmpty
   id: DrinkBottleAbsinthe
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.1875" # Match the full absinthe bottle.
   - type: Sprite
     sprite: Objects/Consumable/TrashDrinks/absinthebottle_empty.rsi
 
@@ -196,6 +198,8 @@
   parent: DrinkBottleBaseSmallEmpty
   id: DrinkBottleBeer
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.0625"
   - type: Sprite
     sprite: Objects/Consumable/TrashDrinks/beer_empty.rsi
 
@@ -205,6 +209,8 @@
   parent: DrinkBottleBaseEmpty
   id: DrinkBottleCognac
   components:
+  - type: MolotovConvertible
+    wickOffset: "0,-0.0625" # Match the full cognac bottle.
   - type: Sprite
     sprite: Objects/Consumable/TrashDrinks/cognacbottle_empty.rsi
 

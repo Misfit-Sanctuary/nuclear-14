@@ -1,0 +1,76 @@
+- type: entity
+  name: Tier1 Consumable DrinksNukaCola Single
+  suffix: Tier1
+  id: M14ConsumableTier1Spawner_Single_DrinksNukaCola
+  parent: M14Tier1Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier1_DrinksNukaCola
+- type: entity
+  name: Tier1 Consumable DrinksNukaCola 0-3
+  suffix: Tier1
+  id: M14ConsumableTier1Spawner_Mult0_3_DrinksNukaCola
+  parent: M14Tier1Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier1_DrinksNukaCola
+- type: entity
+  name: Tier1 Consumable DrinksNukaCola 1-2
+  suffix: Tier1
+  id: M14ConsumableTier1Spawner_Mult1_2_DrinksNukaCola
+  parent: M14Tier1Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier1_DrinksNukaCola
+- type: entity
+  name: Tier1 Consumable DrinksNukaColaRadEnvironment Single
+  suffix: Tier1
+  id: M14ConsumableTier1Spawner_Single_DrinksNukaColaRadEnvironment
+  parent: M14Tier1Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:ConstantNumberSelector
+        value: 1
+      tableId: M14ConsumableLootTier1_DrinksNukaColaRadEnvironment
+- type: entity
+  name: Tier1 Consumable DrinksNukaColaRadEnvironment 0-3
+  suffix: Tier1
+  id: M14ConsumableTier1Spawner_Mult0_3_DrinksNukaColaRadEnvironment
+  parent: M14Tier1Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 0
+        max: 3
+      tableId: M14ConsumableLootTier1_DrinksNukaColaRadEnvironment
+- type: entity
+  name: Tier1 Consumable DrinksNukaColaRadEnvironment 1-2
+  suffix: Tier1
+  id: M14ConsumableTier1Spawner_Mult1_2_DrinksNukaColaRadEnvironment
+  parent: M14Tier1Spawner_RefConsumable
+  components:
+  - type: EntityTableSpawner
+    deleteSpawnerAfterSpawn: false
+    table: !type:NestedSelector
+      rolls: !type:IntegerRangeNumberRNGSelector
+        min: 1
+        max: 2
+      tableId: M14ConsumableLootTier1_DrinksNukaColaRadEnvironment

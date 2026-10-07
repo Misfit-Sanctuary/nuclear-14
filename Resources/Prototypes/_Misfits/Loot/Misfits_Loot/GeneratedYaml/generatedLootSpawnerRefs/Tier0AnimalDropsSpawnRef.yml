@@ -1,0 +1,11 @@
+- type: entity
+  abstract: true
+  id: M14Tier0Spawner_RefAnimalDrops
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: mono
+      color: gray
+    - sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+      state: bone_3

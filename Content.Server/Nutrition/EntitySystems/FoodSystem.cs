@@ -76,7 +76,7 @@ public sealed class FoodSystem : EntitySystem
 
         // TODO add InteractNoHandEvent for entities like mice.
         // run after openable for wrapped/peelable foods
-        SubscribeLocalEvent<FoodComponent, UseInHandEvent>(OnUseFoodInHand, after: [ typeof(OpenableSystem), typeof(ServerInventorySystem), ]);
+        SubscribeLocalEvent<FoodComponent, UseInHandEvent>(OnUseFoodInHand, after: [typeof(OpenableSystem), typeof(ServerInventorySystem),]);
         SubscribeLocalEvent<FoodComponent, AfterInteractEvent>(OnFeedFood);
         SubscribeLocalEvent<FoodComponent, GetVerbsEvent<AlternativeVerb>>(AddEatVerb);
         SubscribeLocalEvent<FoodComponent, ConsumeDoAfterEvent>(OnDoAfter);
@@ -363,10 +363,13 @@ public sealed class FoodSystem : EntitySystem
         if (TryComp<StackComponent>(entity, out var stack))
         {
             //Not deleting whole stack piece will make troubles with grinding object
-            if (stack.Count > 1)
+            // Misfit Fix: was >, transfered only half of solution on last stack
+            if (stack.Count >= 1)
             {
                 _stack.SetCount(entity.Owner, stack.Count - 1);
-                _solutionContainer.TryAddSolution(soln.Value, split);
+                // Misfit Fix:(typo) _solutionContainer.TryAddSolution(soln.Value, split);
+                _stomach.TryTransferSolution(stomachToUse.Owner, split, stomachToUse);
+
                 return;
             }
         }

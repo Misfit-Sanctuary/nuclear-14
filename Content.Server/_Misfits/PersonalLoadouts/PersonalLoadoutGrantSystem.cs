@@ -71,7 +71,12 @@ public sealed class PersonalLoadoutGrantSystem : EntitySystem
         foreach (var (uid, slot) in toggleable.ClothingUids)
         {
             if (slot == "head" && TryComp<ClothingComponent>(uid, out var helmetClothing))
+            {
                 _clothing.SetSprite(uid, skin.HelmetSprite, helmetClothing);
+
+                if (skin.HelmetClothingVisuals != null)
+                    _clothing.SetClothingVisuals(uid, skin.HelmetClothingVisuals, helmetClothing);
+            }
         }
     }
 

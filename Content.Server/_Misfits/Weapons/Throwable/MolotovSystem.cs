@@ -59,6 +59,7 @@ public sealed class MolotovSystem : EntitySystem
         args.Handled = true;
         var molotov = AddComp<MolotovComponent>(ent);
         molotov.Solution = ent.Comp.Solution;
+        molotov.WickOffset = ent.Comp.WickOffset;
         // MolotovSystem owns impact spilling once the wick has been fitted.
         RemComp<DamageOnLandComponent>(ent);
         RemComp<DestructibleComponent>(ent);
@@ -133,9 +134,11 @@ public sealed class MolotovSystem : EntitySystem
             _puddle.TrySplashSpillAt(ent.Owner, coordinates, spilled, out _, user: user);
         }
 
-        // Play at the impact coordinates instead of attaching the audio to the bottle.
-        // The bottle is deleted at the end of this method, which would stop entity-bound audio.
-        _audio.PlayPvs(ent.Comp.BreakSound, coordinates);
+        // Unlit bottles only make an ordinary glass-breaking noise. The custom Molotov impact
+        // sound is reserved for an ignited wick so throwing an unlit bottle cannot sound fiery.
+        // Play at the coordinates because deleting the bottle would stop entity-bound audio.
+        var impactSound = ent.Comp.Ignited ? ent.Comp.BreakSound : ent.Comp.UnlitBreakSound;
+        _audio.PlayPvs(impactSound, coordinates);
 
         if (ent.Comp.Ignited && flammableVolume >= ent.Comp.MinimumFuel)
         {

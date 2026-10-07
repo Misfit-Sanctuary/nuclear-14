@@ -1,0 +1,76 @@
+﻿# Copied vanilla structure for dried leaves and powder
+# We got our separate N14Flora... logic for non-dry leaves. Currently omitted, not gonna fuck with ID collisions for now
+# The only thing different seems to be presence of THC reagent when you grind leaves.
+# Currently no THC in normal leaves and Yes THC in dried leaves (inheritance from vanilla)
+
+
+- type: entity
+  name: dried cannabis leaves
+  parent: LeavesCannabisDried
+  id: N14LeavesCannabisDried
+  components:
+    - type: Stack
+      stackType: N14LeavesCannabisDried
+      count: 1
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Consumable/Smokeables/smokeables.rsi
+      state: cannabis_dried
+   
+
+# Copied full vanilla code just so my sprite wasn't black
+- type: entity
+  name: ground cannabis
+  parent: BaseItem
+  id: N14GroundCannabis
+  description: "Ground cannabis, ready to take you on a trip."
+  components:
+    - type: Stack
+      stackType: N14GroundCannabis
+      count: 1
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          reagents:
+            - ReagentId: THC
+              Quantity: 20
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Consumable/Smokeables/smokeables.rsi
+      state: cannabis_powderpile
+    - type: Construction # Keep Construction component and graph=entityID so it was recognized in crafting
+      graph: N14GroundCannabis
+      node: ground
+    - type: Tag
+      tags:
+        - Smokable
+    - type: Item
+      size: Tiny
+      
+
+- type: entity
+  name: dried tobacco leaves
+  parent: LeavesTobaccoDried
+  id: N14LeavesTobaccoDried
+  components:
+    - type: Stack
+      stackType: N14LeavesTobaccoDried
+      count: 1
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Consumable/Smokeables/smokeables.rsi
+      state: tobacco_dried_1
+   
+
+- type: entity
+  name: ground tobacco
+  parent: GroundTobacco
+  id: N14GroundTobacco
+  components:
+    - type: Stack
+      stackType: N14GroundTobacco
+      count: 1
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Consumable/Smokeables/smokeables.rsi
+      state: tobacco_powderpile
+    - type: Construction # Keep Construction component and graph=entityID so it was recognized in crafting
+      graph: N14GroundTobacco
+      node: ground
+    

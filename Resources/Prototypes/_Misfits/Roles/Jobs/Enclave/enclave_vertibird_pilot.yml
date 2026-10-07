@@ -17,9 +17,9 @@
       species:
       - Human
       - Ghoul
-    - !type:CharacterDepartmentTimeRequirement # T5 faction timelock (16h Enclave)
+    - !type:CharacterDepartmentTimeRequirement # junior-officer-equivalent faction timelock
       department: Enclave
-      min: 288000 # 80 hours
+      min: 43200 # 12 hours
   startingGear: EnclaveVertibirdPilotGear
   icon: "JobIconEnclaveJuniorOfficer"
   supervisors: job-supervisors-enclave-vertibird-pilot

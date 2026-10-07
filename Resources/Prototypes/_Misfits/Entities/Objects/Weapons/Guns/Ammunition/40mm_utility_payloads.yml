@@ -7,8 +7,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
-    # Inherit 12-gauge pellet damage (currently 10 Piercing) and its falloff.
-    # Twenty hits can total 200 raw damage before armor and distance reductions.
+    # Keep the twenty-pellet identity without allowing a point-blank hit to deal
+    # the previous 200 raw damage. All twenty hits now total 80 before mitigation.
+    damage:
+      types:
+        Piercing: 4
     deleteOnCollide: true
 
 - type: entity

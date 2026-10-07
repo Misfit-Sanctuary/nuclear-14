@@ -1,2 +1,2 @@
 ent-N14ClothingOuterCoatFollowersArmored = Followers Armored Labcoat
-    .desc = A vest used by the followers. It has a bulletproof vest underneath.
+    .desc = A labcoat used by the Followers of the Apocalypse. It has a bulletproof vest underneath for working in dangerous environments.

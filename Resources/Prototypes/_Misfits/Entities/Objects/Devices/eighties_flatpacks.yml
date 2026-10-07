@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseFlatpack
   id: MisfitsEightiesGreenMotorbikeFlatpack
-  name: green motorbike flatpack
-  description: A flatpack used by the Eighties to unpack a green motorbike.
+  name: harley motorbike flatpack
+  description: This flatpack has a Harley Motorbike inside, ready to be unpacked.
   components:
   - type: Flatpack
     entity: N14VehicleBikeGreen
@@ -22,8 +22,8 @@
 - type: entity
   parent: BaseFlatpack
   id: MisfitsEightiesFlameyMotorbikeFlatpack
-  name: flamey motorbike flatpack
-  description: A flatpack used by the Eighties to unpack a flamey motorbike.
+  name: chopper motorbike flatpack
+  description: This flatpack has a Chopper Motorbike inside, ready to be unpacked.
   components:
   - type: Flatpack
     entity: N14VehicleBikeFlamey
@@ -43,8 +43,8 @@
 - type: entity
   parent: BaseFlatpack
   id: MisfitsEightiesRustyMotorbikeFlatpack
-  name: rusty motorbike flatpack
-  description: A flatpack used by the Eighties to unpack a rusty motorbike.
+  name: rustbird motorbike flatpack
+  description: This flatpack has a Rustbird Motorbike inside, ready to be unpacked.
   components:
   - type: Flatpack
     entity: N14VehicleBikeRustLight
@@ -64,8 +64,8 @@
 - type: entity
   parent: BaseFlatpack
   id: MisfitsEightiesScramblerMotorbikeFlatpack
-  name: scrambler motorbike flatpack
-  description: A flatpack used by the Eighties to unpack a scrambler motorbike.
+  name: scrambler dirt bike flatpack
+  description: This flatpack has a Scrambler Dirt Bike inside, ready to be unpacked.
   components:
   - type: Flatpack
     entity: N14VehicleBikeScrambler
@@ -85,8 +85,8 @@
 - type: entity
   parent: BaseFlatpack
   id: MisfitsEightiesClassicMotorbikeFlatpack
-  name: classic motorbike flatpack
-  description: A flatpack used by the Eighties to unpack a classic motorbike.
+  name: thunderbird motorbike flatpack
+  description: This flatpack has a Thunderbird Motorbike inside, ready to be unpacked.
   components:
   - type: Flatpack
     entity: N14VehicleBikeClassic

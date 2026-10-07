@@ -29,10 +29,29 @@ public sealed partial class EmpReactionEffect : EntityEffect
     public float EnergyConsumption = 12500;
 
     /// <summary>
+    ///     Optional battery-drain energy per reaction unit. When configured, this replaces the
+    ///     fixed <see cref="EnergyConsumption"/> value and lets larger reactions create stronger EMPs.
+    /// </summary>
+    [DataField]
+    public float? EnergyConsumptionPerUnit;
+
+    /// <summary>Maximum energy produced by a quantity-scaled reaction.</summary>
+    [DataField]
+    public float? MaxEnergyConsumption;
+
+    /// <summary>
     ///     Amount of time entities will be disabled
     /// </summary>
     [DataField("duration")]
     public float DisableDuration = 15;
+
+    /// <summary>Optional disable duration contributed by each reaction unit.</summary>
+    [DataField]
+    public float? DisableDurationPerUnit;
+
+    /// <summary>Maximum disable duration produced by a quantity-scaled reaction.</summary>
+    [DataField]
+    public float? MaxDisableDuration;
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
             => Loc.GetString("reagent-effect-guidebook-emp-reaction-effect", ("chance", Probability));
@@ -42,17 +61,23 @@ public sealed partial class EmpReactionEffect : EntityEffect
         var tSys = args.EntityManager.System<TransformSystem>();
         var transform = args.EntityManager.GetComponent<TransformComponent>(args.TargetEntity);
 
-        var range = EmpRangePerUnit;
+        var quantity = 1f;
 
         if (args is EntityEffectReagentArgs reagentArgs)
-        {
-            range = MathF.Min((float) (reagentArgs.Quantity * EmpRangePerUnit), EmpMaxRange);
-        }
+            quantity = (float) reagentArgs.Quantity;
+
+        var range = MathF.Min(quantity * EmpRangePerUnit, EmpMaxRange);
+        var energyConsumption = EnergyConsumptionPerUnit is { } energyPerUnit
+            ? MathF.Min(quantity * energyPerUnit, MaxEnergyConsumption ?? float.PositiveInfinity)
+            : EnergyConsumption;
+        var disableDuration = DisableDurationPerUnit is { } durationPerUnit
+            ? MathF.Min(quantity * durationPerUnit, MaxDisableDuration ?? float.PositiveInfinity)
+            : DisableDuration;
 
         args.EntityManager.System<EmpSystem>()
             .EmpPulse(tSys.GetMapCoordinates(args.TargetEntity, xform: transform),
             range,
-            EnergyConsumption,
-            DisableDuration);
+            energyConsumption,
+            disableDuration);
     }
 }

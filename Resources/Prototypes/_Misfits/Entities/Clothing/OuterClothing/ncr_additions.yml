@@ -110,3 +110,67 @@
     priceMultiplier: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.70
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitsClothingOuterNCRMedicCombatArmor
+  name: NCR medic combat armor
+  description: Pre-war combat armor repainted to NCR colors and marked with red cross emblems for the Republic's medical corps. Sturdy enough to keep field medics alive while they drag the wounded back behind the line.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_mediccombatarmor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_mediccombatarmor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.70
+    priceMultiplier: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.80
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitsClothingOuterNCRMedicLabCoat
+  name: NCR medic lab coat
+  description: A white NCR-issue lab coat worn over a light ballistic vest. It shrugs off scrapes and secondhand explosions, but a medic's real protection is the steady hands they bring to the wounded.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_mediclabcoat.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_mediclabcoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
+        Heat: 0.80
+    priceMultiplier: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.85
+  - type: Storage
+    grid:
+    - 0,0,2,1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface

@@ -408,11 +408,11 @@
 
 # The Blue Line caravan's humanoid NPCs for event making and such.
 - type: entity
-  name: Caravan Mercenary
+  name: Blue Line Caravan Mercenary
   parent: N14BaseMobRaider
   id: N14MobNPCCaravanMerc
   suffix: NPC
-  description: A man hired to stand guard and ensure the safety of the Blue Line station. Surely he won't do anything else, right?
+  description: A man hired to stand guard and ensure the safety of the Blue Line Caravan Company's interests. Paid well enough to shoot first, ask questions later, and not risk losing his contract.
   components:
     - type: NpcFactionMember
       friendlyOrderable: true

@@ -2,7 +2,7 @@
   parent: N14IDCard
   id: MisfitsEightiesIDCard
   name: 80's ID card
-  description: Some keys used by a member of the 80's.
+  description: You haven't been trusted with a vehicle just yet, so you've been given some old house key on a chain instead. A name has been roughly scratched along the side.
   components:
   - type: Sprite
     sprite: _Misfits/Objects/Identification.rsi
@@ -13,6 +13,7 @@
 - type: entity
   parent: MisfitsEightiesIDCard
   id: MisfitsEightiesIDCardCylinders
+  description: The keys to a beauty of a motorcycle in the death races back at the sacred race track, where the winners hope to catch the Flagman's eye. A name has been engraved along the side.
   components:
   - type: PresetIdCard
     job: EightiesCylinders
@@ -20,6 +21,7 @@
 - type: entity
   parent: MisfitsEightiesIDCard
   id: MisfitsEightiesIDCardPistons
+  description: The keys to one of the hundreds of cars and trucks outfitted for war back home, used to awaken the soul of your beast as you ride to glory on burning wings. A name has been engraved along the side.
   components:
   - type: PresetIdCard
     job: EightiesPistons
@@ -27,6 +29,7 @@
 - type: entity
   parent: MisfitsEightiesIDCard
   id: MisfitsEightiesIDCardOilers
+  description: A well polished truck key on a chain, used by convoy drivers like you to ferry precious fuel, scrap, and spare parts between raid camps and salvage sites. A name has been engraved along the side.
   components:
   - type: PresetIdCard
     job: EightiesOilers
@@ -35,7 +38,7 @@
   parent: N14IDCard
   id: MisfitsEightiesIDCardHead
   name: 80's head ID card
-  description: The Block's keys.
+  description: The keys to a bonafide death machine, used to race for the glory of the Flagman back at the sacred race track. A name has been engraved along the side.
   components:
   - type: Sprite
     sprite: _Misfits/Objects/Identification.rsi

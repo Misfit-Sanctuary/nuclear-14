@@ -467,9 +467,15 @@ public static class UndergroundThemeProfiles
             FocusedMobTheme("Feral Ghoul Infestation", "Feral", ExpeditionMobFamily.Ghoul, 22,
                 ("N14MobGhoulFeral", 50), ("N14MobGhoulFeralRotter", 32), ("N14MobGhoulFeralReaver", 18)),
             FocusedMobTheme("Hostile Vault Security", "HostileRobot", ExpeditionMobFamily.Robot, 20,
-                ("N14MobRobotProtectronHostile", 38), ("N14MobRobotProtectronPoliceHostile", 25),
-                ("N14MobRobotProtectronFireHostile", 17), ("N14MobRobotAssaultronHostile", 11),
-                ("N14MobRobotSecuritronGrayRustedHostile", 9)),
+                // Keep Protectrons as the common maintenance/security mass,
+                // then add mobile melee, ranged, and military chassis so a
+                // Sentry finale belongs to a real robot-security dungeon.
+                ("N14MobRobotProtectronHostile", 25), ("N14MobRobotProtectronPoliceHostile", 16),
+                ("N14MobRobotProtectronFireHostile", 10), ("N14MobRobotAssaultronHostile", 10),
+                ("N14MobRobotSecuritronGrayRustedHostile", 6),
+                ("N14MobRobotMrHandyClaw", 8), ("N14MobRobotMrHandySaw", 5),
+                ("N14MobRobotMrHandyGun", 6), ("N14MobRobotMrHandyGutsy", 7),
+                ("N14MobRobotRobobrain", 7)),
             FocusedMobTheme("Super Mutant Occupation", "SuperMutant", ExpeditionMobFamily.SuperMutant, 20,
                 ("N14MobSuperMutantNPC", 24), ("N14MobSuperMutantMelee", 22),
                 ("N14MobSuperMutantRanged", 17), ("N14MobCentaur", 18),
@@ -606,8 +612,11 @@ public static class UndergroundThemeProfiles
 
         LightConfig = new LightConfig
         {
-            LightEntity  = "N14TorchWall",
-            Style        = LightStyle.WallMounted,
+            // Floor torches are non-colliding, place safely in a room, and make
+            // degraded sewer spaces readable without pretending every tunnel
+            // still has a powered pre-war wall fixture.
+            LightEntity  = "N14Torch",
+            Style        = LightStyle.GroundPost,
             DefaultCount = 1,
             CountPerRoomType = new Dictionary<RoomType, int>
             {

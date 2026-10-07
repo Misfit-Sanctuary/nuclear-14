@@ -24,6 +24,26 @@
     - id: TribalLegendaryArmorHeadBlueprint
 
 - type: entity
+  id: MisfitsCrateAluminiumBlueprintsTown
+  suffix: Filled, Blueprints, Town
+  parent: N14CrateAluminium
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14BlueprintTownAmmoT4
+    - id: N14BlueprintTownAmmoT3
+    - id: N14BlueprintTownAmmoT2
+    - id: N14BlueprintTownAmmoT1
+    - id: N14BlueprintTownWeaponsT4
+    - id: N14BlueprintTownWeaponsT3
+    - id: N14BlueprintTownWeaponsT2
+    - id: N14BlueprintTownWeaponsT1
+    - id: N14BlueprintTownArmorT4
+    - id: N14BlueprintTownArmorT3
+    - id: N14BlueprintTownArmorT2
+    - id: N14BlueprintTownArmorT1
+
+- type: entity
   id: MisfitsCrateAluminiumBlueprints80s
   suffix: Filled, Blueprints, 80s
   parent: N14CrateAluminium
@@ -31,8 +51,20 @@
   - type: StorageFill
     contents:
     - id: MisfitsBlueprintMotorbikeAssemblyManual
-    - id: MisfitsBlueprintEightiesOrdnance # #Misfits Add - faction council improvised ordnance production
-
+    - id: MisfitsBlueprintEightiesOrdnance
+    - id: N14BlueprintEightiesAmmoT4
+    - id: N14BlueprintEightiesAmmoT3
+    - id: N14BlueprintEightiesAmmoT2
+    - id: N14BlueprintEightiesAmmoT1
+    - id: N14BlueprintEightiesWeaponsT5
+    - id: N14BlueprintEightiesWeaponsT4
+    - id: N14BlueprintEightiesWeaponsT3
+    - id: N14BlueprintEightiesWeaponsT2
+    - id: N14BlueprintEightiesWeaponsT1
+    - id: N14BlueprintEightiesArmorT4
+    - id: N14BlueprintEightiesArmorT3
+    - id: N14BlueprintEightiesArmorT2
+    - id: N14BlueprintEightiesArmorT1
 
 - type: entity
   id: MisfitsCrateAluminiumBlueprintsEnclave

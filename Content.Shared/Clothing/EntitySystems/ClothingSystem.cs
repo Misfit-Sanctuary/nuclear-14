@@ -287,6 +287,22 @@ public abstract class ClothingSystem : EntitySystem
         Dirty(uid, clothing);
     }
 
+    /// <summary>
+    /// Replaces an item's equipped clothing visuals without changing its mechanics.
+    /// </summary>
+    public void SetClothingVisuals(
+        EntityUid uid,
+        Dictionary<string, List<PrototypeLayerData>> clothingVisuals,
+        ClothingComponent? clothing = null)
+    {
+        if (!Resolve(uid, ref clothing, false))
+            return;
+
+        clothing.ClothingVisuals = clothingVisuals;
+        _itemSys.VisualsChanged(uid);
+        Dirty(uid, clothing);
+    }
+
     public void SetSlots(EntityUid uid, SlotFlags slots, ClothingComponent? clothing = null)
     {
         if (!Resolve(uid, ref clothing))

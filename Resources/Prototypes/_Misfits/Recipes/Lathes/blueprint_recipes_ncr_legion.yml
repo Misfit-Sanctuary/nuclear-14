@@ -945,6 +945,21 @@
 
     Leather: 120
 
+# #Misfits Add - NCR medic combat armor blueprint
+- type: latheRecipe
+  id: MisfitsBPNCRArmorMedicCombatArmor
+  result: MisfitsClothingOuterNCRMedicCombatArmor
+  category: N14BlueprintNCRArmorT3
+  completetime: 15
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 6000
+    Cloth: 1000
+    Thread: 150
+    Leather: 120
+
 
 - type: latheRecipe
   id: N14BPNCRArmorRangerVest
@@ -2053,6 +2068,19 @@
     Wood: 1500
     N14Iron: 500
 
+- type: latheRecipe
+  id: N14BPLegionWeaponSniperPaciencia
+  result: N14WeaponSniperPaciencia
+  category: N14BlueprintLegionWeaponsT2
+  completetime: 9
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 4000
+    Wood: 2500
+    N14Iron: 500
+
 # --- Legion Tier 3 Weapons (Veteran grade) ---
 - type: latheRecipe
   id: N14BPLegionWeaponCeremonialSword
@@ -2786,6 +2814,21 @@
     Lead: 45
     N14Brass: 35
     N14Gunpowder: 35
+
+- type: latheRecipe
+  id: MisfitsBPLegionSuicideVest
+  result: MisfitsSuicideVest
+  category: N14BlueprintLegionAmmoT2
+  completetime: 12
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Cloth: 100
+    Leather: 100
+    N14Gunpowder: 500
+    Steel: 200
 
 # --- Legion Tier 3 Ammo ---
 - type: latheRecipe
