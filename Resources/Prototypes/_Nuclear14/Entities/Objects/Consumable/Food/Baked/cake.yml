@@ -292,49 +292,6 @@
 # Tastes like sweetness, cake, lemons.
 
 - type: entity
-  name: chocolate cake
-  parent: N14CookedFoodCakeBase
-  id: N14CookedFoodCakeChocolate
-  description: A cake with added chocolate.
-  components:
-  - type: Sprite
-    state: chocolate
-  - type: SliceableFood
-    slice: N14CookedFoodCakeChocolateSlice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 20
-        - ReagentId: Theobromine
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 5
-
-- type: entity
-  name: slice of chocolate cake
-  parent: N14CookedFoodCakeSliceBase
-  id: N14CookedFoodCakeChocolateSlice
-  description: All for you... #N14 change
-  components:
-  - type: Sprite
-    state: chocolate-slice
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 8
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Theobromine
-          Quantity: 1
-        - ReagentId: Vitamin
-          Quantity: 1
-# Tastes like sweetness, cake, chocolate.
-
-- type: entity
   name: mutfruit cake #N14 change
   parent: N14CookedFoodCakeBase
   id: N14CookedFoodCakeMutfruit
