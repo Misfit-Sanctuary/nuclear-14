@@ -463,27 +463,6 @@
           Quantity: 5
 
 - type: entity
-  name: stick of cannabis butter
-  parent: N14FoodBakingBase
-  id: N14FoodCannabisButter
-  description: Add this to your favorite baked goods for an irie time.
-  components:
-  - type: Sprite
-    state: butter
-    color: "#82C36E"
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 100
-        reagents:
-        - ReagentId: Butter
-          Quantity: 10
-        - ReagentId: THC
-          Quantity: 82
-  - type: Extractable
-    grindableSolutionName: food
-
-- type: entity
   name: cheese wheel
   parent: N14FoodBakingBase
   id: N14FoodCheese
