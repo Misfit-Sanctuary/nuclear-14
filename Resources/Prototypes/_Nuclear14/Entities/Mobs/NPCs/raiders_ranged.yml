@@ -164,7 +164,7 @@
   name: Psycho Raider Hunter
   parent: N14BaseMobRaider
   id: N14MobRaiderHunter
-  description: Psychopatic raider armed with a long rifle. Dangerous at a distance.
+  description: Psychopatic raider armed with a long pipe rifle. Dangerous at a distance.
   components:
     - type: Gun
       minAngle: 4.5
@@ -183,7 +183,7 @@
       capacity: 1
       count: 1
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 1
+      rechargeCooldown: 2
       rechargeSound:
         path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
     - type: Loadout
@@ -248,16 +248,20 @@
   description: Psychopatic raider armed with a scattergun. Deadly at close range.
   components:
     - type: Gun
-      minAngle: 34.5
-      maxAngle: 104
+      minAngle: 35
+      maxAngle: 105
       angleIncrease: 8
       angleDecay: 16
+      shotsPerBurst: 2
+      burstCooldown: 5
+      burstFireRate: 6
       fireRate: 0.75
-      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Shotguns/N14WeaponDoubleBarrelShotgun/shot1.ogg
+      soundGunshot:
+        collection: N14DoubleBarrelShotgunGunshot
       useKey: false
-      selectedMode: SemiAuto
+      selectedMode: Burst
       availableModes:
-        - SemiAuto
+        - Burst
     - type: CombatMode
     - type: BasicEntityAmmoProvider
       proto: N14ShellShotgun20
@@ -572,23 +576,25 @@
   description: Nothing more than a raider in fancy clothes, wielding a 9mm SMG.
   components:
     - type: Gun
-      minAngle: 1.5
-      maxAngle: 13.5
-      angleIncrease: 16
+      minAngle: 8
+      maxAngle: 24
+      angleIncrease: 4
       angleDecay: 16
-      fireRate: 2
+      shotsPerBurst: 3
+      burstCooldown: 1.5
+      burstFireRate: 4.3
+      fireRate: 4.3
       soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Pistols/N14WeaponPistol9mm/shot1.ogg
       useKey: false
-      selectedMode: FullAuto
+      selectedMode: Burst
       availableModes:
-        - FullAuto
+      - Burst
     - type: CombatMode
     - type: BasicEntityAmmoProvider
       proto: N14CartridgePistol9
-      capacity: 30
-      count: 30
+      capacity: 31
+      count: 31
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 2
       rechargeSound:
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/SMGs/smg_magin.ogg
     - type: Loadout
