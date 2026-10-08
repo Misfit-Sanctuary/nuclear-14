@@ -25,10 +25,10 @@
   id: N14GunCombatCompound
   branches:
     - tasks:
-        #- !type:HTNPrimitiveTask
-          #operator: !type:JukeOperator
-            #jukeType: Away
-            #retreatDistance: 2.5
+        - !type:HTNPrimitiveTask
+          operator: !type:JukeOperator
+            jukeType: Away
+            retreatDistance: 0.5
 
         - !type:HTNPrimitiveTask
           operator: !type:UtilityOperator
@@ -60,10 +60,10 @@
   id: N14OrderedGunCombatCompound
   branches:
     - tasks:
-        #- !type:HTNPrimitiveTask
-          #operator: !type:JukeOperator
-            #jukeType: Away
-            #retreatDistance: 2.5
+        - !type:HTNPrimitiveTask
+          operator: !type:JukeOperator
+            jukeType: Away
+            retreatDistance: 0.5
 
         - !type:HTNPrimitiveTask
           operator: !type:UtilityOperator
