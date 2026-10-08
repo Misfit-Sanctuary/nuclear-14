@@ -108,6 +108,7 @@
     recipes:
     - N14BPNCRWeaponSniper50NCR
     - N14BPNCRWeaponLMGAutoRifle
+    - N14BPNCRWeaponRifleM7Spear
     - N14BPNCRWeaponLMG
     - N14BPNCRWeaponSMG12mmAdvanced
     - N14BPNCRWeaponMinigun
@@ -246,6 +247,8 @@
     recipes:
     - N14BPNCRAmmoBox762
     - N14BPNCRAmmoBox308
+    - N14BPNCRAmmoBox68
+    - N14BPNCRAmmoMag68Rifle
     - N14BPNCRAmmoBox127
     - N14BPNCRAmmoBox44Magnum
     - N14BPNCRAmmoMag762Rifle
@@ -1074,6 +1077,7 @@
     - N14BPVaultArmorHelmetMarine
     - M14BPVaultPaintCombatHelmet
     - N14BPVaultArmorScoutSuit
+    - M14BPVaultNVG
 
 # --- Vault Ammo ---
 - type: entity
@@ -1146,15 +1150,14 @@
     - N14BPTribeWeaponTribalClub
     - N14BPTribeWeaponWastelandSpear
     - N14BPTribeWeaponRevolver44Tribal
-    - N14BPTribeWeaponBrokenPipe
+    #- N14BPTribeWeaponBrokenPipe
     - N14BPTribeWeaponLoveandHate
     # #Misfits Add - mediocre scavenged kinetic guns (T1)
-    - N14BPTribeWeaponPistol9mmChinese
+    #- N14BPTribeWeaponPistol9mmChinese
     - N14BPTribeWeaponPistol12mm
     - N14BPTribeWeaponShotgunSawedOff
-    - N14BPTribeWeaponSniperCowboyRepeater
-    - N14BPTribeWeaponRevolver357Detective
-
+    #- N14BPTribeWeaponSniperCowboyRepeater
+    #- N14BPTribeWeaponRevolver357Detective
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeWeaponsT2
@@ -1170,11 +1173,11 @@
     - N14BPTribeWeaponPistol10mmPipe
     - N14BPTribeWeaponShotgunPipe
     # #Misfits Add - mediocre scavenged kinetic guns (T2)
-    - N14BPTribeWeaponSMGPPSh41
-    - N14BPTribeWeaponRifle10mmM1Carbine
-    - N14BPTribeWeaponSniper308Ross
+    #- N14BPTribeWeaponSMGPPSh41
+    #- N14BPTribeWeaponRifle10mmM1Carbine
+    #- N14BPTribeWeaponSniper308Ross
     - N14BPTribeWeaponSniper44LeverShortCarbine
-
+    - N14BPTribeWeaponPistolColt45
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeWeaponsT3
@@ -1189,7 +1192,12 @@
     - N14BPTribeWeaponTribalSpear
     - N14BPTribeWeaponSMG12mmPipe
     - N14BPTribeWeaponRifle556Pipe
-
+    - N14BPTribeWeaponSMGGreasegun
+    - N14BPTribeWeaponAutoRifle556Tribal
+    - N14BPTribeWeaponSniper308Tribal
+    - N14BPTribeWeaponSniper308TribalUpgraded
+    - N14BPTribeWeaponSniper556Tribal
+    - N14BPTribeWeaponSniper556TribalUpgraded
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeWeaponsT4
@@ -1203,7 +1211,6 @@
     - N14BPTribeWeaponPolearm
     - N14BPTribeWeaponSniper50Pipe
     - N14BPTribeWeaponSuperSledgeHammer
-
 # --- Tribe Armor ---
 - type: entity
   parent: N14BlueprintBase
@@ -1215,7 +1222,6 @@
     recipes:
     - N14BPTribeArmorHelmetRadstagSkull
     - N14BPTribeArmorHelmetTribalShamanHat
-
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeArmorT2
@@ -1239,7 +1245,6 @@
     - N14BPTribeArmorHelmetTribalShamanHeadband
     - N14BPTribeArmorHelmetHeadtakerwraps
     - MisfitsBPTribeArmorHelmetHelmetOfPeace
-
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeArmorT3
@@ -1249,9 +1254,10 @@
   - type: Blueprint
     recipes:
     - N14BPTribeArmorTribalArmorHeavy
-    - N14BPTribeArmorCombatTribal
+    #- N14BPTribeArmorCombatTribal
     - MisfitsBPTribeArmorHelmetRadstagSkull
-
+    - N14BPClothingOuterTribeCombatArmor 
+    - N14BPTribeClothingHeadHatCombatHelmet
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeArmorT4
@@ -1263,7 +1269,8 @@
     - N14BPTribeArmorRadArmor
     - N14BPTribeArmorInsectArmor
     - N14BPTribeArmorHelmetEdlerSkullhelm
-
+    - N14BPClothingOuterTribeCombatArmorMk2
+    - N14BPTribeClothingHeadHatCombatHelmetMK2
 # --- Tribe Ammo ---
 - type: entity
   parent: N14BlueprintBase
@@ -1282,7 +1289,6 @@
     - N14BPTribeAmmoMagPistol12mm
     - N14BPTribeAmmoBox357
     - N14BPTribeAmmoSpeedLoader357
-
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeAmmoT2
@@ -1296,7 +1302,6 @@
     - N14BPTribeAmmoMag10mmPipe
     # #Misfits Add - ammo for T2 mediocre guns (9mm drum; .308 box already at T3)
     - N14BPTribeAmmoMag9mmSMGDrum
-
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeAmmoT3
@@ -1308,9 +1313,8 @@
     - N14BPTribeAmmoBox127
     - N14BPTribeAmmoBox308
     - N14BPTribeAmmoSpeedLoader45-70
-    - MisfitsBPTribeGrenadeTin # #Misfits Add - Willower faction-council improvised explosives
-    - MisfitsBPTribeDynamite
-
+    # - MisfitsBPTribeGrenadeTin # #Misfits Add - Willower faction-council improvised explosives
+    # - MisfitsBPTribeDynamite
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeAmmoT4

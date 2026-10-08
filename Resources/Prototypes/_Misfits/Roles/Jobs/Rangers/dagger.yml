@@ -1,0 +1,53 @@
+# #Misfits Add - DAGGER: whitelist-only Ranger liaison assigned between the Rangers and NCR High Command.
+
+- type: job
+  id: NCRDagger
+  setPreference: true
+  whitelisted: true
+  hideWithoutJobWhitelist: true
+  jobWhitelistBypassesRoleTimers: true
+  alwaysUseSpawner: true
+  weight: 16
+  showBorder: true
+  canBeAntag: false
+  name: job-name-ncr-dagger
+  overwatchCategory: OverwatchNcrRangers
+  description: job-description-ncr-dagger
+  playTimeTracker: NCRDagger
+  startingGear: NCRDaggerGear
+  icon: "JobIconHeadOfSecurity"
+  supervisors: job-supervisors-ncr-dagger
+  requireAdminNotify: true
+  hideIfPlaytimeRequirementsNotMet: false
+  accessGroups:
+  - NCRRanger
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+      - Ghoul
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Rangers
+
+- type: startingGear
+  id: NCRDaggerGear
+  equipment:
+    wallet: N14Wallet
+    head: N14ClothingHeadHatRangerHelmetPrice
+    neck: N14ClothingNeckHighlandRangerDuster
+    mask: ClothingMaskGasRangerModif
+    outerClothing: N14ClothingOuterCanOpenerVetRangerRiotArmor
+    gloves: N14ClothingHandsGlovesCombat
+    shoes: MisfitsMilitarySteelTippedBoots
+    ears: MisfitsClothingHeadsetNCRRanger
+    back: N14WeaponRifleM7SpearScope
+    jumpsuit: N14ClothingUniformRangerVeteran
+    id: MisfitsIDBadgeNCRDagger
+  innerClothingSkirt: N14ClothingUniformRangerVeteran
+
+- type: playTimeTracker
+  id: NCRDagger

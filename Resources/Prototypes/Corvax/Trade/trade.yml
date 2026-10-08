@@ -806,6 +806,12 @@
     price: 5
   - proto: N14FloraWildXanderRootClippingSeed
     price: 5
+  - proto: CocoaSeeds
+    price: 5
+  - proto: RiceSeeds
+    price: 5
+  - proto: SugarcaneSeeds
+    price: 5
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Currency # IF YOU CHANGE ONE EXCHANGE RATE, YOU MUST CHANGE ALL OTHERS ACROSS ALL FOUR FILES TO MATCH, OR YOU WILL CREATE AN INFINITE MONEY GLITCH
@@ -873,6 +879,8 @@
   - CaravanBuy2_Plushies
   - CaravanBuy2_Sprouts
   - CaravanBuy2_Currency
+  - WasterBuy2_Food # if this shouldnt be here give me a 10 page design doc and 13 reasons why
+                    # Waster trade doesnt seem to be mapped in
 
 # ----------------------------
 # caravan_sell2 categories

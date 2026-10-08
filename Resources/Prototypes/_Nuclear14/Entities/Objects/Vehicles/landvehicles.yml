@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseVehicle
   id: N14VehicleBikeGreen
-  name: green motorbike
-  description: A clean green motorbike.
+  name: Harley Motorbike
+  description: Hers is a spirit meant for warfare, a companion that will never betray you. She has seen the world before your time, and she will show it to you now, if you can keep up.
   components:
   - type: Vehicle
   - type: Motorbike
@@ -82,8 +82,8 @@
 - type: entity
   parent: N14VehicleBikeGreen
   id: N14VehicleBikeFlamey
-  name: flamey motorbike
-  description: A motorbike with a flame decal.
+  name: Chopper Motorbike
+  description: Fast as the devil on your heels, this speed demon has a spirit that thirsts to chase down rangers and drag vault security officers behind it, painting the sacred I-80 red.
   components:
   - type: AmbientSound
     sound: "/Audio/_Nuclear14/Effects/motorcycle2.ogg"
@@ -117,8 +117,8 @@
 - type: entity
   parent: N14VehicleBikeGreen
   id: N14VehicleBikeRustLight
-  name: rusty motorbike
-  description: A rusty motorbike.
+  name: Rustbird Motorbike
+  description: She has suffered greatly since the fall of society, left without proper care or maintenance for decades before she was recovered. But she will be safe now, by your side.
   components:
   - type: Sprite
     layers:
@@ -128,8 +128,8 @@
 - type: entity
   parent: N14VehicleBikeGreen
   id: N14VehicleBikeScrambler
-  name: scrambler motorbike
-  description: A scrambler type motorbike.
+  name: Scrambler Dirt Bike
+  description: Rugged and dependable, these motorbikes are unique in that they are made for off-road activity. Often straying from the sacred I-80, some say they lack true souls.
   components:
   - type: Sprite
     layers:
@@ -138,9 +138,10 @@
   - type: Vehicle
     renderOver: None
     overlayPrototype: VehicleBikeScramblerOverlay
-  - type: MovementSpeedModifier
-    acceleration: 0.5 # #Cythisiax Added - Scrambler takes ~4.6s to reach max speed (heavy bike feel)
-    ignoreTileAcceleration: true # Planet tiles otherwise override this with their own acceleration.
+# acceleration seems to be used wrong or is broken. Bike will stay perma slow
+#  - type: MovementSpeedModifier
+#    acceleration: 0.5 # #Cythisiax Added - Scrambler takes ~4.6s to reach max speed (heavy bike feel)
+#    ignoreTileAcceleration: true # Planet tiles otherwise override this with their own acceleration.
 
 - type: entity
   id: VehicleBikeScramblerOverlay
@@ -161,8 +162,8 @@
 - type: entity
   parent: N14VehicleBikeGreen
   id: N14VehicleBikeClassic
-  name: classic motorbike
-  description: A reliable two-wheeler.
+  name: Thunderbird Motorbike
+  description: Reliable as can be, this machine has a powerful spirit made to endure past the apocalypse. She can carry you from coast to coast without any issue.
   components:
   - type: Sprite
     layers:
@@ -172,8 +173,8 @@
 - type: entity
   parent: BaseVehicle
   id: N14VehicleBuggyDune
-  name: dune buggy
-  description: A rugged offroad buggy.
+  name: Locust Buggy
+  description: These unpainted off-road vehicles are a common sight among raiders and recon infantry, slapped together for a quick salvage party or skirmish with an enemy encampment.
   components:
   - type: Vehicle
     renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
@@ -207,8 +208,8 @@
 - type: entity
   parent: N14VehicleBuggyDune
   id: N14VehicleBuggyOlive
-  name: olive buggy
-  description: A green offroad buggy.
+  name: Warthog Buggy
+  description: These forest green off-road vehicles are a popular choice in more rural regions of New California, and the mysterious boglands of the uncharted wasteland, a symbol of self-reliance.
   components:
   - type: Sprite
     layers:
@@ -220,8 +221,8 @@
 - type: entity
   parent: N14VehicleBuggyDune
   id: N14VehicleBuggyRed
-  name: red buggy
-  description: A bright red buggy ready to roll.
+  name: Rust Bucket Buggy
+  description: This rusted off-road vehicle was once a proud road warrior clad in chrome, but it has worn away in the battle against time. Her tires lack pressure, her body creaks, death comes soon.
   components:
   - type: Sprite
     layers:
@@ -233,8 +234,8 @@
 - type: entity
   parent: N14VehicleBuggyDune
   id: N14VehicleBuggyHot
-  name: hot buggy
-  description: A flashy buggy with flame decals.
+  name: Charbone Buggy
+  description: These gold painted off-road vehicles are a rare sight, their beautiful bodywork is valued both among raider tribes and waster road warriors, as everyone knows flames make you go fast.
   components:
   - type: Sprite
     layers:
@@ -262,8 +263,8 @@
 - type: entity
   id: VehicleBuggy
   parent: BaseVehicle
-  name: buggy
-  description: Riding in my car after a beer, hey is that bump shaped like a jetfiend?.
+  name: Wasteland Buggy
+  description: Slapped together with Old World vehicle parts, these off-road vehicles are reliable in the wasteland to both loners and scouts, with a salvaged fusion engine meaning no fuel is needed.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Vehicles/bikesbuggy.rsi
@@ -304,7 +305,7 @@
   parent: [BaseVehicle, BaseItem, BaseFoldable]
   id: N14VehicleWheelchair
   name: wheelchair
-  description: A manually operated wheelchair.
+  description: A valuable piece of medical equipment.
   components:
   - type: Vehicle
     renderOver: North, NorthEast, NorthWest

@@ -54,22 +54,13 @@
   equipment:
     wallet: N14Wallet
     head: N14ClothingHeadHatNCRBeretOfficer
+    ears: MisfitsClothingHeadsetNCRMaster
     back: N14ClothingBackpackNCR
     jumpsuit: N14ClothingOfficerUniformNCRDesert
-    outerClothing: MisfitsNCRCommandArmor
     shoes: N14ClothingBootsCombatFilled
     belt: ClothingBeltNCR
-    eyes: ClothingEyesGlassesSunglasses
-    ears: MisfitsClothingHeadsetNCRMaster
-    pocket1: NCRcaptainloadoutkits
     id: N14NCRCommanderPipboy
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
-  satchel: N14ClothingBackpackSatchelNCRFilled
-  storage:
-    back:
-    - N14BoxPlasticFilledMilitaryNCR
-    - SyndicateWhistle
-    - N14Binoculars
 
 - type: playTimeTracker
   id: NCRCommander

@@ -1,10 +1,12 @@
 ﻿using System.Threading.Tasks;
 using Content.Server.Administration.Managers;
+using Content.Server.Administration.Logs;
 using Content.Server.Database;
 using Content.Server.EUI;
 using Content.Shared.Administration;
 using Content.Shared.Administration.BanList;
 using Content.Shared.Eui;
+using Content.Shared.Database;
 using Robust.Shared.Network;
 
 namespace Content.Server.Administration.BanList;
@@ -14,6 +16,7 @@ public sealed class BanListEui : BaseEui
     [Dependency] private readonly IAdminManager _admins = default!;
     [Dependency] private readonly IPlayerLocator _playerLocator = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
 
     public BanListEui()
     {
@@ -151,7 +154,12 @@ public sealed class BanListEui : BaseEui
 
     public async Task ChangeBanListPlayer(Guid banListPlayer)
     {
+        if (!_admins.HasAdminFlag(Player, AdminFlags.Ban))
+            return;
+
         BanListPlayer = banListPlayer;
         await LoadFromDb();
+        _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+            $"{Player:actor} viewed ban history for {BanListPlayerName} ({banListPlayer:targetPlayerId}); PII visible: {_admins.HasAdminFlag(Player, AdminFlags.Pii)}");
     }
 }

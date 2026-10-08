@@ -72,4 +72,8 @@ public sealed class RequisitionsSaleItem(string proto, int count, int value)
     public int Count = count;
     public int Value = value;
     public List<string> Outputs = new();
+
+    public bool Delivery;
+
+    public bool Worthless;
 }

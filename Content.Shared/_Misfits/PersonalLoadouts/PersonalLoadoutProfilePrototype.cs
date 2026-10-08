@@ -24,8 +24,18 @@ public sealed partial class PersonalLoadoutProfilePrototype : IPrototype
     [DataField]
     public List<string> CharacterNames = new();
 
-    [DataField(required: true)]
+    // Legacy appearance-only power-armor entries. General equipment profiles
+    // may use Equipment instead.
+    [DataField]
     public List<PersonalLoadoutPowerArmorSkin> PowerArmorSkins = new();
+
+    /// <summary>
+    /// Complete equipment replacements for jobs that do not use a toggleable
+    /// power-armor set. Replacements are installed into their inventory slots
+    /// when the approved player spawns.
+    /// </summary>
+    [DataField]
+    public List<PersonalLoadoutEquipmentSet> Equipment = new();
 }
 
 /// <summary>
@@ -54,4 +64,19 @@ public sealed partial class PersonalLoadoutPowerArmorSkin
     /// </summary>
     [DataField]
     public Dictionary<string, List<PrototypeLayerData>>? HelmetClothingVisuals;
+}
+
+/// <summary>
+/// A complete personal outfit for one or more jobs. Dictionary keys are the
+/// standard inventory slot IDs (for example: head, jumpsuit, gloves, shoes,
+/// outerClothing, and mask); values are entity prototypes to equip there.
+/// </summary>
+[DataDefinition]
+public sealed partial class PersonalLoadoutEquipmentSet
+{
+    [DataField(required: true)]
+    public List<ProtoId<JobPrototype>> Jobs = new();
+
+    [DataField(required: true)]
+    public Dictionary<string, EntProtoId> Replacements = new();
 }

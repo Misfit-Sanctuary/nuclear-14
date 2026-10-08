@@ -3,37 +3,56 @@
   id: WasterBuy2_Animals
   name: "Animals"
   entries:
-  - proto: N14MobBrahdoLight
-    price: 500
-    count: 2
+  - proto: MisfitsMobBrahdo_Standard
+    price: 150
+  - proto: MisfitsMobBrahdo_Fast
+    price: 300
+  - proto: MisfitsMobBrahdo_Old
+    price: 700
+  - proto: MisfitsMobBrahdo_Tank
+    price: 700
   - proto: N14MobBrahmin
     price: 250
   - proto: N14MobPetDog
     price: 250
+  - proto: ClothingBrahdoSaddle_BasicStorage
+    price: 100
+  - proto: ClothingBrahdoSaddle_Tribe
+    price: 200
+  - proto: ClothingBrahdoSaddle_Followers
+    price: 100
 
 - type: storeCategoryStructured
   id: NCRBuy2_Animals
   name: "Animals"
   entries:
-  - proto: N14MobBrahdoArmorNCR
-    price: 1000
-    count: 2
+  - proto: MisfitsMobBrahdo_Fast
+    price: 200
+  - proto: MisfitsMobBrahdo_Old
+    price: 500
+  - proto: ClothingBrahdoSaddle_NCRMedic
+    price: 100
+  - proto: ClothingBrahdoSaddle_NCR
+    price: 300
   - proto: N14MobBrahmin
     price: 500
   - proto: N14MobPetDogNCR
-    price: 600
+    price: 75
   - proto: N14MobPetDogNCRMedicK9
-    price: 850
+    price: 75
 
 - type: storeCategoryStructured
   id: LegionBuy2_Animals
   name: "Animals"
   entries:
-  - proto: N14MobBrahdoLightLegion
-    price: 125
-    count: 2
+  - proto: MisfitsMobBrahdo_Tank
+    price: 500
+  - proto: ClothingBrahdoSaddle_LegionMedic
+    price: 100
+  - proto: ClothingBrahdoSaddle_Legion
+    price: 200
   - proto: N14MobBrahmin
-    price: 60
+    price: 200
   - proto: N14MobPetDogLegion
     price: 75
 

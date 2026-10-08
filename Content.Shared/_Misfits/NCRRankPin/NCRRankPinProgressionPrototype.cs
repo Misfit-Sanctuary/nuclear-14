@@ -33,6 +33,13 @@ public sealed partial class NCRRankPinProgressionPrototype : IPrototype
     public bool DepartmentTracker;
 
     /// <summary>
+    /// Whether the earned pin is handed directly to the player when they spawn. Rank-tier vendor factions can
+    /// disable this while retaining progression data for titles and catalog auditing.
+    /// </summary>
+    [DataField]
+    public bool SpawnOnRoundstart = true;
+
+    /// <summary>
     /// Thresholds in ascending order of <see cref="NCRRankPinThreshold.Min"/>.
     /// The system picks the highest threshold the player meets.
     /// </summary>

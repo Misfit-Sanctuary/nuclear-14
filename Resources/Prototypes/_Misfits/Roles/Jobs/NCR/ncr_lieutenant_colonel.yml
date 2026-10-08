@@ -26,6 +26,7 @@
     - NCRLT
     - NCRCaptain
     - NCRMajor
+    - NCRRanger
   requirements:
     - !type:CharacterSpeciesRequirement
       species:
@@ -46,17 +47,17 @@
   equipment:
     wallet: N14Wallet
     head: N14ClothingHeadHatNCRBeretOfficer
+    neck: ClothingNeckPinNCRLtColonel
+    ears: MisfitsClothingHeadsetNCRMaster
     back: N14ClothingBackpackNCR
     jumpsuit: N14ClothingOfficerUniformNCRDesert
     outerClothing: MisfitsClothingOuterNCRTrenchCoat
     shoes: N14ClothingBootsCombatFilled
-    neck: ClothingNeckPinNCRLtColonel
     belt: ClothingBeltNCR
     eyes: ClothingEyesGlassesSunglasses
-    ears: MisfitsClothingHeadsetNCRMaster
+    id: N14NCRLieutenantColonelPipboy
     pocket1: NCRcaptainloadoutkits
     pocket2: BoxFolderClipboard
-    id: N14NCRLieutenantColonelPipboy
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
   satchel: N14ClothingBackpackSatchelNCRFilled
   storage:

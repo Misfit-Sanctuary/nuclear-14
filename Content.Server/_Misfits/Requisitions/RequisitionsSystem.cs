@@ -32,8 +32,10 @@ using Content.Shared.Stacks;
 using Content.Shared.UserInterface;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -871,13 +873,12 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
             account.Comp.History.RemoveRange(30, account.Comp.History.Count - 30);
     }
 
-    private int CompleteBounties(Entity<RequisitionsElevatorComponent> elevator, Entity<RequisitionsAccountComponent> account, Dictionary<string, int> delivered)
+    private List<RequisitionsBounty>? GetBounties(string group, Entity<RequisitionsAccountComponent> account, out string? pool, out int maxActive)
     {
-        var group = elevator.Comp.Group;
+        pool = null;
+        maxActive = 0;
+
         var query = EntityQueryEnumerator<RequisitionsComputerComponent>();
-        List<RequisitionsBounty>? bounties = null;
-        string? pool = null;
-        var maxActive = 0;
         while (query.MoveNext(out _, out var comp))
         {
             if (comp.Group != group)
@@ -889,15 +890,19 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
             {
                 pool = configured;
                 maxActive = comp.MaxActiveBounties;
-                bounties = account.Comp.ActiveBounties;
-            }
-            else
-            {
-                bounties = comp.Bounties;
+                return account.Comp.ActiveBounties;
             }
 
-            break;
+            return comp.Bounties;
         }
+
+        return null;
+    }
+
+    private int CompleteBounties(Entity<RequisitionsElevatorComponent> elevator, Entity<RequisitionsAccountComponent> account, Dictionary<string, int> delivered)
+    {
+        var group = elevator.Comp.Group;
+        var bounties = GetBounties(group, account, out var pool, out var maxActive);
 
         if (bounties == null || bounties.Count == 0)
             return 0;
@@ -912,7 +917,7 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
             if (account.Comp.CompletedBounties.Contains(bounty.Id))
                 continue;
 
-            var delivCount = delivered.GetValueOrDefault(bounty.Item.Id);
+            var delivCount = delivered.GetValueOrDefault(ResolveDeliveryKey(bounty.Item.Id));
             if (delivCount <= 0)
                 continue;
 
@@ -1226,7 +1231,7 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
                     ? deliveredDisks.GetValueOrDefault(wantedRarity)
                     : target.IsReagent
                         ? deliveredReagents.GetValueOrDefault(target.TargetId).Int()
-                        : delivered.GetValueOrDefault(target.TargetId);
+                        : delivered.GetValueOrDefault(ResolveDeliveryKey(target.TargetId));
 
                 if (delivCount <= 0)
                     continue;
@@ -1348,8 +1353,10 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
     {
         count = 0;
         var value = 0;
-        var agg = new Dictionary<string, (int Count, int Value, List<string> Outputs)>();
+        var agg = new Dictionary<(string Key, bool Worthless), RequisitionsSaleItem>();
         var sellEntries = GetSellEntries(elevator.Comp.Group);
+        var account = FindAccount(elevator.Comp.Group);
+        var bounties = account is { } acc ? GetBounties(elevator.Comp.Group, acc, out _, out _) : null;
         foreach (var entity in _lookup.GetEntitiesIntersecting(elevator))
         {
             if (!IsSellableEntity(elevator, entity))
@@ -1361,41 +1368,97 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
 
             var qty = TryComp(entity, out StackComponent? stack) ? stack.Count : 1;
             var (entityValue, exchange, _) = AppraiseSale(entity, qty, sellEntries);
-            var exchangeOutputs = exchange.Count > 0 ? exchange.Select(e => e.Id).ToList() : null;
+            var delivery = account != null && IsWantedDelivery(entity, key, account.Value, bounties);
+            var worthless = entityValue <= 0 && exchange.Count == 0 && !delivery;
 
-            if (entityValue <= 0 && exchangeOutputs == null)
-                continue;
-
-            if (!agg.TryGetValue(key, out var existing))
-                existing = (0, 0, new List<string>());
-
-            if (exchangeOutputs != null)
+            if (!agg.TryGetValue((key, worthless), out var item))
             {
-                foreach (var output in exchangeOutputs)
-                {
-                    if (!existing.Outputs.Contains(output))
-                        existing.Outputs.Add(output);
-                }
+                item = new RequisitionsSaleItem(key, 0, 0) { Worthless = worthless };
+                agg[(key, worthless)] = item;
             }
 
-            agg[key] = (existing.Count + qty, existing.Value + entityValue, existing.Outputs);
+            item.Count += qty;
+            item.Value += entityValue;
+            item.Delivery |= delivery;
+
+            foreach (var output in exchange)
+            {
+                if (!item.Outputs.Contains(output.Id))
+                    item.Outputs.Add(output.Id);
+            }
+
             value += entityValue;
+            count += qty;
         }
 
-        items = new List<RequisitionsSaleItem>();
-        foreach (var kvp in agg)
-        {
-            var info = kvp.Value;
-            items.Add(new RequisitionsSaleItem(kvp.Key, info.Count, info.Value) { Outputs = info.Outputs });
-            count += info.Count;
-        }
-
+        items = agg.Values.ToList();
         return value;
+    }
+
+    private Entity<RequisitionsAccountComponent>? FindAccount(string group)
+    {
+        var query = EntityQueryEnumerator<RequisitionsAccountComponent>();
+        while (query.MoveNext(out var uid, out var account))
+        {
+            if (account.Group == group)
+                return (uid, account);
+        }
+
+        return null;
+    }
+
+    private bool IsWantedDelivery(EntityUid entity, string key, Entity<RequisitionsAccountComponent> account, List<RequisitionsBounty>? bounties)
+    {
+        if (bounties != null)
+        {
+            foreach (var bounty in bounties)
+            {
+                if (!account.Comp.CompletedBounties.Contains(bounty.Id) && ResolveDeliveryKey(bounty.Item.Id) == key)
+                    return true;
+            }
+        }
+
+        foreach (var slot in account.Comp.RandomRequests)
+        {
+            if (slot.Request is not { } request)
+                continue;
+
+            foreach (var target in request.Targets)
+            {
+                if (target.Progress >= target.Amount)
+                    continue;
+
+                if (target.DiskRarity is { } wantedRarity)
+                {
+                    if (TryGetDiskRarity(entity, out var rarity) && rarity == wantedRarity)
+                        return true;
+
+                    continue;
+                }
+
+                if (target.IsReagent)
+                {
+                    var reagents = new Dictionary<string, FixedPoint2>();
+                    ScanDeliveredReagents(entity, reagents);
+                    if (reagents.GetValueOrDefault(target.TargetId) > FixedPoint2.Zero)
+                        return true;
+
+                    continue;
+                }
+
+                if (ResolveDeliveryKey(target.TargetId) == key)
+                    return true;
+            }
+        }
+
+        return false;
     }
 
     private bool IsSellableEntity(Entity<RequisitionsElevatorComponent> elevator, EntityUid entity)
     {
         return entity != elevator.Comp.Audio
+               && !HasComp<AudioComponent>(entity)
+               && HasComp<PhysicsComponent>(entity)
                && !HasComp<CargoSellBlacklistComponent>(entity)
                && !HasComp<MobStateComponent>(entity);
     }
@@ -1461,7 +1524,7 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
 
         foreach (var candidate in entries)
         {
-            if (candidate.Item.Id == key)
+            if (ResolveDeliveryKey(candidate.Item.Id) == key)
             {
                 entry = candidate;
                 return true;
@@ -1485,6 +1548,18 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
         }
 
         return MetaData(entity).EntityPrototype?.ID;
+    }
+
+    private string ResolveDeliveryKey(string id)
+    {
+        if (_prototypeManager.TryIndex<EntityPrototype>(id, out var entProto) &&
+            entProto.TryGetComponent<StackComponent>(out var stack) &&
+            !string.IsNullOrEmpty(stack.StackTypeId))
+        {
+            return stack.StackTypeId;
+        }
+
+        return id;
     }
 
     private (string Key, int Units) ResolveStorageUnit(EntProtoId proto)

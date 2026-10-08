@@ -1054,6 +1054,12 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 query = query.Where(log => log.RoundId == filter.Round);
             }
 
+            if (!string.IsNullOrWhiteSpace(filter.PlayerName))
+                query = query.Where(log => log.Message.ToLower().Contains(filter.PlayerName.ToLower()));
+
+            if (!string.IsNullOrWhiteSpace(filter.AdminName))
+                query = query.Where(log => log.Message.ToLower().Contains(filter.AdminName.ToLower()));
+
             if (filter.Types != null)
             {
                 query = query.Where(log => filter.Types.Contains(log.Type));
@@ -1115,6 +1121,8 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             };
 
             const int hardLogLimit = 500_000;
+            if (filter.Offset > 0)
+                query = query.Skip(Math.Min(filter.Offset, hardLogLimit));
             if (filter.Limit != null)
             {
                 query = query.Take(Math.Min(filter.Limit.Value, hardLogLimit));

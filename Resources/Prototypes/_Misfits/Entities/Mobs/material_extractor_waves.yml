@@ -35,6 +35,17 @@
       task: N14MeleeCombatCompound
 
 - type: entity
+  abstract: true
+  id: N14MobMaterialExtractorRangedWaveBase
+  parent: N14MobWave
+  components:
+  # N14MobWave defaults to melee-only planning. Armed raiders and mutants need
+  # the ranged-first compound or their simulated guns are never fired.
+  - type: HTN
+    rootTask:
+      task: N14RangedHostileCompound
+
+- type: entity
   id: N14MobMaterialExtractorMoleratWave
   parent: [N14MobMolerat, N14MobMaterialExtractorWaveBase]
 
@@ -77,3 +88,71 @@
 - type: entity
   id: N14MobMaterialExtractorRadscorpionWave
   parent: [N14MobRadscorpion, N14MobMaterialExtractorWaveBase]
+
+# Strong wildlife and faction encounter wrappers. N14MobWave keeps these mobs
+# awake with long-range hostility; each keeps its native faction so members of
+# one themed rotation cooperate with each other.
+
+- type: entity
+  id: N14MobMaterialExtractorYaoguaiWave
+  parent: [N14MobYaoguai, N14MobMaterialExtractorWaveBase]
+
+- type: entity
+  id: N14MobMaterialExtractorDeathclawWave
+  parent: [N14MobDeathclaw, N14MobMaterialExtractorWaveBase]
+
+- type: entity
+  id: N14MobMaterialExtractorRadscorpionBossWave
+  parent: [N14MobRadscorpion, N14MobMaterialExtractorWaveBase]
+
+- type: entity
+  id: N14MobMaterialExtractorRaiderPistolWave
+  parent: [N14MobRaiderPsychoRanged, N14MobMaterialExtractorRangedWaveBase]
+
+- type: entity
+  id: N14MobMaterialExtractorRaiderSkirmisherWave
+  parent: [N14MobRaiderSkrimisher, N14MobMaterialExtractorRangedWaveBase]
+
+- type: entity
+  id: N14MobMaterialExtractorRaiderHunterWave
+  parent: [N14MobRaiderHunter, N14MobMaterialExtractorRangedWaveBase]
+
+- type: entity
+  id: N14MobMaterialExtractorRaiderBossWave
+  parent: [N14MobRaiderBoss, N14MobMaterialExtractorRangedWaveBase]
+
+- type: entity
+  id: N14MobMaterialExtractorSuperMutantWave
+  parent: [N14MobSuperMutantNPC, N14MobWave]
+
+- type: entity
+  id: N14MobMaterialExtractorSuperMutantMeleeWave
+  parent: [N14MobSuperMutantMelee, N14MobWave]
+
+- type: entity
+  id: N14MobMaterialExtractorSuperMutantRangedWave
+  parent: [N14MobSuperMutantRanged, N14MobMaterialExtractorRangedWaveBase]
+
+- type: entity
+  id: N14MobMaterialExtractorSuperMutantNCOWave
+  parent: [N14MobSuperMutantNCO, N14MobWave]
+
+- type: entity
+  id: N14MobMaterialExtractorSuperMutantArmoredWave
+  parent: [N14MobSuperMutantArmored, N14MobWave]
+
+- type: entity
+  id: N14MobMaterialExtractorBehemothWave
+  parent: [N14MobBehemoth, N14MobWave]
+
+- type: entity
+  id: N14MobMaterialExtractorNightkinWave
+  parent: [N14MobNightkin, N14MobWave]
+
+- type: entity
+  id: N14MobMaterialExtractorNightkinVeteranWave
+  parent: [N14MobNightkinVeteran, N14MobMaterialExtractorRangedWaveBase]
+
+- type: entity
+  id: N14MobMaterialExtractorNightkinEliteWave
+  parent: [N14MobNightkinElite, N14MobMaterialExtractorRangedWaveBase]

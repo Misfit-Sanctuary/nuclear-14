@@ -45,20 +45,13 @@
   equipment:
     wallet: N14Wallet
     head: N14ClothingHeadHatNCRHelmetMetalDesert
+    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
     back: N14ClothingBackpackNCR # Corvax-Change
     jumpsuit: N14ClothingUniformNCRDesert # Corvax-Change
-    outerClothing: MisfitsNCRPouchedCombatArmor # #Misfits Tweak: T4 armor (0.75/0.70) — Specialist gets combat-grade protection while keeping utility pouches
     shoes: N14ClothingBootsLeatherFilled
-    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
-
     belt: ClothingBeltNCR
-    pocket1: NCRwsloadoutkits
     id: N14IDNCRDogtagWS
   innerClothingSkirt: N14ClothingUniformNCRDesert # Corvax-Change
-  satchel: N14ClothingBackpackSatchelNCRFilled
-  storage: # Corvax-Change
-    back:
-    - N14BoxPlasticFilledMilitaryNCR
 
 - type: playTimeTracker
   id: NCRWeaponSpecialist

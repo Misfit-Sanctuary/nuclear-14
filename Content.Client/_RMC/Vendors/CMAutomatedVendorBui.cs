@@ -18,7 +18,7 @@ public sealed class CMAutomatedVendorBui : BoundUserInterface
         _window.OnVend += (section, entry) => SendMessage(new CMAutomatedVendorVendMessage(section, entry));
         _window.OnReplenishHeld += () => SendMessage(new CMAutomatedVendorReplenishMessage());
         _window.OnStoreHeld += () => SendMessage(new CMAutomatedVendorStoreHeldMessage());
-        _window.OnWithdrawStored += index => SendMessage(new CMAutomatedVendorWithdrawStoredMessage(index));
+        _window.OnWithdrawStored += item => SendMessage(new CMAutomatedVendorWithdrawStoredMessage(item));
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

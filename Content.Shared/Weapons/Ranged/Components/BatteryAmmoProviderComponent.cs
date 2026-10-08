@@ -1,6 +1,7 @@
 namespace Content.Shared.Weapons.Ranged.Components;
 
-public abstract partial class BatteryAmmoProviderComponent : AmmoProviderComponent
+[RegisterComponent, NetworkedComponent, Virtual]
+public partial class BatteryAmmoProviderComponent : AmmoProviderComponent
 {
     /// <summary>
     /// How much battery it costs to fire once.

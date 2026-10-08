@@ -2,9 +2,12 @@
   id: M14WeaponLootTier4_EnergyPistol
   table: !type:GroupSelector
     children:
-      - !type:NestedSelector
-          tableId: M14WeaponLootTier4_LaserPistol
+#      - !type:NestedSelector # sucks too much for tier 4
+#          tableId: M14WeaponLootTier4_LaserPistol
+#          weight: 8
       - !type:NestedSelector
           tableId: M14WeaponLootTier4_PlasmaPistol
+          weight: 3
       - !type:NestedSelector
           tableId: M14WeaponLootTier4_OtherPistol
+          weight: 3

@@ -1,0 +1,496 @@
+﻿# alternate recipes that use zoybeans/zoy milk
+- type: microwaveMealRecipe
+  id: MisfitsRecipeZoyWaffleFlour
+  name: soy waffle recipe
+  result: N14CookedFoodBakedWaffleSoy
+  time: 10
+  reagents:
+    Flour: 5
+    MisfitsMilkZoy: 5
+    Egg: 6
+    SodaWater: 5
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeZoyWaffleRazorgrain
+  name: soy waffle recipe
+  result: N14CookedFoodBakedWaffleSoy
+  time: 10
+  reagents:
+    ExtractRazorgrainFlour: 5
+    MisfitsMilkZoy: 5
+    Egg: 6
+    SodaWater: 5
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeZoyMothMothmallow
+  name: mothmallow recipe
+  result: FoodMothMothmallow
+  time: 10
+  reagents:
+    Sugar: 10
+    Rum: 5
+    MisfitsMilkZoy: 5
+  solids:
+    MisfitsFloraProduceWildZoybeans: 1
+
+#- Rice Cake: 1 cooked rice, 5u salt -> 5 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeRiceCake
+  name: Rice Cake
+  result: MisfitsFoodRiceCake
+  time: 5
+  reagents:
+    TableSalt: 5
+  solids:
+    N14CookedFoodRiceBoiled: 1
+
+#- Coxinha: 5u ground animal protein, 1 dough slice, 5u salt -> 5 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeCoxinha
+  name: Coxinha
+  result: MisfitsFoodCoxinha
+  time: 5
+  reagents:
+    N14UncookedAnimalProteinsRad: 5
+    TableSalt: 5
+  solids:
+    N14FoodDoughSlice: 1
+
+#- Meat Dumpling: 1 dough slice, 5u ground animal protein -> 5 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeMeatDumpling
+  name: meat Dumpling
+  result: MisfitsFoodMeatDumpling
+  time: 5
+  reagents:
+    N14UncookedAnimalProteinsRad: 5
+  solids:
+    N14FoodDoughSlice: 1
+
+#- Khan Meat Dumpling: 1 dumpling, 5u jet, 1 leather, 1 wood -> 5 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeMeatDumpling_Jet
+  name: Khan Meat Dumping
+  result: MisfitsFoodMeatDumpling_Jet
+  time: 5
+  reagents:
+    MovespeedMixture: 5
+  solids:
+    MisfitsFoodMeatDumpling: 1
+    MaterialWoodPlank: 1
+    N14MaterialLeather: 1
+
+#- Carrot Vitamin Gummy: 5u carrot juice, 5u sugar -> 5 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeCarrotGummy
+  name: Carrot Vitamin Gummy
+  result: MisfitsFoodCarrotGummy
+  time: 5
+  reagents:
+    JuiceCarrot: 5
+    Sugar: 5
+
+#- Milk Chocolate Bar: 2u cocoa powder, 5u milk, 5u sugar (must be in separate containers else create regular choc) -> 5 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeChocolateBar
+  name: Milk Chocolate Bar
+  result: MisfitsFoodChocolateBar
+  time: 5
+  reagents:
+    N14MilkBrahmin: 5
+    Sugar: 5
+    CocoaPowder: 2
+
+#- VaultTech Lolipop: 10u sugar, 1 paper -> 5 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeLollipop_VaultTech
+  name: VaultTech Lollipop
+  result: MisfitsFoodLollipop_VaultTech
+  time: 5
+  reagents:
+    Sugar: 5
+  solids:
+    SheetPaper: 1
+
+#- Spicy n Sweet Skewer: 2 jalapeno, 2 black berry, 1 skewer -> 5 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSkewerSpicySweet
+  name: Spicy n' Sweet Skewer
+  result: MisfitsFoodSkewerSpicySweet
+  time: 5
+  reagents:
+    PickledJalapenos: 20
+  solids:
+    N14FloraProduceWildBlackberries: 2
+    FoodKebabSkewer: 1
+
+#- Kebab Pilar: 5 raw brahmin steaks, 1 wood -> 30 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeKebabPilar
+  name: Kebab Pilar
+  result: MisfitsFoodKebabPilar
+  time: 30
+  solids:
+    MaterialWoodPlank1: 1
+    N14FoodMeatBrahmin: 5
+
+#- Kebab Wrap: 3 Kebab Slices, 1 onion, 1 cabbage, 1 dough slice -> 5 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeKebabWrap
+  name: Kebab Wrap
+  result: MisfitsFoodKebabWrap
+  time: 5
+  solids:
+    N14FoodMeatBrahminCutletCooked: 3
+    N14FoodCabbage: 1
+    N14FloraProduceWildOnion: 1
+    N14FoodDoughSlice: 1
+
+#- Pemmison: 1 radstag cutlet, 2 pinion nuts, 2 blackberies -> 10 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipePemmison
+  name: Pemmison
+  result: MisfitsFoodPemmison
+  time: 10
+  solids:
+    N14FoodMeatRadstagCutlet: 1
+    N14FloraProduceWildPinyonNuts: 2
+    N14FloraProduceWildBlackberries: 2
+
+
+#Toffee Sheet: 2 pinion nut, 40u sugar -> 30 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeToffeeSheet
+  name: Toffee Sheet
+  result: MisfitsFoodToffeeSheet
+  time: 30
+  reagents:
+    Sugar: 40
+  solids:
+    N14FloraProduceWildPinyonNuts: 2
+
+#- Toffee -> 1 Pinion nut, 15u sugar -> 15 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeToffee
+  name: Toffee Chunk
+  result: MisfitsFoodToffee
+  time: 15
+  reagents:
+    Sugar: 15
+  solids:
+    N14FloraProduceWildPinyonNuts: 1
+
+#- Meat Jerky: 1 meat cutlet, 5u salt -> 15 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeMeatJerky1
+  name: Meat Jerky
+  result: MisfitsFoodMeatJerky
+  time: 15
+  reagents:
+    TableSalt: 5
+  solids:
+    FoodMeatCutletCooked: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeMeatJerky2
+  name: Meat Jerky
+  result: MisfitsFoodMeatJerky
+  time: 15
+  reagents:
+    TableSalt: 5
+  solids:
+    N14FoodMeatHumanCutletCooked: 1
+# ancestor chaining thank fucking god
+- type: microwaveMealRecipe
+  id: MisfitsRecipeMeatJerky3
+  name: Meat Jerky
+  result: MisfitsFoodMeatJerky
+  time: 15
+  reagents:
+    TableSalt: 5
+  solids:
+    N14FoodMeatRadCutletCooked: 1
+
+
+#- Cabbage n Meat Bread: 1 cabbage, 5u ground animal protein, 1 dough -> 10 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeCabbageMeatBread
+  name: Cabbage n' Meat Bread
+  result: MisfitsFoodCabbageMeatBread
+  time: 10
+  reagents:
+    N14UncookedAnimalProteinsRad: 5
+  solids:
+    FoodDough: 1
+    N14FoodCabbage: 1
+
+#- Thick Pancake: 10u flour, 5u milk, 5u egg, 5u Raiser -> 5 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeThickPancake
+  name: Thick Pancake
+  result: MisfitsFoodThickPancake
+  time: 10
+  reagents:
+    ExtractRazorgrainFlour: 10
+    N14MilkBrahmin: 5
+    Egg: 5
+    Raiser: 5
+
+#Shortcake Cookie: 1 butter slice, 5u ExtractRazorgrainFlour, 5u milk -> 5 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeShortcakeCookie
+  name: Shortcake Cookie
+  result: MisfitsFoodShortcakeCookie
+  time: 5
+  reagents:
+    ExtractRazorgrainFlour: 5
+    N14MilkBrahmin: 5
+  solids:
+    FoodButterSlice: 1
+
+#Milk Bread: 1 butter slice, 10u milk, 10u flour, 5u raiser -> 10 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeMilkBread
+  name: Milk Bread
+  result: MisfitsFoodMilkBread
+  time: 10
+  reagents:
+    ExtractRazorgrainFlour: 10
+    N14MilkBrahmin: 10
+    Raiser: 5
+  solids:
+    FoodButterSlice: 1
+
+#Lasagna: 1 Tato, 1 Dough Slice, 1 Irradiated Meat, 1 Cheese Wedge -> 15 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeLasagna
+  name: Lasagna
+  result: MisfitsFoodLasagna
+  time: 15
+  solids:
+    N14FoodMeatRadRaw: 1
+    N14FoodCheeseSlice: 1
+    N14FoodDoughSlice: 1
+    N14FloraProduceWildTato: 1
+
+#Sausage Chain: 20u Ground Animal Protein, Ruminant/Animal Stomach -> 5 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSausageChain
+  name: Sausage Chain
+  result: MisfitsFoodSausageChain
+  time: 5
+  reagents:
+    N14UncookedAnimalProteinsRad: 20
+  solids:
+    OrganAnimalRuminantStomach: 1
+
+#Sausage Roll: 5u Raw Egg, 1 sausage, 1 dough slice -> 10 sec
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSausageRoll
+  name: Sausage Roll
+  result: MisfitsFoodSausageRoll
+  time: 10
+  reagents:
+    Egg: 5
+  solids:
+    N14FoodDoughSlice: 1
+    MisfitsFoodSausage: 1
+
+#Mug cake: 1 Mug, 1 dough slice, 5u sugar ??
+- type: microwaveMealRecipe
+  id: MisfitsRecipeMugCake
+  name: Mug Cake
+  result: MisfitsFoodMugCake
+  time: 5
+  reagents:
+    Sugar: 5
+  solids:
+    DrinkMug: 1
+    N14FoodDoughSlice: 1
+
+#Carrot candy: 5u sugar, 5u Buffalo Gourd Juice, must be heated
+- type: reaction
+  id: CarrotCandy
+  impact: Low
+  quantized: true
+  minTemp: 400
+  reactants:
+    JuiceCarrot:
+      amount: 5
+    Sugar:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MisfitsFoodCarrotCandy
+#Buffalo Gourd: 5u sugar, 5u Buffalo Gourd Juice, must be heated
+- type: reaction
+  id: BuffaloGourdCandy
+  impact: Low
+  quantized: true
+  minTemp: 400
+  reactants:
+    ExtractBuffaloGourd:
+      amount: 5
+    Sugar:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MisfitsFoodBuffaloGourdCandy
+#Blackberry: 5u sugar, 5u Blackberry juice, must be heated
+- type: reaction
+  id: BlackberryCandy
+  impact: Low
+  quantized: true
+  minTemp: 400
+  reactants:
+    BlackberryJam:
+      amount: 5
+    Sugar:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MisfitsFoodBlackberryCandy
+#Butterscotch: 5u sugar, 5u butter, must be heated
+- type: reaction
+  id: ButterscotchCandy
+  impact: Low
+  quantized: true
+  minTemp: 400
+  reactants:
+    Butterscotch:
+      amount: 5
+    Sugar:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MisfitsFoodButterscotchCandy
+- type: reaction
+  id: ButterscotchReaction
+  impact: Low
+  quantized: true
+  minTemp: 354
+  reactants:
+    Butter:
+      amount: 1
+    Sugar:
+      amount: 1
+  products:
+    Butterscotch: 2
+#Jet Jawbreaker: 10u sugar, 5u jet, must be heated
+- type: reaction
+  id: JetCandy
+  impact: Low
+  quantized: true
+  minTemp: 400
+  reactants:
+    MovespeedMixture:
+      amount: 5
+    Sugar:
+      amount: 10
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MisfitsFoodJetCandy
+
+
+
+
+
+# wait till RTB update with prototype varitization
+## sausage/cooked
+#- type: entity
+#  parent: MisfitsFoodBase
+#  description: food-desc-sausage
+#  name: Sausage
+#  id: !type:CreateVariants
+#    values: [ MisfitsFoodSausage, MisfitsFoodSausageCooked]
+#  components:
+#  - type: Food
+#    eatMessage: food-desc-sausageCooked-eat
+#  - type: Sprite
+#    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+#    state: !type:CreateVariants
+#    values: [ sausage, sausageFried]
+#  - type: SolutionContainerManager
+#    solutions:
+#      food:
+#        reagents:
+#        - ReagentId: !type:CreateVariants
+#            values: [ N14UncookedAnimalProteinsRad, Protein ]
+#          Quantity: 4
+#        - ReagentId: !type:CreateVariants
+#            values: [ Fat, Nutriment ]
+#          Quantity: 2
+#  - type: GeneralConstructs
+#    generalEnts:
+#      Cooked: !type:CreateVariants
+#        values: [ MisfitsFoodSausageCooked, MisfitsFoodSausageCooked]
+#  - type: Construction
+#    graph: GraphCookAny
+#    node: !type:CreateVariants
+#      values: [ start, CookNode]
+#    defaultTarget: !type:CreateVariants
+#      values: [ CookNode, start]
+
+
+## diced stuff
+#- type: entity
+#  parent: MisfitsFoodBase
+#  description: !type:CreateVariants
+#    values: [ food-desc-dicedMeat, food-desc-dicedTato, food-desc-dicedGarlic, food-desc-dicedOnion ]
+#  name: !type:CreateVariants
+#    values: [ Diced Meat, Diced Tato, Diced Garlic, Diced Onion]
+#  id: !type:CreateVariants
+#    values: [ MisfitsFoodDicedMeat, MisfitsFoodDicedTato, MisfitsFoodDicedGarlic, MisfitsFoodDicedOnion ]
+#  components:
+#  - type: Food
+#    eatMessage: !type:CreateVariants
+#      values: [ food-desc-dicedMeat-eat, food-desc-dicedTato-eat, food-desc-dicedGarlic-eat, food-desc-dicedOnion-eat ]
+#  - type: Sprite
+#    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+#    state: !type:CreateVariants
+#      values: [ "dicedMeat", "dicedTato", "dicedGarlic", "dicedOnion" ]
+#  - type: SolutionSpiker
+#    sourceSolution: food
+#    ignoreEmpty: true
+#  - type: ScoopableSolution
+#    solution: food
+#  - type: Extractable
+#    grindableSolutionName: food
+#  - type: SolutionContainerManager
+#    solutions:
+#      food:
+#        reagents:
+#        - ReagentId: !type:CreateVariants
+#            values: [ DicedMeat, DicedTato, DicedGarlic, DicedOnion ]
+#          Quantity: 10
+### CANDIES!!!
+#
+#- type: entity
+#  parent: MisfitsFoodBase
+#  description: !type:CreateVariants
+#    values: [food-desc-carrotCandy, food-desc-buffaloGourdCandy, food-desc-blackberryCandy, food-desc-butterscotchCandy, food-desc-jawbreakerJetCandy]
+#  name: !type:CreateVariants
+#    values: [ Carrot Candy, Buffalo Gourd Candy, Blackberry Candy, Butterscotch Candy, Jet Jawbreaker ]
+#  id: !type:CreateVariants
+#    values: [ MisfitsFoodCarrotCandy, MisfitsFoodBuffaloGourdCandy, MisfitsFoodBlackberryCandy, MisfitsFoodButterscotchCandy, MisfitsFoodJetCandy ]
+#  components:
+#  - type: Food
+#    eatMessage: !type:CreateVariants
+#      values: [food-desc-carrotCandy-eat, food-desc-buffaloGourdCandy-eat, food-desc-blackberryCandy-eat, food-desc-butterscotchCandy-eat, food-desc-jawbreakerJetCandy-eat]
+#  - type: Sprite
+#    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+#    state: !type:CreateVariants
+#      values: [ "carrotCandy", "buffaloGourdCandy", "berryCandy", "butterscotchCandy", "jetJawbreaker" ]
+#  - type: Tag
+#    tags:
+#    - Candy
+#  - type: SolutionContainerManager
+#    solutions:
+#      food:
+#        reagents:
+#        - ReagentId: !type:CreateVariants
+#            values: [ PickledCarrots, BuffaloGourdJam, BlackberryJam, Butterscotch, Jet ]
+#          Quantity: 5
+#        - ReagentId: Sugar
+#          Quantity: !type:CreateVariants
+#            values: [ 5, 5, 5, 5, 10 ]

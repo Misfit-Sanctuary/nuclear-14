@@ -11,6 +11,9 @@ public sealed class LogFilter
     public int? Round { get; set; }
 
     public string? Search { get; set; }
+    public string? PlayerName { get; set; }
+    public string? AdminName { get; set; }
+    public int Offset { get; set; }
 
     public HashSet<LogType>? Types { get; set; }
 

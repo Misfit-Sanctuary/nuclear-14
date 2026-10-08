@@ -1,4 +1,16 @@
 - type: reaction
+  id: Abraxocleaner
+  reactants:
+    SodiumCarbonate:
+      amount: 1
+    SodiumHydroxide:
+      amount: 1
+    Silicon:
+      amount: 1
+  products:
+    Abraxocleaner: 2
+
+- type: reaction
   id: Jet
   minTemp: 374 # 100 degrees Celcius.
   reactants:
@@ -48,7 +60,7 @@
   reactants:
     Mentats:
       amount: 1
-    ExtractCarrot:
+    JuiceCarrot:
       amount: 1
   products:
     MentatsOrange: 1
@@ -169,7 +181,7 @@
 - type: reaction
   id: Cateye
   reactants:
-    ExtractCarrot:
+    JuiceCarrot:
       amount: 1
     WeldingFuel:
       amount: 2

@@ -1,10 +1,12 @@
 using Content.Server.Radio;
+using Content.Shared._Misfits.Radio;
 
 namespace Content.Server._Misfits.Radio;
 
 /// <summary>
-/// Provides a round-local switch for the public Wasteland radio channel.
+/// Provides a round-local administrator switch for the public Wasteland radio channel.
 /// This deliberately affects only WastelandGlobal, leaving faction and broadcast channels alone.
+/// Public radio additionally requires every map-placed radio tower to be activated.
 /// </summary>
 public sealed class WastelandRadioSystem : EntitySystem
 {
@@ -27,7 +29,22 @@ public sealed class WastelandRadioSystem : EntitySystem
 
     private void OnRadioSendAttempt(ref RadioSendAttemptEvent args)
     {
-        if (!Enabled && args.Channel.ID.ToString() == WastelandGlobalChannel)
+        if ((!Enabled || !AreAllRadioTowersActivated()) && args.Channel.ID.ToString() == WastelandGlobalChannel)
             args.Cancelled = true;
+    }
+
+    private bool AreAllRadioTowersActivated()
+    {
+        var foundTower = false;
+        var query = EntityQueryEnumerator<RadioTowerComponent>();
+        while (query.MoveNext(out _, out var tower))
+        {
+            foundTower = true;
+            if (!tower.Activated)
+                return false;
+        }
+
+        // Do not silently enable the channel on maps which have no radio tower.
+        return foundTower;
     }
 }

@@ -69,5 +69,8 @@ namespace Content.Server.Administration.Managers
         void PromoteHost(ICommonSession player);
 
         bool TryGetCommandFlags(CommandSpec command, out AdminFlags[]? flags);
+
+        /// <summary>Whether a registered console command requires an admin flag.</summary>
+        bool IsAdminCommand(string commandName);
     }
 }

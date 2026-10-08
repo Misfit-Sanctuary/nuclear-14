@@ -35,7 +35,7 @@ public sealed class NCRRankPinSpawnSystem : EntitySystem
                 break;
         }
 
-        if (progression == null)
+        if (progression == null || !progression.SpawnOnRoundstart)
             return;
 
         if (!_playTime.TryGetTrackerTimes(args.Player, out var times))

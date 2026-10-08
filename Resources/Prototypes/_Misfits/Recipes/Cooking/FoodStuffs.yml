@@ -1,0 +1,865 @@
+# red fish cutlet
+- type: entity
+  parent: FoodMeatBase
+  id: N14RedfishCutletRaw
+  components:
+  - type: Food
+    eatMessage: food-desc-redFishCutlet-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: redFishCutlet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: N14UncookedAnimalProteinsRad
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 2 # Red fish has vitamins even when raw
+  - type: GeneralConstructs
+    generalEnts:
+      Cooked: N14RedfishCutletCooked
+  - type: Construction
+    graph: GraphCookAny
+    node: start
+    defaultTarget: CookNode
+
+# red fish cutlet RARE
+- type: entity
+  parent: FoodMeatBase
+  id: MisfitsRedfishRareRaw
+  components:
+  - type: Food
+    eatMessage: food-desc-redFishRare-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: redFishCut
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Vitamin
+          Quantity: 10 # Red fish has vitamins even when raw
+  - type: SliceableFood
+    count: 5
+    slice: N14RedfishCutletRaw
+
+#Sausage Roll: 5u Raw Egg, 1 sausage, 1 dough slice -> 10 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodSausageRoll
+  components:
+  - type: Food
+    eatMessage: food-desc-sausageRoll-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: sausageRoll
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Protein
+          Quantity: 15
+        - ReagentId: BubGames
+          Quantity: 1
+
+#  cooked red fish cutlet
+- type: entity
+  parent: FoodMeatBase
+  id: N14RedfishCutletCooked
+  components:
+  - type: Food
+    eatMessage: food-desc-redFishCutletCooked-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: redFishCutletCooked
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Protein
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 2 # Red fish has vitamins even when raw
+  - type: GeneralConstructs
+    generalEnts:
+      Cooked: N14RedfishCutletCooked
+  - type: Construction
+    graph: GraphCookAny
+    node: CookNode
+    defaultTarget: start
+
+# sausage
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSausage
+  components:
+  - type: Food
+    eatMessage: food-desc-sausageCooked-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: sausage
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: N14UncookedAnimalProteinsRad
+          Quantity: 4
+        - ReagentId: Fat
+          Quantity: 2
+  - type: GeneralConstructs
+    generalEnts:
+      Cooked: MisfitsFoodSausageCooked
+  - type: Construction
+    graph: GraphCookAny
+    node: start
+    defaultTarget: CookNode
+
+# sausage cooked
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSausageCooked
+  components:
+  - type: Food
+    eatMessage: food-desc-sausageCooked-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: sausageFried
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Protein
+          Quantity: 4
+        - ReagentId: Nutriment
+          Quantity: 2
+  - type: GeneralConstructs
+    generalEnts:
+      Cooked: MisfitsFoodSausageCooked
+  - type: Construction
+    graph: GraphCookAny
+    node: CookNode
+    defaultTarget: start
+
+#Mug cake: 1 Mug, 1 dough slice, 5u sugar ??
+- type: entity
+  parent: N14CookedFoodBowlBase
+
+  id: MisfitsFoodMugCake
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: mugCake
+  - type: Food
+    eatMessage: food-desc-mugCake-eat
+    trash:
+    - DrinkMug
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Sugar
+          Quantity: 5
+
+#Sausage Chain: 20u Ground Animal Protein, Ruminant/Animal Stomach -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodSausageChain
+  components:
+  - type: Food
+    eatMessage: food-desc-sausageChain-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: sausageChain
+  - type: SliceableFood
+    slice: MisfitsFoodSausage
+    count: 4
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: N14UncookedAnimalProteinsRad
+          Quantity: 20
+        - ReagentId: Fat
+          Quantity: 8
+
+#Lasagna: 1 Tato, 1 Dough Slice, 1 Irradiated Meat, 1 Cheese Wedge -> 15 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodLasagna
+  components:
+  - type: Food
+    eatMessage: food-desc-lasagna-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: lasagna
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 25
+        - ReagentId: N14UncookedAnimalProteinsRad
+          Quantity: 10
+        - ReagentId: Fat
+          Quantity: 6
+        - ReagentId: UnstableMutagen
+          Quantity: 20
+
+#Milk Bread: 1 butter slice, 10u milk, 10u flour, 5u raiser -> 10 sec
+- type: entity
+  parent: MisfitsFoodBase
+
+  id: MisfitsFoodMilkBread
+  components:
+  - type: Food
+    eatMessage: food-desc-milkBread-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: milkBread
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+
+
+#Shortcake Cookie: 1 butter slice, 5u ExtractRazorgrainFlour, 5u milk -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+
+  id: MisfitsFoodShortcakeCookie
+  components:
+  - type: Food
+    eatMessage: food-desc-shortCake-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: shortCake
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+
+
+
+#- Thick Pancake: 10u flour, 5u milk, 5u egg, 5u Raiser -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+
+  id: MisfitsFoodThickPancake
+  components:
+  - type: Food
+    eatMessage: food-desc-thickPancake-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: thickPancake
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+
+
+#- Cabbage n Meat Bread: 1 cabbage, 5u ground animal protein, 1 dough -> 10 sec
+- type: entity
+  parent: MisfitsFoodBase
+
+  id: MisfitsFoodCabbageMeatBread
+  components:
+  - type: Food
+    eatMessage: food-desc-cabbageMeatBread-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: runza
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: TableSalt
+          Quantity: 4
+
+#- Meat Jerky: 1 meat cutlet, 5u salt -> 15 sec
+- type: entity
+  parent: MisfitsFoodBase
+
+  id: MisfitsFoodMeatJerky
+  components:
+  - type: Food
+    eatMessage: food-desc-meatJerk-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: meatJerky
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 2
+        - ReagentId: TableSalt
+          Quantity: 4
+
+
+#- Toffee -> 1 Pinion nut, 15u sugar -> 15 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodToffee
+  components:
+  - type: Food
+    eatMessage: food-desc-toffeeBar-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: toffeeChunk
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 10
+#Toffee Sheet: 2 pinion nut, 40u sugar -> 30 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodToffeeSheet
+  components:
+  - type: Food
+    eatMessage: food-desc-toffee-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: toffeeSheet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Sugar
+          Quantity: 60
+  - type: SliceableFood
+    slice: MisfitsFoodToffee
+    count: 6
+#- Pemmison: 1 radstag cutlet, 2 pinion nuts, 2 blackberies -> 10 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodPemmison
+  components:
+  - type: Food
+    eatMessage: food-desc-pemmison-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: pemmison
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: BlackberryJam
+          Quantity: 15
+        - ReagentId: Protein
+          Quantity: 2
+
+
+#- Kebab Wrap: 3 Kebab Slices, 1 onion, 1 cabbage, 1 dough slice -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodKebabWrap
+  components:
+  - type: Food
+    eatMessage: food-desc-kebabWrap-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: durumKebab
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 36
+        - ReagentId: Protein
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 8
+        - ReagentId: Allicin
+          Quantity: 4
+
+#- Kebab Pilar: 5 raw brahmin steaks, 1 wood -> 30 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodKebabPilar
+  components:
+  - type: Item
+    size: Huge
+  - type: Food
+    eatMessage: food-desc-kebabPilar-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: kebabPilar
+  - type: SliceableFood
+    slice: N14FoodMeatBrahminCutletCooked
+    count: 15
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 90
+        - ReagentId: Protein
+          Quantity: 45
+
+#- Spicy n Sweet Skewer: 2 jalapeno, 2 black berry, 1 skewer -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodSkewerSpicySweet
+  components:
+  - type: Food
+    eatMessage: food-desc-spicySweetSkewer-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: sweetSpicySkewer
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: BlackberryJam
+          Quantity: 10
+        - ReagentId: PickledJalapenos
+          Quantity: 10
+
+#- VaultTech Lolipop: 10u sugar, 1 paper -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+
+  id: MisfitsFoodLollipop_VaultTech
+  components:
+  - type: Food
+    eatMessage: food-desc-vaultLolli-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: vaultLollipop
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 10
+
+#- Milk Chocolate Bar: 2u cocoa powder, 5u milk, 5u sugar (must be in separate containers else create regular choc) -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodChocolateBar
+  components:
+  - type: Appearance
+  - type: Food
+    eatMessage: food-desc-chocoBar-eat
+  - type: Sprite
+    layers:
+    - state: chocoBar
+      sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+      map: ["enum.OpenableVisuals.Layer"]
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "chocoBarOpen"}
+          False: {state: "chocoBar"}
+  - type: Openable
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: MilkChoco
+          Quantity: 10
+
+#- Carrot Vitamin Gummy: 5u carrot juice, 5u sugar -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodCarrotGummy
+  components:
+  - type: Food
+    eatMessage: food-desc-carrotGummy-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: carrotCandy2
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: JuiceCarrot
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Candy
+
+#- Khan Meat Dumpling: 1 dumpling, 5u jet, 1 leather, 1 wood -> 5 sec
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodMeatDumpling_Jet
+  components:
+  - type: Food
+    eatMessage: food-desc-meatDumplingKhan-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: khanMeatDumpling
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: MovespeedMixture
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Cellulose
+          Quantity: 10
+#- Meat Dumpling: 1 dough slice, 5u ground animal protein -> 5 sec
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodMeatDumpling
+  components:
+  - type: Food
+    eatMessage: food-desc-meatDumpling-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: meatDumpling
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Protein
+          Quantity: 5
+
+#- Coxinha: 5u ground animal protein, 1 dough slice, 5u salt -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodCoxinha
+  components:
+  - type: Food
+    eatMessage: food-desc-coxinha-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: bazaarHip
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: TableSalt
+          Quantity: 5
+#- Rice Cake: 1 cooked rice, 5u salt -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodRiceCake
+  components:
+  - type: Food
+    eatMessage: food-desc-riceCake-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: riceCake
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: TableSalt
+          Quantity: 5
+
+# waster super burrito
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodWasterBurrito_super
+  components:
+  - type: Item
+    size: Large
+  - type: Food
+    eatMessage: food-desc-wasterBurritoSuper-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: wasterBurritoSuper
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 25
+        - ReagentId: Vitamin
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 5
+  - type: Construction
+    graph: WasterBurritoGraph_super
+    node: WasterBurrito_super
+
+# waster burrito
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodWasterBurrito
+  components:
+  - type: Food
+    eatMessage: food-desc-wasterBurrito-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: wasterBurrito
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Protein
+          Quantity: 5
+  - type: Construction
+    graph: WasterBurritoGraph
+    node: WasterBurrito
+
+
+## CANDIES!!!
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodCarrotCandy
+  components:
+  - type: Food
+    eatMessage: food-desc-carrotCandy-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: carrotCandy
+  - type: Tag
+    tags:
+    - Candy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: PickledCarrots
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodBuffaloGourdCandy
+  components:
+  - type: Food
+    eatMessage: food-desc-buffaloGourdCandy-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: buffaloGourdCandy
+  - type: Tag
+    tags:
+    - Candy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: BuffaloGourdJam
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 5
+
+
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodBlackberryCandy
+  components:
+  - type: Food
+    eatMessage: food-desc-blackberryCandy-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: berryCandy
+  - type: Tag
+    tags:
+    - Candy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: BlackberryJam
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodButterscotchCandy
+  components:
+  - type: Food
+    eatMessage: food-desc-butterscotchCandy-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: butterscotchCandy
+  - type: Tag
+    tags:
+    - Candy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Butterscotch
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodJetCandy
+  components:
+  - type: Food
+    eatMessage: food-desc-jawbreakerJetCandy-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: jetJawbreaker
+  - type: Tag
+    tags:
+    - Candy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: MovespeedMixture
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 10
+
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodJawbreakerCandy
+  components:
+  - type: Food
+    eatMessage: food-desc-jawbreakerCandy-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: jetJawbreaker
+  - type: Tag
+    tags:
+    - Candy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 10
+
+# diced Meat
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodDicedMeat
+  components:
+  - type: Food
+    eatMessage: food-desc-dicedMeat-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: dicedMeat
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+  - type: ScoopableSolution
+    solution: food
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: DicedMeat
+          Quantity: 10
+
+
+# diced Tato
+- type: entity
+  parent: MisfitsFoodBase
+  id:  MisfitsFoodDicedTato
+  components:
+  - type: Food
+    eatMessage: food-desc-dicedTato-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: dicedTato
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+  - type: ScoopableSolution
+    solution: food
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: DicedTato
+          Quantity: 10
+
+
+# diced Garlic
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodDicedGarlic
+  components:
+  - type: Food
+    eatMessage: food-desc-dicedGarlic-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: dicedGarlic
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+  - type: ScoopableSolution
+    solution: food
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: DicedGarlic
+          Quantity: 10
+
+# diced Onion
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodDicedOnion
+  components:
+  - type: Food
+    eatMessage: food-desc-dicedOnion-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: dicedOnion
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+  - type: ScoopableSolution
+    solution: food
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: DicedOnion
+          Quantity: 10

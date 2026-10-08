@@ -44,6 +44,9 @@ public enum WastelandMapTrackedBlipKind : byte
     TribeCritical,     // Tribe member in critical condition during the Rite of Returning
     MaterialExtractor, // permanent seismic extractor landmark
     ExpeditionEntrance, // round-scoped unknown underground expedition entrance
+    RadioTowerOffline, // public radio is blocked until this tower is activated
+    RadioTowerOnline, // activated public-radio tower
+    GlobalPin, // administrator-created, round-scoped landmark visible on every map feed
 }
 
 [Serializable, NetSerializable]

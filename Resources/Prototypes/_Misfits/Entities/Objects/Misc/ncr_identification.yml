@@ -219,3 +219,14 @@
   components:
   - type: PresetIdCard
     job: OSIAgent
+
+# #Misfits Add - DAGGER uses an elite Ranger badge, but its ID card title is its own rank.
+- type: entity
+  parent: N14IDBadgeNCRDesertRangerElite
+  id: MisfitsIDBadgeNCRDagger
+  name: DAGGER ranger badge
+  description: An elite Ranger badge issued to a DAGGER liaison attached to NCR High Command.
+  suffix: DAGGER
+  components:
+  - type: PresetIdCard
+    job: NCRDagger

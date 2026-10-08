@@ -213,6 +213,7 @@ namespace Content.Shared.Chemistry.Components
         void ISerializationHooks.AfterDeserialization()
         {
             Volume = FixedPoint2.Zero;
+            Contents.RemoveAll(x => x.Reagent.Prototype == "Empty");
             foreach (var reagent in Contents)
             {
                 Volume += reagent.Quantity;

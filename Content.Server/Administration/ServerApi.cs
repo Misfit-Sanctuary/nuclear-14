@@ -7,6 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using Content.Server.Administration.Commands;
+using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
 using Content.Server.Database;
@@ -67,6 +68,7 @@ public sealed partial class ServerApi : IPostInjectInit
     [Dependency] private readonly IPlayerLocator _locator = default!;
     [Dependency] private readonly IConsoleHost _shell = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
 
     private string _token = string.Empty;
     private ISawmill _sawmill = default!;
@@ -729,6 +731,8 @@ public sealed partial class ServerApi : IPostInjectInit
             return;
 
         var data = await _locator.LookupIdAsync(new NetUserId(body.UserUid));
+        await RunOnMainThread(() => _adminLog.Add(LogType.Action, LogImpact.Medium,
+            $"Admin API viewed account name for {body.UserUid:targetPlayerId}"));
 
         if (data != null)
             await context.RespondJsonAsync(data.Username);

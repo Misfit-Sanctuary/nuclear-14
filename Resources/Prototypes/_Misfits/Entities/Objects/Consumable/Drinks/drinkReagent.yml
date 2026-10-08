@@ -1,0 +1,11 @@
+- type: reagent
+  id: Empty
+  name: reagent-name-nothing
+  desc: reagent-desc-nothing
+  group: Drinks
+  physicalDesc: reagent-physical-desc-nothing
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 1

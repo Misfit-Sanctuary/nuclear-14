@@ -3,8 +3,9 @@
   id: MisfitsDoorBunkerLockedEnclave
   suffix: Enclave, Locked
   components:
-  - type: AccessReader
-    access: [["Enclave"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleAll ]
   - type: Wires
     layoutId: HighSec
 
@@ -13,8 +14,9 @@
   id: MisfitsDoorBunkerGlassLockedEnclave
   suffix: Enclave, Locked
   components:
-  - type: AccessReader
-    access: [["Enclave"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleAll ]
   - type: Wires
     layoutId: HighSec
 
@@ -23,8 +25,9 @@
   id: MisfitsDoorBunker3XLockedEnclave
   suffix: Enclave, Locked
   components:
-  - type: AccessReader
-    access: [["Enclave"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleAll ]
   - type: Wires
     layoutId: HighSec
 
@@ -33,8 +36,9 @@
   id: MisfitsDoorBunkerGlass3XLockedEnclave
   suffix: Enclave, Locked
   components:
-  - type: AccessReader
-    access: [["Enclave"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleAll ]
   - type: Wires
     layoutId: HighSec
 
@@ -43,8 +47,9 @@
   id: MisfitsDoorMetalSecureLockedEnclave
   suffix: Enclave, Locked
   components:
-  - type: AccessReader
-    access: [["Enclave"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleAll ]
   - type: Wires
     layoutId: HighSec
 
@@ -53,8 +58,9 @@
   id: MisfitsDoorCellMetalLockedEnclave
   suffix: Enclave, Locked
   components:
-  - type: AccessReader
-    access: [["Enclave"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleSeniorOfficer ]
   - type: Wires
     layoutId: HighSec
 
@@ -63,8 +69,9 @@
   id: MisfitsDoorBunkerLockedEnclaveSecurity
   suffix: Enclave, Locked, Security
   components:
-  - type: AccessReader
-    access: [["EnclaveNCO"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleSeniorOfficer ]
   - type: Wires
     layoutId: HighSec
 
@@ -73,8 +80,9 @@
   id: MisfitsDoorBunkerLockedEnclaveScience
   suffix: Enclave, Locked, Science
   components:
-  - type: AccessReader
-    access: [["EnclaveScience"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleScientist ]
   - type: Wires
     layoutId: HighSec
 
@@ -83,8 +91,9 @@
   id: MisfitsDoorBunkerLockedEnclaveCommand
   suffix: Enclave, Locked, Command
   components:
-  - type: AccessReader
-    access: [["EnclaveCommand"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleCommander ]
   - type: Wires
     layoutId: HighSec
 
@@ -93,8 +102,9 @@
   id: MisfitsDoorMetalSecureLockedEnclaveSecurity
   suffix: Enclave, Locked, Security
   components:
-  - type: AccessReader
-    access: [["EnclaveNCO"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleSeniorOfficer ]
   - type: Wires
     layoutId: HighSec
 
@@ -103,8 +113,9 @@
   id: MisfitsDoorMetalSecureLockedEnclaveScience
   suffix: Enclave, Locked, Science
   components:
-  - type: AccessReader
-    access: [["EnclaveScience"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleScientist ]
   - type: Wires
     layoutId: HighSec
 
@@ -113,8 +124,9 @@
   id: MisfitsDoorMetalSecureLockedEnclaveCommand
   suffix: Enclave, Locked, Command
   components:
-  - type: AccessReader
-    access: [["EnclaveCommand"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleCommander ]
   - type: Wires
     layoutId: HighSec
 
@@ -125,53 +137,74 @@
   id: MisfitsDoorBunkerLockedEnclaveRoleScientist
   suffix: Enclave, Locked, Role Scientist
   components:
-  - type: AccessReader
-    access: [["EnclaveRoleScientist"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleScientist ]
+  - type: Wires
+    layoutId: HighSec
 
 - type: entity
   parent: N14DoorBunker
   id: MisfitsDoorBunkerLockedEnclaveRoleHeadScientist
   suffix: Enclave, Locked, Role Head Scientist
   components:
-  - type: AccessReader
-    access: [["EnclaveRoleHeadScientist"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleHeadScientist ]
+  - type: Wires
+    layoutId: HighSec
 
 - type: entity
   parent: N14DoorBunker
   id: MisfitsDoorBunkerLockedEnclaveRoleAll
   suffix: Enclave, Locked, Role All
   components:
-  - type: AccessReader
-    access: [["EnclaveRoleAll"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleAll ]
+  - type: Wires
+    layoutId: HighSec
 
 - type: entity
   parent: N14DoorBunker
   id: MisfitsDoorBunkerLockedEnclaveRoleNCO
   suffix: Enclave, Locked, Role NCO
   components:
-  - type: AccessReader
-    access: [["EnclaveRoleNCO"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleNCO ]
+  - type: Wires
+    layoutId: HighSec
 
 - type: entity
   parent: N14DoorBunker
   id: MisfitsDoorBunkerLockedEnclaveRoleJuniorOfficer
   suffix: Enclave, Locked, Role Junior Officer
   components:
-  - type: AccessReader
-    access: [["EnclaveRoleJuniorOfficer"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleJuniorOfficer ]
+  - type: Wires
+    layoutId: HighSec
 
 - type: entity
   parent: N14DoorBunker
   id: MisfitsDoorBunkerLockedEnclaveRoleSeniorOfficer
   suffix: Enclave, Locked, Role Senior Officer
   components:
-  - type: AccessReader
-    access: [["EnclaveRoleSeniorOfficer"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleSeniorOfficer ]
+  - type: Wires
+    layoutId: HighSec
 
 - type: entity
   parent: N14DoorBunker
   id: MisfitsDoorBunkerLockedEnclaveRoleCommander
   suffix: Enclave, Locked, Role Commander
   components:
-  - type: AccessReader
-    access: [["EnclaveRoleCommander"]]
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsEnclaveRoleCommander ]
+  - type: Wires
+    layoutId: HighSec

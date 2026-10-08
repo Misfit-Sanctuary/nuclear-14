@@ -36,9 +36,9 @@
     - !type:EntSelector
       id: N14WeaponFlamer
       weight: 1
-    - !type:EntSelector
-      id: N14WeaponGaussRifle
-      weight: 1
+    # - !type:EntSelector
+    #   id: N14WeaponGaussRifle
+    #   weight: 1
 
 
 - type: entityTable
@@ -91,6 +91,6 @@
     - !type:EntSelector
       id: N14WeaponPulseRifle #YK42b omg!!! i missed u sugoi!!!!
       weight: 1
-    - !type:EntSelector
-      id: N14WeaponGaussRifle # hai
-      weight: 1
+    # - !type:EntSelector
+    #   id: N14WeaponGaussRifle # hai
+    #   weight: 1

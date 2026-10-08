@@ -1,4 +1,5 @@
 using Content.Server.Administration.Managers;
+using Content.Server.Administration.Logs;
 using Content.Server.EUI;
 using Content.Shared.Administration.Notes;
 using Content.Shared.Database;
@@ -16,6 +17,7 @@ public sealed class AdminNotesEui : BaseEui
     [Dependency] private readonly IAdminManager _admins = default!;
     [Dependency] private readonly IAdminNotesManager _notesMan = default!;
     [Dependency] private readonly IPlayerLocator _locator = default!;
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
 
     public AdminNotesEui()
     {
@@ -114,8 +116,13 @@ public sealed class AdminNotesEui : BaseEui
 
     public async Task ChangeNotedPlayer(Guid notedPlayer)
     {
+        if (!_notesMan.CanView(Player))
+            return;
+
         NotedPlayer = notedPlayer;
         await LoadFromDb();
+        _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+            $"{Player:actor} viewed admin notes for {NotedPlayerName} ({notedPlayer:targetPlayerId})");
     }
 
     private void NoteModified(SharedAdminNote note)

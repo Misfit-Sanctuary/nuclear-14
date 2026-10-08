@@ -1,0 +1,61 @@
+
+- type: entity
+  parent: N14ClothingBeltStorageBase
+  id: MisfitsClothingPouchCandy
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: candyPouch
+  - type: Construction
+    graph: CandyPouchGraph
+    node: CandyPouch
+  - type: Item
+    size: Tiny
+  - type: Storage
+    grid:
+    - 0,0,4,4
+    whitelist:
+      tags:
+      - Candy
+
+- type: entity
+  parent: BoxBase
+  id: MisfitsStorageFoodBox
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0, 0, 1, 1
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: foodBox
+  - type: Construction
+    graph: FoodBoxGraph
+    node: FoodBox
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,1,4
+    whitelist:
+      components:
+      - Food
+  - type: StorageFillVisualizer
+    maxFillLevels: 1
+    fillBaseName: foodBox
+
+# Raiser can
+- type: entity
+  parent: [N14ReagentPacketBase, ItemHeftyBase]
+  id: MisfitsItemRaiserCan
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: raiserCan
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Raiser
+          Quantity: 20
+

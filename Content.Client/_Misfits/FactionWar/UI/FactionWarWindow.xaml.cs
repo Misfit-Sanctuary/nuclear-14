@@ -31,7 +31,6 @@ public sealed partial class FactionWarWindow : FancyWindow
 
     private readonly List<WarTargetInfo> _factionTargetItems = new();
     private readonly List<WarTargetInfo> _groupTargetItems = new();
-    private readonly List<WarTargetInfo> _wastelanderTargetItems = new();
     private readonly List<PlayerWarEntry> _myWars = new();
 
     private bool _confirmPending;
@@ -49,7 +48,7 @@ public sealed partial class FactionWarWindow : FancyWindow
         // Keep compact static guidance in the header block.
         RulesLabel.SetMarkup(
             "[bold]Player War Rules[/bold]\n" +
-            "[bullet]Pick a target faction, group, or wastelander and provide a clear reason (5+ words).[/bullet]\n" +
+            "[bullet]Pick a target faction or group and provide a clear reason (5+ words).[/bullet]\n" +
             "[bullet]War starts after prep and players can join a side while pending.[/bullet]\n" +
             "[bullet]Use ceasefire to end hostilities cleanly.[/bullet]");
 
@@ -70,12 +69,6 @@ public sealed partial class FactionWarWindow : FancyWindow
         {
             TargetGroupSelector.SelectId(args.Id);
             _selectedTargetKind = WarTargetKind.Group;
-            ResetConfirm();
-        };
-        TargetWastelanderSelector.OnItemSelected += args =>
-        {
-            TargetWastelanderSelector.SelectId(args.Id);
-            _selectedTargetKind = WarTargetKind.Wastelander;
             ResetConfirm();
         };
         CeasefireTargetSelector.OnItemSelected += args => CeasefireTargetSelector.SelectId(args.Id);
@@ -120,57 +113,34 @@ public sealed partial class FactionWarWindow : FancyWindow
 
         _factionTargetItems.Clear();
         _groupTargetItems.Clear();
-        _wastelanderTargetItems.Clear();
 
         TargetFactionSelector.Clear();
         TargetGroupSelector.Clear();
-        TargetWastelanderSelector.Clear();
+
+        // Keep every target category deliberately unselected until the player picks one.
+        // OptionButton otherwise selects the first real target as it is added.
+        TargetFactionSelector.AddItem("Select a faction...", -1);
+        TargetGroupSelector.AddItem("Select a group...", -1);
 
         foreach (var target in data.FactionTargets)
         {
             _factionTargetItems.Add(target);
-            TargetFactionSelector.AddItem(target.DisplayName);
+            TargetFactionSelector.AddItem(target.DisplayName, _factionTargetItems.Count - 1);
         }
 
         foreach (var target in data.GroupTargets)
         {
             _groupTargetItems.Add(target);
-            TargetGroupSelector.AddItem(target.DisplayName);
-        }
-
-        foreach (var target in data.WastelanderTargets)
-        {
-            _wastelanderTargetItems.Add(target);
-            TargetWastelanderSelector.AddItem(target.DisplayName);
+            TargetGroupSelector.AddItem(target.DisplayName, _groupTargetItems.Count - 1);
         }
 
         TargetFactionSelector.Disabled = _factionTargetItems.Count == 0;
         TargetGroupSelector.Disabled = _groupTargetItems.Count == 0;
-        TargetWastelanderSelector.Disabled = _wastelanderTargetItems.Count == 0;
 
-        if (_factionTargetItems.Count > 0)
-        {
-            _selectedTargetKind = WarTargetKind.Faction;
-            TargetFactionSelector.SelectId(0);
-        }
-        else if (_groupTargetItems.Count > 0)
-        {
-            _selectedTargetKind = WarTargetKind.Group;
-            TargetGroupSelector.SelectId(0);
-        }
-        else if (_wastelanderTargetItems.Count > 0)
-        {
-            _selectedTargetKind = WarTargetKind.Wastelander;
-            TargetWastelanderSelector.SelectId(0);
-        }
-        else
-        {
-            _selectedTargetKind = WarTargetKind.Faction;
-        }
+        _selectedTargetKind = WarTargetKind.Faction;
 
         DeclareWarButton.Disabled = _factionTargetItems.Count == 0
-                                   && _groupTargetItems.Count == 0
-                                   && _wastelanderTargetItems.Count == 0;
+                                   && _groupTargetItems.Count == 0;
         ResetConfirm();
 
         _myWars.Clear();
@@ -249,7 +219,6 @@ public sealed partial class FactionWarWindow : FancyWindow
         {
             WarTargetKind.Faction => GetTargetId(TargetFactionSelector, _factionTargetItems),
             WarTargetKind.Group => GetTargetId(TargetGroupSelector, _groupTargetItems),
-            WarTargetKind.Wastelander => GetTargetId(TargetWastelanderSelector, _wastelanderTargetItems),
             _ => (WarTargetKind.Faction, null),
         };
     }

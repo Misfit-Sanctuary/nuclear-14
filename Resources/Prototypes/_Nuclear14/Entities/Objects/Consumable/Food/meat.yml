@@ -467,6 +467,7 @@
   - type: Tag
     tags:
     - Cooked
+    - Meat
   - type: Sprite
     sprite: _Nuclear14/Objects/Consumable/Food/meat.rsi
     state: morsels_roasted
@@ -998,6 +999,9 @@
     graph: MeatRadCutlet
     node: start
     defaultTarget: CutletCooked
+  - type: SliceableFood
+    count: 1
+    slice: MisfitsFoodDicedMeat
 
 - type: entity
   name: raw brahmin cutlet

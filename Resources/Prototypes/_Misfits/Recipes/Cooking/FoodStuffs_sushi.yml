@@ -1,0 +1,587 @@
+
+
+
+
+
+
+- type: entity
+  parent: BaseItem
+  id: MisfitsFoodBase
+  abstract: true
+  components:
+  - type: Temperature
+  - type: FlavorProfile
+    flavors:
+    - food
+  - type: Food
+  - type: Sprite
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodSmallBase
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+
+
+# Raw sushi
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSushiMeatRaw
+  components:
+  - type: Food
+    transferAmount: 10
+    eatMessage: food-desc-sushi-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: sushiRoll
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Rice
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 3
+        - ReagentId: Nutriment
+          Quantity: 3
+  - type: GeneralConstructs
+    generalEnts:
+      Cooked: MisfitsFoodSushiMeatCooked
+  - type: Construction
+    graph: GraphCookAny
+    node: start
+    defaultTarget: CookedNode
+
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSushiMeatCooked
+  components:
+  - type: Food
+    transferAmount: 10
+    eatMessage: food-desc-sushiCooked-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: sushiRoll
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 37
+        reagents:
+        - ReagentId: Rice
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 4
+        - ReagentId: Nutriment
+          Quantity: 4
+  - type: GeneralConstructs
+    generalEnts:
+      Cooked: MisfitsFoodSushiMeatCooked
+  - type: Construction
+    graph: GraphCookAny
+    node: CookedNode
+    defaultTarget: start
+
+## fish sushi
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSushiFishRaw
+  components:
+  - type: Food
+    transferAmount: 10
+    eatMessage:  food-desc-sushiFish-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: redFishSushi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Rice
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 5
+
+## carrot fish sushi
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSushiFishCarrotRaw
+  description: food-desc-sushiFishCarrot
+  components:
+  - type: Food
+    transferAmount: 10
+    eatMessage: food-desc-sushiFishCarrot-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: redFishSushi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Rice
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: JuiceCarrot
+          Quantity: 10
+
+## NCR roll
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSushiNCRRaw
+  components:
+  - type: Food
+    transferAmount: 10
+    eatMessage: food-desc-sushiNCR-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: NCRRoll
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 38
+        reagents:
+        - ReagentId: Rice
+          Quantity: 10
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: JuiceCarrot
+          Quantity: 20
+
+## spicy sushi
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSushiSpicyRaw
+  components:
+  - type: Food
+    transferAmount: 10
+    eatMessage: food-desc-sushiSpicy-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: spicyRoll
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 29
+        reagents:
+        - ReagentId: Rice
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 9
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Hotsauce
+          Quantity: 2
+
+
+# cream sushi
+
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSushiCheeseRaw
+  components:
+  - type: Food
+    eatMessage: food-desc-sushiCream-eat
+    transferAmount: 10
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: sushiCream
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Rice
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 3
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Milk
+          Quantity: 5
+
+# large sushi
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSushiMeatLargeRaw
+  components:
+  - type: Food
+    transferAmount: 10
+    eatMessage: food-desc-sushiBig-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state:  sushiRollBig
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 65
+        reagents:
+        - ReagentId: Rice
+          Quantity: 20
+        - ReagentId: Protein
+          Quantity: 3
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: JuiceCarrot
+          Quantity: 20
+
+# NCR patriotic roll
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSushiNCRSuperRaw
+  components:
+  - type: Food
+    transferAmount: 10
+    eatMessage: food-desc-sushiNCRLarge-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: NCRRollSuper
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 65
+        reagents:
+        - ReagentId: Rice
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 3
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: JuiceCarrot
+          Quantity: 20
+        - ReagentId: Cellulose
+          Quantity: 10
+        - ReagentId: Fiber
+          Quantity: 10
+# Legion patriotic roll
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSushiLegionSuperRaw
+  components:
+  - type: Food
+    transferAmount: 10
+    eatMessage: food-desc-sushiLegionLarge-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: legionRollSuper
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 65
+        reagents:
+        - ReagentId: Rice
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 6
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Hotsauce
+          Quantity: 2
+        - ReagentId: Cellulose
+          Quantity: 10
+        - ReagentId: Fiber
+          Quantity: 10
+
+# unused till RTB gets updated to allow for prototype varititization
+#- type: construction
+#  id: CraftSushi
+#  graph: CraftSushiBasicGraph
+#  startNode: start
+#  targetNode: SushiBasic
+#  icon: {sprite: _Nuclear14/Structures/Power/breakerbox.rsi, state: base}
+#  category: construction-category-food
+#  objectType: Item
+#  canBuildInImpassable: true
+#  hide: false
+#
+#- type: constructionGraph
+#  id: CraftSushiBasicGraph
+#  start: start
+#  graph:
+#  - node: start
+#    edges:
+#    - to: SushiBasic
+#      conditions:
+#      - !type:MinSolution
+#          solution: food
+#          reagent:
+#            ReagentId: Rice
+#          quantity: 10
+#  - node: SushiBasic
+#    entity: MisfitsFoodSushiPlain
+#
+#- type: constructionGraph
+#  id: CraftSushiGraph
+#  start: start
+#  graph:
+#  - node: start
+#    edges:
+#    - to: SushiSpicy
+#      conditions:
+#      - !type:MinSolution
+#        solution: food
+#        reagent:
+#          ReagentId: Hotsauce
+#        quantity: 2
+#      steps:
+#      - entity: N14FoodMeatBighornerCutlet
+#      - entity: N14FoodMeatBighornerCutlet
+#    - to: SushiMeat
+#      steps:
+#      - tag: Cutlet
+#        icon:
+#          sprite: Objects/Consumable/Food/meat.rsi
+#          state: icon
+#
+#  - node: SushiMeat
+#    entity: MisfitsFoodSushiMeatRaw
+#  - node: SushiSpicy
+#    entity: MisfitsFoodSushiSpicyRaw
+#cream sushi
+#- type: entity
+#  parent: MisfitsFoodBase
+#
+#    values: [Cream Cheese Sushi, Fried Cream Cheese Sushi ]
+#  description: food-desc-sushiCream
+#  id: !type:CreateVariants
+#    values: [ MisfitsFoodSushiCheeseRaw,MisfitsFoodSushiCheeseCooked]
+#  components:
+#  - type: Food
+#    eatMessage: food-desc-sushiCream-eat
+#    transferAmount: 10
+#  - type: Sprite
+#    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+#    state: !type:CreateVariants
+#      values: [ "sushiCream", "sushiCream"]
+#  - type: SolutionContainerManager
+#    solutions:
+#      food:
+#        maxVol: 35
+#        reagents:
+#        - ReagentId: Rice
+#          Quantity: 10
+#        - ReagentId: !type:CreateVariants
+#            values: [ N14UncookedAnimalProteinsRad, Protein ]
+#          Quantity: !type:CreateVariants
+#            values: [3,2]
+#        - ReagentId: !type:CreateVariants
+#            values: [ Fat,Nutriment]
+#          Quantity: !type:CreateVariants
+#            values: [2,7]
+#        - ReagentId: !type:CreateVariants
+#            values: [Nutriment,Empty]
+#          Quantity: !type:CreateVariants
+#            values: [5,1]
+#        - ReagentId: Milk
+#          Quantity: 5
+#  - type: GeneralConstructs
+#    generalEnts:
+#      SushiFried: !type:CreateVariants
+#        values: [ MisfitsFoodSushiCheeseCooked, MisfitsFoodSushiCheeseCooked]
+#  - type: Construction
+#    graph: GraphSushi
+#    node: !type:CreateVariants
+#      values: [ start, SushiFried]
+#    defaultTarget: !type:CreateVariants
+#      values: [ SushiFried, start]
+
+## Cooked Sushi
+#
+#- type: entity
+#  parent: MisfitsFoodBase
+#
+#    values: [Simple Fried Sushi, Fried Fish Sushi, Fried Carrot and Fish Sushi, Fried New California Roll, Fried Spicy Roll ]
+#  id: !type:CreateVariants
+#    values: [ MisfitsFoodSushiMeatCooked, MisfitsFoodSushiFishCooked, MisfitsFoodSushiFishCarrotCooked, MisfitsFoodSushiNCRCooked, MisfitsFoodSushiSpicyCooked]
+#    description: !type:CreateVariants
+#      values: [ food-desc-sushi, food-desc-sushiFish, food-desc-sushiFishCarrot ,food-desc-sushiNCR, food-desc-sushiSpicy ]
+#  components:
+#  - type: Food
+#    transferAmount: 10
+#    eatMessage: !type:CreateVariants
+#      values: [ food-desc-sushi-eat, food-desc-sushiFish-eat, food-desc-sushiFishCarrot-eat ,food-desc-sushiNCR-eat, food-desc-sushiSpicy-eat ]
+#  - type: Sprite
+#    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+#    state: !type:CreateVariants
+#      values: [ "sushiRoll", "redFishSushi", "redFishSushi" ,"NCRRoll", "spicyRoll"]
+#  - type: SolutionContainerManager
+#    solutions:
+#      food:
+#        maxVol: 35
+#        reagents:
+#        - ReagentId: Rice
+#          Quantity: 10
+#        - ReagentId: Protein
+#          Quantity: !type:CreateVariants
+#            values: [2,2,2,2,6]
+#        - ReagentId: !type:CreateVariants
+#            values: [Nutriment, Vitamin, Vitamin, Nutriment, Nutriment]
+#          Quantity: !type:CreateVariants
+#            values: [2,5,5,2,6]
+#        - ReagentId: !type:CreateVariants
+#            values: [Empty,Empty, JuiceCarrot, JuiceCarrot, Hotsauce]
+#          Quantity: !type:CreateVariants
+#            values: [1,1,10,20,2]
+#  - type: GeneralConstructs
+#    generalEnts:
+#      sushiFried: !type:CreateVariants
+#        values: [ MisfitsFoodSushiMeatCooked, MisfitsFoodSushiFishCooked, MisfitsFoodSushiFishCarrotCooked, MisfitsFoodSushiNCRCooked, MisfitsFoodSushiSpicyCooked]
+#  - type: Construction
+#    graph: GraphSushi
+#    node: SushiFried
+# NCR/Legion Rolls raw/cooked
+#- type: entity
+#  parent: MisfitsFoodBase
+#
+#    values: [NCR Patriotic Roll, Fried NCR Patriotic Roll, Legion Patriotic Roll, Fried Legion Patriotic Roll]
+#  id: !type:CreateVariants
+#    values: [ MisfitsFoodSushiNCRSuperRaw, MisfitsFoodSushiNCRSuperCooked, MisfitsFoodSushiLegionSuperRaw ,MisfitsFoodSushiLegionSuperCooked]
+#  description: !type:CreateVariants
+#    values: [food-desc-sushiNCRLarge,food-desc-sushiNCRLarge,food-desc-sushiNCRLarge,food-desc-sushiNCRLarge]
+#  components:
+#  - type: Food
+#    transferAmount: 10
+#    eatMessage: !type:CreateVariants
+#      values: [food-desc-sushiNCRLarge-eat,food-desc-sushiNCRLarge-eat,food-desc-sushiLegionLarge-eat,food-desc-sushiLegionLarge-eat]
+#  - type: Sprite
+#    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+#    state: !type:CreateVariants
+#      values: [ "NCRRollSuper", "NCRRollSuper","legionRollSuper","legionRollSuper"]
+#  - type: SolutionContainerManager
+#    solutions:
+#      food:
+#        maxVol: 55
+#        reagents:
+#        - ReagentId: Rice
+#          Quantity: 10
+#        - ReagentId: !type:CreateVariants
+#            values: [ N14UncookedAnimalProteinsRad, Protein,N14UncookedAnimalProteinsRad, Protein ]
+#          Quantity: !type:CreateVariants
+#            values: [3,2,6,4]
+#        - ReagentId: !type:CreateVariants
+#            values: [Fat, Nutriment, Fat, Nutriment]
+#          Quantity: !type:CreateVariants
+#            values: [2,2,4,4]
+#        - ReagentId: !type:CreateVariants
+#            values: [JuiceCarrot,JuiceCarrot,Empty,Empty]
+#          Quantity: !type:CreateVariants
+#            values: [20,20,1,1]
+#        - ReagentId: Cellulose
+#          Quantity: 10
+#        - ReagentId: Fiber
+#          Quantity: 10
+#  - type: GeneralConstructs
+#    generalEnts:
+#      SushiFried: !type:CreateVariants
+#        values: [MisfitsFoodSushiNCRSuperCooked,MisfitsFoodSushiNCRSuperCooked,MisfitsFoodSushiLegionSuperCooked,MisfitsFoodSushiLegionSuperCooked]
+#  - type: Construction
+#    graph: GraphSushi
+#    node: !type:CreateVariants
+#      values: [ start, SushiFried, start, SushiFried]
+#    defaultTarget: !type:CreateVariants
+#      values: [ SushiFried, start, SushiFried, start]
+
+# Large Sushi raw/cooked
+#- type: entity
+#  parent: MisfitsFoodBase
+#
+#    values: [Large Sushi, Large Fried Sushi ]
+#  id: !type:CreateVariants
+#    values: [ MisfitsFoodSushiMeatLargeRaw, MisfitsFoodSushiMeatLargeCooked ]
+#    description: food-desc-sushiBig
+#  components:
+#  - type: Food
+#    transferAmount: 10
+#    eatMessage: food-desc-sushiBig-eat
+#  - type: Sprite
+#    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+#    state: !type:CreateVariants
+#      values: [ "sushiRollBig", "sushiRollBig"]
+#  - type: SolutionContainerManager
+#    solutions:
+#      food:
+#        maxVol: 65
+#        reagents:
+#        - ReagentId: Rice
+#          Quantity: 20
+#        - ReagentId: !type:CreateVariants
+#            values: [ N14UncookedAnimalProteinsRad, Protein ]
+#          Quantity: !type:CreateVariants
+#            values: [3, 2]
+#        - ReagentId: !type:CreateVariants
+#            values: [ Fat, Nutriment]
+#          Quantity: !type:CreateVariants
+#            values: [ 2, 2]
+#        - ReagentId: JuiceCarrot
+#          Quantity: 20
+#  - type: Construction
+#    graph: GraphSushi
+#    node: !type:CreateVariants
+#      values: [ start, SushiFried]
+#    defaultTarget: !type:CreateVariants
+#      values: [ SushiFried, start]
+#  __RECIPIES__
+#
+#- Simple Sushi: 10u rice, 1 Cut Cutlet
+#- Simple Fried Sushi: 10u rice, 1 Cooked Cut Cutlet -> 5 sec
+#- Carrot and Fish Sushi Roll: 1 carrot, 10u rice, 1 cut cutlet -> 5 sec
+#- Fish Sushi Roll: 1 cut cutlet, 10u rice -> 5 sec
+#- Large Sushi Roll: 2 cut cutlets, 2 carrots, 20u rice -> 10 sec
+#- New California Roll: 1 cut cutlet, 2 carrots, 10u rice -> 5 sec
+#- Spicy Roll: 2u hot sauce, 2 bighorn cutlets, 10u rice, 1 cut cutlet -> 5 sec
+
+
+#- NCR Patriotic Roll: 1 New California Roll, 1 cloth, 1 wood -> 5 sec
+#- Legion Patriotic Roll: 1 Spicy Roll, 1 cloth, 1 wood -> 5 sec
+
+#- Sushi with Cream Cheese: 5u Milk, 1 Cheese Wedge, 1 Cut Cutlet, 10u rice -> 5 sec
+#- Cut Cutlet: Use knife on Red Fish Cut, gives 3 Cutlets
+#
+#- Rice Cake: 1 cooked rice, 5u salt -> 5 sec
+#
+#- Coxinha: 5u ground animal protein, 1 dough slice, 5u salt -> 5 sec
+#
+#
+#- Meat Dumpling: 1 dough slice, 5u ground animal protein -> 5 sec
+#
+#- Khan Meat Dumpling: 1 dumpling, 5u jet, 1 leather, 1 wood -> 5 sec
+#
+#- Carrot Vitamin Gummy: 5u carrot juice, 5u sugar -> 5 sec
+#
+#- Milk Chocolate Bar: 2u cocoa powder, 5u milk, 5u sugar (must be in separate containers else create regular choc) -> 5 sec
+#
+#- VaultTech Lolipop: 10u sugar, 1 paper -> 5 sec
+#
+#- Spicy n Sweet Skewer: 2 jalapeno, 2 black berry, 1 skewer -> 5 sec
+#
+#- Waster Burrito (Crafting Menu): 1 Cooked Meat (any), 1 dough slice
+#
+#- Waster Burrito Supreme (Crafting Menu): 1 Cooked Meat (any), 1 Cabbage, 1 Cheese Wedge, 1 Tato
+#
+#- Kebab Pilar: 5 raw brahmin steaks, 1 wood -> 30 sec
+#
+#- Kebab Slice: Use knife on Kebab, gives 9 slices
+#
+#- Kebab Wrap: 3 Kebab Slices, 1 onion, 1 cabbage, 1 dough slice -> 5 sec
+#
+#- Permisson: 1 radstag cutlet, 2 pinion nuts, 2 blackberies -> 10 sec
+#
+#- Toffee -> 1 Pinion nut, 15u sugar -> 15 sec
+#
+#- Meat Jerky: 1 meat cutlet, 5u salt -> 15 sec
+#
+#- Cabbage n Meat Bread: 1 cabbage, 5u ground animal protein, 1 dough -> 10 sec
+#
+#- Thick Pancake: 10u flour, 5u milk, 5u egg, 5u Raiser -> 5 sec
+#
+#- Food Box: 5 planks

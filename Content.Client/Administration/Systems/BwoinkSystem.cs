@@ -188,6 +188,8 @@ namespace Content.Client.Administration.Systems
             Guid? filterPlayerId = null,
             int limit = 100,
             int offset = 0,
+            int adminLogOffset = 0,
+            int playerLogOffset = 0,
             string? filterPlayerName = null,
             string? filterAdminName = null,
             Guid? filterAdminId = null,
@@ -200,6 +202,8 @@ namespace Content.Client.Administration.Systems
                 FilterPlayerId = filterPlayerId,
                 Limit = limit,
                 Offset = offset,
+                AdminLogOffset = adminLogOffset,
+                PlayerLogOffset = playerLogOffset,
                 FilterPlayerName = filterPlayerName,    // #Misfits Add
                 FilterAdminName = filterAdminName,      // #Misfits Add
                 FilterAdminId = filterAdminId,          // #Misfits Add

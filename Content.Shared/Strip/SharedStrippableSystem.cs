@@ -12,10 +12,10 @@ using Content.Shared.Strip.Components;
 
 namespace Content.Shared.Strip;
 
-public abstract class SharedStrippableSystem : EntitySystem
+public abstract partial class SharedStrippableSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ThievingSystem _thieving = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ThievingSystem _thieving = default!;
     public override void Initialize()
     {
         base.Initialize();

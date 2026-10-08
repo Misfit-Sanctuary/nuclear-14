@@ -5,7 +5,8 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: Error
+      id: N14WeaponRifle556Pipe
+      weight: 5
 
 
 - type: entityTable
@@ -14,7 +15,7 @@
     children:
     - !type:EntSelector
       id: N14WeaponRifle10mmM1Carbine
-      weight: 4
+      weight: 5
     - !type:EntSelector
-      id: N14WeaponSniper556VarmintRifle
-      weight: 4
+      id: N14WeaponSniper308PipeRifle
+      weight: 5

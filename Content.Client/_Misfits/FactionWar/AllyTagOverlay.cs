@@ -14,6 +14,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Enums;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Network;
+using Robust.Shared.Player;
 
 namespace Content.Client._Misfits.FactionWar;
 
@@ -84,7 +85,7 @@ internal sealed class AllyTagOverlay : Overlay
         return (coords.Position - entry.Position).LengthSquared() >= PositionRefreshThresholdSquared;
     }
 
-    private void CleanupCache(IReadOnlyDictionary<NetEntity, FactionWarParticipantInfo> participants, TimeSpan now)
+    private void CleanupCache(TimeSpan now)
     {
         if (now < _nextCleanup)
             return;
@@ -94,7 +95,8 @@ internal sealed class AllyTagOverlay : Overlay
         var cachedEntities = new List<NetEntity>(_visibilityCache.Keys);
         foreach (var netEntity in cachedEntities)
         {
-            if (!participants.ContainsKey(netEntity))
+            var uid = _entityManager.GetEntity(netEntity);
+            if (!_entityManager.EntityExists(uid))
                 _visibilityCache.Remove(netEntity);
         }
     }
@@ -127,23 +129,26 @@ internal sealed class AllyTagOverlay : Overlay
         var now = _timing.CurTime;
         var losRefreshBudget = MaxLosRefreshPerFrame;
 
-        CleanupCache(participants, now);
+        CleanupCache(now);
 
         var viewport = args.WorldAABB;
 
-        foreach (var (netEntity, info) in participants)
+        // Draw a relationship tag for every nearby player. A local non-participant
+        // does not get an overlay at all; only someone enlisted in this war sees
+        // non-participants as neutral.
+        var query = _entityManager.EntityQueryEnumerator<ActorComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out _, out var xform))
         {
-            if (info.WarKey != localWarKey)
-                continue;
-
-            var uid = _entityManager.GetEntity(netEntity);
-            if (uid == localEntity.Value || !_entityManager.EntityExists(uid))
+            if (uid == localEntity.Value)
                 continue;
 
             if (!_entityManager.HasComponent<SpriteComponent>(uid))
                 continue;
 
-            var otherPos = _transform.GetMapCoordinates(uid);
+            if (xform.MapID != localPos.MapId)
+                continue;
+
+            var otherPos = _transform.GetMapCoordinates(uid, xform);
             if (otherPos.MapId != localPos.MapId)
                 continue;
 
@@ -154,6 +159,7 @@ internal sealed class AllyTagOverlay : Overlay
             if (!aabb.Intersects(viewport))
                 continue;
 
+            var netEntity = _entityManager.GetNetEntity(uid);
             VisibilityCacheEntry? cacheEntry = null;
             if (_visibilityCache.TryGetValue(netEntity, out var cached))
                 cacheEntry = cached;
@@ -186,14 +192,20 @@ internal sealed class AllyTagOverlay : Overlay
             if (!cacheEntry.Visible)
                 continue;
 
-            // #Misfits Add - Observer participants see tags but don't get one rendered on them.
-            if (info.IsObserver)
-                continue;
-
             string tag;
             Color color;
 
-            if (info.Surrendered)
+            if (!participants.TryGetValue(netEntity, out var info) || info.WarKey != localWarKey)
+            {
+                tag = "[NEUTRAL]";
+                color = Color.White;
+            }
+            // #Misfits Add - Observer participants see tags but don't get one rendered on them.
+            else if (info.IsObserver)
+            {
+                continue;
+            }
+            else if (info.Surrendered)
             {
                 tag = "[SURRENDERED]";
                 color = Color.White;

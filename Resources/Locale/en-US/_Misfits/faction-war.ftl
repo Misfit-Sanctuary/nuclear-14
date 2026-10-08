@@ -11,7 +11,6 @@ faction-war-no-active-wars = No active wars.
 faction-war-declare-header = Declare War
 faction-war-target-faction-label = Target Faction
 faction-war-target-group-label = Target Group
-faction-war-target-wastelander-label = Target Wastelander
 faction-war-casus-belli-label = Casus Belli (minimum 5 words)
 faction-war-casus-belli-placeholder = State your justification for war...
 faction-war-declare-button = Declare War
@@ -39,8 +38,5 @@ faction-war-join-already-joined = You have already joined a war on the side of {
 # Faction-wide enlistment - #Misfits Add
 faction-war-join-faction-wide = Enlist Entire Faction
 faction-war-join-faction-wide-hint = As highest-ranking { $faction } member online, you can enlist all faction members at once.
-
-# Auto-ceasefire - #Misfits Add
-faction-war-auto-ceasefire-announcement = AUTO-CEASEFIRE: The war between { $aggressor } and { $target } has ended after 30 minutes. A ceasefire is now in effect.
 
 faction-war-cmd-desc = Opens the Faction War panel.

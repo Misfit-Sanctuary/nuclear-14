@@ -10,7 +10,7 @@
       - state: ai
   - type: ConditionalSpawner
     prototypes:
-      - N14MobBrahdo
+      - MisfitsMobBrahdo_Standard
 
 - type: entity
   name: Brahdo Spawner
@@ -24,7 +24,7 @@
       - state: ai
   - type: ConditionalSpawner
     prototypes:
-      - N14MobBrahdoLight
+      - MisfitsMobBrahdo_Fast
 
 - type: entity
   name: Brahdo Spawner
@@ -52,7 +52,7 @@
       - state: ai
   - type: ConditionalSpawner
     prototypes:
-      - N14MobBrahdoArmorNCR
+      - MisfitsMobBrahdo_Old
 
 - type: entity
   name: Brahdo Spawner
@@ -66,7 +66,7 @@
       - state: ai
   - type: ConditionalSpawner
     prototypes:
-      - N14MobBrahdoLightLegion
+      - MisfitsMobBrahdo_Tank
 
 - type: entity
   name: Brahdo Spawner
@@ -80,5 +80,5 @@
       - state: ai
   - type: ConditionalSpawner
     prototypes:
-      - N14MobBrahdoLighttribal
+      - MisfitsMobBrahdo_Fast
 

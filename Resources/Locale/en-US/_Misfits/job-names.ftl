@@ -66,6 +66,10 @@ job-description-enclave-recruit = Per-round Enclave recruit. Playtime here count
 job-name-chief-ranger = Chief Ranger
 job-description-chief-ranger = You are the Rangers' supreme field commander. Coordinate veteran operations, set long-range objectives, and ensure the desert's order is upheld. Answer only to your code.
 
+# #Misfits Add - DAGGER: Ranger liaison attached to NCR High Command.
+job-name-ncr-dagger = DAGGER
+job-description-ncr-dagger = You are DAGGER. The Wendover frontier settler(s) of NCRR and NCRA expansionism. You are their High Command of the entire theater. Spook.
+
 # #Misfits Add - NCR Ranger Recruit: brand-new entry-level Rangers role.
 job-name-ncr-ranger-recruit = Ranger Recruit
 job-description-ncr-ranger-recruit = You are brand new to the Rangers at the Bonneville station. Follow orders, learn the ropes, and prove you have what it takes to earn your badge.

@@ -135,7 +135,7 @@
      #- Gecko
   - type: Gun
     cameraRecoilScalar: 0 #no recoil
-    fireRate: 3
+    fireRate: 0.5 # Misfits balance: one fire breath every two seconds.
     selectedMode: FullAuto
     availableModes:
     - FullAuto

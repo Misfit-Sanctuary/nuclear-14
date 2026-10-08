@@ -169,7 +169,7 @@ public sealed class JobWhitelistsEui : BaseEui
             $"{Player.Name} ({Player.UserId}) added job whitelist(s) [{jobList}] to player {PlayerName} ({PlayerId.UserId}) | reason={reason} | was_application={applicationText} | discord={discordUsername}");
 
         _adminLog.Add(
-            LogType.AdminMessage,
+            LogType.AdminAudit,
             LogImpact.Medium,
             $"{Player:actor} granted job whitelist(s) [{jobList}] to {PlayerName:subject}. Reason: {reason}. Was application: {applicationText}. Discord: {discordUsername}");
 
