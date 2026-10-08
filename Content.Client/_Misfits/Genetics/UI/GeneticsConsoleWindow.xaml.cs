@@ -22,12 +22,12 @@ public sealed partial class GeneticsConsoleWindow : FancyWindow
     public event Action? OnSelectServer;
     public event Action? OnScan;
     public event Action? OnScramble;
-    public event Action<uint, uint, GeneticsCycle>? OnSetBase;
-    public event Action<uint>? OnWriteMutation;
-    public event Action<uint>? OnSequence;
-    public event Action<uint>? OnResetSequence;
+    public event Action<int, uint, GeneticsCycle>? OnSetBase;
+    public event Action<int>? OnWriteMutation;
+    public event Action<int>? OnSequence;
+    public event Action<int>? OnResetSequence;
     public event Action<uint>? OnPrint;
-    public event Action<uint>? OnCombine;
+    public event Action<int>? OnCombine;
     public event Action? OnSaveEnzymes;
     public event Action? OnApplyEnzymes;
 

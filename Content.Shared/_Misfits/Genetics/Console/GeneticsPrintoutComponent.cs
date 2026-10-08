@@ -23,7 +23,7 @@ public sealed partial class GeneticsPrintoutComponent : Component
 }
 
 [Serializable, NetSerializable]
-public sealed class GeneticsPrintScanMessage(uint? index = null) : BoundUserInterfaceMessage
+public sealed class GeneticsPrintScanMessage(int? number = null) : BoundUserInterfaceMessage
 {
-    public readonly uint? Index = index;
+    public readonly int? Number = number;
 }

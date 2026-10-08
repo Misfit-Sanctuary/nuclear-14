@@ -16,7 +16,7 @@ public sealed partial class GeneticCombiner : BoxContainer
     private readonly MutationSystem _mutation;
 
     public event Action? OnScan;
-    public event Action<uint>? OnCombine;
+    public event Action<int>? OnCombine;
 
     private bool _busy;
     private bool _canCombine;
@@ -41,8 +41,8 @@ public sealed partial class GeneticCombiner : BoxContainer
         };
         CombineButton.OnPressed += _ =>
         {
-            if (SequenceButtons.Index is {} i)
-                OnCombine?.Invoke(i);
+            if (SequenceButtons.Sequence?.Number is {} number)
+                OnCombine?.Invoke(number);
         };
     }
 

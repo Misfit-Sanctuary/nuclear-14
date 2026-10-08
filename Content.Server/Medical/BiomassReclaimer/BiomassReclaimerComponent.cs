@@ -1,5 +1,6 @@
 using System.Threading;
 using Content.Shared.Construction.Prototypes;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Storage;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -116,5 +117,9 @@ namespace Content.Server.Medical.BiomassReclaimer
         /// </summary>
         [DataField]
         public bool SafetyEnabled = true;
+
+        // Misfits
+        [DataField]
+        public List<ProtoId<SpeciesPrototype>> UnprotectedSpecies = new() { "Monkey" };
     }
 }

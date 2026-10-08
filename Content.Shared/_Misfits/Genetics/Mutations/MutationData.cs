@@ -24,7 +24,7 @@ public sealed partial class MutationData
     /// Once a mutation is discovered via activation in the genetics console,
     /// it will always be recognized when scanned in the future.
     /// </summary>
-    public bool Discovered;
+    public HashSet<EntityUid> DiscoveredMaps = new();
 
     /// <summary>
     /// Mutation number assigned at roundstart.

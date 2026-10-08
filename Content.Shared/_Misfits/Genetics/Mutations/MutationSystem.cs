@@ -307,6 +307,14 @@ public sealed partial class MutationSystem : CommonMutationSystem
     public MutationData? GetRoundData(EntityUid uid)
         => GetRoundData(GetID(uid));
 
+    public bool IsDiscovered(EntityUid scanner, [ForbidLiteral] EntProtoId<MutationComponent> id)
+        => Transform(scanner).MapUid is {} map &&
+           GetRoundData(id)?.DiscoveredMaps.Contains(map) == true;
+
+    public bool Discover(EntityUid scanner, [ForbidLiteral] EntProtoId<MutationComponent> id)
+        => Transform(scanner).MapUid is {} map &&
+           GetRoundData(id)?.DiscoveredMaps.Add(map) == true;
+
     /// <summary>
     /// Returns the rarity of a mutation, throwing if the id is invalid.
     /// </summary>
@@ -625,7 +633,6 @@ public sealed partial class MutationSystem : CommonMutationSystem
             target.Comp.Dormant.Add(dormant);
         }
         DirtyField(target, target.Comp, nameof(MutatableComponent.Dormant));
-        ClearDormant(ent.AsNullable());
 
         // transfer the mutation entities
         Log.Debug($"Transferring {ent.Comp.Mutations.Count} mutations from {ToPrettyString(ent)} to {ToPrettyString(target)}");
@@ -638,6 +645,8 @@ public sealed partial class MutationSystem : CommonMutationSystem
             target.Comp.Mutations[id] = mutation;
         }
         ent.Comp.Mutations.Clear();
+
+        ClearDormant(ent.AsNullable());
 
         DirtyField(ent, ent.Comp, nameof(MutatableComponent.Mutations));
         DirtyField(target, target.Comp, nameof(MutatableComponent.Mutations));
