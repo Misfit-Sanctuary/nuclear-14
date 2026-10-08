@@ -9,6 +9,7 @@
   id: MisfitsFoodBase
   abstract: true
   components:
+  - type: Temperature
   - type: FlavorProfile
     flavors:
     - food
@@ -17,32 +18,18 @@
   - type: StaticPrice
     price: 0
 
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodSmallBase
+  abstract: true
+  components:
+  - type: Item
+    size: Small
 
-# plain sushi unused
-#- type: entity
-#  parent: MisfitsFoodBase
-#
-#  id: MisfitsFoodSushiPlain
-#  components:
-#  - type: Food
-#    transferAmount: 10
-#  - type: Sprite
-#  - type: SolutionContainerManager
-#    solutions:
-#      food:
-#        maxVol: 13
-#        reagents:
-#        - ReagentId: Rice
-#          Quantity: 10
-#  - type: Construction
-#    graph: CraftSushiBasicGraph
-#    node: start
-#    defaultTarget: SushiBasic
-# sushi simple base
 
 # Raw sushi
 - type: entity
-  parent: MisfitsFoodBase
+  parent: MisfitsFoodSmallBase
   id: MisfitsFoodSushiMeatRaw
   components:
   - type: Food
@@ -71,7 +58,7 @@
     defaultTarget: CookedNode
 
 - type: entity
-  parent: MisfitsFoodBase
+  parent: MisfitsFoodSmallBase
   id: MisfitsFoodSushiMeatCooked
   components:
   - type: Food
@@ -101,7 +88,7 @@
 
 ## fish sushi
 - type: entity
-  parent: MisfitsFoodBase
+  parent: MisfitsFoodSmallBase
   id: MisfitsFoodSushiFishRaw
   components:
   - type: Food
@@ -124,8 +111,7 @@
 
 ## carrot fish sushi
 - type: entity
-  parent: MisfitsFoodBase
-
+  parent: MisfitsFoodSmallBase
   id: MisfitsFoodSushiFishCarrotRaw
   description: food-desc-sushiFishCarrot
   components:
@@ -151,7 +137,7 @@
 
 ## NCR roll
 - type: entity
-  parent: MisfitsFoodBase
+  parent: MisfitsFoodSmallBase
   id: MisfitsFoodSushiNCRRaw
   components:
   - type: Food
@@ -174,8 +160,7 @@
 
 ## spicy sushi
 - type: entity
-  parent: MisfitsFoodBase
-
+  parent: MisfitsFoodSmallBase
   id: MisfitsFoodSushiSpicyRaw
   components:
   - type: Food
@@ -202,8 +187,7 @@
 # cream sushi
 
 - type: entity
-  parent: MisfitsFoodBase
-
+  parent: MisfitsFoodSmallBase
   id: MisfitsFoodSushiCheeseRaw
   components:
   - type: Food
@@ -228,9 +212,8 @@
 
 # large sushi
 - type: entity
-  parent: MisfitsFoodBase
-
-  id:  MisfitsFoodSushiMeatLargeRaw
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSushiMeatLargeRaw
   components:
   - type: Food
     transferAmount: 10
@@ -254,8 +237,7 @@
 
 # NCR patriotic roll
 - type: entity
-  parent: MisfitsFoodBase
-
+  parent: MisfitsFoodSmallBase
   id: MisfitsFoodSushiNCRSuperRaw
   components:
   - type: Food
@@ -283,8 +265,7 @@
           Quantity: 10
 # Legion patriotic roll
 - type: entity
-  parent: MisfitsFoodBase
-
+  parent: MisfitsFoodSmallBase
   id: MisfitsFoodSushiLegionSuperRaw
   components:
   - type: Food

@@ -239,9 +239,6 @@
       - cost: 3200
         stock: 3
         crate: N14CrateRequisitionsEnclaveRCW
-      - cost: 3450
-        stock: 3
-        crate: N14CrateRequisitionsEnclaveGauss
       - cost: 3500
         stock: 2
         crate: N14CrateRequisitionsEnclavePulseCarbine
@@ -278,7 +275,7 @@
       - cost: 1200
         crate: N14CrateRequisitionsEnclaveZuluMK2
       - cost: 5000
-        stock: 2
+        stock: 1
         crate: N14CrateRequisitionsEnclavePowerArmorX01
     - name: n14-requisitions-category-ammunition
       entries:
@@ -304,7 +301,8 @@
         crate: N14CrateRequisitionsEnclaveSignals
       - cost: 1200
         crate: N14CrateRequisitionsEnclaveMachineBoards
-      - cost: 2000
+      - cost: 7500
+        stock: 1
         crate: N14CrateRequisitionsEnclavePATraining
       - cost: 2500
         stock: 1
@@ -621,23 +619,23 @@
     - id: N14PlasmaCartridge
       amount: 6
 
-- type: entity
-  parent: N14CrateRequisitions
-  id: N14CrateRequisitionsEnclaveGauss
-  name: M72 gauss rifle crate
-  components:
-  - type: Icon
-    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
-  - type: RequisitionsCrate
-    reward: 50
-  - type: StorageFill
-    contents:
-    - id: N14WeaponGaussRifle
-      amount: 1
-    - id: N14Magazine2mmECRifle
-      amount: 3
+# - type: entity
+#   parent: N14CrateRequisitions
+#   id: N14CrateRequisitionsEnclaveGauss
+#   name: M72 gauss rifle crate
+#   components:
+#   - type: Icon
+#     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+#   - type: Sprite
+#     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
+#   - type: RequisitionsCrate
+#     reward: 50
+#   - type: StorageFill
+#     contents:
+#     - id: N14WeaponGaussRifle
+#       amount: 1
+#     - id: N14Magazine2mmECRifle
+#       amount: 3
 
 
 - type: entity
@@ -928,7 +926,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclavePowerArmorX01
-  name: X-01 power armor crate
+  name: APA Mk I crate
   description: Advanced Powered Combat Infantry Armor. Requisition strictly logged.
   components:
   - type: Icon
@@ -1128,7 +1126,7 @@
   - type: StorageFill
     contents:
     - id: TrainingManualEnclavePowerArmorOperation
-      amount: 2
+      amount: 1
 
 - type: entity
   parent: N14CrateRequisitions

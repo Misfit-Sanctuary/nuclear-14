@@ -8,7 +8,7 @@
   reagents:
     Rice: 10
   solids:
-    FoodMeatCutlet: 1
+    N14RedfishCutletRaw: 1
 
 - type: microwaveMealRecipe
   id: MisfitsRecipeSushiCooked
@@ -18,7 +18,7 @@
   reagents:
     Rice: 10
   solids:
-    FoodMeatCutletCooked: 1
+    N14RedfishCutletCooked: 1
 
 # carrot/fish sushi
 - type: microwaveMealRecipe
@@ -54,7 +54,7 @@
     Rice: 20
   solids:
     N14FoodCarrot: 2
-    FoodMeatCutlet: 2
+    N14RedfishCutletRaw: 2
 
 # NCR rolls
 - type: microwaveMealRecipe
@@ -66,7 +66,7 @@
     Rice: 10
   solids:
     N14FoodCarrot: 2
-    FoodMeatCutlet: 1
+    N14RedfishCutletRaw: 1
 
 - type: microwaveMealRecipe
   id: MisfitsRecipeSushiNCRSuperRaw
@@ -76,8 +76,8 @@
   reagents:
     Rice: 10
   solids:
-    MaterialCloth: 1
-    MaterialWoodPlank: 1
+    MaterialCloth1: 1
+    MaterialWoodPlank1: 1
     MisfitsFoodSushiNCRRaw: 1
 
 # Spicy and Legion rolls
@@ -101,8 +101,8 @@
   reagents:
     Rice: 10
   solids:
-    MaterialCloth: 1
-    MaterialWoodPlank: 1
+    MaterialCloth1: 1
+    MaterialWoodPlank1: 1
     MisfitsFoodSushiSpicyRaw: 1
 
 # cream cheese sushi
@@ -114,10 +114,10 @@
   time: 10
   reagents:
     Rice: 10
-    Milk: 5
+    N14MilkBrahmin: 5
   solids:
     N14FoodCheeseSlice: 1
-    FoodMeatCutlet: 1
+    N14RedfishCutletRaw: 1
 
 
 #  __RECIPIES__

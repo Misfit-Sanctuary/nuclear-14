@@ -898,8 +898,9 @@
     fireRate: 2.5
     soundGunshot:
       collection: N14PlasmaAutoRifleGunshot
-    selectedMode: SemiAuto
+    selectedMode: FullAuto
     availableModes:
+    - FullAuto
     - SemiAuto
   - type: FollowDistance
     backStrength: 5

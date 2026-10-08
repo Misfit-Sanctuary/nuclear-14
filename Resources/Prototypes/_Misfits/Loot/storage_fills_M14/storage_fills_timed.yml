@@ -332,6 +332,39 @@
           orGroup: Currency
           amount: 1
           maxAmount: 25
+      #Foodstuff
+        - id: N14ReagentContainerRice
+          prob: 0.75
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: N14ReagentContainerFlour
+          prob: 0.75
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: N14ReagentContainerSugar
+          prob: 0.75
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: MisfitsItemRaiserCan
+          prob: 0.75
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: CocoaSeeds
+          prob: 0.75
+          amount: 1
+          maxAmount: 1
+        - id: RiceSeeds
+          prob: 0.75
+          amount: 1
+          maxAmount: 1
+        - id: SugarcaneSeeds
+          prob: 0.75
+          amount: 1
+          maxAmount: 1
 
 - type: entity
   abstract: true
@@ -1012,6 +1045,39 @@
           orGroup: Currency
           amount: 1
           maxAmount: 25
+      #Foodstuff
+        - id: N14ReagentContainerRice
+          prob: 0.75
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: N14ReagentContainerFlour
+          prob: 0.75
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: N14ReagentContainerSugar
+          prob: 0.75
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: MisfitsItemRaiserCan
+          prob: 0.75
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: CocoaSeeds
+          prob: 0.75
+          amount: 1
+          maxAmount: 1
+        - id: RiceSeeds
+          prob: 0.75
+          amount: 1
+          maxAmount: 1
+        - id: SugarcaneSeeds
+          prob: 0.75
+          amount: 1
+          maxAmount: 1
 
 - type: entity
   abstract: true
@@ -1465,6 +1531,39 @@
           orGroup: Currency
           amount: 1
           maxAmount: 25
+      #Foodstuff
+        - id: N14ReagentContainerRice
+          prob: 0.75
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: N14ReagentContainerFlour
+          prob: 0.75
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: N14ReagentContainerSugar
+          prob: 0.75
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: MisfitsItemRaiserCan
+          prob: 0.75
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: CocoaSeeds
+          prob: 0.75
+          amount: 1
+          maxAmount: 1
+        - id: RiceSeeds
+          prob: 0.75
+          amount: 1
+          maxAmount: 1
+        - id: SugarcaneSeeds
+          prob: 0.75
+          amount: 1
+          maxAmount: 1
 
 - type: entity
   abstract: true
@@ -1755,6 +1854,39 @@
           orGroup: Currency
           amount: 1
           maxAmount: 25
+      #Foodstuff
+        - id: N14ReagentContainerRice
+          prob: 0.75
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: N14ReagentContainerFlour
+          prob: 0.75
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: N14ReagentContainerSugar
+          prob: 0.75
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: MisfitsItemRaiserCan
+          prob: 0.75
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: CocoaSeeds
+          prob: 0.75
+          amount: 1
+          maxAmount: 1
+        - id: RiceSeeds
+          prob: 0.75
+          amount: 1
+          maxAmount: 1
+        - id: SugarcaneSeeds
+          prob: 0.75
+          amount: 1
+          maxAmount: 1
 
 - type: entity
   abstract: true

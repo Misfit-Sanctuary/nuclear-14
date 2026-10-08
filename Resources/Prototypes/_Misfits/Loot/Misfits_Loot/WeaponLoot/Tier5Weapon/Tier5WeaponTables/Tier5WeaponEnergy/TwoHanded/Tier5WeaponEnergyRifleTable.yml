@@ -21,15 +21,6 @@
       weight: 10
 
 - type: entityTable
-  id: M14WeaponLootTier5_OtherRifleAuto
-  table: !type:GroupSelector
-    children:
-    - !type:EntSelector
-      id: N14WeaponGaussRifle
-      weight: 10
-
-
-- type: entityTable
   id: M14WeaponLootTier5_LaserRifleSemi
   table: !type:GroupSelector
     children:
@@ -55,6 +46,6 @@
     - !type:EntSelector
       id: N14WeaponPulseRifle #YK42b omg!!! i missed u sugoi!!!!
       weight: 5
-    - !type:EntSelector
-      id: N14WeaponGaussRifle # hai
-      weight: 5
+    # - !type:EntSelector
+    #   id: N14WeaponGaussRifle # hai
+    #   weight: 5

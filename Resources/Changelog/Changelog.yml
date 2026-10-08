@@ -12251,3 +12251,34 @@ Entries:
   id: 6504
   time: '2026-10-06T16:15:38.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2051
+- author: JohnKieser
+  changes:
+    - type: Fix
+      message: >-
+        fixed recipes for new food items. Adjusted storage and size of food box.
+        Food category now shows up for caravan trader.
+    - type: Fix
+      message: >-
+        Fixed brahdos being limited trader stock. I misinterpreted the prototype
+        and thought it meant they were sold in pairs. Prices also adjusted
+        because of this.  
+  id: 6505
+  time: '2026-10-07T21:39:05.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2059
+- author: cythisiax
+  changes:
+    - type: Add
+      message: 'AutoWarpers between map grids. A FTB screen and lower right welcome. '
+    - type: Add
+      message: >-
+        Pinmap command to allow admins to make global map pins for
+        WendoverMap/Tacmaps
+    - type: Remove
+      message: >-
+        Gauss Rifle has been commented out codewise, but remains admin
+        spawnable.
+    - type: Tweak
+      message: Adjustment to MechPA
+  id: 6506
+  time: '2026-10-07T21:39:39.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2054

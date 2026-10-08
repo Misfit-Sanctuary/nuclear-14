@@ -146,17 +146,20 @@
     items:
       - id: N14ClothingOuterEnclaverOfficerCoat
       - id: ClothingBeltMilitary
-      - id: N14WeaponLaserRifleWattz2000
+      - id: N14WeaponLaserRifleWattz3000
+      - id: N14MicrofusionCellRed
+        amount: 2
       - id: N14WeaponLaserPistol
+      - id: N14PowerCellSmall
+        amount: 2
       - id: RadioHandheld
       - id: SmokeGrenade
         amount: 2
-      - id: GrenadeFrag
+      - id: MisfitsGrenadeFragDefensive
       - id: N14Stimpak
       - id: N14SuperStimpak
       - id: N14CleanGauze10
         amount: 2
-      - id: N14Flare
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -174,16 +177,17 @@
     items:
       - id: N14ClothingOuterEnclaveArmor
       - id: ClothingBeltMilitary
-      - id: N14WeaponLaserRifleAuto
+      - id: N14WeaponLaserRifleAER12
+      - id: N14MicrofusionCellRed
+        amount: 2
       - id: N14WeaponLaserPistolRecharger
       - id: RadioHandheld
       - id: SmokeGrenade
-      - id: GrenadeFrag
+      - id: MisfitsGrenadeFragDefensive
       - id: N14Stimpak
       - id: N14SuperStimpak
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
-      - id: N14Flare
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -203,7 +207,7 @@
       - id: ClothingBeltMilitary
       - id: N14WeaponPlasmaDefender
       - id: N14PlasmaCartridge
-        amount: 3
+        amount: 2
       - id: RadioHandheld
       - id: SmokeGrenade
         amount: 2
@@ -211,7 +215,6 @@
       - id: N14SuperStimpak
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
-      - id: N14Flare
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -219,7 +222,7 @@
   id: KitEnclave_Rifleman
   name: trooper rifleman kit
   parent: KitBase
-  description: A crate containing a dependable U.S. Army line trooper package built around a recharger rifle and field sustain.
+  description: A crate containing a dependable U.S. Army line trooper package built around a Wattz rifle and devastating, slow fire.
   components:
   - type: Sprite
     state: rifleman
@@ -229,13 +232,16 @@
     items:
       - id: N14ClothingOuterEnclavePeacekeeper
       - id: ClothingBeltMilitary
-      - id: N14WeaponLaserRifleRecharger
+      - id: N14WeaponLaserRifleWattz2000
+      - id: N14MicrofusionCellRed
+        amount: 2
       - id: N14WeaponLaserPistol
       - id: RadioHandheld
+      - id: N14PowerCellSmall
+        amount: 2
       - id: SmokeGrenade
       - id: N14Stimpak
       - id: N14CleanGauze10
-      - id: N14Flare
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -253,17 +259,14 @@
     items:
       - id: N14ClothingOuterEnclaveArmor
       - id: ClothingBeltMilitary
-      - id: N14WeaponPlasmaRifleAuto
+      - id: N14WeaponPlasmaRifleUrban
       - id: N14PlasmaCartridge
         amount: 2
       - id: N14WeaponPlasmaPistol
-      - id: N14PlasmaCartridge
-        amount: 2
       - id: SmokeGrenade
       - id: N14Stimpak
       - id: N14SuperStimpak
       - id: N14CleanGauze10
-      - id: N14Flare
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -281,15 +284,18 @@
     items:
       - id: N14ClothingOuterEnclavePeacekeeper
       - id: ClothingBeltMilitary
-      - id: N14WeaponLaserRifleAuto
+      - id: N14WeaponLaserRifleAER12
+      - id: N14MicrofusionCellRed
+        amount: 2
       - id: N14WeaponLaserPistol
+      - id: N14PowerCellSmall
+        amount: 2
       - id: SmokeGrenade
         amount: 2
-      - id: GrenadeFrag
+      - id: MisfitsGrenadeFragDefensive
       - id: N14Stimpak
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
-      - id: N14Flare
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -311,7 +317,6 @@
       - id: N14Stimpak
       - id: N14RadAwayBloodbag
       - id: N14CleanGauze10
-      - id: N14Flare
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -358,6 +363,5 @@
       - id: RadioHandheld
       - id: N14Stimpak
       - id: N14CleanGauze10
-      - id: N14Flare
     sound:
       path: /Audio/Effects/unwrap.ogg

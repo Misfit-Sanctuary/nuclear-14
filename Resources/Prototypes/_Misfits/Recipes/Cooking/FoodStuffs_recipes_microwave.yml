@@ -120,7 +120,7 @@
   result: MisfitsFoodKebabPilar
   time: 30
   solids:
-    MaterialWoodPlank: 1
+    MaterialWoodPlank1: 1
     N14FoodMeatBrahmin: 5
 
 #- Kebab Wrap: 3 Kebab Slices, 1 onion, 1 cabbage, 1 dough slice -> 5 sec
@@ -171,14 +171,35 @@
 
 #- Meat Jerky: 1 meat cutlet, 5u salt -> 15 sec
 - type: microwaveMealRecipe
-  id: MisfitsRecipeMeatJerky
+  id: MisfitsRecipeMeatJerky1
   name: Meat Jerky
   result: MisfitsFoodMeatJerky
   time: 15
   reagents:
     TableSalt: 5
   solids:
-    FoodMeatCutlet: 1
+    FoodMeatCutletCooked: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeMeatJerky2
+  name: Meat Jerky
+  result: MisfitsFoodMeatJerky
+  time: 15
+  reagents:
+    TableSalt: 5
+  solids:
+    N14FoodMeatHumanCutletCooked: 1
+# ancestor chaining thank fucking god
+- type: microwaveMealRecipe
+  id: MisfitsRecipeMeatJerky3
+  name: Meat Jerky
+  result: MisfitsFoodMeatJerky
+  time: 15
+  reagents:
+    TableSalt: 5
+  solids:
+    N14FoodMeatRadCutletCooked: 1
+
 
 #- Cabbage n Meat Bread: 1 cabbage, 5u ground animal protein, 1 dough -> 10 sec
 - type: microwaveMealRecipe
@@ -200,7 +221,7 @@
   time: 10
   reagents:
     ExtractRazorgrainFlour: 10
-    Milk: 5
+    N14MilkBrahmin: 5
     Egg: 5
     Raiser: 5
 
@@ -212,7 +233,7 @@
   time: 5
   reagents:
     ExtractRazorgrainFlour: 5
-    Milk: 5
+    N14MilkBrahmin: 5
   solids:
     FoodButterSlice: 1
 
@@ -224,7 +245,7 @@
   time: 10
   reagents:
     ExtractRazorgrainFlour: 10
-    Milk: 10
+    N14MilkBrahmin: 10
     Raiser: 5
   solids:
     FoodButterSlice: 1
@@ -311,7 +332,7 @@
   quantized: true
   minTemp: 400
   reactants:
-    ExtractBlackberries:
+    BlackberryJam:
       amount: 5
     Sugar:
       amount: 5
@@ -325,13 +346,25 @@
   quantized: true
   minTemp: 400
   reactants:
-    Butter:
+    Butterscotch:
       amount: 5
     Sugar:
       amount: 5
   effects:
   - !type:CreateEntityReactionEffect
     entity: MisfitsFoodButterscotchCandy
+- type: reaction
+  id: ButterscotchReaction
+  impact: Low
+  quantized: true
+  minTemp: 354
+  reactants:
+    Butter:
+      amount: 1
+    Sugar:
+      amount: 1
+  products:
+    Butterscotch: 2
 #Jet Jawbreaker: 10u sugar, 5u jet, must be heated
 - type: reaction
   id: JetCandy

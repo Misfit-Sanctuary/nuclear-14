@@ -647,17 +647,17 @@
     Water: 10
   solids:
     FoodBowlBig: 1
-
-- type: microwaveMealRecipe
-  id: RecipeBoiledRice
-  name: boiled rice recipe
-  result: FoodRiceBoiled
-  time: 15
-  reagents:
-    Rice: 15
-    Water: 10
-  solids:
-    FoodBowlBig: 1
+#
+#- type: microwaveMealRecipe
+#  id: RecipeBoiledRice
+#  name: boiled rice recipe
+#  result: FoodRiceBoiled
+#  time: 15
+#  reagents:
+#    Rice: 15
+#    Water: 10
+#  solids:
+#    FoodBowlBig: 1
 
 - type: microwaveMealRecipe
   id: RecipeRicePudding
@@ -1467,7 +1467,7 @@
   solids:
     LeftLegHarpy: 1
     RightLegHarpy: 1
- 
+
 #Donks i guess
 - type: microwaveMealRecipe
   id: RecipeWarmDonkpocket

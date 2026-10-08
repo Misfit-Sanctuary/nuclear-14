@@ -6,13 +6,17 @@ ent-MisfitsFoodSushiMeatCooked = Simple Fried Sushi
     .desc =  A simple slice of mildly fried sushi on some rice, for the ones who want to still eat sushi but without the traditional texture.
 food-desc-sushiCooked-eat= Tastes like fried fish, refreshing and like rice.
 
-ent-N14RedfishCutletRaw = Red Fish Cutlet
+ent-MisfitsRedfishRareRaw = Red Fish Cut
+    .desc =  A rare cut of fish. Good for making into cutlets.
+food-desc-redFishRare-eat = Tastes like raw fish.
+
+ent-N14RedfishCutletRaw = Redfish Cut Cutlet
     .desc = A slice of a fine red fish cut. Looks refreshing!
-food-desc-redFishCutlet-eat= Tastes like rae fish.
+food-desc-redFishCutlet-eat= Tastes like raw fish.
 
 ent-N14RedfishCutletCooked = Red Fish Cutlet Cooked
     .desc = A slice of a fine red fish cut. Looks refreshing!
-food-desc-redFishCutletCooked-eat= Tastes like cooked rae fish.
+food-desc-redFishCutletCooked-eat= Tastes like cooked raw fish.
 
 ent-MisfitsFoodSushiFishCarrotRaw = Carrot and Fish Sushi Roll
     .desc = A simple carrot and fish sushi roll. Where the seaweed came from is unknown.

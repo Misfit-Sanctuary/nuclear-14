@@ -306,14 +306,14 @@ undecided-loadout-category-corvax-venator-marksman-description =
 undecided-loadout-category-corvax-venator-stalker-name = Venator Stalker
 undecided-loadout-category-corvax-venator-stalker-description =
     Includes an advanced 12.7mm SMG, 3 spare 12.7 magazines,
-    a rope belt, 2 smoke grenades, night vision goggles, 
+    a rope belt, 2 smoke grenades, night vision goggles,
     2 healing poultice, 2 K rations,
     a ceramic flask, and mustard.
 
 undecided-loadout-category-corvax-venator-executioner-name = Venator Executioner
 undecided-loadout-category-corvax-venator-executioner-description =
-    Includes a blowback shotgun, a ceremonial sword, 
-    a rope belt, 2 boxes of 12 gauge shells, 
+    Includes a blowback shotgun, a ceremonial sword,
+    a rope belt, 2 boxes of 12 gauge shells,
     an offensive grenade, night vision goggles,
     2 healing poultice, 2 K rations,
     a ceramic flask, and mustard.
@@ -558,44 +558,48 @@ undecided-loadout-category-corvax-ranger-smg-description =
 undecided-loadout-category-misfits-enclave-command-laser-name = Command Laser Kit
 undecided-loadout-category-misfits-enclave-command-laser-description =
     Includes an Enclave officer coat, a military belt,
-    a Wattz 2000 laser rifle, a laser pistol, a handheld radio,
-    2 smoke grenades, 1 frag grenade, 1 stimpak,
-    1 super stimpak, 2 gauze packs, and 1 flare.
+    a Wattz 3000 laser rifle with 2 MF cells,
+    an AEP-7 Laser Pistol with 2 energy cells,
+    a handheld radio, 2 smoke grenades, 1 frag grenade,
+    1 stimpak, 1 super stimpak, and 2 gauze packs.
 
 undecided-loadout-category-misfits-enclave-command-shock-name = Command Shock Kit
 undecided-loadout-category-misfits-enclave-command-shock-description =
     Includes Enclave armor, a military belt,
-    an automatic laser rifle, a recharger laser pistol,
+    an AER-12 Laser Rifle, a recharger laser pistol,
     a handheld radio, 1 smoke grenade, 1 frag grenade,
     1 stimpak, 1 super stimpak, 1 RadAway blood bag,
-    1 gauze pack, and 1 flare.
+    and 1 gauze pack.
 
 undecided-loadout-category-misfits-enclave-command-plasma-name = Command Plasma Kit
 undecided-loadout-category-misfits-enclave-command-plasma-description =
     Includes an Enclave officer coat, a military belt,
     a plasma defender, 3 plasma cartridges, a handheld radio,
     2 smoke grenades, 1 stimpak, 1 super stimpak,
-    1 RadAway blood bag, 1 gauze pack, and 1 flare.
+    1 RadAway blood bag, and 1 gauze pack.
 
 undecided-loadout-category-misfits-enclave-rifleman-name = Trooper Rifleman Kit
 undecided-loadout-category-misfits-enclave-rifleman-description =
     Includes Peacekeeper armor, a military belt,
-    a recharger laser rifle, a laser pistol, a handheld radio,
-    1 smoke grenade, 1 stimpak, 1 gauze pack, and 1 flare.
+    a Wattz 3000 laser rifle with 2 MF cells,
+    an AEP-7 Laser Pistol with 2 energy cells,
+    a handheld radio, 1 smoke grenade, 1 stimpak,
+    and 1 gauze pack.
 
 undecided-loadout-category-misfits-enclave-shocktrooper-name = Trooper Shock Kit
 undecided-loadout-category-misfits-enclave-shocktrooper-description =
     Includes Enclave armor, a military belt,
-    an automatic plasma rifle, a plasma pistol,
-    4 plasma cartridges, 1 smoke grenade, 1 stimpak,
-    1 super stimpak, 1 gauze pack, and 1 flare.
+    an urban plasma rifle, a plasma pistol,
+    2 plasma cartridges, 1 smoke grenade, 1 stimpak,
+    1 super stimpak, and 1 gauze pack.
 
 undecided-loadout-category-misfits-enclave-suppressor-name = Trooper Suppressor Kit
 undecided-loadout-category-misfits-enclave-suppressor-description =
     Includes Peacekeeper armor, a military belt,
-    an automatic laser rifle, a laser pistol,
+    an AER-12 Laser Rifle with 2 MF cells,
+    an AEP-7 Laser Pistol with 2 energy cells,
     2 smoke grenades, 1 frag grenade, 1 stimpak,
-    1 RadAway blood bag, 1 gauze pack, and 1 flare.
+    1 RadAway blood bag, and 1 gauze pack.
 
 undecided-loadout-category-misfits-enclave-field-research-name = Field Research Kit
 undecided-loadout-category-misfits-enclave-field-research-description =

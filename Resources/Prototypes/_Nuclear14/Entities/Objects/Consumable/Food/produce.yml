@@ -424,6 +424,9 @@
     entries:
       Burger: GarlicBurger
       Taco: Garlic
+  - type: SliceableFood
+    count: 1
+    slice: MisfitsFoodDicedGarlic
 
 - type: entity
   name: lemon
@@ -1029,6 +1032,9 @@
     entries:
       Burger: OnionRedSliceBurger
       Taco: OnionRedSlice
+  - type: SliceableFood
+    count: 1
+    slice: MisfitsFoodDicedOnion
 
 - type: entity
   name: chili

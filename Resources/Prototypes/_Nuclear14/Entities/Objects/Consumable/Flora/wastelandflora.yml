@@ -1362,6 +1362,9 @@
         Quantity: 10
   - type: Produce
     seedId: N14WildTato
+  - type: SliceableFood
+    count: 1
+    slice: MisfitsFoodDicedTato
 
 - type: entity
   parent: N14FloraProduce

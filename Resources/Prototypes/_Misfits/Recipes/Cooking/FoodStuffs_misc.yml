@@ -22,6 +22,10 @@
   parent: BoxBase
   id: MisfitsStorageFoodBox
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0, 0, 1, 1
   - type: Sprite
     sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
     state: foodBox
@@ -31,7 +35,7 @@
   - type: Storage
     maxItemSize: Large
     grid:
-    - 0,0,5,5
+    - 0,0,1,4
     whitelist:
       components:
       - Food
