@@ -463,27 +463,6 @@
           Quantity: 5
 
 - type: entity
-  name: stick of cannabis butter
-  parent: N14FoodBakingBase
-  id: N14FoodCannabisButter
-  description: Add this to your favorite baked goods for an irie time.
-  components:
-  - type: Sprite
-    state: butter
-    color: "#82C36E"
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 100
-        reagents:
-        - ReagentId: Butter
-          Quantity: 10
-        - ReagentId: THC
-          Quantity: 82
-  - type: Extractable
-    grindableSolutionName: food
-
-- type: entity
   name: cheese wheel
   parent: N14FoodBakingBase
   id: N14FoodCheese
@@ -563,7 +542,7 @@
           Quantity: 1
         - ReagentId: Vitamin
           Quantity: 0.2
-
+          
 - type: entity
   name: tofu
   parent: N14FoodBakingBase
@@ -632,35 +611,6 @@
   - type: Tag
     tags:
     - Trash
-
-- type: entity
-  name: cocoa beans
-  parent: FoodProduceBase
-  id: N14FoodCocoaBeans
-  description: You can never have too much chocolate!
-  components:
-  - type: FlavorProfile
-    flavors:
-      - chocolate
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/cocoa.rsi
-    state: produce-beans
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 14
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Vitamin
-          Quantity: 1
-        - ReagentId: CocoaPowder
-          Quantity: 2
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: CocoaPowder
-        Quantity: 2
 
 - type: entity
   parent: N14BaseFoodCondimentPacket

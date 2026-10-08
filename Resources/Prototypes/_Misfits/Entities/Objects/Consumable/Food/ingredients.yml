@@ -1,0 +1,21 @@
+﻿- type: entity
+  name: stick of cannabis butter
+  parent: N14FoodBakingBase
+  id: N14FoodCannabisButter # tmp, changing ID means replacing prototype in all map files!
+  description: Add this to your favorite baked goods for an irie time.
+  components:
+    - type: Sprite
+      state: butter
+      color: "#82C36E"
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 100
+          reagents:
+            - ReagentId: Butter
+              Quantity: 10
+            - ReagentId: THC
+              Quantity: 82
+    - type: Extractable
+      grindableSolutionName: food
+      

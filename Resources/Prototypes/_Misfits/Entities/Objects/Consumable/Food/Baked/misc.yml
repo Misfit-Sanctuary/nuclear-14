@@ -1,0 +1,106 @@
+﻿# fixing and migrating chocolate recipes from _Nuclear14
+
+- type: entity
+  name: special brownies
+  parent: N14CookedFoodBakedBase
+  id: N14CookedFoodBakedCannabisBrownieBatch # tmp, changing ID means replacing prototype in all map files!
+  description: A pan of special brownies that let you get cozily high. Hard to eat just one...
+  components:
+    - type: FlavorProfile
+      flavors:
+        - sweet
+        - magical
+        - chocolate
+    - type: Sprite
+      sprite: Objects/Consumable/Food/Baked/brownie.rsi
+      state: brownie-batch
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 228
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 30
+            - ReagentId: Theobromine
+              Quantity: 18
+            - ReagentId: THC
+              Quantity: 150
+    - type: SliceableFood
+      count: 6
+      slice: N14CookedFoodBakedCannabisBrownie
+      
+- type: entity
+  name: brownies
+  parent: N14CookedFoodBakedBase
+  id: N14CookedFoodBakedBrownieBatch # tmp, changing ID means replacing prototype in all map files!
+  description: A pan of brownies.
+  components:
+    - type: FlavorProfile
+      flavors:
+        - sweet
+        - chocolate
+    - type: Sprite
+      sprite: Objects/Consumable/Food/Baked/brownie.rsi
+      state: brownie-batch
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 78
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 30
+            - ReagentId: Theobromine
+              Quantity: 18
+    - type: SliceableFood
+      count: 6
+      slice: FoodBakedBrownie
+      
+- type: entity
+  name: cookie
+  parent: N14CookedFoodBakedBase
+  id: N14CookedFoodBakedCookie # tmp, changing ID means replacing prototype in all map files!
+  description: COOKIE!!!
+  components:
+    - type: Sprite
+      state: COOKIE!!!
+      
+- type: entity
+  name: chocolate chip pancake
+  parent: N14CookedFoodBakedBase
+  id: N14CookedFoodBakedPancakeCc # tmp, changing ID means replacing prototype in all map files!
+  description: A fluffy and delicious chocolate chip pancake.
+  components:
+    - type: Stack
+      stackType: Pancake
+      count: 1
+      composite: true
+      layerStates:
+        - pancakescc1
+        - pancakescc2
+        - pancakescc3
+    - type: Sprite
+      state: pancakescc1
+      layers:
+        - state: pancakescc1
+          map: ["pancakescc1"]
+          visible: false
+        - state: pancakescc2
+          map: ["pancakescc2"]
+          visible: false
+        - state: pancakescc3
+          map: ["pancakescc3"]
+          visible: false
+    - type: Appearance
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 6
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 5
+            - ReagentId: Theobromine
+              Quantity: 1
+    - type: Tag
+      tags:
+        - Pancake
+      

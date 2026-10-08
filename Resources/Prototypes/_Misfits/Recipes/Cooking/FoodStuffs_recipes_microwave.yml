@@ -90,17 +90,6 @@
     JuiceCarrot: 5
     Sugar: 5
 
-#- Milk Chocolate Bar: 2u cocoa powder, 5u milk, 5u sugar (must be in separate containers else create regular choc) -> 5 sec
-- type: microwaveMealRecipe
-  id: MisfitsRecipeChocolateBar
-  name: Milk Chocolate Bar
-  result: MisfitsFoodChocolateBar
-  time: 5
-  reagents:
-    N14MilkBrahmin: 5
-    Sugar: 5
-    CocoaPowder: 2
-
 #- VaultTech Lolipop: 10u sugar, 1 paper -> 5 sec
 - type: microwaveMealRecipe
   id: MisfitsRecipeLollipop_VaultTech

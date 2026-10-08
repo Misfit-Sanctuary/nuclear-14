@@ -1,0 +1,43 @@
+﻿# fixing and migrating chocolate recipes from _Nuclear14
+
+- type: entity
+  name: chocolate cake
+  parent: N14CookedFoodCakeBase
+  id: N14CookedFoodCakeChocolate # tmp, changing ID means replacing prototype in all map files!
+  description: A cake with added chocolate.
+  components:
+    - type: Sprite
+      state: chocolate
+    - type: SliceableFood
+      slice: N14CookedFoodCakeChocolateSlice
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 35
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 20
+            - ReagentId: Theobromine
+              Quantity: 5
+            - ReagentId: Vitamin
+              Quantity: 5
+              
+- type: entity
+  name: slice of chocolate cake
+  parent: N14CookedFoodCakeSliceBase
+  id: N14CookedFoodCakeChocolateSlice # tmp, changing ID means replacing prototype in all map files!
+  description: All for you... #N14 change
+  components:
+    - type: Sprite
+      state: chocolate-slice
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 8
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 4
+            - ReagentId: Theobromine
+              Quantity: 1
+            - ReagentId: Vitamin
+              Quantity: 1
