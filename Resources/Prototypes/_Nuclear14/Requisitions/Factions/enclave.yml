@@ -316,6 +316,8 @@
         crate: N14CrateRequisitionsEnclavePipboy
     - name: n14-requisitions-category-medical
       entries:
+      - cost: 300
+        crate: MisfitsCrateRequisitionsDisks
       - cost: 600
         crate: N14CrateRequisitionsEnclaveChems
       - cost: 800
