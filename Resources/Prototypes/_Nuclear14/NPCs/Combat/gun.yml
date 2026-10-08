@@ -28,7 +28,7 @@
         - !type:HTNPrimitiveTask
           operator: !type:JukeOperator
             jukeType: Away
-            retreatDistance: 2.5
+            retreatDistance: 0
 
         - !type:HTNPrimitiveTask
           operator: !type:UtilityOperator
@@ -63,7 +63,7 @@
         - !type:HTNPrimitiveTask
           operator: !type:JukeOperator
             jukeType: Away
-            retreatDistance: 2.5
+            retreatDistance: 0
 
         - !type:HTNPrimitiveTask
           operator: !type:UtilityOperator
@@ -90,4 +90,3 @@
               id: RangedService
               proto: OrderedTargets
               key: Target
-              
