@@ -775,7 +775,7 @@ undecided-loadout-category-misfits-priestess-zealot-desc =
 
 undecided-loadout-category-misfits-priestess-purifier-name = Priestess of Purification
 undecided-loadout-category-misfits-priestess-purifier-desc =
-    Includes a flaming blade of Mars, 2 incendiary grenades, a heater shield,
+    Includes a flaming Blade of Mars, 2 incendiary grenades, a heater shield,
     a colt 45 with two magazines, 1 bandage, 1 Healing Poultice, 1 Healing Powder,
     2 K rations, and a ceramic flask.
 
