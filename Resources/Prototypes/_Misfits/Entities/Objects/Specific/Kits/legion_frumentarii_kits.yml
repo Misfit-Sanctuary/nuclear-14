@@ -16,7 +16,7 @@
   - type: SpawnItemsOnUse
     items:
       - id: N14ClothingUniformJumpsuitSettlerRags  # civilian cover — blend in with wastelanders
-      - id: MisfitsClothingHeadsetWastelandScrap   # wasteland radio channel, inconspicuous
+    #  - id: MisfitsClothingHeadsetWastelandScrap   # wasteland radio channel, inconspicuous
       - id: N14ClothingNeckDogtags                 # fake wastelander ID for deep cover
     sound:
       path: /Audio/Effects/unwrap.ogg

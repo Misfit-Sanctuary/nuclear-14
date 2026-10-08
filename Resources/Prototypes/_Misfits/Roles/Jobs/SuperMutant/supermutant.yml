@@ -41,7 +41,7 @@
     wallet: N14Wallet
     jumpsuit: ClothingSuperMutantJumpsuit
     id: N14ClothingNeckDogtags # #Misfits Change - wastelander supermutants get dogtag IDs
-    ears: MisfitsClothingHeadsetWastelandScrap
+   # ears: MisfitsClothingHeadsetWastelandScrap
 
 # #Misfits Add - Nightkin variant with its own whitelist entry. -REMOVED AT REUQEST OF https://github.com/Misfit-Sanctuary/nuclear-14/issues/666  -pierow
 - type: job
@@ -79,7 +79,7 @@
     wallet: N14Wallet
     jumpsuit: ClothingSuperMutantVaultSuit
     id: N14ClothingNeckDogtags # #Misfits Fix - Nightkin spawned with an empty ID slot, so they had no name, access or station record
-    ears: MisfitsClothingHeadsetWastelandScrap
+  #  ears: MisfitsClothingHeadsetWastelandScrap
   # #Misfits Change - removed spawn stealthboy, the implant is innate now
 - type: playTimeTracker
   id: Nightkin

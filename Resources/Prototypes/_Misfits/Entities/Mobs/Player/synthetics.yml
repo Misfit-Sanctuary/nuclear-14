@@ -204,7 +204,7 @@
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
         - MisfitsRobotNavCard
       key_slots:
-        - EncryptionKeyWastelandGlobal
+      #  - EncryptionKeyWastelandGlobal
         - EncryptionKeyVault
   - type: ItemSlots
     slots:
@@ -300,7 +300,7 @@
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
         - MisfitsRobotNavCardRobCo # RobCo Industries Navigation
       key_slots:
-        - EncryptionKeyWastelandGlobal
+      #  - EncryptionKeyWastelandGlobal
         - EncryptionKeyVault
   - type: ItemSlots
     slots:
@@ -396,7 +396,7 @@
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
         - MisfitsRobotNavCard # General Atomics Navigation
       key_slots:
-        - EncryptionKeyWastelandGlobal
+      #  - EncryptionKeyWastelandGlobal
         - EncryptionKeyVault
   - type: ItemSlots
     slots:
@@ -467,7 +467,7 @@
       id:
         - MisfitsRobotNavCardRobCo
       key_slots:
-        - EncryptionKeyWastelandGlobal
+      #  - EncryptionKeyWastelandGlobal
         - EncryptionKeyVault
 
 - type: entity
@@ -503,7 +503,7 @@
       id:
         - MisfitsRobotNavCardRobCo
       key_slots:
-        - EncryptionKeyWastelandGlobal
+      #  - EncryptionKeyWastelandGlobal
         - EncryptionKeyVault
 
 - type: entity
@@ -558,7 +558,7 @@
       id:
         - MisfitsRobotNavCardRobCo
       key_slots:
-        - EncryptionKeyWastelandGlobal
+      #  - EncryptionKeyWastelandGlobal
         - EncryptionKeyVault
 
 # Tribal Protectron
@@ -610,8 +610,8 @@
       - MisfitsBorgModuleTribalConstruction # Tribal settlement construction module
       id: # pre-load the nav module into the id inventory slot
       - MisfitsRobotNavCardTribal # #Misfits Add - Tree TacMap tracks the tribal Protectron card only
-      key_slots:
-      - EncryptionKeyWastelandGlobal
+    #  key_slots:
+    #  - EncryptionKeyWastelandGlobal
   - type: BorgHands # this one only gets one functioning hand, it is decrepit
     handCount: 1
 
@@ -856,8 +856,8 @@
         - PositronicBrain
       id: # #Misfits Change: pre-load the nav module into the id inventory slot
         - MisfitsRobotNavCardRobCo # RobCo Industries Navigation
-      key_slots:
-        - EncryptionKeyWastelandGlobal
+      #key_slots:
+      #  - EncryptionKeyWastelandGlobal
   - type: ItemSlots
     slots:
       cell_slot:
@@ -1008,8 +1008,8 @@
         - BorgModuleTool
       id:
         - MisfitsRobotNavCardRobCo
-      key_slots:
-        - EncryptionKeyWastelandGlobal
+      #key_slots:
+      #  - EncryptionKeyWastelandGlobal
   - type: ItemSlots
     slots:
       cell_slot:
@@ -1189,7 +1189,7 @@
       id:
         - MisfitsRobotNavCardRobCo
       key_slots:
-        - EncryptionKeyWastelandGlobal
+      #  - EncryptionKeyWastelandGlobal
         - EncryptionKeyVault
   - type: ItemSlots
     slots:
@@ -1241,5 +1241,5 @@
       id:
         - MisfitsRobotNavCardRobCo
       key_slots:
-        - EncryptionKeyWastelandGlobal
+      #  - EncryptionKeyWastelandGlobal
         - EncryptionKeyVault
