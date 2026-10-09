@@ -145,3 +145,23 @@
       - NCRPrisoner
   items:
     - N14ClothingMaskBreather
+
+- type: loadout
+  id: ClothingMaskPlague
+  category: Mask
+  cost: 1
+  exclusive: true
+  customColorTint: true
+  canBeHeirloom: true
+  items:
+    - ClothingMaskPlague
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutMask
+    - !type:CharacterJobRequirement # Forge-Change
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+      

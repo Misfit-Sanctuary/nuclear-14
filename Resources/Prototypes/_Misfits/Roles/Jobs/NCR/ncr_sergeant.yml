@@ -40,22 +40,14 @@
   id: NCRNCOGear
   equipment:
     wallet: N14Wallet
+    ears: N14ClothingHeadsetNCR
     back: N14ClothingBackpackNCR
     hands: N14ClothingHandsGlovesCombat
     jumpsuit: N14ClothingOfficerUniformNCRDesert
     shoes: N14ClothingBootsCombatFilled
-    ears: N14ClothingHeadsetNCR
-
     belt: ClothingBeltNCR
-    outerClothing: MisfitsNCRHeavyCombatArmor # T5 armor (0.70/0.65)
-    pocket1: NCRSGTloadoutkits
-    pocket2: RadioHandheld
     id: N14IDNCRDogtagNCO
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
-  satchel: N14ClothingBackpackSatchelNCRFilled
-  storage:
-    back:
-    - N14BoxPlasticFilledMilitaryNCR
 
 - type: playTimeTracker
   id: NCRSquadLeader

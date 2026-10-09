@@ -1,6 +1,7 @@
 ﻿﻿using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Content.Shared.Database;
 using Robust.Server.ServerStatus;
 
 namespace Content.Server.Administration;
@@ -28,6 +29,14 @@ public sealed partial class ServerApi
         {
             if (await CheckActor(context) is not { } actor)
                 return;
+
+            if (exactPath.StartsWith("/admin/actions/", StringComparison.Ordinal))
+            {
+                var hasAdminPermissions = await _db.GetAdminDataForAsync(new Robust.Shared.Network.NetUserId(actor.Guid)) != null;
+                var type = hasAdminPermissions ? LogType.AdminAudit : LogType.Action;
+                await RunOnMainThread(() => _adminLog.Add(type, LogImpact.Medium,
+                    $"Admin API action requested: {method} {exactPath} by {actor.Name} ({actor.Guid})"));
+            }
 
             await handler(context, actor);
         });

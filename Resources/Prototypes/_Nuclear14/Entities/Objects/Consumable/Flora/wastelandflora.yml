@@ -899,12 +899,12 @@
       food:
         maxVol: 10
         reagents:
-        - ReagentId: ExtractCarrot
+        - ReagentId: JuiceCarrot
           Quantity: 10
   - type: Extractable
     juiceSolution:
       reagents:
-      - ReagentId: ExtractCarrot
+      - ReagentId: JuiceCarrot
         Quantity: 10
   - type: Produce
     seedId: N14WildCarrot
@@ -1362,6 +1362,9 @@
         Quantity: 10
   - type: Produce
     seedId: N14WildTato
+  - type: SliceableFood
+    count: 1
+    slice: MisfitsFoodDicedTato
 
 - type: entity
   parent: N14FloraProduce

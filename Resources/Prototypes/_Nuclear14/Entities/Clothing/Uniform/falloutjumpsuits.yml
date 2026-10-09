@@ -732,8 +732,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitCaravanShirt
-  name: Blue Line Caravan Co. uniform
-  description: A white shirt and pair of blue slacks, yellow armband affixed to both sleeves signifying membership of Blue Line Caravan Company.
+  name: Blue Line Merchant Outfit
+  description: Once this was the uniform of Horizon Skyways pilots, but they were quickly adapted post-war by the Blue Line Caravan Company's merchants as they took the Winnipeg International Airport as a new headquarters to run goods across the continent.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/caravancompanyuniform.rsi
@@ -743,8 +743,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitCaravanOveralls
-  name: Blue Line Caravan Co. overalls
-  description: A white shirt and pair of workers overalls, yellow armband affixed to both sleeves signifying membership of Blue Line Caravan Company.
+  name: Blue Line Worker Outfit
+  description: Worn by the common workers of the Blue Line Caravan Company, this uniform is the choice of cargo haulers and company gunmen alike. Keep the goods safe, or you don't have a home to return to.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/caravancompanyoveralls.rsi
@@ -754,8 +754,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitCaravanSuit
-  name: Blue Line Caravan Co. suit
-  description: A finely trimmed suit, gold pin tacked on the chest. Worn only by those who have earned the favour and trust of The Boss, enough to run branches of their Blue Line Caravan Company.
+  name: Blue Line Head Merchant Outfit
+  description: Uniform of the best pre-war pilots on the continent, now reserved for the most highly ranked merchants of the Blue Line Caravan Company. To wear this tailored suit with its gold buttons and pin is to be among those in King Gunn's best regards.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/caravancompanysuit.rsi

@@ -40,20 +40,14 @@
   equipment:
     wallet: N14Wallet
     head: N14ClothingHeadHatNCRHelmetMetalDesert # Corvax-Change
+    neck: ClothingNeckPinNCRPrivate1st
+    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
     back: N14ClothingBackpackNCR # Corvax-Change
     jumpsuit: N14ClothingUniformNCRDesert # Corvax-Change
-    outerClothing: MisfitsNCREnhancedVest # #Misfits Tweak: T3 armor (0.80/0.75) — PFC has more experience than basic Soldier
     shoes: N14ClothingBootsLeatherFilled
-    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
-    neck: ClothingNeckPinNCRPrivate1st
     belt: ClothingBeltNCR
     id: N14IDNCRDogtagPrivateFirstClass
-    pocket1: NCRtrooperloadoutkits
   innerClothingSkirt: N14ClothingUniformNCRDesert # Corvax-Change
-  satchel: N14ClothingBackpackSatchelNCRFilled
-  storage: # Corvax-Change
-    back:
-    - N14BoxPlasticFilledMilitaryNCR
 
 - type: playTimeTracker
   id: NCRPrivateFirstClass

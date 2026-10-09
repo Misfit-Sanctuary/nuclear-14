@@ -3,13 +3,10 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: N14WeaponPistol22lr
-      weight: 7
-    - !type:EntSelector
       id: N14WeaponPistol9mm
-      weight: 7
+      weight: 5
     - !type:EntSelector
       id: N14WeaponPistol10mmPipe
-      weight: 7
+      weight: 5
 
 

@@ -1,0 +1,86 @@
+# Patreon from barkuaad
+
+# Hood
+
+- type: entity
+  parent: ClothingHeadBase
+  id: MisfitsEmissariushood
+  name: Emissarius Hood
+  description: Two blue stripes run down the front and back of this hood, there are embroidered blue lines along the edges of it
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/Patreon/EmissariusHood/valerehood.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/Patreon/EmissariusHood/valerehood.rsi
+    slots: [HEAD]
+
+# Jumpsuit
+
+- type: entity
+  parent: ClothingUniformBase
+  id: MisfitsEmissariusCloth
+  name: Emissarius Cloth
+  description: A sleek tight fitting uniform composing of a pair of chaps and a one piece body suit underneath
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Patreon/EmissariusCloth
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Patreon/EmissariusCloth
+    slots: [innerclothing]
+
+# Gloves
+
+- type: entity
+  parent: ClothingHandsBase
+  id: MisfitsEmissariusGloves
+  name: Emissarius Gloves
+  description: A pair of gloves, there is a stripe of white connected to the one piece body suit that goes up the top of each glove, coloring the middle finger white.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Hands/Patreon/EmissariusGloves
+  - type: Clothing
+    sprite: _Misfits/Clothing/Hands/Patreon/EmissariusGloves
+    slots: [gloves]
+
+# Outerwear
+
+- type: entity
+  parent: N14ClothingLegionReconArmor
+  id: MisfitsEmissariusOuter
+  name: Emissarius Robes
+  description: A uniquely blue robe with a split down the front and a one down each side of the outer legs, layered with two rain capes.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Patreon/EmissariusRobes
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Patreon/EmissariusRobes
+    slots: [outerClothing]
+
+# Mask
+
+- type: entity
+  parent: ClothingMaskBase
+  id: MisfitsEmissariusMask
+  name: Emissarius Mask
+  description: A porcelain mask with clasped straps that are adjustable, it seems heavily worn from the inside, the owner seems reluctant to part with it.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Mask/Patreon/EmissariusMask
+  - type: Clothing
+    sprite: _Misfits/Clothing/Mask/Patreon/EmissariusMask
+    slots: [mask]
+
+# boots
+
+- type: entity
+  parent: ClothingShoesBase
+  id: MisfitsEmissariusBoots
+  name: Emissarius Boots
+  description: A pair of high heel knee high boots, thick at the heel to provide extra sturdiness
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Shoes/Patreon/EmissariusBoots
+  - type: Clothing
+    sprite: _Misfits/Clothing/Shoes/Patreon/EmissariusBoots
+    slots: [FEET]
+    renderLayer: innerShoes

@@ -1,36 +1,40 @@
 using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Materials;
-using Content.Server.Power.Components;
 using Content.Shared.Conveyor;
+using Content.Shared.Destructible;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Physics.Controllers;
+using Content.Shared.Popups;
 using Content.Shared.Power;
+using Content.Shared.Verbs;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Physics.Controllers;
 
-public sealed class ConveyorController : SharedConveyorController
+public sealed partial class ConveyorController : SharedConveyorController
 {
-    [Dependency] private readonly FixtureSystem _fixtures = default!;
-    [Dependency] private readonly DeviceLinkSystem _signalSystem = default!;
-    [Dependency] private readonly MaterialReclaimerSystem _materialReclaimer = default!;
-    [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private FixtureSystem _fixtures = default!;
+    [Dependency] private DeviceLinkSystem _signalSystem = default!;
+    [Dependency] private MaterialReclaimerSystem _materialReclaimer = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
         UpdatesAfter.Add(typeof(MoverController));
         SubscribeLocalEvent<ConveyorComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<ConveyorComponent, ComponentShutdown>(OnConveyorShutdown);
-
+        SubscribeLocalEvent<ConveyorComponent, BreakageEventArgs>(OnBreakage);
 
         SubscribeLocalEvent<ConveyorComponent, SignalReceivedEvent>(OnSignalReceived);
         SubscribeLocalEvent<ConveyorComponent, PowerChangedEvent>(OnPowerChanged);
+        SubscribeLocalEvent<ConveyorComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerbs); // #Misfits Add
 
         base.Initialize();
     }
@@ -39,7 +43,7 @@ public sealed class ConveyorController : SharedConveyorController
     {
         _signalSystem.EnsureSinkPorts(uid, component.ReversePort, component.ForwardPort, component.OffPort);
 
-        if (TryComp<PhysicsComponent>(uid, out var physics))
+        if (PhysicsQuery.TryComp(uid, out var physics))
         {
             var shape = new PolygonShape();
             shape.SetAsBox(0.55f, 0.55f);
@@ -56,12 +60,52 @@ public sealed class ConveyorController : SharedConveyorController
         if (MetaData(uid).EntityLifeStage >= EntityLifeStage.Terminating)
             return;
 
-        RemComp<ActiveConveyorComponent>(uid);
-
-        if (!TryComp<PhysicsComponent>(uid, out var physics))
+        if (!PhysicsQuery.TryComp(uid, out var physics))
             return;
 
         _fixtures.DestroyFixture(uid, ConveyorFixture, body: physics);
+    }
+
+    /// Misfits Alt clicking cycles the belt because it annoys me
+    private void OnGetAltVerbs(Entity<ConveyorComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || !args.CanComplexInteract || args.Hands == null)
+            return;
+
+        var next = ent.Comp.State switch
+        {
+            ConveyorState.Off => ConveyorState.Forward,
+            ConveyorState.Forward => ConveyorState.Reverse,
+            _ => ConveyorState.Off,
+        };
+
+        var user = args.User;
+
+        args.Verbs.Add(new AlternativeVerb
+        {
+            Text = Loc.GetString(GetStateLoc("conveyor-component-verb", next)),
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/refresh.svg.192dpi.png")),
+            Act = () =>
+            {
+                SetState(ent, next, ent);
+                _popup.PopupEntity(Loc.GetString(GetStateLoc("conveyor-component-popup", next)), ent, user);
+            },
+        });
+    }
+
+    private static string GetStateLoc(string prefix, ConveyorState state)
+    {
+        return state switch
+        {
+            ConveyorState.Forward => $"{prefix}-forward",
+            ConveyorState.Reverse => $"{prefix}-reverse",
+            _ => $"{prefix}-off",
+        };
+    }
+
+    private void OnBreakage(Entity<ConveyorComponent> ent, ref BreakageEventArgs args)
+    {
+        SetState(ent, ConveyorState.Off, ent);
     }
 
     private void OnPowerChanged(EntityUid uid, ConveyorComponent component, ref PowerChangedEvent args)
@@ -83,13 +127,11 @@ public sealed class ConveyorController : SharedConveyorController
 
         else if (args.Port == component.ForwardPort)
         {
-            AwakenEntities(uid, component);
             SetState(uid, ConveyorState.Forward, component);
         }
 
         else if (args.Port == component.ReversePort)
         {
-            AwakenEntities(uid, component);
             SetState(uid, ConveyorState.Reverse, component);
         }
     }
@@ -99,12 +141,15 @@ public sealed class ConveyorController : SharedConveyorController
         if (!Resolve(uid, ref component))
             return;
 
+        // Misifts reclaimer is missing broken state
+        _materialReclaimer.SetReclaimerEnabled(uid, state != ConveyorState.Off);
+
         component.State = state;
 
-        if (TryComp<PhysicsComponent>(uid, out var physics))
-            _broadphase.RegenerateContacts(uid, physics);
-
-        _materialReclaimer.SetReclaimerEnabled(uid, component.State != ConveyorState.Off);
+        if (state != ConveyorState.Off)
+        {
+            WakeConveyed(uid);
+        }
 
         UpdateAppearance(uid, component);
         Dirty(uid, component);
@@ -112,29 +157,29 @@ public sealed class ConveyorController : SharedConveyorController
 
     /// <summary>
     /// Awakens sleeping entities on the conveyor belt's tile when it's turned on.
-    /// Fixes an issue where non-hard/sleeping entities refuse to wake up + collide if a belt is turned off and on again.
+    /// Need this as we might activate under CollisionWake entities and need to forcefully check them.
     /// </summary>
-    private void AwakenEntities(EntityUid uid, ConveyorComponent component)
+    protected override void AwakenConveyor(Entity<TransformComponent?> ent)
     {
-        var xformQuery = GetEntityQuery<TransformComponent>();
-        var bodyQuery = GetEntityQuery<PhysicsComponent>();
-
-        if (!xformQuery.TryGetComponent(uid, out var xform))
+        if (!XformQuery.Resolve(ent.Owner, ref ent.Comp))
             return;
 
-        var beltTileRef = xform.Coordinates.GetTileRef(EntityManager, MapManager);
+        var xform = ent.Comp;
+
+        var beltTileRef = xform.Coordinates.GetTileRef(EntityManager, _map);
 
         if (beltTileRef != null)
         {
-            var intersecting = Lookup.GetLocalEntitiesIntersecting(beltTileRef.Value, 0f);
+            Intersecting.Clear();
+            Lookup.GetLocalEntitiesIntersecting(beltTileRef.Value.GridUid, beltTileRef.Value.GridIndices, Intersecting, 0f, flags: LookupFlags.Dynamic | LookupFlags.Sundries | LookupFlags.Approximate);
 
-            foreach (var entity in intersecting)
+            foreach (var entity in Intersecting)
             {
-                if (!bodyQuery.TryGetComponent(entity, out var physics))
+                if (!PhysicsQuery.TryGetComponent(entity, out var physics))
                     continue;
 
                 if (physics.BodyType != BodyType.Static)
-                    Physics.WakeBody(entity, body: physics);
+                    PhysicsSystem.WakeBody(entity, body: physics);
             }
         }
     }

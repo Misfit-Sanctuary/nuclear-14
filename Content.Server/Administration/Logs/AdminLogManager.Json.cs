@@ -42,6 +42,9 @@ public sealed partial class AdminLogManager
         foreach (var key in properties.Keys)
         {
             var value = properties[key];
+            // Explicit account ID fields make offline player actions searchable by player.
+            if (key is "targetPlayerId" && value is Guid targetPlayerId)
+                players.Add(targetPlayerId);
             value = value switch
             {
                 ICommonSession player => new SerializablePlayer(player),

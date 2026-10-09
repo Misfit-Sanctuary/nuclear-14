@@ -929,4 +929,7 @@ public sealed class QueuedExplosion
     public float TotalIntensity, Slope, MaxTileIntensity, TileBreakScale;
     public int MaxTileBreak;
     public bool CanCreateVacuum;
+
+    // #Misfits
+    public readonly List<float> CombinedIntensities = new();
 }

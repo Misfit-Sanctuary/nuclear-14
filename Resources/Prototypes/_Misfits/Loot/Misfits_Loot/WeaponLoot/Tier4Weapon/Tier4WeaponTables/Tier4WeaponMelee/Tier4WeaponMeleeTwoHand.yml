@@ -3,15 +3,11 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: N14SledgeHammer
-    - !type:EntSelector
       id: N14SuperSledgeHammer
-    - !type:EntSelector
-      id: N14BaseBallBat
-    - !type:EntSelector
-      id: N14TribalBigClub
+      weight: 2
     - !type:EntSelector
       id: N14TribalBigClubDecorated
+      weight: 5
 
 
 - type: entityTable
@@ -19,17 +15,13 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: N14WastelandFlagSpear
-    - !type:EntSelector
-      id: N14WastelandSpear
-    - !type:EntSelector
       id: N14WastelandTribalSpear
     - !type:EntSelector
       id: N14WastelandPolearm
+      weight: 2
     - !type:EntSelector
       id: N14FireAxe
-    - !type:EntSelector
-      id: N14BaseAxe
+
 
 - type: entityTable
   id: M14WeaponLootTier4_MeleeOtherTwoHanded

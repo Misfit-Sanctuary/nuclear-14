@@ -26,13 +26,6 @@
       - BottleCap
       - Currency
       - DoorBumpOpener
-  # Pull loose bottlecaps into the wallet while it is worn, like an OreBag.
-  - type: MagnetPickup
-    slotFlags: WALLET
-    range: 1
-    whitelist:
-      tags:
-      - BottleCap
   - type: Dumpable
   - type: Construction
     graph: N14Wallet

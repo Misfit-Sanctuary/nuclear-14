@@ -51,9 +51,6 @@
           Slash: 0.5
           Piercing: 0.5
           Heat: 1
-    - type: Reflect # #Made the deflect change 15% to interact with the heavy shields double
-      reflectProb: 0.15
-      spread: 150
     - type: SpearBlock # #Misfits Change Add: Shields deflect thrown polearms; falls to ground instead of embedding.
     - type: ClothingSpeedModifier
       walkModifier: 0.975

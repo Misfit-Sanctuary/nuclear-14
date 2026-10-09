@@ -54,7 +54,6 @@ public enum WarTargetKind : byte
 {
     Faction,
     Group,
-    Wastelander,
 }
 
 /// <summary>
@@ -152,7 +151,6 @@ public sealed class PlayerWarPanelDataEvent : EntityEventArgs
     public List<OnlinePlayerInfo> OnlinePlayers = new();
     public List<WarTargetInfo> FactionTargets = new();
     public List<WarTargetInfo> GroupTargets = new();
-    public List<WarTargetInfo> WastelanderTargets = new();
     public string? StatusMessage;
 
     /// <summary>Wars where this player is a participant.</summary>

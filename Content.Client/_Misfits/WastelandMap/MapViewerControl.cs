@@ -396,6 +396,17 @@ public sealed class MapViewerControl : Control
                 handle.DrawCircle(markerPos, 7f, Color.Black);
                 DrawDiamond(handle, markerPos, 4f, Color.White);
                 break;
+            case WastelandMapTrackedBlipKind.RadioTowerOffline:
+            case WastelandMapTrackedBlipKind.RadioTowerOnline:
+                handle.DrawRect(UIBox2.FromDimensions(markerPos - new Vector2(2f, 12f), new Vector2(4f, 24f)), color);
+                handle.DrawCircle(markerPos + new Vector2(0f, -12f), 5f, color);
+                handle.DrawCircle(markerPos + new Vector2(0f, -12f), 2f, Color.Black);
+                break;
+            case WastelandMapTrackedBlipKind.GlobalPin:
+                DrawDiamond(handle, markerPos, 12f, color);
+                handle.DrawCircle(markerPos, 4f, Color.Black);
+                handle.DrawCircle(markerPos, 2f, Color.White);
+                break;
             // End Misfits Add
         }
     }
@@ -600,6 +611,9 @@ public sealed class MapViewerControl : Control
             WastelandMapTrackedBlipKind.TribeCritical => new Color(0.25f, 0.95f, 1f, 1f),
             WastelandMapTrackedBlipKind.MaterialExtractor => new Color(1f, 0.55f, 0.08f, 1f),
             WastelandMapTrackedBlipKind.ExpeditionEntrance => new Color(0.68f, 0.70f, 0.72f, 1f),
+            WastelandMapTrackedBlipKind.RadioTowerOffline => new Color(0.95f, 0.2f, 0.15f, 1f),
+            WastelandMapTrackedBlipKind.RadioTowerOnline => new Color(0.2f, 0.9f, 0.3f, 1f),
+            WastelandMapTrackedBlipKind.GlobalPin => new Color(0.97f, 0.78f, 0.18f, 1f),
             // End Misfits Add
             _ => new Color(0.98f, 0.84f, 0.15f, 0.95f),
         };

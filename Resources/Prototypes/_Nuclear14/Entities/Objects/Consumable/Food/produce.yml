@@ -156,6 +156,7 @@
   - type: Produce
     seedId: towercap
   - type: Log
+    grinderChoppable: true # Misfits
 
 - type: entity
   name: steel-cap log
@@ -175,6 +176,7 @@
   - type: Log
     spawnedPrototype: SheetSteel1
     spawnCount: 1
+    grinderChoppable: true # Misfits
 
 - type: entity
   name: nettle
@@ -251,7 +253,7 @@
     flavors:
       - banana
   - type: Food
-    trash: 
+    trash:
     - TrashBananaPeel
   - type: SolutionContainerManager
     solutions:
@@ -291,7 +293,7 @@
       - banana
       - nothing
   - type: Food
-    trash: 
+    trash:
     - TrashMimanaPeel
   - type: SolutionContainerManager
     solutions:
@@ -422,6 +424,9 @@
     entries:
       Burger: GarlicBurger
       Taco: Garlic
+  - type: SliceableFood
+    count: 1
+    slice: MisfitsFoodDicedGarlic
 
 - type: entity
   name: lemon
@@ -848,7 +853,7 @@
     flavors:
       - corn
   - type: Food
-    trash: 
+    trash:
     - FoodCornTrash
   - type: SolutionContainerManager
     solutions:
@@ -1060,6 +1065,9 @@
     entries:
       Burger: OnionRedSliceBurger
       Taco: OnionRedSlice
+  - type: SliceableFood
+    count: 1
+    slice: MisfitsFoodDicedOnion
 
 - type: entity
   name: chili
@@ -1684,7 +1692,7 @@
     flavors:
       - bungo
   - type: Food
-    trash: 
+    trash:
     - FoodBungoPit
   - type: SolutionContainerManager
     solutions:

@@ -2283,7 +2283,7 @@ public sealed class UndergroundExpeditionMapGenerator : EntitySystem
             {
                 var weaponX = room.X + 1 + rng.Next(Math.Max(1, room.W - 2));
                 var weaponY = room.Y + 1 + rng.Next(Math.Max(1, room.H - 2));
-                SpawnAt("M14WeaponLootSpawner", gridUid, grid, weaponX, weaponY);
+                SpawnAt("M14WeaponLootCacheRoomSpawner", gridUid, grid, weaponX, weaponY);
             }
 
             // Sub-pass: Lights (profile-driven count and style)

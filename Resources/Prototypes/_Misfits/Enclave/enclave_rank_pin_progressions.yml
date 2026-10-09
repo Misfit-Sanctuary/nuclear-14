@@ -72,7 +72,7 @@
     - min: 72000   # 20 hours
       entity: ClothingNeckPinEnclaveMajor
 
-# Commander: LTC (O-5) → Colonel (O-6) at 20h → General (O-7) at 40h
+# Commander: LTC (O-5) → Colonel (O-6) at 20h
 - type: ncrRankPinProgression
   id: EnclaveCommanderPins
   jobs:
@@ -84,8 +84,6 @@
       entity: ClothingNeckPinEnclaveLtColonel
     - min: 72000   # 20 hours
       entity: ClothingNeckPinEnclaveColonel
-    - min: 144000  # 40 hours
-      entity: ClothingNeckPinEnclaveGeneral
 
 # Reformer: General (O-7), no ladder above it.
 # Listed here because the Reformer shares EnclaveCommanderGear, which no longer carries a pin.
@@ -126,8 +124,8 @@
     - min: 504000  # 140 hours
       entity: ClothingNeckPinEnclaveSergeantMajor
 
-# Vertibird Pilot: 2LT (O-1) → 1LT (O-2) at 20h → Captain (O-3) at 40h
-# Enclave aviators hold commissions, so the ladder tops out level with the Senior Officer billet.
+# Vertibird Pilot: SGT (E-5) → SSG (E-6) at 20h → SFC (E-7) at 40h → MSG (E-8) at 60h → SGM (E-9) at 80h
+# Misfits Change - Enclave Vertibird Pilot is no longer commissioned but instead has a rank structure that runs parallel to the NCO.
 - type: ncrRankPinProgression
   id: EnclaveVertibirdPilotPins
   jobs:
@@ -135,9 +133,13 @@
   tracker: EnclaveVertibirdPilot
   departmentTracker: false
   thresholds:
-    - min: 0
-      entity: ClothingNeckPinEnclaveSecondLieutenant
-    - min: 72000   # 20 hours
-      entity: ClothingNeckPinEnclaveFirstLieutenant
-    - min: 144000  # 40 hours
-      entity: ClothingNeckPinEnclaveCaptain
+  - min: 0
+    entity: ClothingNeckPinEnclaveSergeant
+  - min: 72000   # 20 hours
+    entity: ClothingNeckPinEnclaveStaffSergeant
+  - min: 144000  # 40 hours
+    entity: ClothingNeckPinEnclaveSFC
+  - min: 216000  # 60 hours
+    entity: ClothingNeckPinEnclaveMasterSergeant
+  - min: 288000  # 80 hours
+    entity: ClothingNeckPinEnclaveSergeantMajor

@@ -124,6 +124,7 @@
   color: "#3ab700"
   uiCategory: MajorFaction
   roles:                                                                                                          # #Misfits Change - full Rangers ladder with NCR-prefixed IDs; NCRChiefRanger on top
+  - NCRDagger        # DAGGER (whitelist-only Ranger / NCR High Command liaison) | _Misfits/Roles/Jobs/Rangers/dagger.yml
   - NCRChiefRanger   # Chief Ranger (admin-only) | _Misfits/Roles/Jobs/Rangers/chief_ranger.yml
   - NCRVeteranRanger # Veteran Ranger            | _Misfits/Roles/Jobs/Rangers/ranger_veteran.yml
   - NCRFieldRanger   # Field Ranger              | _Misfits/Roles/Jobs/Rangers/ranger.yml

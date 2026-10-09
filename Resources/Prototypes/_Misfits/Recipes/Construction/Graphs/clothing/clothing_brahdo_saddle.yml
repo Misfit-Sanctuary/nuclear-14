@@ -1,0 +1,35 @@
+- type: constructionGraph
+  id: ConstructGraph_BrahdoSaddleStorage
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: saddleStorage
+      steps:
+      - material: Leather
+        amount: 15
+      - material: Cloth
+        amount: 5
+        doAfter: 1
+  - node: saddleStorage
+    entity: ClothingBrahdoSaddle_BasicStorage
+
+# - type: constructionGraph
+#   id: ConstructGraph_BrahdoSaddleArmor
+#   start: start
+#   graph:
+#   - node: start
+#     edges:
+#     - to: saddleArmor
+#       steps:
+#       - material: Steel
+#         amount: 15
+#         doAfter: 1
+#       - material: Leather
+#         amount: 20
+#         doAfter: 1
+#       - material: Cloth
+#         amount: 5
+#         doAfter: 1
+#   - node: saddleArmor
+#     entity: ClothingBrahdoSaddle_BasicArmor

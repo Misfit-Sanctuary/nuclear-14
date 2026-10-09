@@ -14,4 +14,8 @@ public sealed partial class LogComponent : Component
     public string SpawnedPrototype = "MaterialWoodPlank1";
 
     [DataField("spawnCount")] public int SpawnCount = 2;
+
+    /// Misfits
+    [DataField]
+    public bool GrinderChoppable;
 }

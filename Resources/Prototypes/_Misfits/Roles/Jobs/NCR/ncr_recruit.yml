@@ -35,19 +35,12 @@
   equipment:
     wallet: N14Wallet
     head: N14ClothingHeadHatNCRSidecap
+    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
     back: N14ClothingBackpackNCR # Corvax-Change
     jumpsuit: N14ClothingUniformNCRDesert # Corvax-Change
     shoes: N14ClothingBootsLeatherFilled
-    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
-
-    #belt: ClothingBeltNCR #Misfits Change - Belts spawn in loadouts now, so Recruit doesn't get one in their starting gear to avoid inventory clutter for new players.
-    pocket1: NCRtrooperloadoutkits
     id: N14IDNCRDogtag
   innerClothingSkirt: N14ClothingUniformNCRDesert # Corvax-Change
-  satchel: N14ClothingBackpackSatchelNCRFilled
-  storage: # Corvax-Change
-    back:
-    - N14BoxPlasticFilledMilitaryNCR
 
 - type: playTimeTracker
   id: NCRTrooper

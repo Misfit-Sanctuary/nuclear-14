@@ -63,13 +63,13 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  name: Flag of the U.S. Army
+  name: Flag of the 'U.S. Army'
   id: N14FlagWallEnclave
   graph: MisfitsFlagEN
   startNode: start
   targetNode: flagen
 # category: construction-category-decorations
-  description: The banner of the U.S. Army, the descendents of America's elite who claim to be the true inheritors of the United States federal government.
+  description: The banner of a group calling themselves the 'U.S. Army', descendents of America's elite who claim to be the true inheritors of the United States federal government.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Wallmounts/walldecor_flags.rsi
@@ -315,7 +315,7 @@
   startNode: start
   targetNode: FlagEnclave
 # category: construction-category-decorations
-  description: The banner of the U.S. Army, the descendents of the business and government elite of the United States, who believe it is their manifest destiny to rebuild and rule the wasteland as their birthright.
+  description: The banner of the Enclave, the descendents of the business and government elite of the United States, who believe it is their manifest destiny to rebuild and rule the wasteland as their birthright.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Decoration/flags.rsi
@@ -1196,25 +1196,11 @@
   graph: N14Barrels
   startNode: start
   targetNode: barrelblue
-  description: A blue barrel with a warning sign of. Maybe it contains water?
+  description: A blue barrel with a warning sign on. Maybe it contains water?
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Storage/barrels.rsi
     state: blue-closed
-  objectType: Structure
-  placementMode: PlaceFree
-
-- type: construction
-  name: red barrel
-  id: N14RedBarrel
-  graph: N14Barrels
-  startNode: start
-  targetNode: barrelred
-  description: A red barrel with an explosive warning sign on. Better be careful.
-  hide: false
-  icon:
-    sprite: _Nuclear14/Structures/Storage/barrels.rsi
-    state: red-closed
   objectType: Structure
   placementMode: PlaceFree
 
@@ -1252,7 +1238,7 @@
   graph: N14Barrels
   startNode: start
   targetNode: barrelblueopen
-  description: A blue barrel with a warning sign of. The lid is off and you can see inside.
+  description: A blue barrel with a warning sign on. The lid is off and you can see inside.
   hide: false
   icon:
     sprite: _Nuclear14/Structures/Storage/barrels.rsi
@@ -1299,20 +1285,6 @@
   icon:
     sprite: _Nuclear14/Structures/Storage/barrels.rsi
     state: black-full
-  objectType: Structure
-  placementMode: PlaceFree
-
-- type: construction
-  name: red barrel
-  id: N14RedBarrelFull
-  graph: N14Barrels
-  startNode: start
-  targetNode: barrelredfull
-  description: A red barrel with an explosive warning sign on. It has a golden liquid inside.
-  hide: false
-  icon:
-    sprite: _Nuclear14/Structures/Storage/barrels.rsi
-    state: red-full
   objectType: Structure
   placementMode: PlaceFree
 

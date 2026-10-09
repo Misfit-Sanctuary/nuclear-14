@@ -592,6 +592,12 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (!TryComp(user, out TransformComponent? userXform))
             return false;
 
+        // Client-provided coordinates can refer to an entity that was deleted while
+        // the message was in flight. Reject them before converting to map coordinates.
+        if (!TryGetEntity(ev.Coordinates.NetEntity, out var coordinateEntity) ||
+            !HasComp<TransformComponent>(coordinateEntity.Value))
+            return false;
+
         var targetMap = TransformSystem.ToMapCoordinates(GetCoordinates(ev.Coordinates));
 
         if (targetMap.MapId != userXform.MapID)

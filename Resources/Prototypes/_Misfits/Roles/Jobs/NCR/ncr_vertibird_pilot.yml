@@ -45,22 +45,14 @@
   equipment:
     wallet: N14Wallet
     head: N14ClothingHeadHatNCRBeretOfficer
+    ears: N14ClothingHeadsetNCR
     back: N14ClothingBackpackNCR
     jumpsuit: N14ClothingOfficerUniformNCRDesert
-    outerClothing: MisfitsNCROfficerArmor
     shoes: N14ClothingBootsCombatFilled
     hands: N14ClothingHandsGlovesCombat
     belt: ClothingBeltNCR
-    eyes: N14ClothingEyesGlassesPilot
-    ears: N14ClothingHeadsetNCR
-    pocket1: NCRLTloadoutkits
-    pocket2: RadioHandheld
     id: N14IDNCRDogtagOfficer
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
-  satchel: N14ClothingBackpackSatchelNCRFilled
-  storage:
-    back:
-    - N14BoxPlasticFilledMilitaryNCR
 
 - type: playTimeTracker
   id: NCRVertibirdPilot

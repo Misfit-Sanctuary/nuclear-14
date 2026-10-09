@@ -18,6 +18,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Content.Shared.Research.Prototypes;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Server._RMC.Vendors;
 
@@ -33,8 +34,12 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
     [Dependency] private ContainerSystem _container = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
     [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private const string EquipmentStorageContainer = "rmc-vendor-equipment";
+    private static readonly TimeSpan ResupplyUpdateInterval = TimeSpan.FromSeconds(1);
+    private TimeSpan _nextResupplyUpdate;
+    private readonly Dictionary<string, EntityUid> _sharedPoolHosts = new();
 
     public override void Initialize()
     {
@@ -46,6 +51,23 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
             subs.Event<CMAutomatedVendorStoreHeldMessage>(OnStoreHeld);
             subs.Event<CMAutomatedVendorWithdrawStoredMessage>(OnWithdrawStored);
         });
+    }
+
+    /// <summary>
+    /// Returns the vendor that owns mutable stock, resupply, and equipment storage for this machine.
+    /// A missing pool identifier deliberately preserves the legacy per-machine behavior.
+    /// </summary>
+    private Entity<CMAutomatedVendorComponent> GetPoolVendor(Entity<CMAutomatedVendorComponent> vendor)
+    {
+        if (string.IsNullOrWhiteSpace(vendor.Comp.SharedPool))
+            return vendor;
+
+        var poolId = vendor.Comp.SharedPool;
+        if (_sharedPoolHosts.TryGetValue(poolId, out var host) && TryComp<CMAutomatedVendorComponent>(host, out var hostComp))
+            return new Entity<CMAutomatedVendorComponent>(host, hostComp);
+
+        _sharedPoolHosts[poolId] = vendor.Owner;
+        return vendor;
     }
 
     protected override void OnOpenAttempt(Entity<CMAutomatedVendorComponent> vendor, ref ActivatableUIOpenAttemptEvent args)
@@ -63,7 +85,7 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
 
         PopulateBlueprintSections(vendor);
         InitializeStockCaps(vendor);
-        ReplenishStock(vendor);
+        TryQueueReplenishment(GetPoolVendor(vendor));
         EnsureComp<CMVendorUserComponent>(args.User);
         UpdateState(vendor, args.User);
     }
@@ -157,16 +179,18 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
         if (!CanUseVendor(vendor, user))
             return;
 
+        var pool = GetPoolVendor(vendor);
+
         if (!HasTierAuthorization(vendor, user))
         {
             Deny(vendor, user, "Your assignment does not authorize tiered armory stock.");
             return;
         }
 
-        if (message.Section < 0 || message.Section >= vendor.Comp.Sections.Count)
+        if (message.Section < 0 || message.Section >= pool.Comp.Sections.Count)
             return;
 
-        var section = vendor.Comp.Sections[message.Section];
+        var section = pool.Comp.Sections[message.Section];
         if (!HasSectionAuthorization(vendor, section, user))
         {
             Deny(vendor, user, "Your assignment does not authorize this allocation.");
@@ -177,6 +201,12 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
             return;
 
         var entry = section.Entries[message.Entry];
+        if (!HasEntryJobAuthorization(entry, user))
+        {
+            Deny(vendor, user, $"This equipment is restricted to {entry.RequiredJob ?? "another assignment"}.");
+            return;
+        }
+
         if (entry.Tier is < 1 or > 5 || entry.Tier > Math.Min(5, vendor.Comp.MaxAuthorityTier) ||
             !HasAuthorityTier(vendor, user, entry.Tier))
         {
@@ -235,9 +265,10 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
         foreach (var linked in entry.LinkedEntries)
             Vend(user, linked);
 
+        TryQueueReplenishment(pool);
         Dirty(user, userComp);
-        Dirty(vendor);
-        UpdateState(vendor, user);
+        Dirty(pool);
+        UpdateOpenStates(pool);
     }
 
     private void OnReplenish(Entity<CMAutomatedVendorComponent> vendor, ref CMAutomatedVendorReplenishMessage message)
@@ -246,9 +277,17 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
         if (!CanUseVendor(vendor, user))
             return;
 
+        var pool = GetPoolVendor(vendor);
+
         if (vendor.Comp.Replenishment.Count == 0)
         {
             Deny(vendor, user, "This vendor does not accept replenishment supplies.");
+            return;
+        }
+
+        if (!HasReplenishmentAuthorization(vendor, user))
+        {
+            Deny(vendor, user, "Your assignment does not authorize faction resupply.");
             return;
         }
 
@@ -275,12 +314,18 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
         }
 
         Del(held);
-        vendor.Comp.ReplenishmentPoints += contribution;
-        InitializeStockCaps(vendor);
-        ReplenishStock(vendor);
-        Dirty(vendor);
-        _popup.PopupEntity($"Added {contribution} replenishment point(s) to faction stock.", vendor, user);
-        UpdateState(vendor, user);
+        pool.Comp.ReplenishmentPoints += contribution;
+        InitializeStockCaps(pool);
+        if (pool.Comp.ReplenishmentInterval <= TimeSpan.Zero)
+            ReplenishStock(pool);
+        else
+            TryQueueReplenishment(pool);
+        Dirty(pool);
+        var notice = pool.Comp.NextReplenishment > TimeSpan.Zero
+            ? $"Added {contribution} resupply point(s). New {pool.Comp.DepartmentName} resupply in {FormatRemaining(pool.Comp.NextReplenishment - _timing.CurTime)}."
+            : $"Added {contribution} resupply point(s). Stock is not currently awaiting a funded shipment.";
+        _popup.PopupEntity(notice, vendor, user);
+        UpdateOpenStates(pool);
     }
 
     private void OnStoreHeld(Entity<CMAutomatedVendorComponent> vendor, ref CMAutomatedVendorStoreHeldMessage message)
@@ -288,6 +333,8 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
         var user = message.Actor;
         if (!CanUseVendor(vendor, user))
             return;
+
+        var pool = GetPoolVendor(vendor);
 
         if (!vendor.Comp.AllowEquipmentStorage)
         {
@@ -319,8 +366,8 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
             return;
         }
 
-        var storage = _container.EnsureContainer<Container>(vendor, EquipmentStorageContainer);
-        if (storage.ContainedEntities.Count >= vendor.Comp.MaxStoredItems)
+        var storage = _container.EnsureContainer<Container>(pool, EquipmentStorageContainer);
+        if (storage.ContainedEntities.Count >= pool.Comp.MaxStoredItems)
         {
             Deny(vendor, user, "Department equipment storage is full.");
             return;
@@ -333,7 +380,7 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
         }
 
         _popup.PopupEntity("Equipment stored for your department.", vendor, user);
-        UpdateState(vendor, user);
+        UpdateOpenStates(pool);
     }
 
     private void OnWithdrawStored(Entity<CMAutomatedVendorComponent> vendor, ref CMAutomatedVendorWithdrawStoredMessage message)
@@ -342,18 +389,20 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
         if (!CanUseVendor(vendor, user))
             return;
 
-        if (!_container.TryGetContainer(vendor, EquipmentStorageContainer, out var storage) ||
-            message.Index < 0 || message.Index >= storage.ContainedEntities.Count)
+        var pool = GetPoolVendor(vendor);
+
+        if (!_container.TryGetContainer(pool, EquipmentStorageContainer, out var storage) ||
+            !TryGetEntity(message.Item, out var item) ||
+            !storage.ContainedEntities.Contains(item.Value))
             return;
 
-        var item = storage.ContainedEntities.ElementAt(message.Index);
-        if (!_container.Remove(item, storage))
+        if (!_container.Remove(item.Value, storage))
             return;
 
-        if (!_hands.TryPickupAnyHand(user, item, checkActionBlocker: false))
-            _xform.DropNextTo(item, vendor.Owner);
+        if (!_hands.TryPickupAnyHand(user, item.Value, checkActionBlocker: false))
+            _xform.DropNextTo(item.Value, vendor.Owner);
 
-        UpdateState(vendor, user);
+        UpdateOpenStates(pool);
     }
 
     private bool HasAuthorizedJob(Entity<CMAutomatedVendorComponent> vendor, EntityUid user)
@@ -377,12 +426,26 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
                vendor.Comp.FullAllocationJobs.Any(job => _jobs.MindHasJobWithId(mindId, job.ToString()));
     }
 
+    private bool HasReplenishmentAuthorization(Entity<CMAutomatedVendorComponent> vendor, EntityUid user)
+    {
+        return vendor.Comp.ReplenishmentJobs.Count == 0 ||
+               _minds.TryGetMind(user, out var mindId, out _) &&
+               vendor.Comp.ReplenishmentJobs.Any(job => _jobs.MindHasJobWithId(mindId, job.ToString()));
+    }
+
     private bool HasSectionAuthorization(Entity<CMAutomatedVendorComponent> vendor, CMVendorSection section, EntityUid user)
     {
         return section.Jobs.Count == 0 ||
                HasFullAllocationAuthorization(vendor, user) ||
                _minds.TryGetMind(user, out var mindId, out _) &&
                section.Jobs.Any(job => _jobs.MindHasJobWithId(mindId, job.ToString()));
+    }
+
+    private bool HasEntryJobAuthorization(CMVendorEntry entry, EntityUid user)
+    {
+        return entry.Jobs.Count == 0 ||
+               _minds.TryGetMind(user, out var mindId, out _) &&
+               entry.Jobs.Any(job => _jobs.MindHasJobWithId(mindId, job.ToString()));
     }
 
     private bool CanUseVendor(Entity<CMAutomatedVendorComponent> vendor, EntityUid user)
@@ -437,6 +500,108 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
         }
     }
 
+    private void TryQueueReplenishment(Entity<CMAutomatedVendorComponent> vendor)
+    {
+        if (vendor.Comp.ReplenishmentInterval <= TimeSpan.Zero ||
+            vendor.Comp.NextReplenishment > TimeSpan.Zero ||
+            !CanFundDepletedEntry(vendor))
+            return;
+
+        vendor.Comp.NextReplenishment = _timing.CurTime + vendor.Comp.ReplenishmentInterval;
+        Dirty(vendor);
+    }
+
+    private static bool CanFundDepletedEntry(Entity<CMAutomatedVendorComponent> vendor)
+    {
+        return vendor.Comp.Sections
+            .SelectMany(section => section.Entries)
+            .Any(entry => entry.Amount == 0 &&
+                          entry.MaxAmount is > 0 &&
+                          (entry.ReplenishmentCost ?? vendor.Comp.ReplenishmentCosts.GetValueOrDefault(entry.Tier)) is var cost &&
+                          cost > 0 && vendor.Comp.ReplenishmentPoints >= cost);
+    }
+
+    /// <summary>
+    /// A timed shipment restores at most one unit to each fully depleted listing.
+    /// Lower authority tiers are serviced first when the shared resupply balance cannot fund every listing.
+    /// </summary>
+    private static int ReplenishDepletedStockOnce(Entity<CMAutomatedVendorComponent> vendor)
+    {
+        var restored = 0;
+        foreach (var entry in vendor.Comp.Sections.SelectMany(section => section.Entries).OrderBy(entry => entry.Tier))
+        {
+            var cost = entry.ReplenishmentCost ?? vendor.Comp.ReplenishmentCosts.GetValueOrDefault(entry.Tier);
+            if (cost <= 0 || entry.Amount != 0 || entry.MaxAmount is not > 0 || vendor.Comp.ReplenishmentPoints < cost)
+                continue;
+
+            entry.Amount = 1;
+            vendor.Comp.ReplenishmentPoints -= cost;
+            restored++;
+        }
+
+        return restored;
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (_timing.CurTime < _nextResupplyUpdate)
+            return;
+
+        _nextResupplyUpdate = _timing.CurTime + ResupplyUpdateInterval;
+        var query = EntityQueryEnumerator<CMAutomatedVendorComponent>();
+        while (query.MoveNext(out var uid, out var component))
+        {
+            var vendor = new Entity<CMAutomatedVendorComponent>(uid, component);
+            var pool = GetPoolVendor(vendor);
+            if (pool.Owner != vendor.Owner ||
+                pool.Comp.ReplenishmentInterval <= TimeSpan.Zero ||
+                pool.Comp.NextReplenishment <= TimeSpan.Zero ||
+                _timing.CurTime < pool.Comp.NextReplenishment)
+                continue;
+
+            pool.Comp.NextReplenishment = TimeSpan.Zero;
+            var restored = ReplenishDepletedStockOnce(pool);
+            TryQueueReplenishment(pool);
+            Dirty(pool);
+
+            if (restored > 0)
+                _popup.PopupEntity($"New {pool.Comp.DepartmentName} resupply has arrived.", pool);
+
+            UpdateOpenStates(pool);
+        }
+    }
+
+    private void UpdateOpenStates(Entity<CMAutomatedVendorComponent> vendor)
+    {
+        var pool = GetPoolVendor(vendor);
+        if (string.IsNullOrWhiteSpace(pool.Comp.SharedPool))
+        {
+            foreach (var actor in _ui.GetActors(pool.Owner, CMAutomatedVendorUiKey.Key))
+                UpdateState(pool, actor);
+
+            return;
+        }
+
+        var query = EntityQueryEnumerator<CMAutomatedVendorComponent>();
+        while (query.MoveNext(out var uid, out var component))
+        {
+            var candidate = new Entity<CMAutomatedVendorComponent>(uid, component);
+            if (!string.Equals(candidate.Comp.SharedPool, pool.Comp.SharedPool, StringComparison.Ordinal))
+                continue;
+
+            foreach (var actor in _ui.GetActors(candidate.Owner, CMAutomatedVendorUiKey.Key))
+                UpdateState(candidate, actor);
+        }
+    }
+
+    private static string FormatRemaining(TimeSpan remaining)
+    {
+        var minutes = Math.Max(1, (int) Math.Ceiling(remaining.TotalMinutes));
+        return $"{minutes} minute{(minutes == 1 ? string.Empty : "s")}";
+    }
+
     private void Vend(EntityUid user, EntProtoId prototype)
     {
         if (!_prototypes.HasIndex(prototype))
@@ -463,11 +628,14 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
         if (!TryComp<CMVendorUserComponent>(user, out var userComp))
             return;
 
+        var pool = GetPoolVendor(vendor);
+
         var sections = new List<CMVendorSectionState>();
         if (HasTierAuthorization(vendor, user))
         {
-            foreach (var section in vendor.Comp.Sections)
+            for (var sectionIndex = 0; sectionIndex < pool.Comp.Sections.Count; sectionIndex++)
             {
+                var section = pool.Comp.Sections[sectionIndex];
                 if (!HasSectionAuthorization(vendor, section, user))
                     continue;
 
@@ -475,6 +643,7 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
                     ? userComp.SectionPurchases.GetValueOrDefault(choices.Id)
                     : 0;
                 sections.Add(new CMVendorSectionState(
+                    sectionIndex,
                     section.Name,
                     section.Choices?.Amount,
                     purchases,
@@ -482,16 +651,19 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
                 entry.Name ?? entry.Id.ToString(),
                 entry.Id,
                 entry.Amount,
+                entry.MaxAmount,
                 entry.Points,
                 entry.Tier,
                 HasAuthorityTier(vendor, user, entry.Tier),
                 vendor.Comp.AuthorityTierNames.GetValueOrDefault(entry.Tier, $"authority tier {entry.Tier}"),
+                HasEntryJobAuthorization(entry, user),
+                entry.RequiredJob,
                 entry.Category ?? vendor.Comp.DefaultAllocationCategory)).ToList()));
             }
         }
 
         var storedItems = new List<CMVendorStoredItemState>();
-        if (_container.TryGetContainer(vendor, EquipmentStorageContainer, out var storage))
+        if (_container.TryGetContainer(pool, EquipmentStorageContainer, out var storage))
         {
             foreach (var item in storage.ContainedEntities)
             {
@@ -500,6 +672,7 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
                     continue;
 
                 storedItems.Add(new CMVendorStoredItemState(
+                    GetNetEntity(item),
                     prototype.Name,
                     prototype.ID,
                     vendor.Comp.StorageCategories.GetValueOrDefault(prototype.ID, vendor.Comp.DefaultSharedEquipmentCategory)));
@@ -511,8 +684,11 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
                 sections,
                 storedItems,
                 userComp.Points,
-                vendor.Comp.ReplenishmentPoints,
-                vendor.Comp.Replenishment.Count > 0,
+                pool.Comp.ReplenishmentPoints,
+                vendor.Comp.Replenishment.Count > 0 && HasReplenishmentAuthorization(vendor, user),
+                vendor.Comp.ReplenishmentPrompt,
+                pool.Comp.NextReplenishment > TimeSpan.Zero ? pool.Comp.NextReplenishment : null,
+                pool.Comp.ReplenishmentInterval,
                 vendor.Comp.AllowEquipmentStorage,
                 vendor.Comp.DepartmentName,
                 vendor.Comp.VendorTitle,

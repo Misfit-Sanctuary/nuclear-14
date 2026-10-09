@@ -19,7 +19,7 @@
       - Ghoul
     - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T7 faction timelock (40h Enclave)
       department: Enclave
-      min: 432000 # 40 hours
+      min: 144000 # 40 hours
   startingGear: EnclaveCommanderGear
   icon: "JobIconEnclaveCommander"
   supervisors: job-supervisors-enclave-commander

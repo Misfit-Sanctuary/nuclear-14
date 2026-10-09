@@ -43,7 +43,7 @@ job-description-enclave-senior-officer = Serve as the Commander's right hand, di
 job-name-enclave-junior-officer = Enclave Junior Officer
 job-description-enclave-junior-officer = Lead squads in the field, execute mission objectives, and bridge the gap between NCOs and senior command. (WARNING YOU CAN BE RR'D FOR ANY REASON AS ENCLAVE BY YOUR COMMANDER)
 job-name-enclave-vertibird-pilot = Enclave Vertibird Pilot
-job-description-enclave-vertibird-pilot = You fly for the Enclave. The vertibird is the last symbol of what America was, and you are trusted to keep it in the air. Your commission begins at Second Lieutenant and reaches Captain with hours logged. (WARNING YOU CAN BE RR'D FOR ANY REASON AS ENCLAVE BY YOUR COMMANDER)
+job-description-enclave-vertibird-pilot = You fly for the Enclave. The vertibird is the last symbol of what America was, and you are trusted to keep it in the air. Your rank is that of an NCO. (WARNING YOU CAN BE RR'D FOR ANY REASON AS ENCLAVE BY YOUR COMMANDER)
 job-name-enclave-nco = Enclave NCO
 job-description-enclave-nco = Maintain discipline, train enlisted personnel, and ensure tactical readiness on the ground. (WARNING YOU CAN BE RR'D FOR ANY REASON AS ENCLAVE BY YOUR COMMANDER)
 job-name-enclave-enlisted = Enclave Enlisted
@@ -65,6 +65,10 @@ job-description-enclave-recruit = Per-round Enclave recruit. Playtime here count
 # #Misfits Add - Chief Ranger: admin-only Rangers leadership role.
 job-name-chief-ranger = Chief Ranger
 job-description-chief-ranger = You are the Rangers' supreme field commander. Coordinate veteran operations, set long-range objectives, and ensure the desert's order is upheld. Answer only to your code.
+
+# #Misfits Add - DAGGER: Ranger liaison attached to NCR High Command.
+job-name-ncr-dagger = DAGGER
+job-description-ncr-dagger = You are DAGGER. The Wendover frontier settler(s) of NCRR and NCRA expansionism. You are their High Command of the entire theater. Spook.
 
 # #Misfits Add - NCR Ranger Recruit: brand-new entry-level Rangers role.
 job-name-ncr-ranger-recruit = Ranger Recruit
@@ -184,7 +188,8 @@ job-description-enclave-eyebot = Serve the Enclave as a loyal robotic reconnaiss
 undecided-loadout-category-misfits-sqr-basic-name = Basic Kit
 undecided-loadout-category-misfits-sqr-basic-description =
     A cache containing belongings of a Brotherhood chapter member.
-    Includes 1 AEP-7, 2 energy cells, 1 combat knife, 1 roll of gauze,
+    Includes a 10mm SMG, 2 spare magazines, 1 AEP-7, 2 energy cells,
+    1 combat knife, 1 roll of gauze, a pair of welding goggles,
     1 stimpak, and 1 K ration MRE.
 
 # #Misfits Tweak: Paladin-tier kit reverted from Wattz 2000 back to Bozar.

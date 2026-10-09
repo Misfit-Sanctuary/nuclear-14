@@ -9,9 +9,7 @@
     containers:
       key_slots:
       - EncryptionKeyWastelandGlobal
-      - EncryptionKeyVault
-  - type: EncryptionKeyHolder
-    keysUnlocked: false
+      - EncryptionKeyVaultUR
   - type: Sprite
     sprite: _Misfits/Clothing/Ears/Headsets/scrap.rsi
   - type: Clothing
@@ -44,8 +42,7 @@
     containers:
       key_slots:
       - EncryptionKeyWastelandGlobal
-  - type: EncryptionKeyHolder
-    keysUnlocked: false
+      - EncryptionKeyTownUR
   - type: Sprite
     sprite: Clothing/Ears/Headsets/centcom.rsi
   - type: Clothing
@@ -61,9 +58,7 @@
     containers:
       key_slots:
       - EncryptionKeyWastelandGlobal
-      - EncryptionKeyEighties
-  - type: EncryptionKeyHolder
-    keysUnlocked: false
+      - EncryptionKeyEightiesUR
   - type: Sprite
     sprite: _Misfits/Clothing/Ears/Headsets/eighties.rsi
   - type: Clothing

@@ -8,7 +8,7 @@
   parent: ClothingNeckBase
   id: N14ClothingNeckDogtags
   name: wastelander dogtags
-  description: A pair of engraved metal identification tags. Can be inserted into a Pip-Boy.
+  description: A set of rough iron dog tags with a name engraved into them, these have become an informal tradition among wastelanders to identify each other quickly, or to give the names of casualties at settlements.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Misc/dogtags.rsi
@@ -33,7 +33,7 @@
   parent: ClothingNeckBase
   id: N14ClothingNeckDogtagsTrader
   name: Wasteland Trader's Dogtags
-  description: A pair of engraved metal identification tags. Can be inserted into a Pip-Boy.
+  description: A set of rough iron dog tags with a name engraved into them, these have become an informal tradition among wastelanders to identify each other quickly, or to give the names of casualties at settlements. These ones appear to belong to a Caravan Network merchant, someone of actual importance and utility.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Misc/dogtags.rsi

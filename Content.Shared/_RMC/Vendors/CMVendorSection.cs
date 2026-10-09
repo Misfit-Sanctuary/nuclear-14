@@ -65,10 +65,23 @@ public sealed partial record CMVendorEntry
     public string? Category;
 
     /// <summary>
-    /// Blueprint-style faction authority tier. Valid values are 1 through 4.
+    /// Blueprint-style faction authority tier. Valid values are 1 through 5.
     /// </summary>
     [DataField]
     public int Tier = 1;
+
+    /// <summary>
+    /// Optional exact-job restriction for specialist equipment. Unlike the authority tier, this does not hide the
+    /// listing: other vendor users still see it as ineligible.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<JobPrototype>> Jobs = new();
+
+    /// <summary>
+    /// Player-facing job or qualification required by <see cref="Jobs"/>.
+    /// </summary>
+    [DataField]
+    public string? RequiredJob;
 
     [DataField]
     public List<EntProtoId> LinkedEntries = new();

@@ -26,10 +26,10 @@ using static Content.Client.Inventory.ClientInventorySystem;
 
 namespace Content.Client.UserInterface.Systems.Inventory;
 
-public sealed class InventoryUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>,
+public sealed partial class InventoryUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>,
     IOnSystemChanged<ClientInventorySystem>, IOnSystemChanged<HandsSystem>
 {
-    [Dependency] private readonly IEntityManager _entities = default!;
+    [Dependency] private IEntityManager _entities = default!;
 
     [UISystemDependency] private readonly ClientInventorySystem _inventorySystem = default!;
     [UISystemDependency] private readonly HandsSystem _handsSystem = default!;
@@ -312,7 +312,7 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
         args.Handle();
     }
 
-    private void StoragePressed(GUIBoundKeyEventArgs args, SlotControl control)
+    public void StoragePressed(GUIBoundKeyEventArgs args, SlotControl control)
     {
         _inventorySystem.UIInventoryStorageActivate(control.SlotName);
     }

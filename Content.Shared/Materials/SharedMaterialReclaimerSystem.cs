@@ -96,6 +96,15 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
         if (HasComp<MobStateComponent>(item) && !CanGib(uid, item, component)) // whitelist? We be gibbing, boy!
             return false;
 
+        // Misfits
+        if (TryComp<ReclaimerOutputComponent>(item, out var output))
+        {
+            if (Timing.CurTime < output.IgnoreUntil)
+                return false;
+
+            RemComp(item, output);
+        }
+
         if (_whitelistSystem.IsWhitelistFail(component.Whitelist, item) ||
             _whitelistSystem.IsBlacklistPass(component.Blacklist, item))
             return false;
@@ -148,6 +157,14 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
 
         RemCompDeferred(uid, active);
         return true;
+    }
+
+    /// Misfits
+    protected void MarkAsOutput(EntityUid item, TimeSpan duration)
+    {
+        var output = EnsureComp<ReclaimerOutputComponent>(item);
+        output.IgnoreUntil = Timing.CurTime + duration;
+        Dirty(item, output);
     }
 
     /// <summary>

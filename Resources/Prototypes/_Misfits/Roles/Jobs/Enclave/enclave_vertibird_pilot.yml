@@ -5,8 +5,9 @@
   id: EnclaveVertibirdPilot
   setPreference: true
   jobWhitelistBypassesRoleTimers: true
-  weight: 112
-  displayWeight: 127
+  weight: 106
+  displayWeight: 124
+  showBorder: true
   overrideConsoleVisibility: false
   canBeAntag: false
   name: job-name-enclave-vertibird-pilot
@@ -17,15 +18,15 @@
       species:
       - Human
       - Ghoul
-    - !type:CharacterDepartmentTimeRequirement # junior-officer-equivalent faction timelock
+    - !type:CharacterDepartmentTimeRequirement # longer than NCO as it's a 1 slot role
       department: Enclave
       min: 43200 # 12 hours
   startingGear: EnclaveVertibirdPilotGear
-  icon: "JobIconEnclaveJuniorOfficer"
-  supervisors: job-supervisors-enclave-vertibird-pilot
+  icon: "JobIconEnclaveNCO"
+  supervisors: job-supervisors-enclave-nco # Same as NCO
   alwaysUseSpawner: true
   accessGroups:
-  - EnclaveJuniorOfficer
+  - EnclaveNCO
   special:
   - !type:AddComponentSpecial
     components:
@@ -52,9 +53,9 @@
     eyes: N14ClothingEyesGlassesPilot
     belt: ClothingBeltMilitary
     ears: N14ClothingHeadsetEnclave
-    pocket1: EnclaveOfficerloadoutkits
+    pocket1: EnclaveSoldierloadoutkits
     pocket2: RadioHandheld
-    id: N14EnclaveOfficerPipboy
+    id: N14EnclaveTrooperPipboy
   satchel: N14ClothingBackpackSatchelMilitaryFilled
   duffelbag: N14ClothingBackpackDuffelMilitaryFilled
   storage:

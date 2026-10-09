@@ -58,12 +58,12 @@
   id: SuperElderGear
   equipment:
     wallet: N14Wallet
-    head: N14ClothingTribalHeadWraps # weathered headwraps for the sagely old
+    head: N14ClothingHeadHatTribalPowerhelm # weathered headwraps for the sagely old
     jumpsuit: N14ClothingUniformJumpsuitTribal
-    outerClothing: N14ClothingOuterTribalCoat
+    outerClothing: N14ClothingOuterElderwintercoat
     suitstorage: Cane # walking cane — an elder's mark
     shoes: N14ClothingShoesTribal
-    gloves: N14ClothingHandsGlovesTribal
+    gloves: N14MeleeHandsSpikedBrassKnuckleSpecial
     back: N14ClothingBackpackTrekker # Corvax-Change
     pocket1: N14TribalKnife
     pocket2: Triballoadoutkits
@@ -72,7 +72,7 @@
   satchel: N14ClothingBackpackSatchelTribalFilled
   storage: # Corvax-Change
     back:
-    - Torch
+    - WarhornBrahmin
     - Torch
     - Torch
     - N14Bandage

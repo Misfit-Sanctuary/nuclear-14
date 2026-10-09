@@ -90,7 +90,7 @@
   parent: N14BaseBarrel
   id: N14BlueBarrel
   name: blue barrel
-  description: A blue barrel with a warning sign of. Maybe it contains water?
+  description: A blue barrel with a warning sign on. Maybe it contains water?
   components:
   - type: Construction
     graph: N14Barrels
@@ -166,7 +166,7 @@
   id: N14BlueBarrelOpen
   suffix: open
   name: blue barrel
-  description: A blue barrel with a warning sign of. The lid is off and you can see inside.
+  description: A blue barrel with a warning sign on. The lid is off and you can see inside.
   components:
   - type: Construction
     graph: N14Barrels
@@ -277,7 +277,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000
+        damage: 50
       behaviors:
       - !type:SpillBehavior
         solution: barrel

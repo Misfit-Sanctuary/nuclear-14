@@ -4,6 +4,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Random;
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
 
 namespace Content.Server.Botany.Systems;
 
@@ -45,5 +46,30 @@ public sealed class LogSystem : EntitySystem
         }
 
         QueueDel(uid);
+    }
+
+    /// Misfits
+    public bool IsGrinderChoppable(EntityUid uid)
+    {
+        return TryComp<LogComponent>(uid, out var log) && log.GrinderChoppable;
+    }
+
+    /// Misifts
+    public List<EntityUid> ChopAt(EntityUid uid, EntityCoordinates coordinates, LogComponent? component = null)
+    {
+        var spawned = new List<EntityUid>();
+
+        if (!Resolve(uid, ref component))
+            return spawned;
+
+        for (var i = 0; i < component.SpawnCount; i++)
+        {
+            var plank = Spawn(component.SpawnedPrototype, coordinates);
+            _randomHelper.RandomOffset(plank, 0.25f);
+            spawned.Add(plank);
+        }
+
+        QueueDel(uid);
+        return spawned;
     }
 }

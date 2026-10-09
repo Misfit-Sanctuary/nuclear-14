@@ -6,18 +6,20 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Conveyor;
 using Content.Shared.Database;
 using Content.Shared.Gravity;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Standing;
@@ -64,6 +66,7 @@ public sealed class PullingSystem : EntitySystem
         UpdatesAfter.Add(typeof(SharedPhysicsSystem));
         UpdatesOutsidePrediction = true;
 
+        SubscribeLocalEvent<PullableComponent, UpdateCanMoveEvent>(OnPullableMoveAttempt);
         SubscribeLocalEvent<PullableComponent, MoveInputEvent>(OnPullableMoveInput);
         SubscribeLocalEvent<PullableComponent, CollisionChangeEvent>(OnPullableCollisionChange);
         SubscribeLocalEvent<PullableComponent, JointRemovedEvent>(OnJointRemoved);
@@ -134,6 +137,12 @@ public sealed class PullingSystem : EntitySystem
 
             if (pullerComp.PushingTowards is null)
                 continue;
+
+            if (TryComp(pulled, out ConveyedComponent? conveyed) && conveyed.Conveying)
+            {
+                pullerComp.PushingTowards = null;
+                continue;
+            }
 
             // If pushing but the target position is invalid, or the push action has expired or finished, stop pushing
             if (pullerComp.NextPushStop < _timing.CurTime
@@ -293,6 +302,18 @@ public sealed class PullingSystem : EntitySystem
         args.ModifySpeed(specialEv.Multiplier);
     }
 
+    // Block Critical mobs from breaking a pull; they can still crawl when not pulled.
+    private void OnPullableMoveAttempt(EntityUid uid, PullableComponent component, UpdateCanMoveEvent args)
+    {
+        if (!component.BeingPulled) 
+            return; 
+        
+        if (!TryComp<MobStateComponent>(uid, out var mobState) || mobState.CurrentState != MobState.Critical) 
+            return; 
+        
+        args.Cancel();
+    }
+    
     private void OnPullableMoveInput(EntityUid uid, PullableComponent component, ref MoveInputEvent args)
     {
         // If someone moves then break their pulling.
@@ -301,6 +322,8 @@ public sealed class PullingSystem : EntitySystem
 
         var entity = args.Entity;
 
+        _blocker.UpdateCanMove(entity);
+        
         if (!_blocker.CanMove(entity))
             return;
 
@@ -360,6 +383,7 @@ public sealed class PullingSystem : EntitySystem
         var oldPuller = pullableComp.Puller;
         pullableComp.PullJointId = null;
         pullableComp.Puller = null;
+        _blocker.UpdateCanMove(pullableUid); // Recalc movement as an entity is no longer pulled.
         pullableComp.BeingActivelyPushed = false;
         Dirty(pullableUid, pullableComp);
 

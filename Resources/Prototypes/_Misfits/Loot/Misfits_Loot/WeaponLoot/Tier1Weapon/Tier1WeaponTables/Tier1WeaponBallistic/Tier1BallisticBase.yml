@@ -4,14 +4,19 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponLootTier1_GunsBulletRifle
+          weight: 4
       - !type:NestedSelector
           tableId: M14WeaponLootTier1_GunsBulletShotgun
+          weight: 5
       - !type:NestedSelector
           tableId: M14WeaponLootTier1_GunsBulletSMG
+          weight: 5
       - !type:NestedSelector
           tableId: M14WeaponLootTier1_GunsBulletPistol
+          weight: 5
       - !type:NestedSelector
           tableId: M14WeaponLootTier1_GunsBulletRevolver
+          weight: 5
 #      - !type:NestedSelector
 #          tableId: M14WeaponLootTier1_GunsBulletHeavy
 #      - !type:NestedSelector

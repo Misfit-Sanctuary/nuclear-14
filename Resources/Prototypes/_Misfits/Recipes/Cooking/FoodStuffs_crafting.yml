@@ -1,0 +1,136 @@
+
+
+#- Waster Burrito (Crafting Menu): 1 Cooked Meat (any), 1 dough slice
+- type: constructionGraph
+  id: WasterBurritoGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: WasterBurrito
+      steps:
+      - allTags:
+        - Meat
+        - Cooked
+        name: Any Cooked Meat
+        icon:
+          sprite: Objects/Consumable/Food/meat.rsi
+          state: plain-cooked
+      - entity: N14FoodDoughSlice
+        name: Dough Slice
+        icon: {sprite: Objects/Consumable/Food/ingredients.rsi, state: dough-slice}
+  - node: WasterBurrito
+    entity: MisfitsFoodWasterBurrito
+
+- type: construction
+  name: Waster Burrito
+  id: CraftWasterBurrito
+  graph: WasterBurritoGraph
+  startNode: start
+  targetNode: WasterBurrito
+  icon: {sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi, state: wasterBurrito}
+  category: construction-category-food
+  objectType: Item
+  canBuildInImpassable: true
+  hide: false
+
+#- Waster Burrito Supreme (Crafting Menu): 1 Cooked Meat (any), 1 Cabbage, 1 Cheese Wedge, 1 Tato
+- type: constructionGraph
+  id: WasterBurritoGraph_super
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: WasterBurrito_super
+      steps:
+      - allTags:
+        - Meat
+        - Cooked
+        name: Any Cooked Meat
+        icon:
+          sprite: Objects/Consumable/Food/meat.rsi
+          state: plain-cooked
+      - entity: N14FoodDoughSlice
+        name: Dough Slice
+        icon: { sprite: Objects/Consumable/Food/ingredients.rsi, state: dough-slice }
+      - entity: N14FloraProduceWildCabbage
+        name: Cabbage
+        icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/cabbage.rsi, state: produce }
+      - entity: N14FoodCheeseSlice
+        name: Cheese Wedge
+        icon: { sprite: Objects/Consumable/Food/ingredients.rsi, state: cheesewedge }
+      - entity: N14FloraProduceWildTato
+        name: Tato
+        icon: { sprite: _Nuclear14/Objects/Consumable/Flora/wastelandflora.rsi, state: Tato }
+  - node: WasterBurrito_super
+    entity: MisfitsFoodWasterBurrito_super
+
+
+- type: construction
+  name: Waster Burrito Supreme
+  id: CraftWasterBurrito_super
+  graph: WasterBurritoGraph_super
+  startNode: start
+  targetNode: WasterBurrito_super
+  icon: {sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi, state: wasterBurritoSuper}
+  category: construction-category-food
+  objectType: Item
+  canBuildInImpassable: true
+  hide: false
+
+
+#Candy Pouch: 1 leather, 1 thread
+
+- type: constructionGraph
+  id: CandyPouchGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: CandyPouch
+      steps:
+      - material: Thread
+        amount: 1
+      - material: Leather
+        amount: 1
+  - node: CandyPouch
+    entity: MisfitsClothingPouchCandy
+
+- type: construction
+  name: Candy Pouch
+  id: CandyPouchGraphCraft
+  graph: CandyPouchGraph
+  startNode: start
+  targetNode: CandyPouch
+  icon: {sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi, state: candyPouch}
+  category: construction-category-food
+  objectType: Item
+  canBuildInImpassable: true
+  hide: false
+
+#- Food Box: 5 planks
+
+- type: constructionGraph
+  id: FoodBoxGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: FoodBox
+      steps:
+      - material: WoodPlank
+        amount: 5
+  - node: FoodBox
+    entity: MisfitsStorageFoodBox
+
+- type: construction
+  name: Food Box
+  id: FoodBoxGraphCraft
+  graph: FoodBoxGraph
+  startNode: start
+  targetNode: FoodBox
+  icon: {sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi, state: foodBox}
+  category: construction-category-food
+  objectType: Item
+  canBuildInImpassable: true
+  hide: false

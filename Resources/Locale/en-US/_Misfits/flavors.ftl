@@ -5,3 +5,6 @@ flavor-base-zoy = refreshingly zour
 
 # zilk is zoy milk mixed with cola, which by all means sounds super sweet and sour.
 flavor-complex-zilk = absurdly sweet and zour
+
+
+flavor-complex-powder = a plain powder

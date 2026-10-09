@@ -84,7 +84,7 @@
   parent: BaseBarrel
   id: BlueBarrel
   name: blue barrel
-  description: A blue barrel with a warning sign of. Maybe it contains water?
+  description: A blue barrel with a warning sign on. Maybe it contains water?
   components:
   - type: Sprite
     sprite: Structures/Storage/barrels.rsi
@@ -133,7 +133,7 @@
   id: BlueBarrelOpen
   suffix: open
   name: blue barrel
-  description: A blue barrel with a warning sign of. The lid is off and you can see inside.
+  description: A blue barrel with a warning sign on. The lid is off and you can see inside.
   components:
   - type: Sprite
     sprite: Structures/Storage/barrels.rsi
@@ -160,9 +160,6 @@
   - type: Sprite
     sprite: Structures/Storage/barrels.rsi
     state: yellow-open
-  - type: RadiationSource
-    intensity: 1
-    slope: 1
 
 # Full barrels
 - type: entity

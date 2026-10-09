@@ -434,7 +434,7 @@
             - !type:SpawnPrototype
               prototype: MaterialCloth1
               amount: 5
-            - !type:DeleteEntity 
+            - !type:DeleteEntity
 
 - type: constructionGraph
   id: DecorationFlagOasis
@@ -468,7 +468,7 @@
             - !type:SpawnPrototype
               prototype: MaterialCloth1
               amount: 5
-            - !type:DeleteEntity 
+            - !type:DeleteEntity
 
 - type: constructionGraph
   id: DecorationFlagBrotherhoodWashington
@@ -502,7 +502,7 @@
             - !type:SpawnPrototype
               prototype: MaterialCloth1
               amount: 5
-            - !type:DeleteEntity 
+            - !type:DeleteEntity
 
 - type: constructionGraph
   id: DecorationFlagEnclave
@@ -536,7 +536,7 @@
             - !type:SpawnPrototype
               prototype: MaterialCloth1
               amount: 5
-            - !type:DeleteEntity 
+            - !type:DeleteEntity
 
 - type: constructionGraph
   id: DecorationFlagHighvalleyhills
@@ -569,7 +569,7 @@
             - !type:SpawnPrototype
               prototype: MaterialCloth1
               amount: 5
-            - !type:DeleteEntity 
+            - !type:DeleteEntity
 
 - type: constructionGraph
   id: DecorationFlagVaultTecCityCoalition
@@ -602,7 +602,7 @@
             - !type:SpawnPrototype
               prototype: MaterialCloth1
               amount: 5
-            - !type:DeleteEntity 
+            - !type:DeleteEntity
 
 - type: constructionGraph
   id: DecorationFlagKhans
@@ -636,7 +636,7 @@
             - !type:SpawnPrototype
               prototype: MaterialCloth1
               amount: 5
-            - !type:DeleteEntity 
+            - !type:DeleteEntity
 
 - type: constructionGraph
   id: DecorationFlagChurch
@@ -670,7 +670,7 @@
             - !type:SpawnPrototype
               prototype: MaterialCloth1
               amount: 5
-            - !type:DeleteEntity 
+            - !type:DeleteEntity
 
 - type: constructionGraph
   id: MisfitsFlagTribe
@@ -766,7 +766,7 @@
               prototype: MaterialCloth1
               amount: 2
             - !type:DeleteEntity
-              
+
               # Signs (like left and right wooden signs)
 
 - type: constructionGraph
@@ -796,7 +796,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 2
-            - !type:DeleteEntity 
+            - !type:DeleteEntity
     - node: sign_right
       entity: WoodenSignRight
       edges:
@@ -808,7 +808,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 2
-            - !type:DeleteEntity 
+            - !type:DeleteEntity
 
 #wooden mineshaft supports
 
@@ -849,7 +849,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 3
-            - !type:DeleteEntity 
+            - !type:DeleteEntity
     - node: support_beams
       entity: WoodenSupportBeam
       edges:
@@ -861,7 +861,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 3
-            - !type:DeleteEntity 
+            - !type:DeleteEntity
     - node: support_wall
       entity: WoodenSupportWall
       edges:
@@ -873,7 +873,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 5
-            - !type:DeleteEntity 
+            - !type:DeleteEntity
     - node: support_wall_broken
       entity: WoodenSupportWallBroken
       edges:
@@ -885,7 +885,7 @@
             - !type:SpawnPrototype
               prototype: MaterialWoodPlank1
               amount: 4
-            - !type:DeleteEntity 
+            - !type:DeleteEntity
 
 # #Cythisiax Added - Crafting menu expansion: wasteland floor decor graphs
 - type: constructionGraph
@@ -1844,16 +1844,13 @@
               amount: 4
               doAfter: 4
           completed: []
-        - to: barrelred
-          steps:
-            - material: Steel
-              amount: 4
-              doAfter: 4
-          completed: []
         - to: barrelyellow
           steps:
             - material: Steel
-              amount: 4
+              amount: 10
+              doAfter: 4
+            - material: UraniumOre
+              amount: 2
               doAfter: 4
           completed: []
         - to: barrelblackopen
@@ -1886,16 +1883,13 @@
               amount: 4
               doAfter: 4
           completed: []
-        - to: barrelredfull
-          steps:
-            - material: Steel
-              amount: 4
-              doAfter: 4
-          completed: []
         - to: barrelyellowfull
           steps:
             - material: Steel
-              amount: 4
+              amount: 10
+              doAfter: 4
+            - material: UraniumOre
+              amount: 2
               doAfter: 4
           completed: []
 

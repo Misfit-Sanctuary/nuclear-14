@@ -1,0 +1,323 @@
+﻿- type: entity
+  parent: N14MobBaseSimple
+  id: MisfitsMobBrahdo_Base
+  abstract: true
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: OpenSlot
+    openSlots:
+      - outerClothing
+      - back
+  - type: Vehicle # for some reason this is the only comp that forces it to take just one hand.
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: _Misfits/Mobs/Animals/brahdo-standard.rsi
+      state: base
+    - map: [ "outerClothing" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: true
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.75
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: base
+      Dead:
+        Base: base-dead
+  - type: Stamina
+    critThreshold: 200
+  - type: Strap
+    # #Misfits Change - brahdo riding now requires the shared riding perk instead of any humanoid.
+    whitelist:
+      requireAll: true
+      components:
+      - HumanoidAppearance
+      - RidingPerk
+    # #Misfits Fix - Super Mutants and Power Armor wearers are too heavy to ride
+    blacklist:
+      tags:
+      - CannotRide
+      components:
+      - PowerArmorWorn
+    buckleSound:
+      path: /Audio/_NC/Effects/lift-saddle.ogg
+      params:
+        volume: 20 # It's normal
+    unbuckleSound:
+      path: /Audio/_NC/Effects/dismount-saddle.ogg
+      params:
+        volume: 20 # It's normal
+  - type: Mountable
+  - type: BrahdoSpooked
+    spookDuration: 5
+    buckChance: 0.15
+  - type: Tag
+    tags:
+    - FootstepSound
+    - Brahdo
+  - type: Butcherable
+    spawned:
+    - id: MisfitFoodMeatBrahdoRaw
+      amount: 2
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: WastelandAnimal
+  - type: MobThresholds
+    allowRevives: true
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      50: .95 # dont get hit chuds
+      100: .90
+      150: .80
+      180: .70 # lol
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 5.0
+    baseSprintSpeed : 5.0
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: Horsestep
+  - type: TimedSpawner
+    prototypes:
+      - N14Dung
+    chance: 0.7
+    intervalSeconds: 800 # this shit happened way too often
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 1
+    ignoreSpawnBlock: true # Forge-Change
+  - type: Reproductive
+    breedChance: 0.0001 # Low
+    birthPopup: reproductive-birth-popup
+    makeOffspringInfant: false
+    partnerWhitelist:
+      tags:
+      - Brahdo
+    offspring:
+    - id: MisfitsMobBrahdo_Standard
+      maxAmount: 1
+  - type: ReproductivePartner
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: UnequipOnTrigger
+    slotsToUnequip:
+    - outerClothing
+  - type: Inventory
+    templateId: brahdo
+  - type: InventorySlots
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: HTN
+    rootTask:
+      task: RuminantCompound
+  - type: Body
+    prototype: AnimalRuminant
+  - type: MobPrice
+    price: 300
+  - type: LanguageKnowledge # #Misfits Add - understands common wasteland languages; speaks Crab (crustacean mutations)
+    speaks:
+    - MisfitsHorse
+    understands:
+    - MisfitsHorse
+    - Crab
+    - N14Dog
+    - N14Insect
+    - English
+    - Chinese
+    - Latin
+    - Tribal
+    - Sign
+
+- type: entity
+  parent: MisfitsMobBrahdo_Base
+  id: MisfitsMobBrahdo_Standard
+  name: brahdo
+  description: "Mutated horses common as mounts and pack animals, they'll bite your fingers if you aren't careful."
+
+- type: entity
+  parent: MisfitsMobBrahdo_Base
+  id: MisfitsMobBrahdo_Fast
+  name: small Brahdo
+  description: "A mutated horse favored among couriers and scouts. It is a head shorter than others, and seems to have needed that nimble stature to survive through uneven terrain. Treat it right and it'll never let you down"
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    scale: 0.9, 0.9
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: _Misfits/Mobs/Animals/brahdo-tan.rsi
+      state: base
+    - map: [ "outerClothing" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.65
+        density: 40
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    allowRevives: true
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: Stamina
+    critThreshold: 150
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      30: .90 # dont get hit chuds
+      80: .80
+      100: .65
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 6.75
+    baseSprintSpeed : 6.75
+  - type: BrahdoSpooked
+    spookDuration: 5
+    buckChance: 0.35 # pussayyyy
+  - type: Butcherable
+    spawned:
+    - id: MisfitFoodMeatBrahdoRaw
+      amount: 1
+
+- type: entity
+  parent: MisfitsMobBrahdo_Base
+  id: MisfitsMobBrahdo_Old
+  name: old Brahdo
+  description: "A Mutated horse that was likely ridden by an experienced waster. It is past its prime, but history has left it faster and sturdier than most."
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: _Misfits/Mobs/Animals/brahdo-grey.rsi
+      state: base
+    - map: [ "outerClothing" ]
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: N14ToughAnimal
+  - type: MobThresholds
+    allowRevives: true
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: Stamina
+    critThreshold: 400
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      100: .95
+      150: .90
+      180: .85
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 5.25 # if stamina was a thing this would be lower and compensate with higher stamina
+    baseSprintSpeed : 5.25
+  - type: BrahdoSpooked
+    spookDuration: 1
+    buckChance: 0.0 # it watched so many pg-13 horror movies
+
+- type: entity
+  parent: MisfitsMobBrahdo_Base
+  id: MisfitsMobBrahdo_Tank
+  name: large Brahdo
+  description: "A Mutated and towering horse sought out and used as heavy cavalry. The strength and bulk it carries can topple rows of soldiers and absorb enough gunfire to make such a thing possible."
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: true
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.85
+        density: 70
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Sprite
+    drawdepth: Mobs
+    scale: 1.2, 1.2
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: _Misfits/Mobs/Animals/brahdo-tank.rsi
+      state: base
+    - map: [ "outerClothing" ]
+  - type: BrahdoSpooked
+    spookDuration: 1
+    buckChance: 0.0
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: N14ToughAnimal
+  - type: MobThresholds
+    allowRevives: true
+    thresholds:
+      0: Alive
+      350: Dead
+  - type: Stamina
+    critThreshold: 300
+  - type: SlowOnDamage
+    speedModifierThresholds: # legate lanius ass fucking horse
+      200: .95
+      300: .90
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4.5
+    baseSprintSpeed : 4.5
+  - type: Butcherable
+    spawned:
+    - id: MisfitFoodMeatBrahdoRaw
+      amount: 4
+
+- type: entity
+  parent: MisfitsMobBrahdo_Base
+  id: MisfitsMobBrahdo_Ghoul # sane ones should be rare
+  name: ghoulified brahdo
+  description: "A Mutated and unfortunately ghoulified horse. Rarely seen or used, as hardly anyone would be willing to venture that deeply into irradiated depths in the first place. This one seems to have kept its mind."
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: _Misfits/Mobs/Animals/brahdo-ghoul.rsi
+      state: base
+    - map: [ "outerClothing" ]
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: GhoulNPC
+  - type: MobThresholds
+    allowRevives: true
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: Stamina
+    critThreshold: 1000 # zombie stam
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      50: .95
+      100: .75
+      150: .5
+      180: .25
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 5.0
+    baseSprintSpeed : 5.0
+  - type: Butcherable
+    spawned:
+    - id: N14FoodMeatRadRaw
+      amount: 5

@@ -3,33 +3,6 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: N14WeaponSMG12mmPipe
-      weight: 4
-    - !type:EntSelector
-      id: N14WeaponSMG9mm
-      weight: 7
-    - !type:EntSelector
-      id: N14WeaponSMGPPSh41 #9mm
-      weight: 4
-    - !type:EntSelector
-      id: N14WeaponSMG9mmCanadian
-      weight: 7
-    - !type:EntSelector
-      id: N14WeaponSMG10mm
-      weight: 7
-    - !type:EntSelector
-      id: N14WeaponSMGGreaseGun #.45 acp
-      weight: 4
-    - !type:EntSelector
       id: N14WeaponSMG12mm
-      weight: 4
-    - !type:EntSelector
-      id: N14WeaponSMG9mminfiltrator
-      weight: 7
-    - !type:EntSelector
-      id: N14WeaponSMG10mmSuppressed
-      weight: 7
-    - !type:EntSelector
-      id: N14WeaponSMG12mmAdvanced
-      weight: 4
+      weight: 5
 

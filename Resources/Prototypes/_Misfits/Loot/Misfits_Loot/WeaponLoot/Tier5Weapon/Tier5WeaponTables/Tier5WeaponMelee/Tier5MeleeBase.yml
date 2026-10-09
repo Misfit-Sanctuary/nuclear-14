@@ -4,18 +4,20 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_MeleeBlunt
-      - !type:NestedSelector
-          tableId: M14WeaponLootTier5_MeleeSharp
+          weight: 5
+#      - !type:NestedSelector # too bad
+#          tableId: M14WeaponLootTier5_MeleeSharp
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_MeleeOther
+          weight: 5
 # stuff here
 
 - type: entityTable
   id: M14WeaponLootTier5_MeleeBlunt
   table: !type:GroupSelector
     children:
-      - !type:NestedSelector
-          tableId: M14WeaponLootTier5_MeleeBluntOneHanded
+#      - !type:NestedSelector # too bad
+#          tableId: M14WeaponLootTier5_MeleeBluntOneHanded
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_MeleeBluntTwoHanded
 

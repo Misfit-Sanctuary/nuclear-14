@@ -66,6 +66,16 @@
       params:
         volume: -3
         maxDistance: 10
+#  - type: NPCTamingOnTouchBehaviour
+#    follow: true
+#    persistent: true
+#    tameChance: 0.5
+#    oneTry: false
+#    successPopup: This pet is your friend now!
+#    deniedPopup: This pet refused to be your friend.
+#    whitelist:
+#      components:
+#      - HumanoidAppearance # annoying dumb logic
  #- type: Reproductive
    #breedChance: 0.05
    #birthPopup: reproductive-birth-popup
@@ -80,16 +90,6 @@
  # - type: Tag
  #   tags:
 #    - Molerat
-  # - type: NPCTamingOnTouchBehaviour
-    # follow: true
-    # persistent: true
-    # tameChance: 0.5
-    # oneTry: false
-    # successPopup: This pet is your friend now!
-    # deniedPopup: This pet refused to be your friend.
-    # whitelist:
-      # components:
-      # - HumanoidAppearance
 
 - type: entity
   name: pigrat
@@ -372,7 +372,7 @@
   name: brahmin
   parent: MobCow
   id: N14MobBrahmin
-  description: The ultimate beast of burden, it can carry heavy packs, produces fertilizer for farms and milk, can be butchered for hide and meat, and you can ride it.
+  description: The ultimate beast of burden, they can carry heavy packs, produce fertilizer for farms, be milked, butchered for hide and meat, and you can even ride them. They'll gobble up any food left in the open.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -389,6 +389,7 @@
         Base: dead
   - type: Stamina
     critThreshold: 200
+  - type: Vehicle # one handed riding
   - type: Strap
     # #Misfits Add - brahmin riding is perk-gated through the shared riding marker component.
     whitelist:
@@ -412,11 +413,14 @@
         volume: 20
   - type: NPCRetaliation # Aggro on the attacker when damaged from any range
     attackMemoryLength: 30
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
   - type: ProximityNPC # Misfits fix — Didn't have comp to reduce tick load and activate ai
                         #TODO: make every NPC inherit from same base to avoid issues in future
   - type: HTN
     rootTask:
-     task: RuminantHostileCompound
+      task: RuminantCompound #TODO: edit hostileruminant to allow follower behavior
     blackboard:
      NavSmash: !type:Bool
        false
@@ -749,7 +753,7 @@
   parent: MobChicken
   id: N14MobChicken
   name: chicken
-  description: Surviving the Great War relatively untouched, they've remained one of man's greatest domesticated food sources.
+  description: Surviving the Great War relatively untouched, they've remained one of man's greatest domesticated food sources. A source of eggs.
   components:
   - type: Sprite
     drawdepth: Mobs

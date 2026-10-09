@@ -220,12 +220,8 @@
     state: rifleman
   - type: UndecidedLoadoutBackpack
     possibleSets:
-    #- MBoS_KniLas_Set
-    - MBoS_PalBal_Set
-    #Misfits Change /Add/: Head Knight gets shotgun auto option (modified PalLas).
-    - MBoS_PalLas_Set
-    #Misfits Change /remove/: Head Knight lost bozar option due to rebalance.
-    - MBoS_PalSni_Set
+    - Head_KniBun_Set
+    - Head_KniSup_Set
 
 - type: entity
   id: BoSBrotherhoodHeadScribeKits
@@ -237,9 +233,9 @@
     state: rifleman
   - type: UndecidedLoadoutBackpack
     possibleSets:
-    - MBoS_ScrMed_Set
-    - MBoS_ScrFld_Set
-    - MBoS_ScrEng_Set
+    - Head_ScrMed_Set
+    - Head_ScrFld_Set
+    - Head_ScrEng_Set
 
 - type: entity
   id: BoSBrotherhoodPaladinKits
@@ -314,10 +310,14 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
+      - id: N14WeaponSMG10mm
+      - id: N14MagazineSMG10mm
+        amount: 2
       - id: N14WeaponLaserPistol
       - id: N14PowerCellSmall # #Misfits Fix - was N14MicrofusionCellRed (wrong ammo type for AEP-7)
         amount: 2
       - id: N14CombatKnife
+      - id: N14ClothingEyesGlassesWelding
       - id: N14CleanGauze10
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled

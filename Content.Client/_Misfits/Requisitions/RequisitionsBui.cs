@@ -382,18 +382,9 @@ public sealed class RequisitionsBui : BoundUserInterface
             {
                 name = _prototypes.TryIndex<ReagentPrototype>(target.TargetId, out var reagentProto) ? reagentProto.LocalizedName : target.TargetId;
             }
-            else if (_prototypes.TryIndex<EntityPrototype>(target.TargetId, out var itemProto))
-            {
-                name = itemProto.Name;
-            }
-            else if (_prototypes.TryIndex<StackPrototype>(target.TargetId, out var stackProto))
-            {
-                name = Loc.GetString(stackProto.Name);
-                iconProto = stackProto.Spawn;
-            }
             else
             {
-                name = target.TargetId;
+                iconProto = ResolveDisplayProto(target.TargetId, out name);
             }
 
             // Misfits Add - a rarity-gated target only accepts a disk carrying a mutation
@@ -601,7 +592,7 @@ public sealed class RequisitionsBui : BoundUserInterface
         var search = _window.SellSearchBar.Text.Trim();
         var itemsSig = platformItems == null
             ? "x"
-            : string.Join(";", platformItems.Select(i => $"{i.Proto}|{i.Count}|{i.Value}|{string.Join(",", i.Outputs)}"));
+            : string.Join(";", platformItems.Select(i => $"{i.Proto}|{i.Count}|{i.Value}|{i.Delivery}|{i.Worthless}|{string.Join(",", i.Outputs)}"));
         var sig = $"{value}|{search}|{itemsSig}|{(_state?.SellEntries.Count ?? 0)}";
         if (!RenderChanged("sell", sig))
             return;
@@ -615,14 +606,23 @@ public sealed class RequisitionsBui : BoundUserInterface
         {
             foreach (var item in platformItems)
             {
-                var itemName = _prototypes.TryIndex<EntityPrototype>(item.Proto, out var ip) ? ip.Name : item.Proto;
-                var markup = item.Value > 0
-                    ? Loc.GetString("n14-requisitions-sell-item", ("item", itemName), ("count", item.Count), ("value", item.Value))
-                    : Loc.GetString("n14-requisitions-sell-item-trade", ("item", itemName), ("count", item.Count));
+                var displayProto = ResolveDisplayProto(item.Proto, out var itemName);
+                string markup;
+                if (item.Worthless)
+                    markup = Loc.GetString("n14-requisitions-sell-item-worthless", ("item", itemName), ("count", item.Count));
+                else if (item.Value > 0)
+                    markup = Loc.GetString("n14-requisitions-sell-item", ("item", itemName), ("count", item.Count), ("value", item.Value));
+                else if (item.Outputs.Count > 0)
+                    markup = Loc.GetString("n14-requisitions-sell-item-trade", ("item", itemName), ("count", item.Count));
+                else
+                    markup = Loc.GetString("n14-requisitions-sell-item-delivery", ("item", itemName), ("count", item.Count));
+
+                if (item.Delivery && (item.Value > 0 || item.Outputs.Count > 0))
+                    markup += Loc.GetString("n14-requisitions-sell-item-delivery-suffix");
                 var outputs = item.Outputs.Count > 0
                     ? item.Outputs.Select(o => (EntProtoId) o).ToList()
                     : null;
-                _window.SellItemsContainer.AddChild(MakeIconRow(item.Proto, markup, outputs));
+                _window.SellItemsContainer.AddChild(MakeIconRow(displayProto, markup, outputs));
             }
         }
 
@@ -717,7 +717,7 @@ public sealed class RequisitionsBui : BoundUserInterface
                 break;
             case Raised:
                 _window.PlatformButton.Text = _confirmLower
-                    ? Loc.GetString("n14-requisitions-platform-lower-confirm")
+                    ? LowerConfirmText()
                     : Loc.GetString("n14-requisitions-platform-lower");
                 _window.PlatformButton.Disabled = false;
                 break;
@@ -739,16 +739,24 @@ public sealed class RequisitionsBui : BoundUserInterface
                 SendMessage(new RequisitionsPlatformMsg(true));
                 break;
             case Raised:
-                if (_state.PlatformSaleValue > 0 && !_confirmLower)
+                if (_state.PlatformItems.Count > 0 && !_confirmLower)
                 {
                     _confirmLower = true;
-                    _window!.PlatformButton.Text = Loc.GetString("n14-requisitions-platform-lower-confirm");
+                    _window!.PlatformButton.Text = LowerConfirmText();
                     return;
                 }
                 _confirmLower = false;
                 SendMessage(new RequisitionsPlatformMsg(false));
                 break;
         }
+    }
+
+    private string LowerConfirmText()
+    {
+        var scrapped = _state?.PlatformItems.Where(i => i.Worthless).Sum(i => i.Count) ?? 0;
+        return scrapped > 0
+            ? Loc.GetString("n14-requisitions-platform-lower-confirm-scrap", ("count", scrapped))
+            : Loc.GetString("n14-requisitions-platform-lower-confirm");
     }
 
     private void UpdateBalance()
@@ -1299,6 +1307,24 @@ public sealed class RequisitionsBui : BoundUserInterface
             Textures = data.Textures,
             Modulate = data.Modulate,
         };
+    }
+
+    private string ResolveDisplayProto(string id, out string name)
+    {
+        if (_prototypes.TryIndex<EntityPrototype>(id, out var entProto))
+        {
+            name = entProto.Name;
+            return id;
+        }
+
+        if (_prototypes.TryIndex<StackPrototype>(id, out var stackProto))
+        {
+            name = Loc.TryGetString(stackProto.Name, out var localized) ? localized : stackProto.Name;
+            return stackProto.Spawn;
+        }
+
+        name = id;
+        return id;
     }
 
     private Control MakeIconRow(string itemProto, string markup, IReadOnlyList<EntProtoId>? outputs = null)

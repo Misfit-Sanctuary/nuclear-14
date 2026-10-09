@@ -111,6 +111,15 @@
     price: 10
   - proto: N14FoodSalisburysteak
     price: 10
+  - proto: N14ReagentContainerRice
+    price: 10
+  - proto: N14ReagentContainerFlour
+    price: 10
+  - proto: N14ReagentContainerSugar
+    price: 10
+  - proto: MisfitsItemRaiserCan
+    price: 10
+
 
 - type: storeCategoryStructured
   id: WasterBuy2_SurvivalGear
@@ -228,8 +237,6 @@
   entries:
   - proto: N14ClothingOuterCombatTribal
     price: 350
-  - proto: N14ClothingOuterCombatArmorRCMP
-    price: 450
   - proto: N14ClothingOuterRaiderCombat1
     price: 500
   - proto: N14ClothingOuterPoliceCombat
@@ -426,6 +433,12 @@
     price: 5
   - proto: N14FloraWildXanderRootClippingSeed
     price: 5
+  - proto: CocoaSeeds
+    price: 10
+  - proto: RiceSeeds
+    price: 10
+  - proto: SugarcaneSeeds
+    price: 10
 
 - type: storeCategoryStructured
   id: WasterBuy2_Currency # IF YOU CHANGE ONE EXCHANGE RATE, YOU MUST CHANGE ALL OTHERS ACROSS ALL FOUR FILES TO MATCH, OR YOU WILL CREATE AN INFINITE MONEY GLITCH
@@ -748,6 +761,8 @@
     price: 138
   - proto: N14WeaponSMG12mmAdvanced
     price: 330
+  - proto: N14WeaponSniperPaciencia
+    price: 20
 
 - type: storeCategoryStructured
   id: WasterSell2_Handguns
@@ -804,8 +819,6 @@
   entries:
   - proto: N14ClothingOuterCombatTribal
     price: 175
-  - proto: N14ClothingOuterCombatArmorRCMP
-    price: 225
   - proto: N14ClothingOuterRaiderCombat1
     price: 250
   - proto: N14ClothingOuterPoliceCombat

@@ -127,7 +127,7 @@ public sealed class MysteriousStrangerSystem : EntitySystem
 
         _mind.TransferTo(mindId, stranger, mind: mind);
 
-        _adminLogger.Add(LogType.Action, LogImpact.High,
+        _adminLogger.Add(LogType.AdminAudit, LogImpact.High,
             $"{admin.Name} spawned in as a mysterious stranger {ToPrettyString(stranger):stranger} targeting {ToPrettyString(target):target}");
         return true;
     }

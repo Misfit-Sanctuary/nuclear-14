@@ -152,7 +152,7 @@ public sealed partial class ReflectSystem : EntitySystem
                 TryComp<ProjectileComponent>(projectile, out var pComp);
                 var targetName = Identity.Name(user, EntityManager);
                 var bulletName = Name(projectile);
-                var shooterName = pComp?.Shooter is { } shooterId
+                var shooterName = pComp?.Shooter is { } shooterId && HasComp<MetaDataComponent>(shooterId)
                     ? Identity.Name(shooterId, EntityManager)
                     : Loc.GetString("reflect-unknown-shooter");
                 _popup.PopupEntity(
@@ -167,7 +167,7 @@ public sealed partial class ReflectSystem : EntitySystem
                 TryComp<ProjectileComponent>(projectile, out var pComp);
                 var targetName = Identity.Name(user, EntityManager);
                 var bulletName = Name(projectile);
-                var shooterName = pComp?.Shooter is { } shooterId
+                var shooterName = pComp?.Shooter is { } shooterId && HasComp<MetaDataComponent>(shooterId)
                     ? Identity.Name(shooterId, EntityManager)
                     : Loc.GetString("reflect-unknown-shooter");
                 _popup.PopupEntity(
@@ -224,7 +224,7 @@ public sealed partial class ReflectSystem : EntitySystem
     {
         if (!TryComp<ReflectComponent>(reflector, out var reflect) ||
             // !_toggle.IsActivated(reflector) ||
-            !_random.Prob(reflect.ReflectProbByType[ReflectType.Energy]))
+            !_random.Prob(reflect.ReflectProbByType.GetValueOrDefault(ReflectType.Energy, reflect.ReflectProb)))
         {
             newDirection = null;
             return false;

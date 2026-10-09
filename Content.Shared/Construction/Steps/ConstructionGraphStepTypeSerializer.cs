@@ -11,6 +11,10 @@ namespace Content.Shared.Construction.Steps
     {
         private Type? GetType(MappingDataNode node)
         {
+            // misfits add:
+            if (node.Has("entity"))
+                return typeof(EntitySimpleInsertConstructionGraphStep);
+
             if (node.Has("material"))
             {
                 return typeof(MaterialConstructionGraphStep);

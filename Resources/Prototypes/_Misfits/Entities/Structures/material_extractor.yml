@@ -42,18 +42,69 @@
     waveSpawnMaxDistance: 14
     waveSpawnAttempts: 40
     waveSpawnPvsBuffer: 3
-    waveMobWeights:
-      N14MobMaterialExtractorMoleratWave: 24
-      N14MobMaterialExtractorGeckoWave: 18
-      N14MobMaterialExtractorMirelurkWave: 12
-      N14MobMaterialExtractorRadhogWave: 10
-      N14MobMaterialExtractorFireGeckoWave: 8
-      N14MobMaterialExtractorNightstalkerCubWave: 8
-      N14MobMaterialExtractorGiantAntWave: 7
-      N14MobMaterialExtractorNightstalkerWave: 4
-      N14MobMaterialExtractorRadMirelurkWave: 3
-      N14MobMaterialExtractorGiantFireAntWave: 3
-      N14MobMaterialExtractorRadscorpionWave: 3
+    bossWaveChance: 0.12
+    bossWaveMinNumber: 4
+    encounterPlayerRadius: 20
+    # One theme is selected for the whole rotation. Nightkin are removed from
+    # the eligible pool outside the map's actual night window.
+    waveThemes:
+    - name: wasteland wildlife
+      weight: 55
+      minCount: 3
+      maxCount: 6
+      family: Wildlife
+      mobs:
+        N14MobMaterialExtractorMoleratWave: 18
+        N14MobMaterialExtractorGeckoWave: 15
+        N14MobMaterialExtractorMirelurkWave: 12
+        N14MobMaterialExtractorRadhogWave: 10
+        N14MobMaterialExtractorFireGeckoWave: 8
+        N14MobMaterialExtractorNightstalkerCubWave: 7
+        N14MobMaterialExtractorGiantAntWave: 6
+        N14MobMaterialExtractorNightstalkerWave: 5
+        N14MobMaterialExtractorRadMirelurkWave: 4
+        N14MobMaterialExtractorGiantFireAntWave: 4
+        N14MobMaterialExtractorRadscorpionWave: 4
+      bosses:
+        N14MobMaterialExtractorYaoguaiWave: 45
+        N14MobMaterialExtractorDeathclawWave: 35
+        N14MobMaterialExtractorRadscorpionBossWave: 20
+    - name: raider gun crew
+      weight: 22
+      minCount: 2
+      maxCount: 4
+      family: Raider
+      mobs:
+        N14MobMaterialExtractorRaiderPistolWave: 45
+        N14MobMaterialExtractorRaiderSkirmisherWave: 35
+        N14MobMaterialExtractorRaiderHunterWave: 20
+      bosses:
+        N14MobMaterialExtractorRaiderBossWave: 70
+        N14MobMaterialExtractorRaiderHunterWave: 30
+    - name: super mutant warband
+      weight: 18
+      minCount: 2
+      maxCount: 4
+      family: SuperMutant
+      mobs:
+        N14MobMaterialExtractorSuperMutantWave: 25
+        N14MobMaterialExtractorSuperMutantMeleeWave: 45
+        N14MobMaterialExtractorSuperMutantRangedWave: 30
+      bosses:
+        N14MobMaterialExtractorSuperMutantNCOWave: 55
+        N14MobMaterialExtractorSuperMutantArmoredWave: 35
+        N14MobMaterialExtractorBehemothWave: 10
+    - name: nightkin hunting party
+      weight: 16
+      minCount: 1
+      maxCount: 3
+      nightOnly: true
+      family: SuperMutant
+      mobs:
+        N14MobMaterialExtractorNightkinWave: 65
+        N14MobMaterialExtractorNightkinVeteranWave: 35
+      bosses:
+        N14MobMaterialExtractorNightkinEliteWave: 100
     poorDepositChance: 0.25
     richDepositChance: 0.15
     poorYieldMultiplier: 0.7

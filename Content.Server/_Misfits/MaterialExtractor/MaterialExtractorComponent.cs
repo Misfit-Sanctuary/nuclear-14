@@ -1,4 +1,5 @@
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared._Misfits.Expeditions;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager.Attributes;
@@ -34,6 +35,12 @@ public sealed partial class MaterialExtractorComponent : Component
     [DataField] public float WaveSpawnMaxDistance = 28f;
     [DataField] public int WaveSpawnAttempts = 40;
     [DataField] public float WaveSpawnPvsBuffer = 3f;
+    [DataField] public float BossWaveChance = 0.12f;
+    [DataField] public int BossWaveMinNumber = 4;
+    [DataField] public float EncounterPlayerRadius = 20f;
+    [DataField] public float NightStart = 0.75f;
+    [DataField] public float NightEnd = 0.965f;
+    [DataField] public List<MaterialExtractorWaveTheme> WaveThemes = new();
     [DataField] public Dictionary<string, int> WaveMobWeights = new()
     {
         ["N14MobMaterialExtractorMoleratWave"] = 24,
@@ -63,7 +70,26 @@ public sealed partial class MaterialExtractorComponent : Component
     public bool WarningSent;
     public bool LowFuelWarningIssued;
     public bool WasRunning;
+    public bool WaveActive;
+    public int WavesStarted;
     public readonly HashSet<EntityUid> ActiveAttackers = [];
     public float YieldMultiplier = 1f;
     public string DepositQuality = "FAIR";
+}
+
+/// <summary>
+/// One faction-safe extractor encounter. A wave selects exactly one theme, then
+/// draws every member from that theme so unrelated factions never overlap.
+/// </summary>
+[DataDefinition]
+public sealed partial class MaterialExtractorWaveTheme
+{
+    [DataField(required: true)] public string Name = string.Empty;
+    [DataField] public int Weight = 1;
+    [DataField] public int MinCount = 1;
+    [DataField] public int MaxCount = 3;
+    [DataField] public bool NightOnly;
+    [DataField] public ExpeditionMobFamily Family = ExpeditionMobFamily.Wildlife;
+    [DataField(required: true)] public Dictionary<string, int> Mobs = new();
+    [DataField] public Dictionary<string, int> Bosses = new();
 }

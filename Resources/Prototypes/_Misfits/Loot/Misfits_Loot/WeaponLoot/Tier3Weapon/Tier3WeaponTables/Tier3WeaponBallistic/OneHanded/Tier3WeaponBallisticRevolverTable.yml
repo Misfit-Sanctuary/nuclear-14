@@ -3,23 +3,11 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: N14WeaponRevolver9mm
-      weight: 7
-    - !type:EntSelector
-      id: N14WeaponRevolver10mm
-      weight: 7
-    - !type:EntSelector
       id: N14WeaponRevolver357Detective
-      weight: 7
-    - !type:EntSelector
-      id: N14WeaponRevolver10mm
-      weight: 7
+      weight: 5
     - !type:EntSelector
       id: N14WeaponRevolverWebley #.44
-      weight: 7
+      weight: 5
     - !type:EntSelector
       id: N14WeaponRevolver44Magnum
-      weight: 7
-    - !type:EntSelector
-      id: N14WeaponRevolver44Tribal
-      weight: 7
+      weight: 3

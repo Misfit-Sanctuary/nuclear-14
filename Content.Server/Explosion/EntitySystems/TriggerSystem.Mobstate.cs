@@ -4,6 +4,7 @@ using Content.Shared.Implants;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared._Misfits.Genetics.Abilities;
+using Content.Shared.Inventory;
 
 namespace Content.Server.Explosion.EntitySystems;
 
@@ -16,8 +17,27 @@ public sealed partial class TriggerSystem
 
         SubscribeLocalEvent<TriggerOnMobstateChangeComponent, ImplantRelayEvent<SuicideEvent>>(OnSuicideRelay);
         SubscribeLocalEvent<TriggerOnMobstateChangeComponent, ImplantRelayEvent<MobStateChangedEvent>>(OnMobStateRelay);
-    }
 
+
+        SubscribeLocalEvent<UnequipOnTriggerComponent, MobStateChangedEvent>(OnMobStateUnequip);
+    }
+    /// <summary>
+    /// Attempt to unequip every slot defined in SlotsToUnequip
+    /// exit early and not throw if ent doesnt have inventoryComp incase other systems want to mess with inventory
+    /// <see cref="UnequipOnTriggerComponent"/>
+    /// </summary>
+    private void OnMobStateUnequip(EntityUid uid, UnequipOnTriggerComponent comp, MobStateChangedEvent args)
+    {
+        if (!HasComp<InventoryComponent>(uid))
+            return;
+
+        for (int i = 0; i < comp.SlotsToUnequip.Length; i++)
+        {
+            _inventory.TryUnequip(uid, comp.SlotsToUnequip[i],
+            force: comp.Forced, reparent: comp.DropToNearestParent,
+            checkDoafter: comp.CheckForDoAfter, silent: comp.IsSilent);
+        }
+    }
     private void OnMobStateChanged(EntityUid uid, TriggerOnMobstateChangeComponent component, MobStateChangedEvent args)
     {
         if (!component.MobState.Contains(args.NewMobState))

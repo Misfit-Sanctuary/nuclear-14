@@ -26,6 +26,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared.Verbs;
@@ -149,6 +150,19 @@ public sealed class SurgerySystem : SharedSurgerySystem
 
         _ui.OpenUi(target, SurgeryUIKey.Key, user);
         RefreshUI(target);
+        
+        // Delay 1 tick before refreshing UI state to ensure contents load on first open.
+        // remove when actual underlying problem is found
+        Timer.Spawn(TimeSpan.Zero, () =>
+        {
+            if (Deleted(target))
+                return;
+
+            if (!_ui.HasUi(target, SurgeryUIKey.Key))
+                return;
+
+            RefreshUI(target);
+        });
     }
 
     private void OnUtilityVerb(Entity<SurgeryToolComponent> ent, ref GetVerbsEvent<UtilityVerb> args)

@@ -129,7 +129,6 @@
     - !type:CharacterJobRequirement
       jobs:
         - EnclaveJuniorOfficer
-        - EnclaveVertibirdPilot
   items:
     - ClothingNeckPinEnclaveSecondLieutenant
 
@@ -142,7 +141,6 @@
     - !type:CharacterJobRequirement
       jobs:
         - EnclaveJuniorOfficer
-        - EnclaveVertibirdPilot
     - !type:CharacterPlaytimeRequirement
       tracker: EnclaveJuniorOfficer
       min: 72000 # 20 hours
@@ -206,21 +204,6 @@
       min: 72000 # 20 hours
   items:
     - ClothingNeckPinEnclaveColonel
-
-- type: loadout
-  id: LoadoutEnclavePinGeneral
-  category: Roles
-  cost: 1
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - EnclaveCommander
-    - !type:CharacterPlaytimeRequirement
-      tracker: EnclaveCommander
-      min: 144000 # 40 hours
-  items:
-    - ClothingNeckPinEnclaveGeneral
 
 # === Science Ranks ===
 
@@ -379,3 +362,93 @@
       min: 504000 # 140 hours
   items:
     - ClothingNeckPinEnclaveSergeantMajor
+
+# Vertibird Pilot Pins - mirrors NCO pin progression but is separate due to tracker jank
+
+- type: loadout
+  id: LoadoutEnclaveVPPinSergeant
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+  - !type:CharacterJobRequirement
+    jobs:
+    - EnclaveVertibirdPilot
+  items:
+  - ClothingNeckPinEnclaveSergeant
+
+- type: loadout
+  id: LoadoutEnclaveVPPinStaffSergeant
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+  - !type:CharacterJobRequirement
+    jobs:
+    - EnclaveVertibirdPilot
+  - !type:CharacterPlaytimeRequirement
+    tracker: EnclaveVertibirdPilot
+    min: 72000 # 20 hours
+  items:
+  - ClothingNeckPinEnclaveStaffSergeant
+
+- type: loadout
+  id: LoadoutEnclaveVPPinSFC
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+  - !type:CharacterJobRequirement
+    jobs:
+    - EnclaveVertibirdPilot
+  - !type:CharacterPlaytimeRequirement
+    tracker: EnclaveVertibirdPilot
+    min: 144000 # 40 hours
+  items:
+  - ClothingNeckPinEnclaveSFC
+
+- type: loadout
+  id: LoadoutEnclaveVPPinMasterSergeant
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+  - !type:CharacterJobRequirement
+    jobs:
+    - EnclaveVertibirdPilot
+  - !type:CharacterPlaytimeRequirement
+    tracker: EnclaveVertibirdPilot
+    min: 216000 # 60 hours
+  items:
+  - ClothingNeckPinEnclaveMasterSergeant
+
+- type: loadout
+  id: LoadoutEnclaveVPPinSergeantMajor
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+  - !type:CharacterJobRequirement
+    jobs:
+    - EnclaveVertibirdPilot
+  - !type:CharacterPlaytimeRequirement
+    tracker: EnclaveVertibirdPilot
+    min: 288000 # 80 hours
+  items:
+  - ClothingNeckPinEnclaveSergeantMajor
+
+# Reformer Loadout Cosmetic
+
+- type: loadout
+  id: MisfitsLoadoutEnclaveReformerHellfirePowerArmor
+  category: Outer
+  cost: 1
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutOuter
+  - !type:CharacterJobRequirement
+    jobs:
+    - EnclaveReformer
+  items:
+  - N14ClothingOuterPowerArmorAdvanced2Hellfire
