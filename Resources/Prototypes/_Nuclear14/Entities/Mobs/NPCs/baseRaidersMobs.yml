@@ -43,12 +43,10 @@
       rootTask:
         task: N14RangedHostileCompound
       blackboard:
-        NavSmash: !type:Bool
-          false
         NavInteract: !type:Bool
           true
         NavClimb: !type:Bool
-          true
+        true
         MeleeRange: !type:Single
           1.5
     - type: MeleeWeapon
