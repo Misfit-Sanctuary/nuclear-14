@@ -33,7 +33,7 @@
           Toxin: -1
           Airloss: -3
     - type: MindContainer
-      showExamineInfo: False
+      showExamineInfo: false
     - type: InputMover
     - type: MobMover
     - type: SurgeryTarget
@@ -44,6 +44,10 @@
         task: N14RangedHostileCompound
       blackboard:
         NavSmash: !type:Bool
+          true
+        NavInteract: !type:Bool
+          true
+        NavClimb: !type:Bool
           true
         MeleeRange: !type:Single
           1.5
