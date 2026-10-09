@@ -58,7 +58,17 @@
           true
         NavSmash: !type:Bool
           true
-
+        MeleeRange: !type:Single
+          1.5
+    - type: MeleeWeapon
+      hidden: true
+      attackRate: 1.5
+      range: 1.5
+      angle: 30
+      animation: WeaponArcPunch
+      damage:
+        types:
+          Blunt: 5
     - type: Carriable
     - type: Perishable
       rotAfter: 2000 #Wassuy i decide to increased this to 2000 from 1800 incase of someone doing bountry works.

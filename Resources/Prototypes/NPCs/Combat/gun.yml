@@ -155,27 +155,27 @@
     # TODO: Doing inventory cleanly will be a PITA so deferring to later
     # The issue is recursively checking items but also ignoring some recursive entities
     # i.e. we need to recursively go into storage containers.
-    - tasks:
-       - !type:HTNCompoundTask
-         task: ClearActiveHandCompound
-    
-       - !type:HTNPrimitiveTask
-         operator: !type:UtilityOperator
-           proto: InventoryGuns
-    
-       - !type:HTNPrimitiveTask
-         operator: !type:EquipOperator
+    #- tasks:
+    #   - !type:HTNCompoundTask
+    #     task: ClearActiveHandCompound
+    #
+    #   - !type:HTNPrimitiveTask
+    #     operator: !type:UtilityOperator
+    #       proto: InventoryGuns
+    #
+    #   - !type:HTNPrimitiveTask
+    #     operator: !type:EquipOperator
 
     # Pickup ammo if any nearby
-    - preconditions:
-        - !type:GunAmmoPrecondition
-          maxPercent: 0.0
-      tasks:
-        - !type:HTNCompoundTask
-          task: ClearActiveHandCompound
-
-        - !type:HTNCompoundTask
-          task: PickupAmmoCompound
+    #- preconditions:
+    #    - !type:GunAmmoPrecondition
+    #      maxPercent: 0.0
+    #  tasks:
+    #    - !type:HTNCompoundTask
+    #      task: ClearActiveHandCompound
+#
+#        - !type:HTNCompoundTask
+#          task: PickupAmmoCompound
 
     # Pickup gun with ammo if we have no ammo
     -  preconditions:

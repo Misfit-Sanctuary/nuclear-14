@@ -11,8 +11,8 @@
 - type: entity
   name: Gunners Conscript
   id: N14MobRaiderFernMelee
-  parent: MobSalvager
-  description: Professional mercenary-wannabe, holding a club and ready to dent someone's skull in.
+  parent: N14BaseMobRaider
+  description: Professional mercenary-wannabe, ready to beat someone up.
   components:
     - type: Loadout
       prototypes:
@@ -21,8 +21,8 @@
 - type: entity
   name: Enforcer Beatcop
   id: N14MobRaiderEnforcerMelee
-  parent: MobSalvager
-  description: Law enforcement? No. Just a really fancy raider with a baton.
+  parent: N14BaseMobRaider
+  description: Law enforcement? No. Just a really fancy raider.
   components:
     - type: Loadout
       prototypes:
