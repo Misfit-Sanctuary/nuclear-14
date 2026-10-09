@@ -28,7 +28,6 @@
         - !type:HTNPrimitiveTask
           operator: !type:JukeOperator
             jukeType: Away
-            retreatDistance: 2.5
 
         - !type:HTNPrimitiveTask
           operator: !type:UtilityOperator
@@ -62,8 +61,8 @@
     - tasks:
         - !type:HTNPrimitiveTask
           operator: !type:JukeOperator
-            jukeType: Away
-            retreatDistance: 2.5
+            jukeType: AdjacentTile   #            jukeType: Away
+           # retreatDistance: 2.5
 
         - !type:HTNPrimitiveTask
           operator: !type:UtilityOperator

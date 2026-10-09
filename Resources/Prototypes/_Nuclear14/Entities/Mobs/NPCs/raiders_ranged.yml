@@ -5,11 +5,11 @@
   description: Psychopatic raider who will shoot and rob just about anyone.
   components:
     - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
-      minAngle: 6
-      maxAngle: 22.5
-      angleIncrease: 1
+      minAngle: 5
+      maxAngle: 20
+      angleIncrease: 4
       angleDecay: 4
-      fireRate: 1.33
+      fireRate: 1.5
       soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Pistols/N14WeaponPistol10mm/shot1.ogg
       useKey: false
       selectedMode: SemiAuto
@@ -18,10 +18,10 @@
     - type: CombatMode
     - type: BasicEntityAmmoProvider
       proto: N14CartridgePistol10
-      capacity: 10
-      count: 10
+      capacity: 12
+      count: 12
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 2
+      rechargeCooldown: 4
       rechargeSound:
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
     - type: Loadout
@@ -76,7 +76,7 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/10mmPIPE.rsi
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/10mm.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
@@ -90,7 +90,7 @@
       maxAngle: 34.5
       angleIncrease: 8
       angleDecay: 16
-      fireRate: 2.66
+      fireRate: 3.0
       soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Pistols/N14WeaponPistol10mm/shot1.ogg
       useKey: false
       selectedMode: FullAuto
@@ -102,7 +102,7 @@
       capacity: 35
       count: 35
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 2
+      rechargeCooldown: 4
       rechargeSound:
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/SMGs/smg_magin.ogg
     - type: Loadout
@@ -157,22 +157,23 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/10mmPIPE.rsi
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/10mm.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
   name: Psycho Raider Hunter
   parent: N14BaseMobRaider
   id: N14MobRaiderHunter
-  description: Psychopatic raider armed with a long rifle. Dangerous at a distance.
+  description: Psychopatic raider armed with a bolt action rifle. Dangerous at a distance.
   components:
     - type: Gun
-      minAngle: 4.5
-      maxAngle: 22.5
-      angleIncrease: 1
-      angleDecay: 4
-      fireRate: 0.5
-      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Snipers/N14WeaponPipeRifle/shot1.ogg
+      minAngle: 5
+      maxAngle: 30
+      angleIncrease: 4
+      angleDecay: 16
+      fireRate: 0.75
+      soundGunshot:
+        collection: N14SniperHuntingGunshot
       useKey: false
       selectedMode: SemiAuto
       availableModes:
@@ -180,10 +181,10 @@
     - type: CombatMode
     - type: BasicEntityAmmoProvider
       proto: N14Cartridge308Rifle
-      capacity: 1
-      count: 1
+      capacity: 5
+      count: 5
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 1
+      rechargeCooldown: 4
       rechargeSound:
         path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
     - type: Loadout
@@ -238,7 +239,7 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/double_shotgun.rsi
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/hunting.rsi
         state: inhand-right # Only part we change, the gun sprite.
 
 - type: entity
@@ -248,12 +249,12 @@
   description: Psychopatic raider armed with a scattergun. Deadly at close range.
   components:
     - type: Gun
-      minAngle: 34.5
-      maxAngle: 104
+      minAngle: 35
+      maxAngle: 110
       angleIncrease: 8
       angleDecay: 16
-      fireRate: 0.75
-      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Shotguns/N14WeaponDoubleBarrelShotgun/shot1.ogg
+      soundGunshot:
+        collection: N14DoubleBarrelShotgunGunshot
       useKey: false
       selectedMode: SemiAuto
       availableModes:
@@ -329,12 +330,13 @@
   description: Professional mercenary armed with a carbine. One might be better off avoiding him.
   components:
     - type: Gun
-      minAngle: 4.5
-      maxAngle: 13.5
-      angleIncrease: 8
+      minAngle: 20
+      maxAngle: 40
+      angleIncrease: 4
       angleDecay: 16
-      fireRate: 2
-      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Rifles/N14WeaponOldCarbine/shot1.ogg
+      fireRate: 2.5
+      soundGunshot:
+        collection: N14OldCarbineGunshot
       useKey: false
       selectedMode: SemiAuto
       availableModes:
@@ -345,7 +347,7 @@
       capacity: 25
       count: 25
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 2
+      rechargeCooldown: 4
       rechargeSound:
         path: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
     - type: Loadout
@@ -495,7 +497,7 @@
       maxAngle: 13.5
       angleIncrease: 1
       angleDecay: 4
-      fireRate: 2.5
+      fireRate: 3.0
       soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Pistols/N14WeaponPistol12mm/shot1.ogg
       useKey: false
       selectedMode: FullAuto
@@ -572,23 +574,24 @@
   description: Nothing more than a raider in fancy clothes, wielding a 9mm SMG.
   components:
     - type: Gun
-      minAngle: 1.5
-      maxAngle: 13.5
-      angleIncrease: 16
+      minAngle: 10
+      maxAngle: 26
+      angleIncrease: 4
       angleDecay: 16
-      fireRate: 2
-      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Pistols/N14WeaponPistol9mm/shot1.ogg
+      fireRate: 3.0
+      soundGunshot:
+        collection: N14Pistol9mmGunshot
       useKey: false
-      selectedMode: FullAuto
+      selectedMode: SemiAuto
       availableModes:
-        - FullAuto
+      - SemiAuto
     - type: CombatMode
     - type: BasicEntityAmmoProvider
       proto: N14CartridgePistol9
-      capacity: 30
-      count: 30
+      capacity: 31
+      count: 31
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 2
+      rechargeCooldown: 4
       rechargeSound:
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/SMGs/smg_magin.ogg
     - type: Loadout
@@ -653,11 +656,11 @@
   description: A raider wearing pre-war law enforcement uniform. One might want to keep distance because he has a riot shotgun!
   components:
     - type: Gun
-      minAngle: 34.5
-      maxAngle: 156
+      minAngle: 35
+      maxAngle: 160
       angleIncrease: 8
       angleDecay: 16
-      fireRate: 1.25
+      fireRate: 1.5
       soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Shotguns/N14WeaponRiotShotgun/shot1.ogg
       useKey: false
       selectedMode: SemiAuto
@@ -666,10 +669,10 @@
     - type: CombatMode
     - type: BasicEntityAmmoProvider
       proto: N14ShellShotgun20
-      capacity: 10
-      count: 10
+      capacity: 12
+      count: 12
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 2
+      rechargeCooldown: 4
       rechargeSound:
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
     - type: Loadout
@@ -734,12 +737,13 @@
   description: Rough man in fine clothes, carrying a magnum revolver.
   components:
     - type: Gun
-      minAngle: 4.5
-      maxAngle: 13.5
+      minAngle: 5
+      maxAngle: 15
       angleIncrease: 2
       angleDecay: 4
       fireRate: 1.25
-      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Revolvers/N14WeaponRevolverMagnun/shot1.ogg
+      soundGunshot:
+        collection: N14RevolverMagnunGunshot
       useKey: false
       selectedMode: SemiAuto
       availableModes:
@@ -750,7 +754,7 @@
       capacity: 6
       count: 6
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 2
+      rechargeCooldown: 4
       rechargeSound:
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
     - type: Loadout

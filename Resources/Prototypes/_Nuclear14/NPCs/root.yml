@@ -37,8 +37,12 @@
     - tasks:
         - !type:HTNCompoundTask
           task: N14MeleeCombatCompound
+    #- tasks:
+    #    - !type:HTNCompoundTask
+    #      task: IdleCompound
+    
 # Whole point of making this was to ensure mobs don't roam around freely across the map when they have no targets. Don't change that.
-
+# i dont care lmao, am putting a task there incase anyone wanna use it (above)
 - type: htnCompound
   id: N14RangedFollowHostileCompound
   branches:
