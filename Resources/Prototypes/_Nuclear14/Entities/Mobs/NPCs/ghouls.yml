@@ -59,9 +59,9 @@
   - type: Armor #i think the armor clad should do soemthin' -Wassuy
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.75
         Heat: 0.9
   - type: IdleSound #Misfits Change
   - type: SpamEmitSound #Misfits Change

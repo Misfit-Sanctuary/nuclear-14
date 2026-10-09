@@ -44,7 +44,7 @@
         task: N14RangedHostileCompound
       blackboard:
         NavSmash: !type:Bool
-          true
+          false
         NavInteract: !type:Bool
           true
         NavClimb: !type:Bool
