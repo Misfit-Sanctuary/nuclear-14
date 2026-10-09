@@ -13,25 +13,18 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        75: Dead
-    - type: SlowOnDamage
-      speedModifierThresholds:
-        45: 0.7
-        25: 0.5
+        60: Dead
     - type: Destructible #Misfits Change /Add: Drop bottle caps on death (1-7)
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 75
+          damage: 60
         behaviors:
-        - !type:Emote
-          emote: Scream
-          probabilityy: 0.8
         - !type:SpawnEntitiesBehavior
           spawn:
             N14CurrencyCap:
               min: 1
-              max: 10
+              max: 7
     - type: PassiveDamage # It's mostly for the faction NPCs, but can be here nonetheless.
       allowedStates:
       - Alive
@@ -50,12 +43,6 @@
       rootTask:
         task: N14RangedHostileCompound
       blackboard:
-        NavClimb: !type:Bool   #Wassuy i added those for them to act smarter
-          true
-        NavInteract: !type:Bool
-          true
-        NavPry: !type:Bool
-          true
         NavSmash: !type:Bool
           true
         MeleeRange: !type:Single
@@ -68,10 +55,10 @@
       animation: WeaponArcPunch
       damage:
         types:
-          Blunt: 5
+          Blunt: 15
     - type: Carriable
     - type: Perishable
-      rotAfter: 2000 #Wassuy i decide to increased this to 2000 from 1800 incase of someone doing bountry works.
+      rotAfter: 1800 # Rots after half of an in-game day
     - type: RotInto
       entity: N14FoodMeatRadRaw # and becomes a single chunk of meat.
     - type: Butcherable
