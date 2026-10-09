@@ -77,6 +77,7 @@
     shoes: N14ClothingBootsLeather
     head: N14ClothingHeadHatBaseball
     mask: N14ClothingMaskBlueMask
+    outerClothing: N14ClothingOuterRaiderBadlands
     pocket1: N14RaiderStash
 
 - type: startingGear
@@ -116,11 +117,12 @@
   id: FernConscriptGear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitCombat
-    mask: ClothingMaskBandRed
+    mask: N14ClothingMaskRedMask
     eyes: N14ClothingEyesSunGlasses
     shoes: N14ClothingBootsLeather
     gloves: N14ClothingHandsGlovesBlackBiker
     head: N14ClothingHeadHatArmyCap
+    outerClothing: N14ClothingOuterRaiderBadlands
     pocket1: N14RaiderStash
   inhand:
   - N14TrenchClub

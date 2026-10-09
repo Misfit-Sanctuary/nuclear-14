@@ -24,7 +24,7 @@
           spawn:
             N14CurrencyCap:
               min: 1
-              max: 7
+              max: 10
     - type: PassiveDamage # It's mostly for the faction NPCs, but can be here nonetheless.
       allowedStates:
       - Alive
@@ -43,6 +43,8 @@
       rootTask:
         task: N14RangedHostileCompound
       blackboard:
+        NavSmash: !type:Bool
+          true
         NavInteract: !type:Bool
           true
         NavClimb: !type:Bool
