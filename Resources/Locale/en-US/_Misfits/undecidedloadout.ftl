@@ -787,7 +787,7 @@ undecided-loadout-category-misfits-acolyte-healing-desc =
 
 undecided-loadout-category-misfits-acolyte-zealot-name = Acolyte Zealot
 undecided-loadout-category-misfits-acolyte-zealot-desc =
-    Includes a Gladius, Legionnaire buckler,
+    Includes a Blade of Mars, Legionnaire buckler,
     spear quiver, An SKS, 308 clips,
     2 K rations, and a ceramic flask.
 

@@ -112,6 +112,7 @@
     - N14BPNCRWeaponLMG
     - N14BPNCRWeaponSMG12mmAdvanced
     - N14BPNCRWeaponMinigun
+    - N14BPNCRWeaponSMGWt550
 
 # #Misfits Add - T5 anti-materiel rifle; costs so much scrap it earns its own tier
 - type: entity
@@ -267,6 +268,7 @@
     - MisfitsBPNCR40mmTearGas
     - MisfitsBPNCR40mmHEDP
     - MisfitsBPNCR40mmIncendiary
+    - N14BPNCRAmmoMagSMGWt550
 
 - type: entity
   parent: N14BlueprintBase
@@ -369,6 +371,7 @@
     - N14BPLegionWeaponLauncherMissile
     - N14BPLegionWeaponBren           # #Misfits Add - Bren LMG (.308 FullAuto)
     - N14BPLegionWeaponShotgunNeostead  # #Misfits Add - Semi-auto shotgun
+    - N14BPLegionWeaponSMGWt550
 
 # #Misfits Add - T5 Legion Weapons: Scorcher flamethrower (single apex incendiary)
 - type: entity
@@ -501,6 +504,7 @@
     - MisfitsBPLegion40mmHEDP
     - MisfitsBPLegion40mmIncendiary
     - MisfitsBPLegionGrenadeFragDefensive
+    - N14BPLegionAmmoMagSMGWt550
 
 - type: entity
   parent: N14BlueprintBase
@@ -957,6 +961,7 @@
     - N14BPTownAmmoBox45-70
     - N14BPTownAmmoMag12mmSMG
     - N14BPTownAmmoMag556Long
+    - N14BPTownAmmoMagSMGwt550
 
 # =====================================================================
 # VAULT BLUEPRINTS
