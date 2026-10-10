@@ -2543,7 +2543,7 @@
 #     ScrapElectronic: 8
 #     N14Brass: 5
 
-# --- Town Tier 1 Helmets (basic guard) ---
+# --- Town Tier 1 Armor (basic guard) ---
 - type: latheRecipe
   id: N14BPTownArmorHelmetTownGuard
   result: N14ClothingHeadHatTownGuard
@@ -2557,7 +2557,39 @@
     Leather: 40
     Thread: 40
 
-# --- Town Tier 2 Helmets (Brodie / metal) ---
+# --- Town New Canaan Sub-faction Tier 1---
+
+# leather vest
+- type: latheRecipe
+  id: MisfitsBPNewCanaanLeatherVest
+  result: MisfitsClothingOuterNewCanaanLeatherVest
+  category: N14BlueprintTownArmorT1
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Townsfolk
+  materials:
+    Steel: 500
+    Cloth: 500
+    Leather: 500
+    Thread: 200
+
+# shemagh neck
+- type: latheRecipe
+  id: MisfitsBPNewCanaanShemagh
+  result: MisfitsClothingNeckNewCanaanShemagh
+  category: N14BlueprintTownArmorT1
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - Townsfolk
+  materials:
+    Cloth: 200
+    Silver: 100
+
+
+
+# --- Town Tier 2 Armor (Brodie / metal) ---
 - type: latheRecipe
   id: N14BPTownArmorHelmetBrodie
   result: N14ClothingHeadTownGuardBrodie
@@ -2584,7 +2616,23 @@
     Cloth: 50
     Leather: 30
 
-# --- Town Tier 3 Helmets (riot / sheriff) ---
+# --- Town New Canaan Sub-faction Tier 2---
+# police vest
+- type: latheRecipe
+  id: MisfitsBPNewCanaanPoliceVest
+  result: MisfitsClothingOuterNewCanaanPoliceVest
+  category: N14BlueprintTownArmorT2
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Townsfolk
+  materials:
+    Steel: 3000
+    Cloth: 1500
+    Leather: 500
+    Thread: 500
+
+# --- Town Tier 3 Armor (riot / sheriff) ---
 - type: latheRecipe
   id: N14BPTownArmorHelmetBrodieCover
   result: N14ClothingHeadTownGuardBrodieCover
@@ -2626,8 +2674,7 @@
     Leather: 40
     Glass: 150
 
-# --- Town Tier 4 Helmets (combat / pre-war military) ---
-
+# --- Town Tier 4 Armor (combat / pre-war military) ---
 - type: latheRecipe
   id: N14BPTownArmorHelmetSpecRCMP
   result: N14ClothingHeadHatSpecHelmetRCMP
@@ -2641,6 +2688,55 @@
     Cloth: 150
     Leather: 150
     Plastic: 300
+
+# --- Town New Canaan Sub-faction Tier 4 edge lord lonesome road vet riot ranger armor---
+
+# riot outer duster
+- type: latheRecipe
+  id: MisfitsBPNewCanaanRiot_duster
+  result: MisfitsClothingOuterNewCanaanDuster
+  category: N14BlueprintTownArmorT4
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Townsfolk
+  materials:
+    Steel: 8000
+    Cloth: 6000
+    Leather: 1500
+    Thread: 1500
+    Circuitry: 1000
+
+# riot helm
+- type: latheRecipe
+  id: MisfitsBPNewCanaanRiot_helm
+  result: MisfitsClothingHeadHelmetNewCanaanRiot
+  category: N14BlueprintTownArmorT4
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Townsfolk
+  materials:
+    Steel: 2000
+    Cloth: 1000
+    Plastic: 500
+    Circuitry: 500
+
+# riot gas mask
+- type: latheRecipe
+  id: MisfitsBPNewCanaanRiot_gasmask
+  result: MisfitsClothingMaskGasNewCanaanRiot
+  category: N14BlueprintTownArmorT4
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Townsfolk
+  materials:
+    Steel: 1000
+    Circuitry: 200
+    Glass: 500
+    Plastic: 500
+
 
 # #Misfits Add - Vertibird turret ammunition belt.
 - type: latheRecipe

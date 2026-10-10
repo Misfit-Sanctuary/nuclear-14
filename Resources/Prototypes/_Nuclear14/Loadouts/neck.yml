@@ -43,6 +43,20 @@
      - N14ClothingNeckMantleLeather
 
  - type: loadout
+   id: MisfitsNeckTownNewCanaanShemagh
+   category: Mask
+   cost: 0
+   requirements:
+   - !type:CharacterItemGroupRequirement
+     group: N14LoadoutMask
+   - !type:CharacterDepartmentRequirement # Forge-Change
+     inverted: false
+     departments:
+     - Townsfolk
+   items:
+   - MisfitsClothingNeckNewCanaanShemagh
+
+ - type: loadout
    id: N14LoadoutNeckCloakDarkCloak
    category: Accessories
    cost: 0

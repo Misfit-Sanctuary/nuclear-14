@@ -24,20 +24,20 @@
   abstract: true
   components:
   - type: Item
-    size: Small
+    size: Tiny
 
 
 # Raw sushi
 - type: entity
   parent: MisfitsFoodSmallBase
-  id: MisfitsFoodSushiMeatRaw
+  id: MisfitsFoodSushiRaw
   components:
   - type: Food
     transferAmount: 10
     eatMessage: food-desc-sushi-eat
   - type: Sprite
     sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
-    state: sushiRoll
+    state: redFishSushi
   - type: SolutionContainerManager
     solutions:
       food:
@@ -51,7 +51,7 @@
           Quantity: 3
   - type: GeneralConstructs
     generalEnts:
-      Cooked: MisfitsFoodSushiMeatCooked
+      Cooked: MisfitsFoodSushiCooked
   - type: Construction
     graph: GraphCookAny
     node: start
@@ -59,14 +59,14 @@
 
 - type: entity
   parent: MisfitsFoodSmallBase
-  id: MisfitsFoodSushiMeatCooked
+  id: MisfitsFoodSushiCooked
   components:
   - type: Food
     transferAmount: 10
     eatMessage: food-desc-sushiCooked-eat
   - type: Sprite
     sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
-    state: sushiRoll
+    state: redFishSushiCooked
   - type: SolutionContainerManager
     solutions:
       food:
@@ -80,7 +80,7 @@
           Quantity: 4
   - type: GeneralConstructs
     generalEnts:
-      Cooked: MisfitsFoodSushiMeatCooked
+      Cooked: MisfitsFoodSushiCooked
   - type: Construction
     graph: GraphCookAny
     node: CookedNode
@@ -96,7 +96,7 @@
     eatMessage:  food-desc-sushiFish-eat
   - type: Sprite
     sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
-    state: redFishSushi
+    state: redFishSushiCooked
   - type: SolutionContainerManager
     solutions:
       food:
@@ -120,7 +120,7 @@
     eatMessage: food-desc-sushiFishCarrot-eat
   - type: Sprite
     sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
-    state: redFishSushi
+    state: sushiRoll
   - type: SolutionContainerManager
     solutions:
       food:

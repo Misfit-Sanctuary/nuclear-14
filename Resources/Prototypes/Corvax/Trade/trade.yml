@@ -812,6 +812,8 @@
     price: 5
   - proto: SugarcaneSeeds
     price: 5
+  - proto: GarlicSeeds
+    price: 5
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Currency # IF YOU CHANGE ONE EXCHANGE RATE, YOU MUST CHANGE ALL OTHERS ACROSS ALL FOUR FILES TO MATCH, OR YOU WILL CREATE AN INFINITE MONEY GLITCH

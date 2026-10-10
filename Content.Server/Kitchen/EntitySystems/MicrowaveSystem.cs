@@ -35,43 +35,41 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
-using System.Linq;
-using Content.Server.Administration.Logs;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Stacks;
 using Content.Server.Construction.Components;
 using Content.Shared.Chat;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
-using Robust.Shared.Utility;
-
+// misfits TODO: refactor if this this needs to be expanded or causes preformance issues
+// misfits note: DO NOT CODE LIKE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 namespace Content.Server.Kitchen.EntitySystems
 {
-    public sealed class MicrowaveSystem : EntitySystem
+    public sealed partial class MicrowaveSystem : EntitySystem
     {
-        [Dependency] private readonly BodySystem _bodySystem = default!;
-        [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
-        [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-        [Dependency] private readonly PowerReceiverSystem _power = default!;
-        [Dependency] private readonly RecipeManager _recipeManager = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly LightningSystem _lightning = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly ExplosionSystem _explosion = default!;
-        [Dependency] private readonly SharedContainerSystem _container = default!;
-        [Dependency] private readonly SolutionContainerSystem _solutionContainer = default!;
-        [Dependency] private readonly StackSystem _stackSystem = default!;
-        [Dependency] private readonly TagSystem _tag = default!;
-        [Dependency] private readonly TemperatureSystem _temperature = default!;
-        [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
-        [Dependency] private readonly HandsSystem _handsSystem = default!;
-        [Dependency] private readonly SharedItemSystem _item = default!;
-        [Dependency] private readonly SharedStackSystem _stack = default!;
-        [Dependency] private readonly IPrototypeManager _prototype = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly SharedSuicideSystem _suicide = default!;
+        [Dependency] private BodySystem _bodySystem = default!;
+        [Dependency] private DeviceLinkSystem _deviceLink = default!;
+        [Dependency] private SharedPopupSystem _popupSystem = default!;
+        [Dependency] private PowerReceiverSystem _power = default!;
+        [Dependency] private RecipeManager _recipeManager = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private SharedAudioSystem _audio = default!;
+        [Dependency] private LightningSystem _lightning = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private ExplosionSystem _explosion = default!;
+        [Dependency] private SharedContainerSystem _container = default!;
+        [Dependency] private SolutionContainerSystem _solutionContainer = default!;
+        [Dependency] private StackSystem _stackSystem = default!;
+        [Dependency] private TagSystem _tag = default!;
+        [Dependency] private TemperatureSystem _temperature = default!;
+        [Dependency] private UserInterfaceSystem _userInterface = default!;
+        [Dependency] private HandsSystem _handsSystem = default!;
+        [Dependency] private SharedItemSystem _item = default!;
+        [Dependency] private SharedStackSystem _stack = default!;
+        [Dependency] private IPrototypeManager _prototype = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private SharedSuicideSystem _suicide = default!;
 
         [ValidatePrototypeId<EntityPrototype>]
         private const string MalfunctionSpark = "Spark";
@@ -175,46 +173,45 @@ namespace Content.Server.Kitchen.EntitySystems
                 }
             }
         }
-
+        //misfits: heavily and badly reworked function.
+        // called when recipe succeeds, so assumed everything in microwaveComp.storage can complete recipe with no errors
         private void SubtractContents(MicrowaveComponent component, FoodRecipePrototype recipe)
         {
-            // TODO Turn recipe.IngredientsReagents into a ReagentQuantity[]
+            // // TODO Turn recipe.IngredientsReagents into a ReagentQuantity[]
+            // soultions handled here
+            // get only refs to solution containers from contained entities
+            var solutions =(
+                from ent in component.Storage.ContainedEntities
+                where HasComp<SolutionContainerManagerComponent>(ent)
+                from sol in _solutionContainer.EnumerateSolutions(ent)
+                select sol.Solution).ToList();
 
-            var totalReagentsToRemove = new Dictionary<string, FixedPoint2>(recipe.IngredientsReagents);
-
-            // this is spaghetti ngl
-            foreach (var item in component.Storage.ContainedEntities)
+            // misfits: this still is so shit just reducing lines from original with LINQ but not how dumb, brute forcy, and overly complex it is
+            //          added reagent protos matching if recipe proto is a parent
+            foreach(var ingredient in recipe.IngredientsReagents)
             {
-                if (!TryComp<SolutionContainerManagerComponent>(item, out var solMan))
-                    continue;
-
-                // go over every solution
-                foreach (var (_, soln) in _solutionContainer.EnumerateSolutions((item, solMan)))
+                foreach (var sol in solutions)
                 {
-                    var solution = soln.Comp.Solution;
-                    foreach (var (reagent, _) in recipe.IngredientsReagents)
+                    // all reagents that is same ingredient proto or ingredient is parent
+                    // make it a list since if it's an enumerator and reagent gets deleted(reduced to 0) it changes the enumerator and throws error
+                    var matchedIdAndParent = sol.Comp.Solution.Contents.Where(x => x.Reagent.Prototype == ingredient.Key ||
+                                          (_prototype.Index<ReagentPrototype>(x.Reagent.Prototype).Parents is { } pl && pl.Contains(ingredient.Key))).ToList();
+
+                    var toRemTotal = ingredient.Value;
+
+                    foreach(var reagent in matchedIdAndParent)
                     {
-                        // removed everything
-                        if (!totalReagentsToRemove.ContainsKey(reagent))
-                            continue;
-
-                        var quant = solution.GetTotalPrototypeQuantity(reagent);
-
-                        if (quant >= totalReagentsToRemove[reagent])
-                        {
-                            quant = totalReagentsToRemove[reagent];
-                            totalReagentsToRemove.Remove(reagent);
-                        }
-                        else
-                        {
-                            totalReagentsToRemove[reagent] -= quant;
-                        }
-
-                        _solutionContainer.RemoveReagent(soln, reagent, quant);
+                        var toRem = FixedPoint2.Min(toRemTotal, reagent.Quantity);
+                        toRemTotal -= toRem;
+                        _solutionContainer.RemoveReagent(sol, reagent.Reagent, toRem);
+                        if (toRemTotal <= 0)
+                            break;
                     }
                 }
+
             }
 
+            // solids handled here
             foreach (var recipeSolid in recipe.IngredientsSolids)
             {
                 for (var i = 0; i < recipeSolid.Value; i++)
@@ -234,7 +231,7 @@ namespace Content.Server.Kitchen.EntitySystems
                             IsPrototypeAncestor(metaData.EntityPrototype, recipeSolid.Key))
                         {
                             _container.Remove(item, component.Storage);
-                            EntityManager.DeleteEntity(item);
+                            Del(item);
                             break;
                         }
                     }
@@ -369,19 +366,19 @@ namespace Content.Server.Kitchen.EntitySystems
             }
 
             args.Handled = true;
-            
+
             if (TryComp<StackComponent>(args.Used, out var stack))
             {
                 var storageAvailable = ent.Comp.Capacity - ent.Comp.Storage.Count;
-                
+
                 // do while enough remaining storage and stack has items
-                while (storageAvailable > 0 && stack.Count > 0) 
+                while (storageAvailable > 0 && stack.Count > 0)
                 {
                     var newEntity = _stackSystem.Split(args.Used,1, Transform(ent).Coordinates, stack);
 
-                    if (newEntity is not {} entity) // stop when no new entity, else unpack into 'entity' 
+                    if (newEntity is not {} entity) // stop when no new entity, else unpack into 'entity'
                         break;
-                    
+
                     _container.Insert(entity, ent.Comp.Storage);
                     storageAvailable--;
                 }
@@ -390,7 +387,7 @@ namespace Content.Server.Kitchen.EntitySystems
             {
                 _handsSystem.TryDropIntoContainer(args.User, args.Used, ent.Comp.Storage);
             }
-            
+
             UpdateUserInterfaceState(ent, ent.Comp);
         }
 
@@ -506,7 +503,7 @@ namespace Content.Server.Kitchen.EntitySystems
             if (_random.Prob(ent.Comp2.LightningChance))
                 _lightning.ShootRandomLightnings(ent, 1.0f, 2, MalfunctionSpark, triggerLightningEvents: false);
         }
-
+// TODO: misfits: what the fuck is that name. This function is a mess
         /// <summary>
         /// Starts Cooking
         /// </summary>
@@ -595,10 +592,15 @@ namespace Content.Server.Kitchen.EntitySystems
                     var solution = soln.Comp.Solution;
                     foreach (var (reagent, quantity) in solution.Contents)
                     {
-                        if (reagentDict.ContainsKey(reagent.Prototype))
+                        //Misfits Fix: copypasted and edited ancestor solids code from cynth
+                        if (!reagentDict.TryAdd(reagent.Prototype,quantity))
                             reagentDict[reagent.Prototype] += quantity;
-                        else
-                            reagentDict.Add(reagent.Prototype, quantity);
+
+                        var ancestors = _prototype.Index<ReagentPrototype>(reagent.Prototype).Parents ?? [];
+                        foreach (var parent in ancestors)
+                            if (!reagentDict.TryAdd(parent,quantity))
+                                reagentDict[parent] += quantity;
+
                     }
                 }
             }

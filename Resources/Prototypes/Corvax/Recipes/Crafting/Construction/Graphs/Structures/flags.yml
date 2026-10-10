@@ -273,3 +273,37 @@
               southRotation: true
     - node: LegionCross
       entity: N14DecorationLegionCross
+
+# new canaan town subfaction flag
+- type: constructionGraph
+  id: DecorationFlagNewCanaan
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: FlagNewCanaan
+      steps:
+      - material: WoodPlank
+        amount: 5
+        doAfter: 3
+      - material: Cloth
+        amount: 5
+        doAfter: 3
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+  - node: FlagNewCanaan
+    entity: MisfitsDecorationFlagpoleNewCanaan
+    edges:
+    - to: start
+      steps:
+      - tool: Prying
+        doAfter: 3
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank1
+        amount: 5
+      - !type:SpawnPrototype
+        prototype: MaterialCloth1
+        amount: 5
+      - !type:DeleteEntity

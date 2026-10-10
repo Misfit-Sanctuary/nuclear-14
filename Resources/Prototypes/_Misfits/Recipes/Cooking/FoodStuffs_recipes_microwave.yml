@@ -97,7 +97,7 @@
   result: MisfitsFoodChocolateBar
   time: 5
   reagents:
-    N14MilkBrahmin: 5
+    Milk: 5
     Sugar: 5
     CocoaPowder: 2
 
@@ -141,7 +141,7 @@
   result: MisfitsFoodKebabWrap
   time: 5
   solids:
-    N14FoodMeatBrahminCutletCooked: 3
+    MisfitsFoodKebabSlice: 3
     N14FoodCabbage: 1
     N14FloraProduceWildOnion: 1
     N14FoodDoughSlice: 1
@@ -232,7 +232,7 @@
   time: 10
   reagents:
     ExtractRazorgrainFlour: 10
-    N14MilkBrahmin: 5
+    Milk: 5
     Egg: 5
     Raiser: 5
 
@@ -244,7 +244,7 @@
   time: 5
   reagents:
     ExtractRazorgrainFlour: 5
-    N14MilkBrahmin: 5
+    Milk: 5
   solids:
     FoodButterSlice: 1
 
@@ -256,7 +256,7 @@
   time: 10
   reagents:
     ExtractRazorgrainFlour: 10
-    N14MilkBrahmin: 10
+    Milk: 10
     Raiser: 5
   solids:
     FoodButterSlice: 1
@@ -313,7 +313,7 @@
   id: CarrotCandy
   impact: Low
   quantized: true
-  minTemp: 400
+  minTemp: 370
   reactants:
     JuiceCarrot:
       amount: 5
@@ -327,7 +327,7 @@
   id: BuffaloGourdCandy
   impact: Low
   quantized: true
-  minTemp: 400
+  minTemp: 370
   reactants:
     ExtractBuffaloGourd:
       amount: 5
@@ -341,7 +341,7 @@
   id: BlackberryCandy
   impact: Low
   quantized: true
-  minTemp: 400
+  minTemp: 370
   reactants:
     BlackberryJam:
       amount: 5
@@ -355,7 +355,7 @@
   id: ButterscotchCandy
   impact: Low
   quantized: true
-  minTemp: 400
+  minTemp: 370
   reactants:
     Butterscotch:
       amount: 5
@@ -381,7 +381,7 @@
   id: JetCandy
   impact: Low
   quantized: true
-  minTemp: 400
+  minTemp: 370
   reactants:
     MovespeedMixture:
       amount: 5

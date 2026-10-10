@@ -26,7 +26,7 @@
       jobs:
         - FollowerHead    # #Misfits Change - Followers job replaced by ranked hierarchy
         - FollowerDoctor
-        - FollowerGuard
+#        - FollowerGuard # erm
         - FollowerVolunteer
     # Forge-Change-End
     - !type:CharacterTraitRequirement
@@ -40,7 +40,7 @@
     - !type:TraitModifyUnarmed
       flatDamageIncrease:
         types:
-          Blunt: 2
+          Blunt: 15 # of course subject to change
 
 - type: trait
   id: N14RadClaws
@@ -59,8 +59,8 @@
     - !type:TraitModifyUnarmed
       flatDamageIncrease:
         types:
-          Slash: 1
-          Radiation: 1
+          Slash: 10
+          Radiation: 5 # subject to change rads are ANNOYING!!!!!!!!!!
 
 - type: trait
   id: N14WeakLiquor
@@ -116,7 +116,7 @@
       jobs:
         - FollowerHead    # #Misfits Change - Followers job replaced by ranked hierarchy
         - FollowerDoctor
-        - FollowerGuard
+#        - FollowerGuard
         - FollowerVolunteer
     # Forge-Change-End
     - !type:CharacterTraitRequirement
@@ -177,11 +177,11 @@
     - !type:TraitReplaceComponent
       components:
         - type: CritModifier
-          critThresholdModifier: 5
+          critThresholdModifier: 25 # subject to change
     - !type:TraitReplaceComponent
       components:
         - type: DeadModifier
-          deadThresholdModifier: 10
+          deadThresholdModifier: 50 # subject to change
 
 - type: trait
   id: N14BadReflexes
@@ -213,7 +213,7 @@
       jobs:
         - FollowerHead    # #Misfits Change - Followers job replaced by ranked hierarchy
         - FollowerDoctor
-        - FollowerGuard
+#        - FollowerGuard # really cant have a badass follower's gun slinger???
         - FollowerVolunteer
     # Forge-Change-End
     - !type:CharacterTraitRequirement
@@ -225,7 +225,7 @@
         - Human
         - Ghoul
         - GhoulGlowing # #Misfits Add — allow GhoulGlowing to take Lightning Hands
-        - SuperMutant 
+        - SuperMutant
   functions:
     - !type:TraitModifyUnarmed
       attackRateModifier: 0.9
@@ -300,7 +300,7 @@
       jobs:
         - FollowerHead    # #Misfits Change - Followers job replaced by ranked hierarchy
         - FollowerDoctor
-        - FollowerGuard
+#        - FollowerGuard
         - FollowerVolunteer
   # Forge-Change-End
   functions:
@@ -390,7 +390,7 @@
       jobs:
         - FollowerHead    # #Misfits Change - Followers job replaced by ranked hierarchy
         - FollowerDoctor
-        - FollowerGuard
+#        - FollowerGuard # asylum guards learn this 1st day of training
         - FollowerVolunteer
         - CaesarLegionSlave # Restricted from Slaves & Prisoners - if they had these traits, they wouldn't be stuck in the first place!
         - NCRPrisoner
@@ -467,7 +467,7 @@
         - BoSWestElderCommander
         - FollowerHead    # #Misfits Change - Followers job replaced by ranked hierarchy
         - FollowerDoctor
-        - FollowerGuard
+#        - FollowerGuard # actually wouldnt it make more sense for the guards to have this since the followers give this upgrade?
         - FollowerVolunteer
         # Forge-Change-End
     - !type:CharacterTraitRequirement

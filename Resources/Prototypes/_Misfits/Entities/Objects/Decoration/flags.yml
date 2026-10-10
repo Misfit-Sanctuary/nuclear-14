@@ -69,3 +69,15 @@
     sprite: _Misfits/Objects/Decoration/Flags/bos509th_flagpole.rsi
     state: icon
     noRot: true
+
+# #Misfits Add - New Canaan flagpole item (sprite by portugeese0782)
+- type: entity
+  parent: N14DecorationFlagFlammable
+  id: MisfitsDecorationFlagpoleNewCanaan
+  name: New Canaan Flagpole
+  description: A navy blue flag with a White Ring, Stars and the Angel. It is the flag of the people of New Canaan
+  components:
+  - type: Sprite
+    sprite: _Misfits/Structures/Decoration/newcanaanflag.rsi
+    state: newcanaanflag
+    noRot: true
