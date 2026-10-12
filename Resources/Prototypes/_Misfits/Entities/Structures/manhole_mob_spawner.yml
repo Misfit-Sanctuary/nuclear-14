@@ -6,6 +6,7 @@
   components:
   - type: InteractionOutline
   - type: Appearance
+  - type: PryUnpowered
   - type: ManholeSpawner
     intervalSeconds: 20
     activationRange: 30

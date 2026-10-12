@@ -15,6 +15,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server._Misfits.ManholeSpawner;
 
@@ -51,10 +52,7 @@ public sealed class ManholeSpawnerSystem : EntitySystem
         var query = EntityQueryEnumerator<ManholeSpawnerComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (!comp.Open)
-                continue;
-
-            if (curTime < comp.CheckTime)
+            if (!comp.Open || curTime < comp.CheckTime)
                 continue;
 
             comp.CheckTime = curTime + CheckInterval(comp);
@@ -86,22 +84,25 @@ public sealed class ManholeSpawnerSystem : EntitySystem
         if (comp.Prototypes.Count == 0)
             return;
 
+        // Shuffle and slice so a wave draws without replacement instead of repeating one entry.
+        var pool = comp.Prototypes.ToArray();
+        _random.Shuffle(pool.AsSpan());
+
+        var count = Math.Min(_random.Next(comp.MinimumEntitiesSpawned, comp.MaximumEntitiesSpawned + 1), pool.Length);
         var coordinates = Transform(uid).Coordinates;
-        var count = _random.Next(comp.MinimumEntitiesSpawned, comp.MaximumEntitiesSpawned + 1);
-        for (var i = 0; i < count; i++)
+        foreach (var picked in pool.AsSpan(0, count))
         {
-            // Roll the dice first so a failed spawn frees the slot for the next attempt.
             if (comp.MaxAliveNearby > 0 && comp.AliveCount >= comp.MaxAliveNearby)
                 return;
 
-            var picked = _random.Pick(comp.Prototypes);
             try
             {
                 Track(uid, comp, SpawnAtPosition(picked, coordinates));
             }
             catch (EntityCreationException e)
             {
-                // One bad prototype should not stop the wave.
+                // One bad prototype should not stop the wave, but never let broken YAML pass silently.
+                DebugTools.Assert($"Manhole spawner {ToPrettyString(uid)} could not spawn {picked}: {e}");
                 Log.Warning($"Caught an exception while trying to spawn {picked} from manhole spawner " +
                             $"{ToPrettyString(uid)}: {e}");
             }
@@ -117,15 +118,16 @@ public sealed class ManholeSpawnerSystem : EntitySystem
     }
 
     /// Idempotent, a mob that already stopped counting cannot double decrement.
-    private void Untrack(EntityUid spawner, EntityUid mob)
+    private void Untrack(EntityUid spawner, SpawnedByManholeComponent marker)
     {
-        if (!TryComp(mob, out SpawnedByManholeComponent? marker) || !marker.Counted)
+        if (!marker.Counted)
             return;
 
         marker.Counted = false;
 
-        if (TryComp(spawner, out ManholeSpawnerComponent? comp))
-            comp.AliveCount = Math.Max(0, comp.AliveCount - 1);
+        // Markers are stripped on spawner shutdown, so a live marker implies a live spawner comp.
+        var comp = Comp<ManholeSpawnerComponent>(spawner);
+        comp.AliveCount = Math.Max(0, comp.AliveCount - 1);
     }
 
     // Living player in range, 0 means always.
@@ -138,7 +140,7 @@ public sealed class ManholeSpawnerSystem : EntitySystem
         var mapPos = _transform.GetMapCoordinates(uid, xform);
 
         // Only actors come back, so the broad phase does the filtering for us.
-        foreach (var actor in _lookup.GetEntitiesInRange<ActorComponent>(mapPos, range))
+        foreach (var actor in _lookup.GetEntitiesInRange<ActorComponent>(mapPos, range, LookupFlags.Dynamic))
         {
             if (actor.Owner != uid && IsActivePlayer(actor))
                 return true;
@@ -147,13 +149,9 @@ public sealed class ManholeSpawnerSystem : EntitySystem
         return false;
     }
 
-    /// Living, actually controlled by a player, and not AFK.
+    /// Living and not AFK.
     private bool IsActivePlayer(Entity<ActorComponent> actor)
     {
-        // An actor whose session is attached elsewhere is an NPC or a visit form, not a player here.
-        if (actor.Comp.PlayerSession.AttachedEntity != actor.Owner)
-            return false;
-
         if (!TryComp(actor.Owner, out MobStateComponent? mob)
             || (mob.CurrentState != MobState.Alive && mob.CurrentState != MobState.Critical))
             return false;
@@ -171,15 +169,10 @@ public sealed class ManholeSpawnerSystem : EntitySystem
                         $"never spawn anything.");
         }
 
-        // Random.Next throws on an inverted range, and this runs every update after.
         if (comp.MinimumEntitiesSpawned > comp.MaximumEntitiesSpawned)
-        {
-            Log.Warning($"Manhole spawner {ToPrettyString(uid)} has minimumEntitiesSpawned " +
-                        $"({comp.MinimumEntitiesSpawned}) above maximumEntitiesSpawned " +
-                        $"({comp.MaximumEntitiesSpawned}), swapping them.");
-            (comp.MinimumEntitiesSpawned, comp.MaximumEntitiesSpawned) =
-                (comp.MaximumEntitiesSpawned, comp.MinimumEntitiesSpawned);
-        }
+            throw new InvalidOperationException($"Manhole spawner {ToPrettyString(uid)} has " +
+                                                $"minimumEntitiesSpawned ({comp.MinimumEntitiesSpawned}) above " +
+                                                $"maximumEntitiesSpawned ({comp.MaximumEntitiesSpawned}).");
 
         comp.CheckTime = _timing.CurTime + CheckInterval(comp);
         UpdateAppearance(uid, comp);
@@ -245,7 +238,7 @@ public sealed class ManholeSpawnerSystem : EntitySystem
         if (args.NewMobState != MobState.Dead)
             return;
 
-        Untrack(marker.Spawner, uid);
+        Untrack(marker.Spawner, marker);
     }
 
     // Catches queue dels, map changes and anything else that skips the death path.
@@ -254,11 +247,19 @@ public sealed class ManholeSpawnerSystem : EntitySystem
         if (TerminatingOrDeleted(marker.Spawner))
             return;
 
-        Untrack(marker.Spawner, uid);
+        Untrack(marker.Spawner, marker);
     }
 
     private void OnSpawnerShutdown(EntityUid uid, ManholeSpawnerComponent comp, ComponentShutdown args)
     {
         comp.AliveCount = 0;
+
+        // Drop our markers too, or they outlive the spawner they point at.
+        var query = EntityQueryEnumerator<SpawnedByManholeComponent>();
+        while (query.MoveNext(out var mob, out var marker))
+        {
+            if (marker.Spawner == uid)
+                RemComp<SpawnedByManholeComponent>(mob);
+        }
     }
 }
