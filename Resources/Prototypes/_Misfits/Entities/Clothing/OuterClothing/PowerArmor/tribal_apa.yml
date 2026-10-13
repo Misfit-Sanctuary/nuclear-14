@@ -6,19 +6,75 @@
 - type: entity
   parent: N14ClothingOuterPowerArmorAdvanced1
   id: N14ClothingOuterPowerArmorTribalAPA
-  name: tribal advanced power armor
-  description: A suit of APA MK I power armor adorned with Ug-Qualtoth tribal markings. Ancient script and sacred bones have been grafted into the plating — its protection remains entirely undiminished by the decoration.
+  name: Tribal Salvaged APA
+  description: A salvaged suit of APA mk1 Fit for a Tribal Chief, Removed plating makes it more maneuverable as a result it's advanced systems where removed.
   components:
+  - type: N14PowerArmor
+    requiresProficiency: false 
+  - type: Damageable
+  - type: PowerArmorIntegrity
+    maxIntegrity: 300        
+    brokenBleedthroughRatio: 1.0  
+    disableServosLock: true       
+  - type: Repairable
+    fuelCost: 10
+    doAfterDelay: 10 
+    qualityNeeded: Welding
+  
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/PowerArmor/tribal_apa.rsi
   - type: Clothing
-    sprite: _Misfits/Clothing/OuterClothing/PowerArmor/tribal_apa.rsi
-    equipDelay: 3
+    sprite: _Misfits/Clothing/OuterClothing/PowerArmor/tribal_apa.rsi 
+    equipDelay: 3 
     unequipDelay: 6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: UserInterface
+    interfaces:
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
   - type: ToggleableClothing
-    # Override only to point head at the tribal helmet; gloves/shoes/back unchanged from APA MK I
+    requiredSlot: outerClothing
+    blockUnequipWhenAttached: true
+    replaceCurrentClothing: false
     clothingPrototypes:
       head: N14ClothingHeadHelmetPowerArmorTribalAPA
       gloves: N14ClothingPAGauntletsDark
       shoes: N14ClothingPABootsDark
-      back: N14ClothingPowerSystemsBack
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.75
+        Radiation: 0.60
+  - type: TemperatureProtection
+    coefficient: 0.25
+  - type: FireProtection
+    reduction: 0.9
+  - type: HeldSpeedModifier
+    mirrorClothingModifier: false
+    walkModifier: 0.7
+    sprintModifier: 0.7
+  - type: MultiHandedItem
+  - type: Reflect 
+    reflects:
+      - SmallCaliber
+      - MediumCaliber
+    reflectProb: 0.35
+    reflectProbByType:
+      MediumCaliber: 0.10 
+    innate: true
+    spread: 90
+  - type: EmitsSoundOnMove 
+    soundCollection:
+      collection: N14FootstepPowerArmor
+      params:
+        volume: -6
+    requiresWorn: true
+    distanceWalking: 3
+    distanceSprinting: 4     
+  - type: PowerArmorBrace
+    requiredSlot: BELT
