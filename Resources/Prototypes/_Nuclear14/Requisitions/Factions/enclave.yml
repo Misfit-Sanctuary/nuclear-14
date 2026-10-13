@@ -242,9 +242,9 @@
         crate: N14CrateRequisitionsEnclavePulsePistol
       - cost: 2800
         crate: N14CrateRequisitionsEnclavePlasmaAuto
-      - cost: 3000
-        stock: 3
-        crate: N14CrateRequisitionsEnclaveGaussPistol
+      - cost: 4000
+        stock: 1
+        crate: N14CrateRequisitionsEnclaveGaussRifle
       - cost: 3200
         stock: 3
         crate: N14CrateRequisitionsEnclaveRCW
@@ -347,7 +347,7 @@
         crate: N14CrateRequisitionsEnclaveTools
       - cost: 400
         crate: N14CrateRequisitionsEnclaveMining
-      - cost: 3500
+      - cost: 3800
         crate: N14CrateRequisitionsEnclaveIngots
     - name: n14-requisitions-category-provisions
       entries:
@@ -595,8 +595,8 @@
 
 - type: entity
   parent: N14CrateRequisitions
-  id: N14CrateRequisitionsEnclaveGaussPistol
-  name: PPK-12 gauss pistol crate
+  id: N14CrateRequisitionsEnclaveGaussRifle
+  name: M72 gauss rifle crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
@@ -606,11 +606,10 @@
     reward: 50
   - type: StorageFill
     contents:
-    - id: N14WeaponGaussPistol
+    - id: N14WeaponGaussRifle
       amount: 1
-    - id: N14Magazine2mmECPistol
+    - id: N14Magazine2mmECRifle
       amount: 3
-
 
 - type: entity
   parent: N14CrateRequisitions

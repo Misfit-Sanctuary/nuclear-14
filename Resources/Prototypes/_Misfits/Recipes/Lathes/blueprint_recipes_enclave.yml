@@ -15,7 +15,7 @@
 # ENCLAVE WEAPON RECIPES
 # =====================================================================
 
-# M72 gauss rifle - disabled; it remains available only through Tier 5 loot.
+# M72 gauss rifle - disabled; it remains available only through Tier 5 loot and as a single purchasable in the ASRS
 # - type: latheRecipe
 #   id: N14BPEnclaveWeaponGaussRifle
 #   result: N14WeaponGaussRifle
@@ -31,19 +31,19 @@
 #     Plastic: 1000
 
 # PPK12 gauss pistol - 135 steel, 7 copper, 20 circuitry, 10 plastic
-- type: latheRecipe
-  id: N14BPEnclaveWeaponGaussPistol
-  result: N14WeaponGaussPistol
-  category: N14enclaveheavyordnancet5
-  completetime: 25
-  requiresBlueprint: true
-  availableFaction:
-  - Enclave
-  materials:
-    Steel: 13500
-    N14Copper: 700
-    Circuitry: 2000
-    Plastic: 1000
+#- type: latheRecipe
+#  id: N14BPEnclaveWeaponGaussPistol
+#  result: N14WeaponGaussPistol
+#  category: N14enclaveheavyordnancet5
+#  completetime: 25
+#  requiresBlueprint: true
+#  availableFaction:
+#  - Enclave
+#  materials:
+#    Steel: 13500
+#    N14Copper: 700
+#    Circuitry: 2000
+#    Plastic: 1000
 
 # =====================================================================
 # ENCLAVE AMMO RECIPES

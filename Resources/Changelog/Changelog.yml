@@ -12187,3 +12187,254 @@ Entries:
   id: 6496
   time: '2026-10-03T22:35:49.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2037
+- author: cythisiax
+  changes:
+    - type: Fix
+      message: NCR Venndnor & Medical Officer + Combat armor addition
+    - type: Fix
+      message: Admin things
+  id: 6497
+  time: '2026-10-04T11:53:06.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2039
+- author: aftermath434
+  changes:
+    - type: Add
+      message: 'Off duty, director of science, and ESI agent to enclave   '
+  id: 6498
+  time: '2026-10-04T12:08:16.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2026
+- author: cythisiax
+  changes:
+    - type: Add
+      message: Updates to extractor waves, increased spawn pool choices.
+    - type: Add
+      message: Radio Tower, must be activated during round to enable :w/Wasteland
+    - type: Add
+      message: N14JunkAbraxoCleaner combination to create it
+    - type: Fix
+      message: Issues with NCR Vendor
+  id: 6499
+  time: '2026-10-04T23:55:03.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2042
+- author: cythisiax
+  changes:
+    - type: Fix
+      message: >-
+        I accidentally attached a tag to ALL N14RadioTower and spammed map. It
+        is now on a specific N14RadioTower now.
+  id: 6500
+  time: '2026-10-05T02:16:39.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2043
+- author: consumption45
+  changes:
+    - type: Add
+      message: another houndmaster slot
+  id: 6501
+  time: '2026-10-05T02:23:32.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1962
+- author: riptidetheshark87-tech
+  changes:
+    - type: Fix
+      message: tribal helmet costing 500 steel
+  id: 6502
+  time: '2026-10-05T18:21:57.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2045
+- author: ToasterEnjoyer
+  changes: []
+  id: 6503
+  time: '2026-10-05T23:08:29.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2000
+- author: JohnKieser
+  changes:
+    - type: Add
+      message: A lot of new microwavable recipes and other food related stuff.
+  id: 6504
+  time: '2026-10-06T16:15:38.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2051
+- author: JohnKieser
+  changes:
+    - type: Fix
+      message: >-
+        fixed recipes for new food items. Adjusted storage and size of food box.
+        Food category now shows up for caravan trader.
+    - type: Fix
+      message: >-
+        Fixed brahdos being limited trader stock. I misinterpreted the prototype
+        and thought it meant they were sold in pairs. Prices also adjusted
+        because of this.  
+  id: 6505
+  time: '2026-10-07T21:39:05.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2059
+- author: cythisiax
+  changes:
+    - type: Add
+      message: 'AutoWarpers between map grids. A FTB screen and lower right welcome. '
+    - type: Add
+      message: >-
+        Pinmap command to allow admins to make global map pins for
+        WendoverMap/Tacmaps
+    - type: Remove
+      message: >-
+        Gauss Rifle has been commented out codewise, but remains admin
+        spawnable.
+    - type: Tweak
+      message: Adjustment to MechPA
+  id: 6506
+  time: '2026-10-07T21:39:39.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2054
+- author: Bradysgaming
+  changes:
+    - type: Fix
+      message: Fixed Enclave commander timelock (120 -> 40 hours)
+  id: 6507
+  time: '2026-10-08T19:56:03.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2063
+- author: RedBookcase
+  changes:
+    - type: Remove
+      message: Removed craftable explosive barrels
+    - type: Tweak
+      message: >-
+        Crafting radioactive barrels now costs uranium. They also no longer have
+        1000 HP.
+    - type: Tweak
+      message: >-
+        Enclave Vertibird Pilot is no longer a Commissioned Officer but instead
+        NCO-tier.
+    - type: Tweak
+      message: >-
+        Fixed some Enclave loadout options not being available to Reformers.
+        Added Hellfire PA as a cosmetic alternative to replace the regular
+        Reformer PA.
+    - type: Remove
+      message: Removed General pin for Enclave Commanders (Reformer only rank).
+  id: 6508
+  time: '2026-10-08T21:39:04.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2065
+- author: JohnKieser
+  changes:
+    - type: Tweak
+      message: Nerfed lasagna
+    - type: Fix
+      message: 'Food recipe fixes for hopefully the last time. '
+    - type: Fix
+      message: >-
+        Sweet n' Spicy Kebab recipe changed to accept glowpepper instead of
+        pickled jalepenos 
+    - type: Add
+      message: Added Perfect Lasagna
+  id: 6509
+  time: '2026-10-08T21:40:25.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2062
+- author: Marabout
+  changes:
+    - type: Tweak
+      message: >-
+        [LEGION] Reduce the M240B's ROE from 8 to 5.5, realigning it with the
+        rest of the balance regarding 5.56 and 7.62 caliber.
+  id: 6510
+  time: '2026-10-08T22:10:40.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2008
+- author: Marabout2
+  changes:
+    - type: Tweak
+      message: '[BALANCE] Tweaked the wield delay of the BAR that neutered it to zero'
+  id: 6511
+  time: '2026-10-08T22:22:25.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2066
+- author: Vixting
+  changes:
+    - type: Add
+      message: 'add gold & silver as sellables for encalve '
+  id: 6512
+  time: '2026-10-10T23:56:29.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2052
+- author: Vixting
+  changes:
+    - type: Fix
+      message: 'fix stacks of items not being counted for bounties '
+  id: 6513
+  time: '2026-10-11T22:05:02.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2058
+- author: cythisiax
+  changes:
+    - type: Add
+      message: Admin Loremaster Tab event shit. Local audio & Global audio play.
+  id: 6514
+  time: '2026-10-12T00:28:03.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2075
+- author: RedBookcase
+  changes:
+    - type: Add
+      message: >-
+        New laser sprites for the Wattz & Recharger line of weapons. The Wattz
+        now fires fat yellow lasers, while Rechargers fire narrow orange lasers.
+    - type: Fix
+      message: Wattz-related typo in the Enclave Enlisted kits.
+  id: 6515
+  time: '2026-10-12T00:28:14.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2074
+- author: Vixting
+  changes:
+    - type: Add
+      message: >-
+        Added mount overlays (handlebars for bikes) & hiding parts of the
+        players sprite to make it look better
+    - type: Add
+      message: Positioned players sprite better for mounts
+    - type: Fix
+      message: Fix misc issues with mounts, should feel much smoother
+  id: 6516
+  time: '2026-10-12T17:56:16.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2073
+- author: cythisiax
+  changes:
+    - type: Tweak
+      message: 'revert NCR loadout removal because "ncr is half baked RMC cancer now" '
+    - type: Tweak
+      message: Disable vendors because they're halfbaked RMC cancer
+  id: 6517
+  time: '2026-10-12T18:20:50.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2024
+- author: alekszejg
+  changes:
+    - type: Add
+      message: Added Kokoa plant and seeds. Chocolate!!!
+    - type: Add
+      message: Added Kokoa seed spawns and trading
+    - type: Add
+      message: Added Kokoa pod trading contract
+    - type: Fix
+      message: Fixed chocolate-related recipes
+  id: 6518
+  time: '2026-10-12T20:13:03.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2060
+- author: RedBookcase
+  changes:
+    - type: Add
+      message: >-
+        Gauss Rifle ASRS crate purchase for Enclave. There's only a single
+        one...
+    - type: Tweak
+      message: Lowered Gauss Rifle ROF from 2.0 to 1.2
+    - type: Remove
+      message: Removed BoS Recruitment Popup.
+    - type: Remove
+      message: >-
+        Remove Enclave Gauss Pistol BP and ASRS order, and removed it from
+        random expedition loot as well.
+    - type: Tweak
+      message: 'Renamed Poleaxe to Bardiche :nerd_face: '
+    - type: Tweak
+      message: Removed second Knight Lancer slot.
+    - type: Tweak
+      message: >-
+        Lots of changes to wield delays. Wield delay removed on 5.56 LMGs. Wield
+        delay and movespeed slow lowered for M240b following it's ROF nerf. 
+    - type: Tweak
+      message: >-
+        Increased price of Enclave materials crate to prevent infinite money
+        exploit
+  id: 6519
+  time: '2026-10-13T03:27:54.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2076

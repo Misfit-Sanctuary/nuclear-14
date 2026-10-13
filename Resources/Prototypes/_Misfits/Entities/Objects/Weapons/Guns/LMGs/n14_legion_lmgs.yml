@@ -20,10 +20,10 @@
     size: Huge
     sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/canadianhmg.rsi
   - type: Wieldable
-    wieldedSpeedModifier: 0.65
+    wieldedSpeedModifier: 0.80
   - type: GunRequiresWield
   - type: WieldDelay # Misfits-change
-    baseDelay: 2
+    baseDelay: 1.0
     preventFiring: true
   - type: GunWieldBonus
     minAngle: -22

@@ -1,7 +1,6 @@
 # NCR Loadouts
-# Rank pins are NOT distributed via loadouts. NCR Army and Military Police pins
-# are issued by the equipment vendor; only progressions explicitly opted into
-# roundstart spawning are placed in the player's hand by NCRRankPinSpawnSystem.
+# Rank pins are NOT distributed via loadouts. NCRRankPinSpawnSystem auto-gives
+# the correct pin (based on playtime) directly into the player's hand on spawn.
 # See: Resources/Prototypes/_Misfits/NCR/ncr_rank_pin_progressions.yml
 
 # ── COSMETIC LOADOUTS ─────────────────────────────────────────────────────────
@@ -36,34 +35,6 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
-    # NCR Army and Military Police receive this equipment from the rank-tier vendor.
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs: &ncrArmyVendorProvisionedJobs
-        - NCRCadet
-        - NCRSoldier
-        - NCRPrivateFirstClass
-        - NCRMedic
-        - NCRDoctor
-        - NCREngineer
-        - NCRWS
-        - NCRHeavyTrooper
-        - NCRHeavyTrooperLead
-        - NCRNCO
-        - NCRStaffSergeant
-        - NCRFirstSergeant
-        - NCRVertibirdPilot
-        - NCRMPinvestigator
-        - NCRProvost
-        - NCRMilitaryPoliceRecruit
-        - NCRMilitaryPoliceSergeant
-        - NCRMilitaryPoliceCaptain
-        - NCRExecutiveOfficer
-        - NCRPlatoonLeader
-        - NCRRO
-        - NCRCommander
-        - NCRMajor
-        - NCRLTCol
   items:
     - N14ClothingEyesGlassesGoggles
 
@@ -128,10 +99,6 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
-    # NCR Army and Military Police receive this equipment from the rank-tier vendor.
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs: *ncrArmyVendorProvisionedJobs
   items:
     - N14ClothingHeadHatWinterBoonie
 
@@ -164,10 +131,6 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
-    # NCR Army and Military Police receive this equipment from the rank-tier vendor.
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs: *ncrArmyVendorProvisionedJobs
   items:
     - N14ClothingHeadHatWoodBoonie
 
@@ -200,10 +163,6 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
-    # NCR Army and Military Police receive this equipment from the rank-tier vendor.
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs: *ncrArmyVendorProvisionedJobs
   items:
     - N14ClothingHeadHatDesertBoonie
 
@@ -235,10 +194,6 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
-    # NCR Army and Military Police receive this equipment from the rank-tier vendor.
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs: *ncrArmyVendorProvisionedJobs
   items:
     - N14ClothingNeckCloakNCR
 
@@ -270,10 +225,6 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
-    # NCR Army and Military Police receive this equipment from the rank-tier vendor.
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs: *ncrArmyVendorProvisionedJobs
   items:
     - N14ClothingNeckCloakGhillie
 
@@ -305,10 +256,6 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
-    # NCR Army and Military Police receive this equipment from the rank-tier vendor.
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs: *ncrArmyVendorProvisionedJobs
   items:
     - N14ClothingNeckCloakNCRSnow
 
@@ -340,10 +287,6 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
-    # NCR Army and Military Police receive this equipment from the rank-tier vendor.
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs: *ncrArmyVendorProvisionedJobs
   items:
     - N14ClothingNeckCloakNCRWoods
 
@@ -375,10 +318,6 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
-    # NCR Army and Military Police receive this equipment from the rank-tier vendor.
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs: *ncrArmyVendorProvisionedJobs
   items:
     - N14ClothingMaskBrownBalaclava
 
@@ -750,10 +689,6 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
-    # NCR Army and Military Police receive this equipment from the rank-tier vendor.
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs: *ncrArmyVendorProvisionedJobs
   items:
     - ClothingBeltNCRHarness
 
@@ -796,10 +731,6 @@
     - !type:CharacterTraitRequirement
       traits:
       - N14RidingPerk
-    # NCR Army and Military Police receive this equipment from the rank-tier vendor.
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs: *ncrArmyVendorProvisionedJobs
   items:
     - N14ClothingHeadHatNCRStetson
 
@@ -839,10 +770,6 @@
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 144000 # 40 hours, work for that hat!
-    # NCR Army and Military Police receive this equipment from the rank-tier vendor.
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs: *ncrArmyVendorProvisionedJobs
   items:
     - N14ClothingEyesNCRGoggles
 
@@ -1307,10 +1234,6 @@
         - NCRPatrolRanger
         - NCRVeteranRanger
         - NCRRO
-    # NCR Army and Military Police receive this equipment from the rank-tier vendor.
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs: *ncrArmyVendorProvisionedJobs
   items:
     - ClothingBeltNCRPouches
 
@@ -1342,10 +1265,6 @@
         - NCRPatrolRanger
         - NCRVeteranRanger
         - NCRRO
-    # NCR Army and Military Police receive this equipment from the rank-tier vendor.
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs: *ncrArmyVendorProvisionedJobs
   items:
     - ClothingBeltNCRBandolier
 
@@ -1377,10 +1296,6 @@
         - NCRPatrolRanger
         - NCRVeteranRanger
         - NCRRO
-    # NCR Army and Military Police receive this equipment from the rank-tier vendor.
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs: *ncrArmyVendorProvisionedJobs
   items:
     - ClothingBeltMilitary
 
@@ -1412,9 +1327,5 @@
         - NCRPatrolRanger
         - NCRVeteranRanger
         - NCRRO
-    # NCR Army and Military Police receive this equipment from the rank-tier vendor.
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs: *ncrArmyVendorProvisionedJobs
   items:
     - ClothingBeltRevolver
