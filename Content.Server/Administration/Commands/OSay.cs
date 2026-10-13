@@ -58,7 +58,6 @@ public sealed class OSay : LocalizedCommands
             return;
 
         _entityManager.System<ChatSystem>().TrySendInGameICMessage(source.Value, message, chatType, false);
-        var auditType = shell.Player != null ? LogType.AdminAudit : LogType.Action;
-        _adminLogger.Add(auditType, LogImpact.Low, $"{(shell.Player != null ? shell.Player.Name : "An administrator")} forced {_entityManager.ToPrettyString(source.Value)} to {args[1]}: {message}");
+        _adminLogger.Add(LogType.Action, LogImpact.Low, $"{(shell.Player != null ? shell.Player.Name : "An administrator")} forced {_entityManager.ToPrettyString(source.Value)} to {args[1]}: {message}");
     }
 }

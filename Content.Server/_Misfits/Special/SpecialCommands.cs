@@ -49,7 +49,7 @@ public sealed class SpecialGetCommand : IConsoleCommand
         }
 
         if (shell.Player is { } actor && _players.TryGetSessionByUsername(args[0], out var targetPlayer))
-            _adminLog.Add(LogType.AdminAudit, LogImpact.Low,
+            _adminLog.Add(LogType.Action, LogImpact.Low,
                 $"{actor:actor} viewed SPECIAL values for {targetPlayer:subject}");
 
         foreach (var stat in Content.Shared._Misfits.Special.SpecialStats.All)
@@ -140,7 +140,7 @@ public sealed class SpecialSetCommand : IConsoleCommand
         }
 
         if (shell.Player is { } actor && _players.TryGetSessionByUsername(args[0], out var targetPlayer))
-            _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
                 $"{actor:actor} changed {targetPlayer:subject} SPECIAL {stat} base from {previous} to {value}");
 
         shell.WriteLine($"{stat} set to {value}.");
@@ -309,7 +309,7 @@ public sealed class SpecialModCommand : IConsoleCommand
         }
 
         if (shell.Player is { } actor && _players.TryGetSessionByUsername(args[0], out var targetPlayer))
-            _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
                 $"{actor:actor} applied SPECIAL {stat} modifier {modifier} to {targetPlayer:subject}, effective {previous} -> {specialSystem.GetEffective(target.Value, stat, special)}, duration {duration?.TotalSeconds} seconds, source {source}");
 
         shell.WriteLine($"{stat} temporary modifier {modifier:+#;-#;0} applied.");

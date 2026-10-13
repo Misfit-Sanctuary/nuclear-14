@@ -1,5 +1,4 @@
-# NCR weapon catalog. Approved ammunition and magazines are shared issue;
-# weapons remain separated into the three NCR allocation groups below.
+# NCR weapon catalog. Weapon ammunition is deliberately absent: it remains blueprint-crafted.
 # Example per-item balance override:
 # blueprintEntryOverrides:
 #   N14ExampleWeapon:
@@ -15,7 +14,6 @@
   suffix: NCR
   components:
   - type: CMAutomatedVendor
-    maxAuthorityTier: 3
     # Every NCR weapon vendor instance draws from this shared faction armory pool.
     sharedPool: NCRWeapons
     departmentName: NCR
@@ -25,15 +23,16 @@
     # NCR Army baseline. Rangers and NCR civilian roles use separate provisioning paths.
     jobs:
     - NCRCadet
+    - NCRSoldier
+    - NCRPrivateFirstClass
     - NCRMedic
-    - NCRDoctor
     - NCREngineer
     - NCRWS
     - NCRHeavyTrooper
     - NCRHeavyTrooperLead
-    - SuperMutantNCRTrooper
     - NCRNCO
     - NCRStaffSergeant
+    - NCRFirstSergeant
     - NCRVertibirdPilot
     - NCRMPinvestigator
     - NCRProvost
@@ -44,32 +43,35 @@
     - NCRPlatoonLeader
     - NCRRO
     - NCRCommander
+    - NCRMajor
     - NCRLTCol
     # Role authority is vendor-local: it does not grant corresponding physical door access.
     fullAllocationJobs: [ NCRRO, NCRCommander ]
     replenishmentJobs: [ NCRRO ]
     authorityJobTiers:
       NCRCadet: 1
+      NCRSoldier: 1
+      NCRPrivateFirstClass: 1
       NCRMedic: 1
-      NCRDoctor: 2
       NCREngineer: 1
       NCRWS: 1
       NCRHeavyTrooper: 2
-      SuperMutantNCRTrooper: 1
-      NCRNCO: 2
-      NCRVertibirdPilot: 2
-      NCRHeavyTrooperLead: 2
-      NCRStaffSergeant: 2
-      NCRMPinvestigator: 2
-      NCRProvost: 2
+      NCRNCO: 3
+      NCRVertibirdPilot: 3
+      NCRHeavyTrooperLead: 3
+      NCRStaffSergeant: 3
+      NCRFirstSergeant: 3
+      NCRMPinvestigator: 3
+      NCRProvost: 3
       NCRMilitaryPoliceRecruit: 1
-      NCRMilitaryPoliceSergeant: 2
-      NCRMilitaryPoliceCaptain: 3
-      NCRExecutiveOfficer: 3
-      NCRPlatoonLeader: 2
-      NCRRO: 3
-      NCRCommander: 3
-      NCRLTCol: 3
+      NCRMilitaryPoliceSergeant: 3
+      NCRMilitaryPoliceCaptain: 4
+      NCRExecutiveOfficer: 4
+      NCRPlatoonLeader: 4
+      NCRRO: 5
+      NCRCommander: 5
+      NCRMajor: 5
+      NCRLTCol: 5
     allocationCategories: [ Ballistic, Laser, Plasma, Energy, Melee, Explosives, Ammo, Magazines, Other weapons ]
     sharedEquipmentCategories: [ Ballistic, Laser, Plasma, Energy, Melee, Explosives, Other weapons ]
     defaultAllocationCategory: Other weapons
@@ -104,14 +106,15 @@
       - { id: Magazine308Rifle, category: Magazines, tier: 1 }
       - { id: ClipMagazine308Rifle, category: Magazines, tier: 1 }
       - { id: MagazineOver308RifleSniper, category: Magazines, tier: 1, jobs: [ NCRWS ], requiredJob: Weapon Specialist }
-      - { id: LMGMagazine556Rifle, category: Magazines, tier: 2, amount: 3, maxAmount: 3, jobs: [ NCRHeavyTrooper, NCRHeavyTrooperLead, NCRNCO, NCRStaffSergeant ], requiredJob: Heavy Trooper or Squad Leader }
-      - { id: N14MagazineMinigun5mm, category: Magazines, tier: 2, amount: 2, maxAmount: 2, jobs: [ NCRHeavyTrooperLead ], requiredJob: Heavy Trooper Lead }
+      - { id: LMGMagazine556Rifle, category: Magazines, tier: 2, amount: 3, maxAmount: 3, jobs: [ NCRHeavyTrooper, NCRHeavyTrooperLead, NCRNCO, NCRStaffSergeant, NCRFirstSergeant ], requiredJob: Heavy Trooper or Squad Leader }
+      - { id: N14MagazineMinigun5mm, category: Magazines, tier: 3, amount: 2, maxAmount: 2, jobs: [ NCRHeavyTrooperLead ], requiredJob: Heavy Trooper Lead }
     - name: Tier 1 - Standard Trooper allocation
-      jobs: [ NCRCadet, SuperMutantNCRTrooper ]
+      jobs: [ NCRCadet, NCRSoldier, NCRPrivateFirstClass ]
       entries:
       - { id: N14WeaponPistol9mm, category: Ballistic, tier: 1 }
       - { id: N14WeaponPistol45Colt, category: Ballistic, tier: 1 }
       - { id: N14WeaponRifle556Service, category: Ballistic, tier: 1 }
+      - { id: N14WeaponRifle556ServiceScoped, category: Ballistic, tier: 1 }
       - { id: N14WeaponRifle556Butchered, category: Ballistic, tier: 1 }
       - { id: N14WeaponSniper44LeverCarbine, category: Ballistic, tier: 1 }
       - { id: N14WeaponShotgun, category: Ballistic, tier: 1 }
@@ -122,7 +125,6 @@
     - name: Tier 1 - Engineer allocation
       jobs: [ NCREngineer ]
       entries:
-      - { id: N14WeaponPistol9mm, category: Ballistic, tier: 1 }
       - { id: N14WeaponRifle556Butchered, category: Ballistic, tier: 1 }
       - { id: N14WeaponSMG9mm, category: Ballistic, tier: 1 }
       - { id: N14WeaponShotgunShort, category: Ballistic, tier: 1 }
@@ -132,7 +134,7 @@
       - { id: N14Dynamite, category: Explosives, tier: 1 }
       - { id: N14TinNade, category: Explosives, tier: 1 }
     - name: Tier 1 - Medic allocation
-      jobs: [ NCRMedic, NCRDoctor ]
+      jobs: [ NCRMedic ]
       entries:
       - { id: N14WeaponPistol45Colt, category: Ballistic, tier: 1 }
       - { id: N14WeaponSMG9mm, category: Ballistic, tier: 1 }
@@ -140,8 +142,6 @@
     - name: Tier 1 - Weapon Specialist allocation
       jobs: [ NCRWS ]
       entries:
-      - { id: N14WeaponPistol9mm, category: Ballistic, tier: 1 }
-      - { id: N14WeaponPistol45Colt, category: Ballistic, tier: 1 }
       - { id: N14WeaponRifleGrenade, category: Explosives, tier: 1 }
       - { id: N14WeaponRifle308SniperRifle, category: Ballistic, tier: 1 }
       - { id: N14WeaponSMG9mminfiltrator, category: Ballistic, tier: 1 }
@@ -153,47 +153,26 @@
       entries:
       - { id: N14WeaponRevolverWebley, category: Ballistic, tier: 1 }
       - { id: N14PoliceBaton, category: Melee, tier: 1 }
-    - name: Tier 2 - Squad Leader allocation
-      jobs: [ NCRNCO, NCRStaffSergeant ]
+    - name: Tier 3 - Squad Leader allocation
+      jobs: [ NCRNCO, NCRStaffSergeant, NCRFirstSergeant ]
       entries:
-      - { id: N14WeaponPistol9mm, category: Ballistic, tier: 2 }
-      - { id: N14WeaponRifle556Carbine, category: Ballistic, tier: 2 }
-      - { id: N14WeaponLMG, category: Ballistic, tier: 2 }
-      - { id: N14WeaponRifle308Battle, category: Ballistic, tier: 2 }
-      - { id: N14WeaponShotgunAuto, category: Ballistic, tier: 2 }
-      - { id: N14WeaponShotgunTrench, category: Ballistic, tier: 2 }
-      - { id: SmokeGrenade, category: Explosives, tier: 2 }
-    - name: Tier 2 - Platoon Leader allocation
-      jobs: [ NCRPlatoonLeader ]
-      entries:
-      - { id: N14WeaponLaserdotDesertEagle44, category: Ballistic, tier: 2 }
-      - { id: N14WeaponRifle308Battle, category: Ballistic, tier: 2 }
-      - { id: N14WeaponRifle556Carbine, category: Ballistic, tier: 2 }
-      - { id: N14WeaponSniper44LeverCarbine, category: Ballistic, tier: 2 }
-      - { id: NCRCommissarSabre, category: Melee, tier: 2 }
-    - name: Tier 3 - Executive Officer / Requisition Officer allocation
-      jobs: [ NCRExecutiveOfficer, NCRRO ]
-      entries:
-      - { id: N14WeaponLaserdotDesertEagle44, category: Ballistic, tier: 3 }
-      - { id: N14WeaponRifle308Battle, category: Ballistic, tier: 3 }
       - { id: N14WeaponRifle556Carbine, category: Ballistic, tier: 3 }
-      - { id: N14WeaponSniper44LeverCarbine, category: Ballistic, tier: 3 }
-      - { id: NCRCommissarSabre, category: Melee, tier: 3 }
-    - name: Tier 3 - Military Police Captain allocation
-      jobs: [ NCRMilitaryPoliceCaptain ]
-      entries:
-      - { id: N14WeaponLaserdotDesertEagle44, category: Ballistic, tier: 3 }
+      - { id: N14WeaponLMG, category: Ballistic, tier: 3 }
       - { id: N14WeaponRifle308Battle, category: Ballistic, tier: 3 }
-      - { id: N14WeaponRifle556Carbine, category: Ballistic, tier: 3 }
-      - { id: N14WeaponRifle762Marksman, category: Ballistic, tier: 3 }
-      - { id: NCRCommissarSabre, category: Melee, tier: 3 }
-    - name: Tier 3 - Commander allocation
-      jobs: [ NCRCommander, NCRLTCol ]
+      - { id: N14WeaponShotgunAuto, category: Ballistic, tier: 3 }
+      - { id: N14WeaponShotgunTrench, category: Ballistic, tier: 3 }
+      - { id: SmokeGrenade, category: Explosives, tier: 3 }
+    - name: Tier 4 - Executive Officer / Platoon Leader allocation
+      jobs: [ NCRExecutiveOfficer, NCRPlatoonLeader, NCRMilitaryPoliceCaptain ]
       entries:
-      - { id: N14WeaponPistol9mm, category: Ballistic, tier: 3 }
-      - { id: N14WeaponRifle308Battle, category: Ballistic, tier: 3 }
-      - { id: N14WeaponRifle762Marksman, category: Ballistic, tier: 3 }
-      - { id: N14WeaponRifleM1GarandRepublicsPride, category: Ballistic, tier: 3 }
+      - { id: N14WeaponLaserdotDesertEagle44, category: Ballistic, tier: 4 }
+      - { id: N14WeaponRifle308Battle, category: Ballistic, tier: 4 }
+      - { id: N14WeaponRifle556Carbine, category: Ballistic, tier: 4 }
+      - { id: N14WeaponRifle762Marksman, category: Ballistic, tier: 4 }
+      - { id: NCRCommissarSabre, category: Melee, tier: 4 }
+    - name: Tier 5 - Commander / Requisition Officer allocation
+      entries:
+      - { id: N14WeaponRifleM1GarandRepublicsPride, category: Ballistic, tier: 5 }
     replenishment:
     - currency: Bottlecaps
     - currency: NCRDollars
@@ -203,13 +182,19 @@
       1: 1
       2: 2
       3: 5
+      4: 10
+      5: 20
     # Curated from NCR role kits; crafting blueprint tiers are not job authority tiers.
     populateFromBlueprints: false
     authorityTierNames:
       1: Tier 1 - Trooper / Specialist allocation
-      2: Tier 2 - Field Leadership / Heavy Trooper allocation
-      3: Tier 3 - NCR Command allocation
+      2: Tier 2 - Heavy Trooper allocation
+      3: Tier 3 - Squad Leader allocation
+      4: Tier 4 - Executive Officer / Platoon Leader allocation
+      5: Tier 5 - Commander / Requisition Officer allocation
     authorityTierAccess:
       1: [ NCR ]
       2: [ NCRSGT ]
-      3: [ NCRCaptain ]
+      3: [ NCRLT ]
+      4: [ NCRCaptain ]
+      5: [ NCRCaptain ]

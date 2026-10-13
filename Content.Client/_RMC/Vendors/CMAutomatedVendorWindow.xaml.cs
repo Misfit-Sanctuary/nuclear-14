@@ -147,7 +147,7 @@ public sealed partial class CMAutomatedVendorWindow : DefaultWindow
             };
 
             foreach (var (entry, entryIndex) in entries)
-                entryList.AddChild(CreateAllocationEntry(state, section, entry, section.CatalogIndex, entryIndex));
+                entryList.AddChild(CreateAllocationEntry(state, section, entry, sectionIndex, entryIndex));
 
             var remaining = section.Choices is { } choices
                 ? $" — CHOOSE {Math.Max(0, choices - section.Purchases)}"

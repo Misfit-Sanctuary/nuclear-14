@@ -57,12 +57,7 @@ public sealed class CMAutomatedVendorState : BoundUserInterfaceState
 }
 
 [Serializable, NetSerializable]
-public sealed record CMVendorSectionState(
-    int CatalogIndex,
-    string Name,
-    int? Choices,
-    int Purchases,
-    List<CMVendorEntryState> Entries);
+public sealed record CMVendorSectionState(string Name, int? Choices, int Purchases, List<CMVendorEntryState> Entries);
 
 [Serializable, NetSerializable]
 public sealed record CMVendorEntryState(

@@ -1,16 +1,4 @@
 - type: reaction
-  id: Abraxocleaner
-  reactants:
-    SodiumCarbonate:
-      amount: 1
-    SodiumHydroxide:
-      amount: 1
-    Silicon:
-      amount: 1
-  products:
-    Abraxocleaner: 2
-
-- type: reaction
   id: Jet
   minTemp: 374 # 100 degrees Celcius.
   reactants:

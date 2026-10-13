@@ -7,7 +7,6 @@ using Content.Shared.Database;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Verbs;
-using Robust.Shared.Player;
 
 namespace Content.Server.Verbs
 {
@@ -102,22 +101,18 @@ namespace Content.Server.Verbs
                 holding = pull.BlockingEntity;
 
             var verbText = $"{verb.Category?.Text} {verb.Text}".Trim();
-            var adminVerb = (verb.Category == VerbCategory.Admin || verb.Category == VerbCategory.Debug ||
-                             verb.Category == VerbCategory.Smite || verb.Category == VerbCategory.Tricks) &&
-                            TryComp(user, out ActorComponent? actor) && _adminMgr.IsAdmin(actor.PlayerSession);
-            var logType = adminVerb ? LogType.AdminAudit : LogType.Verb;
 
             // lets not frame people, eh?
             var executionText = forced ? "was forced to execute" : "executed";
 
             if (holding == null)
             {
-                _adminLogger.Add(logType, verb.Impact,
+                _adminLogger.Add(LogType.Verb, verb.Impact,
                         $"{ToPrettyString(user):user} {executionText} the [{verbText:verb}] verb targeting {ToPrettyString(target):target}");
             }
             else
             {
-                _adminLogger.Add(logType, verb.Impact,
+                _adminLogger.Add(LogType.Verb, verb.Impact,
                        $"{ToPrettyString(user):user} {executionText} the [{verbText:verb}] verb targeting {ToPrettyString(target):target} while holding {ToPrettyString(holding.Value):held}");
             }
         }

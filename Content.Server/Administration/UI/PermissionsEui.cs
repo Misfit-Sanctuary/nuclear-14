@@ -40,7 +40,7 @@ namespace Content.Server.Administration.UI
         {
             base.Opened();
 
-            _adminLog.Add(LogType.AdminAudit, LogImpact.Low, $"{Player:actor} viewed admin permissions");
+            _adminLog.Add(LogType.Action, LogImpact.Low, $"{Player:actor} viewed admin permissions");
 
             StateDirty();
             LoadFromDb();
@@ -203,7 +203,7 @@ namespace Content.Server.Administration.UI
             }
 
             await _db.RemoveAdminRankAsync(rr.Id);
-            _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
                 $"{Player:actor} removed admin rank {rank.Name} (ID {rr.Id})");
 
             _adminManager.ReloadAdminsWithRank(rr.Id);
@@ -235,7 +235,7 @@ namespace Content.Server.Administration.UI
             rank.Name = ur.Name;
 
             await _db.UpdateAdminRankAsync(rank);
-            _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
                 $"{Player:actor} updated admin rank {ur.Id}: {oldName} [{oldFlags}] -> {rank.Name} [{string.Join(' ', AdminFlagsHelper.FlagsToNames(ur.Flags))}]");
 
             var flagText = string.Join(' ', AdminFlagsHelper.FlagsToNames(ur.Flags).Select(f => $"+{f}"));
@@ -259,7 +259,7 @@ namespace Content.Server.Administration.UI
             };
 
             await _db.AddAdminRankAsync(rank);
-            _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
                 $"{Player:actor} added admin rank {rank.Name} with flags {string.Join(' ', AdminFlagsHelper.FlagsToNames(ar.Flags))}");
 
             var flagText = string.Join(' ', AdminFlagsHelper.FlagsToNames(ar.Flags).Select(f => $"+{f}"));
@@ -282,7 +282,7 @@ namespace Content.Server.Administration.UI
             }
 
             await _db.RemoveAdminAsync(ra.UserId);
-            _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
                 $"{Player:actor} removed admin permissions for {ra.UserId.UserId:targetPlayerId}");
 
             var record = await _db.GetPlayerRecordByUserId(ra.UserId);
@@ -336,7 +336,7 @@ namespace Content.Server.Administration.UI
             var flags = AdminFlagsHelper.PosNegFlagsText(ua.PosFlags, ua.NegFlags);
 
             _sawmill.Info($"{Player} updated admin {name} to {title}/{rankName}/{flags}");
-            _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
                 $"{Player:actor} updated admin {name} ({ua.UserId.UserId:targetPlayerId}): title {oldTitle} -> {title}, rank {oldRank} -> {ua.RankId}, flags [{oldFlags}] -> [{flags}]");
 
             if (_playerManager.TryGetSessionById(ua.UserId, out var player))
@@ -414,7 +414,7 @@ namespace Content.Server.Administration.UI
             };
 
             await _db.AddAdminAsync(admin);
-            _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
                 $"{Player:actor} granted admin permissions to {name} ({userId.UserId:targetPlayerId}); rank {ca.RankId}, flags {AdminFlagsHelper.PosNegFlagsText(ca.PosFlags, ca.NegFlags)}");
 
             var title = ca.Title ?? "<no title>";

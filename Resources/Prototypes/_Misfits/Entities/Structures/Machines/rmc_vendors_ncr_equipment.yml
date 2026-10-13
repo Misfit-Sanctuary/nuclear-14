@@ -7,7 +7,6 @@
   suffix: NCR
   components:
   - type: CMAutomatedVendor
-    maxAuthorityTier: 3
     # Every NCR equipment vendor instance draws from this shared faction armory pool.
     sharedPool: NCREquipment
     departmentName: NCR
@@ -16,15 +15,17 @@
     # rank dogtag does not expose the generic NCR access tag.
     jobs:
     - NCRCadet
+    - NCRSoldier
+    - NCRPrivateFirstClass
     - NCRMedic
     - NCRDoctor
     - NCREngineer
     - NCRWS
     - NCRHeavyTrooper
     - NCRHeavyTrooperLead
-    - SuperMutantNCRTrooper
     - NCRNCO
     - NCRStaffSergeant
+    - NCRFirstSergeant
     - NCRVertibirdPilot
     - NCRMPinvestigator
     - NCRProvost
@@ -35,32 +36,36 @@
     - NCRPlatoonLeader
     - NCRRO
     - NCRCommander
+    - NCRMajor
     - NCRLTCol
     # Role authority is vendor-local: it does not grant corresponding physical door access.
     fullAllocationJobs: [ NCRRO, NCRCommander ]
     replenishmentJobs: [ NCRRO ]
     authorityJobTiers:
       NCRCadet: 1
+      NCRSoldier: 1
+      NCRPrivateFirstClass: 1
       NCRMedic: 1
       NCREngineer: 1
       NCRWS: 1
       NCRHeavyTrooper: 2
-      SuperMutantNCRTrooper: 1
-      NCRNCO: 2
-      NCRDoctor: 2
-      NCRVertibirdPilot: 2
-      NCRHeavyTrooperLead: 2
-      NCRStaffSergeant: 2
-      NCRMPinvestigator: 2
-      NCRProvost: 2
+      NCRNCO: 3
+      NCRDoctor: 3
+      NCRVertibirdPilot: 3
+      NCRHeavyTrooperLead: 3
+      NCRStaffSergeant: 3
+      NCRFirstSergeant: 3
+      NCRMPinvestigator: 3
+      NCRProvost: 3
       NCRMilitaryPoliceRecruit: 1
-      NCRMilitaryPoliceSergeant: 2
-      NCRMilitaryPoliceCaptain: 3
-      NCRExecutiveOfficer: 3
-      NCRPlatoonLeader: 2
-      NCRRO: 3
-      NCRCommander: 3
-      NCRLTCol: 3
+      NCRMilitaryPoliceSergeant: 3
+      NCRMilitaryPoliceCaptain: 4
+      NCRExecutiveOfficer: 4
+      NCRPlatoonLeader: 4
+      NCRRO: 5
+      NCRCommander: 5
+      NCRMajor: 5
+      NCRLTCol: 5
     allocationCategories: [ Helmet, Armor, Uniform, Mask, Gloves, Belt, Boots, Backpack, Neck, Eyes, Radio, Medical, Utility, Other equipment ]
     sharedEquipmentCategories: [ Helmet, Armor, Uniform, Mask, Gloves, Belt, Boots, Backpack, Neck, Eyes, Radio, Medical, Utility, Other equipment ]
     defaultAllocationCategory: Other equipment
@@ -77,7 +82,7 @@
       - { id: ClothingBeltNCRPouches, category: Belt, tier: 1 }
       - { id: ClothingBeltRevolver, category: Belt, tier: 1 }
     - name: Tier 1 - Standard Trooper allocation
-      jobs: [ NCRCadet ]
+      jobs: [ NCRCadet, NCRSoldier, NCRPrivateFirstClass ]
       entries:
       - { id: ClothingBeltNCR, category: Belt, tier: 1 }
       - { id: ClothingBeltNCRShotgunner, category: Belt, tier: 1 }
@@ -96,6 +101,7 @@
       - { id: N14ClothingOuterNCRPouchedVestDesert, category: Armor, tier: 1 }
       - { id: N14ClothingOuterNCRPlateDesert, category: Armor, tier: 1 }
       - { id: N14ClothingOuterNCRTrenchRaider, category: Armor, tier: 1 }
+      - { id: MisfitsNCREnhancedVest, category: Armor, tier: 1, jobs: [ NCRPrivateFirstClass ], requiredJob: Private First Class }
       - { id: N14ClothingMaskSkirmisher, category: Mask, tier: 1 }
       - { id: N14ClothingMaskPlate, category: Mask, tier: 1 }
       - { id: N14ClothingMaskBrownBalaclava, category: Mask, tier: 1 }
@@ -115,6 +121,8 @@
       - { id: N14Psycho, category: Medical, tier: 1 }
       - { id: WarhornNCRBugle, category: Utility, tier: 1 }
       - { id: ClothingNeckPinNCRRecruit, category: Neck, tier: 1, jobs: [ NCRCadet ], requiredJob: Cadet }
+      - { id: ClothingNeckPinNCRPrivate, category: Neck, tier: 1, jobs: [ NCRSoldier ], requiredJob: Trooper }
+      - { id: ClothingNeckPinNCRPrivate1st, category: Neck, tier: 1, jobs: [ NCRPrivateFirstClass ], requiredJob: Private First Class }
     - name: Tier 1 - Engineer allocation
       jobs: [ NCREngineer ]
       entries:
@@ -135,7 +143,6 @@
       - { id: N14ClothingHeadHatNCRBeretMedic, category: Helmet, tier: 1 }
       - { id: N14ClothingUniformNCRMedicVariant, category: Uniform, tier: 1 }
       - { id: N14ClothingOuterNCRPouchedVestDesert, category: Armor, tier: 1 }
-      - { id: MisfitsClothingOuterNCRMedicCombatArmor, category: Armor, tier: 1 }
       - { id: MisfitsClothingOuterNCRMedicLabCoat, category: Armor, tier: 1 }
       - { id: ClothingBeltMedical, category: Belt, tier: 1 }
       - { id: N14ClothingHandsGlovesNitrile, category: Gloves, tier: 1 }
@@ -173,7 +180,6 @@
       - { id: N14ClothingEyesNCRNVGs, category: Eyes, tier: 1 }
       - { id: ClothingNeckPinNCRSpecialist, category: Neck, tier: 1 }
     - name: Tier 2 - Heavy Trooper allocation
-      jobs: [ NCRHeavyTrooper, NCRHeavyTrooperLead ]
       entries:
       - { id: N14Stimpak, category: Medical, tier: 2 }
       - { id: N14SuperStimpak, category: Medical, tier: 2 }
@@ -181,88 +187,60 @@
       - { id: N14CleanGauze10, category: Medical, tier: 2 }
       - { id: N14ClothingBootsCombatFilled, category: Boots, tier: 2 }
       - { id: ClothingNeckPinNCRCorporal, category: Neck, tier: 2 }
-    - name: Tier 2 - Squad Leader allocation
-      jobs: [ NCRNCO, NCRStaffSergeant ]
+    - name: Tier 3 - Squad Leader allocation
+      jobs: [ NCRNCO, NCRStaffSergeant, NCRFirstSergeant ]
       entries:
-      - { id: MisfitsNCRMSLUniform, category: Uniform, tier: 2, jobs: [ NCRNCO ], requiredJob: Squad Leader }
-      - { id: MisfitsNCRMSLHelmet, category: Helmet, tier: 2, jobs: [ NCRNCO ], requiredJob: Squad Leader }
-      - { id: MisfitsNCRMSLGloves, category: Gloves, tier: 2, jobs: [ NCRNCO ], requiredJob: Squad Leader }
-      - { id: MisfitsNCRMSLBoots, category: Boots, tier: 2, jobs: [ NCRNCO ], requiredJob: Squad Leader }
-      - { id: MisfitsNCRMSLMask, category: Mask, tier: 2, jobs: [ NCRNCO ], requiredJob: Squad Leader }
-      - { id: MisfitsNCRMSLArmor, category: Armor, tier: 2, jobs: [ NCRNCO ], requiredJob: Squad Leader }
-      - { id: MisfitsNCRHeavyCombatArmor, category: Armor, tier: 2, jobs: [ NCRNCO ], requiredJob: Squad Leader }
-      - { id: MisfitsNCREliteCombatArmor, category: Armor, tier: 2, jobs: [ NCRStaffSergeant ], requiredJob: Staff Sergeant }
-      - { id: N14ClothingOuterRangerVest, category: Armor, tier: 2 }
-      - { id: N14ClothingBackpackMilitary, category: Backpack, tier: 2 }
-      - { id: N14ClothingNeckMantleNCR, category: Neck, tier: 2 }
-      - { id: ClothingNeckPinNCRSergeant, category: Neck, tier: 2, jobs: [ NCRNCO ], requiredJob: Squad Leader }
-      - { id: ClothingNeckPinNCRStaffSergeant, category: Neck, tier: 2, jobs: [ NCRStaffSergeant ], requiredJob: Staff Sergeant }
-    - name: Tier 2 - Vertibird Pilot allocation
+      - { id: MisfitsNCRMSLUniform, category: Uniform, tier: 3, jobs: [ NCRNCO ], requiredJob: Squad Leader }
+      - { id: MisfitsNCRMSLHelmet, category: Helmet, tier: 3, jobs: [ NCRNCO ], requiredJob: Squad Leader }
+      - { id: MisfitsNCRMSLGloves, category: Gloves, tier: 3, jobs: [ NCRNCO ], requiredJob: Squad Leader }
+      - { id: MisfitsNCRMSLBoots, category: Boots, tier: 3, jobs: [ NCRNCO ], requiredJob: Squad Leader }
+      - { id: MisfitsNCRMSLMask, category: Mask, tier: 3, jobs: [ NCRNCO ], requiredJob: Squad Leader }
+      - { id: MisfitsNCRMSLArmor, category: Armor, tier: 3, jobs: [ NCRNCO ], requiredJob: Squad Leader }
+      - { id: MisfitsNCRHeavyCombatArmor, category: Armor, tier: 3, jobs: [ NCRNCO ], requiredJob: Squad Leader }
+      - { id: MisfitsNCREliteCombatArmor, category: Armor, tier: 3, jobs: [ NCRStaffSergeant ], requiredJob: Staff Sergeant }
+      - { id: MisfitsNCRCommandArmor, category: Armor, tier: 3, jobs: [ NCRFirstSergeant ], requiredJob: First Sergeant }
+      - { id: MisfitsClothingOuterNCRTrenchCoat, category: Armor, tier: 3, jobs: [ NCRFirstSergeant ], requiredJob: First Sergeant }
+      - { id: N14ClothingOuterRangerVest, category: Armor, tier: 3 }
+      - { id: N14ClothingBackpackMilitary, category: Backpack, tier: 3 }
+      - { id: N14ClothingNeckMantleNCR, category: Neck, tier: 3 }
+      - { id: ClothingNeckPinNCRSergeant, category: Neck, tier: 3, jobs: [ NCRNCO ], requiredJob: Squad Leader }
+      - { id: ClothingNeckPinNCRStaffSergeant, category: Neck, tier: 3, jobs: [ NCRStaffSergeant ], requiredJob: Staff Sergeant }
+      - { id: ClothingNeckPinNCR1stSergeant, category: Neck, tier: 3, jobs: [ NCRFirstSergeant ], requiredJob: First Sergeant }
+    - name: Tier 3 - Vertibird Pilot allocation
       jobs: [ NCRVertibirdPilot ]
       entries:
-      - { id: N14ClothingOfficerUniformNCRDesert, category: Uniform, tier: 2 }
-      - { id: N14ClothingEyesGlassesPilot, category: Eyes, tier: 2 }
-      - { id: ClothingNeckPinNCRWarrantOfficer, category: Neck, tier: 2 }
-      - { id: ClothingNeckPinNCRChiefWarrantOfficer2, category: Neck, tier: 2 }
-      - { id: ClothingNeckPinNCRChiefWarrantOfficer3, category: Neck, tier: 2 }
-    - name: Tier 2 - Platoon Leader allocation
-      jobs: [ NCRPlatoonLeader ]
+      - { id: N14ClothingOfficerUniformNCRDesert, category: Uniform, tier: 3 }
+      - { id: N14ClothingEyesGlassesPilot, category: Eyes, tier: 3 }
+      - { id: ClothingNeckPinNCRWarrantOfficer, category: Neck, tier: 3 }
+      - { id: ClothingNeckPinNCRChiefWarrantOfficer2, category: Neck, tier: 3 }
+      - { id: ClothingNeckPinNCRChiefWarrantOfficer3, category: Neck, tier: 3 }
+    - name: Tier 4 - Executive Officer / Platoon Leader allocation
+      jobs: [ NCRExecutiveOfficer, NCRPlatoonLeader, NCRMilitaryPoliceCaptain ]
       entries:
-      - { id: MisfitsNCROfficerArmor, category: Armor, tier: 2 }
-      - { id: MisfitsClothingOuterNCRTrenchCoat, category: Armor, tier: 2 }
-      - { id: N14ClothingOuterRangerFieldArmor, category: Armor, tier: 2 }
-      - { id: MisfitsClothingOuterNCRCommissarPlate, category: Armor, tier: 2 }
-      - { id: MisfitsClothingNeckNCRCommissarJacket, category: Neck, tier: 2 }
-      - { id: ClothingMaskCommissar, category: Mask, tier: 2 }
-      - { id: N14ClothingHeadHatNCRCommissarHat, category: Helmet, tier: 2 }
-      - { id: N14ClothingHeadHatNCRBeretOfficer, category: Helmet, tier: 2 }
-      - { id: N14ClothingOuterNCRDressJacket, category: Armor, tier: 2 }
-      - { id: ClothingEyesGlassesSunglasses, category: Eyes, tier: 2 }
-      - { id: LuxuryPen, category: Utility, tier: 2 }
-      - { id: ClothingNeckPinNCRSecondLieutenant, category: Neck, tier: 2 }
-      - { id: ClothingNeckPinNCRFirstLieutenant, category: Neck, tier: 2 }
-      - { id: ClothingNeckPinNCRCaptain, category: Neck, tier: 2 }
-    - name: Tier 3 - Executive Officer / Requisition Officer allocation
-      jobs: [ NCRExecutiveOfficer, NCRRO ]
+      - { id: MisfitsNCROfficerArmor, category: Armor, tier: 4 }
+      - { id: N14ClothingOuterRangerFieldArmor, category: Armor, tier: 4, jobs: [ NCRExecutiveOfficer, NCRPlatoonLeader ], requiredJob: Executive Officer or Platoon Leader }
+      - { id: MisfitsClothingOuterNCRCommissarPlate, category: Armor, tier: 4 }
+      - { id: MisfitsClothingNeckNCRCommissarJacket, category: Neck, tier: 4 }
+      - { id: ClothingMaskCommissar, category: Mask, tier: 4 }
+      - { id: N14ClothingHeadHatNCRCommissarHat, category: Helmet, tier: 4 }
+      - { id: N14ClothingHeadHatNCRBeretOfficer, category: Helmet, tier: 4 }
+      - { id: N14ClothingOuterNCRDressJacket, category: Armor, tier: 4 }
+      - { id: ClothingEyesGlassesSunglasses, category: Eyes, tier: 4 }
+      - { id: LuxuryPen, category: Utility, tier: 4 }
+      - { id: ClothingNeckPinNCRSecondLieutenant, category: Neck, tier: 4 }
+      - { id: ClothingNeckPinNCRFirstLieutenant, category: Neck, tier: 4 }
+      - { id: ClothingNeckPinNCRCaptain, category: Neck, tier: 4 }
+    - name: Tier 5 - Commander / Requisition Officer allocation
       entries:
-      - { id: MisfitsNCROfficerArmor, category: Armor, tier: 3 }
-      - { id: MisfitsClothingOuterNCRTrenchCoat, category: Armor, tier: 3 }
-      - { id: N14ClothingOuterRangerFieldArmor, category: Armor, tier: 3 }
-      - { id: MisfitsClothingOuterNCRCommissarPlate, category: Armor, tier: 3 }
-      - { id: MisfitsClothingNeckNCRCommissarJacket, category: Neck, tier: 3 }
-      - { id: ClothingMaskCommissar, category: Mask, tier: 3 }
-      - { id: N14ClothingHeadHatNCRCommissarHat, category: Helmet, tier: 3 }
-      - { id: N14ClothingHeadHatNCRBeretOfficer, category: Helmet, tier: 3 }
-      - { id: N14ClothingOuterNCRDressJacket, category: Armor, tier: 3 }
-      - { id: ClothingEyesGlassesSunglasses, category: Eyes, tier: 3 }
-      - { id: LuxuryPen, category: Utility, tier: 3 }
-      - { id: ClothingNeckPinNCRSecondLieutenant, category: Neck, tier: 3 }
-      - { id: ClothingNeckPinNCRFirstLieutenant, category: Neck, tier: 3 }
-      - { id: ClothingNeckPinNCRCaptain, category: Neck, tier: 3 }
-    - name: Tier 3 - Military Police Captain allocation
-      jobs: [ NCRMilitaryPoliceCaptain ]
-      entries:
-      - { id: MisfitsNCROfficerArmor, category: Armor, tier: 3 }
-      - { id: N14ClothingHeadHatNCRBeretOfficer, category: Helmet, tier: 3 }
-      - { id: N14ClothingOuterNCRDressJacket, category: Armor, tier: 3 }
-      - { id: ClothingEyesGlassesSunglasses, category: Eyes, tier: 3 }
-      - { id: ClothingNeckPinNCRFirstLieutenant, category: Neck, tier: 3 }
-    - name: Tier 3 - Commander allocation
-      jobs: [ NCRCommander, NCRLTCol ]
-      entries:
-      - { id: MisfitsNCRCommandArmor, category: Armor, tier: 3, jobs: [ NCRCommander ], requiredJob: NCR Commanding Officer }
-      - { id: N14ClothingOuterNCRDressJacketCO, category: Armor, tier: 3 }
-      - { id: MisfitsClothingHeadsetNCRMaster, category: Radio, tier: 3 }
-      - { id: ClothingNeckPinNCRMajor, category: Neck, tier: 3 }
-      - { id: ClothingNeckPinNCRLtColonel, category: Neck, tier: 3 }
-      - { id: BoxFolderClipboard, category: Utility, tier: 3 }
-      - { id: N14Binoculars, category: Utility, tier: 3 }
-      - { id: SyndicateWhistle, category: Utility, tier: 3 }
-    - name: Tier 3 - Requisition Officer equipment
-      jobs: [ NCRRO ]
-      entries:
-      - { id: N14ClothingNeckROmantleNCR, category: Neck, tier: 3 }
-      - { id: SprayPaintDesertTan, category: Utility, tier: 3 }
+      - { id: N14ClothingOuterNCRDressJacketCO, category: Armor, tier: 5 }
+      - { id: MisfitsClothingHeadsetNCRMaster, category: Radio, tier: 5 }
+      - { id: ClothingNeckPinNCRMajor, category: Neck, tier: 5 }
+      - { id: N14ClothingNeckROmantleNCR, category: Neck, tier: 5 }
+      - { id: ClothingNeckPinNCRLtColonel, category: Neck, tier: 5 }
+      - { id: BoxFolderClipboard, category: Utility, tier: 5 }
+      - { id: N14Binoculars, category: Utility, tier: 5 }
+      - { id: SyndicateWhistle, category: Utility, tier: 5 }
+      - { id: SprayPaintDesertTan, category: Utility, tier: 5 }
     replenishment:
     - currency: Bottlecaps
     - currency: NCRDollars
@@ -272,13 +250,19 @@
       1: 1
       2: 2
       3: 5
+      4: 10
+      5: 20
     # Curated from NCR role kits; crafting blueprint tiers are not job authority tiers.
     populateFromBlueprints: false
     authorityTierNames:
       1: Tier 1 - Trooper / Specialist allocation
-      2: Tier 2 - Field Leadership / Heavy Trooper allocation
-      3: Tier 3 - NCR Command allocation
+      2: Tier 2 - Heavy Trooper allocation
+      3: Tier 3 - Squad Leader / Medical Officer allocation
+      4: Tier 4 - Executive Officer / Platoon Leader allocation
+      5: Tier 5 - Commander / Requisition Officer allocation
     authorityTierAccess:
       1: [ NCR ]
       2: [ NCRSGT ]
-      3: [ NCRCaptain ]
+      3: [ NCRLT ]
+      4: [ NCRCaptain ]
+      5: [ NCRCaptain ]

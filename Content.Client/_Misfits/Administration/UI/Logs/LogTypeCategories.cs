@@ -91,7 +91,6 @@ public static class LogTypeCategories
         { LogType.ChatRateLimited, "Chat" },
 
         // Admin
-        { LogType.AdminAudit, "Admin" },
         { LogType.AdminMessage, "Admin" },
         { LogType.Vote, "Admin" },
         { LogType.Verb, "Admin" },

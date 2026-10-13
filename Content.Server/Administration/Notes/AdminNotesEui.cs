@@ -121,7 +121,7 @@ public sealed class AdminNotesEui : BaseEui
 
         NotedPlayer = notedPlayer;
         await LoadFromDb();
-        _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+        _adminLog.Add(LogType.Action, LogImpact.Medium,
             $"{Player:actor} viewed admin notes for {NotedPlayerName} ({notedPlayer:targetPlayerId})");
     }
 

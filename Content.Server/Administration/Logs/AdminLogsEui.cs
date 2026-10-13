@@ -105,7 +105,7 @@ public sealed class AdminLogsEui : BaseEui
             case LogsRequest request:
             {
                 _sawmill.Info($"Admin log request from admin with id {Player.UserId.UserId} and name {Player.Name}");
-                _adminLogs.Add(LogType.AdminAudit, LogImpact.Low,
+                _adminLogs.Add(LogType.Action, LogImpact.Low,
                     $"{Player:actor} searched admin logs for round {request.RoundId}, query {request.Search}, player filters {request.AnyPlayers?.Length ?? 0}");
 
                 _logSendCancellation.Cancel();
