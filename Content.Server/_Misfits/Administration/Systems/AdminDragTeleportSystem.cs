@@ -63,7 +63,7 @@ public sealed class AdminDragTeleportSystem : EntitySystem
 
         // Log the admin action for accountability.
         _adminLogger.Add(
-            LogType.AdminAudit,
+            LogType.Action,
             LogImpact.Low,
             $"{ToPrettyString(args.SenderSession.AttachedEntity ?? entity):actor} drag-teleported {ToPrettyString(entity):subject} to {targetCoords}");
     }

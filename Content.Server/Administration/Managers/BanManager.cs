@@ -183,14 +183,11 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
 
         _sawmill.Info(logMessage);
         _chat.SendAdminAlert(logMessage);
-        var auditType = banningAdmin is { } adminId && await _db.GetAdminDataForAsync(adminId) != null
-            ? LogType.AdminAudit
-            : LogType.Action;
         if (target is { } targetId)
-            _adminLog.Add(auditType, LogImpact.Medium,
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
                 $"{adminName} placed server ban on {targetUsername} ({targetId.UserId:targetPlayerId}); severity {severity}, expires {expires}, reason {reason}");
         else
-            _adminLog.Add(auditType, LogImpact.Medium,
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
                 $"{adminName} placed server ban on address or hardware target; severity {severity}, expires {expires}, reason {reason}");
 
         KickMatchingConnectedPlayers(banDef, "newly placed ban");
@@ -277,14 +274,11 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
 
         var length = expires == null ? Loc.GetString("cmd-roleban-inf") : Loc.GetString("cmd-roleban-until", ("expires", expires));
         _chat.SendAdminAlert(Loc.GetString("cmd-roleban-success", ("target", targetUsername ?? "null"), ("role", role), ("reason", reason), ("length", length)));
-        var auditType = banningAdmin is { } adminId && await _db.GetAdminDataForAsync(adminId) != null
-            ? LogType.AdminAudit
-            : LogType.Action;
         if (target is { } targetId)
-            _adminLog.Add(auditType, LogImpact.Medium,
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
                 $"{banningAdmin} placed role ban {role} on {targetUsername} ({targetId.UserId:targetPlayerId}); severity {severity}, expires {expires}, reason {reason}");
         else
-            _adminLog.Add(auditType, LogImpact.Medium,
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
                 $"{banningAdmin} placed role ban {role} on address or hardware target; severity {severity}, expires {expires}, reason {reason}");
 
         if (target != null && _playerManager.TryGetSessionById(target.Value, out var session))
@@ -316,11 +310,8 @@ public sealed partial class BanManager : IBanManager, IPostInjectInit
         }
 
         await _db.AddServerRoleUnbanAsync(new ServerRoleUnbanDef(banId, unbanningAdmin, DateTimeOffset.Now));
-        var auditType = unbanningAdmin is { } adminId && await _db.GetAdminDataForAsync(adminId) != null
-            ? LogType.AdminAudit
-            : LogType.Action;
         if (ban.UserId is { } targetId)
-            _adminLog.Add(auditType, LogImpact.Medium,
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
                 $"{unbanningAdmin} pardoned role ban {banId} for {targetId.UserId:targetPlayerId}");
 
         if (ban.UserId is { } player

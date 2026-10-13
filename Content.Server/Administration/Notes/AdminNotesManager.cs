@@ -176,7 +176,7 @@ public sealed class AdminNotesManager : IAdminNotesManager, IPostInjectInit
         );
         NoteAdded?.Invoke(note);
         if (createdBy is { } adminId)
-            _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
                 $"{createdByName} ({adminId}) added {type} #{noteId} for {player:targetPlayerId}; severity {severity}, secret {secret}, expiry {expiryTime}");
     }
 
@@ -226,7 +226,7 @@ public sealed class AdminNotesManager : IAdminNotesManager, IPostInjectInit
         }
 
         _sawmill.Info($"{deletedBy.Name} has deleted {type} {noteId}");
-        _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+        _adminLog.Add(LogType.Action, LogImpact.Medium,
             $"{deletedBy:actor} deleted {type} #{noteId} for {note.Player.UserId:targetPlayerId}");
         NoteDeleted?.Invoke(note);
     }
@@ -320,7 +320,7 @@ public sealed class AdminNotesManager : IAdminNotesManager, IPostInjectInit
             EditedByName = editedBy.Name,
             ExpiryTime = expiryTime
         };
-        _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+        _adminLog.Add(LogType.Action, LogImpact.Medium,
             $"{editedBy:actor} edited {type} #{noteId} for {note.Player.UserId:targetPlayerId}; severity {note.NoteSeverity} -> {severity}, secret {note.Secret} -> {secret}, expiry {note.ExpiryTime} -> {expiryTime}, message changed {note.Message != message}");
         NoteModified?.Invoke(newNote);
     }

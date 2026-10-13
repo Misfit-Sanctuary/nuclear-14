@@ -115,6 +115,4 @@ public enum LogType
 
     // #Misfits Add - RMC holster logging
     RMCHolster = 200,
-    // Dedicated staff action records. Do not reuse general gameplay log types here.
-    AdminAudit = 201,
 }

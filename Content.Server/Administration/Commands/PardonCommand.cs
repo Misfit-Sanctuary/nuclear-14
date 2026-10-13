@@ -56,12 +56,11 @@ namespace Content.Server.Administration.Commands
 
             await dbMan.AddServerUnbanAsync(new ServerUnbanDef(banId, player?.UserId, DateTimeOffset.Now));
             var adminLog = IoCManager.Resolve<IAdminLogManager>();
-            var auditType = player != null ? LogType.AdminAudit : LogType.Action;
             if (ban.UserId is { } targetId)
-                adminLog.Add(auditType, LogImpact.Medium,
+                adminLog.Add(LogType.Action, LogImpact.Medium,
                     $"{player} pardoned server ban {banId} for {targetId.UserId:targetPlayerId}");
             else
-                adminLog.Add(auditType, LogImpact.Medium,
+                adminLog.Add(LogType.Action, LogImpact.Medium,
                     $"{player} pardoned server ban {banId} for address or hardware target");
 
             shell.WriteLine($"Pardoned ban with id {banId}");

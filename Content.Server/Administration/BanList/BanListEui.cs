@@ -159,7 +159,7 @@ public sealed class BanListEui : BaseEui
 
         BanListPlayer = banListPlayer;
         await LoadFromDb();
-        _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+        _adminLog.Add(LogType.Action, LogImpact.Medium,
             $"{Player:actor} viewed ban history for {BanListPlayerName} ({banListPlayer:targetPlayerId}); PII visible: {_admins.HasAdminFlag(Player, AdminFlags.Pii)}");
     }
 }

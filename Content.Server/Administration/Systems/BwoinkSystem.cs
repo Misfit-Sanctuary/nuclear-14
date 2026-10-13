@@ -486,7 +486,7 @@ namespace Content.Server.Administration.Systems
             if (admin.AttachedEntity != null &&
                 EntityManager.TrySystem<FollowerSystem>(out var followerSystem))
             {
-                _adminLog.Add(LogType.AdminAudit,
+                _adminLog.Add(LogType.Action,
                     $"{admin:actor} ghost-followed {EntityManager.ToPrettyString(targetSession.AttachedEntity.Value):subject} via AHelp panel");
                 followerSystem.StartFollowingEntity(admin.AttachedEntity.Value, targetSession.AttachedEntity.Value);
             }
@@ -804,7 +804,13 @@ namespace Content.Server.Administration.Systems
                 var actionFilter = new LogFilter
                 {
                     Round = null,
-                    Types = new HashSet<LogType> { LogType.AdminAudit },
+                    Types = new HashSet<LogType>
+                    {
+                        LogType.Action, LogType.Verb, LogType.AdminMessage,
+                        LogType.EntitySpawn, LogType.EntityDelete, LogType.Teleport,
+                        LogType.Mind, LogType.EventAnnounced, LogType.EventStarted,
+                        LogType.EventRan, LogType.EventStopped,
+                    },
                     After = msg.FilterStartDate?.ToUniversalTime().AddTicks(-1),
                     Before = msg.FilterEndDate?.ToUniversalTime().AddTicks(1),
                     AnyPlayers = actionPlayerId is { } playerId ? new[] { playerId } : null,
@@ -836,7 +842,7 @@ namespace Content.Server.Administration.Systems
                 }
             }
 
-            _adminLog.Add(LogType.AdminAudit, LogImpact.Low,
+            _adminLog.Add(LogType.Action, LogImpact.Low,
                 $"{args.SenderSession:actor} viewed help ticket audit and admin actions (player {msg.FilterPlayerId}, admin {msg.FilterAdminName}, offset {msg.AdminLogOffset})");
 
             // #Misfits Change - pass all filter parameters to DB query
