@@ -1,5 +1,26 @@
 ﻿- type: entity
   parent: N14WastelandFlora
+  id: MisfitsWastelandFloraWildKokoa
+  name: wild kokoa plant
+  description: A wild kokoa plant. It looks healthy.
+  components:
+    - type: Sprite
+      sprite: _Misfits/Objects/Specific/Hydroponics/kokoa.rsi
+      state: harvest
+    - type: OreVein
+      currentOre: WildKokoa
+    - type: Gatherable
+      toolWhitelist:
+        components:
+          - Hands
+        tags:
+          - PlantSampleTaker
+      loot:
+        All: WildKokoaAll
+        PlantSampleTaker: WildKokoaClippers
+        
+- type: entity
+  parent: N14WastelandFlora
   id: MisfitsWastelandFloraWildZoy
   name: wild zoybean plant
   description: A wild zoybean plant. It looks healthy.
@@ -18,3 +39,4 @@
     loot:
       All: WildZoyAll
       PlantSampleTaker: WildZoyClippers
+      

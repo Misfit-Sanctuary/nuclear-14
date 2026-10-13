@@ -5,7 +5,15 @@
   description: Hers is a spirit meant for warfare, a companion that will never betray you. She has seen the world before your time, and she will show it to you now, if you can keep up.
   components:
   - type: Vehicle
+    renderOver: None
+    overlayPrototype: MisfitsMountRiderOverlay
   - type: Motorbike
+  - type: DirectionalBuckleOffset
+    offsets:
+      North: 0, -0.05
+      South: 0, 0
+      East: -0.15, -0.18
+      West: 0.15, -0.18
   - type: Damageable
     # #Cythisiax Fixed - was Inorganic, which ignored Structural/Caustic/Radiation damage and made motorbikes take zero damage from plasma (BulletPlasma deals Caustic + Radiation + Structural). StructuralInorganic matches the windows.yml fix.
     damageContainer: StructuralInorganic
@@ -96,7 +104,7 @@
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
   - type: Vehicle
     renderOver: None
-    overlayPrototype: VehicleBikeFlameyOverlay
+    overlayPrototype: MisfitsMountRiderOverlay
 
 - type: entity
   id: VehicleBikeFlameyOverlay
@@ -137,7 +145,13 @@
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
   - type: Vehicle
     renderOver: None
-    overlayPrototype: VehicleBikeScramblerOverlay
+    overlayPrototype: MisfitsMountRiderOverlay
+  - type: DirectionalBuckleOffset
+    offsets:
+      North: 0, -0.05
+      South: 0, 0.12
+      East: -0.22, -0.16
+      West: 0.22, -0.16
 # acceleration seems to be used wrong or is broken. Bike will stay perma slow
 #  - type: MovementSpeedModifier
 #    acceleration: 0.5 # #Cythisiax Added - Scrambler takes ~4.6s to reach max speed (heavy bike feel)

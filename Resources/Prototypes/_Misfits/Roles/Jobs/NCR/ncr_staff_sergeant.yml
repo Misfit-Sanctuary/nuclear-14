@@ -47,8 +47,15 @@
     jumpsuit: N14ClothingOfficerUniformNCRDesert # Corvax-Change
     shoes: N14ClothingBootsCombatFilled
     belt: ClothingBeltNCR
+    outerClothing: MisfitsNCREliteCombatArmor # #Misfits Tweak: T6 armor (0.65/0.60) — Staff Sergeant tier
+    pocket1: NCRstaffsergeantloadoutkits
+    pocket2: RadioHandheld
     id: N14IDNCRDogtagStaffSergeant
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert # Corvax-Change
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage: # Corvax-Change
+    back:
+    - N14BoxPlasticFilledMilitaryNCR
 
 - type: playTimeTracker
   id: NCRStaffSergeant

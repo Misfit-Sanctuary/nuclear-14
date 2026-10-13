@@ -57,10 +57,18 @@
     ears: N14ClothingHeadsetNCR
     back: N14ClothingBackpackNCR
     jumpsuit: N14ClothingOfficerUniformNCRDesert
+    outerClothing: N14ClothingOuterNCRDressJacketCO
     shoes: N14ClothingBootsCombatFilled
     belt: ClothingBeltNCR
+    eyes: ClothingEyesGlassesSunglasses
+    pocket1: NCRcaptainloadoutkits
+    pocket2: RadioHandheld
     id: N14IDNCRDogtagMajor
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage:
+    back:
+      - N14BoxPlasticFilledMilitaryNCR
 
 - type: playTimeTracker
   id: NCRMajor

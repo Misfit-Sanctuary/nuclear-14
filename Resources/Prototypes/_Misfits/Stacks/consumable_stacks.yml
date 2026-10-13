@@ -1,4 +1,11 @@
 ﻿- type: stack
+  id: KokoaBeans
+  name: kokoa beans
+  icon: { sprite: _Misfits/Objects/Specific/Hydroponics/kokoa.rsi, state: produce-beans }
+  spawn: MisfitsFloraProduceWildKokoaBean
+  maxCount: 5
+  
+- type: stack
   id: ZoyBeans
   name: zoy beans
   icon: { sprite: _Misfits/Objects/Specific/Hydroponics/zoybeans.rsi, state: produce }

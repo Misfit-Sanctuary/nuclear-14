@@ -5,6 +5,8 @@
   description: "Mutated horses common as mounts and pack animals, they'll bite your fingers if you aren't careful."
   components:
   - type: Vehicle # for some reason this is the only comp that forces it to take just one hand.
+    renderOver: South
+    overlayPrototype: MisfitsMountRiderOverlay
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -54,6 +56,12 @@
       params:
         volume: 20 # It's normal
   - type: Mountable
+    riderOffset: 0, 0.42
+    directionOffsets:
+      North: 0, 0.05
+      South: 0, 0.25
+      East: -0.14, 0.05
+      West: 0.14, 0.02
   - type: BrahdoSpooked
     spookDuration: 5
     buckChance: 0.15
@@ -121,6 +129,13 @@
         Base: light
       Dead:
         Base: light-dead
+  - type: Mountable
+    riderOffset: 0, -0.08
+    directionOffsets:
+      North: 0, 0
+      South: 0, 0.12
+      East: -0.05, 0.03
+      West: 0.05, 0.03
   - type: MovementSpeedModifier
     baseWalkSpeed : 5.5
     baseSprintSpeed : 5.5
@@ -145,6 +160,13 @@
         Base: armor
       Dead:
         Base: armor-dead
+  - type: Mountable
+    riderOffset: 0, -0.08
+    directionOffsets:
+      North: 0, 0
+      South: 0, 0.12
+      East: -0.05, 0.03
+      West: 0.05, 0.03
   - type: MovementSpeedModifier
     baseWalkSpeed : 4
     baseSprintSpeed : 4

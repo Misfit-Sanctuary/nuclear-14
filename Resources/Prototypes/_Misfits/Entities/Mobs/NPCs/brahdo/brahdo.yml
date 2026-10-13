@@ -11,6 +11,8 @@
       - outerClothing
       - back
   - type: Vehicle # for some reason this is the only comp that forces it to take just one hand.
+    renderOver: South
+    overlayPrototype: MisfitsMountRiderOverlay
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -60,6 +62,12 @@
       params:
         volume: 20 # It's normal
   - type: Mountable
+    riderOffset: 0, 0.45
+    directionOffsets:
+      North: 0, 0.05
+      South: 0, 0.4
+      East: -0.15, 0.05
+      West: 0.15, 0
   - type: BrahdoSpooked
     spookDuration: 5
     buckChance: 0.15
@@ -165,6 +173,13 @@
       sprite: _Misfits/Mobs/Animals/brahdo-tan.rsi
       state: base
     - map: [ "outerClothing" ]
+  - type: Mountable
+    riderOffset: 0, 0.42
+    directionOffsets:
+      North: 0, 0.05
+      South: 0, 0.35
+      East: -0.14, 0.05
+      West: 0.14, 0
   - type: Fixtures
     fixtures:
       fix1:
@@ -260,6 +275,13 @@
       sprite: _Misfits/Mobs/Animals/brahdo-tank.rsi
       state: base
     - map: [ "outerClothing" ]
+  - type: Mountable
+    riderOffset: 0, 0.55
+    directionOffsets:
+      North: 0, 0.05
+      South: 0, 0.5
+      East: -0.18, 0.05
+      West: 0.18, 0
   - type: BrahdoSpooked
     spookDuration: 1
     buckChance: 0.0

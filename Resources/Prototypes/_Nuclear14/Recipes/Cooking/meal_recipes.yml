@@ -1175,21 +1175,6 @@
     N14FoodMeatRadRaw: 3
     FoodPlateTin: 1
 
-#Tarts
-
-- type: microwaveMealRecipe
-  id: N14RecipeCocoTart
-  name: chocolate lava tart recipe
-  result: N14CookedFoodTartCoco
-  time: 15
-  reagents:
-    Sugar: 5
-    Milk: 5
-  solids:
-    N14FoodDoughPie: 1
-    FoodSnackChocolateBar: 3
-    FoodPlateTin: 1
-
 #Other
 
 - type: microwaveMealRecipe
@@ -1306,18 +1291,6 @@
     SodaWater: 5
 
 - type: microwaveMealRecipe
-  id: N14RecipeCookie
-  name: cookie recipe
-  result: N14CookedFoodBakedCookie
-  time: 5
-  reagents:
-    ExtractRazorgrainFlour: 5
-    Sugar: 5
-  solids:
-    N14FoodButter: 1
-    FoodSnackChocolateBar: 1
-
-- type: microwaveMealRecipe
   id: N14RecipeSugarCookie
   name: sugar cookie recipe
   result: N14CookedFoodBakedCookieSugar
@@ -1349,18 +1322,6 @@
     Sugar: 5
   solids:
     N14FoodButter: 1
-
-- type: microwaveMealRecipe
-  id: N14RecipeChocolateChipPancake
-  name: chocolate chip pancake recipe
-  result: N14CookedFoodBakedPancakeCc
-  time: 5
-  reagents:
-    ExtractRazorgrainFlour: 5
-    N14MilkBrahmin: 5 #N14 change
-    Egg: 6
-  solids:
-    FoodSnackChocolateBar: 1
 
 - type: microwaveMealRecipe
   id: N14RecipeMutfruitCake
@@ -1429,15 +1390,6 @@
     FoodCherry: 1
 
 - type: microwaveMealRecipe
-  id: N14RecipeChocolateCake
-  name: chocolate cake recipe
-  result: N14CookedFoodCakeChocolate
-  time: 5
-  solids:
-    N14CookedFoodCakePlain: 1
-    FoodSnackChocolateBar: 2
-
-- type: microwaveMealRecipe
   id: N14RecipeBrainCake
   name: brain cake recipe
   result: N14CookedFoodCakeBrain
@@ -1456,19 +1408,6 @@
     UncookedAnimalProteins: 6
   solids:
     N14FoodDoughSlice: 3
-
-- type: microwaveMealRecipe
-  id: N14RecipeBrownies
-  name: brownie recipe
-  result: N14CookedFoodBakedBrownieBatch
-  time: 25
-  reagents:
-    ExtractRazorgrainFlour: 15
-    Sugar: 30
-  solids:
-    N14FoodButter: 2
-    FoodSnackChocolateBar: 2
-    N14FoodEggChicken: 3
 
 - type: microwaveMealRecipe
   id: N14RecipeHotChili
@@ -1674,28 +1613,6 @@
   solids:
     N14FoodChevreSlice: 1
     N14CookedFoodBreadBaguetteSlice: 1
-
-- type: microwaveMealRecipe
-  id: N14RecipeCannabisButter
-  name: cannabis butter recipe
-  result: N14FoodCannabisButter
-  time: 15
-  solids:
-    N14FoodButter: 1
-    LeavesCannabis: 6
-
-- type: microwaveMealRecipe
-  id: N14RecipeCannabisBrownies
-  name: cannabis brownie recipe
-  result: N14CookedFoodBakedCannabisBrownieBatch
-  time: 25
-  reagents:
-    ExtractRazorgrainFlour: 15
-    Sugar: 30
-  solids:
-    N14FoodCannabisButter: 2
-    FoodSnackChocolateBar: 2
-    N14FoodEggChicken: 3 #N14 change
 
 - type: microwaveMealRecipe
   id: N14RecipeCornInButter

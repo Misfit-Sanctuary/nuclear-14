@@ -51,8 +51,13 @@
     shoes: N14ClothingBootsCombatFilled
     belt: ClothingBeltNCR
     pocket1: NCRHeavyTrooperLoadoutKits
+    pocket2: RadioHandheld
     id: N14IDNCRDogtagWS                      # Specialist-tier dogtag
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage: # gave them plastic box with shite in it
+    back:
+    - N14BoxPlasticFilledMilitaryNCR
 
 - type: playTimeTracker
   id: NCRHeavyTrooper

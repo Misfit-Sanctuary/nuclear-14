@@ -65,10 +65,22 @@ public sealed class VehicleSystem : SharedVehicleSystem
 
     private void SpritePos(Entity<VehicleComponent> ent)
     {
-        if (!TryComp<SpriteComponent>(ent, out var spriteComp)
-            || !_appearance.TryGetData(ent, VehicleState.DrawOver, out _))
+        if (!TryComp<SpriteComponent>(ent, out var spriteComp))
             return;
 
+        // Misfits DrawOver always exists, so check its value. restore the original depth when nobody is riding.
+        if (!_appearance.TryGetData(ent, VehicleState.DrawOver, out bool drawOver) || !drawOver)
+        {
+            if (ent.Comp.OriginalDrawDepth is { } originalDepth)
+            {
+                _sprite.SetDrawDepth((ent, spriteComp), originalDepth);
+                ent.Comp.OriginalDrawDepth = null;
+            }
+
+            return;
+        }
+
+        ent.Comp.OriginalDrawDepth ??= spriteComp.DrawDepth;
         _sprite.SetDrawDepth((ent, spriteComp), (int)Content.Shared.DrawDepth.DrawDepth.Objects);
 
         if (ent.Comp.RenderOver == VehicleRenderOver.None)

@@ -28,10 +28,6 @@ public sealed partial class MountableComponent : Component
         [Direction.South] = new(0f, 0.2f),
         [Direction.East] = Vector2.Zero,
         [Direction.West] = Vector2.Zero,
-        [Direction.NorthEast] = new(0f, -0.05f),
-        [Direction.NorthWest] = new(0f, -0.05f),
-        [Direction.SouthEast] = new(0f, 0.1f),
-        [Direction.SouthWest] = new(0f, 0.1f)
     };
 
     /// <summary>
