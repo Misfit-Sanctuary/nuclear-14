@@ -756,6 +756,8 @@
   id: CaravanBuy2_Sprouts
   name: "Seedlings"
   entries:
+  - proto: MisfitsKokoaSeeds
+    price: 5
   - proto: N14FloraWildAgaveClippingSeed
     price: 5
   - proto: N14FloraWildBananaYuccaClippingSeed
@@ -811,6 +813,8 @@
   - proto: RiceSeeds
     price: 5
   - proto: SugarcaneSeeds
+    price: 5
+  - proto: GarlicSeeds
     price: 5
 
 - type: storeCategoryStructured

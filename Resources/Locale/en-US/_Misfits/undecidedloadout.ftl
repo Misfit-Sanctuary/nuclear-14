@@ -581,7 +581,7 @@ undecided-loadout-category-misfits-enclave-command-plasma-description =
 undecided-loadout-category-misfits-enclave-rifleman-name = Trooper Rifleman Kit
 undecided-loadout-category-misfits-enclave-rifleman-description =
     Includes Peacekeeper armor, a military belt,
-    a Wattz 3000 laser rifle with 2 MF cells,
+    a Wattz 2000 laser rifle with 2 MF cells,
     an AEP-7 Laser Pistol with 2 energy cells,
     a handheld radio, 1 smoke grenade, 1 stimpak,
     and 1 gauze pack.
@@ -775,7 +775,7 @@ undecided-loadout-category-misfits-priestess-zealot-desc =
 
 undecided-loadout-category-misfits-priestess-purifier-name = Priestess of Purification
 undecided-loadout-category-misfits-priestess-purifier-desc =
-    Includes a flaming blade of Mars, 2 incendiary grenades, a heater shield,
+    Includes a flaming Blade of Mars, 2 incendiary grenades, a heater shield,
     a colt 45 with two magazines, 1 bandage, 1 Healing Poultice, 1 Healing Powder,
     2 K rations, and a ceramic flask.
 
@@ -800,7 +800,7 @@ undecided-loadout-category-misfits-acolyte-slaver-desc =
 
 undecided-loadout-category-misfits-temple-guard-protector-name = Temple Guard Protector
 undecided-loadout-category-misfits-temple-guard-protector-desc =
-    Includes a poleaxe, a heater shield, a colt 45 with two magazines,
+    Includes a bardiche, a heater shield, a colt 45 with two magazines,
     1 bandage, 2 Healing Powders, 2 K rations, and a ceramic flask.
 
 undecided-loadout-category-misfits-temple-guard-enforcer-name = Temple Guard Enforcer

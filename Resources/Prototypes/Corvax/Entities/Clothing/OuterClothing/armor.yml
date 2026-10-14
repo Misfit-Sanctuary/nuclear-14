@@ -159,10 +159,8 @@
   - type: Sprite
     sprite: Corvax/Clothing/OuterClothing/Armor/deanrecruitarmorV2.rsi
   - type: Clothing
+
     sprite: Corvax/Clothing/OuterClothing/Armor/deanrecruitarmorV2.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1.05 # made a little faster since its just worse than combat mk2, also fits the role of "small pack lead"
-    sprintModifier: 1.05
   - type: Armor
     modifiers:
       coefficients:
@@ -232,14 +230,14 @@
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/lightreconnaissancearmor.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 1.15 #A little faster than the previous recon
-    sprintModifier: 1.15
+    walkModifier: 1.10
+    sprintModifier: 1.10
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.85
         Slash: 0.85
-        Piercing: 0.85 #20% was a bit too good for what it provided
+        Piercing: 0.85
         Heat: 0.90 # weak to heat
   - type: ExplosionResistance
     damageCoefficient: 0.85
@@ -278,15 +276,15 @@
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/deanrecruitarmorV2.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 1.10
-    sprintModifier: 1.10 # the little ones can enjoy the game too.
+    walkModifier: 1.05
+    sprintModifier: 1.05 # the little ones can enjoy the game too.
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85 # 10% is worse than some COATS btw. just want you to know that. gave them 15% -Bill
-        Heat: 0.9 # Legion is weak to heat
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
+        Heat: 0.85
   - type: ExplosionResistance
     damageCoefficient: 0.95
 
@@ -324,15 +322,15 @@
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/explorerarmor.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 1.10
-    sprintModifier: 1.10
+    walkModifier: 1.05
+    sprintModifier: 1.05
   - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.80
         Slash: 0.80
         Piercing: 0.75
-        Heat: 0.70 #made entirely of leather, so it should offer better heat prot. also gives legion an actual option for heat armor
+        Heat: 0.80
   - type: ExplosionResistance
     damageCoefficient: 0.80
 
@@ -346,10 +344,7 @@
     sprite: Corvax/Clothing/OuterClothing/Armor/oratorarmor.rsi
   - type: Clothing
     sprite: Corvax/Clothing/OuterClothing/Armor/oratorarmor.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 1.05 #A little faster than the previous recon
-    sprintModifier: 1.05
-  - type: Armor 
+  - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.60
@@ -608,7 +603,7 @@
   parent: N14ClothingOuterBase
   id: N14ClothingOuterPriestessMarsArmor
   name: Priestess of Mars' armored robes
-  description: Armored robes, made with special care and skill, worn by the rankining Priestess of a Castrum, the pulsating cage of fire is said to contain a small piece of Mars' divide power.
+  description: Armored robes made with special care and skill. Worn by the ranking Priestess of a Castrum. the pulsating cage of fire is said to contain a small piece of Mars' divine power.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/CaesarLegion/priestessarmor.rsi
@@ -619,13 +614,13 @@
     sprintModifier: 1.05
   - type: Armor
     modifiers:
-      coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.65 #pom is meant to be at the level of a vet decanus, dont @ me
-        Heat: 0.55 # yeah boo hoo the priestess of the fire god is resistant to fire
+      coefficients: # Comparable to NCR Medical Doctor; PoM does not need to start with super gamer gear.
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.70
   - type: ExplosionResistance
-    damageCoefficient: 0.7
+    damageCoefficient: 0.9
 
 - type: entity
   parent: N14ClothingOuterBase
@@ -638,14 +633,14 @@
   - type: Clothing
     sprite: _Misfits/Clothing/CaesarLegion/armoredrobes.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 1.10
-    sprintModifier: 1.10
+    walkModifier: 1.05
+    sprintModifier: 1.05
   - type: Armor
     modifiers:
-      coefficients:
+      coefficients: # Armor for guards/acolytes should follow similar standards as Legionnaire armor. Decent starting stats, nothing crazy.
         Blunt: 0.75
         Slash: 0.75
         Piercing: 0.75
-        Heat: 0.65 # yeah boo hoo the priestess of the fire god is resistant to fire
+        Heat: 0.75
   - type: ExplosionResistance
     damageCoefficient: 0.9

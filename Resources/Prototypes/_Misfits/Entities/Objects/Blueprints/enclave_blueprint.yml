@@ -6,12 +6,12 @@
   parent: N14BlueprintBase
   id: N14enclaveheavyordnancet5
   name: Enclave Heavy Ordnance Plans
-  description: Classified Enclave engineering schematics for 2mm electromagnetic gauss weapons — the PPK12 sidearm, the M72 rifle, their magazines, and cartridge boxes. Tier 5 heavy ordnance.
+  description: Classified Enclave engineering schematics for 2mm electromagnetic gauss weapon ammo — magazines and cartridge boxes. Tier 5 heavy ordnance.
   components:
   - type: Blueprint
     recipes:
     # - N14BPEnclaveWeaponGaussRifle
-    - N14BPEnclaveWeaponGaussPistol
+    # - N14BPEnclaveWeaponGaussPistol
     - N14BPEnclaveAmmoMag2mmECRifle
     - N14BPEnclaveAmmoMag2mmECPistol
     - N14BPEnclaveAmmoBox2mmEC

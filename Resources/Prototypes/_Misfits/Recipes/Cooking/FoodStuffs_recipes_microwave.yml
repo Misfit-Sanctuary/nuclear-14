@@ -90,17 +90,6 @@
     JuiceCarrot: 5
     Sugar: 5
 
-#- Milk Chocolate Bar: 2u cocoa powder, 5u milk, 5u sugar (must be in separate containers else create regular choc) -> 5 sec
-- type: microwaveMealRecipe
-  id: MisfitsRecipeChocolateBar
-  name: Milk Chocolate Bar
-  result: MisfitsFoodChocolateBar
-  time: 5
-  reagents:
-    N14MilkBrahmin: 5
-    Sugar: 5
-    CocoaPowder: 2
-
 #- VaultTech Lolipop: 10u sugar, 1 paper -> 5 sec
 - type: microwaveMealRecipe
   id: MisfitsRecipeLollipop_VaultTech
@@ -141,7 +130,7 @@
   result: MisfitsFoodKebabWrap
   time: 5
   solids:
-    N14FoodMeatBrahminCutletCooked: 3
+    MisfitsFoodKebabSlice: 3
     N14FoodCabbage: 1
     N14FloraProduceWildOnion: 1
     N14FoodDoughSlice: 1
@@ -232,7 +221,7 @@
   time: 10
   reagents:
     ExtractRazorgrainFlour: 10
-    N14MilkBrahmin: 5
+    Milk: 5
     Egg: 5
     Raiser: 5
 
@@ -244,7 +233,7 @@
   time: 5
   reagents:
     ExtractRazorgrainFlour: 5
-    N14MilkBrahmin: 5
+    Milk: 5
   solids:
     FoodButterSlice: 1
 
@@ -256,7 +245,7 @@
   time: 10
   reagents:
     ExtractRazorgrainFlour: 10
-    N14MilkBrahmin: 10
+    Milk: 10
     Raiser: 5
   solids:
     FoodButterSlice: 1
@@ -313,7 +302,7 @@
   id: CarrotCandy
   impact: Low
   quantized: true
-  minTemp: 400
+  minTemp: 370
   reactants:
     JuiceCarrot:
       amount: 5
@@ -327,7 +316,7 @@
   id: BuffaloGourdCandy
   impact: Low
   quantized: true
-  minTemp: 400
+  minTemp: 370
   reactants:
     ExtractBuffaloGourd:
       amount: 5
@@ -341,7 +330,7 @@
   id: BlackberryCandy
   impact: Low
   quantized: true
-  minTemp: 400
+  minTemp: 370
   reactants:
     BlackberryJam:
       amount: 5
@@ -355,7 +344,7 @@
   id: ButterscotchCandy
   impact: Low
   quantized: true
-  minTemp: 400
+  minTemp: 370
   reactants:
     Butterscotch:
       amount: 5
@@ -381,7 +370,7 @@
   id: JetCandy
   impact: Low
   quantized: true
-  minTemp: 400
+  minTemp: 370
   reactants:
     MovespeedMixture:
       amount: 5

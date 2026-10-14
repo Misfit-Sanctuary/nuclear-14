@@ -19,9 +19,6 @@
   - type: Wieldable
     wieldedSpeedModifier: 0.9
   - type: GunRequiresWield
-  - type: WieldDelay # Misfits-change
-    baseDelay: 0
-    preventFiring: true
   - type: GunWieldBonus
     minAngle: -19 # Misfits-change
     maxAngle: -50 # Misfits-change
@@ -226,9 +223,6 @@
   - type: Wieldable
     wieldedSpeedModifier: 0.8
   - type: GunRequiresWield
-  - type: WieldDelay # Misfits-change
-    baseDelay: 1
-    preventFiring: true
   - type: GunWieldBonus
     minAngle: -22
     maxAngle: -55

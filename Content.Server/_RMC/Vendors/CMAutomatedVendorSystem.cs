@@ -63,6 +63,7 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
             return vendor;
 
         var poolId = vendor.Comp.SharedPool;
+        // #Cythisiax Fixed - Re-enabled normal shared-pool host selection after the temporary NCR vendor shutdown.
         if (_sharedPoolHosts.TryGetValue(poolId, out var host) && TryComp<CMAutomatedVendorComponent>(host, out var hostComp))
             return new Entity<CMAutomatedVendorComponent>(host, hostComp);
 
@@ -72,6 +73,7 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
 
     protected override void OnOpenAttempt(Entity<CMAutomatedVendorComponent> vendor, ref ActivatableUIOpenAttemptEvent args)
     {
+        // #Cythisiax Removed - Retired the temporary out-of-service gate so NCR vendors can open normally.
         base.OnOpenAttempt(vendor, ref args);
         if (args.Cancelled)
             return;
@@ -450,6 +452,7 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
 
     private bool CanUseVendor(Entity<CMAutomatedVendorComponent> vendor, EntityUid user)
     {
+        // #Cythisiax Removed - Retired the temporary action gate; standard access and job authorization remain.
         if (!vendor.Comp.Hacked && !_access.IsAllowed(user, vendor))
         {
             Deny(vendor, user, "Your access does not authorize this vendor.");
@@ -553,6 +556,7 @@ public sealed partial class CMAutomatedVendorSystem : SharedCMAutomatedVendorSys
         var query = EntityQueryEnumerator<CMAutomatedVendorComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
+            // #Cythisiax Fixed - Active vendors resume normal timed resupply processing.
             var vendor = new Entity<CMAutomatedVendorComponent>(uid, component);
             var pool = GetPoolVendor(vendor);
             if (pool.Owner != vendor.Owner ||

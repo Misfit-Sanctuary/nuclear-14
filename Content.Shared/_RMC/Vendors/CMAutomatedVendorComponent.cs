@@ -12,6 +12,7 @@ namespace Content.Shared._RMC.Vendors;
 [Access(typeof(SharedCMAutomatedVendorSystem))]
 public sealed partial class CMAutomatedVendorComponent : Component
 {
+    // #Cythisiax Removed - Retired the temporary vendor-disable field now that NCR requisitions are active again.
     /// <summary>
     /// Optional runtime stock pool shared by every automated vendor with the same identifier.
     /// When omitted, this vendor retains independent stock, resupply, and equipment storage.

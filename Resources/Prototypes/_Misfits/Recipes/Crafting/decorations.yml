@@ -399,6 +399,7 @@
   placementMode: SnapgridCenter
 
 # #Misfits Add - 509th Brotherhood of Steel standing flag recipe
+# Official lore link to Operation Sun Burst via CCTV eye bot cam: https://www.youtube.com/watch?v=Z0wL6DXIvoc
 - type: construction
   name: Flag of the 509th Brotherhood of Steel
   id: MisfitsDecorationFlagBoSBonneville509
@@ -411,6 +412,22 @@
   icon:
     sprite: _Misfits/Structures/Decoration/bos509thflag.rsi
     state: bos509thflag
+  objectType: Structure
+  placementMode: SnapgridCenter
+
+
+- type: construction
+  name: Flag of New Canaan
+  id: MisfitsDecorationFlagNewCanaan
+  graph: DecorationFlagNewCanaan
+  startNode: start
+  targetNode: FlagNewCanaan
+  # category: construction-category-decorations
+  description: A navy blue flag with a White Ring, Stars and the Angel. It is the flag of the people of New Canaan.
+  hide: false
+  icon:
+    sprite: _Misfits/Structures/Decoration/newcanaanflag.rsi
+    state: newcanaanflag
   objectType: Structure
   placementMode: SnapgridCenter
 

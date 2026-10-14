@@ -126,6 +126,23 @@
     sprite: _Misfits/Objects/Weapons/Guns/Projectiles/green_laser.rsi
     state: impact_green_laser
 
+- type: hitscan
+  id: N14RechargerLaserOrange
+  damage:
+    types:
+      Heat: 15
+  beamWidth: 0.75
+  tintColor: "#FF6E00"
+  muzzleFlash:
+    sprite: _Misfits/Objects/Weapons/Guns/Projectiles/yellow_laser.rsi
+    state: muzzle_yellow
+  travelFlash:
+    sprite: _Misfits/Objects/Weapons/Guns/Projectiles/yellow_laser.rsi
+    state: beam_yellow
+  impactFlash:
+    sprite: _Misfits/Objects/Weapons/Guns/Projectiles/yellow_laser.rsi
+    state: impact_yellow
+
 # #Misfits Add - Yellow beam for Wattz 2000/3000 focused laser rifles.
 # Uses red beam sprites tinted bright yellow. Base damage matches Red;
 # actual output is higher due to GunDamageBonusComponent on the Wattz weapons - also adds their Shock damage to emphasize DMR role
@@ -135,17 +152,16 @@
   damage:
     types:
       Heat: 30
-  tintColor: "#FFD700"
   beamWidth: 1.5
   muzzleFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_laser
+    sprite: _Misfits/Objects/Weapons/Guns/Projectiles/yellow_laser.rsi
+    state: muzzle_yellow
   travelFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: beam
+    sprite: _Misfits/Objects/Weapons/Guns/Projectiles/yellow_laser.rsi
+    state: beam_yellow
   impactFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_laser
+    sprite: _Misfits/Objects/Weapons/Guns/Projectiles/yellow_laser.rsi
+    state: impact_yellow
 
 #MARK: Electron Charge Pack Pulses — Red < Green < Blue < Violet
 # Used by the colored ECP variants accepted by the RCW.

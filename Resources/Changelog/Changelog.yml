@@ -12342,3 +12342,113 @@ Entries:
   id: 6511
   time: '2026-10-08T22:22:25.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2066
+- author: Vixting
+  changes:
+    - type: Add
+      message: 'add gold & silver as sellables for encalve '
+  id: 6512
+  time: '2026-10-10T23:56:29.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2052
+- author: Vixting
+  changes:
+    - type: Fix
+      message: 'fix stacks of items not being counted for bounties '
+  id: 6513
+  time: '2026-10-11T22:05:02.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2058
+- author: cythisiax
+  changes:
+    - type: Add
+      message: Admin Loremaster Tab event shit. Local audio & Global audio play.
+  id: 6514
+  time: '2026-10-12T00:28:03.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2075
+- author: RedBookcase
+  changes:
+    - type: Add
+      message: >-
+        New laser sprites for the Wattz & Recharger line of weapons. The Wattz
+        now fires fat yellow lasers, while Rechargers fire narrow orange lasers.
+    - type: Fix
+      message: Wattz-related typo in the Enclave Enlisted kits.
+  id: 6515
+  time: '2026-10-12T00:28:14.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2074
+- author: Vixting
+  changes:
+    - type: Add
+      message: >-
+        Added mount overlays (handlebars for bikes) & hiding parts of the
+        players sprite to make it look better
+    - type: Add
+      message: Positioned players sprite better for mounts
+    - type: Fix
+      message: Fix misc issues with mounts, should feel much smoother
+  id: 6516
+  time: '2026-10-12T17:56:16.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2073
+- author: cythisiax
+  changes:
+    - type: Tweak
+      message: 'revert NCR loadout removal because "ncr is half baked RMC cancer now" '
+    - type: Tweak
+      message: Disable vendors because they're halfbaked RMC cancer
+  id: 6517
+  time: '2026-10-12T18:20:50.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2024
+- author: alekszejg
+  changes:
+    - type: Add
+      message: Added Kokoa plant and seeds. Chocolate!!!
+    - type: Add
+      message: Added Kokoa seed spawns and trading
+    - type: Add
+      message: Added Kokoa pod trading contract
+    - type: Fix
+      message: Fixed chocolate-related recipes
+  id: 6518
+  time: '2026-10-12T20:13:03.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2060
+- author: RedBookcase
+  changes:
+    - type: Add
+      message: >-
+        Gauss Rifle ASRS crate purchase for Enclave. There's only a single
+        one...
+    - type: Tweak
+      message: Lowered Gauss Rifle ROF from 2.0 to 1.2
+    - type: Remove
+      message: Removed BoS Recruitment Popup.
+    - type: Remove
+      message: >-
+        Remove Enclave Gauss Pistol BP and ASRS order, and removed it from
+        random expedition loot as well.
+    - type: Tweak
+      message: 'Renamed Poleaxe to Bardiche :nerd_face: '
+    - type: Tweak
+      message: Removed second Knight Lancer slot.
+    - type: Tweak
+      message: >-
+        Lots of changes to wield delays. Wield delay removed on 5.56 LMGs. Wield
+        delay and movespeed slow lowered for M240b following it's ROF nerf. 
+    - type: Tweak
+      message: >-
+        Increased price of Enclave materials crate to prevent infinite money
+        exploit
+  id: 6519
+  time: '2026-10-13T03:27:54.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2076
+- author: cythisiax
+  changes:
+    - type: Add
+      message: title
+  id: 6520
+  time: '2026-10-13T23:15:27.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2080
+- author: cythisiax
+  changes:
+    - type: Tweak
+      message: Re-enable due to overwhelming support
+  id: 6521
+  time: '2026-10-13T23:55:24.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2082

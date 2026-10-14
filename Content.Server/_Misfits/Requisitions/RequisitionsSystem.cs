@@ -1534,7 +1534,7 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
         return false;
     }
 
-    private string? MatchKey(EntityUid entity)
+    internal string? MatchKey(EntityUid entity)
     {
         if (TryComp(entity, out StackComponent? stack))
         {
@@ -1550,16 +1550,22 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
         return MetaData(entity).EntityPrototype?.ID;
     }
 
-    private string ResolveDeliveryKey(string id)
+    // I hate this game
+    internal string ResolveDeliveryKey(string id)
     {
-        if (_prototypeManager.TryIndex<EntityPrototype>(id, out var entProto) &&
-            entProto.TryGetComponent<StackComponent>(out var stack) &&
-            !string.IsNullOrEmpty(stack.StackTypeId))
+        var stackType = id;
+        if (_prototypeManager.TryIndex<EntityPrototype>(id, out var entProto))
         {
-            return stack.StackTypeId;
+            if (!entProto.TryGetComponent<StackComponent>(out var stack) || string.IsNullOrEmpty(stack.StackTypeId))
+                return id;
+
+            stackType = stack.StackTypeId;
         }
 
-        return id;
+        if (_prototypeManager.TryIndex<StackPrototype>(stackType, out var stackProto))
+            return stackProto.Spawn;
+
+        return stackType;
     }
 
     private (string Key, int Units) ResolveStorageUnit(EntProtoId proto)

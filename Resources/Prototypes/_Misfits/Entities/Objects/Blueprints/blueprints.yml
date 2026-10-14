@@ -849,6 +849,9 @@
     - N14BPTownArmorLightLeatherArmor
     # #Misfits Add - paired basic town guard hat
     - N14BPTownArmorHelmetTownGuard
+    # #New_Canaan town aligned sub-faction
+    - MisfitsBPNewCanaanLeatherVest
+    - MisfitsBPNewCanaanShemagh
 
 - type: entity
   parent: N14BlueprintBase
@@ -865,6 +868,8 @@
     # #Misfits Add - paired Brodie and basic metal helmets
     - N14BPTownArmorHelmetBrodie
     - N14BPTownArmorHelmetMetal
+    # #New_Canaan town aligned sub-faction
+    - MisfitsBPNewCanaanPoliceVest
 
 - type: entity
   parent: N14BlueprintBase
@@ -894,6 +899,10 @@
     - N14BPTownArmorCombatArmorRCMP
     # #Misfits Add - paired RCMP helmets/armors
     - N14BPTownArmorHelmetSpecRCMP
+   # #New_Canaan town aligned sub-faction
+    - MisfitsBPNewCanaanRiot_duster
+    - MisfitsBPNewCanaanRiot_helm
+    - MisfitsBPNewCanaanRiot_gasmask
 
 # --- Town Ammo ---
 - type: entity
@@ -1261,7 +1270,7 @@
     - N14BPTribeArmorTribalArmorHeavy
     #- N14BPTribeArmorCombatTribal
     - MisfitsBPTribeArmorHelmetRadstagSkull
-    - N14BPClothingOuterTribeCombatArmor 
+    - N14BPClothingOuterTribeCombatArmor
     - N14BPTribeClothingHeadHatCombatHelmet
 - type: entity
   parent: N14BlueprintBase

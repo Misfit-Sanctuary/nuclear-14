@@ -1,0 +1,163 @@
+# riot armor outer| duster
+- type: entity
+  parent: N14ClothingOuterRangerCombatDesert
+  id: MisfitsClothingOuterNewCanaanDuster
+  name: New Canaanite duster
+  description: Pre-war riot armor worn under a long riding duster, refitted in New Canaanite colours.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/newcanaanduster.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/newcanaanduster.rsi
+
+# riot armor helmet | head
+- type: entity
+  parent: N14ClothingHeadHatRangerHelmetDesert
+  id: MisfitsClothingHeadHelmetNewCanaanRiot
+  name: New Canaanite riot helmet
+  description: A pre-war riot combat helmet, refitted and repainted for New Canaan's defenders.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/Helmets/newcanaanriothelmet.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/Helmets/newcanaanriothelmet.rsi
+
+# riot armor gas mask | mouth
+- type: entity
+  parent: ClothingMaskGasRangerWeathered
+  id: MisfitsClothingMaskGasNewCanaanRiot
+  name: New Canaanite weathered gas mask
+  description: A worn-out riot gas mask passed down through New Canaanites, patched up and refitted once more.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Mask/newcanaanriotmask.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Mask/newcanaanriotmask.rsi
+
+# leather vest | outer
+- type: entity
+  parent: N14ClothingOuterBosScribe
+  id: MisfitsClothingOuterNewCanaanLeatherVest
+  name: New Canaanite leather vest
+  description: A light leather vest with thin metal plates strapped over the chest, favoured by New Canaanite scouts who need to move quickly.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/newcanaanleathervest.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/newcanaanleathervest.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 1.05
+    sprintModifier: 1.05
+
+# police vest | outer
+- type: entity
+  parent: N14ClothingOuterPoliceVest
+  id: MisfitsClothingOuterNewCanaanPoliceVest
+  name: New Canaanite Police Vest
+  description: A pre-war police vest refitted by New Canaan, with some leather reinforcement, a sturdy belt and New Canaan's emblem stitched onto the back.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/newcanaanpolicevest.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/newcanaanpolicevest.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.75
+        Slash: 0.8
+        Piercing: 0.75
+        Heat: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.85
+
+
+# mouth covering | neck | toggle face/head
+- type: entity
+  parent: ClothingNeckDesertMask
+  id: MisfitsClothingNeckNewCanaanShemagh
+  name: New Canaanite shemagh
+  description: A shemagh threaded in the colors of New Canaan. It can be pulled over the face to protect against sun and dust.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Neck/newcanaanshemagh_neck.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Neck/newcanaanshemagh_neck.rsi
+  - type: ToggleableClothing
+    clothingPrototype: MisfitsClothingMaskNewCanaanShemagh
+    requiredSlot: neck
+    slot: mask
+
+# mouth covering | mouth
+- type: entity
+  parent: N14ClothingMaskDesertMask
+  id: MisfitsClothingMaskNewCanaanShemagh
+  name: New Canaanite shemagh
+  description: A blue shemagh that is pulled up over the mouth and nose.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Mask/newcanaanshemagh_mask.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Mask/newcanaanshemagh_mask.rsi
+
+# alter
+- type: entity
+  parent: AltarBase
+  id: MisfitsAltarNewCanaan
+  name: New Canaanite altar
+  description: An altar of New Canaan. Its candles kept burning by the faithful.
+  components:
+  - type: Icon
+    sprite: _Misfits/Structures/Decoration/Furniture/newcanaanaltar.rsi
+    state: newcanaanaltar
+  - type: Sprite
+    sprite: _Misfits/Structures/Decoration/Furniture/newcanaanaltar.rsi
+    layers:
+    - state: newcanaanaltar
+    - state: lightning
+      shader: unshaded
+
+- type: construction
+  name: New Canaanite altar
+  id: MisfitsConstructAltar
+  graph: MisfitsGraphAltar
+  startNode: start
+  targetNode: newcanaan
+  category: construction-category-furniture
+  description: An altar of New Canaan. Its candles kept burning by the faithful.
+  icon:
+    sprite: _Misfits/Structures/Decoration/Furniture/newcanaanaltar.rsi
+    state: newcanaanaltar
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: constructionGraph
+  id: MisfitsGraphAltar
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: newcanaan
+      completed:
+      - !type:SnapToGrid
+      steps:
+      - material: Plasteel
+        amount: 10
+      - material: Bluespace
+        amount: 3
+      - material: Gold
+        amount: 4
+        doAfter: 5
+  - node: newcanaan
+    entity: MisfitsAltarNewCanaan

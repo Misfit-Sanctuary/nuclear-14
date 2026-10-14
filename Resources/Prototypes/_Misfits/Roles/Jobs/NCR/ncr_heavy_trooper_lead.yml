@@ -57,6 +57,11 @@
     outerClothing: MisfitsNCRHeavyTrooperLeadPowerArmorT51
     shoes: N14ClothingBootsCombatFilled
     belt: ClothingBeltNCR
-    pocket1: NCRHeavyTrooperLeadLoadoutKits
+    # #Cythisiax Removed - Main NCR job slots now obtain selectable equipment from the requisitions vendors.
+    pocket2: RadioHandheld
     id: N14IDNCRDogtagWS
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryNCR

@@ -40,6 +40,13 @@
       value: 5
     - item: N14ScrapSteel
       value: 3
+    # metals
+    - item: N14ScrapGold
+      value: 120
+    - item: N14IngotSilver1
+      value: 120
+    - item: N14IngotGold1
+      value: 240
     # Farm produce. The Enclave's MegaSeed Servitor grows the vanilla Food* set;
     # the N14Food* twins are what wasteland foraging turns up. Both are bought so
     # neither source is dead weight.
@@ -235,9 +242,9 @@
         crate: N14CrateRequisitionsEnclavePulsePistol
       - cost: 2800
         crate: N14CrateRequisitionsEnclavePlasmaAuto
-      - cost: 3000
-        stock: 3
-        crate: N14CrateRequisitionsEnclaveGaussPistol
+      - cost: 4000
+        stock: 1
+        crate: N14CrateRequisitionsEnclaveGaussRifle
       - cost: 3200
         stock: 3
         crate: N14CrateRequisitionsEnclaveRCW
@@ -316,6 +323,8 @@
         crate: N14CrateRequisitionsEnclavePipboy
     - name: n14-requisitions-category-medical
       entries:
+      - cost: 300
+        crate: MisfitsCrateRequisitionsDisks
       - cost: 600
         crate: N14CrateRequisitionsEnclaveChems
       - cost: 800
@@ -338,7 +347,7 @@
         crate: N14CrateRequisitionsEnclaveTools
       - cost: 400
         crate: N14CrateRequisitionsEnclaveMining
-      - cost: 3500
+      - cost: 3800
         crate: N14CrateRequisitionsEnclaveIngots
     - name: n14-requisitions-category-provisions
       entries:
@@ -586,8 +595,8 @@
 
 - type: entity
   parent: N14CrateRequisitions
-  id: N14CrateRequisitionsEnclaveGaussPistol
-  name: PPK-12 gauss pistol crate
+  id: N14CrateRequisitionsEnclaveGaussRifle
+  name: M72 gauss rifle crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
@@ -597,11 +606,10 @@
     reward: 50
   - type: StorageFill
     contents:
-    - id: N14WeaponGaussPistol
+    - id: N14WeaponGaussRifle
       amount: 1
-    - id: N14Magazine2mmECPistol
+    - id: N14Magazine2mmECRifle
       amount: 3
-
 
 - type: entity
   parent: N14CrateRequisitions

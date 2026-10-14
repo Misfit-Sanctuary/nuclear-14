@@ -390,6 +390,7 @@
   - type: Stamina
     critThreshold: 200
   - type: Vehicle # one handed riding
+    renderOver: South
   - type: Strap
     # #Misfits Add - brahmin riding is perk-gated through the shared riding marker component.
     whitelist:
@@ -437,6 +438,12 @@
       types:
         Blunt: 10
   - type: Mountable
+    riderOffset: 0, 0.28
+    directionOffsets:
+      North: 0, 0
+      South: 0, 0.08
+      East: 0, 0
+      West: 0, 0
   - type: Tag
     tags:
     - Brahmin
@@ -631,6 +638,13 @@
       components:
       - HumanoidAppearance
       - TribalHuntParticipant
+  - type: Mountable
+    riderOffset: 0, 0.3
+    directionOffsets:
+      North: 0, 0
+      South: 0, 0.1
+      East: -0.22, 0
+      West: 0.22, 0
   - type: Tag
     tags:
     - Radstag

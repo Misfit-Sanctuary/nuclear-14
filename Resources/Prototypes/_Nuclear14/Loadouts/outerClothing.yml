@@ -349,6 +349,20 @@
     - N14ClothingOuterLeatherArmor
 
 - type: loadout
+  id: N14LoadoutOuterTownNewCanaanLeatherVest
+  category: Outer
+  cost: 1
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutOuter
+  - !type:CharacterDepartmentRequirement # Forge-Change
+    inverted: false
+    departments:
+    - Townsfolk
+  items:
+  - MisfitsClothingOuterNewCanaanLeatherVest
+
+- type: loadout
   id: N14LoadoutOuterMetalArmor
   category: Outer
   cost: 1

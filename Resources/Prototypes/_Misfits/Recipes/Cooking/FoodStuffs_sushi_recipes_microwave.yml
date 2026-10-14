@@ -3,8 +3,8 @@
 - type: microwaveMealRecipe
   id: MisfitsRecipeSushiRaw
   name: Simple Sushi
-  result: MisfitsFoodSushiMeatRaw
-  time: 10
+  result: MisfitsFoodSushiRaw
+  time: 5
   reagents:
     Rice: 10
   solids:
@@ -13,8 +13,8 @@
 - type: microwaveMealRecipe
   id: MisfitsRecipeSushiCooked
   name: Fried Simple Sushi
-  result: MisfitsFoodSushiMeatCooked
-  time: 10
+  result: MisfitsFoodSushiCooked
+  time: 5
   reagents:
     Rice: 10
   solids:
@@ -25,7 +25,7 @@
   id: MisfitsRecipeFishCarrotRaw
   name: Fried Carrot Fish Sushi
   result: MisfitsFoodSushiFishCarrotRaw
-  time: 10
+  time: 5
   reagents:
     Rice: 10
   solids:
@@ -38,7 +38,7 @@
   id: MisfitsRecipeSushiFishRaw
   name: Fried Fish Sushi
   result: MisfitsFoodSushiFishRaw
-  time: 10
+  time: 5
   reagents:
     Rice: 10
   solids:
@@ -61,7 +61,7 @@
   id: MisfitsRecipeSushiNCRRaw
   name: Fried New California Roll
   result: MisfitsFoodSushiNCRRaw
-  time: 10
+  time: 5
   reagents:
     Rice: 10
   solids:
@@ -72,7 +72,7 @@
   id: MisfitsRecipeSushiNCRSuperRaw
   name: NCR Patriotic Roll
   result: MisfitsFoodSushiNCRSuperRaw
-  time: 10
+  time: 5
   reagents:
     Rice: 10
   solids:
@@ -85,7 +85,7 @@
   id: MisfitsRecipeSushiSpicyRaw
   name: Fried Spicy Sushi
   result: MisfitsFoodSushiSpicyRaw
-  time: 10
+  time: 5
   reagents:
     Rice: 10
     Hotsauce: 2
@@ -97,7 +97,7 @@
   id: MisfitsRecipeLegionSuperRaw
   name: Fried Legion Patriotic Roll
   result: MisfitsFoodSushiLegionSuperRaw
-  time: 10
+  time: 5
   reagents:
     Rice: 10
   solids:
@@ -111,7 +111,7 @@
   id: MisfitsRecipeSushiCheeseRaw
   name: Fried Cream Cheese Sushi
   result: MisfitsFoodSushiCheeseRaw
-  time: 10
+  time: 5
   reagents:
     Rice: 10
     N14MilkBrahmin: 5

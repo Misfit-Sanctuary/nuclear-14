@@ -13,8 +13,10 @@ misfits-admin-menu-ticket-stats-tab = Ticket Stats
 ## Fax Manager shortcut
 loremaster-tab-fax-manager = Fax Manager
 loremaster-tab-fax-manager-hint = Open the admin fax panel to read and respond to player faxes
-loremaster-tab-upload-local-audio = Play Local Audio
-loremaster-tab-local-audio-hint = Upload an .ogg to play nearby at a safe volume
+loremaster-tab-upload-local-audio = Play Local Sound
+loremaster-tab-local-audio-hint = Play an .ogg, PCM .wav, or .mp3 nearby (3 MB max)
+loremaster-tab-upload-global-audio = Play Global Sound
+loremaster-tab-global-audio-hint = Upload and play an .ogg, PCM .wav, or .mp3 for everyone (3 MB max)
 loremaster-tab-upload-map = Upload Map File
 
 ## LoreMaster tab UI strings

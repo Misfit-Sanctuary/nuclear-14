@@ -337,35 +337,39 @@
           maxAmount: 25
       #Foodstuff
         - id: N14ReagentContainerRice
-          prob: 0.75
+          prob: 0.1
           orGroup: Consumables
           amount: 1
           maxAmount: 1
         - id: N14ReagentContainerFlour
-          prob: 0.75
+          prob: 0.1
           orGroup: Consumables
           amount: 1
           maxAmount: 1
         - id: N14ReagentContainerSugar
-          prob: 0.75
+          prob: 0.1
           orGroup: Consumables
           amount: 1
           maxAmount: 1
         - id: MisfitsItemRaiserCan
-          prob: 0.75
+          prob: 0.1
           orGroup: Consumables
           amount: 1
           maxAmount: 1
         - id: CocoaSeeds
-          prob: 0.75
+          prob: 0.1
           amount: 1
           maxAmount: 1
         - id: RiceSeeds
-          prob: 0.75
+          prob: 0.1
           amount: 1
           maxAmount: 1
         - id: SugarcaneSeeds
-          prob: 0.75
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
+        - id: GarlicSeeds
+          prob: 0.1
           amount: 1
           maxAmount: 1
 
@@ -412,6 +416,8 @@
         - id: N14FloraWildCoyoteTobaccoClippingSeed
           prob: 0.02
         - id: N14FloraWildCannabisClippingSeed
+          prob: 0.02
+        - id: MisfitsKokoaSeeds
           prob: 0.02
         - id: N14FloraDaturaClippingSeed
           prob: 0.01
@@ -1051,35 +1057,39 @@
           maxAmount: 25
       #Foodstuff
         - id: N14ReagentContainerRice
-          prob: 0.75
+          prob: 0.1
           orGroup: Consumables
           amount: 1
           maxAmount: 1
         - id: N14ReagentContainerFlour
-          prob: 0.75
+          prob: 0.1
           orGroup: Consumables
           amount: 1
           maxAmount: 1
         - id: N14ReagentContainerSugar
-          prob: 0.75
+          prob: 0.1
           orGroup: Consumables
           amount: 1
           maxAmount: 1
         - id: MisfitsItemRaiserCan
-          prob: 0.75
+          prob: 0.1
           orGroup: Consumables
           amount: 1
           maxAmount: 1
         - id: CocoaSeeds
-          prob: 0.75
+          prob: 0.1
           amount: 1
           maxAmount: 1
         - id: RiceSeeds
-          prob: 0.75
+          prob: 0.1
           amount: 1
           maxAmount: 1
         - id: SugarcaneSeeds
-          prob: 0.75
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
+        - id: GarlicSeeds
+          prob: 0.1
           amount: 1
           maxAmount: 1
 
@@ -1540,35 +1550,39 @@
           maxAmount: 25
       #Foodstuff
         - id: N14ReagentContainerRice
-          prob: 0.75
+          prob: 0.1
           orGroup: Consumables
           amount: 1
           maxAmount: 1
         - id: N14ReagentContainerFlour
-          prob: 0.75
+          prob: 0.1
           orGroup: Consumables
           amount: 1
           maxAmount: 1
         - id: N14ReagentContainerSugar
-          prob: 0.75
+          prob: 0.1
           orGroup: Consumables
           amount: 1
           maxAmount: 1
         - id: MisfitsItemRaiserCan
-          prob: 0.75
+          prob: 0.1
           orGroup: Consumables
           amount: 1
           maxAmount: 1
         - id: CocoaSeeds
-          prob: 0.75
+          prob: 0.1
           amount: 1
           maxAmount: 1
         - id: RiceSeeds
-          prob: 0.75
+          prob: 0.1
           amount: 1
           maxAmount: 1
         - id: SugarcaneSeeds
-          prob: 0.75
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
+        - id: GarlicSeeds
+          prob: 0.1
           amount: 1
           maxAmount: 1
 
@@ -1865,35 +1879,39 @@
           maxAmount: 25
       #Foodstuff
         - id: N14ReagentContainerRice
-          prob: 0.75
+          prob: 0.1
           orGroup: Consumables
           amount: 1
           maxAmount: 1
         - id: N14ReagentContainerFlour
-          prob: 0.75
+          prob: 0.1
           orGroup: Consumables
           amount: 1
           maxAmount: 1
         - id: N14ReagentContainerSugar
-          prob: 0.75
+          prob: 0.1
           orGroup: Consumables
           amount: 1
           maxAmount: 1
         - id: MisfitsItemRaiserCan
-          prob: 0.75
+          prob: 0.1
           orGroup: Consumables
           amount: 1
           maxAmount: 1
         - id: CocoaSeeds
-          prob: 0.75
+          prob: 0.1
           amount: 1
           maxAmount: 1
         - id: RiceSeeds
-          prob: 0.75
+          prob: 0.1
           amount: 1
           maxAmount: 1
         - id: SugarcaneSeeds
-          prob: 0.75
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
+        - id: GarlicSeeds
+          prob: 0.1
           amount: 1
           maxAmount: 1
 
@@ -2536,6 +2554,8 @@
         - id: N14FloraWildCoyoteTobaccoClippingSeed
           prob: 0.05
         - id: N14FloraWildCannabisClippingSeed
+          prob: 0.05
+        - id: MisfitsKokoaSeeds
           prob: 0.05
         - id: N14FloraDaturaClippingSeed
           prob: 0.05

@@ -14,6 +14,7 @@
   name: NCR weapon requisitions vendor
   suffix: NCR
   components:
+  # #Cythisiax Removed - Temporary soft-disable; the NCR weapon vendor is active again.
   - type: CMAutomatedVendor
     maxAuthorityTier: 3
     # Every NCR weapon vendor instance draws from this shared faction armory pool.

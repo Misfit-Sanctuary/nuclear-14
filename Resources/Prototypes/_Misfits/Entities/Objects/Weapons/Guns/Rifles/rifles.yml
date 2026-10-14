@@ -77,7 +77,7 @@
   - type: GunRequiresWield
   - type: AmmoCounter
   - type: Gun
-    fireRate: 2
+    fireRate: 1.2
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -137,9 +137,6 @@
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: GunRequiresWield
-  - type: WieldDelay # Misfits-change
-    baseDelay: 1.5
-    preventFiring: true
   - type: GunWieldBonus
     minAngle: -23
     maxAngle: -43
@@ -176,7 +173,7 @@
             - N14Cartridge556Rifle
   - type: StaticPrice
     price: 150
-    
+
 - type: entity
   name: makeshift auto rifle
   parent: N14WeaponAutoRifle556Legion

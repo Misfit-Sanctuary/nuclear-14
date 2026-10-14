@@ -45,10 +45,16 @@
     ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
     back: N14ClothingBackpackNCR # Corvax-Change
     jumpsuit: N14ClothingUniformNCRDesert # Corvax-Change
+    outerClothing: N14ClothingOuterCoatFollowersArmored
     shoes: N14ClothingBootsLeatherFilled
     belt: ClothingBeltNCR
     id: N14IDNCRDogtagDoctorSenior
+    # #Cythisiax Removed - Main NCR job slots now obtain selectable equipment from the requisitions vendors.
   innerClothingSkirt: N14ClothingUniformNCRDesert # Corvax-Change
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage: # Corvax-Change
+    back:
+    - N14BoxPlasticFilledMilitaryNCR
 
 - type: playTimeTracker
   id: NCRMedicalDoctor

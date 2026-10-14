@@ -19,7 +19,7 @@
 
 # --- 509th BoS Head Paladin T-51bc ---
 - type: entity
-  parent: N14ClothingOuterPowerArmorT51BC
+  parent: N14ClothingOuterPowerArmorWashT51Elite # Reskin of Head Paladin PA
   id: MisfitsClothingOuterPowerArmorBoS509HeadPaladin
   name: 509th BoS Head Paladin T-51bc Power Armor
   description: The T-51bc worn by the 509th Brotherhood of Steel Head Paladin. Scored with the scars of vanguard action on the Bonneville salt flats, it is a badge of the chapter's senior sword.
@@ -28,6 +28,12 @@
     sprite: _Misfits/Clothing/OuterClothing/PowerArmor/bos509_headpaladin_t51bc.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/PowerArmor/bos509_headpaladin_t51bc.rsi
+  - type: ToggleableClothing
+    clothingPrototypes:
+      head: N14ClothingHeadHelmetPowerArmorT51BC
+      gloves: N14ClothingPAGauntlets
+      shoes: N14ClothingPABoots
+      back: N14ClothingPowerSystemsBack
 
 # --- 509th BoS Honor Guard T-51bc ---
 - type: entity

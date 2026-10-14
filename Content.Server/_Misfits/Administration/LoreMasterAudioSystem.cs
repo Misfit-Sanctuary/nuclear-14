@@ -1,85 +1,91 @@
-// #Misfits Add - Handles local, volume-capped audio uploaded from the Loremaster admin tab.
-using System.Collections.Concurrent;
 using Content.Server.Administration.Managers;
+using Content.Shared._Misfits.Administration;
 using Content.Shared.Administration;
-using Robust.Server.Upload;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.ContentPack;
-using Robust.Shared.GameObjects;
+using Robust.Server.Player;
 using Robust.Shared.Player;
-using Robust.Shared.Utility;
 
 namespace Content.Server._Misfits.Administration;
 
-/// <summary>
-/// Plays Loremaster-tab uploads only around the uploading administrator. Uploaded resources are
-/// deliberately isolated under a private path so ordinary runtime uploads cannot trigger audio.
-/// </summary>
+/// <summary>Relays authorized local audio to players around the uploading admin.</summary>
 public sealed partial class LoreMasterAudioSystem : EntitySystem
 {
-    private const string UploadPrefix = "LoreMasterAudio/";
-    private const string UploadedPrefix = "/Uploaded/";
-    private const float SafeVolume = -10f;
-    private const float MaxDistance = 16f;
-
-    [Dependency] private IAdminManager _adminManager = default!;
-    [Dependency] private NetworkResourceManager _networkResources = default!;
-    [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private IResourceManager _resources = default!;
-
-    private readonly ConcurrentQueue<(ICommonSession Session, ResPath Path)> _pendingUploads = new();
+    [Dependency] private readonly IAdminManager _admins = default!;
+    [Dependency] private readonly IPlayerManager _players = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        _networkResources.ResourcesUploaded += OnResourcesUploaded;
+        SubscribeNetworkEvent<UploadLoreMasterAudioEvent>(OnUploadAudio);
+        SubscribeNetworkEvent<UploadGlobalAdminAudioEvent>(OnUploadGlobalAudio);
     }
 
-    public override void Shutdown()
+    private void OnUploadAudio(UploadLoreMasterAudioEvent upload, EntitySessionEventArgs args)
     {
-        _networkResources.ResourcesUploaded -= OnResourcesUploaded;
-        base.Shutdown();
+        if (!_admins.HasAdminFlag(args.SenderSession, AdminFlags.Fun)
+            || args.SenderSession.AttachedEntity is not { Valid: true } source
+            || !ValidAudio(upload.Data, upload.Extension))
+            return;
+
+        if (!TryPrepareAudio(upload.Data, upload.Extension, out var data, out var extension, out _))
+            return;
+
+        RaiseNetworkEvent(new PlayLoreMasterAudioEvent(data, extension, GetNetEntity(source)),
+            Filter.Empty().AddPlayersByPvs(source));
     }
 
-    private void OnResourcesUploaded(NetworkResourcesUploadedEvent args)
+    private void OnUploadGlobalAudio(UploadGlobalAdminAudioEvent upload, EntitySessionEventArgs args)
     {
-        // Upload callbacks run off the game thread. Queue the request before touching entities.
-        foreach (var (path, _) in args.Files)
+        if (!_admins.HasAdminFlag(args.SenderSession, AdminFlags.Fun))
         {
-            _pendingUploads.Enqueue((args.Session, path));
+            RaiseNetworkEvent(new GlobalAdminAudioUploadResultEvent(false, "Fun permission is required."),
+                Filter.SinglePlayer(args.SenderSession));
+            return;
         }
+
+        if (!ValidAudio(upload.Data, upload.Extension))
+        {
+            RaiseNetworkEvent(new GlobalAdminAudioUploadResultEvent(false, "Invalid audio or file exceeds 3 MB."),
+                Filter.SinglePlayer(args.SenderSession));
+            return;
+        }
+
+        if (!TryPrepareAudio(upload.Data, upload.Extension, out var data, out var extension, out var error))
+        {
+            RaiseNetworkEvent(new GlobalAdminAudioUploadResultEvent(false, error),
+                Filter.SinglePlayer(args.SenderSession));
+            return;
+        }
+
+        RaiseNetworkEvent(new PlayUploadedGlobalAdminAudioEvent(data, extension, -8f),
+            Filter.Empty().AddAllPlayers(_players));
+        RaiseNetworkEvent(new GlobalAdminAudioUploadResultEvent(true, "Audio uploaded and playing globally."),
+            Filter.SinglePlayer(args.SenderSession));
     }
 
-    public override void Update(float frameTime)
+    private static bool ValidAudio(byte[] data, string extension)
     {
-        base.Update(frameTime);
+        return AdminAudioFormat.TryGetExtension(data, out var actualExtension)
+            && extension == actualExtension;
+    }
 
-        // A resource-upload callback may arrive one main-thread tick before the resource itself
-        // is stored under /Uploaded. Do not ask the audio system to resolve it until it is ready.
-        var pendingAtStart = _pendingUploads.Count;
-        for (var i = 0; i < pendingAtStart && _pendingUploads.TryDequeue(out var upload); i++)
+    private static bool TryPrepareAudio(byte[] input, string extension, out byte[] data, out string format, out string error)
+    {
+        data = input;
+        format = extension;
+        error = string.Empty;
+        if (extension != "mp3")
+            return true;
+
+        try
         {
-            var relativePath = upload.Path.ToRelativePath();
-            if (!relativePath.ToString().StartsWith(UploadPrefix, StringComparison.Ordinal)
-                || !string.Equals(relativePath.Extension, "ogg", StringComparison.OrdinalIgnoreCase))
-                continue;
-
-            if (!_adminManager.HasAdminFlag(upload.Session, AdminFlags.Fun)
-                || upload.Session.AttachedEntity is not { } source)
-                continue;
-
-            var soundPath = new ResPath(UploadedPrefix + relativePath);
-            if (!_resources.ContentFileExists(soundPath))
-            {
-                _pendingUploads.Enqueue(upload);
-                continue;
-            }
-
-            var sound = new SoundPathSpecifier(soundPath);
-            _audio.PlayPvs(sound, source, AudioParams.Default
-                .WithVolume(SafeVolume)
-                .WithMaxDistance(MaxDistance));
+            data = AdminMp3Converter.DecodeToWav(input);
+            format = "wav";
+            return true;
+        }
+        catch (Exception e)
+        {
+            error = $"MP3 could not be decoded: {e.Message}";
+            return false;
         }
     }
 }

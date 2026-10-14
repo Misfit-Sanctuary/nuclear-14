@@ -256,7 +256,7 @@
   name: recharger rifle
   parent: BaseWeaponBattery
   id: N14WeaponLaserRifleRecharger
-  description: The first model for a self-charging laser rifle, its low energy consumption and advanced internal battery lets this gun last for centuries without recharging.
+  description: The first model for a self-charging laser rifle, its low energy consumption and advanced internal battery lets this gun last for centuries without recharging. The narrow orange beam it fires lacks the punch of standard laser weapons.
   components:
   - type: Wieldable
   - type: GunWieldBonus
@@ -286,7 +286,7 @@
     availableModes:
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
+    proto: N14RechargerLaserOrange
     fireCost: 50
   - type: FollowDistance
     backStrength: 5
@@ -297,7 +297,7 @@
   name: recharger pistol
   parent: BaseWeaponBatterySmall
   id: N14WeaponLaserPistolRecharger
-  description: The upgraded version of the recharger rifle, compact but maintaining the same power, its low energy consumption and advanced internal battery makes this gun last for centuries without recharging.
+  description: The upgraded version of the recharger rifle, compact but maintaining the same power, its low energy consumption and advanced internal battery makes this gun last for centuries without recharging. The narrow orange beam it fires lacks the punch of standard laser weapons.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Battery/recharger_pistol.rsi
@@ -313,7 +313,7 @@
     soundGunshot:
       collection: N14RechargerPistolGunshot
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
+    proto: N14RechargerLaserOrange
     fireCost: 50
   - type: BatterySelfRecharger
     autoRecharge: true

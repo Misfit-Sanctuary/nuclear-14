@@ -1,0 +1,22 @@
+﻿# Im fixing and migrating chocolate recipes from _Nuclear14
+
+- type: entity
+  name: chocolate lava tart
+  parent: N14CookedFoodPieBase
+  id: N14CookedFoodTartCoco # tmp, changing ID means replacing prototype in all map files!
+  description: A tasty dessert made of chocolate, with a liquid core.
+  components:
+    - type: FlavorProfile
+      flavors:
+        - chocolate
+    - type: Sprite
+      state: cocolava
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 26
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 15
+            - ReagentId: Theobromine
+              Quantity: 2
