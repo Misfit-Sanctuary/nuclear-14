@@ -189,3 +189,76 @@
       amount: 1
   products:
     Cateye: 3
+
+- type: reaction
+  id: PreWarBuffout
+  minTemp: 374 # 100 degrees Celcius.
+  reactants:
+    Protein:
+      amount: 1
+    N14FireAntNectar:
+      amount: 1
+    Antiseptic:
+      amount: 1
+  products:
+    Buffout: 1
+
+- type: reaction
+  id: Wonderglue
+  minTemp: 374 # 100 degrees Celcius.
+  reactants:
+    Carbon:
+      amount: 1
+    Acetone:
+      amount: 1
+    TableSalt:
+      amount: 1
+  products:
+    Wonderglue: 2
+
+- type: reaction
+  id: Turpentine
+  minTemp: 374 # 100 degrees Celcius.
+  reactants:
+    Cellulose:
+      amount: 5
+    SodiumHydroxide:
+      amount: 1
+  products:
+    Turpentine: 1
+
+- type: reaction
+  id: N14BloatflyAcid
+  minTemp: 374 # 100 degrees Celcius.
+  reactants:
+    SulfuricAcid:
+      amount: 1
+    TranexamicAcid:
+      amount: 1
+  products:
+    N14BloatflyAcid: 1
+
+- type: reaction
+  id: ScorpionTail
+  reactants:
+    MisfitsGhostcapExtract:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+  products:
+    ScorpionTail: 1
+
+- type: reaction
+  id: N14FireAntNectar
+  minTemp: 374 # 100 degrees Celcius.
+  reactants:
+    Water:
+      amount: 1
+    Sugar:
+      amount: 1
+    Whiskey:
+      amount: 1
+    ExtractCoyoteTobacco:
+      amount: 1
+  products:
+    N14FireAntNectar: 2

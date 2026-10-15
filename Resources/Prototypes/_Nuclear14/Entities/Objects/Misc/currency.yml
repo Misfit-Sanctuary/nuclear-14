@@ -26,6 +26,12 @@
       - BottleCap
       - Currency
       - DoorBumpOpener
+  - type: MagnetPickup
+    slotFlags: WALLET
+    range: 1
+    whitelist:
+      tags:
+      - Currency
   - type: Dumpable
   - type: Construction
     graph: N14Wallet
@@ -186,6 +192,17 @@
     layers:
     - state: prewar
       map: ["base"]
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        density: 30
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.2,0.25,0.1"
+        mask:
+        - ItemMask
   - type: Appearance
   - type: Item
     size: Tiny

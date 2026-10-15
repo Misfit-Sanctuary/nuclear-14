@@ -79,7 +79,7 @@
 - type: trait
   id: N14Muted
   category: Speech
-  points: 10 # Bill Change, intended 8 points, spend 2 on getting sign language so it rounds to 8.
+  points: 6 # Nerfed from 10; paired with Sign Language (-2) this nets +4.
   requirements:
   - !type:CharacterDepartmentRequirement # Forge-Change
       inverted: true

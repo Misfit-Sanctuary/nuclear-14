@@ -12452,3 +12452,30 @@ Entries:
   id: 6521
   time: '2026-10-13T23:55:24.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2082
+- author: Enkidienne
+  changes:
+    - type: Add
+      message: container autostacking
+    - type: Tweak
+      message: Small M7 spear buff (5 ROF, 25 magsize 75 boxes)
+    - type: Tweak
+      message: Currency magnetization
+    - type: Tweak
+      message: Sneak perk affects armor sound to make them quieter
+    - type: Tweak
+      message: Wound tend surgery buff (factor of 2.5x)
+    - type: Tweak
+      message: Wound tend surgery on dead buff (0.2 to 0.5)
+  id: 6522
+  time: '2026-10-15T01:39:03.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2083
+- author: Davisrocket
+  changes:
+    - type: Add
+      message: >-
+        Recipes for Buffout, Wonderglue, Turpentine, Bloatfly Acid, Scorpion
+        Tail, Fire Ant Nectar. Sprites for growing cave fungus, and irradiated
+        fungus. Mutable Cave Fungus. 
+  id: 6523
+  time: '2026-10-15T02:11:48.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2081

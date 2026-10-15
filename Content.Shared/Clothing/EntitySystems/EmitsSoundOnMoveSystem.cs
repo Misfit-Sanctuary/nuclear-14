@@ -5,6 +5,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Components;
+using Content.Shared.Traits.Assorted.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
@@ -21,12 +22,14 @@ public sealed class EmitsSoundOnMoveSystem : EntitySystem
     private EntityQuery<InputMoverComponent> _moverQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<ClothingComponent> _clothingQuery;
+    private EntityQuery<FootstepVolumeModifierComponent> _footstepVolumeQuery;
 
     public override void Initialize()
     {
         _moverQuery = GetEntityQuery<InputMoverComponent>();
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         _clothingQuery = GetEntityQuery<ClothingComponent>();
+        _footstepVolumeQuery = GetEntityQuery<FootstepVolumeModifierComponent>();
 
         SubscribeLocalEvent<EmitsSoundOnMoveComponent, GotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<EmitsSoundOnMoveComponent, GotUnequippedEvent>(OnUnequipped);
@@ -92,8 +95,14 @@ public sealed class EmitsSoundOnMoveSystem : EntitySystem
         component.SoundDistance -= distanceNeeded;
 
         var sound = component.SoundCollection;
+        var volume = sound.Params.Volume;
+
+        // Only ClothVolumeModifier applies here; the walk/sprint modifiers do not.
+        if (isWorn && _footstepVolumeQuery.TryGetComponent(parent, out var footstepVolume))
+            volume += footstepVolume.ClothVolumeModifier;
+
         var audioParams = sound.Params
-            .WithVolume(sound.Params.Volume)
+            .WithVolume(volume)
             .WithVariation(sound.Params.Variation ?? 0f);
 
         _audio.PlayPredicted(sound, uid, uid, audioParams);

@@ -57,7 +57,7 @@
 - type: stack
   id: CaveFungus
   name: wild cave fungus
-  icon: { sprite: _Nuclear14/Objects/Consumable/Flora/wastelandflora.rsi, state: CaveFungus }
+  icon: { sprite: _Nuclear14/Objects/Specific/Hydroponics/cavefungus.rsi, state: CaveFungus }
   spawn: N14FloraProduceWildCaveFungus
   maxCount: 5
 

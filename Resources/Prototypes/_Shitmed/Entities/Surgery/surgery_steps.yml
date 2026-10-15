@@ -299,7 +299,7 @@
   - type: SurgeryTendWoundsEffect
     damage:
       groups:
-        Brute: -10
+        Brute: -25
   - type: SurgeryRepeatableStep
 
 - type: entity
@@ -319,7 +319,7 @@
     mainGroup: Burn
     damage:
       groups:
-        Burn: -10
+        Burn: -25
   - type: SurgeryRepeatableStep
 
 - type: entity

@@ -151,12 +151,28 @@
     maxAmount: 3
 
 - type: entityLootTable
+  id: WildCaveFungusClippers
+  entries:
+  - id: N14FloraWildCaveFungusClippingSeed
+    prob: 0.75
+    amount: 1
+    maxAmount: 1
+
+- type: entityLootTable
   id: WildCaveFungusRadAll
   entries:
   - id: N14FloraProduceWildCaveFungusRad
     prob: 0.75
     amount: 1
     maxAmount: 3
+
+- type: entityLootTable
+  id: WildCaveFungusRadClippers
+  entries:
+  - id: N14FloraWildCaveFungusRadClippingSeed
+    prob: 0.75
+    amount: 1
+    maxAmount: 1
 
 - type: entityLootTable
   id: WildCottonAll

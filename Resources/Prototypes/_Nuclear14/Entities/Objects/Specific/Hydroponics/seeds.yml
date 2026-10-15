@@ -262,3 +262,23 @@
       seedId: N14WildXander
     - type: Sprite
       sprite: _Nuclear14/Objects/Specific/Hydroponics/xander.rsi
+
+- type: entity
+  parent: N14SeedBase
+  id: N14FloraWildCaveFungusClippingSeed
+  name: cave fungus spores
+  components:
+    - type: Seed
+      seedId: N14WildCaveFungus
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Specific/Hydroponics/cavefungus.rsi
+
+- type: entity
+  parent: N14SeedBase
+  id: N14FloraWildCaveFungusRadClippingSeed
+  name: irradiated cave fungus spores
+  components:
+    - type: Seed
+      seedId: N14WildCaveFungusRad
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Specific/Hydroponics/cavefungusrad.rsi
