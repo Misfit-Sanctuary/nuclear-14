@@ -111,21 +111,17 @@
       # TODO: replace Poison healing with a proper temporary poison-resistance status
 
 - type: reagent
-  id: MisfitsDaturaHide
-  name: reagent-name-datura-hide
+  id: MisfitsBarkskinPowder
+  name: reagent-name-barkskin-powder
   group: Medicine
-  desc: reagent-desc-datura-hide
+  desc: reagent-desc-barkskin-powder
   physicalDesc: reagent-physical-desc-viscous
   flavor: medicine
   color: "#6b5c35"
   metabolisms:
     Medicine:
-      metabolismRate: 0.2
+      metabolismRate: 0.4 #twice as fast as medx, in line with tribal meds being worse
       effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Heat: 0.75
       - !type:GenericStatusEffect
         key: MedXProtection
         component: MedXProtection

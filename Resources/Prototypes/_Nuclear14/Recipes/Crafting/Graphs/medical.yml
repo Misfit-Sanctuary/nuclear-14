@@ -63,6 +63,21 @@
     - node: berserkerpowder
       entity: N14BerserkerPowder
 
+# barkskin powder
+- type: constructionGraph
+  id: N14BarkskinPowder
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: barkskinpowder
+          steps:
+            - material: DaturaFlower
+            - material: CaveFungus
+            - material: WildStarlightBerries
+
+    - node: barkskinpowder
+      entity: N14BarkskinPowder
 
 # Stimpaks
 - type: constructionGraph

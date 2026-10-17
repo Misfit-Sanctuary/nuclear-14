@@ -845,6 +845,28 @@
         - ReagentId: Berserkermix
           Quantity: 25 # less than what youd get from minmaxxing with chem, od is 26.
 
+#misfits add, barkskin powder, shittier tribal medx
+- type: entity
+  parent: N14HealingPowder
+  id: N14BarkskinPowder
+  name: barkskin powder
+  description: A pouch of barkskin powder, provides temporary protection against physical damage.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    layers:
+    - state: barkskinpowder
+  - type: Item
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    size: Small
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: MisfitsBarkskinPowder
+          Quantity: 25
+
 
 
 - type: entity

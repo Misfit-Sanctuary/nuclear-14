@@ -58,6 +58,21 @@
     state: berserkerpowder
   objectType: Item
 
+# barkskin powder
+- type: construction
+  name: barkskin powder
+  id: N14BarkskinPowder
+  graph: N14BarkskinPowder
+  startNode: start
+  targetNode: barkskinpowder
+  category: construction-category-medical
+  description: A pouch of barkskin powder.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    state: barkskinpowder
+  objectType: Item
+
 # Stimpaks
 - type: construction
   name: stimpak

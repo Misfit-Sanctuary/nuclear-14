@@ -82,14 +82,16 @@
     MisfitsBloodShield: 2
 
 - type: reaction
-  id: MisfitsReactionDaturaHide
+  id: MisfitsReactionBarkskinPowder
   reactants:
     ExtractDatura:
       amount: 2
-    Wonderglue:
-      amount: 1
+    ExtractStarlightBerries:
+      amount: 2
+    ExtractFungus:
+      amount: 2
   products:
-    MisfitsDaturaHide: 2
+    MisfitsBarkskinPowder: 2
 
 # Laboratory shortcut for the field-crafted tourniquet.
 # Field crafting below is closer to canon: buffalo gourd + binding material.
