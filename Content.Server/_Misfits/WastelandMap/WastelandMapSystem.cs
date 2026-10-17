@@ -150,7 +150,7 @@ public sealed class WastelandMapSystem : EntitySystem
         SubscribeLocalEvent<WastelandMapComponent, WastelandMapRemoveAnnotationMessage>(OnRemoveAnnotationMessage);
         SubscribeLocalEvent<WastelandMapComponent, WastelandMapClearAnnotationsMessage>(OnClearAnnotationsMessage);
         SubscribeLocalEvent<WastelandMapComponent, WastelandMapCommunicationsMessage>(OnCommunicationsMessage);
-        SubscribeLocalEvent<WastelandMapComponent, OpenUiActionEvent>(OnMapOpenAction); // #Misfits Add - seed state on the action path, not just the ActivatableUI path
+        SubscribeLocalEvent<BwonsamdiComponent, OpenUiActionEvent>(OnBwonsamdiSoulCompassOpen);
         // #Misfits Add - notify Followers players when a player humanoid dies
         SubscribeLocalEvent<MindContainerComponent, MobStateChangedEvent>(OnMindedEntityMobStateChanged);
         // #Misfits Add - track MapId→gameMap for auto-detect bounds/texture
@@ -289,17 +289,19 @@ public sealed class WastelandMapSystem : EntitySystem
         _uiSystem.SetUiState(uid, WastelandMapUiKey.Key, BuildState(uid, comp, userMap, actor: args.User));
     }
 
-    // #Misfits Change - an action bypasses ActivatableUI's AfterOpen event (the only other seed point), so seed here or the map opens blank.
-    private void OnMapOpenAction(Entity<WastelandMapComponent> ent, ref OpenUiActionEvent args)
+    // An action opens the BUI directly, bypassing ActivatableUI's AfterOpen event.
+    // Seed the state immediately so the Soul Compass never opens as a blank map.
+    private void OnBwonsamdiSoulCompassOpen(Entity<BwonsamdiComponent> ent, ref OpenUiActionEvent args)
     {
         if (args.Key is not WastelandMapUiKey.Key ||
+            !TryComp<WastelandMapComponent>(ent, out var map) ||
             !TryComp<UserInterfaceComponent>(ent, out var ui))
         {
             return;
         }
 
         _uiSystem.SetUiState((ent.Owner, ui), WastelandMapUiKey.Key,
-            BuildState(ent.Owner, ent.Comp, Transform(args.Performer).MapID, actor: args.Performer));
+            BuildState(ent.Owner, map, Transform(args.Performer).MapID, actor: args.Performer));
     }
 
     // #Misfits Add - preserve unrestricted maps unless they define a leadership allowlist.

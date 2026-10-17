@@ -130,14 +130,6 @@ job-description-c27-bos = You are a C-27 humanoid robot reclaimed by the Brother
 job-name-c27-zax = C-27 Z.A.X Humanoid Robot
 job-description-c27-zax = You are a C-27 humanoid robot rebuilt as a Z.A.X-linked chassis. Fast, fragile, and aggressively self-maintaining, you regenerate most damage rapidly but remain highly vulnerable to electrical disruption and EMP shock.
 
-# #Misfits Add - C-27 chassis configuration jobs (non-faction, separate whitelist entries).
-job-name-c27-integrator = C-27 Integrator Humanoid Robot
-job-description-c27-integrator = You are a C-27 humanoid robot fitted for field medicine. Your chassis houses a reagent processor, so syringes, pills and drinks are all you can take — and caustic or electrical discharge will fry far more of you than it would a standard frame. Your plating handles flame poorly, but at least you can patch yourself up.
-job-name-c27-assault = C-27 Assault Humanoid Robot
-job-description-c27-assault = You are a C-27 humanoid robot hardened for direct assault. Heavy plating, a passive damage reduction layer and a reactive shell that throws some of what hits you back at your attacker. EMP shock hits you harder, and the weight costs you speed.
-job-name-c27-recon = C-27 Recon Humanoid Robot
-job-description-c27-recon = You are a C-27 humanoid robot stripped for scouting. Tuned night vision and an active thermal sweep let you read the wastes at range, your legs carry you faster than any other C-27, and you carry no armour or faction markings to slow you down. Fragile, but you were never meant to stand in a firefight.
-
 # #Misfits Add - Followers of the Apocalypse ranked job locale.
 job-name-follower-head = Followers Head
 job-description-follower-head = You lead this chapter of the Followers. The sick, the curious, and the desperate look to you for direction. Set the example, protect your people, and keep the mission alive.
