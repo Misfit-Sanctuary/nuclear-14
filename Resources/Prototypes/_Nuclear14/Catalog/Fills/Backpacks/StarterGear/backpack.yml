@@ -253,11 +253,12 @@
         - id: N14BoxPlasticFilledMilitary
           prob: 0.8
           orGroup: Box
-        # Misfits Change: Removed bottlecap entry — caps should not be granted via starting gear.
-        #- id: N14CurrencyCap
-        #  amount: 5
-        #  maxAmount: 60
-        #  orGroup: Currency
+         # Misfits Change: Removed bottlecap entry — caps should not be granted via starting gear.
+        - id: N14CurrencyCap
+          prob: 0.10
+          amount: 1
+          maxAmount: 20
+          orGroup: Currency
         - id: N14CleanGauze10
           prob: 0.15
           amount: 1
@@ -442,9 +443,6 @@
         - id: N14FoodYumyumdeviledeggs
           prob: 0.2
           orGroup: Foods
-        - id: N14FoodPacketTrash
-          prob: 0.2
-          orGroup: Foods
         - id: N14FoodTinCanTrash
           prob: 0.2
           orGroup: Foods
@@ -484,3 +482,19 @@
         - id: N14DrinkNukaColaBroken
           prob: 0.4
           orGroup: Foods
+        - Group: Foods
+          prob: 0.5
+        - Group: Seeds
+          prob: 0.5
+        - Group: MedicalRare
+          prob: 0.4
+        - Group: Seeds
+          prob: 0.5
+        - Group: MedicalCommon
+          prob: 0.8
+        - Group: Box
+          prob: 0.4
+        - Group: Currency
+          prob: 0.25
+        - Group: Weapon
+          prob: 0.5

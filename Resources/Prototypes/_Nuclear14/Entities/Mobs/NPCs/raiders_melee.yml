@@ -6,24 +6,36 @@
   components:
     - type: Loadout
       prototypes:
-      - PsychoRaiderGear
+      - PsychoRaider1Gear
+      - PsychoRaider2Gear 
+      - PsychoRaider3Gear
+      - PsychoRaider4Gear 
+      - PsychoRaider5Gear
 
 - type: entity
   name: Gunners Conscript
   id: N14MobRaiderFernMelee
   parent: N14BaseMobRaider
-  description: Professional mercenary-wannabe, holding a club and ready to dent someone's skull in.
+  description: Professional mercenary-wannabe, ready to beat someone up.
   components:
     - type: Loadout
       prototypes:
-      - FernConscriptGear
+      - FernConscript1Gear
+      - FernConscript2Gear
+      - FernConscript3Gear
+      - FernConscript4Gear
+      - FernConscript5Gear
 
 - type: entity
   name: Enforcer Beatcop
   id: N14MobRaiderEnforcerMelee
   parent: N14BaseMobRaider
-  description: Law enforcement? No. Just a really fancy raider with a baton.
+  description: Law enforcement? No. Just a really fancy raider.
   components:
     - type: Loadout
       prototypes:
-      - EnforcerBeatcopGear
+      - EnforcerBeatcop1Gear
+      - EnforcerBeatcop2Gear
+      - EnforcerBeatcop3Gear
+      - EnforcerBeatcop4Gear
+      - EnforcerBeatcop5Gear

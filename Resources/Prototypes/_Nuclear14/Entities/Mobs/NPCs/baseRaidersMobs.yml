@@ -5,6 +5,7 @@
   name: Raider
   suffix: AI
   components:
+    #- type: RandomHumanoidAppearance #wassuy disabled for now may cause confusion
     - type: Damageable    # Misfits Add - Override from BaseMobSpeciesOrganic to prevent hunger/thirst damage
       damageContainer: MisfitsNPCBiological
     - type: NpcFactionMember
@@ -13,18 +14,17 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        60: Dead
-    - type: Destructible #Misfits Change /Add: Drop bottle caps on death (1-7)
+        60: Critical 
+        75: Dead
+    - type: Destructible #Misfits Change /Add: Drop bottle caps on death (1-7) #wassuy this do not work, please someone fixit
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 60
+          damage: 75
         behaviors:
-        - !type:SpawnEntitiesBehavior
-          spawn:
-            N14CurrencyCap:
-              min: 1
-              max: 7
+        - !type:PlaySoundBehavior # Misfits Change - robot death sound
+          sound:
+            collection: MisfitsRaiderDeath
     - type: PassiveDamage # It's mostly for the faction NPCs, but can be here nonetheless.
       allowedStates:
       - Alive
@@ -45,10 +45,33 @@
       blackboard:
         NavSmash: !type:Bool
           true
+        NavInteract: !type:Bool
+          true
+        NavClimb: !type:Bool
+          true
+        VisionRadius: !type:Single
+          15.0
         MeleeRange: !type:Single
           1.5
+    - type: IdleSound #Wassuy added voiceline and combat sound here
+    - type: SpamEmitSound
+      minInterval: 20
+      maxInterval: 80
+      sound:
+        collection: MisfitsRaiderIdle
+        params:
+          volume: 6
+          maxDistance: 8
+    - type: AggroSound 
+      sound:
+        collection: MisfitsRaiderAlert
+        params:
+          volume: 3
+          maxDistance: 10
     - type: MeleeWeapon
       hidden: true
+      soundHit:
+        collection: MisfitsRaiderAttack
       attackRate: 1.5
       range: 1.5
       angle: 30
@@ -65,7 +88,7 @@
       butcheringType: Spike
       spawned:
       - id: N14FoodMeatRadRaw
-        amount: 5
+        amount: 8
     - type: HumanoidAppearance
       species: Human
       hideLayersOnEquip:
