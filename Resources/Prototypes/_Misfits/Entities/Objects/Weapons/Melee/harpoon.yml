@@ -1,0 +1,19 @@
+- type: entity
+  parent: baseThrowingSpear
+  id: MisfitsHarpoonSpear
+  name: harpoon spear
+  description: A barbed throwing spear with a length of rope lashed to it. Along its shaft you can see the words balaena alba gradale sanctum enscribed.
+  components:
+  - type: Harpoon
+    maxRopeLength: 12
+    snapLength: 16
+  - type: LandAtCursor
+  - type: ThrowSpeedModifier
+    multiplier: 1.4
+  - type: Sprite
+    sprite: _DEN/Objects/Weapons/Melee/harpoon.rsi
+    layers:
+    - state: spear
+    - state: spear1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false

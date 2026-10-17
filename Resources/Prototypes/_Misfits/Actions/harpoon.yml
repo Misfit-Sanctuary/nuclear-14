@@ -1,0 +1,27 @@
+- type: entity
+  id: MisfitsActionHarpoonReel
+  name: action-name-MisfitsActionHarpoonReel
+  description: action-description-MisfitsActionHarpoonReel
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: BigItem
+    useDelay: 0.5
+    icon:
+      sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
+      state: hook
+    event: !type:HarpoonReelActionEvent
+
+- type: entity
+  id: MisfitsActionHarpoonYank
+  name: action-name-MisfitsActionHarpoonYank
+  description: action-description-MisfitsActionHarpoonYank
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: BigItem
+    useDelay: 2
+    icon:
+      sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
+      state: hook
+    event: !type:HarpoonYankActionEvent
