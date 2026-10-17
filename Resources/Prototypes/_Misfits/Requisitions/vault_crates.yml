@@ -103,38 +103,6 @@
       amount: 4
 
 - type: entity
-  parent: N14BaseSyringe
-  id: MisfitsEmptyStimpakSyringe
-  name: stimpak
-  description: A syringe filled with a wondrous mixture of medical reagents. Essential for those with little to no medical knowledge.
-  components:
-  - type: Sprite
-    scale: 0.75, 0.75
-    sprite: _Nuclear14/Objects/Specific/Medical/ms13_stimpak.rsi
-    layers:
-    - state: stimpakfill1
-      map: ["enum.SolutionContainerLayers.Fill"]
-      visible: false
-    - state: stimpak-empty
-      map: [ "enum.SolutionContainerLayers.Base" ]
-  - type: Icon
-    sprite: _Nuclear14/Objects/Specific/Medical/ms13_stimpak.rsi
-    state: "stimpak-empty"
-  - type: Item
-    sprite: _Nuclear14/Objects/Specific/Medical/ms13_stimpak.rsi
-    heldPrefix: stimpak
-  - type: SolutionContainerVisuals
-    maxFillLevels: 1
-    changeColor: true
-    fillBaseName: stimpakfill
-    emptySpriteName: stimpak-empty
-  - type: Tag
-    tags:
-    - Syringe
-    - N14EmptySyringe
-    - Trash
-
-- type: entity
   parent: N14CrateRequisitions
   id: MisfitsCrateRequisitionsVaultSyringes
   name: empty syringe crate

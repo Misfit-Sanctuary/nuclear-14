@@ -411,6 +411,12 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
         if (items.Count == 0)
             return;
 
+        if (!CanCheckout(computer, actor))
+        {
+            _popup.PopupEntity("Access denied: you are not authorized to place orders.", computer, actor);
+            return;
+        }
+
         if (GetElevator(computer) is not { } elevator)
             return;
 

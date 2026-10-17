@@ -1053,8 +1053,11 @@ public sealed class RequisitionsBui : BoundUserInterface
         _window.CartTotalLabel.SetMessage(FormattedMessage.FromMarkupOrThrow(
             Loc.GetString("n14-requisitions-cart-total", ("total", supplyTotal))));
 
+        var canCheckout = CanCheckout();
         var status = string.Empty;
-        if (_cart.Count == 0)
+        if (!canCheckout)
+            status = "You are not authorized to place orders on this terminal.";
+        else if (_cart.Count == 0)
             status = Loc.GetString("n14-requisitions-cart-empty");
         else if (visibleItems == 0 && !string.IsNullOrWhiteSpace(search))
             status = Loc.GetString("n14-requisitions-cart-filter-empty");
@@ -1068,7 +1071,8 @@ public sealed class RequisitionsBui : BoundUserInterface
         _window.CartStatusLabel.SetMessage(FormattedMessage.FromUnformatted(status));
 
         _window.ClearCartButton.Disabled = _cart.Count == 0;
-        _window.BuyButton.Disabled = _cart.Count == 0 ||
+        _window.BuyButton.Disabled = !canCheckout ||
+                                     _cart.Count == 0 ||
                                      _state == null ||
                                      supplyTotal > _state.Balance ||
                                      cartAmount > remainingCapacity;
@@ -1159,6 +1163,14 @@ public sealed class RequisitionsBui : BoundUserInterface
         var canAdd = TryGetEntry(key, out var entry) && CanAdd(key, entry);
         card.AddButton.Disabled = !canAdd;
         card.MaxButton.Disabled = !canAdd;
+    }
+
+    private bool CanCheckout()
+    {
+        if (_state == null || PlayerManager.LocalEntity is not { } player)
+            return false;
+
+        return EntMan.System<RequisitionsSystem>().CanCheckout((Owner, _state), player);
     }
 
     private void BuyCart()

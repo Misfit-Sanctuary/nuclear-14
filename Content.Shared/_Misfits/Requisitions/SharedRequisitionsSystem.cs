@@ -1,5 +1,6 @@
 using Content.Shared._Misfits.Requisitions;
 using Content.Shared._Misfits.Requisitions.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.Climbing.Components;
 using Content.Shared.StepTrigger.Systems;
 using Robust.Shared.Physics;
@@ -11,6 +12,7 @@ namespace Content.Shared._Misfits.Requisitions;
 
 public abstract class SharedRequisitionsSystem : EntitySystem
 {
+    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
     [Dependency] private readonly FixtureSystem _fixtures = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -50,6 +52,21 @@ public abstract class SharedRequisitionsSystem : EntitySystem
             EnsureComp<ClimbableComponent>(railing);
         else
             RemCompDeferred<ClimbableComponent>(railing);
+    }
+
+    public bool CanCheckout(Entity<RequisitionsComputerComponent> computer, EntityUid user)
+    {
+        if (computer.Comp.CheckoutAccess.Count == 0)
+            return true;
+
+        var tags = _accessReader.FindAccessTags(user);
+        foreach (var set in computer.Comp.CheckoutAccess)
+        {
+            if (set.IsSubsetOf(tags))
+                return true;
+        }
+
+        return false;
     }
 
     protected void SetRailingMode(Entity<RequisitionsRailingComponent> railing, RequisitionsRailingMode mode)

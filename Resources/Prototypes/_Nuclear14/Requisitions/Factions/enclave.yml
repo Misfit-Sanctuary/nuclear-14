@@ -28,9 +28,10 @@
   suffix: Enclave
   components:
   - type: AccessReader
-    access: [ [ "EnclaveNCO" ] ]
+    access: [ [ "Enclave" ] ]
   - type: RequisitionsComputer
     group: Enclave
+    checkoutAccess: [ [ "EnclaveNCO" ] ]
     accountProto: N14ASRSAccountEnclave
     acceptedCurrency: PrewarMoney
     sellEntries:

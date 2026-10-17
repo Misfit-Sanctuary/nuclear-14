@@ -25,9 +25,10 @@
   suffix: Vault
   components:
   - type: AccessReader
-    access: [ [ "VaultCargo" ], [ "VaultOverseer" ] ]
+    access: [ [ "VaultDweller" ] ]
   - type: RequisitionsComputer
     group: Vault
+    checkoutAccess: [ [ "VaultCargo" ], [ "VaultOverseer" ] ]
     accountProto: N14ASRSAccountVault
     acceptedCurrency: PrewarMoney
     requestPool: VaultRequestPool
