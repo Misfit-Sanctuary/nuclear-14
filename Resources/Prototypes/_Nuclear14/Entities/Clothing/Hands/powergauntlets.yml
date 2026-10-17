@@ -76,3 +76,10 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Hands/PowerGauntlets/midwest.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.92
+        Slash: 0.92
+        Piercing: 0.945
+        Heat: 0.945
