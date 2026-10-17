@@ -16,6 +16,24 @@
     maxFalloffTiles: 35.0
     minDamageMultiplier: 0.82
 
+# #Misfits Add - .50 HMG round. Identical ballistics to N14Bullet50 but armor is respected.
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: N14Bullet50HMG
+  name: bullet (.50 HMG)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 30
+        Blunt: 20
+  # Misfits Add - .50 BMG anti-materiel; extreme range caliber — minimal falloff
+  - type: BallisticDamageFalloff
+    falloffStartTiles: 12.0
+    maxFalloffTiles: 35.0
+    minDamageMultiplier: 0.82
+
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseGrenadeProjectile
