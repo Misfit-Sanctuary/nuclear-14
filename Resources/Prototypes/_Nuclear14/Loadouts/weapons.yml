@@ -1825,6 +1825,22 @@
     - N14Gladius
 
 - type: loadout
+  id: M14Gorehew
+  category: Weapons
+  cost: 1
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutMelee
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Eighties
+    - !type:CharacterDepartmentTimeRequirement
+      department: Eighties
+      min: 36000
+  items:
+    - M14Gorehew
+
+- type: loadout
   id: N14LongSword
   category: Weapons
   cost: 4

@@ -159,6 +159,71 @@
     speed: 0.5
 
 - type: entity
+  name: Gorehew
+  parent: N14Machete
+  id: M14Gorehew
+  description: A well used ripper, caked in rust and gore. A sign of status among the 80s gang.
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Melee/Gorehew.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Melee/Gorehew.rsi
+    state: icon
+  - type: EmbeddableProjectile
+    sound: /Audio/_Nuclear14/Weapons/Melee/Swing/ripper.ogg
+  - type: EmbedPassiveDamage
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 20
+        Piercing: 9
+  - type: Sharp
+  - type: MeleeWeapon
+    autoAttack: true
+    angle: 0
+    wideAnimationRotation: -135
+    attackRate: 0.25
+    damage:
+      types:
+        Slash: 8
+        Piercing: 6
+        Structural: 25
+    soundHit:
+      path: /Audio/_Nuclear14/Weapons/Melee/Swing/ripper.ogg
+  - type: Item
+    size: Large
+    sprite: _Nuclear14/Objects/Weapons/Melee/Gorehew.rsi
+  - type: DisarmMalus
+  - type: RefillableSolution
+    solution: Welder
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 300
+        maxVol: 300
+  - type: UseDelay
+    delay: 1
+  - type: Tool
+    qualities:
+      - Sawing
+    speedModifier: 3.0
+  - type: StaticPrice
+    price: 50
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/Medical/Surgery/saw.ogg
+  - type: BoneSaw
+    speed: 0.75
+  - type: Scalpel
+    speed: 0.5
+
+- type: entity
   name: ceremonial sword
   parent: N14Machete
   id: N14CeremonialSword
