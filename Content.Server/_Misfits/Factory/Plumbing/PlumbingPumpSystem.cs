@@ -66,7 +66,19 @@ public sealed partial class PlumbingPumpSystem : EntitySystem
         var split = _filter.GetFilteredReagent(ent) is {} filter
             ? input.SplitSolutionWithOnly(amount, filter)
             : input.SplitSolution(amount);
-        _solution.UpdateChemicals(inputEnt, false); // removing reagents should never cause reactions? don't waste cpu updating it
-        _solution.ForceAddSolution(outputEnt, split);
+        if (input.MaxVolume > FixedPoint2.Zero)
+            _solution.UpdateChemicals(inputEnt, false); // removing reagents should never cause reactions? don't waste cpu updating it
+        else
+            Dirty(inputEnt);
+
+        if (output.MaxVolume > FixedPoint2.Zero)
+        {
+            _solution.ForceAddSolution(outputEnt, split);
+        }
+        else
+        {
+            output.AddSolution(split, ProtoMan);
+            Dirty(outputEnt);
+        }
     }
 }
