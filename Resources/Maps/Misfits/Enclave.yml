@@ -4,8 +4,8 @@ meta:
   engineVersion: 286.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/24/2026 12:31:11
-  entityCount: 20764
+  time: 10/15/2026 14:54:48
+  entityCount: 20767
 maps:
 - 1
 grids:
@@ -2228,6 +2228,13 @@ entities:
     - type: Transform
       parent: 2
       pos: 18.5,69.5
+- proto: BarricadeBlock
+  entities:
+  - uid: 17428
+    components:
+    - type: Transform
+      parent: 2
+      pos: -33.5,27.5
 - proto: BarSignTheSun
   entities:
   - uid: 873
@@ -21515,6 +21522,14 @@ entities:
     - type: Transform
       parent: 2
       pos: 16.320974,2.6200962
+- proto: CigarRobustSpent
+  entities:
+  - uid: 17426
+    components:
+    - type: Transform
+      parent: 2
+      rot: 3.141592653589793 rad
+      pos: -32.36858,30.63217
 - proto: CloningPod
   entities:
   - uid: 2075
@@ -23761,7 +23776,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -9.5,-9.5
     - type: Drain
-      accumulator: 0.25683966
+      accumulator: 0.8701129
     - type: Fixtures
       fixtures: {}
   - uid: 1294
@@ -23771,7 +23786,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -8.5,-9.5
     - type: Drain
-      accumulator: 0.038482968
+      accumulator: 0.28964663
     - type: Fixtures
       fixtures: {}
   - uid: 3286
@@ -23781,7 +23796,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 20.5,63.5
     - type: Drain
-      accumulator: 0.6227561
+      accumulator: 0.93339837
     - type: Fixtures
       fixtures: {}
   - uid: 15228
@@ -23790,7 +23805,7 @@ entities:
       parent: 2
       pos: 0.5,67.5
     - type: Drain
-      accumulator: 0.07444892
+      accumulator: 0.46385318
     - type: Fixtures
       fixtures: {}
   - uid: 15229
@@ -23799,7 +23814,7 @@ entities:
       parent: 2
       pos: -16.5,44.5
     - type: Drain
-      accumulator: 0.8941617
+      accumulator: 0.02780214
     - type: Fixtures
       fixtures: {}
   - uid: 18434
@@ -23808,7 +23823,7 @@ entities:
       parent: 2
       pos: 32.5,7.5
     - type: Drain
-      accumulator: 0.2978278
+      accumulator: 0.9277975
     - type: Fixtures
       fixtures: {}
   - uid: 18488
@@ -23817,7 +23832,7 @@ entities:
       parent: 2
       pos: 32.5,6.5
     - type: Drain
-      accumulator: 0.02158112
+      accumulator: 0.8235259
     - type: Fixtures
       fixtures: {}
 - proto: FloorLavaEntity
@@ -36816,12 +36831,6 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: -32.53351,29.656416
-  - uid: 3368
-    components:
-    - type: Transform
-      parent: 2
-      rot: 3.141592653589793 rad
-      pos: -34.40851,29.760656
   - uid: 18804
     components:
     - type: Transform
@@ -36851,6 +36860,14 @@ entities:
       parent: 2
       rot: 1.5707963267948966 rad
       pos: 21.527782,83.566795
+- proto: N14ChairOfficeBlueBroken
+  entities:
+  - uid: 3357
+    components:
+    - type: Transform
+      parent: 2
+      rot: 3.141592653589793 rad
+      pos: -34.360767,29.647795
 - proto: N14ChairOfficeErgonomic
   entities:
   - uid: 173
@@ -39342,6 +39359,20 @@ entities:
     - type: Transform
       parent: 2
       pos: 0.5,5.5
+- proto: N14ComputerTerminalBroken
+  entities:
+  - uid: 3358
+    components:
+    - type: Transform
+      parent: 2
+      rot: -1.5707963267948966 rad
+      pos: -31.5,29.5
+  - uid: 3368
+    components:
+    - type: Transform
+      parent: 2
+      rot: 1.5707963267948966 rad
+      pos: -35.5,29.5
 - proto: N14ComputerTerminalNew
   entities:
   - uid: 153
@@ -39462,18 +39493,6 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: -32.5,24.5
-  - uid: 18125
-    components:
-    - type: Transform
-      parent: 2
-      rot: 1.5707963267948966 rad
-      pos: -35.5,29.5
-  - uid: 18126
-    components:
-    - type: Transform
-      parent: 2
-      rot: -1.5707963267948966 rad
-      pos: -31.5,29.5
   - uid: 18127
     components:
     - type: Transform
@@ -40340,6 +40359,13 @@ entities:
     - type: Transform
       parent: 2
       pos: -3.5,-27.5
+- proto: N14DrinkNukaColaBroken
+  entities:
+  - uid: 17427
+    components:
+    - type: Transform
+      parent: 2
+      pos: -35.579517,28.686857
 - proto: N14DrinkWhisky
   entities:
   - uid: 10463
@@ -41563,6 +41589,13 @@ entities:
     - type: Transform
       parent: 2
       pos: -9.5,74.5
+- proto: N14MachineFrameTallDestroyed
+  entities:
+  - uid: 4029
+    components:
+    - type: Transform
+      parent: 2
+      pos: -34.5,31.5
 - proto: N14MachineModularMachineConsoleTall
   entities:
   - uid: 10818
@@ -41665,11 +41698,6 @@ entities:
       pos: -14.603454,76
 - proto: N14MachineRackCameraRouterZAX
   entities:
-  - uid: 3357
-    components:
-    - type: Transform
-      parent: 2
-      pos: -34.5,31.5
   - uid: 3359
     components:
     - type: Transform
@@ -41904,6 +41932,13 @@ entities:
     - type: Transform
       parent: 2
       pos: 8.477449,66.650116
+- proto: N14PlantpotBroken2
+  entities:
+  - uid: 17268
+    components:
+    - type: Transform
+      parent: 2
+      pos: -32.5,28.5
 - proto: N14PlasmaShell
   entities:
   - uid: 1804
@@ -95677,12 +95712,6 @@ entities:
     - type: Transform
       parent: 2
       pos: -30.5,21.5
-  - uid: 4029
-    components:
-    - type: Transform
-      parent: 2
-      rot: 1.5707963267948966 rad
-      pos: -34.5,29.5
   - uid: 4030
     components:
     - type: Transform
@@ -96856,13 +96885,6 @@ entities:
       parent: 2
       rot: -1.5707963267948966 rad
       pos: 23.5,65.5
-- proto: RadioDJMicrophone
-  entities:
-  - uid: 3358
-    components:
-    - type: Transform
-      parent: 2
-      pos: -33.5,30.5
 - proto: Railing
   entities:
   - uid: 279
@@ -111132,6 +111154,14 @@ entities:
     - type: Transform
       parent: 2
       pos: 21.5,-17.5
+- proto: VinylDiskBroken
+  entities:
+  - uid: 17425
+    components:
+    - type: Transform
+      parent: 2
+      rot: 3.141592653589793 rad
+      pos: -34.407642,30.655607
 - proto: VinylPlayer
   entities:
   - uid: 18704
