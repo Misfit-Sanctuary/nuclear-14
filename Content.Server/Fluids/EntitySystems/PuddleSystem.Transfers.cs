@@ -31,7 +31,7 @@ public sealed partial class PuddleSystem
             {
                 var split = _solutionContainerSystem.SplitSolution(soln.Value, solution.Volume);
                 dumpableSolution.AddSolution(split, _prototypeManager);
-                _solutionContainerSystem.UpdateChemicals(dumpableSoln.Value, needsReactionsProcessing: false);
+                Dirty(dumpableSoln.Value);
             }
             else
             {

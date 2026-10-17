@@ -172,7 +172,8 @@ namespace Content.Server.Chemistry.EntitySystems
             {
                 var solution = isOutput ? pillBufferSolution : bufferSolution;
                 amount = FixedPoint2.Min(amount, containerSolution.GetReagentQuantity(id));
-                amount = FixedPoint2.Min(amount, solution.AvailableVolume);
+                if (solution.MaxVolume > FixedPoint2.Zero)
+                    amount = FixedPoint2.Min(amount, solution.AvailableVolume);
                 if (amount <= FixedPoint2.Zero)
                     return;
                 _solutionContainerSystem.RemoveReagent(containerSoln.Value, id, amount);
