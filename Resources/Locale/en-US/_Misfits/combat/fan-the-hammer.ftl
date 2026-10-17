@@ -1,0 +1,5 @@
+fan-the-hammer-no-revolver = You need a revolver in hand to fan the hammer.
+fan-the-hammer-start-self = You start fanning the hammer!
+fan-the-hammer-start-others = {CAPITALIZE(THE($user))} starts fanning the hammer!
+alerts-fan-the-hammer-name = Fanning The Hammer
+alerts-fan-the-hammer-desc = Your revolver fires fullauto & faster until this runs out.

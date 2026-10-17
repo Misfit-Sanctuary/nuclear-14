@@ -20,4 +20,8 @@ public record struct GunRefreshModifiersEvent(
     int ShotsPerBurst,
     float FireRate,
     float ProjectileSpeed
-);
+)
+{
+    // Misfits
+    public bool ForceFullAuto = false;
+}
