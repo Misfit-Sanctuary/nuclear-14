@@ -27,7 +27,7 @@ namespace Content.Shared.Movement.Systems
             RaiseLocalEvent(uid, ev);
 
             // #Misfits Add - Global 135% speed cap, excludes bikes (Motorbike) and brahmin (Mountable)
-            if (!HasComp<MotorbikeComponent>(uid) && !HasComp<MountableComponent>(uid))
+            if (!HasComp<SolutionConsumerComponent>(uid) && !HasComp<MountableComponent>(uid))
             {
                 const float maxMod = 1.35f;
                 if (ev.WalkSpeedModifier > maxMod)

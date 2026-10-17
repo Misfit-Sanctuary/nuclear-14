@@ -25,20 +25,7 @@ public sealed class VehicleSystem : SharedVehicleSystem
         SubscribeLocalEvent<VehicleComponent, MoveEvent>(OnMove);
     }
 
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
 
-        var burning = EntityQueryEnumerator<MotorbikeComponent, SpriteComponent>();
-        while (burning.MoveNext(out var uid, out var motorbike, out var sprite))
-        {
-            if (!motorbike.Burning)
-                continue;
-
-            var flashRed = ((int) (_timing.CurTime.TotalSeconds * 5)) % 2 == 0;
-            sprite.LayerSetColor(0, flashRed ? Color.Red : Color.White);
-        }
-    }
 
     private void OnAppearanceChange(Entity<VehicleComponent> ent, ref AppearanceChangeEvent args)
     {

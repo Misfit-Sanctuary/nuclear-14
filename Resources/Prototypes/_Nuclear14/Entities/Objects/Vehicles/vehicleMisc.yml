@@ -1,0 +1,43 @@
+- type: entity
+  parent: [BaseVehicle, BaseItem, BaseFoldable]
+  id: N14VehicleWheelchair
+  name: wheelchair
+  description: A valuable piece of medical equipment.
+  components:
+  - type: Vehicle
+    renderOver: North, NorthEast, NorthWest
+    engineRunning: true # dont question it l0l -pierow
+  - type: Strap
+  - type: Sprite
+    sprite: Objects/Vehicles/wheelchair.rsi
+    noRot: true
+    layers:
+    - state: vehicle
+      map: ["unfoldedLayer"]
+    - state: vehicle_folded
+      map: ["foldedLayer"]
+      visible: false
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,1,1
+    heldPrefix: inhand
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+          False: {visible: true}
+  - type: MovementSpeedModifier
+    acceleration: 4
+    friction: 0.2
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3
+  - type: ItemSlots
+    slots: {}
+  - type: AmbientSound
+    enabled: false

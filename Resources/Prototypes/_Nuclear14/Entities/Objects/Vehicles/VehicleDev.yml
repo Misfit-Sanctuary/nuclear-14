@@ -1,0 +1,83 @@
+- type: entity
+  id: MisfitsBaseVehicle_dev
+  abstract: true
+  save: false
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Vehicle
+    renderOver: East, SouthEast, South, SouthWest, West
+    requireKey: false
+  - type: Strap
+    size: 200
+    position: Stand
+  - type: Appearance
+  - type: InputMover
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 2
+        density: 100
+        mask:
+        - MobMask
+        hard: true
+  - type: Pullable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: MovementSpeedModifier
+    acceleration: 8
+    friction: 5 # wheels dont stop instantly
+    baseSprintSpeed: 7
+    baseWalkSpeed: 4.5 # default walking speed
+  - type: StaticPrice
+    price: 2500
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+
+- type: entity
+  id: VehicleDevBase_multiCrew
+  parent: MisfitsBaseVehicle_dev
+  abstract: true
+  components:
+  - type: Strap
+    size: 200
+
+- type: entity
+  id: VehicleDev_multiCrew
+  parent: VehicleDevBase_multiCrew
+  components:
+  - type: Strap
+    buckleOffset: 0.5, 0.0
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Vehicles/bikesbuggy.rsi
+    layers:
+    - state: buggy_olive
+      map: ["enum.VehicleVisualLayers.AutoAnimate"]
+    - state: buggy_olive_cover
+      map: ["enum.VehicleVisualLayers.Cover"]
+    netsync: false
+    noRot: true

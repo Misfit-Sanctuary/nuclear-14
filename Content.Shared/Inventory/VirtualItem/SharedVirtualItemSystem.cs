@@ -230,17 +230,20 @@ public abstract class SharedVirtualItemSystem : EntitySystem
     /// </summary>
     public void DeleteVirtualItem(Entity<VirtualItemComponent> item, EntityUid user)
     {
+        if (TerminatingOrDeleted(item))
+            return;
+        _transformSystem.DetachParentToNull(item, Transform(item));
+        if (_netManager.IsServer)
+            QueueDel(item);
+
         var userEv = new VirtualItemDeletedEvent(item.Comp.BlockingEntity, user);
         RaiseLocalEvent(user, userEv);
 
         var targEv = new VirtualItemDeletedEvent(item.Comp.BlockingEntity, user);
         RaiseLocalEvent(item.Comp.BlockingEntity, targEv);
 
-        if (TerminatingOrDeleted(item))
-            return;
+        // if (TerminatingOrDeleted(item))
+        //     return;
 
-        _transformSystem.DetachParentToNull(item, Transform(item));
-        if (_netManager.IsServer)
-            QueueDel(item);
     }
 }
