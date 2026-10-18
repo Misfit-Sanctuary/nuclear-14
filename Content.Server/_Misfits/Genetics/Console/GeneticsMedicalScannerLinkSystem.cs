@@ -27,50 +27,33 @@ public sealed class GeneticsMedicalScannerLinkSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<GeneticsScannerComponent, ComponentStartup>(OnConsoleStartup);
+        SubscribeLocalEvent<GeneticsScannerComponent, MapInitEvent>(OnConsoleMapInit);
         SubscribeLocalEvent<GeneticsScannerComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<GeneticsScannerComponent, PortDisconnectedEvent>(OnPortDisconnected);
 
-        SubscribeLocalEvent<MedicalScannerComponent, ComponentStartup>(OnScannerStartup);
         SubscribeLocalEvent<MedicalScannerComponent, EntInsertedIntoContainerMessage>(OnScannerInserted);
         SubscribeLocalEvent<MedicalScannerComponent, EntRemovedFromContainerMessage>(OnScannerEjected);
     }
 
-    private void OnConsoleStartup(Entity<GeneticsScannerComponent> ent, ref ComponentStartup args)
+    private void OnConsoleMapInit(Entity<GeneticsScannerComponent> ent, ref MapInitEvent args)
     {
         // Handheld genome scanners also use GeneticsScannerComponent, but do
         // not support device links.
-        if (!HasComp<DeviceLinkSourceComponent>(ent.Owner))
+        if (!TryComp<DeviceLinkSourceComponent>(ent.Owner, out var source))
             return;
 
         // Device links are serialized. Restore the genetics-side state when a
         // map containing an already linked console is loaded.
-        var scanners = EntityQueryEnumerator<MedicalScannerComponent>();
-        while (scanners.MoveNext(out var scanner, out var scannerComp))
+        foreach (var (sink, ports) in source.LinkedPorts)
         {
-            if (scannerComp.LifeStage < ComponentLifeStage.Initialized)
-                continue;
-
-            if (!IsScannerLink(ent.Owner, scanner))
-                continue;
-
-            Connect(ent.Owner, scanner, scannerComp);
-            return;
-        }
-    }
-
-    private void OnScannerStartup(Entity<MedicalScannerComponent> ent, ref ComponentStartup args)
-    {
-        var consoles = EntityQueryEnumerator<GeneticsScannerComponent>();
-        while (consoles.MoveNext(out var console, out var consoleComp))
-        {
-            if (consoleComp.LifeStage < ComponentLifeStage.Starting ||
-                !IsScannerLink(console, ent.Owner))
+            if (!ports.Contains((ScannerSourcePort, ScannerSinkPort)) ||
+                !TryComp<MedicalScannerComponent>(sink, out var scanner))
             {
                 continue;
             }
 
-            Connect(console, ent.Owner, ent.Comp);
+            Connect(ent.Owner, sink, scanner);
+            return;
         }
     }
 
