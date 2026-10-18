@@ -31,6 +31,7 @@ public sealed class GeneticsMedicalScannerLinkSystem : EntitySystem
         SubscribeLocalEvent<GeneticsScannerComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<GeneticsScannerComponent, PortDisconnectedEvent>(OnPortDisconnected);
 
+        SubscribeLocalEvent<MedicalScannerComponent, ComponentStartup>(OnScannerStartup);
         SubscribeLocalEvent<MedicalScannerComponent, EntInsertedIntoContainerMessage>(OnScannerInserted);
         SubscribeLocalEvent<MedicalScannerComponent, EntRemovedFromContainerMessage>(OnScannerEjected);
     }
@@ -47,11 +48,29 @@ public sealed class GeneticsMedicalScannerLinkSystem : EntitySystem
         var scanners = EntityQueryEnumerator<MedicalScannerComponent>();
         while (scanners.MoveNext(out var scanner, out var scannerComp))
         {
+            if (scannerComp.LifeStage < ComponentLifeStage.Initialized)
+                continue;
+
             if (!IsScannerLink(ent.Owner, scanner))
                 continue;
 
             Connect(ent.Owner, scanner, scannerComp);
             return;
+        }
+    }
+
+    private void OnScannerStartup(Entity<MedicalScannerComponent> ent, ref ComponentStartup args)
+    {
+        var consoles = EntityQueryEnumerator<GeneticsScannerComponent>();
+        while (consoles.MoveNext(out var console, out var consoleComp))
+        {
+            if (consoleComp.LifeStage < ComponentLifeStage.Starting ||
+                !IsScannerLink(console, ent.Owner))
+            {
+                continue;
+            }
+
+            Connect(console, ent.Owner, ent.Comp);
         }
     }
 
