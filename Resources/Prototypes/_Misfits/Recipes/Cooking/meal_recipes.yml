@@ -83,4 +83,114 @@
     MisfitsFoodChocolateBar: 1
     
 
-    
+# Sushi 
+- type: microwaveMealRecipe
+  id: MisfitsRecipeFishCarrotRaw 
+  name: Fried Carrot Fish Sushi
+  result: MisfitsFoodSushiFishCarrotRaw
+  time: 5
+  reagents:
+    Rice: 10
+  solids:
+    N14FoodCarrot: 1
+    N14RedfishCutletCooked: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeLegionSuperRaw #- Legion Patriotic Roll
+  name: Fried Legion Patriotic Roll
+  result: MisfitsFoodSushiLegionSuperRaw
+  time: 5
+  reagents:
+    Rice: 10
+  solids:
+    MaterialCloth1: 1
+    MaterialWoodPlank1: 1
+    MisfitsFoodSushiSpicyRaw: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSushiCheeseRaw 
+  name: Fried Cream Cheese Sushi
+  result: MisfitsFoodSushiCheeseRaw
+  time: 5
+  reagents:
+    Rice: 10
+    N14MilkBrahmin: 5
+  solids:
+    N14FoodCheeseSlice: 1
+    N14RedfishCutletRaw: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSushiCooked 
+  name: Fried Simple Sushi
+  result: MisfitsFoodSushiCooked
+  time: 5
+  reagents:
+    Rice: 10
+  solids:
+    N14RedfishCutletCooked: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSushiFishRaw 
+  name: Fried Fish Sushi
+  result: MisfitsFoodSushiFishRaw
+  time: 5
+  reagents:
+    Rice: 10
+  solids:
+    N14RedfishCutletCooked: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSushiMeatLargeRaw 
+  name: Fried Large Sushi
+  result: MisfitsFoodSushiMeatLargeRaw
+  time: 10
+  reagents:
+    Rice: 20
+  solids:
+    N14FoodCarrot: 2
+    N14RedfishCutletRaw: 2
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSushiNCRRaw #- New California Roll
+  name: Fried New California Roll
+  result: MisfitsFoodSushiNCRRaw
+  time: 5
+  reagents:
+    Rice: 10
+  solids:
+    N14FoodCarrot: 2
+    N14RedfishCutletRaw: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSushiNCRSuperRaw #- NCR Patriotic Roll
+  name: NCR Patriotic Roll
+  result: MisfitsFoodSushiNCRSuperRaw
+  time: 5
+  reagents:
+    Rice: 10
+  solids:
+    MaterialCloth1: 1
+    MaterialWoodPlank1: 1
+    MisfitsFoodSushiNCRRaw: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSushiRaw 
+  name: Simple Sushi
+  result: MisfitsFoodSushiRaw
+  time: 5
+  reagents:
+    Rice: 10
+  solids:
+    N14RedfishCutletRaw: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSushiSpicyRaw 
+  name: Fried Spicy Sushi
+  result: MisfitsFoodSushiSpicyRaw
+  time: 5
+  reagents:
+    Rice: 10
+    Hotsauce: 2
+  solids:
+    FoodMeatCutlet: 1
+    N14FoodMeatBighornerCutlet: 2
