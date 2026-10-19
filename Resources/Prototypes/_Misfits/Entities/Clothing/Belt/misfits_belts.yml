@@ -71,3 +71,22 @@
     sprite: _Misfits/Clothing/Belt/paladinwebbing_black.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/Belt/paladinwebbing_black.rsi
+
+- type: entity
+  parent: N14ClothingBeltStorageBase
+  id: MisfitsClothingPouchCandy
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: candyPouch
+  - type: Construction
+    graph: CandyPouchGraph
+    node: CandyPouch
+  - type: Item
+    size: Tiny
+  - type: Storage
+    grid:
+    - 0,0,4,4
+    whitelist:
+      tags:
+      - Candy

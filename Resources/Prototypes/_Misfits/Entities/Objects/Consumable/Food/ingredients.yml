@@ -114,3 +114,19 @@
         reagents:
         - ReagentId: DicedOnion
           Quantity: 10
+
+# Cans & Containers
+- type: entity
+  parent: [N14ReagentPacketBase, ItemHeftyBase]
+  id: MisfitsItemRaiserCan
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: raiserCan
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Raiser
+          Quantity: 20
