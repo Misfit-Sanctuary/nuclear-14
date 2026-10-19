@@ -1,297 +1,260 @@
-
-
-
-
-
-
-- type: entity
-  parent: BaseItem
-  id: MisfitsFoodBase
-  abstract: true
-  components:
-  - type: Temperature
-  - type: FlavorProfile
-    flavors:
-    - food
-  - type: Food
-  - type: Sprite
-  - type: StaticPrice
-    price: 0
-
-- type: entity
-  parent: MisfitsFoodBase
-  id: MisfitsFoodSmallBase
-  abstract: true
-  components:
-  - type: Item
-    size: Tiny
-
-
-# Raw sushi
-- type: entity
-  parent: MisfitsFoodSmallBase
-  id: MisfitsFoodSushiRaw
-  components:
-  - type: Food
-    transferAmount: 10
-    eatMessage: food-desc-sushi-eat
-  - type: Sprite
-    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
-    state: redFishSushi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35
-        reagents:
-        - ReagentId: Rice
-          Quantity: 10
-        - ReagentId: Protein
-          Quantity: 3
-        - ReagentId: Nutriment
-          Quantity: 3
-  - type: GeneralConstructs
-    generalEnts:
-      Cooked: MisfitsFoodSushiCooked
-  - type: Construction
-    graph: GraphCookAny
-    node: start
-    defaultTarget: CookedNode
-
-- type: entity
-  parent: MisfitsFoodSmallBase
-  id: MisfitsFoodSushiCooked
-  components:
-  - type: Food
-    transferAmount: 10
-    eatMessage: food-desc-sushiCooked-eat
-  - type: Sprite
-    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
-    state: redFishSushiCooked
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 37
-        reagents:
-        - ReagentId: Rice
-          Quantity: 10
-        - ReagentId: Protein
-          Quantity: 4
-        - ReagentId: Nutriment
-          Quantity: 4
-  - type: GeneralConstructs
-    generalEnts:
-      Cooked: MisfitsFoodSushiCooked
-  - type: Construction
-    graph: GraphCookAny
-    node: CookedNode
-    defaultTarget: start
-
-## fish sushi
-- type: entity
-  parent: MisfitsFoodSmallBase
-  id: MisfitsFoodSushiFishRaw
-  components:
-  - type: Food
-    transferAmount: 10
-    eatMessage:  food-desc-sushiFish-eat
-  - type: Sprite
-    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
-    state: redFishSushiCooked
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Rice
-          Quantity: 10
-        - ReagentId: Protein
-          Quantity: 3
-        - ReagentId: Vitamin
-          Quantity: 5
-
-## carrot fish sushi
-- type: entity
-  parent: MisfitsFoodSmallBase
-  id: MisfitsFoodSushiFishCarrotRaw
-  description: food-desc-sushiFishCarrot
-  components:
-  - type: Food
-    transferAmount: 10
-    eatMessage: food-desc-sushiFishCarrot-eat
-  - type: Sprite
-    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
-    state: sushiRoll
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35
-        reagents:
-        - ReagentId: Rice
-          Quantity: 10
-        - ReagentId: Protein
-          Quantity: 3
-        - ReagentId: Vitamin
-          Quantity: 5
-        - ReagentId: JuiceCarrot
-          Quantity: 10
-
-## NCR roll
-- type: entity
-  parent: MisfitsFoodSmallBase
-  id: MisfitsFoodSushiNCRRaw
-  components:
-  - type: Food
-    transferAmount: 10
-    eatMessage: food-desc-sushiNCR-eat
-  - type: Sprite
-    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
-    state: NCRRoll
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 38
-        reagents:
-        - ReagentId: Rice
-          Quantity: 10
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: JuiceCarrot
-          Quantity: 20
-
-## spicy sushi
-- type: entity
-  parent: MisfitsFoodSmallBase
-  id: MisfitsFoodSushiSpicyRaw
-  components:
-  - type: Food
-    transferAmount: 10
-    eatMessage: food-desc-sushiSpicy-eat
-  - type: Sprite
-    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
-    state: spicyRoll
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 29
-        reagents:
-        - ReagentId: Rice
-          Quantity: 10
-        - ReagentId: Protein
-          Quantity: 9
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Hotsauce
-          Quantity: 2
-
-
-# cream sushi
+﻿# Placing sushi definitions here until the commented out stuff at the bottom of the file gets sorted out
 
 - type: entity
   parent: MisfitsFoodSmallBase
   id: MisfitsFoodSushiCheeseRaw
   components:
-  - type: Food
-    eatMessage: food-desc-sushiCream-eat
-    transferAmount: 10
-  - type: Sprite
-    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
-    state: sushiCream
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35
-        reagents:
-        - ReagentId: Rice
-          Quantity: 10
-        - ReagentId: Protein
-          Quantity: 3
-        - ReagentId: Nutriment
-          Quantity: 7
-        - ReagentId: Milk
-          Quantity: 5
+    - type: Food
+      eatMessage: food-desc-sushiCream-eat
+      transferAmount: 10
+    - type: Sprite
+      sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+      state: sushiCream
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 35
+          reagents:
+            - ReagentId: Rice
+              Quantity: 10
+            - ReagentId: Protein
+              Quantity: 3
+            - ReagentId: Nutriment
+              Quantity: 7
+            - ReagentId: Milk
+              Quantity: 5
 
-# large sushi
 - type: entity
   parent: MisfitsFoodSmallBase
-  id: MisfitsFoodSushiMeatLargeRaw
+  id: MisfitsFoodSushiCooked
   components:
-  - type: Food
-    transferAmount: 10
-    eatMessage: food-desc-sushiBig-eat
-  - type: Sprite
-    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
-    state:  sushiRollBig
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 65
-        reagents:
-        - ReagentId: Rice
-          Quantity: 20
-        - ReagentId: Protein
-          Quantity: 3
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: JuiceCarrot
-          Quantity: 20
+    - type: Food
+      transferAmount: 10
+      eatMessage: food-desc-sushiCooked-eat
+    - type: Sprite
+      sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+      state: redFishSushiCooked
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 37
+          reagents:
+            - ReagentId: Rice
+              Quantity: 10
+            - ReagentId: Protein
+              Quantity: 4
+            - ReagentId: Nutriment
+              Quantity: 4
+    - type: GeneralConstructs
+      generalEnts:
+        Cooked: MisfitsFoodSushiCooked
+    - type: Construction
+      graph: GraphCookAny
+      node: CookedNode
+      defaultTarget: start
 
-# NCR patriotic roll
 - type: entity
   parent: MisfitsFoodSmallBase
-  id: MisfitsFoodSushiNCRSuperRaw
+  id: MisfitsFoodSushiFishCarrotRaw
+  description: food-desc-sushiFishCarrot
   components:
-  - type: Food
-    transferAmount: 10
-    eatMessage: food-desc-sushiNCRLarge-eat
-  - type: Sprite
-    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
-    state: NCRRollSuper
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 65
-        reagents:
-        - ReagentId: Rice
-          Quantity: 10
-        - ReagentId: Protein
-          Quantity: 3
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: JuiceCarrot
-          Quantity: 20
-        - ReagentId: Cellulose
-          Quantity: 10
-        - ReagentId: Fiber
-          Quantity: 10
-# Legion patriotic roll
+    - type: Food
+      transferAmount: 10
+      eatMessage: food-desc-sushiFishCarrot-eat
+    - type: Sprite
+      sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+      state: sushiRoll
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 35
+          reagents:
+            - ReagentId: Rice
+              Quantity: 10
+            - ReagentId: Protein
+              Quantity: 3
+            - ReagentId: Vitamin
+              Quantity: 5
+            - ReagentId: JuiceCarrot
+              Quantity: 10
+
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSushiFishRaw
+  components:
+    - type: Food
+      transferAmount: 10
+      eatMessage:  food-desc-sushiFish-eat
+    - type: Sprite
+      sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+      state: redFishSushiCooked
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 20
+          reagents:
+            - ReagentId: Rice
+              Quantity: 10
+            - ReagentId: Protein
+              Quantity: 3
+            - ReagentId: Vitamin
+              Quantity: 5
+
 - type: entity
   parent: MisfitsFoodSmallBase
   id: MisfitsFoodSushiLegionSuperRaw
   components:
-  - type: Food
-    transferAmount: 10
-    eatMessage: food-desc-sushiLegionLarge-eat
-  - type: Sprite
-    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
-    state: legionRollSuper
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 65
-        reagents:
-        - ReagentId: Rice
-          Quantity: 10
-        - ReagentId: Protein
-          Quantity: 6
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Hotsauce
-          Quantity: 2
-        - ReagentId: Cellulose
-          Quantity: 10
-        - ReagentId: Fiber
-          Quantity: 10
+    - type: Food
+      transferAmount: 10
+      eatMessage: food-desc-sushiLegionLarge-eat
+    - type: Sprite
+      sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+      state: legionRollSuper
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 65
+          reagents:
+            - ReagentId: Rice
+              Quantity: 10
+            - ReagentId: Protein
+              Quantity: 6
+            - ReagentId: Nutriment
+              Quantity: 4
+            - ReagentId: Hotsauce
+              Quantity: 2
+            - ReagentId: Cellulose
+              Quantity: 10
+            - ReagentId: Fiber
+              Quantity: 10
 
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSushiMeatLargeRaw
+  components:
+    - type: Food
+      transferAmount: 10
+      eatMessage: food-desc-sushiBig-eat
+    - type: Sprite
+      sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+      state:  sushiRollBig
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 65
+          reagents:
+            - ReagentId: Rice
+              Quantity: 20
+            - ReagentId: Protein
+              Quantity: 3
+            - ReagentId: Nutriment
+              Quantity: 3
+            - ReagentId: JuiceCarrot
+              Quantity: 20
+
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSushiNCRRaw
+  components:
+    - type: Food
+      transferAmount: 10
+      eatMessage: food-desc-sushiNCR-eat
+    - type: Sprite
+      sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+      state: NCRRoll
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 38
+          reagents:
+            - ReagentId: Rice
+              Quantity: 10
+            - ReagentId: Nutriment
+              Quantity: 6
+            - ReagentId: JuiceCarrot
+              Quantity: 20
+
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSushiNCRSuperRaw
+  components:
+    - type: Food
+      transferAmount: 10
+      eatMessage: food-desc-sushiNCRLarge-eat
+    - type: Sprite
+      sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+      state: NCRRollSuper
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 65
+          reagents:
+            - ReagentId: Rice
+              Quantity: 10
+            - ReagentId: Protein
+              Quantity: 3
+            - ReagentId: Nutriment
+              Quantity: 3
+            - ReagentId: JuiceCarrot
+              Quantity: 20
+            - ReagentId: Cellulose
+              Quantity: 10
+            - ReagentId: Fiber
+              Quantity: 10
+
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSushiRaw
+  components:
+    - type: Food
+      transferAmount: 10
+      eatMessage: food-desc-sushi-eat
+    - type: Sprite
+      sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+      state: redFishSushi
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 35
+          reagents:
+            - ReagentId: Rice
+              Quantity: 10
+            - ReagentId: Protein
+              Quantity: 3
+            - ReagentId: Nutriment
+              Quantity: 3
+    - type: GeneralConstructs
+      generalEnts:
+        Cooked: MisfitsFoodSushiCooked
+    - type: Construction
+      graph: GraphCookAny
+      node: start
+      defaultTarget: CookedNode
+
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSushiSpicyRaw
+  components:
+    - type: Food
+      transferAmount: 10
+      eatMessage: food-desc-sushiSpicy-eat
+    - type: Sprite
+      sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+      state: spicyRoll
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 29
+          reagents:
+            - ReagentId: Rice
+              Quantity: 10
+            - ReagentId: Protein
+              Quantity: 9
+            - ReagentId: Nutriment
+              Quantity: 6
+            - ReagentId: Hotsauce
+              Quantity: 2
+              
 # unused till RTB gets updated to allow for prototype varititization
 #- type: construction
 #  id: CraftSushi
