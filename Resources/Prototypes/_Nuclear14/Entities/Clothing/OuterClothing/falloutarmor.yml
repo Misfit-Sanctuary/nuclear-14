@@ -1279,49 +1279,6 @@
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutbosarmor.rsi
 
 - type: entity
-  parent: N14ClothingOuterCombatArmor
-  id: N14ClothingOuterCombatArmorKnightBOS
-  name: Knight Combat Armor
-  description: A suit of combat armor used by the Knights of the Brotherhood of Steel. #Misfits Tweak - Removed Washington reference
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutbosknight.rsi
-  - type: Clothing
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutbosknight.rsi
-
-- type: entity
-  parent: N14ClothingOuterCombatArmorMK2
-  id: N14ClothingOuterCombatArmorSeniorBOS
-  name: Senior Knight Combat Armor
-  description: A suit of combat armor used by the Senior Knights of the Brotherhood of Steel. #Misfits Tweak - Removed Washington reference
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutbossenior.rsi
-  - type: Clothing
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutbossenior.rsi
-
-- type: entity
-  parent: N14ClothingOuterCombatArmorMK2
-  id: N14ClothingOuterCombatArmorCaptainBOS
-  name: Head Knight Combat Armor #Misfits Tweak - Renamed to match Head Knight role
-  description: A suit of combat armor used by the Head Knights of the Brotherhood of Steel. #Misfits Tweak - Removed Washington reference
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutboscaptain.rsi
-  - type: Clothing
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutboscaptain.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.65
-        Slash: 0.65
-        Piercing: 0.55
-        Heat: 0.55
-    priceMultiplier: 0.6
-  - type: ExplosionResistance
-    damageCoefficient: 0.75
-
-- type: entity
   parent: N14ClothingOuterBase
   id: N14ClothingOuterBosScribe
   name: technical leather vest
@@ -1344,14 +1301,14 @@
 
 - type: entity
   parent: N14ClothingOuterCombatArmorMK2
-  id: N14ClothingOuterCombatArmorMK3
-  name: BoS Combat Armor MK3
-  description: Meticulously worked on by the Washington Scribes, its near unrecognisable from its original state.
+  id: N14ClothingOuterBoSCombatArmorMK3
+  name: Brotherhood combat armor mk3
+  description: A finely made suit of armor reverse-engineered by the Brotherhood using advanced pre-war schematics.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutbosmk3armor.rsi
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_armor_mk3.rsi
   - type: Clothing
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutbosmk3armor.rsi
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_armor_mk3.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -1390,29 +1347,6 @@
 
 - type: entity
   parent: N14FalloutArmorBase
-  id: N14ClothingOuterWBoSSquireArmor
-  name: Squire Armor
-  description: A set of light armor used by the Washington Brotherhood's Squires. It's a bit light on actual plating, but insulates from the cold.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/BoS_Wash/SquireArmor.rsi
-  - type: Clothing
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/BoS_Wash/SquireArmor.rsi
-  - type: Armor
-    modifiers: # #Misfits Tweak: Squire (T3, 0.80/0.75) now outranks Initiate (T2, 0.85/0.80)
-      coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.75
-        Heat: 0.75
-    priceMultiplier: 0.5
-  - type: FireProtection
-    reduction: 0.1
-  - type: ExplosionResistance
-    damageCoefficient: 0.9
-
-- type: entity
-  parent: N14FalloutArmorBase
   id: N14ClothingOuterWBoSKnightArmor
   name: Knight Armor
   description: A suit of combat armor used by the Washington Brotherhood's Knights. Almost identical to pre-war sets issued to the military.
@@ -1428,29 +1362,6 @@
         Slash: 0.75
         Piercing: 0.7
         Heat: 0.7
-    priceMultiplier: 0.5
-  - type: FireProtection
-    reduction: 0.2
-  - type: ExplosionResistance
-    damageCoefficient: 0.8
-
-- type: entity
-  parent: N14FalloutArmorBase
-  id: N14ClothingOuterWBoSSeniorKArmor
-  name: Senior Knight Armor
-  description: A suit of combat armor used by the Washington Brotherhood's Senior Knights. It's slightly sturdier than the average rank & file troop's gear.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/BoS_Wash/SeniorKArmor.rsi
-  - type: Clothing
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/BoS_Wash/SeniorKArmor.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.65
-        Heat: 0.65
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.2
@@ -1496,30 +1407,30 @@
 
 - type: entity
   parent: N14ClothingOuterCombatArmor
-  id: N14ClothingOuterMidwestArmor
-  name: BoS Combat Armor
-  description: A suit of combat armor modified with multiple well-polished metal plates.
+  id: N14ClothingOuterBoSCombatArmor
+  name: Brotherhood combat armor
+  description: A standard suit of Brotherhood combat armor for general field use.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutmidbosarmor.rsi
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_armor.rsi
   - type: Clothing
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutmidbosarmor.rsi
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_armor.rsi
 
 - type: entity
   parent: N14ClothingOuterCombatArmorMK2
-  id: N14ClothingOuterMidwestArmorMK2
-  name: Veteran BoS Combat Armor
-  description: A suit of combat armor modified with multiple well-polished metal plates and vibrant orange lines, a more robust version.
+  id: N14ClothingOuterBoSCombatArmorMK2
+  name: Brotherhood combat armor mk2
+  description: A more complete version of standard Brotherhood combat armor, reinforced with extra armor on the extremities.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutmidbosarmorV2.rsi
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_armor_mk2.rsi
   - type: Clothing
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutmidbosarmorV2.rsi
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_armor_mk2.rsi
 
 - type: entity
   parent: N14ClothingOuterCombatArmor
   id: N14ClothingOuterMidwestReconArmor
-  name: BoS Recon Armor
+  name: Brotherhood recon armor
   description: A suit of recon armor manufactured by the Brotherhood of Steel, reserved for only higher ranked members.
   components:
   - type: Sprite
@@ -1545,7 +1456,7 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterMBoSInitiateArmor
-  name: Initiate Armor
+  name: Initiate armor
   description: A set of light armor used by the Brotherhood's Initiates. It's quite light on actual plating, but cheap to make.
   components:
   - type: Sprite
@@ -1568,7 +1479,7 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterMBoSSquireArmor
-  name: Squire Armor
+  name: Squire armor
   description: A set of light armor used by the Brotherhood's Squires. It's a bit light on actual plating, but insulates from the cold.
   components:
   - type: Sprite
@@ -1605,29 +1516,6 @@
         Slash: 0.75
         Piercing: 0.7
         Heat: 0.7
-    priceMultiplier: 0.5
-  - type: FireProtection
-    reduction: 0.2
-  - type: ExplosionResistance
-    damageCoefficient: 0.8
-
-- type: entity
-  parent: N14FalloutArmorBase
-  id: N14ClothingOuterMBoSSeniorKArmor
-  name: Senior Knight Armor
-  description: A suit of combat armor used by the Brotherhood's Senior Knights. It's slightly sturdier than the average rank & file troop's gear.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/BoS_Midw/SeniorKArmor.rsi
-  - type: Clothing
-    sprite: _Nuclear14/Clothing/OuterClothing/Armor/BoS_Midw/SeniorKArmor.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.70
-        Slash: 0.70
-        Piercing: 0.65
-        Heat: 0.65
     priceMultiplier: 0.5
   - type: FireProtection
     reduction: 0.2

@@ -522,9 +522,11 @@
 # =====================================================================
 
 # --- BoS Tier 1 Armor ---
+
+
 - type: latheRecipe
-  id: N14BPBoSArmorWBoSInitiateArmor
-  result: N14ClothingOuterWBoSInitiateArmor
+  id: N14BPBoSArmorInitiate
+  result: MisfitsBoSInitiateArmor
   category: N14BlueprintBoSArmorT1
   completetime: 7
   requiresBlueprint: true
@@ -541,43 +543,9 @@
 
 
 - type: latheRecipe
-  id: N14BPBoSArmorMBoSInitiateArmor
-  result: N14ClothingOuterMBoSInitiateArmor
+  id: N14BPBoSArmorSquire
+  result: MisfitsBoSSquireArmor
   category: N14BlueprintBoSArmorT1
-  completetime: 7
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Cloth: 500
-
-    Thread: 500
-
-    Steel: 1000
-
-    Leather: 200
-
-
-- type: latheRecipe
-  id: N14BPBoSArmorBosScribe
-  result: N14ClothingOuterBosScribe
-  category: N14BlueprintBoSArmorT1
-  completetime: 7
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Cloth: 500
-
-    Thread: 500
-
-    Leather: 200
-
-
-- type: latheRecipe
-  id: N14BPBoSArmorWBoSSquireArmor
-  result: N14ClothingOuterWBoSSquireArmor
-  category: N14BlueprintBoSArmorT2
   completetime: 10
   requiresBlueprint: true
   availableFaction:
@@ -592,144 +560,77 @@
     Leather: 700
 
 
+# --- BoS Tier 2 Armor ---
+
+
 - type: latheRecipe
-  id: N14BPBoSArmorMBoSSquireArmor
-  result: N14ClothingOuterMBoSSquireArmor
+  id: N14BPBoSArmorCombat
+  result: N14ClothingOuterBoSCombatArmor
   category: N14BlueprintBoSArmorT2
   completetime: 10
   requiresBlueprint: true
   availableFaction:
   - BrotherhoodOfSteel
   materials:
-    Steel: 3500
+    Steel: 6000
 
-    Cloth: 1500
+    Cloth: 700
 
-    Thread: 1000
+    Thread: 300
 
-    Leather: 700
-
-
-- type: latheRecipe
-  id: N14BPBoSArmorMidwestArmor
-  result: N14ClothingOuterMidwestArmor
-  category: N14BlueprintBoSArmorT2
-  completetime: 10
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Steel: 3500
-
-    Cloth: 1200
-
-    Thread: 1000
-
-    Leather: 700
+    Leather: 300
 
 
 # --- BoS Tier 3 Armor ---
+
+
 - type: latheRecipe
-  id: N14BPBoSArmorWBoSKnightArmor
-  result: N14ClothingOuterWBoSKnightArmor
+  id: N14BPBoSArmorBrotherhoodMK2
+  result: N14ClothingOuterBoSCombatArmorMK2
+  category: N14BlueprintBoSArmorT3
+  completetime: 11
+  requiresBlueprint: true
+  availableFaction:
+  - BrotherhoodOfSteel
+  materials:
+    Steel: 8500
+
+    Cloth: 320
+
+    Thread: 400
+
+    Leather: 350
+
+    Circuitry: 100
+
+    ScrapElectronic: 1000
+
+
+- type: latheRecipe
+  id: N14BPBoSArmorBrotherhoodMK3
+  result: N14ClothingOuterBoSCombatArmorMK3
   category: N14BlueprintBoSArmorT3
   completetime: 15
   requiresBlueprint: true
   availableFaction:
   - BrotherhoodOfSteel
   materials:
-    Steel: 6000
+    Steel: 9500
 
-    Cloth: 700
+    Cloth: 800
 
-    Thread: 500
+    Thread: 1500
 
-    Leather: 800
-
-    Circuitry: 400
-
-
-- type: latheRecipe
-  id: N14BPBoSArmorMBoSKnightArmor
-  result: N14ClothingOuterMBoSKnightArmor
-  category: N14BlueprintBoSArmorT3
-  completetime: 15
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Steel: 6000
-
-    Cloth: 700
-
-    Thread: 500
-
-    Leather: 800
+    Leather: 600
 
     Circuitry: 400
 
-
-- type: latheRecipe
-  id: N14BPBoSArmorWBoSSeniorKArmor
-  result: N14ClothingOuterWBoSSeniorKArmor
-  category: N14BlueprintBoSArmorT3
-  completetime: 17
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Steel: 7000
-
-    Cloth: 1000
-
-    Thread: 700
-
-    Leather: 1200
-
-    Circuitry: 400
-
-
-- type: latheRecipe
-  id: N14BPBoSArmorMBoSSeniorKArmor
-  result: N14ClothingOuterMBoSSeniorKArmor
-  category: N14BlueprintBoSArmorT3
-  completetime: 17
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Steel: 7000
-
-    Cloth: 1000
-
-    Thread: 700
-
-    Leather: 1200
-
-    Circuitry: 400
-
-
-- type: latheRecipe
-  id: N14BPBoSArmorMidwestArmorMK2
-  result: N14ClothingOuterMidwestArmorMK2
-  category: N14BlueprintBoSArmorT3
-  completetime: 16
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Steel: 6500
-
-    Cloth: 1200
-
-    Thread: 800
-
-    Leather: 1200
-
-    Circuitry: 600
+    ScrapElectronic: 1500
 
 
 # --- BoS Tier 4 Armor (Power Armor) ---
+
+
 - type: latheRecipe
   id: N14BPBoSArmorPowerArmorT45
   result: N14ClothingOuterPowerArmorT45
@@ -2426,7 +2327,7 @@
 # than the body armor they pair with.
 # =====================================================================
 
-# --- BoS Tier 1 Helmets (initiate) ---
+# --- BoS Tier 1 Helmets (BoS Combat Helmet) ---
 - type: latheRecipe
   id: N14BPBoSArmorHelmetBrotherhood
   result: N14ClothingHeadHatBrotherhoodHelmet
@@ -2440,63 +2341,11 @@
     Cloth: 50
     Leather: 30
 
-# --- BoS Tier 2 Helmets (squire / midwest) ---
-- type: latheRecipe
-  id: N14BPBoSArmorHelmetBrotherhoodKnight
-  result: N14ClothingHeadHatBrotherhoodHelmetKnight
-  category: N14BlueprintBoSArmorT2
-  completetime: 7
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Steel: 1500
-    Cloth: 60
-    Leather: 40
-    ScrapElectronic: 30
+# --- BoS Tier 2 Helmets (#Misfits Change - No printable helmet variants until T3) ---
 
-- type: latheRecipe
-  id: N14BPBoSArmorHelmetBrotherhoodMidwest
-  result: N14ClothingHeadHatBrotherhoodMidwestHelmet
-  category: N14BlueprintBoSArmorT2
-  completetime: 7
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Steel: 1500
-    Cloth: 60
-    Leather: 40
-    ScrapElectronic: 30
 
 # --- BoS Tier 3 Helmets (knight / paladin / midwest veteran) ---
-- type: latheRecipe
-  id: N14BPBoSArmorHelmetBrotherhoodCaptain
-  result: N14ClothingHeadHatBrotherhoodHelmetCaptain
-  category: N14BlueprintBoSArmorT3
-  completetime: 10
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Steel: 2500
-    Cloth: 80
-    Leather: 50
-    Circuitry: 40
 
-- type: latheRecipe
-  id: N14BPBoSArmorHelmetBrotherhoodPaladin
-  result: N14ClothingHeadHatBrotherhoodHelmetPaladin
-  category: N14BlueprintBoSArmorT3
-  completetime: 10
-  requiresBlueprint: true
-  availableFaction:
-  - BrotherhoodOfSteel
-  materials:
-    Steel: 2500
-    Cloth: 80
-    Leather: 50
-    Circuitry: 40
 
 - type: latheRecipe
   id: N14BPBoSArmorHelmetBrotherhoodMK2
@@ -2507,24 +2356,31 @@
   availableFaction:
   - BrotherhoodOfSteel
   materials:
-    Steel: 2800
-    Cloth: 80
-    Leather: 50
-    Circuitry: 50
+    Steel: 1800
+
+    Leather: 200
+
+    Cloth: 100
+
+    Glass: 200
 
 - type: latheRecipe
-  id: N14BPBoSArmorHelmetBrotherhoodMidwestVeteran
-  result: N14ClothingHeadHatBrotherhoodMidwestHelmetVeteran
+  id: N14BPBoSArmorHelmetBrotherhoodMK3
+  result: N14ClothingHeadHatBrotherhoodHelmetMK3
   category: N14BlueprintBoSArmorT3
   completetime: 11
   requiresBlueprint: true
   availableFaction:
   - BrotherhoodOfSteel
   materials:
-    Steel: 2800
-    Cloth: 80
-    Leather: 50
-    Circuitry: 50
+    Steel: 3000
+
+    Glass: 500
+
+    Circuitry: 100
+
+    ScrapElectronic: 1000
+
 
 # #Misfits Removed - user requested no power armor helmet recipes
 # --- BoS Tier 4 Helmets (T-45 power armor) ---

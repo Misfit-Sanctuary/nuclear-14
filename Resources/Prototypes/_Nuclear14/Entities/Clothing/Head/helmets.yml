@@ -207,24 +207,24 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMetal
   id: N14ClothingHeadHatBrotherhoodHelmet
-  name: Brotherhood of Steel Helmet
+  name: Brotherhood combat helmet
   description: A helmet worn by members of the Brotherhood of Steel.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/brotherhoodhelmet.rsi
+    sprite: _Misfits/Clothing/Head/Helmets/bos_helmet.rsi
   - type: Clothing
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/brotherhoodhelmet.rsi
+    sprite: _Misfits/Clothing/Head/Helmets/bos_helmet.rsi
 
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMetal
-  id: N14ClothingHeadHatBrotherhoodHelmetKnight
-  name: BoS Knight Helmet
-  description: A helmet worn by Knights of the Brotherhood of Steel.
+  id: N14ClothingHeadHatBrotherhoodHelmetSeniorKnight
+  name: Brotherhood senior knight helmet
+  description: A helmet worn by Senior Knights of the Brotherhood of Steel.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/brotherhoodhelmetknight.rsi
+    sprite: _Misfits/Clothing/Head/Helmets/bos_senior_knight_helmet.rsi
   - type: Clothing
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/brotherhoodhelmetknight.rsi
+    sprite: _Misfits/Clothing/Head/Helmets/bos_senior_knight_helmet.rsi
 
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMetal
@@ -239,14 +239,14 @@
 
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
-  id: N14ClothingHeadHatBrotherhoodHelmetPaladin
-  name: BoS Head Knight Helmet.
+  id: N14ClothingHeadHatBrotherhoodHelmetHeadKnight
+  name: Brotherhood head knight helmet
   description: A helmet worn by Head Knights of the Brotherhood of Steel.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/brotherhoodhelmetsenior.rsi
+    sprite: _Misfits/Clothing/Head/Helmets/bos_head_knight_helmet.rsi
   - type: Clothing
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/brotherhoodhelmetsenior.rsi
+    sprite: _Misfits/Clothing/Head/Helmets/bos_head_knight_helmet.rsi
 
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMetal
@@ -262,13 +262,13 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatBrotherhoodHelmetMK2
-  name: BoS Helmet MK2
-  description: An advanced Brotherhood of Steel combat helmet.
+  name: Brotherhood combat helmet mk2
+  description: An advanced Brotherhood of Steel combat helmet sporting additional face protection.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/brotherhoodhelmetmk2.rsi
+    sprite: _Misfits/Clothing/Head/Helmets/bos_helmet_mk2.rsi
   - type: Clothing
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/brotherhoodhelmetmk2.rsi
+    sprite: _Misfits/Clothing/Head/Helmets/bos_helmet_mk2.rsi
 
 # Enclave
 - type: entity
@@ -568,17 +568,6 @@
 
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
-  id: N14ClothingHeadHatBrotherhoodMidwestHelmetVeteran
-  name: Veteran BoS Helmet
-  description: A modified combat helmet with extra metal plates to cover the face.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/midwest-brotherhood/boshelmetV2.rsi
-  - type: Clothing
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/midwest-brotherhood/boshelmetV2.rsi
-
-- type: entity
-  parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatBrotherhoodMidwestHelmetRecon
   name: BoS Recon Helmet
   description: A helmet made by the Brotherhood of Steel, expertly designed for both protection and stealth.
@@ -612,16 +601,27 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatBrotherhoodHelmetMK3
-  name: BoS Helmet MK3
-  description: A helmet continuosly upgraded by the Washington Brotherhood, any pre-war components barely remaining.
+  name: Brotherhood combat helmet mk3
+  description: A highly advanced combat helmet produced by the Brotherhood of Steel. Integrated eye protection allows the wearer to safely utilize welding equipment without the need for goggles or mask.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/brotherhoodhelmetmk3.rsi
+    sprite: _Misfits/Clothing/Head/Helmets/bos_helmet_mk3.rsi
   - type: Clothing
-    sprite: _Nuclear14/Clothing/Head/FalloutHelmets/brotherhoodhelmetmk3.rsi
+    sprite: _Misfits/Clothing/Head/Helmets/bos_helmet_mk3.rsi
   - type: Tag
     tags:
     - HidesHair
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
+        Heat: 0.80
+    priceMultiplier: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.85
+  - type: EyeProtection
 
 # Canadian mounties
 - type: entity
