@@ -605,7 +605,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (user != null &&
             TryComp<BuckleComponent>(user.Value, out var buckle) &&
             buckle.BuckledTo is { } buckledTo &&
-            HasComp<MotorbikeComponent>(buckledTo) &&
+            HasComp<SolutionConsumerComponent>(buckledTo) &&
             TryComp<PhysicsComponent>(buckledTo, out var vehiclePhysics))
         {
             var vehicleSpeed = vehiclePhysics.LinearVelocity.Length();

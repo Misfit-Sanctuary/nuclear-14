@@ -19,8 +19,8 @@ internal sealed class BuckleSystem : SharedBuckleSystem
 
         SubscribeLocalEvent<BuckleComponent, AppearanceChangeEvent>(OnAppearanceChange);
         SubscribeLocalEvent<StrapComponent, MoveEvent>(OnStrapMoveEvent);
-        SubscribeLocalEvent<BuckleComponent, BuckledEvent>(OnBuckledEvent);
-        SubscribeLocalEvent<BuckleComponent, UnbuckledEvent>(OnUnbuckledEvent);
+        //SubscribeLocalEvent<BuckleComponent, BuckledEvent>(OnBuckledEvent);
+        //SubscribeLocalEvent<BuckleComponent, UnbuckledEvent>(OnUnbuckledEvent);
         SubscribeLocalEvent<BuckleComponent, AttemptMobCollideEvent>(OnMobCollide);
     }
 
