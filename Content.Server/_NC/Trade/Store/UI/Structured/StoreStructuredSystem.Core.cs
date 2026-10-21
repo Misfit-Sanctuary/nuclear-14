@@ -686,8 +686,8 @@ public sealed partial class StoreStructuredSystem : EntitySystem
     {
         return listing.Mode switch
         {
-            StoreMode.Buy => _logic.ApplyCharismaBuyPrice(user, price),
-            StoreMode.Sell or StoreMode.Exchange => _logic.ApplyCharismaSellReward(user, price),
+            StoreMode.Buy => _logic.ApplyCharismaBuyPrice(user, price, listing.ProductEntity),
+            StoreMode.Sell or StoreMode.Exchange => _logic.ApplyCharismaSellReward(user, price, listing.ProductEntity),
             _ => price,
         };
     }
