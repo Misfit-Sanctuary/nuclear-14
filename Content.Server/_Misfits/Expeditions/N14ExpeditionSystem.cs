@@ -29,6 +29,8 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Serilog;
+
 
 namespace Content.Server._Misfits.Expeditions;
 
@@ -71,12 +73,12 @@ public sealed class N14ExpeditionSystem : EntitySystem
     // intervals — sub-second resolution is unnecessary. Per-tick scan at 30 Hz is wasteful.
     private float _sessionScanAccumulator;
     private const float SessionScanInterval = 0.5f;
-
+    private static ISawmill _log = default!;
     public override void Initialize()
     {
         base.Initialize();
         Subs.CVar(_config, ExpeditionCVars.Enabled, enabled => _enabled = enabled, true);
-
+        _log = Logger.GetSawmill("Expedition");
         // BUI events
         SubscribeLocalEvent<N14ExpeditionBoardComponent, AfterActivatableUIOpenEvent>(OnBoardOpened);
         SubscribeLocalEvent<N14ExpeditionBoardComponent, N14ExpeditionLaunchMessage>(OnLaunchMessage);
@@ -424,6 +426,7 @@ public sealed class N14ExpeditionSystem : EntitySystem
     /// </summary>
     private void ExecuteLaunch(EntityUid boardUid, N14ExpeditionBoardComponent board, TransformComponent boardXform)
     {
+        _log.Info($"Attempting to execute expedition on Coords:{boardXform.Coordinates}");
         if (board.PendingDifficulty == null)
             return;
 
@@ -432,14 +435,13 @@ public sealed class N14ExpeditionSystem : EntitySystem
 
         if (diff.Maps.Count == 0)
             return;
-
+        _log.Info($"Executing expedition");
         // Lock the expedition roster before generating a procedural map. This is
         // the authoritative party size for encounter scaling; late arrivals
         // cannot change a ruin that is already being generated.
         var nearby = new HashSet<Entity<MobStateComponent>>();
         _lookup.GetEntitiesInRange(boardXform.Coordinates, board.GatherRadius, nearby);
         nearby.RemoveWhere(ent => !_playerManager.TryGetSessionByEntity(ent, out _));
-
         // Pick a random map entry from the difficulty pool
         var mapEntry = _random.Pick(diff.Maps);
         // #Misfits Add - procedural entries also need a per-launch seed
@@ -451,7 +453,7 @@ public sealed class N14ExpeditionSystem : EntitySystem
             : mapEntry.RuntimeProcedural
             ? $"procedural:{board.PendingDifficulty}:{mapEntry.ProceduralTheme}:{runtimeSeed}"
             : mapEntry.Path?.ToString() ?? string.Empty;
-
+        _log.Info($"mapPath chosen: {mapPath}");
         // Check if an existing expedition is already using this map path.
         // If so, add a new session to it instead of loading a duplicate.
         EntityUid existingMapUid = EntityUid.Invalid;
@@ -463,6 +465,7 @@ public sealed class N14ExpeditionSystem : EntitySystem
             if (exp.MapPath == mapPath && !exp.Sessions.All(s => s.Finished))
             {
                 // Found an active expedition using this map — reuse it
+                _log.Info($"Found existing expedition UID:{uid}");
                 existingMapUid = uid;
                 existingExpedition = exp;
                 break;
@@ -489,9 +492,11 @@ public sealed class N14ExpeditionSystem : EntitySystem
         {
             if (mapEntry.RuntimeDungeon)
             {
+                _log.Info($"Attempting to generate Runtime dungeon");
                 if (mapEntry.DungeonConfig == null
                     || !_proto.TryIndex<DungeonConfigPrototype>(mapEntry.DungeonConfig.Value, out var dungeonConfig))
                 {
+                    _log.Info($"expedition launch failed");
                     AnnounceNearby(boardUid, board.GatherRadius,
                         Loc.GetString("n14-expedition-launch-failed"));
                     return;
@@ -518,12 +523,13 @@ public sealed class N14ExpeditionSystem : EntitySystem
                         Loc.GetString("n14-expedition-launch-failed"));
                     return;
                 }
-
+                _log.Info($"Generated Runtime dungeon gridUID:{gridUid}");
                 _gravity.EnableGravity(gridUid);
             }
             // #Misfits Add - runtime procedural underground map generation path
             else if (mapEntry.RuntimeProcedural && mapEntry.ProceduralTheme.HasValue)
             {
+                _log.Info($"Attempting to generate procedural dungeon");
                 // Larger groups receive a broader ruin as well as denser encounters.
                 // One step per additional entrant grows the map by 12 tiles per side
                 // and 1.5 rooms (rounded across the group), capped at five players / 144x144.
@@ -566,8 +572,31 @@ public sealed class N14ExpeditionSystem : EntitySystem
 
                 try
                 {
+                    _log.Info($"Generating Procedural dungeon. Pre-Gen statistics");
+                    var gameThreadAlloc = GC.GetAllocatedBytesForCurrentThread();
+                    var totalAlloc = GC.GetTotalAllocatedBytes();
+                    var timeSpentInGC = GC.GetTotalPauseDuration();
+                    var currentHeap = GC.GetTotalMemory(false);
+                    var curRealTime = _timing.RealTime;
+                    _log.Info($"Game thread allocations: {gameThreadAlloc} Bytes");
+                    _log.Info($"Total allocations: {totalAlloc} Bytes");
+                    _log.Info($"Time spent in GC: {timeSpentInGC}");
+                    _log.Info($"Current heap: {currentHeap} Bytes");
+                    _log.Info($"Tick remaining: {curRealTime}");
                     // #Misfits Fix - Capture hub positions for player spawn + exit placement
                     hubPositions = _proceduralGen.GenerateMap(genParams, gridUid, gridEnt.Comp);
+
+                    _log.Info($"Procedural dungeon done. Post-Gen statistics differences");
+                    gameThreadAlloc = GC.GetAllocatedBytesForCurrentThread() - gameThreadAlloc;
+                    totalAlloc = GC.GetTotalAllocatedBytes() - totalAlloc;
+                    timeSpentInGC = GC.GetTotalPauseDuration() - timeSpentInGC;
+                    currentHeap = GC.GetTotalMemory(false) - currentHeap;
+                    curRealTime = _timing.RealTime - curRealTime;
+                    _log.Info($"Post-Gen allocs on game thread: {gameThreadAlloc} Bytes");
+                    _log.Info($"Post-Gen total allocations done: {totalAlloc} Bytes");
+                    _log.Info($"Post-Gen: Time spent in GC: {timeSpentInGC}");
+                    _log.Info($"Post-Gen: heap created: {currentHeap} Bytes");
+                    _log.Info($"Post-Gen: RealTime passed: {curRealTime}");
                     // Build faction spawn map from hub positions
                     factionSpawnMap = new Dictionary<int, EntityCoordinates>();
                     foreach (var (pos, fIdx) in hubPositions)
@@ -584,12 +613,13 @@ public sealed class N14ExpeditionSystem : EntitySystem
                         Loc.GetString("n14-expedition-launch-failed"));
                     return;
                 }
-
+                _log.Info($"Procedural dungeon generated gridUid:{gridUid}");
                 _gravity.EnableGravity(gridUid);
             }
             else if (mapEntry.Path != null
                      && _mapLoader.TryLoadGrid(mapEntry.Path.Value, out var gridMapResult, out var gridResult))
             {
+                _log.Info($"Setting to dungeon grid found from mapEntry Path:{mapEntry.Path}");
                 mapUid = gridMapResult.Value.Owner;
                 gridUid = gridResult.Value.Owner;
             }
@@ -597,6 +627,7 @@ public sealed class N14ExpeditionSystem : EntitySystem
                      && _mapLoader.TryLoadMap(mapEntry.Path.Value, out var mapResult, out var grids)
                      && grids is { Count: > 0 })
             {
+                _log.Info($"Setting to dungeon map found from mapEntry Path:{mapEntry.Path}");
                 mapUid = mapResult.Value.Owner;
                 gridUid = grids.First().Owner;
             }
@@ -615,7 +646,7 @@ public sealed class N14ExpeditionSystem : EntitySystem
 
             _gravity.EnableGravity(gridUid);
         }
-
+        _log.Info($"Setting to dungeon grid found from mapEntry Path:{mapEntry.Path}");
         // Determine spawn — per-faction hub for procedural maps, majority-faction vote for YAML maps
         // #Misfits Fix - Procedural maps now spawn each faction at their hub instead of grid center
         EntityCoordinates defaultSpawn;
@@ -662,7 +693,7 @@ public sealed class N14ExpeditionSystem : EntitySystem
             EndTime = _timing.CurTime + TimeSpan.FromSeconds(diff.Duration),
             DifficultyId = board.PendingDifficulty,
         };
-
+        _log.Info($"Expedition session: boardCoords: {boardXform.Coordinates} Difficulty: {board.PendingDifficulty}");
         // Track which entities belong to this session + teleport to per-faction hub positions
         // #Misfits Fix - Per-faction spawn: each player goes to their faction's hub, not all to center
         foreach (var ent in nearby)
@@ -852,6 +883,7 @@ public sealed class N14ExpeditionSystem : EntitySystem
         // Keep all exits bound to this expedition map so each player returns to their own board session.
         void SpawnExitAt(Vector2 position)
         {
+            _log.Info($"exit spawned at {position} for grid {gridUid}");
             var coords = new EntityCoordinates(gridUid, position);
             var exitUid = Spawn("N14ExpeditionExitPoint", coords);
             var exitComp = EnsureComp<N14ExpeditionExitComponent>(exitUid);
