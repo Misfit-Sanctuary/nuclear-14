@@ -5,12 +5,13 @@
   description: Psychopatic raider who will shoot and rob just about anyone.
   components:
     - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
-      minAngle: 6
-      maxAngle: 22.5
-      angleIncrease: 1
+      minAngle: 8
+      maxAngle: 16
+      angleIncrease: 4
       angleDecay: 4
-      fireRate: 1.33
-      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Pistols/N14WeaponPistol10mm/shot1.ogg
+      fireRate: 2.0
+      soundGunshot:
+        collection: N14Pistol10mmGunshot
       useKey: false
       selectedMode: SemiAuto
       availableModes:
@@ -18,15 +19,19 @@
     - type: CombatMode
     - type: BasicEntityAmmoProvider
       proto: N14CartridgePistol10
-      capacity: 10
-      count: 10
+      capacity: 12
+      count: 12
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 2
+      rechargeCooldown: 2.5
       rechargeSound:
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
     - type: Loadout
       prototypes:
-        - RaiderPistolGear
+        - RaiderPistol1Gear
+        - RaiderPistol2Gear
+        - RaiderPistol3Gear
+        - RaiderPistol4Gear
+        - RaiderPistol5Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -76,7 +81,7 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/10mmPIPE.rsi
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/10mmPIPEpistol.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
@@ -86,12 +91,13 @@
   description: Boss of all those psycho raiders you see around this area. Good luck!
   components:
     - type: Gun
-      minAngle: 10
-      maxAngle: 34.5
+      minAngle: 8
+      maxAngle: 38
       angleIncrease: 8
       angleDecay: 16
-      fireRate: 2.66
-      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Pistols/N14WeaponPistol10mm/shot1.ogg
+      fireRate: 3.0
+      soundGunshot:
+        collection: N14Pistol10mmGunshot
       useKey: false
       selectedMode: FullAuto
       availableModes:
@@ -102,12 +108,16 @@
       capacity: 35
       count: 35
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 2
+      rechargeCooldown: 2.5
       rechargeSound:
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/SMGs/smg_magin.ogg
     - type: Loadout
       prototypes:
-        - RaiderBossGear
+        - RaiderBoss1Gear
+        - RaiderBoss2Gear
+        - RaiderBoss3Gear
+        - RaiderBoss4Gear
+        - RaiderBoss5Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -164,15 +174,16 @@
   name: Psycho Raider Hunter
   parent: N14BaseMobRaider
   id: N14MobRaiderHunter
-  description: Psychopatic raider armed with a long rifle. Dangerous at a distance.
+  description: Psychopatic raider armed with a bolt action rifle. Dangerous at a distance.
   components:
     - type: Gun
-      minAngle: 4.5
-      maxAngle: 22.5
-      angleIncrease: 1
-      angleDecay: 4
-      fireRate: 0.5
-      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Snipers/N14WeaponPipeRifle/shot1.ogg
+      minAngle: 4
+      maxAngle: 30
+      angleIncrease: 4
+      angleDecay: 16
+      fireRate: 0.75
+      soundGunshot:
+        collection: N14SniperHuntingGunshot
       useKey: false
       selectedMode: SemiAuto
       availableModes:
@@ -180,15 +191,19 @@
     - type: CombatMode
     - type: BasicEntityAmmoProvider
       proto: N14Cartridge308Rifle
-      capacity: 1
-      count: 1
+      capacity: 5
+      count: 5
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 1
+      rechargeCooldown: 3
       rechargeSound:
         path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
     - type: Loadout
       prototypes:
-        - RaiderHunterGear
+        - RaiderHunter1Gear
+        - RaiderHunter2Gear
+        - RaiderHunter3Gear
+        - RaiderHunter4Gear
+        - RaiderHunter5Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -238,7 +253,7 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/double_shotgun.rsi
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/hunting.rsi
         state: inhand-right # Only part we change, the gun sprite.
 
 - type: entity
@@ -248,12 +263,13 @@
   description: Psychopatic raider armed with a scattergun. Deadly at close range.
   components:
     - type: Gun
-      minAngle: 34.5
-      maxAngle: 104
+      minAngle: 40
+      maxAngle: 110
       angleIncrease: 8
       angleDecay: 16
-      fireRate: 0.75
-      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Shotguns/N14WeaponDoubleBarrelShotgun/shot1.ogg
+      fireRate: 1.5
+      soundGunshot:
+        collection: N14DoubleBarrelShotgunGunshot
       useKey: false
       selectedMode: SemiAuto
       availableModes:
@@ -264,12 +280,16 @@
       capacity: 2
       count: 2
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 2
+      rechargeCooldown: 2.5
       rechargeSound:
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
     - type: Loadout
       prototypes:
-        - RaiderSkrimisherGear
+        - RaiderSkrimisher1Gear
+        - RaiderSkrimisher2Gear
+        - RaiderSkrimisher3Gear
+        - RaiderSkrimisher4Gear
+        - RaiderSkrimisher5Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -329,12 +349,13 @@
   description: Professional mercenary armed with a carbine. One might be better off avoiding him.
   components:
     - type: Gun
-      minAngle: 4.5
-      maxAngle: 13.5
-      angleIncrease: 8
+      minAngle: 8
+      maxAngle: 34
+      angleIncrease: 4
       angleDecay: 16
-      fireRate: 2
-      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Rifles/N14WeaponOldCarbine/shot1.ogg
+      fireRate: 2.0
+      soundGunshot:
+        collection: N14OldCarbineGunshot
       useKey: false
       selectedMode: SemiAuto
       availableModes:
@@ -345,12 +366,16 @@
       capacity: 25
       count: 25
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 2
+      rechargeCooldown: 3
       rechargeSound:
         path: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
     - type: Loadout
       prototypes:
-        - FernMercPrivateGear
+        - FernMercPrivate1Gear
+        - FernMercPrivate2Gear
+        - FernMercPrivate3Gear
+        - FernMercPrivate4Gear
+        - FernMercPrivate5Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -410,7 +435,7 @@
   description: Professional mercenary armed with a combat shotgun. This man can finish anyone off in close quarters.
   components:
     - type: Gun
-      minAngle: 34.5
+      minAngle: 35
       maxAngle: 104
       angleIncrease: 8
       angleDecay: 16
@@ -426,7 +451,7 @@
       capacity: 8
       count: 8
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 2
+      rechargeCooldown: 2.5
       rechargeSound:
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
     - type: Loadout
@@ -495,7 +520,7 @@
       maxAngle: 13.5
       angleIncrease: 1
       angleDecay: 4
-      fireRate: 2.5
+      fireRate: 4.0
       soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Pistols/N14WeaponPistol12mm/shot1.ogg
       useKey: false
       selectedMode: FullAuto
@@ -507,7 +532,7 @@
       capacity: 28
       count: 28
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 2
+      rechargeCooldown: 2.5
       rechargeSound:
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
     - type: Loadout
@@ -572,28 +597,33 @@
   description: Nothing more than a raider in fancy clothes, wielding a 9mm SMG.
   components:
     - type: Gun
-      minAngle: 1.5
-      maxAngle: 13.5
-      angleIncrease: 16
+      minAngle: 12
+      maxAngle: 26
+      angleIncrease: 4
       angleDecay: 16
-      fireRate: 2
-      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Pistols/N14WeaponPistol9mm/shot1.ogg
+      fireRate: 3.25
+      soundGunshot:
+        collection: N14Pistol9mmGunshot
       useKey: false
-      selectedMode: FullAuto
+      selectedMode: SemiAuto
       availableModes:
-        - FullAuto
+      - SemiAuto
     - type: CombatMode
     - type: BasicEntityAmmoProvider
       proto: N14CartridgePistol9
-      capacity: 30
-      count: 30
+      capacity: 31
+      count: 31
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 2
+      rechargeCooldown: 2.5
       rechargeSound:
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/SMGs/smg_magin.ogg
     - type: Loadout
       prototypes:
-        - EnforcerTrooperGear
+        - EnforcerTrooper1Gear
+        - EnforcerTrooper2Gear
+        - EnforcerTrooper3Gear
+        - EnforcerTrooper4Gear
+        - EnforcerTrooper5Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -653,12 +683,13 @@
   description: A raider wearing pre-war law enforcement uniform. One might want to keep distance because he has a riot shotgun!
   components:
     - type: Gun
-      minAngle: 34.5
-      maxAngle: 156
+      minAngle: 40
+      maxAngle: 160
       angleIncrease: 8
       angleDecay: 16
-      fireRate: 1.25
-      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Shotguns/N14WeaponRiotShotgun/shot1.ogg
+      fireRate: 1.5
+      soundGunshot:
+        collection: N14RiotShotgunGunshot
       useKey: false
       selectedMode: SemiAuto
       availableModes:
@@ -666,15 +697,19 @@
     - type: CombatMode
     - type: BasicEntityAmmoProvider
       proto: N14ShellShotgun20
-      capacity: 10
-      count: 10
+      capacity: 12
+      count: 12
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 2
+      rechargeCooldown: 2.5
       rechargeSound:
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
     - type: Loadout
       prototypes:
-        - EnforcerWardenGear
+        - EnforcerWarden1Gear
+        - EnforcerWarden2Gear
+        - EnforcerWarden3Gear
+        - EnforcerWarden4Gear
+        - EnforcerWarden5Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -724,7 +759,7 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/combat_shotgun.rsi
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/riot_shotgun.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
@@ -734,12 +769,13 @@
   description: Rough man in fine clothes, carrying a magnum revolver.
   components:
     - type: Gun
-      minAngle: 4.5
-      maxAngle: 13.5
+      minAngle: 4
+      maxAngle: 14
       angleIncrease: 2
       angleDecay: 4
-      fireRate: 1.25
-      soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Revolvers/N14WeaponRevolverMagnun/shot1.ogg
+      fireRate: 1.5
+      soundGunshot:
+        collection: N14RevolverMagnunGunshot
       useKey: false
       selectedMode: SemiAuto
       availableModes:
@@ -750,12 +786,16 @@
       capacity: 6
       count: 6
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 2
+      rechargeCooldown: 2.5
       rechargeSound:
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
     - type: Loadout
       prototypes:
-        - EnforcerChiefGear
+        - EnforcerChief1Gear
+        - EnforcerChief2Gear
+        - EnforcerChief3Gear
+        - EnforcerChief4Gear
+        - EnforcerChief5Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]

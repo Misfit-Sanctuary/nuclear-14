@@ -305,7 +305,6 @@
   components:
   - type: Damageable
     damageContainer: MisfitsNPCBiological # Misfits Change
-  - type: NoSlip
   - type: NpcFactionMember
     factions:
     - Raider
