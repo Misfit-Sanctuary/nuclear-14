@@ -2236,15 +2236,23 @@
     reward: 50
   - type: StorageFill
     contents:
-    - id: N14MagazineMass
     - id: N14MagazineAwesome
     - id: N14MagazineCovert
     - id: N14MagazineGrognak
     - id: N14MagazineGuns
-    - id: N14MagazineLive
+    - id: N14MagazineMass
     - id: N14MagazineTesla
     - id: N14MagazineTumblers
     - id: N14MagazineUnstoppables
+    - id: N14MagazineLive
+    - id: N14MagazineAstonishingTales
+    - id: N14MagazineHotRodder
+    - id: N14MagazinePicketFences
+    - id: N14MagazineRobCoFun
+    - id: N14MagazineScoutsLife
+    - id: N14MagazineTabooTattoos
+    - id: N14MagazineTotalHack
+    - id: N14MagazineEnclaveEntrenchmentManual
 
 - type: entity
   parent: N14CrateRequisitions
@@ -2259,7 +2267,7 @@
     reward: 50
   - type: StorageFill
     contents:
-    - id: BookRandomStory
+    - id: FalloutBookRandomStoryPreWar
       amount: 10
     - id: BooksBag
 
@@ -2356,4 +2364,3 @@
       amount: 1
     - id: VinylPlayerCircuitboard
       amount: 1
-
