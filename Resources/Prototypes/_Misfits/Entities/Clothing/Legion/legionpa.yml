@@ -62,7 +62,7 @@
   - type: Reflect # #Misfits Change Tweak: Small-caliber rounds (sub-5.56mm) ricochet off power armor at 30% chance. Innate - always active regardless of movement.
     reflects:
       - SmallCaliber
-      - MediumCaliber
+      - MediumCaliber # See: N14 PA file line 75.
     reflectProb: 0.35
     reflectProbByType:
       MediumCaliber: 0.10 #less armor. less reflect.

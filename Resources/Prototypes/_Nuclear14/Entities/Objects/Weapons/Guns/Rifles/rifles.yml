@@ -13,8 +13,8 @@
   - type: Wieldable
     wieldedSpeedModifier: 0.85
   - type: GunWieldBonus
-    minAngle: -21
-    maxAngle: -38
+    minAngle: -20
+    maxAngle: -35
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -54,6 +54,7 @@
     maxAngle: 45
     angleIncrease: 4
     angleDecay: 16
+    fireRate: 4
     soundGunshot:
       collection: N14RifleR91Gunshot
   - type: ItemSlots
@@ -149,6 +150,7 @@
     maxAngle: 45
     angleIncrease: 4
     angleDecay: 16
+    fireRate: 4.5
     soundGunshot:
       collection: N14CarbineGunshot
     selectedMode: FullAuto
@@ -206,7 +208,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-    - FullAuto # Corvax-Change
+    # - FullAuto # Corvax-Change # # # Misfits: disabled full auto. will see how it performs.
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -258,9 +260,9 @@
     maxAngle: 45
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 5
+    fireRate: 3
     shotsPerBurst: 3 # Corvax-Add
-    burstFireRate: 4 # Corvax-Add
+    burstFireRate: 2.5 # Corvax-Add
     soundGunshot:
       collection: N14ServiceGunshot
     selectedMode: SemiAuto
@@ -315,7 +317,7 @@
     maxAngle: 38 # Corvax-Change
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 4 # Corvax-Change
+    fireRate: 3 # Corvax-Change
     soundGunshot:
       collection: N14ServiceGunshot
     selectedMode: SemiAuto
@@ -367,7 +369,7 @@
     maxAngle: 45
     angleIncrease: 4
     angleDecay: 12
-    fireRate: 6
+    fireRate: 4.5
     soundGunshot:
       collection: N14ServiceGunshot
     selectedMode: FullAuto
@@ -426,7 +428,7 @@
     maxAngle: 60
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 3
+    fireRate: 2.5
     soundGunshot:
       collection: N14BattleRifleGunshot
     selectedMode: SemiAuto
@@ -479,7 +481,7 @@
     maxAngle: 46 # Corvax-Change
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 4
+    fireRate: 3
     soundGunshot:
       collection: N14OldCarbineGunshot
     selectedMode: SemiAuto
@@ -532,7 +534,7 @@
     angleDecay: 16
     soundGunshot:
       collection: N14MarksmanGunshot
-    fireRate: 4
+    fireRate: 3.5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -637,9 +639,9 @@
     soundGunshot:
       collection: N14MarksmanGunshot
     fireRate: 4
-    selectedMode: FullAuto
+    selectedMode: SemiAuto
     availableModes:
-    - FullAuto
+    - SemiAuto
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -687,7 +689,7 @@
     angleDecay: 16
     soundGunshot:
       collection: N14MarksmanGunshot
-    fireRate: 3
+    fireRate: 3.5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -741,7 +743,7 @@
     angleDecay: 16
     soundGunshot:
       collection: N14MarksmanGunshot
-    fireRate: 3
+    fireRate: 3.5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -1015,7 +1017,7 @@
     maxAngle: 50
     angleIncrease: 6
     angleDecay: 16
-    fireRate: 4
+    fireRate: 3.5
     soundGunshot:
       collection: N14ServiceGunshot
     selectedMode: FullAuto
@@ -1257,7 +1259,7 @@
     maxAngle: 60
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 3
+    fireRate: 2.5
     soundGunshot:
       collection: N14GarandGunshot
     selectedMode: SemiAuto
@@ -1307,7 +1309,7 @@
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    fireRate: 7
+    fireRate: 5
     minAngle: 24
     maxAngle: 45
     angleIncrease: 3

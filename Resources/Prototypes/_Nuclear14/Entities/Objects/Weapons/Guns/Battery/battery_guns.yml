@@ -397,7 +397,7 @@
   - type: Wieldable
   - type: GunWieldBonus
     minAngle: -23
-    maxAngle: -56
+    maxAngle: -53
   - type: Sprite
     scale: 0.8, 0.8
     sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_autorifle_icon.rsi
@@ -430,7 +430,7 @@
     steps: 3
     zeroVisible: true
   - type: Gun
-    fireRate: 3.5
+    fireRate: 3.0
     soundGunshot:
       collection: N14PlasmaAutoRifleGunshot
     selectedMode: FullAuto
@@ -1131,8 +1131,8 @@
     baseDelay: 2.5
     preventFiring: true
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    walkModifier: 0.7
+    sprintModifier: 0.7
   - type: HeldSpeedModifier
   - type: FollowDistance
     backStrength: 6
@@ -1213,8 +1213,8 @@
     baseDelay: 2.5
     preventFiring: true
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    walkModifier: 0.65
+    sprintModifier: 0.65
   - type: HeldSpeedModifier
   - type: FollowDistance
     backStrength: 6
