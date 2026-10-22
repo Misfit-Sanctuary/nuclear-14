@@ -141,6 +141,8 @@
     price: 1100
   - proto: N14WeaponLMG
     price: 1300
+  - proto: N14WeaponSMGWt550
+    price: 720
 
 - type: storeCategoryStructured
   id: NCRBuy2_Shotguns
@@ -701,7 +703,9 @@
   - proto: N14WeaponSMG12mmAdvancedCanadian
     price: 280
   - proto: N14WeaponSMG12mmAdvanced
-    price: 600
+    price: 550
+  - proto: N14WeaponSMGWt550
+    price: 360
 
 - type: storeCategoryStructured
   id: NCRSell2_Storage
