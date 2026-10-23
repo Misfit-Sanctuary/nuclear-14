@@ -1,3 +1,6 @@
+using Robust.Shared.Random;
+
+
 namespace Content.Shared.EntityTable.ValueSelector;
 
 /// <summary>
@@ -16,7 +19,7 @@ public sealed partial class IntegerRangeNumberRNGSelector : NumberSelector
         Max = max;
     }
 
-    public override float Get(System.Random rand, IEntityManager entMan, IPrototypeManager proto)
+    public override float Get(IRobustRandom rand, IEntityManager entMan, IPrototypeManager proto)
     {
         var rngInt = rand.Next(Min, Max);
         return rngInt;
