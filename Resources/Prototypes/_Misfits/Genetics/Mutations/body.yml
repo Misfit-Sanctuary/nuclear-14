@@ -513,6 +513,7 @@
   description: Unknown
   components:
   - type: Mutation
+    locked: true # Server is now allergic to cats
     instability: -10 # disgusting - naked snake, mgs3
   - type: PolymorphMutation
     prototypes:
