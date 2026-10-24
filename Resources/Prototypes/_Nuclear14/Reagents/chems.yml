@@ -1,20 +1,28 @@
 #MARK: Chems
 - type: reagent
-  id: MovespeedMixture #used in jet
-  name: reagent-name-movespeedmod-mixture
+  id: Jet
+  name: reagent-name-jet
   group: Chems
-  desc: reagent-desc-healing-mixture
+  desc: reagent-desc-stimpak
   physicalDesc: reagent-physical-desc-refreshing
   color: "#9e1d1d"
   metabolisms:
     Medicine:
       effects:
+      - !type:SpecialStatBoostEffect
+        perceptionBoost: -1
+        agilityBoost: 2
       - !type:AmbientDrugFlavorText
-        cooldownId: MovespeedMixtureAmbient
+        cooldownId: JetAmbient
         cooldown: 40
         messageKeys:
-        - drug-ambience-movespeed-mixture-1
-        - drug-ambience-movespeed-mixture-2
+        - drug-ambience-jet-1
+        - drug-ambience-jet-2
+        - drug-ambience-jet-3
+        - drug-ambience-jet-4
+        - drug-ambience-jet-5
+        - drug-ambience-jet-6
+        - drug-ambience-jet-7
       # - !type:StrengthModifierReagent # Nuclear 14 Example of adding modifier to Chemicals
       #   strengthModifier: 1
       #   # statusLifetime: 5 # may be useful if we want to make it last longer after reagent is gone from blood?
@@ -71,10 +79,10 @@
         moodPrototype: JetBenefit
 
 - type: reagent
-  id: RobustMovespeedMixture #This is Turbo
-  name: reagent-name-robust-movespeedmod-mixture
+  id: Turbo #This is Turbo
+  name: reagent-name-turbo
   group: Chems
-  desc: reagent-name-robust-movespeedmod-mixture
+  desc: reagent-name-turbo
   physicalDesc: reagent-physical-desc-roaring
   color: "#ffc8ff"
   boilingPoint: 255.0
@@ -82,12 +90,21 @@
   metabolisms:
     Narcotic:
       effects:
+      - !type:SpecialStatBoostEffect
+        perceptionBoost: -2
+        enduranceBoost: -1
+        agilityBoost: 3
       - !type:AmbientDrugFlavorText
-        cooldownId: RobustMovespeedMixtureAmbient
+        cooldownId: TurboAmbient
         cooldown: 35
         messageKeys:
-        - drug-ambience-robust-movespeed-mixture-1
-        - drug-ambience-robust-movespeed-mixture-2
+        - drug-ambience-turbo-1
+        - drug-ambience-turbo-2
+        - drug-ambience-turbo-3
+        - drug-ambience-turbo-4
+        - drug-ambience-turbo-5
+        - drug-ambience-turbo-6
+        - drug-ambience-turbo-7
       - !type:MovespeedModifier
         walkSpeedModifier: 1.20
         sprintSpeedModifier: 1.20
@@ -100,7 +117,7 @@
       - !type:Jitter
       - !type:Addicting #Misfits Change
         time: 10
-        # RobustMovespeedMixture (Turbo) withdrawal: harder crash than regular Jet — severe fatigue and lethargy.
+        # Turbo (Turbo) withdrawal: harder crash than regular Jet — severe fatigue and lethargy.
         withdrawalSpeedPenalty: 0.70
         withdrawalStaminaDrain: 7.0
       - !type:GenericStatusEffect
@@ -133,22 +150,32 @@
 
 
 - type: reagent
-  id: DamageModifyingMixture #used in psycho. TODO: figure out how to make a reagent give you a dmg buff
-  name: reagent-name-damage-mod-mixture
+  id: Psycho
+  name: reagent-name-psycho
   group: Chems
-  desc: reagent-desc-damage-mod-mixture
+  desc: reagent-desc-psycho
   physicalDesc: reagent-physical-desc-enraging
   color: "#c6ba10"
   metabolisms:
     Medicine:
       metabolismRate: 0.2 # Effectively once every 5 seconds.
       effects:
+      - !type:SpecialStatBoostEffect
+        strengthBoost: 4
+        enduranceBoost: 2
+        charismaBoost: -2
+        intelligenceBoost: -2
       - !type:AmbientDrugFlavorText
-        cooldownId: DamageModifyingMixtureAmbient
+        cooldownId: PsychoAmbient
         cooldown: 45
         messageKeys:
-        - drug-ambience-damage-modifying-mixture-1
-        - drug-ambience-damage-modifying-mixture-2
+        - drug-ambience-psycho-1
+        - drug-ambience-psycho-2
+        - drug-ambience-psycho-3
+        - drug-ambience-psycho-4
+        - drug-ambience-psycho-5
+        - drug-ambience-psycho-6
+        - drug-ambience-psycho-7
       - !type:Drunk
       - !type:Emote
         emote: Scream
@@ -156,15 +183,15 @@
         probability: 0.1
       - !type:Addicting #Misfits Change
         time: 8
-        # DamageModifyingMixture (Psycho) withdrawal: aggression crash, body aching from the comedown.
+        # Psycho (Psycho) withdrawal: aggression crash, body aching from the comedown.
         # Mood handled separately via PsychoBenefit moodletOnEnd → PsychoWithdrawal.
         withdrawalDamage:
           groups:
             Brute: 0.2
         withdrawalStaminaDrain: 6.0
       - !type:MovespeedModifier
-        walkSpeedModifier: 1.30
-        sprintSpeedModifier: 1.30
+        walkSpeedModifier: 1.05
+        sprintSpeedModifier: 1.05
       - !type:HealthChange #Misfits Change /Add:/ Overdose — suffocates the player when stacking too much Psycho
         conditions:
         - !type:ReagentThreshold
@@ -194,12 +221,21 @@
     Poison:
       metabolismRate: 0.2 # Effectively once every 5 seconds.
       effects:
+      - !type:SpecialStatBoostEffect
+        perceptionBoost: -1
+        charismaBoost: 2
+        luckBoost: 1
       - !type:AmbientDrugFlavorText
         cooldownId: DaytripperAmbient
         cooldown: 45
         messageKeys:
         - drug-ambience-daytripper-1
         - drug-ambience-daytripper-2
+        - drug-ambience-daytripper-3
+        - drug-ambience-daytripper-4
+        - drug-ambience-daytripper-5
+        - drug-ambience-daytripper-6
+        - drug-ambience-daytripper-7
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows
@@ -228,12 +264,19 @@
     Medicine:
       metabolismRate: 0.067 # Forge-Change
       effects:
+      - !type:SpecialStatBoostEffect
+        perceptionBoost: 3
       - !type:AmbientDrugFlavorText
         cooldownId: CateyeAmbient
         cooldown: 55
         messageKeys:
         - drug-ambience-cateye-1
         - drug-ambience-cateye-2
+        - drug-ambience-cateye-3
+        - drug-ambience-cateye-4
+        - drug-ambience-cateye-5
+        - drug-ambience-cateye-6
+        - drug-ambience-cateye-7
       - !type:NocturineNightVision # Forge-Change
         durationSeconds: 5.0
         color: "#F0FFFF" # Forge-Change
@@ -260,6 +303,11 @@
         messageKeys:
         - drug-ambience-buffout-1
         - drug-ambience-buffout-2
+        - drug-ambience-buffout-3
+        - drug-ambience-buffout-4
+        - drug-ambience-buffout-5
+        - drug-ambience-buffout-6
+        - drug-ambience-buffout-7
       - !type:Emote #Misfits Change - something to add a visible sign of drug use
         emote: Laugh
         showInChat: true
@@ -295,6 +343,8 @@
         damagePerUnit: 0.05
       - !type:SpecialStatBoostEffect #Misfits Change /Add:/ Temporary Strength boost — scales melee damage while drug is active.
         strengthBoost: 2
+        enduranceBoost: 2
+        intelligenceBoost: -1
       # TODO: Implement HealthIncreaseReagent effect type to temporarily boost max HP
       # - !type:HealthIncreaseReagent
       #   increaseAmount: 50
@@ -316,6 +366,11 @@
         messageKeys:
         - drug-ambience-buffjet-1
         - drug-ambience-buffjet-2
+        - drug-ambience-buffjet-3
+        - drug-ambience-buffjet-4
+        - drug-ambience-buffjet-5
+        - drug-ambience-buffjet-6
+        - drug-ambience-buffjet-7
       - !type:HealthChange
         damage:
           types:
@@ -342,6 +397,8 @@
         withdrawalStaminaDrain: 7.0
       - !type:SpecialStatBoostEffect #Misfits Change /Add:/ Strength (melee dmg) + Agility (extra speed) boosts from Buffout+Jet combination.
         strengthBoost: 2
+        perceptionBoost: -1
+        enduranceBoost: 1
         agilityBoost: 2
       # - !type:HealthIncreaseReagent
         # increaseAmount: 50
@@ -363,6 +420,11 @@
         messageKeys:
         - drug-ambience-bufftats-1
         - drug-ambience-bufftats-2
+        - drug-ambience-bufftats-3
+        - drug-ambience-bufftats-4
+        - drug-ambience-bufftats-5
+        - drug-ambience-bufftats-6
+        - drug-ambience-bufftats-7
       # - !type:Jitter was placeholder for SPECIAL — replaced by SpecialStatBoostEffect below.
       - !type:Addicting #Misfits Change
         time: 8
@@ -376,6 +438,8 @@
       - !type:SpecialStatBoostEffect #Misfits Change /Add:/ Strength (melee dmg) + Perception (gun spread) boosts from Buffout+Mentats combination.
         strengthBoost: 2
         perceptionBoost: 2
+        enduranceBoost: 2
+        intelligenceBoost: 1
       # - !type:HealthIncreaseReagent
         # increaseAmount: 50
 
@@ -396,10 +460,17 @@
         messageKeys:
         - drug-ambience-mentats-1
         - drug-ambience-mentats-2
+        - drug-ambience-mentats-3
+        - drug-ambience-mentats-4
+        - drug-ambience-mentats-5
+        - drug-ambience-mentats-6
+        - drug-ambience-mentats-7
       # - !type:Jitter was placeholder for SPECIAL — replaced by SpecialStatBoostEffect below.
       - !type:SpecialStatBoostEffect #Misfits Change /Add:/ Perception boost → tighter gun spread/recoil. Intelligence stored for future systems.
         perceptionBoost: 2
         intelligenceBoost: 2
+      - !type:ChemAddMoodlet
+        moodPrototype: MentatsBenefit
       - !type:Addicting #Misfits Change
         time: 5
         # Mentats withdrawal: mental clarity evaporates, leaving fatigue and brain fog.
@@ -417,13 +488,22 @@
     Medicine:
       metabolismRate: 0.2 # Effectively once every 5 seconds.
       effects:
+      - !type:SpecialStatBoostEffect
+        perceptionBoost: 1
+        intelligenceBoost: 3
       - !type:AmbientDrugFlavorText
         cooldownId: MentatsBerryAmbient
         cooldown: 50
         messageKeys:
         - drug-ambience-mentats-berry-1
         - drug-ambience-mentats-berry-2
-      - !type:Jitter #Placeholder for when we get Special working again.
+        - drug-ambience-mentats-berry-3
+        - drug-ambience-mentats-berry-4
+        - drug-ambience-mentats-berry-5
+        - drug-ambience-mentats-berry-6
+        - drug-ambience-mentats-berry-7
+      - !type:ChemAddMoodlet
+        moodPrototype: MentatsBenefit
       - !type:Addicting #Misfits Change
         time: 5
         withdrawalMoodEffect: MentatsWithdrawal
@@ -440,13 +520,22 @@
     Medicine:
       metabolismRate: 0.2 # Effectively once every 5 seconds.
       effects:
+      - !type:SpecialStatBoostEffect
+        charismaBoost: 3
+        intelligenceBoost: 1
       - !type:AmbientDrugFlavorText
         cooldownId: MentatsGrapeAmbient
         cooldown: 50
         messageKeys:
         - drug-ambience-mentats-grape-1
         - drug-ambience-mentats-grape-2
-      - !type:Jitter #Placeholder for when we get Special working again.
+        - drug-ambience-mentats-grape-3
+        - drug-ambience-mentats-grape-4
+        - drug-ambience-mentats-grape-5
+        - drug-ambience-mentats-grape-6
+        - drug-ambience-mentats-grape-7
+      - !type:ChemAddMoodlet
+        moodPrototype: MentatsBenefit
       - !type:Addicting #Misfits Change
         time: 5
         withdrawalMoodEffect: MentatsWithdrawal
@@ -463,42 +552,58 @@
     Medicine:
       metabolismRate: 0.2 # Effectively once every 5 seconds.
       effects:
+      - !type:SpecialStatBoostEffect
+        perceptionBoost: 3
+        intelligenceBoost: 1
       - !type:AmbientDrugFlavorText
         cooldownId: MentatsOrangeAmbient
         cooldown: 50
         messageKeys:
         - drug-ambience-mentats-orange-1
         - drug-ambience-mentats-orange-2
-      - !type:Jitter #Placeholder for when we get Special working again.
+        - drug-ambience-mentats-orange-3
+        - drug-ambience-mentats-orange-4
+        - drug-ambience-mentats-orange-5
+        - drug-ambience-mentats-orange-6
+        - drug-ambience-mentats-orange-7
+      - !type:ChemAddMoodlet
+        moodPrototype: MentatsBenefit
       - !type:Addicting #Misfits Change
         time: 5
         withdrawalMoodEffect: MentatsWithdrawal
         withdrawalStaminaDrain: 3.0
 
 - type: reagent
-  id: DamageResistMixture #This is Med-X
-  name: reagent-name-damage-resist-mixture
+  id: MedX #This is Med-X
+  name: reagent-name-med-x
   group: Medicine
-  desc: reagent-desc-damage-resist-mixture
+  desc: reagent-desc-med-x
   physicalDesc: reagent-physical-desc-cloudy
   color: "#581572"
   metabolisms:
     Medicine:
       metabolismRate: 0.2 # Effectively once every 5 seconds.
       effects:
+      - !type:SpecialStatBoostEffect
+        enduranceBoost: 2
+        agilityBoost: -1
       - !type:AmbientDrugFlavorText
-        cooldownId: DamageResistMixtureAmbient
+        cooldownId: MedXAmbient
         cooldown: 45
         messageKeys:
-        - drug-ambience-damage-resist-mixture-1
-        - drug-ambience-damage-resist-mixture-2
+        - drug-ambience-med-x-1
+        - drug-ambience-med-x-2
+        - drug-ambience-med-x-3
+        - drug-ambience-med-x-4
+        - drug-ambience-med-x-5
+        - drug-ambience-med-x-6
+        - drug-ambience-med-x-7
       - !type:GenericStatusEffect
         key: MedXProtection
         component: MedXProtection
         type: Add
         time: 7
         refresh: true
-      - !type:Jitter #Placeholder for when we get Special working again.
       - !type:HealthChange #Misfits Change /Add:/ Overdose — suffocates the player when stacking too much Med-X
         conditions:
         - !type:ReagentThreshold
@@ -526,6 +631,9 @@
     Medicine:
       metabolismRate: 0.2
       effects:
+      - !type:SpecialStatBoostEffect
+        enduranceBoost: 2
+        intelligenceBoost: -1
       - !type:AmbientDrugFlavorText
         cooldownId: HydraAmbient
         cooldown: 40
@@ -533,12 +641,18 @@
         - drug-ambience-hydra-1
         - drug-ambience-hydra-2
         - drug-ambience-hydra-3
+        - drug-ambience-hydra-4
+        - drug-ambience-hydra-5
+        - drug-ambience-hydra-6
+        - drug-ambience-hydra-7
       - !type:GenericStatusEffect
         key: MedXProtection
         component: MedXProtection
         type: Add
         time: 7
         refresh: true
+      - !type:ChemAddMoodlet
+        moodPrototype: HydraBenefit
       - !type:Addicting #Misfits Change
         time: 6
         # Hydra withdrawal: the painkilling protection fades hard and leaves the body craving more.
@@ -574,12 +688,22 @@
     Medicine:
       metabolismRate: 0.2 # Effectively once every 5 seconds.
       effects:
+      - !type:SpecialStatBoostEffect
+        perceptionBoost: -2
+        charismaBoost: -1
+        intelligenceBoost: -2
+        agilityBoost: -1
       - !type:AmbientDrugFlavorText
         cooldownId: MourningPoulticeAmbient
         cooldown: 50
         messageKeys:
         - drug-ambience-mourning-poultice-1
         - drug-ambience-mourning-poultice-2
+        - drug-ambience-mourning-poultice-3
+        - drug-ambience-mourning-poultice-4
+        - drug-ambience-mourning-poultice-5
+        - drug-ambience-mourning-poultice-6
+        - drug-ambience-mourning-poultice-7
       - !type:HealthChange
         damage:
           groups:
@@ -611,5 +735,16 @@
     Medicine:
       metabolismRate: 0.2 # Effectively once every 5 seconds.
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: BubGamesMisfitsAmbient
+        cooldown: 55
+        messageKeys:
+        - misfits-chem-bub-games-1
+        - misfits-chem-bub-games-2
+        - misfits-chem-bub-games-3
+        - misfits-chem-bub-games-4
+        - misfits-chem-bub-games-5
+        - misfits-chem-bub-games-6
+        - misfits-chem-bub-games-7
       - !type:SpecialStatBoostEffect
         strengthBoost: 1

@@ -1,10 +1,10 @@
 #MARK: Healing
 - type: reagent
-  id: HealingMixture #used in regular stimpacks
+  id: Stimpak #used in regular stimpacks
   #Misfits Change /Fix:/ aligned metabolism effects list items under the same sequence.
-  name: reagent-name-healing-mixture
+  name: reagent-name-stimpak
   group: Chems
-  desc: reagent-desc-healing-mixture
+  desc: reagent-desc-stimpak
   physicalDesc: reagent-physical-desc-soothing
   color: "#934435"
   metabolisms:
@@ -12,11 +12,16 @@
       metabolismRate: 1.0
       effects:
         - !type:AmbientDrugFlavorText
-          cooldownId: HealingMixtureAmbient
+          cooldownId: StimpakAmbient
           cooldown: 45
           messageKeys:
-          - drug-ambience-healing-mixture-1
-          - drug-ambience-healing-mixture-2
+          - drug-ambience-stimpak-1
+          - drug-ambience-stimpak-2
+          - drug-ambience-stimpak-3
+          - drug-ambience-stimpak-4
+          - drug-ambience-stimpak-5
+          - drug-ambience-stimpak-6
+          - drug-ambience-stimpak-7
         - !type:HealthChange
           damage:
             groups:
@@ -46,6 +51,11 @@
         messageKeys:
         - drug-ambience-dirty-stimpak-1
         - drug-ambience-dirty-stimpak-2
+        - drug-ambience-dirty-stimpak-3
+        - drug-ambience-dirty-stimpak-4
+        - drug-ambience-dirty-stimpak-5
+        - drug-ambience-dirty-stimpak-6
+        - drug-ambience-dirty-stimpak-7
       - !type:GenericStatusEffect # Misfits Add: mark entity as having an active recovery drug — enables 2s crit stand-up
         key: RecoveryDrugActive
         component: RecoveryDrugActiveComponent
@@ -101,23 +111,21 @@
         - drug-ambience-healing-powder-1
         - drug-ambience-healing-powder-2
         - drug-ambience-healing-powder-3
+        - drug-ambience-healing-powder-4
+        - drug-ambience-healing-powder-5
+        - drug-ambience-healing-powder-6
+        - drug-ambience-healing-powder-7
       - !type:GenericStatusEffect
         key: HealingPowderHaze
         component: HealingPowderHaze
         type: Add
         time: 14
         refresh: true # Misfits Fix: was false — caused 14s effect to expire then re-add on every metabolism tick, looping the blur forever
-      - !type:GenericStatusEffect # Misfits Add: mark entity as having an active recovery drug — enables 2s crit stand-up
-        key: RecoveryDrugActive
-        component: RecoveryDrugActiveComponent
-        type: Add
-        time: 3
-        refresh: true
       - !type:HealthChange
-        damage:
+        damage: # Healing Powder is quite cheap to produce, and thus should not be as effective as it was, especially with more alternatives now in the game.
           groups:
-            Burn: -1.5
-            Brute: -2.5
+            Burn: -1
+            Brute: -1.75
       - !type:ModifyBleedAmount
         amount: -0.5
       - !type:ChemVomit
@@ -125,42 +133,48 @@
         - !type:ReagentThreshold
           min: 30
       - !type:SuppressChronicPainReagent
-        SuppressionTime: 300
+        SuppressionTime: 180
 
 # Strong overtime healing
 - type: reagent
   id: TraumaPowder
-  name: reagent-name-healing-powder
+  name: reagent-name-trauma-powder
   group: Medicine
-  desc: reagent-desc-healing-powder
-  physicalDesc: reagent-physical-desc-soothing
-  color: "#00e5ff"
+  desc: reagent-desc-trauma-powder
+  physicalDesc: reagent-physical-desc-exotic-smelling
+  color: "#990000"
   metabolisms:
     Medicine:
-      metabolismRate: 0.1 # Slow
+      metabolismRate: 0.1
       effects:
+      - type: flavor
+        id: lostfriendship
+        flavorType: Complex
+        description: flavor-complex-lost-friendship
       - !type:AmbientDrugFlavorText
         cooldownId: TraumaPowderAmbient
         cooldown: 55
         messageKeys:
         - drug-ambience-trauma-powder-1
         - drug-ambience-trauma-powder-2
-      - !type:GenericStatusEffect # Misfits Add: mark entity as having an active recovery drug — enables 2s crit stand-up
-        key: RecoveryDrugActive
-        component: RecoveryDrugActiveComponent
-        type: Add
-        time: 3
-        refresh: true
+        - drug-ambience-trauma-powder-3
+        - drug-ambience-trauma-powder-4
+        - drug-ambience-trauma-powder-5
+        - drug-ambience-trauma-powder-6
+        - drug-ambience-trauma-powder-7
       - !type:HealthChange
-        damage:
+        damage: # Trauma powder is a 2x2, and can only have 5u, non grindable, non dissolvable. it can be quite good.
           groups:
-            Burn: -1.5
-            Brute: -2.5
-            Airloss: -2
+            Burn: -9
+            Brute: -9
+            Airloss: -12
           types:
-            Poison: -1
+            Poison: -2
+            Radiation: -1.5
       - !type:ModifyBleedAmount
-        amount: -0.5
+        amount: -2.5
+      - !type:SuppressChronicPainReagent
+        SuppressionTime: 3600
 
 # Poison
 - type: reagent
@@ -180,6 +194,11 @@
         messageKeys:
         - drug-ambience-antidote-mixture-1
         - drug-ambience-antidote-mixture-2
+        - drug-ambience-antidote-mixture-3
+        - drug-ambience-antidote-mixture-4
+        - drug-ambience-antidote-mixture-5
+        - drug-ambience-antidote-mixture-6
+        - drug-ambience-antidote-mixture-7
       - !type:HealthChange
         damage:
           types:
@@ -204,6 +223,11 @@
         messageKeys:
         - drug-ambience-antidote-1
         - drug-ambience-antidote-2
+        - drug-ambience-antidote-3
+        - drug-ambience-antidote-4
+        - drug-ambience-antidote-5
+        - drug-ambience-antidote-6
+        - drug-ambience-antidote-7
       - !type:HealthChange
         damage:
           types:
@@ -212,21 +236,26 @@
 
 
 - type: reagent
-  id: RobustHealingMixture #used in super stimpacks
-  name: reagent-name-robust-healing-mixture
+  id: SuperStimpak #used in super stimpacks
+  name: reagent-name-super-stimpak
   group: Chems
-  desc: reagent-desc-robust-healing-mixture
+  desc: reagent-desc-super-stimpak
   physicalDesc: reagent-physical-desc-gleaming
   color: "#ff113a"
   metabolisms:
     Medicine:
       effects:
       - !type:AmbientDrugFlavorText
-        cooldownId: RobustHealingMixtureAmbient
+        cooldownId: SuperStimpakAmbient
         cooldown: 40
         messageKeys:
-        - drug-ambience-robust-healing-mixture-1
-        - drug-ambience-robust-healing-mixture-2
+        - drug-ambience-super-stimpak-1
+        - drug-ambience-super-stimpak-2
+        - drug-ambience-super-stimpak-3
+        - drug-ambience-super-stimpak-4
+        - drug-ambience-super-stimpak-5
+        - drug-ambience-super-stimpak-6
+        - drug-ambience-super-stimpak-7
       - !type:HealthChange
         damage:
           groups:
@@ -278,6 +307,11 @@
         messageKeys:
         - drug-ambience-radaway-1
         - drug-ambience-radaway-2
+        - drug-ambience-radaway-3
+        - drug-ambience-radaway-4
+        - drug-ambience-radaway-5
+        - drug-ambience-radaway-6
+        - drug-ambience-radaway-7
       - !type:HealthChange
         damage:
           types:
@@ -302,6 +336,11 @@
         messageKeys:
         - drug-ambience-radaway-diluted-1
         - drug-ambience-radaway-diluted-2
+        - drug-ambience-radaway-diluted-3
+        - drug-ambience-radaway-diluted-4
+        - drug-ambience-radaway-diluted-5
+        - drug-ambience-radaway-diluted-6
+        - drug-ambience-radaway-diluted-7
       - !type:HealthChange
         damage:
           types:
@@ -326,6 +365,11 @@
         messageKeys:
         - drug-ambience-cleansing-powder-1
         - drug-ambience-cleansing-powder-2
+        - drug-ambience-cleansing-powder-3
+        - drug-ambience-cleansing-powder-4
+        - drug-ambience-cleansing-powder-5
+        - drug-ambience-cleansing-powder-6
+        - drug-ambience-cleansing-powder-7
       - !type:HealthChange
         damage:
           types:
@@ -357,6 +401,11 @@
         messageKeys:
         - drug-ambience-radx-1
         - drug-ambience-radx-2
+        - drug-ambience-radx-3
+        - drug-ambience-radx-4
+        - drug-ambience-radx-5
+        - drug-ambience-radx-6
+        - drug-ambience-radx-7
       - !type:HealthChange
         damage:
           types:
@@ -383,6 +432,11 @@
         messageKeys:
         - drug-ambience-fixer-1
         - drug-ambience-fixer-2
+        - drug-ambience-fixer-3
+        - drug-ambience-fixer-4
+        - drug-ambience-fixer-5
+        - drug-ambience-fixer-6
+        - drug-ambience-fixer-7
       - !type:GenericStatusEffect # Remove this block when !type:CureAddiction is functional
         key: Drunk
         time: 6.0
@@ -425,6 +479,11 @@
         messageKeys:
         - drug-ambience-smelling-salts-1
         - drug-ambience-smelling-salts-2
+        - drug-ambience-smelling-salts-3
+        - drug-ambience-smelling-salts-4
+        - drug-ambience-smelling-salts-5
+        - drug-ambience-smelling-salts-6
+        - drug-ambience-smelling-salts-7
       - !type:HealthChange # Base Airloss fixing
         damage:
           types:
@@ -481,6 +540,11 @@
         messageKeys:
         - drug-ambience-healing-poultice-1
         - drug-ambience-healing-poultice-2
+        - drug-ambience-healing-poultice-3
+        - drug-ambience-healing-poultice-4
+        - drug-ambience-healing-poultice-5
+        - drug-ambience-healing-poultice-6
+        - drug-ambience-healing-poultice-7
       - !type:GenericStatusEffect # Misfits Add: mark entity as having an active recovery drug — enables 2s crit stand-up
         key: RecoveryDrugActive
         component: RecoveryDrugActiveComponent
@@ -529,6 +593,11 @@
         messageKeys:
         - drug-ambience-bitterdrink-1
         - drug-ambience-bitterdrink-2
+        - drug-ambience-bitterdrink-3
+        - drug-ambience-bitterdrink-4
+        - drug-ambience-bitterdrink-5
+        - drug-ambience-bitterdrink-6
+        - drug-ambience-bitterdrink-7
       - !type:HealthChange
         damage:
           types:
@@ -548,21 +617,26 @@
         minimumThreshold: 80
 
 - type: reagent
-  id: UltraRobustHealingMixture
-  name: reagent-name-ultra-robust-healing-mixture
+  id: UltraStimpak
+  name: reagent-name-ultra-stimpak
   group: Chems
-  desc: reagent-desc-ultra-robust-healing-mixture
+  desc: reagent-desc-ultra-stimpak
   physicalDesc: reagent-physical-desc-overpowering
   color: "#934435"
   metabolisms:
     Medicine:
       effects:
       - !type:AmbientDrugFlavorText
-        cooldownId: UltraRobustHealingMixtureAmbient
+        cooldownId: UltraStimpakAmbient
         cooldown: 35
         messageKeys:
-        - drug-ambience-ultra-robust-healing-mixture-1
-        - drug-ambience-ultra-robust-healing-mixture-2
+        - drug-ambience-ultra-stimpak-1
+        - drug-ambience-ultra-stimpak-2
+        - drug-ambience-ultra-stimpak-3
+        - drug-ambience-ultra-stimpak-4
+        - drug-ambience-ultra-stimpak-5
+        - drug-ambience-ultra-stimpak-6
+        - drug-ambience-ultra-stimpak-7
       - !type:GenericStatusEffect # Misfits Add: mark entity as having an active recovery drug — enables 2s crit stand-up
         key: RecoveryDrugActive
         component: RecoveryDrugActiveComponent
@@ -611,6 +685,17 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: EpoetineMisfitsAmbient
+        cooldown: 55
+        messageKeys:
+        - misfits-chem-epoetine-1
+        - misfits-chem-epoetine-2
+        - misfits-chem-epoetine-3
+        - misfits-chem-epoetine-4
+        - misfits-chem-epoetine-5
+        - misfits-chem-epoetine-6
+        - misfits-chem-epoetine-7
       - !type:HealthChange
         damage:
           types:
@@ -634,6 +719,17 @@
   metabolisms:
     Medicine:
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: BetaEpoetineMisfitsAmbient
+        cooldown: 55
+        messageKeys:
+        - misfits-chem-beta-epoetine-1
+        - misfits-chem-beta-epoetine-2
+        - misfits-chem-beta-epoetine-3
+        - misfits-chem-beta-epoetine-4
+        - misfits-chem-beta-epoetine-5
+        - misfits-chem-beta-epoetine-6
+        - misfits-chem-beta-epoetine-7
       - !type:HealthChange
         damage:
           types:

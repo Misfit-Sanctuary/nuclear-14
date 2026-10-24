@@ -141,7 +141,7 @@
       pen:
         maxVol: 25
         reagents:
-        - ReagentId: HealingMixture
+        - ReagentId: Stimpak
           Quantity: 25
   - type: Construction
     graph: N14Stimpak
@@ -238,7 +238,7 @@
       pen:
         maxVol: 25
         reagents:
-        - ReagentId: RobustHealingMixture
+        - ReagentId: RobustStimpak
           Quantity: 25
   - type: Tag # #Misfits Add - Allow empty super stimpaks to be reused in crafting recipes
     tags:
@@ -343,7 +343,7 @@
       pen:
         maxVol: 15
         reagents:
-        - ReagentId: MovespeedMixture
+        - ReagentId: Jet
           Quantity: 15
 
 - type: entity
@@ -398,7 +398,7 @@
       pen:
         maxVol: 10
         reagents:
-        - ReagentId: RobustMovespeedMixture
+        - ReagentId: Jet
           Quantity: 10
 
 - type: entity
@@ -447,7 +447,7 @@
       pen:
         maxVol: 20
         reagents:
-        - ReagentId: DamageResistMixture
+        - ReagentId: MedX
           Quantity: 20
 
 - type: entity
@@ -872,10 +872,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 10
         reagents:
         - ReagentId: Berserkermix
-          Quantity: 25 # less than what youd get from minmaxxing with chem, od is 26.
+          Quantity: 10 # 10 units, so you cannot OD from accidentally ingesting a full 25u pouch.
 
 #misfits add, barkskin powder, shittier tribal medx
 - type: entity
@@ -1061,12 +1061,12 @@
       pen:
         maxVol: 25
         reagents:
-        - ReagentId: UltraRobustHealingMixture
+        - ReagentId: UltraRobustStimpak
           Quantity: 25
 
 - type: entity
-  parent: N14HealingPowder
-  id: N14Traumapack #TODO: N14Traumapack needs new sound
+  parent: FoodMealNachosCuban
+  id: N14Traumapack
   name: traumapack
   description: A backpack filled with a blend of healing chemicals that inject automatically upon the wearer being hurt. The mechanism seems to be broken, however.
   components:
@@ -1078,10 +1078,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30
+        maxVol: 5
         reagents:
         - ReagentId: TraumaPowder
-          Quantity: 30
+          Quantity: 5
   - type: Destructible
     thresholds:
     - trigger:

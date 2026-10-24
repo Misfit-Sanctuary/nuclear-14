@@ -20,6 +20,9 @@ reagent-desc-blood-shield = A thick wasteland tonic that promotes recovery while
 reagent-name-barkskin-powder = barkskin powder
 reagent-desc-barkskin-powder = A damp herbal powder preparation that toughens the skin and provides temporary protection against physical damage.
 
+reagent-name-datura-hide = datura hide
+reagent-desc-datura-hide = A thick, numbing datura preparation for burn and electrical injuries. Better for damaged skin than for other wounds.
+
 reagent-name-snakebite-tourniquet = snakebite tourniquet
 reagent-desc-snakebite-tourniquet = A concentrated field treatment for animal venoms, designed to rapidly purge common wasteland toxins.
 
@@ -100,6 +103,9 @@ reagent-desc-cinder-serum = A specialized antidote designed to neutralize red be
 
 reagent-name-gravesalt = gravesalt
 reagent-desc-gravesalt = A brutal emergency purgative that clears several dangerous venoms at the cost of violent sickness and bodily strain.
+
+reagent-name-helix9 = helix-9
+reagent-desc-helix9 = An experimental Med-Tek cellular repair serum. Restores genetic damage by stabilizing compromised tissue, but does not cure mutations or remove radiation. Too much causes catastrophic cellular rejection.
 
 # ============================================================================
 # PSYCHIATRIC AND HALLUCINATION TREATMENT

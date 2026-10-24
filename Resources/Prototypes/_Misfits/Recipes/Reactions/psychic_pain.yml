@@ -16,7 +16,7 @@
     Water:
       amount: 1
   products:
-    MisfitsClearhead: 3
+    MisfitsClearhead: 5
 
 - type: reaction
   id: MisfitsChlorpromazine
@@ -33,7 +33,7 @@
     Antiseptic:
       amount: 1
   products:
-    MisfitsChlorpromazine: 2
+    MisfitsChlorpromazine: 7
 
 - type: reaction
   id: MisfitsLucidine
@@ -48,7 +48,7 @@
     Epoetine:
       amount: 1
   products:
-    MisfitsLucidine: 2
+    MisfitsLucidine: 7
 
 - type: reaction
   id: MisfitsPsychocline
@@ -65,7 +65,7 @@
     Pax:
       amount: 1
   products:
-    MisfitsPsychocline: 2
+    MisfitsPsychocline: 9
 
 - type: reaction
   id: MisfitsNeurostatic
@@ -82,7 +82,7 @@
     Silicon:
       amount: 1
   products:
-    MisfitsNeurostatic: 2
+    MisfitsNeurostatic: 9
 
 # ============================================================================
 # PAIN MANAGEMENT
@@ -98,7 +98,7 @@
     Water:
       amount: 1
   products:
-    MisfitsAnodyne: 2
+    MisfitsAnodyne: 4
 
 - type: reaction
   id: MisfitsAnalgesine
@@ -111,7 +111,7 @@
     Ethanol:
       amount: 1
   products:
-    MisfitsAnalgesine: 2
+    MisfitsAnalgesine: 4
 
 - type: reaction
   id: MisfitsNerveblock
@@ -126,21 +126,21 @@
     Antiseptic:
       amount: 1
   products:
-    MisfitsNerveblock: 2
+    MisfitsNerveblock: 5
 
 - type: reaction
   id: MisfitsTraumadol
   reactants:
     MisfitsAnalgesine:
       amount: 2
-    HealingMixture:
+    Stimpak:
       amount: 2
     HealingPowder:
       amount: 1
     Antiseptic:
       amount: 1
   products:
-    MisfitsTraumadol: 2
+    MisfitsTraumadol: 6
 
 - type: reaction
   id: MisfitsAnesthezine
@@ -155,7 +155,7 @@
     Pax:
       amount: 1
   products:
-    MisfitsAnesthezine: 2
+    MisfitsAnesthezine: 6
 
 - type: reaction
   id: MisfitsNeuroblock
@@ -170,7 +170,7 @@
     Phalanximine:
       amount: 2
   products:
-    MisfitsNeuroblock: 2
+    MisfitsNeuroblock: 7
 
 # ============================================================================
 # CROSS-SPECIALTY ENDGAME
@@ -191,7 +191,7 @@
     Phalanximine:
       amount: 1
   products:
-    MisfitsNeuroreguline: 2
+    MisfitsNeuroreguline: 8
 
 # ============================================================================
 # CHEAP CLINICAL NARC PRECURSOR
@@ -204,10 +204,10 @@
       amount: 2
     Water:
       amount: 1
-    Pax:
+    Fixer:
       amount: 1
   products:
-    MisfitsVigilazine: 2
+    MisfitsVigilazine: 4
 
 # ============================================================================
 # NARC ROUTINE MAINTENANCE
@@ -228,7 +228,7 @@
     Antiseptic:
       amount: 1
   products:
-    MisfitsWakeguard: 2
+    MisfitsWakeguard: 6
 
 # ============================================================================
 # SPECIALIST LONG-DURATION NARC TREATMENT
@@ -253,4 +253,4 @@
     Phalanximine:
       amount: 1
   products:
-    MisfitsSomnoreguline: 2
+    MisfitsSomnoreguline: 10

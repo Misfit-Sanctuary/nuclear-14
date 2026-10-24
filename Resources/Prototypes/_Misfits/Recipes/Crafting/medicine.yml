@@ -1,14 +1,4 @@
-﻿# Misfits - tribal / field medicine entities + construction recipes
-#
-#
-# This file intentionally contains entity, construction and constructionGraph prototypes
-# together so the recipes are self-contained.
-#
-# Field medicines intentionally use different administration routes.
-# Ingested remedies use the existing food/reagent route. Topical medicines use
-# the built-in Healing component and require no custom C#.
-
-# Shared base for single-use topical medicines.
+﻿# Shared base for single-use topical medicines.
 - type: stack
   id: MisfitsDaturaHide
   name: datura hide
@@ -106,7 +96,7 @@
       types:
         Poison: -10
       groups:
-        Brute: 2.5
+        Brute: 0.5
     bloodlossModifier: -10
     delay: 1.5
     healingBeginSound:
@@ -122,13 +112,32 @@
 
 - type: entity
   parent: N14HealingPowder
+  id: MisfitsPowderedHealingSalve
+  name: powdered healing salve
+  description: A dry pouch of ground broc, xander root and agave. Swallowed as a mild healing remedy; gentler than ordinary healing powder.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    layers:
+    - state: healingpowder
+      color: "#b0bc83"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: MisfitsHealingSalve
+          Quantity: 25
+  - type: Construction
+    graph: MisfitsPowderedHealingSalve
+    node: powderedhealingsalve
+
+- type: entity
+  parent: DrinkBottlePatron
   id: MisfitsFieryPurgative
   name: fiery purgative
   description: A viciously hot herbal purge used to flush venom and radiation from the body.
   components:
-  - type: Sprite
-    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
-    state: bitterdrink
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -141,7 +150,7 @@
     node: fierypurgative
 
 - type: entity
-  parent: N14HealingPowder
+  parent: N14Antidote
   id: MisfitsBloodShield
   name: blood shield
   description: A bitter herbal mash used to strengthen the body against poison.
@@ -151,17 +160,17 @@
     state: bottle_primitive
   - type: SolutionContainerManager
     solutions:
-      food:
-        maxVol: 15
+      drink:
+        maxVol: 40
         reagents:
         - ReagentId: MisfitsBloodShield
-          Quantity: 15
+          Quantity: 40
   - type: Construction
     graph: MisfitsBloodShield
     node: bloodshield
 
 - type: entity
-  parent: N14HealingPowder
+  parent: N14Antidote
   id: MisfitsPilgrimsRemedy
   name: pilgrim's remedy
   description: A mild wasteland mixture of medicinal roots, fungus and agave intended for long journeys.
@@ -171,11 +180,11 @@
     state: bottle
   - type: SolutionContainerManager
     solutions:
-      food:
-        maxVol: 15
+      drink:
+        maxVol: 20
         reagents:
         - ReagentId: MisfitsPilgrimsRemedy
-          Quantity: 15
+          Quantity: 20
   - type: Construction
     graph: MisfitsPilgrimsRemedy
     node: pilgrimsremedy
@@ -213,7 +222,7 @@
     node: healingsalve
 
 - type: entity
-  parent: N14HealingPowder
+  parent: N14Antidote
   id: MisfitsGravesalt
   name: gravesalt
   description: A harsh pouch of ash, bitter herbs and mineral-rich plant matter used as an emergency poison purge.
@@ -223,11 +232,11 @@
     state: smellingsalts
   - type: SolutionContainerManager
     solutions:
-      food:
-        maxVol: 10
+      drink:
+        maxVol: 20
         reagents:
         - ReagentId: MisfitsGravesalt
-          Quantity: 10
+          Quantity: 20
   - type: Construction
     graph: MisfitsGravesalt
     node: gravesalt
@@ -318,6 +327,20 @@
   icon:
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
     state: ointment1
+  objectType: Item
+
+- type: construction
+  name: powdered healing salve
+  id: MisfitsPowderedHealingSalve
+  graph: MisfitsPowderedHealingSalve
+  startNode: start
+  targetNode: powderedhealingsalve
+  category: construction-category-medical
+  description: A compact pouch of medicinal herbs, prepared as a gentler alternative to tribal healing powder.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    state: healingpowder
   objectType: Item
 
 - type: construction
@@ -503,6 +526,9 @@
   name: glowing blood pack
   description: A blood pack treated with irradiated fungus and medical alcohol. It emits a faint, unhealthy glow.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: ivbag-irradiated
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -595,10 +621,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 25
         reagents:
         - ReagentId: MisfitsHerbalStimulant
-          Quantity: 20
+          Quantity: 25
   - type: Construction
     graph: MisfitsHerbalStimulant
     node: herbalstimulant

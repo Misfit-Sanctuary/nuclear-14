@@ -74,7 +74,7 @@
   result: MisfitsFoodMeatDumpling_Jet
   time: 5
   reagents:
-    MovespeedMixture: 5
+    Jet: 5
   solids:
     MisfitsFoodMeatDumpling: 1
     MaterialWoodPlank: 1
@@ -372,7 +372,7 @@
   quantized: true
   minTemp: 370
   reactants:
-    MovespeedMixture:
+    Jet:
       amount: 5
     Sugar:
       amount: 10
