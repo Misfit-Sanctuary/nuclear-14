@@ -16,41 +16,68 @@
             Burn: -0.6
             Brute: -1.5 #Heals rather poorly, but still heals. Assuming 10u saturation, 0.5 x 4 = 2 x 10 = 20 damage of every brute type after 40 seconds.
       - !type:ModifyBleedAmount
-        amount: -1
+        amount: -0.5
       - !type:AmbientDrugFlavorText
         cooldownId: BerserkermixAmbient
         cooldown: 25
         messageKeys:
         - drug-ambience-Berserker-mixture-1
         - drug-ambience-Berserker-mixture-2
-      - !type:MovespeedModifier
-        walkSpeedModifier: 1.1
-        sprintSpeedModifier: 1.1
+        - drug-ambience-Berserker-mixture-3
+        - drug-ambience-Berserker-mixture-4
+        - drug-ambience-Berserker-mixture-5
+        - drug-ambience-Berserker-mixture-6
+        - drug-ambience-Berserker-mixture-7
+      - !type:Emote
+        emote: MisfitsBerserkerFroth
+        showInChat: true
+        force: true
+        probability: 0.055
+      - !type:Emote
+        emote: MisfitsBerserkerTwitch
+        showInChat: true
+        force: true
+        probability: 0.022
+      - !type:Emote
+        emote: MisfitsBerserkerNeckScratch
+        showInChat: true
+        force: true
+        probability: 0.012
+      - !type:Emote
+        emote: MisfitsBerserkerSpasm
+        showInChat: true
+        force: true
+        probability: 0.010
+      - !type:Emote
+        emote: MisfitsBerserkerShudder
+        showInChat: true
+        force: true
+        probability: 0.008
+      - !type:Emote
+        emote: MisfitsBerserkerShiver
+        showInChat: true
+        force: true
+        probability: 0.006
+      - !type:Emote
+        emote: Scream
+        showInChat: true
+        probability: 0.010
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
         time: 5
         refresh: true
-      - !type:GenericStatusEffect
-        key: Stun
-        time: 5
-        type: Remove
-        conditions:
-        - !type:ReagentThreshold
-          min: 5
-      - !type:GenericStatusEffect
-        key: KnockedDown
-        time: 5
-        type: Remove
-        conditions:
-        - !type:ReagentThreshold
-          min: 5
       - !type:HealthChange #Misfits Change /Add:/ Overdose — suffocates the player when stacking too much Berserker mix
         conditions:
         - !type:ReagentThreshold
-          min: 26
+          min: 11 # Returned the OD down to 11, since the insta inject issue is now fixed.
         - !type:MobStateCondition #Misfits Tweak: OD can push to crit but never kill
         damage:
           types:
             Asphyxiation: 6
+      - !type:SpecialStatBoostEffect
+        strengthBoost: 1
+        agilityBoost: 3
+        charismaBoost: -3
+        intelligenceBoost: -3
