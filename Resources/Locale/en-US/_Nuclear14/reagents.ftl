@@ -215,6 +215,9 @@ reagent-desc-cazador-venom = The venom of a cazador. Quick death is near guarant
 reagent-name-healing-powder = healing powder
 reagent-desc-healing-powder = A powder made from crushed plants.
 
+reagent-name-trauma-powder = trauma powder
+reagent-desc-trauma-powder = A synthetic powder usually used for pain supression.
+
 reagent-name-antidote-mixture = handmade antidote
 reagent-desc-antidote-mixture = An antidote made from radscorpion tail and tarberry juice.
 
@@ -237,23 +240,23 @@ reagent-name-maple-syrup = maple syrup
 reagent-desc-maple-syrup = "Grade A Golden" pure Maple Syrup. A sugary syrup derived from maple trees, eh?
 
 # Medicine
-reagent-name-healing-mixture = stimpak
-reagent-desc-healing-mixture = A mixture of reagents that makes you heal.
+reagent-name-stimpak = stimpak
+reagent-desc-stimpak = A mixture of reagents that makes you heal.
 
 reagent-name-dirty-stimpak = dirty stimpak
 reagent-desc-dirty-stimpak = A dirty mixture of reagents that makes you heal.
 
-reagent-name-robust-healing-mixture = super stimpak
-reagent-desc-robust-healing-mixture = A mixture of reagents that makes you heal fast.
+reagent-name-super-stimpak = super stimpak
+reagent-desc-super-stimpak = A mixture of reagents that makes you heal fast.
 
-reagent-name-ultra-robust-healing-mixture = ultra stimpak
-reagent-desc-ultra-robust-healing-mixture = A mixture of reagents that make you heal faster than you can feel it, however it comes with hefty side effects.
+reagent-name-ultra-stimpak = ultra stimpak
+reagent-desc-ultra-stimpak = A mixture of reagents that make you heal faster than you can feel it, however it comes with hefty side effects.
 
 reagent-name-hydra = hydra
 reagent-desc-hydra = A mixture of fungi, scorpion tail and nightstalker blood that works like a wasteland Med-X, dulling incoming damage at the cost of addiction.
 
-reagent-name-damage-resist-mixture = med-x
-reagent-desc-damage-resist-mixture = An advanced painkiller that makes injuries easier to ignore.
+reagent-name-med-x = med-x
+reagent-desc-med-x = An advanced painkiller that makes injuries easier to ignore.
 
 reagent-name-radaway = radaway
 reagent-desc-radaway = An odd reagent that cures your radiation.
@@ -304,14 +307,14 @@ reagent-name-beta-epoetine = beta epoetine
 reagent-desc-beta-epoetine = A more potent medicine that stimulates the lungs and encourages bloodflow.
 
 # Meta
-reagent-name-movespeedmod-mixture = jet
-reagent-desc-movespeedmod-mixture = A mixture of reagents that makes you move fast.
+reagent-name-jet = jet
+reagent-desc-jet = A mixture of reagents that makes you move fast.
 
-reagent-name-robust-movespeedmod-mixture = turbo
-reagent-desc-robust-movespeedmod-mixture = A mixture of reagents that makes you move extremely fast.
+reagent-name-turbo = turbo
+reagent-desc-turbo = A mixture of reagents that makes you move extremely fast.
 
-reagent-name-damage-mod-mixture = psycho
-reagent-desc-damage-mod-mixture = A mixture of reagents that makes you stronger for a while.
+reagent-name-psycho = psycho
+reagent-desc-psycho = A mixture of reagents that makes you stronger for a while.
 
 # Products
 reagent-name-abraxocleaner = Abraxo Cleaner

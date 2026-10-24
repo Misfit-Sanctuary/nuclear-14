@@ -2,8 +2,8 @@ drug-ambience-healing-powder-1 = A chalky herbal film clings to the back of your
 drug-ambience-healing-powder-2 = Your focus softens as the powder settles warmly through your body.
 drug-ambience-healing-powder-3 = The world smears at the edges behind a medicinal haze.
 
-drug-ambience-healing-mixture-1 = A clean medicinal surge races through your limbs.
-drug-ambience-healing-mixture-2 = Your muscles tighten with a brief, borrowed strength.
+drug-ambience-stimpak-1 = A clean medicinal surge races through your limbs.
+drug-ambience-stimpak-2 = Your muscles tighten with a brief, borrowed strength.
 
 drug-ambience-dirty-stimpak-1 = A rough chemical kick jerks your pulse awake.
 drug-ambience-dirty-stimpak-2 = The rush works, but it feels grimy around the edges.
@@ -17,8 +17,8 @@ drug-ambience-antidote-mixture-2 = Your stomach lurches as the mixture starts pu
 drug-ambience-antidote-1 = A sharp chemical chill cuts through the poison fog.
 drug-ambience-antidote-2 = Your insides feel scrubbed raw, but cleaner.
 
-drug-ambience-robust-healing-mixture-1 = A violent burst of strength floods your body all at once.
-drug-ambience-robust-healing-mixture-2 = Your heart hammers like the medicine is dragging you upright by force.
+drug-ambience-super-stimpak-1 = A violent burst of strength floods your body all at once.
+drug-ambience-super-stimpak-2 = Your heart hammers like the medicine is dragging you upright by force.
 
 drug-ambience-radaway-1 = A metallic warmth rolls through you as the sickness starts to recede.
 drug-ambience-radaway-2 = A taste like rust lingers while the ache in your bones loosens.
@@ -44,14 +44,14 @@ drug-ambience-healing-poultice-2 = The poultice smells earthy and stubbornly ali
 drug-ambience-bitterdrink-1 = The bitterness crawls across your tongue and settles deep.
 drug-ambience-bitterdrink-2 = Your stomach twists, then steadies under the foul brew.
 
-drug-ambience-ultra-robust-healing-mixture-1 = Power slams through your body hard enough to make your vision swim.
-drug-ambience-ultra-robust-healing-mixture-2 = It feels less like healing and more like surviving the medicine.
+drug-ambience-ultra-stimpak-1 = Power slams through your body hard enough to make your vision swim.
+drug-ambience-ultra-stimpak-2 = It feels less like healing and more like surviving the medicine.
 
-drug-ambience-movespeed-mixture-1 = A bright rush hits your chest and legs at once.
-drug-ambience-movespeed-mixture-2 = Stillness becomes intolerable as the chem bites in.
+drug-ambience-jet-1 = A bright rush hits your chest and legs at once.
+drug-ambience-jet-2 = Stillness becomes intolerable as the chem bites in.
 
-drug-ambience-robust-movespeed-mixture-1 = Your pulse spikes so hard the world seems to lag behind you.
-drug-ambience-robust-movespeed-mixture-2 = The chem tears through you in a hot, reckless surge.
+drug-ambience-turbo-1 = Your pulse spikes so hard the world seems to lag behind you.
+drug-ambience-turbo-2 = The chem tears through you in a hot, reckless surge.
 
 drug-ambience-damage-modifying-mixture-1 = Your nerves harden into something mean and eager.
 drug-ambience-damage-modifying-mixture-2 = Pain starts to feel far away and strangely unimportant.
@@ -83,8 +83,8 @@ drug-ambience-mentats-grape-2 = Your thoughts sharpen until they almost feel sep
 drug-ambience-mentats-orange-1 = Citrus bite flashes across your tongue before the focus settles in.
 drug-ambience-mentats-orange-2 = Everything suddenly seems a little easier to sort and predict.
 
-drug-ambience-damage-resist-mixture-1 = A cold numb shield spreads through your body.
-drug-ambience-damage-resist-mixture-2 = Pain starts bouncing off a layer that was not there a moment ago.
+drug-ambience-med-x-1 = A cold numb shield spreads through your body.
+drug-ambience-med-x-2 = Pain starts bouncing off a layer that was not there a moment ago.
 
 drug-ambience-hydra-1 = Heat pulses through your veins in slow, angry waves.
 drug-ambience-hydra-2 = Your heartbeat drums hard enough to drown out the room for a moment.
