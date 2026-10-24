@@ -48,7 +48,7 @@ public abstract class SharedAddictionSystem : EntitySystem
         float addictionTime,
         ProtoId<ReagentPrototype>? drugId = null,
         string drugName = "",
-        int addictionThreshold = 4,
+        int addictionThreshold = 2,
         FixedPoint2? currentQuantity = null,
         StatusEffectsComponent? status = null)
     {

@@ -72,3 +72,126 @@
 
 - type: moodCategory
   id: MentatsAddiction
+
+# Fury ──────────────────────────────────────────────────────────────────────────
+# Heavy combat stimulant; withdrawal leaves painful exhaustion.
+- type: moodEffect
+  id: FuryWithdrawal
+  moodChange: -8
+  category: "FuryAddiction"
+
+- type: moodCategory
+  id: FuryAddiction
+
+# Calmex ────────────────────────────────────────────────────────────────────────
+# Anti-anxiety combat chem; withdrawal brings restlessness and unease.
+- type: moodEffect
+  id: CalmexWithdrawal
+  moodChange: -5
+  category: "CalmexAddiction"
+
+- type: moodCategory
+  id: CalmexAddiction
+
+# Overdrive ─────────────────────────────────────────────────────────────────────
+# High-powered performance chem; withdrawal brings a harsh crash.
+- type: moodEffect
+  id: OverdriveWithdrawal
+  moodChange: -7
+  category: "OverdriveAddiction"
+
+- type: moodCategory
+  id: OverdriveAddiction
+
+# XCell ─────────────────────────────────────────────────────────────────────────
+# Full-body performance enhancer; withdrawal is severe.
+- type: moodEffect
+  id: XCellWithdrawal
+  moodChange: -9
+  category: "XCellAddiction"
+
+- type: moodCategory
+  id: XCellAddiction
+
+# Crank ─────────────────────────────────────────────────────────────────────────
+# Aggressive stimulant; withdrawal brings shaking fatigue.
+- type: moodEffect
+  id: CrankWithdrawal
+  moodChange: -8
+  category: "CrankAddiction"
+
+- type: moodCategory
+  id: CrankAddiction
+
+# Berserkermix ──────────────────────────────────────────────────────────────────
+# Enraging combat mixture; withdrawal leaves the user spent and irritable.
+- type: moodEffect
+  id: BerserkermixWithdrawal
+  moodChange: -8
+  category: "BerserkermixAddiction"
+
+- type: moodCategory
+  id: BerserkermixAddiction
+
+# Repeated chemical pain relief leaves a persistent ache when it wears off.
+- type: moodEffect
+  id: MisfitsAnalgesineWithdrawal
+  moodChange: -4
+  category: "MisfitsAnalgesineAddiction"
+
+- type: moodCategory
+  id: MisfitsAnalgesineAddiction
+
+# Sensations return painfully after sustained neural suppression.
+- type: moodEffect
+  id: MisfitsNerveblockWithdrawal
+  moodChange: -5
+  category: "MisfitsNerveblockAddiction"
+
+- type: moodCategory
+  id: MisfitsNerveblockAddiction
+
+# Strong relief gives way to soreness and irritability.
+- type: moodEffect
+  id: MisfitsTraumadolWithdrawal
+  moodChange: -5
+  category: "MisfitsTraumadolAddiction"
+
+- type: moodCategory
+  id: MisfitsTraumadolAddiction
+
+# Withdrawal from deep sedation is especially unpleasant.
+- type: moodEffect
+  id: MisfitsAnesthezineWithdrawal
+  moodChange: -7
+  category: "MisfitsAnesthezineAddiction"
+
+- type: moodCategory
+  id: MisfitsAnesthezineAddiction
+
+# Sensory discomfort follows the loss of nerve suppression.
+- type: moodEffect
+  id: MisfitsNeuroblockWithdrawal
+  moodChange: -5
+  category: "MisfitsNeuroblockAddiction"
+
+- type: moodCategory
+  id: MisfitsNeuroblockAddiction
+
+# Exhaustion hits after relying on wakefulness treatment.
+- type: moodEffect
+  id: MisfitsWakeguardWithdrawal
+  moodChange: -4
+  category: "MisfitsWakeguardAddiction"
+
+- type: moodCategory
+  id: MisfitsWakeguardAddiction
+
+# Chemical wakefulness gives way to fog and fatigue.
+- type: moodEffect
+  id: MisfitsVigilazineWithdrawal
+  moodChange: -5
+  category: "MisfitsVigilazineAddiction"
+
+- type: moodCategory
+  id: MisfitsVigilazineAddiction
