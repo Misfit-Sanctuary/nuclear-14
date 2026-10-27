@@ -5,8 +5,8 @@
   id: Medkit
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
-    state: firstaid
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: ancientfirstaid
   - type: Storage
     maxItemSize: Small
     grid:
@@ -29,7 +29,8 @@
   id: MedkitBurn
   components:
   - type: Sprite
-    state: burnkit
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: burn1
   - type: Item
     heldPrefix: burnkit
 
@@ -40,7 +41,8 @@
   id: MedkitToxin
   components:
   - type: Sprite
-    state: toxinkit
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: toxin2
   - type: Item
     heldPrefix: toxinkit
 
@@ -51,7 +53,8 @@
   id: MedkitO2
   components:
   - type: Sprite
-    state: o2kit
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: oxygen3
   - type: Item
     heldPrefix: o2kit
 
@@ -62,7 +65,8 @@
   id: MedkitBrute
   components:
   - type: Sprite
-    state: brutekit
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: brute3
   - type: Item
     heldPrefix: brutekit
 
@@ -73,7 +77,8 @@
   id: MedkitAdvanced
   components:
   - type: Sprite
-    state: advkit
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: bezerk3
   - type: Item
     heldPrefix: advkit
 
@@ -84,7 +89,8 @@
   id: MedkitRadiation
   components:
   - type: Sprite
-    state: radkit
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: radiation2
   - type: Item
     heldPrefix: radkit
 
@@ -95,7 +101,8 @@
   id: MedkitCombat
   components:
   - type: Sprite
-    state: blackkit
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: ifak
   - type: Item
     heldPrefix: blackkit
     size: Normal

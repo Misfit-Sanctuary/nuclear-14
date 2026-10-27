@@ -238,7 +238,7 @@
       pen:
         maxVol: 25
         reagents:
-        - ReagentId: RobustStimpak
+        - ReagentId: SuperStimpak
           Quantity: 25
   - type: Tag # #Misfits Add - Allow empty super stimpaks to be reused in crafting recipes
     tags:
@@ -398,7 +398,7 @@
       pen:
         maxVol: 10
         reagents:
-        - ReagentId: Jet
+        - ReagentId: Turbo
           Quantity: 10
 
 - type: entity
@@ -877,7 +877,6 @@
         - ReagentId: Berserkermix
           Quantity: 10 # 10 units, so you cannot OD from accidentally ingesting a full 25u pouch.
 
-#misfits add, barkskin powder, shittier tribal medx
 - type: entity
   parent: N14HealingPowder
   id: N14BarkskinPowder
@@ -885,9 +884,8 @@
   description: A pouch of barkskin powder, provides temporary protection against physical damage.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
-    layers:
-    - state: barkskinpowder
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
+    state: mortar_full
   - type: Item
     sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
     size: Small
@@ -898,8 +896,6 @@
         reagents:
         - ReagentId: MisfitsBarkskinPowder
           Quantity: 25
-
-
 
 - type: entity
   parent: DrinkBase
@@ -1061,7 +1057,7 @@
       pen:
         maxVol: 25
         reagents:
-        - ReagentId: UltraRobustStimpak
+        - ReagentId: UltraStimpak
           Quantity: 25
 
 - type: entity
