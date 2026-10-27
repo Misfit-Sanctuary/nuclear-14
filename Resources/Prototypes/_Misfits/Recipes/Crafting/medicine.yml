@@ -780,6 +780,11 @@
   - node: powderedhealingsalve
     entity: MisfitsPowderedHealingSalve
 
+
+# ============================================================================
+# NUTRIENT POUltice
+# ============================================================================
+
 - type: entity
   parent: N14BaseHealingItem
   id: MisfitsNutrientPoultice
@@ -810,6 +815,10 @@
     graph: MisfitsNutrientPoultice
     node: nutrientpoultice
 
+# ============================================================================
+# HYDRATION POULTICE
+# ============================================================================
+
 - type: entity
   parent: N14BaseHealingItem
   id: MisfitsHydrationPoultice
@@ -836,6 +845,23 @@
   - type: Stack
     stackType: MisfitsHydrationPoultice
     count: 1
+  - type: Construction
+    graph: MisfitsHydrationPoultice
+    node: hydrationpoultice
+
+# ============================================================================
+# STACK PROTOTYPES
+# ============================================================================
+
+- type: stack
+  id: MisfitsNutrientPoultice
+  name: nutrient poultice
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: bandaid_both
+  spawn: MisfitsNutrientPoultice
+  maxCount: 10
+  itemSize: 1
 
 - type: stack
   id: MisfitsHydrationPoultice
@@ -845,12 +871,82 @@
     state: bandaid
   spawn: MisfitsHydrationPoultice
   maxCount: 10
+  itemSize: 1
 
-- type: stack
+# ============================================================================
+# CONSTRUCTION MENU ENTRIES
+# ============================================================================
+
+- type: construction
+  name: nutrient poultice
   id: MisfitsNutrientPoultice
-  name: nutriment poultice
+  graph: MisfitsNutrientPoultice
+  startNode: start
+  targetNode: nutrientpoultice
+  category: construction-category-medical
+  description: Prepare a nourishing herbal poultice from agave, tatos and ash to treat starvation.
+  hide: false
   icon:
     sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: bandaid_both
-  spawn: MisfitsNutrientPoultice
-  maxCount: 10
+  objectType: Item
+
+- type: construction
+  name: hydration poultice
+  id: MisfitsHydrationPoultice
+  graph: MisfitsHydrationPoultice
+  startNode: start
+  targetNode: hydrationpoultice
+  category: construction-category-medical
+  description: Prepare a cooling herbal poultice from banana yucca and agave to treat dehydration.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: bandaid
+  objectType: Item
+
+# ============================================================================
+# CONSTRUCTION GRAPHS
+# ============================================================================
+
+- type: constructionGraph
+  id: MisfitsNutrientPoultice
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: nutrientpoultice
+      steps:
+      - material: AgaveLeaf
+        amount: 1
+      - material: WildTato
+        amount: 2
+      - tag: Ash
+        name: ash
+        icon:
+          sprite: Objects/Materials/materials.rsi
+          state: ash
+        doAfter: 3
+  - node: nutrientpoultice
+    entity: MisfitsNutrientPoultice
+
+- type: constructionGraph
+  id: MisfitsHydrationPoultice
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: hydrationpoultice
+      steps:
+      - material: WildBananaYucca
+        amount: 2
+      - material: AgaveLeaf
+        amount: 1
+      - tag: Ash
+        name: ash
+        icon:
+          sprite: Objects/Materials/materials.rsi
+          state: ash
+        doAfter: 3
+  - node: hydrationpoultice
+    entity: MisfitsHydrationPoultice
