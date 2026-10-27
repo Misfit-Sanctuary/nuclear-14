@@ -1113,9 +1113,8 @@
   color: "#74629b"
   plantMetabolism:
   - !type:PlantAdjustMutationLevel
-    probability: 0.12
-    amount: 1
-    mutationTable: RandomPlantMutations
+    probability: 0.22
+    amount: 2
   - !type:PlantAdjustToxins
     amount: 2
   - !type:PlantAdjustHealth
