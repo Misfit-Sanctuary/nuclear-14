@@ -1,6 +1,4 @@
 # Misfits - medicine pills
-#
-#
 - type: entity
   name: antibiotics
   parent: Pill
@@ -8,10 +6,10 @@
   description: A broad-spectrum antimicrobial treatment intended for serious or uncertain infections.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Objects/Specific/Medical/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill1
   - type: Item
-    sprite: _Nuclear14/Objects/Specific/Medical/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
   - type: Label
     currentLabel: antibiotics 20u
   - type: SolutionContainerManager
@@ -28,10 +26,10 @@
   description: A potent radioprotective compound that shields the body from incoming radiation without removing contamination already absorbed.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Objects/Specific/Medical/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill5
   - type: Item
-    sprite: _Nuclear14/Objects/Specific/Medical/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
   - type: Label
     currentLabel: rad shield 15u
   - type: SolutionContainerManager
@@ -48,10 +46,10 @@
   description: An advanced radiological treatment that strips large amounts of radiation from the body at alarming speed.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Objects/Specific/Medical/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill3
   - type: Item
-    sprite: _Nuclear14/Objects/Specific/Medical/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
   - type: Label
     currentLabel: x-111 compound 5u
   - type: SolutionContainerManager
@@ -68,10 +66,10 @@
   description: A diluted stimulant mixture that accelerates the body and provides a brief burst of recovery.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Objects/Specific/Medical/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill2
   - type: Item
-    sprite: _Nuclear14/Objects/Specific/Medical/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
   - type: Label
     currentLabel: rushing water 10u
   - type: SolutionContainerManager
@@ -88,10 +86,10 @@
   description: A thick wasteland tonic that promotes recovery while helping the body clear circulating toxins.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Objects/Specific/Medical/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill4
   - type: Item
-    sprite: _Nuclear14/Objects/Specific/Medical/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
   - type: Label
     currentLabel: blood shield 15u
   - type: SolutionContainerManager
@@ -108,7 +106,7 @@
   description: A foul, burning mixture that purges poison and radiation at the cost of weakness and nausea.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill5
   - type: Label
     currentLabel: fiery purgative 10u
@@ -126,7 +124,7 @@
   description: An extraordinarily rich restorative drink that treats wounds, toxins, radiation and withdrawal all at once.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill13
   - type: Label
     currentLabel: refreshing beverage 5u
@@ -144,7 +142,7 @@
   description: A sharp herbal tonic that drives away drowsiness and keeps an exhausted patient moving.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill11
   - type: Label
     currentLabel: herbal stimulant 20u
@@ -162,8 +160,8 @@
   description: A crude blood-based tonic that temporarily bolsters physical endurance.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill21
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: pill_syndie
   - type: Label
     currentLabel: skeeto spit 15u
   - type: SolutionContainerManager
@@ -180,7 +178,7 @@
   description: A classic antibacterial drug useful against susceptible bacterial infections.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill19
   - type: Label
     currentLabel: penicillin 20u
@@ -198,7 +196,7 @@
   description: An insoluble binding agent used to slowly draw certain radioactive contaminants and toxins out of the body.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill16
   - type: Label
     currentLabel: prussian blue 20u
@@ -216,8 +214,8 @@
   description: A mild wasteland cure-all made from common medicinal plants, useful for wounds, toxins and light radiation exposure.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill11
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: pill21
   - type: Label
     currentLabel: pilgrim's remedy 20u
   - type: SolutionContainerManager
@@ -234,8 +232,8 @@
   description: A violent combat chem that greatly increases close-quarters aggression, strength and tolerance for injury.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill4
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: pill20
   - type: Label
     currentLabel: fury 5u
   - type: SolutionContainerManager
@@ -252,8 +250,8 @@
   description: A refined performance drug that sharpens perception and coordination while producing an unnatural sense of calm.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill10
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    state: calmex
   - type: Label
     currentLabel: calmex 5u
   - type: SolutionContainerManager
@@ -270,7 +268,7 @@
   description: A psycho-derived combat stimulant intended to push damage output and combat performance beyond safe limits.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill15
   - type: Label
     currentLabel: overdrive 5u
@@ -288,7 +286,7 @@
   description: A rare pre-war prototype chem that enhances nearly every aspect of physical and mental performance.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill14
   - type: Label
     currentLabel: x-cell 5u
@@ -306,7 +304,7 @@
   description: A harsh improvised stimulant that increases speed and wakefulness while placing heavy strain on the body.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill6
   - type: Label
     currentLabel: crank 10u
@@ -360,8 +358,8 @@
   description: A specialized antidote formulated to neutralize widow's mercy and relieve its respiratory effects.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill2
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: pill22
   - type: Label
     currentLabel: widowbane 10u
   - type: SolutionContainerManager
@@ -378,8 +376,8 @@
   description: A specialized antidote designed to neutralize red bell poison and stabilize its victim.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill4
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: pill14
   - type: Label
     currentLabel: cinder serum 10u
   - type: SolutionContainerManager
@@ -396,7 +394,7 @@
   description: A brutal emergency purgative that clears several dangerous venoms at the cost of violent sickness and bodily strain.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill21
   - type: Label
     currentLabel: gravesalt 5u
@@ -414,7 +412,7 @@
   description: A basic psychiatric stabilizer used to clear drug haze and reduce mild perceptual disturbances.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill9
   - type: Label
     currentLabel: clearhead 15u
@@ -432,8 +430,8 @@
   description: A sedating antipsychotic intended to control agitation, delirium and hallucinations.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill19
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    state: generic2
   - type: Label
     currentLabel: chlorpromazine 10u
   - type: SolutionContainerManager
@@ -450,8 +448,8 @@
   description: A refined neural stabilizer designed to suppress persistent hallucinations with less sedation than older antipsychotics.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill13
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    state: generic1
   - type: Label
     currentLabel: lucidine 10u
   - type: SolutionContainerManager
@@ -468,8 +466,8 @@
   description: A powerful emergency psychiatric drug used to suppress severe delirium and psychotic episodes, often leaving the patient heavily sedated.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill21
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    state: generic3
   - type: Label
     currentLabel: psychocline 5u
   - type: SolutionContainerManager
@@ -486,8 +484,8 @@
   description: An advanced neurological stabilizer intended for severe hallucinations, toxic delirium and other forms of neural instability.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill16
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    state: generic4
   - type: Label
     currentLabel: neurostatic 5u
   - type: SolutionContainerManager
@@ -504,7 +502,7 @@
   description: A bitter medicinal preparation that dulls persistent pain for a short time.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill7
   - type: Label
     currentLabel: willowbark analgesic 20u
@@ -522,7 +520,7 @@
   description: A basic clinical painkiller that suppresses chronic pain while producing mild drowsiness.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill18
   - type: Label
     currentLabel: anodyne 15u
@@ -540,7 +538,7 @@
   description: A refined long-lasting analgesic used when ordinary herbal pain relief is no longer sufficient.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill2
   - type: Label
     currentLabel: analgesine 10u
@@ -558,7 +556,7 @@
   description: A heavy analgesic that strongly suppresses pain by numbing nerve activity, at the cost of sluggish movement and respiratory risk.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill14
   - type: Label
     currentLabel: nerveblock 5u
@@ -576,8 +574,8 @@
   description: A battlefield analgesic that dulls pain while providing limited wound treatment and bleeding control.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill5
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: pill6
   - type: Label
     currentLabel: traumadol 10u
   - type: SolutionContainerManager
@@ -594,8 +592,8 @@
   description: A surgical anesthetic that suppresses pain and induces profound sedation, with dangerous consequences at excessive doses.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill10
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: pill5
   - type: Label
     currentLabel: anesthezine 5u
   - type: SolutionContainerManager
@@ -612,8 +610,8 @@
   description: A high-grade neural analgesic that provides prolonged pain suppression with far less routine sedation than conventional nerve blockers.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill17
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: pill4
   - type: Label
     currentLabel: neuroblock 5u
   - type: SolutionContainerManager
@@ -630,8 +628,8 @@
   description: An experimental neural regulator intended to suppress severe pain and stabilize disturbed perception at the same time.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill20
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: pill
   - type: Label
     currentLabel: neuroreguline 5u
   - type: SolutionContainerManager
@@ -648,8 +646,8 @@
   description: An inexpensive stimulant-derived medicine that postpones narcoleptic attacks without the extreme effects of combat stimulants.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill8
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: pill1
   - type: Label
     currentLabel: vigilazine 15u
   - type: SolutionContainerManager
@@ -666,8 +664,8 @@
   description: A maintenance drug for narcolepsy that keeps sudden sleep attacks at bay without significantly increasing physical performance.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
-    state: pill11
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: pill2
   - type: Label
     currentLabel: wakeguard 10u
   - type: SolutionContainerManager
@@ -684,7 +682,7 @@
   description: An advanced sleep-regulation medicine that delays narcoleptic episodes for an extended period and can break through forced sleep.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
     state: pill3
   - type: Label
     currentLabel: somnoreguline 5u
