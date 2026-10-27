@@ -73,12 +73,14 @@
     - to: barkskinpowder
       steps:
       - material: DaturaFlower
+        amount: 4
       - entity: N14FoodFireantNectar
         name: fire ant nectar
         icon:
           sprite: Objects/Consumable/Food/ingredients.rsi
           state: flour-big
       - material: CaveFungus
+        amount: 2
 
   - node: barkskinpowder
     entity: N14BarkskinPowder

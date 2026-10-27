@@ -234,7 +234,7 @@
       effects:
       - !type:SpecialStatBoostEffect
         enduranceBoost: 2
-        agilityBoost: -1
+        agilityBoost: -2
       - !type:AmbientDrugFlavorText
         cooldownId: MisfitsBarkskinPowderMisfitsAmbient
         cooldown: 80

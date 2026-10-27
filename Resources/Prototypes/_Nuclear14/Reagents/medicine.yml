@@ -142,15 +142,12 @@
   group: Medicine
   desc: reagent-desc-trauma-powder
   physicalDesc: reagent-physical-desc-exotic-smelling
+  flavor: lostfriendship
   color: "#990000"
   metabolisms:
     Medicine:
       metabolismRate: 0.1
       effects:
-      - type: flavor
-        id: lostfriendship
-        flavorType: Complex
-        description: flavor-complex-lost-friendship
       - !type:AmbientDrugFlavorText
         cooldownId: TraumaPowderAmbient
         cooldown: 55

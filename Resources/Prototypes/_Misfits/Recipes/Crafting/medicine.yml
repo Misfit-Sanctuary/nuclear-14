@@ -87,14 +87,15 @@
   description: A treated binding packed with ground buffalo gourd for venomous bites and severe bleeding.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
-    state: tourniquet
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
+    state: 5,0
   - type: Healing
     damageContainers:
     - Biological
     damage:
       types:
         Poison: -10
+        Radiation: -1
       groups:
         Brute: 0.5
     bloodlossModifier: -10
@@ -117,10 +118,8 @@
   description: A dry pouch of ground broc, xander root and agave. Swallowed as a mild healing remedy; gentler than ordinary healing powder.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
-    layers:
-    - state: healingpowder
-      color: "#b0bc83"
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
+    state: powder2
   - type: SolutionContainerManager
     solutions:
       food:
@@ -161,7 +160,7 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 40
+        maxVol: 50
         reagents:
         - ReagentId: MisfitsBloodShield
           Quantity: 40
@@ -181,7 +180,7 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 20
+        maxVol: 50
         reagents:
         - ReagentId: MisfitsPilgrimsRemedy
           Quantity: 20
@@ -233,7 +232,7 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 20
+        maxVol: 30
         reagents:
         - ReagentId: MisfitsGravesalt
           Quantity: 20
@@ -280,7 +279,7 @@
   startNode: start
   targetNode: fierypurgative
   category: construction-category-medical
-  description: Brew vodka, glowpepper and white horsenettle into a brutal medicinal purge.
+  description: Brew ethanol, glowpepper and white horsenettle into a brutal medicinal purge.
   hide: false
   icon:
     sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
@@ -502,18 +501,6 @@
   - node: gravesalt
     entity: MisfitsGravesalt
 
-# Misfits - additional field medicine crafting
-#
-# Adds:
-# - Glowing Blood Pack
-# - Herbal Anodyne
-# - Herbal Antimicrobial
-# - Herbal Stimulant
-#
-# Requires the MisfitsEthanolBottle tag introduced by the Fiery Purgative
-# ethanol-bottle crafting update.
-#
-
 # ============================================================================
 # CRAFTED MEDICINE ITEMS
 # ============================================================================
@@ -706,6 +693,7 @@
       steps:
       - tag: Bloodpack
         name: blood pack
+        amount: 1
         icon:
           sprite: Objects/Specific/Medical/medical.rsi
           state: bloodpack
@@ -774,3 +762,21 @@
         doAfter: 4
   - node: herbalstimulant
     entity: MisfitsHerbalStimulant
+
+- type: constructionGraph
+  id: MisfitsPowderedHealingSalve
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: powderedhealingsalve
+      steps:
+      - material: BrocFlower
+        amount: 2
+      - material: XanderRoot
+        amount: 2
+      - material: AgaveLeaf
+        amount: 2
+        doAfter: 2
+  - node: powderedhealingsalve
+    entity: MisfitsPowderedHealingSalve
