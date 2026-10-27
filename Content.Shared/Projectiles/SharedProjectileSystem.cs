@@ -13,6 +13,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
+using Content.Shared._Misfits.Weapons; // #Misfits Add - ArmorPiercingComponent
 using Content.Shared._Misfits.Weapons.Ranged.Prediction;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Throwing;
@@ -113,12 +114,16 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         var otherName = ToPrettyString(target);
         var direction = ourBody.LinearVelocity.Normalized();
 
+        // #Misfits Add - let the firing weapon pierce part of the target's worn armor
+        var armorPiercing = TryComp<ArmorPiercingComponent>(component.Weapon, out var piercingComp) ? piercingComp.Piercing : 0f;
+
         // nullable for some reason and why dont we want client to do trychange? need to check later
         var modifiedDamage = (_netManager.IsServer
             ? _damageableSystem.TryChangeDamage(target,
                 ev.Damage,
                 component.IgnoreResistances,
-                origin: component.Shooter)
+                origin: component.Shooter,
+                armorPiercing: armorPiercing)
             : new DamageSpecifier(ev.Damage)) ?? new DamageSpecifier();
 
         var filter = Filter.Pvs(coordinates, entityMan: EntityManager);

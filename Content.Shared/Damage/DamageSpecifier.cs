@@ -125,7 +125,8 @@ namespace Content.Shared.Damage
         ///     Only applies resistance to a damage type if it is dealing damage, not healing.
         ///     This will never convert damage into healing.
         /// </remarks>
-        public static DamageSpecifier ApplyModifierSet(DamageSpecifier damageSpec, DamageModifierSet modifierSet)
+        /// <param name="armorPiercing">Fraction of the set's protection to ignore, 0.5 ignores half of it.</param>
+        public static DamageSpecifier ApplyModifierSet(DamageSpecifier damageSpec, DamageModifierSet modifierSet, float armorPiercing = 0f)
         {
             // Make a copy of the given data. Don't modify the one passed to this function. I did this before, and weapons became
             // duller as you hit walls. Neat, but not FixedPoint2ended. And confusing, when you realize your fists don't work no
@@ -150,7 +151,13 @@ namespace Content.Shared.Damage
                     newValue = Math.Max(0f, newValue - reduction); // flat reductions can't heal you
 
                 if (modifierSet.Coefficients.TryGetValue(key, out var coefficient))
+                {
+                    // #Misfits Add - armor piercing moves protection coefficients toward 1, never toward more damage
+                    if (coefficient < 1f)
+                        coefficient += (1f - coefficient) * Math.Clamp(armorPiercing, 0f, 1f);
+
                     newValue *= coefficient; // coefficients can heal you, e.g. cauterizing bleeding
+                }
 
                 if(newValue != 0)
                     newDamage.DamageDict[key] = FixedPoint2.New(newValue);

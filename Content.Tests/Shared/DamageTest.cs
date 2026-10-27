@@ -164,6 +164,41 @@ namespace Content.Tests.Shared
             Assert.That(damageSpec.DamageDict["Radiation"], Is.EqualTo(FixedPoint2.New(65.62)));
         }
 
+        //Check that armor piercing eats into protection but never into vulnerability
+        [Test]
+        public void ArmorPiercingTest()
+        {
+            DamageModifierSetPrototype modifierSet = new()
+            {
+                Coefficients = new Dictionary<string, float>
+                {
+                    { "Blunt", 0.5f }, // takes half damage
+                    { "Piercing", 2f }, // takes double damage, not armor to pierce
+                }
+            };
+
+            DamageSpecifier damageSpec = new(_prototypeManager.Index<DamageTypePrototype>("Blunt"), 20);
+            damageSpec += new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Piercing"), 20);
+
+            // No piercing
+            var plain = DamageSpecifier.ApplyModifierSet(damageSpec, modifierSet);
+            Assert.That(plain.DamageDict["Blunt"], Is.EqualTo(FixedPoint2.New(10)));
+            Assert.That(plain.DamageDict["Piercing"], Is.EqualTo(FixedPoint2.New(40)));
+
+            // Half of the armor ignored: 0.5 moves to 0.75
+            var pierced = DamageSpecifier.ApplyModifierSet(damageSpec, modifierSet, 0.5f);
+            Assert.That(pierced.DamageDict["Blunt"], Is.EqualTo(FixedPoint2.New(15)));
+            Assert.That(pierced.DamageDict["Piercing"], Is.EqualTo(FixedPoint2.New(40)));
+
+            // Full piercing ignores all armor and out of range values are clamped
+            var full = DamageSpecifier.ApplyModifierSet(damageSpec, modifierSet, 2f);
+            Assert.That(full.DamageDict["Blunt"], Is.EqualTo(FixedPoint2.New(20)));
+            Assert.That(full.DamageDict["Piercing"], Is.EqualTo(FixedPoint2.New(40)));
+
+            var negative = DamageSpecifier.ApplyModifierSet(damageSpec, modifierSet, -1f);
+            Assert.That(negative.DamageDict["Blunt"], Is.EqualTo(FixedPoint2.New(10)));
+        }
+
         // Default damage Yaml
         private string _damagePrototypes = @"
 - type: damageType

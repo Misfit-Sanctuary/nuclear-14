@@ -5,6 +5,7 @@ using Robust.Shared.Prototypes;
 // #Misfits Add - Gun-side damage, fire cost, and hitscan override for energy weapons.
 // Allows each weapon to control its own beam color and damage independently of the cell.
 // The cell provides charge; the weapon determines what fires.
+// Also holds the gun-side firing modifiers: hitscan spread and armor piercing.
 
 namespace Content.Shared._Misfits.Weapons;
 
@@ -39,4 +40,26 @@ public sealed partial class GunDamageBonusComponent : Component
     /// </summary>
     [ViewVariables]
     public float? OriginalFireCost;
+}
+
+/// #Misfits Add - Gives a hitscan weapon shotgun behaviour by firing several rays in a spread.
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class HitscanSpreadComponent : Component
+{
+    /// Total angle the rays are spread across, in degrees.
+    [DataField, AutoNetworkedField]
+    public Angle Spread = Angle.FromDegrees(15);
+
+    /// How many rays are fired, each deals the hitscan's full damage.
+    [DataField, AutoNetworkedField]
+    public int Count = 3;
+}
+
+/// #Misfits Add - Lets a weapon cut through part of the armour its shots hit.
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class ArmorPiercingComponent : Component
+{
+    /// Fraction of the target's worn armour ignored, 0.5 ignores half of it.
+    [DataField, AutoNetworkedField]
+    public float Piercing = 0.5f;
 }
