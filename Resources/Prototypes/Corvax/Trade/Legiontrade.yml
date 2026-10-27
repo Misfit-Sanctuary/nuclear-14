@@ -272,10 +272,13 @@
   - proto: N14WeaponKebab
     price: 50
 
+
 - type: storeCategoryStructured
   id: LegionBuy2_Medicine
   name: "Medicine"
   entries:
+
+  # Traditional Legion medicine
   - proto: N14HealingPoultice
     price: 20
   - proto: N14HealingPowder
@@ -286,20 +289,50 @@
     price: 30
   - proto: N14Bitterdrink
     price: 35
+  - proto: N14BarkskinPowder
+    price: 30
+  # Basic dressings and salves
   - proto: N14CleanGauze10
     amount: 10
     price: 10
   - proto: N14AloeSalve
     amount: 10
     price: 25
-  - proto: Bloodpack
-    price: 10
-  - proto: ClothingBackpackDuffelSurgeryFilled
+  # Misfits herbal topicals
+  - proto: MisfitsDaturaHide10
+    amount: 10
     price: 40
-  - proto: SurgicalSterileWipe
-    price: 5
-  - proto: ClothingBeltMedical
-    price: 15
+  - proto: MisfitsSnakebiteTourniquet10
+    amount: 10
+    price: 35
+  - proto: MisfitsHealingSalve10
+    amount: 10
+    price: 50
+  - proto: MisfitsHerbalAnodyne10
+    amount: 10
+    price: 45
+  - proto: MisfitsHerbalAntimicrobial10
+    amount: 10
+    price: 55
+  # Herbal pain management
+  - proto: MisfitsWillowbark
+    price: 12
+  - proto: MisfitsMedkitFieldFilled
+    price: 120
+  # Tribal medicine and natural stimulants
+  - proto: MisfitsHerbalStimulant
+    price: 25
+  - proto: MisfitsBloodShield
+    price: 30
+  - proto: MisfitsPilgrimsRemedy
+    price: 25
+  - proto: MisfitsPowderedHealingSalve
+    price: 16
+  # Traditional purgatives
+  - proto: MisfitsFieryPurgative
+    price: 40
+  - proto: MisfitsGravesalt
+    price: 30
 
 - type: storeCategoryStructured
   id: LegionBuy2_Materials
@@ -813,14 +846,26 @@
     price: 15
   - proto: N14Bitterdrink
     price: 18
+  - proto: N14BarkskinPowder
+    price: 15
   - proto: N14CleanGauze
     price: 1
   - proto: N14AloeSalve
     price: 1
-  - proto: Bloodpack
-    price: 5
-  - proto: SurgicalSterileWipe
-    price: 3
+
+  # Misfits herbal medicine
+  - proto: MisfitsWillowbark
+    price: 6
+  - proto: MisfitsHerbalStimulant
+    price: 12
+  - proto: MisfitsBloodShield
+    price: 15
+  - proto: MisfitsPilgrimsRemedy
+    price: 12
+  - proto: MisfitsFieryPurgative
+    price: 20
+  - proto: MisfitsGravesalt
+    price: 15
 
 - type: storeCategoryStructured
   id: LegionSell2_Materials

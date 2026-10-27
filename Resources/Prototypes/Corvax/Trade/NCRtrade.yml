@@ -287,6 +287,9 @@
   - proto: N14Ointment10
     amount: 10
     price: 300
+  - proto: Ointment
+    amount: 10
+    price: 300
   - proto: Brutepack
     amount: 10
     price: 280
@@ -295,6 +298,8 @@
     price: 250
   - proto: N14MedkitFilled
     price: 500
+  - proto: N14MedkitCombatFilled
+    price: 600
   - proto: N14RadAwayPhial
     price: 650
   - proto: N14RadXCanisterFilled
@@ -303,6 +308,96 @@
     price: 800
   - proto: ClothingBackpackDuffelSurgeryFilled
     price: 580
+  # General medicine and radiation treatment
+  - proto: MisfitsPillAntibiotics
+    price: 160
+  - proto: MisfitsPillPenicillin
+    price: 180
+  - proto: MisfitsPillPrussianBlue
+    price: 260
+  - proto: MisfitsPillRadShield
+    price: 420
+  - proto: MisfitsPillX111Compound
+    price: 1000
+  - proto: MisfitsPillRushingWater
+    price: 320
+  - proto: MisfitsPillBloodShield
+    price: 350
+  - proto: MisfitsPillRefreshingBeverage
+    price: 850
+  - proto: MisfitsPillClearwake
+    price: 450
+  - proto: MisfitsPillLazarusCompound
+    price: 1500
+  - proto: MisfitsPillWidowbane
+    price: 300
+  - proto: MisfitsPillCinderSerum
+    price: 300
+  - proto: MisfitsPillGravesalt
+    price: 250
+  - proto: MisfitsPillFieryPurgative
+    price: 300
+  - proto: MisfitsPillPilgrimsRemedy
+    price: 230
+  - proto: MisfitsPillHerbalStimulant
+    price: 250
+  - proto: N14DaytripperPill
+    price: 210
+  # Psychiatric medication
+  - proto: MisfitsPillClearhead
+    price: 220
+  - proto: MisfitsPillChlorpromazine
+    price: 350
+  - proto: MisfitsPillLucidine
+    price: 520
+  - proto: MisfitsPillPsychocline
+    price: 800
+  - proto: MisfitsPillNeurostatic
+    price: 1500
+  # Pain management and anesthetics
+  - proto: MisfitsPillWillowbark
+    price: 140
+  - proto: MisfitsPillAnodyne
+    price: 240
+  - proto: MisfitsPillAnalgesine
+    price: 380
+  - proto: MisfitsPillNerveblock
+    price: 570
+  - proto: MisfitsPillTraumadol
+    price: 620
+  - proto: MisfitsPillAnesthezine
+    price: 850
+  - proto: MisfitsPillNeuroblock
+    price: 1250
+  - proto: MisfitsPillNeuroreguline
+    price: 2500
+  # Narcolepsy and wakefulness
+  - proto: MisfitsPillVigilazine
+    price: 350
+  - proto: MisfitsPillWakeguard
+    price: 550
+  - proto: MisfitsPillSomnoreguline
+    price: 1400
+  # Tribal medicine and medical supplies
+  - proto: MisfitsDaturaHide10
+    price: 350
+  - proto: MisfitsSnakebiteTourniquet10
+    price: 370
+  - proto: MisfitsHealingSalve10
+    price: 300
+  - proto: MisfitsHerbalAnodyne10
+    price: 300
+  - proto: MisfitsHerbalAntimicrobial10
+    price: 300
+  - proto: N14BarkskinPowder
+    price: 400
+  - proto: MisfitsPowderedHealingSalve
+    price: 160
+  # Advanced medical supplies
+  - proto: MisfitsGlowingBloodPack
+    price: 600
+  - proto: MisfitsHelix9Injector
+    price: 2400
 
 - type: storeCategoryStructured
   id: NCRBuy2_Cosmetics

@@ -307,9 +307,17 @@
   - proto: N14CleanGauze10
     amount: 10
     price: 75
-  - proto: N14AloeSalve
+  - proto: N14Ointment10
     amount: 10
-    price: 100
+    price: 90
+  - proto: Ointment
+    amount: 10
+    price: 120
+  - proto: Brutepack
+    amount: 10
+    price: 150
+  - proto: N14MedkitFilled
+    price: 500
   - proto: N14Stimpak
     price: 150
   - proto: N14HealingPowder
@@ -330,6 +338,119 @@
     price: 700
   - proto: N14Turbo
     price: 450
+  # Tribal and field-crafted medicine
+  - proto: N14HealingPoultice
+    price: 100
+  - proto: N14CleansingPowder
+    price: 45
+  - proto: N14BerserkerPowder
+    price: 130
+  - proto: N14BarkskinPowder
+    price: 130
+  - proto: N14Bitterdrink
+    price: 145
+  - proto: MisfitsWillowbark
+    price: 65
+  - proto: MisfitsDaturaHide
+    amount: 10
+    price: 160
+  - proto: MisfitsSnakebiteTourniquet
+    amount: 10
+    price: 175
+  - proto: MisfitsHealingSalve
+    amount: 10
+    price: 160
+  - proto: MisfitsHerbalAnodyne
+    amount: 10
+    price: 150
+  - proto: MisfitsHerbalAntimicrobial
+    amount: 10
+    price: 160
+  - proto: MisfitsHerbalStimulant
+    price: 140
+  - proto: MisfitsBloodShield
+    price: 175
+  - proto: MisfitsPilgrimsRemedy
+    price: 135
+  - proto: MisfitsFieryPurgative
+    price: 175
+  - proto: MisfitsGravesalt
+    price: 140
+  # Scavenged and commercial medical treatments
+  - proto: MisfitsPillAntibiotics
+    price: 95
+  - proto: N14DaytripperPill
+    price: 65
+  - proto: MisfitsPillPenicillin
+    price: 110
+  - proto: MisfitsPillPrussianBlue
+    price: 165
+  - proto: MisfitsPillRadShield
+    price: 255
+  - proto: MisfitsPillRushingWater
+    price: 190
+  - proto: MisfitsPillRefreshingBeverage
+    price: 520
+  - proto: MisfitsPillClearwake
+    price: 280
+  - proto: MisfitsPillWidowbane
+    price: 185
+  - proto: MisfitsPillCinderSerum
+    price: 180
+  - proto: MisfitsPillLazarusCompound
+    price: 900
+  - proto: MisfitsGlowingBloodPack
+    price: 680
+  # Psychiatric medication
+  - proto: MisfitsPillClearhead
+    price: 140
+  - proto: MisfitsPillChlorpromazine
+    price: 220
+  - proto: MisfitsPillLucidine
+    price: 330
+  - proto: MisfitsPillPsychocline
+    price: 500
+  - proto: MisfitsPillNeurostatic
+    price: 950
+  # Pain management and anesthetics
+  - proto: MisfitsPillAnodyne
+    price: 155
+  - proto: MisfitsPillAnalgesine
+    price: 240
+  - proto: MisfitsPillNerveblock
+    price: 365
+  - proto: MisfitsPillTraumadol
+    price: 400
+  - proto: MisfitsPillAnesthezine
+    price: 550
+  - proto: MisfitsPillNeuroblock
+    price: 820
+  - proto: MisfitsPillNeuroreguline
+    price: 1550
+  # Narcolepsy and wakefulness medicine
+  - proto: MisfitsPillVigilazine
+    price: 220
+  - proto: MisfitsPillWakeguard
+    price: 345
+  - proto: MisfitsPillSomnoreguline
+    price: 875
+  # Rare recreational and combat chems
+  - proto: MisfitsPillCalmex
+    price: 465
+  - proto: MisfitsPillFury
+    price: 565
+  - proto: MisfitsPillCrank
+    price: 285
+  - proto: MisfitsPillOverdrive
+    price: 750
+  - proto: MisfitsPillXCell
+    price: 1320
+  - proto: MisfitsPillSkeetoSpit
+    price: 325
+  - proto: MisfitsPowderedHealingSalve
+    price: 135
+  - proto: MisfitsHelix9Injector
+    price: 1150
 
 - type: storeCategoryStructured
   id: WasterBuy2_Materials
@@ -993,6 +1114,118 @@
     price: 225
   - proto: N14Turbo
     price: 150
+
+  # Tribal and field-crafted medicine
+  - proto: N14HealingPoultice
+    price: 45
+  - proto: N14CleansingPowder
+    price: 15
+  - proto: N14BerserkerPowder
+    price: 55
+  - proto: N14BarkskinPowder
+    price: 55
+  - proto: N14Bitterdrink
+    price: 65
+  - proto: MisfitsWillowbark
+    price: 25
+  - proto: MisfitsDaturaHide
+    amount: 10
+    price: 60
+  - proto: MisfitsSnakebiteTourniquet
+    amount: 10
+    price: 65
+  - proto: MisfitsHealingSalve
+    amount: 10
+    price: 65
+  - proto: MisfitsHerbalAnodyne
+    amount: 10
+    price: 60
+  - proto: MisfitsHerbalAntimicrobial
+    amount: 10
+    price: 65
+  - proto: MisfitsHerbalStimulant
+    price: 50
+  - proto: MisfitsBloodShield
+    price: 65
+  - proto: MisfitsPilgrimsRemedy
+    price: 50
+  - proto: MisfitsFieryPurgative
+    price: 70
+  - proto: MisfitsGravesalt
+    price: 55
+  # Scavenged and commercial medical treatments
+  - proto: MisfitsPillAntibiotics
+    price: 40
+  - proto: MisfitsPillPenicillin
+    price: 45
+  - proto: MisfitsPillPrussianBlue
+    price: 65
+  - proto: MisfitsPillRadShield
+    price: 100
+  - proto: MisfitsPillRushingWater
+    price: 75
+  - proto: MisfitsPillRefreshingBeverage
+    price: 195
+  - proto: MisfitsPillClearwake
+    price: 110
+  - proto: MisfitsPillWidowbane
+    price: 70
+  - proto: MisfitsPillCinderSerum
+    price: 70
+  - proto: MisfitsPillLazarusCompound
+    price: 350
+  - proto: MisfitsGlowingBloodPack
+    price: 255
+  # Psychiatric medication
+  - proto: MisfitsPillClearhead
+    price: 55
+  - proto: MisfitsPillChlorpromazine
+    price: 85
+  - proto: MisfitsPillLucidine
+    price: 125
+  - proto: MisfitsPillPsychocline
+    price: 195
+  - proto: MisfitsPillNeurostatic
+    price: 360
+  # Pain management and anesthetics
+  - proto: MisfitsPillAnodyne
+    price: 60
+  - proto: MisfitsPillAnalgesine
+    price: 90
+  - proto: MisfitsPillNerveblock
+    price: 140
+  - proto: MisfitsPillTraumadol
+    price: 155
+  - proto: MisfitsPillAnesthezine
+    price: 210
+  - proto: MisfitsPillNeuroblock
+    price: 305
+  - proto: MisfitsPillNeuroreguline
+    price: 590
+  # Narcolepsy and wakefulness medicine
+  - proto: MisfitsPillVigilazine
+    price: 85
+  - proto: MisfitsPillWakeguard
+    price: 130
+  - proto: MisfitsPillSomnoreguline
+    price: 330
+  # Rare recreational and combat chems
+  - proto: MisfitsPillCalmex
+    price: 175
+  - proto: MisfitsPillFury
+    price: 210
+  - proto: MisfitsPillCrank
+    price: 110
+  - proto: MisfitsPillOverdrive
+    price: 285
+  - proto: MisfitsPillXCell
+    price: 495
+  - proto: MisfitsPillSkeetoSpit
+    price: 120
+  - proto: MisfitsPowderedHealingSalve
+    price: 55
+  - proto: MisfitsHelix9Injector
+    price: 420
 
 - type: storeCategoryStructured
   id: WasterSell2_Materials
