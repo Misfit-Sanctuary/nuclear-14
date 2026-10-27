@@ -693,7 +693,9 @@
       steps:
       - tag: Bloodpack
         name: blood pack
-        amount: 1
+        icon:
+          sprite: Objects/Specific/Medical/medical.rsi
+          state: bloodpack
         icon:
           sprite: Objects/Specific/Medical/medical.rsi
           state: bloodpack
