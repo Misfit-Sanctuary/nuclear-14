@@ -579,3 +579,39 @@
       amount: 1
   products:
     MisfitsHelix9: 5
+
+- type: reaction
+  id: MisfitsHydrationPoulticeReaction
+  quantized: true
+  minTemp: 330
+  reactants:
+    ExtractAgaveNectar:
+      amount: 5
+    ExtractBananaYucca:
+      amount: 5
+    Water:
+      amount: 10
+    Ash:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MisfitsHydrationPoultice
+
+- type: reaction
+  id: MisfitsNutrientPoulticeReaction
+  quantized: true
+  reactants:
+    ExtractAgaveNectar:
+      amount: 5
+    ExtractBroc:
+      amount: 5
+    Nutriment:
+      amount: 5
+    Water:
+      amount: 5
+    Ash:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MisfitsNutrientPoultice
+

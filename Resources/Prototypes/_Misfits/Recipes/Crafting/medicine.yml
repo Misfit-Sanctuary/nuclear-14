@@ -696,9 +696,6 @@
         icon:
           sprite: Objects/Specific/Medical/medical.rsi
           state: bloodpack
-        icon:
-          sprite: Objects/Specific/Medical/medical.rsi
-          state: bloodpack
       - material: CaveFungusRad
         amount: 2
       - tag: MisfitsEthanolBottle
@@ -782,3 +779,78 @@
         doAfter: 2
   - node: powderedhealingsalve
     entity: MisfitsPowderedHealingSalve
+
+- type: entity
+  parent: N14BaseHealingItem
+  id: MisfitsNutrientPoultice
+  name: nutrient poultice
+  description: A thick poultice of nourishing wasteland herbs. Treats starvation injuries and briefly takes the edge off hunger, but cannot replace a meal.
+  components:
+  - type: Tag
+    tags:
+    - Ointment
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: bandaid_both
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      types:
+        Starvation: -25
+    delay: 3
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+    stackType: MisfitsNutrientPoultice
+    count: 1
+  - type: Construction
+    graph: MisfitsNutrientPoultice
+    node: nutrientpoultice
+
+- type: entity
+  parent: N14BaseHealingItem
+  id: MisfitsHydrationPoultice
+  name: hydration poultice
+  description: A cooling herbal poultice made from agave and banana yucca. Treats dehydration injuries and offers temporary relief from thirst, but cannot replace drinking water.
+  components:
+  - type: Tag
+    tags:
+    - Ointment
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: bandaid
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      types:
+        Dehydration: -25
+    delay: 3
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+    stackType: MisfitsHydrationPoultice
+    count: 1
+
+- type: stack
+  id: MisfitsHydrationPoultice
+  name: hydration poultice
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: bandaid
+  spawn: MisfitsHydrationPoultice
+  maxCount: 10
+
+- type: stack
+  id: MisfitsNutrientPoultice
+  name: nutriment poultice
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: bandaid_both
+  spawn: MisfitsNutrientPoultice
+  maxCount: 10
