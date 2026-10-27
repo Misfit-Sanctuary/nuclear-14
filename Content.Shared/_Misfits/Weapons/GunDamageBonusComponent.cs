@@ -55,11 +55,11 @@ public sealed partial class HitscanSpreadComponent : Component
     public int Count = 3;
 }
 
-/// #Misfits Add - Lets a weapon cut through part of the armour its shots hit.
+/// #Misfits Add - Lets a weapon cut through part of the armour its shots hit, or lose ground to it.
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ArmorPiercingComponent : Component
 {
-    /// Fraction of the target's worn armour ignored, 0.5 ignores half of it.
+    /// Armour shift from -1 to 1. Positive ignores that fraction of armour, negative adds it instead.
     [DataField, AutoNetworkedField]
     public float Piercing = 0.5f;
 }

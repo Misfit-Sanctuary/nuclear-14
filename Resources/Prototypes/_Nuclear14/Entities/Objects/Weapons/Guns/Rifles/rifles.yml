@@ -457,6 +457,18 @@
   - type: StaticPrice
     price: 150
 
+# #Misfits Add - showcases ArmorPiercing. Standalone prototype, not obtainable in gameplay.
+- type: entity
+  name: Church Key
+  parent: N14WeaponRifle308Battle
+  id: MisfitsWeaponRifle308ChurchKey
+  description: A .308 battle rifle rebarreled to throw hardened penetrators. The shop that built it called it a church key, because it opens a suit of armour the way one opens a tin of pork and beans.
+  components:
+  - type: ArmorPiercing
+    piercing: 0.5
+  - type: StaticPrice
+    price: 800
+
 - type: entity
   name: old carbine
   parent: N14WeaponRifleBase

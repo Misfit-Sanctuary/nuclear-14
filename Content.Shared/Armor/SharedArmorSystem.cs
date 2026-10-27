@@ -45,7 +45,7 @@ public abstract class SharedArmorSystem : EntitySystem
         if (TryComp<MaskComponent>(uid, out var mask) && mask.IsToggled)
             return;
 
-        // #Misfits Add - pass the shot's armor piercing so a fraction of this armor does nothing
+        // #Misfits Add - pass the shot's armor piercing so this armor is weakened or reinforced
         args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers, args.Args.ArmorPiercing);
     }
 
@@ -55,7 +55,7 @@ public abstract class SharedArmorSystem : EntitySystem
         if (TryComp<MaskComponent>(uid, out var mask) && mask.IsToggled)
             return;
 
-        // #Misfits Add - pass the shot's armor piercing so a fraction of this armor does nothing
+        // #Misfits Add - pass the shot's armor piercing so this armor is weakened or reinforced
         args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers, args.Args.ArmorPiercing);
     }
 

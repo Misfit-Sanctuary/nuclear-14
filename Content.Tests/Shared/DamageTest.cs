@@ -164,7 +164,7 @@ namespace Content.Tests.Shared
             Assert.That(damageSpec.DamageDict["Radiation"], Is.EqualTo(FixedPoint2.New(65.62)));
         }
 
-        //Check that armor piercing eats into protection but never into vulnerability
+        //Check that armor piercing shifts protection both ways but never into vulnerability
         [Test]
         public void ArmorPiercingTest()
         {
@@ -195,8 +195,18 @@ namespace Content.Tests.Shared
             Assert.That(full.DamageDict["Blunt"], Is.EqualTo(FixedPoint2.New(20)));
             Assert.That(full.DamageDict["Piercing"], Is.EqualTo(FixedPoint2.New(40)));
 
-            var negative = DamageSpecifier.ApplyModifierSet(damageSpec, modifierSet, -1f);
-            Assert.That(negative.DamageDict["Blunt"], Is.EqualTo(FixedPoint2.New(10)));
+            // Negative piercing adds protection instead: 0.5 becomes 0.25
+            var armored = DamageSpecifier.ApplyModifierSet(damageSpec, modifierSet, -0.5f);
+            Assert.That(armored.DamageDict["Blunt"], Is.EqualTo(FixedPoint2.New(5)));
+            Assert.That(armored.DamageDict["Piercing"], Is.EqualTo(FixedPoint2.New(40)));
+
+            // Full protection blocks the damage entirely, out of range values clamp to -1
+            var negated = DamageSpecifier.ApplyModifierSet(damageSpec, modifierSet, -1f);
+            Assert.That(negated.DamageDict.ContainsKey("Blunt"), Is.False);
+            Assert.That(negated.DamageDict["Piercing"], Is.EqualTo(FixedPoint2.New(40)));
+
+            var clamped = DamageSpecifier.ApplyModifierSet(damageSpec, modifierSet, -5f);
+            Assert.That(clamped.DamageDict.ContainsKey("Blunt"), Is.False);
         }
 
         // Default damage Yaml

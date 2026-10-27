@@ -125,7 +125,7 @@ namespace Content.Shared.Damage
         ///     Only applies resistance to a damage type if it is dealing damage, not healing.
         ///     This will never convert damage into healing.
         /// </remarks>
-        /// <param name="armorPiercing">Fraction of the set's protection to ignore, 0.5 ignores half of it.</param>
+        /// <param name="armorPiercing">Fraction of the set's protection to ignore, 0.5 ignores half of it. Negative values add protection instead, -0.5 adds half of it.</param>
         public static DamageSpecifier ApplyModifierSet(DamageSpecifier damageSpec, DamageModifierSet modifierSet, float armorPiercing = 0f)
         {
             // Make a copy of the given data. Don't modify the one passed to this function. I did this before, and weapons became
@@ -152,9 +152,12 @@ namespace Content.Shared.Damage
 
                 if (modifierSet.Coefficients.TryGetValue(key, out var coefficient))
                 {
-                    // #Misfits Add - armor piercing moves protection coefficients toward 1, never toward more damage
-                    if (coefficient < 1f)
-                        coefficient += (1f - coefficient) * Math.Clamp(armorPiercing, 0f, 1f);
+                    // #Misfits Add - piercing moves protection toward 1, a negative value scales the protection up instead
+                    if (coefficient < 1f && armorPiercing != 0f)
+                    {
+                        var pierced = 1f - (1f - coefficient) * (1f - Math.Clamp(armorPiercing, -1f, 1f));
+                        coefficient = Math.Clamp(pierced, 0f, 1f); // stops at full negation, never heals
+                    }
 
                     newValue *= coefficient; // coefficients can heal you, e.g. cauterizing bleeding
                 }
