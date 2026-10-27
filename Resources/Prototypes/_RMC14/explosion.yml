@@ -1,0 +1,15 @@
+# Mortar shell explosion, ported from AU-14/ColonialMarinesUniverse.
+- type: explosion
+  id: RMCMortar
+  damagePerIntensity:
+    types:
+      Blunt: 6.25
+      Heat: 6.25
+      Structural: 90
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireColor: Transparent
+  fireStates: 3
