@@ -1,9 +1,9 @@
 - type: stack
   id: Ointment
-  name: ointment
-  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: ointment }
+  name: burngel
+  icon: { sprite: "_Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi", state: burngel }
   spawn: Ointment
-  maxCount: 10
+  maxCount: 15
   itemSize: 1
 
 - type: stack
@@ -11,47 +11,45 @@
   name: aloe cream
   icon: { sprite: "/Textures/Objects/Specific/Hydroponics/aloe.rsi", state: cream }
   spawn: AloeCream
-  maxCount: 10 #Changed all the 15 stacks back to 10 for N14
+  maxCount: 15
   itemSize: 1
 
 - type: stack
   id: Gauze
   name: gauze
-  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: gauze }
+  icon: { sprite: "_Nuclear14/Objects/Specific/Medical/ms13_medical.rsi", state: gauze }
   spawn: Gauze
-  maxCount: 10
+  maxCount: 15
   itemSize: 1
 
 - type: stack
   id: Brutepack
-  name: brutepack
-  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: gauze }
+  name: brutegel
+  icon: { sprite: "_Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi", state: brutegel }
   spawn: Brutepack
-  maxCount: 10
+  maxCount: 15
   itemSize: 1
 
 - type: stack
   id: Bloodpack
   name: bloodpack
-  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: bloodpack }
+  icon: { sprite: "_Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi", state: ivbag-blood }
   spawn: Bloodpack
-  maxCount: 10
+  maxCount: 15
   itemSize: 1
 
 - type: stack
   id: MedicatedSuture
   name: medicated-suture
-  icon: {sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: medicated-suture }
+  icon: {sprite: "_Nuclear14/Objects/Specific/Medical/ms13_medical.rsi", state: stitch1 }
   spawn: MedicatedSuture
-  maxCount: 10
+  maxCount: 15
   itemSize: 1
 
 - type: stack
   id: RegenerativeMesh
   name: regenerative-mesh
-  icon: {sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: regenerative-mesh}
+  icon: {sprite: "_Nuclear14/Objects/Specific/Medical/ms13_medical.rsi", state: noidea}
   spawn: RegenerativeMesh
-  maxCount: 10
+  maxCount: 15
   itemSize: 1
-
-

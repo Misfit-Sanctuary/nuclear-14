@@ -1,0 +1,15 @@
+# Pre-filled single-dose Helix-9 injector.
+# Inherits N14ChemicalSyringe Hypospray behavior; the 5u charge is injected in one use.
+- type: entity
+  parent: N14ChemicalSyringe
+  id: MisfitsHelix9Injector
+  name: helix-9 injector
+  description: A pale green pre-war gene-repair serum in a sealed hypodermic. Stabilizes cellular injuries; excessive dosing causes genetic rejection.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: MisfitsHelix9
+          Quantity: 15

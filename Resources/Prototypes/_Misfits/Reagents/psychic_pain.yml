@@ -1,4 +1,4 @@
-﻿# Misfits - Psychiatric / psychic-treatment and pain-management reagent branches
+# Misfits - Psychiatric / psychic-treatment and pain-management reagent branches
 
 # ============================================================================
 # PSYCHIATRIC / HALLUCINATION TREATMENT
@@ -12,10 +12,30 @@
   physicalDesc: reagent-physical-desc-clear
   flavor: medicine
   color: "#dbe8e8"
+  plantMetabolism:
+    - !type:PlantAdjustMutationMod
+      amount: -0.2
+    - !type:PlantAdjustToxins
+      amount: -1
   metabolisms:
     Medicine:
       metabolismRate: 0.2
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: MisfitsClearheadAmbient
+        cooldown: 65
+        messageKeys:
+        - misfits-psychic-pain-clearhead-1
+        - misfits-psychic-pain-clearhead-2
+        - misfits-psychic-pain-clearhead-3
+        - misfits-psychic-pain-clearhead-4
+        - misfits-psychic-pain-clearhead-5
+        - misfits-psychic-pain-clearhead-6
+        - misfits-psychic-pain-clearhead-7
+      - !type:SpecialStatBoostEffect
+        perceptionBoost: 1
+        intelligenceBoost: 1
+        statusLifetime: 6.5
       # Entry-level psychiatric stabilizer.
       - !type:GenericStatusEffect
         key: SeeingRainbows
@@ -28,6 +48,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
+        - !type:MobStateCondition
         damage:
           types:
             Poison: 0.25
@@ -49,10 +70,31 @@
   physicalDesc: reagent-physical-desc-crystalline
   flavor: medicine
   color: "#e4e0ca"
+  plantMetabolism:
+    - !type:PlantAdjustPests
+      amount: -1
+    - !type:PlantAffectGrowth
+      amount: -1
   metabolisms:
     Medicine:
       metabolismRate: 0.1
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: MisfitsChlorpromazineAmbient
+        cooldown: 70
+        messageKeys:
+        - misfits-psychic-pain-chlorpromazine-1
+        - misfits-psychic-pain-chlorpromazine-2
+        - misfits-psychic-pain-chlorpromazine-3
+        - misfits-psychic-pain-chlorpromazine-4
+        - misfits-psychic-pain-chlorpromazine-5
+        - misfits-psychic-pain-chlorpromazine-6
+        - misfits-psychic-pain-chlorpromazine-7
+      - !type:SpecialStatBoostEffect
+        perceptionBoost: -1
+        intelligenceBoost: -1
+        agilityBoost: -2
+        statusLifetime: 11.5
       - !type:GenericStatusEffect
         key: SeeingRainbows
         time: 15
@@ -73,6 +115,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+        - !type:MobStateCondition
         damage:
           types:
             Poison: 0.4
@@ -85,6 +128,11 @@
         time: 6
         type: Add
         refresh: false
+      - !type:ChemVomit # Misfits: additional overdose symptom
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        probability: 0.06
 
 - type: reagent
   id: MisfitsLucidine
@@ -94,10 +142,31 @@
   physicalDesc: reagent-physical-desc-gleaming
   flavor: medicine
   color: "#a7d9db"
+  plantMetabolism:
+    - !type:PlantAdjustHealth
+      amount: 0.25
+    - !type:PlantAdjustMutationMod
+      amount: -0.3
   metabolisms:
     Medicine:
       metabolismRate: 0.1
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: MisfitsLucidineAmbient
+        cooldown: 70
+        messageKeys:
+        - misfits-psychic-pain-lucidine-1
+        - misfits-psychic-pain-lucidine-2
+        - misfits-psychic-pain-lucidine-3
+        - misfits-psychic-pain-lucidine-4
+        - misfits-psychic-pain-lucidine-5
+        - misfits-psychic-pain-lucidine-6
+        - misfits-psychic-pain-lucidine-7
+      - !type:SpecialStatBoostEffect
+        perceptionBoost: 1
+        intelligenceBoost: 2
+        agilityBoost: -1
+        statusLifetime: 11.5
       - !type:GenericStatusEffect
         key: SeeingRainbows
         time: 20
@@ -115,6 +184,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
+        - !type:MobStateCondition
         damage:
           types:
             Poison: 0.5
@@ -127,10 +197,31 @@
   physicalDesc: reagent-physical-desc-cloudy
   flavor: medicine
   color: "#b7a9c8"
+  plantMetabolism:
+    - !type:PlantAdjustMutationMod
+      amount: -0.45
+    - !type:PlantAdjustHealth
+      amount: -0.4
   metabolisms:
     Medicine:
       metabolismRate: 0.2
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: MisfitsPsychoclineAmbient
+        cooldown: 70
+        messageKeys:
+        - misfits-psychic-pain-psychocline-1
+        - misfits-psychic-pain-psychocline-2
+        - misfits-psychic-pain-psychocline-3
+        - misfits-psychic-pain-psychocline-4
+        - misfits-psychic-pain-psychocline-5
+        - misfits-psychic-pain-psychocline-6
+        - misfits-psychic-pain-psychocline-7
+      - !type:SpecialStatBoostEffect
+        perceptionBoost: 2
+        intelligenceBoost: 1
+        agilityBoost: -2
+        statusLifetime: 6.5
       - !type:GenericStatusEffect
         key: SeeingRainbows
         time: 30
@@ -158,9 +249,15 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
+        - !type:MobStateCondition
         damage:
           types:
             Poison: 0.75
+      - !type:ChemVomit # Misfits: additional overdose symptom
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        probability: 0.07
 
 - type: reagent
   id: MisfitsNeurostatic
@@ -170,10 +267,30 @@
   physicalDesc: reagent-physical-desc-gleaming
   flavor: medicine
   color: "#83c5d6"
+  plantMetabolism:
+    - !type:PlantAdjustMutationMod
+      amount: -0.8
+    - !type:PlantAdjustHealth
+      amount: -0.5
   metabolisms:
     Medicine:
       metabolismRate: 0.05
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: MisfitsNeurostaticAmbient
+        cooldown: 80
+        messageKeys:
+        - misfits-psychic-pain-neurostatic-1
+        - misfits-psychic-pain-neurostatic-2
+        - misfits-psychic-pain-neurostatic-3
+        - misfits-psychic-pain-neurostatic-4
+        - misfits-psychic-pain-neurostatic-5
+        - misfits-psychic-pain-neurostatic-6
+        - misfits-psychic-pain-neurostatic-7
+      - !type:SpecialStatBoostEffect
+        perceptionBoost: 2
+        intelligenceBoost: 2
+        statusLifetime: 21.5
       - !type:GenericStatusEffect
         key: SeeingRainbows
         time: 30
@@ -186,10 +303,16 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+        - !type:MobStateCondition
         damage:
           types:
             Poison: 0.35
             Cellular: 0.10
+      - !type:ChemVomit # Misfits: additional overdose symptom
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        probability: 0.05
 
 # ============================================================================
 # PAIN MANAGEMENT
@@ -203,14 +326,46 @@
   physicalDesc: reagent-physical-desc-powdery
   flavor: bitter
   color: "#8c7045"
+  plantMetabolism:
+    - !type:PlantAdjustPests
+      amount: -2
+    - !type:PlantAdjustHealth
+      amount: 0.25
   metabolisms:
     Medicine:
       metabolismRate: 0.1
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: MisfitsWillowbarkAmbient
+        cooldown: 85
+        messageKeys:
+        - misfits-psychic-pain-willowbark-1
+        - misfits-psychic-pain-willowbark-2
+        - misfits-psychic-pain-willowbark-3
+        - misfits-psychic-pain-willowbark-4
+        - misfits-psychic-pain-willowbark-5
+        - misfits-psychic-pain-willowbark-6
+        - misfits-psychic-pain-willowbark-7
+      - !type:SpecialStatBoostEffect
+        enduranceBoost: 1
+        statusLifetime: 11.5
       - !type:SuppressChronicPainReagent
         SuppressionTime: 180
       - !type:ChemVomit
         probability: 0.03
+      - !type:HealthChange # Misfits: overdose
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        - !type:MobStateCondition
+        damage:
+          types:
+            Poison: 0.7
+      - !type:ChemVomit # Misfits: additional overdose symptom
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        probability: 0.07
 
 - type: reagent
   id: MisfitsAnodyne
@@ -220,10 +375,30 @@
   physicalDesc: reagent-physical-desc-soothing
   flavor: medicine
   color: "#b8a879"
+  plantMetabolism:
+    - !type:PlantAdjustHealth
+      amount: 0.25
+    - !type:PlantAdjustWeeds
+      amount: -1
   metabolisms:
     Medicine:
       metabolismRate: 0.1
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: MisfitsAnodyneAmbient
+        cooldown: 80
+        messageKeys:
+        - misfits-psychic-pain-anodyne-1
+        - misfits-psychic-pain-anodyne-2
+        - misfits-psychic-pain-anodyne-3
+        - misfits-psychic-pain-anodyne-4
+        - misfits-psychic-pain-anodyne-5
+        - misfits-psychic-pain-anodyne-6
+        - misfits-psychic-pain-anodyne-7
+      - !type:SpecialStatBoostEffect
+        enduranceBoost: 1
+        agilityBoost: -1
+        statusLifetime: 11.5
       - !type:SuppressChronicPainReagent
         SuppressionTime: 300
       - !type:GenericStatusEffect
@@ -232,6 +407,14 @@
         time: 1
         type: Add
         refresh: false
+      - !type:HealthChange # Misfits: overdose
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        - !type:MobStateCondition
+        damage:
+          types:
+            Poison: 0.5
 
 - type: reagent
   id: MisfitsAnalgesine
@@ -241,10 +424,31 @@
   physicalDesc: reagent-physical-desc-clear
   flavor: medicine
   color: "#d7d7cf"
+  plantMetabolism:
+    - !type:PlantAdjustPests
+      amount: -1
+    - !type:PlantAdjustHealth
+      amount: -0.15
   metabolisms:
     Medicine:
       metabolismRate: 0.1
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: MisfitsAnalgesineAmbient
+        cooldown: 75
+        messageKeys:
+        - misfits-psychic-pain-analgesine-1
+        - misfits-psychic-pain-analgesine-2
+        - misfits-psychic-pain-analgesine-3
+        - misfits-psychic-pain-analgesine-4
+        - misfits-psychic-pain-analgesine-5
+        - misfits-psychic-pain-analgesine-6
+        - misfits-psychic-pain-analgesine-7
+      - !type:SpecialStatBoostEffect
+        enduranceBoost: 2
+        perceptionBoost: -1
+        agilityBoost: -1
+        statusLifetime: 11.5
       - !type:SuppressChronicPainReagent
         SuppressionTime: 600
       - !type:GenericStatusEffect
@@ -257,6 +461,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 30
+        - !type:MobStateCondition
         damage:
           types:
             Poison: 0.4
@@ -269,10 +474,31 @@
   physicalDesc: reagent-physical-desc-viscous
   flavor: medicine
   color: "#b6c7d2"
+  plantMetabolism:
+    - !type:PlantAdjustWeeds
+      amount: -2
+    - !type:PlantAffectGrowth
+      amount: -1
   metabolisms:
     Medicine:
       metabolismRate: 0.1
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: MisfitsNerveblockAmbient
+        cooldown: 75
+        messageKeys:
+        - misfits-psychic-pain-nerveblock-1
+        - misfits-psychic-pain-nerveblock-2
+        - misfits-psychic-pain-nerveblock-3
+        - misfits-psychic-pain-nerveblock-4
+        - misfits-psychic-pain-nerveblock-5
+        - misfits-psychic-pain-nerveblock-6
+        - misfits-psychic-pain-nerveblock-7
+      - !type:SpecialStatBoostEffect
+        enduranceBoost: 2
+        perceptionBoost: -1
+        agilityBoost: -2
+        statusLifetime: 11.5
       - !type:SuppressChronicPainReagent
         SuppressionTime: 900
       - !type:GenericStatusEffect
@@ -288,6 +514,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
+        - !type:MobStateCondition
         damage:
           types:
             Asphyxiation: 1
@@ -301,10 +528,30 @@
   physicalDesc: reagent-physical-desc-cloudy
   flavor: medicine
   color: "#cfb28b"
+  plantMetabolism:
+    - !type:PlantAdjustHealth
+      amount: 0.4
+    - !type:PlantAdjustToxins
+      amount: 0.5
   metabolisms:
     Medicine:
       metabolismRate: 0.1
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: MisfitsTraumadolAmbient
+        cooldown: 75
+        messageKeys:
+        - misfits-psychic-pain-traumadol-1
+        - misfits-psychic-pain-traumadol-2
+        - misfits-psychic-pain-traumadol-3
+        - misfits-psychic-pain-traumadol-4
+        - misfits-psychic-pain-traumadol-5
+        - misfits-psychic-pain-traumadol-6
+        - misfits-psychic-pain-traumadol-7
+      - !type:SpecialStatBoostEffect
+        enduranceBoost: 2
+        agilityBoost: -1
+        statusLifetime: 11.5
       - !type:SuppressChronicPainReagent
         SuppressionTime: 600
       - !type:HealthChange
@@ -318,6 +565,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
+        - !type:MobStateCondition
         damage:
           types:
             Poison: 1
@@ -330,10 +578,32 @@
   physicalDesc: reagent-physical-desc-thick
   flavor: medicine
   color: "#c7c1dc"
+  plantMetabolism:
+    - !type:PlantAffectGrowth
+      amount: -2
+    - !type:PlantAdjustHealth
+      amount: -0.5
   metabolisms:
     Medicine:
       metabolismRate: 0.1
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: MisfitsAnesthezineAmbient
+        cooldown: 80
+        messageKeys:
+        - misfits-psychic-pain-anesthezine-1
+        - misfits-psychic-pain-anesthezine-2
+        - misfits-psychic-pain-anesthezine-3
+        - misfits-psychic-pain-anesthezine-4
+        - misfits-psychic-pain-anesthezine-5
+        - misfits-psychic-pain-anesthezine-6
+        - misfits-psychic-pain-anesthezine-7
+      - !type:SpecialStatBoostEffect
+        enduranceBoost: 2
+        perceptionBoost: -2
+        intelligenceBoost: -1
+        agilityBoost: -3
+        statusLifetime: 11.5
       - !type:SuppressChronicPainReagent
         SuppressionTime: 1200
       - !type:GenericStatusEffect
@@ -356,11 +626,17 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
+        - !type:MobStateCondition
         damage:
           types:
             Asphyxiation: 2
             Poison: 0.5
 
+      - !type:ChemVomit # Misfits: additional overdose symptom
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        probability: 0.05
 - type: reagent
   id: MisfitsNeuroblock
   name: reagent-name-misfits-neuroblock
@@ -369,10 +645,30 @@
   physicalDesc: reagent-physical-desc-gleaming
   flavor: medicine
   color: "#a8d0d5"
+  plantMetabolism:
+    - !type:PlantAdjustMutationMod
+      amount: -0.4
+    - !type:PlantAdjustHealth
+      amount: -0.3
   metabolisms:
     Medicine:
       metabolismRate: 0.05
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: MisfitsNeuroblockAmbient
+        cooldown: 80
+        messageKeys:
+        - misfits-psychic-pain-neuroblock-1
+        - misfits-psychic-pain-neuroblock-2
+        - misfits-psychic-pain-neuroblock-3
+        - misfits-psychic-pain-neuroblock-4
+        - misfits-psychic-pain-neuroblock-5
+        - misfits-psychic-pain-neuroblock-6
+        - misfits-psychic-pain-neuroblock-7
+      - !type:SpecialStatBoostEffect
+        enduranceBoost: 3
+        perceptionBoost: -1
+        statusLifetime: 21.5
       - !type:SuppressChronicPainReagent
         SuppressionTime: 1800
       # Minimal sedation, but dangerous if stacked.
@@ -380,6 +676,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+        - !type:MobStateCondition
         damage:
           types:
             Asphyxiation: 0.75
@@ -397,10 +694,30 @@
   physicalDesc: reagent-physical-desc-gleaming
   flavor: medicine
   color: "#91d9d0"
+  plantMetabolism:
+    - !type:PlantAdjustMutationMod
+      amount: -0.65
+    - !type:PlantAdjustHealth
+      amount: 0.35
   metabolisms:
     Medicine:
       metabolismRate: 0.05
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: MisfitsNeuroregulineAmbient
+        cooldown: 80
+        messageKeys:
+        - misfits-psychic-pain-neuroreguline-1
+        - misfits-psychic-pain-neuroreguline-2
+        - misfits-psychic-pain-neuroreguline-3
+        - misfits-psychic-pain-neuroreguline-4
+        - misfits-psychic-pain-neuroreguline-5
+        - misfits-psychic-pain-neuroreguline-6
+        - misfits-psychic-pain-neuroreguline-7
+      - !type:SpecialStatBoostEffect
+        enduranceBoost: 3
+        intelligenceBoost: 1
+        statusLifetime: 21.5
       - !type:SuppressChronicPainReagent
         SuppressionTime: 1800
       - !type:GenericStatusEffect
@@ -418,6 +735,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
+        - !type:MobStateCondition
         damage:
           types:
             Poison: 0.5
@@ -435,10 +753,31 @@
   physicalDesc: reagent-physical-desc-clear
   flavor: medicine
   color: "#d9e9cf"
+  plantMetabolism:
+    - !type:PlantAffectGrowth
+      amount: 1
+    - !type:PlantAdjustNutrition
+      amount: -0.3
   metabolisms:
     Medicine:
       metabolismRate: 0.1
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: MisfitsWakeguardAmbient
+        cooldown: 70
+        messageKeys:
+        - misfits-psychic-pain-wakeguard-1
+        - misfits-psychic-pain-wakeguard-2
+        - misfits-psychic-pain-wakeguard-3
+        - misfits-psychic-pain-wakeguard-4
+        - misfits-psychic-pain-wakeguard-5
+        - misfits-psychic-pain-wakeguard-6
+        - misfits-psychic-pain-wakeguard-7
+      - !type:SpecialStatBoostEffect
+        perceptionBoost: 1
+        agilityBoost: 1
+        enduranceBoost: -1
+        statusLifetime: 11.5
       - !type:ResetNarcolepsy
         TimerReset: 900
       - !type:GenericStatusEffect
@@ -451,6 +790,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
+        - !type:MobStateCondition
         damage:
           types:
             Poison: 0.50
@@ -468,10 +808,30 @@
   physicalDesc: reagent-physical-desc-gleaming
   flavor: medicine
   color: "#b9d8c8"
+  plantMetabolism:
+    - !type:PlantAdjustMutationMod
+      amount: -0.25
+    - !type:PlantAdjustHealth
+      amount: 0.15
   metabolisms:
     Medicine:
       metabolismRate: 0.05
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: MisfitsSomnoregulineAmbient
+        cooldown: 80
+        messageKeys:
+        - misfits-psychic-pain-somnoreguline-1
+        - misfits-psychic-pain-somnoreguline-2
+        - misfits-psychic-pain-somnoreguline-3
+        - misfits-psychic-pain-somnoreguline-4
+        - misfits-psychic-pain-somnoreguline-5
+        - misfits-psychic-pain-somnoreguline-6
+        - misfits-psychic-pain-somnoreguline-7
+      - !type:SpecialStatBoostEffect
+        perceptionBoost: 1
+        intelligenceBoost: 1
+        statusLifetime: 21.5
       - !type:ResetNarcolepsy
         TimerReset: 2700
       - !type:GenericStatusEffect
@@ -486,6 +846,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+        - !type:MobStateCondition
         damage:
           types:
             Poison: 0.30
@@ -503,10 +864,33 @@
   physicalDesc: reagent-physical-desc-powdery
   flavor: bitter
   color: "#d2fffa"
+  plantMetabolism:
+    - !type:PlantAffectGrowth
+      amount: 1
+    - !type:PlantAdjustNutrition
+      amount: -0.35
+    - !type:PlantAdjustHealth
+      amount: -0.15
   metabolisms:
     Medicine:
       metabolismRate: 0.2
       effects:
+      - !type:AmbientDrugFlavorText
+        cooldownId: MisfitsVigilazineAmbient
+        cooldown: 70
+        messageKeys:
+        - misfits-psychic-pain-vigilazine-1
+        - misfits-psychic-pain-vigilazine-2
+        - misfits-psychic-pain-vigilazine-3
+        - misfits-psychic-pain-vigilazine-4
+        - misfits-psychic-pain-vigilazine-5
+        - misfits-psychic-pain-vigilazine-6
+        - misfits-psychic-pain-vigilazine-7
+      - !type:SpecialStatBoostEffect
+        perceptionBoost: 1
+        agilityBoost: 2
+        enduranceBoost: -1
+        statusLifetime: 6.5
       - !type:ResetNarcolepsy
         TimerReset: 600
       - !type:GenericStatusEffect
@@ -519,6 +903,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+        - !type:MobStateCondition
         damage:
           types:
             Poison: 0.50

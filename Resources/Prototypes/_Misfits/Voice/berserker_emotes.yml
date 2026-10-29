@@ -1,0 +1,38 @@
+# #Misfits Add: Berserkermix physical reaction emotes.
+- type: emote
+  id: MisfitsBerserkerFroth
+  name: misfits-emote-name-berserker-froth
+  category: Vocal
+  icon: Interface/Emotes/cough.png
+  available: false
+  chatMessages: [misfits-emote-msg-berserker-froth]
+
+- type: emote
+  id: MisfitsBerserkerTwitch
+  name: misfits-emote-name-berserker-twitch
+  available: false
+  chatMessages: [misfits-emote-msg-berserker-twitch]
+
+- type: emote
+  id: MisfitsBerserkerNeckScratch
+  name: misfits-emote-name-berserker-neck-scratch
+  available: false
+  chatMessages: [misfits-emote-msg-berserker-neck-scratch]
+
+- type: emote
+  id: MisfitsBerserkerSpasm
+  name: misfits-emote-name-berserker-spasm
+  available: false
+  chatMessages: [misfits-emote-msg-berserker-spasm]
+
+- type: emote
+  id: MisfitsBerserkerShudder
+  name: misfits-emote-name-berserker-shudder
+  available: false
+  chatMessages: [misfits-emote-msg-berserker-shudder]
+
+- type: emote
+  id: MisfitsBerserkerShiver
+  name: misfits-emote-name-berserker-shiver
+  available: false
+  chatMessages: [misfits-emote-msg-berserker-shiver]

@@ -129,7 +129,7 @@
   cures:
     # #Misfits Tweak - HealingMixture (Stimpak) for mole rat disease
     - !type:DiseaseReagentCure
-      reagent: HealingMixture
+      reagent: Stimpak
       minAmount: 10.0
     - !type:DiseaseJustWaitCure
       maxDuration: 300.0

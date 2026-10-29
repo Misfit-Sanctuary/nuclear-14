@@ -1,14 +1,4 @@
-﻿# Misfits - tribal / field medicine entities + construction recipes
-#
-#
-# This file intentionally contains entity, construction and constructionGraph prototypes
-# together so the recipes are self-contained.
-#
-# Field medicines intentionally use different administration routes.
-# Ingested remedies use the existing food/reagent route. Topical medicines use
-# the built-in Healing component and require no custom C#.
-
-# Shared base for single-use topical medicines.
+﻿# Shared base for single-use topical medicines.
 - type: stack
   id: MisfitsDaturaHide
   name: datura hide
@@ -97,16 +87,17 @@
   description: A treated binding packed with ground buffalo gourd for venomous bites and severe bleeding.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
-    state: tourniquet
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
+    state: 5,0
   - type: Healing
     damageContainers:
     - Biological
     damage:
       types:
         Poison: -10
+        Radiation: -1
       groups:
-        Brute: 2.5
+        Brute: 0.5
     bloodlossModifier: -10
     delay: 1.5
     healingBeginSound:
@@ -122,13 +113,30 @@
 
 - type: entity
   parent: N14HealingPowder
+  id: MisfitsPowderedHealingSalve
+  name: powdered healing salve
+  description: A dry pouch of ground broc, xander root and agave. Swallowed as a mild healing remedy; gentler than ordinary healing powder.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
+    state: powder2
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: MisfitsHealingSalve
+          Quantity: 25
+  - type: Construction
+    graph: MisfitsPowderedHealingSalve
+    node: powderedhealingsalve
+
+- type: entity
+  parent: DrinkBottlePatron
   id: MisfitsFieryPurgative
   name: fiery purgative
   description: A viciously hot herbal purge used to flush venom and radiation from the body.
   components:
-  - type: Sprite
-    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
-    state: bitterdrink
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -141,7 +149,7 @@
     node: fierypurgative
 
 - type: entity
-  parent: N14HealingPowder
+  parent: N14Antidote
   id: MisfitsBloodShield
   name: blood shield
   description: A bitter herbal mash used to strengthen the body against poison.
@@ -151,17 +159,17 @@
     state: bottle_primitive
   - type: SolutionContainerManager
     solutions:
-      food:
-        maxVol: 15
+      drink:
+        maxVol: 50
         reagents:
         - ReagentId: MisfitsBloodShield
-          Quantity: 15
+          Quantity: 40
   - type: Construction
     graph: MisfitsBloodShield
     node: bloodshield
 
 - type: entity
-  parent: N14HealingPowder
+  parent: N14Antidote
   id: MisfitsPilgrimsRemedy
   name: pilgrim's remedy
   description: A mild wasteland mixture of medicinal roots, fungus and agave intended for long journeys.
@@ -171,11 +179,11 @@
     state: bottle
   - type: SolutionContainerManager
     solutions:
-      food:
-        maxVol: 15
+      drink:
+        maxVol: 50
         reagents:
         - ReagentId: MisfitsPilgrimsRemedy
-          Quantity: 15
+          Quantity: 20
   - type: Construction
     graph: MisfitsPilgrimsRemedy
     node: pilgrimsremedy
@@ -213,7 +221,7 @@
     node: healingsalve
 
 - type: entity
-  parent: N14HealingPowder
+  parent: N14Antidote
   id: MisfitsGravesalt
   name: gravesalt
   description: A harsh pouch of ash, bitter herbs and mineral-rich plant matter used as an emergency poison purge.
@@ -223,11 +231,11 @@
     state: smellingsalts
   - type: SolutionContainerManager
     solutions:
-      food:
-        maxVol: 10
+      drink:
+        maxVol: 30
         reagents:
         - ReagentId: MisfitsGravesalt
-          Quantity: 10
+          Quantity: 20
   - type: Construction
     graph: MisfitsGravesalt
     node: gravesalt
@@ -271,7 +279,7 @@
   startNode: start
   targetNode: fierypurgative
   category: construction-category-medical
-  description: Brew vodka, glowpepper and white horsenettle into a brutal medicinal purge.
+  description: Brew ethanol, glowpepper and white horsenettle into a brutal medicinal purge.
   hide: false
   icon:
     sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
@@ -318,6 +326,20 @@
   icon:
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
     state: ointment1
+  objectType: Item
+
+- type: construction
+  name: powdered healing salve
+  id: MisfitsPowderedHealingSalve
+  graph: MisfitsPowderedHealingSalve
+  startNode: start
+  targetNode: powderedhealingsalve
+  category: construction-category-medical
+  description: A compact pouch of medicinal herbs, prepared as a gentler alternative to tribal healing powder.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    state: healingpowder
   objectType: Item
 
 - type: construction
@@ -479,18 +501,6 @@
   - node: gravesalt
     entity: MisfitsGravesalt
 
-# Misfits - additional field medicine crafting
-#
-# Adds:
-# - Glowing Blood Pack
-# - Herbal Anodyne
-# - Herbal Antimicrobial
-# - Herbal Stimulant
-#
-# Requires the MisfitsEthanolBottle tag introduced by the Fiery Purgative
-# ethanol-bottle crafting update.
-#
-
 # ============================================================================
 # CRAFTED MEDICINE ITEMS
 # ============================================================================
@@ -503,6 +513,9 @@
   name: glowing blood pack
   description: A blood pack treated with irradiated fungus and medical alcohol. It emits a faint, unhealthy glow.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: ivbag-irradiated
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -595,10 +608,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 25
         reagents:
         - ReagentId: MisfitsHerbalStimulant
-          Quantity: 20
+          Quantity: 25
   - type: Construction
     graph: MisfitsHerbalStimulant
     node: herbalstimulant
@@ -748,3 +761,192 @@
         doAfter: 4
   - node: herbalstimulant
     entity: MisfitsHerbalStimulant
+
+- type: constructionGraph
+  id: MisfitsPowderedHealingSalve
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: powderedhealingsalve
+      steps:
+      - material: BrocFlower
+        amount: 2
+      - material: XanderRoot
+        amount: 2
+      - material: AgaveLeaf
+        amount: 2
+        doAfter: 2
+  - node: powderedhealingsalve
+    entity: MisfitsPowderedHealingSalve
+
+
+# ============================================================================
+# NUTRIENT POUltice
+# ============================================================================
+
+- type: entity
+  parent: N14BaseHealingItem
+  id: MisfitsNutrientPoultice
+  name: nutrient poultice
+  description: A thick poultice of nourishing wasteland herbs. Treats starvation injuries and briefly takes the edge off hunger, but cannot replace a meal.
+  components:
+  - type: Tag
+    tags:
+    - Ointment
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: bandaid_both
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      types:
+        Starvation: -25
+    delay: 3
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+    stackType: MisfitsNutrientPoultice
+    count: 1
+  - type: Construction
+    graph: MisfitsNutrientPoultice
+    node: nutrientpoultice
+
+# ============================================================================
+# HYDRATION POULTICE
+# ============================================================================
+
+- type: entity
+  parent: N14BaseHealingItem
+  id: MisfitsHydrationPoultice
+  name: hydration poultice
+  description: A cooling herbal poultice made from agave and banana yucca. Treats dehydration injuries and offers temporary relief from thirst, but cannot replace drinking water.
+  components:
+  - type: Tag
+    tags:
+    - Ointment
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: bandaid
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      types:
+        Dehydration: -25
+    delay: 3
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+    stackType: MisfitsHydrationPoultice
+    count: 1
+  - type: Construction
+    graph: MisfitsHydrationPoultice
+    node: hydrationpoultice
+
+# ============================================================================
+# STACK PROTOTYPES
+# ============================================================================
+
+- type: stack
+  id: MisfitsNutrientPoultice
+  name: nutrient poultice
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: bandaid_both
+  spawn: MisfitsNutrientPoultice
+  maxCount: 10
+  itemSize: 1
+
+- type: stack
+  id: MisfitsHydrationPoultice
+  name: hydration poultice
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: bandaid
+  spawn: MisfitsHydrationPoultice
+  maxCount: 10
+  itemSize: 1
+
+# ============================================================================
+# CONSTRUCTION MENU ENTRIES
+# ============================================================================
+
+- type: construction
+  name: nutrient poultice
+  id: MisfitsNutrientPoultice
+  graph: MisfitsNutrientPoultice
+  startNode: start
+  targetNode: nutrientpoultice
+  category: construction-category-medical
+  description: Prepare a nourishing herbal poultice from agave, tatos and ash to treat starvation.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: bandaid_both
+  objectType: Item
+
+- type: construction
+  name: hydration poultice
+  id: MisfitsHydrationPoultice
+  graph: MisfitsHydrationPoultice
+  startNode: start
+  targetNode: hydrationpoultice
+  category: construction-category-medical
+  description: Prepare a cooling herbal poultice from banana yucca and agave to treat dehydration.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: bandaid
+  objectType: Item
+
+# ============================================================================
+# CONSTRUCTION GRAPHS
+# ============================================================================
+
+- type: constructionGraph
+  id: MisfitsNutrientPoultice
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: nutrientpoultice
+      steps:
+      - material: AgaveLeaf
+        amount: 1
+      - material: WildTato
+        amount: 2
+      - tag: Ash
+        name: ash
+        icon:
+          sprite: Objects/Materials/materials.rsi
+          state: ash
+        doAfter: 3
+  - node: nutrientpoultice
+    entity: MisfitsNutrientPoultice
+
+- type: constructionGraph
+  id: MisfitsHydrationPoultice
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: hydrationpoultice
+      steps:
+      - material: WildBananaYucca
+        amount: 2
+      - material: AgaveLeaf
+        amount: 1
+      - tag: Ash
+        name: ash
+        icon:
+          sprite: Objects/Materials/materials.rsi
+          state: ash
+        doAfter: 3
+  - node: hydrationpoultice
+    entity: MisfitsHydrationPoultice

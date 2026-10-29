@@ -3,67 +3,92 @@
   suffix: N14
   parent: Medkit
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: doctorsbag
   - type: StorageFill
     contents:
-      - id: N14CleanGauze10
-      - id: N14Ointment10
-      - id: N14CleanGauze10
-      - id: N14Stimpak
+    - id: N14CleanGauze10
+    - id: N14Ointment10
+    - id: N14CleanGauze10
+    - id: N14Stimpak
+    - id: MisfitsPowderedHealingSalve
+    - id: MisfitsHealingSalve5
 
 - type: entity
   id: N14MedkitBruteFilled
   suffix: N14
   parent: MedkitBrute
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: brute1
   - type: StorageFill
     contents:
-      - id: N14CleanGauze10
-      - id: N14CleanGauze10
-      - id: Bloodpack
-      - id: PillCanisterIron
+    - id: N14CleanGauze10
+    - id: N14CleanGauze10
+    - id: Bloodpack
+    - id: PillCanisterIron
 
 - type: entity
   id: N14MedkitToxinFilled
   suffix: Filled, N14
   parent: MedkitToxin
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: toxin1
   - type: StorageFill
     contents:
-      - id: N14ChemicalSyringeAntidote
-        amount: 3
-      - id: PillCanisterCharcoal
-        amount: 2
+    - id: N14ChemicalSyringeAntidote
+      amount: 3
+    - id: PillCanisterCharcoal
+      amount: 2
+    - id: MisfitsSnakebiteTourniquet5
+    - id: MisfitsHerbalAntimicrobial5
 
 - type: entity
   id: N14MedkitCombatFilled
   suffix: N14
   parent: MedkitCombat
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: ifak
   - type: StorageFill
     contents:
-      - id: MedicatedSuture
-      - id: N14Stimpak
-      - id: N14ChemicalSyringeAntidote
-      - id: RegenerativeMesh
+    - id: MedicatedSuture
+    - id: N14Stimpak
+    - id: N14ChemicalSyringeAntidote
+    - id: RegenerativeMesh
+    - id: MisfitsHealingSalve5
+    - id: MisfitsGlowingBloodPack
 
 - type: entity
   id: N14MedkitRadiationFilled
   suffix: Filled, N14
   parent: MedkitRadiation
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: radiation1
   - type: StorageFill
     contents:
-      - id: N14RadAwayBloodbag
-        amount: 2
-      - id: N14RadXCanisterFilled
+    - id: N14RadAwayBloodbag
+      amount: 2
+    - id: N14RadXCanisterFilled
+    - id: MisfitsGlowingBloodPack
 
 - type: entity
   id: N14MedkitStimkitFilled
   suffix: Stimkit, N14
   parent: Medkit
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: firstaid4
   - type: StorageFill
     contents:
-      - id: N14Stimpak
-        amount: 3
-      - id: N14SuperStimpak
+    - id: N14Stimpak
+      amount: 3
+    - id: N14SuperStimpak

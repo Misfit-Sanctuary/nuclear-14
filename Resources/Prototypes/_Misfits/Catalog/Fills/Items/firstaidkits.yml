@@ -1,22 +1,4 @@
 # Misfits - filled first aid kits
-#
-# DESIGN:
-# Stimpaks are emergency broad stabilizers.
-# The specialist kits therefore stock the medicine for the actual damage type.
-#
-# BRUTE:
-#   Piercing -> Blood Shield
-#   Slash    -> Healing Salve
-#   Blunt    -> Herbal Anodyne
-#
-# BURN:
-#   Heat     -> Datura Hide
-#   Cold     -> Rushing Water
-#   Shock    -> Clearwake
-#   Caustic  -> Herbal Antimicrobial
-#
-# Existing upstream IDs are referenced unchanged. All new prototype IDs use
-# the Misfits prefix.
 # ============================================================================
 # GENERAL FIRST AID
 # Basic wounds, burns, pain, and routine infection coverage.
@@ -24,10 +6,13 @@
 
 - type: entity
   id: MisfitsMedkitGeneralFilled
-  name: general first aid kit
+  name: doctors bag
   suffix: Filled, Misfits
   parent: Medkit
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: doctorsbag
   - type: StorageFill
     contents:
     - id: N14CleanGauze10
@@ -48,6 +33,9 @@
   suffix: Filled, Misfits
   parent: MedkitBrute
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: brute1
   - type: StorageFill
     contents:
     - id: N14CleanGauze10
@@ -68,6 +56,9 @@
   suffix: Filled, Misfits
   parent: MedkitBurn
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: burn1
   - type: StorageFill
     contents:
     - id: N14Ointment10
@@ -87,6 +78,9 @@
   suffix: Filled, Misfits
   parent: MedkitToxin
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: toxin1
   - type: StorageFill
     contents:
     - id: N14ChemicalSyringeAntidote
@@ -107,6 +101,9 @@
   suffix: Filled, Misfits
   parent: MedkitRadiation
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: radiation1
   - type: StorageFill
     contents:
     - id: N14RadAwayBloodbag
@@ -126,6 +123,9 @@
   suffix: Filled, Misfits
   parent: MedkitCombat
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: ifak
   - type: StorageFill
     contents:
     - id: MedicatedSuture
@@ -146,6 +146,9 @@
   suffix: Filled, Misfits
   parent: MedkitAdvanced
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: firstaid2
   - type: StorageFill
     contents:
     - id: MisfitsPillCanisterAnodyne
@@ -165,6 +168,9 @@
   suffix: Filled, Misfits
   parent: MedkitAdvanced
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: firstaid3
   - type: StorageFill
     contents:
     - id: MisfitsPillCanisterClearhead
@@ -184,6 +190,9 @@
   suffix: Filled, Misfits
   parent: MedkitO2
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: oxygen1
   - type: StorageFill
     contents:
     - id: MisfitsPillCanisterVigilazine
@@ -202,6 +211,9 @@
   suffix: Filled, Misfits
   parent: MedkitToxin
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: firstaid1
   - type: StorageFill
     contents:
     - id: MisfitsPillCanisterAntibiotics
@@ -221,6 +233,9 @@
   suffix: Filled, Misfits
   parent: Medkit
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: leatherbag
   - type: StorageFill
     contents:
     - id: MisfitsHealingSalve10
@@ -240,6 +255,9 @@
   suffix: Filled, Misfits
   parent: MedkitAdvanced
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/storage.rsi
+    state: medbriefcase
   - type: StorageFill
     contents:
     - id: N14SuperStimpak

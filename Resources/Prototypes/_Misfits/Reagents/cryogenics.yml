@@ -20,6 +20,17 @@
     Medicine:
       metabolismRate: 0.15
       effects:
+      - !type:AmbientDrugFlavorText # Misfits seven ambient roleplay messages
+        cooldownId: CryzineMisfitsAmbient
+        cooldown: 55
+        messageKeys:
+        - misfits-chem-cryzine-1
+        - misfits-chem-cryzine-2
+        - misfits-chem-cryzine-3
+        - misfits-chem-cryzine-4
+        - misfits-chem-cryzine-5
+        - misfits-chem-cryzine-6
+        - misfits-chem-cryzine-7
       - !type:TemperatureScaledHealthChange
         warmPoint: 310
         coldPoint: 100
@@ -42,6 +53,17 @@
     Medicine:
       metabolismRate: 0.15
       effects:
+      - !type:AmbientDrugFlavorText # Misfits seven ambient roleplay messages
+        cooldownId: TraumazineMisfitsAmbient
+        cooldown: 55
+        messageKeys:
+        - misfits-chem-traumazine-1
+        - misfits-chem-traumazine-2
+        - misfits-chem-traumazine-3
+        - misfits-chem-traumazine-4
+        - misfits-chem-traumazine-5
+        - misfits-chem-traumazine-6
+        - misfits-chem-traumazine-7
       - !type:TemperatureScaledHealthChange
         warmPoint: 310
         coldPoint: 120
@@ -64,6 +86,17 @@
     Medicine:
       metabolismRate: 0.15
       effects:
+      - !type:AmbientDrugFlavorText # Misfits seven ambient roleplay messages
+        cooldownId: ToxazineMisfitsAmbient
+        cooldown: 55
+        messageKeys:
+        - misfits-chem-toxazine-1
+        - misfits-chem-toxazine-2
+        - misfits-chem-toxazine-3
+        - misfits-chem-toxazine-4
+        - misfits-chem-toxazine-5
+        - misfits-chem-toxazine-6
+        - misfits-chem-toxazine-7
       - !type:TemperatureScaledHealthChange
         warmPoint: 310
         coldPoint: 120
@@ -86,6 +119,17 @@
     Medicine:
       metabolismRate: 0.15
       effects:
+      - !type:AmbientDrugFlavorText # Misfits seven ambient roleplay messages
+        cooldownId: SomalineMisfitsAmbient
+        cooldown: 55
+        messageKeys:
+        - misfits-chem-somaline-1
+        - misfits-chem-somaline-2
+        - misfits-chem-somaline-3
+        - misfits-chem-somaline-4
+        - misfits-chem-somaline-5
+        - misfits-chem-somaline-6
+        - misfits-chem-somaline-7
       - !type:TemperatureScaledHealthChange
         conditions:
         - !type:ReagentThreshold

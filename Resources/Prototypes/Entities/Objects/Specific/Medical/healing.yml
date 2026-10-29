@@ -14,7 +14,7 @@
     price: 0
 
 - type: entity
-  name: ointment
+  name: burngel
   description: Used to treat those nasty burns. Less effective on caustic burns.
   parent: BaseHealingItem
   id: Ointment
@@ -24,19 +24,16 @@
     tags:
     - Ointment
   - type: Sprite
-    state: ointment
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: burngel
   - type: Item
     heldPrefix: ointment
   - type: Healing
     damageContainers:
       - Biological
     damage:
-      types:
-        Heat: -10
-        Cold: -10
-        Shock: -10
-        Caustic: -5 #Was 5 per type & 1.5 caustic, Buffed due to limb damage changes
-    healingBeginSound:
+      group:
+        Burn: 50
       path: "/Audio/Items/Medical/ointment_begin.ogg"
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
@@ -45,6 +42,16 @@
     count: 15 #Was 10, Buffed due to limb damage changes
   - type: StackPrice
     price: 2 # Corvax-Change
+
+- type: stack
+  id: Burngel
+  name: burngel
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: burngel
+  spawn: Ointment
+  maxCount: 15
+  itemSize: 1
 
 - type: entity
   id: Ointment1
@@ -75,9 +82,16 @@
     tags:
     - Ointment
   - type: Sprite
-    state: regenerative-mesh
+    scale: 0.66, 0.66
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
+    state: noidea
   - type: Item
-    heldPrefix: regenerative-mesh
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
+    inhandVisuals:
+      left:
+      - state: noidea_left
+      right:
+      - state: noidea_right
   - type: Healing
     damageContainers:
       - Biological
@@ -107,7 +121,7 @@
     count: 1
 
 - type: entity
-  name: bruise pack
+  name: brutegel
   description: A therapeutic gel pack and bandages designed to treat blunt-force trauma.
   parent: BaseHealingItem
   id: Brutepack
@@ -117,20 +131,21 @@
     tags:
     - Brutepack
   - type: Sprite
-    state: brutepack
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: brutegel
   - type: Healing
     damageContainers:
       - Biological
     damage:
       groups:
-        Brute: -30 # was 5 (-15 Brute) for each, Buffed due to limb damage changes
+        Brute: -40 # was 5 (-15 Brute) for each, Buffed due to limb damage changes
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: Brutepack
-    count: 10 # Forge-Change
+    count: 15 # Forge-Change
   - type: StackPrice
     price: 5 # Corvax-Change
 
@@ -163,7 +178,19 @@
     tags:
     - Brutepack
   - type: Sprite
-    state: medicated-suture
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
+    layers:
+    - state: stitch3
+      map: ["base"]
+  - type: Appearance
+  - type: Stack
+    stackType: MedicatedSuture
+    count: 15
+    baseLayer: base
+    layerStates:
+    - stitch3
+    - stitch2
+    - stitch1
   - type: Item
     heldPrefix: medicated-suture
     storedRotation: -90
@@ -172,15 +199,12 @@
       - Biological
     damage:
       groups:
-        Brute: -45 # was 10 for each, now 20 for each type in the group, Buffed due to Limb Damage Changes
-    bloodlossModifier: -10 # a suture should stop ongoing bleeding
+        Brute: -50 # was 10 for each, now 20 for each type in the group, Buffed due to Limb Damage Changes
+    bloodlossModifier: -20 # a suture should stop ongoing bleeding
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
-  - type: Stack
-    stackType: MedicatedSuture
-    count: 10 # Forge-Change
   - type: StackPrice
     price: 3 # Corvax-Change
 
@@ -204,14 +228,15 @@
     tags:
     - Bloodpack
   - type: Sprite
-    state: bloodpack
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
+    state: ivbag-blood
   - type: Healing
     damageContainers:
       - Biological
     damage:
       types:
-        Bloodloss: -2.5 #lowers bloodloss damage, was .5, buffed due to Limb Damage Changes
-    ModifyBloodLevel: 30 #used to restore 5% blood per use, now restores about 10% blood per use on standard Buffed due to Limb Damage Changes
+        Bloodloss: -15 #lowers bloodloss damage, was .5, buffed due to Limb Damage Changes
+    ModifyBloodLevel: 50 #used to restore 5% blood per use, now restores about 10% blood per use on standard Buffed due to Limb Damage Changes
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
@@ -267,6 +292,7 @@
     tags:
     - Gauze
   - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
     state: gauze
   - type: Construction
     graph: Gauze

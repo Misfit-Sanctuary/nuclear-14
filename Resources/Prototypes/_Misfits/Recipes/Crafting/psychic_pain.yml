@@ -1,9 +1,4 @@
-﻿# Misfits - low-tech pain-treatment entry point
-#
-# Contains the Willowbark consumable entity, construction entry, and graph.
-#
-
-# ============================================================================
+﻿# ============================================================================
 # CONSUMABLE ENTITY
 # ============================================================================
 
@@ -11,11 +6,13 @@
   parent: N14HealingPowder
   id: MisfitsWillowbark
   name: willowbark analgesic
-  description: A bitter pouch of crushed wasteland herbs used to dull persistent pain.
+  description: A bitter tin of crushed wasteland herbs used to dull persistent pain.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
-    state: tin
+    layers:
+    - state: tin
+    - state: tin-fill
   - type: SolutionContainerManager
     solutions:
       food:
@@ -60,7 +57,6 @@
       - material: BrocFlower
       - material: XanderRoot
       - material: AgaveLeaf
-      - material: BrocFlower
         doAfter: 2
 
   - node: willowbark

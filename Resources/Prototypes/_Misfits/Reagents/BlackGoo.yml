@@ -10,7 +10,18 @@
     Medicine:
       metabolismRate: 1.0
       effects:
-        - !type:HealthChange
-          damage:
-           types:
-              Poison: 1
+      - !type:AmbientDrugFlavorText
+        cooldownId: blackgooMisfitsAmbient
+        cooldown: 55
+        messageKeys:
+        - misfits-chem-blackgoo-1
+        - misfits-chem-blackgoo-2
+        - misfits-chem-blackgoo-3
+        - misfits-chem-blackgoo-4
+        - misfits-chem-blackgoo-5
+        - misfits-chem-blackgoo-6
+        - misfits-chem-blackgoo-7
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1

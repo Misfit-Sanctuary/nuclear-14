@@ -677,6 +677,110 @@
     count: 5
   - proto: N14HandheldHealthAnalyzer
     price: 350
+  # Tribal medicines and field remedies
+  - proto: N14HealingPoultice
+    price: 60
+  - proto: N14CleansingPowder
+    price: 25
+  - proto: N14BarkskinPowder
+    price: 75
+  - proto: N14BerserkerPowder
+    price: 80
+  - proto: N14Bitterdrink
+    price: 90
+  - proto: MisfitsWillowbark
+    price: 40
+  - proto: MisfitsDaturaHide5
+    price: 90
+  - proto: MisfitsSnakebiteTourniquet5
+    price: 95
+  - proto: MisfitsHealingSalve5
+    price: 95
+  - proto: MisfitsPowderedHealingSalve
+    price: 80
+  - proto: MisfitsHerbalAnodyne5
+    price: 85
+  - proto: MisfitsHerbalAntimicrobial5
+    price: 90
+  - proto: MisfitsHerbalStimulant
+    price: 85
+  - proto: MisfitsBloodShield
+    price: 100
+  - proto: MisfitsPilgrimsRemedy
+    price: 75
+  - proto: MisfitsFieryPurgative
+    price: 105
+  - proto: MisfitsGravesalt
+    price: 80
+  # General medicine and antidotes
+  - proto: N14DaytripperPill
+    price: 55
+  - proto: MisfitsPillAntibiotics
+    price: 60
+  - proto: MisfitsPillPenicillin
+    price: 65
+  - proto: MisfitsPillPrussianBlue
+    price: 100
+  - proto: MisfitsPillRadShield
+    price: 165
+  - proto: MisfitsPillX111Compound
+    price: 425
+  - proto: MisfitsPillRushingWater
+    price: 120
+  - proto: MisfitsPillRefreshingBeverage
+    price: 340
+  - proto: MisfitsPillClearwake
+    price: 175
+  - proto: MisfitsPillWidowbane
+    price: 115
+  - proto: MisfitsPillCinderSerum
+    price: 115
+  - proto: MisfitsPillLazarusCompound
+    price: 625
+  - proto: MisfitsGlowingBloodPack
+    price: 460
+  # Psychiatric medicines
+  - proto: MisfitsPillClearhead
+    price: 95
+  - proto: MisfitsPillChlorpromazine
+    price: 140
+  - proto: MisfitsPillLucidine
+    price: 200
+  - proto: MisfitsPillPsychocline
+    price: 320
+  - proto: MisfitsPillNeurostatic
+    price: 620
+  # Pain management and anesthetics
+  - proto: MisfitsPillAnodyne
+    price: 100
+  - proto: MisfitsPillAnalgesine
+    price: 160
+  - proto: MisfitsPillNerveblock
+    price: 240
+  - proto: MisfitsPillTraumadol
+    price: 265
+  - proto: MisfitsPillAnesthezine
+    price: 360
+  - proto: MisfitsPillNeuroblock
+    price: 525
+  - proto: MisfitsPillNeuroreguline
+    price: 995
+  # Narcolepsy and wakefulness medicines
+  - proto: MisfitsPillVigilazine
+    price: 140
+  - proto: MisfitsPillWakeguard
+    price: 210
+  - proto: MisfitsPillSomnoreguline
+    price: 555
+  # Scavenged specialist stimulants
+  - proto: MisfitsPillCalmex
+    price: 300
+  - proto: MisfitsPillCrank
+    price: 180
+  - proto: MisfitsPillSkeetoSpit
+    price: 205
+  - proto: MisfitsHelix9Injector
+    price: 750
 
 - type: storeCategoryStructured
   id: CaravanBuy2_Materials

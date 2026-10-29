@@ -15,7 +15,7 @@
 
 - type: moodCategory
   id: JetAddiction
-  
+
 # Psycho
 - type: moodEffect
   id: PsychoBenefit
@@ -31,3 +31,67 @@
 
 - type: moodCategory
   id: PsychoAddiction
+
+# Mentats
+- type: moodEffect
+  id: MentatsBenefit
+  moodChange: 4
+  timeout: 600 # 10 minutes
+  moodletOnEnd: MentatsWithdrawal
+  category: "MentatsAddiction"
+
+# Hydra
+- type: moodEffect
+  id: HydraBenefit
+  moodChange: 4
+  timeout: 600 # 10 minutes
+  moodletOnEnd: HydraWithdrawal
+  category: "HydraAddiction"
+
+# Fury
+- type: moodEffect
+  id: FuryBenefit
+  moodChange: 6
+  timeout: 600 # 10 minutes
+  moodletOnEnd: FuryWithdrawal
+  category: "FuryAddiction"
+
+# Calmex
+- type: moodEffect
+  id: CalmexBenefit
+  moodChange: 4
+  timeout: 600 # 10 minutes
+  moodletOnEnd: CalmexWithdrawal
+  category: "CalmexAddiction"
+
+# Overdrive
+- type: moodEffect
+  id: OverdriveBenefit
+  moodChange: 6
+  timeout: 600 # 10 minutes
+  moodletOnEnd: OverdriveWithdrawal
+  category: "OverdriveAddiction"
+
+# XCell
+- type: moodEffect
+  id: XCellBenefit
+  moodChange: 7
+  timeout: 600 # 10 minutes
+  moodletOnEnd: XCellWithdrawal
+  category: "XCellAddiction"
+
+# Crank
+- type: moodEffect
+  id: CrankBenefit
+  moodChange: 6
+  timeout: 600 # 10 minutes
+  moodletOnEnd: CrankWithdrawal
+  category: "CrankAddiction"
+
+# Berserker (Misfits addition)
+- type: moodEffect
+  id: BerserkermixBenefit
+  moodChange: 6
+  timeout: 600 # 10 minutes
+  moodletOnEnd: BerserkermixWithdrawal
+  category: "BerserkermixAddiction"

@@ -6,38 +6,97 @@
   abstract: true
   id: MisfitsFilingCabinetTimedStorageFill
   components:
-    - type: TimedStorageFill
-      contents:
-        - id: Pen
-          prob: 0.6
-          amount: 1
-          maxAmount: 3
-        - id: PaperOffice
-          prob: 0.7
-          amount: 1
-          maxAmount: 5
-        - id: N14DirtyGauze10
-          prob: 0.15
-        - id: N14SmellingSalts
-          prob: 0.1
-        - id: N14Stimpak
-          prob: 0.03
-        - id: N14RadAwayBloodbag
-          prob: 0.15
-        - id: N14Ethanol
-          prob: 0.05
-        - id: N14CurrencyCap
-          prob: 0.6
-          orGroup: Currency
-          amount: 1
-          maxAmount: 10
-        - id: N14CurrencyPrewar
-          prob: 0.6
-          orGroup: Currency
-          amount: 1
-          maxAmount: 10
-        - id: N14CurrencyNCRDollar
-          prob: 0.6
-          orGroup: Currency
-          amount: 1
-          maxAmount: 10
+  - type: TimedStorageFill
+    contents:
+    # Office supplies
+    - id: Pen
+      prob: 0.6
+      amount: 1
+      maxAmount: 3
+    - id: PaperOffice
+      prob: 0.7
+      amount: 1
+      maxAmount: 5
+
+    # Basic medical supplies
+    - id: N14DirtyGauze10
+      prob: 0.15
+    - id: N14SmellingSalts
+      prob: 0.1
+    - id: N14Stimpak
+      prob: 0.03
+    - id: N14RadAwayBloodbag
+      prob: 0.15
+    - id: N14Ethanol
+      prob: 0.05
+
+    # Misfits - Special medicines
+    - id: MisfitsFieryPurgative
+      prob: 0.05
+    - id: MisfitsBloodShield
+      prob: 0.05
+    - id: MisfitsPilgrimsRemedy
+      prob: 0.05
+    - id: MisfitsGravesalt
+      prob: 0.05
+
+    # Misfits - Herbal medicines
+    - id: MisfitsPowderedHealingSalve
+      prob: 0.08
+
+    # Snakebite tourniquets
+    - id: MisfitsSnakebiteTourniquet3
+      prob: 0.07
+    - id: MisfitsSnakebiteTourniquet5
+      prob: 0.04
+    - id: MisfitsSnakebiteTourniquet10
+      prob: 0.015
+
+    # Datura hide
+    - id: MisfitsDaturaHide3
+      prob: 0.07
+    - id: MisfitsDaturaHide5
+      prob: 0.04
+    - id: MisfitsDaturaHide10
+      prob: 0.015
+
+    # Healing salves
+    - id: MisfitsHealingSalve3
+      prob: 0.08
+    - id: MisfitsHealingSalve5
+      prob: 0.05
+    - id: MisfitsHealingSalve10
+      prob: 0.02
+
+    # Herbal anodynes
+    - id: MisfitsHerbalAnodyne3
+      prob: 0.07
+    - id: MisfitsHerbalAnodyne5
+      prob: 0.04
+    - id: MisfitsHerbalAnodyne10
+      prob: 0.015
+
+    # Herbal antimicrobials
+    - id: MisfitsHerbalAntimicrobial3
+      prob: 0.07
+    - id: MisfitsHerbalAntimicrobial5
+      prob: 0.04
+    - id: MisfitsHerbalAntimicrobial10
+      prob: 0.015
+
+    # Currency
+    - id: N14CurrencyCap
+      prob: 0.6
+      orGroup: Currency
+      amount: 1
+      maxAmount: 10
+    - id: N14CurrencyPrewar
+      prob: 0.6
+      orGroup: Currency
+      amount: 1
+      maxAmount: 10
+    - id: N14CurrencyNCRDollar
+      prob: 0.6
+      orGroup: Currency
+      amount: 1
+      maxAmount: 10

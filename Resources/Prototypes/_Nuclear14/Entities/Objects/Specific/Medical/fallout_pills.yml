@@ -1,12 +1,11 @@
 - type: entity
-  name: rad-x pill
   parent: Pill
   id: N14RadXPill
   description: A pill of Rad-X. It makes you more resistant to radiation.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Objects/Specific/Medical/pills.rsi
-    state: pill5
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    state: radx
   - type: Item
     sprite: _Nuclear14/Objects/Specific/Medical/pills.rsi
   - type: Food
@@ -14,6 +13,8 @@
     transferAmount: null
     eatMessage: food-swallow
     useSound: /Audio/Items/pill.ogg
+  - type: Label
+    currentLabel: rad-x
   - type: SolutionContainerManager
     solutions:
       food:
@@ -28,13 +29,15 @@
     grindableSolutionName: food
 
 - type: entity
-  name: buffout pill
   parent: N14RadXPill
   id: N14BuffoutPill
   description: A pill of Buffout. It makes you stronger, enhances your reflexes, and allows you to endure more.
   components:
   - type: Sprite
-    state: pill1
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    state: buffout
+  - type: Label
+    currentLabel: buffout
   - type: SolutionContainerManager
     solutions:
       food:
@@ -44,13 +47,15 @@
           Quantity: 20
 
 - type: entity
-  name: buffjet pill
   parent: N14RadXPill
   id: N14BuffjetPill
   description: A pill of Buffjet. A potent, if highly addictive, mixture of Buffout and Jet. Providing a boost to physical prowess, heightened reflexes, and a burst of adrenaline.
   components:
   - type: Sprite
-    state: pill5
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    state: buffout
+  - type: Label
+    currentLabel: buffjet
   - type: SolutionContainerManager
     solutions:
       food:
@@ -60,13 +65,15 @@
           Quantity: 20
 
 - type: entity
-  name: bufftats pill
   parent: N14RadXPill
   id: N14BufftatsPill
   description: A pill of Bufftat. A potent, if highly addictive, mixture of Buffout and Mentats. Providing a boost to physical prowess, heightened reflexes, and an increase to perception.
   components:
   - type: Sprite
-    state: pill5
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    state: buffout
+  - type: Label
+    currentLabel: bufftats
   - type: SolutionContainerManager
     solutions:
       food:
@@ -76,13 +83,15 @@
           Quantity: 20
 
 - type: entity
-  name: mentats pill
   parent: N14RadXPill
   id: N14MentatsPill
   description: A pill of Mentat. It makes you mentally sharper.
   components:
   - type: Sprite
-    state: pill4
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    state: mentants
+  - type: Label
+    currentLabel: mentats
   - type: SolutionContainerManager
     solutions:
       food:
@@ -92,13 +101,15 @@
           Quantity: 20
 
 - type: entity
-  name: fixer pill
   parent: N14RadXPill
   id: N14FixerPill
   description: A pill of Fixer. It helps you get over your addictions.
   components:
   - type: Sprite
-    state: pill3
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    state: generic1
+  - type: Label
+    currentLabel: fixer
   - type: SolutionContainerManager
     solutions:
       food:
@@ -108,17 +119,37 @@
           Quantity: 20
 
 - type: entity
-  name: cateye pill
   parent: N14RadXPill
   id: N14CateyePill
   description: A pill of Cateye. It temporarily grants you better low-light vision.
   components:
   - type: Sprite
-    state: pill2
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_drugs.rsi
+    state: cateyes
+  - type: Label
+    currentLabel: cateye
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 20
         reagents:
         - ReagentId: Cateye
-          Quantity: 30 # Forge-Change
+          Quantity: 30
+
+- type: entity
+  parent: N14RadXPill
+  id: N14DaytripperPill
+  description: A pill of Daytripper. Lets you forget all your sorrows.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/ss13_chemical.rsi
+    state: pill_happy
+  - type: Label
+    currentLabel: daytripper
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Daytripper
+          Quantity: 30

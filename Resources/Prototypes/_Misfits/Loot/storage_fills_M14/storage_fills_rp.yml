@@ -374,18 +374,22 @@
           prob: 0.1
           amount: 1
           maxAmount: 1
+          orGroup: Botanical
         - id: RiceSeeds
           prob: 0.1
           amount: 1
           maxAmount: 1
+          orGroup: Botanical
         - id: SugarcaneSeeds
           prob: 0.1
           amount: 1
           maxAmount: 1
+          orGroup: Botanical
         - id: GarlicSeeds
           prob: 0.1
           amount: 1
           maxAmount: 1
+          orGroup: Botanical
 
 
 - type: entity
@@ -1051,57 +1055,6 @@
         - id: N14JunkDuctTape
           prob: 0.05
           orGroup: Junk
-        - id: N14JunkGunpartsAction
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsAdvancedFrame
-          prob: 0.01
-          orGroup: Junk
-        - id: N14JunkGunpartsBarrel
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsBolt
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsFrame
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsFramePistol
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsReceiver
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsRecoilComp
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsRifleFrame
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsRifleScope
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsRifleStock
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsStock
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsStockWood
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsTrigger
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsWeaponParts1
-          prob: 0.01
-          orGroup: Junk
-        - id: N14JunkGunpartsWeaponParts2
-          prob: 0.01
-          orGroup: Junk
-        - id: N14JunkGunpartsWeaponParts3
-          prob: 0.01
-          orGroup: Junk
         - id: N14JunkIron
           prob: 0.05
           orGroup: Junk
@@ -1175,619 +1128,998 @@
           prob: 0.1
           amount: 1
           maxAmount: 1
+          orGroup: Botanical
         - id: RiceSeeds
           prob: 0.1
           amount: 1
           maxAmount: 1
+          orGroup: Botanical
         - id: SugarcaneSeeds
           prob: 0.1
           amount: 1
           maxAmount: 1
+          orGroup: Botanical
         - id: GarlicSeeds
           prob: 0.1
           amount: 1
           maxAmount: 1
+          orGroup: Botanical
 
 - type: entity
   abstract: true
   id: N14BaseSmallLockerStorageFill # Locker items, but only the small stuff
   components:
-    - type: StorageFill
-      contents:
-        - id: Matchbox # Forge-Add
-          prob: 0.05
-        - id: N14Ethanol
-          prob: 0.05
-        - id: Pen
-          prob: 0.04
-        - id: N14Paper1 # #Misfits Change
-          prob: 0.07
-          amount: 1
-          maxAmount: 3
-        - id: MisfitsWendoverMap # #Misfits Add — rare chance to find a Wendover area map in junk piles
-          prob: 0.10
-        - id: N14Binoculars # #Misfits Add — rare binoculars find in junkpiles
-          prob: 0.02
-        - id: N14CombatKnife
-          prob: 0.03
-          orGroup: Tools
-        - id: N14Screwdriver
-          prob: 0.06
-          orGroup: Tools
-        - id: N14Wirecutter
-          prob: 0.06
-          orGroup: Tools
-        - id: N14Wrench
-          prob: 0.06
-          orGroup: Tools
-        - id: JugWeldingFuel
-          prob: 0.025
-          orGroup: Tools
-        - id: PaperOffice
-          prob: 0.04
-          amount: 1
-          maxAmount: 3
-        - id: N14DrinkNukaColaBottleFull
-          prob: 0.05
-          amount: 1
-          maxAmount: 2
-          orGroup: Consumables
-        - id: N14DirtyGauze10
-          prob: 0.05
-          orGroup: Consumables
-        - id: N14SmellingSalts
-          prob: 0.055
-          orGroup: Consumables
-        - id: N14Stimpak
-          prob: 0.02
-          orGroup: Consumables
-        - id: N14RadAwayBloodbag
-          prob: 0.05
-          orGroup: Consumables
-        - id: N14Antidote
-          prob: 0.05
-          orGroup: Consumables
-        - id: Bloodpack
-          prob: 0.05
-          orGroup: Consumables
-        - id: N14ChemicalSyringeAntidote
-          prob: 0.01
-          orGroup: Consumables
-        - id: N14SuperStimpak
-          prob: 0.01
-          orGroup: Consumables
-        - id: N14DrinkIrradiatedNukaColaBottleFull
-          prob: 0.02
-          orGroup: Consumables
-        - id: N14FoodDogfood
-          prob: 0.03
-        - id: N14FoodBubblegum
-          prob: 0.03
-        - id: N14ClothingOuterCoatLeatherDuster
-          prob: 0.12
-          orGroup: Clothing
-        - id: N14ClothingOuterCoatDuster
-          prob: 0.12
-          orGroup: Clothing
-        - id: N14ClothingOuterCoatFollowerLab
-          prob: 0.09
-          orGroup: Clothing
-        - id: N14ClothingOuterBattlecoatTan
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingOuterBattlecoatCoat
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingHeadHatBaseball
-          prob: 0.12
-          orGroup: Clothing
-        - id: N14ClothingHeadHatBandit
-          prob: 0.12
-          orGroup: Clothing
-        - id: N14ClothingShoesJamrock
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingShoesRags
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingShoesRaider
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpskirtFalloutBlack
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpskirtFalloutBlue
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpskirtDressBlack
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpskirtDressBlue
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpskirtSundress
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpskirtWastelandDoc
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpskirtMerc
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpskirtTribal
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpskirtFalloutBlue
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpskirtDressBlack
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpskirtDressBlue
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpskirtSundress
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpskirtWastelandDoc
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpskirtMerc
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpskirtTribal
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitVault
-          prob: 0.05
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitVault14
-          prob: 0.05
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitDetectiveAlt
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitBartenderAlt
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitRags
-          prob: 0.12
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitSettlerRags
-          prob: 0.12
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitCheckered
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitWastelandDoc
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitMerc
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitMerchant
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitTrader
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitCaravan
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitMechanic
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitPreWarRelaxed
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitPreWarCasual
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitManagerSuit
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitPreWarManager
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitBlueSuit
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitPreWarLumberjack
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitCombat
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitBrahminFarmer
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitFollowers
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitCowboyBrown
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingUniformJumpsuitCowboyGrey
-          prob: 0.1
-          orGroup: Clothing
-        - id: N14ClothingBootsCowboy
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingBootsFire
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingEyesGlassesWelding
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingHandsGlovesLeather
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingHandsGlovesDriver
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingHandsGlovesCombat
-          prob: 0.05
-          orGroup: Clothing
-        - id: N14ClothingHandsGlovesNitrile
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingHeadHatArmyBeret
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingMaskRedMask
-          prob: 0.07
-          orGroup: Clothing
-        - id: N14ClothingMaskDesertMask
-          prob: 0.07
-          orGroup: Clothing
+  - type: StorageFill
+    contents:
+    - id: Matchbox     # Forge-Add
+      prob: 0.0275
+    - id: N14Ethanol
+      prob: 0.0275
+    - id: Pen
+      prob: 0.022
+    - id: N14Paper1     # #Misfits Change
+      prob: 0.0385
+      amount: 1
+      maxAmount: 3
+    - id: MisfitsWendoverMap     # #Misfits Add — rare chance to find a Wendover area map in junk piles
+      prob: 0.055
+    - id: N14Binoculars     # #Misfits Add — rare binoculars find in junkpiles
+      prob: 0.02
+    - id: N14CombatKnife
+      prob: 0.035745
+      orGroup: Tools
+    - id: N14Screwdriver
+      prob: 0.071489
+      orGroup: Tools
+    - id: N14Wirecutter
+      prob: 0.071489
+      orGroup: Tools
+    - id: N14Wrench
+      prob: 0.071489
+      orGroup: Tools
+    - id: JugWeldingFuel
+      prob: 0.029787
+      orGroup: Tools
+    - id: PaperOffice
+      prob: 0.022
+      amount: 1
+      maxAmount: 3
+    - id: N14DrinkNukaColaBottleFull
+      prob: 0.029412
+      amount: 1
+      maxAmount: 2
+      orGroup: Consumables
+    - id: N14DrinkIrradiatedNukaColaBottleFull
+      prob: 0.011765
+      orGroup: Consumables
+    - id: N14FoodDogfood
+      prob: 0.0165
+    - id: N14FoodBubblegum
+      prob: 0.0165
+    - id: N14ClothingOuterCoatLeatherDuster
+      prob: 0.005593
+      orGroup: Clothing
+    - id: N14ClothingOuterCoatDuster
+      prob: 0.005593
+      orGroup: Clothing
+    - id: N14ClothingOuterCoatFollowerLab
+      prob: 0.004195
+      orGroup: Clothing
+    - id: N14ClothingOuterBattlecoatTan
+      prob: 0.003263
+      orGroup: Clothing
+    - id: N14ClothingOuterBattlecoatCoat
+      prob: 0.003263
+      orGroup: Clothing
+    - id: N14ClothingHeadHatBaseball
+      prob: 0.005593
+      orGroup: Clothing
+    - id: N14ClothingHeadHatBandit
+      prob: 0.005593
+      orGroup: Clothing
+    - id: N14ClothingShoesJamrock
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingShoesRags
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingShoesRaider
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpskirtFalloutBlack
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpskirtFalloutBlue
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpskirtDressBlack
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpskirtDressBlue
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpskirtSundress
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpskirtWastelandDoc
+      prob: 0.003263
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpskirtMerc
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpskirtTribal
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitVault
+      prob: 0.002331
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitVault14
+      prob: 0.002331
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitDetectiveAlt
+      prob: 0.003263
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitBartenderAlt
+      prob: 0.003263
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitRags
+      prob: 0.005593
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitSettlerRags
+      prob: 0.005593
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitCheckered
+      prob: 0.003263
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitWastelandDoc
+      prob: 0.003263
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitMerc
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitMerchant
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitTrader
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitCaravan
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitMechanic
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitPreWarRelaxed
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitPreWarCasual
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitManagerSuit
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitPreWarManager
+      prob: 0.003263
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitBlueSuit
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitPreWarLumberjack
+      prob: 0.003263
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitCombat
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitBrahminFarmer
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitFollowers
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitCowboyBrown
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingUniformJumpsuitCowboyGrey
+      prob: 0.004661
+      orGroup: Clothing
+    - id: N14ClothingBootsCowboy
+      prob: 0.003263
+      orGroup: Clothing
+    - id: N14ClothingBootsFire
+      prob: 0.003263
+      orGroup: Clothing
+    - id: N14ClothingEyesGlassesWelding
+      prob: 0.003263
+      orGroup: Clothing
+    - id: N14ClothingHandsGlovesLeather
+      prob: 0.003263
+      orGroup: Clothing
+    - id: N14ClothingHandsGlovesDriver
+      prob: 0.003263
+      orGroup: Clothing
+    - id: N14ClothingHandsGlovesCombat
+      prob: 0.002331
+      orGroup: Clothing
+    - id: N14ClothingHandsGlovesNitrile
+      prob: 0.003263
+      orGroup: Clothing
+    - id: N14ClothingHeadHatArmyBeret
+      prob: 0.003263
+      orGroup: Clothing
+    - id: N14ClothingMaskRedMask
+      prob: 0.003263
+      orGroup: Clothing
+    - id: N14ClothingMaskDesertMask
+      prob: 0.003263
+      orGroup: Clothing
         #- id: N14ClothingHeadHatCombatHelmet # Forge-Change
         #  prob: 0.05
-        #  orGroup: Clothing
-        - id: N14ClothingBootsCombat
-          prob: 0.05
-          orGroup: Clothing
-        - id: N14ClothingBootsLeather
-          prob: 0.05
-          orGroup: Clothing
-        - id: Magazine762Rifle
-          prob: 0.07
-          orGroup: Ammunition
-        - id: N14MagazinePistol9mm
-          prob: 0.1
-          orGroup: Ammunition
-        - id: N14MagazinePistol10mm
-          prob: 0.1
-          orGroup: Ammunition
-        - id: N14MagazineSMG10mm
-          prob: 0.07
-          orGroup: Ammunition
-        - id: N14MagazinePistol12mm
-          prob: 0.07
-          orGroup: Ammunition
-        - id: N14MagazineSMG12mm
-          prob: 0.07
-          orGroup: Ammunition
-        - id: N14MagazineShotgun12
-          prob: 0.07
-          orGroup: Ammunition
-        - id: N14MagazineShotgun20
-          prob: 0.07
-          orGroup: Ammunition
-        - id: N14MagazinePistol22lr
-          prob: 0.07
-          orGroup: Ammunition
-        - id: N14MagazinePistol45
-          prob: 0.07
-          orGroup: Ammunition
-        - id: LongMagazine556Rifle
-          prob: 0.07
-          orGroup: Ammunition
-        - id: Magazine556Rifle
-          prob: 0.07
-          orGroup: Ammunition
-        - id: Magazine45SubMachineGun
-          prob: 0.09
-          orGroup: Ammunition
-        # #Misfits Add - rare loose 40mm finds. Other than existing upstream
-        # availability, these variants enter circulation through junk or crafting.
-        - id: 40mmGrenadeFrag
-          prob: 0.0025
-          orGroup: Ammunition
-        - id: 40mmGrenadeFire
-          prob: 0.0025
-          orGroup: Ammunition
-        - id: Misfits40mmGrenadeHEDP
-          prob: 0.0025
-          orGroup: Ammunition
-        - id: Misfits40mmGrenadePulse
-          prob: 0.0025
-          orGroup: Ammunition
-        - id: Misfits40mmGrenadePlasma
-          prob: 0.0025
-          orGroup: Ammunition
-        - id: Misfits40mmGrenadeBuckshot
-          prob: 0.0025
-          orGroup: Ammunition
-        - id: Misfits40mmGrenadeSmoke
-          prob: 0.0025
-          orGroup: Ammunition
-        - id: Misfits40mmGrenadeWhitePhosphorus
-          prob: 0.0025
-          orGroup: Ammunition
-        - id: Misfits40mmGrenadeFlashbang
-          prob: 0.0025
-          orGroup: Ammunition
-        - id: Misfits40mmGrenadeTearGas
-          prob: 0.0025
-          orGroup: Ammunition
-        # #Misfits Add - exceptionally rare, intact grenade finds in junk piles.
-        - id: GrenadeShrapnel
-          prob: 0.005
-          orGroup: Ammunition
-        - id: MisfitsGrenadeFragDefensive
-          prob: 0.005
-          orGroup: Ammunition
-        - id: MisfitsGrenadeImpact
-          prob: 0.005
-          orGroup: Ammunition
-        - id: N14JunkAbraxoCleaner
-          prob: 0.05
-          orGroup: Junk
-        - id: SurgicalSterileWipe #Misfits Add - Sterile wipe; scavengeable low-grade surgical tool sanitizer
-          prob: 0.05
-          orGroup: Junk
-        - id: SurgicalSterilanSpray #Misfits Add - Sterile spray; rarer but more effective surgical tool sanitizer
-          prob: 0.03
-          orGroup: Junk
-        - id: N14Junk8Ball
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkBaseball
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkCoffeepot
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkComponentBoard1
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentBoard2
-          orGroup: Junk
-          prob: 0.08
-        - id: N14JunkComponentBoard3
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentBulb1
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentBulb2
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentBulb3
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentBuzzer
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentCapacitor1
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentCapacitor2
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentCapacitor3
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentDiode1
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentDiode2
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentDiode3
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentFuse1
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentFuse2
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentGearLarge
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkComponentGearSmall
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkComponentIgniter
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentMainboard
-          prob: 0.07
-          orGroup: Junk
-        - id: N14JunkComponentResistor1
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentResistor2
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentResistor3
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentScrew
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkComponentSensor
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentSensorModule
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentSwitch
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentTransistor1
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentTransistor2
-          prob: 0.08
-          orGroup: Junk
-        - id: N14JunkComponentTransistor3
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkCookpot
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkCrutch
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkDuctTape
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkGunpartsAction
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsAdvancedFrame
-          prob: 0.01
-          orGroup: Junk
-        - id: N14JunkGunpartsBarrel
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsBolt
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsFrame
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsFramePistol
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsReceiver
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsRecoilComp
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsRifleFrame
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsRifleScope
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsRifleStock
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsStock
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsStockWood
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsTrigger
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsWeaponParts1
-          prob: 0.01
-          orGroup: Junk
-        - id: N14JunkGunpartsWeaponParts2
-          prob: 0.01
-          orGroup: Junk
-        - id: N14JunkGunpartsWeaponParts3
-          prob: 0.01
-          orGroup: Junk
-        - id: N14JunkIron
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkLunchbox
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkTeapot
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkTimer
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkTincan
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkToaster
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkToyNukaTruck
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkToyRacecar
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkTurpentine
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkVaultCanteen
-          prob: 0.05
-          orGroup: Junk
-        - id: N14JunkWonderglue
-          prob: 0.05
-          orGroup: Junk
-        # #Misfits Change - Extremely rare pipboy (0.5%) and low-chance wasteland scrap headset (2%) for junk pile finds
-        - id: N14Pipboy
-          prob: 0.005
-        # #Misfits Add - Shoddy power armor manual, even rarer than the pipboy (0.1%)
-        - id: WastelandPowerArmor
-          prob: 0.001
-        - id: MisfitsClothingHeadsetWastelandScrap
-          prob: 0.02
-        - id: N14CurrencyCap
-          prob: 1
-          orGroup: Currency
-          amount: 1
-          maxAmount: 25
-        - id: N14CurrencyPrewar
-          prob: 1
-          orGroup: Currency
-          amount: 1
-          maxAmount: 25
-        - id: N14CurrencyNCRDollar
-          prob: 1
-          orGroup: Currency
-          amount: 1
-          maxAmount: 25
+      #  orGroup: Clothing
+    - id: N14ClothingBootsCombat
+      prob: 0.002331
+      orGroup: Clothing
+    - id: N14ClothingBootsLeather
+      prob: 0.002331
+      orGroup: Clothing
+    - id: Magazine762Rifle
+      prob: 0.021748
+      orGroup: Ammunition
+    - id: N14MagazinePistol9mm
+      prob: 0.031068
+      orGroup: Ammunition
+    - id: N14MagazinePistol10mm
+      prob: 0.031068
+      orGroup: Ammunition
+    - id: N14MagazineSMG10mm
+      prob: 0.021748
+      orGroup: Ammunition
+    - id: N14MagazinePistol12mm
+      prob: 0.021748
+      orGroup: Ammunition
+    - id: N14MagazineSMG12mm
+      prob: 0.021748
+      orGroup: Ammunition
+    - id: N14MagazineShotgun12
+      prob: 0.021748
+      orGroup: Ammunition
+    - id: N14MagazineShotgun20
+      prob: 0.021748
+      orGroup: Ammunition
+    - id: N14MagazinePistol22lr
+      prob: 0.021748
+      orGroup: Ammunition
+    - id: N14MagazinePistol45
+      prob: 0.021748
+      orGroup: Ammunition
+    - id: LongMagazine556Rifle
+      prob: 0.021748
+      orGroup: Ammunition
+    - id: Magazine556Rifle
+      prob: 0.021748
+      orGroup: Ammunition
+    - id: Magazine45SubMachineGun
+      prob: 0.027961
+      orGroup: Ammunition
+    # #Misfits Add - rare loose 40mm finds. Other than existing upstream
+    # availability, these variants enter circulation through junk or crafting.
+    - id: 40mmGrenadeFrag
+      prob: 0.0025
+      orGroup: Ammunition
+    - id: 40mmGrenadeFire
+      prob: 0.0025
+      orGroup: Ammunition
+    - id: Misfits40mmGrenadeHEDP
+      prob: 0.0025
+      orGroup: Ammunition
+    - id: Misfits40mmGrenadePulse
+      prob: 0.0025
+      orGroup: Ammunition
+    - id: Misfits40mmGrenadePlasma
+      prob: 0.0025
+      orGroup: Ammunition
+    - id: Misfits40mmGrenadeBuckshot
+      prob: 0.0025
+      orGroup: Ammunition
+    - id: Misfits40mmGrenadeSmoke
+      prob: 0.0025
+      orGroup: Ammunition
+    - id: Misfits40mmGrenadeWhitePhosphorus
+      prob: 0.0025
+      orGroup: Ammunition
+    - id: Misfits40mmGrenadeFlashbang
+      prob: 0.0025
+      orGroup: Ammunition
+    - id: Misfits40mmGrenadeTearGas
+      prob: 0.0025
+      orGroup: Ammunition
+    # #Misfits Add - exceptionally rare, intact grenade finds in junk piles.
+    - id: GrenadeShrapnel
+      prob: 0.005
+      orGroup: Ammunition
+    - id: MisfitsGrenadeFragDefensive
+      prob: 0.005
+      orGroup: Ammunition
+    - id: MisfitsGrenadeImpact
+      prob: 0.005
+      orGroup: Ammunition
+    - id: N14JunkAbraxoCleaner
+      prob: 0.05
+      orGroup: Junk
+    - id: N14Junk8Ball
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkBaseball
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkCoffeepot
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkComponentBoard1
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentBoard2
+      orGroup: Junk
+      prob: 0.08
+    - id: N14JunkComponentBoard3
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentBulb1
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentBulb2
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentBulb3
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentBuzzer
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentCapacitor1
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentCapacitor2
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentCapacitor3
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentDiode1
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentDiode2
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentDiode3
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentFuse1
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentFuse2
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentGearLarge
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkComponentGearSmall
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkComponentIgniter
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentMainboard
+      prob: 0.07
+      orGroup: Junk
+    - id: N14JunkComponentResistor1
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentResistor2
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentResistor3
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentScrew
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkComponentSensor
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentSensorModule
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentSwitch
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentTransistor1
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentTransistor2
+      prob: 0.08
+      orGroup: Junk
+    - id: N14JunkComponentTransistor3
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkCookpot
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkCrutch
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkDuctTape
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkIron
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkLunchbox
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkTeapot
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkTimer
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkTincan
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkToaster
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkToyNukaTruck
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkToyRacecar
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkTurpentine
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkVaultCanteen
+      prob: 0.05
+      orGroup: Junk
+    - id: N14JunkWonderglue
+      prob: 0.05
+      orGroup: Junk
+    # #Misfits Change - Extremely rare pipboy (0.5%) and low-chance wasteland scrap headset (2%) for junk pile finds
+    - id: N14Pipboy
+      prob: 0.005
+    # #Misfits Add - Shoddy power armor manual, even rarer than the pipboy (0.1%)
+    - id: WastelandPowerArmor
+      prob: 0.001
+    - id: MisfitsClothingHeadsetWastelandScrap
+      prob: 0.02
+    - id: N14CurrencyCap
+      prob: 1
+      orGroup: Currency
+      amount: 1
+      maxAmount: 25
+    - id: N14CurrencyPrewar
+      prob: 1
+      orGroup: Currency
+      amount: 1
+      maxAmount: 25
+    - id: N14CurrencyNCRDollar
+      prob: 1
+      orGroup: Currency
+      amount: 1
+      maxAmount: 25
       #Foodstuff
-        - id: N14ReagentContainerRice
-          prob: 0.1
-          orGroup: Consumables
-          amount: 1
-          maxAmount: 1
-        - id: N14ReagentContainerFlour
-          prob: 0.1
-          orGroup: Consumables
-          amount: 1
-          maxAmount: 1
-        - id: N14ReagentContainerSugar
-          prob: 0.1
-          orGroup: Consumables
-          amount: 1
-          maxAmount: 1
-        - id: MisfitsItemRaiserCan
-          prob: 0.1
-          orGroup: Consumables
-          amount: 1
-          maxAmount: 1
-        - id: CocoaSeeds
-          prob: 0.1
-          amount: 1
-          maxAmount: 1
-        - id: RiceSeeds
-          prob: 0.1
-          amount: 1
-          maxAmount: 1
-        - id: SugarcaneSeeds
-          prob: 0.1
-          amount: 1
-          maxAmount: 1
-        - id: GarlicSeeds
-          prob: 0.1
-          amount: 1
-          maxAmount: 1
+    - id: N14ReagentContainerRice
+      prob: 0.058824
+      orGroup: Consumables
+      amount: 1
+      maxAmount: 1
+    - id: N14ReagentContainerFlour
+      prob: 0.058824
+      orGroup: Consumables
+      amount: 1
+      maxAmount: 1
+    - id: N14ReagentContainerSugar
+      prob: 0.058824
+      orGroup: Consumables
+      amount: 1
+      maxAmount: 1
+    - id: MisfitsItemRaiserCan
+      prob: 0.058824
+      orGroup: Consumables
+      amount: 1
+      maxAmount: 1
+    - id: CocoaSeeds
+      prob: 0.055
+      amount: 1
+      maxAmount: 1
+      orGroup: Botanical
+    - id: RiceSeeds
+      prob: 0.055
+      amount: 1
+      maxAmount: 1
+      orGroup: Botanical
+    - id: SugarcaneSeeds
+      prob: 0.055
+      amount: 1
+      maxAmount: 1
+      orGroup: Botanical
+    - id: GarlicSeeds
+      prob: 0.055
+      amount: 1
+      maxAmount: 1
+      orGroup: Botanical
+    # ======================================================================
+    #                              MISFITS MEDICINE
+    # ======================================================================
+    - id: MisfitsPillAntibiotics
+      prob: 0.012
+      orGroup: MisfitsMedical
+    - id: MisfitsPillRadShield
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillRushingWater
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillBloodShield
+      prob: 0.012
+      orGroup: MisfitsMedical
+    - id: MisfitsPillFieryPurgative
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillRefreshingBeverage
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillHerbalStimulant
+      prob: 0.012
+      orGroup: MisfitsMedical
+    - id: MisfitsPillSkeetoSpit
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillPenicillin
+      prob: 0.012
+      orGroup: MisfitsMedical
+    - id: MisfitsPillPrussianBlue
+      prob: 0.012
+      orGroup: MisfitsMedical
+    - id: MisfitsPillPilgrimsRemedy
+      prob: 0.012
+      orGroup: MisfitsMedical
+    - id: MisfitsPillFury
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCalmex
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillOverdrive
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCrank
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillLazarusCompound
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillClearwake
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillWidowbane
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCinderSerum
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillGravesalt
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillClearhead
+      prob: 0.012
+      orGroup: MisfitsMedical
+    - id: MisfitsPillChlorpromazine
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillLucidine
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillPsychocline
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillNeurostatic
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillWillowbark
+      prob: 0.012
+      orGroup: MisfitsMedical
+    - id: MisfitsPillAnodyne
+      prob: 0.012
+      orGroup: MisfitsMedical
+    - id: MisfitsPillAnalgesine
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillNerveblock
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillTraumadol
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillAnesthezine
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillNeuroblock
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillNeuroreguline
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsPillVigilazine
+      prob: 0.012
+      orGroup: MisfitsMedical
+    - id: MisfitsPillWakeguard
+      prob: 0.012
+      orGroup: MisfitsMedical
+    - id: MisfitsPillSomnoreguline
+      prob: 0.012
+      orGroup: MisfitsMedical
+    # ======================================================================
+    #                          MISFITS MEDICINE
+    # ======================================================================
+    - id: MisfitsPillCanisterAntibiotics
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterRadShield
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterX111Compound
+      prob: 0.001
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterRushingWater
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterBloodShield
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterFieryPurgative
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterRefreshingBeverage
+      prob: 0.001
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterHerbalStimulant
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterSkeetoSpit
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterPenicillin
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterPrussianBlue
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterPilgrimsRemedy
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterFury
+      prob: 0.001
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterCalmex
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterOverdrive
+      prob: 0.001
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterXCell
+      prob: 0.001
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterCrank
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterLazarusCompound
+      prob: 0.001
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterClearwake
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterWidowbane
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterCinderSerum
+      prob: 0.001
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterGravesalt
+      prob: 0.001
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterClearhead
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterChlorpromazine
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterLucidine
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterPsychocline
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterNeurostatic
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterWillowbark
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterAnodyne
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterAnalgesine
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterNerveblock
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterTraumadol
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterAnesthezine
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterNeuroblock
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterNeuroreguline
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterVigilazine
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterWakeguard
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsPillCanisterSomnoreguline
+      prob: 0.003
+      orGroup: MisfitsMedical
+    # ======================================================================
+    #                               MISFITS MEDICINE
+    # ======================================================================
+    - id: MisfitsDaturaHide
+      prob: 0.017
+      orGroup: MisfitsMedical
+    - id: MisfitsDaturaHide3
+      prob: 0.01
+      orGroup: MisfitsMedical
+    - id: MisfitsDaturaHide5
+      prob: 0.007
+      orGroup: MisfitsMedical
+    - id: MisfitsDaturaHide10
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsSnakebiteTourniquet
+      prob: 0.017
+      orGroup: MisfitsMedical
+    - id: MisfitsSnakebiteTourniquet3
+      prob: 0.01
+      orGroup: MisfitsMedical
+    - id: MisfitsSnakebiteTourniquet5
+      prob: 0.007
+      orGroup: MisfitsMedical
+    - id: MisfitsSnakebiteTourniquet10
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsHealingSalve
+      prob: 0.017
+      orGroup: MisfitsMedical
+    - id: MisfitsHealingSalve3
+      prob: 0.01
+      orGroup: MisfitsMedical
+    - id: MisfitsHealingSalve5
+      prob: 0.007
+      orGroup: MisfitsMedical
+    - id: MisfitsHealingSalve10
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsHerbalAnodyne
+      prob: 0.017
+      orGroup: MisfitsMedical
+    - id: MisfitsHerbalAnodyne3
+      prob: 0.01
+      orGroup: MisfitsMedical
+    - id: MisfitsHerbalAnodyne5
+      prob: 0.007
+      orGroup: MisfitsMedical
+    - id: MisfitsHerbalAnodyne10
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsHerbalAntimicrobial
+      prob: 0.017
+      orGroup: MisfitsMedical
+    - id: MisfitsHerbalAntimicrobial3
+      prob: 0.01
+      orGroup: MisfitsMedical
+    - id: MisfitsHerbalAntimicrobial5
+      prob: 0.007
+      orGroup: MisfitsMedical
+    - id: MisfitsHerbalAntimicrobial10
+      prob: 0.003
+      orGroup: MisfitsMedical
+    # ======================================================================
+    #                             MISFITS MEDICINE
+    # ======================================================================
+    - id: MisfitsMedkitGeneralFilled
+      prob: 0.012
+      orGroup: MisfitsMedical
+    - id: MisfitsMedkitTraumaFilled
+      prob: 0.004
+      orGroup: MisfitsMedical
+    - id: MisfitsMedkitBurnFilled
+      prob: 0.004
+      orGroup: MisfitsMedical
+    - id: MisfitsMedkitToxinFilled
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsMedkitRadiationFilled
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsMedkitCombatFilled
+      prob: 0.001
+      orGroup: MisfitsMedical
+    - id: MisfitsMedkitPainManagementFilled
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsMedkitPsychiatricFilled
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsMedkitNarcolepsyFilled
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsMedkitInfectionFilled
+      prob: 0.004
+      orGroup: MisfitsMedical
+    - id: MisfitsMedkitFieldFilled
+      prob: 0.004
+      orGroup: MisfitsMedical
+    - id: MisfitsMedkitAdvancedEmergencyFilled
+      prob: 0.0007
+      orGroup: MisfitsMedical
+    # ======================================================================
+    #                          MISFITS MEDICINE
+    # ======================================================================
+    - id: MisfitsMakeshiftRepairPatch
+      prob: 0.012
+      orGroup: MisfitsMedical
+    - id: MisfitsMakeshiftRepairPatch5
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsMakeshiftRepairPatch8
+      prob: 0.001
+      orGroup: MisfitsMedical
+    - id: MisfitsReinforcedPlatingPatch
+      prob: 0.006
+      orGroup: MisfitsMedical
+    - id: MisfitsReinforcedPlatingPatch5
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: MisfitsReinforcedPlatingPatch8
+      prob: 0.0008
+      orGroup: MisfitsMedical
+    - id: MisfitsInsulationPatch
+      prob: 0.012
+      orGroup: MisfitsMedical
+    - id: MisfitsInsulationPatch5
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsInsulationPatch8
+      prob: 0.001
+      orGroup: MisfitsMedical
+    - id: MisfitsAdvancedRepairPatch
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: MisfitsAdvancedRepairPatch5
+      prob: 0.001
+      orGroup: MisfitsMedical
+    - id: MisfitsAdvancedRepairPatch8
+      prob: 0.0003
+      orGroup: MisfitsMedical
+    # ============================================================
+    # MISFITS MEDICAL - SURGICAL TOOLS
+    # ============================================================
+    - id: N14ScalpelRusted
+      prob: 0.014
+      orGroup: MisfitsMedical
+    - id: N14HemostatRusted
+      prob: 0.014
+      orGroup: MisfitsMedical
+    - id: N14RetractorRusted
+      prob: 0.010
+      orGroup: MisfitsMedical
+    - id: N14CauteryRust
+      prob: 0.009
+      orGroup: MisfitsMedical
+    - id: N14BonesetterRusted
+      prob: 0.007
+      orGroup: MisfitsMedical
+    - id: N14DrillRusted
+      prob: 0.004
+      orGroup: MisfitsMedical
+    - id: N14SawElectricRusted
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: N14Scalpel
+      prob: 0.005
+      orGroup: MisfitsMedical
+    - id: N14Hemostat
+      prob: 0.005
+      orGroup: MisfitsMedical
+    - id: N14Retractor
+      prob: 0.004
+      orGroup: MisfitsMedical
+    - id: N14Cautery
+      prob: 0.004
+      orGroup: MisfitsMedical
+    - id: N14Bonesetter
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: N14Drill
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: N14SawElectric
+      prob: 0.001
+      orGroup: MisfitsMedical
+    - id: N14BoneGel
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: N14BioMedGel
+      prob: 0.002
+      orGroup: MisfitsMedical
+    - id: SurgicalSterileWipe
+      prob: 0.008
+      orGroup: MisfitsMedical
+    - id: SurgicalSterilanSpray
+      prob: 0.003
+      orGroup: MisfitsMedical
+    - id: N14DirtyGauze10
+      prob: 0.029412
+      orGroup: MisfitsMedical
+    - id: N14SmellingSalts
+      prob: 0.032353
+      orGroup: MisfitsMedical
+    - id: N14Stimpak
+      prob: 0.011765
+      orGroup: MisfitsMedical
+    - id: N14RadAwayBloodbag
+      prob: 0.029412
+      orGroup: MisfitsMedical
+    - id: N14Antidote
+      prob: 0.029412
+      orGroup: MisfitsMedical
+    - id: Bloodpack
+      prob: 0.029412
+      orGroup: MisfitsMedical
+    - id: N14ChemicalSyringeAntidote
+      prob: 0.005882
+      orGroup: MisfitsMedical
+    - id: N14SuperStimpak
+      prob: 0.005882
+      orGroup: MisfitsMedical
+
+    - id: N14EmptySlot
+      prob: 0.9549
+      orGroup: MisfitsMedical
+    - id: N14EmptySlot
+      prob: 0.72
+      orGroup: Tools
+    - id: N14EmptySlot
+      prob: 0.55
+      orGroup: Consumables
+    - id: N14EmptySlot
+      prob: 0.78
+      orGroup: Clothing
+    - id: N14EmptySlot
+      prob: 0.68
+      orGroup: Ammunition
+    - id: N14EmptySlot
+      prob: 0.76
+      orGroup: Junk
+    - id: N14EmptySlot
+      prob: 0.4
+      orGroup: Currency
+
 
 - type: entity
   abstract: true
@@ -2082,57 +2414,6 @@
         - id: N14JunkDuctTape
           prob: 0.05
           orGroup: Junk
-        - id: N14JunkGunpartsAction
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsAdvancedFrame
-          prob: 0.01
-          orGroup: Junk
-        - id: N14JunkGunpartsBarrel
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsBolt
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsFrame
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsFramePistol
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsReceiver
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsRecoilComp
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsRifleFrame
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsRifleScope
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsRifleStock
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsStock
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsStockWood
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsTrigger
-          prob: 0.03
-          orGroup: Junk
-        - id: N14JunkGunpartsWeaponParts1
-          prob: 0.01
-          orGroup: Junk
-        - id: N14JunkGunpartsWeaponParts2
-          prob: 0.01
-          orGroup: Junk
-        - id: N14JunkGunpartsWeaponParts3
-          prob: 0.01
-          orGroup: Junk
         - id: N14JunkIron
           prob: 0.05
           orGroup: Junk
@@ -2206,18 +2487,22 @@
           prob: 0.1
           amount: 1
           maxAmount: 1
+          orGroup: Botanical
         - id: RiceSeeds
           prob: 0.1
           amount: 1
           maxAmount: 1
+          orGroup: Botanical
         - id: SugarcaneSeeds
           prob: 0.1
           amount: 1
           maxAmount: 1
+          orGroup: Botanical
         - id: GarlicSeeds
           prob: 0.1
           amount: 1
           maxAmount: 1
+          orGroup: Botanical
 
 - type: entity
   abstract: true
@@ -2603,97 +2888,432 @@
           orGroup: Consumables
           amount: 1
           maxAmount: 1
-
 - type: entity
   abstract: true
   id: N14StorageFillMedical # Medical items
   components:
-    - type: StorageFill
-      contents:
-        - id: GeigerCounter
-          prob: 0.02
-        - id: N14DirtyGauze10
-          prob: 0.055
-          amount: 1
-          maxAmount: 2
-        - id: Bloodpack
-          prob: 0.055
-        - id: N14Ethanol
-          prob: 0.055
-        - id: N14ChemicalSyringeAntidote
-          prob: 0.095
-          amount: 1
-          maxAmount: 2
-          orGroup: MedicalRare
-        - id: N14Stimpak
-          prob: 0.07
-          amount: 1
-          maxAmount: 3
-        - id: N14Antidote
-          prob: 0.07
-        - id: N14ChemicalSyringeAntidote
-          prob: 0.07
-          amount: 1
-          maxAmount: 2
-          orGroup: MedicalRare
-        - id: N14Jet
-          prob: 0.07
-          orGroup: MedicalRare
-        - id: N14Med-X
-          prob: 0.07
-          orGroup: MedicalRare
-        - id: N14Turbo
-          prob: 0.07
-          orGroup: MedicalRare
-        - id: N14DoctorSyringe
-          prob: 0.09
-        - id: N14StimpakDirty
-          prob: 0.09
-          amount: 1
-          maxAmount: 2
-        - id: N14Psycho
-          prob: 0.07
-          orGroup: MedicalRare
-        - id: N14RadAwayBloodbag
-          prob: 0.09
-          amount: 1
-          maxAmount: 2
-        - id: N14Traumapack
-          prob: 0.05
-        - id: Brutepack
-          prob: 0.07
-        - id: N14Ointment10
-          prob: 0.07
-        - id: Bloodpack
-          prob: 0.09
-        - id: N14SmellingSalts
-          prob: 0.07
-          amount: 1
-          maxAmount: 2
-        - id: N14SuperStimpak
-          prob: 0.05
-          orGroup: MedicalRare
-        - id: N14BuffoutCanisterFilled
-          prob: 0.07
-          orGroup: MedicalRare
-        - id: N14FixerCanisterFilled
-          prob: 0.07
-          orGroup: MedicalRare
-        - id: N14CateyeCanisterFilled
-          prob: 0.07
-          orGroup: MedicalRare
-        - id: N14RadXCanisterFilled
-          prob: 0.09
-          orGroup: MedicalRare
-        - id: N14MentatsCanisterFilled
-          prob: 0.07
-          orGroup: MedicalRare
-        - id: N14FloraProduceWildCaveFungus
-          prob: 0.05
-          orGroup: Seeds
-        - id: N14FloraProduceWildCaveFungusRad
-          prob: 0.05
-          orGroup: Seeds
+  - type: StorageFill
+    contents:
+    # Independent, extra exploration find (2%).
+    - id: GeigerCounter
+      prob: 0.02
+    # ===========================================================
+    # COMMON MEDICAL SUPPLIES
+    # 70% to find one item; gauze, field medicine, common treatments.
+    # ===========================================================
+    - id: N14DirtyGauze10
+      prob: 0.066668
+      amount: 1
+      maxAmount: 2
+      orGroup: Medical
+    - id: N14CleanGauze10
+      prob: 0.044444
+      orGroup: Medical
+    - id: N14StimpakDirty
+      prob: 0.05
+      amount: 1
+      maxAmount: 2
+      orGroup: Medical
+    - id: N14Ethanol
+      prob: 0.038889
+      orGroup: Medical
+    - id: Bloodpack
+      prob: 0.033333
+      orGroup: Medical
+    - id: N14Stimpak
+      prob: 0.033333
+      amount: 1
+      maxAmount: 2
+      orGroup: Medical
+    - id: N14Antidote
+      prob: 0.033333
+      orGroup: Medical
+    - id: N14DoctorSyringe
+      prob: 0.027778
+      orGroup: Medical
+    - id: N14RadAwayBloodbag
+      prob: 0.027778
+      orGroup: Medical
+    - id: N14Traumapack
+      prob: 0.027778
+      orGroup: Medical
+    - id: Brutepack
+      prob: 0.033333
+      orGroup: Medical
+    - id: N14Ointment10
+      prob: 0.044444
+      orGroup: Medical
+    - id: N14SmellingSalts
+      prob: 0.033333
+      amount: 1
+      maxAmount: 2
+      orGroup: Medical
+    - id: MisfitsHealingSalve3
+      prob: 0.038889
+      orGroup: Medical
+    - id: MisfitsHealingSalve5
+      prob: 0.016667
+      orGroup: Medical
+    - id: MisfitsHerbalAnodyne3
+      prob: 0.033333
+      orGroup: Medical
+    - id: MisfitsHerbalAntimicrobial3
+      prob: 0.033333
+      orGroup: Medical
+    - id: MisfitsSnakebiteTourniquet3
+      prob: 0.027778
+      orGroup: Medical
+    - id: MisfitsDaturaHide3
+      prob: 0.027778
+      orGroup: Medical
+    - id: SurgicalSterileWipe
+      prob: 0.027778
+      orGroup: Medical
+    - id: N14EmptySlot
+      prob: 0.3
+      orGroup: Medical
+    # ===========================================================
+    # SPECIALIST MEDICINE / CHEMS
+    # 18% to find one. Controlled drugs and specialty treatments.
+    # ===========================================================
+    - id: N14ChemicalSyringeAntidote
+      prob: 0.027122
+      amount: 1
+      maxAmount: 2
+      orGroup: MedicalRare
+    - id: N14Jet
+      prob: 0.01726
+      orGroup: MedicalRare
+    - id: N14Med-X
+      prob: 0.01726
+      orGroup: MedicalRare
+    - id: N14Turbo
+      prob: 0.012329
+      orGroup: MedicalRare
+    - id: N14Psycho
+      prob: 0.012329
+      orGroup: MedicalRare
+    - id: N14SuperStimpak
+      prob: 0.01726
+      orGroup: MedicalRare
+    - id: MisfitsGlowingBloodPack
+      prob: 0.022192
+      orGroup: MedicalRare
+    - id: MisfitsFieryPurgative
+      prob: 0.012329
+      orGroup: MedicalRare
+    - id: MisfitsBloodShield
+      prob: 0.014795
+      orGroup: MedicalRare
+    - id: MisfitsPilgrimsRemedy
+      prob: 0.014795
+      orGroup: MedicalRare
+    - id: MisfitsGravesalt
+      prob: 0.012329
+      orGroup: MedicalRare
+    - id: N14EmptySlot
+      prob: 0.82
+      orGroup: MedicalRare
+
+    # ===========================================================
+    # SURGICAL TOOLS / STERILIZATION
+    # 12% to find one. The complete surgical duffel bag is exceptionally rare.
+    # ===========================================================
+    - id: N14ScalpelRusted
+      prob: 0.014847
+      orGroup: Surgery
+    - id: N14HemostatRusted
+      prob: 0.014845
+      orGroup: Surgery
+    - id: N14RetractorRusted
+      prob: 0.012371
+      orGroup: Surgery
+    - id: N14CauteryRust
+      prob: 0.011134
+      orGroup: Surgery
+    - id: N14BonesetterRusted
+      prob: 0.009897
+      orGroup: Surgery
+    - id: N14DrillRusted
+      prob: 0.006186
+      orGroup: Surgery
+    - id: N14SawElectricRusted
+      prob: 0.002474
+      orGroup: Surgery
+    - id: N14Scalpel
+      prob: 0.006186
+      orGroup: Surgery
+    - id: N14Hemostat
+      prob: 0.006186
+      orGroup: Surgery
+    - id: N14Retractor
+      prob: 0.004948
+      orGroup: Surgery
+    - id: N14Cautery
+      prob: 0.004948
+      orGroup: Surgery
+    - id: N14Bonesetter
+      prob: 0.003711
+      orGroup: Surgery
+    - id: N14Drill
+      prob: 0.003711
+      orGroup: Surgery
+    - id: N14SawElectric
+      prob: 0.001237
+      orGroup: Surgery
+    - id: N14BoneGel
+      prob: 0.003711
+      orGroup: Surgery
+    - id: N14BioMedGel
+      prob: 0.003711
+      orGroup: Surgery
+    - id: SurgicalSterilanSpray
+      prob: 0.00866
+      orGroup: Surgery
+    - id: ClothingBackpackDuffelSurgeryFilled
+      prob: 0.001237
+      orGroup: Surgery
+    - id: N14EmptySlot
+      prob: 0.88
+      orGroup: Surgery
+    # ===========================================================
+    # FILLED MEDICAL KITS
+    # 6% to find one. Nuclear 14 and Misfits specialized medkits.
+    # ===========================================================
+    - id: N14MedkitFilled
+      prob: 0.007928
+      orGroup: Medkits
+    - id: N14MedkitBruteFilled
+      prob: 0.005094
+      orGroup: Medkits
+    - id: N14MedkitToxinFilled
+      prob: 0.003962
+      orGroup: Medkits
+    - id: N14MedkitCombatFilled
+      prob: 0.002264
+      orGroup: Medkits
+    - id: N14MedkitRadiationFilled
+      prob: 0.00283
+      orGroup: Medkits
+    - id: N14MedkitStimkitFilled
+      prob: 0.001698
+      orGroup: Medkits
+    - id: MisfitsMedkitGeneralFilled
+      prob: 0.006792
+      orGroup: Medkits
+    - id: MisfitsMedkitTraumaFilled
+      prob: 0.005094
+      orGroup: Medkits
+    - id: MisfitsMedkitBurnFilled
+      prob: 0.003396
+      orGroup: Medkits
+    - id: MisfitsMedkitToxinFilled
+      prob: 0.003396
+      orGroup: Medkits
+    - id: MisfitsMedkitRadiationFilled
+      prob: 0.002264
+      orGroup: Medkits
+    - id: MisfitsMedkitCombatFilled
+      prob: 0.002264
+      orGroup: Medkits
+    - id: MisfitsMedkitPainManagementFilled
+      prob: 0.001698
+      orGroup: Medkits
+    - id: MisfitsMedkitPsychiatricFilled
+      prob: 0.001698
+      orGroup: Medkits
+    - id: MisfitsMedkitNarcolepsyFilled
+      prob: 0.001698
+      orGroup: Medkits
+    - id: MisfitsMedkitInfectionFilled
+      prob: 0.003396
+      orGroup: Medkits
+    - id: MisfitsMedkitFieldFilled
+      prob: 0.003962
+      orGroup: Medkits
+    - id: MisfitsMedkitAdvancedEmergencyFilled
+      prob: 0.000566
+      orGroup: Medkits
+    - id: N14EmptySlot
+      prob: 0.94
+      orGroup: Medkits
+    # ===========================================================
+    # FILLED PILL CANISTERS
+    # 15% to find one. Nuclear 14 and Misfits medicines, strong ones are rarer.
+    # ===========================================================
+    - id: N14BuffoutCanisterFilled
+      prob: 0.003495
+      orGroup: PillCanisters
+    - id: N14FixerCanisterFilled
+      prob: 0.004907
+      orGroup: PillCanisters
+    - id: N14CateyeCanisterFilled
+      prob: 0.003505
+      orGroup: PillCanisters
+    - id: N14RadXCanisterFilled
+      prob: 0.004907
+      orGroup: PillCanisters
+    - id: N14MentatsCanisterFilled
+      prob: 0.004206
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterAntibiotics
+      prob: 0.006308
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterPenicillin
+      prob: 0.005607
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterRadShield
+      prob: 0.004206
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterRushingWater
+      prob: 0.003505
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterBloodShield
+      prob: 0.004907
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterFieryPurgative
+      prob: 0.003505
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterRefreshingBeverage
+      prob: 0.001402
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterHerbalStimulant
+      prob: 0.005607
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterSkeetoSpit
+      prob: 0.004206
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterPrussianBlue
+      prob: 0.004206
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterPilgrimsRemedy
+      prob: 0.004907
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterCalmex
+      prob: 0.002804
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterOverdrive
+      prob: 0.002103
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterCrank
+      prob: 0.002804
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterClearwake
+      prob: 0.004206
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterWidowbane
+      prob: 0.003505
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterGravesalt
+      prob: 0.002804
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterClearhead
+      prob: 0.004907
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterChlorpromazine
+      prob: 0.003505
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterLucidine
+      prob: 0.002804
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterPsychocline
+      prob: 0.002103
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterNeurostatic
+      prob: 0.002103
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterWillowbark
+      prob: 0.006308
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterAnodyne
+      prob: 0.004907
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterAnalgesine
+      prob: 0.004206
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterNerveblock
+      prob: 0.002103
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterTraumadol
+      prob: 0.004206
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterAnesthezine
+      prob: 0.002103
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterNeuroblock
+      prob: 0.002103
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterNeuroreguline
+      prob: 0.002103
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterVigilazine
+      prob: 0.004206
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterWakeguard
+      prob: 0.004206
+      orGroup: PillCanisters
+    - id: MisfitsPillCanisterSomnoreguline
+      prob: 0.002804
+      orGroup: PillCanisters
+    - id: N14EmptySlot
+      prob: 0.85
+      orGroup: PillCanisters
+    # ===========================================================
+    # MEDICINAL INGREDIENTS
+    # 40% to find one. Medicinal flora and Wonderglue.
+    # ===========================================================
+    - id: N14FloraProduceWildCaveFungus
+      prob: 0.037288
+      orGroup: Ingredients
+    - id: N14FloraProduceWildCaveFungusRad
+      prob: 0.010169
+      orGroup: Ingredients
+    - id: N14FloraProduceWildBrocFlower
+      prob: 0.037288
+      orGroup: Ingredients
+    - id: N14FloraProduceWildXander
+      prob: 0.033898
+      orGroup: Ingredients
+    - id: N14FloraProduceWildDaturaFlower
+      prob: 0.016949
+      orGroup: Ingredients
+    - id: N14FloraProduceWildBuffaloGourd
+      prob: 0.027119
+      orGroup: Ingredients
+    - id: N14FloraProduceWildWhiteHorsenettle
+      prob: 0.023729
+      orGroup: Ingredients
+    - id: N14FloraProduceWildNettle
+      prob: 0.030508
+      orGroup: Ingredients
+    - id: N14FloraProduceWildBarrelCactusFruit
+      prob: 0.023729
+      orGroup: Ingredients
+    - id: N14FloraProduceWildPricklyPearFruit
+      prob: 0.027119
+      orGroup: Ingredients
+    - id: N14FloraProduceWildGlowpepper
+      prob: 0.016949
+      orGroup: Ingredients
+    - id: N14FloraProduceWildMesquitePods
+      prob: 0.023729
+      orGroup: Ingredients
+    - id: N14FloraProduceWildAgave
+      prob: 0.023729
+      orGroup: Ingredients
+    - id: N14FloraProduceWildStarlightBerries
+      prob: 0.023729
+      orGroup: Ingredients
+    - id: N14FloraProduceWildCarrot
+      prob: 0.027119
+      orGroup: Ingredients
+    - id: N14JunkWonderglue
+      prob: 0.016949
+      orGroup: Ingredients
+    - id: N14EmptySlot
+      prob: 0.6
+      orGroup: Ingredients
+
 
 - type: entity
   abstract: true

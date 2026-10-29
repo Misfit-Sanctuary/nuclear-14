@@ -237,6 +237,10 @@
       effects:
       - !type:ChemAddMoodlet
         moodPrototype: NicotineBenefit
+      - !type:Addicting
+        time: 5
+        addictionThreshold: 4
+        withdrawalMoodEffect: NicotineWithdrawal
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent

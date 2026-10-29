@@ -257,6 +257,10 @@
         damage:
           types:
             Radiation: .1
+      - !type:Addicting
+        time: 5
+        addictionThreshold: 4
+        withdrawalMoodEffect: NicotineWithdrawal
 
 
 - type: reagent

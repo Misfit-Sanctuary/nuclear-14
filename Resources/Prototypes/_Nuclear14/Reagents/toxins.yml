@@ -1,4 +1,4 @@
-﻿#MARK: Firetoxin
+#MARK: Firetoxin
 #Liquid found inside of fire ant stingers, it burns quite a lot.
 - type: reagent
   id: FireToxin
@@ -16,6 +16,17 @@
   metabolisms:
     Poison:
       effects:
+      - !type:AmbientDrugFlavorText # Misfits seven ambient roleplay messages
+        cooldownId: FireToxinMisfitsAmbient
+        cooldown: 55
+        messageKeys:
+        - misfits-chem-fire-toxin-1
+        - misfits-chem-fire-toxin-2
+        - misfits-chem-fire-toxin-3
+        - misfits-chem-fire-toxin-4
+        - misfits-chem-fire-toxin-5
+        - misfits-chem-fire-toxin-6
+        - misfits-chem-fire-toxin-7
       - !type:HealthChange
         damage:
           types:
@@ -41,6 +52,17 @@
     Poison:
       metabolismRate: 0.1 #Very Slow acting, default 0.5
       effects:
+      - !type:AmbientDrugFlavorText # Misfits seven ambient roleplay messages
+        cooldownId: NightstalkerVenomMisfitsAmbient
+        cooldown: 55
+        messageKeys:
+        - misfits-chem-nightstalker-venom-1
+        - misfits-chem-nightstalker-venom-2
+        - misfits-chem-nightstalker-venom-3
+        - misfits-chem-nightstalker-venom-4
+        - misfits-chem-nightstalker-venom-5
+        - misfits-chem-nightstalker-venom-6
+        - misfits-chem-nightstalker-venom-7
       - !type:HealthChange
         damage:
           types:
@@ -67,6 +89,17 @@
     Poison:
       metabolismRate: 0.2 #Slow acting, default 0.5
       effects:
+      - !type:AmbientDrugFlavorText # Misfits seven ambient roleplay messages
+        cooldownId: CazadorVenomMisfitsAmbient
+        cooldown: 55
+        messageKeys:
+        - misfits-chem-cazador-venom-1
+        - misfits-chem-cazador-venom-2
+        - misfits-chem-cazador-venom-3
+        - misfits-chem-cazador-venom-4
+        - misfits-chem-cazador-venom-5
+        - misfits-chem-cazador-venom-6
+        - misfits-chem-cazador-venom-7
       - !type:HealthChange
         damage:
           types:

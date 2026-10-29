@@ -63,21 +63,27 @@
     - node: berserkerpowder
       entity: N14BerserkerPowder
 
-# barkskin powder
+# Barkskin Powder
 - type: constructionGraph
   id: N14BarkskinPowder
   start: start
   graph:
-    - node: start
-      edges:
-        - to: barkskinpowder
-          steps:
-            - material: DaturaFlower
-            - material: CaveFungus
-            - material: WildStarlightBerries
+  - node: start
+    edges:
+    - to: barkskinpowder
+      steps:
+      - material: DaturaFlower
+        amount: 4
+      - entity: N14FoodFireantNectar
+        name: fire ant nectar
+        icon:
+          sprite: Objects/Consumable/Food/ingredients.rsi
+          state: flour-big
+      - material: CaveFungus
+        amount: 2
 
-    - node: barkskinpowder
-      entity: N14BarkskinPowder
+  - node: barkskinpowder
+    entity: N14BarkskinPowder
 
 # Stimpaks
 - type: constructionGraph

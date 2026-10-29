@@ -23,7 +23,7 @@
   quantized: true # #Cythisiax Fixed - only fires when full amounts present; prevents partial-mix material loss
   reactants:
     Antidote:
-      amount: 100
+      amount: 60
     Silicon:
       amount: 20 # 2 grinded glass
   effects:
@@ -101,13 +101,13 @@
     Blood:
       amount: 1
   products:
-    HealingMixture: 2
+    Stimpak: 2
 
 - type: reaction
   id: StimpakConversion
   quantized: true # #Cythisiax Fixed - only fires when full amounts present; prevents partial-mix material loss
   reactants:
-    HealingMixture:
+    Stimpak:
       amount: 25
     Oil: # Plastic contains 5u of Oil and 5u of Phosphorus
       amount: 5
@@ -132,7 +132,7 @@
 - type: reaction
   id: DirtyStimpakContamination # Misfits Change - Prevents the super-metamix of stimpak + dirty stimpak
   reactants:
-    HealingMixture:
+    Stimpak:
       amount: 1
     DirtyStimpak:
       amount: 1

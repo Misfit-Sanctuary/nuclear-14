@@ -19,7 +19,7 @@
     Abraxocleaner:
       amount: 1
   products:
-    MovespeedMixture: 1
+    Jet: 1
 
 - type: reaction
   id: Mentats
@@ -104,7 +104,7 @@
     Antiseptic:
       amount: 2
   products:
-    DamageModifyingMixture: 3
+    Psycho: 3
 
 - type: reaction
   id: Turbo
@@ -113,12 +113,12 @@
       amount: 1
     ExtractBroc:
       amount: 1
-    MovespeedMixture:
+    Jet:
       amount : 1
     Turpentine:
       amount: 1
   products:
-    RobustMovespeedMixture: 3
+    Turbo: 3
 
 - type: reaction
   id: Buffout
@@ -136,7 +136,7 @@
 - type: reaction
   id: Buffjet
   reactants:
-    MovespeedMixture:
+    Jet:
       amount: 1
     Buffout:
       amount: 1
@@ -164,7 +164,7 @@
     Ethanol:
       amount: 1
   products:
-    DamageResistMixture: 2 #This is Med-X
+    MedX: 2 #This is Med-X
 
 - type: reaction
   id: Fixer

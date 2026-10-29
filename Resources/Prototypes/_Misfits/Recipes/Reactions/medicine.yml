@@ -1,5 +1,3 @@
-﻿# Misfits - proposed chemistry reactions for additional Fallout medicines / chems
-#
 # ============================================================================
 # MEDICINE / SURVIVAL
 # ============================================================================
@@ -15,7 +13,7 @@
     Water:
       amount: 1
   products:
-    MisfitsAntibiotics: 3
+    MisfitsAntibiotics: 5
 
 - type: reaction
   id: MisfitsReactionRadShield
@@ -33,7 +31,7 @@
       amount: 1
       catalyst: true
   products:
-    MisfitsRadShield: 6
+    MisfitsRadShield: 9
 
 # Rare, high-tech emergency decontaminant.
 - type: reaction
@@ -60,7 +58,7 @@
 - type: reaction
   id: MisfitsReactionRushingWater
   reactants:
-    MovespeedMixture:
+    Jet:
       amount: 1
     Water:
       amount: 1
@@ -79,19 +77,19 @@
     ExtractBroc:
       amount: 1
   products:
-    MisfitsBloodShield: 2
+    MisfitsBloodShield: 3
 
 - type: reaction
   id: MisfitsReactionBarkskinPowder
   reactants:
     ExtractDatura:
       amount: 2
-    ExtractStarlightBerries:
+    N14FireAntNectar:
       amount: 2
     ExtractFungus:
       amount: 2
   products:
-    MisfitsBarkskinPowder: 2
+    MisfitsBarkskinPowder: 4
 
 # Laboratory shortcut for the field-crafted tourniquet.
 # Field crafting below is closer to canon: buffalo gourd + binding material.
@@ -107,11 +105,12 @@
 
 # Lonesome Road canon: vodka + jalapeno + white horsenettle.
 # Glowpepper is N14's wasteland hot-pepper substitute.
+# Ethanol since Vodka is a very limited resource.
 - type: reaction
   id: MisfitsReactionFieryPurgative
   minTemp: 354
   reactants:
-    Vodka:
+    Ethanol:
       amount: 1
     ExtractGlowpepper:
       amount: 1
@@ -134,7 +133,7 @@
       amount: 2
     RadAway:
       amount: 3
-    RobustHealingMixture:
+    SuperStimpak:
       amount: 2
     Antidote:
       amount: 1
@@ -155,7 +154,7 @@
       amount: 1
       catalyst: true
   products:
-    MisfitsGlowingBloodPack: 2
+    MisfitsGlowingBloodPack: 4
 
 # Fallout 4 herbal anodyne adapted to available N14 flora.
 # Carrot, fungus, nettle and razorgrain stand in for carrot flower, glowing fungus,
@@ -256,7 +255,7 @@
     Hyronalin:
       amount: 1
   products:
-    MisfitsPrussianBlue: 3
+    MisfitsPrussianBlue: 6
 
 # Original Misfits wasteland remedy.
 - type: reaction
@@ -323,10 +322,10 @@
       amount: 3
     Buffout:
       amount: 2
-    DamageResistMixture:
+    MedX:
       amount: 1
   products:
-    MisfitsFury: 2
+    MisfitsFury: 3
 
 # MisfitsCalmex is rare/non-craftable in Fallout 4; this is a Misfits chemistry route.
 - type: reaction
@@ -335,14 +334,14 @@
   reactants:
     Mentats:
       amount: 2
-    DamageResistMixture:
+    MedX:
       amount: 2
     Daytripper:
       amount: 1
     Ethanol:
       amount: 1
   products:
-    MisfitsCalmex: 2
+    MisfitsCalmex: 4
 
 # Fallout 4 canon: Acid x2 + Nuka-Cola x1 + Psycho x1.
 - type: reaction
@@ -353,12 +352,12 @@
       amount: 2
     NukaCola:
       amount: 2
-    DamageModifyingMixture:
+    MedX:
       amount: 2
     Epinephrine:
       amount: 1
   products:
-    MisfitsOverdrive: 2
+    MisfitsOverdrive: 4
 
 # X-Cell was a pre-war prototype and is not normally craftable.
 # This route intentionally consumes two of Misfits' own premium precursors:
@@ -370,24 +369,24 @@
   reactants:
     Buffout:
       amount: 2
-    Mentats:
-      amount: 2
+    MentatsBerry:
+      amount: 2 # Prevents Bufftats reaction pre-empting X-Cell
     Daytripper:
       amount: 2
     RadX:
       amount: 2
     Epinephrine:
       amount: 2
-    DamageResistMixture:
+    MedX:
       amount: 1
-    RobustMovespeedMixture:
+    Jet:
       amount: 1
     Berserkermix:
       amount: 2
     Promethine:
       amount: 1
   products:
-    MisfitsXCell: 2
+    MisfitsXCell: 5
 
 # MisfitsCrank has no canonical Fallout crafting formula; server-original stimulant route.
 - type: reaction
@@ -425,9 +424,9 @@
   reactants:
     blackgoo:
       amount: 2
-    CazadorVenom:
+    N14CazadorAcid:
       amount: 2
-    NightstalkerVenom:
+    NightstalkerBlood:
       amount: 1
     ExtractDatura:
       amount: 2
@@ -445,7 +444,7 @@
       amount: 1
     FireToxin:
       amount: 2
-    CazadorVenom:
+    N14CazadorAcid:
       amount: 1
     ExtractDatura:
       amount: 2
@@ -458,11 +457,11 @@
 - type: reaction
   id: MisfitsReactionAshViperVenom
   reactants:
-    NightstalkerVenom:
+    NightstalkerBlood:
       amount: 2
     FireToxin:
       amount: 2
-    CazadorVenom:
+    N14CazadorAcid:
       amount: 1
   products:
     MisfitsAshViperVenom: 2
@@ -480,7 +479,7 @@
       amount: 3
     Epoetine:
       amount: 2
-    RobustHealingMixture:
+    SuperStimpak:
       amount: 2
     Antidote:
       amount: 2
@@ -505,7 +504,7 @@
       amount: 2
     NukaCola:
       amount: 1
-    MovespeedMixture:
+    Jet:
       amount: 1
   products:
     MisfitsClearwake: 4
@@ -551,3 +550,68 @@
       amount: 1
   products:
     MisfitsGravesalt: 4
+
+# Misfits botany: a costly Sedin-style recovery chemical.
+- type: reaction
+  id: MisfitsSeedReclaimer
+  reactants:
+    EZNutrient:
+      amount: 2
+    MisfitsLazarusCompound:
+      amount: 1
+    Dylovene:
+      amount: 1
+  products:
+    MisfitsSeedReclaimer: 2
+
+# Helix-9: high-tech DNA repair compound, synthesized at elevated temperature.
+- type: reaction
+  id: MisfitsReactionHelix9
+  minTemp: 374
+  reactants:
+    Cryoxadone:
+      amount: 2
+    RadAway:
+      amount: 2
+    Phalanximine:
+      amount: 1
+    ExtractFungusRad:
+      amount: 1
+  products:
+    MisfitsHelix9: 5
+
+- type: reaction
+  id: MisfitsHydrationPoulticeReaction
+  quantized: true
+  minTemp: 330
+  reactants:
+    ExtractAgaveNectar:
+      amount: 5
+    ExtractBananaYucca:
+      amount: 5
+    Water:
+      amount: 10
+    Ash:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MisfitsHydrationPoultice
+
+- type: reaction
+  id: MisfitsNutrientPoulticeReaction
+  quantized: true
+  reactants:
+    ExtractAgaveNectar:
+      amount: 5
+    ExtractTato:
+      amount: 5
+    Nutriment:
+      amount: 5
+    Water:
+      amount: 5
+    Ash:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MisfitsNutrientPoultice
+

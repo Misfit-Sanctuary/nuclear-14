@@ -141,7 +141,7 @@
       pen:
         maxVol: 25
         reagents:
-        - ReagentId: HealingMixture
+        - ReagentId: Stimpak
           Quantity: 25
   - type: Construction
     graph: N14Stimpak
@@ -238,7 +238,7 @@
       pen:
         maxVol: 25
         reagents:
-        - ReagentId: RobustHealingMixture
+        - ReagentId: SuperStimpak
           Quantity: 25
   - type: Tag # #Misfits Add - Allow empty super stimpaks to be reused in crafting recipes
     tags:
@@ -343,7 +343,7 @@
       pen:
         maxVol: 15
         reagents:
-        - ReagentId: MovespeedMixture
+        - ReagentId: Jet
           Quantity: 15
 
 - type: entity
@@ -398,7 +398,7 @@
       pen:
         maxVol: 10
         reagents:
-        - ReagentId: RobustMovespeedMixture
+        - ReagentId: Turbo
           Quantity: 10
 
 - type: entity
@@ -447,7 +447,7 @@
       pen:
         maxVol: 20
         reagents:
-        - ReagentId: DamageResistMixture
+        - ReagentId: MedX
           Quantity: 20
 
 - type: entity
@@ -554,7 +554,7 @@
       pen:
         maxVol: 20
         reagents:
-        - ReagentId: DamageModifyingMixture
+        - ReagentId: MedX
           Quantity: 20
 
 - type: entity
@@ -872,12 +872,11 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 10
         reagents:
         - ReagentId: Berserkermix
-          Quantity: 25 # less than what youd get from minmaxxing with chem, od is 26.
+          Quantity: 10 # 10 units, so you cannot OD from accidentally ingesting a full 25u pouch.
 
-#misfits add, barkskin powder, shittier tribal medx
 - type: entity
   parent: N14HealingPowder
   id: N14BarkskinPowder
@@ -885,9 +884,8 @@
   description: A pouch of barkskin powder, provides temporary protection against physical damage.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
-    layers:
-    - state: barkskinpowder
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical.rsi
+    state: mortar_full
   - type: Item
     sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
     size: Small
@@ -898,8 +896,6 @@
         reagents:
         - ReagentId: MisfitsBarkskinPowder
           Quantity: 25
-
-
 
 - type: entity
   parent: DrinkBase
@@ -1061,12 +1057,12 @@
       pen:
         maxVol: 25
         reagents:
-        - ReagentId: UltraRobustHealingMixture
+        - ReagentId: UltraStimpak
           Quantity: 25
 
 - type: entity
-  parent: N14HealingPowder
-  id: N14Traumapack #TODO: N14Traumapack needs new sound
+  parent: FoodMealNachosCuban
+  id: N14Traumapack
   name: traumapack
   description: A backpack filled with a blend of healing chemicals that inject automatically upon the wearer being hurt. The mechanism seems to be broken, however.
   components:
@@ -1078,10 +1074,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30
+        maxVol: 5
         reagents:
         - ReagentId: TraumaPowder
-          Quantity: 30
+          Quantity: 5
   - type: Destructible
     thresholds:
     - trigger:
