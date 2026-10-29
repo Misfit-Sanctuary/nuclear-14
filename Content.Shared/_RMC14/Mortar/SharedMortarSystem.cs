@@ -8,12 +8,15 @@ using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Light.Components;
+using Content.Shared.Light.EntitySystems;
 using Content.Shared.Maps;
 using Content.Shared.Popups;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
@@ -29,15 +32,16 @@ public abstract partial class SharedMortarSystem : EntitySystem
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private FixtureSystem _fixture = default!;
-    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] protected SharedMapSystem _map = default!;
     [Dependency] private INetManager _net = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] private ISharedPlayerManager _player = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedRoofSystem _roof = default!;
     [Dependency] private ITileDefinitionManager _tile = default!;
     [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] protected SharedTransformSystem _transform = default!;
 
     private EntityQuery<TransformComponent> _transformQuery;
 
@@ -97,8 +101,10 @@ public abstract partial class SharedMortarSystem : EntitySystem
             BreakOnHandChange = true,
         };
 
+        // This handler runs predicted on the client, so the popup has to be the predicted variant or the user
+        // sees it twice: once from their own prediction and once from the server.
         if (_doAfter.TryStartDoAfter(doAfter))
-            _popup.PopupEntity(Loc.GetString("rmc-mortar-deploy-start", ("mortar", mortar)), args.User, args.User);
+            _popup.PopupClient(Loc.GetString("rmc-mortar-deploy-start", ("mortar", mortar)), mortar.Owner, args.User);
     }
 
     private void OnMortarDeployDoAfter(Entity<MortarComponent> mortar, ref DeployMortarDoAfterEvent args)
@@ -136,16 +142,22 @@ public abstract partial class SharedMortarSystem : EntitySystem
         args.Handled = true;
 
         var user = args.User;
+        var mortarCoordinates = _transform.GetMapCoordinates(mortar);
+
+        // Checked here as well as when the aim starts, in case the ground changed during the do-after.
+        if (RefuseRoofedTarget(mortar, args.Vector, user))
+            return;
+
         var selfMsg = Loc.GetString("rmc-mortar-target-finish-self", ("mortar", mortar));
         var othersMsg = Loc.GetString("rmc-mortar-target-finish-others", ("user", user), ("mortar", mortar));
-        PopupSelfAndOthers(selfMsg, othersMsg, user, mortar.Owner);
+        _popup.PopupPredicted(selfMsg, othersMsg, mortar.Owner, user);
 
         if (_net.IsClient)
             return;
 
         // Less accurate the further out the target is.
         var target = args.Vector;
-        var position = _transform.GetMapCoordinates(mortar).Position;
+        var position = mortarCoordinates.Position;
         var tilesPer = MathF.Max(mortar.Comp.TilesPerOffset, 1);
         var xOffset = (int) MathF.Floor(MathF.Abs(target.X - position.X) / tilesPer);
         var yOffset = (int) MathF.Floor(MathF.Abs(target.Y - position.Y) / tilesPer);
@@ -172,7 +184,7 @@ public abstract partial class SharedMortarSystem : EntitySystem
         var user = args.User;
         var selfMsg = Loc.GetString("rmc-mortar-dial-finish-self", ("mortar", mortar));
         var othersMsg = Loc.GetString("rmc-mortar-dial-finish-others", ("user", user), ("mortar", mortar));
-        PopupSelfAndOthers(selfMsg, othersMsg, user, mortar.Owner);
+        _popup.PopupPredicted(selfMsg, othersMsg, mortar.Owner, user);
     }
 
     private void OnMortarInteractUsing(Entity<MortarComponent> mortar, ref InteractUsingEvent args)
@@ -331,6 +343,11 @@ public abstract partial class SharedMortarSystem : EntitySystem
             Math.Clamp(args.Target.Y, -mortar.Comp.MaxTarget, mortar.Comp.MaxTarget));
 
         var user = args.Actor;
+
+        // Refuse the aim up front rather than letting them wind the mortar onto a roof they can't hit.
+        if (RefuseRoofedTarget(mortar, target, user))
+            return;
+
         var ev = new TargetMortarDoAfterEvent(target);
         var doAfter = new DoAfterArgs(EntityManager, user, mortar.Comp.TargetDelay, ev, mortar)
         {
@@ -342,7 +359,7 @@ public abstract partial class SharedMortarSystem : EntitySystem
 
         var selfMsg = Loc.GetString("rmc-mortar-target-start-self", ("mortar", mortar));
         var othersMsg = Loc.GetString("rmc-mortar-target-start-others", ("user", user), ("mortar", mortar));
-        PopupSelfAndOthers(selfMsg, othersMsg, user, mortar.Owner);
+        _popup.PopupPredicted(selfMsg, othersMsg, mortar.Owner, user);
     }
 
     private void OnMortarDialBui(Entity<MortarComponent> mortar, ref MortarDialBuiMsg args)
@@ -363,11 +380,11 @@ public abstract partial class SharedMortarSystem : EntitySystem
 
         var selfMsg = Loc.GetString("rmc-mortar-dial-start-self", ("mortar", mortar));
         var othersMsg = Loc.GetString("rmc-mortar-dial-start-others", ("user", user), ("mortar", mortar));
-        PopupSelfAndOthers(selfMsg, othersMsg, user, mortar.Owner);
+        _popup.PopupPredicted(selfMsg, othersMsg, mortar.Owner, user);
     }
 
     /// <summary>
-    /// Shows one message to the user and another to everyone nearby.
+    /// Shows one message to the user and another to everyone nearby. For handlers that only run on the server.
     /// </summary>
     private void PopupSelfAndOthers(string selfMsg, string othersMsg, EntityUid user, EntityUid subject)
     {
@@ -376,9 +393,23 @@ public abstract partial class SharedMortarSystem : EntitySystem
     }
 
     /// <summary>
+    ///     Refuses an aim that would come down under a roof, telling the user why. Returns true if the caller
+    ///     should abandon the aim.
+    /// </summary>
+    private bool RefuseRoofedTarget(Entity<MortarComponent> mortar, Vector2i target, EntityUid user)
+    {
+        var coordinates = new MapCoordinates(new Vector2(target.X, target.Y), _transform.GetMapCoordinates(mortar).MapId);
+        if (!IsRoofed(coordinates))
+            return false;
+
+        _popup.PopupClient(Loc.GetString("rmc-mortar-target-roofed"), mortar.Owner, user);
+        return true;
+    }
+
+    /// <summary>
     /// Works out where the next shell would land and whether the shot is legal.
     /// </summary>
-    protected bool TryGetShot(
+    private bool TryGetShot(
         Entity<MortarComponent> mortar,
         MortarShellComponent shell,
         EntityUid? user,
@@ -431,9 +462,9 @@ public abstract partial class SharedMortarSystem : EntitySystem
             return false;
         }
 
-        if (!IsValidTargetTile(impact))
+        if (!IsValidTargetTile(impact, out var targetError))
         {
-            PopupError(user, "rmc-mortar-target-not-area", null);
+            PopupError(user, targetError, null);
             return false;
         }
 
@@ -459,8 +490,13 @@ public abstract partial class SharedMortarSystem : EntitySystem
         _popup.PopupEntity(text, recipient, recipient, PopupType.SmallCaution);
     }
 
-    private bool IsValidTargetTile(MapCoordinates coordinates)
+    /// <summary>
+    ///     Checks a coordinate is somewhere a shell can actually come down, and reports why not if it isn't.
+    /// </summary>
+    private bool IsValidTargetTile(MapCoordinates coordinates, out LocId error)
     {
+        error = "rmc-mortar-target-not-area";
+
         if (!_map.TryFindGridAt(coordinates, out var gridUid, out var grid))
             return false;
 
@@ -477,7 +513,36 @@ public abstract partial class SharedMortarSystem : EntitySystem
             return false;
         }
 
+        // A roof stops the round: whatever is under it never gets hit, so it can't be a target either.
+        if (IsRoofed(gridUid, grid, tile))
+        {
+            error = "rmc-mortar-target-roofed";
+            return false;
+        }
+
         return true;
+    }
+
+    /// <summary>
+    ///     Whether this tile of this grid is roofed over.
+    /// </summary>
+    private bool IsRoofed(EntityUid gridUid, MapGridComponent grid, Vector2i tile)
+    {
+        if (!TryComp<RoofComponent>(gridUid, out var roof))
+            return false;
+
+        return _roof.IsRooved((gridUid, grid, roof), tile);
+    }
+
+    /// <summary>
+    ///     Whether a map coordinate landed under a roof.
+    /// </summary>
+    protected bool IsRoofed(MapCoordinates coordinates)
+    {
+        if (!_map.TryFindGridAt(coordinates, out var gridUid, out var grid))
+            return false;
+
+        return IsRoofed(gridUid, grid, _map.WorldToTile(gridUid, grid, coordinates.Position));
     }
 
     public void PopupWarning(MapCoordinates coordinates, float range, LocId warning, LocId warningAbove)
@@ -543,6 +608,14 @@ public abstract partial class SharedMortarSystem : EntitySystem
         if (_container.TryGetContainingContainer((shell, (TransformComponent?) null, null), out var container))
             _container.Remove(shell, container, force: true);
 
+        // Drift can put a round over a roof even when the aim was fine. It breaks up there instead of
+        // coming through, so nothing underneath is touched.
+        if (IsRoofed(_transform.ToMapCoordinates(active.Coordinates)))
+        {
+            QueueDel(shell);
+            return;
+        }
+
         _transform.SetCoordinates(shell, active.Coordinates);
 
         var ev = new MortarShellLandEvent(active.Coordinates);
@@ -557,8 +630,7 @@ public abstract partial class SharedMortarSystem : EntitySystem
     /// <summary>
     /// Spawns the shell's payload. Implemented server side where the explosion system lives.
     /// </summary>
-    protected virtual bool ExplodeShell(EntityUid shell)
+    protected virtual void ExplodeShell(EntityUid shell)
     {
-        return false;
     }
 }

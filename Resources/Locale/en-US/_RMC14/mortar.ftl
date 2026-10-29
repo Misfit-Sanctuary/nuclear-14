@@ -3,6 +3,7 @@
 rmc-mortar-deploy-start = You start deploying {THE($mortar)}.
 rmc-mortar-not-aimed = {CAPITALIZE(THE($mortar))} needs to be aimed first.
 rmc-mortar-target-not-area = This area is out of bounds!
+rmc-mortar-target-roofed = You can't aim there, the shell would break up on the roof.
 rmc-mortar-cant-insert = You can't put {THE($shell)} in {THE($mortar)}!
 rmc-mortar-not-deployed = You need to deploy {THE($mortar)} first!
 rmc-mortar-fire-cooldown = {CAPITALIZE(THE($mortar))} barrel is still steaming hot. Wait a few seconds and stop firing it.

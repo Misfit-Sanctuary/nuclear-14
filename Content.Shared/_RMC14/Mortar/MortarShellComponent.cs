@@ -32,4 +32,43 @@ public sealed partial class MortarShellComponent : Component
     /// </summary>
     [DataField]
     public int FireRange = 5;
+
+    /// <summary>
+    ///     Smoke cloud released on impact, if any. Utility shells carrying this usually leave
+    ///     <c>Explosive</c> off entirely, so a smoke screen can't double as a free HE shell.
+    /// </summary>
+    [DataField]
+    public MortarSmokePayload? Smoke;
+
+    /// <summary>
+    ///     Prototype spawned at the impact point, if any. Expendable lights spawned this way are
+    ///     lit immediately, which is how the illumination shell works.
+    /// </summary>
+    [DataField]
+    public EntProtoId? ImpactSpawn;
+}
+
+/// <summary>
+///     Parameters for the smoke cloud a mortar shell leaves behind.
+/// </summary>
+[DataDefinition]
+public sealed partial class MortarSmokePayload
+{
+    /// <summary>
+    ///     Smoke entity to spawn. Foam or a reagent cloud can be used here as well.
+    /// </summary>
+    [DataField]
+    public EntProtoId Prototype = "Smoke";
+
+    /// <summary>
+    ///     How long, in seconds, the cloud lasts once spread.
+    /// </summary>
+    [DataField]
+    public float Duration = 30f;
+
+    /// <summary>
+    ///     How many tiles the cloud spreads to.
+    /// </summary>
+    [DataField]
+    public int Spread = 25;
 }
