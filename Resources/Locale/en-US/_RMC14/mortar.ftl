@@ -6,7 +6,6 @@ rmc-mortar-target-not-area = This area is out of bounds!
 rmc-mortar-target-roofed = You can't aim there, the shell would break up on the roof.
 rmc-mortar-cant-insert = You can't put {THE($shell)} in {THE($mortar)}!
 rmc-mortar-not-deployed = You need to deploy {THE($mortar)} first!
-rmc-mortar-fire-cooldown = {CAPITALIZE(THE($mortar))} barrel is still steaming hot. Wait a few seconds and stop firing it.
 rmc-mortar-less-accurate-with-range = [color=red]It will be less accurate the further away the target is![/color]
 rmc-mortar-examine-not-deployed = {CAPITALIZE(THE($mortar))} is not deployed.
 rmc-mortar-examine-aimed = {CAPITALIZE(THE($mortar))} is aimed at {$x}, {$y}.
@@ -40,6 +39,13 @@ rmc-mortar-target-y = Target Y:
 rmc-mortar-target-set = Set Target
 rmc-mortar-target-too-close = You cannot aim at this coordinate, it is too close to your mortar.
 rmc-mortar-target-too-far = You cannot aim at this coordinate, it is too far from your mortar.
+
+rmc-mortar-camera-title = Impact Camera
+rmc-mortar-camera-view = Watch Impact Site
+rmc-mortar-camera-start = You tune into the round's camera feed.
+rmc-mortar-camera-stop = You stop watching the camera feed.
+rmc-mortar-camera-end = The feed cuts out.
+rmc-mortar-camera-moved = You step away, and the feed breaks up.
 
 rmc-mortar-offset-x = X Offset:
 rmc-mortar-offset-y = Y Offset:

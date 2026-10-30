@@ -1,6 +1,8 @@
 using System.Numerics;
 using Content.Shared.CombatMode;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Construction.Components;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
@@ -11,6 +13,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.Maps;
+using Content.Shared.Payload.Components;
 using Content.Shared.Popups;
 using Content.Shared.UserInterface;
 using Robust.Shared.Audio.Systems;
@@ -31,7 +34,9 @@ public abstract partial class SharedMortarSystem : EntitySystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
     [Dependency] private FixtureSystem _fixture = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
     [Dependency] protected SharedMapSystem _map = default!;
     [Dependency] private INetManager _net = default!;
     [Dependency] private SharedPhysicsSystem _physics = default!;
@@ -42,6 +47,16 @@ public abstract partial class SharedMortarSystem : EntitySystem
     [Dependency] private ITileDefinitionManager _tile = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] protected SharedTransformSystem _transform = default!;
+
+    /// Seconds a camera feed stays up before the view returns on its own.
+
+    private static readonly TimeSpan CameraViewTime = TimeSpan.FromSeconds(5);
+
+    /// Body drift, in tiles, that counts as walking away from the feed.
+
+    private const float CameraViewMoveTolerance = 0.1f;
+
+    private readonly Dictionary<EntityUid, CameraView> _cameraViews = new();
 
     private EntityQuery<TransformComponent> _transformQuery;
 
@@ -61,13 +76,59 @@ public abstract partial class SharedMortarSystem : EntitySystem
         SubscribeLocalEvent<MortarComponent, CombatModeShouldHandInteractEvent>(OnMortarShouldInteract);
         SubscribeLocalEvent<MortarComponent, DestructionEventArgs>(OnMortarDestruction);
         SubscribeLocalEvent<MortarComponent, BeforeDamageChangedEvent>(OnMortarBeforeDamageChanged);
+        SubscribeLocalEvent<MortarImpactCameraComponent, ComponentShutdown>(OnImpactCameraShutdown);
+        SubscribeLocalEvent<MortarComponent, BoundUIClosedEvent>(OnMortarUiClosed);
+        SubscribeLocalEvent<MortarChemicalShellComponent, ComponentInit>(OnChemicalShellInit);
+        SubscribeLocalEvent<MortarChemicalShellComponent, ComponentRemove>(OnChemicalShellRemove);
+        SubscribeLocalEvent<MortarChemicalShellComponent, EntInsertedIntoContainerMessage>(OnChemicalShellBeakerInserted);
+        SubscribeLocalEvent<MortarChemicalShellComponent, EntRemovedFromContainerMessage>(OnChemicalShellBeakerRemoved);
 
         Subs.BuiEvents<MortarComponent>(MortarUiKey.Key,
             subs =>
             {
                 subs.Event<MortarTargetBuiMsg>(OnMortarTargetBui);
                 subs.Event<MortarDialBuiMsg>(OnMortarDialBui);
+                subs.Event<MortarCameraBuiMsg>(OnMortarCameraBui);
             });
+    }
+
+    /// Beakers load through the slots a chemical payload grenade uses.
+
+    private void OnChemicalShellInit(Entity<MortarChemicalShellComponent> shell, ref ComponentInit args)
+    {
+        _itemSlots.AddItemSlot(shell.Owner, MortarChemicalShellComponent.BeakerSlotAId, shell.Comp.BeakerSlotA);
+        _itemSlots.AddItemSlot(shell.Owner, MortarChemicalShellComponent.BeakerSlotBId, shell.Comp.BeakerSlotB);
+    }
+
+    private void OnChemicalShellRemove(Entity<MortarChemicalShellComponent> shell, ref ComponentRemove args)
+    {
+        _itemSlots.RemoveItemSlot(shell.Owner, shell.Comp.BeakerSlotA);
+        _itemSlots.RemoveItemSlot(shell.Owner, shell.Comp.BeakerSlotB);
+    }
+
+    private void OnChemicalShellBeakerInserted(Entity<MortarChemicalShellComponent> shell, ref EntInsertedIntoContainerMessage args)
+    {
+        UpdateChemicalShellAppearance(shell);
+    }
+
+    private void OnChemicalShellBeakerRemoved(Entity<MortarChemicalShellComponent> shell, ref EntRemovedFromContainerMessage args)
+    {
+        UpdateChemicalShellAppearance(shell);
+    }
+
+    /// Shows how full the shell is, so a round with both beakers in it reads as armed.
+
+    private void UpdateChemicalShellAppearance(Entity<MortarChemicalShellComponent> shell)
+    {
+        var filled = ChemicalPayloadFilledSlots.None;
+
+        if (shell.Comp.BeakerSlotA.HasItem)
+            filled |= ChemicalPayloadFilledSlots.Left;
+
+        if (shell.Comp.BeakerSlotB.HasItem)
+            filled |= ChemicalPayloadFilledSlots.Right;
+
+        _appearance.SetData(shell.Owner, ChemicalPayloadVisuals.Slots, filled);
     }
 
     private void OnMortarBeforeDamageChanged(Entity<MortarComponent> ent, ref BeforeDamageChangedEvent args)
@@ -101,8 +162,7 @@ public abstract partial class SharedMortarSystem : EntitySystem
             BreakOnHandChange = true,
         };
 
-        // This handler runs predicted on the client, so the popup has to be the predicted variant or the user
-        // sees it twice: once from their own prediction and once from the server.
+        // Predicted on the client, so the popup has to be the predicted variant.
         if (_doAfter.TryStartDoAfter(doAfter))
             _popup.PopupClient(Loc.GetString("rmc-mortar-deploy-start", ("mortar", mortar)), mortar.Owner, args.User);
     }
@@ -142,7 +202,6 @@ public abstract partial class SharedMortarSystem : EntitySystem
         args.Handled = true;
 
         var user = args.User;
-        var mortarCoordinates = _transform.GetMapCoordinates(mortar);
 
         // Checked here as well as when the aim starts, in case the ground changed during the do-after.
         if (RefuseRoofedTarget(mortar, args.Vector, user))
@@ -155,16 +214,8 @@ public abstract partial class SharedMortarSystem : EntitySystem
         if (_net.IsClient)
             return;
 
-        // Less accurate the further out the target is.
-        var target = args.Vector;
-        var position = mortarCoordinates.Position;
-        var tilesPer = MathF.Max(mortar.Comp.TilesPerOffset, 1);
-        var xOffset = (int) MathF.Floor(MathF.Abs(target.X - position.X) / tilesPer);
-        var yOffset = (int) MathF.Floor(MathF.Abs(target.Y - position.Y) / tilesPer);
-
-        mortar.Comp.Target = target;
+        mortar.Comp.Target = args.Vector;
         mortar.Comp.HasTarget = true;
-        mortar.Comp.Offset = (_random.Next(-xOffset, xOffset + 1), _random.Next(-yOffset, yOffset + 1));
         Dirty(mortar);
     }
 
@@ -260,8 +311,6 @@ public abstract partial class SharedMortarSystem : EntitySystem
             return;
 
         var time = _timing.CurTime;
-        mortar.Comp.LastFiredAt = time;
-        Dirty(mortar);
 
         AddComp(shellId,
             new ActiveMortarShellComponent
@@ -311,8 +360,8 @@ public abstract partial class SharedMortarSystem : EntitySystem
             else
                 args.PushMarkup(Loc.GetString("rmc-mortar-examine-aimed",
                     ("mortar", ent),
-                    ("x", ent.Comp.Target.X + ent.Comp.Offset.X + ent.Comp.Dial.X),
-                    ("y", ent.Comp.Target.Y + ent.Comp.Offset.Y + ent.Comp.Dial.Y)));
+                    ("x", ent.Comp.Target.X + ent.Comp.Dial.X),
+                    ("y", ent.Comp.Target.Y + ent.Comp.Dial.Y)));
 
             var position = _transform.GetMapCoordinates(ent).Position;
             args.PushMarkup(Loc.GetString("rmc-mortar-examine-position",
@@ -383,19 +432,16 @@ public abstract partial class SharedMortarSystem : EntitySystem
         _popup.PopupPredicted(selfMsg, othersMsg, mortar.Owner, user);
     }
 
-    /// <summary>
-    /// Shows one message to the user and another to everyone nearby. For handlers that only run on the server.
-    /// </summary>
+    /// Shows one message to the user and another to everyone nearby.
+
     private void PopupSelfAndOthers(string selfMsg, string othersMsg, EntityUid user, EntityUid subject)
     {
         _popup.PopupEntity(selfMsg, subject, user);
         _popup.PopupEntity(othersMsg, subject, Filter.PvsExcept(user, entityManager: EntityManager), false, PopupType.Medium);
     }
 
-    /// <summary>
-    ///     Refuses an aim that would come down under a roof, telling the user why. Returns true if the caller
-    ///     should abandon the aim.
-    /// </summary>
+    /// Refuses an aim that would come down under a roof. True means abandon it.
+
     private bool RefuseRoofedTarget(Entity<MortarComponent> mortar, Vector2i target, EntityUid user)
     {
         var coordinates = new MapCoordinates(new Vector2(target.X, target.Y), _transform.GetMapCoordinates(mortar).MapId);
@@ -406,9 +452,8 @@ public abstract partial class SharedMortarSystem : EntitySystem
         return true;
     }
 
-    /// <summary>
     /// Works out where the next shell would land and whether the shot is legal.
-    /// </summary>
+
     private bool TryGetShot(
         Entity<MortarComponent> mortar,
         MortarShellComponent shell,
@@ -425,31 +470,19 @@ public abstract partial class SharedMortarSystem : EntitySystem
             return false;
         }
 
-        var time = _timing.CurTime;
-        if (time < mortar.Comp.LastFiredAt + mortar.Comp.FireDelay)
-        {
-            PopupError(user, "rmc-mortar-fire-cooldown", mortar);
-            return false;
-        }
-
         if (!mortar.Comp.HasTarget)
         {
             PopupError(user, "rmc-mortar-not-aimed", mortar);
             return false;
         }
 
-        // Target is an absolute map coordinate, not an offset from the mortar.
-        var target = mortar.Comp.Target + mortar.Comp.Offset + mortar.Comp.Dial;
-
-        if (mortar.Comp.FireRandomOffset is { Length: > 0 } spread)
-        {
-            target += new Vector2i(_random.Pick(spread), _random.Pick(spread));
-        }
-
         var mortarCoordinates = _transform.GetMapCoordinates(mortar);
-        impact = new MapCoordinates(new Vector2(target.X, target.Y), mortarCoordinates.MapId);
 
-        var distance = (mortarCoordinates.Position - impact.Position).Length();
+        // Target is an absolute map coordinate, not an offset from the mortar.
+        var aim = mortar.Comp.Target + mortar.Comp.Dial;
+        var aimPosition = new Vector2(aim.X, aim.Y);
+
+        var distance = (mortarCoordinates.Position - aimPosition).Length();
         if (distance < mortar.Comp.MinimumRange)
         {
             PopupError(user, "rmc-mortar-target-too-close", null);
@@ -462,11 +495,25 @@ public abstract partial class SharedMortarSystem : EntitySystem
             return false;
         }
 
-        if (!IsValidTargetTile(impact, out var targetError))
+        // The aim is what has to be legal; where the round actually comes down is decided below.
+        if (!IsValidTargetTile(new MapCoordinates(aimPosition, mortarCoordinates.MapId), out var targetError))
         {
             PopupError(user, targetError, null);
             return false;
         }
+
+        // Less accurate the further out, rolled fresh for every shot.
+        var tilesPer = MathF.Max(mortar.Comp.TilesPerOffset, 1);
+        var xOffset = (int) MathF.Floor(MathF.Abs(aimPosition.X - mortarCoordinates.Position.X) / tilesPer);
+        var yOffset = (int) MathF.Floor(MathF.Abs(aimPosition.Y - mortarCoordinates.Position.Y) / tilesPer);
+        var target = aim + new Vector2i(_random.Next(-xOffset, xOffset + 1), _random.Next(-yOffset, yOffset + 1));
+
+        if (mortar.Comp.FireRandomOffset is { Length: > 0 } spread)
+        {
+            target += new Vector2i(_random.Pick(spread), _random.Pick(spread));
+        }
+
+        impact = new MapCoordinates(new Vector2(target.X, target.Y), mortarCoordinates.MapId);
 
         if (_container.TryGetContainer(mortar.Owner, mortar.Comp.ContainerId, out var container) &&
             !_container.CanInsert(shell.Owner, container))
@@ -490,9 +537,8 @@ public abstract partial class SharedMortarSystem : EntitySystem
         _popup.PopupEntity(text, recipient, recipient, PopupType.SmallCaution);
     }
 
-    /// <summary>
-    ///     Checks a coordinate is somewhere a shell can actually come down, and reports why not if it isn't.
-    /// </summary>
+    /// Whether a shell can come down at a coordinate, and why not if it cannot.
+
     private bool IsValidTargetTile(MapCoordinates coordinates, out LocId error)
     {
         error = "rmc-mortar-target-not-area";
@@ -513,7 +559,7 @@ public abstract partial class SharedMortarSystem : EntitySystem
             return false;
         }
 
-        // A roof stops the round: whatever is under it never gets hit, so it can't be a target either.
+        // A roof stops the round, so nothing under it can be a target.
         if (IsRoofed(gridUid, grid, tile))
         {
             error = "rmc-mortar-target-roofed";
@@ -523,9 +569,8 @@ public abstract partial class SharedMortarSystem : EntitySystem
         return true;
     }
 
-    /// <summary>
-    ///     Whether this tile of this grid is roofed over.
-    /// </summary>
+    /// Whether this tile of this grid is roofed over.
+
     private bool IsRoofed(EntityUid gridUid, MapGridComponent grid, Vector2i tile)
     {
         if (!TryComp<RoofComponent>(gridUid, out var roof))
@@ -534,9 +579,8 @@ public abstract partial class SharedMortarSystem : EntitySystem
         return _roof.IsRooved((gridUid, grid, roof), tile);
     }
 
-    /// <summary>
-    ///     Whether a map coordinate landed under a roof.
-    /// </summary>
+    /// Whether a map coordinate landed under a roof.
+
     protected bool IsRoofed(MapCoordinates coordinates)
     {
         if (!_map.TryFindGridAt(coordinates, out var gridUid, out var grid))
@@ -565,6 +609,107 @@ public abstract partial class SharedMortarSystem : EntitySystem
                 ? Loc.GetString(warningAbove)
                 : Loc.GetString(warning);
             _popup.PopupEntity(msg, recipient, recipient, PopupType.LargeCaution);
+        }
+    }
+
+    /// Moves the user's view to their last impact site, or back to their body.
+
+    private void OnMortarCameraBui(Entity<MortarComponent> mortar, ref MortarCameraBuiMsg args)
+    {
+        var user = args.Actor;
+        if (!TryComp(user, out EyeComponent? eye))
+            return;
+
+        // Pressing an unwatched feed switches to it; pressing the watched one returns.
+        if (mortar.Comp.ImpactCamera is { } camera &&
+            HasComp<MortarImpactCameraComponent>(camera) &&
+            eye.Target != camera)
+        {
+            _eye.SetTarget(user, camera, eye);
+
+            // Step away and the feed drops, so nobody walks around blind.
+            var xform = Transform(user);
+            _cameraViews[user] = new CameraView(camera, _timing.CurTime + CameraViewTime, xform.ParentUid, xform.LocalPosition);
+
+            _popup.PopupEntity(Loc.GetString("rmc-mortar-camera-start"), user, user);
+            return;
+        }
+
+        if (eye.Target is { } watching && HasComp<MortarImpactCameraComponent>(watching))
+        {
+            StopCameraView(user);
+            _popup.PopupEntity(Loc.GetString("rmc-mortar-camera-stop"), user, user);
+        }
+    }
+
+    private void StopCameraView(EntityUid user)
+    {
+        _cameraViews.Remove(user);
+
+        if (TryComp(user, out EyeComponent? eye) && eye.Target is { } target && HasComp<MortarImpactCameraComponent>(target))
+            _eye.SetTarget(user, null, eye);
+    }
+
+    /// Returns the view of anyone whose feed ended, lost its camera or walked off.
+
+    private void UpdateCameraViews(TimeSpan time)
+    {
+        List<(EntityUid User, bool Expired, bool Moved)>? finished = null;
+        foreach (var (user, view) in _cameraViews)
+        {
+            var expired = time >= view.EndsAt;
+            var lost = !TryComp(user, out EyeComponent? eye) || eye.Target != view.Camera;
+            var moved = !_transformQuery.TryComp(user, out var xform) ||
+                        xform.ParentUid != view.Parent ||
+                        (xform.LocalPosition - view.BodyPosition).LengthSquared() >
+                        CameraViewMoveTolerance * CameraViewMoveTolerance;
+
+            if (expired || lost || moved)
+                (finished ??= new()).Add((user, expired, moved));
+        }
+
+        if (finished == null)
+            return;
+
+        foreach (var (user, expired, moved) in finished)
+        {
+            StopCameraView(user);
+
+            if (expired)
+                _popup.PopupEntity(Loc.GetString("rmc-mortar-camera-end"), user, user);
+            else if (moved)
+                _popup.PopupEntity(Loc.GetString("rmc-mortar-camera-moved"), user, user);
+        }
+    }
+
+    /// Closing the window ends the feed, since the window is the only way back.
+
+    private void OnMortarUiClosed(Entity<MortarComponent> mortar, ref BoundUIClosedEvent args)
+    {
+        if (_net.IsClient || !_cameraViews.ContainsKey(args.Actor))
+            return;
+
+        StopCameraView(args.Actor);
+    }
+
+    private void OnImpactCameraShutdown(Entity<MortarImpactCameraComponent> camera, ref ComponentShutdown args)
+    {
+        // A camera that expires or is destroyed must not leave someone's view pointed at nothing.
+        var eyes = EntityQueryEnumerator<EyeComponent>();
+        while (eyes.MoveNext(out var uid, out var eye))
+        {
+            if (eye.Target == camera.Owner)
+                _eye.SetTarget(uid, null, eye);
+        }
+
+        var mortars = EntityQueryEnumerator<MortarComponent>();
+        while (mortars.MoveNext(out var uid, out var mortar))
+        {
+            if (mortar.ImpactCamera != camera.Owner)
+                continue;
+
+            mortar.ImpactCamera = null;
+            Dirty(uid, mortar);
         }
     }
 
@@ -601,15 +746,24 @@ public abstract partial class SharedMortarSystem : EntitySystem
             if (time >= active.LandAt)
                 ImpactMortarShell(uid, active);
         }
+
+        if (_cameraViews.Count > 0)
+            UpdateCameraViews(time);
     }
 
     private void ImpactMortarShell(EntityUid shell, ActiveMortarShellComponent active)
     {
+        // The tube it was fired from is the only thing a payload is allowed to report back to.
+        EntityUid? mortar = null;
         if (_container.TryGetContainingContainer((shell, (TransformComponent?) null, null), out var container))
-            _container.Remove(shell, container, force: true);
+        {
+            if (HasComp<MortarComponent>(container.Owner))
+                mortar = container.Owner;
 
-        // Drift can put a round over a roof even when the aim was fine. It breaks up there instead of
-        // coming through, so nothing underneath is touched.
+            _container.Remove(shell, container, force: true);
+        }
+
+        // Drift can put a round over a roof, where it breaks up instead of striking.
         if (IsRoofed(_transform.ToMapCoordinates(active.Coordinates)))
         {
             QueueDel(shell);
@@ -618,19 +772,33 @@ public abstract partial class SharedMortarSystem : EntitySystem
 
         _transform.SetCoordinates(shell, active.Coordinates);
 
-        var ev = new MortarShellLandEvent(active.Coordinates);
+        var ev = new MortarShellLandEvent(active.Coordinates, mortar);
         RaiseLocalEvent(shell, ref ev);
 
         ExplodeShell(shell);
+
+        // A reusable casing is left where it struck, ready to be collected and loaded again.
+        if (TryComp(shell, out MortarShellComponent? landing) && landing.Reusable)
+        {
+            RemComp<ActiveMortarShellComponent>(shell);
+            return;
+        }
 
         if (!EntityManager.IsQueuedForDeletion(shell))
             QueueDel(shell);
     }
 
-    /// <summary>
     /// Spawns the shell's payload. Implemented server side where the explosion system lives.
-    /// </summary>
+
     protected virtual void ExplodeShell(EntityUid shell)
     {
     }
+
+    /// One player watching one camera, and the spot their body was standing when the feed started.
+
+    private readonly record struct CameraView(
+        EntityUid Camera,
+        TimeSpan EndsAt,
+        EntityUid Parent,
+        Vector2 BodyPosition);
 }

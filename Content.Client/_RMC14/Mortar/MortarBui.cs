@@ -44,6 +44,9 @@ public sealed class MortarBui(EntityUid owner, Enum uiKey) : BoundUserInterface(
 
             _window.SetOffsetButton.OnPressed += _ =>
                 SendPredictedMessage(new MortarDialBuiMsg((Parse(_window.DialX), Parse(_window.DialY))));
+
+            _window.CameraButton.OnPressed += _ =>
+                SendMessage(new MortarCameraBuiMsg());
         }
     }
 
@@ -65,6 +68,9 @@ public sealed class MortarBui(EntityUid owner, Enum uiKey) : BoundUserInterface(
         SetValue(_window.DialX, mortar.Dial.X);
         SetValue(_window.DialY, mortar.Dial.Y);
         _window.MaxDialLabel.Text = Loc.GetString("rmc-mortar-offset-max", ("max", mortar.MaxDial));
+
+        // Nothing to watch until an illumination round has landed somewhere.
+        _window.CameraButton.Disabled = mortar.ImpactCamera == null;
 
         // Targets are absolute coordinates, so show where the mortar itself is.
         var position = EntMan.GetComponent<TransformComponent>(Owner).WorldPosition;

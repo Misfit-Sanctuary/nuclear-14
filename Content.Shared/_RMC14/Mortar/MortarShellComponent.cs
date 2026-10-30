@@ -1,3 +1,5 @@
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -19,56 +21,90 @@ public sealed partial class MortarShellComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan ImpactDelay = TimeSpan.FromSeconds(4.5);
 
-    /// <summary>
-    ///     Tile fire spawned across the impact point, if any. Shells that leave this null only
-    ///     deliver their <c>Explosive</c> payload. This stands in for RMC's TileFireOnTrigger,
-    ///     which this fork does not have.
-    /// </summary>
+    /// Tile fire spawned across the impact point, if any.
+
     [DataField]
     public EntProtoId? FireTilePrototype;
 
-    /// <summary>
-    ///     Diamond radius, in tiles, of the fire spawned by <see cref="FireTilePrototype"/>.
-    /// </summary>
+    /// Diamond radius, in tiles, of the fire spawned by <see cref="FireTilePrototype"/>.
+
     [DataField]
     public int FireRange = 5;
 
-    /// <summary>
-    ///     Smoke cloud released on impact, if any. Utility shells carrying this usually leave
-    ///     <c>Explosive</c> off entirely, so a smoke screen can't double as a free HE shell.
-    /// </summary>
+    /// Smoke cloud released on impact, if any.
+
     [DataField]
     public MortarSmokePayload? Smoke;
 
-    /// <summary>
-    ///     Prototype spawned at the impact point, if any. Expendable lights spawned this way are
-    ///     lit immediately, which is how the illumination shell works.
-    /// </summary>
+    /// Electromagnetic pulse released on impact, if any.
+
+    [DataField]
+    public MortarEmpPayload? Emp;
+
+    /// Prototype spawned at the impact point and lit at once, if any.
+
     [DataField]
     public EntProtoId? ImpactSpawn;
+
+    /// Camera dropped on the impact point, if any.
+
+    [DataField]
+    public EntProtoId? ImpactCamera;
+
+    /// Damage dealt to everything on the impact tile, if any.
+
+    [DataField]
+    public DamageSpecifier? KineticDamage;
+
+    /// Whether the casing survives the impact to be collected and fired again.
+
+    [DataField]
+    public bool Reusable;
 }
 
-/// <summary>
-///     Parameters for the smoke cloud a mortar shell leaves behind.
-/// </summary>
+/// Parameters for the pulse a shell releases on impact.
+
+[DataDefinition]
+public sealed partial class MortarEmpPayload
+{
+    /// Radius, in tiles, of the pulse.
+
+    [DataField]
+    public float Range = 6f;
+
+    /// Charge drained from every battery caught in the pulse.
+
+    [DataField]
+    public float EnergyConsumption = 2700000f;
+
+    /// How long, in seconds, anything electronics-bearing stays dead.
+
+    [DataField]
+    public float DisableDuration = 30f;
+}
+
+/// Parameters for the smoke cloud a shell leaves behind.
+
 [DataDefinition]
 public sealed partial class MortarSmokePayload
 {
-    /// <summary>
-    ///     Smoke entity to spawn. Foam or a reagent cloud can be used here as well.
-    /// </summary>
+    /// Smoke entity to spawn. Foam or a reagent cloud can be used here as well.
+
     [DataField]
     public EntProtoId Prototype = "Smoke";
 
-    /// <summary>
-    ///     How long, in seconds, the cloud lasts once spread.
-    /// </summary>
+    /// How long, in seconds, the cloud lasts once spread.
+
     [DataField]
     public float Duration = 30f;
 
-    /// <summary>
-    ///     How many tiles the cloud spreads to.
-    /// </summary>
+    /// How many tiles the cloud spreads to.
+
     [DataField]
     public int Spread = 25;
+
+    /// Reagents carried by the cloud, if any.
+
+    [DataField]
+    public Solution Solution = new();
 }

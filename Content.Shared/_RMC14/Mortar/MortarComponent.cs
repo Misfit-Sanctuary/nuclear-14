@@ -2,11 +2,10 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._RMC14.Mortar;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 [Access(typeof(SharedMortarSystem))]
 public sealed partial class MortarComponent : Component
 {
@@ -25,26 +24,20 @@ public sealed partial class MortarComponent : Component
     [DataField, AutoNetworkedField]
     public bool Deployed;
 
-    /// <summary>
-    ///     Whether the mortar has ever been given a target. Needed because (0, 0) is a valid coordinate.
-    /// </summary>
+    /// Whether the mortar has ever been given a target. Needed because (0, 0) is a valid coordinate.
+
     [DataField, AutoNetworkedField]
     public bool HasTarget;
 
-    /// <summary>
-    ///     Absolute map tile coordinate this mortar is aimed at.
-    /// </summary>
+    /// Absolute map tile coordinate this mortar is aimed at.
+
     [DataField, AutoNetworkedField]
     public Vector2i Target;
 
     [DataField, AutoNetworkedField]
-    public Vector2i Offset;
-
-    [DataField, AutoNetworkedField]
     public Vector2i Dial;
 
-    [DataField, AutoNetworkedField]
-    public TimeSpan FireDelay = TimeSpan.FromSeconds(0);
+    /// Metres of range per tile of possible miss, rolled fresh for every shot.
 
     [DataField, AutoNetworkedField]
     public int TilesPerOffset = 20;
@@ -85,11 +78,13 @@ public sealed partial class MortarComponent : Component
     [DataField, AutoNetworkedField]
     public SoundSpecifier? FireSound = new SoundPathSpecifier("/Audio/_RMC14/Weapons/gun_mortar_fire.ogg", AudioParams.Default.AddVolume(4));
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
-    public TimeSpan LastFiredAt;
-
     [DataField, AutoNetworkedField]
     public EntProtoId Drop = "RMCMortarKit";
+
+    /// Camera left by the last illumination round this mortar fired, if it still exists.
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? ImpactCamera;
 
     [DataField, AutoNetworkedField]
     public int[] FireRandomOffset = new[] { -1, 0, 0, 1 };

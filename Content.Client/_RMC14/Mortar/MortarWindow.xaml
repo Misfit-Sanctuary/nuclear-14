@@ -53,5 +53,18 @@
                 <RichTextLabel Name="MaxDialLabel" Access="Public" HorizontalAlignment="Center" />
             </BoxContainer>
         </PanelContainer>
+        <PanelContainer HorizontalExpand="True" Margin="0 8 0 0">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat
+                    BorderColor="#3A3A3A"
+                    BorderThickness="1"
+                    BackgroundColor="#252525" />
+            </PanelContainer.PanelOverride>
+            <BoxContainer Orientation="Vertical" Margin="4">
+                <RichTextLabel Text="{Loc 'rmc-mortar-camera-title'}" HorizontalAlignment="Center" />
+                <Button Name="CameraButton" Access="Public"
+                        Text="{Loc 'rmc-mortar-camera-view'}" HorizontalExpand="True" Margin="4" />
+            </BoxContainer>
+        </PanelContainer>
     </BoxContainer>
 </controls:MortarWindow>

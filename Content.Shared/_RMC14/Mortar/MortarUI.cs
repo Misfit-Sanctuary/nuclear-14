@@ -19,3 +19,8 @@ public sealed class MortarDialBuiMsg(Vector2i target) : BoundUserInterfaceMessag
 {
     public Vector2i Target = target;
 }
+
+/// Toggles the user's view between their body and the impact camera this mortar last put down.
+
+[Serializable, NetSerializable]
+public sealed class MortarCameraBuiMsg : BoundUserInterfaceMessage;
