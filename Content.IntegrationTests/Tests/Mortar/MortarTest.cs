@@ -789,7 +789,7 @@ public sealed class MortarTest
 
     private static bool FillBeaker(IEntityManager entMan, SolutionContainerSystem solution, EntityUid beaker, string reagent, int quantity)
     {
-        if (!entMan.TryGetComponent(beaker, out FitsInDispenserComponent? fits) ||
+        if (!entMan.TryGetComponent(beaker, out FitsInDispenserComponent fits) ||
             !solution.TryGetSolution(beaker, fits.Solution, out var solutionEntity, out _))
         {
             return false;
