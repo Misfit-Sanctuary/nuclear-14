@@ -234,7 +234,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatBrotherhoodCap
-  name: Brotherhood of Steel Cap
+  name: Brotherhood of steel cap
   description: A cap worn by members of the Brotherhood of Steel.
   components:
   - type: Sprite
@@ -247,26 +247,26 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatBrotherhoodBeret
-  name: Brotherhood of Steel Beret
+  name: Brotherhood of steel beret
   description: A beret worn by members of the Brotherhood of Steel.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Clothing/Head/FalloutHats/brotherhoodberet.rsi
+    sprite: _Misfits/Clothing/Head/bos_beret.rsi
   - type: Clothing
-    sprite: _Nuclear14/Clothing/Head/FalloutHats/brotherhoodberet.rsi
+    sprite: _Misfits/Clothing/Head/bos_beret.rsi
   # - type: ClothingSpecialModifier
     # perceptionModifier: 1
 
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatBrotherhoodFieldCap
-  name: BoS Field Cap
-  description: A cap worn by Paladins of the Brotherhood of Steel during their field duties.
+  name: Brotherhood field cap
+  description: A cap worn by members of the 509th Chapter during non-combat field operations. Decorative goggles included!
   components:
   - type: Sprite
-    sprite: _Nuclear14/Clothing/Head/FalloutHats/brotherhoodhat.rsi
+    sprite: _Misfits/Clothing/Head/bos_field_cap.rsi
   - type: Clothing
-    sprite: _Nuclear14/Clothing/Head/FalloutHats/brotherhoodhat.rsi
+    sprite: _Misfits/Clothing/Head/bos_field_cap.rsi
   # - type: ClothingSpecialModifier
     # perceptionModifier: 1
 

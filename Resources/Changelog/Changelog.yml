@@ -12669,3 +12669,35 @@ Entries:
   id: 6539
   time: '2026-10-30T23:51:20.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2123
+- author: hobolyra
+  changes:
+    - type: Remove
+      message: Deletes exploitable items from outside vault map
+    - type: Tweak
+      message: Multiple QoL changes to vault map
+  id: 6540
+  time: '2026-10-31T01:03:52.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2131
+- author: RedBookcase
+  changes:
+    - type: Add
+      message: >-
+        Part two of the Brotherhood resprite! Includes tons of new jumpsuits,
+        cloaks, coats, hats, etc!
+  id: 6541
+  time: '2026-10-31T01:10:47.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2120
+- author: TytosB
+  changes:
+    - type: Tweak
+      message: slightly reduced time reqs for a few legion jobs
+  id: 6542
+  time: '2026-10-31T01:11:09.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2125
+- author: hobolyra
+  changes:
+    - type: Fix
+      message: Town and Vault warp
+  id: 6543
+  time: '2026-10-31T13:24:58.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2134

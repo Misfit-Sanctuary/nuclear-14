@@ -941,8 +941,6 @@
   items:
     - N14ClothingOuterJacketBomber
 
-
-
 - type: loadout
   id: N14LoadoutOuterDuster
   category: Outer
@@ -963,3 +961,31 @@
   items:
     - N14ClothingOuterCoatDuster
 
+- type: loadout
+  id: N14LoadoutOuterBrotherhoodBomberJacket
+  category: Outer
+  cost: 1
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutOuter
+  - !type:CharacterDepartmentRequirement
+    inverted: false
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - MisfitsClothingOuterBrotherhoodBomberJacket
+
+- type: loadout
+  id: N14LoadoutOuterBrotherhoodElderBomberJacket
+  category: Outer
+  cost: 1
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterJobRequirement
+      inverted: false
+      jobs:
+      - BoSWestElderCommander
+  items:
+  - MisfitsClothingOuterBrotherhoodElderParka

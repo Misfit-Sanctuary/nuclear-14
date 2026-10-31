@@ -71,3 +71,38 @@
     sprite: _Misfits/Clothing/Belt/paladinwebbing_black.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/Belt/paladinwebbing_black.rsi
+
+# #Misfits Add - BoS Scribe webbing variants.
+
+- type: entity
+  parent: N14ClothingBeltBoSWebbing
+  id: MisfitsClothingBeltFieldScribeWebbing
+  name: field scribe webbing
+  description: A full set of vest webbing for a field scribe of the 509th Chapter to store everything they might need outside of the bunker.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Belt/bos_field_webbing.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Belt/bos_field_webbing.rsi
+
+- type: entity
+  parent: N14ClothingBeltBoSWebbing
+  id: MisfitsClothingBeltMedicalScribeBelt
+  name: medical scribe belt
+  description: A tight-fitting medical belt to store all the spare life-saving gear that a medical scribe of the 509th Chapter may carry.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Belt/bos_medical_belt.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Belt/bos_medical_belt.rsi
+
+- type: entity
+  parent: N14ClothingBeltBoSWebbing
+  id: MisfitsClothingBeltScienceScribeBelt
+  name: science scribe belt
+  description: A robust belt used by scientifically minded scribes with the 509th Chapter to carry spare tools and ammo.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Belt/bos_science_belt.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Belt/bos_science_belt.rsi
