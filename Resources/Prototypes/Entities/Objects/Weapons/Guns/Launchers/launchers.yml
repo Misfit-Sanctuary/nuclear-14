@@ -168,6 +168,40 @@
       soundInsert:
         path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
 
+
+- type: entity
+  name: Waybreaker
+  parent: BaseWeaponLauncher
+  id: M14Waybreaker
+  description: Break anyone who would stand before you.
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
+      layers:
+        - state: icon
+          map: ["enum.GunVisualLayers.Base"]
+    - type: Battery
+      maxCharge: 600
+      startingCharge: 300
+    - type: ProjectileBatteryAmmoProvider
+      proto: BulletCannonBall
+      fireCost: 500
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 15
+    - type: Clothing
+      sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
+      slots:
+        - Back
+        - suitStorage
+    - type: Gun
+      fireRate: 1
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+
+
+
+
 - type: entity
   name: tether gun
   parent:
@@ -267,7 +301,7 @@
     - type: GrapplingGun
     - type: Gun
       soundGunshot: /Audio/Weapons/Guns/Gunshots/harpoon.ogg
-      fireRate: 0.5
+      fireRate: 0.1
     - type: BasicEntityAmmoProvider
       proto: GrapplingHook
       capacity: 1
