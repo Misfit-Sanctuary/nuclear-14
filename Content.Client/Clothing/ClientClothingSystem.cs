@@ -88,6 +88,18 @@ public sealed class ClientClothingSystem : ClothingSystem
         if (!TryComp(args.Equipee, out InventoryComponent? inventory))
             return;
 
+        // #Misfits Add - Hide dog equipment unless explicitly
+        // configured with canine-specific clothing visuals.
+        // Equipment remains functional while invisible.
+        if (inventory.TemplateId == "misfits_dog" &&
+            (args.Slot == "mask" ||
+                args.Slot == "neck" ||
+                args.Slot == "back" ||
+                args.Slot == "id") &&
+            (!item.ClothingVisuals.TryGetValue($"{args.Slot}-dog", out var dogVisuals) ||
+                dogVisuals.Count == 0))
+            return;
+
         List<PrototypeLayerData>? layers = null;
 
         // first attempt to get species specific data.

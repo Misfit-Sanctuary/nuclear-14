@@ -1,0 +1,84 @@
+﻿# Followers of the Apocalypse
+- type: loadout
+  id: MisfitsLoadoutDogTreatPouchFollowers
+  category: Items
+  cost: 3
+  requirements:
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - FollowersOfTheApocalypse
+  items:
+  - MisfitsClothingBackDogTreatPouchFollowers
+
+# Vault-Tec
+- type: loadout
+  id: MisfitsLoadoutDogTreatPouchVault
+  category: Items
+  cost: 3
+  requirements:
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Vault
+  items:
+  - MisfitsClothingBackDogTreatPouchVault
+
+# NCR
+- type: loadout
+  id: MisfitsLoadoutDogTreatPouchNCR
+  category: Items
+  cost: 4
+  requirements:
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - NCR
+  items:
+  - MisfitsClothingBackDogTreatPouchNCR
+
+# Caesar's Legion
+- type: loadout
+  id: MisfitsLoadoutDogTreatPouchLegion
+  category: Items
+  cost: 4
+  requirements:
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - CaesarLegion
+  items:
+  - MisfitsClothingBackDogTreatPouchLegion
+
+# Brotherhood of Steel
+- type: loadout
+  id: MisfitsLoadoutDogTreatPouchBrotherhood
+  category: Items
+  cost: 5
+  requirements:
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - MisfitsClothingBackDogTreatPouchBrotherhood
+
+# NCR Rangers
+- type: loadout
+  id: MisfitsLoadoutDogTreatPouchRanger
+  category: Items
+  cost: 5
+  requirements:
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Rangers
+  items:
+  - MisfitsClothingBackDogTreatPouchRanger
+
+# Enclave
+- type: loadout
+  id: MisfitsLoadoutDogTreatPouchEnclave
+  category: Items
+  cost: 6
+  requirements:
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - Enclave
+  items:
+  - MisfitsClothingBackDogTreatPouchEnclave

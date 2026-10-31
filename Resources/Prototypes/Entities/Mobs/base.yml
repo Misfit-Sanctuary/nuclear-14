@@ -242,9 +242,12 @@
   - type: Bloodstream
     bloodlossDamage:
       types:
-        Bloodloss: 0.5
+        Bloodloss: 1.5 # bloodloss damage was very negligible, this is intended to fix it.
     bloodlossHealDamage:
       types:
-        Bloodloss: -1
+        Bloodloss: -0.25
+    bloodRefreshAmount: 0.5
     bloodRegenerationHunger: 1
     bloodRegenerationThirst: 1.5
+    bleedReductionAmount: 0.4
+    maxBleedAmount: 8.0

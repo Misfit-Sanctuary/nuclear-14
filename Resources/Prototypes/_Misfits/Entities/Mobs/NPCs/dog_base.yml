@@ -1,0 +1,260 @@
+﻿
+# #Misfits Add - Universal dog base.
+# Inherits directly from N14MobBaseHostileNoAccent
+# to avoid the MisfitsPetNoPickup component.
+- type: entity
+  abstract: true
+  id: MisfitsMobDogBase
+  parent: N14MobBaseHostileNoAccent
+  name: dog
+  description: A loyal wasteland canine.
+  categories: [ HideSpawnMenu ]
+  components:
+  # Identity
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: RandomMetadata
+    nameSegments: [names_N14pet_dog]
+  - type: Grammar
+    attributes:
+      proper: true
+
+  # Faction
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+
+  # Body and medical
+  - type: Body
+    prototype: N14PetAnimal
+  - type: RadiationReceiver
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Critical
+      160: Dead
+    allowRevives: true
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    - Critical
+    damageCap: 0
+    damage:
+      groups:
+        Brute: -0.5
+        Burn: -0.5
+        Toxin: -0.5
+        Airloss: -3
+
+  # Movement
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 6.5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.30
+        density: 20
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+
+  # Visuals
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: shepherd
+      sprite: _Nuclear14/Mobs/Animals/dogsheperd.rsi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: shepherd
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+
+  # Player interaction
+  - type: Hands
+    showInHands: true
+  - type: BorgHands
+  - type: Puller
+    needsHands: false
+  - type: ComplexInteraction
+  - type: Emoting
+
+  # Prevent weapon pickups without blocking
+  # ordinary item handling.
+  - type: RobotWeaponPickupBlacklist
+    blacklist:
+      components:
+      - Gun
+      - MeleeWeapon
+
+  # Equipment
+  - type: Inventory
+    speciesId: dog
+    templateId: misfits_dog
+  - type: InventorySlots
+  - type: Strippable
+  - type: PetCollarHolder
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+
+  # Speech
+  - type: Speech
+    speechSounds: Dog
+  - type: LanguageKnowledge
+    speaks:
+    - N14Dog
+    understands:
+    - N14Dog
+    - N14Insect
+    - English
+    - Spanish
+    - Chinese
+    - Latin
+    - Tribal
+    - N14Robot
+    - N14BrotherBeep
+    - Sign
+
+  # Petting
+  - type: InteractionPopup
+    interactSuccessString: petting-success-dog
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      collection: N14DogBark
+
+  # Sounds
+  - type: IdleSound
+  - type: SpamEmitSound
+    minInterval: 10
+    maxInterval: 60
+    sound:
+      collection: N14DogIdle
+      params:
+        volume: -10
+        maxDistance: 5
+  - type: Deathgasp
+
+  # Combat
+  - type: MeleeWeapon
+    range: 1.25
+    altDisarm: false
+    hidden: true
+    soundHit:
+      collection: N14DogAttack
+    angle: 60
+    animation: WeaponArcBite
+    wideAnimation: WeaponArcBite
+    damage:
+      types:
+        Blunt: 14
+        Slash: 18
+
+  # Dog charge
+  - type: ActionGrant
+    actions:
+    - MisfitsActionMeleeCharge
+  - type: MeleeChargeAudio
+    activationSound:
+      collection: N14DogAttack
+      params:
+        volume: -2
+        maxDistance: 15
+    impactSound:
+      path: /Audio/Effects/Footsteps/largethud.ogg
+      params:
+        volume: 3
+        maxDistance: 15
+
+  # Ghost role
+  - type: GhostRole
+    name: ghost-role-information-n14pet-dog-name
+    description: ghost-role-information-n14pet-generic-description
+    rules: ghost-role-component-default-rules
+    makeSentient: false
+    allowMovement: true
+  - type: GhostTakeoverAvailable
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VulpEmotes
+    - FootstepSound
+
+  - type: Hunger
+    currentHunger: 180
+    thresholds:
+      Overfed: 200
+      Okay: 150
+      Peckish: 100
+      Starving: 50
+      Dead: 0
+    baseDecayRate: 0.0
+
+  - type: Thirst
+    startingThirst: 180
+    thresholds:
+      OverHydrated: 200
+      Okay: 150
+      Thirsty: 100
+      Parched: 50
+      Dead: 0
+    baseDecayRate: 0.0
+
+  # Canine vocalizations
+  - type: Vocal
+    sounds:
+      Unsexed: MisfitsDogEmotes
+    screamId: Bark
+    screamAction: MisfitsActionDogBark
+    wilhelmProbability: 0
+
+# See in the dark
+  - type: NightVision
+    color: "#808080"
+
+# Make them bark randomly
+  - type: RandomBark
+    barkType: dog
+    minTime: 300
+    maxTime: 600
+
+# Let them listen to wasteland global, but not able to actually speak on it
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - WastelandGlobal
+    globalReceive: false
+
+  - type: Bloodstream
+    bloodMaxVolume: 300
+    bloodReagent: WastelandBlood
+    maxBleedAmount: 3.0
+    bleedReductionAmount: 1.25
+
+# #Misfits Add - Canine bark action.
+- type: entity
+  id: MisfitsActionDogBark
+  name: Bark
+  description: Let out a loud bark.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 10
+    icon: Interface/Emotes/bark.png
+    event: !type:ScreamActionEvent
+    checkCanInteract: false
