@@ -258,3 +258,6 @@
     icon: Interface/Emotes/bark.png
     event: !type:ScreamActionEvent
     checkCanInteract: false
+
+# Prevent dogs from picking up or being given weapons.
+  - type: MisfitsPetNoPickup
