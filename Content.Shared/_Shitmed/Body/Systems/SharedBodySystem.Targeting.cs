@@ -154,7 +154,7 @@ public partial class SharedBodySystem
             if (targetPart == null)
                 return;
 
-            if (!TryChangePartDamage(ent, args.Damage, args.IgnoreResistances, args.CanSever, args.CanEvade, args.PartMultiplier, targetPart.Value, out var evaded)
+            if (!TryChangePartDamage(ent, args.Damage, args.IgnoreResistances, args.CanSever, args.CanEvade, args.PartMultiplier, targetPart.Value, out var evaded, args.ArmorPiercing) // #Misfits Add
                 && args.CanEvade && evaded)
             {
                 if (_net.IsServer)
@@ -193,7 +193,8 @@ public partial class SharedBodySystem
         bool canEvade,
         float partMultiplier,
         TargetBodyPart targetParts,
-        out bool evaded)
+        out bool evaded,
+        float armorPiercing) // #Misfits Add
     {
         evaded = false;
 
@@ -216,7 +217,7 @@ public partial class SharedBodySystem
                     continue;
                 }
 
-                var damageResult = _damageable.TryChangeDamage(part.FirstOrDefault().Id, damage * partMultiplier, ignoreResistances, canSever: canSever);
+                var damageResult = _damageable.TryChangeDamage(part.FirstOrDefault().Id, damage * partMultiplier, ignoreResistances, canSever: canSever, armorPiercing: armorPiercing); // #Misfits Add
                 if (damageResult != null && damageResult.GetTotal() != 0)
                     landed = true;
             }

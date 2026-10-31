@@ -194,122 +194,9 @@ public sealed partial class GunSystem : SharedGunSystem
                     if (TryResolveGunHitscan(gunUid, out var resolvedHitscan))
                         hitscan = resolvedHitscan;
 
-                    EntityUid lastHit = EntityUid.Invalid;
-
-                    var beamOriginMapCoords = fromMap;
-                    // [Changed by MisfitsCrew/Operator] Use grid/map effect coordinates so beam
-                    // sprites are not parented to bikes or other ridden entities.
-                    var beamOriginEntCoords = GetShotEffectCoordinates(fromMap);
-                    var beamDir = mapDirection.Normalized();
-
-                    //in the situation when user == null, means that the cannon fires on its own (via signals). And we need the gun to not fire by itself in this case
-                    var lastUser = user ?? gunUid;
-                    // [Changed by MisfitsCrew/Operator] Rider-fired hitscan must ignore both
-                    // the rider and their mounted vehicle; one ignored entity is not enough.
-
-                    // TODO: make this an event for the entity. Maybe broadcasted too
-                    // so do RaiseLocalEvent(uid,IgnoreEvent ev)
-                    // ev gets passed to different comps that fills a list in ev or a filter or both
-                    // for riders and cars and prolly other special behaviors
-                    // event itself also call another event for the gun
-                    var rayExtraIgnore = GetShotExtraIgnoredEntity(user);
-                    bool beamHitSomething = TryGetHitscanResult(beamOriginMapCoords, beamDir, hitscan, lastUser,
-                                                    rayExtraIgnore, gun.Target, userSession,
-                                                    out lastHit, out var distance);
-                    // always filter out userSession, since we are still predicting the 1st shot that isnt reflected
-                    FireEffects(beamOriginEntCoords, distance, beamDir.Normalized().ToAngle(), hitscan, lastHit, shooterSession: userSession);
-                    // TODO: course this reflect logic/sequence should be in its own method to start no inline clutter
-                    if (hitscan.Reflective == ReflectType.Energy && beamHitSomething)
-                    {
-
-                        for (int i = 0; i < 3; i++)
-                        {
-                            var deflectEv = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, beamDir, false);
-                            RaiseLocalEvent(lastHit, ref deflectEv);
-
-                            // beam reflected(only possible to reflect if it hit something before its max range)
-                            if (!deflectEv.Reflected || !beamHitSomething)
-                                break;
-
-                            // get position data and direction of deflected beam like its a new beam just "shooting" from the deflectee
-                            lastUser = lastHit; // we consider the prev hit ent to be the new beam source
-                            beamDir = deflectEv.Direction;
-                            beamOriginEntCoords = GetShotEffectCoordinates(_transform.ToMapCoordinates(Transform(lastHit).Coordinates));
-                            beamOriginMapCoords = _transform.ToMapCoordinates(beamOriginEntCoords);
-
-                            // with new deflect data we treat it like its a new beam and see if it hit something
-                            beamHitSomething = TryGetHitscanResult(beamOriginMapCoords, beamDir, hitscan, lastUser,
-                               rayExtraIgnore, gun.Target, userSession,
-                               out lastHit, out distance);
-
-                            FireEffects(beamOriginEntCoords, distance, beamDir.Normalized().ToAngle(), hitscan, lastUser);
-                        }
-                    }
-                    // in the case of these deflecting beams, whoever was the very last to be hit gets the damage
-                    // deflect mechanics even for bullets, totally negates damage.
-                    // refactoring needed if we want diff behavior for diff lasers in general
-                    if (lastHit != EntityUid.Invalid)
-                    {
-                        var hitEntity = lastHit;
-                        if (hitscan.StaminaDamage > 0f)
-                            _stamina.TakeStaminaDamage(hitEntity, hitscan.StaminaDamage, source: user);
-
-                        var dmg = hitscan.Damage;
-
-                        // #Misfits Add - Apply gun-side bonus damage from GunDamageBonusComponent
-                        if (dmg != null && TryComp<GunDamageBonusComponent>(gunUid, out var gunBonus) && gunBonus.BonusDamage != null)
-                        {
-                            dmg = new DamageSpecifier(dmg);
-                            dmg += gunBonus.BonusDamage;
-                        }
-
-                        if (dmg != null && user != null)
-                        {
-                            var modifyDamage = new SpecialModifyHitscanDamageEvent(gunUid, dmg);
-                            RaiseLocalEvent(user.Value, ref modifyDamage);
-                            dmg = modifyDamage.Damage;
-                        }
-
-                        var hitName = ToPrettyString(hitEntity);
-                        if (dmg != null)
-                            dmg = Damageable.TryChangeDamage(hitEntity, dmg, origin: user);
-
-                        // check null again, as TryChangeDamage returns modified damage values
-                        if (dmg != null)
-                        {
-                            if (!Deleted(hitEntity))
-                            {
-                                if (dmg.AnyPositive() && !HasComp<ActorComponent>(hitEntity))
-                                {
-                                    var filter = Filter.Pvs(hitEntity, entityManager: EntityManager);
-                                    if (userSession != null)
-                                        filter.RemovePlayer(userSession);
-
-                                    _color.RaiseEffect(Color.Red, new List<EntityUid>() { hitEntity }, filter);
-                                }
-
-                                // TODO get fallback position for playing hit sound.
-                                base.PlayImpactSound(hitEntity, dmg, hitscan.Sound, hitscan.ForceSound);
-                            }
-
-                            if (user != null)
-                            {
-                                Logs.Add(LogType.HitScanHit,
-                                    $"{ToPrettyString(user.Value):user} hit {hitName:target} using hitscan and dealt {dmg.GetTotal():damage} damage");
-                            }
-                            else
-                            {
-                                Logs.Add(LogType.HitScanHit,
-                                    $"{hitName:target} hit by hitscan dealing {dmg.GetTotal():damage} damage");
-                            }
-                        }
-                    }
-
-                    if (lastHit != EntityUid.Invalid && user != null)
-                    {
-                        var hitEv = new HitscanHitEntityEvent(lastHit);
-                        RaiseLocalEvent(user.Value, ref hitEv);
-                    }
+                    // #Misfits Add - shotgun hitscans fire one full ray per pellet across a spread
+                    foreach (var rayDirection in GetHitscanDirections(gunUid, mapDirection))
+                        FireHitscanRay(fromMap, rayDirection, hitscan, gunUid, gun, user, userSession);
 
                     Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                     break;
@@ -377,6 +264,138 @@ public sealed partial class GunSystem : SharedGunSystem
 
         return shotProjectiles;
     }
+
+    // #Misfits Add - fires one hitscan ray, including reflections and damage, so a gun can fire several
+    private void FireHitscanRay(
+        MapCoordinates fromMap,
+        Vector2 direction,
+        HitscanPrototype hitscan,
+        EntityUid gunUid,
+        GunComponent gun,
+        EntityUid? user,
+        ICommonSession? userSession)
+    {
+        // #Misfits Add - fraction of worn armor this gun's shots ignore
+        var armorPiercing = TryComp<ArmorPiercingComponent>(gunUid, out var piercingComp) ? piercingComp.Piercing : 0f;
+
+        EntityUid lastHit = EntityUid.Invalid;
+
+        var beamOriginMapCoords = fromMap;
+        // [Changed by MisfitsCrew/Operator] Use grid/map effect coordinates so beam
+        // sprites are not parented to bikes or other ridden entities.
+        var beamOriginEntCoords = GetShotEffectCoordinates(fromMap);
+        var beamDir = direction.Normalized();
+
+        //in the situation when user == null, means that the cannon fires on its own (via signals). And we need the gun to not fire by itself in this case
+        var lastUser = user ?? gunUid;
+        // [Changed by MisfitsCrew/Operator] Rider-fired hitscan must ignore both
+        // the rider and their mounted vehicle; one ignored entity is not enough.
+
+        // TODO: make this an event for the entity. Maybe broadcasted too
+        // so do RaiseLocalEvent(uid,IgnoreEvent ev)
+        // ev gets passed to different comps that fills a list in ev or a filter or both
+        // for riders and cars and prolly other special behaviors
+        // event itself also call another event for the gun
+        var rayExtraIgnore = GetShotExtraIgnoredEntity(user);
+        bool beamHitSomething = TryGetHitscanResult(beamOriginMapCoords, beamDir, hitscan, lastUser,
+                                        rayExtraIgnore, gun.Target, userSession,
+                                        out lastHit, out var distance);
+        // always filter out userSession, since we are still predicting the 1st shot that isnt reflected
+        FireEffects(beamOriginEntCoords, distance, beamDir.Normalized().ToAngle(), hitscan, lastHit, shooterSession: userSession);
+        // TODO: course this reflect logic/sequence should be in its own method to start no inline clutter
+        if (hitscan.Reflective == ReflectType.Energy && beamHitSomething)
+        {
+
+            for (int i = 0; i < 3; i++)
+            {
+                var deflectEv = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, beamDir, false);
+                RaiseLocalEvent(lastHit, ref deflectEv);
+
+                // beam reflected(only possible to reflect if it hit something before its max range)
+                if (!deflectEv.Reflected || !beamHitSomething)
+                    break;
+
+                // get position data and direction of deflected beam like its a new beam just "shooting" from the deflectee
+                lastUser = lastHit; // we consider the prev hit ent to be the new beam source
+                beamDir = deflectEv.Direction;
+                beamOriginEntCoords = GetShotEffectCoordinates(_transform.ToMapCoordinates(Transform(lastHit).Coordinates));
+                beamOriginMapCoords = _transform.ToMapCoordinates(beamOriginEntCoords);
+
+                // with new deflect data we treat it like its a new beam and see if it hit something
+                beamHitSomething = TryGetHitscanResult(beamOriginMapCoords, beamDir, hitscan, lastUser,
+                   rayExtraIgnore, gun.Target, userSession,
+                   out lastHit, out distance);
+
+                FireEffects(beamOriginEntCoords, distance, beamDir.Normalized().ToAngle(), hitscan, lastUser);
+            }
+        }
+        // in the case of these deflecting beams, whoever was the very last to be hit gets the damage
+        // deflect mechanics even for bullets, totally negates damage.
+        // refactoring needed if we want diff behavior for diff lasers in general
+        if (lastHit != EntityUid.Invalid)
+        {
+            var hitEntity = lastHit;
+            if (hitscan.StaminaDamage > 0f)
+                _stamina.TakeStaminaDamage(hitEntity, hitscan.StaminaDamage, source: user);
+
+            var dmg = hitscan.Damage;
+
+            // #Misfits Add - Apply gun-side bonus damage from GunDamageBonusComponent
+            if (dmg != null && TryComp<GunDamageBonusComponent>(gunUid, out var gunBonus) && gunBonus.BonusDamage != null)
+            {
+                dmg = new DamageSpecifier(dmg);
+                dmg += gunBonus.BonusDamage;
+            }
+
+            if (dmg != null && user != null)
+            {
+                var modifyDamage = new SpecialModifyHitscanDamageEvent(gunUid, dmg);
+                RaiseLocalEvent(user.Value, ref modifyDamage);
+                dmg = modifyDamage.Damage;
+            }
+
+            var hitName = ToPrettyString(hitEntity);
+            if (dmg != null)
+                dmg = Damageable.TryChangeDamage(hitEntity, dmg, origin: user, armorPiercing: armorPiercing); // #Misfits Add
+
+            // check null again, as TryChangeDamage returns modified damage values
+            if (dmg != null)
+            {
+                if (!Deleted(hitEntity))
+                {
+                    if (dmg.AnyPositive() && !HasComp<ActorComponent>(hitEntity))
+                    {
+                        var filter = Filter.Pvs(hitEntity, entityManager: EntityManager);
+                        if (userSession != null)
+                            filter.RemovePlayer(userSession);
+
+                        _color.RaiseEffect(Color.Red, new List<EntityUid>() { hitEntity }, filter);
+                    }
+
+                    // TODO get fallback position for playing hit sound.
+                    PlayImpactSound(hitEntity, dmg, hitscan.Sound, hitscan.ForceSound);
+                }
+
+                if (user != null)
+                {
+                    Logs.Add(LogType.HitScanHit,
+                        $"{ToPrettyString(user.Value):user} hit {hitName:target} using hitscan and dealt {dmg.GetTotal():damage} damage");
+                }
+                else
+                {
+                    Logs.Add(LogType.HitScanHit,
+                        $"{hitName:target} hit by hitscan dealing {dmg.GetTotal():damage} damage");
+                }
+            }
+        }
+
+        if (lastHit != EntityUid.Invalid && user != null)
+        {
+            var hitEv = new HitscanHitEntityEvent(lastHit);
+            RaiseLocalEvent(user.Value, ref hitEv);
+        }
+    }
+
     // TODO rework so we dont need to loop through results and only work off a predicate for the raycast
     private bool TryGetHitscanResult(
         MapCoordinates from,
