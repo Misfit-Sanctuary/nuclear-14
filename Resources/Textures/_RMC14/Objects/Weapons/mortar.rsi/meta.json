@@ -8,64 +8,6 @@
   },
   "states": [
     {
-      "name": "mortar_m402",
-      "directions": 4
-    },
-    {
-      "name": "mortar_m402_fire",
-      "directions": 4,
-      "delays": [
-        [
-          0.1,
-          0.2
-        ],
-        [
-          0.1,
-          0.2
-        ],
-        [
-          0.1,
-          0.2
-        ],
-        [
-          0.1,
-          0.2
-        ]
-      ]
-    },
-    {
-      "name": "mortar_m402_w",
-      "directions": 4
-    },
-    {
-      "name": "mortar_m402_w_fire",
-      "directions": 4,
-      "delays": [
-        [
-          0.1,
-          0.2
-        ],
-        [
-          0.1,
-          0.2
-        ],
-        [
-          0.1,
-          0.2
-        ],
-        [
-          0.1,
-          0.2
-        ]
-      ]
-    },
-    {
-      "name": "mortar_m402_carry"
-    },
-    {
-      "name": "mortar_m402_w_carry"
-    },
-    {
       "name": "mortar_ammo_cas"
     },
     {
@@ -151,46 +93,6 @@
     },
     {
       "name": "inc-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "mortar-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "mortar-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "c_mortar-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "c_mortar-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "d_mortar-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "d_mortar-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "s_mortar-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "s_mortar-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "u_mortar-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "u_mortar-inhand-right",
       "directions": 4
     }
   ]

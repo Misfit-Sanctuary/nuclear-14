@@ -14,6 +14,7 @@ using Content.Shared.Emp;
 using Content.Shared.Light.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
+using Content.Shared.Radiation.Components;
 using Content.Shared.UserInterface;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
@@ -192,7 +193,7 @@ public sealed class MortarTest
         var impactPosition = Vector2.Zero;
         var roofedTile = Vector2i.Zero;
 
-        // Map relative impact point, coming down on a roof, so nothing below is reached.
+        // Map relative impact point, coming down on a roof, which must still take the payload.
         await server.WaitPost(() =>
         {
             var mapUid = mapSystem.GetMap(map.MapId);
@@ -206,7 +207,7 @@ public sealed class MortarTest
 
         await pair.RunTicksSync(3);
 
-        var smokeUnderRoof = 0;
+        var roofedSmoke = 0;
 
         await server.WaitPost(() =>
         {
@@ -214,11 +215,11 @@ public sealed class MortarTest
             while (smokeQuery.MoveNext(out _, out var smoke))
             {
                 if (smoke.Duration == 45f && smoke.SpreadAmount == 35)
-                    smokeUnderRoof++;
+                    roofedSmoke++;
             }
         });
 
-        // Roof off, so the same tile also shows a legal round delivering its payload.
+        // Roof off, and a second round lands on the same tile to check the open-ground path.
         await server.WaitPost(() =>
         {
             var mapUid = mapSystem.GetMap(map.MapId);
@@ -277,10 +278,10 @@ public sealed class MortarTest
         {
             Assert.Multiple(() =>
             {
-                Assert.That(smokeClouds, Is.EqualTo(1), "The smoke shell left no cloud behind, or left more than one.");
+                Assert.That(smokeClouds, Is.EqualTo(2), "A smoke shell left no cloud behind, or left the wrong number of them.");
                 Assert.That(smokeDistance, Is.LessThan(1.5f), "The smoke cloud did not land on the impact tile.");
-                Assert.That(smokeUnderRoof, Is.EqualTo(0),
-                    "A shell that came down on a roof still delivered its payload underneath it.");
+                Assert.That(roofedSmoke, Is.EqualTo(1),
+                    "A shell that came down on a roof did not deliver its payload underneath it.");
                 Assert.That(litFlares, Is.EqualTo(1), "The illumination shell did not leave a burning flare.");
                 Assert.That(flareAnchored, Is.True, "The illumination flare is not anchored, so it can drift or be moved.");
                 Assert.That(flarePickupable, Is.False, "The illumination flare is an item and can be picked up.");
@@ -723,6 +724,59 @@ public sealed class MortarTest
                 Assert.That(casingLeft, Is.True, "The reusable casing was destroyed on impact.");
                 Assert.That(casingActive, Is.False,
                     "The casing was still marked as in flight, so it could never be loaded again.");
+            });
+        }
+        finally
+        {
+            await pair.CleanReturnAsync();
+        }
+    }
+
+    /// The uranium round splashes the impact area with radiation that burns out on its own.
+
+    [Test]
+    public async Task UraniumShellSplashesTemporaryRadiation()
+    {
+        var pair = await PoolManager.GetServerClient(new PoolSettings());
+        var server = pair.Server;
+        var entMan = server.EntMan;
+        var map = await pair.CreateTestMap();
+
+        var mapSystem = server.System<SharedMapSystem>();
+        var xform = server.System<SharedTransformSystem>();
+
+        var impact = new EntityCoordinates(mapSystem.GetMap(map.MapId), xform.ToMapCoordinates(map.GridCoords).Position);
+
+        var splatters = 0;
+        var radiating = 0;
+        var lifetime = 0f;
+
+        await server.WaitPost(() => LandShell(entMan, "RMCMortarShellUranium", impact));
+        await pair.RunTicksSync(1);
+
+        await server.WaitPost(() =>
+        {
+            var query = entMan.EntityQueryEnumerator<RadiationSourceComponent, TimedDespawnComponent>();
+            while (query.MoveNext(out _, out var source, out var despawn))
+            {
+                splatters++;
+                if (source.Intensity > 0)
+                    radiating++;
+
+                lifetime = despawn.Lifetime;
+            }
+        });
+
+        try
+        {
+            Assert.Multiple(() =>
+            {
+                Assert.That(splatters, Is.EqualTo(14),
+                    "The uranium round did not scatter its splatters over the area.");
+                Assert.That(radiating, Is.EqualTo(splatters),
+                    "A splatter was left behind without radiating.");
+                Assert.That(lifetime, Is.EqualTo(45f).Within(0.5f),
+                    "The splatters do not burn out on their own.");
             });
         }
         finally

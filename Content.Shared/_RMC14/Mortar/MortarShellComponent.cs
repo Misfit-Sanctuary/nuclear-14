@@ -1,5 +1,6 @@
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -51,6 +52,16 @@ public sealed partial class MortarShellComponent : Component
     [DataField]
     public EntProtoId? ImpactCamera;
 
+    /// Noise the shell makes where it comes down.
+
+    [DataField]
+    public SoundSpecifier? LandSound;
+
+    /// Radioactive splash left around the impact point, if any.
+
+    [DataField]
+    public MortarRadiationPayload? Radiation;
+
     /// Damage dealt to everything on the impact tile, if any.
 
     [DataField]
@@ -81,6 +92,32 @@ public sealed partial class MortarEmpPayload
 
     [DataField]
     public float DisableDuration = 30f;
+}
+
+/// Parameters for the radioactive splash a shell leaves behind.
+
+[DataDefinition]
+public sealed partial class MortarRadiationPayload
+{
+    /// Splatter spawned across the impact area.
+
+    [DataField]
+    public EntProtoId Prototype = "RMCMortarUraniumSplatter";
+
+    /// Diamond radius, in tiles, of the splashed area.
+
+    [DataField]
+    public int Range = 3;
+
+    /// How many splatters are scattered across that area.
+
+    [DataField]
+    public int Count = 6;
+
+    /// Seconds each splatter keeps radiating before it burns out.
+
+    [DataField]
+    public float Duration = 45f;
 }
 
 /// Parameters for the smoke cloud a shell leaves behind.

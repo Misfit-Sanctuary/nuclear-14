@@ -763,14 +763,11 @@ public abstract partial class SharedMortarSystem : EntitySystem
             _container.Remove(shell, container, force: true);
         }
 
-        // Drift can put a round over a roof, where it breaks up instead of striking.
-        if (IsRoofed(_transform.ToMapCoordinates(active.Coordinates)))
-        {
-            QueueDel(shell);
-            return;
-        }
-
         _transform.SetCoordinates(shell, active.Coordinates);
+
+        TryComp(shell, out MortarShellComponent? landing);
+        if (landing?.LandSound is { } landSound)
+            _audio.PlayPvs(landSound, shell);
 
         var ev = new MortarShellLandEvent(active.Coordinates, mortar);
         RaiseLocalEvent(shell, ref ev);
@@ -778,7 +775,7 @@ public abstract partial class SharedMortarSystem : EntitySystem
         ExplodeShell(shell);
 
         // A reusable casing is left where it struck, ready to be collected and loaded again.
-        if (TryComp(shell, out MortarShellComponent? landing) && landing.Reusable)
+        if (landing is { Reusable: true })
         {
             RemComp<ActiveMortarShellComponent>(shell);
             return;

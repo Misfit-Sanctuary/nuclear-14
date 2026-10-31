@@ -12,6 +12,7 @@ using Content.Shared.Damage;
 using Content.Shared.Maps;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 
 namespace Content.Server._RMC14.Mortar;
@@ -26,6 +27,7 @@ public sealed partial class MortarSystem : SharedMortarSystem
     [Dependency] private ExpendableLightSystem _expendableLight = default!;
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     /// Seconds a shell payload lingers after burning out before it despawns.
 
@@ -41,10 +43,6 @@ public sealed partial class MortarSystem : SharedMortarSystem
 
     private void OnShellLand(Entity<MortarShellComponent> shell, ref MortarShellLandEvent args)
     {
-        // Nothing a shell carries gets through a roof, whatever brought it down.
-        if (IsRoofed(_transform.ToMapCoordinates(args.Coordinates)))
-            return;
-
         if (shell.Comp.FireTilePrototype is { } fire)
             _flamer.SpawnDiamond(fire, args.Coordinates, shell.Comp.FireRange);
 
@@ -55,6 +53,7 @@ public sealed partial class MortarSystem : SharedMortarSystem
             shell.Comp.Emp == null &&
             shell.Comp.ImpactSpawn == null &&
             shell.Comp.ImpactCamera == null &&
+            shell.Comp.Radiation == null &&
             shell.Comp.KineticDamage == null)
         {
             return;
@@ -65,6 +64,9 @@ public sealed partial class MortarSystem : SharedMortarSystem
 
         if (shell.Comp.KineticDamage is { } kinetic)
             StrikeTile(kinetic, tile, shell.Owner);
+
+        if (shell.Comp.Radiation is { } radiation)
+            SpawnRadiation(radiation, tile);
 
         if (shell.Comp.Smoke is { } smoke)
             SpawnSmoke(smoke, tile);
@@ -96,6 +98,30 @@ public sealed partial class MortarSystem : SharedMortarSystem
                 continue;
 
             _damageable.TryChangeDamage(uid, damage, origin: shell);
+        }
+    }
+
+    /// Scatters the radioactive filler over the impact area, out to the payload's radius.
+
+    private void SpawnRadiation(MortarRadiationPayload payload, EntityCoordinates tile)
+    {
+        var offsets = new List<Vector2i>();
+        for (var x = -payload.Range; x <= payload.Range; x++)
+        {
+            for (var y = -payload.Range; y <= payload.Range; y++)
+            {
+                if (Math.Abs(x) + Math.Abs(y) <= payload.Range)
+                    offsets.Add(new Vector2i(x, y));
+            }
+        }
+
+        _random.Shuffle(offsets);
+
+        for (var i = 0; i < Math.Min(payload.Count, offsets.Count); i++)
+        {
+            var splatter = Spawn(payload.Prototype.Id, tile.Offset(offsets[i]));
+            _transform.SetLocalRotation(Transform(splatter), _random.NextAngle());
+            EnsureComp<TimedDespawnComponent>(splatter).Lifetime = payload.Duration;
         }
     }
 
@@ -162,9 +188,6 @@ public sealed partial class MortarSystem : SharedMortarSystem
 
     private void OnChemicalShellLand(Entity<MortarChemicalShellComponent> shell, ref MortarShellLandEvent args)
     {
-        if (IsRoofed(_transform.ToMapCoordinates(args.Coordinates)))
-            return;
-
         if (shell.Comp.BeakerSlotA.Item is not { } beakerA ||
             shell.Comp.BeakerSlotB.Item is not { } beakerB ||
             !TryComp(beakerA, out FitsInDispenserComponent? fitsA) ||

@@ -112,6 +112,10 @@
   - type: MortarShell
     fireTilePrototype: MisfitsTileFireNapalm
     fireRange: 5
+    landSound:
+      path: "/Audio/Effects/metal_slam1.ogg"
+      params:
+        volume: -2
 
 - type: entity
   parent: RMCMortarShellBase
@@ -159,7 +163,7 @@
     heldPrefix: heat
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/mortar.rsi
-    state: mortar_ammo_heat
+    state: mortar_ammo_custom_no_fuel
   # One tile, very hard: everything on it is hit, nothing beside it is.
   - type: MortarShell
     reusable: true
@@ -168,6 +172,14 @@
         Blunt: 100
         Piercing: 80
         Structural: 550
+    smoke:
+      prototype: RMCMortarImpactPuff
+      duration: 4
+      spread: 0
+    landSound:
+      path: "/Audio/Effects/metal_slam1.ogg"
+      params:
+        volume: -2
 
 - type: entity
   parent: RMCMortarShellBase
@@ -175,6 +187,8 @@
   name: M722 80mm smoke mortar shell
   description: No charge worth mentioning, just smoke compound and a bursting cap. The way across open ground without becoming a casualty statistic.
   components:
+  - type: Item
+    heldPrefix: he
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/mortar.rsi
     state: mortar_ammo_smk
@@ -182,6 +196,10 @@
     smoke:
       duration: 45
       spread: 35
+    landSound:
+      path: "/Audio/Effects/metal_slam1.ogg"
+      params:
+        volume: -2
 
 - type: entity
   parent: RMCMortarShellBase
@@ -197,6 +215,10 @@
   - type: MortarShell
     impactSpawn: RMCMortarIlluminationFlare
     impactCamera: RMCMortarImpactCamera
+    landSound:
+      path: "/Audio/Effects/metal_slam1.ogg"
+      params:
+        volume: -2
 
 - type: entity
   parent: RMCMortarShellBase
@@ -244,6 +266,10 @@
         reagents:
         - ReagentId: MisfitsWhitePhosphorusSmoke
           Quantity: 30
+    landSound:
+      path: "/Audio/Effects/metal_slam1.ogg"
+      params:
+        volume: -2
 
 - type: entity
   parent: RMCMortarShellBase
@@ -251,6 +277,8 @@
   name: M814 80mm pulse mortar shell
   description: A pre-war pulse warhead, brittle as glass. Wrecks anything electronic under the burst and leaves the people standing there untouched.
   components:
+  - type: Item
+    heldPrefix: he
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/mortar.rsi
     state: mortar_ammo_cas
@@ -260,6 +288,33 @@
       range: 4
       energyConsumption: 2700000
       disableDuration: 30
+    landSound:
+      path: "/Audio/Effects/metal_slam1.ogg"
+      params:
+        volume: -2
+
+- type: entity
+  parent: RMCMortarShellBase
+  id: RMCMortarShellUranium
+  name: M836 80mm uranium mortar shell
+  description: A pre-war radiological round, still stencilled with a trefoil that has faded to pink. Barely any charge, so the casing cracks open and paints the ground with something that keeps working after the crew walks away.
+  components:
+  - type: Item
+    heldPrefix: he
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/mortar.rsi
+    state: mortar_ammo_cas
+    color: "#A8FF3E"
+  # No Explosive payload: the round only splashes its filler over the area.
+  - type: MortarShell
+    radiation:
+      range: 3
+      count: 14
+      duration: 45
+    landSound:
+      path: "/Audio/Effects/metal_slam1.ogg"
+      params:
+        volume: -2
 
 # Two beakers mix on the way down and come apart on the impact tile. Load with a beaker.
 - type: entity
@@ -275,6 +330,11 @@
     layers:
     - map: [ "base" ]
       state: mortar_ammo_custom_locked
+  - type: MortarShell
+    landSound:
+      path: "/Audio/Effects/metal_slam1.ogg"
+      params:
+        volume: -2
   - type: MortarChemicalShell
     beakerSlotA: &chemicalShellBeaker
       whitelist:
@@ -366,6 +426,49 @@
   - type: TimedDespawn
     lifetime: 182
 
+# Splashed out by the uranium round. Visible so the ground can be read, and it burns out on its own.
+- type: entity
+  id: RMCMortarUraniumSplatter
+  name: uranium splatter
+  suffix: Mortar
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: Fluids/splatter.rsi
+    state: splatter-0
+    color: "#A8FF3E"
+    shader: unshaded
+    drawdepth: FloorObjects
+  - type: RadiationSource
+    intensity: 2.5
+    slope: 1
+  - type: PointLight
+    color: "#A8FF3E"
+    radius: 2
+    energy: 1.5
+    netsync: false
+  - type: TimedDespawn
+    lifetime: 45
+
+# Dust kicked up by a solid round: one tile, thin enough to see and click through.
+- type: entity
+  parent: BaseFoam
+  id: RMCMortarImpactPuff
+  name: impact dust
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+    color: "#D8CEB44D"
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Tag
+    tags:
+    - HideContextMenu
+
 - type: entity
   parent: CrateBaseSecure
   id: RMCMortarCrate
@@ -375,19 +478,29 @@
   - type: StorageFill
     contents:
     - id: RMCMortarKit
+    - id: N14LaserRangefinder
     - id: RMCMortarShellHE
-      amount: 4
+      amount: 2
     - id: RMCMortarShellIncendiary
       amount: 2
     - id: RMCMortarShellFrag
       amount: 2
     - id: RMCMortarShellHEAT
+      amount: 2
     - id: RMCMortarShellKinetic
+      amount: 2
     - id: RMCMortarShellSmoke
       amount: 2
     - id: RMCMortarShellIllumination
+      amount: 2
     - id: RMCMortarShellPlasma
+      amount: 2
     - id: RMCMortarShellPhosphorus
+      amount: 2
     - id: RMCMortarShellEMP
+      amount: 2
+    - id: RMCMortarShellUranium
+      amount: 2
     - id: RMCMortarShellChemical
+      amount: 2
     - id: Wrench
