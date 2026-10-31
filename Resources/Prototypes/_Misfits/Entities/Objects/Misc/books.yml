@@ -1,0 +1,527 @@
+#MARK: Bookbase
+- type: entity
+  name: Pre-War Book
+  parent: BaseItem
+  id: FalloutBookBase
+  description: A pre-war book that has survived the fallout.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/books.rsi
+    layers:
+    - state: falloutpaper
+    - state: fallout_cover_base
+      color: "#566556"
+      map: [ "cover" ]
+    - state: fallout_decor_stripe
+      color: "#575A43"
+      map: [ "decor" ]
+    - state: fallout_icon_null
+      map: [ "icon" ]
+    - state: fallout_overlay_null
+      map: [ "overlay" ]
+  - type: Paper
+    contentSize: 12000
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Tag
+    tags:
+      - Book
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/_Misfits/Interface/Paper/paper_background_fallout.svg.96dpi.png"
+    backgroundPatchMargin: 14.0, 15.0, 23.0, 16.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/book_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+
+- type: entity
+  name: Burned Book
+  parent: BaseItem
+  id: FalloutBookBaseBurned
+  description: A book that has not survived the fallout.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/books.rsi
+    layers:
+    - state: falloutpaperburned
+    - state: fallout_cover_base_burned
+      color: "#24211A"
+      map: [ "cover" ]
+    - state: fallout_decor_stripe
+      color: "#5E473F"
+      map: [ "decor" ]
+    - state: fallout_icon_null
+      map: [ "icon" ]
+    - state: fallout_overlay_null
+      map: [ "overlay" ]
+  - type: Paper
+    contentSize: 12000
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Tag
+    tags:
+      - Book
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/_Misfits/Interface/Paper/paper_background_falloutburned.svg.96dpi.png"
+    backgroundPatchMargin: 14.0, 15.0, 23.0, 16.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/book_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+
+- type: entity
+  name: Damaged Book
+  parent: BaseItem
+  id: FalloutBookBaseDamaged
+  description: A book that has not survived the fallout.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/books.rsi
+    layers:
+    - state: falloutpaperdamaged
+    - state: fallout_cover_base_damaged
+      color: "#5b3f33"
+      map: [ "cover" ]
+    - state: fallout_decor_stripe
+      color: "#766c5c"
+      map: [ "decor" ]
+    - state: fallout_icon_null
+      map: [ "icon" ]
+    - state: fallout_overlay_null
+      map: [ "overlay" ]
+  - type: Paper
+    contentSize: 12000
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Tag
+    tags:
+      - Book
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/_Misfits/Interface/Paper/paper_background_falloutdamaged.svg.96dpi.png"
+    backgroundPatchMargin: 14.0, 15.0, 23.0, 16.0
+    contentMargin: 20.0, 20.0, 20.0, 20.0
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/book_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/book_drop.ogg
+
+#MARK: BookRandom
+- type: entity
+  parent: FalloutBookBase
+  id: FalloutBookRandomPreWar
+  suffix: random visual pre-war
+  description: A rare pre-war book in good shape. What secrets does it hold?
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - falloutbook_hint_appearanceintact
+    - falloutbook_type
+  - type: RandomSprite
+    available:
+      - cover:
+          fallout_cover_base: falloutbookcolor
+          fallout_cover_basev2: falloutbookcolor
+          fallout_cover_basefaded: falloutbookcolor
+        decor:
+          fallout_decor_stripe: falloutbookcolor
+          fallout_decor_spine: falloutbookcolor
+          fallout_decor_triplestripe: falloutbookcolor
+          fallout_decor_lattice: falloutbookcolor
+          fallout_decor_null: ""
+        icon:
+          fallout_icon_null: ""
+          fallout_icon_army: falloutbookcolor
+          fallout_icon_ammo: falloutbookcolor
+          fallout_icon_baseballdiamond: falloutbookcolor
+          fallout_icon_biohazard: falloutbookcolor
+          fallout_icon_china: ""
+          fallout_icon_clover: falloutbookcolor
+          fallout_icon_conelrad: falloutbookcolor
+          fallout_icon_communist: falloutbookcolor
+          fallout_icon_courthouse: falloutbookcolor
+          fallout_icon_cross: falloutbookcolor
+          fallout_icon_deanselectronics: falloutbookcolor
+          fallout_icon_dynamite: falloutbookcolor
+          fallout_icon_factory: falloutbookcolor
+          fallout_icon_firstaid: falloutbookcolor
+          fallout_icon_gear: falloutbookcolor
+          fallout_icon_gun: falloutbookcolor
+          fallout_icon_house: falloutbookcolor
+          fallout_icon_horse: falloutbookcolor
+          fallout_icon_militarystar: falloutbookcolor
+          fallout_icon_nuclear: falloutbookcolor
+          fallout_icon_nukacola: falloutbookcolor
+          fallout_icon_plane: falloutbookcolor
+          fallout_icon_powerarmor: falloutbookcolor
+          fallout_icon_psycho: falloutbookcolor
+          fallout_icon_radiotower: falloutbookcolor
+          fallout_icon_robot: falloutbookcolor
+          fallout_icon_safe: falloutbookcolor
+          fallout_icon_science: falloutbookcolor
+          fallout_icon_spaceship: falloutbookcolor
+          fallout_icon_spark: falloutbookcolor
+          fallout_icon_smalle: falloutbookcolor
+          fallout_icon_stimpak: falloutbookcolor
+          fallout_icon_tv: falloutbookcolor
+          fallout_icon_us: ""
+          fallout_icon_vault14: falloutbookcolor
+          fallout_icon_vaultboy: falloutbookcolor
+        overlay:
+          fallout_overlay_null: ""
+          fallout_overlay_dust: ""
+          fallout_detail_bookmark: falloutbookcolor
+          fallout_detail_leatherstrap: ""
+
+- type: entity
+  parent: FalloutBookBaseBurned
+  id: FalloutBookRandomPreWarBurned
+  suffix: random visual pre-war burned
+  description: A common burned pre-war book. A portion of the text is burned.
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - falloutbook_hint_appearanceburned
+    - falloutbook_type
+  - type: RandomSprite
+    available:
+      - cover:
+          fallout_cover_base_burned: falloutbookcolorburned
+          fallout_cover_base_burnedv2: falloutbookcolorburned
+          fallout_cover_base_burnedfaded: falloutbookcolorburned
+        decor:
+          fallout_decor_stripe_faded: falloutbookcolorburned
+          fallout_decor_spine_faded: falloutbookcolorburned
+          fallout_decor_triplestripe_faded: falloutbookcolorburned
+          fallout_decor_lattice_faded: falloutbookcolorburned
+          fallout_decor_null: ""
+        icon:
+          fallout_icon_null: falloutbookcolorburned
+          fallout_icon_army: falloutbookcolorburned
+          fallout_icon_ammo: falloutbookcolorburned
+          fallout_icon_baseballdiamond: falloutbookcolorburned
+          fallout_icon_biohazard: falloutbookcolorburned
+          fallout_icon_china: ""
+          fallout_icon_clover: falloutbookcolorburned
+          fallout_icon_conelrad: falloutbookcolorburned
+          fallout_icon_communist: falloutbookcolorburned
+          fallout_icon_courthouse: falloutbookcolorburned
+          fallout_icon_cross: falloutbookcolorburned
+          fallout_icon_deanselectronics: falloutbookcolorburned
+          fallout_icon_dynamite: falloutbookcolorburned
+          fallout_icon_factory: falloutbookcolorburned
+          fallout_icon_firstaid: falloutbookcolorburned
+          fallout_icon_gear: falloutbookcolorburned
+          fallout_icon_gun: falloutbookcolorburned
+          fallout_icon_house: falloutbookcolorburned
+          fallout_icon_horse: falloutbookcolorburned
+          fallout_icon_militarystar: falloutbookcolorburned
+          fallout_icon_nuclear: falloutbookcolorburned
+          fallout_icon_nukacola: falloutbookcolorburned
+          fallout_icon_plane: falloutbookcolorburned
+          fallout_icon_powerarmor: falloutbookcolorburned
+          fallout_icon_psycho: falloutbookcolorburned
+          fallout_icon_radiotower: falloutbookcolorburned
+          fallout_icon_robot: falloutbookcolorburned
+          fallout_icon_safe: falloutbookcolorburned
+          fallout_icon_science: falloutbookcolorburned
+          fallout_icon_spaceship: falloutbookcolorburned
+          fallout_icon_spark: falloutbookcolorburned
+          fallout_icon_smalle: falloutbookcolorburned
+          fallout_icon_stimpak: falloutbookcolorburned
+          fallout_icon_tv: falloutbookcolorburned
+          fallout_icon_us: ""
+          fallout_icon_vault14: falloutbookcolorburned
+          fallout_icon_vaultboy: falloutbookcolorburned
+        overlay:
+          fallout_overlay_null: ""
+          fallout_overlay_blood: ""
+          fallout_overlay_dirt: ""
+          fallout_overlay_dust: ""
+          fallout_detail_bookmark: falloutbookcolorburned
+          fallout_detail_damagedcorner: ""
+          fallout_detail_leatherstrap: ""
+
+- type: entity
+  parent: FalloutBookBase
+  id: FalloutBookRandomPostWar
+  suffix: random visual post-war
+  description: A handmade book made post-war. What secrets does it hold?
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - falloutbook_hint_appearanceintact
+    - falloutbook_type
+  - type: RandomSprite
+    available:
+      - cover:
+          fallout_cover_base: falloutbookcolorfaded
+          fallout_cover_basev2: falloutbookcolorfaded
+          fallout_cover_basefaded: falloutbookcolorfaded
+        decor:
+          fallout_decor_stripe: falloutbookcolorfaded
+          fallout_decor_spine: falloutbookcolorfaded
+          fallout_decor_triplestripe: falloutbookcolorfaded
+          fallout_decor_lattice: falloutbookcolorfaded
+          fallout_decor_null: ""
+        icon:
+          fallout_icon_null: ""
+          fallout_icon_80s: falloutbookcolorfaded
+          fallout_icon_army: falloutbookcolorfaded
+          fallout_icon_ammo: falloutbookcolorfaded
+          fallout_icon_biohazard: falloutbookcolorfaded
+          fallout_icon_bos: falloutbookcolorfaded
+          fallout_icon_caesarlegion: falloutbookcolorfaded
+          fallout_icon_china: ""
+          fallout_icon_clover: falloutbookcolorfaded
+          fallout_icon_communist: falloutbookcolorfaded
+          fallout_icon_cross: falloutbookcolorfaded
+          fallout_icon_deanselectronics: falloutbookcolorfaded
+          fallout_icon_dynamite: falloutbookcolorfaded
+          fallout_icon_factory: falloutbookcolorfaded
+          fallout_icon_firstaid: falloutbookcolorfaded
+          fallout_icon_fota: falloutbookcolorfaded
+          fallout_icon_gear: falloutbookcolorfaded
+          fallout_icon_gun: falloutbookcolorfaded
+          fallout_icon_house: falloutbookcolorfaded
+          fallout_icon_horse: falloutbookcolorfaded
+          fallout_icon_mutant: falloutbookcolorfaded
+          fallout_icon_militarystar: falloutbookcolorfaded
+          fallout_icon_ncr: falloutbookcolorfaded
+          fallout_icon_nuclear: falloutbookcolorfaded
+          fallout_icon_nukacola: falloutbookcolorfaded
+          fallout_icon_osi: falloutbookcolorfaded
+          fallout_icon_pill: falloutbookcolorfaded
+          fallout_icon_plane: falloutbookcolorfaded
+          fallout_icon_powerarmor: falloutbookcolorfaded
+          fallout_icon_psycho: falloutbookcolorfaded
+          fallout_icon_radiotower: falloutbookcolorfaded
+          fallout_icon_ranger: falloutbookcolorfaded
+          fallout_icon_robot: falloutbookcolorfaded
+          fallout_icon_safe: falloutbookcolorfaded
+          fallout_icon_science: falloutbookcolorfaded
+          fallout_icon_spaceship: falloutbookcolorfaded
+          fallout_icon_spark: falloutbookcolorfaded
+          fallout_icon_smalle: falloutbookcolorfaded
+          fallout_icon_stimpak: falloutbookcolorfaded
+          fallout_icon_town: falloutbookcolorfaded
+          fallout_icon_tv: falloutbookcolorfaded
+          fallout_icon_us: ""
+          fallout_icon_vault14: falloutbookcolorfaded
+          fallout_icon_willower: falloutbookcolorfaded
+        overlay:
+          fallout_overlay_null: ""
+          fallout_overlay_blood: ""
+          fallout_overlay_dirt: ""
+          fallout_overlay_dust: ""
+          fallout_detail_bookmark: falloutbookcolorfaded
+          fallout_detail_damagedcorner: ""
+          fallout_detail_leatherstrap: ""
+
+- type: entity
+  parent: FalloutBookBaseDamaged
+  id: FalloutBookRandomPostWarDamaged
+  suffix: random visual post-war damaged
+  description: A damaged handmade post-war book. It seems someone did not take good care of it.
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - falloutbook_hint_appearancedamaged
+    - falloutbook_type
+  - type: RandomSprite
+    available:
+      - cover:
+          fallout_cover_base_damaged: falloutbookcolorfadeddamaged
+          fallout_cover_base_damagedv2: falloutbookcolorfadeddamaged
+          fallout_cover_base_damagedfaded: falloutbookcolorfadeddamaged
+        decor:
+          fallout_decor_stripe_faded: falloutbookcolorfadeddamaged
+          fallout_decor_spine_faded: falloutbookcolorfadeddamaged
+          fallout_decor_triplestripe_faded: falloutbookcolorfadeddamaged
+          fallout_decor_lattice_faded: falloutbookcolorfadeddamaged
+          fallout_decor_null: ""
+        icon:
+          fallout_icon_null: ""
+          fallout_icon_80s: falloutbookcolorfadeddamaged
+          fallout_icon_army: falloutbookcolorfadeddamaged
+          fallout_icon_ammo: falloutbookcolorfadeddamaged
+          fallout_icon_biohazard: falloutbookcolorfadeddamaged
+          fallout_icon_bos: falloutbookcolorfadeddamaged
+          fallout_icon_caesarlegion: falloutbookcolorfadeddamaged
+          fallout_icon_china: ""
+          fallout_icon_clover: falloutbookcolorfadeddamaged
+          fallout_icon_communist: falloutbookcolorfadeddamaged
+          fallout_icon_cross: falloutbookcolorfadeddamaged
+          fallout_icon_deanselectronics: falloutbookcolorfadeddamaged
+          fallout_icon_dynamite: falloutbookcolorfadeddamaged
+          fallout_icon_factory: falloutbookcolorfadeddamaged
+          fallout_icon_firstaid: falloutbookcolorfadeddamaged
+          fallout_icon_fota: falloutbookcolorfadeddamaged
+          fallout_icon_gear: falloutbookcolorfadeddamaged
+          fallout_icon_gun: falloutbookcolorfadeddamaged
+          fallout_icon_house: falloutbookcolorfadeddamaged
+          fallout_icon_horse: falloutbookcolorfadeddamaged
+          fallout_icon_mutant: falloutbookcolorfadeddamaged
+          fallout_icon_militarystar: falloutbookcolorfadeddamaged
+          fallout_icon_ncr: falloutbookcolorfadeddamaged
+          fallout_icon_nuclear: falloutbookcolorfadeddamaged
+          fallout_icon_nukacola: falloutbookcolorfadeddamaged
+          fallout_icon_osi: falloutbookcolorfadeddamaged
+          fallout_icon_pill: falloutbookcolorfadeddamaged
+          fallout_icon_plane: falloutbookcolorfadeddamaged
+          fallout_icon_powerarmor: falloutbookcolorfadeddamaged
+          fallout_icon_psycho: falloutbookcolorfadeddamaged
+          fallout_icon_radiotower: falloutbookcolorfadeddamaged
+          fallout_icon_ranger: falloutbookcolorfadeddamaged
+          fallout_icon_robot: falloutbookcolorfadeddamaged
+          fallout_icon_safe: falloutbookcolorfadeddamaged
+          fallout_icon_science: falloutbookcolorfadeddamaged
+          fallout_icon_spaceship: falloutbookcolorfadeddamaged
+          fallout_icon_spark: falloutbookcolorfadeddamaged
+          fallout_icon_smalle: falloutbookcolorfadeddamaged
+          fallout_icon_stimpak: falloutbookcolorfadeddamaged
+          fallout_icon_town: falloutbookcolorfadeddamaged
+          fallout_icon_tv: falloutbookcolorfadeddamaged
+          fallout_icon_us: ""
+          fallout_icon_vault14: falloutbookcolorfadeddamaged
+          fallout_icon_willower: falloutbookcolorfadeddamaged
+        overlay:
+          fallout_overlay_null: ""
+          fallout_overlay_blood: ""
+          fallout_overlay_dirt: ""
+          fallout_overlay_dust: ""
+          fallout_detail_bookmark: falloutbookcolorfadeddamaged
+          fallout_detail_damagedcorner: ""
+          fallout_detail_leatherstrap: ""
+
+#MARK: BookRandomStory
+- type: entity
+  parent: FalloutBookRandomPreWar
+  id: FalloutBookRandomStoryPreWar
+  suffix: random visual, random story, pre-war
+  components:
+  - type: PaperRandomStory
+    storySegments:
+    - "This is a "
+    - falloutbook_genre
+    - " about a "
+    - falloutbook_character_prewartrait
+    - " "
+    - falloutbook_characterprewar
+    - " and "
+    - falloutbook_character_prewartrait
+    - " "
+    - falloutbook_characterprewar
+    - ". Due to "
+    - falloutbook_prewarevent
+    - ", they "
+    - falloutbook_action_trait
+    - " "
+    - falloutbook_action
+    - " "
+    - falloutbook_characterprewar
+    - " "
+    - falloutbook_prewarlocation
+    - ". \n\n"
+    - falloutbook_element
+    - " is "
+    - falloutbook_element_trait
+    - "."
+    storySeparator: ""
+
+- type: entity
+  parent: FalloutBookRandomPreWarBurned
+  id: FalloutBookRandomStoryPreWarBurned
+  suffix: random visual, random story, pre-war, burned
+  components:
+  - type: PaperRandomStory
+    storySegments:
+    - "This is a "
+    - falloutbook_genre
+    - " about a "
+    - falloutbook_character_prewartrait
+    - " "
+    - falloutbook_characterprewar
+    - " and "
+    - falloutbook_character_prewartrait
+    - " "
+    - falloutbook_characterprewar
+    - ". Due to "
+    - falloutbook_eventdamaged
+    - "."
+    storySeparator: ""
+
+- type: entity
+  parent: FalloutBookRandomPostWar
+  id: FalloutBookRandomStoryPostWar
+  suffix: random visual, random story, post-war
+  components:
+  - type: PaperRandomStory
+    storySegments:
+    - "This is a "
+    - falloutbook_genre
+    - " about a "
+    - falloutbook_character_postwartrait
+    - " "
+    - falloutbook_characterpostwar
+    - " and "
+    - falloutbook_character_postwartrait
+    - " "
+    - falloutbook_characterpostwar
+    - ". Due to "
+    - falloutbook_postwarevent
+    - ", they "
+    - falloutbook_action_trait
+    - " "
+    - falloutbook_action
+    - " "
+    - falloutbook_characterpostwar
+    - " "
+    - falloutbook_postwarlocation
+    - ". \n\n"
+    - falloutbook_element
+    - " is "
+    - falloutbook_element_trait
+    - "."
+    storySeparator: ""
+
+- type: entity
+  parent: FalloutBookRandomPostWarDamaged
+  id: FalloutBookRandomStoryPostWarDamaged
+  suffix: random visual, random story, post-war, damaged
+  components:
+  - type: PaperRandomStory
+    storySegments:
+    - "This is a "
+    - falloutbook_genre
+    - " about a "
+    - falloutbook_character_postwartrait
+    - " "
+    - falloutbook_characterpostwar
+    - " and "
+    - falloutbook_character_postwartrait
+    - " "
+    - falloutbook_characterpostwar
+    - ". Due to "
+    - falloutbook_eventdamaged
+    - "."
+    storySeparator: ""

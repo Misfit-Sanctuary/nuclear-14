@@ -1,0 +1,837 @@
+﻿#MARK: Bookshelf
+- type: entity
+  id: BookshelfFilledBurnedDamaged
+  parent: Bookshelf
+  suffix: burned, damaged
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBaseBurned
+        prob: 0.3
+        amount: 1
+        maxAmount: 3
+      - id: FalloutBookBaseDamaged
+        prob: 0.3
+        amount: 1
+        maxAmount: 3
+      - id: FalloutBookRandomPreWarBurned
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomPostWarDamaged
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomStoryPreWarBurned
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomStoryPostWarDamaged
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+
+- type: entity
+  id: BookshelfFilledBurnedPrewar
+  parent: Bookshelf
+  suffix: burned, prewar
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBase
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookBaseBurned
+        prob: 0.3
+        amount: 1
+        maxAmount: 3
+      - id: FalloutBookRandomPreWar
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomPreWarBurned
+        prob: 0.3
+        amount: 1
+        maxAmount: 3
+      - id: FalloutBookRandomStoryPreWar
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomStoryPreWarBurned
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+
+- type: entity
+  id: BookshelfFilledDamagedPostwar
+  parent: Bookshelf
+  suffix: damaged, postwar
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBase
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookBaseDamaged
+        prob: 0.3
+        amount: 1
+        maxAmount: 3
+      - id: FalloutBookRandomPostWar
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomPostWarDamaged
+        prob: 0.3
+        amount: 1
+        maxAmount: 3
+      - id: FalloutBookRandomStoryPostWar
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomStoryPostWarDamaged
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+
+- type: entity
+  id: BookshelfFilledIntactPrewar
+  parent: Bookshelf
+  suffix: intact, prewar
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBase
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomPreWar
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomStoryPreWar
+        prob: 0.6
+        amount: 2
+        maxAmount: 6
+
+- type: entity
+  id: BookshelfFilledIntactPrewarMagazine
+  parent: Bookshelf
+  suffix: intact, prewar, magazine
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBase
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomPreWar
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomStoryPreWar
+        prob: 0.75
+        amount: 2
+        maxAmount: 6
+      - id: N14MagazineAwesome
+        prob: 0.3
+      - id: N14MagazineCovert
+        prob: 0.3
+      - id: N14MagazineGrognak
+        prob: 0.3
+      - id: N14MagazineGuns
+        prob: 0.3
+      - id: N14MagazineMass
+        prob: 0.3
+      - id: N14MagazineTesla
+        prob: 0.3
+      - id: N14MagazineTumblers
+        prob: 0.3
+      - id: N14MagazineUnstoppables
+        prob: 0.3
+      - id: N14MagazineLive
+        prob: 0.3
+      - id: N14MagazineAstonishingTales
+        prob: 0.3
+      - id: N14MagazineChineseArmySpecOps
+        prob: 0.3
+      - id: N14MagazineHotRodder
+        prob: 0.3
+      - id: N14MagazinePicketFences
+        prob: 0.3
+      - id: N14MagazineRobCoFun
+        prob: 0.3
+      - id: N14MagazineScoutsLife
+        prob: 0.3
+      - id: N14MagazineTabooTattoos
+        prob: 0.3
+      - id: N14MagazineTotalHack
+        prob: 0.3
+
+- type: entity
+  id: BookshelfFilledIntactPostwar
+  parent: Bookshelf
+  suffix: intact, postwar
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBase
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomPostWar
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomStoryPostWar
+        prob: 0.6
+        amount: 2
+        maxAmount: 6
+
+- type: entity
+  id: BookshelfFilledIntactPostwarMagazine
+  parent: Bookshelf
+  suffix: intact, postwar, magazine
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBase
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomPostWar
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomStoryPostWar
+        prob: 0.6
+        amount: 2
+        maxAmount: 6
+      - id: N14MagazineAwesomeDirty
+        prob: 0.2
+      - id: N14MagazineCovertDirty
+        prob: 0.2
+      - id: N14MagazineGrognakDirty
+        prob: 0.2
+      - id: N14MagazineGunsDirty
+        prob: 0.2
+      - id: N14MagazineJunktown
+        prob: 0.2
+      - id: N14MagazineJunktownDirty
+        prob: 0.2
+      - id: N14MagazineMassDirty
+        prob: 0.2
+      - id: N14MagazineScav
+        prob: 0.2
+      - id: N14MagazineScavDirty
+        prob: 0.2
+      - id: N14MagazineTeslaDirty
+        prob: 0.2
+      - id: N14MagazineTumblersDirty
+        prob: 0.2
+      - id: N14MagazineUnstoppablesDirty
+        prob: 0.2
+      - id: N14MagazineWasteland
+        prob: 0.2
+      - id: N14MagazineLiveDirty
+        prob: 0.2
+      - id: N14MagazineAstonishingTales
+        prob: 0.2
+      - id: N14MagazineChineseArmySpecOps
+        prob: 0.2
+      - id: N14MagazineTotalHack
+        prob: 0.2
+
+#MARK: N14Bookshelf
+- type: entity
+  id: N14BookshelfFilledBurnedDamaged
+  parent: N14Bookshelf
+  suffix: burned, damaged
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBaseBurned
+        prob: 0.3
+        amount: 1
+        maxAmount: 3
+      - id: FalloutBookBaseDamaged
+        prob: 0.3
+        amount: 1
+        maxAmount: 3
+      - id: FalloutBookRandomPreWarBurned
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomPostWarDamaged
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomStoryPreWarBurned
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomStoryPostWarDamaged
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+
+- type: entity
+  id: N14BookshelfFilledBurnedPrewar
+  parent: N14Bookshelf
+  suffix: burned, prewar
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBase
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookBaseBurned
+        prob: 0.3
+        amount: 1
+        maxAmount: 3
+      - id: FalloutBookRandomPreWar
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomPreWarBurned
+        prob: 0.3
+        amount: 1
+        maxAmount: 3
+      - id: FalloutBookRandomStoryPreWar
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomStoryPreWarBurned
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+
+- type: entity
+  id: N14BookshelfFilledDamagedPostwar
+  parent: N14Bookshelf
+  suffix: damaged, postwar
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBase
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookBaseDamaged
+        prob: 0.3
+        amount: 1
+        maxAmount: 3
+      - id: FalloutBookRandomPostWar
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomPostWarDamaged
+        prob: 0.3
+        amount: 1
+        maxAmount: 3
+      - id: FalloutBookRandomStoryPostWar
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomStoryPostWarDamaged
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+
+- type: entity
+  id: N14BookshelfFilledIntactPrewar
+  parent: N14Bookshelf
+  suffix: intact, prewar
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBase
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomPreWar
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomStoryPreWar
+        prob: 0.6
+        amount: 2
+        maxAmount: 6
+
+- type: entity
+  id: N14BookshelfFilledIntactPrewarMagazine
+  parent: N14Bookshelf
+  suffix: intact, prewar, magazine
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBase
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomPreWar
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomStoryPreWar
+        prob: 0.75
+        amount: 2
+        maxAmount: 6
+      - id: N14MagazineAwesome
+        prob: 0.3
+      - id: N14MagazineCovert
+        prob: 0.3
+      - id: N14MagazineGrognak
+        prob: 0.3
+      - id: N14MagazineGuns
+        prob: 0.3
+      - id: N14MagazineMass
+        prob: 0.3
+      - id: N14MagazineTesla
+        prob: 0.3
+      - id: N14MagazineTumblers
+        prob: 0.3
+      - id: N14MagazineUnstoppables
+        prob: 0.3
+      - id: N14MagazineLive
+        prob: 0.3
+      - id: N14MagazineAstonishingTales
+        prob: 0.3
+      - id: N14MagazineChineseArmySpecOps
+        prob: 0.3
+      - id: N14MagazineHotRodder
+        prob: 0.3
+      - id: N14MagazinePicketFences
+        prob: 0.3
+      - id: N14MagazineRobCoFun
+        prob: 0.3
+      - id: N14MagazineScoutsLife
+        prob: 0.3
+      - id: N14MagazineTabooTattoos
+        prob: 0.3
+      - id: N14MagazineTotalHack
+        prob: 0.3
+
+- type: entity
+  id: N14BookshelfFilledIntactPostwar
+  parent: N14Bookshelf
+  suffix: intact, postwar
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBase
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomPostWar
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomStoryPostWar
+        prob: 0.6
+        amount: 2
+        maxAmount: 6
+
+- type: entity
+  id: N14BookshelfFilledIntactPostwarMagazine
+  parent: N14Bookshelf
+  suffix: intact, postwar, magazine
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBase
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomPostWar
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomStoryPostWar
+        prob: 0.6
+        amount: 2
+        maxAmount: 6
+      - id: N14MagazineAwesomeDirty
+        prob: 0.2
+      - id: N14MagazineCovertDirty
+        prob: 0.2
+      - id: N14MagazineGrognakDirty
+        prob: 0.2
+      - id: N14MagazineGunsDirty
+        prob: 0.2
+      - id: N14MagazineJunktown
+        prob: 0.2
+      - id: N14MagazineJunktownDirty
+        prob: 0.2
+      - id: N14MagazineMassDirty
+        prob: 0.2
+      - id: N14MagazineScav
+        prob: 0.2
+      - id: N14MagazineScavDirty
+        prob: 0.2
+      - id: N14MagazineTeslaDirty
+        prob: 0.2
+      - id: N14MagazineTumblersDirty
+        prob: 0.2
+      - id: N14MagazineUnstoppablesDirty
+        prob: 0.2
+      - id: N14MagazineWasteland
+        prob: 0.2
+      - id: N14MagazineLiveDirty
+        prob: 0.2
+      - id: N14MagazineAstonishingTales
+        prob: 0.2
+      - id: N14MagazineChineseArmySpecOps
+        prob: 0.2
+      - id: N14MagazineTotalHack
+        prob: 0.2
+
+#MARK:N14BookshelfDirty
+- type: entity
+  id: N14BookshelfDirtyFilledBurnedDamaged
+  parent: N14BookshelfDirty
+  suffix: burned, damaged
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBaseBurned
+        prob: 0.4
+        amount: 1
+        maxAmount: 4
+      - id: FalloutBookBaseDamaged
+        prob: 0.4
+        amount: 1
+        maxAmount: 4
+      - id: FalloutBookRandomPreWarBurned
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomPostWarDamaged
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+
+- type: entity
+  id: N14BookshelfDirtyFilledBurned
+  parent: N14BookshelfDirty
+  suffix: burned
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBaseBurned
+        prob: 0.4
+        amount: 1
+        maxAmount: 4
+      - id: FalloutBookRandomPreWarBurned
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+
+- type: entity
+  id: N14BookshelfDirtyFilledDamaged
+  parent: N14BookshelfDirty
+  suffix: damaged
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBaseDamaged
+        prob: 0.4
+        amount: 1
+        maxAmount: 4
+      - id: FalloutBookRandomPostWarDamaged
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+
+#MARK:N14BookshelfDestroyed
+- type: entity
+  id: N14BookshelfDestroyedFilledBurnedDamaged
+  parent: N14BookshelfDestroyed
+  suffix: burned, damaged
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBaseBurned
+        prob: 0.4
+        amount: 1
+        maxAmount: 4
+      - id: FalloutBookBaseDamaged
+        prob: 0.4
+        amount: 1
+        maxAmount: 4
+      - id: FalloutBookRandomPreWarBurned
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomPostWarDamaged
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+
+- type: entity
+  id: N14BookshelfDestroyedFilledBurned
+  parent: N14BookshelfDestroyed
+  suffix: burned
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBaseBurned
+        prob: 0.4
+        amount: 1
+        maxAmount: 4
+      - id: FalloutBookRandomPreWarBurned
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+
+- type: entity
+  id: N14BookshelfDestroyedFilledDamaged
+  parent: N14BookshelfDestroyed
+  suffix: damaged
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBaseDamaged
+        prob: 0.4
+        amount: 1
+        maxAmount: 4
+      - id: FalloutBookRandomPostWarDamaged
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+
+#MARK:N14ShelfWoodClothesRack
+- type: entity
+  id: N14ShelfWoodClothesRackFilledBurnedDamaged
+  parent: N14ShelfWoodClothesRack
+  suffix: book, burned, damaged
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBaseBurned
+        prob: 0.4
+        amount: 1
+        maxAmount: 4
+      - id: FalloutBookBaseDamaged
+        prob: 0.4
+        amount: 1
+        maxAmount: 4
+      - id: FalloutBookRandomPreWarBurned
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomPostWarDamaged
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+
+- type: entity
+  id: N14ShelfWoodClothesRackFilledDamagedMag
+  parent: N14ShelfWoodClothesRack
+  suffix: book, magazine, damaged
+  components:
+  - type: StorageFill
+    contents:
+      - id: FalloutBookBaseDamaged
+        prob: 0.4
+        amount: 1
+        maxAmount: 4
+      - id: FalloutBookRandomPostWarDamaged
+        prob: 0.2
+        amount: 1
+        maxAmount: 2
+      - id: FalloutBookRandomStoryPostWar
+        prob: 0.1
+        amount: 1
+        maxAmount: 2
+      - id: N14MagazineAwesomeDirty
+        prob: 0.1
+      - id: N14MagazineCovertDirty
+        prob: 0.1
+      - id: N14MagazineGrognakDirty
+        prob: 0.1
+      - id: N14MagazineGunsDirty
+        prob: 0.1
+      - id: N14MagazineJunktown
+        prob: 0.1
+      - id: N14MagazineJunktownDirty
+        prob: 0.1
+      - id: N14MagazineMassDirty
+        prob: 0.1
+      - id: N14MagazineScav
+        prob: 0.1
+      - id: N14MagazineScavDirty
+        prob: 0.1
+      - id: N14MagazineTeslaDirty
+        prob: 0.1
+      - id: N14MagazineTumblersDirty
+        prob: 0.1
+      - id: N14MagazineUnstoppablesDirty
+        prob: 0.1
+      - id: N14MagazineWasteland
+        prob: 0.1
+      - id: N14MagazineLiveDirty
+        prob: 0.1
+      - id: N14MagazineAstonishingTales
+        prob: 0.1
+      - id: N14MagazineChineseArmySpecOps
+        prob: 0.1
+      - id: N14MagazineTotalHack
+        prob: 0.1
+
+#MARK: N14MagazineRack
+- type: entity
+  id: N14MagazineRackFilledIntactPrewar
+  parent: N14MagazineRack
+  suffix: intact, prewar
+  components:
+  - type: StorageFill
+    contents:
+      - id: N14MagazineAwesome
+        prob: 0.3
+      - id: N14MagazineCovert
+        prob: 0.3
+      - id: N14MagazineGrognak
+        prob: 0.3
+      - id: N14MagazineGuns
+        prob: 0.3
+      - id: N14MagazineMass
+        prob: 0.3
+      - id: N14MagazineTesla
+        prob: 0.3
+      - id: N14MagazineTumblers
+        prob: 0.3
+      - id: N14MagazineUnstoppables
+        prob: 0.3
+      - id: N14MagazineLive
+        prob: 0.3
+      - id: N14MagazineAstonishingTales
+        prob: 0.3
+      - id: N14MagazineChineseArmySpecOps
+        prob: 0.3
+      - id: N14MagazineHotRodder
+        prob: 0.3
+      - id: N14MagazinePicketFences
+        prob: 0.3
+      - id: N14MagazineRobCoFun
+        prob: 0.3
+      - id: N14MagazineScoutsLife
+        prob: 0.3
+      - id: N14MagazineTabooTattoos
+        prob: 0.3
+      - id: N14MagazineTotalHack
+        prob: 0.3
+
+- type: entity
+  id: N14MagazineRackFilledIntactPostwar
+  parent: N14MagazineRack
+  suffix: intact, postwar
+  components:
+  - type: StorageFill
+    contents:
+      - id: N14MagazineAwesomeDirty
+        prob: 0.2
+      - id: N14MagazineCovertDirty
+        prob: 0.2
+      - id: N14MagazineGrognakDirty
+        prob: 0.2
+      - id: N14MagazineGunsDirty
+        prob: 0.2
+      - id: N14MagazineJunktown
+        prob: 0.2
+      - id: N14MagazineJunktownDirty
+        prob: 0.2
+      - id: N14MagazineMassDirty
+        prob: 0.2
+      - id: N14MagazineScav
+        prob: 0.2
+      - id: N14MagazineScavDirty
+        prob: 0.2
+      - id: N14MagazineTeslaDirty
+        prob: 0.2
+      - id: N14MagazineTumblersDirty
+        prob: 0.2
+      - id: N14MagazineUnstoppablesDirty
+        prob: 0.2
+      - id: N14MagazineWasteland
+        prob: 0.2
+      - id: N14MagazineLiveDirty
+        prob: 0.2
+      - id: N14MagazineAstonishingTales
+        prob: 0.2
+      - id: N14MagazineChineseArmySpecOps
+        prob: 0.2
+      - id: N14MagazineTotalHack
+        prob: 0.2
+
+- type: entity
+  id: N14MagazineRackFilledRandom
+  parent: N14MagazineRack
+  suffix: random
+  components:
+  - type: StorageFill
+    contents:
+      - id: N14MagazineAwesome
+        prob: 0.1
+      - id: N14MagazineAwesomeDirty
+        prob: 0.1
+      - id: N14MagazineCovert
+        prob: 0.1
+      - id: N14MagazineCovertDirty
+        prob: 0.1
+      - id: N14MagazineGrognak
+        prob: 0.1
+      - id: N14MagazineGrognakDirty
+        prob: 0.1
+      - id: N14MagazineGuns
+        prob: 0.1
+      - id: N14MagazineGunsDirty
+        prob: 0.1
+      - id: N14MagazineJunktown
+        prob: 0.1
+      - id: N14MagazineJunktownDirty
+        prob: 0.1
+      - id: N14MagazineMass
+        prob: 0.1
+      - id: N14MagazineMassDirty
+        prob: 0.1
+      - id: N14MagazineScav
+        prob: 0.1
+      - id: N14MagazineScavDirty
+        prob: 0.1
+      - id: N14MagazineTesla
+        prob: 0.1
+      - id: N14MagazineTeslaDirty
+        prob: 0.1
+      - id: N14MagazineTumblers
+        prob: 0.1
+      - id: N14MagazineTumblersDirty
+        prob: 0.1
+      - id: N14MagazineUnstoppables
+        prob: 0.1
+      - id: N14MagazineUnstoppablesDirty
+        prob: 0.1
+      - id: N14MagazineWasteland
+        prob: 0.1
+      - id: N14MagazineLive
+        prob: 0.1
+      - id: N14MagazineLiveDirty
+        prob: 0.1
+      - id: N14MagazineAstonishingTales
+        prob: 0.1
+      - id: N14MagazineChineseArmySpecOps
+        prob: 0.1
+      - id: N14MagazineHotRodder
+        prob: 0.1
+      - id: N14MagazinePicketFences
+        prob: 0.1
+      - id: N14MagazineRobCoFun
+        prob: 0.1
+      - id: N14MagazineScoutsLife
+        prob: 0.1
+      - id: N14MagazineTabooTattoos
+        prob: 0.1
+      - id: N14MagazineTotalHack
+        prob: 0.1
