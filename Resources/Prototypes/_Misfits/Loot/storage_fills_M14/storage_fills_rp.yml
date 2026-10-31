@@ -1208,6 +1208,19 @@
           prob: 0.10
         - id: N14Binoculars # #Misfits Add — rare binoculars find in junkpiles
           prob: 0.02
+        # #Misfits Add: rare uncraftable 80mm mortar rounds.
+        - id: RMCMortarShellHEAT
+          prob: 0.012
+        - id: RMCMortarShellEMP
+          prob: 0.010
+        - id: RMCMortarShellPhosphorus
+          prob: 0.008
+        - id: RMCMortarShellPlasma
+          prob: 0.008
+        - id: RMCMortarShellUranium
+          prob: 0.008
+        - id: RMCMortarShellChemical
+          prob: 0.006
         - id: N14CombatKnife
           prob: 0.03
           orGroup: Tools

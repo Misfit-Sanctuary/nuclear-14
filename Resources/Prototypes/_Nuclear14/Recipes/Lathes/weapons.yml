@@ -325,6 +325,17 @@
     Circuitry: 200
     Steel: 400
 
+# #Misfits Add: empty 80mm chemical mortar casing, built at the same bench as chemical payloads.
+- type: latheRecipe
+  id: MisfitsMortarShellChemical
+  result: RMCMortarShellChemical
+  category: N14Weapons
+  completetime: 10
+  materials:
+    Steel: 500
+    Glass: 300
+    Circuitry: 200
+
 - type: latheRecipe
   id: N14ExplosivePayload
   result: ExplosivePayload

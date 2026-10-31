@@ -286,6 +286,23 @@
     - N14BPNCRAmmoMagTopSMG12mm
     - N14BPNCRAmmoVertibirdGunBelt # #Misfits Add - vertibird turret belt
 
+# --- NCR Mortar Ordnance ---
+- type: entity
+  parent: N14BlueprintBase
+  id: MisfitsBlueprintNCRMortarOrdnance
+  name: NCR mortar ordnance manual
+  description: Quartermaster paperwork for the M29 80mm mortar. Covers high-explosive, fragmentation, incendiary, smoke, illumination and kinetic rounds.
+  components:
+  - type: Blueprint
+    recipes:
+    - MisfitsBPNCRMortarShellHE
+    - MisfitsBPNCRMortarShellFrag
+    - MisfitsBPNCRMortarShellIncendiary
+    - MisfitsBPNCRMortarShellSmoke
+    - MisfitsBPNCRMortarShellIllumination
+    - MisfitsBPNCRMortarShellKinetic
+
+
 # =====================================================================
 # CAESAR'S LEGION BLUEPRINTS
 # =====================================================================
@@ -517,6 +534,23 @@
     - N14BPLegionAmmoMagazine308M60Box     # #Misfits Add - .308 50-round box mag for M60 LMG
     - N14BPLegionAmmoOverMag308
     - N14BPLegionAmmoBoxOver308
+
+# --- Legion Mortar Ordnance ---
+- type: entity
+  parent: N14BlueprintBase
+  id: MisfitsBlueprintLegionMortarOrdnance
+  name: Legion mortar munitions codex
+  description: Mortar loads scratched onto hide by Legion armorsmiths. High-explosive, fragmentation, incendiary, smoke, illumination and kinetic rounds.
+  components:
+  - type: Blueprint
+    recipes:
+    - MisfitsBPLegionMortarShellHE
+    - MisfitsBPLegionMortarShellFrag
+    - MisfitsBPLegionMortarShellIncendiary
+    - MisfitsBPLegionMortarShellSmoke
+    - MisfitsBPLegionMortarShellIllumination
+    - MisfitsBPLegionMortarShellKinetic
+
 
 # =====================================================================
 # BROTHERHOOD OF STEEL BLUEPRINTS

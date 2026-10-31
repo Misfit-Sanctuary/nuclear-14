@@ -111,3 +111,7 @@ lathe-category-blueprint-eighties-ammo-t1 = Eighties Ammo - Tier 1
 lathe-category-blueprint-eighties-ammo-t2 = Eighties Ammo - Tier 2
 lathe-category-blueprint-eighties-ammo-t3 = Eighties Ammo - Tier 3
 lathe-category-blueprint-eighties-ammo-t4 = Eighties Ammo - Tier 4
+
+lathe-category-blueprint-ncr-mortar-ordnance = NCR Mortar Ordnance
+lathe-category-blueprint-legion-mortar-ordnance = Legion Mortar Ordnance
+
