@@ -1,8 +1,8 @@
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
-using Robust.Shared.GameObjects;
 
-namespace Content.Server._Misfits.RoadSpikes;
+
+namespace Content.Shared._Misfits.RoadSpikes;
 
 /// <summary>
 /// Makes a step-trigger hazard damage motorbikes and throw their riders.
