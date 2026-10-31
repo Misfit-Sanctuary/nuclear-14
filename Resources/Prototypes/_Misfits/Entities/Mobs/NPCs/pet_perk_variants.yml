@@ -87,6 +87,12 @@
     allowMovement: true
   - type: GhostTakeoverAvailable
   - type: Emoting
+  - type: Vocal
+    sounds:
+      Unsexed: MisfitsCatEmotes
+    screamId: Meow
+    screamAction: MisfitsActionCatMeow
+    wilhelmProbability: 0
   - type: MobThresholds # #Misfits Add - allow revival by medics
     allowRevives: true
   - type: Inventory
