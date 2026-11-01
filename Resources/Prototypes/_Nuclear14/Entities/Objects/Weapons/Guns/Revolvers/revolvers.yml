@@ -166,6 +166,8 @@
   description: A heavy revolver with a long barrel designed to hunt small animals, but it also works for people. Uses .45-70 gov't ammo.
   components:
   - type: Gun
+    fireRate: 2
+    resetOnHandSelected: false
     soundGunshot:
       collection: N14HunterRevolverGunshot
   - type: Sprite
@@ -301,7 +303,7 @@
   - type: Gun
     soundGunshot:
       collection: N14RevolverMagnunGunshot
-    fireRate: 2
+    fireRate: 2.5
   - type: StaticPrice
     price: 60
 
@@ -316,7 +318,7 @@
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/tribalhandcannon.rsi
   - type: Gun
-    fireRate: 1
+    fireRate: 1.5
     resetOnHandSelected: false
     soundGunshot:
       collection: N14HunterRevolverGunshot
