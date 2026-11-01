@@ -423,4 +423,19 @@
   items:
     - SprayPaintDesertTan
 
+- type: loadout
+  id: LoadoutLuxuryPen
+  category: Items
+  cost: 1
+  items:
+    - LuxuryPen
+
+- type: loadout
+  id: LoadoutPen
+  category: Items
+  cost: 0
+  items:
+    - Pen
+    
+
 
