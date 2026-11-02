@@ -280,14 +280,24 @@
           orGroup: Ammunition1
           amount: 0
           maxAmount: 2
-        - id: N14CartridgePistol9
+        - id: N14MagazineSMG9mmEmpty
           prob: 0.2
           orGroup: Ammunition2
           amount: 0
           maxAmount: 4
-        - id: N14AmmoBox9mm
+        - id: N14CartridgePistol9
           prob: 0.1
           orGroup: Ammunition3
+          amount: 0
+          maxAmount: 2
+        - id: N14AmmoBox9mm
+          prob: 0.1
+          orGroup: Ammunition4
+          amount: 0
+          maxAmount: 2
+        - id: N14AmmoBox9mmEmpty
+          prob: 0.1
+          orGroup: Ammunition5
           amount: 0
           maxAmount: 2
 
@@ -924,5 +934,38 @@
         - id: MagazineBox308
           prob: 0.05
           orGroup: Ammunition2
+          amount: 0
+          maxAmount: 2
+
+- type: entity
+  parent: N14ClothingBeltLeatherPouches
+  suffix: 9mm SMG, Randomfill
+  id: M14ClothingBeltRaider45SMGPouches
+  components:
+    - type: StorageFill
+      contents:
+        - id: Magazine45SubMachineGun
+          prob: 0.2
+          orGroup: Ammunition1
+          amount: 0
+          maxAmount: 2
+        - id: Magazine45SubMachineGunEmpty
+          prob: 0.4
+          orGroup: Ammunition2
+          amount: 0
+          maxAmount: 4
+        - id: N14CartridgePistol45
+          prob: 0.05
+          orGroup: Ammunition3
+          amount: 0
+          maxAmount: 2
+        - id: MagazineBox45
+          prob: 0.05
+          orGroup: Ammunition4
+          amount: 0
+          maxAmount: 2
+        - id: MagazineBox45Empty
+          prob: 0.1
+          orGroup: Ammunition5
           amount: 0
           maxAmount: 2

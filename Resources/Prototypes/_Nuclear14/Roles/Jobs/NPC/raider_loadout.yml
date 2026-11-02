@@ -47,6 +47,54 @@
     pocket1: N14RaiderStash
 
 - type: startingGear
+  id: RaiderPistol91Gear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitRags
+    shoes: N14ClothingShoesRaider
+    mask: N14ClothingMaskBrownMask
+    outerClothing: N14ClothingOuterLightMetalArmor
+    belt: M14ClothingBeltRaider9mmPistolRope
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: RaiderPistol92Gear
+  equipment:
+    jumpsuit: N14ClothingUniformDesertPants
+    shoes: N14ClothingShoesRaider
+    mask: N14ClothingMaskBrownMask
+    belt: M14ClothingBeltRaider9mmPistolRope
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: RaiderPistol93Gear
+  equipment:
+    jumpsuit: N14ClothingUniformDesertPants
+    shoes: N14ClothingShoesRaider
+    head: ClothingHeadHatWelding
+    mask: N14ClothingMaskBrownMask
+    belt: M14ClothingBeltRaider9mmPistolRope
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: RaiderPistol94Gear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitWastelandDoc
+    shoes: N14ClothingShoesBrown
+    mask: N14ClothingMaskBrownMask
+    belt: M14ClothingBeltRaider9mmPistolRope
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: RaiderPistol95Gear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitRags
+    shoes: N14ClothingShoesRaider
+    mask: ClothingMaskGasFire
+    outerClothing: N14ClothingOuterRaiderBadlands
+    belt: M14ClothingBeltRaider9mmPistolRope
+    pocket1: N14RaiderStash
+
+- type: startingGear
   id: RaiderHunter1Gear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
@@ -406,6 +454,58 @@
     mask: N14ClothingMaskBlueMask
     outerClothing: M14ClothingOuterHighwayPatrolJacket
     belt: M14ClothingBeltRaider9mmSMGPouches
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: EnforcerTrooper451Gear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecBlue
+    shoes: N14ClothingBootsLeather
+    head: ClothingHeadHatWarden
+    mask: N14ClothingMaskBlueMask
+    belt: M14ClothingBeltRaider45SMGPouches
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: EnforcerTrooper452Gear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecBlue
+    shoes: N14ClothingShoesBlack
+    head: ClothingHeadHatWarden
+    mask: N14ClothingMaskBlueMask
+    outerClothing:  N14ClothingOuterPoliceVest
+    belt: M14ClothingBeltRaider45SMGPouches
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: EnforcerTrooper453Gear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecBlue
+    shoes: N14ClothingBootsBlack
+    mask: N14ClothingMaskBlueMask
+    belt: M14ClothingBeltRaider45SMGPouches
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: EnforcerTrooper454Gear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecBlue
+    shoes: N14ClothingBootsLeather
+    mask: N14ClothingMaskBlueMask
+    outerClothing: N14ClothingOuterPoliceVest
+    belt: M14ClothingBeltRaider45SMGPouches
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: EnforcerTrooper455Gear
+  equipment:
+    jumpsuit: M14ClothingUniformADPUniform
+    shoes: N14ClothingBootsLeather
+    gloves: N14ClothingHandsGlovesCloth
+    head: MisfitsClothingHeadAHPhelmet
+    mask: N14ClothingMaskBlueMask
+    outerClothing: M14ClothingOuterHighwayPatrolJacket
+    belt: M14ClothingBeltRaider45SMGPouches
     pocket1: N14RaiderStash
 
 - type: startingGear
