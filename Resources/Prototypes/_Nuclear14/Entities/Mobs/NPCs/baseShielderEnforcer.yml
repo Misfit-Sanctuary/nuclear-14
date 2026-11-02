@@ -74,7 +74,7 @@
     - type: IdleSound #Wassuy added voiceline and combat sound here
     - type: SpamEmitSound
       minInterval: 30
-      maxInterval: 90
+      maxInterval: 120
       sound:
         collection: MisfitsRaiderIdle
         params:
