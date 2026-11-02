@@ -91,11 +91,11 @@
   description: Once a Maggot of the Locust Tribe, they got at least a single kill and so have been armed with a basic pistol. If this chem fiend can do a successful raid, he’ll join the tribe’s Swarmers.
   components:
     - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
-      minAngle: 8
-      maxAngle: 16
+      minAngle: 6
+      maxAngle: 14
       angleIncrease: 4
       angleDecay: 4
-      fireRate: 2.0
+      fireRate: 2.5
       soundGunshot:
         collection: N14Pistol9mmGunshot
       useKey: false
@@ -178,7 +178,7 @@
   components:
     - type: Gun
       minAngle: 20
-      maxAngle: 40
+      maxAngle: 35
       angleIncrease: 2
       angleDecay: 2
       fireRate: 4.0
@@ -692,8 +692,8 @@
   description: They joined the invaders from Montana voluntarily, and so they've been given some decent equipment. Armed with the very basics and a heavy misunderstanding of American history.
   components:
     - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
-      minAngle: 8
-      maxAngle: 16
+      minAngle: 4
+      maxAngle: 12
       angleIncrease: 4
       angleDecay: 4
       fireRate: 2.0
@@ -779,7 +779,7 @@
   components:
     - type: Gun
       minAngle: 8
-      maxAngle: 34
+      maxAngle: 32
       angleIncrease: 4
       angleDecay: 16
       fireRate: 2.0
@@ -864,8 +864,8 @@
   description: Some conscripts and recruits actually survive their first fight, becoming professional soldiers in the war to rebuild America's glory. They are given respect and priority medical treatment.
   components:
     - type: Gun
-      minAngle: 10
-      maxAngle: 30
+      minAngle: 15
+      maxAngle: 35
       angleIncrease: 4
       angleDecay: 16
       fireRate: 3.0
@@ -1112,7 +1112,7 @@
   description: Nothing more than a raider in fancy clothes, wielding a 9mm SMG.
   components:
     - type: Gun
-      minAngle: 12
+      minAngle: 10
       maxAngle: 26
       angleIncrease: 4
       angleDecay: 16
@@ -1198,7 +1198,7 @@
   description: Nothing more than a raider in fancy clothes, wielding a sten SMG.
   components:
     - type: Gun
-      minAngle: 10
+      minAngle: 8
       maxAngle: 24
       angleIncrease: 4
       angleDecay: 16
@@ -1284,7 +1284,7 @@
   description: Nothing more than a raider in fancy clothes, wielding a 45 SMG.
   components:
     - type: Gun
-      minAngle: 15
+      minAngle: 10
       maxAngle: 25
       angleIncrease: 4
       angleDecay: 16
@@ -1456,8 +1456,8 @@
   description: Rough man in fine clothes, carrying a magnum revolver.
   components:
     - type: Gun
-      minAngle: 4
-      maxAngle: 14
+      minAngle: 2
+      maxAngle: 10
       angleIncrease: 2
       angleDecay: 4
       fireRate: 1.5
@@ -1542,8 +1542,8 @@
   description: Rough man in fine clothes, carrying a 357 revolver.
   components:
     - type: Gun
-      minAngle: 8
-      maxAngle: 18
+      minAngle: 2.5
+      maxAngle: 12.5
       angleIncrease: 2
       angleDecay: 4
       fireRate: 2.0
@@ -1627,7 +1627,7 @@
   description: Rough man in fine clothes, dual wielding two revolvers, he feelin' lucky.
   components:
     - type: Gun
-      minAngle: 18
+      minAngle: 14
       maxAngle: 20
       angleIncrease: 2
       angleDecay: 4
@@ -1716,7 +1716,7 @@
   components:
     - type: Gun
       minAngle: 6
-      maxAngle: 12
+      maxAngle: 24
       angleIncrease: 2
       angleDecay: 4
       fireRate: 1.0
