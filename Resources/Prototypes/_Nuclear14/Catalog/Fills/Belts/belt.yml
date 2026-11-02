@@ -936,6 +936,11 @@
           orGroup: Ammunition2
           amount: 0
           maxAmount: 2
+        - id: MagazineBox308Empty
+          prob: 0.1
+          orGroup: Ammunition3
+          amount: 0
+          maxAmount: 2
 
 - type: entity
   parent: N14ClothingBeltLeatherPouches
