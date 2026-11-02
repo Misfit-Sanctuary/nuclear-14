@@ -454,7 +454,7 @@
 
 # Ranged Raider Variants
 - type: entity
-  name: Raider Spawner - Pistol
+  name: Locusts Spawner - Pistol
   id: N14SpawnMobRaiderPsychoRanged
   parent: MarkerBase
   components:
@@ -469,7 +469,7 @@
       - N14MobRaiderPsychoRanged
       
 - type: entity
-  name: Raider Spawner - Rifle
+  name: Locusts Spawner - Rifle
   id: N14SpawnMobRaiderPsychoHunter
   parent: MarkerBase
   components:
@@ -484,7 +484,7 @@
       - N14MobRaiderHunter
       
 - type: entity
-  name: Raider Spawner - Shotgun
+  name: Locusts Spawner - Shotgun
   id: N14SpawnMobRaiderPsychoSkrimisher
   parent: MarkerBase
   components:
@@ -499,7 +499,7 @@
       - N14MobRaiderSkrimisher
       
 - type: entity
-  name: Raider Spawner - Boss
+  name: Locusts Spawner - Boss
   id: N14SpawnMobRaiderBoss
   parent: MarkerBase
   components:
@@ -512,9 +512,25 @@
   - type: ConditionalSpawner
     prototypes:
       - N14MobRaiderBoss
+      - N14MobRaiderBossRifle
 
 - type: entity
-  name: Gunners Spawner - Private
+  name: Liberty Cultists Spawner - Recruit
+  id: N14SpawnMobRaiderFernRecruit
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/Raiders.rsi
+        state: raider_ranged
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - N14MobFernMercRecruit
+
+- type: entity
+  name: Liberty Cultists Spawner - Patriot
   id: N14SpawnMobRaiderFernPrivate
   parent: MarkerBase
   components:
@@ -527,9 +543,9 @@
   - type: ConditionalSpawner
     prototypes:
       - N14MobFernMercPrivate
-
+      - M14MobFernMercPrivateAutoRifle
 - type: entity
-  name: Gunners Spawner - Sergeant
+  name: Liberty Cultists Spawner - Zealot
   id: N14SpawnMobRaiderFernSergeant
   parent: MarkerBase
   components:
@@ -544,7 +560,7 @@
       - N14MobFernMercSergeant
 
 - type: entity
-  name: Gunners Spawner - Lieutenant
+  name: Liberty Cultists Spawner - Reverend
   id: N14SpawnMobRaiderFern
   parent: MarkerBase
   components:
@@ -602,10 +618,12 @@
   - type: ConditionalSpawner
     prototypes:
       - N14MobEnforcerChief
-
+      - M14MobEnforcerChief357
+      - M14MobEnforcerChief10mmDual
+      - M14MobEnforcerChiefCowboyRepeater
 # Melee Raider Variants
 - type: entity
-  name: Raider Spawner - Melee
+  name: Locusts Spawner - Melee
   id: N14SpawnMobRaiderPsycho
   parent: MarkerBase
   components:
@@ -620,7 +638,7 @@
       - N14MobRaiderPsycho
 
 - type: entity
-  name: Gunners Spawner - Melee
+  name: Liberty Cultists Spawner - Conscript
   id: N14SpawnMobRaiderFernMelee
   parent: MarkerBase
   components:
@@ -648,6 +666,21 @@
   - type: ConditionalSpawner
     prototypes:
       - N14MobRaiderEnforcerMelee
+      - N14BaseMobShielderEnforcer
+- type: entity
+  name: Enforcer Spawner - Shield Only
+  id: N14SpawnMobRaiderEnforcerShieldman
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Nuclear14/Mobs/RaidersSimpleMob/RaiderPsycho.rsi
+        state: raider_melee
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - N14MobRaiderEnforcerShield
 
 #MARK: Ghoul
 - type: entity
@@ -1075,7 +1108,7 @@
   - type: ConditionalSpawner
     prototypes:
       - N14MobNPCCaravanMerc
-
+      - N14MobNPCCaravanMercRifle
 - type: entity
   name: Tribal Skirmisher Spawner
   id: N14SpawnMobNPCTribeSkir

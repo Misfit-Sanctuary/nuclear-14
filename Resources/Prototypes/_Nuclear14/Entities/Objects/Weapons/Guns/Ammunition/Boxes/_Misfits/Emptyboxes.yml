@@ -1,0 +1,82 @@
+
+- type: entity
+  id: MagazineBox12gaugeEmpty
+  name: ammunition box (12 gauge)
+  suffix: empty
+  parent: MagazineBox12gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  id: MagazineBox20gaugeEmpty
+  name: ammunition box (20 gauge)
+  suffix: empty
+  parent: MagazineBox20gauge
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  parent: MagazineBox556
+  id: MagazineBox556Empty
+  name: ammunition box (5.56mm)
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-3
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: MagazineBox545
+  id: MagazineBox545Empty
+  name: ammunition box (5.45mm)
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-3
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: MagazineBox44
+  id: MagazineBox44Empty
+  name: ammunition box (.44)
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-3
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: N14AmmoBox556
+  id: N14AmmoBox556Empty
+  name: ammunition box (5.56mm)
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-3
+      map: ["enum.GunVisualLayers.Mag"]
