@@ -112,11 +112,11 @@
         path: /Audio/_Nuclear14/Weapons/Guns/Raiders/Reloads/RIFLE1Reload.ogg
     - type: Loadout
       prototypes:
-        - RaiderBoss1Gear
-        - RaiderBoss2Gear
-        - RaiderBoss3Gear
-        - RaiderBoss4Gear
-        - RaiderBoss5Gear
+        - RaiderBossRifle1Gear
+        - RaiderBossRifle2Gear
+        - RaiderBossRifle3Gear
+        - RaiderBossRifle4Gear
+        - RaiderBossRifle5Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -510,7 +510,7 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/10mmPIPEpistol.rsi
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/10mmpistol.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
@@ -1133,11 +1133,11 @@
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
     - type: Loadout
       prototypes:
-        - EnforcerChief1Gear
-        - EnforcerChief2Gear
-        - EnforcerChief3Gear
-        - EnforcerChief4Gear
-        - EnforcerChief5Gear
+        - EnforcerChief3571Gear
+        - EnforcerChief3572Gear
+        - EnforcerChief3573Gear
+        - EnforcerChief3574Gear
+        - EnforcerChief3575Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -1197,11 +1197,11 @@
   description: Rough man in fine clothes, dual wielding two revolvers, he feelin' lucky.
   components:
     - type: Gun
-      minAngle: 25
-      maxAngle: 25
+      minAngle: 18
+      maxAngle: 20
       angleIncrease: 2
       angleDecay: 4
-      fireRate: 4.0
+      fireRate: 3.0
       soundGunshot:
         collection: N14Revolver10mmGunshot
       useKey: false
@@ -1219,11 +1219,11 @@
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
     - type: Loadout
       prototypes:
-        - EnforcerChief1Gear
-        - EnforcerChief2Gear
-        - EnforcerChief3Gear
-        - EnforcerChief4Gear
-        - EnforcerChief5Gear
+        - EnforcerChief10mm1Gear
+        - EnforcerChief10mm2Gear
+        - EnforcerChief10mm3Gear
+        - EnforcerChief10mm4Gear
+        - EnforcerChief10mm5Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -1307,11 +1307,11 @@
         path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
     - type: Loadout
       prototypes:
-        - EnforcerChief1Gear
-        - EnforcerChief2Gear
-        - EnforcerChief3Gear
-        - EnforcerChief4Gear
-        - EnforcerChief5Gear
+        - EnforcerChiefRepeater1Gear
+        - EnforcerChiefRepeater2Gear
+        - EnforcerChiefRepeater3Gear
+        - EnforcerChiefRepeater4Gear
+        - EnforcerChiefRepeater5Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]

@@ -91,19 +91,6 @@
       map: ["enum.GunVisualLayers.Base"]
 
 - type: entity
-  id: N14Speedloader44MagnumEmpty
-  name: speed loader (.44 magnum)
-  suffix: empty
-  parent: SpeedLoader44
-  components:
-  - type: BallisticAmmoProvider
-    proto: null
-  - type: Sprite
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-
-- type: entity
   id: N14MagazinePistol44Empty
   name: pistol magazine (.44)
   suffix: empty

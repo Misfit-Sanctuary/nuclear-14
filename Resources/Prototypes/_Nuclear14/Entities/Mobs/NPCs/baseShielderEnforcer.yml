@@ -17,8 +17,8 @@
         160: Critical 
         240: Dead
     - type: MovementSpeedModifier
-      baseWalkSpeed : 5
-      baseSprintSpeed : 5
+      baseWalkSpeed : 3.5
+      baseSprintSpeed : 4.5
     - type: Armor
       modifiers:
         coefficients:

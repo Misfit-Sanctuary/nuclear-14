@@ -666,10 +666,10 @@
   - type: ConditionalSpawner
     prototypes:
       - N14MobRaiderEnforcerMelee
-      - N14BaseMobShielderEnforcer
+
 - type: entity
-  name: Enforcer Spawner - Shield Only
-  id: N14SpawnMobRaiderEnforcerShieldman
+  name: Enforcer Spawner - Shield
+  id: M14SpawnMobRaiderEnforcerShieldman
   parent: MarkerBase
   components:
   - type: Sprite
@@ -680,7 +680,7 @@
       - state: ai
   - type: ConditionalSpawner
     prototypes:
-      - N14MobRaiderEnforcerShield
+      - M14MobRaiderEnforcerShield
 
 #MARK: Ghoul
 - type: entity

@@ -243,7 +243,7 @@
 - type: entity
   parent: ClothingBeltRope
   suffix: 9mm pistol, randomfill
-  id: ClothingBeltRaider9mmPistolRope
+  id: M14ClothingBeltRaider9mmPistolRope
   components:
     - type: StorageFill
       contents:
@@ -275,7 +275,7 @@
 - type: entity
   parent: N14ClothingBeltLeatherPouches
   suffix: 9mm SMG, Randomfill
-  id: ClothingBeltRaider9mmSMGPouches
+  id: M14ClothingBeltRaider9mmSMGPouches
   components:
     - type: StorageFill
       contents:
@@ -299,9 +299,85 @@
           maxAmount: 2
 
 - type: entity
+  parent: ClothingBeltHolster
+  suffix: 10mm pistol, randomfill
+  id: M14ClothingBeltRaider10mmRevolverHolster
+  components:
+    - type: StorageFill
+      contents:
+        - id: SpeedLoader10
+          prob: 0.2
+          orGroup: Ammunition1
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
+        - id: SpeedLoader10Empty
+          prob: 0.4
+          orGroup: Ammunition2
+          amount: 0
+          minAmount: 0
+          maxAmount: 3
+        - id: N14CartridgePistol10
+          prob: 0.2
+          orGroup: Ammunition3
+          amount: 0
+          minAmount: 0
+          maxAmount: 4
+        - id: N14AmmoBox10mm
+          prob: 0.05
+          orGroup: Ammunition4
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
+        - id: N14AmmoBox10mmEmpty
+          prob: 0.1
+          orGroup: Ammunition5
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
+
+- type: entity
+  parent: ClothingBeltMountie
+  suffix: 10mm pistol, randomfill
+  id: M14ClothingBeltRaider10mmRevolverMountie
+  components:
+    - type: StorageFill
+      contents:
+        - id: SpeedLoader10
+          prob: 0.2
+          orGroup: Ammunition1
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
+        - id: SpeedLoader10Empty
+          prob: 0.4
+          orGroup: Ammunition2
+          amount: 0
+          minAmount: 0
+          maxAmount: 3
+        - id: N14CartridgePistol10
+          prob: 0.2
+          orGroup: Ammunition3
+          amount: 0
+          minAmount: 0
+          maxAmount: 4
+        - id: N14AmmoBox10mm
+          prob: 0.05
+          orGroup: Ammunition4
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
+        - id: N14AmmoBox10mmEmpty
+          prob: 0.1
+          orGroup: Ammunition5
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
+
+- type: entity
   parent: ClothingBeltRope
   suffix: 10mm pistol, randomfill
-  id: ClothingBeltRaider10mmPistolRope
+  id: M14ClothingBeltRaider10mmPistolRope
   components:
     - type: StorageFill
       contents:
@@ -329,11 +405,17 @@
           amount: 0
           minAmount: 0
           maxAmount: 2
+        - id: N14AmmoBox10mmEmpty
+          prob: 0.1
+          orGroup: Ammunition5
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
 
 - type: entity
   parent: ClothingBeltRope
   suffix: 10mm SMG, randomfill
-  id: ClothingBeltRaider10mmSMGRope
+  id: M14ClothingBeltRaider10mmSMGRope
   components:
     - type: StorageFill
       contents:
@@ -361,11 +443,55 @@
           amount: 0
           minAmount: 0
           maxAmount: 2
+        - id: N14AmmoBox10mmEmpty
+          prob: 0.1
+          orGroup: Ammunition5
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
+
+- type: entity
+  parent: N14ClothingBeltLeatherPouches
+  suffix: 10mm SMG, randomfill
+  id: M14ClothingBeltRaider10mmSMGPouches
+  components:
+    - type: StorageFill
+      contents:
+        - id: N14MagazineSMG10mm
+          prob: 0.2
+          orGroup: Ammunition1
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
+        - id: N14MagazineSMG10mmEmpty
+          prob: 0.4
+          orGroup: Ammunition2
+          amount: 0
+          minAmount: 0
+          maxAmount: 3
+        - id: N14CartridgePistol10
+          prob: 0.2
+          orGroup: Ammunition3
+          amount: 0
+          minAmount: 0
+          maxAmount: 4
+        - id: N14AmmoBox10mm
+          prob: 0.05
+          orGroup: Ammunition4
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
+        - id: N14AmmoBox10mmEmpty
+          prob: 0.1
+          orGroup: Ammunition5
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
 
 - type: entity
   parent: ClothingBeltRope
   suffix: 762 rifle, randomfill
-  id: ClothingBeltRaider762RifleRope
+  id: M14ClothingBeltRaider762RifleRope
   components:
     - type: StorageFill
       contents:
@@ -397,7 +523,45 @@
 - type: entity
   parent: ClothingBeltRope
   suffix: 545 rifle, randomfill
-  id: ClothingBeltRaider762RifleRope
+  id: M14ClothingBeltRaider545RifleRope
+  components:
+    - type: StorageFill
+      contents:
+        - id: Magazine545Rifle
+          prob: 0.2
+          orGroup: Ammunition1
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
+        - id: Magazine545RifleEmpty
+          prob: 0.4
+          orGroup: Ammunition2
+          amount: 0
+          minAmount: 0
+          maxAmount: 3
+        - id: N14Cartridge545Rifle
+          prob: 0.2
+          orGroup: Ammunition3
+          amount: 0
+          minAmount: 0
+          maxAmount: 4
+        - id: N14AmmoBox545
+          prob: 0.05
+          orGroup: Ammunition4
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
+        - id: MagazineBox545Empty
+          prob: 0.1
+          orGroup: Ammunition5
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
+
+- type: entity
+  parent: N14ClothingBeltLeatherPouches
+  suffix: 545 rifle, randomfill
+  id: M14ClothingBeltRaider545RiflePouches
   components:
     - type: StorageFill
       contents:
@@ -435,7 +599,7 @@
 - type: entity
   parent: ClothingBeltRope
   suffix: 20gauge, randomfill
-  id: ClothingBeltRaider20gShotgunRope
+  id: M14ClothingBeltRaider20gShotgunRope
   components:
     - type: StorageFill
       contents:
@@ -467,7 +631,7 @@
 - type: entity
   parent: N14ClothingBeltLeatherPouches
   suffix: 20gauge drum, randomfill
-  id: ClothingBeltRaider20gDrumShotgunPouches
+  id: M14ClothingBeltRaider20gDrumShotgunPouches
   components:
     - type: StorageFill
       contents:
@@ -511,7 +675,7 @@
 - type: entity
   parent: ClothingBeltRope
   suffix: 20gauge drum, randomfill
-  id: ClothingBeltRaider20gDrumShotgunRope
+  id: M14ClothingBeltRaider20gDrumShotgunRope
   components:
     - type: StorageFill
       contents:
@@ -580,8 +744,112 @@
 
 - type: entity
   parent: ClothingBeltHolster
+  suffix: 357 revolver, randomfill
+  id: M14ClothingBeltRaider357RevolverHolster
+  components:
+    - type: StorageFill
+      contents:
+        - id: SpeedLoader357
+          prob: 0.2
+          orGroup: Ammunition1
+          amount: 0
+          minAmount: 0
+          maxAmount: 3
+        - id: SpeedLoader357Empty
+          prob: 0.4
+          orGroup: Ammunition2
+          amount: 0
+          minAmount: 0
+          maxAmount: 3
+
+- type: entity
+  parent: ClothingBeltHolster
+  suffix: 357, randomfill
+  id: M14ClothingBeltRaider357Holster
+  components:
+    - type: StorageFill
+      contents:
+        - id: N14CartridgePistol357
+          prob: 0.2
+          orGroup: Ammunition1
+          amount: 0
+          minAmount: 0
+          maxAmount: 8
+        - id: N14AmmoBox357
+          prob: 0.05
+          orGroup: Ammunition2
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
+        - id: N14AmmoBox357Empty
+          prob: 0.1
+          orGroup: Ammunition3
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
+
+- type: entity
+  parent: ClothingBeltMountie
+  suffix: 357 revolver, randomfill
+  id: M14ClothingBeltRaider357RevolverMountie
+  components:
+    - type: StorageFill
+      contents:
+        - id: N14BaseSpeedLoader357
+          prob: 0.2
+          orGroup: Ammunition1
+          amount: 0
+          minAmount: 0
+          maxAmount: 3
+        - id: N14BaseSpeedLoader357Empty
+          prob: 0.4
+          orGroup: Ammunition2
+          amount: 0
+          minAmount: 0
+          maxAmount: 3
+        - id: N14AmmoBox357
+          prob: 0.05
+          orGroup: Ammunition3
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
+        - id: N14AmmoBox357Empty
+          prob: 0.1
+          orGroup: Ammunition4
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
+
+- type: entity
+  parent: ClothingBeltMountie
+  suffix: 357, randomfill
+  id: M14ClothingBeltRaider357Mountie
+  components:
+    - type: StorageFill
+      contents:
+        - id: N14CartridgePistol357
+          prob: 0.2
+          orGroup: Ammunition1
+          amount: 0
+          minAmount: 0
+          maxAmount: 8
+        - id: N14AmmoBox357
+          prob: 0.05
+          orGroup: Ammunition2
+          amount: 0
+          minAmount: 0
+          maxAmount: 2
+        - id: N14AmmoBox357Empty
+          prob: 0.1
+          orGroup: Ammunition3
+          amount: 0
+          minAmount: 0
+          maxAmount: 3
+
+- type: entity
+  parent: ClothingBeltHolster
   suffix: 44 revolver, randomfill
-  id: ClothingBeltRaider44RevolverHolster
+  id: M14ClothingBeltRaider44RevolverHolster
   components:
     - type: StorageFill
       contents:
@@ -601,7 +869,7 @@
 - type: entity
   parent: ClothingBeltMountie
   suffix: 44 revolver, randomfill
-  id: ClothingBeltRaider44RevolverMountie
+  id: M14ClothingBeltRaider44RevolverMountie
   components:
     - type: StorageFill
       contents:
@@ -633,7 +901,7 @@
 - type: entity
   parent: ClothingBeltRope
   suffix: 44 pistol, randomfill
-  id: ClothingBeltRaider44PistolRope
+  id: M14ClothingBeltRaider44PistolRope
   components:
     - type: StorageFill
       contents:
@@ -665,7 +933,7 @@
 - type: entity
   parent: ClothingBeltRope
   suffix: 20gauge, randomfill
-  id: ClothingBeltRaider556RifleRope
+  id: M14ClothingBeltRaider556RifleRope
   components:
     - type: StorageFill
       contents:
@@ -703,7 +971,7 @@
 - type: entity
   parent: N14ClothingBeltLeatherPouches
   suffix: 556 rifle, randomfill
-  id: ClothingBeltRaider556RiflePouches
+  id: M14ClothingBeltRaider556RiflePouches
   components:
     - type: StorageFill
       contents:
@@ -735,7 +1003,7 @@
 - type: entity
   parent: ClothingBeltRope
   suffix: 308 rifle, randomfill
-  id: ClothingBeltRaider308RifleRope
+  id: M14ClothingBeltRaider308RifleRope
   components:
     - type: StorageFill
       contents:
