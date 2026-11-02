@@ -544,7 +544,7 @@
           orGroup: Ammunition3
           amount: 0
           maxAmount: 4
-        - id: N14AmmoBox545
+        - id: NAmmoBox545
           prob: 0.05
           orGroup: Ammunition4
           amount: 0
@@ -730,12 +730,12 @@
   components:
     - type: StorageFill
       contents:
-        - id: N14BaseSpeedLoader357
+        - id: N14SpeedLoader357
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
           maxAmount: 3
-        - id: N14BaseSpeedLoader357Empty
+        - id: N14SpeedLoader357Empty
           prob: 0.4
           orGroup: Ammunition2
           amount: 0
