@@ -238,7 +238,7 @@
         - id: SpeedLoader45-70
         - id: SpeedLoader45-70
 
-#npc raiders belt loot
+#npc raiders belt loot, good stuffs.
 
 - type: entity
   parent: ClothingBeltRope
@@ -511,7 +511,7 @@
           orGroup: Ammunition3
           amount: 0
           maxAmount: 4
-        - id: N14AmmoBox545
+        - id: MagazineBox545
           prob: 0.05
           orGroup: Ammunition4
           amount: 0
@@ -689,7 +689,7 @@
   components:
     - type: StorageFill
       contents:
-        - id: SpeedLoader357
+        - id: N14SpeedLoader357
           prob: 0.2
           orGroup: Ammunition1
           amount: 0

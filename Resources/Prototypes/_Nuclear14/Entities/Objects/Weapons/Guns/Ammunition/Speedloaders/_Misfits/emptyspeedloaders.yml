@@ -13,10 +13,10 @@
       map: ["enum.GunVisualLayers.Base"]
 
 - type: entity
-  id: N14BaseSpeedLoader357Empty
-  name: speed loader (.357 magnum)
+  id: N14SpeedLoader357Empty
+  name: "speed loader (.357 magnum)"
   suffix: empty
-  parent: N14BaseSpeedLoader357
+  parent: N14SpeedLoader357
   components:
   - type: BallisticAmmoProvider
     proto: null
