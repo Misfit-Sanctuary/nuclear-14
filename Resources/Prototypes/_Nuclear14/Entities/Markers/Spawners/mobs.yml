@@ -497,6 +497,7 @@
   - type: ConditionalSpawner
     prototypes:
       - N14MobRaiderSkrimisher
+      - N14MobRaiderSkrimisherautoshotgun
       
 - type: entity
   name: Locusts Spawner - Boss
@@ -588,6 +589,8 @@
   - type: ConditionalSpawner
     prototypes:
       - N14MobEnforcerTrooper
+      - N14MobEnforcerTrooperSten
+      - N14MobEnforcerTrooper45SMG
 
 - type: entity
   name: Enforcer Spawner - Warden
