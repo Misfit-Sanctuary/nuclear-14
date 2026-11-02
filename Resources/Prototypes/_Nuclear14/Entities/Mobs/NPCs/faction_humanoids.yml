@@ -417,7 +417,6 @@
     - type: NpcFactionMember
       friendlyOrderable: true
       factions:
-      - Netural
       - Wastelander
     - type: NPCRetaliation # Aggro on the attacker when damaged from any range
     - type: Gun
@@ -506,7 +505,6 @@
     - type: NpcFactionMember
       friendlyOrderable: true
       factions:
-      - Netural
       - Wastelander
     - type: NPCRetaliation # Aggro on the attacker when damaged from any range
     - type: Gun
