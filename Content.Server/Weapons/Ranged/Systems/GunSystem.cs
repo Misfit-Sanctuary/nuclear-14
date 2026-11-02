@@ -425,8 +425,8 @@ public sealed partial class GunSystem : SharedGunSystem
             firstHitDistance = result.Distance;
             break;
         }
-        /*
-        // TODO: rework this, change collisionMask to be physics flag LookUp
+
+        // TODO: rework this
         if (TryGetLagCompensatedHitscanResult(
                    from,
                    direction,
@@ -444,7 +444,7 @@ public sealed partial class GunSystem : SharedGunSystem
             distance = lagCompDistance;
             return true;
         }
-*/
+
         if (firstValidHit != null)
         {
             hit = firstValidHit.Value;
