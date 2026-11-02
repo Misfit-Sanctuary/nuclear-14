@@ -251,25 +251,21 @@
           prob: 0.4
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14MagazinePistol9mm
           prob: 0.2
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: N14CartridgePistol9
           prob: 0.2
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 4
         - id: N14AmmoBox9mm
           prob: 0.1
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -283,19 +279,16 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: N14CartridgePistol9
           prob: 0.2
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 4
         - id: N14AmmoBox9mm
           prob: 0.1
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -309,31 +302,26 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: SpeedLoader10Empty
           prob: 0.4
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14CartridgePistol10
           prob: 0.2
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 4
         - id: N14AmmoBox10mm
           prob: 0.05
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: N14AmmoBox10mmEmpty
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -347,31 +335,26 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: SpeedLoader10Empty
           prob: 0.4
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14CartridgePistol10
           prob: 0.2
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 4
         - id: N14AmmoBox10mm
           prob: 0.05
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: N14AmmoBox10mmEmpty
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -385,31 +368,26 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: N14MagazinePistol10mmEmpty
           prob: 0.4
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14CartridgePistol10
           prob: 0.2
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 4
         - id: N14AmmoBox10mm
           prob: 0.05
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: N14AmmoBox10mmEmpty
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -423,31 +401,26 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: N14MagazineSMG10mmEmpty
           prob: 0.4
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14CartridgePistol10
           prob: 0.2
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 4
         - id: N14AmmoBox10mm
           prob: 0.05
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: N14AmmoBox10mmEmpty
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -461,31 +434,26 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: N14MagazineSMG10mmEmpty
           prob: 0.4
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14CartridgePistol10
           prob: 0.2
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 4
         - id: N14AmmoBox10mm
           prob: 0.05
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: N14AmmoBox10mmEmpty
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -499,25 +467,26 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: Magazine762RifleEmpty
           prob: 0.4
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14Cartridge762Rifle
           prob: 0.2
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 4
         - id: N14AmmoBox762
           prob: 0.05
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
+          maxAmount: 2
+        - id: N14AmmoBox762Empty
+          prob: 0.1
+          orGroup: Ammunition5
+          amount: 0
           maxAmount: 2
 
 - type: entity
@@ -531,31 +500,26 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: Magazine545RifleEmpty
           prob: 0.4
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14Cartridge545Rifle
           prob: 0.2
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 4
         - id: N14AmmoBox545
           prob: 0.05
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: MagazineBox545Empty
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -569,31 +533,26 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: Magazine545RifleEmpty
           prob: 0.4
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14Cartridge545Rifle
           prob: 0.2
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 4
         - id: N14AmmoBox545
           prob: 0.05
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: MagazineBox545Empty
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -607,25 +566,21 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 6
         - id: MisfitsShellShotgun20Beanbag
           prob: 0.1
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: MagazineBox20gauge
           prob: 0.05
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: MagazineBox20gaugeEmpty
           prob: 0.1
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -639,37 +594,31 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: N14MagazineShotgun20Empty
           prob: 0.4
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14ShellShotgun20
           prob: 0.2
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 6
         - id: MisfitsShellShotgun20Beanbag
           prob: 0.1
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: MagazineBox20gauge
           prob: 0.05
           orGroup: Ammunition5
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: MagazineBox20gaugeEmpty
           prob: 0.1
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -683,37 +632,31 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: N14MagazineShotgun20Empty
           prob: 0.4
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14ShellShotgun20
           prob: 0.2
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 6
         - id: MisfitsShellShotgun20Beanbag
           prob: 0.1
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: MagazineBox20gauge
           prob: 0.05
           orGroup: Ammunition5
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: MagazineBox20gaugeEmpty
           prob: 0.1
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -727,19 +670,16 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 6
         - id: MagazineBox12gauge
           prob: 0.05
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: MagazineBox12gaugeEmpty
           prob: 0.1
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -753,13 +693,11 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: SpeedLoader357Empty
           prob: 0.4
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 3
 
 - type: entity
@@ -773,19 +711,16 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 8
         - id: N14AmmoBox357
           prob: 0.05
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: N14AmmoBox357Empty
           prob: 0.1
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -799,25 +734,21 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14BaseSpeedLoader357Empty
           prob: 0.4
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14AmmoBox357
           prob: 0.05
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: N14AmmoBox357Empty
           prob: 0.1
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -831,19 +762,16 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 8
         - id: N14AmmoBox357
           prob: 0.05
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: N14AmmoBox357Empty
           prob: 0.1
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 3
 
 - type: entity
@@ -857,13 +785,11 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14Speedloader44MagnumEmpty
           prob: 0.4
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 3
 
 - type: entity
@@ -877,25 +803,21 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14Speedloader44MagnumEmpty
           prob: 0.4
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: MagazineBox44
           prob: 0.05
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: MagazineBox44Empty
           prob: 0.1
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -909,25 +831,21 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: N14MagazinePistol44Empty
           prob: 0.4
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14Cartridge44Magnum
           prob: 0.2
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 6
         - id: N14AmmoBox44Magnum
           prob: 0.05
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -941,31 +859,26 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 6
         - id: Magazine556Rifle
           prob: 0.2
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: Magazine556RifleEmpty
           prob: 0.4
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14AmmoBox556
           prob: 0.05
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: N14AmmoBox556Empty
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -979,25 +892,21 @@
           prob: 0.2
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 6
         - id: Magazine556Rifle
           prob: 0.2
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 2
         - id: Magazine556RifleEmpty
           prob: 0.4
           orGroup: Ammunition3
           amount: 0
-          minAmount: 0
           maxAmount: 3
         - id: N14AmmoBox556
           prob: 0.05
           orGroup: Ammunition4
           amount: 0
-          minAmount: 0
           maxAmount: 2
 
 - type: entity
@@ -1011,11 +920,9 @@
           prob: 0.4
           orGroup: Ammunition1
           amount: 0
-          minAmount: 0
           maxAmount: 8
         - id: MagazineBox308
           prob: 0.05
           orGroup: Ammunition2
           amount: 0
-          minAmount: 0
           maxAmount: 2
