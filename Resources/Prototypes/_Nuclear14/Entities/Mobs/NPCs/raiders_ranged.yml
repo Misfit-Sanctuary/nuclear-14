@@ -607,10 +607,10 @@
   components:
     - type: Gun
       minAngle: 10
-      maxAngle: 40
+      maxAngle: 30
       angleIncrease: 4
       angleDecay: 16
-      fireRate: 3.0
+      fireRate: 2.5
       soundGunshot:
         collection: N14RifleR91Gunshot
       useKey: false
