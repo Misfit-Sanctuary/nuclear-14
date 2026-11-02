@@ -429,9 +429,9 @@
       soundGunshot:
         collection: N14Pistol9mmGunshot
       useKey: false
-      selectedMode: SemiAuto
+      selectedMode: FullAuto
       availableModes:
-        - SemiAuto
+        - FullAuto
     - type: BasicEntityAmmoProvider
       proto: N14CartridgePistol9
       capacity: 31
@@ -529,6 +529,7 @@
       rechargeCooldown: 3
       rechargeSound:
         path: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+    - type: Loadout
       prototypes:
         - CaravanMercNPC
     - type: Sprite
