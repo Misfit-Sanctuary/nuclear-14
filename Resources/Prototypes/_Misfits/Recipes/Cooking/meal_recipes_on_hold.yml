@@ -1,0 +1,196 @@
+﻿# Here we store both working (but problematic) and non-working recipes
+# Both need a deeper review/fixing beyond just ID name mismatch
+
+# Breads & Sandwiches
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSausageRoll
+  name: Sausage Roll
+  result: MisfitsFoodSausageRoll
+  time: 10
+  reagents:
+    Egg: 6 # Add more reagents? Recipe works, but 6u raw eggs turns into 6u cooked eggs causing confusion
+  solids:
+    N14FoodDoughSlice: 1
+    MisfitsFoodSausage: 1
+    
+# Deserts 
+- type: microwaveMealRecipe
+  id: MisfitsRecipeLollipop_VaultTech
+  name: VaultTech Lollipop
+  result: MisfitsFoodLollipop_VaultTech
+  time: 5
+  reagents:
+    Sugar: 5
+  solids:
+    SheetPaper: 1 # Parent paper category, works with SheetPaper1 but not other papers. Problematic if added to Wiki and says "1 Paper", players will get it wrong with some other paper.
+
+# Italian
+- type: microwaveMealRecipe
+  id: MisfitsRecipeLasagna # Produces N14CookedFoodMealPotatoLoaded. This is fucked: we use Tato (aka tomatoes) for recipes w potatoes...
+  name: Lasagna
+  result: MisfitsFoodLasagna
+  time: 15
+  solids:
+    N14FoodMeatRadRaw: 1
+    N14FoodCheeseSlice: 1
+    N14FoodDoughSlice: 1
+    N14FloraProduceWildTato: 1 # Gotta be replaced with potatoes, but not N14FoodPotato! Rather our own potato plant (flora produce)
+
+# Kebabs & Skewers
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSkewerSpicySweet # has no sprite in-game, currently invisible!
+  name: Spicy n' Sweet Skewer
+  result: MisfitsFoodSkewerSpicySweet
+  time: 5
+  solids:
+    N14FloraProduceWildBlackberries: 2
+    FoodKebabSkewer: 1
+    N14FloraProduceWildGlowpepper: 1
+    
+# Meat
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSausageChain
+  name: Sausage Chain
+  result: MisfitsFoodSausageChain
+  time: 5
+  reagents:
+    N14UncookedAnimalProteinsRad: 20
+  solids:
+    OrganAnimalRuminantStomach: 1 # this one doesn't show up in F5 (but drops from brahmin), could you check, else testing becomes a nightmare
+
+# Sushi
+- type: microwaveMealRecipe
+  id: MisfitsRecipeFishCarrotRaw # ID and Result ID have "Raw". Change entity definition?
+  name: Fried Carrot Fish Sushi # Name indicates it's fried
+  result: MisfitsFoodSushiFishCarrotRaw # ID and Result ID have "Raw". Change entity definition?
+  time: 5
+  reagents:
+    Rice: 10
+  solids:
+    N14FloraProduceWildCarrot: 1
+    N14RedfishCutletCooked: 1 # ID indicates it's fried
+    
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSushiSpicyRaw
+  name: Fried Spicy Sushi
+  result: MisfitsFoodSushiSpicyRaw
+  time: 5
+  reagents:
+    Rice: 10
+    Hotsauce: 2
+  solids:
+    N14FoodMeatRadCutlet: 1 # works with this ID, but not with brahmin or bear cutlets. Should work regardless of animal type.
+    N14FoodMeatBighornerCutlet: 2
+
+# This below was already commented out before I migrated it. Need to know why. 
+##- Toffee -> 1 Pinion nut, 15u sugar -> 15 sec
+#- type: microwaveMealRecipe
+#  id: MisfitsRecipeToffee
+#  name: Toffee Chunk
+#  result: MisfitsFoodToffee
+#  time: 15
+#  reagents:
+#    Sugar: 15
+#  solids:
+#    N14FloraProduceWildPinyonNuts: 1
+
+# Moved all stuff below to here away from meal_recipes.yml to not polute it with commented out BS. Fix and move back. 
+# wait till RTB update with prototype varitization
+## sausage/cooked
+#- type: entity
+#  parent: MisfitsFoodBase
+#  description: food-desc-sausage
+#  name: Sausage
+#  id: !type:CreateVariants
+#    values: [ MisfitsFoodSausage, MisfitsFoodSausageCooked]
+#  components:
+#  - type: Food
+#    eatMessage: food-desc-sausageCooked-eat
+#  - type: Sprite
+#    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+#    state: !type:CreateVariants
+#    values: [ sausage, sausageFried]
+#  - type: SolutionContainerManager
+#    solutions:
+#      food:
+#        reagents:
+#        - ReagentId: !type:CreateVariants
+#            values: [ N14UncookedAnimalProteinsRad, Protein ]
+#          Quantity: 4
+#        - ReagentId: !type:CreateVariants
+#            values: [ Fat, Nutriment ]
+#          Quantity: 2
+#  - type: GeneralConstructs
+#    generalEnts:
+#      Cooked: !type:CreateVariants
+#        values: [ MisfitsFoodSausageCooked, MisfitsFoodSausageCooked]
+#  - type: Construction
+#    graph: GraphCookAny
+#    node: !type:CreateVariants
+#      values: [ start, CookNode]
+#    defaultTarget: !type:CreateVariants
+#      values: [ CookNode, start]
+
+
+## diced stuff
+#- type: entity
+#  parent: MisfitsFoodBase
+#  description: !type:CreateVariants
+#    values: [ food-desc-dicedMeat, food-desc-dicedTato, food-desc-dicedGarlic, food-desc-dicedOnion ]
+#  name: !type:CreateVariants
+#    values: [ Diced Meat, Diced Tato, Diced Garlic, Diced Onion]
+#  id: !type:CreateVariants
+#    values: [ MisfitsFoodDicedMeat, MisfitsFoodDicedTato, MisfitsFoodDicedGarlic, MisfitsFoodDicedOnion ]
+#  components:
+#  - type: Food
+#    eatMessage: !type:CreateVariants
+#      values: [ food-desc-dicedMeat-eat, food-desc-dicedTato-eat, food-desc-dicedGarlic-eat, food-desc-dicedOnion-eat ]
+#  - type: Sprite
+#    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+#    state: !type:CreateVariants
+#      values: [ "dicedMeat", "dicedTato", "dicedGarlic", "dicedOnion" ]
+#  - type: SolutionSpiker
+#    sourceSolution: food
+#    ignoreEmpty: true
+#  - type: ScoopableSolution
+#    solution: food
+#  - type: Extractable
+#    grindableSolutionName: food
+#  - type: SolutionContainerManager
+#    solutions:
+#      food:
+#        reagents:
+#        - ReagentId: !type:CreateVariants
+#            values: [ DicedMeat, DicedTato, DicedGarlic, DicedOnion ]
+#          Quantity: 10
+### CANDIES!!!
+#
+#- type: entity
+#  parent: MisfitsFoodBase
+#  description: !type:CreateVariants
+#    values: [food-desc-carrotCandy, food-desc-buffaloGourdCandy, food-desc-blackberryCandy, food-desc-butterscotchCandy, food-desc-jawbreakerJetCandy]
+#  name: !type:CreateVariants
+#    values: [ Carrot Candy, Buffalo Gourd Candy, Blackberry Candy, Butterscotch Candy, Jet Jawbreaker ]
+#  id: !type:CreateVariants
+#    values: [ MisfitsFoodCarrotCandy, MisfitsFoodBuffaloGourdCandy, MisfitsFoodBlackberryCandy, MisfitsFoodButterscotchCandy, MisfitsFoodJetCandy ]
+#  components:
+#  - type: Food
+#    eatMessage: !type:CreateVariants
+#      values: [food-desc-carrotCandy-eat, food-desc-buffaloGourdCandy-eat, food-desc-blackberryCandy-eat, food-desc-butterscotchCandy-eat, food-desc-jawbreakerJetCandy-eat]
+#  - type: Sprite
+#    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+#    state: !type:CreateVariants
+#      values: [ "carrotCandy", "buffaloGourdCandy", "berryCandy", "butterscotchCandy", "jetJawbreaker" ]
+#  - type: Tag
+#    tags:
+#    - Candy
+#  - type: SolutionContainerManager
+#    solutions:
+#      food:
+#        reagents:
+#        - ReagentId: !type:CreateVariants
+#            values: [ PickledCarrots, BuffaloGourdJam, BlackberryJam, Butterscotch, Jet ]
+#          Quantity: 5
+#        - ReagentId: Sugar
+#          Quantity: !type:CreateVariants
+#            values: [ 5, 5, 5, 5, 10 ]
