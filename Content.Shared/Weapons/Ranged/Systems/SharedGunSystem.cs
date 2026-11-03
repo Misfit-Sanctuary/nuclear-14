@@ -577,6 +577,22 @@ public abstract partial class SharedGunSystem : EntitySystem
         return angles;
     }
 
+    // #Misfits Add - one direction per hitscan ray, fanned out when the gun has a HitscanSpread component
+    protected Vector2[] GetHitscanDirections(EntityUid gunUid, Vector2 direction)
+    {
+        if (!TryComp<HitscanSpreadComponent>(gunUid, out var spread) || spread.Count <= 1)
+            return new[] { direction };
+
+        var shotAngle = direction.ToAngle();
+        var angles = LinearSpread(shotAngle - spread.Spread / 2, shotAngle + spread.Spread / 2, spread.Count);
+        var directions = new Vector2[angles.Length];
+
+        for (var i = 0; i < angles.Length; i++)
+            directions[i] = angles[i].ToVec();
+
+        return directions;
+    }
+
     protected Angle GetRecoilAngle(TimeSpan curTime, GunComponent component, Angle direction, EntityUid? user = null)
     {
         var timeSinceLastFire = (curTime - component.LastFire).TotalSeconds;
