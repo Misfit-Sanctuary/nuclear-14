@@ -74,6 +74,7 @@
 
 - type: entity
   name: astoundingly awesome tales
+  suffix: random
   parent: N14Magazine
   id: N14MagazineAwesome
   description: "a collection of astoundingly awesome tales"
@@ -82,9 +83,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_awesome
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_astoundinglyawesometales
+    - falloutmagazine_astoundinglyawesometalesrandom
 
 - type: entity
   name: astoundingly awesome tales
+  suffix: random, dirty
   parent: N14Magazine
   id: N14MagazineAwesomeDirty
   description: "a collection of astoundingly awesome tales, though it's a bit dirty"
@@ -93,9 +99,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_awesome_dirty
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_astoundinglyawesometalesdirty
+    - falloutmagazine_astoundinglyawesometalesrandom
 
 - type: entity
-  name: covert operations manual
+  name: U.S. covert operations manual
+  suffix: random
   parent: N14Magazine
   id: N14MagazineCovert
   description: "Authorized Eyes Only"
@@ -104,9 +115,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_covert
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_covertoperationsmanual
+    - falloutmagazine_covertoperationsmanualrandom
 
 - type: entity
-  name: covert operations manual
+  name: U.S. covert operations manual
+  suffix: random, dirty
   parent: N14Magazine
   id: N14MagazineCovertDirty
   description: "Authorized Eyes Only"
@@ -115,9 +131,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_covert_dirty
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_covertoperationsmanualdirty
+    - falloutmagazine_covertoperationsmanualrandom
 
 - type: entity
   name: grognak the barbarian
+  suffix: random
   parent: N14Magazine
   id: N14MagazineGrognak
   description: "follow the prehistoric man on his adventures"
@@ -126,9 +147,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_grognak
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_grognakthebarbarian
+    - falloutmagazine_grognakthebarbarianrandom
 
 - type: entity
   name: grognak the barbarian
+  suffix: random, dirty
   parent: N14Magazine
   id: N14MagazineGrognakDirty
   description: "follow the prehistoric man on his adventures, though it's a bit dirty"
@@ -137,9 +163,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_grognak_dirty
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_grognakthebarbariandirty
+    - falloutmagazine_grognakthebarbarianrandom
 
 - type: entity
   name: guns and bullets
+  suffix: random
   parent: N14Magazine
   id: N14MagazineGuns
   description: "a magazine devoted to the practical use of firearms, and the occasional biased review"
@@ -148,9 +179,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_guns
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_gunsandbullets
+    - falloutmagazine_gunsandbulletsrandom
 
 - type: entity
   name: guns and bullets
+  suffix: random, dirty
   parent: N14Magazine
   id: N14MagazineGunsDirty
   description: "a magazine devoted to the practical use of firearms, and the occasional biased review, though it's a bit dirty"
@@ -159,9 +195,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_guns_dirty
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_gunsandbulletsdirty
+    - falloutmagazine_gunsandbulletsrandom
 
 - type: entity
   name: tales of a junktown jerky vendor
+  suffix: random
   parent: N14Magazine
   id: N14MagazineJunktown
   description: "A series of books/magazines about trading and barter written by an unknown jerky vendor from Junktown, California"
@@ -170,9 +211,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_junktown
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_talesofajunktownjerkyvendor
+    - falloutmagazine_talesofajunktownjerkyvendorrandom
 
 - type: entity
   name: tales of a junktown jerky vendor
+  suffix: random, dirty
   parent: N14Magazine
   id: N14MagazineJunktownDirty
   description: "A series of books/magazines about trading and barter written by an unknown jerky vendor from Junktown, California, though it's a bit dirty"
@@ -181,9 +227,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_junktown_dirty
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_talesofajunktownjerkyvendordirty
+    - falloutmagazine_talesofajunktownjerkyvendorrandom
 
 - type: entity
   name: Massachusetts Surgical Journal
+  suffix: random
   parent: N14Magazine
   id: N14MagazineMass
   description: "Despite all appearances, these were always more sensation than actual medical science."
@@ -192,9 +243,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_massachusetts
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_massachusettssurgicaljournal
+    - falloutmagazine_massachusettssurgicaljournalrandom
 
 - type: entity
   name: Worn Out Massachusetts Surgical Journal
+  suffix: random, dirty
   parent: N14Magazine
   id: N14MagazineMassDirty
   description: "A tabloid disguised as an actual esteemed medical journal, its pages are dity and tattered, but its still good to pass the time with."
@@ -203,9 +259,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_massachusetts_dirty
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_massachusettssurgicaljournaldirty
+    - falloutmagazine_massachusettssurgicaljournalrandom
 
 - type: entity
   name: scav!
+  suffix: random
   parent: N14Magazine
   id: N14MagazineScav
   description: "SCAV!"
@@ -214,9 +275,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_scav
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_scav
+    - falloutmagazine_scavrandom
 
 - type: entity
   name: scav!
+  suffix: random, dirty
   parent: N14Magazine
   id: N14MagazineScavDirty
   description: "SCAV!, though it's a bit dirty"
@@ -225,9 +291,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_scav_dirty
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_scavdirty
+    - falloutmagazine_scavrandom
 
 - type: entity
   name: tesla science
+  suffix: random
   parent: N14Magazine
   id: N14MagazineTesla
   description: "An issue of Tesla Science"
@@ -236,9 +307,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_tesla
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_tesla
+    - falloutmagazine_teslarandom
 
 - type: entity
   name: tesla science
+  suffix: random, dirty
   parent: N14Magazine
   id: N14MagazineTeslaDirty
   description: "An issue of Tesla Science, though it's a bit dirty"
@@ -247,9 +323,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_tesla_dirty
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_tesladirty
+    - falloutmagazine_teslarandom
 
 - type: entity
   name: tumblers today
+  suffix: random
   parent: N14Magazine
   id: N14MagazineTumblers
   description: "An issue of Tumblers Today"
@@ -258,9 +339,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_tumblers
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_tumblerstoday
+    - falloutmagazine_tumblerstodayrandom
 
 - type: entity
   name: tumblers today
+  suffix: random, dirty
   parent: N14Magazine
   id: N14MagazineTumblersDirty
   description: "An issue of Tumblers Today, though it's a bit dirty"
@@ -269,9 +355,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_tumblers_dirty
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_tumblerstodaydirty
+    - falloutmagazine_tumblerstodayrandom
 
 - type: entity
   name: unstoppables
+  suffix: random
   parent: N14Magazine
   id: N14MagazineUnstoppables
   description: "An issue of Unstoppables"
@@ -280,9 +371,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_unstoppable
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_unstoppables
+    - falloutmagazine_unstoppablesrandom
 
 - type: entity
   name: unstoppables
+  suffix: random, dirty
   parent: N14Magazine
   id: N14MagazineUnstoppablesDirty
   description: "An issue of Unstoppables, though it's a bit dirty"
@@ -291,9 +387,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_unstoppable_dirty
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_unstoppablesdirty
+    - falloutmagazine_unstoppablesrandom
 
 - type: entity
   name: Wasteland Survival Guide
+  suffix: random
   parent: N14Magazine
   id: N14MagazineWasteland
   description: "An issue of the Wasteland Survival Guide, a post-war magazine that gives common sense tips for survival outside the safety of major settlements."
@@ -302,9 +403,14 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_wasteland
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_wastelandsurvivalguide
+    - falloutmagazine_wastelandsurvivalguiderandom
 
 - type: entity
   name: live and love
+  suffix: random
   parent: N14Magazine
   id: N14MagazineLive
   description: "An issue of Live and Love"
@@ -313,3 +419,167 @@
     sprite: _Nuclear14/Structures/Misc/magazines.rsi
     layers:
     - state: magazine_live
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_liveandlove
+    - falloutmagazine_liveandloverandom
+
+- type: entity
+  name: live and love
+  suffix: random, dirty
+  parent: N14Magazine
+  id: N14MagazineLiveDirty
+  description: "An issue of Live and Love, though it's a bit dirty"
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Misc/magazines.rsi
+    layers:
+    - state: magazine_live_dirty
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_liveandlovedirty
+    - falloutmagazine_liveandloverandom
+
+- type: entity
+  name: Tales from the Great Salt Lake Desert
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazineAstonishingTales
+  description: "A magazine about folklore in the local area"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_astonishingtales
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_astonishingtales
+    - falloutmagazine_astonishingtalesrandom
+
+- type: entity
+  name: Chinese Army Special Ops
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazineChineseArmySpecOps
+  description: "A training manual for the Chinese Army"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_chinesearmyspecops
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_chinesearmyspecops
+    - falloutmagazine_chinesearmyspecopsrandom
+
+- type: entity
+  name: Enclave Entrenchment Manual
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazineEnclaveEntrenchmentManual
+  description: "A training manual for the Enclave"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_enclaveentrenchmentmanual
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_enclaveentrenchmentmanual
+    - falloutmagazine_enclaveentrenchmentmanualrandom
+
+- type: entity
+  name: Hot Rodder
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazineHotRodder
+  description: "A Pre-War magazine for automotive enthusiasts"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_hotrodder
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_hotrodder
+    - falloutmagazine_hotrodderrandom
+
+- type: entity
+  name: Picket Fences
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazinePicketFences
+  description: "A magazine edition of Picket Fences, focusing on home design"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_picketfences
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_picketfences
+    - falloutmagazine_picketfencesrandom
+
+- type: entity
+  name: RobCo Fun
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazineRobCoFun
+  description: "An issue of RobCo Fun, covering common pipboy games"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_robcofun
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_robcofun
+    - falloutmagazine_robcofunrandom
+
+- type: entity
+  name: Scouts' Life
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazineScoutsLife
+  description: "An issue of Scouts' Life, covering outdoor survival"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_scoutslife
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_scoutslife
+    - falloutmagazine_scoutsliferandom
+
+- type: entity
+  name: Taboo Tattoos
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazineTabooTattoos
+  description: "An issue of TabooTattoos, with some unique designs"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_tabootattoos
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_tabootattoos
+    - falloutmagazine_tabootattoosrandom
+
+- type: entity
+  name: Total Hack
+  suffix: random
+  parent: N14Magazine
+  id: N14MagazineTotalHack
+  description: "An issue of Total Hack, focusing on controlling electronics"
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/magazines.rsi
+    layers:
+    - state: magazine_totalhack
+  - type: RandomMetadata
+    nameSegments:
+    - falloutmagazine_totalhack
+    - falloutmagazine_totalhackrandom
