@@ -43,6 +43,7 @@
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_PlasmaHeavy
           weight: 5
+## Other Heavy commented out due to Flamer and Scorcher being broken. Revert once fixed.
 #      - !type:NestedSelector
 #          tableId: M14WeaponLootTier5_OtherHeavy
 #          weight: 1

@@ -16,8 +16,8 @@
           tableId: M14WeaponLootTierN_LaserRifleAuto
       - !type:NestedSelector
           tableId: M14WeaponLootTierN_PlasmaRifleAuto
-#      - !type:NestedSelector
-#          tableId: M14WeaponLootTierN_OtherRifleAuto
+      - !type:NestedSelector
+          tableId: M14WeaponLootTierN_OtherRifleAuto
 
 - type: entityTable
   id: M14WeaponLootTierN_EnergyRifleSemi
@@ -39,5 +39,5 @@
           tableId: M14WeaponLootTierN_LaserHeavy
       - !type:NestedSelector
           tableId: M14WeaponLootTierN_PlasmaHeavy
-#      - !type:NestedSelector
-#          tableId: M14WeaponLootTierN_OtherHeavy
+      - !type:NestedSelector
+          tableId: M14WeaponLootTierN_OtherHeavy
