@@ -1149,7 +1149,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclaveUniforms
-  name: U.S. Army Uniform Crate
+  name: Enclave Uniform Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
@@ -1169,7 +1169,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclaveAccessories
-  name: U.S. Army Accessories Crate
+  name: Enclave Accessories Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
@@ -1189,7 +1189,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclavePeacekeeper
-  name: U.S. Army Peacekeeper Armor Crate
+  name: Enclave Peacekeeper Armor Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
@@ -1205,7 +1205,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclaveRadSuit
-  name: U.S. Army Rad Suit Crate
+  name: Enclave Rad Suit Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
@@ -1259,7 +1259,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclaveOfficerKit
-  name: U.S. Army Officer Dress Crate
+  name: Enclave Officer Dress Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
@@ -1275,7 +1275,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclaveCombatArmor
-  name: U.S. Army Combat Armor Crate
+  name: Enclave Combat Armor Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
@@ -1291,7 +1291,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclaveCombatArmorMK2
-  name: U.S. Army Combat Armor MK2 Crate
+  name: Enclave Combat Armor MK2 Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
@@ -1307,7 +1307,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclaveAdvancedArmor
-  name: U.S. Army Advanced Combat Armor Crate
+  name: Enclave Advanced Combat Armor Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
@@ -1704,7 +1704,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclavePipboyOfficer
-  name: U.S. Army Officer Pip-Boy Crate
+  name: Enclave Officer Pip-Boy Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
@@ -1768,7 +1768,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclavePipboy
-  name: U.S. Army Pip-Boy Crate
+  name: Enclave Pip-Boy Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
@@ -1785,7 +1785,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclaveDisks
-  name: U.S. Army Blank Disks Crate
+  name: Enclave Blank Disks Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
@@ -1824,7 +1824,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclaveChems
-  name: U.S. Army Chems Crate
+  name: Enclave Chems Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
@@ -1910,7 +1910,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclaveRobobrain
-  name: U.S. Army Robobrain Circuit Board Crate
+  name: Enclave Robobrain Circuit Board Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
@@ -1998,7 +1998,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclaveMedical
-  name: U.S. Army Medical Crate
+  name: Enclave Medical Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/medicalcrate.rsi
@@ -2060,7 +2060,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclaveMMI
-  name: U.S. Army MMI Crate
+  name: Enclave MMI Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
@@ -2116,7 +2116,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclaveRations1
-  name: U.S. Army Field Rations Case A Crate
+  name: Enclave Field Rations Case A Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
@@ -2135,7 +2135,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclaveRations2
-  name: U.S. Army Field Rations Case B Crate
+  name: Enclave Field Rations Case B Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
@@ -2154,7 +2154,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclaveBreakfast
-  name: U.S. Army Field Rations Case C Crate
+  name: Enclave Field Rations Case C Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
@@ -2311,7 +2311,7 @@
 - type: entity
   parent: N14CrateRequisitions
   id: N14CrateRequisitionsEnclaveVinyl
-  name: U.S. Army Vinyls Crate
+  name: Enclave Vinyls Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi

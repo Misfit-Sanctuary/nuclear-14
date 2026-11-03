@@ -2,7 +2,7 @@
   name: Locust Buzzfly
   parent: N14BaseMobRaider
   id: N14MobRaiderPsychoRanged
-  description: Once a Maggot of the Locust Tribe, they got at least a single kill and so have been armed with a basic pistol. If this chem fiend can do a successful raid, he’ll join the tribe’s Swarmers.
+  description: Once a Maggot of the Locust Tribe, they got at least a single kill and so have been armed with a basic pistol. If this chem fiend can do a successful raid, he’ll join the hostile tribe’s Swarmers.
   components:
     - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
       minAngle: 8
@@ -259,7 +259,7 @@
   name: Locust Hivelord
   parent: N14BaseMobRaider
   id: N14MobRaiderBoss
-  description: Warchiefs of the hard-to-kill Locust Tribe, they preach the destiny of their people to feed on the bounty of the weak, using chems and violence to keep their raiders under control.
+  description: Warchiefs of the Locust Tribe, they preach the destiny of their people to feed on the bounty of the weak, using chems and violence to keep their raiders under control. New ones always replace the dead.
   components:
     - type: Gun
       minAngle: 8
@@ -345,7 +345,7 @@
   name: Locust Longshot
   parent: N14BaseMobRaider
   id: N14MobRaiderHunter
-  description: Tribesmen armed with old rifles, they are former Swarmers promoted for competency. As one of the tribe’s lieutenants, they have no vision for the future besides the next mealticket.
+  description: Tribesmen armed with old rifles, they are former Swarmers promoted for competency. As one of the tribe's lieutenants, they have no vision for the future besides their next easy meal ticket.
   components:
     - type: Gun
       minAngle: 2
@@ -517,7 +517,7 @@
   name: Locust Swarmer
   parent: N14BaseMobRaider
   id: N14MobRaiderSkrimisher
-  description: This tribal raider was once a Buzzfly, but with their rise in the ranks they were given a shotgun and more prestige. He will steal what you have and burn what can't be carried.
+  description: This tribal raider was once a Buzzfly, but with their rise in the ranks they were given a shotgun and more prestige. He will steal what you have and burn what can't be carried away with him.
   components:
     - type: Gun
       minAngle: 40
