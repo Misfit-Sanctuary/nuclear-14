@@ -204,7 +204,7 @@
   parent: EncryptionKey
   id: EncryptionKeyFollowers
   name: Followers encryption key
-  description: An encryption key used by the Followers of the Apocalypse, manufactured in the Boneyard's factories in the New California Republic. The Followers often get these provided at no cost, due to the charity work already they do for the city's people.
+  description: An encryption key used by the Followers of the Apocalypse, manufactured in the Boneyard's factories in the New California Republic. The Followers often get these provided at no cost, due to the charity work they already do for the city's people.
   components:
   - type: EncryptionKey
     channels:
@@ -433,7 +433,7 @@
   parent: EncryptionKey
   id: EncryptionKeyFollowersUR
   name: Followers encryption key
-  description: An encryption key used by the Followers of the Apocalypse, manufactured in the Boneyard's factories in the New California Republic. The Followers often get these provided at no cost, due to the charity work already they do for the city's people.
+  description: An encryption key used by the Followers of the Apocalypse, manufactured in the Boneyard's factories in the New California Republic. The Followers often get these provided at no cost, due to the charity work they already do for the city's people.
   components:
   - type: Unremoveable
   - type: EncryptionKey
