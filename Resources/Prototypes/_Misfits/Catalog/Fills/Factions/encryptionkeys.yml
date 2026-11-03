@@ -2,7 +2,7 @@
   name: legion encryption key box
   parent: BoxCardboard
   id: BoxEncryptionKeyLegion
-  description: A box of spare encryption keys.
+  description: A box pre-war encryption keys from park ranger headsets, liberated from the Grand Canyon.
   components:
   - type: StorageFill
     contents:
@@ -21,7 +21,7 @@
   name: brotherhood encryption key box
   parent: BoxCardboard
   id: BoxEncryptionKeyBrotherhoodOfSteel
-  description: A box of spare encryption keys.
+  description: A box of old surplus military encryption keys scavenged from the ruins of army facilities.
   components:
   - type: StorageFill
     contents:
@@ -37,10 +37,10 @@
       - EncryptionKey
 
 - type: entity
-  name: ncr encryption key box
+  name: ncr army encryption key box
   parent: BoxCardboard
   id: BoxEncryptionKeyNCR
-  description: A box of spare encryption keys.
+  description: A box of encryption keys manufactured in the Boneyard, used by the military and military police.
   components:
   - type: StorageFill
     contents:
@@ -56,10 +56,10 @@
       - EncryptionKey
 
 - type: entity
-  name: ncr encryption key box
+  name: ncr rangers encryption key box
   parent: BoxCardboard
   id: BoxEncryptionKeyNCRRangers
-  description: A box of spare encryption keys.
+  description: A box of encryption keys manufactured in the Boneyard, used by the NCR rangers exclusively.
   components:
   - type: StorageFill
     contents:
@@ -75,10 +75,10 @@
       - EncryptionKey
 
 - type: entity
-  name: ncr encryption key box
+  name: ncr government encryption key box
   parent: BoxCardboard
   id: BoxEncryptionKeyOSI
-  description: A box of spare encryption keys.
+  description: A box of encryption keys manufactured in the Boneyard, used by civilian government employees.
   components:
   - type: StorageFill
     contents:
@@ -97,7 +97,7 @@
   name: vault encryption key box
   parent: BoxCardboard
   id: BoxEncryptionKeyVault
-  description: A box of spare encryption keys.
+  description: A box of pre-war encryption keys from the Vault-Tec company, used by generations of dwellers.
   components:
   - type: StorageFill
     contents:
@@ -116,7 +116,7 @@
   name: eighties encryption key box
   parent: BoxCardboard
   id: BoxEncryptionKeyEighties
-  description: A box of spare encryption keys.
+  description: A box of pre-war California Highway Patrol encryption keys, liberated from ancient police corpses and wrecked cruisers.
   components:
   - type: StorageFill
     contents:
@@ -135,7 +135,7 @@
   name: wasteland encryption key box
   parent: BoxCardboard
   id: BoxEncryptionKeyWasteland
-  description: A box of spare encryption keys.
+  description: A box of handmade encryption keys, put together with basic circuitry from salvaged scrap in the wastes.
   components:
   - type: StorageFill
     contents:
@@ -154,7 +154,7 @@
   name: followers encryption key box
   parent: BoxCardboard
   id: BoxEncryptionKeyFollowers
-  description: A box of spare encryption keys.
+  description: A box of encryption keys manufactued in the Boneyard, for use by doctors, clinic volunteers, and teachers.
   components:
   - type: StorageFill
     contents:
@@ -170,10 +170,10 @@
       - EncryptionKey
 
 - type: entity
-  name: U.S. Army encryption key box
+  name: enclave encryption key box
   parent: BoxCardboard
   id: BoxEncryptionKeyEnclave
-  description: A box of spare encryption keys.
+  description: A box of pre-war government encryption keys, stockpiled for a rainy day by businessmen and senators with foresight.
   components:
   - type: StorageFill
     contents:
@@ -192,7 +192,7 @@
   name: town encryption key box
   parent: BoxCardboard
   id: BoxEncryptionKeyTown
-  description: A box of spare encryption keys.
+  description: A box of encryption keys manufactured in the local settlement, fixed up from old electronics by the local mechanic.
   components:
   - type: StorageFill
     contents:
