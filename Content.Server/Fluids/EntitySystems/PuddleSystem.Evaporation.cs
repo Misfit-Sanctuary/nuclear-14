@@ -6,58 +6,49 @@ namespace Content.Server.Fluids.EntitySystems;
 
 public sealed partial class PuddleSystem
 {
-    private static readonly TimeSpan EvaporationCooldown = TimeSpan.FromSeconds(3);
 
     private void OnEvaporationMapInit(Entity<EvaporationComponent> entity, ref MapInitEvent args)
     {
-        entity.Comp.NextTick = _timing.CurTime + EvaporationCooldown;
+        if(!TryComp<PuddleComponent>(entity, out var comp) || comp.Solution is null)
+            return;
+
+        foreach (var evapReagent in comp.Solution.Value.Comp.Solution.GetReagentPrototypes(_prototypeManager))
+            entity.Comp.EvaporationAmount += evapReagent.Key.EvaporationRate;
     }
 
     private void UpdateEvaporation(EntityUid uid, Solution solution)
     {
         if (HasComp<EvaporationComponent>(uid))
-        {
             return;
-        }
 
-        if (solution.GetTotalPrototypeQuantity(EvaporationReagents) > FixedPoint2.Zero)
+        // Misfits changed: previous check counted every reagent in a puddle and added up its value if it was an evaporation reagent.
+        //                  so we did a O(n*v) operation each time. n being evaporationRegeants and v being regeants in the puddle
+        //                  new check is still worst case O(n*v) for puddles with no evaporation chems but at least exits early
+        //                  should be changed in the future with a better refactor if puddles are still an issue
+        if (solution.Contents.Any(x => EvaporationReagents.Contains(x.Reagent.Prototype)))
         {
-            var evaporation = AddComp<EvaporationComponent>(uid);
-            evaporation.NextTick = _timing.CurTime + EvaporationCooldown;
+            AddComp<EvaporationComponent>(uid);
             return;
         }
 
         RemComp<EvaporationComponent>(uid);
     }
 
+
+
     private void TickEvaporation()
     {
         var query = EntityQueryEnumerator<EvaporationComponent, PuddleComponent>();
-        var xformQuery = GetEntityQuery<TransformComponent>();
-        var curTime = _timing.CurTime;
+
         while (query.MoveNext(out var uid, out var evaporation, out var puddle))
         {
-            if (evaporation.NextTick > curTime)
-                continue;
-
-            evaporation.NextTick += EvaporationCooldown;
-
             if (!_solutionContainerSystem.ResolveSolution(uid, puddle.SolutionName, ref puddle.Solution, out var puddleSolution))
                 continue;
 
-            var reagentTick = evaporation.EvaporationAmount * EvaporationCooldown.TotalSeconds;
-			// only speed up the evaporation if there are reagents with FastEvaporation
-			if(puddleSolution.GetTotalPrototypeQuantity(FastEvaporationReagents)  > FixedPoint2.Zero){
-			reagentTick = reagentTick * 50; // change this number to change FastEvaporation speed
-			}
-
-            puddleSolution.SplitSolutionWithOnly(reagentTick, EvaporationReagents);
-
+            puddleSolution.SplitSolutionWithOnly(evaporation.EvaporationAmount, EvaporationReagents);
             // Despawn if we're done
             if (puddleSolution.Volume == FixedPoint2.Zero)
-            {
                 QueueDel(uid);
-            }
 
             _solutionContainerSystem.UpdateChemicals(puddle.Solution.Value);
         }

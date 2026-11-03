@@ -100,12 +100,15 @@ namespace Content.Shared.Chemistry.Reagent
         public bool MetamorphicChangeColor { get; private set; } = true;
 
         [DataField]
-        public bool Evaporates { get; private set; } = true;
+        public bool Evaporates { get; private set; } = false;
+        /// <summary>
+        /// u Per second rate that this liquid evaporates a puddle
+        /// </summary>
+        [DataField]
+        public FixedPoint2 EvaporationRate = 5;
 
-        // this is a new bool for if the reagent should evaporate at X times the base evaporation speed
-        // X is under Content.Server/Fluids/EntitySystems/PuddleSystem.Evaporation.cs line 50
-        [DataField("FastEvaporation")]
-        public bool FastEvaporation { get; private set; } = false;
+        [DataField]
+        public bool PuddleOnlyInstantEvaporation = false;
 
         /// <summary>
         /// If this reagent is part of a puddle is it slippery.

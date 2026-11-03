@@ -41,6 +41,32 @@
   - type: Clothing
     sprite: _Misfits/Clothing/Hands/Patreon/EmissariusGloves
     slots: [gloves]
+  - type: PuddleSpawner
+    reagentToSpawn: BaruBlood
+    amount: 5
+    seconds: .5
+    maxAmount: 30
+
+
+- type: reagent
+  id: BaruBlood
+  name: reagent-name-blood
+  group: Biological
+  desc: reagent-desc-blood
+  flavor: metallic
+  color: "#800000"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/bloodglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  recognizable: true
+  physicalDesc: reagent-physical-desc-ferrous
+  slippery: false
+  evaporates: true
+  evaporationRate: .01
+
 
 # Outerwear
 

@@ -309,18 +309,21 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         _reactive.DoEntityReaction(args.Slipped, splitSol, ReactionMethod.Touch);
     }
 
-    /// <inheritdoc/>
+    /// <summary>
+    ///
+    /// </summary>
     public override void Update(float frameTime)
     {
+
         base.Update(frameTime);
         foreach (var ent in _deletionQueue)
-        {
             Del(ent);
-        }
-
         _deletionQueue.Clear();
+        var e = _timing.CurTick.Value;
 
-        TickEvaporation();
+
+        if(_timing.CurTick.Value % _timing.TickRate == 0)
+            TickEvaporation();
     }
 
     private void OnPuddleInit(Entity<PuddleComponent> entity, ref ComponentInit args)
