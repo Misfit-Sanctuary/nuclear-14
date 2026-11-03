@@ -113,17 +113,17 @@
     fuelSolution: tank
     fuelReagent: WeldingFuel
     outputWeights:
-      N14IronOre1: 20
-      N14CopperOre1: 18
+      N14IronOre1: 18
+      N14CopperOre1: 16
       N14LeadOre1: 14
       SulfurOre1: 12
-      N14Sand1: 12
-      Salt1: 10
-      N14ZincOre1: 6
-      N14BauxiteOre1: 6
-      FertilizerOre1: 6
-      N14GoldOre1: 6
-      N14SilverOre: 6
+      N14Sand1: 10
+      Salt1: 5
+      N14ZincOre1: 5
+      N14BauxiteOre1: 5
+      FertilizerOre1: 5
+      N14GoldOre1: 5
+      N14SilverOre: 5
   - type: FuelGenerator
     on: false
     targetPower: 1000
