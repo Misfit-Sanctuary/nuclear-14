@@ -269,7 +269,7 @@ public sealed partial class GunSystem : SharedGunSystem
                             RemoveShootable(ent.Value);
                         break;
                     case HitscanPrototype:
-                        PredictHitscan(gunUid, fromCoordinates, worldAngle.ToVec(), worldAngle, gun.Target, user);
+                        PredictHitscan(gunUid, fromCoordinates, worldAngle.ToVec(), gun.Target, user);
                         Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                         Recoil(user, direction, gun.CameraRecoilScalarModified);
                         break;
@@ -374,7 +374,7 @@ public sealed partial class GunSystem : SharedGunSystem
                         RemoveShootable(ent.Value);
                     break;
                 case HitscanPrototype:
-                    PredictHitscan(gunUid, fromCoordinates, mapDirection, mapDirection.ToAngle(), gun.Target, user);
+                    PredictHitscan(gunUid, fromCoordinates, mapDirection, gun.Target, user);
                     Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                     Recoil(user, mapDirection, gun.CameraRecoilScalarModified);
                     break;
@@ -530,7 +530,6 @@ public sealed partial class GunSystem : SharedGunSystem
     private void PredictHitscan(EntityUid gunUid,
         EntityCoordinates fromCoordinates,
         Vector2 direction,
-        Angle worldAngle,
         EntityUid? target,
         EntityUid? user)
     {
@@ -544,33 +543,9 @@ public sealed partial class GunSystem : SharedGunSystem
         if (fromMap.MapId == MapId.Nullspace || direction.LengthSquared() <= 0.0001f)
             return;
 
-        var normalizedDirection = direction.Normalized();
-        var from = fromMap;
-        // [Changed by MisfitsCrew/Operator] Use grid/map effect coordinates so predicted beam
-        // sprites are not parented to bikes or other ridden entities.
-        var fromEffect = GetShotEffectCoordinates(fromMap);
-        // [Changed by MisfitsCrew/Operator] Keep the rider as the shot source and ignore the
-        // mounted vehicle separately so predicted lasers do not collide with either one.
-        var ignoredEntity = GetShotExtraIgnoredEntity(user);
-        var source = user ?? gunUid;
-        var historicalTick = GetPredictedHitscanTick();
-        //var reflectAttempts = hitscan.Reflective != ReflectType.None ? 3 : 1;
-
-        // TODO misfits: for now we dont try predicting visuals of deflections until refactor can be done
-        TryGetPredictedHitscanResult(
-                    from,
-                    normalizedDirection,
-                    hitscan,
-                    source,
-                    ignoredEntity,
-                    target,
-                    historicalTick,
-                    out var hitEntity,
-                    out var distance);
-
-        SpawnPredictedHitscanEffects(fromEffect, worldAngle, normalizedDirection, hitscan, distance);
-        if (hitEntity == EntityUid.Invalid && HasComp<DamageableComponent>(hitEntity) && !HasComp<ActorComponent>(hitEntity))
-            _color.RaiseEffect(Color.Red, new List<EntityUid> { hitEntity }, Filter.Local());
+        // #Misfits Add - one predicted ray per pellet so shotgun hitscan beams match the server
+        foreach (var rayDirection in GetHitscanDirections(gunUid, direction))
+            PredictHitscanRay(gunUid, fromMap, rayDirection, hitscan, target, user);
 
         // original code for client side predicted deflect visuals. Didnt sync with actual server hitscans on deflect due to rng desync
         /*
@@ -618,6 +593,42 @@ public sealed partial class GunSystem : SharedGunSystem
                     _color.RaiseEffect(Color.Red, new List<EntityUid> { hitEntity.Value }, Filter.Local());
         */
 
+    }
+
+    // #Misfits Add - casts and renders one predicted hitscan ray
+    private void PredictHitscanRay(
+        EntityUid gunUid,
+        MapCoordinates fromMap,
+        Vector2 direction,
+        HitscanPrototype hitscan,
+        EntityUid? target,
+        EntityUid? user)
+    {
+        var normalizedDirection = direction.Normalized();
+        // [Changed by MisfitsCrew/Operator] Use grid/map effect coordinates so predicted beam
+        // sprites are not parented to bikes or other ridden entities.
+        var fromEffect = GetShotEffectCoordinates(fromMap);
+        // [Changed by MisfitsCrew/Operator] Keep the rider as the shot source and ignore the
+        // mounted vehicle separately so predicted lasers do not collide with either one.
+        var ignoredEntity = GetShotExtraIgnoredEntity(user);
+        var source = user ?? gunUid;
+        var historicalTick = GetPredictedHitscanTick();
+
+        // TODO misfits: for now we dont try predicting visuals of deflections until refactor can be done
+        TryGetPredictedHitscanResult(
+                    fromMap,
+                    normalizedDirection,
+                    hitscan,
+                    source,
+                    ignoredEntity,
+                    target,
+                    historicalTick,
+                    out var hitEntity,
+                    out var distance);
+
+        SpawnPredictedHitscanEffects(fromEffect, normalizedDirection.ToAngle(), normalizedDirection, hitscan, distance);
+        if (hitEntity == EntityUid.Invalid && HasComp<DamageableComponent>(hitEntity) && !HasComp<ActorComponent>(hitEntity))
+            _color.RaiseEffect(Color.Red, new List<EntityUid> { hitEntity }, Filter.Local());
     }
 
     private GameTick GetPredictedHitscanTick()

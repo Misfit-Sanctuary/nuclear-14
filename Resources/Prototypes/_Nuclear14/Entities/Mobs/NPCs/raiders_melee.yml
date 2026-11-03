@@ -39,3 +39,13 @@
       - EnforcerBeatcop3Gear
       - EnforcerBeatcop4Gear
       - EnforcerBeatcop5Gear
+
+- type: entity
+  name: Enforcer Shieldman
+  id: N14MobRaiderEnforcerShield
+  parent: N14BaseMobShielderEnforcer
+  description: A enforcer trooper with a shield, he tank alot of hit and will give you major head fracture.
+  components:
+    - type: Loadout
+      prototypes:
+      - EnforcerShieldman1Gear
