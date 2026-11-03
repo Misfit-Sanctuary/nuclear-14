@@ -2,7 +2,7 @@
   name: legion headset box
   parent: BoxCardboard
   id: BoxHeadsetLegion
-  description: A box of ancient headsets scavenged from the Grand Canyon, repurposed for use by Caesar's Legion.
+  description: A box of spare headsets.
   components:
   - type: StorageFill
     contents:
@@ -17,7 +17,7 @@
   name: brotherhood headset box
   parent: BoxCardboard
   id: BoxHeadsetBrotherhoodOfSteel
-  description: A box of old headsets scavenged from old military installations, updated to the current Brotherhood frequency.
+  description: A box of spare headsets.
   components:
   - type: StorageFill
     contents:
@@ -33,7 +33,7 @@
   name: ncr headset box
   parent: BoxCardboard
   id: BoxHeadsetNCR
-  description: A box of factory fresh headsets manufactured in the Boneyard, a sign of the country's growing industrial strength.
+  description: A box of spare headsets.
   components:
   - type: StorageFill
     contents:
@@ -48,7 +48,7 @@
   name: vault headset box
   parent: BoxCardboard
   id: BoxHeadsetVault
-  description: A box of pre-war headsets, manufactured by Vault-Tec and passing between generations of vault dwellers. Wipe them down before use.
+  description: A box of spare headsets.
   components:
   - type: StorageFill
     contents:
@@ -63,7 +63,7 @@
   name: wasteland headset box
   parent: BoxCardboard
   id: BoxHeadsetWasteland
-  description: A box of scrap headsets cobbled together from spare parts, used by the unaligned drifters to keep in touch on matters of gossip and trade.
+  description: A box of spare headsets.
   components:
   - type: StorageFill
     contents:
@@ -78,7 +78,7 @@
   name: followers headset box
   parent: BoxCardboard
   id: BoxHeadsetFollowers
-  description: A box of headsets manufacted in the Boneyard's factories, used by the Followers of the Apocalypse to manage their charitable efforts and coordinate in emergencies.
+  description: A box of spare headsets.
   components:
   - type: StorageFill
     contents:
@@ -90,10 +90,10 @@
     - state: headset
 
 - type: entity
-  name: enclave headset box
+  name: U.S. Army headset box
   parent: BoxCardboard
   id: BoxHeadsetEnclave
-  description: A box of pre-war government headsets, skimmed off the top of some ancient equipment shipment and hidden away for decades.
+  description: A box of spare headsets.
   components:
   - type: StorageFill
     contents:

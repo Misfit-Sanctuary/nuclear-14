@@ -1,9 +1,9 @@
 # Gecko variants
 - type: entity
-  name: Gecko
+  name: gecko
   id: N14MobGecko
   parent: N14MobBaseHostileScaley
-  description: These pests tend to attack in small groups, and remain a constant annoyance once they establish a nest locally. With how quickly they breed, they are almost impossible to truly wipe out.
+  description: Looks like a dinosaur. The bite is worse than the claws.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -90,8 +90,8 @@
 - type: entity
   parent: N14MobGecko
   id: N14MobGeckoFire
-  name: Fire Gecko
-  description: A dangerous subspecies of the normal gecko, it is able to expel a flammable gas made from the indigestible parts of their meals, such as bone and hair stored in a special organ. It then sparks its tongue to make a gout of flame.
+  name: fire gecko
+  description: A dangerous fire gecko. Don't let it get close!
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -178,10 +178,10 @@
         maxDistance: 10
 
 - type: entity
-  name: Golden Gecko
+  name: golden gecko
   id: N14MobGeckoGolden
   parent: N14MobGecko
-  description: This subspecies of the gecko has adapted to heavy radiation, its beautiful hide is actually a mutation that keeps it alive where its cousins would die. Their radiation-resistant hide is quite valuable, but they spread radiation with their attacks.
+  description: A beautiful golden gecko. Don't let it scratch.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -238,10 +238,10 @@
 
 # Nightstalker Cub
 - type: entity
-  name: Young Nightstalker
+  name: nightstalker cub
   id: N14MobNightstalkerCub
   parent: N14MobBaseHostile
-  description: While FEV can explain away most of the wasteland creatures, there's no excusing this abomination. Coyote and rattlesnake DNA has been spliced together by some madman, and they are a menace to the fragile ecosystem. This one looks clumsy and small.
+  description: Is it a coyote? Why does it have a rattler... This one is small.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -337,10 +337,10 @@
 
 # Adult Nightstalker
 - type: entity
-  name: Nightstalker
+  name: nightstalker
   id: N14MobNightstalker
   parent: N14MobBaseHostile
-  description: While FEV can explain away most of the wasteland creatures, there's no excusing this abomination. Coyote and rattlesnake DNA has been spliced together by some madman, and they are a menace to the fragile ecosystem.
+  description: Is it a coyote? Why does it have a rattler...
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -685,7 +685,7 @@
   name: Metal Deathclaw
   id: N14MobDeathclawMetal
   parent: N14MobDeathclawAlbino
-  description: A deathclaw somehow wearing modified T-45 Power Armor, you have no idea why someone would think this combination was a good idea.
+  description: A deathclaw somehow wearing modified T-45 Power Armor, you have no idea why someone would ever think this combination was a good idea.
   components:
   - type: Sprite
     drawdepth: Mobs

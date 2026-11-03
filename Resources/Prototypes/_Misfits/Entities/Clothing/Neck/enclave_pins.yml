@@ -5,8 +5,8 @@
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckPinEnclavePrivate
-  name: enclave private rank pin
-  description: This shiny government rank insignia designates you as the nearest disposable asset for your commanders. Try not to die, your training was expensive.
+  name: U.S. Army private pin
+  description: A United States Government rank insignia showing the wearer's rank.
   components:
   - type: RankTitle
     rankTitle: Private
@@ -29,8 +29,7 @@
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclavePFC
-  name: enclave private first class rank pin
-  description: These shiny rank pins tend to be handed out to those that have shown basic competency, or at least survivability. Follow your superiors and listen.
+  name: U.S. Army private first class pin
   components:
   - type: RankTitle
     rankTitle: Private First Class
@@ -42,8 +41,7 @@
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclaveSpecialist
-  name: enclave specialist rank pin
-  description: This dulled insignia denotes you as an experienced soldier, someone trusted to get the job done among the enlisted. So try not to avoid your duties.
+  name: U.S. Army specialist pin
   components:
   - type: RankTitle
     rankTitle: Specialist
@@ -56,8 +54,7 @@
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclaveSergeant
-  name: enclave sergeant rank pin
-  description: These brand new pins are handed out to those who have started an exciting career as military-middle-management. You're responsible for the enlisted now.
+  name: U.S. Army sergeant pin
   components:
   - type: RankTitle
     rankTitle: Sergeant
@@ -69,8 +66,7 @@
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclaveStaffSergeant
-  name: enclave staff sergeant rank pin
-  description: This dulled insignia is earned by those who can lead men into battle, and train even the weakest recruits into warriors. Comes with a discount for a used Corvega!
+  name: U.S. Army staff sergeant pin
   components:
   - type: RankTitle
     rankTitle: Staff Sergeant
@@ -82,8 +78,7 @@
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclaveSFC
-  name: enclave sergeant first class rank pin
-  description: When the officers see this weathered insignia pinned on you, they know you'll get the job done. You don't get this rank just riding a desk after all, but you still have to.
+  name: U.S. Army sergeant first class pin
   components:
   - type: RankTitle
     rankTitle: Sergeant First Class
@@ -95,8 +90,7 @@
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclaveMasterSergeant
-  name: enclave master sergeant rank pin
-  description: This battered rank insignia denotes a professional who has no illusions about their duty. Your commanders know you'll not hesitate to follow orders.
+  name: U.S. Army master sergeant pin
   components:
   - type: RankTitle
     rankTitle: Master Sergeant
@@ -109,8 +103,7 @@
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclaveSergeantMajor
-  name: enclave sergeant major rank pin
-  description: This venerable insignia is given to those who have become one of the very best. Make sure the officers don't mess up, and tell the junior enlisted how easy they have it.
+  name: U.S. Army sergeant major pin
   components:
   - type: RankTitle
     rankTitle: Sergeant Major
@@ -123,8 +116,7 @@
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclaveSecondLieutenant
-  name: enclave second lieutenant rank pin
-  description: These shiny bars show others you are officially part of the command structure, but you still have a lot to prove. Try not to earn the men's respect by putting their lives in undue risk.
+  name: U.S. Army second lieutenant pin
   components:
   - type: RankTitle
     rankTitle: Second Lieutenant
@@ -141,8 +133,7 @@
 - type: entity
   parent: ClothingNeckPinEnclaveSecondLieutenant
   id: ClothingNeckPinEnclaveFirstLieutenant
-  name: enclave first lieutenant rank pin
-  description: These dulled bars are proof you're not entirely naive, that you're a competent part of the command element. But the enlisted still might not trust you with their lives yet, so don't get cocky.
+  name: U.S. Army first lieutenant pin
   components:
   - type: RankTitle
     rankTitle: First Lieutenant
@@ -155,8 +146,7 @@
 - type: entity
   parent: ClothingNeckPinEnclaveSecondLieutenant
   id: ClothingNeckPinEnclaveCaptain
-  name: enclave captain rank pin
-  description: This golden insignia is either proof of your effectiveness, or all the more amazing for being attached to someone who has no idea what they're doing. Prove to your subordinates it's the first case.
+  name: U.S. Army captain pin
   components:
   - type: RankTitle
     rankTitle: Captain
@@ -168,8 +158,7 @@
 - type: entity
   parent: ClothingNeckPinEnclaveSecondLieutenant
   id: ClothingNeckPinEnclaveMajor
-  name: enclave major rank pin
-  description: This battered rank belongs to a battered history, climbing to this position is no easy feat. Unless the base commander is present, all responsibility falls onto your shoulders, but you've got this.
+  name: U.S. Army major pin
   components:
   - type: RankTitle
     rankTitle: Major
@@ -182,8 +171,7 @@
 - type: entity
   parent: ClothingNeckPinEnclaveSecondLieutenant
   id: ClothingNeckPinEnclaveLtColonel
-  name: enclave lieutenant colonel rank pin
-  description: This insignia denotes a member of the upper military command structure, base commanders and above. Keep soldiers motivated with pretty lies and confide your dark truths where they won't hurt the mission.
+  name: U.S. Army lieutenant colonel pin
   components:
   - type: RankTitle
     rankTitle: Lieutenant Colonel
@@ -195,8 +183,7 @@
 - type: entity
   parent: ClothingNeckPinEnclaveSecondLieutenant
   id: ClothingNeckPinEnclaveColonel
-  name: enclave colonel rank pin
-  description: This dulled rank insignia usually indicate someone near the very top of the food chain, more politician than soldier now. There's one rung left in that ladder to climb, either by flattery or by merit.
+  name: U.S. Army colonel pin
   components:
   - type: RankTitle
     rankTitle: Colonel
@@ -208,8 +195,7 @@
 - type: entity
   parent: ClothingNeckPinEnclaveSecondLieutenant
   id: ClothingNeckPinEnclaveGeneral
-  name: enclave general rank pin
-  description: This shiny rank insignia is pinned to the uniforms of the highest ranking officers in the military. There's nowhere left to climb, nobody left to impress, only kingdoms to be conquered and medals to collect.
+  name: U.S. Army general pin
   components:
   - type: RankTitle
     rankTitle: General
@@ -222,8 +208,8 @@
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclaveJuniorScientist
-  name: enclave junior scientist rank pin
-  description: A shiny rank pin that denotes the owner as a government scientist, junior level. While not part of the military they are still government employees, and they are expected to watch and learn from superiors.
+  name: U.S. Army junior scientist pin
+  description: A United States Government research division insignia showing the wearer's rank.
   components:
   - type: RankTitle
     rankTitle: Junior Scientist
@@ -240,8 +226,7 @@
 - type: entity
   parent: ClothingNeckPinEnclaveJuniorScientist
   id: ClothingNeckPinEnclaveScientist
-  name: enclave scientist rank pin
-  description: This well polished rank pin designates the owner as a government scientist, expected to teach junior scientists, conduct standard research, and follow the orders of the head scientist.
+  name: U.S. Army scientist pin
   components:
   - type: RankTitle
     rankTitle: Scientist
@@ -258,8 +243,7 @@
 - type: entity
   parent: ClothingNeckPinEnclaveScientist
   id: ClothingNeckPinEnclaveHeadScientist
-  name: enclave head scientist rank pin
-  description: This pristine rank pin denotes the owner as a government scientist, senior level. Lead the other scientists, conduct advanced research, and report directly to the government on your progress.
+  name: U.S. Army head scientist pin
   components:
   - type: RankTitle
     rankTitle: Head Scientist

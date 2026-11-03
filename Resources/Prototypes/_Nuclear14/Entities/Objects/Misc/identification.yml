@@ -124,7 +124,7 @@
 - type: entity
   parent: N14IDPassportBlank
   id: N14IDPassport
-  name: old passport
+  name: passport
   description: An old pre-war passport that's been scrubbed clean of its old print, stamped with some frontier settlement's seal and used by wastelanders as personal ID.
   components:
   - type: Sprite
@@ -163,7 +163,7 @@
 - type: entity
   parent: N14IDPassportBlank
   id: N14IDPassportPhoto
-  name: repurposed passport
+  name: passport
   description: An old pre-war passport that's been scrubbed clean of its old print, now filled in with new information and used by wastelanders as personal ID.
   components:
   - type: Sprite
@@ -173,7 +173,7 @@
 - type: entity
   parent: N14IDPassportBlank
   id: N14IDPassportVIP
-  name: luxury passport
+  name: passport
   description: An old pre-war passport that's been scrubbed clean of its old print, this one is in relatively pristine shape and used by a better class of wastelanders as personal ID.
   components:
   - type: Sprite
@@ -315,7 +315,7 @@
 - type: entity
   parent: N14IDPassportBlank
   id: N14IDEnclaveTrooper
-  name: enlisted holotags
+  name: holotag
   description: These holotags are proof you are a loyal piece of government property.
   suffix: Trooper
   components:
@@ -335,7 +335,7 @@
 - type: entity
   parent: N14IDPassportBlank
   id: N14IDEnclaveOfficer
-  name: officer holotags
+  name: holotag
   description: Lead your fellow patriots to victory, and make sure everyone else remembers why America is the best country in the world.
   suffix: Officer
   components:
@@ -356,7 +356,7 @@
 - type: entity
   parent: N14IDPassportBlank
   id: N14IDEnclaveNoncombat
-  name: scientist holotags
+  name: holotag
   description: These holotags mark you as a valuable asset to the government, and a very valuable hostage to everyone else.
   suffix: Scientist , Noncombat
   components:
@@ -538,7 +538,7 @@
 - type: entity
   parent: N14IDPassportPhoto
   id: N14IDPassportTownsfolk
-  name: town passport
+  name: passport
   description: Proof that you belong in the local settlement, that you're more trustworthy than the drifters in the wasteland.
   components:
   - type: ClothingAddFaction
@@ -549,7 +549,7 @@
 - type: entity
   parent: N14IDPassportTownsfolk
   id: N14IDShopkeeperTown
-  name: town shopkeeper ID
+  name: Shopkeepers ID
   description: This settlement passport marks you as a person of some importance. Without a shopkeeper there is no shop, and without a shop there is no settlement.
   components:
   - type: Sprite
@@ -561,7 +561,7 @@
 - type: entity # Forge-Add-Start
   parent: N14IDPassportTownsfolk
   id: N14IDShopkeeperHelperTown
-  name: town shop assistant ID
+  name: ShopkeepersHelper ID
   description: Either by merit or by nepotism, you are here to help out at the general store. Learn what you can to eventually run your own caravan or shopfront.
   components:
   - type: Sprite
@@ -573,7 +573,7 @@
 - type: entity
   parent: N14IDPassportTownsfolk
   id: N14IDPassportTownMechanic
-  name: town mechanic ID
+  name: mechanics ID
   description: Good mechanics are hard to find in the wasteland, ones willing to put up with noisy drifters are even harder to find. And so your services are in demand, and well paid.
   components:
   - type: Sprite
@@ -585,7 +585,7 @@
 - type: entity
   parent: N14IDDoctor
   id: N14IDDoctorTown
-  name: town doctor ID
+  name: doctors ID
   description: Someone has to fix up your friends and neighbors when they get hurt, it might as well be someone who knows what they're doing. Hopefully that person is you.
   components:
   - type: Sprite
@@ -599,7 +599,7 @@
 - type: entity
   parent: N14IDPassportTownsfolk
   id: N14IDReporterTown
-  name: town reporter ID
+  name: reporter ID
   description: Issued by the mayor's office to the citizens that make the most noise out of local happenings, this passport gives you a non-existant level of authority to pester the dangerous and powerful in the region for radio show content.
   components:
   - type: Sprite
@@ -613,7 +613,7 @@
 - type: entity
   parent: N14IDPassportTownsfolk
   id: N14IDBartenderTown
-  name: town innkeeper ID
+  name: innkeeper ID
   description: People come to you with their problems and a desire to eat something besides pre-war processed junk food. So pour a drink, act as a non-licensed therapist, cook up some greasy eggs and meat, and possibly squeeze out a few caps.
   components:
   - type: Sprite
@@ -652,7 +652,7 @@
   parent: N14IDPassportTownsfolk
   id: N14IDBadgeTownMayor
   name: town mayor badge
-  description: This badge marks you as the mayor of the town, chosen by the citizens to lead them to safety and prosperity. If you fail they'll strip this off your body and toss you out of the gates.
+  description: This badge marks you as the mayor of the town, chosen by the citizens to lead them to prosperity and safety. If you fail they'll strip this off your body and toss you out of the gates.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/identification.rsi
@@ -663,7 +663,7 @@
 - type: entity
   parent: N14IDPassportPhoto
   id: N14IDPassportWasteChaplain
-  name: town chaplain ID
+  name: chaplain ID
   description: These papers mark you as a community leader in the local settlement, someone who can be trusted to act as a charity worker, spiritual guide and therapist. Its up to you to make these people care.
   components:
   - type: Sprite
@@ -678,7 +678,7 @@
 - type: entity
   parent: N14IDPassportPhoto
   id: N14IDPassportWasteFarmer
-  name: town farmer ID
+  name: farmer ID
   description: These papers mark you as a citizen of some merit, who can be trusted to grow food to keep everyone fed and not waste the seeds. Keep the crops alive and the innkeeper's storage full, and people will appreciate your efforts.
   components:
   - type: Sprite
@@ -691,7 +691,7 @@
 - type: entity
   parent: N14IDPassportBlank
   id: N14IDTribeSawbonePendant
-  name: village healer pendant
+  name: healer pendant
   description: This talisman marks a member of the local village, a valued spiritual leader in the tribal community. A name has been etched into the ancient bonesaw.
   components:
   - type: Sprite
@@ -710,7 +710,7 @@
 - type: entity
   parent: N14IDPassportBlank
   id: N14IDTribeBulletsPendant
-  name: village tribal pendant
+  name: member pendant
   description: This talisman marks a member of the local village, someone that belongs in this community. The hollow bullet has a name engraved on it.
   components:
   - type: Sprite
@@ -729,7 +729,7 @@
 - type: entity
   parent: N14IDPassportBlank
   id: N14IDTribeEnforcerPendant
-  name: village farmer pendant
+  name: farmer pendant
   description: This talisman marks a member of the local village, one that helps keep the tribe fed. The empty shotgun shell has a name scratched into it.
   components:
   - type: Sprite
@@ -748,7 +748,7 @@
 - type: entity
   parent: N14IDPassportBlank
   id: N14IDTribeBossPendant
-  name: village elder pendant
+  name: elder pendant
   description: This talisman marks an elder of the local village, one that guides the tribe in all matters. Each of the rifle rounds is engraved with a previous elder's name.
   components:
   - type: Sprite

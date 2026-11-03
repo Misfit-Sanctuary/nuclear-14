@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckPinNCRRecruit
-  name: ncr recruit rank pin
-  description: This shiny rank pin is handed out to those who have just joined the NCRA. Don't forget to pin it to your clothes!
+  name: recruit pin
+  description: A worn Republic Armed Forces badge showing the wearer's rank.
   components:
   - type: RankTitle
     rankTitle: Recruit
@@ -22,8 +22,7 @@
 - type: entity
   parent: ClothingNeckPinNCRRecruit
   id: ClothingNeckPinNCRPrivate
-  name: ncr private rank pin
-  description: This rank pin designates the owner as a private in the NCRA. You've got a lot to learn, don't forget to ask your superiors what to do.
+  name: private pin
   components:
   - type: RankTitle
     rankTitle: Private
@@ -39,12 +38,11 @@
   - type: Tag
     tags:
     - SuperMutantWearable
-
+    
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRPrivate1st
-  name: ncr private first class rank pin
-  description: This rank pin denotes the owner as a private first class in the NCRA. You're making good progress, remember to ask for direction when you need something to do.
+  name: private first class pin
   components:
   - type: RankTitle
     rankTitle: Private First Class
@@ -59,8 +57,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRCorporal
-  name: ncr corporal rank pin
-  description: This rank pin designates the owner as a corporal in the NCRA. You've got responsibilities to attend to, you're expected to start teaching and leading recruits.
+  name: corporal pin
   components:
   - type: RankTitle
     rankTitle: Corporal
@@ -75,8 +72,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRSpecialist
-  name: ncr specialist rank pin
-  description: This rank pin denotes the owner as a specialist in the NCRA. You're a skilled member of the military's enlisted ranks now, so the expectations are starting to rise.
+  name: specialist pin
   components:
   - type: RankTitle
     rankTitle: Specialist
@@ -91,8 +87,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRSergeant
-  name: ncr sergeant rank pin
-  description: This rank pin designates the owner as a sergeant in the NCRA. Welcome to middle management, ensure the lower ranks of the enlisted behave properly and know how to do their jobs.
+  name: sergeant pin
   components:
   - type: RankTitle
     rankTitle: Sergeant
@@ -107,8 +102,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRStaffSergeant
-  name: ncr staff sergeant rank pin
-  description: This rank pin denotes the owner as a staff sergeant in the NCRA. Ensure the soldiers aren't causing trouble with the locals and start spending your funds on a personal motorcycle.
+  name: staff sergeant pin
   components:
   - type: RankTitle
     rankTitle: Staff Sergeant
@@ -123,8 +117,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRSergeant1st
-  name: ncr sergeant first class rank pin
-  description: This rank pin designates the owner as a sergeant first class in the NCRA. At this point you are expected to lead the lower ranks, and advise the officers while not getting in their way.
+  name: sergeant first class pin
   components:
   - type: RankTitle
     rankTitle: Sergeant First Class
@@ -139,8 +132,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRMasterSergeant
-  name: ncr master sergeant rank pin
-  description: This rank pin denotes the owner as a master sergeant in the NCRA. There's no screwing around at this stage of your career, you're expected to act as a model soldier, as you represent the NCR to the wasteland.
+  name: master sergeant pin
   components:
   - type: RankTitle
     rankTitle: Master Sergeant
@@ -155,8 +147,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCR1stSergeant
-  name: ncr first sergeant rank pin
-  description: This rank pin designates the owner as a first sergeant in the NCRA. People expect only the best from someone of your station, so don't disappoint them. You need to be competent in combat, leadership, and negotiations.
+  name: first sergeant pin
   components:
   - type: RankTitle
     rankTitle: First Sergeant
@@ -171,8 +162,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRSergeantMajor
-  name: ncr sergeant major rank pin
-  description: This rank pin denotes the owner as a sergeant major in the NCRA. Your job now is to ensure the enlisted men perform their duties, and keep the officers from stepping into trouble.
+  name: sergeant major pin
   components:
   - type: RankTitle
     rankTitle: Sergeant Major
@@ -187,8 +177,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRCommandSergeantMajor
-  name: ncr command sergeant major rank pin
-  description: This rank pin denotes the owner as a command sergeant major in the NCRA. You are responsible for all those beneath you, and the expectations are immense. Don't disappoint your country.
+  name: command sergeant major pin
   components:
   - type: RankTitle
     rankTitle: Command Sergeant Major
@@ -203,8 +192,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRWarrantOfficer
-  name: ncr warrant officer rank pin
-  description: This rank pin designates the owner as a warrant officer in the NCRA. You're too high of a rank to be yelled at by the sergeants, but too low of a rank to have any serious responsibilities.
+  name: warrant officer pin
   components:
   - type: RankTitle
     rankTitle: Warrant Officer
@@ -222,8 +210,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRChiefWarrantOfficer2
-  name: ncr chief warrant officer 2 rank pin
-  description: This rank pin denotes the owner as a chief warrant officer 2 in the NCRA. You are a highly skilled specialist, with technical expertise the army needs. You're still not bulletproof from reprimands, so behave.
+  name: chief warrant officer 2 pin
   components:
   - type: RankTitle
     rankTitle: Chief Warrant Officer 2
@@ -243,8 +230,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRChiefWarrantOfficer3
-  name: ncr chief warrant officer 3 rank pin
-  description: This rank pin denotes the owner as a chief warrant officer 3 in the NCRA. The equipment under your care is your top priority, and command respects your ability to get the job done. They might start asking you to teach others.
+  name: chief warrant officer 3 pin
   components:
   - type: RankTitle
     rankTitle: Chief Warrant Officer 3
@@ -264,8 +250,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRSecondLieutenant
-  name: ncr second lieutenant rank pin
-  description: This rank pin denotes the owner as a second lieutenant in the NCRA. You are expected to lead the soldiers, and to learn from any officers above you. Remember, dead men get no glory, so don't get yourself or your subordinates killed.
+  name: second lieutenant pin
   components:
   - type: RankTitle
     rankTitle: Second Lieutenant
@@ -280,8 +265,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRFirstLieutenant
-  name: ncr first lieutenant rank pin
-  description: This rank pin denotes the owner as a first lieutenant in the NCRA. You've got a lot of responsibilities to answer to now, and your subordinates need to know you can get them home alive. Don't let them down now.
+  name: first lieutenant pin
   components:
   - type: RankTitle
     rankTitle: First Lieutenant
@@ -301,8 +285,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRCaptain
-  name: ncr captain rank pin
-  description: This rank pin denotes the owner as a captain in the NCRA. Lead the troopers out of danger and ensure the mission objective is achieved. At this point in your career, you're expected to take the lead and make the hard choices.
+  name: captain pin
   components:
   - type: RankTitle
     rankTitle: Captain
@@ -322,8 +305,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRMajor
-  name: ncr major rank pin
-  description: This rank pin denotes the owner as a major in the NCRA. You are among the highest ranking officers in the region, and what you do reflects on the country as a whole. Remember to listen to your subordinates, and to lead by example.
+  name: major pin
   components:
   - type: RankTitle
     rankTitle: Major
@@ -338,8 +320,7 @@
 - type: entity
   parent: ClothingNeckPinNCRFirstLieutenant
   id: ClothingNeckPinNCRLtColonel
-  name: ncr lieutenant colonel rank pin
-  description: This rank pin denotes the owner as a lieutenant colonel in the NCRA. You are among the very best of military high command, and it is your job to ensure the soldiers here don't ruin the reputation you've worked so hard to build.
+  name: lieutenant colonel pin
   components:
   - type: RankTitle
     rankTitle: Lieutenant Colonel
@@ -354,8 +335,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRDoctor
-  name: ncr doctor rank pin
-  description: This rank pin denotes the owner as a doctor in the NCRA. While you aren't expected to act as infantry normally, you are still part of the military and should follow orders according to your rank and mission priorities.
+  name: doctor pin
   components:
   - type: RankTitle
     rankTitle: Corpsman
@@ -375,8 +355,7 @@
 - type: entity
   parent: ClothingNeckPinNCRPrivate
   id: ClothingNeckPinNCRChiefPhysician
-  name: ncr chief physician rank pin
-  description: This rank pin designates the owner as a chief physician in the NCRA. The other medics need to learn from your teachings, and there's a flood of injured troopers to tend to. At the very least, people respect your dedication and skills.
+  name: chief physician pin
   components:
   - type: RankTitle
     rankTitle: Chief Physician
