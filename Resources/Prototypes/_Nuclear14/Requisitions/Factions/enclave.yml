@@ -354,6 +354,9 @@
         crate: N14CrateRequisitionsEnclavePowerCells
       - cost: 400
         crate: N14CrateRequisitionsEnclaveTools
+      - cost: 500
+        stock: 3
+        crate: N14CrateRequisitionsEnclaveHatch
       - cost: 600
         crate: N14CrateRequisitionsEnclaveIndustrialWelders
       - cost: 600
@@ -1576,6 +1579,22 @@
     - id: N14Welder
     - id: N14ClothingEyesGlassesWelding
     - id: N14Flashlight
+
+- type: entity
+  parent: N14CrateRequisitions
+  id: N14CrateRequisitionsEnclaveHatch
+  name: Remote Digging System Crate
+  components:
+  - type: Icon
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Crates/armycrate.rsi
+  - type: RequisitionsCrate
+    reward: 50
+  - type: StorageFill
+    contents:
+    - id: N14Multitool
+    - id: EnclaveBunkerHatchFlatpack
 
 - type: entity
   parent: N14CrateRequisitions
