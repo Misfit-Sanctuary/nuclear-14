@@ -70,7 +70,7 @@ public enum WastelandMapTacticalFeedKind : byte
     Followers,
     Tribe, // #Misfits Add - Willower pendant tactical feed
     Bwonsamdi, // private map-wide feed of critical and dead player souls
-    C27, // #Misfits Add - C-27 recon feed: tracks both factions a chassis can be assigned to
+    C27, // #Misfits Add - C-27 marker: the feed is resolved per viewer from the chassis's own ID card
 }
 
 [Serializable, NetSerializable]

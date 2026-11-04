@@ -18,7 +18,7 @@
     maxAngle: 105
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 1.5
+    fireRate: 2
     soundGunshot:
       collection: N14SniperHuntingGunshot
   - type: BallisticAmmoProvider
@@ -60,7 +60,7 @@
     maxAngle: 105
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 3
+    fireRate: 2
     soundGunshot:
       collection: N14SniperHuntingGunshot
   - type: BallisticAmmoProvider
@@ -109,7 +109,7 @@
     maxAngle: 105
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 0.9
+    fireRate: 0.8
     soundGunshot:
       collection: N14AntiMaterielGunshot
     selectedMode: SemiAuto
@@ -181,7 +181,7 @@
     maxAngle: 105
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 1.2
+    fireRate: 1
     soundGunshot:
       collection: N14AntiMaterielGunshot
   - type: FollowDistance
@@ -246,7 +246,7 @@
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/leverrifle.rsi
   - type: Gun
-    fireRate: 1.2
+    fireRate: 1.5
     soundGunshot:
       collection: N14LeverRifleGunshot
   - type: FollowDistance
@@ -335,7 +335,7 @@
     maxAngle: 105
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 2.2
+    fireRate: 2.5
     soundGunshot:
       collection: N14SniperVarmintGunshot
   - type: BallisticAmmoProvider
@@ -420,7 +420,7 @@
     maxAngle: 105
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 1.2
+    fireRate: 1
     soundGunshot:
       collection: N14AntiMaterielGunshot
   - type: FollowDistance
@@ -439,7 +439,7 @@
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/tribalhuntstick.rsi
   - type: Gun
-    fireRate: 1.2
+    fireRate: 1.5
     soundGunshot:
       collection: N14LeverRifleGunshot
   - type: FollowDistance
@@ -510,7 +510,7 @@
     minAngle: -23
     maxAngle: -104
   - type: Gun
-    fireRate: 1.5
+    fireRate: 2
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -552,7 +552,7 @@
     angleDecay: 16
     soundGunshot:
       collection: N14MarksmanGunshot
-    fireRate: 1
+    fireRate: 1.2
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -684,7 +684,7 @@
     maxAngle: 80
     angleIncrease: 3
     angleDecay: 16
-    fireRate: 2.2
+    fireRate: 3.0
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -722,7 +722,7 @@
     maxAngle: 48
     angleIncrease: 2
     angleDecay: 12
-    fireRate: 4
+    fireRate: 5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -768,7 +768,7 @@
     maxAngle: 80
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 2.5
+    fireRate: 3.0
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

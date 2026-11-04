@@ -713,6 +713,7 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
+        - BoSOffDuty
         - BoSInitiate
         - BoSMidSquire
         - BoSKnight
@@ -738,6 +739,7 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
+        - BoSOffDuty
         - BoSInitiate
         - BoSMidSquire
         - BoSKnight
@@ -761,6 +763,7 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
+        - BoSOffDuty
         - BoSInitiate
         - BoSMidSquire
         - BoSKnight
@@ -777,6 +780,31 @@
         - BoSWestElderCommander
   items:
     - N14ClothingHeadHatBrotherhoodFieldCap
+
+- type: loadout
+  id: MisfitsLoadoutMaskBrotherhoodHeadCover
+  category: Mask
+  cost: 0
+  requirements:
+  - !type:CharacterJobRequirement
+    jobs:
+    - BoSOffDuty
+    - BoSInitiate
+    - BoSMidSquire
+    - BoSKnight
+    - BoSScribe
+    - BoSPaladin
+    - BoSMidKnight
+    - BoSLancerKnight
+    # #Cythisiax Removed - Lancer rank folded into Lancer-Knight
+    - BoSMidPaladin
+    - BoSWestScribe
+    - BoSMidScribe
+    - BoSHeadKnight
+    - BoSMidPaladinCommander
+    - BoSWestElderCommander
+  items:
+  - N14ClothingMaskBrotherhoodHeadCover
 
 # #Misfits Add - Belt: Brotherhood of Steel Squire webbing.
 

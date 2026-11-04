@@ -87,7 +87,8 @@
     price: 500
   - proto: N14MaterialCircuitry
     amount: 10
-    price: 600
+    price: 750
+    count: 5
   - proto: N14IngotCopper
     amount: 10
     price: 300
@@ -990,8 +991,6 @@
     price: 40
   - proto: N14FoodMeatMirelurkClaw
     price: 40
-  - proto: N14MaterialCircuitry1
-    price: 50
   - proto: N14FoodMeatRadlurkClaw
     price: 50
   - proto: N14FoodEggDeathclaw
@@ -1022,7 +1021,7 @@
     price: 20
   - proto: Charcoal1
     amount: 1
-    price: 40
+    price: 10
   - proto: Torch
     price: 2
   - proto: DrinkWaterBottleFull

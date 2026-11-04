@@ -17,7 +17,7 @@
     size: Huge
     sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/autorifle.rsi
   - type: Wieldable
-    wieldedSpeedModifier: 0.9
+    wieldedSpeedModifier: 0.85
   - type: GunRequiresWield
   - type: GunWieldBonus
     minAngle: -19 # Misfits-change
@@ -27,7 +27,7 @@
     maxAngle: 60
     angleIncrease: 3
     angleDecay: 16
-    fireRate: 4
+    fireRate: 3.2
     soundGunshot:
       collection: N14AutoRifleGunshot
     selectedMode: FullAuto
@@ -83,7 +83,7 @@
     size: Huge
     sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/canadianhmg.rsi
   - type: Wieldable
-    wieldedSpeedModifier: 0.8
+    wieldedSpeedModifier: 0.75
   - type: GunRequiresWield
   - type: WieldDelay # Misfits-change
     baseDelay: 1.5
@@ -96,7 +96,7 @@
     maxAngle: 60
     angleIncrease: 3
     angleDecay: 16
-    fireRate: 6
+    fireRate: 5
     soundGunshot:
       collection: N14AutoRifleGunshot
     selectedMode: FullAuto
@@ -152,7 +152,7 @@
     size: Huge
     sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/chineselmg.rsi
   - type: Wieldable
-    wieldedSpeedModifier: 0.8
+    wieldedSpeedModifier: 0.75
   - type: GunRequiresWield
   - type: WieldDelay # Misfits-change
     baseDelay: 1.2
@@ -221,7 +221,7 @@
     size: Huge
     sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/lmg.rsi
   - type: Wieldable
-    wieldedSpeedModifier: 0.8
+    wieldedSpeedModifier: 0.75
   - type: GunRequiresWield
   - type: GunWieldBonus
     minAngle: -22
@@ -287,7 +287,7 @@
     size: Huge
     sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/bren.rsi
   - type: Wieldable
-    wieldedSpeedModifier: 0.8
+    wieldedSpeedModifier: 0.75
   - type: ClothingSpeedModifier # Corvax-Add
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -303,7 +303,7 @@
     maxAngle: 50
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 3.5 # Corvax-Change
+    fireRate: 2.5 # Corvax-Change
     soundGunshot:
       collection: N14AutoRifleGunshot
     selectedMode: FullAuto
@@ -356,7 +356,7 @@
     size: Huge
     sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/m60.rsi
   - type: Wieldable
-    wieldedSpeedModifier: 0.8
+    wieldedSpeedModifier: 0.75
   - type: ClothingSpeedModifier # Misfit-Add
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -372,7 +372,7 @@
     maxAngle: 50
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 4
+    fireRate: 3.5
     soundGunshot:
       collection: N14AutoRifleGunshot
     selectedMode: FullAuto

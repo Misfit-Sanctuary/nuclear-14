@@ -5,13 +5,7 @@
     children:
     - !type:EntSelector
       id: N14WeaponLaserPistolRecharger
-      weight: 3
-    - !type:EntSelector
-      id: N14WeaponLaserPistol
-      weight: 3
-    - !type:EntSelector
-      id: N14WeaponLaserRevolver
-      weight: 3
+      weight: 5
 # need like crude/makeshift pistols
 - type: entityTable
   id: M14WeaponLootTier2_PlasmaPistol

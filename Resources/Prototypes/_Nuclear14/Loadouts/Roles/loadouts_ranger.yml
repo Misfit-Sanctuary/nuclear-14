@@ -204,6 +204,8 @@
       jobs:
         - NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
         - NCRVeteranRanger
+        - SuperMutantRanger 
+        - SuperMutantNCRRanger
   items:
     - N14MedkitCombatFilled
 

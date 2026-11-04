@@ -70,7 +70,7 @@
         N14MobMaterialExtractorDeathclawWave: 35
         N14MobMaterialExtractorRadscorpionBossWave: 20
     - name: raider gun crew
-      weight: 22
+      weight: 30
       minCount: 2
       maxCount: 4
       family: Raider
@@ -82,7 +82,7 @@
         N14MobMaterialExtractorRaiderBossWave: 70
         N14MobMaterialExtractorRaiderHunterWave: 30
     - name: super mutant warband
-      weight: 18
+      weight: 20
       minCount: 2
       maxCount: 4
       family: SuperMutant
@@ -95,7 +95,7 @@
         N14MobMaterialExtractorSuperMutantArmoredWave: 35
         N14MobMaterialExtractorBehemothWave: 10
     - name: nightkin hunting party
-      weight: 16
+      weight: 20
       minCount: 1
       maxCount: 3
       nightOnly: true
@@ -113,15 +113,17 @@
     fuelSolution: tank
     fuelReagent: WeldingFuel
     outputWeights:
-      N14IronOre1: 20
-      N14CopperOre1: 18
+      N14IronOre1: 18
+      N14CopperOre1: 16
       N14LeadOre1: 14
       SulfurOre1: 12
-      N14Sand1: 12
-      Salt1: 10
-      N14ZincOre1: 6
+      N14Sand1: 10
+      Salt1: 5
+      N14ZincOre1: 5
       N14BauxiteOre1: 5
-      FertilizerOre1: 3
+      FertilizerOre1: 5
+      N14GoldOre1: 5
+      N14SilverOre: 5
   - type: FuelGenerator
     on: false
     targetPower: 1000

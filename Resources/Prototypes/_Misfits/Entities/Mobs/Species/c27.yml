@@ -55,6 +55,10 @@
       200: Critical # #Misfits Tweak - buffed base HP from 100 to 200 (robot chassis is tanky without passive healing)
       400: Dead
     allowRevives: true # #Misfits Add (Phase F) - auto-revive when healed below crit per spec
+  - type: Physics
+  - type: TraitSpeedModifier
+    walkModifier: .4
+    sprintModifier: .223
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5 # #Misfits Tweak - no innate slowdown on bare chassis; armor tiers apply their own penalties
     baseSprintSpeed: 2.5 # sprint disabled (matches walk = no sprint acceleration)
@@ -552,7 +556,7 @@
   - type: WastelandMap
     mapTexturePath: _Misfits/Maps/wendover_map.png
     mapTitle: Recon Tactical Map
-    tacticalFeed: C27 # #Misfits Add - tracks NCR and BoS holotags so allies show up
+    tacticalFeed: C27 # #Misfits Add - resolved per viewer from the chassis's own ID card (NCR or BoS only)
     worldBounds: "-517,-308,484,311"
   # #Misfits Add - grant the map action the way N14MobC27ZAX grants its repair action, since WastelandMapAction only auto-grants for worn items.
   - type: ActionGrant

@@ -23,7 +23,7 @@
     maxAngle: 45
     angleIncrease: 4
     angleDecay: 12
-    fireRate: 5
+    fireRate: 4
     projectileSpeed: 40
     soundGunshot:
       collection: N14PistolSpyGunshot
@@ -77,7 +77,7 @@
     maxAngle: 45
     angleIncrease: 4
     angleDecay: 16
-    fireRate: 5
+    fireRate: 4
     soundGunshot:
       collection: N14PistolSpyGunshot
 
@@ -205,6 +205,8 @@
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
+  - type: Wieldable
+    wieldedSpeedModifier: 0.75
   - type: Gun
     minAngle: 21
     maxAngle: 46

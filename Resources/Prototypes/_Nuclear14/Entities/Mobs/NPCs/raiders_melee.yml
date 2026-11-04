@@ -1,29 +1,51 @@
 - type: entity
-  name: Psycho Raider
+  name: Locust Maggot
   parent: N14BaseMobRaider
   id: N14MobRaiderPsycho
-  description: Psychopatic raider who will stab and rob just about anyone.
+  description: Weakest mongrels of the Locust Tribe, they’re armed with flimsy knives and pumped with chems. They are impossible to reason with, seeing your death as a chance to rise in the tribe's ranks.
   components:
     - type: Loadout
       prototypes:
-      - PsychoRaiderGear
+      - PsychoRaider1Gear
+      - PsychoRaider2Gear
+      - PsychoRaider3Gear
+      - PsychoRaider4Gear
+      - PsychoRaider5Gear
 
 - type: entity
-  name: Gunners Conscript
+  name: Cult of Liberty Conscript
   id: N14MobRaiderFernMelee
   parent: N14BaseMobRaider
-  description: Professional mercenary-wannabe, holding a club and ready to dent someone's skull in.
+  description: Pressed into service by backwoods crusaders, they now serve at the frontlines of the militia's push into the region. Confused and scared, they see you as a threat and will aim to kill.
   components:
     - type: Loadout
       prototypes:
-      - FernConscriptGear
+      - FernConscript1Gear
+      - FernConscript2Gear
+      - FernConscript3Gear
+      - FernConscript4Gear
+      - FernConscript5Gear
 
 - type: entity
   name: Enforcer Beatcop
   id: N14MobRaiderEnforcerMelee
   parent: N14BaseMobRaider
-  description: Law enforcement? No. Just a really fancy raider with a baton.
+  description: Law enforcement? No. Just a really fancy raider.
   components:
     - type: Loadout
       prototypes:
-      - EnforcerBeatcopGear
+      - EnforcerBeatcop1Gear
+      - EnforcerBeatcop2Gear
+      - EnforcerBeatcop3Gear
+      - EnforcerBeatcop4Gear
+      - EnforcerBeatcop5Gear
+
+- type: entity
+  name: Enforcer Shieldman
+  id: N14MobRaiderEnforcerShield
+  parent: N14BaseMobShielderEnforcer
+  description: A enforcer trooper with a shield, he tank alot of hit and will give you major head fracture.
+  components:
+    - type: Loadout
+      prototypes:
+      - EnforcerShieldman1Gear

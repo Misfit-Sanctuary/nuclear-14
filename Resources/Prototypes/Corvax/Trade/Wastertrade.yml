@@ -133,7 +133,7 @@
     price: 10
   - proto: Charcoal1
     amount: 1
-    price: 20
+    price: 5
   - proto: BoxFlare
     price: 35
   - proto: Torch
@@ -350,6 +350,7 @@
   - proto: N14MaterialCircuitry
     amount: 10
     price: 375
+    count: 8
 
 - type: storeCategoryStructured
   id: WasterBuy2_Cosmetic
@@ -1093,8 +1094,6 @@
     price: 20
   - proto: N14FoodMeatMirelurkClaw
     price: 20
-  - proto: N14MaterialCircuitry1
-    price: 25
   - proto: N14FoodMeatRadlurkClaw
     price: 25
   - proto: N14FoodEggDeathclaw
