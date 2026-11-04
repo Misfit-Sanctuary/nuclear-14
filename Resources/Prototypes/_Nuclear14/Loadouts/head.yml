@@ -15,6 +15,22 @@
     - N14ClothingHeadHatBaseball
 
 - type: loadout
+  id: LoadoutClothingHeadHatWarden
+  category: Head
+  cost: 0
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutHead
+    - !type:CharacterJobRequirement # Forge-Change
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+  items:
+    - ClothingHeadHatWarden
+
+- type: loadout
   id: N14LoadoutHeadHatTrucker
   category: Head
   cost: 0 # larp item

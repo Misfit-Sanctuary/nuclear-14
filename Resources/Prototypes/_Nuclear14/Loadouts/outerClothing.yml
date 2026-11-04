@@ -14,6 +14,24 @@
   items:
     - ClothingOuterGhostSheet
 
+
+- type: loadout
+  id: N14LoadoutClothingOuterPoliceVest
+  category: Outer
+  cost: 2
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutOuter
+    - !type:CharacterJobRequirement # Forge-Change
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+  items:
+    - N14ClothingOuterPoliceVest
+
+
 - type: loadout
   id: N14LoadoutOuterJacketLettermanRed
   category: Outer
