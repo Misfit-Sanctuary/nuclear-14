@@ -164,4 +164,19 @@
       - BoSMidSerf
       - CaesarLegionSlave
       - NCRPrisoner
-      
+
+- type: loadout
+  id: N14ClothingMaskGasZealotGasMask
+  category: Mask
+  cost: 1
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutMask
+    - !type:CharacterJobRequirement # Forge-Change
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+  items:
+    - N14ClothingMaskGasZealotGasMask
