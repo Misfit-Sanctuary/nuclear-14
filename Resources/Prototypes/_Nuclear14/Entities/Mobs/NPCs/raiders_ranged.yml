@@ -174,7 +174,7 @@
   name: Locust Hivelord
   parent: N14BaseMobRaider
   id: N14MobRaiderBossRifle
-  description: Warchiefs of the hard-to-kill Locust Tribe, they preach the destiny of their people to feed on the bounty of the weak, using chems and violence to keep their raiders under control.
+  description: Warchiefs of the Locust Tribe, they preach the destiny of their people to feed on the bounty of the weak, using chems and violence to keep their raiders under control. New ones always replace the dead.
   components:
     - type: Gun
       minAngle: 20
@@ -431,7 +431,7 @@
   name: Locust Longshot
   parent: N14BaseMobRaider
   id: N14MobRaiderHunterEnfield
-  description: Tribesmen armed with old rifles, they are former Swarmers promoted for competency. As one of the tribe’s lieutenants, they have no vision for the future besides the next mealticket.
+  description: Tribesmen armed with old rifles, they are former Swarmers promoted for competency. As one of the tribe's lieutenants, they have no vision for the future besides their next easy meal ticket.
   components:
     - type: Gun
       minAngle: 2
@@ -603,7 +603,7 @@
   name: Locust Swarmer
   parent: N14BaseMobRaider
   id: N14MobRaiderSkrimisherautoshotgun
-  description: This tribal raider was once a Buzzfly, but with their rise in the ranks they were given a shotgun and more prestige. He will steal what you have and burn what can't be carried.
+  description: This tribal raider was once a Buzzfly, but with their rise in the ranks they were given a shotgun and more prestige. He will steal what you have and burn what can't be carried away with him.
   components:
     - type: Gun
       minAngle: 30
@@ -689,7 +689,7 @@
   name: Cult of Liberty Recruit
   parent: N14BaseMobRaider
   id: N14MobFernMercRecruit
-  description: They joined the invaders from Montana voluntarily, and so they've been given some decent equipment. Armed with the very basics and a heavy misunderstanding of American history.
+  description: They joined the invaders from Montana voluntarily, and so they’ve been given some decent equipment. Armed with the very basics and a heavy misunderstanding of American history.
   components:
     - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
       minAngle: 4
@@ -775,7 +775,7 @@
   name: Cult of Liberty Patriot
   parent: N14BaseMobRaider
   id: N14MobFernMercPrivate
-  description: Some conscripts and recruits actually survive their first fight, becoming professional soldiers in the war to rebuild America's glory. They are given respect and priority medical treatment.
+  description: Some conscripts and recruits actually survive their first fight, becoming professional soldiers in the war to rebuild America’s glory. They are given respect and priority medical treatment.
   components:
     - type: Gun
       minAngle: 8
@@ -861,7 +861,7 @@
   name: Cult of Liberty Patriot
   parent: N14BaseMobRaider
   id: M14MobFernMercPrivateAutoRifle
-  description: Some conscripts and recruits actually survive their first fight, becoming professional soldiers in the war to rebuild America's glory. They are given respect and priority medical treatment.
+  description: Some conscripts and recruits actually survive their first fight, becoming professional soldiers in the war to rebuild America’s glory. They are given respect and priority medical treatment.
   components:
     - type: Gun
       minAngle: 15
@@ -947,7 +947,7 @@
   name: Cult of Liberty Zealot
   parent: N14BaseMobRaider
   id: N14MobFernMercSergeant
-  description: Veterans from the cult's early crusades, the Zealots are trained to pre-war military standards. These are the true believers, given the best equipment and leadership of their own squads.
+  description: Veterans from the cult’s early crusades, the Zealots are trained to pre-war military standards. These are the true believers, given the best equipment and leadership of their own squads.
   components:
     - type: Gun
       minAngle: 35
@@ -1028,7 +1028,7 @@
   name: Cult of Liberty Reverend
   parent: N14BaseMobRaider
   id: N14MobFernMercLieutenant
-  description: Serving as a mixture of commanders and spiritual guides for the members of the cult-militia, the Reverends take their marching orders directly from the leadership in Havre, Montana.
+  description: Serving as a mixture of commanders and spiritual guides for the members of the cult-militia, the Reverends take their marching orders directly from the leadership in Le Havre, Montana.
   components:
     - type: Gun
       minAngle: 1.5
@@ -1106,10 +1106,10 @@
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
-  name: Enforcer Trooper
+  name: Warden Leadhead
   parent: N14BaseMobRaider
   id: N14MobEnforcerTrooper
-  description: Nothing more than a raider in fancy clothes, wielding a 9mm SMG.
+  description: Raider mercenaries hailing from Seattle, Washington until the Brotherhood of Steel pushed them out. This mercenary is loyal to the company, due to the quality of food and kit provided.
   components:
     - type: Gun
       minAngle: 10
@@ -1192,10 +1192,10 @@
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
-  name: Enforcer Trooper
+  name: Warden Leadhead
   parent: N14BaseMobRaider
   id: N14MobEnforcerTrooperSten
-  description: Nothing more than a raider in fancy clothes, wielding a sten SMG.
+  description: Raider mercenaries hailing from Seattle, Washington until the Brotherhood of Steel pushed them out. This mercenary is loyal to the company, due to the quality of food and kit provided.
   components:
     - type: Gun
       minAngle: 8
@@ -1278,10 +1278,10 @@
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
-  name: Enforcer Trooper
+  name: Warden Leadhead
   parent: N14BaseMobRaider
   id: N14MobEnforcerTrooper45SMG
-  description: Nothing more than a raider in fancy clothes, wielding a 45 SMG.
+  description: Raider mercenaries hailing from Seattle, Washington until the Brotherhood of Steel pushed them out. This mercenary is loyal to the company, due to the quality of food and kit provided.
   components:
     - type: Gun
       minAngle: 10
@@ -1364,10 +1364,10 @@
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
-  name: Enforcer Warden
+  name: Warden Warhound
   parent: N14BaseMobRaider
   id: N14MobEnforcerWarden
-  description: A raider wearing pre-war law enforcement uniform. One might want to keep distance because he has a riot shotgun!
+  description: Veterans from the exodus out of Seattle with a grudge against the Brotherhood, they have experience in room to room combat and aim to collect more tinhead power suits as trophies.
   components:
     - type: Gun
       minAngle: 40
@@ -1450,10 +1450,10 @@
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
-  name: Enforcer Chief
+  name: Warden Lieutenant
   parent: N14BaseMobRaider
   id: N14MobEnforcerChief
-  description: Rough man in fine clothes, carrying a magnum revolver.
+  description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
     - type: Gun
       minAngle: 2
@@ -1536,10 +1536,10 @@
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
-  name: Enforcer Chief
+  name: Warden Lieutenant
   parent: N14BaseMobRaider
   id: M14MobEnforcerChief357
-  description: Rough man in fine clothes, carrying a 357 revolver.
+  description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
     - type: Gun
       minAngle: 2.5
@@ -1621,10 +1621,10 @@
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
-  name: Enforcer Chief
+  name: Warden Lieutenant
   parent: N14BaseMobRaider
   id: M14MobEnforcerChief10mmDual
-  description: Rough man in fine clothes, dual wielding two revolvers, he feelin' lucky.
+  description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
     - type: Gun
       minAngle: 14
@@ -1709,10 +1709,10 @@
         state: inhand-left   # Only part we change, the gun sprite.
 
 - type: entity
-  name: Enforcer Chief
+  name: Warden Lieutenant
   parent: N14BaseMobRaider
   id: M14MobEnforcerChiefCowboyRepeater
-  description: Rough man in fine clothes, carrying a cowboy repeater.
+  description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
     - type: Gun
       minAngle: 6
@@ -1793,4 +1793,3 @@
         visible: false
       - sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/cowboyrepeater.rsi
         state: inhand-right  # Only part we change, the gun sprite.
-  
