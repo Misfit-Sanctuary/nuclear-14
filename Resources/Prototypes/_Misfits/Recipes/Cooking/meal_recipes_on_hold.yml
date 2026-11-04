@@ -79,7 +79,7 @@
     Rice: 10
     Hotsauce: 2
   solids:
-    N14FoodMeatRadCutlet: 1 # works with this ID, but not with brahmin or bear cutlets. Should work regardless of animal type.
+    FoodMeatCutlet: 1 # tried replacing with N14 version N14FoodMeatRadCutlet but it didn't work with all animal types. Keep vanilla but test it.
     N14FoodMeatBighornerCutlet: 2
 
 # This below was already commented out before I migrated it. Need to know why. 
