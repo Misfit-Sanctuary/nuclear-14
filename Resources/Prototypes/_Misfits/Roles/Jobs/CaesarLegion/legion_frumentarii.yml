@@ -10,7 +10,7 @@
   requirements:
     - !type:CharacterDepartmentTimeRequirement # Legion total timelock
       department: CaesarLegion
-      min: 108000 # 30 hours #whoever had the BRILLIANT IDEA to make frums locked behind a male only role, ill find you, and ill cross you
+      min: 90000 # 25 hours #whoever had the BRILLIANT IDEA to make frums locked behind a male only role, ill find you, and ill cross you
       # This high playtime requirement ensures that only experienced Legion members can access the Frumentarii role. too many of yall get caught by ncr and give them free comms.
     - !type:CharacterSpeciesRequirement
       species:

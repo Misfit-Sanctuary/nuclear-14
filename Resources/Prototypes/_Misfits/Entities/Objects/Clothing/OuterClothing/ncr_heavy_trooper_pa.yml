@@ -22,8 +22,8 @@
 - type: entity
   parent: N14ClothingOuterPowerArmorT45
   id: MisfitsNCRHeavyTrooperLeadPowerArmorT51
-  name: NCR Heavy Trooper Lead T-51 Power Armor
-  description: A functioning T-51 power armor suit reserved for NCR heavy trooper leadership, built on the full T-45 armor baseline.
+  name: NCR Heavy Trooper Lead T-51 Salvaged Power Armor
+  description: A T-51 power armor suit refitted for NCR heavy trooper leadership. The original fusion core and servo drives have been stripped and replaced with a bulky combustion engine and hydraulic actuators, crude but reliable. The engine belches exhaust from the back-mounted generator, driving hydraulic pistons where servos once whined. Reserved for veteran heavy trooper leads who can tolerate the noise, heat, and fuel logistics.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/PowerArmor/NCR/ncr_heavy_trooper_lead_t51.rsi
@@ -34,7 +34,19 @@
       head: MisfitsNCRHeavyTrooperLeadT51Helmet
       gloves: N14ClothingPAGauntlets
       shoes: N14ClothingPABoots
-      back: N14ClothingPowerSystemsBack
+      back: MisfitsCombustionEnginePowerSystemsBack
+  - type: Explosive
+    explosionType: N14DefaultStructural
+    totalIntensity: 5
+    maxIntensity: 5
+    intensitySlope: 20
+    tileBreakScale: 0
+    maxTileBreak: 0
+    deleteAfterExplosion: false
+  - type: DelayedExplosionOnBreak
+    delay: 3
+  - type: PowerArmorIntegrity
+    disableServosLock: true
 
 - type: entity
   parent: N14ClothingHeadHelmetPowerArmorT45NCR
@@ -61,7 +73,8 @@
 - type: entity
   parent: N14ClothingHeadHelmetPowerArmorT45NCR
   id: MisfitsNCRHeavyTrooperLeadT51Helmet
-  name: NCR Heavy Trooper Lead T-51 Power Armor Helmet
+  name: NCR Heavy Trooper Lead T-51 Salvaged Power Armor Helmet
+  description: A T-51 helmet refitted for the salvaged lead suit. The original recon optics have been removed to simplify maintenance; the interior is lined with heat-resistant padding to cope with the engine's exhaust bleed.
   components:
   - type: Sprite
     netsync: false

@@ -361,7 +361,7 @@
       amount: 2
     # Handgun
     - id: N14WeaponPistol45Colt
-    - id: N14BaseMagazine45Pistol
+    - id: N14MagazinePistol45
       amount: 2
     # Medical supplies
     - id: N14SuperStimpak
@@ -1218,7 +1218,8 @@
       - id: N14CleanGauze10
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
-      - id: N14ClothingOuterCombatArmorSeniorBOS
+      - id: MisfitsBoSSeniorKnightArmor
+      - id: N14ClothingHeadHatBrotherhoodHelmetSeniorKnight
       - id: MisfitsGrenadeFragDefensive # #Misfits Add - faction council Senior Knight ordnance
       - id: EmpGrenade
 
@@ -1243,7 +1244,8 @@
       - id: N14CleanGauze10
       - id: N14Stimpak
       - id: N14BoxCardboardMREBoxKFilled
-      - id: N14ClothingOuterCombatArmorSeniorBOS
+      - id: MisfitsBoSSeniorKnightArmor
+      - id: N14ClothingHeadHatBrotherhoodHelmetSeniorKnight
       - id: MisfitsGrenadeFragDefensive # #Misfits Add - faction council Senior Knight ordnance
       - id: EmpGrenade
 
@@ -1359,7 +1361,9 @@
       - id: N14SuperStimpak
       - id: N14ClothingBeltMedicalFilled
       - id: ClothingMaskSterile
-      - id: N14ClothingOuterBrotherhoodMidwestMedicalScribeRobes
+      - id: MisfitsClothingOuterBrotherhoodMagnifier
+      - id: M14ClothingUniformBrotherhoodMedicalScribe
+      - id: MisfitsClothingBeltMedicalScribeBelt
       - id: ClothingHandsGlovesChemist
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14WeaponLaserPistol
@@ -1385,9 +1389,11 @@
       - id: N14Ointment10
       - id: N14MedkitCombatFilled
       - id: N14HandheldHealthAnalyzer
-      - id: N14ClothingHandsGlovesCombat
-      - id: N14ClothingBeltBoSWebbing
-      - id: N14ClothingOuterBrotherhoodMidwestFieldScribeCoat
+      - id: N14ClothingHandsGlovesDriver
+      - id: N14ClothingMaskBrotherhoodHeadCover
+      - id: MisfitsClothingOuterBrotherhoodFieldCoat
+      - id: M14ClothingUniformBrotherhoodFieldScribe
+      - id: MisfitsClothingBeltFieldScribeWebbing
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14WeaponLaserPistol
       - id: N14PowerCellSmall
@@ -1410,9 +1416,13 @@
     items:
       - id: N14CleanGauze10
       - id: N14Ointment10
-      - id: N14ClothingOuterMidwestBoSCoat
+      - id: MisfitsClothingOuterBrotherhoodMagnifier
+      - id: M14ClothingUniformBrotherhoodScienceScribe
+      - id: ClothingHeadBrotherhoodScribeScienceHelmet
+      - id: MisfitsClothingBeltScienceScribeBelt
       - id: N14ClothingEyesGlassesWelding
-      - id: ClothingHandsGlovesColorYellow
+      - id: N14ClothingHandsGlovesCombat
+      - id: N14ClothingMaskBrotherhoodHeadCover
       - id: N14ClothingBeltUtilityFilled
       - id: N14BoxCardboardMREBoxKFilled
       - id: N14WeaponLaserPistol
@@ -1441,7 +1451,9 @@
     - id: N14SuperStimpak
     - id: N14ClothingBeltMedicalFilled
     - id: ClothingMaskSterile
-    - id: N14ClothingOuterBrotherhoodMidwestMedicalScribeRobes
+    - id: MisfitsClothingOuterBrotherhoodMagnifier
+    - id: M14ClothingUniformBrotherhoodMedicalScribe
+    - id: MisfitsClothingBeltMedicalScribeBelt
     - id: ClothingHandsGlovesChemist
     - id: N14BoxCardboardMREBoxKFilled
     - id: N14WeaponLaserRifle
@@ -1467,9 +1479,11 @@
     - id: N14Ointment10
     - id: N14MedkitCombatFilled
     - id: N14HandheldHealthAnalyzer
-    - id: N14ClothingHandsGlovesCombat
-    - id: N14ClothingBeltBoSWebbing
-    - id: N14ClothingOuterBrotherhoodMidwestFieldScribeCoat
+    - id: N14ClothingHandsGlovesDriver
+    - id: N14ClothingMaskBrotherhoodHeadCover
+    - id: MisfitsClothingOuterBrotherhoodFieldCoat
+    - id: M14ClothingUniformBrotherhoodFieldScribe
+    - id: MisfitsClothingBeltFieldScribeWebbing
     - id: N14BoxCardboardMREBoxKFilled
     - id: N14WeaponLaserRifle
     - id: N14MicrofusionCell
@@ -1492,9 +1506,13 @@
     items:
     - id: N14CleanGauze10
     - id: N14Ointment10
-    - id: N14ClothingOuterMidwestBoSCoat
+    - id: MisfitsClothingOuterBrotherhoodMagnifier
+    - id: M14ClothingUniformBrotherhoodScienceScribe
+    - id: ClothingHeadBrotherhoodScribeScienceHelmet
+    - id: MisfitsClothingBeltScienceScribeBelt
     - id: N14ClothingEyesGlassesWelding
-    - id: ClothingHandsGlovesColorYellow
+    - id: N14ClothingHandsGlovesCombat
+    - id: N14ClothingMaskBrotherhoodHeadCover
     - id: N14ClothingBeltUtilityFilled
     - id: N14BoxCardboardMREBoxKFilled
     - id: N14WeaponLaserRifle

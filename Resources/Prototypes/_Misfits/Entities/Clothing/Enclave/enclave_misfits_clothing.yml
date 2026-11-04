@@ -6,8 +6,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitEnclaveBlue
-  name: U.S. Army uniform (blue)
-  description: A blue field-variant of the standard U.S. Army uniform. Worn by personnel operating in colder or more covert environments.
+  name: enclave uniform (blue)
+  description: A blue field-variant of the standard enclave uniform, worn by personnel operating in more arctic environments, and theoretically in naval operations.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/Uniforms/enclave_uniform_blue.rsi
@@ -18,97 +18,10 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitEnclaveGrey
-  name: U.S. Army uniform (grey)
-  description: A grey field-variant of the standard U.S. Army uniform. Blends better in ash-grey ruins and rocky terrain.
+  name: enclave uniform (grey)
+  description: A grey field-variant of the standard enclave uniform, blends in well with urban ruins and rocky terrain. Not many lush forests remain to worry about.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/Uniforms/enclave_uniform_grey.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/Uniforms/enclave_uniform_grey.rsi
-
-# --- New Enclave Combat Armor ---
-# Inherits armor/explosion stats from N14ClothingOuterEnclaveArmor parent.
-- type: entity
-  parent: N14ClothingOuterEnclaveArmor
-  id: N14ClothingOuterEnclaveCombatArmor
-  name: U.S. Army combat armor (mk2)
-  description: An updated suit of U.S. Army combat armor with reinforced plating. Heavier than the standard issue but offers better protection in the field.
-  components:
-  - type: Sprite
-    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_combat_armor.rsi
-  - type: Clothing
-    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_combat_armor.rsi
-
-# --- Enclave Mk2 Combat Armor (regular, non-Zulu) ---
-# Standalone spawnable prototype. Inherits MK2 combat armor stats from N14ClothingOuterEnclaveArmor parent.
-- type: entity
-  parent: N14ClothingOuterEnclaveArmor
-  id: N14ClothingOuterEnclaveCombatArmorMK2
-  name: U.S. Army combat armor mk2
-  description: A pre-war U.S. Army issue Mk2 combat armor. Heavier plating and a tighter weave than the standard suit.
-  components:
-  - type: Sprite
-    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_mk2_combat_armor.rsi
-  - type: Clothing
-    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_mk2_combat_armor.rsi
-
-# --- Zulu Squad Combat Armor (Mk2 / mid armor) ---
-- type: entity
-  parent: N14ClothingOuterEnclaveArmor
-  id: N14ClothingOuterEnclaveZuluCombatArmorMK2
-  name: Zulu U.S. Army combat armor mk2
-  description: A Mk2 combat armor worn by U.S. Army Zulu Squad operators. Painted with Zulu Squad markings.
-  components:
-  - type: Sprite
-    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_zulu_combat_armor.rsi
-  - type: Clothing
-    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_zulu_combat_armor.rsi
-
-# --- Zulu Squad Advanced Combat Armor ---
-- type: entity
-  parent: N14ClothingOuterEnclaveArmor
-  id: N14ClothingOuterEnclaveZuluAdvancedCombatArmor
-  name: Zulu U.S. Army advanced combat armor
-  description: An advanced combat armor worn by U.S. Army Zulu Squad operators. Painted with Zulu Squad markings.
-  components:
-  - type: Sprite
-    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_zulu_advanced_combat_armor.rsi
-  - type: Clothing
-    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_zulu_advanced_combat_armor.rsi
-
-# --- Zulu Squad Grunt Combat Armor ---
-- type: entity
-  parent: N14ClothingOuterEnclaveArmor
-  id: N14ClothingOuterEnclaveZuluGruntCombatArmor
-  name: Zulu U.S. Army grunt combat armor
-  description: A combat armor worn by U.S. Army Zulu Squad grunts. The Zulu Squad's entry-level trooper kit.
-  components:
-  - type: Sprite
-    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_zulu_grunt_armor.rsi
-  - type: Clothing
-    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_zulu_grunt_armor.rsi
-
-# --- Enclave Combat Helmet (regular, non-Zulu) ---
-# Standalone spawnable prototype. Inherits MK2 helmet stats from N14ClothingHeadHatBaseHelmetMK2 parent.
-- type: entity
-  parent: N14ClothingHeadHatBaseHelmetMK2
-  id: N14ClothingHeadHatEnclaveCombatHelmet
-  name: U.S. Army combat helmet
-  description: A pre-war U.S. Army issue combat helmet. Protects against most battlefield threats.
-  components:
-  - type: Sprite
-    sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_combat_helmet.rsi
-  - type: Clothing
-    sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_combat_helmet.rsi
-
-# --- Zulu Squad Combat Helmet ---
-- type: entity
-  parent: N14ClothingHeadHatBaseHelmetMK2
-  id: N14ClothingHeadHatEnclaveZuluCombatHelmet
-  name: Zulu U.S. Army combat helmet
-  description: A combat helmet worn by U.S. Army Zulu Squad operators. Painted with Zulu Squad markings.
-  components:
-  - type: Sprite
-    sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_zulu_combat_helmet.rsi
-  - type: Clothing
-    sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_zulu_combat_helmet.rsi

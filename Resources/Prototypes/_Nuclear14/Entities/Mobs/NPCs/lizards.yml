@@ -1,9 +1,9 @@
 # Gecko variants
 - type: entity
-  name: gecko
+  name: Gecko
   id: N14MobGecko
   parent: N14MobBaseHostileScaley
-  description: Looks like a dinosaur. The bite is worse than the claws.
+  description: These pests tend to attack in small groups, and remain a constant annoyance once they establish a nest locally. With how quickly they breed, they are almost impossible to truly wipe out.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -90,8 +90,8 @@
 - type: entity
   parent: N14MobGecko
   id: N14MobGeckoFire
-  name: fire gecko
-  description: A dangerous fire gecko. Don't let it get close!
+  name: Fire Gecko
+  description: A dangerous subspecies of the normal gecko, it is able to expel a flammable gas made from the indigestible parts of their meals, such as bone and hair stored in a special organ. It then sparks its tongue to make a gout of flame.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -178,10 +178,10 @@
         maxDistance: 10
 
 - type: entity
-  name: golden gecko
+  name: Golden Gecko
   id: N14MobGeckoGolden
   parent: N14MobGecko
-  description: A beautiful golden gecko. Don't let it scratch.
+  description: This subspecies of the gecko has adapted to heavy radiation, its beautiful hide is actually a mutation that keeps it alive where its cousins would die. Their radiation-resistant hide is quite valuable, but they spread radiation with their attacks.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -238,10 +238,10 @@
 
 # Nightstalker Cub
 - type: entity
-  name: nightstalker cub
+  name: Young Nightstalker
   id: N14MobNightstalkerCub
   parent: N14MobBaseHostile
-  description: Is it a coyote? Why does it have a rattler... This one is small.
+  description: While FEV can explain away most of the wasteland creatures, there's no excusing this abomination. Coyote and rattlesnake DNA has been spliced together by some madman, and they are a menace to the fragile ecosystem. This one looks clumsy and small.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -337,10 +337,10 @@
 
 # Adult Nightstalker
 - type: entity
-  name: nightstalker
+  name: Nightstalker
   id: N14MobNightstalker
   parent: N14MobBaseHostile
-  description: Is it a coyote? Why does it have a rattler...
+  description: While FEV can explain away most of the wasteland creatures, there's no excusing this abomination. Coyote and rattlesnake DNA has been spliced together by some madman, and they are a menace to the fragile ecosystem.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -460,10 +460,10 @@
 
 # Deathclaw
 - type: entity
-  name: deathclaw
+  name: Deathclaw
   id: N14MobDeathclaw
   parent: N14MobBaseHostileScaley
-  description: Large and powerful ambush predators, they will slice to ribbons anything that moves near their nest.
+  description: Large and powerful ambush predators, they will slice to ribbons anything that moves near their nest. Standing still won't help you now.
   components:
   - type: NpcFactionMember #Misfits Add - Deathclaw is its own faction; hostile to everything except other deathclaws
     factions:
@@ -604,7 +604,7 @@
 
 #MARK: Albino Deathclaw
 - type: entity
-  name: albino deathclaw
+  name: Albino Deathclaw
   id: N14MobDeathclawAlbino
   parent: N14MobDeathclaw
   description: This one looks more dangerous than the average deathclaw, you better have a good plan in mind.
@@ -654,10 +654,10 @@
         maxDistance: 10
 
 - type: entity
-  name: deathclaw maid
+  name: Maid Deathclaw
   id: N14MobDeathclawMaid
   parent: N14MobDeathclaw
-  description: This thing likely craves its own death by now, but it'll try to take you with it.
+  description: This thing likely craves its own death by now, but it'll try to take you with it, and make it hurt.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -682,10 +682,10 @@
 
 #MARK: Metal Deathclaw
 - type: entity
-  name: metal deathclaw
+  name: Metal Deathclaw
   id: N14MobDeathclawMetal
   parent: N14MobDeathclawAlbino
-  description: A deathclaw wearing modified T-45 Power Armor somehow, you have no idea how or why someone would ever think this was a good idea.
+  description: A deathclaw somehow wearing modified T-45 Power Armor, you have no idea why someone would think this combination was a good idea.
   components:
   - type: Sprite
     drawdepth: Mobs

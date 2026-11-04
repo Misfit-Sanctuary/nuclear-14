@@ -316,6 +316,20 @@
     - N14ClothingMaskRedMask
 
 - type: loadout
+  id: N14LoadoutUniversalMaskBrotherhoodGorget
+  category: Mask
+  cost: 1
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutNeck
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - N14ClothingMaskBrotherhoodGorget
+
+- type: loadout
   id: N14LoadoutUniversalNeckCloakBrotherhoodWashington
   category: Accessories
   cost: 0
@@ -328,6 +342,62 @@
         - BrotherhoodOfSteelLancers
   items:
     - N14ClothingNeckCloakBrotherhoodWashington
+
+- type: loadout
+  id: N14LoadoutUniversalNeckCloakBrotherhood509th
+  category: Accessories
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutNeck
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - M14ClothingNeckCloakBrotherhood509th
+
+- type: loadout
+  id: N14LoadoutUniversalNeckMantleBrotherhood509th
+  category: Accessories
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutNeck
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - M14ClothingNeckMantleBrotherhood509th
+
+- type: loadout
+  id: N14LoadoutUniversalNeckTabardBrotherhoodPurple
+  category: Accessories
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutNeck
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - M14ClothingNeckTabardBrotherhoodPurple
+
+- type: loadout
+  id: N14LoadoutUniversalNeckTabardBrotherhoodWhite
+  category: Accessories
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutNeck
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - M14ClothingNeckTabardBrotherhoodWhite
 
 - type: loadout
   id: N14LoadoutUniversalNeckCloakDarkCloak
@@ -838,6 +908,130 @@
         - BrotherhoodOfSteelLancers
   items:
     - N14ClothingUniformJumpsuitBOSWashingtonFieldScribe
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSParade
+  category: Uniform
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutUniform
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - M14ClothingUniformBrotherhoodParade
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSCasual
+  category: Uniform
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutUniform
+  - !type:CharacterDepartmentRequirement
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - M14ClothingUniformBrotherhoodCasual
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSFieldScribe
+  category: Uniform
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutUniform
+  - !type:CharacterJobRequirement
+    inverted: false
+    jobs:
+    - BoSScribe
+    - BoSMidScribe
+    - BoSWestScribe
+  items:
+  - M14ClothingUniformBrotherhoodFieldScribe
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSMedicalScribe
+  category: Uniform
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutUniform
+  - !type:CharacterJobRequirement
+    inverted: false
+    jobs:
+    - BoSScribe
+    - BoSMidScribe
+    - BoSWestScribe
+  items:
+  - M14ClothingUniformBrotherhoodMedicalScribe
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSScienceScribe
+  category: Uniform
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutUniform
+  - !type:CharacterJobRequirement
+    inverted: false
+    jobs:
+    - BoSScribe
+    - BoSMidScribe
+    - BoSWestScribe
+  items:
+  - M14ClothingUniformBrotherhoodScienceScribe
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSBlackPantsUndersuit
+  category: Uniform
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutUniform
+  - !type:CharacterJobRequirement
+    inverted: false
+    jobs:
+    - BoSHonorGuard
+    - BoSMidPaladinCommander
+    - BoSMidPaladin
+    - BoSPaladin
+  items:
+  - M14ClothingUniformBrotherhoodBlackPantsUndersuit
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSBlackUndersuit
+  category: Uniform
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutUniform
+  - !type:CharacterJobRequirement
+    inverted: false
+    jobs:
+    - BoSHonorGuard
+    - BoSMidPaladinCommander
+    - BoSMidPaladin
+    - BoSPaladin
+  items:
+  - M14ClothingUniformBrotherhoodBlackUndersuit
+
+- type: loadout
+  id: N14LoadoutUniversalUniformJumpsuitBOSElderScribe
+  category: Uniform
+  cost: 0
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutUniform
+  - !type:CharacterJobRequirement
+    inverted: false
+    jobs:
+    - BoSWestElderCommander
+  items:
+  - M14ClothingUniformBrotherhoodElderScribe
 
 - type: loadout
   id: N14LoadoutUniversalUniformJumpsuitCaravanOveralls

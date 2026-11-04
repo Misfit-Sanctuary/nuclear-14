@@ -230,10 +230,10 @@
     price: 90
 
 - type: entity
-  name: tribal handgun
+  name: Punk Westwood
   parent: N14WeaponRevolverBase
   id: N14WeaponRevolver44Tribal
-  description: A tribal revolver, simple but very handy. Uses .44 magnum ammo.
+  description: When a tribe grew enamoured by action movies dug up from an old homestead, the Westwood revolver was born, a tribal gun prone to intense customization. This unmodified version has great potential, if tinkered with. Uses .44 magnum ammo.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/tribalrevolver1.rsi
@@ -256,10 +256,10 @@
     price: 40
 
 - type: entity
-  name: tribal revolver
+  name: Dirty Westwood
   parent: N14WeaponRevolverBase
   id: N14WeaponRevolver44TribalUpgraded
-  description: A tribal revolver, upgraded to hold 6 bullets and a slightly faster fire rate. Uses .44 magnum ammo.
+  description: When a tribe grew enamoured by action movies dug up from an old homestead, the Westwood revolver was born, a tribal gun prone to intense customization. Now with a proper cylinder, it's starting to resemble a real gun. Uses .44 magnum ammo.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/tribalrevolver2.rsi
@@ -280,10 +280,10 @@
     price: 50
 
 - type: entity
-  name: tribal revolver
+  name: Lucky Westwood
   parent: N14WeaponRevolverBase
   id: N14WeaponRevolver44TribalUpgradedExtra
-  description: A tribal revolver, upgraded to hold 8 bullets and fire faster. Uses .44 magnum ammo.
+  description: When a tribe grew enamoured by action movies dug up from an old homestead, the Westwood revolver was born, a tribal gun prone to intense customization. Given a complex firing mechanism, this gun is a real threat now. Uses .44 magnum ammo.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/tribalrevolver3.rsi

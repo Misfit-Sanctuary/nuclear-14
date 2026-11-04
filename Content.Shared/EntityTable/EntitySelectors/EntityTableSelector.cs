@@ -30,7 +30,6 @@ public abstract partial class EntityTableSelector
         IEntityManager entMan,
         IPrototypeManager proto)
     {
-        rand.SetSeed(rand.Next());
         var rolls = Rolls.Get(rand, entMan, proto);
         for (var i = 0; i < rolls; i++)
         {
@@ -39,7 +38,6 @@ public abstract partial class EntityTableSelector
 
             foreach (var spawn in GetSpawnsImplementation(rand, entMan, proto))
             {
-                rand.SetSeed(rand.Next());
                 yield return spawn;
             }
         }

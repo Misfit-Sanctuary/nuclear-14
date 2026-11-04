@@ -19,12 +19,9 @@ public sealed partial class GroupSelector : EntityTableSelector
     {
         var children = new Dictionary<EntityTableSelector, float>(Children.Count);
         foreach (var child in Children)
-        {
             children.Add(child, child.Weight);
-        }
-        rand.SetSeed(rand.Next());
-        var pick = rand.Pick(children);
 
+        var pick = rand.Pick(children);
         return pick.GetSpawns(rand, entMan, proto);
     }
 }

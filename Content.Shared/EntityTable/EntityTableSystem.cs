@@ -8,17 +8,31 @@ public abstract partial class EntityTableSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-// why is this even in shared??
-    public IEnumerable<EntProtoId> GetSpawns(EntityTableSelector? table)
+    [Dependency] private readonly INetManager _net = default!;
+    protected static IRobustRandom SystemRNGInstance = default!;
+    public override void Initialize()
     {
-        if (table == null)
-            return new List<EntProtoId>();
-        SetSeed(_random);
-        return table.GetSpawns(_random, EntityManager, _prototypeManager);
+        SystemRNGInstance = InitSystemRNG();
     }
 
-    public virtual void SetSeed(IRobustRandom rand)
+    public IEnumerable<EntProtoId> GetSpawns(EntityTableSelector? table)
     {
-        rand.SetSeed(_random.Next(int.MinValue, int.MaxValue));
+        if (table == null || _net.IsClient) // we probably want to move all rng logic to server
+            return new List<EntProtoId>();
+
+        return table.GetSpawns(SystemRNGInstance, EntityManager, _prototypeManager);
+    }
+
+    public IEnumerable<EntProtoId> GetSpawns(EntityTableSelector? table, IRobustRandom randomInstance)
+    {
+        if (table == null || _net.IsClient) // we probably want to move all rng logic to server
+            return new List<EntProtoId>();
+
+        return table.GetSpawns(randomInstance, EntityManager, _prototypeManager);
+    }
+
+    public virtual IRobustRandom InitSystemRNG()
+    {
+        return _random;
     }
 }

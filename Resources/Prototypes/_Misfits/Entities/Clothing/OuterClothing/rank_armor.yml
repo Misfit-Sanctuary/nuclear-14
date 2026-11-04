@@ -213,9 +213,31 @@
 # ---------------------------------------------------------------------------
 
 # T2 — Initiate (weakest BoS armor; base N14ClothingOuterMBoSInitiateArmor carries these stats)
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitsBoSInitiateArmor
+  name: Brotherhood initiate armor
+  description: A set of light armor used by the Brotherhood's Initiates. It's quite light on actual plating, but cheap to make.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_initiate_armor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_initiate_armor.rsi
+  - type: Armor
+    modifiers: # #Misfits Tweak: Initiate is the lowest BoS rank - weakest armor in the ladder (T2, 0.85/0.80), now below Squire
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.80
+        Heat: 0.80
+    priceMultiplier: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
 # T3 — Squire (one step above Initiate, below Knight; still in training)
 - type: entity
-  parent: N14ClothingOuterMidwestArmor
+  parent: N14ClothingOuterBoSCombatArmor
   id: MisfitsBoSSquireArmor
   name: Brotherhood squire armor
   description: Light Brotherhood-issue armor worn by Squires; sturdy enough for patrol duty but not yet the full combat kit of a Knight.
@@ -228,6 +250,10 @@
         Piercing: 0.75
         Heat: 0.75
     priceMultiplier: 0.5
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_squire_armor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_squire_armor.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.90
 
@@ -246,12 +272,29 @@
         Piercing: 0.70
         Heat: 0.70
     priceMultiplier: 0.6
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_armor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_armor.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.80
 
+# T5 - Senior Knight (Equivalent to NCR NCO / Legion Decanus), Combat Armor mk2 level. Printable.
+
+- type: entity
+  parent: N14ClothingOuterCombatArmorMK2
+  id: MisfitsBoSSeniorKnightArmor
+  name: Senior knight combat armor
+  description: A suit of combat armor used by the Senior Knights of the Brotherhood of Steel. #Misfits Tweak - Removed Washington reference
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_senior_knight_armor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_senior_knight_armor.rsi
+
 # T6 — Head Knight (equivalent to NCR Staff Sergeant / Legion Prime Decanus)
 - type: entity
-  parent: N14ClothingOuterCombatArmorCaptainBOS
+  parent: N14FalloutArmorBase
   id: MisfitsBoSHeadKnightArmor
   name: Brotherhood head knight armor
   description: Elite Brotherhood armor reserved for Head Knights; layered plating that reflects years of field service and the trust of the Elder.
@@ -266,3 +309,7 @@
     priceMultiplier: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.65
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_head_knight_armor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/bos_head_knight_armor.rsi

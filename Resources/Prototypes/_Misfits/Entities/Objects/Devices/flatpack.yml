@@ -1,0 +1,14 @@
+#Enclave Hatch Fix
+
+- type: entity
+  parent: BaseFlatpack
+  id: EnclaveBunkerHatchFlatpack
+  name: remote tunnel digging machine
+  description: A remote tunnel digging system.
+  components:
+  - type: Flatpack
+    entity: N14BunkerHatchTunnel
+  - type: Sprite
+    sprite: _Misfits/Objects/Devices/flatpack.rsi
+    layers:
+    - state: enclave_bunkerhatch
