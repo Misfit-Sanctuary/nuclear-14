@@ -314,10 +314,10 @@
 - type: entity
   id: N14SpawnPointNCRRanger
   parent: N14SpawnPointNCRCadet
-  name: NCR ranger
+  name: ranger (legacy)
   components:
   - type: SpawnPoint
-    job_id: NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
+    job_id: NCRRangerStandard # #Misfits Change - Field Ranger and patrol retired; legacy NCR ranger spawner now posts the main Ranger rung
   - type: Sprite
     layers:
       - state: green
@@ -365,10 +365,10 @@
 - type: entity
   id: N14SpawnPointRangerRecruit
   parent: N14SpawnPointNCRCadet
-  name: patrol ranger
+  name: ranger
   components:
   - type: SpawnPoint
-    job_id: NCRPatrolRanger
+    job_id: NCRRangerStandard # #Misfits Change - posts the main Ranger rung
   - type: Sprite
     sprite: _Nuclear14/Markers/Jobs/rangers.rsi
     layers:
@@ -378,10 +378,10 @@
 - type: entity
   id: N14SpawnPointRanger
   parent: N14SpawnPointRangerRecruit
-  name: field ranger
+  name: ranger (legacy)
   components:
   - type: SpawnPoint
-    job_id: NCRFieldRanger
+    job_id: NCRRangerStandard # #Misfits Change - Field Ranger and patrol retired; ranger spawner now posts the main Ranger rung
   - type: Sprite
     layers:
       - state: green

@@ -222,7 +222,8 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyNCRUR
+      # #Misfits Removed - NCRA channel dropped; Rangers only carry Ranger field encryption
+      #- EncryptionKeyNCRUR
       - EncryptionKeyNCRRangersUR
       - EncryptionKeyWastelandGlobal
 
@@ -235,8 +236,35 @@
     containers:
       key_slots:
       - EncryptionKeyNCRMasterUR
+      - EncryptionKeyNCRCommandUR # #Misfits Add - command net
       - EncryptionKeyWastelandGlobal
 
+
+- type: entity
+  parent: N14ClothingHeadsetNCR
+  id: MisfitsClothingHeadsetNCRCommand
+  name: NCR command radio earpiece
+  description: An NCR headset fitted with the command net. # #Misfits Add
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyNCRUR
+      - EncryptionKeyNCRCommandUR
+      - EncryptionKeyWastelandGlobal
+
+- type: entity
+  parent: MisfitsClothingHeadsetNCRRanger
+  id: MisfitsClothingHeadsetNCRRangerCommand
+  name: NCR Ranger command radio earpiece
+  description: A Ranger headset carrying both Ranger field encryption and the NCR command net. # #Misfits Add
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyNCRRangersUR
+      - EncryptionKeyNCRCommandUR
+      - EncryptionKeyWastelandGlobal
 
 # #Misfits Change - Legion headset
 - type: entity

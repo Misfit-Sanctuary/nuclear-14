@@ -1,6 +1,7 @@
 - type: job
   id: NCRPatrolRanger
-  setPreference: true
+  setPreference: false # #Misfits Change - user requested: not listed in the latejoin menu
+  totalPositions: 0 # #Misfits Change - user requested: no job slots
   alwaysUseSpawner: true
   jobWhitelistBypassesRoleTimers: true
   weight: 6 # #Misfits Add - position below Field Ranger, above Recruit
@@ -12,8 +13,7 @@
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-ranger-field
   canBeAntag: false
-  access:
-  - NCR
+  access: # #Misfits Change - no base NCR tag: Rangers are their own minor faction
   - NCRRanger
   special:
   - !type:AddComponentSpecial

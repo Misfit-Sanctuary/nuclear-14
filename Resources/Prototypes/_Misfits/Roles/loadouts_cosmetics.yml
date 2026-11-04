@@ -633,9 +633,9 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRCitizen
         - NCRTrader
         - NCRRO
@@ -651,10 +651,10 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
   items:
     - N14ClothingHeadHatArmyBeretRanger
@@ -666,10 +666,10 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
   items:
     - N14ClothingHeadHatNCRBeretRecon
@@ -681,10 +681,10 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
   items:
     - N14ClothingHeadHatRanger
@@ -696,10 +696,10 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
   items:
     - N14ClothingHeadHatRangerB
@@ -1392,10 +1392,10 @@
       group: N14LoadoutNeck
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
   items:
     - N14ClothingNeckCloakNCRWoods

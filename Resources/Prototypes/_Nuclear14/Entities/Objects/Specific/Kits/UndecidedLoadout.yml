@@ -260,6 +260,18 @@
     - VeteranRangerAssaultSet
     - VeteranRangerMarksmanSet
 
+- type: entity
+  id: NCRrangermedicloadoutkits
+  name: Undecided NCR Ranger Medic Loadout Kit
+  parent: NCRcadetloadoutkits
+  components:
+  - type: Sprite
+    state: medic
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - RangerMedicSet
+    - RangerCorpsmanSet
+
 # Brotherhood Initiates
 - type: entity
   id: BoSMidwestInitSet
@@ -747,6 +759,26 @@
     state: marksman
   content:
   - KitOperativeRanger
+
+- type: UndecidedLoadoutBackpackSet
+  id: RangerMedicSet
+  name: undecided-loadout-category-ranger-medic-name
+  description: undecided-loadout-category-ranger-medic-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: medic
+  content:
+  - KitRangerMedic
+
+- type: UndecidedLoadoutBackpackSet
+  id: RangerCorpsmanSet
+  name: undecided-loadout-category-ranger-corpsman-name
+  description: undecided-loadout-category-ranger-corpsman-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: medic
+  content:
+  - KitRangerCorpsman
 
 #MARK: Veteran Kits
 - type: UndecidedLoadoutBackpackSet

@@ -4,6 +4,7 @@
 - type: job
   id: NCRRangerRecruit
   setPreference: true
+  whitelisted: true # #Misfits Add - user requested: Rangers are whitelist-only
   alwaysUseSpawner: true
   jobWhitelistBypassesRoleTimers: true
   name: job-name-ncr-ranger-recruit

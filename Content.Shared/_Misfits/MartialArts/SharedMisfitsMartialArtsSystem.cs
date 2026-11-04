@@ -2,9 +2,13 @@
 // Combo engine concept (ring-buffer input tracking, tail-sequence matching) inspired by
 // Goob-Station's MartialArts system — https://github.com/Goob-Station/Goob-Station (AGPL-3.0).
 // All game content, styles, architecture, and implementation are original to Misfits Sanctuary.
+using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Misfits.MartialArts;
@@ -18,6 +22,7 @@ public sealed class SharedMisfitsMartialArtsSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -31,6 +36,10 @@ public sealed class SharedMisfitsMartialArtsSystem : EntitySystem
 
         // Client-side combo widget query — copy the ring buffer into the event for the overlay
         SubscribeLocalEvent<CanPerformComboComponent, GetPerformedAttackTypesEvent>(OnGetPerformedAttackTypes);
+
+        // #Misfits Fix - style passives: the melee damage event is raised on the user too, so the
+        // art's unarmed damage bonus finally applies (baseDamageModifier was previously dead data).
+        SubscribeLocalEvent<MartialArtsKnowledgeComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
     }
 
     // ---- Combo buffer management ----
@@ -87,6 +96,46 @@ public sealed class SharedMisfitsMartialArtsSystem : EntitySystem
     private void OnGetPerformedAttackTypes(EntityUid uid, CanPerformComboComponent comp, ref GetPerformedAttackTypesEvent args)
     {
         args.AttackTypes = new(comp.LastAttacks);
+    }
+
+    // ---- Style passives ----
+
+    /// Adds the style's unarmed damage bonus. The melee damage event is raised on the weapon and, for
+    /// armed attacks, again on the user, so this only fires for the unarmed case (weapon == user).
+    private void OnGetMeleeDamage(EntityUid uid, MartialArtsKnowledgeComponent comp, ref GetMeleeDamageEvent args)
+    {
+        if (args.Weapon != args.User || comp.Blocked)
+            return;
+
+        if (!TryGetStyle(comp.MartialArtsForm, out var style) || style.BaseDamageModifier <= 0)
+            return;
+
+        var bonus = style.BaseDamageModifier;
+        if (style.RandomDamageModifier)
+            bonus += _random.Next(style.MinRandomDamageModifier, style.MaxRandomDamageModifier + 1);
+
+        if (bonus <= 0)
+            return;
+
+        var damage = new DamageSpecifier();
+        damage.DamageDict.Add(style.DamageModifierType, bonus);
+        args.Damage += damage;
+    }
+
+    /// Finds the style prototype that matches a form value.
+    public bool TryGetStyle(MisfitsMartialArtsForms form, [NotNullWhen(true)] out MisfitsMartialArtPrototype? style)
+    {
+        foreach (var proto in _proto.EnumeratePrototypes<MisfitsMartialArtPrototype>())
+        {
+            if (proto.MartialArtsForm != form)
+                continue;
+
+            style = proto;
+            return true;
+        }
+
+        style = null;
+        return false;
     }
 
     // ---- Combo matching ----
