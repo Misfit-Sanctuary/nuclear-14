@@ -1,7 +1,7 @@
+using Robust.Shared.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Humanoid.Markings;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Shitmed.Body.Part;
@@ -25,8 +25,8 @@ public sealed partial class BodyPartAppearanceComponent : Component
     ///     ID of this custom base layer. Must be a <see cref="HumanoidSpeciesSpriteLayer"/>.
     ///     I don't actually know if these serializer props are necessary. I just lifted this from MS14 lol.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<HumanoidSpeciesSpriteLayer>)), AutoNetworkedField]
-    public string? ID { get; set; }
+    [DataField(), AutoNetworkedField]
+    public ProtoId<HumanoidSpeciesSpriteLayer>? ID { get; set; }
 
     /// <summary>
     ///     Color of this custom base layer. Null implies skin colour if the corresponding <see cref="HumanoidSpeciesSpriteLayer"/> is set to match skin.

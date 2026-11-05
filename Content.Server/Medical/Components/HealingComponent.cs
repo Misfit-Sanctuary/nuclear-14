@@ -1,7 +1,7 @@
+using Robust.Shared.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Audio;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Server.Medical.Components
 {
@@ -35,8 +35,8 @@ namespace Content.Server.Medical.Components
         ///     HealingComponent this filters what damage container type this component should work on. If null,
         ///     all damage container types are supported.
         /// </remarks>
-        [DataField("damageContainers", customTypeSerializer: typeof(PrototypeIdListSerializer<DamageContainerPrototype>))]
-        public List<string>? DamageContainers;
+        [DataField("damageContainers")]
+        public List<ProtoId<DamageContainerPrototype>>? DamageContainers;
 
         /// <summary>
         /// How long it takes to apply the damage.
