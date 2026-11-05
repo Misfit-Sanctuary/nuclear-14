@@ -12,6 +12,7 @@ using Content.Shared.Popups;
 using Content.Shared.Polymorph;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared._Misfits.EntityEffects;
 
@@ -56,8 +57,8 @@ public sealed class GeneticsPopupEffectEvent(string message, GeneticsPopupRecipi
 
 public sealed partial class GeneticsEmote : EntityEffect
 {
-    [DataField("emote")]
-    public ProtoId<EmotePrototype>? EmoteId;
+    [DataField("emote", customTypeSerializer: typeof(PrototypeIdSerializer<EmotePrototype>))]
+    public string? EmoteId;
     [DataField] public bool ShowInChat;
     [DataField] public bool Force;
 

@@ -25,7 +25,8 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
     public readonly EntityUid Console;
 
-    private static readonly ProtoId<DatasetPrototype> ReasonPlaceholders = "CriminalRecordsWantedReasonPlaceholders";
+    [ValidatePrototypeId<DatasetPrototype>]
+    private const string ReasonPlaceholders = "CriminalRecordsWantedReasonPlaceholders";
 
     public Action<uint?>? OnKeySelected;
     public Action<StationRecordFilterType, string>? OnFiltersChanged;

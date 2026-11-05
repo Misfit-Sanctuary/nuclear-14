@@ -1,4 +1,5 @@
 using Content.Shared.Language.Components.Translators;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared.Language.Components;
 

@@ -32,7 +32,8 @@ public sealed class MysteriousStrangerSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly VisibilitySystem _visibility = default!;
 
-    public static readonly EntProtoId StrangerPrototype = "N14MobMysteriousStranger";
+    [ValidatePrototypeId<EntityPrototype>]
+    public const string StrangerPrototype = "N14MobMysteriousStranger";
 
     public override void Initialize()
     {

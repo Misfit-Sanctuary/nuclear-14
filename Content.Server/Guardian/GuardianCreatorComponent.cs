@@ -1,4 +1,5 @@
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Guardian
 {
@@ -19,8 +20,8 @@ namespace Content.Server.Guardian
         /// <summary>
         /// The prototype of the guardian entity which will be created
         /// </summary>
-        [DataField("guardianProto", required: true)]
-        public EntProtoId GuardianProto { get; set; } = default!;
+        [DataField("guardianProto", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>), required: true)]
+        public string GuardianProto { get; set; } = default!;
 
         /// <summary>
         /// How long it takes to inject someone.

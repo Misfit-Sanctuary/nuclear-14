@@ -1,5 +1,6 @@
 using Content.Shared.Interaction;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Server.Actions;
 

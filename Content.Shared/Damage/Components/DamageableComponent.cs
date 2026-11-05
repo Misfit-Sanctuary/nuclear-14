@@ -5,6 +5,8 @@ using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared.Damage
 {
@@ -16,7 +18,7 @@ namespace Content.Shared.Damage
     ///     may also have resistances to certain damage types, defined via a <see cref="DamageModifierSetPrototype"/>.
     /// </remarks>
     [RegisterComponent]
-    [NetworkedComponent]
+    [NetworkedComponent()]
     [Access(typeof(DamageableSystem), Other = AccessPermissions.ReadExecute)]
     public sealed partial class DamageableComponent : Component
     {
@@ -24,8 +26,8 @@ namespace Content.Shared.Damage
         ///     This <see cref="DamageContainerPrototype"/> specifies what damage types are supported by this component.
         ///     If null, all damage types will be supported.
         /// </summary>
-        [DataField("damageContainer")]
-        public ProtoId<DamageContainerPrototype>? DamageContainerID;
+        [DataField("damageContainer", customTypeSerializer: typeof(PrototypeIdSerializer<DamageContainerPrototype>))]
+        public string? DamageContainerID;
 
         /// <summary>
         ///     This <see cref="DamageModifierSetPrototype"/> will be applied to any damage that is dealt to this container,
@@ -35,8 +37,8 @@ namespace Content.Shared.Damage
         ///     Though DamageModifierSets can be deserialized directly, we only want to use the prototype version here
         ///     to reduce duplication.
         /// </remarks>
-        [DataField("damageModifierSet")]
-        public ProtoId<DamageModifierSetPrototype>? DamageModifierSetId;
+        [DataField("damageModifierSet", customTypeSerializer: typeof(PrototypeIdSerializer<DamageModifierSetPrototype>))]
+        public string? DamageModifierSetId;
 
         /// <summary>
         ///     List of all Modifier Sets stored by this entity. The above single format is a deprecated function used only to support legacy yml.
@@ -68,8 +70,8 @@ namespace Content.Shared.Damage
         [ViewVariables]
         public FixedPoint2 TotalDamage;
 
-        [DataField("radiationDamageTypes")]
-        public List<ProtoId<DamageTypePrototype>> RadiationDamageTypeIDs = new() { "Radiation" };
+        [DataField("radiationDamageTypes", customTypeSerializer: typeof(PrototypeIdListSerializer<DamageTypePrototype>))]
+        public List<string> RadiationDamageTypeIDs = new() { "Radiation" };
 
         [DataField]
         public Dictionary<MobState, ProtoId<HealthIconPrototype>> HealthIcons = new()

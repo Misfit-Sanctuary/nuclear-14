@@ -2,6 +2,7 @@ using System.Threading;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Storage;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Medical.BiomassReclaimer
 {
@@ -62,8 +63,8 @@ namespace Content.Server.Medical.BiomassReclaimer
         /// <summary>
         ///     Machine part whose rating modifies the yield per mass.
         /// </summary>
-        [DataField]
-        public ProtoId<MachinePartPrototype> MachinePartYieldAmount = "MatterBin";
+        [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
+        public string MachinePartYieldAmount = "MatterBin";
 
         /// <summary>
         ///     How much the machine part quality affects the yield.
@@ -100,8 +101,8 @@ namespace Content.Server.Medical.BiomassReclaimer
         /// <summary>
         ///     The machine part that increses the processing speed.
         /// </summary>
-        [DataField]
-        public ProtoId<MachinePartPrototype> MachinePartProcessingSpeed = "Manipulator";
+        [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
+        public string MachinePartProcessingSpeed = "Manipulator";
 
         /// <summary>
         ///     How much the machine part quality affects the yield.

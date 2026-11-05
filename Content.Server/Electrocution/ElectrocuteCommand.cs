@@ -1,4 +1,3 @@
-using Robust.Shared.Prototypes;
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.StatusEffect;
@@ -15,7 +14,8 @@ namespace Content.Server.Electrocution
         public string Description => Loc.GetString("electrocute-command-description");
         public string Help => $"{Command} <uid> <seconds> <damage>";
 
-        public static readonly ProtoId<StatusEffectPrototype> ElectrocutionStatusEffect = "Electrocution";
+        [ValidatePrototypeId<StatusEffectPrototype>]
+        public const string ElectrocutionStatusEffect = "Electrocution";
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {

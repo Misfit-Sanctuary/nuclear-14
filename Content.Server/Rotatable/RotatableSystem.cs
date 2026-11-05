@@ -14,7 +14,6 @@ namespace Content.Server.Rotatable
     public sealed class RotatableSystem : EntitySystem
     {
         [Dependency] private readonly PopupSystem _popup = default!;
-        [Dependency] private readonly SharedTransformSystem _transform = default!;
 
         public override void Initialize()
         {
@@ -103,7 +102,7 @@ namespace Content.Server.Rotatable
             var entity = EntityManager.SpawnEntity(component.MirrorEntity, oldTransform.Coordinates);
             var newTransform = EntityManager.GetComponent<TransformComponent>(entity);
             newTransform.LocalRotation = oldTransform.LocalRotation;
-            _transform.TryAnchor(entity, false, newTransform);
+            newTransform.Anchored = false;
             EntityManager.DeleteEntity(uid);
         }
     }

@@ -62,7 +62,7 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             if (!TryComp<EncryptionKeyComponent>(keyUid, out var key))
                 continue;
 
-            channels.UnionWith(key.Channels.Select(c => c.Id));
+            channels.UnionWith(key.Channels);
         }
 
         if (channels.Count == 0)
@@ -176,12 +176,12 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
         // Note: keyHolder may be null if the headset has no inserted keys — use empty set as base in that case.
         var keyChannels = keyHolder != null ? keyHolder.Channels : new HashSet<string>();
         var allReceiveChannels = new HashSet<string>(keyChannels);
-        allReceiveChannels.UnionWith(headset.PassiveChannels.Select(c => c.Id));
+        allReceiveChannels.UnionWith(headset.PassiveChannels);
 
         if (allReceiveChannels.Count == 0)
             RemComp<ActiveRadioComponent>(uid);
         else
-            EnsureComp<ActiveRadioComponent>(uid).Channels = allReceiveChannels.Select(c => new ProtoId<RadioChannelPrototype>(c)).ToHashSet();
+            EnsureComp<ActiveRadioComponent>(uid).Channels = allReceiveChannels;
         // End #Misfits Add
     }
 
