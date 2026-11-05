@@ -113,6 +113,16 @@
   color: "#6B8E23"
   longRange: true
 
+
+# #Misfits Add - NCR Command net: senior officers and Ranger command only.
+- type: radioChannel
+  id: NCRCommand
+  name: chat-radio-ncr-command
+  keycode: 'a'
+  frequency: 1549
+  color: "#e0b040"
+  longRange: true
+
 # #Misfits Change — Legion radio channel
 - type: radioChannel
   id: Legion

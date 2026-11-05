@@ -495,7 +495,7 @@
     sprite: _Nuclear14/Objects/Misc/identification.rsi
     state: ranger
   - type: PresetIdCard
-    job: NCRFieldRanger #Misfits Change - was NCRRanger
+    job: NCRRangerStandard # #Misfits Change - was NCRRanger, then NCRFieldRanger; Field Ranger retired, so the badge is now issued to Rangers
 
 - type: entity
   parent: N14IDBadgeNCRDesertRangerRecruit

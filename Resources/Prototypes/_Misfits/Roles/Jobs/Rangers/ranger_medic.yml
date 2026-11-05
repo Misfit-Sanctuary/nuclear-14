@@ -1,0 +1,67 @@
+# #Misfits Add - Ranger Medic: the Rangers' medical specialist. Whitelist-only like
+# the rest of the ranger ladder, posts at the ranger base, carries the NCR medical
+# access tag instead of extra combat access, and issues a medical loadout kit.
+- type: job
+  id: NCRRangerMedic
+  setPreference: true
+  whitelisted: true # #Misfits Add - all Ranger rungs are whitelist-only
+  alwaysUseSpawner: true
+  jobWhitelistBypassesRoleTimers: true
+  weight: 7 # #Misfits Add - below Ranger Lead (10) and Ranger (8), above Patrol Ranger (6)
+  # #Misfits Change - slot count is set on the Wendover map prototype; job prototypes have no position field
+  name: job-name-ranger-medic
+  overwatchCategory: OverwatchNcrRangers
+  description: job-description-ranger-medic
+  playTimeTracker: NCRRangerMedic
+  startingGear: NCRRangerMedicGear
+  icon: "JobIconNcrMedic"
+  supervisors: job-supervisors-ranger-veteran
+  canBeAntag: false
+  access: # #Misfits Change - no base NCR tag: Rangers are their own minor faction
+  - NCRMedic
+  - NCRRanger
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Rangers
+      - type: GrantRangerCombat # #Misfits Add - Rangers start with the Ranger Combat Technique
+      - type: CPRTraining # #Misfits Add - the medic is CPR trained
+  - !type:AddTraitSpecial # #Misfits Add - Rangers spawn with the riding perk
+    traits: [ N14RidingPerk ]
+  requirements:
+    - !type:CharacterDepartmentTimeRequirement
+      department: Rangers
+      min: 28800 # #Misfits Change - 8 hours as a Ranger, the same bar as the main rung
+    - !type:CharacterSpeciesRequirement # #Misfits Change - robots, super mutants, and glowing ghouls cannot be Rangers
+      species:
+      - Human
+      - Ghoul
+
+- type: startingGear
+  id: NCRRangerMedicGear
+  equipment:
+    wallet: N14Wallet
+    head: N14ClothingHeadHatNCRBeretMedic
+    back: N14ClothingBackpackMilitary
+    jumpsuit: N14ClothingUniformNCRMedicVariant
+    ears: MisfitsClothingHeadsetNCRRanger
+    shoes: N14ClothingBootsLeather
+    belt: ClothingBeltMedicalFilled
+    gloves: N14ClothingHandsGlovesBlackLeather
+    pocket1: N14Stimpak
+    pocket2: NCRrangermedicloadoutkits
+    eyes: ClothingEyesGlassesSunglasses
+    outerClothing: N14ClothingOuterRangerFieldArmor
+    id: N14IDBadgeNCRDesertRanger
+  innerClothingSkirt: N14ClothingUniformNCRMedicVariant
+  satchel: N14ClothingBackpackSatchelMilitaryFilled
+  duffelbag: N14ClothingBackpackDuffelMilitaryFilled
+  storage: # Corvax-Change
+    back:
+    - N14BoxPlasticFilledMilitary
+    - FlashlightSeclite
+
+- type: playTimeTracker
+  id: NCRRangerMedic

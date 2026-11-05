@@ -17,6 +17,7 @@ chat-radio-enclave = Enclave
 chat-radio-ncr = NCR
 chat-radio-osi = OSI
 chat-radio-ncr-rangers = NCR Rangers
+chat-radio-ncr-command = NCR Command
 chat-radio-legion = Legion
 chat-radio-pbs = Broadcast
 # #Misfits Change - Bazaar (was Bazar, now fixed) and Wasteland loc keys
