@@ -101,11 +101,11 @@
 
 # Midwestern chapter's humanoid NPCs for event making and such.
 - type: entity
-  name: Chapter Serf
+  name: Brotherhood Aspirant
   parent: N14BaseMobRaider
   id: N14MobNPCMBoSSerf
   suffix: NPC
-  description: A servant of the Brotherhood chapter, not a full member. He likely works for food and shelter.
+  description: These wastelanders aim to join the Brotherhood of Steel, and so they have been given dangerous quests to prove they are worthy first. Most do not return, dead or discouraged.
   components:
     - type: NpcFactionMember
       friendlyOrderable: true
@@ -116,11 +116,11 @@
         - MBoSSerfNPC
 
 - type: entity
-  name: BoS Knight
+  name: Brotherhood Knight
   parent: N14BaseMobRaider
   id: N14MobNPCMBoSKnight
   suffix: NPC
-  description: A soldier of the Brotherhood, not the most skilled and easily forgetable. Still, he might be dangerous.
+  description: Soldiers of the Brotherhood of Steel, who will gladly fight and die for their ideals. Their chapter loyalties are unclear, but they still seem willing to help any brother or sister of steel.
   components:
     - type: NpcFactionMember
       friendlyOrderable: true
