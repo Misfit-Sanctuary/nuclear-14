@@ -64,3 +64,71 @@
     fireStacks: 0.5
     standingDamage: 0.3
     touchCooldown: 1
+
+# Plasma burns hot and dies fast: shorter than napalm, but it goes through anything standing in it.
+- type: entity
+  parent: MisfitsTileFire
+  id: MisfitsTileFirePlasma
+  name: plasma fire
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Misfits/Effects/fire.rsi
+    noRot: true
+    drawdepth: WallTops
+    layers:
+    - map: [ "base" ]
+      state: green_4
+  - type: PointLight
+    radius: 5
+    color: "#5CFFA8"
+  - type: GenericVisualizer
+    visuals:
+      enum.TileFireLayers.Base:
+        base:
+          One: { state: green_1 }
+          Two: { state: green_2 }
+          Three: { state: green_3 }
+          Four: { state: green_4 }
+  - type: TileFire
+    duration: 12
+    bigFireDuration: 0.75
+    extinguishInstantly: true
+    vaporExtinguishSeconds: 3
+    fireStacks: 0.8
+    standingDamage: 0.45
+    touchCooldown: 0.5
+
+# White phosphorus. Hangs around longer than napalm and the flame is white enough to light the street.
+- type: entity
+  parent: MisfitsTileFire
+  id: MisfitsTileFirePhosphorus
+  name: white phosphorus fire
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Misfits/Effects/fire.rsi
+    noRot: true
+    drawdepth: WallTops
+    layers:
+    - map: [ "base" ]
+      state: white_4
+  - type: PointLight
+    radius: 7
+    color: "#F4F7FF"
+  - type: GenericVisualizer
+    visuals:
+      enum.TileFireLayers.Base:
+        base:
+          One: { state: white_1 }
+          Two: { state: white_2 }
+          Three: { state: white_3 }
+          Four: { state: white_4 }
+  - type: TileFire
+    duration: 50
+    bigFireDuration: 0.75
+    extinguishInstantly: true
+    vaporExtinguishSeconds: 4
+    fireStacks: 0.6
+    standingDamage: 0.35
+    touchCooldown: 1

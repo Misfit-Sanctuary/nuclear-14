@@ -75,3 +75,34 @@
     - RifleScope
   - type: StaticPrice
     price: 100
+
+# N14 Laser Rangefinder - scopable binoculars that also log the coordinates you aim at,
+# so a mortar crew knows what to dial into the mortar.
+- type: entity
+  parent: BaseItem
+  id: N14LaserRangefinder
+  name: laser rangefinder
+  description: A pre-war laser rangefinder. Steady it on a spot to log its coordinates, then dial those into a mortar.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Devices/binoculars.rsi
+    state: binoculars_civ
+  - type: Item
+    size: Small
+    heldPrefix: binoculars
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Belt
+    - suitstorage
+  - type: Scope
+    useInHand: true
+    zoomLevels:
+    - name: 5x
+      zoom: 1.2
+      offset: 17
+      allowMovement: false
+      doAfter: 0.3
+  - type: LaserRangefinder
+  - type: StaticPrice
+    price: 150

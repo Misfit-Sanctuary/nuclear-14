@@ -105,7 +105,6 @@ public sealed class TileFireSystem : EntitySystem
             return;
 
         touch.NextTouchAt = _timing.CurTime + fire.Comp.TouchCooldown;
-        Dirty(target, touch);
 
         if (_flammableQuery.TryComp(target, out var flammable))
         {

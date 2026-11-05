@@ -61,13 +61,14 @@ public sealed class FlamerLineSystem : EntitySystem
 
     public void SpawnDiamond(EntProtoId fireTilePrototype, EntityCoordinates center, int range)
     {
-        if (_transform.GetGrid(center) is not { } gridUid ||
-            !TryComp<MapGridComponent>(gridUid, out var grid))
-        {
+        // Resolved from the world position rather than the coordinates' parent, because callers can
+        // hand us coordinates relative to the map entity itself (a mortar impact point is stored
+        // that way), which have no grid and would otherwise silently spawn nothing.
+        var mapCenter = _transform.ToMapCoordinates(center);
+        if (!_mapSystem.TryFindGridAt(mapCenter, out var gridUid, out var grid))
             return;
-        }
 
-        var origin = _mapSystem.TileIndicesFor(gridUid, grid, center);
+        var origin = _mapSystem.TileIndicesFor(gridUid, grid, mapCenter);
         for (var x = -range; x <= range; x++)
         {
             for (var y = -range; y <= range; y++)

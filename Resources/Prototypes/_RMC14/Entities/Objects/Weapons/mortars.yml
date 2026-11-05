@@ -1,0 +1,506 @@
+# Ported from AU-14/ColonialMarinesUniverse (AGPL-3.0), stripped of CMU-only components.
+
+- type: entity
+  parent: BaseItem
+  id: RMCMortarKit
+  name: M29 80mm mortar kit
+  description: A pre-war crew-served mortar, still in its crate. Someone has to carry it, and someone has to dig it in before it will fire.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/mortar/classic.rsi
+    layers:
+    - map: [ "mortar" ]
+      state: mortar_m402_carry
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      mortar:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49"
+        density: 20
+        layer:
+        - Impassable
+        mask:
+        - Impassable
+        hard: false
+  - type: CollisionWake
+    enabled: false
+  - type: Anchorable
+  - type: Item
+    size: Huge
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Back
+  - type: Mortar
+  - type: Damageable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: UserInterface
+    interfaces:
+      enum.MortarUiKey.Key:
+        type: MortarBui
+  - type: ActivatableUI
+    key: enum.MortarUiKey.Key
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.MortarVisualLayers.State:
+        mortar:
+          Item: { state: mortar_m402_carry }
+          Deployed: { state: mortar_m402 }
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: RMCMortarShellBase
+  name: 80mm mortar shell
+  description: An unmarked 80mm mortar shell. Whatever it was loaded with, the label is long gone.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/mortar.rsi
+    state: mortar_ammo_cas
+  - type: Item
+    size: Huge
+  - type: MortarShell
+
+- type: entity
+  parent: RMCMortarShellBase
+  id: RMCMortarShellHE
+  name: M889 80mm high-explosive mortar shell
+  description: Pre-war Army surplus, still wrapped in its grease paper. Ruins infantry, cover and real estate in equal measure.
+  components:
+  - type: Item
+    heldPrefix: he
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/mortar.rsi
+    state: mortar_ammo_he
+  - type: Explosive
+    explosionType: RMCMortar
+    maxIntensity: 21
+    intensitySlope: 2
+    totalIntensity: 390
+    canCreateVacuum: false
+
+- type: entity
+  parent: RMCMortarShellBase
+  id: RMCMortarShellIncendiary
+  name: M884 80mm incendiary mortar shell
+  description: Filled with napalm that has been sitting in a warehouse since the bombs fell. Burns the ground itself, so nobody gets to use it after you.
+  components:
+  - type: Item
+    heldPrefix: inc
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/mortar.rsi
+    state: mortar_ammo_inc
+  # No Explosive payload: the shell deals no blast damage, it only starts fires.
+  - type: MortarShell
+    fireTilePrototype: MisfitsTileFireNapalm
+    fireRange: 5
+    landSound:
+      path: "/Audio/Effects/metal_slam1.ogg"
+      params:
+        volume: -2
+
+- type: entity
+  parent: RMCMortarShellBase
+  id: RMCMortarShellFrag
+  name: M780 80mm fragmentation mortar shell
+  description: A pre-war anti-personnel round with the casing scored into shrapnel. Empties a street and leaves the buildings standing.
+  components:
+  - type: Item
+    heldPrefix: frag
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/mortar.rsi
+    state: mortar_ammo_frag
+  - type: Explosive
+    explosionType: RMCMortarFrag
+    maxIntensity: 27
+    intensitySlope: 1.7
+    totalIntensity: 490
+    canCreateVacuum: false
+
+- type: entity
+  parent: RMCMortarShellBase
+  id: RMCMortarShellHEAT
+  name: M792 80mm shaped-charge mortar shell
+  description: A shaped charge packed into a mortar casing. Cracks bunkers, armour and barricades, and the bang itself is barely wider than the tube.
+  components:
+  - type: Item
+    heldPrefix: heat
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/mortar.rsi
+    state: mortar_ammo_heat
+  - type: Explosive
+    explosionType: RMCMortarHEAT
+    maxIntensity: 6.5
+    intensitySlope: 3
+    totalIntensity: 180
+    canCreateVacuum: false
+
+- type: entity
+  parent: RMCMortarShellBase
+  id: RMCMortarShellKinetic
+  name: M829 80mm kinetic mortar shell
+  description: A solid tungsten dart in a casing with no filler and no fuse. Punches one hole straight through whatever it lands on, and the casing is worth carrying back to the tube.
+  components:
+  - type: Item
+    heldPrefix: heat
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/mortar.rsi
+    state: mortar_ammo_custom_no_fuel
+  # One tile, very hard: everything on it is hit, nothing beside it is.
+  - type: MortarShell
+    reusable: true
+    kineticDamage:
+      types:
+        Blunt: 100
+        Piercing: 80
+        Structural: 550
+    smoke:
+      prototype: RMCMortarImpactPuff
+      duration: 4
+      spread: 0
+    landSound:
+      path: "/Audio/Effects/metal_slam1.ogg"
+      params:
+        volume: -2
+
+- type: entity
+  parent: RMCMortarShellBase
+  id: RMCMortarShellSmoke
+  name: M722 80mm smoke mortar shell
+  description: No charge worth mentioning, just smoke compound and a bursting cap. The way across open ground without becoming a casualty statistic.
+  components:
+  - type: Item
+    heldPrefix: he
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/mortar.rsi
+    state: mortar_ammo_smk
+  - type: MortarShell
+    smoke:
+      duration: 45
+      spread: 35
+    landSound:
+      path: "/Audio/Effects/metal_slam1.ogg"
+      params:
+        volume: -2
+
+- type: entity
+  parent: RMCMortarShellBase
+  id: RMCMortarShellIllumination
+  name: M768 80mm illumination mortar shell
+  description: Drops a burning parachute flare over the target. Turns a night attack into a shooting gallery for whoever brought the mortar.
+  components:
+  - type: Item
+    heldPrefix: flr
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/mortar.rsi
+    state: mortar_ammo_flr
+  - type: MortarShell
+    impactSpawn: RMCMortarIlluminationFlare
+    impactCamera: RMCMortarImpactCamera
+    landSound:
+      path: "/Audio/Effects/metal_slam1.ogg"
+      params:
+        volume: -2
+
+- type: entity
+  parent: RMCMortarShellBase
+  id: RMCMortarShellPlasma
+  name: M907 80mm plasma mortar shell
+  description: A pre-war plasma warhead the size of a coffee can. The gas inside is still under pressure after two centuries, and it comes apart as a wash of green fire.
+  components:
+  - type: Item
+    heldPrefix: heat
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/mortar.rsi
+    state: mortar_ammo_custom
+  # Same warhead chemistry as the plasma grenade, scaled up to an 80mm casing.
+  - type: Explosive
+    explosionType: MisfitsPlasma
+    maxIntensity: 11
+    intensitySlope: 3
+    totalIntensity: 245
+    canCreateVacuum: false
+    maxTileBreak: 0
+    tileBreakScale: 0
+  - type: MortarShell
+    fireTilePrototype: MisfitsTileFirePlasma
+    fireRange: 3
+
+- type: entity
+  parent: RMCMortarShellBase
+  id: RMCMortarShellPhosphorus
+  name: M903 80mm white phosphorus mortar shell
+  description: Banned by treaties nobody has enforced in two hundred years. Burns white enough to read by, throws a wall of smoke for whoever moves behind it, and the burns it leaves do not stop.
+  components:
+  - type: Item
+    heldPrefix: inc
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/mortar.rsi
+    state: mortar_ammo_fsh
+  # No Explosive payload: the casing only carries the filler and the bursting cap.
+  - type: MortarShell
+    fireTilePrototype: MisfitsTileFirePhosphorus
+    fireRange: 3
+    smoke:
+      duration: 30
+      spread: 18
+      solution:
+        reagents:
+        - ReagentId: MisfitsWhitePhosphorusSmoke
+          Quantity: 30
+    landSound:
+      path: "/Audio/Effects/metal_slam1.ogg"
+      params:
+        volume: -2
+
+- type: entity
+  parent: RMCMortarShellBase
+  id: RMCMortarShellEMP
+  name: M814 80mm pulse mortar shell
+  description: A pre-war pulse warhead, brittle as glass. Wrecks anything electronic under the burst and leaves the people standing there untouched.
+  components:
+  - type: Item
+    heldPrefix: he
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/mortar.rsi
+    state: mortar_ammo_cas
+  # No Explosive payload: this one is aimed at machines, not at whatever is holding them.
+  - type: MortarShell
+    emp:
+      range: 4
+      energyConsumption: 2700000
+      disableDuration: 30
+    landSound:
+      path: "/Audio/Effects/metal_slam1.ogg"
+      params:
+        volume: -2
+
+- type: entity
+  parent: RMCMortarShellBase
+  id: RMCMortarShellUranium
+  name: M836 80mm uranium mortar shell
+  description: A pre-war radiological round, still stencilled with a trefoil that has faded to pink. Barely any charge, so the casing cracks open and paints the ground with something that keeps working after the crew walks away.
+  components:
+  - type: Item
+    heldPrefix: he
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/mortar.rsi
+    state: mortar_ammo_cas
+    color: "#A8FF3E"
+  # No Explosive payload: the round only splashes its filler over the area.
+  - type: MortarShell
+    radiation:
+      range: 3
+      count: 14
+      duration: 45
+    landSound:
+      path: "/Audio/Effects/metal_slam1.ogg"
+      params:
+        volume: -2
+
+# Two beakers mix on the way down and come apart on the impact tile. Load with a beaker.
+- type: entity
+  parent: RMCMortarShellBase
+  id: RMCMortarShellChemical
+  name: M861 80mm chemical mortar shell
+  description: A cut-down casing with two chem-glass wells welded into the side, so whatever the crew can mix is what the round carries. Both beakers are opened on the way down and arrive together.
+  components:
+  - type: Item
+    heldPrefix: custom
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/mortar.rsi
+    layers:
+    - map: [ "base" ]
+      state: mortar_ammo_custom_locked
+  - type: MortarShell
+    landSound:
+      path: "/Audio/Effects/metal_slam1.ogg"
+      params:
+        volume: -2
+  - type: MortarChemicalShell
+    beakerSlotA: &chemicalShellBeaker
+      whitelist:
+        components:
+        - FitsInDispenser
+      swap: false
+    beakerSlotB: *chemicalShellBeaker
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      BeakerSlotA: !type:ContainerSlot
+      BeakerSlotB: !type:ContainerSlot
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ChemicalPayloadVisuals.Slots:
+        base:
+          None: { state: mortar_ammo_custom_locked }
+          Left: { state: mortar_ammo_custom_locked }
+          Right: { state: mortar_ammo_custom_locked }
+          Both: { state: mortar_ammo_custom_unlocked }
+
+# Lit by the landing code. Anchored and unreachable, so it is a light source, not a flare.
+- type: entity
+  id: RMCMortarIlluminationFlare
+  name: M768 illumination flare
+  description: Pre-war magnesium, and it still burns after two hundred years in a crate. Really bright, and completely unreachable.
+  suffix: Mortar
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Sprite
+    sprite: Objects/Misc/flare.rsi
+    layers:
+      - map: [ enum.ExpendableLightVisualLayers.Base ]
+        state: flare_base
+      - map: [ enum.ExpendableLightVisualLayers.Glow ]
+        state: flare_burn
+        color: "#FFFFFF"
+        visible: false
+        shader: unshaded
+      - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+        state: flare_unlit
+        color: "#FF2020"
+  - type: Appearance
+  - type: ExpendableLight
+    glowDuration: 150
+    fadeOutDuration: 30
+    turnOnBehaviourID: turn_on
+    fadeOutBehaviourID: fade_out
+  # LightBehaviour is client side, so these values are what actually open the light up on screen:
+  # a hand flare tops out at radius 10, this reaches 15 a few seconds after it lands.
+  - type: LightBehaviour
+    behaviours:
+      - !type:FadeBehaviour
+        id: turn_on
+        maxDuration: 10.0
+        startValue: 4.0
+        endValue: 15.0
+      - !type:FadeBehaviour
+        id: fade_out
+        maxDuration: 30.0
+        startValue: 15.0
+        endValue: 3.0
+  - type: PointLight
+    enabled: false
+    color: "#FFEFC8"
+    radius: 4
+    energy: 10
+    netsync: false
+  # No TimedDespawn here on purpose: the mortar landing code sets one from this light's own
+  # glowDuration + fadeOutDuration, so the flare can never outlive its burn or be spawned without one.
+
+# Eye left by the illumination round, so the crew can see the ground it lit.
+- type: entity
+  id: RMCMortarImpactCamera
+  name: mortar impact camera
+  suffix: Mortar
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: MortarImpactCamera
+  # Matches the flare's own burn, so the feed never outlives the light it is watching by.
+  - type: TimedDespawn
+    lifetime: 182
+
+# Splashed out by the uranium round. Visible so the ground can be read, and it burns out on its own.
+- type: entity
+  id: RMCMortarUraniumSplatter
+  name: uranium splatter
+  suffix: Mortar
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: Fluids/splatter.rsi
+    state: splatter-0
+    color: "#A8FF3E"
+    shader: unshaded
+    drawdepth: FloorObjects
+  - type: RadiationSource
+    intensity: 2.5
+    slope: 1
+  - type: PointLight
+    color: "#A8FF3E"
+    radius: 2
+    energy: 1.5
+    netsync: false
+  - type: TimedDespawn
+    lifetime: 45
+
+# Dust kicked up by a solid round: one tile, thin enough to see and click through.
+- type: entity
+  parent: BaseFoam
+  id: RMCMortarImpactPuff
+  name: impact dust
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Effects/chemsmoke.rsi
+    state: chemsmoke
+    color: "#D8CEB44D"
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+- type: entity
+  parent: CrateBaseSecure
+  id: RMCMortarCrate
+  name: M29 mortar crate
+  description: A faded yellow munitions crate, stencilled with a lot number nobody can read. One mortar, a mixed load of 80mm shells, and the tools to set it up.
+  components:
+  - type: StorageFill
+    contents:
+    - id: RMCMortarKit
+    - id: N14LaserRangefinder
+    - id: RMCMortarShellHE
+      amount: 2
+    - id: RMCMortarShellIncendiary
+      amount: 2
+    - id: RMCMortarShellFrag
+      amount: 2
+    - id: RMCMortarShellHEAT
+      amount: 2
+    - id: RMCMortarShellKinetic
+      amount: 2
+    - id: RMCMortarShellSmoke
+      amount: 2
+    - id: RMCMortarShellIllumination
+      amount: 2
+    - id: RMCMortarShellPlasma
+      amount: 2
+    - id: RMCMortarShellPhosphorus
+      amount: 2
+    - id: RMCMortarShellEMP
+      amount: 2
+    - id: RMCMortarShellUranium
+      amount: 2
+    - id: RMCMortarShellChemical
+      amount: 2
+    - id: Wrench
