@@ -1,8 +1,8 @@
+using Robust.Shared.Prototypes;
 using Content.Shared.Kitchen;
 using Content.Server.Kitchen.EntitySystems;
 using Content.Shared.Construction.Prototypes;
 using Robust.Shared.Audio;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Kitchen.Components
 {
@@ -21,8 +21,8 @@ namespace Content.Server.Kitchen.Components
         [DataField]
         public int BaseStorageMaxEntities = 4;
 
-        [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-        public string MachinePartStorageMax = "MatterBin";
+        [DataField]
+        public ProtoId<MachinePartPrototype> MachinePartStorageMax = "MatterBin";
 
         [DataField]
         public int StoragePerPartRating = 4;
@@ -33,8 +33,8 @@ namespace Content.Server.Kitchen.Components
         [ViewVariables(VVAccess.ReadWrite)]
         public float WorkTimeMultiplier = 1;
 
-        [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-        public string MachinePartWorkTime = "Manipulator";
+        [DataField]
+        public ProtoId<MachinePartPrototype> MachinePartWorkTime = "Manipulator";
 
         [DataField]
         public float PartRatingWorkTimerMulitplier = 0.6f;

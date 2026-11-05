@@ -7,7 +7,6 @@ using Content.Shared._NC.CameraFollow.EntitySystems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared._NC.CameraFollow.Components;
 /// <summary>
@@ -37,8 +36,8 @@ public sealed partial class CameraFollowComponent : Component
     [DataField("defaultBackStrength")]
     public float DefaultBackStrength = 10f;
 
-    [DataField("action", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string Action = "ActionToggleCamera";
+    [DataField("action")]
+    public EntProtoId Action = "ActionToggleCamera";
 
     // Action entity to remove it from player on component remove
     public EntityUid? ActionEntity;

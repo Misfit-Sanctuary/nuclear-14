@@ -35,7 +35,7 @@ public static class NetSerializerGuard
         log.Info("NetSerializerGuard: length checks applied to NetSerializer string/byte[] reads.");
     }
 
-    private static bool StringPrefix(Stream stream)
+    public static bool StringPrefix(Stream stream)
     {
         if (!stream.CanSeek)
             return true;
@@ -58,7 +58,7 @@ public static class NetSerializerGuard
         return true;
     }
 
-    private static bool BytesPrefix(Stream stream)
+    public static bool BytesPrefix(Stream stream)
     {
         if (!stream.CanSeek)
             return true;

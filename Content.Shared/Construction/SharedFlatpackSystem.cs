@@ -123,7 +123,7 @@ public abstract class SharedFlatpackSystem : EntitySystem
         if (TryComp<MachineBoardComponent>(board, out var machineBoard) && machineBoard.Prototype is not null)
             machinePrototypeId = machineBoard.Prototype;
         else if (TryComp<ComputerBoardComponent>(board, out var computerBoard) && computerBoard.Prototype is not null)
-            machinePrototypeId = computerBoard.Prototype;
+            machinePrototypeId = computerBoard.Prototype.Value;
 
         var comp = ent.Comp!;
         var machinePrototype = PrototypeManager.Index(machinePrototypeId);

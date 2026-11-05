@@ -152,7 +152,7 @@ public sealed partial class BlockingSystem : EntitySystem
     {
         if (comp.IsBlocking ||
             !TryComp<PhysicsComponent>(user, out var compPhys) ||
-            comp.BlockingToggleAction is null
+            string.IsNullOrEmpty(comp.BlockingToggleAction)
             )
             return false;
         var xform = Transform(user);
@@ -235,7 +235,7 @@ public sealed partial class BlockingSystem : EntitySystem
         //If the component blocking toggle isn't null, grab the users SharedBlockingUserComponent and PhysicsComponent
         //then toggle the action to false, unanchor the user, remove the hard fixture
         //and set the users bodytype back to their original type
-        if (component.BlockingToggleAction != null && TryComp<BlockingUserComponent>(user, out var blockComp)
+        if (!string.IsNullOrEmpty(component.BlockingToggleAction) && TryComp<BlockingUserComponent>(user, out var blockComp)
                                                      && TryComp<PhysicsComponent>(user, out var physComp)
                                                      && TryComp<ClimbableComponent>(user, out var climbComp))
         {
