@@ -51,6 +51,26 @@
 
     N14Brass: 300
 
+# #Misfits Add - Chinese marksman rifle, .308 scoped semi-auto. Cost mirrors the Ranger marksman rifle.
+- type: latheRecipe
+  id: N14BPRangerWeaponMarksmanChinese
+  result: N14WeaponRifle762MarksmanChinese
+  category: N14BlueprintRangerWeapons
+  completetime: 11
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 6500
+
+    Plastic: 1000
+
+    Glass: 500
+
+    N14Iron: 800
+
+    N14Brass: 300
+
 - type: latheRecipe
   id: N14BPRangerWeaponRifle556Scout
   result: N14WeaponRifle556Scout
@@ -199,6 +219,73 @@
     Wood: 550
 
     N14Iron: 700
+
+# #Misfits Add - SMG patterns: close-quarters arm for the field kit.
+- type: latheRecipe
+  id: N14BPRangerWeaponSMG9mm
+  result: N14WeaponSMG9mm
+  category: N14BlueprintRangerWeapons
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 3000
+    N14Iron: 700
+
+- type: latheRecipe
+  id: N14BPRangerWeaponSMG10mm
+  result: N14WeaponSMG10mm
+  category: N14BlueprintRangerWeapons
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 4500
+    N14Iron: 400
+
+- type: latheRecipe
+  id: N14BPRangerWeaponSMG12mm
+  result: N14WeaponSMG12mm
+  category: N14BlueprintRangerWeapons
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 4500
+    N14Iron: 500
+    N14Brass: 50
+
+- type: latheRecipe
+  id: N14BPRangerWeaponSMG12mmAdvanced
+  result: N14WeaponSMG12mmAdvanced
+  category: N14BlueprintRangerWeapons
+  completetime: 16
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 8000
+    N14Iron: 500
+    N14Brass: 200
+    Plastic: 1000
+    Circuitry: 300
+    ScrapElectronic: 500
+# #Misfits Add - PPSh-41 SMG pattern, cost mirrors the NCR T2 pattern.
+- type: latheRecipe
+  id: N14BPRangerWeaponPPSh41
+  result: N14WeaponSMGPPSh41
+  category: N14BlueprintRangerWeapons
+  completetime: 9
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 3500
+    N14Iron: 700
+    N14Brass: 250
 
 - type: latheRecipe
   id: N14BPRangerAmmoBox68
@@ -457,6 +544,21 @@
     N14Brass: 35
 
     N14Gunpowder: 35
+# #Misfits Add - 12 gauge beanbag shells for non-lethal work.
+- type: latheRecipe
+  id: N14BPRangerAmmoBox12gaugeBeanbag
+  result: MisfitsMagazineBox12GaugeBeanbag
+  category: N14BlueprintRangerAmmo
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Plastic: 60
+    N14Paper: 90
+    N14Gunpowder: 60
+    Cardboard: 100
+
 # #Misfits Change - retired: no .44 revolver in the kit (the .44 weapon is a
 # lever carbine, fed by the .44 box), so this speed loader had no home here.
 # - type: latheRecipe
@@ -652,10 +754,10 @@
     Circuitry: 50
 
 # #Misfits Add - armors requested alongside the field kit: the customised patrol
-# suit, the two veteran riot vests and the elite combat armor. Priced against the
+# suit and the elite combat armor. Priced against the
 # protection each one actually gives, using the kit's existing armor as the scale:
 # field/flak (0.75 blunt) 2500-4000 steel, custom patrol (0.7) 7000, MK2 (0.7/0.6)
-# 8500, veteran riot and elite (0.65/0.6) 9000-12000.
+# 8500, ranger riot and elite (0.65/0.6) 9000-12000.
 - type: latheRecipe
   id: N14BPRangerArmorPatrolCustom
   result: N14ClothingOuterRangerArmorB
@@ -671,35 +773,37 @@
     Thread: 190
     Circuitry: 80
 
-- type: latheRecipe
-  id: N14BPRangerArmorCanOpener
-  result: N14ClothingOuterCanOpenerVetRangerRiotArmor
-  category: N14BlueprintRangerArmor
-  completetime: 20
-  requiresBlueprint: true
-  availableFaction:
-  - Rangers
-  materials:
-    Steel: 9000
-    Leather: 350
-    Cloth: 250
-    Thread: 190
-    Circuitry: 100
+# #Misfits Removed - riot armor variant is loadout-only now (3 points); only the basic ranger riot armor stays in the blueprint.
+# - type: latheRecipe
+#   id: N14BPRangerArmorCanOpener
+#   result: N14ClothingOuterCanOpenerVetRangerRiotArmor
+#   category: N14BlueprintRangerArmor
+#   completetime: 20
+#   requiresBlueprint: true
+#   availableFaction:
+#   - Rangers
+#   materials:
+#     Steel: 9000
+#     Leather: 350
+#     Cloth: 250
+#     Thread: 190
+#     Circuitry: 100
 
-- type: latheRecipe
-  id: N14BPRangerArmorDemoExpert
-  result: N14ClothingOuterDemoExpertVetRangerRiotArmor
-  category: N14BlueprintRangerArmor
-  completetime: 20
-  requiresBlueprint: true
-  availableFaction:
-  - Rangers
-  materials:
-    Steel: 9000
-    Leather: 350
-    Cloth: 250
-    Thread: 190
-    Circuitry: 100
+# #Misfits Removed - riot armor variant is loadout-only now (3 points); only the basic ranger riot armor stays in the blueprint.
+# - type: latheRecipe
+#   id: N14BPRangerArmorDemoExpert
+#   result: N14ClothingOuterDemoExpertVetRangerRiotArmor
+#   category: N14BlueprintRangerArmor
+#   completetime: 20
+#   requiresBlueprint: true
+#   availableFaction:
+#   - Rangers
+#   materials:
+#     Steel: 9000
+#     Leather: 350
+#     Cloth: 250
+#     Thread: 190
+#     Circuitry: 100
 
 - type: latheRecipe
   id: N14BPRangerArmorElite
@@ -716,6 +820,37 @@
     Thread: 200
     Circuitry: 150
     ScrapElectronic: 100
+# #Misfits Add - veteran ranger riot armour.
+- type: latheRecipe
+  id: N14BPRangerArmorRiotVet
+  result: N14ClothingOuterVetRangerRiotArmor
+  category: N14BlueprintRangerArmor
+  completetime: 20
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 9000
+    Leather: 350
+    Cloth: 250
+    Thread: 190
+    Circuitry: 100
+
+# #Misfits Removed - riot armor variant is loadout-only now (3 points); only the basic ranger riot armor stays in the blueprint.
+# - type: latheRecipe
+#   id: N14BPRangerArmorCaliforniaGirl
+#   result: N14ClothingOuterCaliforniaGirlVetRangerRiotArmor
+#   category: N14BlueprintRangerArmor
+#   completetime: 20
+#   requiresBlueprint: true
+#   availableFaction:
+#   - Rangers
+#   materials:
+#     Steel: 9000
+#     Leather: 350
+#     Cloth: 250
+#     Thread: 190
+#     Circuitry: 100
 
 # #Misfits Removed - user requested no power armor helmet recipes
 # - type: latheRecipe

@@ -1097,7 +1097,7 @@
 - type: loadout
   id: LoadoutN14ClothingOuterCaliforniaGirlVetRangerRiotArmor
   category: Roles
-  cost: 0
+  cost: 3 # #Misfits Change - riot armor variant, 3 loadout points
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
@@ -1114,7 +1114,7 @@
 - type: loadout
   id: LoadoutN14ClothingOuterCanOpenerVetRangerRiotArmor
   category: Roles
-  cost: 0
+  cost: 3 # #Misfits Change - riot armor variant, 3 loadout points
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
@@ -1131,7 +1131,7 @@
 - type: loadout
   id: LoadoutN14ClothingOuterDemoExpertVetRangerRiotArmor
   category: Roles
-  cost: 0
+  cost: 3 # #Misfits Change - riot armor variant, 3 loadout points
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
@@ -1148,7 +1148,7 @@
 - type: loadout
   id: LoadoutN14ClothingOuterTheDevoutVetRangerRiotArmor
   category: Roles
-  cost: 0
+  cost: 3 # #Misfits Change - riot armor variant, 3 loadout points
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement

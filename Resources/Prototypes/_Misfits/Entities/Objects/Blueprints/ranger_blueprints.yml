@@ -7,12 +7,13 @@
   parent: N14BlueprintBase
   id: N14BlueprintRangerWeapons
   name: Ranger Field Kit - Arms Plans
-  description: Hand-annotated Ranger armory schematics covering the M7 Spear, the .308 sniper rifle, the 5.56 light machine gun, the marksman rifle, the scout rifle, the Ranger Sequoia, the brush gun, the lever action rifle, the assault carbine, the combat shotgun and the .44 lever action rifle.
+  description: Hand-annotated Ranger armory schematics covering a selection of weapons.
   components:
   - type: Blueprint
     recipes:
     - N14BPRangerWeaponM7Spear
     - N14BPRangerWeaponRifle762Marksman
+    - N14BPRangerWeaponMarksmanChinese
     - N14BPRangerWeaponRifle556Scout
     - N14BPRangerWeaponBrushGun
     - N14BPRangerWeaponSequoia
@@ -22,12 +23,17 @@
     - N14BPRangerWeapon308LeverRifle
     - N14BPRangerWeaponAssaultCarbine
     - N14BPRangerWeapon44LeverRifle
+    - N14BPRangerWeaponSMG9mm
+    - N14BPRangerWeaponSMG10mm
+    - N14BPRangerWeaponSMG12mm
+    - N14BPRangerWeaponSMG12mmAdvanced
+    - N14BPRangerWeaponPPSh41
 
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintRangerAmmo
   name: Ranger Field Kit - Ammunition Notes
-  description: Reloading data for every cartridge the Ranger arms package chambers - 6.8mm, .308 and overpressure .308, 7.62mm, 5.56mm, .45-70, .44 Magnum and 12 gauge, in loose boxes, magazines, drums and speed loaders.
+  description: Reloading data for every cartridge the Rangers may use.
   components:
   - type: Blueprint
     recipes:
@@ -49,13 +55,14 @@
     - N14BPRangerAmmoSpeedLoader4570Tube
     - N14BPRangerAmmoSpeedLoader308Tube
     - N14BPRangerAmmoBox44Magnum
+    - N14BPRangerAmmoBox12gaugeBeanbag
     # - N14BPRangerAmmoSpeedLoader44  # #Misfits Change - retired, no .44 revolver in the kit
 
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintRangerArmor
   name: Ranger Field Kit - Armor Patterns
-  description: Ranger field and patrol armor, the customised patrol suit, the recon duster, NCR combat armor MK2, the flak vest, the Can Opener and Demo Expert riot vests and the elite combat armor, with the full combat helmet set - desert, desert riot, worn and elite.
+  description: Ranger field armor patterns for use on the frontier.
   components:
   - type: Blueprint
     recipes:
@@ -71,6 +78,9 @@
     - N14BPRangerArmorHelmetOld
     - N14BPRangerArmorHelmetElite
     - N14BPRangerArmorPatrolCustom
-    - N14BPRangerArmorCanOpener
-    - N14BPRangerArmorDemoExpert
+    # #Misfits Change - riot armor variants are loadout-only now (3 points each)
+    # - N14BPRangerArmorCanOpener
+    # - N14BPRangerArmorDemoExpert
     - N14BPRangerArmorElite
+    - N14BPRangerArmorRiotVet
+    # - N14BPRangerArmorCaliforniaGirl

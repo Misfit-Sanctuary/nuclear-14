@@ -221,9 +221,15 @@
     state: rifleman
   - type: UndecidedLoadoutBackpack
     possibleSets:
-    - RangerServiceSet
+    # #Misfits Change - patrol and field sets merged into one Ranger kit list
     - RangerRiflemanSet
     - RangerCQBSet
+    - RangerTrailmanSet
+    - RangerMarksmanSet
+    - RangerSniperSet
+    - RangerOperativeSet
+    # #Misfits Removed - ranger service kit (issued a butchered service rifle)
+    # - RangerServiceSet
 
 - type: entity
   id: NCRrangerloadoutkits
@@ -233,16 +239,17 @@
 - type: entity
   id: NCRfieldrangerloadoutkits
   name: Undecided NCR Field Ranger Loadout Kit
-  parent: NCRcadetloadoutkits
+  parent: NCRpatrolrangerloadoutkits # #Misfits Change - shares the merged Ranger kit list
   components:
   - type: Sprite
     state: marksman
-  - type: UndecidedLoadoutBackpack
-    possibleSets:
-    - RangerTrailmanSet
-    - RangerMarksmanSet
-    - RangerSniperSet
-    - RangerOperativeSet
+  # #Misfits Change - set list now inherited from the merged patrol/field list
+  # - type: UndecidedLoadoutBackpack
+  #   possibleSets:
+  #   - RangerTrailmanSet
+  #   - RangerMarksmanSet
+  #   - RangerSniperSet
+  #   - RangerOperativeSet
 
 - type: entity
   id: NCRveteranrangerloadoutkits
