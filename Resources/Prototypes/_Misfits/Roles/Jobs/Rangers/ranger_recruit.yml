@@ -1,7 +1,7 @@
 - type: job
   id: NCRPatrolRanger
   setPreference: false # #Misfits Change - user requested: not listed in the latejoin menu
-  totalPositions: 0 # #Misfits Change - user requested: no job slots
+  # #Misfits Change - slot count is set on the Wendover map prototype; job prototypes have no position field
   alwaysUseSpawner: true
   jobWhitelistBypassesRoleTimers: true
   weight: 6 # #Misfits Add - position below Field Ranger, above Recruit

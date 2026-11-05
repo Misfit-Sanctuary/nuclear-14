@@ -7,7 +7,7 @@
   parent: N14BlueprintBase
   id: N14BlueprintRangerWeapons
   name: Ranger Field Kit - Arms Plans
-  description: Hand-annotated Ranger armory schematics covering a selection of weapons.
+  description: Hand-annotated Ranger armory schematics covering a selection of weapons, plus the radio jammer Rangers use to cut enemy comms.
   components:
   - type: Blueprint
     recipes:
@@ -28,6 +28,7 @@
     - N14BPRangerWeaponSMG12mm
     - N14BPRangerWeaponSMG12mmAdvanced
     - N14BPRangerWeaponPPSh41
+    - N14BPRangerWeaponRadioJammer
 
 - type: entity
   parent: N14BlueprintBase
@@ -62,7 +63,7 @@
   parent: N14BlueprintBase
   id: N14BlueprintRangerArmor
   name: Ranger Field Kit - Armor Patterns
-  description: Ranger field armor patterns for use on the frontier.
+  description: Ranger field and patrol armor, the customised patrol suit, the recon duster, NCR combat armor MK2, the flak vest, the elite combat armor and the ranger riot armor, with the full combat helmet set - desert, desert riot, worn and elite - plus the night vision goggles and the full gas mask set.
   components:
   - type: Blueprint
     recipes:
@@ -83,4 +84,14 @@
     # - N14BPRangerArmorDemoExpert
     - N14BPRangerArmorElite
     - N14BPRangerArmorRiotVet
+
+    - N14BPRangerArmorNVG
+    - N14BPRangerArmorMaskRanger
+    - N14BPRangerArmorMaskRangerOld
+    - N14BPRangerArmorMaskRangerDesert
+    - N14BPRangerArmorMaskRangerWeathered
+    - N14BPRangerArmorMaskRangerPrice
+    - N14BPRangerArmorMaskRangerElite
+    - N14BPRangerArmorMaskRangerModif
+    - N14BPRangerArmorMaskRiot
     # - N14BPRangerArmorCaliforniaGirl

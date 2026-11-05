@@ -85,6 +85,12 @@ public sealed class SharedMisfitsMartialArtsSystem : EntitySystem
         if (args.User != uid)
             return;
 
+        // #Misfits Fix - only record a Hug input when one of the entity's combos actually uses it.
+        // Every friendly empty-hand click on another player used to push a Hug into the buffer, so
+        // the combo widget drew a stray icon at the cursor for styles with no Hug combo at all.
+        if (!AnyComboUses(comp, MisfitsComboAttackType.Hug))
+            return;
+
         // Emit a Hug combo event so style systems can intercept it (e.g. ShadowStrike neck grab)
         var ev = new MisfitsComboAttackPerformedEvent(uid, args.Target, uid, MisfitsComboAttackType.Hug);
         RaiseLocalEvent(uid, ev);
@@ -95,7 +101,29 @@ public sealed class SharedMisfitsMartialArtsSystem : EntitySystem
     /// </summary>
     private void OnGetPerformedAttackTypes(EntityUid uid, CanPerformComboComponent comp, ref GetPerformedAttackTypesEvent args)
     {
+        // #Misfits Fix - expire the buffer before the widget reads it. The engine only reset the buffer
+        // when the next input arrived, so the last icons stayed pinned to the cursor indefinitely.
+        if (comp.ResetTime != TimeSpan.Zero && _timing.CurTime > comp.ResetTime)
+        {
+            comp.LastAttacks.Clear();
+            comp.ResetTime = TimeSpan.Zero;
+        }
+
         args.AttackTypes = new(comp.LastAttacks);
+    }
+
+    /// <summary>
+    /// Returns true when one of the entity's known combos contains the given input type.
+    /// </summary>
+    private bool AnyComboUses(CanPerformComboComponent comp, MisfitsComboAttackType type)
+    {
+        foreach (var comboId in comp.AllowedCombos)
+        {
+            if (_proto.TryIndex(comboId, out var combo) && combo.AttackTypes.Contains(type))
+                return true;
+        }
+
+        return false;
     }
 
     // ---- Style passives ----

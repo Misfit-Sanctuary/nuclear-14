@@ -8,7 +8,7 @@
   alwaysUseSpawner: true
   jobWhitelistBypassesRoleTimers: true
   weight: 7 # #Misfits Add - below Ranger Lead (10) and Ranger (8), above Patrol Ranger (6)
-  totalPositions: 1 # #Misfits Add - a single Ranger Medic slot per shift
+  # #Misfits Change - slot count is set on the Wendover map prototype; job prototypes have no position field
   name: job-name-ranger-medic
   overwatchCategory: OverwatchNcrRangers
   description: job-description-ranger-medic

@@ -287,6 +287,22 @@
     N14Iron: 700
     N14Brass: 250
 
+# #Misfits Add - radio jammer pattern; the device is uplink-only elsewhere, so this is
+# its only craftable route. Ships with a medium power cell like the base prototype.
+- type: latheRecipe
+  id: N14BPRangerWeaponRadioJammer
+  result: RadioJammer
+  category: N14BlueprintRangerWeapons
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 800
+    Plastic: 500
+    Circuitry: 400
+    ScrapElectronic: 300
+
 - type: latheRecipe
   id: N14BPRangerAmmoBox68
   result: N14AmmoBox68
@@ -836,6 +852,134 @@
     Thread: 190
     Circuitry: 100
 
+# #Misfits Add - night vision goggles and the ranger gas mask set: the eyes and mouth
+# slots the field kit was missing. The NV masks inherit eyeball protection from the
+# combat gas mask; the weathered one is deliberately plain, having lost its optics.
+- type: latheRecipe
+  id: N14BPRangerArmorNVG
+  result: N14ClothingEyesNCRNVGs
+  category: N14BlueprintRangerArmor
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1000
+    Cloth: 100
+    Circuitry: 200
+    ScrapElectronic: 200
+
+- type: latheRecipe
+  id: N14BPRangerArmorMaskRanger
+  result: ClothingMaskGasRanger
+  category: N14BlueprintRangerArmor
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1200
+    Cloth: 150
+    Plastic: 200
+    Circuitry: 100
+
+- type: latheRecipe
+  id: N14BPRangerArmorMaskRangerOld
+  result: ClothingMaskGasRangerOld
+  category: N14BlueprintRangerArmor
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1200
+    Cloth: 150
+    Plastic: 200
+    Circuitry: 100
+
+- type: latheRecipe
+  id: N14BPRangerArmorMaskRangerDesert
+  result: ClothingMaskGasRangerDesert
+  category: N14BlueprintRangerArmor
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1200
+    Cloth: 150
+    Plastic: 200
+    Circuitry: 100
+
+- type: latheRecipe
+  id: N14BPRangerArmorMaskRangerWeathered
+  result: ClothingMaskGasRangerWeathered
+  category: N14BlueprintRangerArmor
+  completetime: 6
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 900
+    Cloth: 150
+    Plastic: 150
+
+- type: latheRecipe
+  id: N14BPRangerArmorMaskRangerPrice
+  result: ClothingMaskGasRangerPrice
+  category: N14BlueprintRangerArmor
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1200
+    Cloth: 150
+    Plastic: 200
+    Circuitry: 100
+
+- type: latheRecipe
+  id: N14BPRangerArmorMaskRangerElite
+  result: ClothingMaskGasRangerElite
+  category: N14BlueprintRangerArmor
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1600
+    Cloth: 180
+    Plastic: 220
+    Circuitry: 120
+
+- type: latheRecipe
+  id: N14BPRangerArmorMaskRangerModif
+  result: ClothingMaskGasRangerModif
+  category: N14BlueprintRangerArmor
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1200
+    Cloth: 150
+    Plastic: 200
+    Circuitry: 100
+
+- type: latheRecipe
+  id: N14BPRangerArmorMaskRiot
+  result: ClothingMaskGasRiot
+  category: N14BlueprintRangerArmor
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1200
+    Cloth: 150
+    Plastic: 200
+    Circuitry: 100
+
 # #Misfits Removed - riot armor variant is loadout-only now (3 points); only the basic ranger riot armor stays in the blueprint.
 # - type: latheRecipe
 #   id: N14BPRangerArmorCaliforniaGirl
@@ -869,4 +1013,3 @@
 #     N14Brass: 5
 
 # --- Legion Tier 1 Helmets (recruit head wraps) ---
-
