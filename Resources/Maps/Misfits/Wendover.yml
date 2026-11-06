@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 11/05/2026 07:28:46
-  entityCount: 294774
+  entityCount: 294775
 maps:
 - 1
 grids:
@@ -2336972,4 +2336972,11 @@ entities:
     - type: Transform
       parent: 1
       pos: 101.204796,162.60855
+- proto: N14SpawnPointVaultManagement
+  entities:
+  - uid: 294775
+    components:
+    - type: Transform
+      pos: 324.5,106.5
+      parent: 1
 ...
