@@ -1,7 +1,7 @@
 - type: entity
   id: BaseRock
   name: boulder
-  description: Heavy as a really heavy thing.
+  description: A fitting monument to mark your grave.
   abstract: true
   components:
   - type: Clickable

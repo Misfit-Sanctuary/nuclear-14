@@ -1,0 +1,97 @@
+# #Misfits Add - Ranger field kit blueprint collection. Three items covering the
+# arms, ammunition and armor a Ranger needs to kit out. Placed in a workbench the
+# recipes become available there; remove the blueprint and they hide again.
+# Recipes live in Recipes/Lathes/blueprint_recipes_ranger.yml.
+
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintRangerWeapons
+  name: Ranger Field Kit - Arms Plans
+  description: Hand-annotated Ranger armory schematics covering a selection of weapons, plus the radio jammer Rangers use to cut enemy comms.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPRangerWeaponM7Spear
+    - N14BPRangerWeaponRifle762Marksman
+    - N14BPRangerWeaponMarksmanChinese
+    - N14BPRangerWeaponRifle556Scout
+    - N14BPRangerWeaponBrushGun
+    - N14BPRangerWeaponSequoia
+    - N14BPRangerWeapon308Sniper
+    - N14BPRangerWeaponLMG556
+    - N14BPRangerWeaponCombatShotgun
+    - N14BPRangerWeapon308LeverRifle
+    - N14BPRangerWeaponAssaultCarbine
+    - N14BPRangerWeapon44LeverRifle
+    - N14BPRangerWeaponSMG9mm
+    - N14BPRangerWeaponSMG10mm
+    - N14BPRangerWeaponSMG12mm
+    - N14BPRangerWeaponSMG12mmAdvanced
+    - N14BPRangerWeaponPPSh41
+    - N14BPRangerWeaponRadioJammer
+
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintRangerAmmo
+  name: Ranger Field Kit - Ammunition Notes
+  description: Reloading data for every cartridge the Rangers may use.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPRangerAmmoBox68
+    - N14BPRangerAmmoMag68Rifle
+    - N14BPRangerAmmoBox762
+    - N14BPRangerAmmoMag762Rifle
+    - N14BPRangerAmmoBox556
+    - N14BPRangerAmmoMag556Rifle
+    - N14BPRangerAmmoMag556Long
+    - N14BPRangerAmmoMag556LMG
+    - N14BPRangerAmmoBox4570
+    - N14BPRangerAmmoBox308
+    - N14BPRangerAmmoBoxOver308
+    - N14BPRangerAmmoOverMag308
+    - N14BPRangerAmmoBox12gauge
+    - N14BPRangerAmmoMagShotgun12
+    - N14BPRangerAmmoSpeedLoader4570
+    - N14BPRangerAmmoSpeedLoader4570Tube
+    - N14BPRangerAmmoSpeedLoader308Tube
+    - N14BPRangerAmmoBox44Magnum
+    - N14BPRangerAmmoBox12gaugeBeanbag
+    # - N14BPRangerAmmoSpeedLoader44  # #Misfits Change - retired, no .44 revolver in the kit
+
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintRangerArmor
+  name: Ranger Field Kit - Armor Patterns
+  description: Ranger field and patrol armor, the customised patrol suit, the recon duster, NCR combat armor MK2, the flak vest, the elite combat armor and the ranger riot armor, with the full combat helmet set - desert, desert riot, worn and elite - plus the night vision goggles and the full gas mask set.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPRangerArmorField
+    - N14BPRangerArmorRecon
+    - N14BPRangerArmorCombatMK2
+    - N14BPRangerArmorFlakVest
+    - N14BPRangerArmorPatrol
+    - N14BPRangerArmorHelmetCombat
+    - N14BPRangerArmorHelmetCombatMK2
+    - N14BPRangerArmorHelmetDesert
+    - N14BPRangerArmorHelmetDesertRiot
+    - N14BPRangerArmorHelmetOld
+    - N14BPRangerArmorHelmetElite
+    - N14BPRangerArmorPatrolCustom
+    # #Misfits Change - riot armor variants are loadout-only now (3 points each)
+    # - N14BPRangerArmorCanOpener
+    # - N14BPRangerArmorDemoExpert
+    - N14BPRangerArmorElite
+    - N14BPRangerArmorRiotVet
+
+    - N14BPRangerArmorNVG
+    - N14BPRangerArmorMaskRanger
+    - N14BPRangerArmorMaskRangerOld
+    - N14BPRangerArmorMaskRangerDesert
+    - N14BPRangerArmorMaskRangerWeathered
+    - N14BPRangerArmorMaskRangerPrice
+    - N14BPRangerArmorMaskRangerElite
+    - N14BPRangerArmorMaskRangerModif
+    - N14BPRangerArmorMaskRiot
+    # - N14BPRangerArmorCaliforniaGirl

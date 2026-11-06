@@ -1,10 +1,10 @@
+using Robust.Shared.Prototypes;
 using System.Numerics;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Shuttles.Components
 {
@@ -62,8 +62,8 @@ namespace Content.Server.Shuttles.Components
         [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
         public TimeSpan NextFire;
 
-        [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-        public string MachinePartThrust = "Capacitor";
+        [DataField]
+        public ProtoId<MachinePartPrototype> MachinePartThrust = "Capacitor";
 
         [DataField]
         public float PartRatingThrustMultiplier = 1.5f;

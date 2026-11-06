@@ -175,7 +175,7 @@ namespace Content.Server.Chemistry.EntitySystems
             if (component.PackPrototypeId is not null
                 && _prototypeManager.TryIndex(component.PackPrototypeId, out ReagentDispenserInventoryPrototype? packPrototype))
             {
-                preLoad.AddRange(packPrototype.Inventory);
+                preLoad.AddRange(packPrototype.Inventory.Select(x => x.Id));
             }
 
             // Populate storage slots with base storage slot whitelist

@@ -1,3 +1,4 @@
+using Robust.Shared.Prototypes;
 using Content.Shared.Alert;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Components;
@@ -15,8 +16,7 @@ namespace Content.Shared.Gravity
         [Dependency] protected readonly IGameTiming Timing = default!;
         [Dependency] private readonly AlertsSystem _alerts = default!;
 
-        [ValidatePrototypeId<AlertPrototype>]
-        public const string WeightlessAlert = "Weightless";
+        public static readonly ProtoId<AlertPrototype> WeightlessAlert = "Weightless";
 
         private EntityQuery<GravityComponent> _gravityQuery;
 

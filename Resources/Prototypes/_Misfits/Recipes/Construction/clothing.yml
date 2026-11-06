@@ -1,0 +1,11 @@
+- type: construction
+  name: Candy Pouch
+  id: CandyPouchGraphCraft
+  graph: CandyPouchGraph
+  startNode: start
+  targetNode: CandyPouch
+  icon: {sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi, state: candyPouch}
+  category: construction-category-food
+  objectType: Item
+  canBuildInImpassable: true
+  hide: false

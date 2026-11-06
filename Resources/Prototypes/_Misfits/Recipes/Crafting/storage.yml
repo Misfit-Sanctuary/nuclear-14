@@ -1,0 +1,11 @@
+- type: construction
+  name: Food Box
+  id: FoodBoxGraphCraft
+  graph: FoodBoxGraph
+  startNode: start
+  targetNode: FoodBox
+  icon: {sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi, state: foodBox}
+  category: construction-category-food
+  objectType: Item
+  canBuildInImpassable: true
+  hide: false

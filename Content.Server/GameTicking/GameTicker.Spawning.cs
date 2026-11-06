@@ -39,17 +39,13 @@ namespace Content.Server.GameTicking
         [Dependency] private SharedActionsSystem _actions = default!; // OKPB
 
 
-        [ValidatePrototypeId<EntityPrototype>]
-        public const string ObserverPrototypeName = "MobObserver";
+        public static readonly EntProtoId ObserverPrototypeName = "MobObserver";
 
-        [ValidatePrototypeId<EntityPrototype>]
-        public const string AdminObserverPrototypeName = "AdminObserver";
+        public static readonly EntProtoId AdminObserverPrototypeName = "AdminObserver";
 
-        [ValidatePrototypeId<LocalizedDatasetPrototype>]
-        public const string AiNamesDataset = "NamesAI";
+        public static readonly ProtoId<LocalizedDatasetPrototype> AiNamesDataset = "NamesAI";
 
-        [ValidatePrototypeId<JobPrototype>]
-        public const string CyborgJobPrototypeName = "Borg";
+        public static readonly ProtoId<JobPrototype> CyborgJobPrototypeName = "Borg";
 
         /// <summary>
         /// How many players have joined the round through normal methods.

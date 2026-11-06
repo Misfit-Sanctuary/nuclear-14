@@ -69,7 +69,7 @@
   parent: [N14ReagentPacketBase, ItemHeftyBase]
   id: N14ReagentContainerFlour
   name: flour bag
-  description: A big bag of flour. Good for baking!
+  description: With enough flour you can feed an army, so long as they don't mind a steady diet of bread.
   components:
   - type: Sprite
     state: flour-big
@@ -85,7 +85,7 @@
   parent: [N14ReagentPacketBase, ItemHeftyBase]
   id: N14ReagentContainerFlourSmall
   name: flour pack
-  description: A pack of flour. Good for baking!
+  description: A small portion of flour, but it should be enough for a bit of bread.
   components:
   - type: Sprite
     state: flour-small
@@ -101,7 +101,7 @@
   parent: N14ReagentPacketBase
   id: N14ReagentContainerCornmeal
   name: cornmeal bag
-  description: A big bag of cornmeal. Good for cooking!
+  description: Delicious cornmeal, good for making the most delicious cornbread. All you need now is butter!
   components:
   - type: Sprite
     state: cornmeal-big
@@ -116,7 +116,7 @@
   parent: N14ReagentPacketBase
   id: N14ReagentContainerCornmealSmall
   name: cornmeal pack
-  description: A pack of cornmeal. Good for cooking!
+  description: A small portion of cornmeal, maybe enough for making some porridge.
   components:
   - type: Sprite
     state: cornmeal
@@ -132,7 +132,7 @@
   parent: N14ReagentPacketBase
   id: N14ReagentContainerRice
   name: rice bag
-  description: A big bag of rice. Good for cooking!
+  description: Once upon a time you could be thrown in jail for being a Communist if this was found in your home.
   components:
   - type: Sprite
     state: rice-big
@@ -147,7 +147,7 @@
   parent: N14ReagentPacketBase
   id: N14ReagentContainerRiceSmall
   name: rice pack
-  description: A pack of rice. Good for cooking!
+  description: A small portion of rice, just enough to feed a Revolutionary army or two.
   components:
   - type: Sprite
     state: rice-small
@@ -163,7 +163,7 @@
   parent: N14ReagentPacketBase
   id: N14ReagentContainerSugar
   name: sugar bag
-  description: A big bag of tasty sugar. Tiny graffiti reads 'SPACE IS FAKE.' #N14 change
+  description: There's enough sugar in here to satisfy even the most rotten sweet tooth's appretite.
   components:
   - type: Sprite
     state: sugar-big
@@ -178,7 +178,7 @@
   parent: N14ReagentPacketBase
   id: N14ReagentContainerSugarSmall
   name: sugar pack
-  description: A pack of tasty sugar. #N14 change
+  description: A small portion of sugar, barely enough to sweeten an American coffee.
   components:
   - type: Sprite
     state: sugar-small
@@ -196,7 +196,7 @@
   parent: N14ReagentPacketBase
   id: N14ReagentContainerOliveoil
   name: olive oil
-  description: Olive oil. From a long dead, faraway land, presumably. #N14 change
+  description: A favorite of imperial warlords. #N14 change
   components:
   - type: Sprite
     state: oliveoil
@@ -212,7 +212,7 @@
   parent: N14ReagentPacketBase
   id: N14ReagentContainerMayo
   name: mayonnaise
-  description: Bottle of mayonnaise.
+  description: You can't beat the taste of mayo.
   components:
   - type: Sprite
     state: mayo

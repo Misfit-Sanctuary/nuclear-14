@@ -1,22 +1,22 @@
 - type: entity
-  name: Psycho Raider
+  name: Locust Maggot
   parent: N14BaseMobRaider
   id: N14MobRaiderPsycho
-  description: Psychopatic raider who will stab and rob just about anyone.
+  description: Weakest mongrels of the Locust Tribe, they’re armed with flimsy knives and pumped with chems. They are impossible to reason with, seeing your death as a chance to rise in the tribe's ranks.
   components:
     - type: Loadout
       prototypes:
       - PsychoRaider1Gear
-      - PsychoRaider2Gear 
+      - PsychoRaider2Gear
       - PsychoRaider3Gear
-      - PsychoRaider4Gear 
+      - PsychoRaider4Gear
       - PsychoRaider5Gear
 
 - type: entity
-  name: Gunners Conscript
+  name: Cult of Liberty Conscript
   id: N14MobRaiderFernMelee
   parent: N14BaseMobRaider
-  description: Professional mercenary-wannabe, ready to beat someone up.
+  description: Pressed into service by backwoods crusaders, they now serve at the frontlines of the militia's push into the region. Confused and scared, they see you as a threat and will aim to kill.
   components:
     - type: Loadout
       prototypes:
@@ -27,10 +27,10 @@
       - FernConscript5Gear
 
 - type: entity
-  name: Enforcer Beatcop
+  name: Warden Cudgel
   id: N14MobRaiderEnforcerMelee
   parent: N14BaseMobRaider
-  description: Law enforcement? No. Just a really fancy raider.
+  description: Seasoned mercenaries promoted from the rank of Leadhead, they’ve been given full body armor and increased authority, and are often used as peacekeepers when hired by towns.
   components:
     - type: Loadout
       prototypes:
@@ -39,3 +39,13 @@
       - EnforcerBeatcop3Gear
       - EnforcerBeatcop4Gear
       - EnforcerBeatcop5Gear
+
+- type: entity
+  name: Warden Sentinel
+  id: N14MobRaiderEnforcerShield
+  parent: N14BaseMobShielderEnforcer
+  description: Former Cudgels of the Wardens Company, now trained with a focus on shield tactics, they are often employed as bodyguards in non-combat-zones, and used as riot control in cities.
+  components:
+    - type: Loadout
+      prototypes:
+      - EnforcerShieldman1Gear
