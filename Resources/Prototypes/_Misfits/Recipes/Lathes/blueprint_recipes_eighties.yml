@@ -166,9 +166,9 @@
   - Eighties
   completetime: 6
   materials:
-    Steel: 4000
-    Plastic: 1000
-    N14Silver: 300
+    Steel: 400
+    Plastic: 100
+    N14Silver: 30
 - type: latheRecipe
   id: BlueprintDesertEagleEighties
   result: N14WeaponDesertEagle44
@@ -179,9 +179,9 @@
   - Eighties
   completetime: 8
   materials:
-    Steel: 5000
-    Plastic: 1000
-    N14Silver: 300
+    Steel: 250
+    Plastic: 500
+    N14Silver: 150
 - type: latheRecipe
   id: BlueprintHuntingRevolverEighties
   result: N14WeaponRevolver45-70Hunter
@@ -192,9 +192,9 @@
   - Eighties
   completetime: 8
   materials:
-    Steel: 5000
-    Wood: 1500
-    N14Silver: 200
+    Steel: 500
+    Wood: 150
+    N14Silver: 100
 - type: latheRecipe
   id: BlueprintDouglasSmgEighties
   result: N14WeaponSMG12mmAdvancedCanadian
@@ -205,9 +205,9 @@
   - Eighties
   completetime: 8
   materials:
-    Steel: 6000
-    Plastic: 1000
-    N14Silver: 400
+    Steel: 3000
+    Plastic: 500
+    N14Silver: 200
 - type: latheRecipe
   id: BlueprintCanadiaSmgEighties
   result: N14WeaponSMG9mmCanadian
@@ -218,9 +218,9 @@
   - Eighties
   completetime: 8
   materials:
-    Steel: 6000
-    Plastic: 1000
-    N14Silver: 400
+    Steel: 600
+    Plastic: 500
+    N14Silver: 200
 
 # t5 weapons
 
@@ -234,10 +234,10 @@
   - Eighties
   completetime: 12
   materials:
-    Steel: 7000
-    Plastic: 1500
-    N14Silver: 500
-    N14Gold: 300
+    Steel: 4500
+    Plastic: 750
+    N14Silver: 250
+    N14Gold: 150
 - type: latheRecipe
   id: BlueprintPipeSniper50Eighties
   result: N14WeaponSniper50Pipe
@@ -250,8 +250,8 @@
   materials:
     Steel: 7000
     Wood: 1500
-    N14Silver: 500
-    N14Gold: 300
+    N14Silver: 250
+    N14Gold: 150
 - type: latheRecipe
   id: BlueprintSmg180Eighties
   result: N14WeaponSMGAmerican180
@@ -262,10 +262,10 @@
   - Eighties
   completetime: 12
   materials:
-    Steel: 8000
-    Plastic: 1500
-    N14Silver: 500
-    N14Gold: 300
+    Steel: 4000
+    Plastic: 750
+    N14Silver: 250
+    N14Gold: 150
 - type: latheRecipe
   id: BlueprintSmg127AdvancedEighties
   result: N14WeaponSMG12mmAdvanced
@@ -276,10 +276,10 @@
   - Eighties
   completetime: 14
   materials:
-    Steel: 9000
-    Plastic: 2000
-    N14Silver: 500
-    N14Gold: 300
+    Steel: 4500
+    Plastic: 1000
+    N14Silver: 250
+    N14Gold: 150
 - type: latheRecipe
   id: BlueprintChinaLakeEighties
   result: N14WeaponLauncherGrenade
@@ -290,10 +290,10 @@
   - Eighties
   completetime: 20
   materials:
-    Steel: 20000
-    Plastic: 2000
-    N14Silver: 2000
-    N14Gold: 2000
+    Steel: 1000
+    Plastic: 1000
+    N14Silver: 500
+    N14Gold: 500
 
 
 # ammo
