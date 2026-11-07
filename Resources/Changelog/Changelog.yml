@@ -12834,3 +12834,24 @@ Entries:
   id: 6558
   time: '2026-11-07T05:35:22.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2161
+- author: JohnKieser
+  changes:
+    - type: Fix
+      message: Gorehew sprite issues should be fixed
+    - type: Fix
+      message: Empty raider ammo boxes should show up correctly if they did not already
+    - type: Fix
+      message: in-hand sprites for raiders with guns were not showing
+    - type: Fix
+      message: >-
+        new canaan loadout items, shemagh and police vest, should actually
+        appear now in the loadout menu  
+    - type: Tweak
+      message: >-
+        Heavy Scavenger armor pierce and heat buffed to 0.7 . Given a slowdown 
+        of .8. .75 explosive resist
+    - type: Tweak
+      message: 'metal armor loadout cost now 5. Tribal armor loadout cost now 2. '
+  id: 6559
+  time: '2026-11-07T17:05:55.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2162
