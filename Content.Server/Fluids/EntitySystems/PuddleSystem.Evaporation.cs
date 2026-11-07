@@ -25,7 +25,7 @@ public sealed partial class PuddleSystem
         //                  so we did a O(n*v) operation each time. n being evaporationRegeants and v being regeants in the puddle
         //                  new check is still worst case O(n*v) for puddles with no evaporation chems but at least exits early
         //                  should be changed in the future with a better refactor if puddles are still an issue
-        if (solution.Contents.Any(x => EvaporationReagents.Contains(x.Reagent.Prototype)))
+        if (solution.Contents.Any(x => EvaporationReagents.Contains(x.Reagent.Prototype.Id)))
         {
             AddComp<EvaporationComponent>(uid);
             return;
@@ -46,7 +46,7 @@ public sealed partial class PuddleSystem
                 continue;
 
             puddleSolution.SplitSolutionWithOnly(evaporation.EvaporationAmount, EvaporationReagents);
-            // Despawn if we're done
+            // container is
             if (puddleSolution.Volume == FixedPoint2.Zero)
                 QueueDel(uid);
 

@@ -9,8 +9,6 @@ public abstract partial class SharedPuddleSystem
 {
     public static string[] EvaporationReagents { get; private set; } = Array.Empty<string>();
 
-    public static string[] PuddleOnly { get; private set; } = Array.Empty<string>();
-
     private void InitializeEvaporation()
     {
         EvaporationReagents = _prototypeManager
@@ -19,12 +17,6 @@ public abstract partial class SharedPuddleSystem
             .Select(p => p.ID)
             .ToArray();
 
-
-        PuddleOnly = _prototypeManager
-            .EnumeratePrototypes<ReagentPrototype>()
-            .Where(p => p.PuddleOnlyInstantEvaporation)
-            .Select(p => p.ID)
-            .ToArray();
     }
 
 

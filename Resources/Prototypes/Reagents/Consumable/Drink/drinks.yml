@@ -384,7 +384,7 @@
   flavor: fizzy
   color: "#619494"
   fizziness: 0.8
-  #evaporate
+  evaporates: true
 
 - type: reagent
   id: SoyLatte
@@ -449,7 +449,7 @@
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
-  #evaporate
+  evaporates: true
 
 - type: reagent
   id: Water
@@ -472,7 +472,7 @@
         damage:
           types:
             Dehydration: -0.5
-  #evaporates
+  evaporates: true
 
 - type: reagent
   id: Ice
@@ -493,7 +493,8 @@
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
-  #evaporate
+  evaporates: true
+  evaporationRate: 0.5
 
 - type: reagent
   id: DryRamen

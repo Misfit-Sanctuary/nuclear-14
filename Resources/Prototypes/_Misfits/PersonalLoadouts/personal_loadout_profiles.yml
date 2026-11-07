@@ -52,8 +52,25 @@
       head:
       - state: off-equipped-HELMET
 
+#- type: personalLoadoutProfile
+#  id: MisfitsPersonalLoadoutEmissarius
+#  accountNames:
+#  - Barkuaad
+#  characterNames:
+#  - Valere Fallax
+#  equipment:
+#  - jobs:
+#    - CaesarLegionFrumentarii
+#    replacements:
+#      head: MisfitsEmissariushood
+#      jumpsuit: MisfitsEmissariusCloth
+#      gloves: MisfitsEmissariusGloves
+#      outerClothing: MisfitsEmissariusOuter
+#      mask: MisfitsEmissariusMask
+#      shoes: MisfitsEmissariusBoots
+
 - type: personalLoadoutProfile
-  id: MisfitsPersonalLoadoutEmissarius
+  id: MisfitsPersonalLoadoutCruorisMandex
   accountNames:
   - Barkuaad
   characterNames:
@@ -62,9 +79,9 @@
   - jobs:
     - CaesarLegionFrumentarii
     replacements:
-      head: MisfitsEmissariushood
-      jumpsuit: MisfitsEmissariusCloth
-      gloves: MisfitsEmissariusGloves
-      outerClothing: MisfitsEmissariusOuter
-      mask: MisfitsEmissariusMask
-      shoes: MisfitsEmissariusBoots
+      head: MisfitsCruorisMandexHood
+      jumpsuit: MisfitsCruorisMandexCloth
+      gloves: MisfitsCruorisMandexGloves
+      outerClothing: MisfitsCruorisMandexOuter
+      mask: MisfitsCruorisMandexMask
+      shoes: MisfitsCruorisMandexBoots
