@@ -6,8 +6,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitEnclaveBlue
-  name: enclave uniform (blue)
-  description: A blue field-variant of the standard enclave uniform, worn by personnel operating in more arctic environments, and theoretically in naval operations.
+  name: U.S. Army uniform (blue)
+  description: A blue field-variant of the standard U.S. Army uniform. Worn by personnel operating in colder or more covert environments.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/Uniforms/enclave_uniform_blue.rsi
@@ -18,8 +18,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitEnclaveGrey
-  name: enclave uniform (grey)
-  description: A grey field-variant of the standard enclave uniform, blends in well with urban ruins and rocky terrain. Not many lush forests remain to worry about.
+  name: U.S. Army uniform (grey)
+  description: A grey field-variant of the standard U.S. Army uniform. Blends better in ash-grey ruins and rocky terrain.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/Uniforms/enclave_uniform_grey.rsi

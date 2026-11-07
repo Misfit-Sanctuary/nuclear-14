@@ -2,8 +2,8 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyBrotherhoodMidwest
-  name: Midwest Brotherhood Encryption Key
-  description: An encryption key used by the Brotherhood of Steel, repurposed from pre-war military hardware towards these new operations. This one is set to a frequency used by the Midwest chapter of the Brotherhood.
+  name: BoS Encryption Key
+  description: An encryption key used by the Brotherhood of Steel.
   components:
   - type: EncryptionKey
     channels:
@@ -33,7 +33,7 @@
   parent: EncryptionKey
   id: EncryptionKeyBrotherhoodOfSteel
   name: Brotherhood encryption key
-  description: An encryption key used by the Brotherhood of Steel, repurposed from pre-war military hardware towards these new operations.
+  description: An encryption key used by the Brotherhood of Steel.
   components:
   - type: EncryptionKey
     channels:
@@ -48,7 +48,7 @@
   parent: EncryptionKey
   id: EncryptionKeyEnclave
   name: Enclave encryption key
-  description: An encryption key used by the Enclave, a piece of pre-war military hardware allocated through unofficial blackops channels.
+  description: An encryption key used by the Enclave.
   categories: [ HideSpawnMenu ]
   components:
   - type: EncryptionKey
@@ -64,7 +64,7 @@
   parent: EncryptionKey
   id: EncryptionKeyNCR
   name: NCR encryption key
-  description: An encryption key used by the New California Republic, manufactured in the factories of the Boneyard by their free citizens. This one is set to a general government frequency, for non-civilian use.
+  description: An encryption key used by the NCR.
   components:
   - type: EncryptionKey
     channels:
@@ -79,7 +79,7 @@
   parent: EncryptionKey
   id: EncryptionKeyOSI
   name: OSI encryption key
-  description: An encryption key for the NCR's Office of Science and Industry, a branch of the civilian government. Their work is what led to the factories that produced these being operational in the first place.
+  description: An encryption key for NCR Office of Science and Industry personnel.
   components:
   - type: EncryptionKey
     channels:
@@ -94,7 +94,7 @@
   parent: EncryptionKey
   id: EncryptionKeyNCRRangers
   name: NCR Ranger encryption key
-  description: An encryption key used by the New California Republic rangers, manufactured in the factories of the Boneyard by the nation's workers. This one is set to a special operations frequency, for use by field operatives.
+  description: An encryption key for NCR Ranger field traffic.
   components:
   - type: EncryptionKey
     channels:
@@ -123,8 +123,8 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyNCRMaster
-  name: NCR command encryption key
-  description: An encryption key used by the New California Republic, manufactured in the factories of the Boneyard by free civilian workers. This one is an army command headset key, with access to a multitude of government frequencies at once.
+  name: NCR encryption key
+  description: An encryption key used by the NCR.
   components:
   - type: EncryptionKey
     channels:
@@ -141,7 +141,7 @@
   parent: EncryptionKey
   id: EncryptionKeyVault
   name: Vault encryption key
-  description: An encryption key used by Vault-Tec, manufactured pre-war and passed down through generations, and now in your hands. It is used by vault dwellers and Vault-Tec's own corporate offices alike, but good luck finding them still alive.
+  description: An encryption key used by the local Vault.
   components:
   - type: EncryptionKey
     channels:
@@ -156,7 +156,7 @@
   parent: EncryptionKey
   id: EncryptionKeyPBS
   name: PBS encryption key
-  description: An encryption key used for local broadcast messages, the public broadcast system ensures no matter where you are, you can stay up to date on important emergency updates, or some mad drifter rambling about their grievances.
+  description: An encryption key used by the local broadcast messages.
   components:
   - type: EncryptionKey
     channels:
@@ -172,7 +172,7 @@
   parent: EncryptionKey
   id: EncryptionKeyLegion
   name: Legion encryption key
-  description: An encryption key used by Caesar's Legion, scavenged from pre-war supplies stockpiled in the Grand Canyon. These are of a limited supply, and their circulation is tightly controlled, or it was until the Legion's split.
+  description: An encryption key used by Caesar's Legion.
   components:
   - type: EncryptionKey
     channels:
@@ -188,7 +188,7 @@
   parent: EncryptionKey
   id: EncryptionKeyEighties
   name: Eighties encryption key
-  description: An encryption key used by the raider tribe known as The Eighties, scavenged from pre-war highway police headsets and car radios. They tend to find more of them as they scavenge the I-80 for replacement parts for their great war machines.
+  description: An encryption key used by the Eighties raiders.
   components:
   - type: EncryptionKey
     channels:
@@ -203,7 +203,7 @@
   parent: EncryptionKey
   id: EncryptionKeyWastelandGlobal
   name: wasteland radio encryption key
-  description: An encryption key used by the common drifters of the wasteland, these are often pre-war corporate workplace chips or from domestic communication devices, wiped clean of their old configurations and tuned to the local general frequency.
+  description: A common encryption key used across the wasteland.
   components:
   - type: EncryptionKey
     channels:
@@ -219,7 +219,7 @@
   parent: EncryptionKey
   id: EncryptionKeyFollowers
   name: Followers encryption key
-  description: An encryption key used by the Followers of the Apocalypse, manufactured in the Boneyard's factories in the New California Republic. The Followers often get these provided at no cost, due to the charity work they already do for the city's people.
+  description: An encryption key used by the Followers of the Apocalypse.
   components:
   - type: EncryptionKey
     channels:
@@ -235,7 +235,7 @@
   parent: EncryptionKey
   id: EncryptionKeyTown
   name: Town encryption key
-  description: An encryption key used by the townsfolk of The Bazaar, produced by local mechanics from scavenged circuitry and other pre-war salvage. They are tuned to a private frequency for the settlement's use, and are kept in tight circulation.
+  description: An encryption key used by the Bazaar Townsfolk.
   components:
   - type: EncryptionKey
     channels:
@@ -251,7 +251,7 @@
   parent: EncryptionKey
   id: EncryptionKeyZAX
   name: Z.A.X binary encryption key
-  description: An encryption key used by silicon units linked to a Z.A.X. network, either produced pre-war or post-war by the Z.A.X. itself. It has proven impossible for humans to replicate this chip, only salvage it from networked units themselves.
+  description: An encryption key used by Z.A.X-linked silicon units.
   components:
   - type: EncryptionKey
     channels:
@@ -266,8 +266,8 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyBrotherhoodMidwestUR
-  name: Brotherhood Encryption Key
-  description: An encryption key used by the Brotherhood of Steel, repurposed from pre-war military hardware towards these new operations.
+  name: BoS Encryption Key
+  description: An encryption key used by the Brotherhood of Steel.
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -283,7 +283,7 @@
   parent: EncryptionKey
   id: EncryptionKeyBrotherhoodOfSteelUR
   name: Brotherhood encryption key
-  description: An encryption key used by the Brotherhood of Steel, repurposed from pre-war military hardware towards these new operations.
+  description: An encryption key used by the Brotherhood of Steel.
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -299,7 +299,7 @@
   parent: EncryptionKey
   id: EncryptionKeyEnclaveUR
   name: Enclave encryption key
-  description: An encryption key used by the Enclave, a piece of pre-war military hardware allocated through unofficial blackops channels.
+  description: An encryption key used by the Enclave.
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -314,8 +314,8 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyNCRMasterUR
-  name: NCR command encryption key
-  description: An encryption key used by the New California Republic, manufactured in the factories of the Boneyard by free civilian workers. This one is an army command headset key, with access to a multitude of government frequencies at once.
+  name: NCR encryption key
+  description: An encryption key used by the NCR.
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -333,7 +333,7 @@
   parent: EncryptionKey
   id: EncryptionKeyNCRUR
   name: NCR encryption key
-  description: An encryption key used by the New California Republic, manufactured in the factories of the Boneyard by their free citizens. This one is set to a general government frequency, for non-civilian use.
+  description: An encryption key used by the NCR.
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -349,7 +349,7 @@
   parent: EncryptionKey
   id: EncryptionKeyOSIUR
   name: OSI encryption key
-  description: An encryption key for the NCR's Office of Science and Industry, a branch of the civilian government. Their work is what led to the factories that produced these being operational in the first place.
+  description: An encryption key for NCR Office of Science and Industry personnel.
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -365,7 +365,7 @@
   parent: EncryptionKey
   id: EncryptionKeyNCRRangersUR
   name: NCR Ranger encryption key
-  description: An encryption key used by the New California Republic rangers, manufactured in the factories of the Boneyard by the nation's workers. This one is set to a special operations frequency, for use by field operatives.
+  description: An encryption key for NCR Ranger field traffic.
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -397,7 +397,7 @@
   parent: EncryptionKey
   id: EncryptionKeyVaultUR
   name: Vault encryption key
-  description: An encryption key used by Vault-Tec, manufactured pre-war and passed down through generations, and now in your hands. It is used by vault dwellers and Vault-Tec's own corporate offices alike, but good luck finding them still alive.
+  description: An encryption key used by the local Vault.
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -413,7 +413,7 @@
   parent: EncryptionKey
   id: EncryptionKeyPBSUR
   name: PBS encryption key
-  description: An encryption key used for local broadcast messages, the public broadcast system ensures no matter where you are, you can stay up to date on important emergency updates, or some mad drifter rambling about their grievances.
+  description: An encryption key used by the local broadcast messages.
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -430,7 +430,7 @@
   parent: EncryptionKey
   id: EncryptionKeyLegionUR
   name: Legion encryption key
-  description: An encryption key used by Caesar's Legion, scavenged from pre-war supplies stockpiled in the Grand Canyon. These are of a limited supply, and their circulation is tightly controlled, or it was until the Legion's split.
+  description: An encryption key used by Caesar's Legion.
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -447,7 +447,7 @@
   parent: EncryptionKey
   id: EncryptionKeyEightiesUR
   name: Eighties encryption key
-  description: An encryption key used by the raider tribe known as The Eighties, scavenged from pre-war highway police headsets and car radios. They tend to find more of them as they scavenge the I-80 for replacement parts for their great war machines.
+  description: An encryption key used by the Eighties raiders.
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -464,7 +464,7 @@
   parent: EncryptionKey
   id: EncryptionKeyFollowersUR
   name: Followers encryption key
-  description: An encryption key used by the Followers of the Apocalypse, manufactured in the Boneyard's factories in the New California Republic. The Followers often get these provided at no cost, due to the charity work they already do for the city's people.
+  description: An encryption key used by the Followers of the Apocalypse.
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -481,7 +481,7 @@
   parent: EncryptionKey
   id: EncryptionKeyTownUR
   name: Town encryption key
-  description: An encryption key used by the townsfolk of The Bazaar, produced by local mechanics from scavenged circuitry and other pre-war salvage. They are tuned to a private frequency for the settlement's use, and are kept in tight circulation.
+  description: An encryption key used by the Bazaar Townsfolk.
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -497,7 +497,7 @@
   parent: EncryptionKey
   id: EncryptionKeyCommonUR
   name: common encryption key
-  description: An encryption key made for general purpose domestic use, commonly found in office devices and in home electronics. Often repurposed by drifters and sold as salvage to be tuned to new frequencies.
+  description: An encryption key used by anyone.
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -513,7 +513,7 @@
   parent: EncryptionKey
   id: EncryptionKeyMedicalUR
   name: medical encryption key
-  description: An encryption key used by pre-war clinics and hospitals, to keep paramedics, pharmacists and surgeons in close coordination. These can be seen used by post-war doctors and other, less savory individuals who are technically in the medical field.
+  description: An encryption key used by those who save lives.
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -529,7 +529,7 @@
   parent: EncryptionKey
   id: EncryptionKeyScienceUR
   name: epistemics encryption key # DeltaV - Epistemics Department replacing Science
-  description: An encryption key used by pre-war scientists, its a miracle you even got your hands on this. Likely worth a nice reward to the right person. But its still unlikely anyone's listening on the other end still.
+  description: An encryption key used by scientists. Maybe it is plasmaproof?
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -545,7 +545,7 @@
   parent: EncryptionKey
   id: EncryptionKeySecurityUR
   name: security encryption key
-  description: An encryption key used by pre-war corporate security officers, these got loose as the food riots swelled in number and defections became more commonplace. Its not uncommon to find these used by frontier militias and bandit gangs alike.
+  description: An encryption key used by security.
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -561,8 +561,8 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyStationMasterUR
-  name: corporate master encryption key
-  description: An encryption key used by pre-war corporate bosses, to keep a tight grip on their operations from the junior executives and middle management, all the way down to individual laborers and office drones. Perfect for the aspiring control freak.
+  name: station master encryption key
+  description: An encryption key used by station's bosses.
   components:
   - type: Unremoveable
   - type: EncryptionKey
@@ -587,7 +587,7 @@
   parent: EncryptionKey
   id: EncryptionKeyEngineeringUR
   name: engineering encryption key
-  description: An encryption key used by pre-war engineers in the employement of local city governments, overworked and underpaid with mounting damages as supplies kept dwindling or ending up outright stolen. Its a nice bit of history to put in your collection.
+  description: An encryption key used by the engineers.
   components:
   - type: Unremoveable
   - type: EncryptionKey

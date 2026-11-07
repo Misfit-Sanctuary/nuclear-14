@@ -24,7 +24,7 @@
   parent: ClothingHeadBase
   id: NCClothingHeadHatBoSReaconHood
   name: Brotherhood of Steel Hood
-  description: The hood of a Brotherhood of Steel Scout.
+  description: The hood of the Brotherhood Scout
   components:
   - type: Sprite
     sprite: Corvax/Clothing/Head/Hoods/bosReaconHood.rsi
@@ -39,8 +39,8 @@
 - type: entity
   parent: N14ClothingHeadSuitbase
   id: N14ClothingHeadHatHelmetRadHelmetEnclave
-  name: Enclave Radiation Suit Helmet
-  description: An advanced pre-war helmet used to handle radioactive material.
+  name: radiation suit helmet U.S. Army
+  description: A advance helmet used pre war to handle radioactive material.
   components:
   - type: Sprite
     sprite: Corvax/Clothing/Head/Hoods/enclavehelmetrad.rsi
