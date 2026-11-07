@@ -14,24 +14,30 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        60: Critical 
-        75: Dead
+        80: Critical 
+        160: Dead
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        60: 0.8
     - type: Destructible #Misfits Change /Add: Drop bottle caps on death (1-7) #wassuy this do not work, please someone fixit
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 75
+          damage: 160
         behaviors:
         - !type:PlaySoundBehavior #Wassuy Change - raider death sound didnt really work tho, need fix too
           sound:
             collection: MisfitsRaiderDeath
     - type: PassiveDamage # It's mostly for the faction NPCs, but can be here nonetheless.
       allowedStates:
-      - Alive
+      - Critical
+      damageCap: 300
       damage:
         groups:
-          Toxin: -1
-          Airloss: -3
+          Brute: -0.1
+          Burn: -0.1
+          Toxin: -0.1
+          Airloss: -1
     - type: MindContainer
       showExamineInfo: False
     - type: InputMover
@@ -43,20 +49,22 @@
       rootTask:
         task: N14RangedHostileCompound
       blackboard:
-        NavSmash: !type:Bool
-          true
-        NavInteract: !type:Bool
+        NavInteract: !type:Bool    #Wassuy buncha Nav so better ai
           true
         NavClimb: !type:Bool
           true
+        NavPry: !type:Bool
+         true
+        NavSmash: !type:Bool
+         true
         VisionRadius: !type:Single #Wassuy added this so they detect you less
           10.5
         MeleeRange: !type:Single
           1.5
     - type: IdleSound #Wassuy added voiceline and combat sound here
     - type: SpamEmitSound
-      minInterval: 20
-      maxInterval: 80
+      minInterval: 30
+      maxInterval: 120
       sound:
         collection: MisfitsRaiderIdle
         params:

@@ -1,0 +1,61 @@
+﻿- type: palette
+  id: falloutbookcolor
+  name: falloutbookcolor
+  colors:
+    black: "#24211A"
+    red: "#77411f"
+    orange: "#885626"
+    green: "#566556"
+    pale green: "#939483"
+    olive: "#575A43"
+    lime: "#78764F"
+    brown: "#3C2419"
+    tan: "#917F61"
+    blue: "#4C4E6C"
+    "light blue": "#646689"
+    cyan: "#58808E"
+    "light gray": "#E4E2E4"
+
+- type: palette
+  id: falloutbookcolorburned
+  name: falloutbookcolorburned
+  colors:
+    black: "#24211A"
+    dark red: "#5E473F"
+    dark orange: "#695044"
+    dark green: "#41443E"
+    grey: "#42433E"
+    brown: "#75644E"
+    darkbrown: "#53452D"
+
+- type: palette
+  id: falloutbookcolorfaded
+  name: falloutbookcolorfaded
+  colors:
+    black: "#24211A"
+    red: "#b7622d"
+    orange: "#855e38"
+    green: "#535853"
+    pale green: "#6a6b65"
+    olive: "#525443"
+    lime: "#676651"
+    brown: "#5b3f33"
+    tan: "#766c5c"
+    blue: "#5d5e6e"
+    "light blue": "#797a8d"
+    cyan: "#687e85" 
+    "light gray": "#9D9D97"
+
+- type: palette
+  id: falloutbookcolorfadeddamaged
+  name: falloutbookcolorfadeddamaged
+  colors:
+    black: "#24211A"
+    dark red: "#5E473F"
+    dark orange: "#695044"
+    green: "#566556"
+    dark green: "#41443E"
+    olive: "#575A43"
+    brown: "#75644E"
+    dark brown: "#53452D"
+    grey: "#42433E"

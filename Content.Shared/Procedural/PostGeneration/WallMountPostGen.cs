@@ -1,6 +1,6 @@
+using Robust.Shared.Prototypes;
 using Content.Shared.Maps;
 using Content.Shared.Storage;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Procedural.PostGeneration;
 
@@ -9,8 +9,8 @@ namespace Content.Shared.Procedural.PostGeneration;
 /// </summary>
 public sealed partial class WallMountPostGen : IPostDunGen
 {
-    [DataField("tile", customTypeSerializer:typeof(PrototypeIdSerializer<ContentTileDefinition>))]
-    public string Tile = "FloorSteel";
+    [DataField("tile")]
+    public ProtoId<ContentTileDefinition> Tile = "FloorSteel";
 
     [DataField("spawns")]
     public List<EntitySpawnEntry> Spawns = new();

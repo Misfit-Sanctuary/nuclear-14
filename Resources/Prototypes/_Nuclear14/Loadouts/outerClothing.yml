@@ -363,9 +363,24 @@
   - MisfitsClothingOuterNewCanaanLeatherVest
 
 - type: loadout
+  id: N14LoadoutOuterTownNewCanaanPoliceVest
+  category: Outer
+  cost: 3
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutOuter
+  - !type:CharacterDepartmentRequirement # Forge-Change
+    inverted: false
+    departments:
+    - Townsfolk
+  items:
+  - MisfitsClothingOuterNewCanaanPoliceVest
+
+
+- type: loadout
   id: N14LoadoutOuterMetalArmor
   category: Outer
-  cost: 1
+  cost: 5
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
@@ -393,7 +408,7 @@
 - type: loadout
   id: N14LoadoutOuterTribalArmor
   category: Outer
-  cost: 1
+  cost: 2
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter

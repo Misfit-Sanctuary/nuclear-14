@@ -361,7 +361,7 @@
       amount: 2
     # Handgun
     - id: N14WeaponPistol45Colt
-    - id: N14BaseMagazine45Pistol
+    - id: N14MagazinePistol45
       amount: 2
     # Medical supplies
     - id: N14SuperStimpak
@@ -2115,3 +2115,65 @@
       - id: N14JunkCeramicFlask
       - id: N14FoodTinC1
       - id: N14FoodTinC2
+
+# #Misfits Add - Ranger Medic loadout kits: a light kit built around the service
+# carbine and a heavy one for medics who expect close work (loose .45-70 for the
+# Sequoia, combat medkit instead of the field one).
+- type: entity
+  name: ranger medic kit
+  parent: KitBase
+  id: KitRangerMedic
+  description: A Ranger field kit carrying a scoped 7.62 marksman rifle, a combat defibrillator and a full medical pouch.
+  components:
+  - type: Sprite
+    state: medic
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: ClothingBeltNCR
+      - id: N14WeaponRifle762Marksman
+      - id: Magazine762Rifle
+        amount: 4
+      - id: N14AmmoBox762
+      - id: N14HandheldHealthAnalyzer
+      - id: DefibrillatorCompact
+      - id: N14Stimpak
+        amount: 4
+      - id: N14MedkitCombatFilled
+      - id: N14Bandage
+        amount: 3
+      - id: N14CombatKnife
+      - id: N14BoxCardboardMREBoxKFilled
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: ranger corpsman kit
+  parent: KitBase
+  id: KitRangerCorpsman
+  description: A heavier Ranger medical cache - an automatic combat shotgun, a combat defibrillator and the gear to work under fire.
+  components:
+  - type: Sprite
+    state: medic
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: ClothingBeltMedicalFilled
+      - id: N14WeaponShotgunAuto
+      - id: N14MagazineShotgun12
+        amount: 3
+      - id: N14AmmoBox12gauge
+      - id: N14HandheldHealthAnalyzer
+      - id: DefibrillatorCompact
+      - id: N14Stimpak
+        amount: 5
+      - id: N14MedkitCombatFilled
+      - id: N14Bandage
+        amount: 2
+      - id: N14CombatKnife
+      - id: N14BoxCardboardMREBoxKFilled
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+

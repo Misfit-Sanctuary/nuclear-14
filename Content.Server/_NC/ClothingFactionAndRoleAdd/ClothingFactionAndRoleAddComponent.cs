@@ -1,6 +1,6 @@
+using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
 using Content.Shared.NPC.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 
 namespace Content.Server._NC.ClothingFactionAndRoleAdd
@@ -17,8 +17,8 @@ namespace Content.Server._NC.ClothingFactionAndRoleAdd
         /// ID of the fraction that needs to be added or removed when the corresponding clothing is equipped or removed.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite),
-         DataField("faction", customTypeSerializer: typeof(PrototypeIdSerializer<NpcFactionPrototype>))]
-        public string Faction = default!;
+         DataField("faction")]
+        public ProtoId<NpcFactionPrototype> Faction = default!;
 
         /// <summary>
         /// ID of the role (job) that needs to be added or removed
@@ -26,7 +26,7 @@ namespace Content.Server._NC.ClothingFactionAndRoleAdd
         /// If you do not specify a role, then only a faction will be added to the player.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite),
-         DataField("role", customTypeSerializer: typeof(PrototypeIdSerializer<JobPrototype>))]
-        public string JobId = default!;
+         DataField("role")]
+        public ProtoId<JobPrototype> JobId = default!;
     }
 }

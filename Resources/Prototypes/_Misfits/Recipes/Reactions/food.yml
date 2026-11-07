@@ -1,4 +1,88 @@
-﻿- type: reaction
+﻿# Sweets
+- type: reaction
+  id: BlackberryCandy
+  impact: Low
+  quantized: true
+  minTemp: 370
+  reactants:
+    BlackberryJam:
+      amount: 5
+    Sugar:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MisfitsFoodBlackberryCandy
+
+- type: reaction
+  id: BuffaloGourdCandy
+  impact: Low
+  quantized: true
+  minTemp: 370
+  reactants:
+    ExtractBuffaloGourd:
+      amount: 5
+    Sugar:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MisfitsFoodBuffaloGourdCandy
+
+- type: reaction
+  id: ButterscotchCandy
+  impact: Low
+  quantized: true
+  minTemp: 370
+  reactants:
+    Butterscotch:
+      amount: 5
+    Sugar:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MisfitsFoodButterscotchCandy
+
+- type: reaction
+  id: ButterscotchReaction
+  impact: Low
+  quantized: true
+  minTemp: 354
+  reactants:
+    Butter:
+      amount: 1
+    Sugar:
+      amount: 1
+  products:
+    Butterscotch: 2
+
+- type: reaction
+  id: CarrotCandy
+  impact: Low
+  quantized: true
+  minTemp: 370
+  reactants:
+    JuiceCarrot:
+      amount: 5
+    Sugar:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MisfitsFoodCarrotCandy
+
+- type: reaction
+  id: JetCandy
+  impact: Low
+  quantized: true
+  minTemp: 370
+  reactants:
+    MovespeedMixture:
+      amount: 5
+    Sugar:
+      amount: 10
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MisfitsFoodJetCandy
+
+- type: reaction
   id: MisfitsChocolate
   impact: Low
   quantized: true

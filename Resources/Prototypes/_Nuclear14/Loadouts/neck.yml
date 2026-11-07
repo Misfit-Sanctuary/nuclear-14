@@ -44,11 +44,11 @@
 
  - type: loadout
    id: MisfitsNeckTownNewCanaanShemagh
-   category: Mask
+   category: Neck
    cost: 0
    requirements:
    - !type:CharacterItemGroupRequirement
-     group: N14LoadoutMask
+     group: N14LoadoutNeck
    - !type:CharacterDepartmentRequirement # Forge-Change
      inverted: false
      departments:

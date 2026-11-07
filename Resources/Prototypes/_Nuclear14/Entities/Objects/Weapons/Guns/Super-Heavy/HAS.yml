@@ -1,0 +1,76 @@
+- type: entity
+  name: heavy automatic shotgun
+  parent: [BaseItem, BaseGunWieldable]
+  id: N14WeaponHAS
+  description: A crew-served, belt-fed heavy automatic shotgun chambered in 20 gauge, built from a minigun chassis. Its bulk and recoil demand exceptional strength or a suit of power armor to control. The ammo belt is fed from a dedicated ammo backpack rather than stored inside the weapon.
+  components:
+  - type: Tag
+    tags:
+      - N14HAS
+  - type: N14BackpackFedWeapon
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/minigun.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
+    layers:
+      - state: icon
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Ginormous
+    sprite: _Nuclear14/Objects/Weapons/Guns/Heavy/minigun.rsi
+  - type: Wieldable
+    wieldedInhandPrefix: null # N14 minigun.rsi has no wielded-inhand states; keep plain inhand while braced
+  - type: GunRequiresWield
+  - type: AmmoCounter
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -60
+  - type: Gun
+    minAngle: 18
+    maxAngle: 55
+    angleIncrease: 4
+    angleDecay: 12
+    fireRate: 3
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      collection: N14AutoShotgunGunshot
+  - type: ClothingSlotAmmoProvider
+    targetSlot: BACK
+    providerWhitelist:
+      tags:
+        - N14HASBackpack
+  - type: ClothingSpeedModifier
+    walkModifier: 0.6
+    sprintModifier: 0.6
+  - type: FollowDistance
+    backStrength: 6
+  - type: N14SuperHeavyWeapon
+    minStrength: 7
+  - type: StaticPrice
+    price: 1200
+  - type: Execution
+  - type: MeleeWeapon
+    attackRate: 1.3333
+    damage:
+      types:
+        Blunt: 8.5
+    bluntStaminaDamageFactor: 1.25
+    swapKeys: true
+    disableHeavy: true
+    animation: WeaponArcThrust
+    wideAnimationRotation: 180
+    soundHit:
+      collection: MetalThud
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 2.5
+  - type: DamageOtherOnHit
+    staminaCost: 7.5
+  - type: FarGunshot

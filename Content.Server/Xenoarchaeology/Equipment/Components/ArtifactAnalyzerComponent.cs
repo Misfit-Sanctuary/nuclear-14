@@ -2,7 +2,6 @@ using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Content.Shared.Construction.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Xenoarchaeology.Equipment.Components;
 

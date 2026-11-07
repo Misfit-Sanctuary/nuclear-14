@@ -1,0 +1,14 @@
+
+- type: entity
+  id: !type:CreateVariants
+    values: [MagazineBox9mmEmpty, MagazineBox12gaugeEmpty, MagazineBox20gaugeEmpty,
+             MagazineBox556Empty, MagazineBox545Empty, MagazineBox44Empty, N14AmmoBox556Empty, N14AmmoBox357Empty,
+             N14AmmoBox10mmEmpty, N14AmmoBox762Empty, MagazineBox45Empty, MagazineBox308Empty]
+  suffix: empty
+  parent: !type:CreateVariants
+    values: [MagazineBox9mm, MagazineBox12gauge, MagazineBox20gauge,
+             MagazineBox556, MagazineBox545, MagazineBox44, N14AmmoBox556, N14AmmoBox357,
+             N14AmmoBox10mm, N14AmmoBox762, MagazineBox45, MagazineBox308]
+  components:
+  - type: BallisticAmmoProvider
+    unspawnedCount: 0

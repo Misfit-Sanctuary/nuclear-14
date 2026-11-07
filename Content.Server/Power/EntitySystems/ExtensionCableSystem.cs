@@ -23,10 +23,8 @@ namespace Content.Server.Power.EntitySystems
 
             //Anchoring
             SubscribeLocalEvent<ExtensionCableReceiverComponent, AnchorStateChangedEvent>(OnReceiverAnchorStateChanged);
-            SubscribeLocalEvent<ExtensionCableReceiverComponent, ReAnchorEvent>(OnReceiverReAnchor);
 
             SubscribeLocalEvent<ExtensionCableProviderComponent, AnchorStateChangedEvent>(OnProviderAnchorStateChanged);
-            SubscribeLocalEvent<ExtensionCableProviderComponent, ReAnchorEvent>(OnProviderReAnchor);
         }
 
         #region Provider
@@ -86,12 +84,6 @@ namespace Content.Server.Power.EntitySystems
             // same as OnProviderShutdown
             provider.Connectable = false;
             ResetReceivers(provider);
-        }
-
-        private void OnProviderReAnchor(EntityUid uid, ExtensionCableProviderComponent component, ref ReAnchorEvent args)
-        {
-            Disconnect(uid, component);
-            Connect(uid, component);
         }
 
         private void ResetReceivers(ExtensionCableProviderComponent provider)
@@ -201,12 +193,6 @@ namespace Content.Server.Power.EntitySystems
             {
                 Disconnect(uid, receiver);
             }
-        }
-
-        private void OnReceiverReAnchor(EntityUid uid, ExtensionCableReceiverComponent receiver, ref ReAnchorEvent args)
-        {
-            Disconnect(uid, receiver);
-            Connect(uid, receiver);
         }
 
         private void Connect(EntityUid uid, ExtensionCableReceiverComponent receiver)
