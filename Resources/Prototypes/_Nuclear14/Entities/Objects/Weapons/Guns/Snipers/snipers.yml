@@ -429,6 +429,43 @@
     price: 10
 
 - type: entity
+  name: Pipe .50 pistol
+  parent: SniperPistolBase
+  id: M14.50pistol
+  description: A dangerously sawed off pipe .50 rifle, capable of breaking your arm if you aren't careful.
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/pipe50.rsi
+    - type: Clothing
+      sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/pipe50.rsi
+      slots:
+        - suitStorage
+        - Pocket
+    - type: Item
+      size: Small
+      sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/pipe50.rsi
+    - type: BallisticAmmoProvider
+      whitelist:
+        tags:
+          - N14Cartridge50
+      capacity: 1
+      proto: N14Cartridge50
+      minAngle: -23
+      maxAngle: -104
+    - type: Gun
+      minAngle: 24
+      maxAngle: 105
+      angleIncrease: 4
+      angleDecay: 16
+      fireRate: 1
+      soundGunshot:
+        collection: N14AntiMaterielGunshot
+    - type: FollowDistance
+      backStrength: 3
+    - type: StaticPrice
+      price: 10
+
+- type: entity
   name: huntstick
   parent: N14WeaponSniperHunting
   id: N14WeaponSniper308Tribal

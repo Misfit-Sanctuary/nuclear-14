@@ -388,3 +388,36 @@
     node: wasterkatana2
   - type: StaticPrice
     price: 75
+
+- type: entity
+  name: Rapier
+  parent: N14LongSword
+  id: M14Rapier
+  description: A fine sword given to the highest ranking officers of the NCR.
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Weapons/Melee/Rapier.rsi
+    - type: Item
+      sprite: _Nuclear14/Objects/Weapons/Melee/Rapier.rsi
+    - type: Clothing
+      sprite: _Nuclear14/Objects/Weapons/Melee/Rapier.rsi
+      quickEquip: false
+      slots:
+        - Belt
+        - suitStorage
+    - type: MeleeWeapon
+      wideAnimationRotation: -135
+      damage:
+        types:
+          Piercing: 40
+          Slash: 10
+      angle: 0
+      animation: WeaponArcThrust
+      soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+    - type: ActionGrant
+      actions:
+        - MisfitsActionMeleeCharge
+    - type: ItemActionGrant
+      actions:
+        - MisfitsActionMeleeCharge
