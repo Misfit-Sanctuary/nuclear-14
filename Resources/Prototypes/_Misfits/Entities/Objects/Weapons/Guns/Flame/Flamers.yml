@@ -1,0 +1,153 @@
+#MARK: New Weapons
+
+- type: entity
+  name: Flamer
+  parent: N14Flamebase
+  id: N14Flamer
+  description: A weapon that shoots a mixture of fuel.
+  components:
+  - type: MultiHandedItem
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Flame/flamer.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-2
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Misfits/Objects/Weapons/Guns/Flame/flamer.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: true
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14FlamerFuel
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14FlamerFuel
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: Gun
+    minAngle: 5
+    maxAngle: 30
+    angleIncrease: 1
+    angleDecay: 3
+    projectileSpeed: 10
+    fireRate: 8
+    soundGunshot:
+      path: /Audio/_Nuclear14/Weapons/Guns/Flames/flamer.ogg
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: FollowDistance
+    backStrength: 6
+  - type: StaticPrice
+    price: 400
+
+- type: entity
+  name: Incinerator
+  parent: N14Flamebase
+  id: N14Incinerator
+  description: A weapon that shoots a more explosive version of fuel
+  components:
+  - type: MultiHandedItem
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Flame/incinerator.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-2
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Misfits/Objects/Weapons/Guns/Flame/incinerator.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: true
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14EnrichedFlamerFuel
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14EnrichedFlamerFuel
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: Gun
+    minAngle: 5
+    maxAngle: 30
+    angleIncrease: 1
+    angleDecay: 3
+    projectileSpeed: 10
+    fireRate: 1
+    soundGunshot:
+      path: /Audio/_Nuclear14/Weapons/Guns/Flames/flamer.ogg
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: FollowDistance
+    backStrength: 6
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  id: N14Flamebase
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+  - type: Item
+    size: Large
+  - type: AmmoCounter
+  - type: Gun
+    minAngle: 25
+    maxAngle: 60
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 10
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Nuclear14/Weapons/Guns/Flames/flamer.ogg
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14FlamerFuel
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14FlamerFuel
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: StaticPrice
+    price: 100
