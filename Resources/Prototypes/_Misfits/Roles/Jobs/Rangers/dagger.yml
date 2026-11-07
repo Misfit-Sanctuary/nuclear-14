@@ -32,22 +32,34 @@
       - type: NpcFactionMember
         factions:
           - Rangers
+      - type: FactionRoster # #Cythisiax Added - DAGGER replaces Chief Ranger: roster GUI to recruit, promote and demote Rangers
+        roster: Rangers
 
+# #Cythisiax Edited - DAGGER kit: DAGGER-exclusive worn gear (old elite ranger helmet and armor,
+# modified ranger gas mask, ghillie cloak), a Sequoia sidearm and a choice of long rifle kit.
 - type: startingGear
   id: NCRDaggerGear
   equipment:
     wallet: N14Wallet
-    head: N14ClothingHeadHatRangerHelmetPrice
-    neck: N14ClothingNeckHighlandRangerDuster
+    head: N14ClothingHeadHatRangerHelmetEliteOld
     mask: ClothingMaskGasRangerModif
-    outerClothing: N14ClothingOuterCanOpenerVetRangerRiotArmor
+    outerClothing: N14ClothingOuterRangerEliteOld
+    neck: N14ClothingNeckCloakGhillie
+    jumpsuit: ClothingUniformJumpsuitFlannelKhakis
+    shoes: N14ClothingBootsCombatMK2
+    back: N14ClothingBackpackRadioNCR
     gloves: N14ClothingHandsGlovesCombat
-    shoes: MisfitsMilitarySteelTippedBoots
     ears: MisfitsClothingHeadsetNCRRanger
-    back: N14WeaponRifleM7SpearScope
-    jumpsuit: N14ClothingUniformRangerVeteran
+    pocket1: N14WeaponRevolver45-70RangerSequoia
+    pocket2: NCRdaggerloadoutkits
     id: MisfitsIDBadgeNCRDagger
-  innerClothingSkirt: N14ClothingUniformRangerVeteran
+  innerClothingSkirt: ClothingUniformJumpsuitFlannelKhakis
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryNCR
+    - MagazineBox45-70
+    - FlashlightSeclite
+    - N14Binoculars
 
 - type: playTimeTracker
   id: NCRDagger

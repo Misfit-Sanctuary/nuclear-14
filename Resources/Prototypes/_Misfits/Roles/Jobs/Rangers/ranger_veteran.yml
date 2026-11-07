@@ -28,6 +28,8 @@
         factions:
           - Rangers
       - type: GrantRangerCombat # #Misfits Change - re-enabled: Ranger Lead starts with the Ranger Combat Technique
+      - type: FactionRoster # #Cythisiax Added - roster GUI: recruit, promote and demote Rangers via job whitelists
+        roster: Rangers
   - !type:AddTraitSpecial # #Misfits Add - Rangers spawn with the riding perk
     traits: [ N14RidingPerk ]
   requirements:

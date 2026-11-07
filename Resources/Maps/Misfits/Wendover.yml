@@ -1446370,16 +1446370,6 @@ entities:
     - type: Transform
       parent: 1
       pos: 32.47873,200.6208
-- proto: N14ClothingNeckCloakGhillie
-  entities:
-  - uid: 83675
-    components:
-    - type: Transform
-      parent: 83671
-    - type: Physics
-      linearDamping: 0
-      canCollide: False
-      angularDamping: 0
 - proto: N14ClothingNeckCloakLeather
   entities:
   - uid: 2536
@@ -1446444,6 +1446434,14 @@ entities:
     - type: InsideEntityStorage
 - proto: N14ClothingNeckCloakNCRWoods
   entities:
+  - uid: 83675
+    components:
+    - type: Transform
+      parent: 83671
+    - type: Physics
+      linearDamping: 0
+      canCollide: False
+      angularDamping: 0
   - uid: 83900
     components:
     - type: Transform
