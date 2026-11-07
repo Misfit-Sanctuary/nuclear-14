@@ -1,0 +1,145 @@
+
+- type: entity
+  parent: BaseVehicle
+  id: N14VehicleBuggyBase
+  abstract: true
+  components:
+  - type: Vehicle
+    renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Vehicles/bikesbuggy.rsi
+    layers:
+    - map: ["enum.VehicleVisualLayers.AutoAnimate"]
+    - map: ["enum.VehicleVisualLayers.Cover"]
+    netsync: false
+    noRot: true
+  - type: MovementSpeedModifier
+    acceleration: 1
+    friction: 0.5
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 8
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: Keys
+        whitelist:
+          requireAll: true
+          tags:
+          - VehicleKey
+        insertSound:
+          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+          params:
+            volume: -3
+
+
+- type: entity
+  parent: N14VehicleBuggyBase
+  id: N14VehicleBuggyDune
+  name: Locust Buggy
+  description: These unpainted off-road vehicles are a common sight among raiders and recon infantry, slapped together for a quick salvage party or skirmish with an enemy encampment.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Vehicles/bikesbuggy.rsi
+    layers:
+    - state: buggy_dune
+      map: ["enum.VehicleVisualLayers.AutoAnimate"]
+    - state: buggy_dune_cover
+      map: ["enum.VehicleVisualLayers.Cover"]
+    netsync: false
+    noRot: true
+
+- type: entity
+  parent: N14VehicleBuggyBase
+  id: N14VehicleBuggyOlive
+  name: Warthog Buggy
+  description: These forest green off-road vehicles are a popular choice in more rural regions of New California, and the mysterious boglands of the uncharted wasteland, a symbol of self-reliance.
+  components:
+  - type: Sprite
+    layers:
+    - state: buggy_olive
+      map: ["enum.VehicleVisualLayers.AutoAnimate"]
+    - state: buggy_olive_cover
+      map: ["enum.VehicleVisualLayers.Cover"]
+
+- type: entity
+  parent: N14VehicleBuggyBase
+  id: N14VehicleBuggyRed
+  name: Rust Bucket Buggy
+  description: This rusted off-road vehicle was once a proud road warrior clad in chrome, but it has worn away in the battle against time. Her tires lack pressure, her body creaks, death comes soon.
+  components:
+  - type: Sprite
+    layers:
+    - state: buggy_red
+      map: ["enum.VehicleVisualLayers.AutoAnimate"]
+    - state: buggy_red_cover
+      map: ["enum.VehicleVisualLayers.Cover"]
+
+- type: entity
+  parent: N14VehicleBuggyBase
+  id: N14VehicleBuggyHot
+  name: Charbone Buggy
+  description: These gold painted off-road vehicles are a rare sight, their beautiful bodywork is valued both among raider tribes and waster road warriors, as everyone knows flames make you go fast.
+  components:
+  - type: Sprite
+    layers:
+    - state: buggy_hot
+      map: ["enum.VehicleVisualLayers.AutoAnimate"]
+    - state: buggy_hot_cover
+      map: ["enum.VehicleVisualLayers.Cover"]
+
+- type: entity
+  id: VehicleBuggyOverlay
+  name: buggy overlay
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Vehicles/bikesbuggy.rsi
+    layers:
+    - state: buggy_dune_cover
+    noRot: true
+    drawdepth: OverMobs # Set the drawdepth here to be above players non-clickable
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: Appearance
+
+- type: entity
+  id: VehicleBuggy
+  parent: N14VehicleBuggyBase
+  name: Wasteland Buggy
+  description: Slapped together with Old World vehicle parts, these off-road vehicles are reliable in the wasteland to both loners and scouts, with a salvaged fusion engine meaning no fuel is needed.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Vehicles/bikesbuggy.rsi
+    layers:
+    - state: buggy_dune
+    noRot: true
+  - type: Vehicle
+    requiredHands: 2
+    renderOver: None
+    overlayPrototype: VehicleBuggyOverlay
+    hornSound:
+      collection: BikeHorn
+      params:
+        variation: 0.125
+  - type: MovementSpeedModifier
+    acceleration: 6
+    friction: 0.1
+    baseWalkSpeed: 4
+    baseSprintSpeed: 8
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: vehicle-slot-component-slot-name-keys
+        whitelist:
+          requireAll: true
+          tags:
+          - VehicleKey
+          - MotorbikeKeys
+        insertSound:
+          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+          params:
+            volume: -3
+  - type: ContainerContainer
+    containers:
+      crate_storage: !type:Container

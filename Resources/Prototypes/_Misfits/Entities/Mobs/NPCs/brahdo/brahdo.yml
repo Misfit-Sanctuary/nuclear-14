@@ -68,9 +68,9 @@
       South: 0, 0.4
       East: -0.15, 0.05
       West: 0.15, 0
-  - type: BrahdoSpooked
-    spookDuration: 5
-    buckChance: 0.15
+#  - type: BrahdoSpooked
+#    spookDuration: 5
+#    buckChance: 0.15
   - type: Tag
     tags:
     - FootstepSound
@@ -206,9 +206,9 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 6.75
     baseSprintSpeed : 6.75
-  - type: BrahdoSpooked
-    spookDuration: 5
-    buckChance: 0.35 # pussayyyy
+#  - type: BrahdoSpooked
+#    spookDuration: 5
+#    buckChance: 0.35 # pussayyyy
   - type: Butcherable
     spawned:
     - id: MisfitFoodMeatBrahdoRaw
@@ -245,9 +245,9 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 5.25 # if stamina was a thing this would be lower and compensate with higher stamina
     baseSprintSpeed : 5.25
-  - type: BrahdoSpooked
-    spookDuration: 1
-    buckChance: 0.0 # it watched so many pg-13 horror movies
+#  - type: BrahdoSpooked
+#    spookDuration: 1
+#    buckChance: 0.0 # it watched so many pg-13 horror movies
 
 - type: entity
   parent: MisfitsMobBrahdo_Base
@@ -282,9 +282,9 @@
       South: 0, 0.5
       East: -0.18, 0.05
       West: 0.18, 0
-  - type: BrahdoSpooked
-    spookDuration: 1
-    buckChance: 0.0
+#  - type: BrahdoSpooked
+#    spookDuration: 1
+#    buckChance: 0.0
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: N14ToughAnimal

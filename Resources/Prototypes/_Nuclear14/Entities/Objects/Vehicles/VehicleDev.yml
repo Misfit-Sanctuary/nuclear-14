@@ -1,0 +1,182 @@
+
+- type: entity
+  id: MisfitsBaseVehicle_dev
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Pullable
+  - type: InputMover
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Access
+  - type: Physics
+    bodyType: Dynamic
+  - type: AmbientSound
+    sound: "/Audio/_Nuclear14/Effects/motorcycle2.ogg"
+    range: 10
+    volume: -10
+    enabled: false
+  - type: Spillable
+    spillDelay: 5.0
+  - type: SolutionContainerManager
+    solutions:
+      motorbikeFuel:
+        maxVol: 200
+  - type: RefillableSolution
+    solution: motorbikeFuel
+  - type: Vehicle
+    renderOver: None
+  - type: EngineNeedsFuel
+  - type: VehicleEngine
+  - type: DriveOnBuckle
+  - type: SolutionConsumer
+  - type: Damageable
+    damageContainer: MisfitsVehicleNormal
+    damageModifierSet: Motorbike
+  - type: Repairable
+    fuelCost: 10
+    doAfterDelay: 15
+    qualityNeeded: Welding
+  - type: UseDelay
+    delay: 0.5
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+  - type: ExtinguishOnInteract
+    stackDelta: -1.0
+    extinguishAttemptSound:
+      path: /Audio/Items/candle_blowing.ogg
+      params:
+        variation: 0.05
+        volume: 10
+  - type: Flammable
+    fireStackIncreaseMultiplier: 1.35
+    fireSpread: true
+    canResistFire: false
+    alwaysCombustible: true
+    canExtinguish: true
+    firestacksOnIgnite: 3.0
+    damage:
+      types:
+        Heat: 10
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    canCreateVacuum: false
+    explosionType: FireBomb
+    totalIntensity: 150
+    intensitySlope: 5
+    maxIntensity: 10
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:TriggerBehavior
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageGroupTrigger
+        damageGroup: Burn
+        damage: 100
+      behaviors:
+      - !type:TriggerBehavior
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ExaminableSolution
+    solution: motorbikeFuel
+  - type: Strap
+    position: Stand
+    size: 300
+    whitelist:
+      requireAll: true
+      components:
+      - HumanoidAppearance
+    # #Misfits Fix - Super Mutants and Power Armor wearers are too heavy to ride motorbikes
+    blacklist:
+      tags:
+      - CannotRide
+      components:
+      - PowerArmorWorn
+  - type: MovementSpeedModifier
+    acceleration: 5 # #Cythisiax Edited - Nerfed from 6 for balance
+    friction: 0.15 # #Cythisiax Edited - Nerfed from 0.1 for balance (less slippery)
+    baseWalkSpeed: 7 # #Cythisiax Edited - Nerfed from 8 for balance
+    baseSprintSpeed: 7 # #Cythisiax Edited - Nerfed from 8 for balance
+  - type: Fixtures # So they cant fit through 1 door.
+    fixtures:
+      fix1:
+        hard: true
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.75
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+      flammable:
+        hard: false
+        shape: !type:PhysShapeCircle
+          radius: 0.76
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: Keys
+        whitelist:
+          requireAll: true
+          tags:
+          - VehicleKey
+          - MotorbikeKeys
+        insertSound:
+          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+          params:
+            volume: -3
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+
+- type: entity
+  id: VehicleDevBase_multiCrew
+  parent: MisfitsBaseVehicle_dev
+  components:
+  - type: Strap
+    size: 200
+#  - type: GenericVisualizer
+#    visuals:
+#      enum.VehicleState.Animated:
+#        enum.VehicleVisualLayers.Base:
+#          True: {state: "bike1", visible: false}
+#          False: {state: "bike1", visible: true}
+#        enum.VehicleVisualLayers.AutoAnimate:
+#          True: { state: "bike2", visible: true }
+#          False: { state: "bike2", visible: false }
+#        enum.VehicleVisualLayers.Overlay:
+#          True: { state: "bike2-rider-overlay", visible: true }
+#          False: { state: "bike2-rider-overlay", visible: false }
+  - type:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Vehicles/bikesbuggy.rsi
+    layers:
+    - state: bike2
+      map: ["enum.VehicleVisualLayers.AutoAnimate"]
+
+
+- type: entity
+  id: VehicleDev_multiCrew
+  parent: VehicleDevBase_multiCrew
+  components:
+  - type: Strap
+    buckleOffset: 0.5, 0.0
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Vehicles/bikesbuggy.rsi
+    layers:
+    - state: buggy_olive
+      map: ["enum.VehicleVisualLayers.AutoAnimate"]
+    - state: buggy_olive_cover
+      map: ["enum.VehicleVisualLayers.Cover"]
+

@@ -46,7 +46,7 @@ public sealed class HawkinsShapedChargeSystem : EntitySystem
                     origin: uid);
             }
 
-            if (HasComp<MotorbikeComponent>(target))
+            if (HasComp<VehicleComponent>(target))
             {
                 _damageable.TryChangeDamage(
                     target,

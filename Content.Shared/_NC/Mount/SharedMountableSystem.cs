@@ -1,14 +1,13 @@
-using System.Numerics;
 using Content.Shared._Misfits.Buckle;
 using Content.Shared._NC.Mountable.Components;
 using Content.Shared.Buckle;
-using Content.Shared.Buckle.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.NPC;
 using Content.Shared.Standing;
+using Content.Shared.Vehicles;
 using Content.Shared.Weapons.Melee.Events;
 
 
@@ -35,13 +34,17 @@ public sealed class SharedMountSystem : EntitySystem
         // position from the rider's own MoveEvent used the wrong coordinate space
         // (mountXform.LocalPosition + offset treated as local-to-mount) and
         // triggered BuckleTransformCheck, causing instant unbuckle & teleports.
-        SubscribeLocalEvent<MountableComponent, MoveEvent>(OnMountMove);
+        //SubscribeLocalEvent<MountableComponent, MoveEvent>(OnMountMove);
         SubscribeLocalEvent<RiderComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<MountableComponent, MeleeHitEvent>(OnMeleeHit);
 
         SubscribeLocalEvent<MountableComponent, DownAttemptEvent>(OnDownAttempt);
-        SubscribeLocalEvent<MountableComponent, StrappedEvent>(OnStrapped);
-        SubscribeLocalEvent<MountableComponent, UnstrappedEvent>(OnUnstrapped);
+        //SubscribeLocalEvent<MountableComponent, StrappedEvent>(OnStrapped);
+        SubscribeLocalEvent<MountableComponent, InputRelayTrySetEv>(OnTryRelaySet);
+        SubscribeLocalEvent<MountableComponent, InputRelaySetEv>(OnRelaySet);
+        //SubscribeLocalEvent<MountableComponent, UnstrappedEvent>(OnUnstrapped);
+        SubscribeLocalEvent<MountableComponent, InputRelayRemovedEv>(OnInputRelayRemoved);
+
         SubscribeLocalEvent<MountableComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
 
@@ -71,7 +74,7 @@ public sealed class SharedMountSystem : EntitySystem
         if (args.User == ent.Comp.Rider) // Don't hit your own horse
             args.Handled = true;
     }
-
+    /// Misfits: Leaving this unaltered since brahdos dont have a down sprite or state yet
     /// <summary>
     /// Checking that you can't drop a mount with a rider
     /// </summary>
@@ -81,92 +84,112 @@ public sealed class SharedMountSystem : EntitySystem
             args.Cancel();
     }
 
+    private void OnTryRelaySet(Entity<MountableComponent> ent, ref InputRelayTrySetEv args)
+    {
+        if (args.Cancel)
+            return;
+        if (_mobState.IsDead(ent))
+        {
+            args.Cancel = true;
+            return;
+        }
+
+        var controlAttempt = new MountMovementControlAttemptEvent(args.Driver);
+        RaiseLocalEvent(ent.Owner, ref controlAttempt);
+        var canControl = ent.Comp.ControlMovement && !controlAttempt.Cancelled;
+        args.Cancel = !canControl;
+    }
+
     /// <summary>
     /// The method of attaching a rider to a mount
     /// </summary>
-    private void OnStrapped(Entity<MountableComponent> ent, ref StrappedEvent args)
+    private void OnRelaySet(Entity<MountableComponent> ent, ref InputRelaySetEv args)
     {
-        if (_mobState.IsDead(ent))
-        {
-            _buckle.TryUnbuckle(args.Buckle.Owner, ent.Owner);
-            return;
-        }
-
-        EnsureComp<InputMoverComponent>(ent);
-        var rider = EnsureComp<RiderComponent>(args.Buckle.Owner);
-        rider.Mount = ent.Owner;
-        ent.Comp.Rider = args.Buckle.Owner;
-
-        Dirty(ent.Owner, ent.Comp);
-        Dirty(args.Buckle.Owner, rider);
-
-        _buckleOffset.SnapToOffset(ent, args.Buckle.Owner, GetRiderLocalOffset(ent.Comp, Transform(ent).LocalRotation));
-
-        var controlAttempt = new MountMovementControlAttemptEvent(args.Buckle.Owner);
-        RaiseLocalEvent(ent.Owner, ref controlAttempt);
-        ent.Comp.RiderControlsMovement = ent.Comp.ControlMovement && !controlAttempt.Cancelled;
+        ent.Comp.RiderControlsMovement = true;
         ent.Comp.HadActiveNpcBeforeMount = HasComp<ActiveNPCComponent>(ent);
-
-        if (ent.Comp.RiderControlsMovement)
-        {
-            _mover.SetRelay(args.Buckle.Owner, ent.Owner);
-            RemComp<ActiveNPCComponent>(ent);
-        }
-
+        RemComp<ActiveNPCComponent>(ent);
         if (_standing.IsDown(ent))
             _standing.Stand(ent);
+        EnsureComp<InputMoverComponent>(ent);
+        var rider = EnsureComp<RiderComponent>(args.Driver);
+        rider.Mount = ent.Owner;
+        ent.Comp.Rider = args.Driver;
 
-        if (!TryComp<MovementSpeedModifierComponent>(ent, out var move))
-            return;
-
-        if (!ent.Comp.RiderControlsMovement)
-            return;
-
-        var walk = move.BaseWalkSpeed * ent.Comp.MountedSpeed;
-        var sprint = move.BaseSprintSpeed * ent.Comp.MountedSpeed;
-        _movement.ChangeBaseSpeed(ent, walk, sprint, move.Acceleration, move);
+        Dirty(ent.Owner, ent.Comp);
+        Dirty(args.Driver, rider);
     }
-
+    /// <summary>
+    /// The method of attaching a rider to a mount
+    /// </summary>
+    // private void OnStrapped(Entity<MountableComponent> ent, ref StrappedEvent args)
+    // {
+    //
+    //     var rider = EnsureComp<RiderComponent>(args.Buckle.Owner);
+    //     rider.Mount = ent.Owner;
+    //     ent.Comp.Rider = args.Buckle.Owner;
+    //
+    //     Dirty(ent.Owner, ent.Comp);
+    //     Dirty(args.Buckle.Owner, rider);
+    //
+    //     //_buckleOffset.SnapToOffset(ent, args.Buckle.Owner, GetRiderLocalOffset(ent.Comp, Transform(ent).LocalRotation));
+    //
+    //     var controlAttempt = new MountMovementControlAttemptEvent(args.Buckle.Owner);
+    //     RaiseLocalEvent(ent.Owner, ref controlAttempt);
+    //     ent.Comp.RiderControlsMovement = ent.Comp.ControlMovement && !controlAttempt.Cancelled;
+    //     ent.Comp.HadActiveNpcBeforeMount = HasComp<ActiveNPCComponent>(ent);
+    // }
     /// <summary>
     /// Unties and removes the rider
     /// </summary>
-    private void OnUnstrapped(Entity<MountableComponent> ent, ref UnstrappedEvent args)
+    private void OnInputRelayRemoved(Entity<MountableComponent> ent, ref InputRelayRemovedEv args)
     {
-        if (TryComp<RelayInputMoverComponent>(args.Buckle.Owner, out var relay) &&
-            relay.RelayEntity == ent.Owner)
-        {
-            RemComp<RelayInputMoverComponent>(args.Buckle.Owner);
-        }
-
-        RemComp<RiderComponent>(args.Buckle.Owner);
+        RemComp<RiderComponent>(args.Driver);
         ent.Comp.Rider = null;
-        var riderControlledMovement = ent.Comp.RiderControlsMovement;
         ent.Comp.RiderControlsMovement = false;
-
-        Dirty(ent.Owner, ent.Comp);
-
         if (ent.Comp.HadActiveNpcBeforeMount)
             EnsureComp<ActiveNPCComponent>(ent);
-
         ent.Comp.HadActiveNpcBeforeMount = false;
-        if (!TryComp<MovementSpeedModifierComponent>(ent, out var move))
-            return;
+        Dirty(ent.Owner, ent.Comp);
 
-        if (!riderControlledMovement)
-            return;
-
-        var walk = move.BaseWalkSpeed / ent.Comp.DefaultSpeed;
-        var sprint = move.BaseSprintSpeed / ent.Comp.DefaultSpeed;
-        _movement.ChangeBaseSpeed(ent, walk, sprint, move.Acceleration, move);
     }
+    // /// <summary>
+    // /// Unties and removes the rider
+    // /// </summary>
+    // private void OnUnstrapped(Entity<MountableComponent> ent, ref UnstrappedEvent args)
+    // {
+    //
+    //
+    //     RemComp<RiderComponent>(args.Buckle.Owner);
+    //     ent.Comp.Rider = null;
+    //     var riderControlledMovement = ent.Comp.RiderControlsMovement;
+    //     ent.Comp.RiderControlsMovement = false;
+    //
+    //     Dirty(ent.Owner, ent.Comp);
+    //
+    //     if (ent.Comp.HadActiveNpcBeforeMount)
+    //         EnsureComp<ActiveNPCComponent>(ent);
+    //
+    //     ent.Comp.HadActiveNpcBeforeMount = false;
+    //     if (!TryComp<MovementSpeedModifierComponent>(ent, out var move))
+    //         return;
+    //
+    //     if (!riderControlledMovement)
+    //         return;
+    //
+    //     var walk = move.BaseWalkSpeed / ent.Comp.DefaultSpeed;
+    //     var sprint = move.BaseSprintSpeed / ent.Comp.DefaultSpeed;
+    //     _movement.ChangeBaseSpeed(ent, walk, sprint, move.Acceleration, move);
+    // }
 
     /// <summary>
     /// Resets the rider if he starts to die
     /// </summary>
     private void OnMobStateChanged(Entity<RiderComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Alive || ent.Comp.Mount == null)
+        if (args.NewMobState == MobState.Alive)
             return;
+
+        DebugTools.Assert(ent.Comp.Mount != null,"Mount is null but rider still has rider comp");
 
         _buckle.TryUnbuckle(ent.Owner, ent.Comp.Mount);
     }
@@ -176,18 +199,8 @@ public sealed class SharedMountSystem : EntitySystem
     /// </summary>
     private void OnMobStateChanged(Entity<MountableComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState != MobState.Alive)
-        {
-            ent.Comp.ControlMovement = false;
-            if (ent.Comp.Rider != null)
-                _buckle.TryUnbuckle(ent.Comp.Rider.Value, ent.Owner);
-        }
-        else
-        {
-            ent.Comp.ControlMovement = true;
-            if (ent.Comp.Rider != null)
-                _buckle.TryUnbuckle(ent.Comp.Rider.Value, ent.Owner);
-        }
+        if (ent.Comp.Rider != null)
+            _buckle.TryUnbuckle(ent.Comp.Rider.Value, ent.Owner);
     }
 }
 
