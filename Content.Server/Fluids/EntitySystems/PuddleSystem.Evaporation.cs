@@ -6,14 +6,26 @@ namespace Content.Server.Fluids.EntitySystems;
 
 public sealed partial class PuddleSystem
 {
-
-    private void OnEvaporationMapInit(Entity<EvaporationComponent> entity, ref MapInitEvent args)
+    /// <summary>
+    /// Evaporation rate of each reagent in the puddle is added up
+    /// </summary>
+    /// <remarks>
+    /// Only called on map init. Puddles are short lived so evaporation inconsistencies prolly wont be noticed.
+    /// this is also convenient for stuff like space cleaner so the same high evaporation is maintained
+    /// even if the cleaner isnt present anymore.
+    /// </remarks>>
+    public void UpdateEvaporationAmount(Entity<EvaporationComponent> entity)
     {
         if(!TryComp<PuddleComponent>(entity, out var comp) || comp.Solution is null)
             return;
 
         foreach (var evapReagent in comp.Solution.Value.Comp.Solution.GetReagentPrototypes(_prototypeManager))
             entity.Comp.EvaporationAmount += evapReagent.Key.EvaporationRate;
+    }
+
+    private void OnEvaporationMapInit(Entity<EvaporationComponent> entity, ref MapInitEvent args)
+    {
+        UpdateEvaporationAmount(entity);
     }
 
     private void UpdateEvaporation(EntityUid uid, Solution solution)
@@ -46,7 +58,7 @@ public sealed partial class PuddleSystem
                 continue;
 
             puddleSolution.SplitSolutionWithOnly(evaporation.EvaporationAmount, EvaporationReagents);
-            // container is
+            // No such thing as an empty puddle. remember puddles are just containers with the puddle comp
             if (puddleSolution.Volume == FixedPoint2.Zero)
                 QueueDel(uid);
 
