@@ -11874,7 +11874,7 @@ Entries:
     - type: Fix
       message: >-
         issues related to delfected projectiles and hitscans. Their visuals
-        should match up now. 
+        should match up now.
     - type: Fix
       message: >-
         Armor with reflect probability values for lasers should now actually use
@@ -12137,7 +12137,7 @@ Entries:
     - type: Tweak
       message: >-
         Changed legion armor sprites (decanus and legionnary) for pictures see
-        the dump thread on discord. 
+        the dump thread on discord.
   id: 6490
   time: '2026-10-01T21:45:29.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2027
@@ -12261,7 +12261,7 @@ Entries:
       message: >-
         Fixed brahdos being limited trader stock. I misinterpreted the prototype
         and thought it meant they were sold in pairs. Prices also adjusted
-        because of this.  
+        because of this.
   id: 6505
   time: '2026-10-07T21:39:05.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2059
@@ -12320,7 +12320,7 @@ Entries:
     - type: Fix
       message: >-
         Sweet n' Spicy Kebab recipe changed to accept glowpepper instead of
-        pickled jalepenos 
+        pickled jalepenos
     - type: Add
       message: Added Perfect Lasagna
   id: 6509
@@ -12430,7 +12430,7 @@ Entries:
     - type: Tweak
       message: >-
         Lots of changes to wield delays. Wield delay removed on 5.56 LMGs. Wield
-        delay and movespeed slow lowered for M240b following it's ROF nerf. 
+        delay and movespeed slow lowered for M240b following it's ROF nerf.
     - type: Tweak
       message: >-
         Increased price of Enclave materials crate to prevent infinite money
@@ -12475,7 +12475,7 @@ Entries:
       message: >-
         Recipes for Buffout, Wonderglue, Turpentine, Bloatfly Acid, Scorpion
         Tail, Fire Ant Nectar. Sprites for growing cave fungus, and irradiated
-        fungus. Mutable Cave Fungus. 
+        fungus. Mutable Cave Fungus.
   id: 6523
   time: '2026-10-15T02:11:48.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2081
@@ -12517,7 +12517,7 @@ Entries:
     - type: Add
       message: >-
         C-27 Variant; The recon, quick, with better sensors and lighter
-        plating. 
+        plating.
   id: 6527
   time: '2026-10-17T12:42:57.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2086
@@ -12537,6 +12537,39 @@ Entries:
   id: 6529
   time: '2026-10-19T05:55:47.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2098
+- author: Davisrocket
+  changes:
+    - type: Add
+      message: >-
+        Ammo Crates, Detonable Crates, Recreation Crates, Provision Crates,
+        Equipment Crates, Medical Crates
+    - type: Add
+      message: >-
+        Armor Crates balance, and armor balance for Enclave (no longer all the
+        same)
+    - type: Tweak
+      message: Massive Price Overhaul to Enclave gear, stocks, and cost adjustments
+    - type: Tweak
+      message: >-
+        Yaml locations, marks for Enclave clothing and naming to be more
+        standardized
+    - type: Tweak
+      message: ASRS Gold, Silver, Plant Sell Amount
+    - type: Tweak
+      message: Enclave BPs no longer necessary
+    - type: Tweak
+      message: >-
+        Planned future armors coded in but inactive, needing sprites (scout,
+        pilot, marine)
+    - type: Fix
+      message: small microfusion cell red to microfusion cell adjustments
+    - type: Fix
+      message: >-
+        remove Enclave name from appearing in some locations, changed to U.S.
+        Army
+  id: 6530
+  time: '2026-10-21T03:41:04.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2099
 - author: Davisrocket
   changes:
     - type: Add

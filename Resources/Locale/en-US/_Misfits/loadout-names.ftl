@@ -898,3 +898,22 @@ loadout-name-LoadoutPatreonEquityPartnerHat = equity partner hat (Patreon)
 loadout-name-LoadoutPatreonVentureCapitalistHat = venture capitalist hat (Patreon)
 loadout-name-LoadoutPatreonShareholderHat = shareholder hat (Patreon)
 loadout-name-LoadoutPatreonPrincipalShareholderHat = principal shareholder hat (Patreon)
+
+
+# #Misfits Add - Faction dog treat pouch loadouts.
+
+loadout-name-MisfitsLoadoutDogTreatPouchFollowers = Followers' Canine Care Package
+loadout-name-MisfitsLoadoutDogTreatPouchVault = Vault-Tec Good Boy Package
+loadout-name-MisfitsLoadoutDogTreatPouchNCR = NCR K-9 Treat Package
+loadout-name-MisfitsLoadoutDogTreatPouchLegion = Legion Warhound Rations
+loadout-name-MisfitsLoadoutDogTreatPouchBrotherhood = Brotherhood K-9 Provisions
+loadout-name-MisfitsLoadoutDogTreatPouchRanger = Ranger's Reward Package
+loadout-name-MisfitsLoadoutDogTreatPouchEnclave = Enclave Presidential K-9 Rations
+
+loadout-description-MisfitsLoadoutDogTreatPouchFollowers = A treat pouch containing soft, nutritious biscuits for recovering and elderly animals.
+loadout-description-MisfitsLoadoutDogTreatPouchVault = A treat pouch filled with standardized Vault-Tec canine snacks.
+loadout-description-MisfitsLoadoutDogTreatPouchNCR = A treat pouch containing standard Republic military working-dog rewards.
+loadout-description-MisfitsLoadoutDogTreatPouchLegion = A treat pouch stocked with tough, long-lasting warhound rations.
+loadout-description-MisfitsLoadoutDogTreatPouchBrotherhood = A treat pouch containing carefully standardized Brotherhood canine provisions.
+loadout-description-MisfitsLoadoutDogTreatPouchRanger = A treat pouch filled with premium rewards for a Ranger's four-legged partner.
+loadout-description-MisfitsLoadoutDogTreatPouchEnclave = A treat pouch containing premium Enclave canine rations.

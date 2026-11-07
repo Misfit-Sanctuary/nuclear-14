@@ -1,0 +1,21 @@
+﻿- type: emoteSounds
+  id: MisfitsCatEmotes
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: FelinidScreams
+    Meow:
+      collection: FelinidMeows
+    Mew:
+      collection: FelinidMews
+    Hiss:
+      collection: FelinidHisses
+    Growl:
+      collection: FelinidGrowls
+    Purr:
+      collection: FelinidPurrs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses

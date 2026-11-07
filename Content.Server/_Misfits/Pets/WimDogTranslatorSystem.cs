@@ -12,7 +12,7 @@ namespace Content.Server._Misfits.Pets;
 
 public sealed class WimDogTranslatorSystem : EntitySystem
 {
-    private static readonly ProtoId<LanguagePrototype> N14Dog = "Dog";
+    private static readonly ProtoId<LanguagePrototype> N14Dog = "N14Dog";
 
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly LanguageSystem _language = default!;

@@ -87,6 +87,12 @@
     allowMovement: true
   - type: GhostTakeoverAvailable
   - type: Emoting
+  - type: Vocal
+    sounds:
+      Unsexed: MisfitsCatEmotes
+    screamId: Meow
+    screamAction: MisfitsActionCatMeow
+    wilhelmProbability: 0
   - type: MobThresholds # #Misfits Add - allow revival by medics
     allowRevives: true
   - type: Inventory
@@ -103,13 +109,15 @@
       components:
       - Gun
       - MeleeWeapon
-  - type: MisfitsPetNoPickup # So they cant pick up items but can drag
+  - type: MisfitsPetNoPickup
   - type: InventorySlots
   - type: PetCollarHolder
   - type: Tag
     tags:
     - DoorBumpOpener
     - FelinidEmotes
+  - type: NightVision
+    color: "#808080"
   - type: PassiveDamage # #Misfits Add - slow natural regeneration for player-controlled pet cats
     allowedStates:
     - Alive
@@ -679,51 +687,41 @@
         volume: -5
         maxDistance: 5
 
-# Wim - unique Legion dog companion.
+# Wim - unique former Legion dog companion.
 - type: entity
   name: Wim
   id: MisfitsMobPetWim
   parent: N14MobPetDogLegion
-  description: A husky-wolf mix reaching most people to their hips. Wears a torn NCR tarp as a collar, with some etching inside.
+  description: A large husky-wolf mix, standing nearly hip-high to most people. Around his neck rests a worn brown leather collar with the insignia of a double-headed bear.
   components:
   - type: RandomMetadataExcluded # Keep Wim's name instead of a random Legion dog name.
   - type: Sprite
+    drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: wolf
       sprite: _Misfits/Mobs/Pets/wim.rsi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: wolf
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
   - type: WimDogTranslator
-  - type: Emoting
-  - type: MobThresholds # #Misfits Add - allow revival by medics
-    allowRevives: true
-  - type: Inventory
-    speciesId: cat
-    templateId: cat_pet
-  - type: Puller # #Misfits Add - explicit puller for drag mechanic
-    needsHands: false
-  - type: Hands # #Misfits Add - allows dragging and item handling
-  - type: BorgHands # #Misfits Add - gives cats actual holdable hand slots
-    handCount: 2
-  - type: ComplexInteraction # #Misfits Add - allows click-opening doors and other complex hand interactions
-  - type: RobotWeaponPickupBlacklist # #Misfits Add - cats should not be able to pick up guns/melee weapons
-    blacklist:
-      components:
-      - Gun
-      - MeleeWeapon
-  - type: InventorySlots
-  - type: Strippable
-  - type: PetCollarHolder
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-    - VulpEmotes
   - type: NpcFactionMember
     factions:
-      - Wastelander
+    - Wastelander
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - WastelandGlobal
+    - NCR
+    - NCRRangers
+    globalReceive: false
+  - type: BorgHands
+    handCount: 2
 
 # Bibbles - unique cat companion.
 - type: entity
@@ -844,20 +842,6 @@
       0: Alive
       80: Critical
       160: Dead
-  - type: LanguageKnowledge
-    speaks:
-    - N14Dog
-    - N14Robot
-    understands:
-    - N14Dog
-    - N14Insect
-    - English
-    - Chinese
-    - Latin
-    - Tribal
-    - N14Robot
-    - N14BrotherBeep
-    - Sign
 
 - type: entity
   parent: N14MobPetDogLegion
@@ -872,11 +856,6 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: macula
       sprite: _Nuclear14/Mobs/Animals/macula.rsi
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      110: Critical
-      200: Dead
   - type: DamageStateVisuals
     states:
       Alive:
@@ -885,3 +864,12 @@
         Base: dead
       Dead:
         Base: dead
+  - type: WimDogTranslator
+  - type: IntrinsicRadioReceiver
+  - type: ActiveRadio
+    channels:
+    - WastelandGlobal
+    - Legion
+    globalReceive: false
+  - type: BorgHands
+    handCount: 2

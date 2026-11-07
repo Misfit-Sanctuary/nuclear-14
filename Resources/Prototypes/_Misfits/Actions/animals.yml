@@ -1,0 +1,11 @@
+﻿- type: entity
+  id: MisfitsActionCatMeow
+  name: Meow
+  description: Let out a meow.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 5
+    icon: Interface/Emotes/meow.png
+    event: !type:ScreamActionEvent
+    checkCanInteract: false

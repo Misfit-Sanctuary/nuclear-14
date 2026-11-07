@@ -1,0 +1,248 @@
+﻿
+# #Misfits Add - Craftable dog treats.
+# All meat ingredients use Nuclear14 prototypes.
+
+# Cheesy Jerky Bites
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatCheesyJerky
+  name: cheesy jerky bites recipe
+  result: MisfitsDogTreatCheesyJerky
+  time: 5
+  solids:
+    MisfitsFoodMeatJerky: 1
+    N14FoodCheeseSlice: 1
+
+# Wasteland Dog Biscuits
+
+# Radhog
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatBiscuitRadhog
+  name: radhog dog biscuit recipe
+  result: MisfitsDogTreatBiscuit
+  time: 10
+  solids:
+    N14FoodDoughSlice: 1
+    N14FoodMeatRadhogCutletCooked: 1
+
+# Radchicken
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatBiscuitRadchicken
+  name: radchicken dog biscuit recipe
+  result: MisfitsDogTreatBiscuit
+  time: 10
+  solids:
+    N14FoodDoughSlice: 1
+    N14FoodMeatRadchickenCutletCooked: 1
+
+# Irradiated meat
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatBiscuit
+  name: irradiated meat dog biscuit recipe
+  result: MisfitsDogTreatBiscuit
+  time: 10
+  solids:
+    N14FoodDoughSlice: 1
+    N14FoodMeatRadCutletCooked: 1
+
+# Brahmin
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatBiscuitBrahmin
+  name: brahmin dog biscuit recipe
+  result: MisfitsDogTreatBiscuit
+  time: 10
+  solids:
+    N14FoodDoughSlice: 1
+    N14FoodMeatBrahminCutletCooked: 1
+
+# Bighorner
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatBiscuitBighorner
+  name: bighorner dog biscuit recipe
+  result: MisfitsDogTreatBiscuit
+  time: 10
+  solids:
+    N14FoodDoughSlice: 1
+    N14FoodMeatBighornerCutletCooked: 1
+
+# Radstag Chews
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatRadstagChew
+  name: radstag chew recipe
+  result: MisfitsDogTreatRadstagChew
+  time: 10
+  solids:
+    N14FoodMeatRadstagCutletCooked: 1
+
+# Savory Training Bites
+
+# Radhog
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatBacon
+  name: radhog training bites recipe
+  result: MisfitsDogTreatBacon
+  time: 5
+  solids:
+    N14FoodMeatRadhogCutletCooked: 1
+    N14FoodCheeseSlice: 1
+
+# Radchicken
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatBaconRadchicken
+  name: radchicken training bites recipe
+  result: MisfitsDogTreatBacon
+  time: 5
+  solids:
+    N14FoodMeatRadchickenCutletCooked: 1
+    N14FoodCheeseSlice: 1
+
+# Irradiated meat
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatBaconRad
+  name: irradiated meat training bites recipe
+  result: MisfitsDogTreatBacon
+  time: 5
+  solids:
+    N14FoodMeatRadCutletCooked: 1
+    N14FoodCheeseSlice: 1
+
+# Brahmin
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatBaconBrahmin
+  name: brahmin training bites recipe
+  result: MisfitsDogTreatBacon
+  time: 5
+  solids:
+    N14FoodMeatBrahminCutletCooked: 1
+    N14FoodCheeseSlice: 1
+
+# Bighorner
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatBaconBighorner
+  name: bighorner training bites recipe
+  result: MisfitsDogTreatBacon
+  time: 5
+  solids:
+    N14FoodMeatBighornerCutletCooked: 1
+    N14FoodCheeseSlice: 1
+
+
+# Faction dog treat recipes.
+# NCR Double-Bear Biscuits
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatNCRBrahmin
+  name: NCR brahmin dog biscuit recipe
+  result: MisfitsDogTreatNCR
+  time: 10
+  solids:
+    N14FoodDoughCornmealSlice: 1
+    N14FoodMeatBrahminCutletCooked: 1
+    N14FoodCheeseSlice: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatNCRRadstag
+  name: NCR radstag dog biscuit recipe
+  result: MisfitsDogTreatNCR
+  time: 10
+  solids:
+    N14FoodDoughCornmealSlice: 1
+    N14FoodMeatRadstagCutletCooked: 1
+    N14FoodCheeseSlice: 1
+
+# NCR Ranger's Reward
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatRanger
+  name: Ranger's Reward recipe
+  result: MisfitsDogTreatRanger
+  time: 5
+  solids:
+    MisfitsFoodMeatJerky: 1
+    N14FoodCheeseSlice: 1
+    N14FoodDoughTortillaSlice: 1
+
+# Legion Warhound Rations
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatLegionJerky
+  name: Legion warhound jerky ration recipe
+  result: MisfitsDogTreatLegion
+  time: 10
+  solids:
+    MisfitsFoodMeatJerky: 1
+    N14FoodDoughTortillaSlice: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatLegionRadhog
+  name: Legion radhog warhound ration recipe
+  result: MisfitsDogTreatLegion
+  time: 10
+  solids:
+    N14FoodMeatRadhogCutletCooked: 1
+    N14FoodDoughTortillaFlat: 1
+
+# Brotherhood Squire's Snaps
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatBrotherhoodBighorner
+  name: Brotherhood bighorner dog ration recipe
+  result: MisfitsDogTreatBrotherhood
+  time: 10
+  solids:
+    N14FoodDoughSlice: 1
+    N14FoodMeatBighornerCutletCooked: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatBrotherhoodBrahmin
+  name: Brotherhood brahmin dog ration recipe
+  result: MisfitsDogTreatBrotherhood
+  time: 10
+  solids:
+    N14FoodDoughSlice: 1
+    N14FoodMeatBrahminCutletCooked: 1
+
+# Followers' Gentle Bites
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatFollowersRadchicken
+  name: Followers' gentle radchicken bites recipe
+  result: MisfitsDogTreatFollowers
+  time: 5
+  solids:
+    N14FoodDoughSlice: 1
+    N14FoodMeatRadchickenCutletCooked: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatFollowersRad
+  name: Followers' gentle wasteland bites recipe
+  result: MisfitsDogTreatFollowers
+  time: 5
+  solids:
+    N14FoodDoughSlice: 1
+    N14FoodMeatRadCutletCooked: 1
+
+# Enclave Presidential Bites
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatEnclave
+  name: Enclave presidential bites recipe
+  result: MisfitsDogTreatEnclave
+  time: 10
+  solids:
+    N14FoodDoughTortillaFlat: 1
+    N14FoodMeatRadhogCutletCooked: 1
+    N14FoodCheeseSlice: 1
+
+# Vault-Tec Good Boy Kibble
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeDogTreatVaultTec
+  name: Vault-Tec good boy kibble recipe
+  result: MisfitsDogTreatVaultTec
+  time: 10
+  solids:
+    N14FoodDoughCornmealSlice: 1
+    N14FoodMeatRadchickenCutletCooked: 1
+    N14FoodCheeseSlice: 1

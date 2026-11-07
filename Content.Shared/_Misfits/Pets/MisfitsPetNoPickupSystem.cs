@@ -1,27 +1,64 @@
-// #Misfits Add - Cancels item pickup for pet ghost role mobs that have Hands
-// but should not be able to pick items into inventory slots.
-// Pattern follows VentriloquistPuppetSystem (Content.Shared/Puppet/SharedVentriloquistPuppetSystem.cs).
 
+using Content.Shared._Misfits.Silicon;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Item;
+using Content.Shared.Whitelist;
+using Robust.Shared.Containers;
 
 namespace Content.Shared._Misfits.Pets;
 
 /// <summary>
-/// Prevents pet mobs with <see cref="MisfitsPetNoPickupComponent"/> from picking up items.
-/// They retain the Hands component (for dragging/interaction) but cannot store items.
+/// Prevents pet mobs with <see cref="MisfitsPetNoPickupComponent"/> from picking up weapons.
+/// They cannot receive or pick up those, while still able to pick the rest up.
 /// </summary>
 public sealed class MisfitsPetNoPickupSystem : EntitySystem
 {
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+
     public override void Initialize()
     {
         base.Initialize();
-        // Cancel any pickup attempt on entities tagged as pet-no-pickup
-        SubscribeLocalEvent<MisfitsPetNoPickupComponent, PickupAttemptEvent>(OnPickupAttempt);
+
+        SubscribeLocalEvent<MisfitsPetNoPickupComponent,
+            PickupAttemptEvent>(OnPickupAttempt);
+
+        SubscribeLocalEvent<MisfitsPetNoPickupComponent,
+            ContainerIsInsertingAttemptEvent>(OnContainerInsertAttempt);
     }
 
-    private void OnPickupAttempt(EntityUid uid, MisfitsPetNoPickupComponent component, PickupAttemptEvent args)
+    private void OnPickupAttempt(
+        EntityUid uid,
+        MisfitsPetNoPickupComponent component,
+        PickupAttemptEvent args)
     {
-        // Pets can drag/pull via Puller but cannot pick items into hand slots
+        if (TryComp<RobotWeaponPickupBlacklistComponent>(
+                uid, out var blacklist) &&
+            blacklist.Blacklist != null)
+            return;
+
+        args.Cancel();
+    }
+
+    private void OnContainerInsertAttempt(
+        EntityUid uid,
+        MisfitsPetNoPickupComponent component,
+        ContainerIsInsertingAttemptEvent args)
+    {
+        if (!_hands.TryGetHand(uid, args.Container.ID, out _))
+            return;
+
+        if (TryComp<RobotWeaponPickupBlacklistComponent>(
+                uid, out var blacklist) &&
+            blacklist.Blacklist != null)
+        {
+            if (_whitelist.IsBlacklistPass(
+                    blacklist.Blacklist, args.EntityUid))
+                args.Cancel();
+
+            return;
+        }
+
         args.Cancel();
     }
 }
