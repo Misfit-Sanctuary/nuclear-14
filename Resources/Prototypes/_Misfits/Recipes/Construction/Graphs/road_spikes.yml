@@ -10,9 +10,9 @@
     - to: roadSpikes
       steps:
       - material: Steel
-        amount: 3
+        amount: 10
       - material: MetalRod
-        amount: 3
-        doAfter: 3
+        amount: 10
+        doAfter: 10
   - node: roadSpikes
     entity: MisfitsRoadSpikes
