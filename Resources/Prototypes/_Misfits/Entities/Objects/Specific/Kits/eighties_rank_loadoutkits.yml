@@ -345,7 +345,7 @@
   id: KitEighties_CylindersShotcaller
   name: cylinders shotcaller kit
   parent: KitBase
-  description: A looted stash with extra meds, fit for a cylinder.
+  description: A kit build around clearing a path for the gang. 
   components:
   - type: Sprite
     state: pointman
@@ -353,16 +353,14 @@
     size: Huge
   - type: SpawnItemsOnUse
     items:
+    - id: M14Waybreaker
     - id: N14WeaponSMG10mm
     - id: N14MagazineSMG10mm
       amount: 4
     - id: N14TribalClub
-    - id: N14WeaponRevolver44TribalUpgraded
-    - id: SpeedLoader44
       amount: 2
     - id: N14Stimpak
       amount: 2
-    - id: N14HealingPoultice 
     - id: N14SuperStimpak
     - id: N14CleanGauze10
     - id: N14FoodTinK
