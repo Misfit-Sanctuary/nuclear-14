@@ -2,7 +2,7 @@
   id: ClosetBase
   parent: BaseStructureDynamic
   name: closet
-  description: A standard-issue Nanotrasen storage unit.
+  description: A standard-issue facility storage unit.
   abstract: true
   components:
   - type: ResistLocker
@@ -127,7 +127,7 @@
     mode: SnapgridCenter
   abstract: true
   name: wall closet
-  description: A standard-issue Nanotrasen storage unit, now on walls.
+  description: A standard-issue wall-mounted facility storage unit.
   components:
   - type: InteractionOutline
   - type: Clickable

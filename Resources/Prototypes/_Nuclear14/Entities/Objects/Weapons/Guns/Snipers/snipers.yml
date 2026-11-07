@@ -270,7 +270,7 @@
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/brushgun.rsi
   - type: Gun
-    fireRate: 2.5 # Forge-Change
+    fireRate: 3 # Forge-Change
     soundGunshot:
       collection: N14BrushGunGunshot
   - type: BallisticAmmoProvider

@@ -60,19 +60,21 @@
 - type: startingGear
   id: NCRAGuardNPC
   equipment:
-    jumpsuit: N14ClothingMPUniformNCRSnow
+    jumpsuit: N14ClothingMPUniformNCRDesert
     shoes: N14ClothingBootsLeather
-    gloves: N14ClothingHandsGlovesFur
+    eyes: N14ClothingEyesSunGlasses
+    gloves: N14ClothingHandsGlovesNCR
     head: N14ClothingHeadHatNCRHelmetMetalMilitaryPolice
     belt: ClothingBeltRope
 
 - type: startingGear
   id: NCRATrooperNPC
   equipment:
-    jumpsuit: N14ClothingUniformNCRSnow
-    outerClothing: N14ClothingOuterNCRVestSnow
+    jumpsuit: N14ClothingUniformNCRDesert
+    outerClothing: N14ClothingOuterNCRPouchedVestDesert
     shoes: N14ClothingBootsLeather
-    head: N14ClothingHeadHatNCRHelmetMetalSnow
+    eyes: N14ClothingEyesSunGlasses
+    head: N14ClothingHeadHatNCRHelmetMetalDesert
     mask: N14ClothingMaskBrownBalaclava
     gloves: N14ClothingHandsGlovesNCR
 

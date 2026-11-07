@@ -4,7 +4,6 @@ using Content.Shared.Item;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Kitchen.Components
 {
@@ -13,8 +12,8 @@ namespace Content.Server.Kitchen.Components
     {
         [DataField]
         public float CookTimeMultiplier = 1;
-        [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-        public string MachinePartCookTimeMultiplier = "Capacitor";
+        [DataField]
+        public ProtoId<MachinePartPrototype> MachinePartCookTimeMultiplier = "Capacitor";
         [DataField]
         public float CookTimeScalingConstant = 0.5f;
         [DataField]
@@ -23,8 +22,8 @@ namespace Content.Server.Kitchen.Components
         [DataField]
         public float ObjectHeatMultiplier = 100;
 
-        [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string BadRecipeEntityId = "FoodBadRecipe";
+        [DataField]
+        public EntProtoId BadRecipeEntityId = "FoodBadRecipe";
 
         #region  audio
         [DataField]

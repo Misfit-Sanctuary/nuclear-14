@@ -38,7 +38,7 @@ namespace Content.Shared.Localizations
 
 
             _loc.SetCulture(culture);
-            _loc.SetFallbackCluture(fallbackCulture);
+            _loc.SetFallbackCulture(fallbackCulture);
             // Corvax-Localization-End
         }
 

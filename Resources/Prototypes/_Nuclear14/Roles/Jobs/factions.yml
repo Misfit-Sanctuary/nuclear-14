@@ -122,12 +122,14 @@
   id: Rangers
   description: department-Rangers-description
   color: "#3ab700"
-  uiCategory: MajorFaction
+  uiCategory: MinorFaction # #Misfits Change - Rangers are their own minor faction, no longer grouped under the NCR major faction
   roles:                                                                                                          # #Misfits Change - full Rangers ladder with NCR-prefixed IDs; NCRChiefRanger on top
   - NCRDagger        # DAGGER (whitelist-only Ranger / NCR High Command liaison) | _Misfits/Roles/Jobs/Rangers/dagger.yml
   - NCRChiefRanger   # Chief Ranger (admin-only) | _Misfits/Roles/Jobs/Rangers/chief_ranger.yml
   - NCRVeteranRanger # Veteran Ranger            | _Misfits/Roles/Jobs/Rangers/ranger_veteran.yml
-  - NCRFieldRanger   # Field Ranger              | _Misfits/Roles/Jobs/Rangers/ranger.yml
+  #- NCRFieldRanger  # Field Ranger              | _Misfits/Roles/Jobs/Rangers/ranger.yml  # #Misfits Removed - Field Ranger retired; its map slots went to Patrol Ranger (+2) and Ranger Recruit (+1)
+  - NCRRangerStandard # Ranger                   | _Misfits/Roles/Jobs/Rangers/ranger_standard.yml  # #Misfits Add - main Ranger rung; patrol ranger keeps its job but has no station slots
+  - NCRRangerMedic  # Ranger Medic              | _Misfits/Roles/Jobs/Rangers/ranger_medic.yml  # #Misfits Add - medical rung of the Ranger ladder
   - SuperMutantNCRRanger # Mutant Ranger         | _Misfits/Roles/Jobs/SuperMutant/supermutant.yml # Misfits Add
   - NCRPatrolRanger  # Patrol Ranger             | _Misfits/Roles/Jobs/Rangers/ranger_recruit.yml
   - NCRRangerRecruit # Ranger Recruit            | _Misfits/Roles/Jobs/Rangers/ncr_ranger_recruit.yml

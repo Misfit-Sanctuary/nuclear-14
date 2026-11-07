@@ -1,0 +1,1015 @@
+# #Misfits Add - Ranger field kit blueprint collection (weapons, ammo, armor).
+# Equipment: see Entities/Objects/Blueprints/ranger_blueprints.yml
+# Crate:     see Catalog/Fills/Blueprints/rangers.yml
+- type: latheCategory
+  id: N14BlueprintRangerWeapons
+  name: lathe-category-blueprint-ranger-weapons
+
+- type: latheCategory
+  id: N14BlueprintRangerAmmo
+  name: lathe-category-blueprint-ranger-ammo
+
+- type: latheCategory
+  id: N14BlueprintRangerArmor
+  name: lathe-category-blueprint-ranger-armor
+
+- type: latheRecipe
+  id: N14BPRangerWeaponM7Spear
+  result: N14WeaponRifleM7SpearScope
+  category: N14BlueprintRangerWeapons
+  completetime: 20
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 10000
+
+    N14Iron: 300
+
+    Plastic: 200
+
+    N14Brass: 200
+
+    Glass: 200
+
+- type: latheRecipe
+  id: N14BPRangerWeaponRifle762Marksman
+  result: N14WeaponRifle762Marksman
+  category: N14BlueprintRangerWeapons
+  completetime: 11
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 6500
+
+    Plastic: 1000
+
+    Glass: 500
+
+    N14Iron: 800
+
+    N14Brass: 300
+
+# #Misfits Add - Chinese marksman rifle, .308 scoped semi-auto. Cost mirrors the Ranger marksman rifle.
+- type: latheRecipe
+  id: N14BPRangerWeaponMarksmanChinese
+  result: N14WeaponRifle762MarksmanChinese
+  category: N14BlueprintRangerWeapons
+  completetime: 11
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 6500
+
+    Plastic: 1000
+
+    Glass: 500
+
+    N14Iron: 800
+
+    N14Brass: 300
+
+- type: latheRecipe
+  id: N14BPRangerWeaponRifle556Scout
+  result: N14WeaponRifle556Scout
+  category: N14BlueprintRangerWeapons
+  completetime: 14
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 6000
+
+    Wood: 1500
+
+    N14Iron: 300
+
+    N14Brass: 200
+
+    Plastic: 1500
+
+- type: latheRecipe
+  id: N14BPRangerWeaponBrushGun
+  result: N14WeaponSniper45-70BrushGun
+  category: N14BlueprintRangerWeapons
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 6000
+
+    Wood: 2000
+
+    N14Iron: 1000
+
+    N14Brass: 100
+
+- type: latheRecipe
+  id: N14BPRangerWeaponSequoia
+  result: N14WeaponRevolver45-70RangerSequoia
+  category: N14BlueprintRangerWeapons
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 6000
+
+    N14Iron: 1500
+
+    Wood: 1500
+
+    N14Silver: 300
+
+    N14Gold: 300
+
+- type: latheRecipe
+  id: N14BPRangerWeapon308Sniper
+  result: N14WeaponRifle308SniperRifle
+  category: N14BlueprintRangerWeapons
+  completetime: 16
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 7000
+
+    Wood: 1500
+
+    N14Iron: 120
+
+- type: latheRecipe
+  id: N14BPRangerWeaponLMG556
+  result: N14WeaponLMG
+  category: N14BlueprintRangerWeapons
+  completetime: 18
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 11500
+
+    N14Iron: 2500
+
+    N14Brass: 250
+
+    Plastic: 1500
+
+- type: latheRecipe
+  id: N14BPRangerWeaponCombatShotgun
+  result: N14WeaponShotgunAuto
+  category: N14BlueprintRangerWeapons
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 3500
+
+    N14Iron: 700
+
+    Scrap: 1000
+
+- type: latheRecipe
+  id: N14BPRangerWeapon308LeverRifle
+  result: N14WeaponSniper308LeverRifle
+  category: N14BlueprintRangerWeapons
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 2000
+
+    Wood: 400
+
+    N14Iron: 170
+
+- type: latheRecipe
+  id: N14BPRangerWeaponAssaultCarbine
+  result: N14WeaponRifle556Carbine
+  category: N14BlueprintRangerWeapons
+  completetime: 14
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 6000
+
+    N14Iron: 1200
+
+    Plastic: 1000
+
+    N14Brass: 100
+
+- type: latheRecipe
+  id: N14BPRangerWeapon44LeverRifle
+  result: N14WeaponSniper44LeverCarbine
+  category: N14BlueprintRangerWeapons
+  completetime: 9
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 3500
+
+    Wood: 550
+
+    N14Iron: 700
+
+# #Misfits Add - SMG patterns: close-quarters arm for the field kit.
+- type: latheRecipe
+  id: N14BPRangerWeaponSMG9mm
+  result: N14WeaponSMG9mm
+  category: N14BlueprintRangerWeapons
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 3000
+    N14Iron: 700
+
+- type: latheRecipe
+  id: N14BPRangerWeaponSMG10mm
+  result: N14WeaponSMG10mm
+  category: N14BlueprintRangerWeapons
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 4500
+    N14Iron: 400
+
+- type: latheRecipe
+  id: N14BPRangerWeaponSMG12mm
+  result: N14WeaponSMG12mm
+  category: N14BlueprintRangerWeapons
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 4500
+    N14Iron: 500
+    N14Brass: 50
+
+- type: latheRecipe
+  id: N14BPRangerWeaponSMG12mmAdvanced
+  result: N14WeaponSMG12mmAdvanced
+  category: N14BlueprintRangerWeapons
+  completetime: 16
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 8000
+    N14Iron: 500
+    N14Brass: 200
+    Plastic: 1000
+    Circuitry: 300
+    ScrapElectronic: 500
+# #Misfits Add - PPSh-41 SMG pattern, cost mirrors the NCR T2 pattern.
+- type: latheRecipe
+  id: N14BPRangerWeaponPPSh41
+  result: N14WeaponSMGPPSh41
+  category: N14BlueprintRangerWeapons
+  completetime: 9
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 3500
+    N14Iron: 700
+    N14Brass: 250
+
+# #Misfits Add - radio jammer pattern; the device is uplink-only elsewhere, so this is
+# its only craftable route. Ships with a medium power cell like the base prototype.
+- type: latheRecipe
+  id: N14BPRangerWeaponRadioJammer
+  result: RadioJammer
+  category: N14BlueprintRangerWeapons
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 800
+    Plastic: 500
+    Circuitry: 400
+    ScrapElectronic: 300
+
+- type: latheRecipe
+  id: N14BPRangerAmmoBox68
+  result: N14AmmoBox68
+  category: N14BlueprintRangerAmmo
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Lead: 45
+
+    N14Brass: 35
+
+    N14Gunpowder: 35
+
+- type: latheRecipe
+  id: N14BPRangerAmmoMag68Rifle
+  result: Magazine68Rifle
+  category: N14BlueprintRangerAmmo
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 200
+
+    Lead: 20
+
+    N14Gunpowder: 15
+
+- type: latheRecipe
+  id: N14BPRangerAmmoBox762
+  result: N14AmmoBox762
+  category: N14BlueprintRangerAmmo
+  completetime: 7
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Lead: 45
+
+    N14Brass: 35
+
+    N14Gunpowder: 35
+
+- type: latheRecipe
+  id: N14BPRangerAmmoMag762Rifle
+  result: Magazine762Rifle
+  category: N14BlueprintRangerAmmo
+  completetime: 6
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 200
+
+    Lead: 35
+
+    N14Gunpowder: 20
+
+- type: latheRecipe
+  id: N14BPRangerAmmoBox556
+  result: N14AmmoBox556
+  category: N14BlueprintRangerAmmo
+  completetime: 6
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Lead: 25
+
+    N14Brass: 15
+
+    N14Gunpowder: 15
+
+- type: latheRecipe
+  id: N14BPRangerAmmoMag556Rifle
+  result: Magazine556Rifle
+  category: N14BlueprintRangerAmmo
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 200
+
+    Lead: 20
+
+    N14Gunpowder: 10
+
+- type: latheRecipe
+  id: N14BPRangerAmmoMag556Long
+  result: LongMagazine556Rifle
+  category: N14BlueprintRangerAmmo
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 500
+
+    Lead: 350
+
+    N14Gunpowder: 400
+
+- type: latheRecipe
+  id: N14BPRangerAmmoMag556LMG
+  result: LMGMagazine556Rifle
+  category: N14BlueprintRangerAmmo
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Lead: 110
+    Steel: 265
+    N14Gunpowder: 110
+
+- type: latheRecipe
+  id: N14BPRangerAmmoBox4570
+  result: N14AmmoBox45-70
+  category: N14BlueprintRangerAmmo
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Lead: 90
+
+    N14Brass: 60
+
+    N14Gunpowder: 60
+
+- type: latheRecipe
+  id: N14BPRangerAmmoBox308
+  result: N14AmmoBox308
+  category: N14BlueprintRangerAmmo
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Lead: 45
+
+    N14Brass: 35
+
+    N14Gunpowder: 35
+
+- type: latheRecipe
+  id: N14BPRangerAmmoBoxOver308
+  result: N14AmmoBoxOver308
+  category: N14BlueprintRangerAmmo
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 150
+
+    N14Brass: 75
+
+    N14Gunpowder: 125
+
+- type: latheRecipe
+  id: N14BPRangerAmmoOverMag308
+  result: MagazineOver308RifleSniper
+  category: N14BlueprintRangerAmmo
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 500
+
+    Lead: 500
+
+    N14Gunpowder: 300
+
+- type: latheRecipe
+  id: N14BPRangerAmmoBox12gauge
+  result: N14AmmoBox12gauge
+  category: N14BlueprintRangerAmmo
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Lead: 25
+
+    Plastic: 5
+
+    N14Gunpowder: 15
+
+- type: latheRecipe
+  id: N14BPRangerAmmoMagShotgun12
+  result: N14MagazineShotgun12
+  category: N14BlueprintRangerAmmo
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Lead: 16
+    N14Paper: 24
+    Steel: 100
+    N14Gunpowder: 16
+- type: latheRecipe
+  id: N14BPRangerAmmoSpeedLoader4570
+  result: N14SpeedLoader45-70
+  category: N14BlueprintRangerAmmo
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Lead: 40
+    N14Brass: 35
+    N14Gunpowder: 35
+- type: latheRecipe
+  id: N14BPRangerAmmoSpeedLoader4570Tube
+  result: SpeedLoader45-70Tube
+  category: N14BlueprintRangerAmmo
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Lead: 40
+    Steel: 35
+    N14Gunpowder: 30
+- type: latheRecipe
+  id: N14BPRangerAmmoSpeedLoader308Tube
+  result: SpeedLoader308Tube
+  category: N14BlueprintRangerAmmo
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Lead: 24
+    Steel: 132
+    N14Gunpowder: 24
+
+- type: latheRecipe
+  id: N14BPRangerAmmoBox44Magnum
+  result: N14AmmoBox44Magnum
+  category: N14BlueprintRangerAmmo
+  completetime: 7
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Lead: 45
+
+    N14Brass: 35
+
+    N14Gunpowder: 35
+# #Misfits Add - 12 gauge beanbag shells for non-lethal work.
+- type: latheRecipe
+  id: N14BPRangerAmmoBox12gaugeBeanbag
+  result: MisfitsMagazineBox12GaugeBeanbag
+  category: N14BlueprintRangerAmmo
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Plastic: 60
+    N14Paper: 90
+    N14Gunpowder: 60
+    Cardboard: 100
+
+# #Misfits Change - retired: no .44 revolver in the kit (the .44 weapon is a
+# lever carbine, fed by the .44 box), so this speed loader had no home here.
+# - type: latheRecipe
+#   id: N14BPRangerAmmoSpeedLoader44
+#   result: N14SpeedLoader44Magnum
+#   category: N14BlueprintRangerAmmo
+#   completetime: 3
+#   requiresBlueprint: true
+#   availableFaction:
+#   - Rangers
+#   materials:
+#     Lead: 10
+#
+#     N14Brass: 5
+#
+#     N14Gunpowder: 5
+#
+#
+- type: latheRecipe
+  id: N14BPRangerArmorField
+  result: N14ClothingOuterRangerFieldArmor
+  category: N14BlueprintRangerArmor
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Leather: 200
+    Cloth: 200
+    Thread: 150
+    Steel: 2500
+
+- type: latheRecipe
+  id: N14BPRangerArmorRecon
+  result: N14ClothingOuterRangerDuster
+  category: N14BlueprintRangerArmor
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Leather: 1000
+
+    Cloth: 750
+
+    Thread: 170
+
+    Steel: 6000
+
+
+# --- NCR Tier 4 Armor ---
+
+- type: latheRecipe
+  id: N14BPRangerArmorCombatMK2
+  result: N14ClothingOuterNCRCombatArmorMK2
+  category: N14BlueprintRangerArmor
+  completetime: 20
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 8500
+
+    Cloth: 320
+
+    Thread: 200
+
+    Leather: 350
+
+    Circuitry: 100
+
+- type: latheRecipe
+  id: N14BPRangerArmorFlakVest
+  result: N14ClothingOuterNCRFlakVestOpen
+  category: N14BlueprintRangerArmor
+  completetime: 14
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Leather: 300
+
+    Cloth: 300
+
+    Thread: 220
+
+    Steel: 4000
+
+- type: latheRecipe
+  id: N14BPRangerArmorPatrol
+  result: N14ClothingOuterRangerArmor
+  category: N14BlueprintRangerArmor
+  completetime: 20
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 12000
+
+    Leather: 300
+
+    Cloth: 220
+
+    Thread: 170
+
+    Circuitry: 100
+
+- type: latheRecipe
+  id: N14BPRangerArmorHelmetCombat
+  result: N14ClothingHeadHatNCRCombatHelmet
+  category: N14BlueprintRangerArmor
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 2000
+    Cloth: 80
+    Leather: 40
+    Plastic: 100
+
+- type: latheRecipe
+  id: N14BPRangerArmorHelmetCombatMK2
+  result: N14ClothingHeadHatCombatHelmetMK2
+  category: N14BlueprintRangerArmor
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 4000
+    Cloth: 100
+    Leather: 50
+    Circuitry: 50
+
+- type: latheRecipe
+  id: N14BPRangerArmorHelmetDesert
+  result: N14ClothingHeadHatRangerHelmet
+  category: N14BlueprintRangerArmor
+  completetime: 9
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1800
+    Leather: 100
+    Cloth: 80
+    Glass: 200
+
+- type: latheRecipe
+  id: N14BPRangerArmorHelmetDesertRiot
+  result: N14ClothingHeadHatRangerHelmetDesert
+  category: N14BlueprintRangerArmor
+  completetime: 9
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1800
+    Leather: 100
+    Cloth: 80
+    Glass: 200
+
+- type: latheRecipe
+  id: N14BPRangerArmorHelmetOld
+  result: N14ClothingHeadHatRangerHelmetOld
+  category: N14BlueprintRangerArmor
+  completetime: 9
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1800
+    Leather: 100
+    Cloth: 80
+    Glass: 200
+
+# --- NCR Tier 4 Helmets (elite / power armor) ---
+
+- type: latheRecipe
+  id: N14BPRangerArmorHelmetElite
+  result: N14ClothingHeadHatRangerHelmetElite
+  category: N14BlueprintRangerArmor
+  completetime: 14
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 4000
+    Leather: 120
+    Cloth: 100
+    Glass: 250
+    Circuitry: 50
+
+# #Misfits Add - armors requested alongside the field kit: the customised patrol
+# suit and the elite combat armor. Priced against the
+# protection each one actually gives, using the kit's existing armor as the scale:
+# field/flak (0.75 blunt) 2500-4000 steel, custom patrol (0.7) 7000, MK2 (0.7/0.6)
+# 8500, ranger riot and elite (0.65/0.6) 9000-12000.
+- type: latheRecipe
+  id: N14BPRangerArmorPatrolCustom
+  result: N14ClothingOuterRangerArmorB
+  category: N14BlueprintRangerArmor
+  completetime: 18
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 7000
+    Leather: 320
+    Cloth: 260
+    Thread: 190
+    Circuitry: 80
+
+# #Misfits Removed - riot armor variant is loadout-only now (3 points); only the basic ranger riot armor stays in the blueprint.
+# - type: latheRecipe
+#   id: N14BPRangerArmorCanOpener
+#   result: N14ClothingOuterCanOpenerVetRangerRiotArmor
+#   category: N14BlueprintRangerArmor
+#   completetime: 20
+#   requiresBlueprint: true
+#   availableFaction:
+#   - Rangers
+#   materials:
+#     Steel: 9000
+#     Leather: 350
+#     Cloth: 250
+#     Thread: 190
+#     Circuitry: 100
+
+# #Misfits Removed - riot armor variant is loadout-only now (3 points); only the basic ranger riot armor stays in the blueprint.
+# - type: latheRecipe
+#   id: N14BPRangerArmorDemoExpert
+#   result: N14ClothingOuterDemoExpertVetRangerRiotArmor
+#   category: N14BlueprintRangerArmor
+#   completetime: 20
+#   requiresBlueprint: true
+#   availableFaction:
+#   - Rangers
+#   materials:
+#     Steel: 9000
+#     Leather: 350
+#     Cloth: 250
+#     Thread: 190
+#     Circuitry: 100
+
+- type: latheRecipe
+  id: N14BPRangerArmorElite
+  result: N14ClothingOuterRangerElite
+  category: N14BlueprintRangerArmor
+  completetime: 25
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 12000
+    Leather: 370
+    Cloth: 270
+    Thread: 200
+    Circuitry: 150
+    ScrapElectronic: 100
+# #Misfits Add - veteran ranger riot armour.
+- type: latheRecipe
+  id: N14BPRangerArmorRiotVet
+  result: N14ClothingOuterVetRangerRiotArmor
+  category: N14BlueprintRangerArmor
+  completetime: 20
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 9000
+    Leather: 350
+    Cloth: 250
+    Thread: 190
+    Circuitry: 100
+
+# #Misfits Add - night vision goggles and the ranger gas mask set: the eyes and mouth
+# slots the field kit was missing. The NV masks inherit eyeball protection from the
+# combat gas mask; the weathered one is deliberately plain, having lost its optics.
+- type: latheRecipe
+  id: N14BPRangerArmorNVG
+  result: N14ClothingEyesNCRNVGs
+  category: N14BlueprintRangerArmor
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1000
+    Cloth: 100
+    Circuitry: 200
+    ScrapElectronic: 200
+
+- type: latheRecipe
+  id: N14BPRangerArmorMaskRanger
+  result: ClothingMaskGasRanger
+  category: N14BlueprintRangerArmor
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1200
+    Cloth: 150
+    Plastic: 200
+    Circuitry: 100
+
+- type: latheRecipe
+  id: N14BPRangerArmorMaskRangerOld
+  result: ClothingMaskGasRangerOld
+  category: N14BlueprintRangerArmor
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1200
+    Cloth: 150
+    Plastic: 200
+    Circuitry: 100
+
+- type: latheRecipe
+  id: N14BPRangerArmorMaskRangerDesert
+  result: ClothingMaskGasRangerDesert
+  category: N14BlueprintRangerArmor
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1200
+    Cloth: 150
+    Plastic: 200
+    Circuitry: 100
+
+- type: latheRecipe
+  id: N14BPRangerArmorMaskRangerWeathered
+  result: ClothingMaskGasRangerWeathered
+  category: N14BlueprintRangerArmor
+  completetime: 6
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 900
+    Cloth: 150
+    Plastic: 150
+
+- type: latheRecipe
+  id: N14BPRangerArmorMaskRangerPrice
+  result: ClothingMaskGasRangerPrice
+  category: N14BlueprintRangerArmor
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1200
+    Cloth: 150
+    Plastic: 200
+    Circuitry: 100
+
+- type: latheRecipe
+  id: N14BPRangerArmorMaskRangerElite
+  result: ClothingMaskGasRangerElite
+  category: N14BlueprintRangerArmor
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1600
+    Cloth: 180
+    Plastic: 220
+    Circuitry: 120
+
+- type: latheRecipe
+  id: N14BPRangerArmorMaskRangerModif
+  result: ClothingMaskGasRangerModif
+  category: N14BlueprintRangerArmor
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1200
+    Cloth: 150
+    Plastic: 200
+    Circuitry: 100
+
+- type: latheRecipe
+  id: N14BPRangerArmorMaskRiot
+  result: ClothingMaskGasRiot
+  category: N14BlueprintRangerArmor
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - Rangers
+  materials:
+    Steel: 1200
+    Cloth: 150
+    Plastic: 200
+    Circuitry: 100
+
+# #Misfits Removed - riot armor variant is loadout-only now (3 points); only the basic ranger riot armor stays in the blueprint.
+# - type: latheRecipe
+#   id: N14BPRangerArmorCaliforniaGirl
+#   result: N14ClothingOuterCaliforniaGirlVetRangerRiotArmor
+#   category: N14BlueprintRangerArmor
+#   completetime: 20
+#   requiresBlueprint: true
+#   availableFaction:
+#   - Rangers
+#   materials:
+#     Steel: 9000
+#     Leather: 350
+#     Cloth: 250
+#     Thread: 190
+#     Circuitry: 100
+
+# #Misfits Removed - user requested no power armor helmet recipes
+# - type: latheRecipe
+#   id: N14BPNCRArmorPowerHelmetT45NCR
+#   result: N14ClothingHeadHelmetPowerArmorT45NCR
+#   category: N14BlueprintNCRArmorT4
+#   completetime: 18
+#   requiresBlueprint: true
+#   availableFaction:
+#   - NCR
+#   materials:
+#     Steel: 4500
+#     N14Iron: 15
+#     Circuitry: 12
+#     ScrapElectronic: 8
+#     N14Brass: 5
+
+# --- Legion Tier 1 Helmets (recruit head wraps) ---

@@ -12608,3 +12608,209 @@ Entries:
   id: 6534
   time: '2026-10-25T21:30:30.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2117
+- author: Wassuy
+  changes:
+    - type: Tweak
+      message: Feral ghoul reaver now had a bit of armor.
+    - type: Tweak
+      message: Raiders now open doors, don't cheese em!
+    - type: Tweak
+      message: Raiders overall accurcy had been nerfeds
+    - type: Tweak
+      message: Raiders eyesights had been reduced
+    - type: Fix
+      message: Fixed Raiders now have some gloves.
+    - type: Fix
+      message: Fixed Now certain raiders have their gun sprite fixed
+  id: 6535
+  time: '2026-10-28T02:06:41.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1975
+- author: Clintion
+  changes:
+    - type: Tweak
+      message: >-
+        NCR vendor supply lines have been cut by command. Less good guns, armor,
+        ammo, and equipment will arrive
+    - type: Fix
+      message: Added wielded slowdown increase to bozar
+    - type: Tweak
+      message: increased slowdown on M240b by 10%
+  id: 6536
+  time: '2026-10-29T02:49:30.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2128
+- author: Tytos
+  changes:
+    - type: Tweak
+      message: adjusted circuitry prices and max buyable
+  id: 6537
+  time: '2026-10-29T02:49:36.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2130
+- author: Sirius-Frost
+  changes: []
+  id: 6538
+  time: '2026-10-30T23:50:05.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2124
+- author: Sirius-Frost
+  changes:
+    - type: Add
+      message: >-
+        A 'recruits' crate was added for purchase, allowing recruits to be more
+        quickly outfitted.
+    - type: Remove
+      message: Removed the Enclave's blueprints from their armory.
+    - type: Tweak
+      message: >-
+        Several crates purchased in the ASRS have had their availability
+        updated.
+    - type: Tweak
+      message: 'Crops from botany have been made viable to be sold. '
+    - type: Tweak
+      message: 'Gold and Silver have been slightly buffed. '
+  id: 6539
+  time: '2026-10-30T23:51:20.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2123
+- author: hobolyra
+  changes:
+    - type: Remove
+      message: Deletes exploitable items from outside vault map
+    - type: Tweak
+      message: Multiple QoL changes to vault map
+  id: 6540
+  time: '2026-10-31T01:03:52.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2131
+- author: RedBookcase
+  changes:
+    - type: Add
+      message: >-
+        Part two of the Brotherhood resprite! Includes tons of new jumpsuits,
+        cloaks, coats, hats, etc!
+  id: 6541
+  time: '2026-10-31T01:10:47.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2120
+- author: TytosB
+  changes:
+    - type: Tweak
+      message: slightly reduced time reqs for a few legion jobs
+  id: 6542
+  time: '2026-10-31T01:11:09.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2125
+- author: hobolyra
+  changes:
+    - type: Fix
+      message: Town and Vault warp
+  id: 6543
+  time: '2026-10-31T13:24:58.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2134
+- author: Wassuy
+  changes: []
+  id: 6544
+  time: '2026-11-03T01:00:26.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2143
+- author: grif16886-hash
+  changes:
+    - type: Add
+      message: Pens to loadout
+  id: 6545
+  time: '2026-11-03T01:03:21.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2140
+- author: Enkidienne
+  changes:
+    - type: Add
+      message: Minecraft style spawners
+  id: 6546
+  time: '2026-11-03T03:29:43.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1982
+- author: Enkidienne
+  changes:
+    - type: Add
+      message: Added Shotgun comp for hitscan weapons.
+    - type: Add
+      message: Added partial AP comp
+  id: 6547
+  time: '2026-11-03T03:30:24.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2126
+- author: Davisrocket
+  changes:
+    - type: Add
+      message: Fallout Themed Custom Book System
+    - type: Add
+      message: Fallout Magazine Random Edition System
+    - type: Add
+      message: 3 Custom Fallout Theme Color Palettes
+    - type: Add
+      message: ~75 Custom Fallout Themed Book Sprites
+    - type: Add
+      message: 9 New Fallout Themed Magazines
+    - type: Add
+      message: 25 Mappable Objects with Book and Magazine Fills
+    - type: Add
+      message: Custom Fallout Background Paper
+    - type: Tweak
+      message: Minor Enclave ASRS Book and Magazine Tweaks
+    - type: Tweak
+      message: Custom Enclave Power Armor Training Manual Sprite on New System
+  id: 6548
+  time: '2026-11-03T04:13:50.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2116
+- author: Davisrocket
+  changes:
+    - type: Add
+      message: Added flatpack bunker hatches. Hatches now need to be manually placed
+    - type: Add
+      message: Hatches can now be purchases at the cargo terminal
+  id: 6549
+  time: '2026-11-03T22:41:08.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2144
+- author: cythisiax
+  changes:
+    - type: Fix
+      message: Chore. Harmony runtime attempt.
+    - type: Fix
+      message: RTB 295
+  id: 6550
+  time: '2026-11-05T05:26:06.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2155
+- author: Enkidienne
+  changes:
+    - type: Tweak
+      message: Rangers are now a minor. Be scared.
+  id: 6551
+  time: '2026-11-05T22:50:07.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2157
+- author: John-Dang
+  changes:
+    - type: Add
+      message: >-
+        New descriptions for all the enforcer units, now the warden company, the
+        cult of liberty recruit, and the brotherhood npcs.
+  id: 6552
+  time: '2026-11-05T22:50:48.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2152
+- author: alekszejg
+  changes:
+    - type: Tweak
+      message: Tweakes to recent food recipes.
+  id: 6553
+  time: '2026-11-05T22:58:05.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2151
+- author: Tytos
+  changes:
+    - type: Fix
+      message: no more infintie money charcoal
+  id: 6554
+  time: '2026-11-07T02:46:08.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2160
+- author: ToasterEnjoyer
+  changes: []
+  id: 6555
+  time: '2026-11-07T02:52:55.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2138
+- author: Tytos
+  changes:
+    - type: Add
+      message: Added the wt-550
+    - type: Fix
+      message: Fixed acolyte kit desc
+  id: 6556
+  time: '2026-11-07T03:03:26.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1989

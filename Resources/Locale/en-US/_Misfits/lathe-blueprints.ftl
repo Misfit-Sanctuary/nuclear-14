@@ -111,3 +111,8 @@ lathe-category-blueprint-eighties-ammo-t1 = Eighties Ammo - Tier 1
 lathe-category-blueprint-eighties-ammo-t2 = Eighties Ammo - Tier 2
 lathe-category-blueprint-eighties-ammo-t3 = Eighties Ammo - Tier 3
 lathe-category-blueprint-eighties-ammo-t4 = Eighties Ammo - Tier 4
+
+# #Misfits Add - Ranger field kit blueprint categories.
+lathe-category-blueprint-ranger-weapons = Ranger Kit Weapons
+lathe-category-blueprint-ranger-ammo = Ranger Kit Ammo
+lathe-category-blueprint-ranger-armor = Ranger Kit Armor

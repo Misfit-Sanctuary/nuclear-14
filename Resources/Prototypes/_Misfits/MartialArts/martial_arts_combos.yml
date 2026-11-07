@@ -56,7 +56,11 @@
 
 # =============================================
 # RANGER COMBAT TECHNIQUE
-# (Veteran Ranger and Ranger Chief job default)
+# (Ranger Lead and Ranger job default)
+# Inputs use only Harm (unarmed punch) and Disarm (shove): those are the two the melee
+# system always reports. Grab inputs depend on the grab-escalation path committing, which
+# does not happen reliably, so no ranger combo depends on them any more. Grab flavour is
+# kept in the effects - ArmBar still forces the Suffocate stage if you are holding the target.
 # =============================================
 
 - type: misfitsCombo
@@ -83,7 +87,8 @@
   id: RangerTakedownThrow
   martialArtsForm: RangerCombatTechnique
   attacks:
-    - Grab
+    - Harm
+    - Harm
     - Harm
   extraDamage: 6
   damageType: Blunt
@@ -94,9 +99,9 @@
   id: RangerArmBar
   martialArtsForm: RangerCombatTechnique
   attacks:
-    - Grab
-    - Grab
     - Harm
+    - Harm
+    - Disarm
   extraDamage: 8
   damageType: Blunt
   paralyzeTime: 2.5
@@ -105,10 +110,11 @@
 - type: misfitsComboList
   id: RangerCombatTechniqueCombos
   combos:
-    - RangerQuickDisarm
-    - RangerPressurePoint
-    - RangerTakedownThrow
+    # Longest first: every shorter pattern below also matches the tail of a longer one.
     - RangerArmBar
+    - RangerTakedownThrow
+    - RangerPressurePoint
+    - RangerQuickDisarm
 
 # =============================================
 # DESERT SURVIVAL FIGHTING

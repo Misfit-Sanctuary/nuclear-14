@@ -50,11 +50,9 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly HeightAdjustSystem _heightAdjust = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
 
-    [ValidatePrototypeId<SpeciesPrototype>]
     public const string DefaultSpecies = "Human";
     // Corvax-Fallout-Barks-start
-    [ValidatePrototypeId<BarkPrototype>]
-    public const string DefaultBarkVoice = "BarksGoonSpeak1";
+    public static readonly ProtoId<BarkPrototype> DefaultBarkVoice = "BarksGoonSpeak1";
     // Corvax-Fallout-Barks-end
     
     // Corvax-TTS-Start

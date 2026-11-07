@@ -76,9 +76,11 @@
           NCRRO: [ 1, 1 ]
           NCRChiefRanger: [ 1, 0 ]  # #Misfits Change - admin-only Chief Ranger; renamed from ChiefRanger
           NCRVeteranRanger: [ 1, 1 ] # #Misfits Change - renamed from RangerVeteran
-          NCRFieldRanger: [ 1, 1 ]   # #Misfits Add - Field Ranger slot
-          NCRPatrolRanger: [ 1, 1 ]  # #Misfits Change - renamed from RangerRecruit (was Patrol Ranger by FTL)
-          NCRRangerRecruit: [ 2, 2 ] # #Misfits Add - entry-level Ranger Recruit slot
+          #NCRFieldRanger: [ 1, 1 ]   # #Misfits Removed - Field Ranger retired; slot split into +2 Patrol Ranger and +1 Ranger Recruit
+          #NCRPatrolRanger: [ 3, 3 ]  # #Misfits Change - patrol slots retired; the Rangers post these through NCRRangerStandard instead
+          NCRRangerStandard: [ 4, 4 ] # #Misfits Add - main Ranger rung; carries the former patrol and field ranger duties
+          NCRRangerRecruit: [ 2, 2 ] # #Misfits Add - entry-level Ranger Recruit
+          NCRRangerMedic: [ 1, 1 ] # #Misfits Add - Ranger Medic slot
           NCRFirstSergeant: [ 1, 1 ]
           #NCRStaffSergeant: [ 1, 1 ] # #Misfits Removed - replaced by NCRHeavyTrooper as T5 specialist slot
           NCRHeavyTrooper: [ 2, 2 ]

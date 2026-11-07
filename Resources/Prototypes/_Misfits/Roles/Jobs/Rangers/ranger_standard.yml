@@ -1,0 +1,64 @@
+# #Misfits Add - main Ranger rung. Takes over the station slots and the desert ranger badge plus the
+# former Field Ranger loadout kits; the Patrol Ranger job stays defined but has no station slots.
+- type: job
+  id: NCRRangerStandard
+  setPreference: true
+  whitelisted: true # #Misfits Add - user requested: Rangers are whitelist-only
+  alwaysUseSpawner: true
+  jobWhitelistBypassesRoleTimers: true
+  weight: 8 # #Misfits Add - below Ranger Lead, above Ranger Recruit
+  name: job-name-ranger
+  overwatchCategory: OverwatchNcrRangers
+  description: job-description-ranger
+  playTimeTracker: NCRRangerStandard
+  startingGear: NCRRangerStandardGear
+  icon: "JobIconSecurityOfficer"
+  supervisors: job-supervisors-ranger-veteran
+  canBeAntag: false
+  access: # #Misfits Change - no base NCR tag: Rangers are their own minor faction
+  - NCRSGT
+  - NCRRanger
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Rangers
+      - type: GrantRangerCombat # #Misfits Add - Rangers start with the Ranger Combat Technique
+  - !type:AddTraitSpecial # #Misfits Add - Rangers spawn with the riding perk
+    traits: [ N14RidingPerk ]
+  requirements:
+    - !type:CharacterDepartmentTimeRequirement
+      department: Rangers
+      min: 28800 # #Misfits Change - 8 hours as a Ranger
+    - !type:CharacterSpeciesRequirement # #Misfits Change - robots, super mutants, and glowing ghouls cannot be Rangers
+      species:
+      - Human
+      - Ghoul
+
+- type: startingGear
+  id: NCRRangerStandardGear
+  equipment:
+    wallet: N14Wallet
+    head: N14ClothingHeadHatNCRPatrolRangerCampaign
+    back: N14ClothingBackpackMilitary # Corvax-Change
+    jumpsuit: N14ClothingUniformNCRPatrolRanger
+    ears: MisfitsClothingHeadsetNCRRanger
+    shoes: N14ClothingBootsLeather
+    belt: ClothingBeltRevolverdesertfilled
+    gloves: N14ClothingHandsGlovesBlackLeather
+    pocket1: MagazineBox45-70
+    pocket2: NCRfieldrangerloadoutkits # #Misfits Change - Trailman / Marksman / Sniper / Operative, the former Field Ranger kits
+    eyes: ClothingEyesGlassesSunglasses
+    outerClothing: N14ClothingOuterNCRPatrolRangerArmorVariant
+    id: N14IDBadgeNCRDesertRanger
+  innerClothingSkirt: N14ClothingUniformNCRPatrolRanger #placeholder
+  satchel: N14ClothingBackpackSatchelMilitaryFilled
+  duffelbag: N14ClothingBackpackDuffelMilitaryFilled
+  storage: # Corvax-Change
+    back:
+    - N14BoxPlasticFilledMilitary
+    - FlashlightSeclite
+
+- type: playTimeTracker
+  id: NCRRangerStandard

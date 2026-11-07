@@ -1,0 +1,13 @@
+﻿#- Food Box: 5 planks
+- type: constructionGraph
+  id: FoodBoxGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: FoodBox
+          steps:
+            - material: WoodPlank
+              amount: 5
+    - node: FoodBox
+      entity: MisfitsStorageFoodBox

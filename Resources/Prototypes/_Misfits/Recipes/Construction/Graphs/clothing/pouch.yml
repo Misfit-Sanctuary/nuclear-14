@@ -1,0 +1,15 @@
+#Candy Pouch: 1 leather, 1 thread
+- type: constructionGraph
+  id: CandyPouchGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: CandyPouch
+      steps:
+      - material: Thread
+        amount: 1
+      - material: Leather
+        amount: 1
+  - node: CandyPouch
+    entity: MisfitsClothingPouchCandy

@@ -275,8 +275,8 @@
 #- type: entity
 #  parent: N14ClothingHeadHatBaseHelmetMK2
 #  id: N14ClothingHeadHatEnclavePilotHelmet
-#  name: U.S. Army Vertibird Pilot Helmet
-#  description: A combat helmet worn by U.S. Army Vertibird Pilots.
+#  name: Enclave Vertibird Pilot Helmet
+#  description: A combat helmet worn by Enclave Vertibird Pilots.
 #  components:
 #  - type: Sprite
 #    sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_pilot_helmet.rsi
@@ -287,8 +287,8 @@
 #- type: entity
 #  parent: N14ClothingHeadHatBaseHelmetMK2
 #  id: N14ClothingHeadHatEnclaveScoutHelmet
-#  name: U.S. Army Covert Scout Helmet
-#  description: A combat helmet worn by U.S. Army Scouts.
+#  name: Enclave Covert Scout Helmet
+#  description: A combat helmet worn by Enclave Scouts.
 #  components:
 #  - type: Sprite
 #    sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_scout_helmet.rsi
@@ -299,8 +299,8 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatEnclaveHelmet
-  name: U.S. Army Combat Helmet Grey
-  description: A combat helmet worn by U.S. Army soldiers.
+  name: Enclave Combat Helmet Grey
+  description: A combat helmet worn by Enclave soldiers.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHelmets/enclavehelmet.rsi
@@ -311,8 +311,8 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatEnclaveCombatHelmet
-  name: U.S. Army Combat Helmet Black
-  description: A pre-war U.S. Army issue combat helmet. Protects against most battlefield threats.
+  name: Enclave Combat Helmet Black
+  description: A pre-war Enclave issue combat helmet. Protects against most battlefield threats.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_combat_helmet.rsi
@@ -323,8 +323,8 @@
 #- type: entity
 #  parent: N14ClothingHeadHatBaseHelmetmarine
 #  id: N14ClothingHeadHatEnclaveMarineHelmet
-#  name: U.S. Army Marine Helmet
-#  description: A marine combat helmet worn by U.S. Army soldiers.
+#  name: Enclave Marine Helmet
+#  description: A marine combat helmet worn by Enclave soldiers.
 #  components:
 #  - type: Sprite
 #    sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_marine_helmet.rsi
@@ -335,8 +335,8 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetmarine
   id: N14ClothingHeadHatEnclaveHelmetAdvanced
-  name: U.S. Army Advanced Combat Helmet
-  description: An advanced combat helmet worn by elite U.S. Army soldiers.
+  name: Enclave Advanced Combat Helmet
+  description: An advanced combat helmet worn by elite Enclave soldiers.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHelmets/enclavehelmetadvanced.rsi
@@ -347,8 +347,8 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetMK2
   id: N14ClothingHeadHatEnclaveHelmetHood
-  name: U.S. Army Hooded Combat Helmet
-  description: A combat helmet worn by U.S. Army soldiers. This one has a hood covering it.
+  name: Enclave Hooded Combat Helmet
+  description: A combat helmet worn by Enclave soldiers. This one has a hood covering it.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHelmets/enclavehelmethood.rsi
@@ -359,8 +359,8 @@
 - type: entity
   parent: N14ClothingHeadHatBaseHelmetmarine
   id: N14ClothingHeadHatEnclaveZuluCombatHelmet
-  name: Zulu U.S. Army Combat Helmet
-  description: A combat helmet worn by U.S. Army Zulu Squad operators. Painted with Zulu Squad markings.
+  name: Zulu Enclave Combat Helmet
+  description: A combat helmet worn by Enclave Zulu Squad operators. Painted with Zulu Squad markings.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_zulu_combat_helmet.rsi
@@ -656,6 +656,40 @@
     sprite: _Nuclear14/Clothing/Head/FalloutHelmets/midwest-brotherhood/bosheadset.rsi
   - type: Clothing
     sprite: _Nuclear14/Clothing/Head/FalloutHelmets/midwest-brotherhood/bosheadset.rsi
+
+- type: entity
+  parent: ClothingHeadHatLightBase
+  id: ClothingHeadBrotherhoodScribeScienceHelmet
+  name: Brotherhood scientist helmet
+  description: A sturdy yet practical helmet worn by scientifically minded scribes in service to the 509th Chapter.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/Helmets/bos_science_helmet.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/Helmets/bos_science_helmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
+    priceMultiplier: 0.5
+
+- type: entity
+  parent: N14ClothingHeadHatBaseHelmetMK2
+  id: N14ClothingHeadHatBrotherhoodLancerHelmet
+  name: Brotherhood lancer helmet
+  description: An integrated helmet and gas-mask combo specially designed for the pilots of the 509th Chapter.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/Helmets/bos_helmet_lancer.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/Helmets/bos_helmet_lancer.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+
 #  - type: ClothingSpecialModifier
 #    intelligenceModifier: 1
 
@@ -797,7 +831,7 @@
   parent: N14ClothingHeadSuitbase
   id: N14ClothingHeadHatHelmetFirefighterHelmet
   name: fire resistant helmet
-  description: A advance helmet used pre war to handle high temperatures.
+  description: A advance helmet used pre war to handle high temperatures, but quite heavy.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHelmets/falloutfirefighter.rsi
@@ -808,6 +842,9 @@
     modifiers:
       coefficients:
         Heat: 0.75
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.90
   - type: Tag
     tags:
     - HidesHair

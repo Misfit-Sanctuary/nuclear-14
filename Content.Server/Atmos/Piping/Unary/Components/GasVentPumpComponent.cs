@@ -1,7 +1,7 @@
+using Robust.Shared.Prototypes;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Piping.Unary.Components;
 using Content.Shared.DeviceLinking;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Atmos.Piping.Unary.Components
 {
@@ -122,11 +122,11 @@ namespace Content.Server.Atmos.Piping.Unary.Components
         [DataField("canLink")]
         public bool CanLink = false;
 
-        [DataField("pressurizePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
-        public string PressurizePort = "Pressurize";
+        [DataField("pressurizePort")]
+        public ProtoId<SinkPortPrototype> PressurizePort = "Pressurize";
 
-        [DataField("depressurizePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
-        public string DepressurizePort = "Depressurize";
+        [DataField("depressurizePort")]
+        public ProtoId<SinkPortPrototype> DepressurizePort = "Depressurize";
 
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("pressurizePressure")]

@@ -5,14 +5,13 @@ using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.EntityEffects.Effects;
 
 public sealed partial class PlantMutateChemicals : EntityEffect
 {
-    [DataField("randomPickBotanyReagent", customTypeSerializer: typeof(PrototypeIdSerializer<WeightedRandomFillSolutionPrototype>))]
-    public string RandomPickBotanyReagent = "RandomPickBotanyReagent";
+    [DataField("randomPickBotanyReagent")]
+    public ProtoId<WeightedRandomFillSolutionPrototype> RandomPickBotanyReagent = "RandomPickBotanyReagent";
 
     public override void Effect(EntityEffectBaseArgs args)
     {

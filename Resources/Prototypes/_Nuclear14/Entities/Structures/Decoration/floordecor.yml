@@ -430,7 +430,7 @@
   id: N14DecorFloorPaper1
   suffix: 4 states
   name: scattered paper
-  description: Important men schemed for this information in the past, killed other men for it. Its utterly useless now.
+  description: Important men schemed for this information in the past, killed others for it. Its utterly useless now.
   components:
   - type: Sprite
     state: papers_1
@@ -704,7 +704,7 @@
   parent: N14DecorFloorWorldBase
   id: N14DecorFloorGlass1
   name: glass bottles
-  description: Maybe the answer to your problems can be found at the bottom of a bottle?
+  description: Maybe the answer to your problems can be found at the bottom of a bottle? Yet these are all dry.
   components:
   - type: Sprite
     state: glass_1
@@ -758,7 +758,7 @@
   parent: N14DecorFloorWorldBase
   id: N14DecorFloorSkeleton
   name: skeleton
-  description: Not even the carrion eaters are interested in this irradiated corpse. What a pitiful end.
+  description: Not even the carrion eaters are interested in this irradiated corpse. What a truly pitiful end.
   components:
   - type: Sprite
     state: skeleton

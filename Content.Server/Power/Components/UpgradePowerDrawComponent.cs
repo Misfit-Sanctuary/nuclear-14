@@ -1,6 +1,6 @@
-﻿using Content.Server.Construction.Components;
+﻿using Robust.Shared.Prototypes;
+using Content.Server.Construction.Components;
 using Content.Shared.Construction.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Power.Components;
 
@@ -22,8 +22,8 @@ public sealed partial class UpgradePowerDrawComponent : Component
     /// <summary>
     ///     The machine part that affects the power draw.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>)), ViewVariables(VVAccess.ReadWrite)]
-    public string MachinePartPowerDraw = "Capacitor";
+    [DataField(), ViewVariables(VVAccess.ReadWrite)]
+    public ProtoId<MachinePartPrototype> MachinePartPowerDraw = "Capacitor";
 
     /// <summary>
     ///     The multiplier used for scaling the power draw.

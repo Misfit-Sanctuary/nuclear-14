@@ -15,7 +15,7 @@
       min: 126000 # 35 hours
     - !type:CharacterPlaytimeRequirement
       tracker: CaesarLegionPrimeDecanus
-      min: 28800 # 8 hours
+      min: 14400 # 4 hours
     # TEMP REMOVED - !type:CharacterDepartmentTimeRequirement
     #   department: CaesarLegion
     #   min: 198000 # 55 hours

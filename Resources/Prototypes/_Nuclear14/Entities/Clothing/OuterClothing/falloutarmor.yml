@@ -293,8 +293,8 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterEnclavePeacekeeper
-  name: U.S. Army Peacekeeper Vest
-  description: A bulletproof vest used by U.S. Army 'Peacekeepers'. Pfft. Yeah, right.
+  name: Enclave Peacekeeper Vest
+  description: A bulletproof vest used by Enclave 'Peacekeepers'. Pfft. Yeah, right.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutpeacekeeper.rsi
@@ -318,8 +318,8 @@
 #- type: entity
 #  parent: N14FalloutArmorBase
 #  id: N14ClothingOuterEnclavePilotArmor
-#  name: U.S. Army Vertibird Pilot Armor
-#  description: A light suit of armor used by U.S. Army Vertibird Pilots.
+#  name: Enclave Vertibird Pilot Armor
+#  description: A light suit of armor used by Enclave Vertibird Pilots.
 #  components:
 #  - type: Sprite
 #    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_pilot_armor.rsi
@@ -343,8 +343,8 @@
 #- type: entity
 #  parent: N14FalloutArmorBase
 #  id: N14ClothingOuterEnclaveScoutArmor
-#  name: U.S. Army Covert Scout Armor
-#  description: An advanced light armor used by the U.S. Army.
+#  name: Enclave Covert Scout Armor
+#  description: An advanced light armor used by the Enclave.
 #  components:
 #  - type: Sprite
 #    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_scout_armor.rsi
@@ -371,8 +371,8 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterEnclaveCombatArmor
-  name: U.S. Army Combat Armor
-  description: A suit of armor used by U.S. Army soldiers.
+  name: Enclave Combat Armor
+  description: A suit of armor used by Enclave soldiers.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutenclavearmor.rsi
@@ -393,8 +393,8 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterEnclaveCombatArmorMK2
-  name: U.S. Army Combat Armor MK2
-  description: A pre-war U.S. Army issue Mk2 combat armor. Heavier plating and a tighter weave than the standard suit.
+  name: Enclave Combat Armor MK2
+  description: A pre-war Enclave issue Mk2 combat armor. Heavier plating and a tighter weave than the standard suit.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_mk2_combat_armor.rsi
@@ -415,8 +415,8 @@
 #- type: entity
 #  parent: N14FalloutArmorBase
 #  id: N14ClothingOuterEnclaveMarineArmor
-#  name: U.S. Army Marine Armor
-#  description: A U.S. Army Marine Armor. Better coverage the standard suit.
+#  name: Enclave Marine Armor
+#  description: A Enclave Marine Armor. Better coverage the standard suit.
 #  components:
 #  - type: Sprite
 #    sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_marine_armor.rsi
@@ -440,8 +440,8 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterEnclaveAdvancedCombatArmor
-  name: U.S. Army Advanced Combat Armor
-  description: An updated suit of U.S. Army Combat Armor with advanced reinforced plating.
+  name: Enclave Advanced Combat Armor
+  description: An updated suit of Enclave Combat Armor with advanced reinforced plating.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_advanced_combat_armor.rsi
@@ -462,8 +462,8 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterEnclaveZuluGruntCombatArmor
-  name: Zulu U.S. Army Grunt Combat Armor
-  description: A combat armor worn by U.S. Army Zulu Squad grunts. The Zulu Squad's entry-level trooper kit.
+  name: Zulu Enclave Grunt Combat Armor
+  description: A combat armor worn by Enclave Zulu Squad grunts. The Zulu Squad's entry-level trooper kit.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_zulu_grunt_armor.rsi
@@ -487,8 +487,8 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterEnclaveZuluCombatArmorMK2
-  name: Zulu U.S. Army Combat Armor MK2
-  description: A MK2 Combat Armor worn by U.S. Army Zulu Squad operators. Painted with Zulu Squad markings.
+  name: Zulu Enclave Combat Armor MK2
+  description: A MK2 Combat Armor worn by Enclave Zulu Squad operators. Painted with Zulu Squad markings.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_zulu_combat_armor.rsi
@@ -512,8 +512,8 @@
 - type: entity
   parent: N14FalloutArmorBase
   id: N14ClothingOuterEnclaveZuluAdvancedCombatArmor
-  name: Zulu U.S. Army Advanced Combat Armor
-  description: An advanced combat armor worn by U.S. Army Zulu Squad operators. Painted with Zulu Squad markings.
+  name: Zulu Enclave Advanced Combat Armor
+  description: An advanced combat armor worn by Enclave Zulu Squad operators. Painted with Zulu Squad markings.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/OuterClothing/Armor/enclave_zulu_advanced_combat_armor.rsi
