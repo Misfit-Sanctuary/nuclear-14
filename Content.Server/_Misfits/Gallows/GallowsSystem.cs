@@ -26,8 +26,6 @@ public sealed class GallowsSystem : SharedGallowsSystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly BlindableSystem _blindable = default!;
-    [Dependency] private readonly SharedStutteringSystem _stuttering = default!;
     [Dependency] private readonly Content.Server.Chat.Systems.ChatSystem _chat = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
@@ -132,8 +130,6 @@ public sealed class GallowsSystem : SharedGallowsSystem
         var self = user == victim;
         _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(user):player} fitted {ToPrettyString(victim):target} into the noose on {ToPrettyString(ent):gallows}");
 
-        _blindable.AdjustEyeDamage((victim, null), (int) ent.Comp.BlurMagnitude);
-        _stuttering.DoStutter(victim, ent.Comp.StutterDuration, refresh: true);
         _chat.TryEmoteWithChat(victim, "Scream", ignoreActionBlocker: true, forceEmote: true);
 
         _popup.PopupEntity(
@@ -188,11 +184,5 @@ public sealed class GallowsSystem : SharedGallowsSystem
         ent.Comp.NextCoughBloodTime = now + ent.Comp.CoughBloodCooldown;
 
         args.Handled = true;
-    }
-
-    protected override void OnVictimRemoved(Entity<GallowsComponent> ent, EntityUid victim)
-    {
-        _blindable.AdjustEyeDamage((victim, null), -(int) ent.Comp.BlurMagnitude);
-        _stuttering.DoRemoveStutter(victim, ent.Comp.StutterDuration.TotalSeconds);
     }
 }
