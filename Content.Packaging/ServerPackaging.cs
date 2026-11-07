@@ -46,6 +46,7 @@ public static class ServerPackaging
         "Npgsql",
         "Microsoft",
         "QRCoder",
+        "0Harmony",
     };
 
     private static readonly List<string> ServerNotExtraAssemblies = new()

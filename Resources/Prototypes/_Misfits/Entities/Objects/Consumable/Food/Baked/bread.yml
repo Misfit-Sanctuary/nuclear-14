@@ -1,0 +1,39 @@
+#Milk Bread: 1 butter slice, 10u milk, 10u flour, 5u raiser -> 10 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodMilkBread
+  components:
+  - type: Food
+    eatMessage: food-desc-milkBread-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: milkBread
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+
+#- Cabbage n Meat Bread: 1 cabbage, 5u ground animal protein, 1 dough -> 10 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodCabbageMeatBread
+  components:
+  - type: Food
+    eatMessage: food-desc-cabbageMeatBread-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: runza
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: TableSalt
+          Quantity: 4

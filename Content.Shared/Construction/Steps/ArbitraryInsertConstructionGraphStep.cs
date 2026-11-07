@@ -12,8 +12,8 @@ namespace Content.Shared.Construction.Steps
 
         [DataField("icon")] public SpriteSpecifier? Icon { get; private set; }
 
-        [DataField("tag", customTypeSerializer: typeof(PrototypeIdSerializer<TagPrototype>))] // Corvax-Change
-        public string? Tag { get; private set; } // Corvax-Change
+        [DataField("tag")] // Corvax-Change
+        public ProtoId<TagPrototype>? Tag { get; private set; } // Corvax-Change
 
         public override void DoExamine(ExaminedEvent examinedEvent)
         {
@@ -35,7 +35,7 @@ namespace Content.Shared.Construction.Steps
 
                 foreach (var item in entities)
                 {
-                    if (item.TryGetComponent<TagComponent>(out var entityTag) && entityManager.System<TagSystem>().HasTag(entityTag, Tag))
+                    if (item.TryGetComponent<TagComponent>(out var entityTag) && entityManager.System<TagSystem>().HasTag(entityTag, Tag.Value))
                     {
                         nameLocale = item.Name;
                         break;

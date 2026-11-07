@@ -2441,7 +2441,7 @@
   - Townsfolk
   materials:
     Cloth: 200
-    Silver: 100
+    N14Silver: 100
 
 
 
@@ -2560,8 +2560,8 @@
     Steel: 8000
     Cloth: 6000
     Leather: 1500
-    Thread: 1500
-    Circuitry: 1000
+    Thread: 800
+    Circuitry: 300
 
 # riot helm
 - type: latheRecipe
@@ -2576,7 +2576,7 @@
     Steel: 2000
     Cloth: 1000
     Plastic: 500
-    Circuitry: 500
+    Circuitry: 200
 
 # riot gas mask
 - type: latheRecipe
@@ -2589,7 +2589,7 @@
   - Townsfolk
   materials:
     Steel: 1000
-    Circuitry: 200
+    Circuitry: 100
     Glass: 500
     Plastic: 500
 

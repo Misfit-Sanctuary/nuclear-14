@@ -92,7 +92,8 @@
     - N14BPNCRWeaponRifle762Fal
     - N14BPNCRWeaponRifle308Battle
     - N14BPNCRWeaponDesertEagle44
-    - N14BPNCRWeaponRevolver45-70RangerSequoia
+    # #Misfits Removed - Sequoia is Ranger Field Kit only now
+    # - N14BPNCRWeaponRevolver45-70RangerSequoia
     - N14BPNCRWeaponShotgunChinese
     - N14BPNCRWeaponSniper45-70BrushGun
     - N14BPNCRWeaponRifle762Marksman
@@ -172,18 +173,17 @@
   - type: Blueprint
     recipes:
     - N14BPNCRArmorCombatArmor
-    - N14BPNCRArmorRangerVest
-    - N14BPNCRArmorRangerCoat
-    - N14BPNCRArmorRangerDuster
+    # #Misfits Removed - ranger armor and helmets are Ranger Field Kit only now
+    # - N14BPNCRArmorRangerVest
+    # - N14BPNCRArmorRangerCoat
+    # - N14BPNCRArmorRangerDuster
     # #Misfits Add - paired combat and ranger helmets
     - N14BPNCRArmorCombatHelmet
-    - N14BPNCRArmorRangerHelmet
-    - N14BPNCRArmorRangerHelmetDesert
-    - N14BPNCRArmorRangerHelmetOld
-    # #Misfits Add - Added Field Ranger sidegrade recipe
-    - N14BPNCRArmorRangerFieldArmor
-    # #Misfits Add - Added Recruit Ranger sidegrade recipe
-    - N14BPNCRArmorRangerFlakVest
+    # - N14BPNCRArmorRangerHelmet
+    # - N14BPNCRArmorRangerHelmetDesert
+    # - N14BPNCRArmorRangerHelmetOld
+    # - N14BPNCRArmorRangerFieldArmor
+    # - N14BPNCRArmorRangerFlakVest
     # #Misfits Add - Added Medic Combat Armor
     - MisfitsBPNCRArmorMedicCombatArmor
 
@@ -198,7 +198,8 @@
     - N14BPNCRArmorCombatArmorMK2
     # #Misfits Add - paired elite combat and ranger helmets
     - N14BPNCRArmorCombatHelmetMK2
-    - N14BPNCRArmorRangerHelmetElite
+    # #Misfits Removed - ranger helmet is Ranger Field Kit only now
+    # - N14BPNCRArmorRangerHelmetElite
     # #Misfits Removed - user requested no power armor helmet recipes
     # - N14BPNCRArmorPowerHelmetT45NCR
 

@@ -1,0 +1,89 @@
+#Lasagna: 1 Tato, 1 Dough Slice, 1 Irradiated Meat, 1 Cheese Wedge -> 15 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodLasagna
+  components:
+  - type: Food
+    eatMessage: food-desc-lasagna-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: lasagna
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Protein
+          Quantity: 10
+
+#- Kebab Wrap: 3 Kebab Slices, 1 onion, 1 cabbage, 1 dough slice -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodKebabWrap
+  components:
+  - type: Food
+    eatMessage: food-desc-kebabWrap-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: durumKebab
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 36
+        - ReagentId: Protein
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 8
+        - ReagentId: Allicin
+          Quantity: 4
+
+# waster super burrito
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodWasterBurrito_super
+  components:
+  - type: Item
+    size: Large
+  - type: Food
+    eatMessage: food-desc-wasterBurritoSuper-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: wasterBurritoSuper
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 25
+        - ReagentId: Vitamin
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 5
+  - type: Construction
+    graph: WasterBurritoGraph_super
+    node: WasterBurrito_super
+
+# waster burrito
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodWasterBurrito
+  components:
+  - type: Food
+    eatMessage: food-desc-wasterBurrito-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: wasterBurrito
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Protein
+          Quantity: 5
+  - type: Construction
+    graph: WasterBurritoGraph
+    node: WasterBurrito

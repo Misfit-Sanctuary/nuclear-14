@@ -1,5 +1,5 @@
+using Robust.Shared.Prototypes;
 using Content.Shared.DeviceLinking;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Explosion.Components
 {
@@ -9,7 +9,7 @@ namespace Content.Server.Explosion.Components
     [RegisterComponent]
     public sealed partial class TriggerOnSignalComponent : Component
     {
-        [DataField("port", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
-        public string Port = "Trigger";
+        [DataField("port")]
+        public ProtoId<SinkPortPrototype> Port = "Trigger";
     }
 }
