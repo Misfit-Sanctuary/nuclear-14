@@ -25,7 +25,7 @@ public sealed partial class MotorbikeComponent : Component
     public FixedPoint2 RefillAmount = FixedPoint2.New(200f);
 
     [DataField]
-    public FixedPoint2 MaxIntegrity = FixedPoint2.New(450f);
+    public FixedPoint2 MaxIntegrity = FixedPoint2.New(280f);
 
     [DataField]
     public TimeSpan RefillDelay = TimeSpan.FromSeconds(10);
