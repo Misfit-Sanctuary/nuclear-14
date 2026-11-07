@@ -9,12 +9,14 @@ public abstract class SharedLanguageSystem : EntitySystem
     /// <summary>
     ///     The language used as a fallback in cases where an entity suddenly becomes a language speaker (e.g. the usage of make-sentient)
     /// </summary>
-    public static readonly ProtoId<LanguagePrototype> FallbackLanguagePrototype = "TauCetiBasic";
+    [ValidatePrototypeId<LanguagePrototype>]
+    public static readonly string FallbackLanguagePrototype = "TauCetiBasic";
 
     /// <summary>
     ///     The language whose speakers are assumed to understand and speak every language. Should never be added directly.
     /// </summary>
-    public static readonly ProtoId<LanguagePrototype> UniversalPrototype = "Universal";
+    [ValidatePrototypeId<LanguagePrototype>]
+    public static readonly string UniversalPrototype = "Universal";
 
     /// <summary>
     ///     A cached instance of <see cref="UniversalPrototype"/>

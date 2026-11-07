@@ -1,7 +1,7 @@
-using Robust.Shared.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Store;
 using Content.Shared.Humanoid.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 
 namespace Content.Server.Store.Conditions;
 
@@ -14,14 +14,14 @@ public sealed partial class BuyerSpeciesCondition : ListingCondition
     /// <summary>
     /// A whitelist of species that can purchase this listing.
     /// </summary>
-    [DataField("whitelist")]
-    public HashSet<ProtoId<SpeciesPrototype>>? Whitelist;
+    [DataField("whitelist", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<SpeciesPrototype>))]
+    public HashSet<string>? Whitelist;
 
     /// <summary>
     /// A blacklist of species that cannot purchase this listing.
     /// </summary>
-    [DataField("blacklist")]
-    public HashSet<ProtoId<SpeciesPrototype>>? Blacklist;
+    [DataField("blacklist", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<SpeciesPrototype>))]
+    public HashSet<string>? Blacklist;
 
     public override bool Condition(ListingConditionArgs args)
     {

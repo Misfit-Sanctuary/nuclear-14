@@ -1,5 +1,6 @@
 using Content.Shared.Mining;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
 namespace Content.Shared.Random;
 
@@ -12,6 +13,6 @@ public sealed partial class WeightedRandomOrePrototype : IWeightedRandomPrototyp
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    [DataField("weights")]
+    [DataField("weights", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<float, OrePrototype>))]
     public Dictionary<string, float> Weights { get; private set; } = new();
 }

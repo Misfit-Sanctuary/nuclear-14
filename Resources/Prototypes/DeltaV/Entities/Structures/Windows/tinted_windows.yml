@@ -18,8 +18,4 @@
     sprite: Structures/Windows/directional.rsi
     state: tinted_window
   - type: Occluder
-    polygon:
-    - -0.5,-0.5
-    - 0.5,-0.5
-    - 0.5,-0.3
-    - -0.5,-0.3
+    boundingBox: "-0.5,-0.5,0.5,-0.3"

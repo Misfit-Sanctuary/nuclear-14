@@ -452,8 +452,4 @@
         - LowImpassable
         - BulletImpassable
   - type: Occluder
-    polygon:
-    - -1,-0.7
-    - 1.5,-0.7
-    - 1.5,0.4
-    - -1,0.4
+    boundingBox: "-1,-0.7,1.5,0.4"

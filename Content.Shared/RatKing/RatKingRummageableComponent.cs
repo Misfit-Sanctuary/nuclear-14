@@ -1,7 +1,7 @@
-﻿using Robust.Shared.Prototypes;
-using Content.Shared.Random;
+﻿using Content.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.RatKing;
 
@@ -30,9 +30,9 @@ public sealed partial class RatKingRummageableComponent : Component
     /// <summary>
     /// A weighted random entity prototype containing the different loot that rummaging can provide.
     /// </summary>
-    [DataField("rummageLoot"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("rummageLoot", customTypeSerializer: typeof(PrototypeIdSerializer<WeightedRandomEntityPrototype>)), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
-    public ProtoId<WeightedRandomEntityPrototype> RummageLoot = "RatKingLoot";
+    public string RummageLoot = "RatKingLoot";
 
     /// <summary>
     /// Sound played on rummage completion.

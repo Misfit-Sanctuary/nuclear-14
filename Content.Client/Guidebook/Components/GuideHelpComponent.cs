@@ -1,3 +1,4 @@
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Client.Guidebook.Components;
 
@@ -12,7 +13,7 @@ public sealed partial class GuideHelpComponent : Component
     /// What guides to include show when opening the guidebook. The first entry will be used to select the currently
     /// selected guidebook.
     /// </summary>
-    [DataField("guides", required: true)]
+    [DataField("guides", customTypeSerializer: typeof(PrototypeIdListSerializer<GuideEntryPrototype>), required: true)]
     [ViewVariables]
     public List<string> Guides = new();
 

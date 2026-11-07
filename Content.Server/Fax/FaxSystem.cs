@@ -58,9 +58,11 @@ public sealed class FaxSystem : EntitySystem
     ///     The prototype ID to use for faxed or copied entities if we can't get one from
     ///     the paper entity for whatever reason.
     /// </summary>
-    private static readonly EntProtoId DefaultPaperPrototypeId = "Paper";
+    [ValidatePrototypeId<EntityPrototype>]
+    private const string DefaultPaperPrototypeId = "Paper";
 
-    private static readonly EntProtoId OfficePaperPrototypeId = "PaperOffice";
+    [ValidatePrototypeId<EntityPrototype>]
+    private const string OfficePaperPrototypeId = "PaperOffice";
 
     private const int LeadershipInboxLimit = 100;
     private readonly List<AdminFaxInboxEntry> _leadershipInbox = new();
@@ -652,7 +654,7 @@ public sealed class FaxSystem : EntitySystem
 
         var printout = component.PrintingQueue.Dequeue();
 
-        var entityToSpawn = string.IsNullOrEmpty(printout.PrototypeId) ? DefaultPaperPrototypeId : printout.PrototypeId;
+        var entityToSpawn = printout.PrototypeId.Length == 0 ? DefaultPaperPrototypeId : printout.PrototypeId;
         var printed = EntityManager.SpawnEntity(entityToSpawn, Transform(uid).Coordinates);
 
         if (TryComp<PaperComponent>(printed, out var paper))

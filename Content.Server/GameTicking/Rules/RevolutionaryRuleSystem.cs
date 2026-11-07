@@ -29,7 +29,6 @@ using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Cuffs.Components;
-using Content.Shared.Roles;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -54,7 +53,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
     //Used in OnPostFlash, no reference to the rule component is available
     public readonly ProtoId<NpcFactionPrototype> RevolutionaryNpcFaction = "Revolutionary";
-    public readonly ProtoId<AntagPrototype> RevPrototypeId = "Rev";
+    public readonly ProtoId<NpcFactionPrototype> RevPrototypeId = "Rev";
 
     public override void Initialize()
     {
