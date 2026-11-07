@@ -24,6 +24,8 @@
     qualityNeeded: Welding
   - type: Destructible
     thresholds: []
+  - type: motorbike
+    maxIntegrity: 450
   - type: ExplosionResistance
     worn: false
     damageCoefficient: 1.1
