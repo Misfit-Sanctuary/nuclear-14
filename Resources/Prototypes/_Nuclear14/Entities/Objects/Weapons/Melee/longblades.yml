@@ -124,9 +124,9 @@
     attackRate: 0.25
     damage:
       types:
-        Slash: 6
-        Piercing: 3
-        Structural: 18
+        Slash: 8
+        Piercing: 2
+        Structural: 27
     soundHit:
       path: /Audio/_Nuclear14/Weapons/Melee/Swing/ripper.ogg
   - type: Item
@@ -179,8 +179,8 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 20
-        Piercing: 9
+        Slash: 25
+        Piercing: 11
   - type: Sharp
   - type: MeleeWeapon
     autoAttack: true
@@ -189,9 +189,9 @@
     attackRate: 0.25
     damage:
       types:
-        Slash: 8
-        Piercing: 6
-        Structural: 25
+        Slash: 10
+        Piercing: 4
+        Structural: 35
     soundHit:
       path: /Audio/_Nuclear14/Weapons/Melee/Swing/ripper.ogg
   - type: Item
