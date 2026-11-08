@@ -1,0 +1,16 @@
+﻿# #Misfits Add - Dog vocal emote sounds.
+- type: emoteSounds
+  id: MisfitsDogEmotes
+  params:
+    variation: 0.125
+  sounds:
+    Bark:
+      collection: N14DogBark
+    Snarl:
+      collection: VulpkaninSnarls
+    Whine:
+      collection: VulpkaninWhines
+    Howl:
+      collection: VulpkaninHowls
+    Growl:
+      collection: VulpkaninGrowls

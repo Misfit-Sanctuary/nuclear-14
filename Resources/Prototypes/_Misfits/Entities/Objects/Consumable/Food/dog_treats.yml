@@ -1,0 +1,316 @@
+﻿
+# #Misfits Add - Wasteland dog treats.
+
+# Base
+- type: entity
+  parent: FoodBase
+  id: MisfitsDogTreatBase
+  abstract: true
+  components:
+  - type: Item
+    size: Tiny
+  - type: Food
+    transferAmount: null
+    delay: 0.8
+    forceFeedDelay: 1.5
+  - type: Tag
+    tags:
+    - FoodSnack
+
+# Cheesy Jerky Bites
+- type: entity
+  parent: MisfitsDogTreatBase
+  id: MisfitsDogTreatCheesyJerky
+  name: cheesy jerky bites
+  description: Tender strips of dried meat wrapped around little pieces of cheese. A favorite among wasteland hounds, especially one particularly spoiled wolfdog.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: meatJerky
+  - type: Food
+    eatMessage: misfits-dog-treat-cheesy-jerky-eat
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - cheesy
+    - savory
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 2
+
+# Wasteland Dog Biscuits
+- type: entity
+  parent: MisfitsDogTreatBase
+  id: MisfitsDogTreatBiscuit
+  name: wasteland dog biscuit
+  description: A hard, crunchy biscuit made from flour and scraps of cooked meat. It has an almost suspiciously long shelf life.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/Baked/misc.rsi
+    state: cookie-oatmeal
+  - type: Food
+    eatMessage: misfits-dog-treat-biscuit-eat
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - oats
+    - savory
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 1
+
+# Radstag Chews
+- type: entity
+  parent: MisfitsDogTreatBase
+  id: MisfitsDogTreatRadstagChew
+  name: radstag chew
+  description: A tough, dried strip of radstag meat. It takes some effort to chew, making it a particularly satisfying reward for larger dogs.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: dicedMeat
+  - type: Food
+    eatMessage: misfits-dog-treat-radstag-eat
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - smokey
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Protein
+          Quantity: 4
+        - ReagentId: Nutriment
+          Quantity: 1
+
+# Bacon Treat
+- type: entity
+  parent: MisfitsDogTreatBase
+  id: MisfitsDogTreatBacon
+  name: savory training bites
+  description: Small pieces of cooked wasteland meat mixed with cheese. Their rich smell makes them an excellent reward for a dog that has actually listened to a command.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: sausageFried
+  - type: Food
+    eatMessage: misfits-dog-treat-bacon-eat
+  - type: FlavorProfile
+    flavors:
+    - cheesy
+    - meaty
+    - savory
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 3
+
+# NCR Double-Bear Biscuits
+- type: entity
+  parent: MisfitsDogTreatBase
+  id: MisfitsDogTreatNCR
+  name: Double-Bear Biscuit
+  description: A sturdy cornmeal biscuit made for Republic service dogs. Supposedly stamped with the double-headed bear, although the imprint looks suspiciously like two blobs.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: shortCake
+  - type: Food
+    eatMessage: misfits-dog-treat-ncr-eat
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - cheesy
+    - savory
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 2
+
+# NCR Ranger's Reward
+- type: entity
+  parent: MisfitsDogTreatBase
+  id: MisfitsDogTreatRanger
+  name: Ranger's Reward
+  description: Tender jerky and cheese wrapped in a thin strip of dough. A premium reward for patrol dogs who return with their handlers, preferably without biting anyone important.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: pemmison
+  - type: Food
+    eatMessage: misfits-dog-treat-ranger-eat
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - cheesy
+    - smokey
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 4
+
+# Legion Warhound Rations
+- type: entity
+  parent: MisfitsDogTreatBase
+  id: MisfitsDogTreatLegion
+  name: Warhound Ration
+  description: A dense, extremely chewy strip of meat wrapped in coarse tortilla dough. Made to withstand long marches, rough handling, and the teeth of an impatient war hound.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: meatJerky
+  - type: Food
+    eatMessage: misfits-dog-treat-legion-eat
+    delay: 2.5
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - smokey
+    - salty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 4
+
+# Brotherhood Squire's Snaps
+- type: entity
+  parent: MisfitsDogTreatBase
+  id: MisfitsDogTreatBrotherhood
+  name: Squire's Snaps
+  description: Compact meat-flavored biscuits developed for Brotherhood working dogs. The recipe is standardized, carefully documented, and unnecessarily complicated.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: riceCake
+  - type: Food
+    eatMessage: misfits-dog-treat-brotherhood-eat
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - bread
+    - savory
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 2
+
+# Followers' Gentle Bites
+- type: entity
+  parent: MisfitsDogTreatBase
+  id: MisfitsDogTreatFollowers
+  name: Gentle Bites
+  description: Small, soft meat-filled biscuits prepared for elderly, injured, and recovering animals. Easy to chew, pleasantly savory, and made with considerably more care than most wasteland food.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: milkBreadSlice
+  - type: Food
+    eatMessage: misfits-dog-treat-followers-eat
+    delay: 0.5
+  - type: FlavorProfile
+    flavors:
+    - bread
+    - meaty
+    - savory
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 2
+
+# Enclave Presidential Bites
+- type: entity
+  parent: MisfitsDogTreatBase
+  id: MisfitsDogTreatEnclave
+  name: Presidential Bites
+  description: Delicately prepared rolls of meat and cheese, supposedly formulated for the finest American military canines. The ingredients are ordinary. The superiority complex is not.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: sausageFried
+  - type: Food
+    eatMessage: misfits-dog-treat-enclave-eat
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - cheesy
+    - savory
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 4
+
+# Vault-Tec Good Boy Kibble
+- type: entity
+  parent: MisfitsDogTreatBase
+  id: MisfitsDogTreatVaultTec
+  name: Good Boy Kibble
+  description: A standardized meat-and-cornmeal dog treat based on an old Vault-Tec nutritional formula. Guaranteed to satisfy 94 percent of test subjects. The other six percent refused to answer.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: meatDumpling
+  - type: Food
+    eatMessage: misfits-dog-treat-vault-eat
+  - type: FlavorProfile
+    flavors:
+    - meaty
+    - cheesy
+    - savory
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 2

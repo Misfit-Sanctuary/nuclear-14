@@ -274,7 +274,15 @@
     contents:
     - id: PaperMailWastelandNoteDogTreat
     - id: N14FoodDogfood
-      maxAmount: 4
+      maxAmount: 2
+    - id: MisfitsDogTreatBiscuit
+      maxAmount: 3
+    - id: MisfitsDogTreatCheesyJerky
+      maxAmount: 2
+    - id: MisfitsDogTreatRadstagChew
+      maxAmount: 2
+    - id: MisfitsDogTreatBacon
+      maxAmount: 2
 
 - type: entity
   categories: [ HideSpawnMenu ]

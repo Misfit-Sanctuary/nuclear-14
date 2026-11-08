@@ -1,0 +1,157 @@
+﻿# Dog-compatible supply pouches.
+- type: entity
+  parent: N14ClothingBeltLeatherPouches
+  id: MisfitsClothingBackDogPouches
+  name: canine supply pouches
+  description: A small set of leather pouches fitted to a dog's back. Useful for carrying medicine, treats, and other supplies.
+  components:
+  - type: Clothing
+    sprite: _Misfits/Clothing/Belt/leatherpouches.rsi
+    slots:
+    - Back
+    clothingVisuals:
+      back-dog: []
+  - type: Tag
+    tags:
+    - DogPouch
+
+# Shared Treat Pouch Base
+- type: entity
+  parent: MisfitsClothingBackDogPouches
+  id: MisfitsClothingBackFactionTreatPouchBase
+  abstract: true
+  name: treat pouch
+  description: A small leather pouch filled with an assortment of treats for a four-legged companion.
+  components:
+  - type: Item
+    size: Normal
+  - type: Storage
+    grid:
+    - 0,0,7,1
+    maxItemSize: Normal
+    whitelist:
+      tags:
+      - FoodSnack
+
+# Assorted Treat Pouch
+- type: entity
+  parent: MisfitsClothingBackFactionTreatPouchBase
+  id: MisfitsClothingBackDogTreatPouch
+  suffix: Filled, Assorted
+  components:
+  - type: StorageFill
+    contents:
+    - id: MisfitsDogTreatCheesyJerky
+      amount: 2
+    - id: MisfitsDogTreatBiscuit
+      amount: 2
+    - id: MisfitsDogTreatRadstagChew
+      amount: 2
+    - id: MisfitsDogTreatBacon
+      amount: 2
+
+# Followers of the Apocalypse
+# 3 points = 6 treats
+- type: entity
+  parent: MisfitsClothingBackFactionTreatPouchBase
+  id: MisfitsClothingBackDogTreatPouchFollowers
+  suffix: Filled, Followers
+  components:
+  - type: StorageFill
+    contents:
+    - id: MisfitsDogTreatFollowers
+      amount: 4
+    - id: MisfitsDogTreatBiscuit
+      amount: 2
+
+# Vault-Tec
+# 3 points = 6 treats
+- type: entity
+  parent: MisfitsClothingBackFactionTreatPouchBase
+  id: MisfitsClothingBackDogTreatPouchVault
+  suffix: Filled, Vault-Tec
+  components:
+  - type: StorageFill
+    contents:
+    - id: MisfitsDogTreatVaultTec
+      amount: 4
+    - id: MisfitsDogTreatBiscuit
+      amount: 2
+
+# NCR
+# 4 points = 8 treats
+- type: entity
+  parent: MisfitsClothingBackFactionTreatPouchBase
+  id: MisfitsClothingBackDogTreatPouchNCR
+  suffix: Filled, NCR
+  components:
+  - type: StorageFill
+    contents:
+    - id: MisfitsDogTreatNCR
+      amount: 4
+    - id: MisfitsDogTreatBiscuit
+      amount: 2
+    - id: MisfitsDogTreatCheesyJerky
+      amount: 2
+
+# Caesar's Legion
+# 4 points = 8 treats
+- type: entity
+  parent: MisfitsClothingBackFactionTreatPouchBase
+  id: MisfitsClothingBackDogTreatPouchLegion
+  suffix: Filled, Legion
+  components:
+  - type: StorageFill
+    contents:
+    - id: MisfitsDogTreatLegion
+      amount: 4
+    - id: MisfitsDogTreatRadstagChew
+      amount: 4
+
+# Brotherhood of Steel
+# 5 points = 10 treats
+- type: entity
+  parent: MisfitsClothingBackFactionTreatPouchBase
+  id: MisfitsClothingBackDogTreatPouchBrotherhood
+  suffix: Filled, Brotherhood
+  components:
+  - type: StorageFill
+    contents:
+    - id: MisfitsDogTreatBrotherhood
+      amount: 4
+    - id: MisfitsDogTreatBiscuit
+      amount: 4
+    - id: MisfitsDogTreatCheesyJerky
+      amount: 2
+
+# NCR Rangers
+# 5 points = 10 treats
+- type: entity
+  parent: MisfitsClothingBackFactionTreatPouchBase
+  id: MisfitsClothingBackDogTreatPouchRanger
+  suffix: Filled, Rangers
+  components:
+  - type: StorageFill
+    contents:
+    - id: MisfitsDogTreatRanger
+      amount: 4
+    - id: MisfitsDogTreatCheesyJerky
+      amount: 4
+    - id: MisfitsDogTreatRadstagChew
+      amount: 2
+
+# Enclave
+# 6 points = 12 treats
+- type: entity
+  parent: MisfitsClothingBackFactionTreatPouchBase
+  id: MisfitsClothingBackDogTreatPouchEnclave
+  suffix: Filled, Enclave
+  components:
+  - type: StorageFill
+    contents:
+    - id: MisfitsDogTreatEnclave
+      amount: 4
+    - id: MisfitsDogTreatCheesyJerky
+      amount: 4
+    - id: MisfitsDogTreatBacon
+      amount: 4

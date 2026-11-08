@@ -108,79 +108,86 @@
       Dead: 0
     baseDecayRate: 0.0
 
+#- type: entity
+#  name: Basic Mutt
+#  id: N14MobPetDog
+#  parent: N14MobPetBasic
+#  description: A rather normal dog, seems to have a collar with a name on it.
+#  components:
+#  - type: RadiationReceiver
+#  - type: RandomMetadata
+#    nameSegments: [names_N14pet_dog]
+#  - type: InteractionPopup
+#    interactSuccessString: petting-success-dog
+#   interactFailureString: petting-failure-generic
+#    interactSuccessSpawn: EffectHearts
+#    interactSuccessSound:
+#     collection: N14DogBark #Misfits Change
+# - type: LanguageKnowledge
+#   speaks:
+#   - N14Dog
+#   understands:
+#   - N14Dog
+#   - N14Insect
+#   - English
+#   - Spanish
+#   - Chinese
+#   - Latin
+#   - Tribal
+#   - N14Robot
+#   - N14BrotherBeep
+#   - Sign
+# - type: GhostRole
+#   name: ghost-role-information-n14pet-dog-name
+#   description: ghost-role-information-n14pet-generic-description
+#   rules: ghost-role-component-default-rules
+#   makeSentient: false
+#   allowMovement: true
+# - type: GhostTakeoverAvailable
+# - type: Speech # Corvax-Change
+#   speechSounds: Dog
+  #- type: DogVision # Corvax-Change | #Misfits Change: Disabled — greyscale shader should not apply to players inhabiting pet mobs
+# - type: Tag
+#   tags:
+#   - DoorBumpOpener
+#   - VulpEmotes
+# - type: InventorySlots
+# - type: PetCollarHolder
+# - type: Inventory
+#   speciesId: cat
+#   templateId: cat_pet
+# - type: Emoting
+# - type: Hands # #Misfits Add - allows dragging and item handling
+# - type: BorgHands # #Misfits Add - gives cats actual holdable hand slots
+#   handCount: 1
+# - type: ComplexInteraction # #Misfits Add - allows click-opening doors and other complex hand interactions
+# - type: RobotWeaponPickupBlacklist # #Misfits Add - cats should not be able to pick up guns/melee weapons
+#   blacklist:
+#     components:
+#     - Gun
+#     - MeleeWeapon
+# - type: MisfitsPetNoPickup # So they cant pick up items but can drag
+# - type: ActionGrant # #Cythisiax Added - give pet dogs the deathclaw-style melee charge ability (inherited by all N14MobPetDog variants)
+#   actions:
+#   - MisfitsActionMeleeCharge
+# - type: MeleeChargeAudio # #Cythisiax Added - dog charge bark on activation, heavy stomp on impact
+#   activationSound:
+#     collection: N14DogAttack
+#     params:
+#       volume: -2
+#       maxDistance: 15
+#   impactSound:
+#     path: /Audio/Effects/Footsteps/largethud.ogg
+#     params:
+#       volume: 3
+#       maxDistance: 15
+
+
 - type: entity
   name: Basic Mutt
   id: N14MobPetDog
-  parent: N14MobPetBasic
+  parent: MisfitsMobDogBase
   description: A rather normal dog, seems to have a collar with a name on it.
-  components:
-  - type: RadiationReceiver
-  - type: RandomMetadata
-    nameSegments: [names_N14pet_dog]
-  - type: InteractionPopup
-    interactSuccessString: petting-success-dog
-    interactFailureString: petting-failure-generic
-    interactSuccessSpawn: EffectHearts
-    interactSuccessSound:
-      collection: N14DogBark #Misfits Change
-  - type: LanguageKnowledge
-    speaks:
-    - N14Dog
-    understands:
-    - N14Dog
-    - N14Insect
-    - English
-    - Spanish
-    - Chinese
-    - Latin
-    - Tribal
-    - N14Robot
-    - N14BrotherBeep
-    - Sign
-  - type: GhostRole
-    name: ghost-role-information-n14pet-dog-name
-    description: ghost-role-information-n14pet-generic-description
-    rules: ghost-role-component-default-rules
-    makeSentient: false
-    allowMovement: true
-  - type: GhostTakeoverAvailable
-  - type: Speech # Corvax-Change
-    speechSounds: Dog
-  #- type: DogVision # Corvax-Change | #Misfits Change: Disabled — greyscale shader should not apply to players inhabiting pet mobs
-  - type: Tag
-    tags:
-    - DoorBumpOpener
-    - VulpEmotes
-  - type: InventorySlots
-  - type: PetCollarHolder
-  - type: Inventory
-    speciesId: cat
-    templateId: cat_pet
-  - type: Emoting
-  - type: Hands # #Misfits Add - allows dragging and item handling
-  - type: BorgHands # #Misfits Add - gives cats actual holdable hand slots
-    handCount: 1
-  - type: ComplexInteraction # #Misfits Add - allows click-opening doors and other complex hand interactions
-  - type: RobotWeaponPickupBlacklist # #Misfits Add - cats should not be able to pick up guns/melee weapons
-    blacklist:
-      components:
-      - Gun
-      - MeleeWeapon
-  - type: MisfitsPetNoPickup # So they cant pick up items but can drag
-  - type: ActionGrant # #Cythisiax Added - give pet dogs the deathclaw-style melee charge ability (inherited by all N14MobPetDog variants)
-    actions:
-    - MisfitsActionMeleeCharge
-  - type: MeleeChargeAudio # #Cythisiax Added - dog charge bark on activation, heavy stomp on impact
-    activationSound:
-      collection: N14DogAttack
-      params:
-        volume: -2
-        maxDistance: 15
-    impactSound:
-      path: /Audio/Effects/Footsteps/largethud.ogg
-      params:
-        volume: 3
-        maxDistance: 15
 
 - type: entity
   name: BoS Mutt
