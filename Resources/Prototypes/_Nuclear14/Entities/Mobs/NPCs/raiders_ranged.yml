@@ -1801,8 +1801,8 @@
   description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
     - type: Gun
-      minAngle: 2.5
-      maxAngle: 12.5
+      minAngle: 2
+      maxAngle: 12
       angleIncrease: 2
       angleDecay: 4
       fireRate: 2.0
@@ -1887,10 +1887,10 @@
   components:
     - type: Gun
       minAngle: 14
-      maxAngle: 20
+      maxAngle: 40
       angleIncrease: 2
       angleDecay: 4
-      fireRate: 3.0
+      fireRate: 2.8
       soundGunshot:
         collection: N14AutoRifleGunshot
       useKey: false
