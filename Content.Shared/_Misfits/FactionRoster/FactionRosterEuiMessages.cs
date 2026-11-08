@@ -18,7 +18,8 @@ public sealed record FactionRosterMember(
     string UserName,
     string? CharacterName,
     bool Online,
-    bool Leadership,
+    bool Command,
+    List<string> CommandRoles,
     bool Locked,
     List<FactionRosterStanding> Standings,
     List<string> Specialties);

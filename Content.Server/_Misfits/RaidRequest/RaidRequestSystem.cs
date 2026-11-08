@@ -65,6 +65,19 @@ public sealed class RaidRequestSystem : EntitySystem
     // leader's UserId so we can reject impersonators when the popup decision returns.
     private readonly Dictionary<int, NetUserId> _pendingPeerPrompts = new();
 
+    // #Misfits Add - Players who volunteered for a side of an approved raid via /raid, like /warjoin.
+    // Request id → (character entity → side). Side 1 = raiders, 2 = defenders.
+    private readonly Dictionary<int, Dictionary<NetEntity, byte>> _raidVolunteers = new();
+
+    // #Misfits Add - Major factions can't volunteer into someone else's raid as a third party.
+    // Keep in sync with FactionWarSystem.MajorFactions.
+    private static readonly HashSet<string> RaidJoinMajorFactions = new()
+    {
+        "NCR",
+        "CaesarLegion",
+        "BrotherhoodOfSteel",
+    };
+
     // #Misfits Add - Reused scratch buffer for auto-expiry sweep, mirrors FactionWarSystem pattern.
     private readonly List<RaidRequestEntry> _expiredRaidsScratch = new();
 
@@ -105,6 +118,8 @@ public sealed class RaidRequestSystem : EntitySystem
         SubscribeNetworkEvent<RaidRequestEndMsg>(OnAdminEndRaid);
         // #Misfits Add - Target faction leader's peer-approval response.
         SubscribeNetworkEvent<RaidRequestPeerDecisionMsg>(OnPeerDecision);
+        // #Misfits Add - Volunteer for a side of an approved raid.
+        SubscribeNetworkEvent<RaidRequestJoinMsg>(OnJoinRaid);
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
 
@@ -214,6 +229,7 @@ public sealed class RaidRequestSystem : EntitySystem
         // #Misfits Add - Clear prep activation timers and outstanding peer prompts too.
         _raidActivationTimes.Clear();
         _pendingPeerPrompts.Clear();
+        _raidVolunteers.Clear();
 
         // Push an empty participant dict so any client overlay caches from the previous round are wiped.
         BroadcastParticipants();
@@ -307,6 +323,16 @@ public sealed class RaidRequestSystem : EntitySystem
         {
             if (entry.RequesterUserId == session.UserId)
                 data.MyRequests.Add(entry);
+        }
+
+        // #Misfits Add - Approved and live faction raids, so anyone can see them and volunteer.
+        foreach (var entry in _requests.Values.OrderBy(e => e.Id))
+        {
+            if (entry.IsIndividual
+                || entry.Status is not (RaidRequestStatus.Approved or RaidRequestStatus.Active))
+                continue;
+
+            data.OpenRaids.Add(BuildJoinInfo(entry, session.AttachedEntity));
         }
 
         RaiseNetworkEvent(data, session);
@@ -770,6 +796,9 @@ public sealed class RaidRequestSystem : EntitySystem
         BroadcastParticipants();
         BroadcastConclusionAnnouncement(entry);
 
+        // #Misfits Add - Volunteers have been told the raid is over; release them.
+        _raidVolunteers.Remove(entry.Id);
+
         _chat.SendAdminAnnouncement(
             $"[RaidRequest #{entry.Id}] CONCLUDED ({concludedBy}): " +
             $"{RaidRequestConfig.FactionDisplayName(entry.RequesterFaction)} → " +
@@ -872,6 +901,9 @@ public sealed class RaidRequestSystem : EntitySystem
 
         foreach (var session in EnumerateTargetMembers(entry))
             NotifyRaidConcluded(session, entry, notified);
+
+        foreach (var session in EnumerateVolunteerSessions(entry.Id))
+            NotifyRaidConcluded(session, entry, notified);
     }
 
     private void NotifyRaidConcluded(
@@ -950,6 +982,10 @@ public sealed class RaidRequestSystem : EntitySystem
                 recipients.TryAdd(session.UserId, session);
 
             foreach (var session in EnumerateTargetMembers(entry))
+                recipients.TryAdd(session.UserId, session);
+
+            // #Misfits Add - Volunteers hear the prep / start announcements too.
+            foreach (var session in EnumerateVolunteerSessions(entry.Id))
                 recipients.TryAdd(session.UserId, session);
         }
 
@@ -1185,10 +1221,19 @@ public sealed class RaidRequestSystem : EntitySystem
         // Collect every faction/group side involved in an approved non-individual raid.
         var raidFactions = new HashSet<string>();
         var raidGroups = new Dictionary<int, HashSet<NetEntity>>();
+        var volunteers = new List<(NetEntity Entity, string SideKey)>(); // #Misfits Add
         foreach (var entry in _requests.Values)
         {
             if (entry.Status != RaidRequestStatus.Active || entry.IsIndividual)
                 continue;
+
+            // #Misfits Add - Volunteers carry the same side key as the faction or group they joined.
+            if (_raidVolunteers.TryGetValue(entry.Id, out var joined))
+            {
+                foreach (var (volunteer, side) in joined)
+                    volunteers.Add((volunteer, side == 1 ? entry.RequesterFaction : OverlaySideKey(entry)));
+            }
+
             raidFactions.Add(entry.RequesterFaction);
             if (entry.TargetKind == RaidRequestTargetKind.Faction)
             {
@@ -1205,7 +1250,7 @@ public sealed class RaidRequestSystem : EntitySystem
             raidGroups[targetGroup.GroupId] = members;
         }
 
-        if (raidFactions.Count == 0 && raidGroups.Count == 0)
+        if (raidFactions.Count == 0 && raidGroups.Count == 0 && volunteers.Count == 0)
             return dict;
 
         // Walk every faction-bearing entity and tag it with the canonical raid side.
@@ -1236,6 +1281,13 @@ public sealed class RaidRequestSystem : EntitySystem
                 dict[member] = sideKey;
         }
 
+        // #Misfits Add - Volunteers last, so an explicit side choice wins.
+        foreach (var (volunteer, sideKey) in volunteers)
+        {
+            if (TryGetEntity(volunteer, out var uid) && Exists(uid))
+                dict[volunteer] = sideKey;
+        }
+
         return dict;
     }
 
@@ -1254,5 +1306,166 @@ public sealed class RaidRequestSystem : EntitySystem
         RaiseNetworkEvent(
             new RaidRequestParticipantsUpdatedMsg { Participants = BuildRaidParticipantDict() },
             session);
+    }
+
+    // ── Joining a raid (#Misfits Add) ──────────────────────────────────────
+
+    /// <summary>Overlay side key for the defenders: the faction id, or "group:{id}" for groups.</summary>
+    private static string OverlaySideKey(RaidRequestEntry entry) =>
+        entry.TargetKind == RaidRequestTargetKind.Faction ? entry.TargetId : $"group:{entry.TargetId}";
+
+    /// <summary>1 if the entity is on the raiding faction, 2 if on the target, otherwise 0.</summary>
+    private byte GetMembershipSide(EntityUid entity, RaidRequestEntry entry)
+    {
+        if (IsEntityInFaction(entity, entry.RequesterFaction))
+            return 1;
+        if (IsEntityInTarget(entity, entry))
+            return 2;
+        return 0;
+    }
+
+    /// <summary>The raid this character already volunteered for, if any (Approved or Active only).</summary>
+    private bool TryGetVolunteeredRaid(NetEntity entity, out int requestId, out byte side)
+    {
+        foreach (var (id, joined) in _raidVolunteers)
+        {
+            if (!joined.TryGetValue(entity, out side))
+                continue;
+            if (!_requests.TryGetValue(id, out var entry)
+                || entry.Status is not (RaidRequestStatus.Approved or RaidRequestStatus.Active))
+                continue;
+
+            requestId = id;
+            return true;
+        }
+
+        requestId = 0;
+        side = 0;
+        return false;
+    }
+
+    /// <summary>Null if the entity may volunteer for this raid, otherwise the reason it can't.</summary>
+    private string? GetJoinBlockReason(EntityUid entity, RaidRequestEntry entry)
+    {
+        if (entry.IsIndividual)
+            return "Individual raids can't be joined.";
+
+        if (entry.Status != RaidRequestStatus.Approved)
+            return "Joining closes when the raid goes live.";
+
+        if (GetMembershipSide(entity, entry) != 0)
+            return "You are already on a side of this raid through your faction or group.";
+
+        if (TryGetVolunteeredRaid(GetNetEntity(entity), out var otherId, out _))
+            return otherId == entry.Id
+                ? "You have already joined this raid."
+                : $"You have already joined raid #{otherId}.";
+
+        if (TryGetEligibleFaction(entity, out var faction) && RaidJoinMajorFactions.Contains(faction))
+            return $"{RaidRequestConfig.FactionDisplayName(faction)} can't join another faction's raid.";
+
+        return null;
+    }
+
+    private RaidJoinInfo BuildJoinInfo(RaidRequestEntry entry, EntityUid? viewer)
+    {
+        var info = new RaidJoinInfo
+        {
+            Entry            = entry,
+            RaiderSideName   = RaidRequestConfig.FactionDisplayName(entry.RequesterFaction),
+            DefenderSideName = GetTargetDisplayName(entry),
+        };
+
+        if (_raidVolunteers.TryGetValue(entry.Id, out var joined))
+        {
+            info.RaiderVolunteers   = joined.Count(v => v.Value == 1);
+            info.DefenderVolunteers = joined.Count(v => v.Value == 2);
+        }
+
+        if (viewer is not { } uid)
+        {
+            info.CannotJoinReason = "You must be in-game.";
+            return info;
+        }
+
+        var netEntity = GetNetEntity(uid);
+        if (joined != null && joined.TryGetValue(netEntity, out var volunteerSide))
+        {
+            info.MySide = volunteerSide;
+            info.MySideIsVolunteer = true;
+        }
+        else
+        {
+            info.MySide = GetMembershipSide(uid, entry);
+        }
+
+        var block = GetJoinBlockReason(uid, entry);
+        info.CanJoin = block == null;
+        // Being on a side already is shown by MySide; don't repeat it as a "can't join" reason.
+        info.CannotJoinReason = info.MySide != 0 ? null : block;
+        return info;
+    }
+
+    private void OnJoinRaid(RaidRequestJoinMsg msg, EntitySessionEventArgs args)
+    {
+        var session = args.SenderSession;
+
+        if (session.Status != SessionStatus.InGame || session.AttachedEntity is not { } joiner)
+        {
+            SendJoinResult(session, false, "You must be in-game.");
+            return;
+        }
+
+        if (!_requests.TryGetValue(msg.RequestId, out var entry))
+        {
+            SendJoinResult(session, false, "That raid no longer exists.");
+            return;
+        }
+
+        if (msg.Side != 1 && msg.Side != 2)
+        {
+            SendJoinResult(session, false, "Invalid side selection.");
+            return;
+        }
+
+        if (GetJoinBlockReason(joiner, entry) is { } reason)
+        {
+            SendJoinResult(session, false, reason);
+            return;
+        }
+
+        if (!_raidVolunteers.TryGetValue(entry.Id, out var joined))
+        {
+            joined = new Dictionary<NetEntity, byte>();
+            _raidVolunteers[entry.Id] = joined;
+        }
+        joined[GetNetEntity(joiner)] = msg.Side;
+
+        var sideName = msg.Side == 1
+            ? RaidRequestConfig.FactionDisplayName(entry.RequesterFaction)
+            : GetTargetDisplayName(entry);
+
+        _chat.SendAdminAnnouncement(
+            $"[RaidRequest #{entry.Id}] {Name(joiner)} ({session.Name}) joined the side of {sideName}.");
+
+        SendJoinResult(session, true,
+            $"You joined raid #{entry.Id} on the side of {sideName}. You are a valid target for the other side once it goes live.");
+    }
+
+    private void SendJoinResult(ICommonSession session, bool success, string message) =>
+        RaiseNetworkEvent(new RaidRequestJoinResultMsg { Success = success, Message = message }, session);
+
+    /// <summary>Online sessions currently controlling a volunteer of this raid.</summary>
+    private IEnumerable<ICommonSession> EnumerateVolunteerSessions(int requestId)
+    {
+        if (!_raidVolunteers.TryGetValue(requestId, out var joined))
+            yield break;
+
+        foreach (var volunteer in joined.Keys)
+        {
+            if (TryGetEntity(volunteer, out var uid)
+                && _playerManager.TryGetSessionByEntity(uid.Value, out var session))
+                yield return session;
+        }
     }
 }

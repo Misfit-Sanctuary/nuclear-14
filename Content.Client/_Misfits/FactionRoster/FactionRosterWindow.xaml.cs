@@ -86,11 +86,11 @@ public sealed partial class FactionRosterWindow : FancyWindow
 
     #region Roster
 
-    /// <summary>Rank text: "Faction Leadership", or the member's rank on each track.</summary>
+    /// <summary>Rank text: the member's command role (e.g. DAGGER), or their rank on each track.</summary>
     private string RankText(FactionRosterEuiState state, FactionRosterMember member)
     {
-        if (member.Leadership)
-            return Loc.GetString("faction-roster-rank-leadership");
+        if (member.Command && member.CommandRoles.Count > 0)
+            return string.Join(" / ", member.CommandRoles.Select(JobName));
 
         var ranks = new List<string>();
         for (var t = 0; t < state.Tracks.Count && t < member.Standings.Count; t++)
@@ -105,7 +105,7 @@ public sealed partial class FactionRosterWindow : FancyWindow
 
     private int SortKey(FactionRosterMember member)
     {
-        return member.Leadership ? 1000 : member.Standings.Count == 0 ? -1 : member.Standings.Max(s => s.Rank);
+        return member.Command ? 1000 : member.Standings.Count == 0 ? -1 : member.Standings.Max(s => s.Rank);
     }
 
     private void RebuildMembers()
@@ -159,7 +159,7 @@ public sealed partial class FactionRosterWindow : FancyWindow
         {
             Text = member.CharacterName ?? member.UserName,
             ToolTip = member.UserName,
-            FontColorOverride = member.Leadership ? LeadershipColor : null,
+            FontColorOverride = member.Command ? LeadershipColor : null,
         });
         info.AddChild(new Label
         {
@@ -180,7 +180,7 @@ public sealed partial class FactionRosterWindow : FancyWindow
             MinWidth = 190,
         };
         ranks.AddChild(new Label { Text = RankText(state, member) });
-        if (!member.Leadership && member.Specialties.Count > 0)
+        if (!member.Command && member.Specialties.Count > 0)
         {
             ranks.AddChild(new Label
             {

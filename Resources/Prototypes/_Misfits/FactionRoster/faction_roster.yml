@@ -23,8 +23,10 @@
     checkCanInteract: false
     event: !type:OpenFactionRosterActionEvent
 
-# Rangers: the Ranger Lead and DAGGER manage the Recruit -> Ranger ladder and the Ranger
-# Medic specialty. Recruiting grants the Ranger Recruit whitelist.
+# Rangers: Recruit -> Ranger -> Ranger Lead -> Chief Ranger, with DAGGER above them all as
+# the highest theatre authority. Each rank manages the ranks beneath it: the Ranger Lead
+# handles Recruits and Rangers, the Chief Ranger can also remove Ranger Leads, and DAGGER
+# can promote to or demote the Chief Ranger. Recruiting grants the Ranger Recruit whitelist.
 - type: factionRoster
   id: Rangers
   name: faction-roster-name-rangers
@@ -35,13 +37,19 @@
     ranks:
     - NCRRangerRecruit
     - NCRRangerStandard
+    - NCRVeteranRanger
+    - NCRChiefRanger
   specialties:
   - NCRRangerMedic
   protected:
-  - NCRVeteranRanger
   - NCRDagger
   authorizedJobs:
   - NCRVeteranRanger
+  - NCRChiefRanger
+  - NCRDagger
+  oathEditors:
+  - NCRVeteranRanger
+  - NCRChiefRanger
   - NCRDagger
   recruitGrants:
   - NCRRangerRecruit
@@ -49,7 +57,10 @@
 # Enclave: replaces the old officer "Recruit" verb. Recruiting grants no whitelist; the
 # EnclaveRecruitSystem assigns the in-round EnclaveRecruit job and micro-bomb, and the
 # Enlisted / Junior Scientist whitelists unlock after 4h of recruit time as before.
-# Officers can only manage ranks below their own on the Military track.
+# #Cythisiax Edited - each track is run by its own people: officers manage Enlisted / NCO,
+# the Head Scientist manages Junior Scientists / Scientists. Promoting to or demoting from
+# Junior Officer, Senior Officer or Head Scientist is reserved for the Commander (and
+# Reformer), via commandOnlyFrom.
 - type: factionRoster
   id: Enclave
   name: faction-roster-name-enclave
@@ -63,11 +74,13 @@
     - EnclaveNCO
     - EnclaveJuniorOfficer
     - EnclaveSeniorOfficer
+    commandOnlyFrom: EnclaveJuniorOfficer # #Cythisiax Added - only the Commander makes or breaks officers
   - name: faction-roster-track-science
     ranks:
     - EnclaveJuniorScientist
     - EnclaveScientist
     - EnclaveHeadScientist
+    commandOnlyFrom: EnclaveHeadScientist # #Cythisiax Added - only the Commander appoints the Head Scientist
   specialties:
   - EnclaveVertibirdPilot
   protected:
@@ -76,5 +89,6 @@
   authorizedJobs:
   - EnclaveJuniorOfficer
   - EnclaveSeniorOfficer
+  - EnclaveHeadScientist # #Cythisiax Added - runs the science track
   - EnclaveCommander
   - EnclaveReformer
