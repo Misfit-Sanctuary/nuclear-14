@@ -49,6 +49,14 @@ public sealed partial class FactionRosterPrototype : IPrototype
     [DataField]
     public List<ProtoId<JobPrototype>> OathEditors = new();
 
+    // #Cythisiax Added - who may remove people from the faction entirely
+    /// <summary>
+    /// Jobs (besides command roles) that may discharge members or strip a track's lowest
+    /// rank. Everyone else can only demote people down to the lowest rank.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<JobPrototype>> Dischargers = new();
+
     /// <summary>
     /// Jobs that may open the roster. A holder whose job sits on a track may only manage
     /// ranks below their own on that track.

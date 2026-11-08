@@ -24,6 +24,8 @@ faction-roster-summary = {$online} {$online ->
    *[other] members
 } online.
 faction-roster-empty = No members online.
+# #Cythisiax Added - shown when someone without discharge rights tries to remove a member
+faction-roster-status-discharge-denied = You can only demote down to the lowest rank. Removing someone from the faction needs higher command.
 
 faction-roster-offline = Offline
 faction-roster-online = Online

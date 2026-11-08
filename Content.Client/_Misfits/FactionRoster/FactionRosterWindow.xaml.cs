@@ -213,6 +213,10 @@ public sealed partial class FactionRosterWindow : FancyWindow
             row.AddChild(toggle);
         }
 
+        // #Cythisiax Added - only those allowed to discharge see the button
+        if (!state.CanDischarge)
+            return panel;
+
         var discharge = new ConfirmButton
         {
             Text = Loc.GetString("faction-roster-discharge"),

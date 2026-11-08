@@ -51,6 +51,8 @@
   - NCRVeteranRanger
   - NCRChiefRanger
   - NCRDagger
+  dischargers: # #Cythisiax Added - Ranger Leads can only demote to Recruit; booting someone needs Chief+ (DAGGER is command)
+  - NCRChiefRanger
   recruitGrants:
   - NCRRangerRecruit
 
@@ -74,6 +76,7 @@
     - EnclaveNCO
     - EnclaveJuniorOfficer
     - EnclaveSeniorOfficer
+    - EnclaveCommander # #Cythisiax Added - top of the track: only the Reformer can promote to or demote the Commander
     commandOnlyFrom: EnclaveJuniorOfficer # #Cythisiax Added - only the Commander makes or breaks officers
   - name: faction-roster-track-science
     ranks:
