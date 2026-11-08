@@ -172,7 +172,7 @@
 
 - type: entity
   name: Locust Hivelord
-  parent: N14BaseMobRaider
+  parent: N14BaseMobRaiderBoss
   id: N14MobRaiderBossRifle
   description: Warchiefs of the Locust Tribe, they preach the destiny of their people to feed on the bounty of the weak, using chems and violence to keep their raiders under control. New ones always replace the dead.
   components:
@@ -257,7 +257,7 @@
 
 - type: entity
   name: Locust Hivelord
-  parent: N14BaseMobRaider
+  parent: N14BaseMobRaiderBoss
   id: N14MobRaiderBossChineseRifle
   description: Warchiefs of the Locust Tribe, they preach the destiny of their people to feed on the bounty of the weak, using chems and violence to keep their raiders under control. New ones always replace the dead.
   components:
@@ -343,7 +343,7 @@
 
 - type: entity
   name: Locust Hivelord
-  parent: N14BaseMobRaider
+  parent: N14BaseMobRaiderBoss
   id: N14MobRaiderBoss
   description: Warchiefs of the Locust Tribe, they preach the destiny of their people to feed on the bounty of the weak, using chems and violence to keep their raiders under control. New ones always replace the dead.
   components:
@@ -1710,7 +1710,7 @@
 
 - type: entity
   name: Warden Lieutenant
-  parent: N14BaseMobRaider
+  parent: N14BaseMobRaiderBoss
   id: N14MobEnforcerChief
   description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
@@ -1796,7 +1796,7 @@
 
 - type: entity
   name: Warden Lieutenant
-  parent: N14BaseMobRaider
+  parent: N14BaseMobRaiderBoss
   id: M14MobEnforcerChief357
   description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
@@ -1881,7 +1881,7 @@
 
 - type: entity
   name: Warden Lieutenant
-  parent: N14BaseMobRaider
+  parent: N14BaseMobRaiderBoss
   id: M14MobEnforcerChief10mmDual
   description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
