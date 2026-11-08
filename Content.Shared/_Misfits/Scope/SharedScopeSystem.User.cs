@@ -1,4 +1,5 @@
 // #Misfits Add - User-side scoping handlers (movement, stun, knockdown, pull, mob state)
+using System.Numerics;
 using Content.Shared.Camera;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Events;
@@ -10,15 +11,16 @@ using Robust.Shared.Player;
 namespace Content.Shared._Misfits.Scope;
 
 /// <summary>
-/// Partial class handling events on the ScopingComponent (applied to the user).
-/// Covers all conditions that should break scoping — movement, stun, knockdown,
-/// being pulled, entering a container, disconnecting, or dying.
+/// Handles events on the <see cref="ScopingComponent"/> applied to the user. Every condition
+/// that should break scoping — movement, stun, knockdown, being pulled, entering a container,
+/// disconnecting or dying — funnels into <see cref="UserStopScoping"/>.
 /// </summary>
 public partial class SharedScopeSystem
 {
     private void InitializeUser()
     {
         SubscribeLocalEvent<ScopingComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<ScopingComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<ScopingComponent, MoveInputEvent>(OnMoveInput);
         SubscribeLocalEvent<ScopingComponent, PullStartedMessage>(OnPullStarted);
         SubscribeLocalEvent<ScopingComponent, EntParentChangedMessage>(OnParentChanged);
@@ -32,12 +34,34 @@ public partial class SharedScopeSystem
     }
 
     /// <summary>
-    /// When the ScopingComponent is removed, update the eye offset so the viewport resets.
+    /// Scoping was removed without going through <see cref="Unscope"/>
     /// </summary>
     private void OnRemove(Entity<ScopingComponent> user, ref ComponentRemove args)
     {
-        if (!TerminatingOrDeleted(user))
-            UpdateOffset(user);
+        if (TerminatingOrDeleted(user.Owner))
+            return;
+
+        // Removal is the last chance to drop this system's eye offset contribution.
+        user.Comp.EyeOffset = Vector2.Zero;
+        UpdateOffset(user.Owner);
+
+        if (TryComp(user.Comp.Scope, out ScopeComponent? scope) && scope.User == user.Owner)
+            Unscope((user.Comp.Scope!.Value, scope));
+    }
+
+    /// <summary>
+    /// Once the component is gone, its eye offset is no longer contributed by
+    /// <see cref="OnGetEyeOffset"/>, so recompute the user's total offset.
+    /// </summary>
+    private void OnShutdown(Entity<ScopingComponent> user, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(user.Owner))
+            return;
+
+        // The component can still be dispatched GetEyeOffsetEvent while it shuts down, so drop
+        // its contribution before the total is recomputed.
+        user.Comp.EyeOffset = Vector2.Zero;
+        UpdateOffset(user.Owner);
     }
 
     /// <summary>
@@ -88,7 +112,7 @@ public partial class SharedScopeSystem
     }
 
     /// <summary>
-    /// Provides this system's eye offset additively when the engine queries total offset.
+    /// Provides this system's eye offset additively when the engine queries the total offset.
     /// </summary>
     private void OnGetEyeOffset(Entity<ScopingComponent> ent, ref GetEyeOffsetEvent args)
     {
@@ -131,15 +155,21 @@ public partial class SharedScopeSystem
     }
 
     /// <summary>
-    /// Cleanly stops scoping from the user side — removes ScopingComponent
-    /// and calls Unscope on the scope entity.
+    /// Cleanly stops scoping from the user side — removes <see cref="ScopingComponent"/> and
+    /// calls <see cref="Unscope"/> on the scope entity.
     /// </summary>
     private void UserStopScoping(Entity<ScopingComponent> ent)
     {
         var scope = ent.Comp.Scope;
         RemCompDeferred<ScopingComponent>(ent);
 
-        if (TryComp(scope, out ScopeComponent? scopeComponent) && scopeComponent.User == ent)
-            Unscope((scope.Value, scopeComponent));
+        if (scope is not { } scopeUid ||
+            !TryComp(scopeUid, out ScopeComponent? scopeComponent) ||
+            scopeComponent.User != ent.Owner)
+        {
+            return;
+        }
+
+        Unscope((scopeUid, scopeComponent));
     }
 }

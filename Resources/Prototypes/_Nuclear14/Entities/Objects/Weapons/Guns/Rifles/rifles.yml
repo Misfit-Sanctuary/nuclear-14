@@ -227,6 +227,19 @@
         whitelist:
           tags:
             - N14Cartridge762Rifle
+  # #Misfits Add - built-in optic (plain YAML Scope component)
+  - type: Scope
+    requireWielding: true
+    zoomLevels:
+    - name: 4x
+      zoom: 1.09
+      offset: 12
+      allowMovement: false
+      doAfter: 0.80
+  # #Misfits Add - scoped weapon; the optic is only as good as the eye behind it
+  - type: N14SpecialStatRequirement
+    minimumStats:
+      Perception: 7
   - type: StaticPrice
     price: 125
   # #Misfits Add — built-in scope on marksman carbine (description already states it has a scope)
@@ -344,6 +357,19 @@
   # #Misfits Add — built-in scope on scoped service rifle (explicitly described as having an optic)
   # - type: N14Scope
   #   eyeOffset: 5
+  # #Misfits Add - built-in optic (plain YAML Scope component)
+  - type: Scope
+    requireWielding: true
+    zoomLevels:
+    - name: 2x
+      zoom: 1.05
+      offset: 7
+      allowMovement: false
+      doAfter: 0.60
+  # #Misfits Add - scoped weapon; the optic is only as good as the eye behind it
+  - type: N14SpecialStatRequirement
+    minimumStats:
+      Perception: 6
 
 - type: entity
   name: scout rifle
@@ -777,6 +803,19 @@
         whitelist:
           tags:
             - N14Cartridge762Rifle
+  # #Misfits Add - built-in optic (plain YAML Scope component)
+  - type: Scope
+    requireWielding: true
+    zoomLevels:
+    - name: 5x
+      zoom: 1.15
+      offset: 15
+      allowMovement: false
+      doAfter: 0.75
+  # #Misfits Add - scoped weapon; a scope is only as good as the eye behind it
+  - type: N14SpecialStatRequirement
+    minimumStats:
+      Perception: 9
   - type: StaticPrice
     price: 175
 
@@ -831,6 +870,19 @@
         whitelist:
           tags:
             - N14Cartridge308Rifle
+  # #Misfits Add - built-in optic (plain YAML Scope component)
+  - type: Scope
+    requireWielding: true
+    zoomLevels:
+    - name: 4x
+      zoom: 1.10
+      offset: 13
+      allowMovement: false
+      doAfter: 0.80
+  # #Misfits Add - scoped weapon; a scope is only as good as the eye behind it
+  - type: N14SpecialStatRequirement
+    minimumStats:
+      Perception: 8
   - type: StaticPrice
     price: 175
 
@@ -1213,6 +1265,19 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
+  # #Misfits Add - built-in optic (plain YAML Scope component)
+  - type: Scope
+    requireWielding: true
+    zoomLevels:
+    - name: 5x
+      zoom: 1.13
+      offset: 15
+      allowMovement: false
+      doAfter: 0.85
+  # #Misfits Add - scoped weapon; the optic is only as good as the eye behind it
+  - type: N14SpecialStatRequirement
+    minimumStats:
+      Perception: 8
   - type: StaticPrice
     price: 1200
 
@@ -1236,6 +1301,19 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+  # #Misfits Add - built-in optic (plain YAML Scope component)
+  - type: Scope
+    requireWielding: true
+    zoomLevels:
+    - name: 5x
+      zoom: 1.13
+      offset: 15
+      allowMovement: false
+      doAfter: 0.85
+  # #Misfits Add - scoped weapon; the optic is only as good as the eye behind it
+  - type: N14SpecialStatRequirement
+    minimumStats:
+      Perception: 8
   - type: StaticPrice
     price: 1000
 

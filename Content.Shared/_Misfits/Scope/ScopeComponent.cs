@@ -1,105 +1,74 @@
-// #Misfits Add - Directional scope component (ported from RMC-14 Scoping system)
+// #Misfits Add - Directional scope component (ported from RMC-14 Scoping)
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared._Misfits.Scope;
 
-/// <summary>
-/// Gives an entity (gun, binoculars, or attachment item) a directional scope
-/// that shifts the user's viewport forward in the direction they are facing.
-/// Supports configurable zoom levels, DoAfter delay, and directional locking.
-/// </summary>
+/// Add it to any prototype, for example:
+/// - type: Scope
+///   requireWielding: true
+///   zoomLevels:
+///   - name: 5x
+///     zoom: 1.2
+///     offset: 16
+///     allowMovement: false
+///     doAfter: 0.7
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedScopeSystem))]
 public sealed partial class ScopeComponent : Component
 {
-    /// <summary>
-    /// The currently selected zoom level index into <see cref="ZoomLevels"/>.
-    /// </summary>
+    /// Index into ZoomLevels of the currently selected zoom level.
     [DataField, AutoNetworkedField]
     public int CurrentZoomLevel;
 
-    /// <summary>
-    /// List of available zoom levels. Cycling action is granted when count > 1.
-    /// </summary>
+    /// Available zoom levels; the cycle action is only granted when there is more than one.
     [DataField, AutoNetworkedField]
     public List<ScopeZoomLevel> ZoomLevels = new()
     {
-        new ScopeZoomLevel(null, 1f, 15, false, TimeSpan.FromSeconds(1))
+        new ScopeZoomLevel(null, 1f, 15, false, TimeSpan.FromSeconds(1)),
     };
 
-    /// <summary>
-    /// The entity currently scoping through this item.
-    /// </summary>
+    /// The entity currently looking through this scope.
     [ViewVariables, AutoNetworkedField]
     public EntityUid? User;
 
-    /// <summary>
-    /// Action prototype for toggling the scope on/off.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public EntProtoId? ScopingToggleAction = "N14ActionToggleScope";
+    /// Action prototype used to toggle the scope.
+    [DataField]
+    public EntProtoId ScopingToggleAction = "N14ActionToggleScope";
 
-    /// <summary>
-    /// Runtime: the spawned toggle action entity.
-    /// </summary>
+    /// Runtime: the toggle action entity, created when the scope is initialised.
     [DataField, AutoNetworkedField]
     public EntityUid? ScopingToggleActionEntity;
 
-    /// <summary>
-    /// Action prototype for cycling zoom levels (only used when ZoomLevels.Count > 1).
-    /// </summary>
-    [DataField, AutoNetworkedField]
+    /// Action prototype used to cycle zoom levels; only granted with multiple zoom levels.
+    [DataField]
     public EntProtoId CycleZoomLevelAction = "N14ActionCycleZoomLevel";
 
-    /// <summary>
-    /// Runtime: the spawned cycle zoom action entity.
-    /// </summary>
+    /// Runtime: the cycle action entity, created when the scope is initialised.
     [DataField, AutoNetworkedField]
     public EntityUid? CycleZoomLevelActionEntity;
 
-    /// <summary>
-    /// If true, the weapon must be wielded before scoping is allowed.
-    /// </summary>
-    [DataField, AutoNetworkedField]
+    /// If true, the item must be wielded before scoping is allowed.
+    [DataField]
     public bool RequireWielding;
 
-    /// <summary>
-    /// If true, the scope can be activated by using it in hand (ActivateInWorld).
-    /// Used for standalone items like binoculars.
-    /// </summary>
-    [DataField, AutoNetworkedField]
+    /// If true, the scope can also be toggled by using the item in hand (binoculars).
+    [DataField]
     public bool UseInHand;
 
-    /// <summary>
-    /// The cardinal direction the user is currently scoped toward.
-    /// </summary>
+    /// The cardinal direction the user is scoped toward; null while not scoping.
     [DataField, AutoNetworkedField]
     public Direction? ScopingDirection;
 
-    /// <summary>
-    /// Server-side relay entity spawned at the scoped offset position for PVS.
-    /// </summary>
-    [DataField, AutoNetworkedField]
+    /// Server-only PVS relay spawned at the scoped offset so distant chunks reach the scoping player.
+    [ViewVariables]
     public EntityUid? RelayEntity;
 
-    /// <summary>
-    /// If true, this is a scope attachment inside a gun's container.
-    /// The scope action only works when the hosting gun is held.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool Attachment;
-
-    /// <summary>
-    /// Popup message shown when scoping in. Null to suppress.
-    /// </summary>
-    [DataField, AutoNetworkedField]
+    /// Popup shown when scoping in; null suppresses it.
+    [DataField]
     public string? ScopePopup = "n14-action-popup-scoping-user";
 
-    /// <summary>
-    /// Popup message shown when unscoping. Null to suppress.
-    /// </summary>
-    [DataField, AutoNetworkedField]
+    /// Popup shown when scoping out; null suppresses it.
+    [DataField]
     public string? UnScopePopup = "n14-action-popup-scoping-stopping-user";
 }

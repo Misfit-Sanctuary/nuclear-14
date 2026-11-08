@@ -1,4 +1,4 @@
-// #Misfits Add - Server-side scope system with PVS relay entity (ported from RMC-14)
+// #Misfits Add - Server-side scope system with PVS relay entity (ported from RMC-14, refactored)
 using System.Numerics;
 using Content.Shared._Misfits.Scope;
 using Robust.Server.GameObjects;
@@ -7,55 +7,38 @@ using Robust.Shared.Player;
 namespace Content.Server._Misfits.Scope;
 
 /// <summary>
-/// Server-side scope system. Spawns a relay entity at the scoped offset position
-/// so that the PVS system loads chunks at the target location for the scoping player.
-/// Without this, distant tiles would not be sent to the client when looking far away.
+/// Server-side scope system. Spawns a relay entity at the scoped offset position so that
+/// the PVS loads chunks at the target location for the scoping player. Without this,
+/// distant tiles would not be sent to the client when looking far away.
 /// </summary>
 public sealed class ScopeSystem : SharedScopeSystem
 {
     [Dependency] private readonly ViewSubscriberSystem _viewSubscriber = default!;
 
     /// <summary>
-    /// Overrides shared StartScoping to spawn a relay entity at the offset position
-    /// and subscribe the player's viewport to it for PVS chunk loading.
+    /// Spawns the PVS relay once scoping has actually completed, so a cancelled or
+    /// interrupted DoAfter never leaves an orphaned relay behind.
     /// </summary>
-    public override Direction? StartScoping(Entity<ScopeComponent> scope, EntityUid user)
+    protected override void OnScopeStarted(Entity<ScopeComponent> scope, EntityUid user, Vector2 offset)
     {
-        if (base.StartScoping(scope, user) is not { } direction)
-            return null;
-
-        scope.Comp.User = user;
-
-        // Spawn invisible relay entity at the offset position for PVS
-        if (TryComp(user, out ActorComponent? actor))
-        {
-            var coords = Transform(user).Coordinates;
-            var offset = GetScopeOffset(scope, direction);
-
-            // Spawn a blank entity at the offset — this expands the player's PVS view
-            scope.Comp.RelayEntity = SpawnAtPosition(null, coords.Offset(offset));
-            _viewSubscriber.AddViewSubscriber(scope.Comp.RelayEntity.Value, actor.PlayerSession);
-        }
-
-        return direction;
-    }
-
-    /// <summary>
-    /// Overrides shared Unscope to clean up the relay entity and remove PVS subscription.
-    /// </summary>
-    public override bool Unscope(Entity<ScopeComponent> scope)
-    {
-        var user = scope.Comp.User;
-
-        if (!base.Unscope(scope))
-            return false;
-
+        // A previous session on the same scope may still own a relay.
         DeleteRelay(scope, user);
-        return true;
+
+        if (!TryComp(user, out ActorComponent? actor))
+            return;
+
+        var relay = SpawnAtPosition(null, Transform(user).Coordinates.Offset(offset));
+        scope.Comp.RelayEntity = relay;
+        _viewSubscriber.AddViewSubscriber(relay, actor.PlayerSession);
+    }
+
+    protected override void OnScopeEnded(Entity<ScopeComponent> scope, EntityUid user)
+    {
+        DeleteRelay(scope, user);
     }
 
     /// <summary>
-    /// Removes the PVS relay entity and unsubscribes the player's viewport.
+    /// Removes the relay entity and its view subscription.
     /// </summary>
     protected override void DeleteRelay(Entity<ScopeComponent> scope, EntityUid? user)
     {
@@ -64,7 +47,6 @@ public sealed class ScopeSystem : SharedScopeSystem
 
         scope.Comp.RelayEntity = null;
 
-        // Remove PVS subscription before deleting the relay
         if (TryComp(user, out ActorComponent? actor))
             _viewSubscriber.RemoveViewSubscriber(relay, actor.PlayerSession);
 
@@ -73,19 +55,14 @@ public sealed class ScopeSystem : SharedScopeSystem
     }
 
     /// <summary>
-    /// Repositions the PVS relay entity when the user changes facing direction while scoped.
-    /// PVS subscription is per-entity-UID, so no re-subscription needed — it follows the entity.
+    /// Repositions the relay when the user changes facing while scoped. The subscription is
+    /// per-entity UID, so no re-subscription is needed.
     /// </summary>
     protected override void MoveRelay(Entity<ScopeComponent> scope, Vector2 newOffset)
     {
-        if (scope.Comp.RelayEntity is not { } relay)
+        if (scope.Comp.RelayEntity is not { } relay || scope.Comp.User is not { } user)
             return;
 
-        if (scope.Comp.User is not { } user)
-            return;
-
-        // Reposition the relay at the new offset relative to the user
-        var userCoords = Transform(user).Coordinates;
-        _transform.SetCoordinates(relay, userCoords.Offset(newOffset));
+        _transform.SetCoordinates(relay, Transform(user).Coordinates.Offset(newOffset));
     }
 }
