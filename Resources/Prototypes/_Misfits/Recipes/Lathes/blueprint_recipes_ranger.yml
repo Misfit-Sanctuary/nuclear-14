@@ -952,19 +952,20 @@
     Plastic: 220
     Circuitry: 120
 
-- type: latheRecipe
-  id: N14BPRangerArmorMaskRangerModif
-  result: ClothingMaskGasRangerModif
-  category: N14BlueprintRangerArmor
-  completetime: 8
-  requiresBlueprint: true
-  availableFaction:
-  - Rangers
-  materials:
-    Steel: 1200
-    Cloth: 150
-    Plastic: 200
-    Circuitry: 100
+# #Cythisiax Removed - DAGGER exclusive: the ranger modified gas mask is DAGGER-only gear, no longer craftable
+#- type: latheRecipe
+#  id: N14BPRangerArmorMaskRangerModif
+#  result: ClothingMaskGasRangerModif
+#  category: N14BlueprintRangerArmor
+#  completetime: 8
+#  requiresBlueprint: true
+#  availableFaction:
+#  - Rangers
+#  materials:
+#    Steel: 1200
+#    Cloth: 150
+#    Plastic: 200
+#    Circuitry: 100
 
 - type: latheRecipe
   id: N14BPRangerArmorMaskRiot

@@ -411,20 +411,21 @@
   items:
     - ClothingMaskGasRangerPrice
 
-- type: loadout
-  id: LoadoutNCRClothingMaskGasRangerModif2
-  category: Roles
-  cost: 2
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRVeteranRanger
-    - !type:CharacterPlaytimeRequirement
-      tracker: NCRVeteranRanger
-      min: 72000 # 1200 minutes
-  items:
-    - ClothingMaskGasRangerModif
+# #Cythisiax Removed - DAGGER exclusive: the ranger modified gas mask is DAGGER-only gear (Elite/Price mask loadouts remain)
+#- type: loadout
+#  id: LoadoutNCRClothingMaskGasRangerModif2
+#  category: Roles
+#  cost: 2
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRVeteranRanger
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: NCRVeteranRanger
+#      min: 72000 # 1200 minutes
+#  items:
+#    - ClothingMaskGasRangerModif
 
 # Misfits Change - Disabled: armor with resistance values removed from roundstart loadout menu
 #- type: loadout

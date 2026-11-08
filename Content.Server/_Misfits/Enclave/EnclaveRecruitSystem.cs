@@ -1,22 +1,21 @@
 // #Misfits Add - Per-round Enclave recruitment system.
-// #Cythisiax Edited - The "Recruit" verb is restricted to Enclave command
-// officers: Junior Officer, Senior Officer, Commander, and Reformer.
-// Recruited players are assigned the EnclaveRecruit job so their time counts
-// toward Enclave department role timers. Resets on death or round restart.
+// #Cythisiax Edited - Recruitment now goes through the faction roster GUI (Recruit tab),
+// which Enclave command officers open from their action bar; the old right-click
+// "Recruit" verb and Enclave consent dialog were removed. This system keeps the
+// Enclave-specific part: accepted recruits are assigned the EnclaveRecruit job so their
+// time counts toward Enclave department role timers, are implanted with a micro-bomb,
+// and lose the recruitment on death or round restart.
 
-using Content.Server.EUI;
-using Content.Server.Mind;
+using Content.Server._Misfits.FactionRoster;
 using Content.Shared._Misfits.Enclave;
+using Content.Shared._Misfits.FactionRoster;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
-using Content.Shared.Verbs;
-using Content.Shared.IdentityManagement;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Misfits.Enclave;
@@ -28,18 +27,22 @@ public sealed class EnclaveRecruitSystem : EntitySystem
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly SharedMindSystem _minds = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly EuiManager _eui = default!;
     [Dependency] private readonly EnclaveMicroBombSystem _microBombs = default!;
 
     /// <summary>The literal job assigned to accepted recruits.</summary>
     private const string EnclaveRecruitJobId = "EnclaveRecruit";
 
+    /// <summary>The faction roster this system handles recruitment for.</summary>
+    public const string EnclaveRosterId = "Enclave";
+
     public override void Initialize()
     {
         base.Initialize();
 
-        // Show "Recruit" verb on living player entities for Enclave members
-        SubscribeLocalEvent<MindContainerComponent, GetVerbsEvent<InteractionVerb>>(OnGetInteractionVerbs);
+        // #Cythisiax Edited - recruitment comes from the faction roster instead of a verb.
+        SubscribeLocalEvent<FactionRosterRecruitAttemptEvent>(OnRecruitAttempt);
+        SubscribeLocalEvent<FactionRosterRecruitedEvent>(OnRecruited);
+        SubscribeLocalEvent<EnclaveRecruiterComponent, ComponentStartup>(OnRecruiterStartup);
 
         // Remove recruitment on death
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
@@ -49,45 +52,33 @@ public sealed class EnclaveRecruitSystem : EntitySystem
     }
 
     /// <summary>
-    /// Add "Recruit" verb for Enclave members on player entities.
+    /// #Cythisiax Edited - Admin bypass: hand the holder the Enclave roster without the job check.
     /// </summary>
-    private void OnGetInteractionVerbs(
-        EntityUid target,
-        MindContainerComponent targetMind,
-        GetVerbsEvent<InteractionVerb> args)
+    private void OnRecruiterStartup(Entity<EnclaveRecruiterComponent> ent, ref ComponentStartup args)
     {
-        if (!args.CanAccess || !args.CanInteract)
+        var roster = EnsureComp<FactionRosterComponent>(ent);
+        roster.Roster = EnclaveRosterId;
+        roster.IgnoreJobRequirement = true;
+    }
+
+    /// <summary>Players already recruited this round can't be offered again.</summary>
+    private void OnRecruitAttempt(ref FactionRosterRecruitAttemptEvent ev)
+    {
+        if (ev.RosterId != EnclaveRosterId)
             return;
 
-        var user = args.User;
-
-        // User must be a living player with the Enclave Junior Officer job
-        if (!IsEnclaveMember(user))
-            return;
-
-        // Target must be a living player with a mind
-        if (!targetMind.HasMind)
-            return;
-
-        // Target must not already be recruited
-        if (HasComp<EnclaveRecruitMindComponent>(targetMind.Mind))
-            return;
-
-        // Target must be alive (not dead/ghost)
-        if (!TryComp<MobStateComponent>(target, out var mobState)
-            || mobState.CurrentState != MobState.Alive)
-            return;
-
-        // Don't show verb on self
-        if (user == target)
-            return;
-
-        args.Verbs.Add(new InteractionVerb
+        if (TryComp<MindContainerComponent>(ev.Target, out var mind) &&
+            mind.Mind is { } mindId &&
+            (HasComp<EnclaveRecruitMindComponent>(mindId) || _jobs.MindHasJobWithId(mindId, EnclaveRecruitJobId)))
         {
-            Text = "Recruit",
-            Category = VerbCategory.Interaction,
-            Act = () => RecruitPlayer(target, targetMind, user),
-        });
+            ev.Cancelled = true;
+        }
+    }
+
+    private void OnRecruited(ref FactionRosterRecruitedEvent ev)
+    {
+        if (ev.RosterId == EnclaveRosterId)
+            ApplyRecruitment(ev.Recruit);
     }
 
     /// <summary>
@@ -115,57 +106,12 @@ public sealed class EnclaveRecruitSystem : EntitySystem
     }
 
     /// <summary>
-    /// Show a confirmation dialog to the target. Only recruits if they accept.
+    /// Apply the recruitment after the target accepted the roster's offer.
     /// </summary>
-    private void RecruitPlayer(EntityUid target, MindContainerComponent targetMind, EntityUid user)
+    private void ApplyRecruitment(EntityUid target)
     {
-        if (!targetMind.HasMind)
+        if (!TryComp<MindContainerComponent>(target, out var targetMind) || targetMind.Mind is not { } mindId)
             return;
-
-        var mindId = targetMind.Mind.Value;
-
-        // Already recruited
-        if (HasComp<EnclaveRecruitMindComponent>(mindId))
-            return;
-
-        // Get the target's player session for the dialog
-        if (!_minds.TryGetSession(mindId, out var targetSession))
-            return;
-
-        var userName = Identity.Name(user, EntityManager);
-        var targetName = Identity.Name(target, EntityManager);
-
-        _eui.OpenEui(new EnclaveRecruitEui(
-            targetName,
-            () =>
-            {
-                // Double-check they're still not recruited (may have been recruited while dialog was open)
-                if (!targetMind.HasMind || HasComp<EnclaveRecruitMindComponent>(targetMind.Mind!.Value))
-                    return;
-
-                ApplyRecruitment(target, targetMind, user, userName, targetName);
-            },
-            () =>
-            {
-                _popup.PopupEntity(
-                    Loc.GetString("enclave-recruit-declined", ("target", (object)targetName)),
-                    user,
-                    user,
-                    PopupType.MediumCaution);
-            }),
-            targetSession);
-    }
-
-    /// <summary>
-    /// Actually apply the recruitment (called after target confirms).
-    /// </summary>
-    private void ApplyRecruitment(EntityUid target, MindContainerComponent targetMind, EntityUid user,
-        string userName, string targetName)
-    {
-        if (!targetMind.HasMind)
-            return;
-
-        var mindId = targetMind.Mind!.Value;
 
         if (HasComp<EnclaveRecruitMindComponent>(mindId))
             return;
@@ -182,17 +128,7 @@ public sealed class EnclaveRecruitSystem : EntitySystem
         _roles.MindAddRole(mindId, new JobComponent { Prototype = EnclaveRecruitJobId });
         _microBombs.Implant(target);
 
-        _popup.PopupEntity(
-            Loc.GetString("enclave-recruit-popup-target", ("user", userName)),
-            target,
-            target,
-            PopupType.Medium);
-
-        _popup.PopupEntity(
-            Loc.GetString("enclave-recruit-popup-user", ("target", targetName)),
-            user,
-            user,
-            PopupType.Medium);
+        // #Cythisiax Removed - recruiter/recruit popups; the faction roster sends its own.
     }
 
     /// <summary>
@@ -235,32 +171,6 @@ public sealed class EnclaveRecruitSystem : EntitySystem
             _roles.MindAddRole(mindId, new JobComponent { Prototype = previousJob }, silent: true);
     }
 
-    /// <summary>
-    /// Check if a user entity may recruit: must be an Enclave command officer,
-    /// or carry the admin bypass EnclaveRecruiterComponent.
-    /// </summary>
-    private bool IsEnclaveMember(EntityUid uid)
-    {
-        // Bypass: admins can addcomp EnclaveRecruiterComponent to any player
-        if (HasComp<EnclaveRecruiterComponent>(uid))
-            return true;
-
-        // Get the mind ID from the user's entity
-        if (!TryComp<MindContainerComponent>(uid, out var mindContainer) || !mindContainer.HasMind)
-            return false;
-
-        var mindId = mindContainer.Mind.Value;
-
-        // Check if the user has a job component on their mind
-        if (!_jobs.MindTryGetJob(mindId, out _, out var jobProto))
-            return false;
-
-        // #Cythisiax Edited - Only these Enclave command officer jobs may
-        // recruit; recruitment is not open to every department member.
-        // (was: any job in the Enclave department could recruit).
-        return jobProto.ID is "EnclaveJuniorOfficer"
-            or "EnclaveSeniorOfficer"
-            or "EnclaveCommander"
-            or "EnclaveReformer";
-    }
+    // #Cythisiax Removed - IsEnclaveMember: who may recruit is now the Enclave roster's
+    // authorizedJobs (Junior Officer, Senior Officer, Commander, Reformer).
 }
