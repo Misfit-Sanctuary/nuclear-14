@@ -1116,7 +1116,7 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/carbine.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
-- type: entity
+- type: entity #toe
   name: Cult of Liberty Patriot
   parent: N14BaseMobRaider
   id: M14MobFernMercPrivateAutoRifle
