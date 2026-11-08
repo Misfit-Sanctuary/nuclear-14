@@ -191,7 +191,7 @@ public sealed class SurveillanceCameraRouterSystem : EntitySystem
         var payload = new NetworkPayload()
         {
             { DeviceNetworkConstants.Command, SurveillanceCameraSystem.CameraSubnetData },
-            { SurveillanceCameraSystem.CameraSubnetData, router.SubnetFrequencyId }
+            { SurveillanceCameraSystem.CameraSubnetData, router.SubnetFrequencyId.Value.Id } // #Cythisiax Fixed - send subnet as string; monitors read it as string, boxed ProtoId was dropped
         };
 
         _deviceNetworkSystem.QueuePacket(uid, origin, payload);

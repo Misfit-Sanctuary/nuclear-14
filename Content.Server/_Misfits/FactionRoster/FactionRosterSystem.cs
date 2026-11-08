@@ -1,5 +1,5 @@
-// #Cythisiax Added - Faction roster: lets faction leadership (e.g. the Ranger Lead, Enclave
-// officers) see every whitelisted member of their faction and recruit, promote, demote or
+// #Cythisiax Added - Faction roster: lets faction leadership (e.g. DAGGER, the Chief Ranger,
+// the Ranger Lead, Enclave officers) see every whitelisted member of their faction and recruit, promote, demote or
 // discharge them, and set the oath shown to recruits. Membership is the persistent job
 // whitelist, so every change writes to the database through JobWhitelistManager, exactly
 // like the admin whitelist panel. Factions with extra recruitment rules hook in through
@@ -75,8 +75,11 @@ public sealed class FactionRosterSystem : EntitySystem
         public readonly HashSet<string> Roles = new();
     }
 
-    /// <summary>What the viewer may manage: ranks below Limits[track] on each track.</summary>
-    private readonly record struct Authority(bool Leadership, int[] Limits);
+    /// <summary>
+    /// What the viewer may manage: ranks below Limits[track] on each track. Command roles
+    /// (e.g. DAGGER) sit above every track and may manage all of it.
+    /// </summary>
+    private readonly record struct Authority(bool Command, int[] Limits, bool CanEditOath, bool CanDischarge); // #Cythisiax Edited - discharge permission
 
     public override void Initialize()
     {
@@ -161,26 +164,54 @@ public sealed class FactionRosterSystem : EntitySystem
     private Authority GetAuthority(FactionRosterPrototype roster, ICommonSession viewer)
     {
         var job = viewer.AttachedEntity is { } body ? CurrentJob(body) : null;
-        var leadership = job != null && roster.Protected.Contains(job);
+        // #Cythisiax Edited - an admin-granted roster (IgnoreJobRequirement) keeps full reach
+        var command = job != null && roster.Protected.Contains(job)
+                      || viewer.AttachedEntity is { } holder
+                      && TryComp<FactionRosterComponent>(holder, out var rosterComp)
+                      && rosterComp.IgnoreJobRequirement
+                      && rosterComp.Roster == roster.ID;
         var limits = roster.Tracks.Select(t => t.Ranks.Count).ToArray();
 
         // Officers sitting on a track can only manage the ranks beneath them there.
-        if (!leadership && job != null)
+        // #Cythisiax Edited - and only their own track: an Enclave officer can't touch the
+        // science track, and the Head Scientist can't touch the military one.
+        // #Cythisiax Edited - a command role that also tops a track (Enclave Commander) still
+        // can't touch its own rank there; only a higher command role (Reformer) can.
+        for (var t = 0; t < roster.Tracks.Count; t++)
+        {
+            var index = job == null ? -1 : roster.Tracks[t].Ranks.IndexOf(job);
+            if (index >= 0)
+                limits[t] = index;
+            else if (!command)
+                limits[t] = 0;
+        }
+
+        // #Cythisiax Added - ranks from CommandOnlyFrom upward are reserved for command roles
+        if (!command)
         {
             for (var t = 0; t < roster.Tracks.Count; t++)
             {
-                var index = roster.Tracks[t].Ranks.IndexOf(job);
-                if (index >= 0)
-                    limits[t] = index;
+                if (roster.Tracks[t].CommandOnlyFrom is not { } cutoff)
+                    continue;
+
+                var cutoffIndex = roster.Tracks[t].Ranks.IndexOf(cutoff);
+                if (cutoffIndex >= 0)
+                    limits[t] = Math.Min(limits[t], cutoffIndex);
             }
         }
 
-        return new Authority(leadership, limits);
+        var oathEditors = roster.OathEditors.Count > 0 ? roster.OathEditors : roster.Protected;
+        var canEditOath = job != null && oathEditors.Contains(job);
+
+        // #Cythisiax Added - only command roles and listed dischargers can remove people outright
+        var canDischarge = command || job != null && roster.Dischargers.Contains(job);
+
+        return new Authority(command, limits, canEditOath, canDischarge);
     }
 
     public bool CanEditOath(FactionRosterPrototype roster, ICommonSession viewer)
     {
-        return GetAuthority(roster, viewer).Leadership;
+        return GetAuthority(roster, viewer).CanEditOath;
     }
 
     #endregion
@@ -259,13 +290,19 @@ public sealed class FactionRosterSystem : EntitySystem
         return -1;
     }
 
-    private static bool IsLeadership(FactionRosterPrototype roster, IReadOnlyCollection<string> roles)
+    private static bool IsCommand(FactionRosterPrototype roster, IReadOnlyCollection<string> roles)
     {
         return roster.Protected.Any(p => roles.Contains(p.Id));
     }
 
+    // #Cythisiax Added - command roles that aren't a rank on any track
+    private static bool IsTracklessCommand(FactionRosterPrototype roster, IReadOnlyCollection<string> roles)
+    {
+        return roster.Protected.Any(p => roles.Contains(p.Id) && !roster.Tracks.Any(t => t.Ranks.Contains(p)));
+    }
+
     /// <summary>
-    /// Self, Faction Leadership, and anyone at or above the viewer's own rank on a track
+    /// Self, command roles, and anyone at or above the viewer's own rank on a track
     /// are out of the viewer's reach.
     /// </summary>
     private static bool IsLocked(
@@ -275,7 +312,9 @@ public sealed class FactionRosterSystem : EntitySystem
         NetUserId target,
         RosterRecord record)
     {
-        if (target == viewer.UserId || IsLeadership(roster, record.Roles))
+        // #Cythisiax Edited - only command roles that sit above every track (DAGGER, Reformer) are
+        // untouchable; a command role ranked on a track (Commander) follows normal rank limits.
+        if (target == viewer.UserId || IsTracklessCommand(roster, record.Roles))
             return true;
 
         for (var t = 0; t < roster.Tracks.Count; t++)
@@ -313,7 +352,8 @@ public sealed class FactionRosterSystem : EntitySystem
             status,
             GetOathTemplate(roster),
             _oaths.ContainsKey(roster.ID),
-            authority.Leadership);
+            authority.CanEditOath,
+            authority.CanDischarge);
     }
 
     private List<FactionRosterMember> BuildMembers(FactionRosterPrototype roster, Authority authority, ICommonSession viewer)
@@ -329,7 +369,12 @@ public sealed class FactionRosterSystem : EntitySystem
 
             string? characterName = null;
             var online = _player.TryGetSessionById(userId, out var session);
-            if (online && session!.AttachedEntity is { } body)
+
+            // #Cythisiax Added - roster lists only members who are connected right now
+            if (!online)
+                continue;
+
+            if (session!.AttachedEntity is { } body)
                 characterName = Name(body);
 
             var locked = IsLocked(roster, authority, viewer, userId, record);
@@ -341,7 +386,8 @@ public sealed class FactionRosterSystem : EntitySystem
                 standings.Add(new FactionRosterStanding(
                     rank,
                     !locked && rank + 1 < authority.Limits[t],
-                    !locked && rank >= 0 && (rank > 0 || HoldsRolesOutside(roster, t, record))));
+                    // #Cythisiax Edited - removing the lowest rank needs discharge permission
+                    !locked && rank >= 0 && (rank > 0 || authority.CanDischarge && HoldsRolesOutside(roster, t, record))));
             }
 
             members.Add(new FactionRosterMember(
@@ -349,7 +395,8 @@ public sealed class FactionRosterSystem : EntitySystem
                 record.UserName,
                 characterName,
                 online,
-                IsLeadership(roster, record.Roles),
+                IsCommand(roster, record.Roles),
+                roster.Protected.Where(p => record.Roles.Contains(p.Id)).Select(p => p.Id).ToList(),
                 locked,
                 standings,
                 roster.Specialties.Where(s => record.Roles.Contains(s.Id)).Select(s => s.Id).ToList()));
@@ -426,13 +473,17 @@ public sealed class FactionRosterSystem : EntitySystem
 
     public string? Demote(FactionRosterPrototype roster, ICommonSession actor, NetUserId target, int track)
     {
-        if (!TryGetEditable(roster, actor, target, track, out var record, out _, out var error))
+        if (!TryGetEditable(roster, actor, target, track, out var record, out var authority, out var error)) // #Cythisiax Edited - need authority for the discharge check
             return error;
 
         var ranks = roster.Tracks[track].Ranks;
         var rank = RankIndex(roster.Tracks[track], record.Roles);
         if (rank < 0 || rank == 0 && !HoldsRolesOutside(roster, track, record))
             return Loc.GetString("faction-roster-status-min-rank", ("name", DisplayName(target, record)));
+
+        // #Cythisiax Added - stripping the lowest rank removes them from the track; that needs discharge permission
+        if (rank == 0 && !authority.CanDischarge)
+            return Loc.GetString("faction-roster-status-discharge-denied");
 
         Revoke(roster, actor, target, record, [ranks[rank]], "Demoted");
 
@@ -456,8 +507,12 @@ public sealed class FactionRosterSystem : EntitySystem
 
     public string? Discharge(FactionRosterPrototype roster, ICommonSession actor, NetUserId target)
     {
-        if (!TryGetEditable(roster, actor, target, null, out var record, out _, out var error))
+        if (!TryGetEditable(roster, actor, target, null, out var record, out var authority, out var error)) // #Cythisiax Edited - need authority for the discharge check
             return error;
+
+        // #Cythisiax Added - only command roles and listed dischargers may remove people from the faction
+        if (!authority.CanDischarge)
+            return Loc.GetString("faction-roster-status-discharge-denied");
 
         var held = roster.Tracks.SelectMany(t => t.Ranks)
             .Concat(roster.Specialties)
