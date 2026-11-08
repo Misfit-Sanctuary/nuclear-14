@@ -91,7 +91,7 @@ public sealed partial class NcStoreLogicSystem
             if (TryPickCurrencyForSell(store, l, out _, out var price))
             {
                 if (user is { } userUid)
-                    price = ApplyCharismaSellReward(userUid, price);
+                    price = ApplyCharismaSellReward(userUid, price, l.ProductEntity);
                 listingPrices[l.Id] = price;
             }
             else
@@ -151,7 +151,7 @@ public sealed partial class NcStoreLogicSystem
             if (!TryPickCurrencyForSell(store, listing, out var currencyId, out var unitPrice))
                 continue;
             if (user is { } userUid)
-                unitPrice = ApplyCharismaSellReward(userUid, unitPrice);
+                unitPrice = ApplyCharismaSellReward(userUid, unitPrice, listing.ProductEntity);
             if (unitPrice <= 0 || string.IsNullOrWhiteSpace(currencyId))
                 continue;
 

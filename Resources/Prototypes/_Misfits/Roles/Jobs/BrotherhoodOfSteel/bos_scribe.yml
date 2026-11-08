@@ -94,14 +94,14 @@
   id: BoSScribeGear
   equipment:
     wallet: N14Wallet
-    jumpsuit: N14ClothingUniformJumpskirtBOSBlack
+    jumpsuit: M14ClothingUniformBrotherhoodScribe
     back: N14ClothingBackpackSatchelMilitary
-    shoes: N14ClothingBootsLeatherFilled
+    shoes: N14ClothingBootsCombatFilled
     # outerClothing: N14ClothingOuterBrotherhoodMidwestFieldScribeCoat # #Misfits Removed - Coat now comes from loadout kit selection
     pocket1: BoSBrotherhoodScribeKits
     id: N14IDBrotherhoodOfSteelHolotagScribe
     ears: N14ClothingHeadsetBrotherhoodOfSteelScribe
-    belt: ClothingBeltMilitary
+    # belt: ClothingBeltMilitary # #Misfits Removed - Belt now comes from loadout kit selection
   storage:
     back:
     - N14BoxPlasticFilledMilitary

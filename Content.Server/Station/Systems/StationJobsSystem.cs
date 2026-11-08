@@ -381,7 +381,7 @@ public sealed partial class StationJobsSystem : EntitySystem
         if (!Resolve(station, ref stationJobs))
             throw new ArgumentException("Tried to use a non-station entity as a station!", nameof(station));
 
-        return stationJobs.JobList.Where(x => x.Value != 0).Select(x => x.Key).ToHashSet();
+        return stationJobs.JobList.Where(x => x.Value != 0).Select(x => x.Key.Id).ToHashSet();
     }
 
     /// <summary>
@@ -396,7 +396,7 @@ public sealed partial class StationJobsSystem : EntitySystem
         if (!Resolve(station, ref stationJobs))
             throw new ArgumentException("Tried to use a non-station entity as a station!", nameof(station));
 
-        return stationJobs.OverflowJobs.ToHashSet();
+        return stationJobs.OverflowJobs.Select(x => x.Id).ToHashSet();
     }
 
     /// <summary>
@@ -411,7 +411,7 @@ public sealed partial class StationJobsSystem : EntitySystem
         if (!Resolve(station, ref stationJobs))
             throw new ArgumentException("Tried to use a non-station entity as a station!", nameof(station));
 
-        return stationJobs.JobList;
+        return stationJobs.JobList.ToDictionary(x => x.Key.Id, x => x.Value);
     }
 
     /// <summary>
@@ -426,7 +426,7 @@ public sealed partial class StationJobsSystem : EntitySystem
         if (!Resolve(station, ref stationJobs))
             throw new ArgumentException("Tried to use a non-station entity as a station!", nameof(station));
 
-        return stationJobs.RoundStartJobList;
+        return stationJobs.RoundStartJobList.ToDictionary(x => x.Key.Id, x => x.Value);
     }
 
     /// <summary>
@@ -513,7 +513,7 @@ public sealed partial class StationJobsSystem : EntitySystem
         while (query.MoveNext(out var station, out var comp))
         {
             var netStation = GetNetEntity(station);
-            var list = comp.JobList.ToDictionary(x => x.Key, x => x.Value);
+            var list = comp.JobList.ToDictionary(x => x.Key.Id, x => x.Value);
             jobs.Add(netStation, list);
             stationNames.Add(netStation, Name(station));
         }

@@ -2,7 +2,6 @@ using Content.Shared.Access;
 using Content.Shared.Maps;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared.Random;
 
@@ -63,8 +62,8 @@ public sealed partial class NearbyTilesPercentRule : RulesRule
     [DataField("percent", required: true)]
     public float Percent;
 
-    [DataField("tiles", required: true, customTypeSerializer:typeof(PrototypeIdListSerializer<ContentTileDefinition>))]
-    public List<string> Tiles = new();
+    [DataField("tiles", required: true)]
+    public List<ProtoId<ContentTileDefinition>> Tiles = new();
 
     [DataField("range")]
     public float Range = 10f;

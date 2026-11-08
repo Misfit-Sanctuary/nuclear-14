@@ -13,6 +13,7 @@ using Content.Shared.Mobs.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Misfits.Expeditions;
@@ -147,7 +148,7 @@ public sealed class ExpeditionBossSystem : EntitySystem
         }
 
         var rewardPosition = Transform(args.Target).Coordinates;
-        var rewards = _entityTables.GetSpawns(rewardTable.Table, new Random(boss.RewardSeed)).ToArray();
+        var rewards = _entityTables.GetSpawns(rewardTable.Table).ToArray();
         foreach (var reward in rewards)
             Spawn(reward, rewardPosition);
 

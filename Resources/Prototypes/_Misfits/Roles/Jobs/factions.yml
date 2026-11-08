@@ -44,7 +44,7 @@
   description: department-Enclave-description
   color: "#2d5d91"
   weight: -101
-  uiCategory: Whitelist
+  uiCategory: MinorFaction # #Cythisiax Edited - Enclave moved from the Whitelist tab to Minor Factions (managed through the faction roster)
   roles:
   - EnclaveReformer      # The Reformer (admin whitelist)  | _Misfits/Roles/Jobs/Enclave/enclave_reformer.yml  # #Misfits Add
   - EnclaveCommander

@@ -45,6 +45,16 @@ public sealed partial class NcStoreLogicSystem
     public int ApplyCharismaSellReward(EntityUid user, int amount) =>
         ApplyCharismaTradeValue(user, amount, buying: false);
 
+    // Currency-for-currency listings must stay at the fixed exchange rate, otherwise charisma enables infinite money loops.
+    public static bool IsCurrencyProduct(string productEntity) =>
+        productEntity.StartsWith("N14Currency", StringComparison.Ordinal);
+
+    public int ApplyCharismaBuyPrice(EntityUid user, int amount, string productEntity) =>
+        IsCurrencyProduct(productEntity) ? amount : ApplyCharismaBuyPrice(user, amount);
+
+    public int ApplyCharismaSellReward(EntityUid user, int amount, string productEntity) =>
+        IsCurrencyProduct(productEntity) ? amount : ApplyCharismaSellReward(user, amount);
+
     private int ApplyCharismaTradeValue(EntityUid user, int amount, bool buying)
     {
         if (amount <= 0 || !TryComp<SpecialComponent>(user, out var special))

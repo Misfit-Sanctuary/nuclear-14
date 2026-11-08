@@ -206,6 +206,14 @@ undecided-loadout-category-lt-commissar-description =
 
 # Ranger stuff thingies
 
+# #Misfits Add - Ranger Medic loadout sets.
+undecided-loadout-category-ranger-medic-name = Ranger Medic Kit
+undecided-loadout-category-ranger-medic-description =
+    A scoped 7.62 marksman rifle, spare magazines, a combat defibrillator and a full medical pouch.
+undecided-loadout-category-ranger-corpsman-name = Ranger Corpsman Kit
+undecided-loadout-category-ranger-corpsman-description =
+    An automatic combat shotgun, a combat defibrillator and the gear to work under fire.
+
 undecided-loadout-category-ranger-service-name = Ranger Service Kit
 undecided-loadout-category-ranger-service-description =
     Includes 1 NCR belt, 1 butchered service rifle, 4 service rifle magazines,
@@ -297,21 +305,22 @@ undecided-loadout-category-mbos-kni-las-description =
 undecided-loadout-category-mbos-skni-bal-name = Senior Ballistic Kit
 undecided-loadout-category-mbos-skni-bal-description =
     A cache containing belongings of a Brotherhood chapter member.
-    Includes 1 assault carbine, 3 5.56 magazines, 1 12.7mm pistol,
-    2 12.7mm pistol magazines, 1 roll of gauze, 1 stimpak,
-    and 1 K ration MRE.
+    Includes a set of Senior Knight Armor, 1 assault carbine,
+    3 5.56 magazines, 1 12.7mm pistol, 2 12.7mm pistol magazines,
+    1 roll of gauze, 1 stimpak, and 1 K ration MRE.
 
 undecided-loadout-category-mbos-skni-las-name = Senior Laser Kit
 undecided-loadout-category-mbos-skni-las-description =
     A cache containing belongings of a Brotherhood chapter member.
-    Includes 1 AER-9, 2 microfusion cells, 1 12.7mm pistol,
-    2 12.7mm pistol magazines, 1 roll of gauze, 1 stimpak,
-    and 1 K ration MRE.
+    Includes a set of Senior Knight Armor, 1 AER-9,
+    2 microfusion cells, 1 12.7mm pistol, 2 12.7mm pistol magazines,
+    1 roll of gauze, 1 stimpak, and 1 K ration MRE.
 
-undecided-loadout-category-mbos-skni-recon-name = Recon Kit
+undecided-loadout-category-mbos-skni-recon-name = Senior Recon Kit
 undecided-loadout-category-mbos-skni-recon-description =
     A cache containing belongings of a Brotherhood chapter member.
-    1 .44 revolver, 2 .44 speed loaders, 1 roll of gauze, 1 stimpak,
+    Includes a full set of advanced Recon Armor, 1 .44 revolver,
+    2 .44 speed loaders, 1 roll of gauze, 1 stimpak,
     and 1 K ration MRE.
 
 # Misfits Tweak: Removed rank prefix so the kit name is role-neutral.

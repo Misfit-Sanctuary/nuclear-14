@@ -23,6 +23,7 @@
     <PackageReference Include="prometheus-net" />
     <PackageReference Include="Serilog" />
     <PackageReference Include="QRCoder" />
+    <PackageReference Include="Lib.Harmony" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Content.Packaging\Content.Packaging.csproj" />

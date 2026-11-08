@@ -309,10 +309,10 @@
     price: 70
 
 - type: entity
-  name: tribal sword
+  name: Sawtooth Sword
   parent: N14Machete
   id: N14TribalSword
-  description: A tribal sword, made from teeth and claws from the hunts and bound to a piece of wood.
+  description: Fashioned together from claws and teeth bound to an old piece of wood, this weapon is more used as a last resort when actual metal is in scarce supply for a tribe.
   components:
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Melee/tribal_sword.rsi

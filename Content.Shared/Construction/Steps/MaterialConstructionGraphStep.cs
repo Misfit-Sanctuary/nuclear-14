@@ -3,7 +3,6 @@ using Content.Shared.Examine;
 using Content.Shared.Stacks;
 using Robust.Shared.Localization;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Construction.Steps
 {
@@ -12,8 +11,8 @@ namespace Content.Shared.Construction.Steps
     {
         // TODO: Make this use the material system.
         // TODO TODO: Make the material system not shit.
-        [DataField("material", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<StackPrototype>))]
-        public string MaterialPrototypeId { get; private set; } = "Steel";
+        [DataField("material", required: true)]
+        public ProtoId<StackPrototype> MaterialPrototypeId { get; private set; } = "Steel";
 
         [DataField("amount")] public int Amount { get; private set; } = 1;
 

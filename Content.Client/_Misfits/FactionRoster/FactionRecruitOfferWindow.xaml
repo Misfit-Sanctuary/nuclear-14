@@ -1,0 +1,19 @@
+<!-- #Cythisiax Added - Faction roster: recruitment consent dialog. -->
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'faction-recruit-offer-title'}"
+                      MinSize="460 260"
+                      SetSize="520 320">
+    <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="8">
+        <Label Name="HeaderLabel" StyleClasses="LabelHeading" />
+        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+            <RichTextLabel Name="OfferText" HorizontalExpand="True" />
+        </ScrollContainer>
+        <Label Text="{Loc 'faction-recruit-offer-note'}" StyleClasses="LabelSubText" />
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <Control HorizontalExpand="True" />
+            <Button Name="DeclineButton" Text="{Loc 'faction-recruit-offer-decline'}" MinWidth="120" StyleClasses="Caution" />
+            <Button Name="AcceptButton" Text="{Loc 'faction-recruit-offer-accept'}" MinWidth="120" />
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>
