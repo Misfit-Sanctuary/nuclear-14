@@ -678,7 +678,7 @@
   components:
   - type: Wieldable
   - type: GunWieldBonus
-    minAngle: -14 # #Misfits Tweak - wielded spread 1°/10°; 0° min for rifles
+    minAngle: -14
     maxAngle: -28
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_rifle.rsi
