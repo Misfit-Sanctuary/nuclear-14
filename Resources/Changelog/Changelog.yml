@@ -12862,3 +12862,16 @@ Entries:
   id: 6560
   time: '2026-11-07T23:18:05.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2163
+- author: cythisiax
+  changes:
+    - type: Add
+      message: New Recruit BUI for Enclave & Rangers. No more right click > recruit.
+    - type: Tweak
+      message: Enclave moved to 'Minor Faction' tab from "Whitelist' tab.
+    - type: Tweak
+      message: >-
+        Adjusted/Removed specific ranger equipment that is gated to theater
+        command.
+  id: 6561
+  time: '2026-11-08T00:24:39.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2167
