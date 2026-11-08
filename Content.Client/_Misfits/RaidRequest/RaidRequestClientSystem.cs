@@ -71,6 +71,13 @@ public sealed class RaidRequestClientSystem : EntitySystem
             "Open the Raid Request panel.",
             "raid",
             OpenRaidPanel);
+
+        // #Cythisiax Added - /raidjoin shortcut, mirrors /warjoin: opens /raid on the Raids tab
+        _conHost.RegisterCommand(
+            "raidjoin",
+            "Open the Raid Request panel on the Raids tab to join an approved raid.",
+            "raidjoin",
+            OpenRaidJoinPanel);
     }
 
     public override void Shutdown()
@@ -93,6 +100,16 @@ public sealed class RaidRequestClientSystem : EntitySystem
         _window!.OpenCentered();
         _pickTabOnData = true;
         // Ask the server for fresh panel data — target resolution lives server-side.
+        RaiseNetworkEvent(new RaidRequestOpenPanelMsg());
+    }
+
+    // #Cythisiax Added - /raidjoin: same window, straight to the Raids tab where joining lives
+    private void OpenRaidJoinPanel(IConsoleShell shell, string argStr, string[] args)
+    {
+        EnsureWindow();
+        _window!.OpenCentered();
+        _pickTabOnData = false;
+        _window.ShowTab(RaidRequestWindow.RaidsTab);
         RaiseNetworkEvent(new RaidRequestOpenPanelMsg());
     }
 
