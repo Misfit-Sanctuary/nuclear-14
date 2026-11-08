@@ -38,22 +38,30 @@
         - !type:PlaySoundBehavior #Wassuy Change - raider death sound didnt really work tho, need fix too
           sound:
             collection: MisfitsRaiderDeath
-    - type: PassiveDamage # It's mostly for the faction NPCs, but can be here nonetheless.
+    - type: PassiveDamage
       allowedStates:
-      - Critical
-      damageCap: 300
+      - Critical # takes a bit to get out of crit, but if no one kills you and you don't lose all your blood, you live!
+      damageCap: 300 # makes it works with life giver
       damage:
-        groups:
-          Brute: -0.1
-          Burn: -0.1
-          Toxin: -0.1
-          Airloss: -1
+        types:
+          # #Misfits Fix - PassiveDamage group healing is split across member types; direct types make burn regeneration visible. 1 Hp for every 4 seconds
+          Blunt: -0.10
+          Slash: -0.10
+          Piercing: -0.10
+          Heat: -0.10
+          Cold: -0.10
+          Shock: -0.10
+          Caustic: -0.10
+          Asphyxiation: -0.50 # Last longer in crit, takes a WHIIILE to get back up.
+          Bloodloss: -1
+          Poison: -0.10
+          Radiation: -0.10
     - type: MindContainer
       showExamineInfo: False
     - type: InputMover
     - type: MobMover
     - type: SurgeryTarget
-      canOperate: false
+      canOperate: true
     - type: ProximityNPC # Misfits Add — sleep distant NPCs to reduce tick load
     - type: HTN
       rootTask:
@@ -64,9 +72,9 @@
         NavClimb: !type:Bool
           true
         NavPry: !type:Bool
-         true
+          true
         NavSmash: !type:Bool
-         true
+          true
         VisionRadius: !type:Single #Wassuy added this so they detect you less
           10.5
         MeleeRange: !type:Single
@@ -87,13 +95,13 @@
       sound:
         collection: MisfitsRaiderAlert
         params:
-          volume: 3
-          maxDistance: 10
+          volume: 5
+          maxDistance: 12
     - type: MeleeWeapon
       hidden: true
       soundHit:
         collection: MetalThud
-      attackRate: 1.5
+      attackRate: 2.0
       range: 2.0
       angle: 30
       animation: WeaponArcPunch

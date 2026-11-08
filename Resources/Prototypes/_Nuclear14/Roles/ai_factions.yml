@@ -95,10 +95,10 @@
   - CaravanCompanySecureArea
   hostile:
   - WastelandInsect
-  - WastelandAnimal
   - Deathclaw #Misfits Add - Deathclaw is enemy of everything
   - Raider
   - Feral
+  - HostileRobot
 
 - type: npcFaction
   id: CaravanCompanySecureArea
@@ -128,6 +128,7 @@
   - CaesarLegion #Corvax-Legion
   - Enclave
   - EnclaveSecureArea
+  - HostileRobot
 
 - type: npcFaction
   id: NCR
@@ -491,3 +492,38 @@
   - HostileRobot
   - Feral
   - CaesarLegion #Corvax-Legion
+
+- type: npcFaction
+  id: WastlanderNpc
+  friendly:
+  - Wastelander
+  - WastelandInsect
+  - BrotherhoodOfSteel
+  - BrotherhoodOfSteelSecureArea # turrets
+  - CaravanCompany
+  - CaravanCompanySecureArea
+  - NCR
+  - NCRSecureArea
+  - Rangers
+  - Townsfolk
+  - TownsfolkSecureArea
+  - Tribal
+  - TribalSecureArea
+  - Vault
+  - VaultSecureArea
+  - WastelandAnimal
+  - Deathclaw #Misfits Add - Deathclaw is enemy of everything
+  - Raider
+  - HostileRobot
+  - SuperMutant
+  - Enclave
+  - EnclaveSecureArea
+  - Feral
+  - CaesarLegion #Corvax-Legion
+
+  hostile:
+  - WastelandInsect
+  - Deathclaw #Misfits Add - Deathclaw is enemy of everything
+  - Raider
+  - HostileRobot
+  - Feral

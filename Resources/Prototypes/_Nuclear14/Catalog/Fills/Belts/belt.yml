@@ -468,7 +468,7 @@
 
 - type: entity
   parent: ClothingBeltRope
-  suffix: 762 rifle, randomfill
+  suffix: 762 long mag rifle, randomfill
   id: M14ClothingBeltRaider762RifleRope
   components:
     - type: StorageFill
@@ -939,6 +939,49 @@
         - id: MagazineBox308Empty
           prob: 0.1
           orGroup: Ammunition3
+          amount: 0
+          maxAmount: 2
+
+- type: entity
+  parent: ClothingBeltRope
+  suffix: 308 rifle, randomfill
+  id: M14ClothingBeltRaider308MarkRifleRope
+  components:
+    - type: StorageFill
+      contents:
+        - id: N14Cartridge308Rifle
+          prob: 0.4
+          orGroup: Ammunition1
+          amount: 0
+          maxAmount: 8
+        - id: Magazine308RifleSniper
+          prob: 0.025
+          orGroup: Ammunition2
+          amount: 0
+          maxAmount: 3
+        - id: Magazine308RifleSniperEmpty
+          prob: 0.05
+          orGroup: Ammunition3
+          amount: 0
+          maxAmount: 3
+        - id: MagazineOver308RifleSniper
+          prob: 0.005
+          orGroup: Ammunition4
+          amount: 0
+          maxAmount: 2
+        - id: MagazineOver308RifleSniperEmpty
+          prob: 0.05
+          orGroup: Ammunition5
+          amount: 0
+          maxAmount: 3
+        - id: MagazineBox308
+          prob: 0.05
+          orGroup: Ammunition6
+          amount: 0
+          maxAmount: 2
+        - id: MagazineBox308Empty
+          prob: 0.1
+          orGroup: Ammunition7
           amount: 0
           maxAmount: 2
 

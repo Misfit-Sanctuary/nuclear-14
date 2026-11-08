@@ -149,6 +149,17 @@
     pocket1: N14RaiderStash
 
 - type: startingGear
+  id: RaiderHunterMark1Gear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitRags
+    shoes: N14ClothingBootsBlack
+    gloves: N14ClothingHandsGlovesCloth
+    head: ClothingHeadHatWelding
+    outerClothing: N14ClothingOuterRaiderBadlands
+    belt: M14ClothingBeltRaider308MarkRifleRope
+    pocket1: N14RaiderStash
+
+- type: startingGear
   id: RaiderSkrimisher1Gear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitRags
@@ -326,6 +337,68 @@
     outerClothing: N14ClothingOuterCombatPainspike
     back: M14ClothingSatchelRandomFill
     belt: M14ClothingBeltRaider545RifleRope
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: RaiderBoss762Rifle1Gear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitWastelandDoc
+    shoes: N14ClothingBootsLeather
+    head: N14ClothingHeadHatBeanie
+    mask: N14ClothingMaskBrownMask
+    eyes: N14ClothingEyesGlassesWelding
+    outerClothing: N14ClothingOuterRaiderCombat1
+    back: N14ClothingBackpackRandomFill
+    belt: M14ClothingBeltRaider762RifleRope
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: RaiderBoss762Rifle2Gear
+  equipment:
+    jumpsuit: ClothingUniformTShirtKhakiPants
+    shoes: N14ClothingBootsLeather
+    gloves: ClothingHandsGlovesFingerless
+    head: N14ClothingHeadHatVaultBlueprintHelmetMetal
+    mask: N14ClothingMaskPlate
+    outerClothing: N14ClothingOuterRaiderCombat2
+    back: N14ClothingBackpackRandomFill
+    belt: M14ClothingBeltRaider762RifleRope
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: RaiderBoss762Rifle3Gear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitShortOperative
+    shoes: N14ClothingBootsCombat
+    gloves: N14ClothingHandsGlovesLeather
+    head: ClothingHeadBandBlack
+    mask: ClothingMaskGasExplorer
+    eyes: N14ClothingEyesGlassesWelding
+    outerClothing: N14ClothingOuterCombatArmorChinese
+    back: N14ClothingBackpackRandomFill
+    belt: M14ClothingBeltRaider762RifleRope
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: RaiderBoss762Rifle4Gear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitWastelandDoc
+    shoes: N14ClothingShoesBrown
+    mask: N14ClothingMaskRedMask
+    outerClothing: N14ClothingOuterRaiderCombat2
+    back: M14ClothingSatchelRandomFill
+    belt: M14ClothingBeltRaider762RifleRope
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: RaiderBoss762Rifle5Gear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitWastelandDoc
+    shoes: N14ClothingBootsBlack
+    mask: N14ClothingMaskBlackBalaclava
+    outerClothing: N14ClothingOuterCombatPainspike
+    back: M14ClothingSatchelRandomFill
+    belt: M14ClothingBeltRaider762RifleRope
     pocket1: N14RaiderStash
 
 - type: startingGear
@@ -903,11 +976,12 @@
 - type: startingGear
   id: FernConscript2Gear
   equipment:
-    jumpsuit: N14ClothingUniformJumpsuitFudd
+    jumpsuit: N14ClothingUniformJumpsuitMilUniform
     mask: N14ClothingMaskPatriotMask
     eyes: N14ClothingEyesSunGlasses
     shoes: N14ClothingBootsLeather
     gloves: N14ClothingHandsGlovesBlackBiker
+    head: N14ClothingHeadHatPrewarMilitaryHelmet
     outerClothing: M14ClothingOuterArmorKitPunk
     belt: N14ClothingBeltLeatherPouches
     pocket1: N14RaiderStash

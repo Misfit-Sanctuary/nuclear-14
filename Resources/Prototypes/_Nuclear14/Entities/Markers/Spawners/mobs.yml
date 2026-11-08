@@ -469,7 +469,7 @@
       - N14MobRaiderPsychoRanged
       - N14MobRaiderPsychoRanged9mm
 - type: entity
-  name: Locusts Spawner - Rifle
+  name: Locusts Spawner - Sniper
   id: N14SpawnMobRaiderPsychoHunter
   parent: MarkerBase
   components:
@@ -483,6 +483,7 @@
     prototypes:
       - N14MobRaiderHunter
       - N14MobRaiderHunterEnfield
+      - N14MobRaiderHunterchinesemark
 - type: entity
   name: Locusts Spawner - Shotgun
   id: N14SpawnMobRaiderPsychoSkrimisher
@@ -497,6 +498,7 @@
   - type: ConditionalSpawner
     prototypes:
       - N14MobRaiderSkrimisher
+      - N14MobRaiderSkrimishersawnoff
       - N14MobRaiderSkrimisherautoshotgun
       
 - type: entity
@@ -514,7 +516,7 @@
     prototypes:
       - N14MobRaiderBoss
       - N14MobRaiderBossRifle
-
+      - N14MobRaiderBossChineseRifle
 - type: entity
   name: Liberty Cultists Spawner - Recruit
   id: N14SpawnMobRaiderFernRecruit
@@ -1113,6 +1115,8 @@
       - N14MobNPCCaravanMerc
       - N14MobNPCCaravanMercRifle
       - N14MobNPCCaravanMercR91Rifle
+      - N14MobNPCCaravanMercFal
+      - N14MobNPCCaravanMerc10Smg
 - type: entity
   name: Tribal Skirmisher Spawner
   id: N14SpawnMobNPCTribeSkir

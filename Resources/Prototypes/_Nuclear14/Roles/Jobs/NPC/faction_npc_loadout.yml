@@ -80,12 +80,29 @@
 
 # Blue Line (Caravan) NPCs
 - type: startingGear
-  id: CaravanMercNPC
+  id: CaravanMercNPC1
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitCaravanOveralls
     outerClothing: N14ClothingOuterPoliceVest
     shoes: N14ClothingBootsBlack
     head: N14ClothingHeadHatArmyBeret
+- type: startingGear
+  id: CaravanMercNPC2
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitCaravanOveralls
+    outerClothing: N14ClothingOuterPoliceVest
+    shoes: N14ClothingBootsBlack
+    head: N14ClothingHeadHatVaultBlueprintHelmetMetal
+    mask: N14ClothingMaskBlueMask
+- type: startingGear
+  id: CaravanMercNPC3
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitCaravanOveralls
+    outerClothing: N14ClothingOuterPoliceVest
+    shoes: N14ClothingBootsBlack
+    head: N14ClothingHeadHatCaravan
+    gloves: N14ClothingHandsGlovesNCR
+    mask: N14ClothingMaskBlackBalaclava
 
 # Tribal faction NPCs
 - type: startingGear
