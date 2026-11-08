@@ -1,3 +1,4 @@
+using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Armor;
 using Content.Shared.Clothing.Components;
@@ -35,8 +36,7 @@ public abstract partial class InventorySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly SharedStrippableSystem _strippable = default!;
 
-    [ValidatePrototypeId<ItemSizePrototype>]
-    private const string PocketableItemSize = "Small";
+    private static readonly ProtoId<ItemSizePrototype> PocketableItemSize = "Small";
 
     private void InitializeEquip()
     {

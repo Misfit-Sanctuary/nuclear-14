@@ -288,6 +288,9 @@
         - id: N14MagazineSMG12mm
           prob: 0.07
           orGroup: Ammunition
+        - id: N14MagazineSMGwt550
+          prob: 0.07
+          orGroup: Ammunition
         - id: MagazineBox12
           prob: 0.05
           orGroup: Ammunition
@@ -664,6 +667,9 @@
           prob: 0.07
           orGroup: Ammunition
         - id: N14MagazineSMG12mm
+          prob: 0.07
+          orGroup: Ammunition
+        - id: N14MagazineSMGwt550
           prob: 0.07
           orGroup: Ammunition
         - id: MagazineBox12
@@ -1467,6 +1473,9 @@
         - id: N14MagazineSMG12mm
           prob: 0.07
           orGroup: Ammunition
+        - id: N14MagazineSMGwt550
+          prob: 0.07
+          orGroup: Ammunition
         - id: N14MagazineShotgun12
           prob: 0.07
           orGroup: Ammunition
@@ -1938,6 +1947,9 @@
         - id: N14MagazineSMG12mm
           prob: 0.01
           orGroup: Ammunition
+        - id: N14MagazineSMGwt550
+          prob: 0.07
+          orGroup: Ammunition
         - id: MagazineBox12
           prob: 0.01
           orGroup: Ammunition
@@ -2307,6 +2319,9 @@
         - id: N14WeaponRifle762Marksman
           prob: 0.07
           orGroup: Weapon
+        - id: N14WeaponSMGWt550
+          prob: 0.06
+          orGroup: Weapon
         - id: N14WeaponShotgunDoubleBarrel
           prob: 0.05
           orGroup: Weapon
@@ -2327,6 +2342,9 @@
           orGroup: Weapon
         - id: N14WeaponSMG12mm
           prob: 0.09
+          orGroup: Weapon
+        - id: N14WeaponSMGWt550
+          prob: 0.07
           orGroup: Weapon
         - id: N14WeaponSMG12mmPipe
           prob: 0.07
@@ -2411,6 +2429,9 @@
           orGroup: Ammunition
         - id: N14MagazineSMG12mm
           prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMGwt550
+          prob: 0.07
           orGroup: Ammunition
         - id: N14MagazineShotgun12
           prob: 0.07

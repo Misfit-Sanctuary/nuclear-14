@@ -1,3 +1,4 @@
+using Robust.Shared.Prototypes;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
@@ -24,8 +25,7 @@ public sealed class ShipyardSystem : EntitySystem
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly StationSystem _station = default!;
 
-    [ValidatePrototypeId<TagPrototype>]
-    public string DockTag = "DockShipyard";
+    public ProtoId<TagPrototype> DockTag = "DockShipyard";
 
     public bool Enabled;
 

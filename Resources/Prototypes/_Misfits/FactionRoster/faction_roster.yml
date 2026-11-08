@@ -1,0 +1,80 @@
+# #Cythisiax Added - Faction roster: faction leadership's roster / recruitment / oath GUI.
+# Each factionRoster below is one faction. To give another faction the tool, add a
+# factionRoster entry and put a FactionRoster component on its leadership jobs.
+
+- type: entity
+  id: ActionOpenFactionRoster
+  name: Faction Roster
+  description: Review your faction's members, recruit nearby players, and promote or demote your people.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: _Nuclear14/Markers/Jobs/rangers.rsi, state: veteran }
+    checkCanInteract: false
+    event: !type:OpenFactionRosterActionEvent
+
+- type: entity
+  parent: ActionOpenFactionRoster
+  id: ActionOpenFactionRosterEnclave
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: /Textures/_Misfits/Interface/Misc/job_icons/Enclave.rsi, state: EnclaveCommander }
+    checkCanInteract: false
+    event: !type:OpenFactionRosterActionEvent
+
+# Rangers: the Ranger Lead and DAGGER manage the Recruit -> Ranger ladder and the Ranger
+# Medic specialty. Recruiting grants the Ranger Recruit whitelist.
+- type: factionRoster
+  id: Rangers
+  name: faction-roster-name-rangers
+  offerText:
+  - faction-roster-offer-rangers
+  tracks:
+  - name: faction-roster-track-rangers
+    ranks:
+    - NCRRangerRecruit
+    - NCRRangerStandard
+  specialties:
+  - NCRRangerMedic
+  protected:
+  - NCRVeteranRanger
+  - NCRDagger
+  authorizedJobs:
+  - NCRVeteranRanger
+  - NCRDagger
+  recruitGrants:
+  - NCRRangerRecruit
+
+# Enclave: replaces the old officer "Recruit" verb. Recruiting grants no whitelist; the
+# EnclaveRecruitSystem assigns the in-round EnclaveRecruit job and micro-bomb, and the
+# Enlisted / Junior Scientist whitelists unlock after 4h of recruit time as before.
+# Officers can only manage ranks below their own on the Military track.
+- type: factionRoster
+  id: Enclave
+  name: faction-roster-name-enclave
+  offerText: # the Form 104-E contract and oath the Enclave consent window already used
+  - enclave-recruit-contract-text
+  - enclave-recruit-oath-text
+  tracks:
+  - name: faction-roster-track-military
+    ranks:
+    - EnclaveEnlisted
+    - EnclaveNCO
+    - EnclaveJuniorOfficer
+    - EnclaveSeniorOfficer
+  - name: faction-roster-track-science
+    ranks:
+    - EnclaveJuniorScientist
+    - EnclaveScientist
+    - EnclaveHeadScientist
+  specialties:
+  - EnclaveVertibirdPilot
+  protected:
+  - EnclaveCommander
+  - EnclaveReformer
+  authorizedJobs:
+  - EnclaveJuniorOfficer
+  - EnclaveSeniorOfficer
+  - EnclaveCommander
+  - EnclaveReformer

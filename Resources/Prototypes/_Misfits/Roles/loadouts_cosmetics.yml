@@ -633,9 +633,9 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRCitizen
         - NCRTrader
         - NCRRO
@@ -651,11 +651,12 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
+        - NCRDagger # #Cythisiax Added - DAGGER alongside Chief Ranger
   items:
     - N14ClothingHeadHatArmyBeretRanger
 
@@ -666,11 +667,12 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
+        - NCRDagger # #Cythisiax Added - DAGGER alongside Chief Ranger
   items:
     - N14ClothingHeadHatNCRBeretRecon
 
@@ -681,11 +683,12 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
+        - NCRDagger # #Cythisiax Added - DAGGER alongside Chief Ranger
   items:
     - N14ClothingHeadHatRanger
 
@@ -696,11 +699,12 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
+        - NCRDagger # #Cythisiax Added - DAGGER alongside Chief Ranger
   items:
     - N14ClothingHeadHatRangerB
 
@@ -1392,11 +1396,12 @@
       group: N14LoadoutNeck
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
+        - NCRDagger # #Cythisiax Added - DAGGER alongside Chief Ranger
   items:
     - N14ClothingNeckCloakNCRWoods
 

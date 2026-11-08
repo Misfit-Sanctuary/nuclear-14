@@ -659,6 +659,17 @@
   - type: StaticPrice
     price: 250
 
+# #Misfits Add - showcases HitscanSpread. Standalone prototype, not obtainable in gameplay.
+- type: entity
+  name: AER-9 "Prism"
+  parent: N14WeaponLaserRifle
+  id: MisfitsWeaponLaserRiflePrism
+  description: A pre-war proof of concept that runs the AER-9 emitter through a cut crystal prism array, splitting the beam into four tight filaments. Hand-built by a single workshop technician, it never entered production.
+  components:
+  - type: HitscanSpread
+    spread: 6
+    count: 4
+
 - type: entity
   name: crude laser rifle
   parent: N14WeaponLaserRifle

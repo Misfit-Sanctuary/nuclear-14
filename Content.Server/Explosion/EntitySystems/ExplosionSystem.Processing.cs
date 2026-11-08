@@ -467,8 +467,11 @@ public sealed partial class ExplosionSystem
             foreach (var (entity, damage) in _toDamage)
             {
                 // TODO EXPLOSIONS turn explosions into entities, and pass the the entity in as the damage origin.
-                // The blast can damage and disable limbs, but only physical fragments should sever them.
-                _damageableSystem.TryChangeDamage(entity, damage, ignoreResistances: true, canSever: false);
+                // Misfits: adjusted partMult to massively reduce body delimbing
+                // Parts sever based on damage via chance but also just gib past a certain dmg point(which forces sever/deletes part)
+                // note just disabling sever doesnt stop gibbing.
+                // To make a a part unseverable just remove the gibcomp from the yaml
+                _damageableSystem.TryChangeDamage(entity, damage, ignoreResistances: true, partMultiplier: .25f);
 
             }
         }

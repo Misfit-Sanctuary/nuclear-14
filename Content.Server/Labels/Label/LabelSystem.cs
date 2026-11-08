@@ -1,3 +1,4 @@
+using Robust.Shared.Prototypes;
 using Content.Server.Labels.Components;
 using Content.Server.Paper;
 using Content.Shared.Containers.ItemSlots;
@@ -24,8 +25,7 @@ namespace Content.Server.Labels
         [Dependency] private readonly TagSystem _tagSystem = default!;
 
         public const string ContainerName = "paper_label";
-        [ValidatePrototypeId<TagPrototype>]
-        private const string PreventTag = "PreventLabel";
+        private static readonly ProtoId<TagPrototype> PreventTag = "PreventLabel";
 
         public override void Initialize()
         {

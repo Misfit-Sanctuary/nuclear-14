@@ -65,6 +65,9 @@ namespace Content.Server.Entry
         {
             base.Init();
 
+            Content.Server._Misfits.Security.NetSerializerGuard.Apply(
+                IoCManager.Resolve<ILogManager>().GetSawmill("netguard"));
+
             var cfg = IoCManager.Resolve<IConfigurationManager>();
             var res = IoCManager.Resolve<IResourceManager>();
             var logManager = IoCManager.Resolve<ILogManager>();
