@@ -12875,3 +12875,12 @@ Entries:
   id: 6561
   time: '2026-11-08T00:24:39.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2167
+- author: JohnKieser
+  changes:
+    - type: Tweak
+      message: >-
+        Changed up how evaporations work slightly. Should be more performant,
+        but let us know about any oddities.
+  id: 6562
+  time: '2026-11-08T02:48:49.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2165

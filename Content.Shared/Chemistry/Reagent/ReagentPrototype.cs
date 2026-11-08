@@ -99,12 +99,18 @@ namespace Content.Shared.Chemistry.Reagent
         public bool MetamorphicChangeColor { get; private set; } = true;
 
         [DataField]
-        public bool Evaporates { get; private set; } = true;
-
-        // this is a new bool for if the reagent should evaporate at X times the base evaporation speed
-        // X is under Content.Server/Fluids/EntitySystems/PuddleSystem.Evaporation.cs line 50
-        [DataField("FastEvaporation")]
-        public bool FastEvaporation { get; private set; } = false;
+        public bool Evaporates { get; private set; } = false;
+        /// <summary>
+        /// how many units at a time solution is evaporated. Evaporations happen every second(tick rate is usually 30 per sec)
+        /// </summary>
+        /// <remarks>
+        /// default chosen because puddles have a timed depspawn of 500 seconds.
+        /// For most cases we want evaporation to handle that to have liquid seem less jank and more natural
+        /// So we just arbitrarily decide most spills will be 25u so by 500 seconds they'll clear up "naturally"
+        /// </remarks>>
+        [DataField]
+        public FixedPoint2 EvaporationRate = 0.05; // default chosen because puddles have a timed depspawn of 500 seconds.
+                                                      // for most cases we want
 
         /// <summary>
         /// If this reagent is part of a puddle is it slippery.
