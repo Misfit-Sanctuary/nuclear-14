@@ -58,7 +58,7 @@
         NavSmash: !type:Bool
           true
         VisionRadius: !type:Single #Wassuy added this so they detect you less
-          12.5
+          11.0
         MeleeRange: !type:Single
           1.5
     - type: MeleeWeapon
@@ -74,7 +74,7 @@
           Blunt: 25
     - type: Carriable
     - type: Perishable
-      rotAfter: 1800 # Rots after half of an in-game day
+      rotAfter: 3600 # Rots afteran in-game day
     - type: RotInto
       entity: N14FoodMeatRadRaw # and becomes a single chunk of meat.
     - type: Butcherable

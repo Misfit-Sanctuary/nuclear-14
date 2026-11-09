@@ -74,7 +74,7 @@
           Blunt: 15
     - type: Carriable
     - type: Perishable
-      rotAfter: 1800 # Rots after half of an in-game day
+      rotAfter: 3600 # Rots afteran in-game day
     - type: RotInto
       entity: N14FoodMeatRadRaw # and becomes a single chunk of meat.
     - type: Butcherable
