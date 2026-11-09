@@ -1,0 +1,140 @@
+- type: entity
+  name: cryo flame
+  id: BulletCryolator
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Ammunition/Projectiles/cryolator.rsi
+    scale: 1.0, 1.0
+    layers:
+    - state: cryoflame
+      shader: unshaded
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: Ammo
+    muzzleFlash: CryolatorMuzzleFlashEffect
+  - type: Projectile
+    impactEffect: BulletCryolatorImpactEffect
+    damage:
+      types:
+        Cold: 30
+    soundHit:
+      path: "/Audio/Weapons/Guns/Hits/energy_meat1.ogg"
+  - type: TimedDespawn
+    lifetime: 1
+
+- type: entity
+  id: CryolatorMuzzleFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Misfits/Objects/Weapons/Guns/Ammunition/Projectiles/cryolator.rsi
+      state: muzzle_cryolator
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+
+- type: entity
+  id: BulletCryolatorImpactEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.25
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Misfits/Objects/Weapons/Guns/Ammunition/Projectiles/cryolator.rsi
+      state: impact_cryolator
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  name: crystal shard
+  id: BulletCrystalizingCryolator
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Ammunition/Projectiles/crystalizingcryolator.rsi
+    scale: 0.5, 0.5
+    layers:
+    - state: crystalshot
+      shader: unshaded
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: Ammo
+    muzzleFlash: CrystalizingCryolatorMuzzleFlashEffect
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15
+        Cold: 20
+    impactEffect: BulletCrystalizingCryolatorImpactEffect
+    soundHit:
+      path: "/Audio/Weapons/Guns/Hits/energy_meat1.ogg"
+
+- type: entity
+  id: CrystalizingCryolatorMuzzleFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Misfits/Objects/Weapons/Guns/Ammunition/Projectiles/crystalizingcryolator.rsi
+      state: muzzle_crystal
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+
+- type: entity
+  id: BulletCrystalizingCryolatorImpactEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.25
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Misfits/Objects/Weapons/Guns/Ammunition/Projectiles/crystalizingcryolator.rsi
+      state: impact_crystal
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu
