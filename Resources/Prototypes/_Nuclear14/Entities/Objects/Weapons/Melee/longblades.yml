@@ -273,13 +273,14 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 40
-        Piercing: 8
+        Slash: 32
+        Piercing: 18
   - type: MeleeWeapon
+    attackRate: 0.9
     damage:
       types:
-        Slash: 38
-        Piercing: 9
+        Slash: 40
+        Piercing: 15
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
