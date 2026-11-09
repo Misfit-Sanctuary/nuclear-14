@@ -40,6 +40,7 @@ public sealed partial class RaidRequestPeerDecisionWindow : FancyWindow
         var requesterFaction = RaidRequestConfig.FactionDisplayName(entry.RequesterFaction);
         var targetFaction    = GetTargetDisplayName(entry);
 
+        HeaderTitleLabel.Text = Loc.GetString("raid-request-peer-heading", ("faction", requesterFaction));
         HeaderLabel.SetMarkup(
             $"[color=#FF6655][bold]{FormattedMessage.EscapeText(Loc.GetString("raid-request-peer-header", ("faction", requesterFaction), ("target", targetFaction)))}[/bold][/color]");
 
@@ -55,6 +56,9 @@ public sealed partial class RaidRequestPeerDecisionWindow : FancyWindow
             $"[color=#CCCCCC]{FormattedMessage.EscapeText(entry.Reason)}[/color]");
 
         StatusLabel.SetMarkup(string.Empty);
+        CommentEdit.Text = string.Empty;
+        ApproveButton.Disabled = false;
+        DenyButton.Disabled    = false;
     }
 
     private static string GetTargetDisplayName(RaidRequestEntry entry)

@@ -38,11 +38,24 @@ public sealed partial class FactionRosterPrototype : IPrototype
     public List<ProtoId<JobPrototype>> Specialties = new();
 
     /// <summary>
-    /// "Faction Leadership" roles. Holders are listed on the roster but only admins can
-    /// change them; they have full authority over every track and may edit the oath.
+    /// Command roles that sit above every track (e.g. DAGGER). Holders have full authority
+    /// over every track, so they can promote to and demote from the top rank. Their own
+    /// rows are listed under the role's name but only admins can change them.
     /// </summary>
     [DataField]
     public List<ProtoId<JobPrototype>> Protected = new();
+
+    /// <summary>Jobs that may edit the oath. Empty means the <see cref="Protected"/> roles.</summary>
+    [DataField]
+    public List<ProtoId<JobPrototype>> OathEditors = new();
+
+    // #Cythisiax Added - who may remove people from the faction entirely
+    /// <summary>
+    /// Jobs (besides command roles) that may discharge members or strip a track's lowest
+    /// rank. Everyone else can only demote people down to the lowest rank.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<JobPrototype>> Dischargers = new();
 
     /// <summary>
     /// Jobs that may open the roster. A holder whose job sits on a track may only manage
@@ -70,4 +83,12 @@ public sealed partial class FactionRosterTrack
 
     [DataField(required: true)]
     public List<ProtoId<JobPrototype>> Ranks = new();
+
+    // #Cythisiax Added - officer ranks that only command roles may promote to or demote from
+    /// <summary>
+    /// If set, this rank and every rank above it on the track can only be granted or
+    /// removed by command roles (Protected), e.g. only the Enclave Commander makes officers.
+    /// </summary>
+    [DataField]
+    public ProtoId<JobPrototype>? CommandOnlyFrom;
 }

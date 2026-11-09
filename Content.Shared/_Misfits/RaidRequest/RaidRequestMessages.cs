@@ -26,6 +26,7 @@ public static class RaidRequestConfig
         "Tribal", "Vault", "Followers",
         "Enclave", // #Misfits Add - Enclave remnant faction may submit faction-tier raid requests.
         "Eighties", // #Misfits Add - 80s biker gang may submit faction-tier raid requests.
+        "Rangers", // #Misfits Add - NCR Rangers raid as their own faction, not under the NCR Army.
     };
 
     /// <summary>
@@ -67,6 +68,7 @@ public static class RaidRequestConfig
         "Followers"   => "Followers of the Apocalypse",
         "Wastelander" => "Wastelander",
         "Eighties"    => "80s",
+        "Rangers"     => "NCR Rangers", // #Misfits Add
         _             => canonicalFaction,
     };
 
@@ -178,6 +180,9 @@ public sealed class RaidRequestPanelDataMsg : EntityEventArgs
 
     /// <summary>This player's own raid requests this round (lets them see their pending submissions).</summary>
     public List<RaidRequestEntry> MyRequests = new();
+
+    /// <summary>#Misfits Add - Approved (prep) and Active faction raids, with join state for this player.</summary>
+    public List<RaidJoinInfo> OpenRaids = new();
 }
 
 [Serializable, NetSerializable]
@@ -331,4 +336,48 @@ public sealed class RaidRequestConcludedAnnouncementMsg : EntityEventArgs
 public sealed class RaidRequestParticipantsUpdatedMsg : EntityEventArgs
 {
     public Dictionary<NetEntity, string> Participants = new();
+}
+
+// ── Joining a raid (#Misfits Add) ─────────────────────────────────────────
+
+/// <summary>
+/// One approved or live faction raid as shown on the /raid "Raids" tab. Side 1 is the raiders
+/// (requester faction), side 2 the defenders (target faction or group). Players who are not
+/// already on either side may volunteer for one while the raid is in prep, like /war.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class RaidJoinInfo
+{
+    public RaidRequestEntry Entry = new();
+    public string RaiderSideName = string.Empty;
+    public string DefenderSideName = string.Empty;
+    public int RaiderVolunteers;
+    public int DefenderVolunteers;
+
+    /// <summary>0 = not involved, 1 = raiders, 2 = defenders.</summary>
+    public byte MySide;
+
+    /// <summary>True when <see cref="MySide"/> comes from volunteering rather than faction or group membership.</summary>
+    public bool MySideIsVolunteer;
+
+    public bool CanJoin;
+
+    /// <summary>Why <see cref="CanJoin"/> is false, when there is something to tell the player.</summary>
+    public string? CannotJoinReason;
+}
+
+/// <summary>Client → server. Volunteer for a side of an approved raid. Side: 1 = raiders, 2 = defenders.</summary>
+[Serializable, NetSerializable]
+public sealed class RaidRequestJoinMsg : EntityEventArgs
+{
+    public int  RequestId;
+    public byte Side;
+}
+
+/// <summary>Server → the requesting client. Result of a join attempt.</summary>
+[Serializable, NetSerializable]
+public sealed class RaidRequestJoinResultMsg : EntityEventArgs
+{
+    public bool   Success;
+    public string Message = string.Empty;
 }

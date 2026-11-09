@@ -43,7 +43,7 @@ public sealed class FactionRosterEui : BaseEui
     public override EuiStateBase GetNewState()
     {
         if (!_proto.TryIndex<FactionRosterPrototype>(RosterId, out var roster))
-            return new FactionRosterEuiState(RosterId, new(), new(), new(), new(), false, null, string.Empty, false, false);
+            return new FactionRosterEuiState(RosterId, new(), new(), new(), new(), false, null, string.Empty, false, false, false); // #Cythisiax Edited - added CanDischarge
 
         return _system.BuildState(roster, Player, _status);
     }
