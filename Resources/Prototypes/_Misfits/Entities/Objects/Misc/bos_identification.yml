@@ -217,6 +217,16 @@
 
 - type: entity
   parent: N14IDBrotherhoodOfSteelHolotagBase
+  id: N14IDBrotherhoodOfSteelHolotagArchivist
+  name: archivist's holotags
+  description: Knowledge and organization is a weapon to be utilized. Wield it well.
+  suffix: Archivist
+  components:
+  - type: PresetIdCard
+    job: BoSArchivist
+
+- type: entity
+  parent: N14IDBrotherhoodOfSteelHolotagBase
   id: N14IDBrotherhoodOfSteelHolotagKnight
   name: knight's holotags
   description: Sort the supplies, manage the defense, tend to the prisoners; yours is a practical duty, needed for the daily maintenance of life.

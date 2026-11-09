@@ -170,6 +170,8 @@ job-name-bos-west-scribe = Brotherhood Head Scribe
 job-description-bos-west-scribe = Lead the scribes, control technical doctrine, and safeguard the chapter's knowledge.
 
 # #Misfits Add — New consolidated Brotherhood of Steel jobs.
+job-name-bos-archivist = Brotherhood Archivist
+job-description-bos-archivist = Curate and manage the chapter's archives. Safeguard the knowledge.
 job-name-bos-headknight = Brotherhood Head Knight
 job-description-bos-headknight = Oversee the Brotherhood's knightly orders, logistics, and battlefield readiness.
 job-name-bos-paladin = Brotherhood Paladin

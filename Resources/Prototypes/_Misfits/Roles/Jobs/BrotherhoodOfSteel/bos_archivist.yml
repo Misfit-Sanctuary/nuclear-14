@@ -1,0 +1,58 @@
+- type: job
+  id: BoSArchivist
+  setPreference: true
+  hideWithoutJobWhitelist: true # Whitelist only role for records management
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 95
+  name: job-name-bos-archivist
+  overwatchCategory: OverwatchBosScribe
+  description: job-description-bos-archivist
+  playTimeTracker: BoSArchivist
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T7 faction timelock (40h BoS)
+      department: BrotherhoodOfSteel
+      min: 144000 # 40 hours
+    - !type:CharacterPlaytimeRequirement # #Misfits Tweak - Require 8h as Senior Scribe before Head Scribe
+      tracker: BoSMidScribe
+      min: 28800 # 8 hours as Senior Scribe
+  startingGear: BoSArchivistGear
+  alwaysUseSpawner: true
+  icon: "JobIconBosMScriptor"
+  supervisors: job-supervisors-bos-west
+  accessGroups:
+  - BOSHeadScribe
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - BrotherhoodOfSteel
+      - type: LanguageKnowledge # #Misfits Add: Scribes speak and understand Brotherhood binary code by default.
+        speaks:
+          - English
+          - N14BrotherBeep
+        understands:
+          - English
+          - N14BrotherBeep
+
+- type: startingGear
+  id: BoSArchivistGear
+  equipment:
+    wallet: N14Wallet
+    jumpsuit: M14ClothingUniformBrotherhoodScribe  #Misfits Change /Tweak/: New consolidated BoS gear
+    back: N14ClothingBackpackSatchelMilitary
+    shoes: N14ClothingBootsCombatFilled
+    head: N14ClothingScribeBeret
+    pocket1: BoSBrotherhoodHeadScribeKits
+    id: N14Archivist_PipBoy
+    ears: N14ClothingHeadsetBrotherhoodOfSteelScribe
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitary
+
+- type: playTimeTracker
+  id: BoSArchivist
