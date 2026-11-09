@@ -1,0 +1,139 @@
+# #Cythisiax Added - Faction MOTD: each factionMotd is one faction whose leadership can post a
+# message of the day with /factionmotd. Members see it when they spawn in and can reopen it
+# with /factionmotd.
+#
+#   departments   - every job in these departments is a member
+#   jobs          - extra member jobs outside those departments
+#   excludedJobs  - jobs in those departments that are NOT members (prisoners, slaves)
+#   leadership    - player-facing leadership jobs that may write the MOTD (always members)
+#
+# Jobs no factionMotd claims (Wastelanders, FEV Mutants, Great Khans, robots, C-27 Units...)
+# are not in a faction and get no MOTD. A faction-aligned variant (e.g. SuperMutantNCRTrooper,
+# C27NCR) is a member because its faction's department or job list includes it.
+
+- type: factionMotd
+  id: NCR
+  name: faction-motd-name-ncr
+  color: "#FFCC33"
+  departments:
+  - NCR
+  - MilitaryPolice
+  - OSI
+  jobs:
+  - C27NCR
+  excludedJobs:
+  - NCRPrisoner
+  leadership:
+  - NCRMajor
+  - NCRLTCol
+  - NCRCommander
+  - NCRExecutiveOfficer
+  - NCRPlatoonLeader
+  - NCRFirstSergeant
+  - NCRProvost
+  - NCRMilitaryPoliceCaptain
+  - OSIChiefScientist
+
+- type: factionMotd
+  id: Rangers
+  name: faction-motd-name-rangers
+  color: "#C8A165"
+  departments:
+  - Rangers
+  leadership:
+  - NCRChiefRanger
+  - NCRVeteranRanger
+  - NCRDagger
+
+- type: factionMotd
+  id: BrotherhoodOfSteel
+  name: faction-motd-name-bos
+  color: "#33FF33"
+  departments:
+  - BrotherhoodOfSteel
+  - BrotherhoodOfSteelLancers
+  - BoSPersonalWhitelist
+  jobs:
+  - C27BoS
+  leadership:
+  - BoSWestElderCommander
+  - BoSMidPaladinCommander
+  - BoSHeadKnight
+  - BoSWestScribe
+  - BoSHonorGuard
+
+- type: factionMotd
+  id: CaesarLegion
+  name: faction-motd-name-legion
+  color: "#FF3333"
+  departments:
+  - CaesarLegion
+  excludedJobs:
+  - CaesarLegionSlave
+  leadership:
+  - CaesarLegionLegate
+  - CaesarLegionCenturion
+  - CaesarLegionOptio
+  - CaesarLegionPriestessOfMars
+
+- type: factionMotd
+  id: Enclave
+  name: faction-motd-name-enclave
+  color: "#9933FF"
+  departments:
+  - Enclave
+  leadership:
+  - EnclaveReformer
+  - EnclaveCommander
+  - EnclaveSeniorOfficer
+  - EnclaveHeadScientist
+
+- type: factionMotd
+  id: Followers
+  name: faction-motd-name-followers
+  color: "#E8A838"
+  departments:
+  - FollowersOfTheApocalypse
+  leadership:
+  - FollowerDirector
+  - FollowerHead
+
+- type: factionMotd
+  id: Vault
+  name: faction-motd-name-vault
+  color: "#3399FF"
+  departments:
+  - Vault
+  leadership:
+  - VaultManagement
+  - Overseer
+
+- type: factionMotd
+  id: Tribe
+  name: faction-motd-name-tribe
+  color: "#D69B3D"
+  departments:
+  - Tribe
+  leadership:
+  - TribalElder
+  - SuperElder
+
+- type: factionMotd
+  id: Eighties
+  name: faction-motd-name-eighties
+  color: "#B04A2F"
+  departments:
+  - Eighties
+  leadership:
+  - EightiesTheBlock
+  - EightiesCylinders
+
+- type: factionMotd
+  id: Townsfolk
+  name: faction-motd-name-town
+  color: "#8FB35A"
+  departments:
+  - Townsfolk
+  leadership:
+  - TownMayor
+  - TownSheriff
