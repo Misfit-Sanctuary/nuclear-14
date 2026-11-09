@@ -68,4 +68,11 @@ public sealed partial class CCVars
             "",
             CVar.SERVER | CVar.SERVERONLY | CVar.ARCHIVE,
             "A message broadcast to each player that joins the lobby.");
+
+    // #Misfits Add - pictures shown in the Message of the Day window, set from the window or with set-motd-image
+    public static readonly CVarDef<string> MOTDImages =
+        CVarDef.Create("chat.motd.images",
+            "",
+            CVar.SERVER | CVar.SERVERONLY | CVar.ARCHIVE,
+            "A semicolon separated list of picture paths shown in the Message of the Day window, relative to /Textures.");
 }
