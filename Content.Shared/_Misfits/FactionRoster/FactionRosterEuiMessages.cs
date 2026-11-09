@@ -18,7 +18,8 @@ public sealed record FactionRosterMember(
     string UserName,
     string? CharacterName,
     bool Online,
-    bool Leadership,
+    bool Command,
+    List<string> CommandRoles,
     bool Locked,
     List<FactionRosterStanding> Standings,
     List<string> Specialties);
@@ -46,6 +47,9 @@ public sealed class FactionRosterEuiState : EuiStateBase
     public readonly bool OathIsCustom;
     public readonly bool CanEditOath;
 
+    // #Cythisiax Added - whether the viewer may discharge members / remove a track's lowest rank
+    public readonly bool CanDischarge;
+
     public FactionRosterEuiState(
         string title,
         List<FactionRosterTrackInfo> tracks,
@@ -56,8 +60,10 @@ public sealed class FactionRosterEuiState : EuiStateBase
         string? status,
         string oath,
         bool oathIsCustom,
-        bool canEditOath)
+        bool canEditOath,
+        bool canDischarge) // #Cythisiax Added - discharge permission
     {
+        CanDischarge = canDischarge;
         Title = title;
         Tracks = tracks;
         Specialties = specialties;
