@@ -500,6 +500,39 @@
           maxAmount: 2
 
 - type: entity
+  parent: ClothingBeltMilitary
+  suffix: 762 belt rifle, randomfill
+  id: M14ClothingBeltRaider762BeltMilitary
+  components:
+    - type: StorageFill
+      contents:
+        - id: Magazine762AmmoBelt
+          prob: 0.15
+          orGroup: Ammunition1
+          amount: 0
+          maxAmount: 2
+        - id: Magazine762AmmoBeltEmpty
+          prob: 0.3
+          orGroup: Ammunition2
+          amount: 0
+          maxAmount: 3
+        - id: N14Cartridge762Rifle
+          prob: 0.2
+          orGroup: Ammunition3
+          amount: 0
+          maxAmount: 8
+        - id: N14AmmoBox762
+          prob: 0.05
+          orGroup: Ammunition4
+          amount: 0
+          maxAmount: 2
+        - id: N14AmmoBox762Empty
+          prob: 0.1
+          orGroup: Ammunition5
+          amount: 0
+          maxAmount: 2
+
+- type: entity
   parent: ClothingBeltRope
   suffix: 545 rifle, randomfill
   id: M14ClothingBeltRaider545RifleRope
@@ -984,6 +1017,40 @@
           orGroup: Ammunition7
           amount: 0
           maxAmount: 2
+
+- type: entity
+  parent: ClothingBeltMilitary
+  suffix: 308 short mag rifle, randomfill
+  id: M14ClothingBeltRaider308ShortMagMilitary
+  components:
+    - type: StorageFill
+      contents:
+        - id: N14Cartridge308Rifle
+          prob: 0.3
+          orGroup: Ammunition1
+          amount: 0
+          maxAmount: 8
+        - id: MagazineBox308
+          prob: 0.05
+          orGroup: Ammunition2
+          amount: 0
+          maxAmount: 2
+        - id: MagazineBox308Empty
+          prob: 0.1
+          orGroup: Ammunition3
+          amount: 0
+          maxAmount: 2
+        - id: Magazine308Rifle
+          prob: 0.05
+          orGroup: Ammunition4
+          amount: 0
+          maxAmount: 2
+        - id: Magazine308RifleEmpty
+          prob: 0.1
+          orGroup: Ammunition5
+          amount: 0
+          maxAmount: 3
+
 
 - type: entity
   parent: N14ClothingBeltLeatherPouches

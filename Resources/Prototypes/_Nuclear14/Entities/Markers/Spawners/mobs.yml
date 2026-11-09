@@ -500,6 +500,7 @@
       - N14MobRaiderSkrimisher
       - N14MobRaiderSkrimishersawnoff
       - N14MobRaiderSkrimisherautoshotgun
+      - N14MobRaiderSkrimishershotgun
       
 - type: entity
   name: Locusts Spawner - Boss
@@ -624,7 +625,7 @@
     prototypes:
       - N14MobEnforcerChief
       - M14MobEnforcerChief357
-      - M14MobEnforcerChief10mmDual
+      - M14MobEnforcerChiefBAR
       - M14MobEnforcerChiefCowboyRepeater
 # Melee Raider Variants
 - type: entity
