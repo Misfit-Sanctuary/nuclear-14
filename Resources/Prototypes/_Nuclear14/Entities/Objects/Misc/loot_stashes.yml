@@ -168,12 +168,12 @@
         orGroup: StashFood1
       - id: N14DrinkDirtyWaterBottleFull
         prob: 0.25
-        orGroup: StashDrink1
+        orGroup: StashFood1
       - id: N14DrinkIrradiatedNukaColaBottleFull
         prob: 0.25
-        orGroup: StashDrink1
+        orGroup: StashFood1
       - id: DrinkWaterBottleFull
         prob: 0.005
-        orGroup: StashDrink1
+        orGroup: StashFood1
     sound:
       path: /Audio/Items/can_open3.ogg
