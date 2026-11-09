@@ -4,7 +4,8 @@
   hideWithoutJobWhitelist: true # Whitelist only role for records management
   hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
   jobWhitelistBypassesRoleTimers: true # #Misfits Change
-  weight: 95
+  weight: 115
+  showBorder: true
   name: job-name-bos-archivist
   overwatchCategory: OverwatchBosScribe
   description: job-description-bos-archivist
