@@ -47,23 +47,6 @@
       - NCRPrisoner
 
 - type: loadout
-  id: N14LoadoutClothingUniformJumpsuitSecBlue
-  category: Uniform
-  cost: 0
-  exclusive: true
-  items:
-    - ClothingUniformJumpsuitSecBlue
-  requirements:
-   - !type:CharacterItemGroupRequirement
-      group: N14LoadoutUniform
-   - !type:CharacterJobRequirement # Forge-Change
-      inverted: true
-      jobs:
-      - BoSMidSerf
-      - CaesarLegionSlave
-      - NCRPrisoner
-
-- type: loadout
   id: N14LoadoutUniformJumpsuitDetectiveAlt
   category: Uniform
   cost: 0

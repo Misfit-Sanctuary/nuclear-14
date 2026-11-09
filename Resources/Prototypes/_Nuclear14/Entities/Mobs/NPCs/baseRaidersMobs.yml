@@ -69,25 +69,10 @@
           10.5
         MeleeRange: !type:Single
           1.5
-    - type: IdleSound #Wassuy added voiceline and combat sound here
-    - type: SpamEmitSound
-      minInterval: 30
-      maxInterval: 120
-      sound:
-        collection: MisfitsRaiderIdle
-        params:
-          volume: 6
-          maxDistance: 8
-    - type: AggroSound 
-      sound:
-        collection: MisfitsRaiderAlert
-        params:
-          volume: 5
-          maxDistance: 12
     - type: MeleeWeapon
       hidden: true
       soundHit:
-        collection: MisfitsRaiderAttack
+        collection: Punch
       attackRate: 1.5
       range: 1.5
       angle: 30

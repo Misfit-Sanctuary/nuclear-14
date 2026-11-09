@@ -19,15 +19,7 @@
     - type: SlowOnDamage
       speedModifierThresholds:
         60: 0.95
-    - type: Destructible #Misfits Change /Add: Drop bottle caps on death (1-7) #wassuy this do not work, please someone fixit
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 300
-        behaviors:
-        - !type:PlaySoundBehavior #Wassuy Change - raider death sound didnt really work tho, need fix too
-          sound:
-            collection: MisfitsRaiderDeath
+    #- type: Destructible #Misfits Change /Add: Drop bottle caps on death (1-7) #wassuy this do not work, please someone fixit
     - type: PassiveDamage
       allowedStates:
       - Critical # takes a bit to get out of crit, but if no one kills you and you don't lose all your blood, you live!
@@ -69,25 +61,10 @@
           12.5
         MeleeRange: !type:Single
           1.5
-    - type: IdleSound #Wassuy added voiceline and combat sound here
-    - type: SpamEmitSound
-      minInterval: 30
-      maxInterval: 120
-      sound:
-        collection: MisfitsRaiderIdle
-        params:
-          volume: 6
-          maxDistance: 8
-    - type: AggroSound 
-      sound:
-        collection: MisfitsRaiderAlert
-        params:
-          volume: 5
-          maxDistance: 12
     - type: MeleeWeapon
       hidden: true
       soundHit:
-        collection: MisfitsRaiderAttack
+        collection: Punch
       attackRate: 1.5
       range: 1.5
       angle: 30

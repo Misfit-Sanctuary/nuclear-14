@@ -81,26 +81,6 @@
     - N14ClothingHeadHatBandit
 
 - type: loadout
-  id: N14LoadoutClothingHeadHatWarden
-  category: Head
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutHead
-    - !type:CharacterJobRequirement # Forge-Change
-      inverted: true
-      jobs:
-      - BoSMidSerf
-      - CaesarLegionSlave
-      - NCRPrisoner
-    - !type:CharacterDepartmentRequirement
-       inverted: true
-       departments:
-       - Vault
-  items:
-    - ClothingHeadHatWarden
-
-- type: loadout
   id: N14LoadoutHeadHatTribalOutcastHood
   category: Head
   cost: 1
