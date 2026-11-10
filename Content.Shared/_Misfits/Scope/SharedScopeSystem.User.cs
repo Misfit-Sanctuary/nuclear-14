@@ -12,8 +12,8 @@ namespace Content.Shared._Misfits.Scope;
 
 /// <summary>
 /// Handles events on the <see cref="ScopingComponent"/> applied to the user. Every condition
-/// that should break scoping — movement, stun, knockdown, being pulled, entering a container,
-/// disconnecting or dying — funnels into <see cref="UserStopScoping"/>.
+/// that should break scoping movement, stun, knockdown, being pulled, entering a container,
+/// disconnecting or dying  funnels into <see cref="UserStopScoping"/>.
 /// </summary>
 public partial class SharedScopeSystem
 {
@@ -155,7 +155,7 @@ public partial class SharedScopeSystem
     }
 
     /// <summary>
-    /// Cleanly stops scoping from the user side — removes <see cref="ScopingComponent"/> and
+    /// Cleanly stops scoping from the user side removes <see cref="ScopingComponent"/> and
     /// calls <see cref="Unscope"/> on the scope entity.
     /// </summary>
     private void UserStopScoping(Entity<ScopingComponent> ent)
