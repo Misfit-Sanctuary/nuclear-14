@@ -452,9 +452,9 @@
     prototypes:
       - N14MobCazador
 
-# Ranged Raider Variants #Wassuy added more varitant for almost all the raiders.
+# Ranged Raider Variants #Wassuy added more varitant for almost all the raiders with wendover raider name replaced the N14 default raider sets.
 - type: entity
-  name: Locusts Spawner - Pistol
+  name: Locusts Spawner - Buzzfly
   id: N14SpawnMobRaiderPsychoRanged
   parent: MarkerBase
   components:
@@ -471,7 +471,7 @@
       - N14MobRaiderPsychoRanged9mmChinese
       - N14MobRaiderPsychoRanged22lr
 - type: entity
-  name: Locusts Spawner - Sniper
+  name: Locusts Spawner - Longshot
   id: N14SpawnMobRaiderPsychoHunter
   parent: MarkerBase
   components:
@@ -487,7 +487,7 @@
       - N14MobRaiderHunterEnfield
       - N14MobRaiderHunterchinesemark
 - type: entity
-  name: Locusts Spawner - Shotgun
+  name: Locusts Spawner - Swarmer
   id: N14SpawnMobRaiderPsychoSkrimisher
   parent: MarkerBase
   components:
@@ -505,7 +505,7 @@
       - N14MobRaiderSkrimishershotgun
       
 - type: entity
-  name: Locusts Spawner - Boss
+  name: Locusts Spawner - Hivelord
   id: N14SpawnMobRaiderBoss
   parent: MarkerBase
   components:
@@ -581,7 +581,7 @@
       - N14MobFernMercLieutenant
 
 - type: entity
-  name: Enforcer Spawner - Trooper
+  name: Warden Spawner - Leadhead
   id: N14SpawnMobRaiderEnforcerTrooper
   parent: MarkerBase
   components:
@@ -599,7 +599,7 @@
       - N14MobEnforcerTrooper45Pistol
 
 - type: entity
-  name: Enforcer Spawner - Warden
+  name: Warden Spawner - Warhound
   id: N14SpawnMobRaiderEnforcerWarden
   parent: MarkerBase
   components:
@@ -614,7 +614,7 @@
       - N14MobEnforcerWarden
 
 - type: entity
-  name: Enforcer Spawner - Chief
+  name: Warden Spawner - Lieutenant
   id: N14SpawnMobRaiderEnforcerChief
   parent: MarkerBase
   components:
@@ -632,7 +632,7 @@
       - M14MobEnforcerChiefBren
 # Melee Raider Variants
 - type: entity
-  name: Locusts Spawner - Melee
+  name: Locusts Spawner - Maggot
   id: N14SpawnMobRaiderPsycho
   parent: MarkerBase
   components:
@@ -662,7 +662,7 @@
       - N14MobRaiderFernMelee
 
 - type: entity
-  name: Enforcer Spawner - Melee
+  name: Warden Spawner - Cudgel
   id: N14SpawnMobRaiderEnforcerMelee
   parent: MarkerBase
   components:
@@ -677,7 +677,7 @@
       - N14MobRaiderEnforcerMelee
 
 - type: entity
-  name: Enforcer Spawner - Shield
+  name: Warden Spawner - Sentinel
   id: M14SpawnMobRaiderEnforcerShieldman
   parent: MarkerBase
   components:
