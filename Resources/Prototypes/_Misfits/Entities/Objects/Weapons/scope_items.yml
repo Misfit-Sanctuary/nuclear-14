@@ -47,31 +47,3 @@
   # - type: Tag
   #   tags:
   #   - Binoculars
-
-# N14 Rifle Scope Attachment — attach to a gun's ItemSlot to gain a scope action.
-# Uses ScopeComponent with attachment: true so it only activates from inside a container.
-- type: entity
-  parent: BaseItem
-  id: N14WeaponScopeAttachment
-  name: rifle scope
-  description: A detachable optic scope for a rifle. Attach it to a compatible weapon to gain a directional scope action.
-  components:
-  - type: Item
-    size: Small
-  - type: Sprite
-    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
-    state: scope
-  - type: Scope
-    attachment: true
-    requireWielding: true
-    zoomLevels:
-    - name: 4x
-      zoom: 1.0
-      offset: 15
-      allowMovement: false
-      doAfter: 0.8
-  - type: Tag
-    tags:
-    - RifleScope
-  - type: StaticPrice
-    price: 100

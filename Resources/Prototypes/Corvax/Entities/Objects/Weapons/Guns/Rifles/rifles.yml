@@ -80,6 +80,20 @@
     fireRate: 4
     soundGunshot:
       collection: N14PistolSpyGunshot
+  # #Misfits Add - built-in optic (plain YAML Scope component)
+  - type: Scope
+    requireWielding: true
+    zoomLevels:
+    - name: 5x
+      zoom: 1.14
+      offset: 15
+      allowMovement: false
+      doAfter: 0.70
+  # #Misfits Add - scoped weapon (experimental NCR special forces rifle); a scope is only as good as the eye behind it
+  - type: N14SpecialStatRequirement
+    minimumStats:
+      Perception: 8
+
 
 - type: entity
   name: Ak-112

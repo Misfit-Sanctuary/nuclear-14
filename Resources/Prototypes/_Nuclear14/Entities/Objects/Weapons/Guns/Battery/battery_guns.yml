@@ -1020,6 +1020,19 @@
     - SemiAuto
   - type: FollowDistance
     backStrength: 4
+  # #Misfits Add - built-in optic (plain YAML Scope component)
+  - type: Scope
+    requireWielding: true
+    zoomLevels:
+    - name: 5x
+      zoom: 1.12
+      offset: 14
+      allowMovement: false
+      doAfter: 0.85
+  # #Misfits Add - precision energy weapon; a steady hand and a sharp eye required
+  - type: N14SpecialStatRequirement
+    minimumStats:
+      Perception: 8
   - type: StaticPrice
     price: 300
   # #Misfits Change - Yellow beam override + focusing optics: +23 heat damage (total 45), double fireCost (24 shots)
@@ -1077,6 +1090,19 @@
     - SemiAuto
   - type: FollowDistance
     backStrength: 4
+  # #Misfits Add - built-in optic (plain YAML Scope component)
+  - type: Scope
+    requireWielding: true
+    zoomLevels:
+    - name: 4x
+      zoom: 1.08
+      offset: 11
+      allowMovement: false
+      doAfter: 0.80
+  # #Misfits Add - precision energy weapon; a steady hand and a sharp eye required
+  - type: N14SpecialStatRequirement
+    minimumStats:
+      Perception: 7
   - type: StaticPrice
     price: 400
   # #Misfits Change - Yellow beam override + focusing optics: +13 heat damage (total 35), double fireCost (24 shots)
