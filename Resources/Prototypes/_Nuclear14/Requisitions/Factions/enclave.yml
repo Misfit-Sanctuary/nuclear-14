@@ -310,7 +310,7 @@
       - cost: 1000
         crate: N14CrateRequisitionsEnclaveOfficerKit
       - cost: 800
-        crate: N14CrateRequisitionsEnclavePeacekeeper
+        crate: N14CrateRequisitionsEnclaveSecurityPeacekeeper
       - cost: 1200
         crate: N14CrateRequisitionsEnclaveCombatArmor
       - cost: 2400
@@ -1191,8 +1191,8 @@
 
 - type: entity
   parent: N14CrateRequisitions
-  id: N14CrateRequisitionsEnclavePeacekeeper
-  name: Enclave Peacekeeper Armor Crate
+  id: N14CrateRequisitionsEnclaveSecurityPeacekeeper
+  name: Enclave Security Peacekeeper Armor Crate
   components:
   - type: Icon
     sprite: _Nuclear14/Structures/Storage/Crates/crateenclave.rsi
@@ -1204,6 +1204,8 @@
     contents:
     - id: N14ClothingOuterEnclavePeacekeeper
     - id: N14ClothingHeadHatEnclavePeacekeeperCap
+    - id: N14ClothingHeadHatEnclaveSecurityHelmet
+    - id: N14ClothingUniformJumpsuitEnclaveSecurity
 
 - type: entity
   parent: N14CrateRequisitions
