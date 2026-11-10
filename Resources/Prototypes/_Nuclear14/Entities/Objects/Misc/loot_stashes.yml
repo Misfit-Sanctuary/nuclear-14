@@ -14,46 +14,46 @@
     price: 0
   - type: SpawnItemsOnUse
     items:
-      - id: null
+      - id: Empty
         prob: 0.95
         orGroup: StashLighter1
       - id: FlippoLighter
-        prob: 0.05
+        prob: 0.01
         orGroup: StashLighter1
       - id: CheapLighter
-        prob: 0.05
+        prob: 0.02
         orGroup: StashLighter1
       - id: Lighter
-        prob: 0.05
+        prob: 0.02
         orGroup: StashLighter1
-      - id: null
+      - id: Empty
         prob: 0.85
         orGroup: StashCig1
       - id: N14CigaretteMarlboro
-        prob: 0.25
+        prob: 0.2
         orGroup: StashCig1
       - id: N14CigaretteWinston
-        prob: 0.25
+        prob: 0.2
         orGroup: StashCig1
       - id: N14CigaretteRepublic
-        prob: 0.25
+        prob: 0.2
         orGroup: StashCig1
       - id: N14CigaretteSalem
-        prob: 0.25
+        prob: 0.2
         orGroup: StashCig1
       - id: N14CigaretteLuckyStrike
-        prob: 0.25
+        prob: 0.2
         orGroup: StashCig1
       - id: N14CigaretteKool
-        prob: 0.25
+        prob: 0.2
         orGroup: StashCig1
       - id: N14CigaretteRollie
-        prob: 0.25
+        prob: 0.2
         orGroup: StashCig1
       - id: N14Cigarette # Our dudes should have smoking problem.
-        prob: 0.25
+        prob: 0.2
         orGroup: StashCig1
-      - id: null
+      - id: Empty
         prob: 0.35
         orGroup: StashCash1
       - id: N14CurrencyCap # Our dudes should carry some money.
@@ -74,7 +74,7 @@
       - id: N14CurrencyNCRDollar10
         prob: 0.25
         orGroup: StashCash1
-      - id: null
+      - id: Empty
         prob: 0.35
         orGroup: StashMeds1
       - id: N14DirtyGauze1 # Let's also give them some medicine or chems.
@@ -113,7 +113,7 @@
       - id: N14SuperStimpak
         prob: 0.0125
         orGroup: StashMeds1
-      - id: null
+      - id: Empty
         prob: 0.35
         orGroup: StashAmmo1
       - id: N14MagazinePistol9mm #Let's give them som basic ammo types.
@@ -155,7 +155,7 @@
       - id: N14MagazinePistol45
         prob: 0.1
         orGroup: StashAmmo1
-      - id: null
+      - id: Empty
         prob: 0.35
         orGroup: StashCash2
       - id: N14CurrencyCap # Our dudes should carry some money.
@@ -176,7 +176,7 @@
       - id: N14CurrencyNCRDollar10
         prob: 0.25
         orGroup: StashCash2
-      - id: null
+      - id: Empty
         prob: 0.35
         orGroup: StashMeds2
       - id: N14DirtyGauze1 # Let's also give them some medicine or chems.
@@ -215,7 +215,7 @@
       - id: N14SuperStimpak
         prob: 0.0125
         orGroup: StashMeds2
-      - id: null
+      - id: Empty
         prob: 0.35
         orGroup: StashFood1
       - id: N14FoodMeatRadscorpionLegBoiled
