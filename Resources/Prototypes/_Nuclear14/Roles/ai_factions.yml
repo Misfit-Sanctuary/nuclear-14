@@ -1,5 +1,29 @@
 - type: npcFaction
-  id: Wastelander
+  id: NpcWastelander
+  friendly:
+  - NpcWastelander
+  - Wastelander
+  - BrotherhoodOfSteel
+  - BrotherhoodOfSteelSecureArea # turrets
+  - CaravanCompany
+  - CaravanCompanySecureArea
+  - NCR
+  - NCRSecureArea
+  - Rangers
+  - Townsfolk
+  - TownsfolkSecureArea
+  - Tribal
+  - TribalSecureArea
+  - Vault
+  - VaultSecureArea
+  - WastelandAnimal
+  - Raider
+  - SuperMutant
+  - Enclave
+  - EnclaveSecureArea
+  - Feral
+  - CaesarLegion #Corvax-Legion
+
   hostile:
   - WastelandInsect
   - WastelandAnimal
@@ -92,6 +116,7 @@
 - type: npcFaction
   id: CaravanCompany
   friendly:
+  - NpcWastelander
   - CaravanCompanySecureArea
   hostile:
   - WastelandInsect
@@ -105,6 +130,7 @@
   friendly:
   - CaravanCompany
   hostile:
+  - NpcWastelander
   - Wastelander
   - BrotherhoodOfSteel
   - BrotherhoodOfSteelSecureArea
@@ -134,7 +160,9 @@
   id: NCR
   friendly:
   - NCRSecureArea
+  - NpcWastelander
   hostile:
+  - NpcWastelander
   - WastelandInsect
   - WastelandAnimal
   - Deathclaw #Misfits Add - Deathclaw is enemy of everything
@@ -148,6 +176,7 @@
   friendly:
   - NCR
   hostile:
+  - NpcWastelander
   - Wastelander
   - BrotherhoodOfSteel
   - BrotherhoodOfSteelSecureArea
@@ -175,6 +204,7 @@
   id: Rangers
   friendly:
   - NCR
+  - NpcWastelander
   hostile:
   - Zetan
   - WastelandInsect
@@ -187,6 +217,7 @@
   id: Townsfolk
   friendly:
   - TownsfolkSecureArea
+  - NpcWastelander
   hostile:
   - WastelandAnimal
   - WastelandInsect
@@ -200,6 +231,7 @@
   friendly:
   - Townsfolk
   hostile:
+  - NpcWastelander
   - Wastelander
   - BrotherhoodOfSteel
   - BrotherhoodOfSteelSecureArea
@@ -225,6 +257,7 @@
   id: Tribal
   friendly:
   - TribalSecureArea
+  - NpcWastelander
   hostile:
   - WastelandAnimal
   - WastelandInsect
@@ -238,6 +271,7 @@
   friendly:
   - Tribal
   hostile:
+  - NpcWastelander
   - Wastelander
   - BrotherhoodOfSteel
   - BrotherhoodOfSteelSecureArea
@@ -263,6 +297,7 @@
   id: Vault
   friendly:
   - VaultSecureArea
+  - NpcWastelander
   hostile:
   - Zetan
   - WastelandAnimal
@@ -277,6 +312,7 @@
   friendly:
   - Vault
   hostile:
+  - NpcWastelander
   - Wastelander
   - BrotherhoodOfSteel
   - BrotherhoodOfSteelSecureArea
@@ -302,6 +338,7 @@
 - type: npcFaction
   id: Zetan
   hostile:
+  - NpcWastelander
   - Wastelander
   - BrotherhoodOfSteel
   - BrotherhoodOfSteelSecureArea
@@ -327,6 +364,7 @@
 - type: npcFaction
   id: Raider
   hostile:
+  - NpcWastelander
   - Wastelander
   - BrotherhoodOfSteel
   - BrotherhoodOfSteelSecureArea # turrets
@@ -355,6 +393,7 @@
 - type: npcFaction
   id: Feral
   hostile:
+  - NpcWastelander
   - Wastelander
   - BrotherhoodOfSteel
   - BrotherhoodOfSteelSecureArea # turrets
@@ -383,6 +422,7 @@
 - type: npcFaction
   id: WastelandAnimal
   hostile:
+  - NpcWastelander
   - Wastelander
   - BrotherhoodOfSteel
   - BrotherhoodOfSteelSecureArea # turrets
@@ -410,6 +450,7 @@
 - type: npcFaction
   id: WastelandInsect
   hostile:
+  - NpcWastelander
   - Wastelander
   - BrotherhoodOfSteel
   - BrotherhoodOfSteelSecureArea # turrets
@@ -439,6 +480,7 @@
   friendly: # #Misfits Add - player SentryBots are allies of NPC robots
   - PlayerSentryBot
   hostile:
+  - NpcWastelander
   - Wastelander
   - BrotherhoodOfSteel
   - BrotherhoodOfSteelSecureArea
@@ -468,6 +510,7 @@
 - type: npcFaction
   id: SuperMutant
   hostile:
+  - NpcWastelander
   - Wastelander
   - BrotherhoodOfSteel
   - BrotherhoodOfSteelSecureArea
@@ -493,11 +536,11 @@
   - Feral
   - CaesarLegion #Corvax-Legion
 
-- type: npcFaction
-  id: WastlanderNpc
+- type: npcFaction  #Wassuy deleted deathclaw in friendly, why would you wanna be friend with them?
+  id: WastlanderNpc #this a old verison
   friendly:
+  - NpcWastelander
   - Wastelander
-  - WastelandInsect
   - BrotherhoodOfSteel
   - BrotherhoodOfSteelSecureArea # turrets
   - CaravanCompany
@@ -512,7 +555,6 @@
   - Vault
   - VaultSecureArea
   - WastelandAnimal
-  - Deathclaw #Misfits Add - Deathclaw is enemy of everything
   - Raider
   - HostileRobot
   - SuperMutant

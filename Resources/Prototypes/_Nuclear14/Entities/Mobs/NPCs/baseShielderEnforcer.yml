@@ -71,6 +71,15 @@
           10.5
         MeleeRange: !type:Single
           1.5
+      qualities:  #You cannot cheat junkies with stupid doors!
+        - Prying
+    - type: Prying
+      pryPowered: !type:Bool
+          true
+      force: !type:Bool
+        true
+      useSound:
+        path: /Audio/Machines/vending_restock_start.ogg
     - type: MeleeWeapon
       hidden: true
       soundHit:
@@ -84,7 +93,7 @@
           Blunt: 10
     - type: Carriable
     - type: Perishable
-      rotAfter: 3600 # Rots afteran in-game day
+      rotAfter: 3600 # Rots after an in-game day
     - type: RotInto
       entity: N14FoodMeatRadRaw # and becomes a single chunk of meat.
     - type: Butcherable

@@ -452,7 +452,7 @@
     prototypes:
       - N14MobCazador
 
-# Ranged Raider Variants
+# Ranged Raider Variants #Wassuy added more varitant for almost all the raiders.
 - type: entity
   name: Locusts Spawner - Pistol
   id: N14SpawnMobRaiderPsychoRanged
@@ -468,6 +468,8 @@
     prototypes:
       - N14MobRaiderPsychoRanged
       - N14MobRaiderPsychoRanged9mm
+      - N14MobRaiderPsychoRanged9mmChinese
+      - N14MobRaiderPsychoRanged22lr
 - type: entity
   name: Locusts Spawner - Sniper
   id: N14SpawnMobRaiderPsychoHunter
@@ -594,6 +596,7 @@
       - N14MobEnforcerTrooper
       - N14MobEnforcerTrooperSten
       - N14MobEnforcerTrooper45SMG
+      - N14MobEnforcerTrooper45Pistol
 
 - type: entity
   name: Enforcer Spawner - Warden
@@ -626,7 +629,7 @@
       - N14MobEnforcerChief
       - M14MobEnforcerChief357
       - M14MobEnforcerChiefBAR
-      - M14MobEnforcerChiefCowboyRepeater
+      - M14MobEnforcerChiefBren
 # Melee Raider Variants
 - type: entity
   name: Locusts Spawner - Melee
@@ -1100,7 +1103,7 @@
     prototypes:
       - N14MobNPCNCRTrooper
 
-- type: entity
+- type: entity #Wassuy added, more varitant for Caravan mercenaries
   name: Caravan Merc Spawner
   id: N14SpawnMobNPCCaravanMerc
   parent: MarkerBase
@@ -1118,6 +1121,8 @@
       - N14MobNPCCaravanMercR91Rifle
       - N14MobNPCCaravanMercFal
       - N14MobNPCCaravanMerc10SMG
+      - N14MobNPCCaravanMercM14
+
 - type: entity
   name: Tribal Skirmisher Spawner
   id: N14SpawnMobNPCTribeSkir

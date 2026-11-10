@@ -2,7 +2,7 @@
   parent: BaseMobSpeciesOrganic
   id: N14BaseMobWaster
   abstract: true
-  name: Raider
+  name: Wastelander
   suffix: AI
   components:
     #- type: RandomHumanoidAppearance #wassuy disabled for now may cause confusion
@@ -10,7 +10,7 @@
       damageContainer: MisfitsNPCBiological
     - type: NpcFactionMember
       factions:
-      - Wastelander
+      - NpcWastelander
     - type: MobThresholds
       thresholds:
         0: Alive
@@ -45,6 +45,7 @@
     - type: SurgeryTarget
       canOperate: true
     - type: ProximityNPC # Misfits Add — sleep distant NPCs to reduce tick load
+    - type: NPCRetaliation # Aggro on the attacker when damaged from any range
     - type: HTN
       rootTask:
         task: N14RangedHostileCompound
@@ -74,7 +75,7 @@
           Blunt: 15
     - type: Carriable
     - type: Perishable
-      rotAfter: 3600 # Rots afteran in-game day
+      rotAfter: 3600 # Rots after an in-game day
     - type: RotInto
       entity: N14FoodMeatRadRaw # and becomes a single chunk of meat.
     - type: Butcherable

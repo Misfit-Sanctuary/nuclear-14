@@ -238,7 +238,63 @@
         - id: SpeedLoader45-70
         - id: SpeedLoader45-70
 
-#Misfits added, wassuy added npc raiders belt loot, good stuffs.
+#Misfits added, wassuy added npc raiders belt loot, these belt contain magazine and ammo boxes that either empty or full for rng loots, good stuffs.
+
+- type: entity
+  parent: ClothingBeltRope
+  suffix: 22lr pistol, randomfill
+  id: M14ClothingBeltRaider22lrPistolRope
+  components:
+    - type: StorageFill
+      contents:
+        - id: N14CartridgePistol22
+          prob: 0.2
+          orGroup: Ammunition1
+          amount: 0
+          maxAmount: 8
+        - id: N14MagazinePistol22lr
+          prob: 0.1
+          orGroup: Ammunition1
+          amount: 0
+          maxAmount: 2
+        - id: N14MagazinePistol22lrEmpty
+          prob: 0.15
+          orGroup: Ammunition2
+          amount: 0
+          maxAmount: 3
+        - id: MagazineBox22
+          prob: 0.05
+          orGroup: Ammunition3
+          amount: 0
+          maxAmount: 2
+        - id: MagazineBox22Empty
+          prob: 0.1
+          orGroup: Ammunition4
+          amount: 0
+          maxAmount: 3
+
+- type: entity
+  parent: ClothingBeltRope
+  suffix: 9mm rounds, randomfill
+  id: M14ClothingBeltRaider9mmPistolRoundsRope
+  components:
+    - type: StorageFill
+      contents:
+        - id: N14CartridgePistol9
+          prob: 0.2
+          orGroup: Ammunition1
+          amount: 0
+          maxAmount: 10
+        - id: N14AmmoBox9mm
+          prob: 0.05
+          orGroup: Ammunition2
+          amount: 0
+          maxAmount: 2
+        - id: MagazineBox9mmEmpty
+          prob: 0.1
+          orGroup: Ammunition3
+          amount: 0
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltRope
@@ -263,10 +319,15 @@
           amount: 0
           maxAmount: 4
         - id: N14AmmoBox9mm
-          prob: 0.1
+          prob: 0.05
           orGroup: Ammunition4
           amount: 0
           maxAmount: 2
+        - id: MagazineBox9mmEmpty
+          prob: 0.1
+          orGroup: Ammunition5
+          amount: 0
+          maxAmount: 3
 
 - type: entity
   parent: N14ClothingBeltLeatherPouches
@@ -291,7 +352,7 @@
           amount: 0
           maxAmount: 2
         - id: N14AmmoBox9mm
-          prob: 0.1
+          prob: 0.05
           orGroup: Ammunition4
           amount: 0
           maxAmount: 2
@@ -299,7 +360,7 @@
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltHolster
@@ -332,7 +393,7 @@
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltMountie
@@ -365,7 +426,7 @@
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltRope
@@ -398,7 +459,40 @@
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
+          maxAmount: 3
+
+- type: entity
+  parent: N14ClothingBeltLeatherPouches
+  suffix: 45. pistol, randomfill
+  id: M14ClothingBeltRaider45PistolPouches
+  components:
+    - type: StorageFill
+      contents:
+        - id: N14MagazinePistol45
+          prob: 0.2
+          orGroup: Ammunition1
+          amount: 0
           maxAmount: 2
+        - id: N14MagazinePistol45Empty
+          prob: 0.4
+          orGroup: Ammunition2
+          amount: 0
+          maxAmount: 3
+        - id: N14CartridgePistol45
+          prob: 0.2
+          orGroup: Ammunition3
+          amount: 0
+          maxAmount: 6
+        - id: MagazineBox45
+          prob: 0.05
+          orGroup: Ammunition4
+          amount: 0
+          maxAmount: 2
+        - id: MagazineBox45Empty
+          prob: 0.1
+          orGroup: Ammunition5
+          amount: 0
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltRope
@@ -431,7 +525,7 @@
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: N14ClothingBeltLeatherPouches
@@ -464,7 +558,7 @@
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltRope
@@ -497,7 +591,7 @@
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltMilitary
@@ -530,7 +624,7 @@
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltRope
@@ -563,7 +657,7 @@
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: N14ClothingBeltLeatherPouches
@@ -596,7 +690,7 @@
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltRope
@@ -624,7 +718,7 @@
           prob: 0.1
           orGroup: Ammunition4
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: N14ClothingBeltLeatherPouches
@@ -662,7 +756,7 @@
           prob: 0.1
           orGroup: Ammunition4
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltRope
@@ -700,7 +794,7 @@
           prob: 0.1
           orGroup: Ammunition4
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltRope
@@ -723,7 +817,7 @@
           prob: 0.1
           orGroup: Ammunition3
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltHolster
@@ -764,7 +858,7 @@
           prob: 0.1
           orGroup: Ammunition3
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltMountie
@@ -792,7 +886,7 @@
           prob: 0.1
           orGroup: Ammunition4
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltMountie
@@ -861,7 +955,7 @@
           prob: 0.1
           orGroup: Ammunition4
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltRope
@@ -889,7 +983,7 @@
           prob: 0.05
           orGroup: Ammunition4
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltRope
@@ -922,7 +1016,7 @@
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: N14ClothingBeltLeatherPouches
@@ -947,10 +1041,15 @@
           amount: 0
           maxAmount: 3
         - id: N14AmmoBox556
-          prob: 0.05
+          prob: 0.1
           orGroup: Ammunition4
           amount: 0
           maxAmount: 2
+        - id: N14AmmoBox556Empty
+          prob: 0.05
+          orGroup: Ammunition5
+          amount: 0
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltRope
@@ -973,7 +1072,7 @@
           prob: 0.1
           orGroup: Ammunition3
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltRope
@@ -1016,7 +1115,7 @@
           prob: 0.1
           orGroup: Ammunition7
           amount: 0
-          maxAmount: 2
+          maxAmount: 3
 
 - type: entity
   parent: ClothingBeltMilitary
@@ -1051,6 +1150,38 @@
           amount: 0
           maxAmount: 3
 
+- type: entity
+  parent: ClothingBeltMilitary
+  suffix: 308 long mag rifle, randomfill
+  id: M14ClothingBeltRaider308LongMagMilitary
+  components:
+    - type: StorageFill
+      contents:
+        - id: N14Cartridge308Rifle
+          prob: 0.3
+          orGroup: Ammunition1
+          amount: 0
+          maxAmount: 8
+        - id: MagazineBox308
+          prob: 0.05
+          orGroup: Ammunition2
+          amount: 0
+          maxAmount: 2
+        - id: MagazineBox308Empty
+          prob: 0.1
+          orGroup: Ammunition3
+          amount: 0
+          maxAmount: 2
+        - id: Magazine308RifleLong
+          prob: 0.05
+          orGroup: Ammunition4
+          amount: 0
+          maxAmount: 2
+        - id: Magazine308RifleLongEmpty
+          prob: 0.1
+          orGroup: Ammunition5
+          amount: 0
+          maxAmount: 3
 
 - type: entity
   parent: N14ClothingBeltLeatherPouches
@@ -1083,4 +1214,4 @@
           prob: 0.1
           orGroup: Ammunition5
           amount: 0
-          maxAmount: 2
+          maxAmount: 3

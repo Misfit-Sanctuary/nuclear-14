@@ -14,12 +14,69 @@
     price: 0
   - type: SpawnItemsOnUse
     items:
+      - id: null
+        prob: 0.95
+        orGroup: StashLighter1
+      - id: FlippoLighter
+        prob: 0.05
+        orGroup: StashLighter1
+      - id: CheapLighter
+        prob: 0.05
+        orGroup: StashLighter1
+      - id: Lighter
+        prob: 0.05
+        orGroup: StashLighter1
+      - id: null
+        prob: 0.85
+        orGroup: StashCig1
+      - id: N14CigaretteMarlboro
+        prob: 0.25
+        orGroup: StashCig1
+      - id: N14CigaretteWinston
+        prob: 0.25
+        orGroup: StashCig1
+      - id: N14CigaretteRepublic
+        prob: 0.25
+        orGroup: StashCig1
+      - id: N14CigaretteSalem
+        prob: 0.25
+        orGroup: StashCig1
+      - id: N14CigaretteLuckyStrike
+        prob: 0.25
+        orGroup: StashCig1
+      - id: N14CigaretteKool
+        prob: 0.25
+        orGroup: StashCig1
+      - id: N14CigaretteRollie
+        prob: 0.25
+        orGroup: StashCig1
+      - id: N14Cigarette # Our dudes should have smoking problem.
+        prob: 0.25
+        orGroup: StashCig1
+      - id: null
+        prob: 0.35
+        orGroup: StashCash1
       - id: N14CurrencyCap # Our dudes should carry some money.
-        prob: 0.6
+        prob: 0.75
         orGroup: StashCash1
       - id: N14CurrencyCap10
-        prob: 0.3
+        prob: 0.25
         orGroup: StashCash1
+      - id: N14CurrencyPrewar
+        prob: 0.75
+        orGroup: StashCash1
+      - id: N14CurrencyPrewarMoney10
+        prob: 0.25
+        orGroup: StashCash1
+      - id: N14CurrencyNCRDollar
+        prob: 0.75
+        orGroup: StashCash1
+      - id: N14CurrencyNCRDollar10
+        prob: 0.25
+        orGroup: StashCash1
+      - id: null
+        prob: 0.35
+        orGroup: StashMeds1
       - id: N14DirtyGauze1 # Let's also give them some medicine or chems.
         prob: 0.25
         orGroup: StashMeds1
@@ -56,6 +113,9 @@
       - id: N14SuperStimpak
         prob: 0.0125
         orGroup: StashMeds1
+      - id: null
+        prob: 0.35
+        orGroup: StashAmmo1
       - id: N14MagazinePistol9mm #Let's give them som basic ammo types.
         prob: 0.5
         orGroup: StashAmmo1
@@ -68,7 +128,7 @@
       - id: Magazine556Rifle
         prob: 0.05
         orGroup: StashAmmo1
-      - id: N14BaseMagazine10mmSubMachineGun
+      - id: N14MagazineSMG10mm
         prob: 0.05
         orGroup: StashAmmo1
       - id: LongMagazine556Rifle
@@ -95,9 +155,30 @@
       - id: N14MagazinePistol45
         prob: 0.1
         orGroup: StashAmmo1
-      - id: N14CurrencyCap10
-        prob: 0.3
+      - id: null
+        prob: 0.35
         orGroup: StashCash2
+      - id: N14CurrencyCap # Our dudes should carry some money.
+        prob: 0.75
+        orGroup: StashCash2
+      - id: N14CurrencyCap10
+        prob: 0.25
+        orGroup: StashCash2
+      - id: N14CurrencyPrewar
+        prob: 0.75
+        orGroup: StashCash2
+      - id: N14CurrencyPrewarMoney10
+        prob: 0.25
+        orGroup: StashCash2
+      - id: N14CurrencyNCRDollar
+        prob: 0.75
+        orGroup: StashCash2
+      - id: N14CurrencyNCRDollar10
+        prob: 0.25
+        orGroup: StashCash2
+      - id: null
+        prob: 0.35
+        orGroup: StashMeds2
       - id: N14DirtyGauze1 # Let's also give them some medicine or chems.
         prob: 0.25
         orGroup: StashMeds2
@@ -134,6 +215,30 @@
       - id: N14SuperStimpak
         prob: 0.0125
         orGroup: StashMeds2
+      - id: null
+        prob: 0.35
+        orGroup: StashFood1
+      - id: N14FoodMeatRadscorpionLegBoiled
+        prob: 0.25
+        orGroup: StashFood1
+      - id: N14FoodMeatBrahminCutletCooked
+        prob: 0.25
+        orGroup: StashFood1
+      - id: N14FoodMeatMirelurkClawCooked
+        prob: 0.25
+        orGroup: StashFood1
+      - id: N14FoodMeatRadchickenCutletCooked
+        prob: 0.25
+        orGroup: StashFood1
+      - id: N14FoodMeatRadchickenCooked
+        prob: 0.25
+        orGroup: StashFood1
+      - id: MisfitsFoodMeatJerky
+        prob: 0.25
+        orGroup: StashFood1
+      - id: N14FoodMouldy
+        prob: 0.35
+        orGroup: StashFood1
       - id: N14FoodMeatRadCutletCooked
         prob: 0.25
         orGroup: StashFood1
@@ -141,6 +246,9 @@
         prob: 0.25
         orGroup: StashFood1
       - id: FoodMeatRatdoubleKebab
+        prob: 0.25
+        orGroup: StashFood1
+      - id: N14FoodMeatSnakeKebab
         prob: 0.25
         orGroup: StashFood1
       - id: N14FoodMeatIguanaCooked
@@ -153,27 +261,87 @@
         prob: 0.25
         orGroup: StashFood1
       - id: FoodMeatRedfishCooked
-        prob: 0.1
+        prob: 0.25
+        orGroup: StashFood1
+      - id: FoodSnackProteinBar
+        prob: 0.10
+        orGroup: StashFood1
+      - id: N14FoodCondimentPacketProtein
+        prob: 0.25
+        orGroup: StashFood1
+      - id: FoodSnackRedalertnuts
+        prob: 0.10
+        orGroup: StashFood1
+      - id: N14FoodSugarbombs
+        prob: 0.10
+        orGroup: StashFood1
+      - id: N14FoodYumyumdeviledeggs
+        prob: 0.10
+        orGroup: StashFood1
+      - id: N14FoodSalisburysteak
+        prob: 0.10
+        orGroup: StashFood1
+      - id: N14FoodFancyladssnackcakes
+        prob: 0.10
+        orGroup: StashFood1
+      - id: N14FoodInstamash
+        prob: 0.10
+        orGroup: StashFood1
+      - id: N14FoodDandyboyapples
+        prob: 0.10
+        orGroup: StashFood1
+      - id: N14FoodCram
+        prob: 0.10
+        orGroup: StashFood1
+      - id: N14FoodBerries
+        prob: 0.10
         orGroup: StashFood1
       - id: FoodTinBeans
-        prob: 0.1
+        prob: 0.025
         orGroup: StashFood1
       - id: N14FoodPorkBeans
-        prob: 0.1
+        prob: 0.025
       - id: FoodTinMRE
-        prob: 0.1
+        prob: 0.025
         orGroup: StashFood1
       - id: N14FoodCannedFish
-        prob: 0.1
+        prob: 0.025
+        orGroup: StashFood1
+      - id: N14FoodTinK
+        prob: 0.025
+        orGroup: StashFood1
+      - id: N14FoodTinKCracker
+        prob: 0.025
+        orGroup: StashFood1
+      - id: N14FoodTinC1
+        prob: 0.025
+        orGroup: StashFood1
+      - id: N14FoodTinC2
+        prob: 0.025
+        orGroup: StashFood1
+      - id: N14FoodTinC3
+        prob: 0.025
         orGroup: StashFood1
       - id: N14DrinkDirtyWaterBottleFull
-        prob: 0.25
+        prob: 0.5
         orGroup: StashFood1
       - id: N14DrinkIrradiatedNukaColaBottleFull
         prob: 0.25
         orGroup: StashFood1
+      - id: DrinkVodkaBottleFull
+        prob: 0.025
+        orGroup: StashFood1
+      - id: N14DrinkGammagulpBeer
+        prob: 0.025
+        orGroup: StashFood1
+      - id: N14DrinkWhisky
+        prob: 0.025
+        orGroup: StashFood1
+      - id: N14DrinkWine
+        prob: 0.025
+        orGroup: StashFood1
       - id: DrinkWaterBottleFull
-        prob: 0.005
+        prob: 0.05
         orGroup: StashFood1
     sound:
       path: /Audio/Items/can_open3.ogg
