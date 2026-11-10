@@ -290,7 +290,8 @@
     - min: 144000  # 40 hours
       rank: RankNCRChiefWarrantOfficer3
 
-# NCRMP First Lieutenant: 1LT (O-2) -> CPT (O-3) at 20h -> MAJ (O-4) at 40h -> LTC (O-5) at 80h
+# NCRMP First Lieutenant: 1LT (O-2) -> CPT (O-3) at 20h
+# #Cythisiax Edited - MP Officer tops out at Captain (was MAJ at 40h, LTC at 80h); command can't step them past it either
 - type: rankLadder
   id: NCRMilitaryPoliceOfficerPins
   jobs:
@@ -302,7 +303,3 @@
       rank: RankNCRFirstLieutenant
     - min: 72000   # 20 hours
       rank: RankNCRCaptain
-    - min: 144000  # 40 hours
-      rank: RankNCRMajor
-    - min: 288000  # 80 hours
-      rank: RankNCRLtColonel
