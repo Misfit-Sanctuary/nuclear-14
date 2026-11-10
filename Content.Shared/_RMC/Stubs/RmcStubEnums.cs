@@ -156,6 +156,12 @@ public enum MedalVisualLayers { Base, Base1 }
 public enum MedevacStretcherVisuals { BeaconState, MedevacingState }
 
 [Serializable, NetSerializable]
+public enum MortarUiKey { Key }
+
+[Serializable, NetSerializable]
+public enum MortarVisualLayers { State }
+
+[Serializable, NetSerializable]
 public enum MotionDetectorLayer { Number, Setting }
 
 [Serializable, NetSerializable]
