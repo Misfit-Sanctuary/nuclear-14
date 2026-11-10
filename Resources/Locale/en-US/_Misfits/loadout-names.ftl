@@ -139,7 +139,7 @@ loadout-name-MisfitsLoadoutOuterWhiteLegsArmor = white legs tribal armor
 
 # Shoes
 loadout-name-ClothingShoesBootsLaceupVault = laceup shoes
-loadout-name-N14LoadoutShoesBlack = black shoes
+loadout-name-N14LoadoutShoesBlack = black loafers
 loadout-name-N14LoadoutShoesBrown = brown shoes
 loadout-name-N14LoadoutBootsBlack = black boots
 loadout-name-N14LoadoutBootsCowboy = cowboy boots
@@ -290,7 +290,7 @@ loadout-name-N14Machete = machete
 loadout-name-N14TribalMachete = tribal machete
 loadout-name-N14TribalClub = tribal club
 loadout-name-N14TribalHatchet = tribal hatchet
-loadout-name-N14TribalSword = tribal sword
+loadout-name-N14TribalSword = Sawtooth Sword
 loadout-name-N14KitchenKnife = kitchen knife
 loadout-name-N14BrassKnife = brass knife
 loadout-name-N14WastelandTribalSpear = wasteland tribal spear

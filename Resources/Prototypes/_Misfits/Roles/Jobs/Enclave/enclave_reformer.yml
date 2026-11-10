@@ -38,6 +38,9 @@
           - Wastelander
       - type: ReplacementAccent
         accent: n14Enclave
+      - type: FactionRoster # #Cythisiax Added - replaces the Recruit verb: roster GUI to recruit, promote and demote Enclave personnel
+        roster: Enclave
+        action: ActionOpenFactionRosterEnclave
       - type: PowerArmorProficiency
 
 # #Misfits Change - Reformer keeps Hellfire Advanced PA (Hellfire is now Reformer-exclusive; Commander uses APA MK II).

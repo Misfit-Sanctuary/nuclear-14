@@ -633,9 +633,9 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRCitizen
         - NCRTrader
         - NCRRO
@@ -651,11 +651,12 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
+        - NCRDagger # #Cythisiax Added - DAGGER alongside Chief Ranger
   items:
     - N14ClothingHeadHatArmyBeretRanger
 
@@ -666,11 +667,12 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
+        - NCRDagger # #Cythisiax Added - DAGGER alongside Chief Ranger
   items:
     - N14ClothingHeadHatNCRBeretRecon
 
@@ -681,11 +683,12 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
+        - NCRDagger # #Cythisiax Added - DAGGER alongside Chief Ranger
   items:
     - N14ClothingHeadHatRanger
 
@@ -696,11 +699,12 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
+        - NCRDagger # #Cythisiax Added - DAGGER alongside Chief Ranger
   items:
     - N14ClothingHeadHatRangerB
 
@@ -713,6 +717,7 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
+        - BoSOffDuty
         - BoSInitiate
         - BoSMidSquire
         - BoSKnight
@@ -738,6 +743,7 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
+        - BoSOffDuty
         - BoSInitiate
         - BoSMidSquire
         - BoSKnight
@@ -761,6 +767,7 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
+        - BoSOffDuty
         - BoSInitiate
         - BoSMidSquire
         - BoSKnight
@@ -777,6 +784,31 @@
         - BoSWestElderCommander
   items:
     - N14ClothingHeadHatBrotherhoodFieldCap
+
+- type: loadout
+  id: MisfitsLoadoutMaskBrotherhoodHeadCover
+  category: Mask
+  cost: 0
+  requirements:
+  - !type:CharacterJobRequirement
+    jobs:
+    - BoSOffDuty
+    - BoSInitiate
+    - BoSMidSquire
+    - BoSKnight
+    - BoSScribe
+    - BoSPaladin
+    - BoSMidKnight
+    - BoSLancerKnight
+    # #Cythisiax Removed - Lancer rank folded into Lancer-Knight
+    - BoSMidPaladin
+    - BoSWestScribe
+    - BoSMidScribe
+    - BoSHeadKnight
+    - BoSMidPaladinCommander
+    - BoSWestElderCommander
+  items:
+  - N14ClothingMaskBrotherhoodHeadCover
 
 # #Misfits Add - Belt: Brotherhood of Steel Squire webbing.
 
@@ -1364,11 +1396,12 @@
       group: N14LoadoutNeck
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
+        - NCRDagger # #Cythisiax Added - DAGGER alongside Chief Ranger
   items:
     - N14ClothingNeckCloakNCRWoods
 

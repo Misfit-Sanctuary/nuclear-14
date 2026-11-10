@@ -1,7 +1,5 @@
 using Content.Shared.Maps;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared.Procedural.PostGeneration;
 
@@ -10,13 +8,13 @@ namespace Content.Shared.Procedural.PostGeneration;
 /// </summary>
 public sealed partial class InternalWindowPostGen : IPostDunGen
 {
-    [DataField("entities", customTypeSerializer: typeof(PrototypeIdListSerializer<EntityPrototype>))]
-    public List<string> Entities = new()
+    [DataField("entities")]
+    public List<EntProtoId> Entities = new()
     {
         "Grille",
         "Window",
     };
 
-    [DataField("tile", customTypeSerializer:typeof(PrototypeIdSerializer<ContentTileDefinition>))]
-    public string Tile = "FloorSteel";
+    [DataField("tile")]
+    public ProtoId<ContentTileDefinition> Tile = "FloorSteel";
 }

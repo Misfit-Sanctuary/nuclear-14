@@ -1,0 +1,169 @@
+
+- type: entity    #Empty magazines
+  id: N14MagazinePistol22lrEmpty
+  name: pistol magazine (.22lr)
+  suffix: empty
+  parent: N14MagazinePistol22lr
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  id: N14MagazineAmerican180DrumEmpty
+  name: drum magazine (.22lr)
+  suffix: empty
+  parent: N14MagazineAmerican180Drum
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  id: N14MagazinePistol9mmEmpty
+  name: pistol magazine (9mm)
+  suffix: empty
+  parent: N14MagazinePistol9mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  id: N14MagazineSMG9mmEmpty
+  name: SMG magazine (9mm)
+  suffix: empty
+  parent: N14MagazineSMG9mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  id: N14MagazineSMG9mmDrumEmpty
+  name: drum magazine (9mm)
+  suffix: empty
+  parent: N14MagazineSMG9mmDrum
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  id: N14MagazinePistol10mmEmpty
+  name: pistol magazine (10mm)
+  suffix: empty
+  parent: N14MagazinePistol10mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  id: N14MagazineSMG10mmEmpty
+  name: SMG magazine (10mm)
+  suffix: empty
+  parent: N14MagazineSMG10mm
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  id: N14MagazinePistol44Empty
+  name: pistol magazine (.44)
+  suffix: empty
+  parent: N14MagazinePistol44
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  id: N14MagazineShotgun20Empty
+  name: ammo drum (20 gauge shells)
+  suffix: empty
+  parent: N14MagazineShotgun20
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  id: Magazine545RifleEmpty
+  name: magazine (5.45mm)
+  suffix: empty
+  parent: Magazine545Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  id: Magazine556RifleEmpty
+  name: magazine (5.56mm)
+  suffix: empty
+  parent: Magazine556Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  id: Magazine762RifleEmpty
+  name: magazine (7.62)
+  suffix: empty
+  parent: Magazine762Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  id: Magazine45SubMachineGunEmpty
+  name: SMG magazine (45. auto)
+  suffix: empty
+  parent: Magazine45SubMachineGun
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]

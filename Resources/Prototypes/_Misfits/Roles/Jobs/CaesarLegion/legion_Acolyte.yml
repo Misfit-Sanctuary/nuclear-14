@@ -12,7 +12,7 @@
   requirements:
     - !type:CharacterDepartmentTimeRequirement # Legion total timelock
       department: CaesarLegion
-      min: 72000 # 20 hours
+      min: 57600 # 16 hours
     - !type:CharacterSpeciesRequirement
       species:
         - Human

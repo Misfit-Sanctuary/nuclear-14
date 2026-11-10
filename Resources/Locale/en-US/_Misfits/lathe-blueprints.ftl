@@ -115,3 +115,7 @@ lathe-category-blueprint-eighties-ammo-t4 = Eighties Ammo - Tier 4
 lathe-category-blueprint-ncr-mortar-ordnance = NCR Mortar Ordnance
 lathe-category-blueprint-legion-mortar-ordnance = Legion Mortar Ordnance
 
+# #Misfits Add - Ranger field kit blueprint categories.
+lathe-category-blueprint-ranger-weapons = Ranger Kit Weapons
+lathe-category-blueprint-ranger-ammo = Ranger Kit Ammo
+lathe-category-blueprint-ranger-armor = Ranger Kit Armor

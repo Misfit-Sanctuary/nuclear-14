@@ -25,8 +25,7 @@ public sealed class VocalSystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
 
-    [ValidatePrototypeId<ReplacementAccentPrototype>]
-    private const string MuzzleAccent = "mumble";
+    private static readonly ProtoId<ReplacementAccentPrototype> MuzzleAccent = "mumble";
 
     public override void Initialize()
     {

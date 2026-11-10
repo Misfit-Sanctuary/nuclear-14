@@ -939,6 +939,9 @@
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
   - type: ToggleableClothing
     clothingPrototype: N14ClothingHeadHatHelmetSpaceHelmet
     slot: head
@@ -957,6 +960,9 @@
     modifiers:
       coefficients:
         Heat: 0.30
+  - type: ClothingSpeedModifier
+    walkModifier: 0.90
+    sprintModifier: 0.85
   - type: ToggleableClothing
     clothingPrototype: N14ClothingHeadHatHelmetFirefighterHelmet
     slot: head

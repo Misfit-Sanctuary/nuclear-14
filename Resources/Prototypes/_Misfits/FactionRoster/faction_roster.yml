@@ -1,0 +1,97 @@
+# #Cythisiax Added - Faction roster: faction leadership's roster / recruitment / oath GUI.
+# Each factionRoster below is one faction. To give another faction the tool, add a
+# factionRoster entry and put a FactionRoster component on its leadership jobs.
+
+- type: entity
+  id: ActionOpenFactionRoster
+  name: Faction Roster
+  description: Review your faction's members, recruit nearby players, and promote or demote your people.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: _Nuclear14/Markers/Jobs/rangers.rsi, state: veteran }
+    checkCanInteract: false
+    event: !type:OpenFactionRosterActionEvent
+
+- type: entity
+  parent: ActionOpenFactionRoster
+  id: ActionOpenFactionRosterEnclave
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: /Textures/_Misfits/Interface/Misc/job_icons/Enclave.rsi, state: EnclaveCommander }
+    checkCanInteract: false
+    event: !type:OpenFactionRosterActionEvent
+
+# Rangers: Recruit -> Ranger -> Ranger Lead -> Chief Ranger, with DAGGER above them all as
+# the highest theatre authority. Each rank manages the ranks beneath it: the Ranger Lead
+# handles Recruits and Rangers, the Chief Ranger can also remove Ranger Leads, and DAGGER
+# can promote to or demote the Chief Ranger. Recruiting grants the Ranger Recruit whitelist.
+- type: factionRoster
+  id: Rangers
+  name: faction-roster-name-rangers
+  offerText:
+  - faction-roster-offer-rangers
+  tracks:
+  - name: faction-roster-track-rangers
+    ranks:
+    - NCRRangerRecruit
+    - NCRRangerStandard
+    - NCRVeteranRanger
+    - NCRChiefRanger
+  specialties:
+  - NCRRangerMedic
+  protected:
+  - NCRDagger
+  authorizedJobs:
+  - NCRVeteranRanger
+  - NCRChiefRanger
+  - NCRDagger
+  oathEditors:
+  - NCRVeteranRanger
+  - NCRChiefRanger
+  - NCRDagger
+  dischargers: # #Cythisiax Added - Ranger Leads can only demote to Recruit; booting someone needs Chief+ (DAGGER is command)
+  - NCRChiefRanger
+  recruitGrants:
+  - NCRRangerRecruit
+
+# Enclave: replaces the old officer "Recruit" verb. Recruiting grants no whitelist; the
+# EnclaveRecruitSystem assigns the in-round EnclaveRecruit job and micro-bomb, and the
+# Enlisted / Junior Scientist whitelists unlock after 4h of recruit time as before.
+# #Cythisiax Edited - each track is run by its own people: officers manage Enlisted / NCO,
+# the Head Scientist manages Junior Scientists / Scientists. Promoting to or demoting from
+# Junior Officer, Senior Officer or Head Scientist is reserved for the Commander (and
+# Reformer), via commandOnlyFrom.
+- type: factionRoster
+  id: Enclave
+  name: faction-roster-name-enclave
+  offerText: # the Form 104-E contract and oath the Enclave consent window already used
+  - enclave-recruit-contract-text
+  - enclave-recruit-oath-text
+  tracks:
+  - name: faction-roster-track-military
+    ranks:
+    - EnclaveEnlisted
+    - EnclaveNCO
+    - EnclaveJuniorOfficer
+    - EnclaveSeniorOfficer
+    - EnclaveCommander # #Cythisiax Added - top of the track: only the Reformer can promote to or demote the Commander
+    commandOnlyFrom: EnclaveJuniorOfficer # #Cythisiax Added - only the Commander makes or breaks officers
+  - name: faction-roster-track-science
+    ranks:
+    - EnclaveJuniorScientist
+    - EnclaveScientist
+    - EnclaveHeadScientist
+    commandOnlyFrom: EnclaveHeadScientist # #Cythisiax Added - only the Commander appoints the Head Scientist
+  specialties:
+  - EnclaveVertibirdPilot
+  protected:
+  - EnclaveCommander
+  - EnclaveReformer
+  authorizedJobs:
+  - EnclaveJuniorOfficer
+  - EnclaveSeniorOfficer
+  - EnclaveHeadScientist # #Cythisiax Added - runs the science track
+  - EnclaveCommander
+  - EnclaveReformer

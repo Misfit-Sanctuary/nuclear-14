@@ -37,9 +37,11 @@ public sealed partial class WarInviteWindow : FancyWindow
     public void UpdatePrompt(WarInvitePromptEvent prompt)
     {
         _warKey = prompt.WarKey;
-        InviteLabel.SetMarkup(
-            $"[bold]{FormattedMessage.EscapeText(prompt.InviterCharacterName)}[/bold] invited you to join [bold]{FormattedMessage.EscapeText(prompt.SideName)}[/bold].\n" +
-            "Press Accept to join this war side.");
+        // #Misfits Tweak - recruit-offer style: heading names the side, body says what accepting means.
+        HeaderLabel.Text = Loc.GetString("faction-war-invite-header", ("side", prompt.SideName));
+        InviteLabel.SetMarkup(Loc.GetString("faction-war-invite-body",
+            ("inviter", FormattedMessage.EscapeText(prompt.InviterCharacterName)),
+            ("side", FormattedMessage.EscapeText(prompt.SideName))));
         ShowResult(true, string.Empty);
     }
 

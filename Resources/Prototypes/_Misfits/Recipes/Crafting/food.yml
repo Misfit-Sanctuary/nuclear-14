@@ -1,0 +1,23 @@
+- type: construction
+  name: Waster Burrito
+  id: CraftWasterBurrito
+  graph: WasterBurritoGraph
+  startNode: start
+  targetNode: WasterBurrito
+  icon: {sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi, state: wasterBurrito}
+  category: construction-category-food
+  objectType: Item
+  canBuildInImpassable: true
+  hide: false
+
+- type: construction
+  name: Waster Burrito Supreme
+  id: CraftWasterBurrito_super
+  graph: WasterBurritoGraph_super
+  startNode: start
+  targetNode: WasterBurrito_super
+  icon: {sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi, state: wasterBurritoSuper}
+  category: construction-category-food
+  objectType: Item
+  canBuildInImpassable: true
+  hide: false

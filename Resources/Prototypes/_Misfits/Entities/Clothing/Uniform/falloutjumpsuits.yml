@@ -186,3 +186,182 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_medicskirt.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/Armor/ncr_medicskirt.rsi
+
+# Brotherhood
+
+# Elders
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformBrotherhoodElderScribe
+  name: Brotherhood elder robes
+  description: A set of robes worn by a Brotherhood Elder that served the Codex as a Scribe before being elevated to a higher calling.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_elder_scribe.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_elder_scribe.rsi
+
+# Paladins
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformBrotherhoodBlackPantsUndersuit
+  name: Brotherhood black pants undersuit
+  description: An undersuit designed to be worn by Paladins using Power Armor. This one comes with baggy pants.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_black_pants_undersuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_black_pants_undersuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformBrotherhoodBlackUndersuit
+  name: Brotherhood black undersuit
+  description: An undersuit designed to be worn by Paladins using Power Armor.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_black_undersuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_black_undersuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformBrotherhoodPaladin
+  name: Brotherhood paladin jumpsuit
+  description: A dark, camo jumpsuit worn by Paladins of the 509th.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_paladin_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_paladin_jumpsuit.rsi
+
+# Scribes
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformBrotherhoodScribe
+  name: Brotherhood scribe uniform
+  description: A flowing set of robes issued as the standard uniform to Scribes with the 509th Chapter.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_scribe_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_scribe_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformBrotherhoodFieldScribe
+  name: Brotherhood field scribe uniform
+  description: A set of practical outdoors clothing worn by Scribes that favor deployment in the field.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_field_scribe_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_field_scribe_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformBrotherhoodMedicalScribe
+  name: Brotherhood medical scribe uniform
+  description: A sterile white gown worn by Scribes specializing in the treatment of wounded brothers.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_medical_scribe_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_medical_scribe_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformBrotherhoodScienceScribe
+  name: Brotherhood science scribe uniform
+  description: A muted purple uniform worn by Scribes specializing in the study of various scientific fields.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_science_scribe_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_science_scribe_jumpsuit.rsi
+
+# Knights
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformBrotherhoodKnight
+  name: Brotherhood knight uniform
+  description: A purple-and-tan uniform worn by knights in service to the 509th Chapter.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_knight_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_knight_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformBrotherhoodSeniorKnight
+  name: Brotherhood senior knight uniform
+  description: A well-tailored uniform issued to senior knights within the 509th Chapter.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_senior_knight_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_senior_knight_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformBrotherhoodKnightLancer
+  name: Brotherhood knight-lancer uniform
+  description: A tan-and-purple uniform worn by knights in service to the 509th Chapter. It's remarkably warm.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_lancer_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_lancer_jumpsuit.rsi
+
+# Initiates/Squires
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformBrotherhoodInitiate
+  name: Brotherhood initiate uniform
+  description: A tan uniform worn by the newest members of the 509th Chapter.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_initiate_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_initiate_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformBrotherhoodSquire
+  name: Brotherhood squire uniform
+  description: A dark, baggy uniform worn by squires in service to the 509th Chapter. Features extra padding around the back and shoulders..
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_squire_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_squire_jumpsuit.rsi
+
+# Misc
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformBrotherhoodCasual
+  name: Brotherhood casual jumpsuit
+  description: A Brotherhood jumpsuit intended for use while off-duty.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_casual_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_casual_jumpsuit.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
+  id: M14ClothingUniformBrotherhoodParade
+  name: Brotherhood parade jumpsuit
+  description: A pristine parade uniform worn by members of the 509th on formal or official occasions.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_parade_jumpsuit.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/Brotherhood/bos_parade_jumpsuit.rsi

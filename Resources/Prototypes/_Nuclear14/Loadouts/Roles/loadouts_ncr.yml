@@ -28,8 +28,7 @@
         - NCRRO
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
         - SuperMutantRanger
         - SuperMutantNCRRanger
@@ -37,6 +36,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingEyesGlassesGoggles
 
@@ -62,13 +62,13 @@
         - NCRRO
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingHandsGlovesNCR
 
@@ -94,13 +94,13 @@
         - NCRRO
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingHeadHatWinterBoonie
 
@@ -126,13 +126,13 @@
         - NCRRO
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingHeadHatWoodBoonie
 
@@ -158,13 +158,13 @@
         - NCRRO
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingHeadHatDesertBoonie
 
@@ -189,46 +189,47 @@
         - NCRCadet
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingNeckCloakNCR
 
-- type: loadout
-  id: LoadoutNCRCloakNCRGhillie
-  category: Neck
-  cost: 1
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRCommander
-        - NCRDoctor
-        - NCRExecutiveOfficer
-        - NCRPlatoonLeader
-        - NCRVertibirdPilot
-        - NCRNCO
-        - NCREngineer
-        - NCRMedic
-        - NCRWS
-        - NCRHeavyTrooper
-        - NCRCadet
-
-        - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
-        - NCRVeteranRanger
-
-        - NCRMilitaryPoliceCaptain
-        - NCRMilitaryPoliceSergeant
-        - NCRMilitaryPoliceRecruit
-  items:
-    - N14ClothingNeckCloakGhillie
+# #Cythisiax Removed - DAGGER exclusive: the ghillie cloak is DAGGER-only gear (NCR woodland cloak loadout remains the camo option)
+#- type: loadout
+#  id: LoadoutNCRCloakNCRGhillie
+#  category: Neck
+#  cost: 1
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRCommander
+#        - NCRDoctor
+#        - NCRExecutiveOfficer
+#        - NCRPlatoonLeader
+#        - NCRVertibirdPilot
+#        - NCRNCO
+#        - NCREngineer
+#        - NCRMedic
+#        - NCRWS
+#        - NCRHeavyTrooper
+#        - NCRCadet
+#
+#        - NCRRangerRecruit
+#        - NCRRangerStandard
+#        - NCRVeteranRanger
+#
+#        - NCRMilitaryPoliceCaptain
+#        - NCRMilitaryPoliceSergeant
+#        - NCRMilitaryPoliceRecruit
+#        - NCRRangerMedic # #Misfits Add - Ranger Medic
+#  items:
+#    - N14ClothingNeckCloakGhillie
 
 - type: loadout
   id: LoadoutNCRCloakNCRSnow
@@ -251,13 +252,13 @@
         - NCRCadet
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingNeckCloakNCRSnow
 
@@ -282,13 +283,13 @@
         - NCRCadet
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingNeckCloakNCRWoods
 
@@ -313,13 +314,13 @@
         - NCRCadet
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingMaskBrownBalaclava
 
@@ -347,8 +348,7 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
         - NCRCitizen
         - NCRTrader
@@ -357,6 +357,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingUniformDesertPants
 
@@ -384,8 +385,7 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
         - NCRCitizen
         - NCRTrader
@@ -395,6 +395,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingUniformDesertPantsFull
 
@@ -422,8 +423,7 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
@@ -432,6 +432,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement # T7 faction timelock (40h NCR)
       department: NCR
       min: 36000 # 10 hours
@@ -462,8 +463,7 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
@@ -471,6 +471,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement # T7 faction timelock (40h NCR)
       department: NCR
       min: 36000 # 10 hours
@@ -501,8 +502,7 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
@@ -510,6 +510,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 144000 # 40 hours, work for them shorts!
@@ -540,8 +541,7 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
@@ -549,6 +549,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement # T7 faction timelock (40h NCR)
       department: NCR
       min: 36000 # 10 hours
@@ -579,8 +580,7 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
@@ -588,6 +588,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 18000 # 5 hours
@@ -618,8 +619,7 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
@@ -627,6 +627,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 72000 # 20 hours
@@ -683,14 +684,14 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
         - NCRRO
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - ClothingBeltNCRHarness
 
@@ -718,8 +719,7 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
@@ -727,6 +727,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 144000 # 40 hours, work for that hat!
@@ -760,8 +761,7 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
         - NCRCitizen
         - NCRTrader
@@ -769,6 +769,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 144000 # 40 hours, work for that hat!
@@ -814,8 +815,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRPatrolRanger
-        - NCRFieldRanger # slightly weaker than the duster, but stronger than the combat armor, so giving it to field
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingOuterRangerRedwood
 
@@ -827,7 +828,8 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger # Statistically identical to NCR combat armor mk1 which they spawn with by default
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingOuterRangerArmorOld
 
@@ -840,7 +842,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -856,7 +859,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -896,13 +900,14 @@
 - type: loadout
   id: LoadoutN14ClothingNeckRangerDuster
   category: Roles
-  cost: 0
+  cost: 1
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRTrader
         - NCRCitizen
   items:
@@ -923,13 +928,14 @@
 - type: loadout
   id: LoadoutN14ClothingNeckSaltRunnerDuster
   category: Roles
-  cost: 0
+  cost: 1
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger # Purely cosmetic, goes over armor
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRCitizen
         - NCRTrader
     - !type:CharacterDepartmentTimeRequirement
@@ -947,7 +953,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -978,7 +985,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -994,7 +1002,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -1010,7 +1019,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -1026,7 +1036,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 46800 # 780 minutes
@@ -1042,7 +1053,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -1058,7 +1070,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -1074,7 +1087,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger # Purely cosmetic, identical to field ranger mask
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 46800 # 780 minutes
@@ -1084,13 +1098,14 @@
 - type: loadout
   id: LoadoutN14ClothingOuterCaliforniaGirlVetRangerRiotArmor
   category: Roles
-  cost: 0
+  cost: 3 # #Misfits Change - riot armor variant, 3 loadout points
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -1100,13 +1115,14 @@
 - type: loadout
   id: LoadoutN14ClothingOuterCanOpenerVetRangerRiotArmor
   category: Roles
-  cost: 0
+  cost: 3 # #Misfits Change - riot armor variant, 3 loadout points
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -1116,13 +1132,14 @@
 - type: loadout
   id: LoadoutN14ClothingOuterDemoExpertVetRangerRiotArmor
   category: Roles
-  cost: 0
+  cost: 3 # #Misfits Change - riot armor variant, 3 loadout points
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -1132,13 +1149,14 @@
 - type: loadout
   id: LoadoutN14ClothingOuterTheDevoutVetRangerRiotArmor
   category: Roles
-  cost: 0
+  cost: 3 # #Misfits Change - riot armor variant, 3 loadout points
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 46800 # 780 minutes
@@ -1148,13 +1166,14 @@
 - type: loadout
   id: LoadoutN14ClothingNeckHighlandRangerDuster
   category: Roles
-  cost: 0
+  cost: 1
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRTrader
         - NCRCitizen
     - !type:CharacterDepartmentTimeRequirement
@@ -1166,13 +1185,14 @@
 - type: loadout
   id: LoadoutN14ClothingNeckFourLeafDuster
   category: Roles
-  cost: 0
+  cost: 1
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRTrader
         - NCRCitizen
     - !type:CharacterDepartmentTimeRequirement
@@ -1190,7 +1210,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRTrader
         - NCRCitizen
     - !type:CharacterDepartmentTimeRequirement
@@ -1208,9 +1229,9 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRCitizen
         - NCRTrader
   items:
@@ -1225,9 +1246,9 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRCitizen
         - NCRTrader
   items:
@@ -1257,12 +1278,12 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
         - NCRRO
         - SuperMutantRanger
         - SuperMutantNCRRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - ClothingBeltNCRPouches
 
@@ -1290,12 +1311,12 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
         - NCRRO
         - SuperMutantRanger
         - SuperMutantNCRRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - ClothingBeltNCRBandolier
 
@@ -1323,12 +1344,12 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
         - NCRRO
         - SuperMutantRanger
         - SuperMutantNCRRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - ClothingBeltMilitary
 
@@ -1356,11 +1377,11 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
         - NCRRO
         - SuperMutantRanger
         - SuperMutantNCRRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - ClothingBeltRevolver

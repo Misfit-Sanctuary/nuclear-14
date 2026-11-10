@@ -23,8 +23,9 @@
     - NCRDoctor
     - NCRRO
 
-    - NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
+    - NCRRangerStandard
     - NCRVeteranRanger #Misfits Change - consolidated NCRRangerVeteran into RangerVeteran
+    - NCRRangerMedic #Misfits Add - Ranger Medic
   - !type:CharacterPlaytimeRequirement
     tracker: NCRSoldier
     min: 12000 # 5 hours veterancy unlock
@@ -56,8 +57,9 @@
     - NCRDoctor
     - NCRRO
 
-    - NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
+    - NCRRangerStandard
     - NCRVeteranRanger #Misfits Change - consolidated NCRRangerVeteran into RangerVeteran
+    - NCRRangerMedic #Misfits Add - Ranger Medic
   - !type:CharacterPlaytimeRequirement
     tracker: NCRSoldier
     min: 36000 # 10 hours veterancy unlock
@@ -89,8 +91,9 @@
     - NCRDoctor
     - NCRRO
 
-    - NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
+    - NCRRangerStandard
     - NCRVeteranRanger #Misfits Change - consolidated NCRRangerVeteran into RangerVeteran
+    - NCRRangerMedic #Misfits Add - Ranger Medic
   - !type:CharacterPlaytimeRequirement
     tracker: NCRSoldier
     min: 72000 # 20 hours veterancy unlock

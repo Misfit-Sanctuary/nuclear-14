@@ -87,7 +87,8 @@
     price: 500
   - proto: N14MaterialCircuitry
     amount: 10
-    price: 600
+    price: 750
+    count: 5
   - proto: N14IngotCopper
     amount: 10
     price: 300
@@ -141,6 +142,8 @@
     price: 1100
   - proto: N14WeaponLMG
     price: 1300
+  - proto: N14WeaponSMGWt550
+    price: 720
 
 - type: storeCategoryStructured
   id: NCRBuy2_Shotguns
@@ -701,7 +704,9 @@
   - proto: N14WeaponSMG12mmAdvancedCanadian
     price: 280
   - proto: N14WeaponSMG12mmAdvanced
-    price: 600
+    price: 550
+  - proto: N14WeaponSMGWt550
+    price: 360
 
 - type: storeCategoryStructured
   id: NCRSell2_Storage
@@ -990,8 +995,6 @@
     price: 40
   - proto: N14FoodMeatMirelurkClaw
     price: 40
-  - proto: N14MaterialCircuitry1
-    price: 50
   - proto: N14FoodMeatRadlurkClaw
     price: 50
   - proto: N14FoodEggDeathclaw
@@ -1022,7 +1025,7 @@
     price: 20
   - proto: Charcoal1
     amount: 1
-    price: 40
+    price: 10
   - proto: Torch
     price: 2
   - proto: DrinkWaterBottleFull

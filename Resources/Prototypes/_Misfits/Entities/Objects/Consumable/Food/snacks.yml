@@ -1,0 +1,91 @@
+#- Coxinha: 5u ground animal protein, 1 dough slice, 5u salt -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodCoxinha
+  components:
+  - type: Food
+    eatMessage: food-desc-coxinha-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: bazaarHip
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: TableSalt
+          Quantity: 5
+
+#- Rice Cake: 1 cooked rice, 5u salt -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodRiceCake
+  components:
+  - type: Food
+    eatMessage: food-desc-riceCake-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: riceCake
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: TableSalt
+          Quantity: 5
+
+#- Milk Chocolate Bar: 2u cocoa powder, 5u milk, 5u sugar (must be in separate containers else create regular choc) -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodChocolateBar
+  components:
+  - type: Appearance
+  - type: Food
+    eatMessage: food-desc-chocoBar-eat
+  - type: Sprite
+    layers:
+    - state: chocoBar
+      sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+      map: ["enum.OpenableVisuals.Layer"]
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "chocoBarOpen"}
+          False: {state: "chocoBar"}
+  - type: Openable
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: MilkChoco
+          Quantity: 10
+
+#- Pemmison: 1 radstag cutlet, 2 pinion nuts, 2 blackberies -> 10 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodPemmison
+  components:
+  - type: Food
+    eatMessage: food-desc-pemmison-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: pemmison
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: BlackberryJam
+          Quantity: 15
+        - ReagentId: Protein
+          Quantity: 2
