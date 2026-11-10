@@ -1,6 +1,8 @@
-// #Misfits Add - Code-behind for the /raid requester window. Pure UI: shows eligibility,
-// gathers the form fields, enforces a confirm-press flow on Submit, and renders the
-// player's own requests this round. Validation feedback comes from the server.
+// #Misfits Refactor - /raid requester window, rebuilt on the faction roster / recruit window layout.
+// Raids tab: approved and live raids as cards, with Join buttons during prep (like /war).
+// Declare Raid tab: target, optional location, reason with a live word count, a plain-English preview
+// of what happens next, then a two-press Submit. My requests tab: one status card per request.
+// Validation still comes from the server.
 
 using System.Linq;
 using Content.Client.UserInterface.Controls;
@@ -16,169 +18,425 @@ namespace Content.Client._Misfits.RaidRequest.UI;
 [GenerateTypedNameReferences]
 public sealed partial class RaidRequestWindow : FancyWindow
 {
-    /// <summary>(targetFactionId, locationNotes, reason)</summary>
-    public event Action<(RaidRequestTargetKind Kind, string Id), string, string>? OnSubmit;
+    public const int RaidsTab = 0;
+    public const int DeclareTab = 1;
+    public const int MyRequestsTab = 2;
 
-    private readonly List<(RaidRequestTargetKind Kind, string Display, string Id)> _targetItems = new();
+    private static readonly Color GoodColor = Color.FromHex("#7fc96b");
+    private static readonly Color BadColor = Color.FromHex("#d65a4a");
+    private static readonly Color InfoColor = Color.FromHex("#6fa8dc");
+    private static readonly Color MutedColor = Color.FromHex("#8a8a8a");
+
+    /// <summary>(target, locationNotes, reason)</summary>
+    public event Action<(RaidRequestTargetKind Kind, string Id), string, string>? OnSubmit;
+    public event Action? OnRefresh;
+    /// <summary>(requestId, side) — side 1 = raiders, 2 = defenders.</summary>
+    public event Action<int, byte>? OnJoin;
+
+    private readonly List<RaidRequestTargetInfo> _targetItems = new();
+    private bool _canSubmit;
+    private bool _individual;
     private bool _confirmPending;
 
     public RaidRequestWindow()
     {
         RobustXamlLoader.Load(this);
 
+        Tabs.SetTabTitle(RaidsTab, Loc.GetString("raid-request-tab-raids"));
+        Tabs.SetTabTitle(DeclareTab, Loc.GetString("raid-request-tab-new"));
+        Tabs.SetTabTitle(MyRequestsTab, Loc.GetString("raid-request-tab-mine"));
+
+        RefreshButton.OnPressed += _ => OnRefresh?.Invoke();
         SubmitButton.OnPressed += _ => OnSubmitPressed();
         TargetSelector.OnItemSelected += args =>
         {
             TargetSelector.SelectId(args.Id);
-            ResetConfirm();
+            RefreshForm();
         };
 
-        // Re-arm confirm whenever fields are edited so the player must re-confirm after a change.
-        ReasonEdit.OnTextChanged   += _ => ResetConfirm();
-        LocationEdit.OnTextChanged += _ => ResetConfirm();
+        // Any edit re-arms the confirm step and refreshes the preview.
+        ReasonEdit.OnTextChanged += _ => RefreshForm();
+        LocationEdit.OnTextChanged += _ => RefreshForm();
+
+        RefreshForm();
     }
+
+    public void ShowTab(int tab) => Tabs.CurrentTab = tab;
 
     public void UpdateState(RaidRequestPanelDataMsg msg)
     {
-        // Faction header
+        _canSubmit = msg.CanSubmit;
+        _individual = msg.MyFactionIsIndividualTier;
+
+        // Header: who you're raiding as.
         MyFactionLabel.Text = msg.MyFactionId == null
             ? Loc.GetString("raid-request-no-faction")
-            : msg.MyFactionDisplay + (msg.MyFactionIsIndividualTier
-                ? $" {Loc.GetString("raid-request-individual-suffix")}"
-                : "");
+            : Loc.GetString("raid-request-your-faction", ("faction", msg.MyFactionDisplay));
 
-        // Eligibility banner
+        // Sub-line: can you submit, and how decisions reach you.
         if (!msg.CanSubmit)
         {
-            EligibilityLabel.SetMarkup(
-                $"[color=#FF6655]{FormattedMessage.EscapeText(msg.IneligibleReason ?? Loc.GetString("raid-request-not-eligible"))}[/color]");
+            EligibilityLabel.Text = msg.IneligibleReason ?? Loc.GetString("raid-request-not-eligible",
+                ("faction", msg.MyFactionDisplay));
+            EligibilityLabel.FontColorOverride = BadColor;
         }
         else if (msg.MyFactionIsIndividualTier)
         {
-            EligibilityLabel.SetMarkup(
-                $"[color=#80CCFF]{FormattedMessage.EscapeText(Loc.GetString("raid-request-individual-banner"))}[/color]");
+            EligibilityLabel.Text = Loc.GetString("raid-request-individual-banner");
+            EligibilityLabel.FontColorOverride = InfoColor;
         }
         else
         {
-            EligibilityLabel.SetMarkup(string.Empty);
+            EligibilityLabel.Text = Loc.GetString("raid-request-faction-banner");
+            EligibilityLabel.FontColorOverride = GoodColor;
         }
 
-        // Target dropdown
+        // Target list, unselected until the player picks.
+        var previous = SelectedTarget();
         _targetItems.Clear();
         TargetSelector.Clear();
+        TargetSelector.AddItem(Loc.GetString("raid-request-select-target"), -1);
         foreach (var t in msg.TargetOptions)
         {
-            _targetItems.Add((t.Kind, t.DisplayName, t.Id));
-            TargetSelector.AddItem(t.DisplayName);
+            _targetItems.Add(t);
+            TargetSelector.AddItem(t.DisplayName, _targetItems.Count - 1);
         }
 
-        // Disable submit if no targets or not eligible.
-        var canEnable = msg.CanSubmit && _targetItems.Count > 0;
-        SubmitButton.Disabled    = !canEnable;
-        TargetSelector.Disabled  = !canEnable;
-        LocationEdit.Editable    = canEnable;
-        ReasonEdit.Editable      = canEnable;
-        ResetConfirm();
+        // Keep the player's pick across refreshes if the target is still offered.
+        var keep = previous == null
+            ? -1
+            : _targetItems.FindIndex(t => t.Kind == previous.Kind && t.Id == previous.Id);
+        TargetSelector.SelectId(keep);
 
-        // My requests list
-        MyRequestsContainer.RemoveAllChildren();
-        if (msg.MyRequests.Count == 0)
-        {
-            MyRequestsContainer.AddChild(new Label
-            {
-                Text = Loc.GetString("raid-request-no-my-requests"),
-                FontColorOverride = Color.Gray,
-                Margin = new Thickness(4, 2),
-            });
-        }
-        else
-        {
-            foreach (var req in msg.MyRequests.OrderByDescending(r => r.Id))
-                MyRequestsContainer.AddChild(BuildMyRequestRow(req));
-        }
-
-        ClearResult();
+        RebuildMyRequests(msg.MyRequests);
+        RebuildOpenRaids(msg.OpenRaids);
+        RefreshForm();
     }
 
     public void ShowResult(bool success, string message)
     {
-        var color = success ? "#32CD32" : "#FF4500";
-        ResultLabel.SetMarkup($"[color={color}]{FormattedMessage.EscapeText(message)}[/color]");
+        ResultLabel.Visible = !string.IsNullOrWhiteSpace(message);
+        ResultLabel.Text = message;
+        ResultLabel.FontColorOverride = success ? GoodColor : BadColor;
     }
 
-    private void ClearResult() => ResultLabel.SetMarkup(string.Empty);
+    /// <summary>Clear the form after a successful submit.</summary>
+    public void ResetForm()
+    {
+        ReasonEdit.Text = string.Empty;
+        LocationEdit.Text = string.Empty;
+        TargetSelector.SelectId(-1);
+        RefreshForm();
+    }
+
+    #region Declare Raid
+
+    private RaidRequestTargetInfo? SelectedTarget()
+    {
+        var idx = TargetSelector.SelectedId;
+        return idx >= 0 && idx < _targetItems.Count ? _targetItems[idx] : null;
+    }
+
+    private void RefreshForm()
+    {
+        _confirmPending = false;
+        SubmitButton.Text = Loc.GetString("raid-request-submit-button");
+
+        var target = SelectedTarget();
+        var reason = ReasonEdit.Text.Trim();
+        var words = reason.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length;
+        var reasonOk = words >= RaidRequestConfig.MinReasonWords;
+
+        ReasonCounterLabel.Text = Loc.GetString("raid-request-reason-counter",
+            ("count", words), ("min", RaidRequestConfig.MinReasonWords));
+        ReasonCounterLabel.FontColorOverride = reasonOk ? GoodColor : MutedColor;
+
+        var editable = _canSubmit && _targetItems.Count > 0;
+        TargetSelector.Disabled = !editable;
+        LocationEdit.Editable = editable;
+        ReasonEdit.Editable = editable;
+
+        string preview;
+        if (!_canSubmit)
+            preview = Loc.GetString("raid-request-preview-ineligible");
+        else if (_targetItems.Count == 0)
+            preview = Loc.GetString("raid-request-preview-no-targets");
+        else if (target == null)
+            preview = Loc.GetString("raid-request-preview-pick-target");
+        else if (!reasonOk)
+            preview = Loc.GetString("raid-request-preview-need-reason",
+                ("target", FormattedMessage.EscapeText(target.DisplayName)),
+                ("min", RaidRequestConfig.MinReasonWords));
+        else
+        {
+            var location = LocationEdit.Text.Trim();
+            preview = Loc.GetString("raid-request-preview-ready",
+                ("target", FormattedMessage.EscapeText(target.DisplayName)),
+                ("location", FormattedMessage.EscapeText(location.Length == 0
+                    ? Loc.GetString("raid-request-peer-location-unset")
+                    : location)),
+                ("reason", FormattedMessage.EscapeText(reason)));
+        }
+
+        PreviewLabel.SetMarkup(preview);
+        ProcessLabel.SetMarkup(Loc.GetString(_individual
+            ? "raid-request-process-individual"
+            : "raid-request-process-faction"));
+
+        SubmitButton.Disabled = !editable || target == null || !reasonOk;
+    }
 
     private void OnSubmitPressed()
     {
-        if (_targetItems.Count == 0)
+        if (SubmitButton.Disabled || SelectedTarget() is not { } target)
             return;
-        var idx = TargetSelector.SelectedId;
-        if (idx < 0 || idx >= _targetItems.Count)
-            return;
-
-        var reason = ReasonEdit.Text.Trim();
-        if (reason.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length < RaidRequestConfig.MinReasonWords)
-        {
-            ShowResult(false, Loc.GetString("raid-request-reason-too-short",
-                ("min", RaidRequestConfig.MinReasonWords)));
-            return;
-        }
 
         if (!_confirmPending)
         {
             _confirmPending = true;
-            SubmitButton.Text     = Loc.GetString("raid-request-submit-confirm");
-            SubmitButton.Modulate = Color.OrangeRed;
+            SubmitButton.Text = Loc.GetString("raid-request-submit-confirm");
             ShowResult(false, Loc.GetString("raid-request-confirm-prompt"));
             return;
         }
 
-        var target = _targetItems[idx];
-        var location = LocationEdit.Text.Trim();
-        OnSubmit?.Invoke((target.Kind, target.Id), location, reason);
-        ResetConfirm();
+        OnSubmit?.Invoke((target.Kind, target.Id), LocationEdit.Text.Trim(), ReasonEdit.Text.Trim());
+        RefreshForm();
     }
 
-    private void ResetConfirm()
-    {
-        _confirmPending = false;
-        SubmitButton.Text     = Loc.GetString("raid-request-submit-button");
-        SubmitButton.Modulate = Color.White;
-    }
+    #endregion
 
-    private static Control BuildMyRequestRow(RaidRequestEntry req)
+    #region Raids
+
+    private void RebuildOpenRaids(List<RaidJoinInfo> raids)
     {
-        var statusColor = req.Status switch
+        OpenRaidsContainer.RemoveAllChildren();
+
+        Tabs.SetTabTitle(RaidsTab, raids.Count == 0
+            ? Loc.GetString("raid-request-tab-raids")
+            : Loc.GetString("raid-request-tab-raids-count", ("count", raids.Count)));
+
+        if (raids.Count == 0)
         {
-            RaidRequestStatus.Pending   => "#FFAA00",
-            RaidRequestStatus.Approved  => "#A8E060", // #Misfits Tweak - prep phase (5-min countdown to Active).
-            RaidRequestStatus.Active    => "#3CFF40", // #Misfits Add - overlay live; engagement window open.
-            RaidRequestStatus.Denied    => "#FF4040",
-            RaidRequestStatus.Unclaimed => "#888888",
-            RaidRequestStatus.Concluded => "#7B68EE", // #Misfits Add - matches admin panel slate-blue.
-            _                           => "#FFFFFF",
+            OpenRaidsContainer.AddChild(new Label
+            {
+                Text = Loc.GetString("raid-request-no-open-raids"),
+                StyleClasses = { "LabelSubText" },
+                Margin = new Thickness(4, 2),
+            });
+            return;
+        }
+
+        // Your own raid first, then joinable ones, then the rest.
+        foreach (var raid in raids
+                     .OrderByDescending(r => r.MySide != 0)
+                     .ThenByDescending(r => r.CanJoin)
+                     .ThenBy(r => r.Entry.Id))
+        {
+            OpenRaidsContainer.AddChild(BuildRaidCard(raid));
+        }
+    }
+
+    private Control BuildRaidCard(RaidJoinInfo raid)
+    {
+        var entry = raid.Entry;
+        var (statusText, statusColor, _) = StatusInfo(entry.Status);
+
+        var panel = new PanelContainer { StyleClasses = { "BackgroundDark" } };
+        var body = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            SeparationOverride = 4,
+            Margin = new Thickness(6, 4),
         };
-        var box = new BoxContainer
+        panel.AddChild(body);
+
+        var title = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal };
+        title.AddChild(new Label
+        {
+            Text = Loc.GetString("raid-request-raid-card-title",
+                ("id", entry.Id), ("raiders", raid.RaiderSideName), ("defenders", raid.DefenderSideName)),
+            HorizontalExpand = true,
+            ClipText = true,
+        });
+        title.AddChild(new Label { Text = statusText, FontColorOverride = statusColor });
+        body.AddChild(title);
+
+        if (!string.IsNullOrWhiteSpace(entry.LocationNotes))
+        {
+            body.AddChild(new Label
+            {
+                Text = Loc.GetString("raid-request-card-location", ("location", entry.LocationNotes)),
+                StyleClasses = { "LabelSubText" },
+                ClipText = true,
+            });
+        }
+
+        var reason = new RichTextLabel { HorizontalExpand = true };
+        reason.SetMarkup($"[color=#aaaaaa][italic]\"{FormattedMessage.EscapeText(entry.Reason)}\"[/italic][/color]");
+        body.AddChild(reason);
+
+        var sides = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            SeparationOverride = 8,
+        };
+        sides.AddChild(BuildRaidSide(raid, 1, raid.RaiderSideName, raid.RaiderVolunteers));
+        sides.AddChild(BuildRaidSide(raid, 2, raid.DefenderSideName, raid.DefenderVolunteers));
+        body.AddChild(sides);
+
+        if (!raid.CanJoin && raid.MySide == 0 && !string.IsNullOrWhiteSpace(raid.CannotJoinReason))
+        {
+            body.AddChild(new Label
+            {
+                Text = raid.CannotJoinReason,
+                StyleClasses = { "LabelSubText" },
+                FontColorOverride = MutedColor,
+            });
+        }
+
+        return panel;
+    }
+
+    private Control BuildRaidSide(RaidJoinInfo raid, byte side, string name, int volunteers)
+    {
+        var column = new BoxContainer
         {
             Orientation = BoxContainer.LayoutOrientation.Vertical,
             HorizontalExpand = true,
-            Margin = new Thickness(4, 2),
         };
-        var headerLabel = new RichTextLabel { HorizontalExpand = true };
-        headerLabel.SetMarkup(
-            $"[color={statusColor}][bold]#{req.Id} {req.Status.ToString().ToUpperInvariant()}[/bold][/color] " +
-            $"[color=#CCCCCC]→ {FormattedMessage.EscapeText(GetTargetDisplayName(req))}[/color]");
-        box.AddChild(headerLabel);
+
+        var mine = raid.MySide == side;
+        column.AddChild(new Label
+        {
+            Text = Loc.GetString(side == 1 ? "raid-request-side-raiders" : "raid-request-side-defenders",
+                ("name", name)),
+            FontColorOverride = mine ? GoodColor : null,
+            ClipText = true,
+        });
+
+        column.AddChild(new Label
+        {
+            Text = mine
+                ? Loc.GetString(raid.MySideIsVolunteer
+                    ? "raid-request-side-you-volunteer"
+                    : "raid-request-side-you-member", ("count", volunteers))
+                : Loc.GetString("raid-request-side-volunteers", ("count", volunteers)),
+            StyleClasses = { "LabelSubText" },
+        });
+
+        if (raid.CanJoin)
+        {
+            var join = new ConfirmButton
+            {
+                Text = Loc.GetString("raid-request-join-button", ("name", name)),
+                ConfirmationText = Loc.GetString("raid-request-join-confirm"),
+                ClipText = true,
+                HorizontalExpand = true,
+                ToolTip = Loc.GetString("raid-request-join-tooltip"),
+            };
+            var id = raid.Entry.Id;
+            join.OnPressed += _ => OnJoin?.Invoke(id, side);
+            column.AddChild(join);
+        }
+
+        return column;
+    }
+
+    #endregion
+
+    #region My requests
+
+    private void RebuildMyRequests(List<RaidRequestEntry> requests)
+    {
+        MyRequestsContainer.RemoveAllChildren();
+
+        var open = requests.Count(r => r.Status is RaidRequestStatus.Pending
+            or RaidRequestStatus.Approved or RaidRequestStatus.Active);
+        Tabs.SetTabTitle(MyRequestsTab, open == 0
+            ? Loc.GetString("raid-request-tab-mine")
+            : Loc.GetString("raid-request-tab-mine-count", ("count", open)));
+
+        if (requests.Count == 0)
+        {
+            MyRequestsContainer.AddChild(new Label
+            {
+                Text = Loc.GetString("raid-request-no-my-requests"),
+                StyleClasses = { "LabelSubText" },
+                Margin = new Thickness(4, 2),
+            });
+            return;
+        }
+
+        foreach (var req in requests.OrderByDescending(r => r.Id))
+            MyRequestsContainer.AddChild(BuildRequestCard(req));
+    }
+
+    private static Control BuildRequestCard(RaidRequestEntry req)
+    {
+        var (statusText, statusColor, statusHint) = StatusInfo(req.Status);
+
+        var panel = new PanelContainer { StyleClasses = { "BackgroundDark" } };
+        var body = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            SeparationOverride = 2,
+            Margin = new Thickness(6, 4),
+        };
+        panel.AddChild(body);
+
+        var title = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal };
+        title.AddChild(new Label
+        {
+            Text = Loc.GetString("raid-request-card-title", ("id", req.Id), ("target", GetTargetDisplayName(req))),
+            HorizontalExpand = true,
+            ClipText = true,
+        });
+        title.AddChild(new Label { Text = statusText, FontColorOverride = statusColor });
+        body.AddChild(title);
+
+        body.AddChild(new Label { Text = statusHint, StyleClasses = { "LabelSubText" } });
+
+        if (!string.IsNullOrWhiteSpace(req.LocationNotes))
+        {
+            body.AddChild(new Label
+            {
+                Text = Loc.GetString("raid-request-card-location", ("location", req.LocationNotes)),
+                StyleClasses = { "LabelSubText" },
+                ClipText = true,
+            });
+        }
+
+        var reason = new RichTextLabel { HorizontalExpand = true };
+        reason.SetMarkup($"[color=#aaaaaa][italic]\"{FormattedMessage.EscapeText(req.Reason)}\"[/italic][/color]");
+        body.AddChild(reason);
 
         if (!string.IsNullOrWhiteSpace(req.AdminComment))
         {
-            var commentLabel = new RichTextLabel { HorizontalExpand = true };
-            commentLabel.SetMarkup(
-                $"[italic][color=#AAAAAA]{FormattedMessage.EscapeText("Admin: " + (req.AdminUserName ?? "?") + " — " + req.AdminComment)}[/color][/italic]");
-            box.AddChild(commentLabel);
+            var comment = new RichTextLabel { HorizontalExpand = true };
+            comment.SetMarkup(
+                $"[color=#d6b85a]{FormattedMessage.EscapeText(Loc.GetString("raid-request-card-decided-by", ("name", req.AdminUserName ?? "?")))}[/color] " +
+                $"[color=#cccccc]{FormattedMessage.EscapeText(req.AdminComment)}[/color]");
+            body.AddChild(comment);
         }
-        return box;
+
+        return panel;
     }
+
+    private static (string Text, Color Color, string Hint) StatusInfo(RaidRequestStatus status) => status switch
+    {
+        RaidRequestStatus.Pending => (Loc.GetString("raid-request-status-pending"), Color.FromHex("#ffaa00"),
+            Loc.GetString("raid-request-status-pending-hint")),
+        RaidRequestStatus.Approved => (Loc.GetString("raid-request-status-approved"), Color.FromHex("#a8e060"),
+            Loc.GetString("raid-request-status-approved-hint")),
+        RaidRequestStatus.Active => (Loc.GetString("raid-request-status-active"), Color.FromHex("#3cff40"),
+            Loc.GetString("raid-request-status-active-hint")),
+        RaidRequestStatus.Denied => (Loc.GetString("raid-request-status-denied"), Color.FromHex("#ff4040"),
+            Loc.GetString("raid-request-status-denied-hint")),
+        RaidRequestStatus.Concluded => (Loc.GetString("raid-request-status-concluded"), Color.FromHex("#7b68ee"),
+            Loc.GetString("raid-request-status-concluded-hint")),
+        _ => (Loc.GetString("raid-request-status-unclaimed"), Color.FromHex("#888888"),
+            Loc.GetString("raid-request-status-unclaimed-hint")),
+    };
 
     private static string GetTargetDisplayName(RaidRequestEntry req)
     {
@@ -189,4 +447,6 @@ public sealed partial class RaidRequestWindow : FancyWindow
             ? RaidRequestConfig.FactionDisplayName(req.TargetId)
             : $"Group {req.TargetId}";
     }
+
+    #endregion
 }

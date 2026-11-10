@@ -12884,3 +12884,72 @@ Entries:
   id: 6562
   time: '2026-11-08T02:48:49.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2165
+- author: hobolyra
+  changes:
+    - type: Add
+      message: Whitelisted Vault Manager role
+  id: 6563
+  time: '2026-11-08T17:20:36.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2159
+- author: cythisiax
+  changes:
+    - type: Tweak
+      message: /war BUI update and code fixes - /warjoin opens same GUI
+    - type: Tweak
+      message: '/raid BUI update and code fixes - /raidjoin opens same GUI. '
+    - type: Add
+      message: /factionmotd for faction leaders to set faction motd.
+    - type: Fix
+      message: >-
+        Enclave Officers cannot remove from faction, only Enclave Commander can
+        remove from faction.
+    - type: Tweak
+      message: >-
+        Enclave Commander can only be promoted via a Reformer for future
+        non-WL/timeholders.
+    - type: Fix
+      message: >-
+        Ranger Lead cannot remove from faction, only Chief Ranger can remove
+        from faction.
+    - type: Tweak
+      message: >-
+        Ranger Lead can only be promoted via Chief Ranger+ for future
+        non-WL/timeholders.
+    - type: Tweak
+      message: >-
+        GUI for faction mngment only shows online members, no longer offline
+        members.
+  id: 6564
+  time: '2026-11-08T23:27:03.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2172
+- author: Enkidienne
+  changes:
+    - type: Add
+      message: Added MOTD+polls
+  id: 6565
+  time: '2026-11-09T19:30:12.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2147
+- author: Davisrocket
+  changes:
+    - type: Add
+      message: New explosion type for incinerator
+    - type: Add
+      message: >-
+        Added incinerator, flamer, cryolator, and crystalizing cryolator with
+        fully custom sprites
+    - type: Add
+      message: >-
+        Added custom ammo, custom morphing projectiles, and made a small balance
+        on making the weapons functional
+  id: 6566
+  time: '2026-11-09T19:34:17.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2142
+- author: Tupi213
+  changes:
+    - type: Add
+      message: >-
+        gave the ripper and gorehew a smol buff to their damage, should work
+        more as a breaching tool.
+  id: 6567
+  time: '2026-11-10T00:07:08.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2136
