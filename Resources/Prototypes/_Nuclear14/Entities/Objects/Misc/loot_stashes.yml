@@ -263,7 +263,16 @@
       - id: FoodMeatRedfishCooked
         prob: 0.25
         orGroup: StashFood1
-      - id: FoodSnackProteinBar
+      - id: FoodSnackSemki
+        prob: 0.10
+        orGroup: StashFood1
+      - id: FoodSnackChocolateBar
+        prob: 0.10
+        orGroup: StashFood1
+      - id: FoodSnackEnergy
+        prob: 0.10
+        orGroup: StashFood1
+      - id: FoodSnackProteinbar
         prob: 0.10
         orGroup: StashFood1
       - id: N14FoodCondimentPacketProtein
