@@ -24,6 +24,7 @@ public sealed class SprayPainterBoundUserInterface : BoundUserInterface
 
         _window.OnSpritePicked = OnSpritePicked;
         _window.OnColorPicked = OnColorPicked;
+        _window.OnCustomColorChanged = OnCustomColorChanged;
         _window.OnDecalPicked = OnDecalPicked;
         _window.OnDecalColorChanged = OnDecalColorChanged;
         _window.OnDecalAngleChanged = OnDecalAngleChanged;
@@ -41,6 +42,7 @@ public sealed class SprayPainterBoundUserInterface : BoundUserInterface
 
         var system = EntMan.System<SprayPainterSystem>();
         _window.Populate(system.Entries, comp.Index, comp.PickedColor, comp.ColorPalette);
+        _window.SetCustomPipeColor(comp.PickedCustomColor);
         _window.PopulateDecals(system.Decals);
         _window.SetSelectedDecal(comp.SelectedDecal);
         _window.SetDecalColor(comp.SelectedDecalColor);
@@ -60,6 +62,9 @@ public sealed class SprayPainterBoundUserInterface : BoundUserInterface
         var key = _window?.IndexToColorKey(args.ItemIndex);
         SendMessage(new SprayPainterColorPickedMessage(key));
     }
+
+    private void OnCustomColorChanged(Color color) =>
+        SendMessage(new SprayPainterSetCustomColorMessage(color));
 
     private void OnDecalPicked(ProtoId<DecalPrototype> decal) =>
         SendMessage(new SprayPainterSetDecalMessage(decal));

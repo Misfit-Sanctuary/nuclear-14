@@ -4,6 +4,7 @@
 // When no solution container is present (standalone GraffitiSprayCan), the charge counter is used instead.
 
 using Content.Server.Decals;
+using Content.Server.Paint;
 using Content.Shared._Misfits.GraffitiSprayCan;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.DoAfter;
@@ -26,6 +27,7 @@ public sealed class GraffitiSprayCanSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly OpenableSystem _openable = default!;
+    [Dependency] private readonly PaintSystem _paint = default!;
 
     public override void Initialize()
     {
@@ -40,6 +42,7 @@ public sealed class GraffitiSprayCanSystem : EntitySystem
         Subs.BuiEvents<GraffitiSprayCanComponent>(GraffitiSprayCanUiKey.Key, subs =>
         {
             subs.Event<GraffitiDecalSelectedMessage>(OnDecalSelected);
+            subs.Event<GraffitiColorSelectedMessage>(OnColorSelected);
         });
     }
 
@@ -50,6 +53,13 @@ public sealed class GraffitiSprayCanSystem : EntitySystem
     {
         ent.Comp.SelectedDecalId = args.DecalId;
         Dirty(ent);
+    }
+
+    // Repaints the can itself: PaintComponent.Color is what object painting, graffiti and the sprite all read.
+    private void OnColorSelected(Entity<GraffitiSprayCanComponent> ent, ref GraffitiColorSelectedMessage args)
+    {
+        if (TryComp<PaintComponent>(ent.Owner, out var paint))
+            _paint.SetColor(ent.Owner, paint, args.Color);
     }
 
     /// <summary>
@@ -165,8 +175,9 @@ public sealed class GraffitiSprayCanSystem : EntitySystem
             MathF.Round(coordinates.Y - 0.5f, MidpointRounding.AwayFromZero) + 0.5f);
         coordinates = coordinates.WithPosition(snapped);
 
-        // Place the decal as cleanable so janitors can remove it
-        if (!_decals.TryAddDecal(args.DecalId, coordinates, out _, cleanable: true))
+        // Tags come out in the can's own paint colour, and stay cleanable so janitors can remove them
+        var decalColor = TryComp<PaintComponent>(ent.Owner, out var canPaint) ? canPaint.Color : (Color?) null;
+        if (!_decals.TryAddDecal(args.DecalId, coordinates, out _, decalColor, cleanable: true))
         {
             _popup.PopupEntity(Loc.GetString("graffiti-spray-can-cant-place"), args.Args.User, args.Args.User);
             return;

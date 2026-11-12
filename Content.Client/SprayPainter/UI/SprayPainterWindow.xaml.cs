@@ -18,6 +18,7 @@ public sealed partial class SprayPainterWindow : DefaultWindow
 
     public Action<ItemList.ItemListSelectedEventArgs>? OnSpritePicked;
     public Action<ItemList.ItemListSelectedEventArgs>? OnColorPicked;
+    public Action<Color>? OnCustomColorChanged;
     public Action<ProtoId<DecalPrototype>>? OnDecalPicked;
     public Action<Color?>? OnDecalColorChanged;
     public Action<int>? OnDecalAngleChanged;
@@ -46,6 +47,8 @@ public sealed partial class SprayPainterWindow : DefaultWindow
         DecalControls.OnSnapChanged += snap => OnDecalSnapChanged?.Invoke(snap);
         DecalControls.OnColorPickerToggled += toggle => OnDecalColorPickerToggled?.Invoke(toggle);
         DecalControls.OnModeChanged += mode => OnDecalModeChanged?.Invoke(mode);
+
+        CustomColorSelector.OnColorChanged += color => OnCustomColorChanged?.Invoke(color.WithAlpha(1f));
     }
 
     private static string GetColorLocString(string? colorKey)
@@ -97,17 +100,33 @@ public sealed partial class SprayPainterWindow : DefaultWindow
 
         // Disable event so we don't send a new event for pre-selectedStyle entry and end up in a loop
 
-        if (selectedColorKey != null)
+        if (selectedColorKey != null && ItemColorIndex.TryGetValue(selectedColorKey, out var index))
         {
-            var index = ItemColorIndex[selectedColorKey];
             ColorList.OnItemSelected -= OnColorPicked;
             ColorList[index].Selected = true;
             ColorList.OnItemSelected += OnColorPicked;
+
+            if (palette.TryGetValue(selectedColorKey, out var paletteColor))
+                SetCustomPipeColor(paletteColor);
+        }
+        else
+        {
+            ColorList.ClearSelected();
         }
 
         SpriteList.OnItemSelected -= OnSpritePicked;
         SpriteList[selectedStyle].Selected = true;
         SpriteList.OnItemSelected += OnSpritePicked;
+    }
+
+    public void SetCustomPipeColor(Color? color)
+    {
+        if (color == null)
+            return;
+
+        var opaque = color.Value.WithAlpha(1f);
+        if (opaque != CustomColorSelector.Color)
+            CustomColorSelector.Color = opaque;
     }
 
     public void PopulateDecals(List<SprayPainterDecalEntry> decals) =>
