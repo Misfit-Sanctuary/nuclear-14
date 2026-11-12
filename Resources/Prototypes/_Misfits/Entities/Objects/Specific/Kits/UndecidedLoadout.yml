@@ -139,48 +139,48 @@
 
 # tribal shaman kits
 
-- type: entity
-  id: TribalHealerLoadoutKits
-  name: kit
-  description: "please only take one."
-  parent: Triballoadoutkits
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Objects/Misc/kits.rsi
-    state: base
-  - type: UndecidedLoadoutBackpack
-    possibleSets:
-    - TribalHealerStingerSet
-    - TribalHealerRootSet
-    - TribalHealerShroomSet
-
-
-- type: UndecidedLoadoutBackpackSet
-  id: TribalHealerStingerSet
-  name: undecided-loadout-category-misfits-shaman-stinger-name
-  description: undecided-loadout-category-misfits-shaman-stinger-desc
-  sprite:
-    sprite: _Nuclear14/Objects/Misc/kits.rsi
-    state: base
-  content:
-  - KitTribalHealerStinger
-
-- type: UndecidedLoadoutBackpackSet
-  id: TribalHealerRootSet
-  name: undecided-loadout-category-misfits-shaman-root-name
-  description: undecided-loadout-category-misfits-shaman-root-desc
-  sprite:
-    sprite: _Nuclear14/Objects/Misc/kits.rsi
-    state: base
-  content:
-  - KitTribalHealerRoot
-
-- type: UndecidedLoadoutBackpackSet
-  id: TribalHealerShroomSet
-  name: undecided-loadout-category-misfits-shaman-shroom-name
-  description: undecided-loadout-category-misfits-shaman-shroom-desc
-  sprite:
-    sprite: _Nuclear14/Objects/Misc/kits.rsi
-    state: base
-  content:
-  - KitTribalHealerShroom
+  - type: entity
+    id: TribalHealerLoadoutKits
+    name: kit
+    description: "please only take one."
+    parent: Triballoadoutkits
+    components:
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Misc/kits.rsi
+      state: base
+    - type: UndecidedLoadoutBackpack
+      possibleSets:
+      - TribalHealerStingerSet
+      - TribalHealerRootSet
+      - TribalHealerShroomSet
+  
+  
+  - type: UndecidedLoadoutBackpackSet
+    id: TribalHealerStingerSet
+    name: undecided-loadout-category-misfits-shaman-stinger-name
+    description: undecided-loadout-category-misfits-shaman-stinger-desc
+    sprite:
+      sprite: _Nuclear14/Objects/Misc/kits.rsi
+      state: base
+    content:
+    - KitTribalHealerStinger
+  
+  - type: UndecidedLoadoutBackpackSet
+    id: TribalHealerRootSet
+    name: undecided-loadout-category-misfits-shaman-root-name
+    description: undecided-loadout-category-misfits-shaman-root-desc
+    sprite:
+      sprite: _Nuclear14/Objects/Misc/kits.rsi
+      state: base
+    content:
+    - KitTribalHealerRoot
+  
+  - type: UndecidedLoadoutBackpackSet
+    id: TribalHealerShroomSet
+    name: undecided-loadout-category-misfits-shaman-shroom-name
+    description: undecided-loadout-category-misfits-shaman-shroom-desc
+    sprite:
+      sprite: _Nuclear14/Objects/Misc/kits.rsi
+      state: base
+    content:
+    - KitTribalHealerShroom
