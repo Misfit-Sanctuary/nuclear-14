@@ -138,11 +138,9 @@
   - KitTempleGuardExecutor
 
 # tribal shaman kits
-
 - type: entity
   id: TribalHealerLoadoutKits
-  name: kit
-  description: "please only take one."
+  name: Undecided Shaman Loadout Kit
   parent: BaseLoadoutKit
   components:
   - type: Sprite
