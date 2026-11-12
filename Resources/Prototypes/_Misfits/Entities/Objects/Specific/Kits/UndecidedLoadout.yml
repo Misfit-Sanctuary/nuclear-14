@@ -139,21 +139,20 @@
 
 # tribal shaman kits
 
-  - type: entity
-    id: TribalHealerLoadoutKits
-    name: kit
-    description: "please only take one."
-    parent: Triballoadoutkits
-    components:
-    - type: Sprite
-      sprite: _Nuclear14/Objects/Misc/kits.rsi
-      state: base
-    - type: UndecidedLoadoutBackpack
-      possibleSets:
-      - TribalHealerStingerSet
-      - TribalHealerRootSet
-      - TribalHealerShroomSet
-  
+- type: entity
+  id: TribalHealerLoadoutKits
+  name: kit
+  description: "please only take one."
+  parent: Triballoadoutkits
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: base
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - TribalHealerStingerSet
+    - TribalHealerRootSet
+    - TribalHealerShroomSet
   
   - type: UndecidedLoadoutBackpackSet
     id: TribalHealerStingerSet
