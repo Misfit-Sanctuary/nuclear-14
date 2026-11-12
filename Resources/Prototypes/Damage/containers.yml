@@ -20,6 +20,7 @@
   id: StructuralInorganic
   supportedGroups:
   - Brute
+  - InternalMechanical # misfits add: special armor bypass dmg for mechanical type things ie robots, vehicles ect
   supportedTypes:
   - Heat
   - Shock
@@ -29,6 +30,7 @@
   id: Silicon
   supportedGroups:
     - Brute
+    - InternalMechanical # misfits add: special armor bypass dmg for mechanical type things ie robots, vehicles ect
   supportedTypes:
     - Heat
     - Shock

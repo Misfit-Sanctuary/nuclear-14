@@ -246,6 +246,9 @@ namespace Content.Shared.Containers.ItemSlots
             bool? inserted = slot.ContainerSlot != null ? _containers.Insert(item, slot.ContainerSlot) : null;
             // ContainerSlot automatically raises a directed EntInsertedIntoContainerMessage
 
+            // Misfits add slotEv:  removes boiler plate from checking if any entInserted is relevant to slot
+            var insertEv = new ItemSlotInsertedEvent(uid, item, user,slot);
+            RaiseLocalEvent(uid, ref insertEv);
             // Logging
             if (inserted != null && inserted.Value && user != null)
                 _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user.Value)} inserted {ToPrettyString(item)} into {slot.ContainerSlot?.ID + " slot of "}{ToPrettyString(uid)}");
@@ -384,7 +387,9 @@ namespace Content.Shared.Containers.ItemSlots
         {
             bool? ejected = slot.ContainerSlot != null ? _containers.Remove(item, slot.ContainerSlot) : null;
             // ContainerSlot automatically raises a directed EntRemovedFromContainerMessage
-
+            // Misfits add ejectEv:  removes boiler plate from checking if any removed ent is relevant to slot
+            var ejectEv = new ItemSlotEjectedEvent(uid, item, user,slot);
+            RaiseLocalEvent(uid, ref ejectEv);
             // Logging
             if (ejected != null && ejected.Value && user != null)
                 _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user.Value)} ejected {ToPrettyString(item)} from {slot.ContainerSlot?.ID + " slot of "}{ToPrettyString(uid)}");

@@ -3,18 +3,13 @@ using Content.Shared.Buckle.Components;
 
 namespace Content.Shared._Misfits.Buckle;
 
-public sealed class DirectionalBuckleOffsetSystem : EntitySystem
+public sealed partial class DirectionalBuckleOffsetSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-
-    private EntityQuery<TransformComponent> _xformQuery;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        _xformQuery = GetEntityQuery<TransformComponent>();
-
         SubscribeLocalEvent<DirectionalBuckleOffsetComponent, StrappedEvent>(OnStrapped);
         SubscribeLocalEvent<DirectionalBuckleOffsetComponent, MoveEvent>(OnMove);
     }
@@ -34,24 +29,21 @@ public sealed class DirectionalBuckleOffsetSystem : EntitySystem
 
         var offset = GetLocalOffset(ent.Comp, args.NewRotation);
         foreach (var buckled in strap.BuckledEntities)
-        {
             SnapToOffset(ent, buckled, offset);
-        }
+
     }
 
     public void SnapToOffset(EntityUid strap, EntityUid buckled, Vector2 offset)
     {
-        if (!_xformQuery.TryComp(buckled, out var xform) || xform.ParentUid != strap)
-            return;
-
-        if (!xform.LocalPosition.EqualsApprox(offset))
-            _transform.SetLocalPositionNoLerp(buckled, offset, xform);
+        _transform.SetLocalPositionNoLerp(buckled, offset);
+        Transform(buckled).ActivelyLerping = false;
     }
 
-    // because they are parented
+    /// <summary>
+    ///
+    /// </summary>
     public static Vector2 GetLocalOffset(DirectionalBuckleOffsetComponent comp, Angle strapRotation)
     {
-        var offset = comp.Offsets.GetValueOrDefault(SpriteFacing.GetCardinalDir(strapRotation), Vector2.Zero);
-        return (-strapRotation).RotateVec(offset);
+        return comp.Offsets.GetValueOrDefault(SpriteFacing.GetCardinalDir(strapRotation), Vector2.Zero);
     }
 }

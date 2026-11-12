@@ -32,12 +32,19 @@ public sealed partial class ExtraReachSystem : EntitySystem
         args.Handled = args.InRange;
 
     }
+    /// <summary>
+    /// override range where we check if range reaches in terms of
+    /// touching the entity's top parent so up to but not including the map.
+    /// ex) check to access a bag on a big horse.
+    ///    Allow access if you can reach/touch the horse which would be the bag's parent
+    /// </summary>
     private const float TOLERANCE = 0.1f;
     private void OnParentAccessRange(Entity<AccessByParentComponent> ent, ref InRangeOverrideEvent args)
     {
         if (args.Handled)
             return;
         // this function is awsome glad I found it
+        // function already does map based coordinates so it is by parent already
         _physics.TryGetNearest(ent.Owner, args.User, out var _, out var _, out float distance);
         // tolerance because of floating point error
         args.InRange = distance <= args.Range + TOLERANCE;

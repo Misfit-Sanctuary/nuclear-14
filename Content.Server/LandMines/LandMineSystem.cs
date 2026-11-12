@@ -79,9 +79,10 @@ public sealed class LandMineSystem : EntitySystem
     // #Misfits Tweak - only allow trigger when armed; disarmed mines are inert
     private void HandleStepTriggerAttempt(EntityUid uid, LandMineComponent component, ref StepTriggerAttemptEvent args)
     {
+        // TODO: change to be more general, like crates or pullables
         args.Continue = component.Armed &&
                         (!component.HeavyTargetsOnly ||
-                         HasComp<MotorbikeComponent>(args.Tripper) ||
+                         HasComp<VehicleComponent>(args.Tripper) ||
                          HasComp<PowerArmorWornComponent>(args.Tripper));
     }
 

@@ -25,42 +25,38 @@ public sealed class VehicleSystem : SharedVehicleSystem
         SubscribeLocalEvent<VehicleComponent, MoveEvent>(OnMove);
     }
 
-    public override void Update(float frameTime)
+    protected override void OnStrapSetAnimate(Entity<VehicleComponent> ent)
     {
-        base.Update(frameTime);
-
-        var burning = EntityQueryEnumerator<MotorbikeComponent, SpriteComponent>();
-        while (burning.MoveNext(out var uid, out var motorbike, out var sprite))
-        {
-            if (!motorbike.Burning)
-                continue;
-
-            var flashRed = ((int) (_timing.CurTime.TotalSeconds * 5)) % 2 == 0;
-            sprite.LayerSetColor(0, flashRed ? Color.Red : Color.White);
-        }
+        _sprite.LayerSetAutoAnimated(ent.Owner, VehicleVisualLayers.AutoAnimate, true);
     }
 
+    protected override void OnUnstrapSetAnimate(Entity<VehicleComponent> ent)
+    {
+        _sprite.LayerSetAutoAnimated(ent.Owner, VehicleVisualLayers.AutoAnimate, false);
+    }
+
+// LayerSetAutoAnimated(ent, VehicleVisualLayers.AutoAnimate, true);
     private void OnAppearanceChange(Entity<VehicleComponent> ent, ref AppearanceChangeEvent args)
     {
-        if (args.Sprite == null
-            || !_appearance.TryGetData(ent, VehicleState.Animated, out bool animated)
-            || !TryComp<SpriteComponent>(ent, out var spriteComp))
-            return;
+        // if (args.Sprite == null
+        //     || !_appearance.TryGetData(ent, VehicleState.Animated, out bool animated)
+        //     || !TryComp<SpriteComponent>(ent, out var spriteComp))
+        //     return;
+        //
+        // SpritePos(ent);
+        //
+        // if(!_sprite.TryGetLayer((ent,spriteComp),0,out var layer, false))
+        //     return;
+        //
+        // _sprite.LayerSetAutoAnimated(layer, animated);
 
-        SpritePos(ent);
-
-        if(!_sprite.TryGetLayer((ent,spriteComp),0,out var layer, false))
-            return;
-
-        _sprite.LayerSetAutoAnimated(layer, animated);
-
-        if (_appearance.TryGetData(ent, MotorbikeVisuals.Burning, out bool burning))
-            spriteComp.LayerSetColor(0, burning ? Color.Red : Color.White);
+        // if (_appearance.TryGetData(ent, MotorbikeVisuals.Burning, out bool burning))
+        //     spriteComp.LayerSetColor(0, burning ? Color.Red : Color.White);
     }
 
     private void OnMove(Entity<VehicleComponent> ent, ref MoveEvent args)
     {
-        SpritePos(ent);
+        //SpritePos(ent);
     }
 
     private void SpritePos(Entity<VehicleComponent> ent)
@@ -68,17 +64,17 @@ public sealed class VehicleSystem : SharedVehicleSystem
         if (!TryComp<SpriteComponent>(ent, out var spriteComp))
             return;
 
-        // Misfits DrawOver always exists, so check its value. restore the original depth when nobody is riding.
-        if (!_appearance.TryGetData(ent, VehicleState.DrawOver, out bool drawOver) || !drawOver)
-        {
-            if (ent.Comp.OriginalDrawDepth is { } originalDepth)
-            {
-                _sprite.SetDrawDepth((ent, spriteComp), originalDepth);
-                ent.Comp.OriginalDrawDepth = null;
-            }
-
-            return;
-        }
+        // // Misfits DrawOver always exists, so check its value. restore the original depth when nobody is riding.
+        // if (!_appearance.TryGetData(ent, VehicleState.DrawOver, out bool drawOver) || !drawOver)
+        // {
+        //     if (ent.Comp.OriginalDrawDepth is { } originalDepth)
+        //     {
+        //         _sprite.SetDrawDepth((ent, spriteComp), originalDepth);
+        //         ent.Comp.OriginalDrawDepth = null;
+        //     }
+        //
+        //     return;
+        // }
 
         ent.Comp.OriginalDrawDepth ??= spriteComp.DrawDepth;
         _sprite.SetDrawDepth((ent, spriteComp), (int)Content.Shared.DrawDepth.DrawDepth.Objects);
