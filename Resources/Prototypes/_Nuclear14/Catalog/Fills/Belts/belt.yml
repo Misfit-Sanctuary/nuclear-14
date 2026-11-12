@@ -974,3 +974,29 @@
           orGroup: Ammunition5
           amount: 0
           maxAmount: 2
+
+# Misfit Katana Fills
+
+
+
+- type: entity
+  parent: ClothingBeltWasterKatanaBeltT1
+  suffix: filled
+  id: ClothingBeltWasterKatanaBeltT1Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WasterKatanaT1
+  
+
+- type: entity
+  parent: ClothingBeltWasterKatanaBeltT2
+  suffix: filled
+  id: ClothingBeltWasterKatanaBeltT2Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - WasterKatanaT2
+  
