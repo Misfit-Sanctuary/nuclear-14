@@ -944,4 +944,4 @@ uundecided-loadout-category-misfits-shaman-shroom-name = Shaman of the Shroom Ki
 undecided-loadout-category-misfits-shaman-shroom-desc =
     Cudgel, Medical Belt,
     5 Cave Mushrooms, 5 Irradiated Mushroom,
-    bitterdrink, 2 Gravesalt, 2 Bloodshield.
+    bitterdrink, 5 Smelling Salt.
