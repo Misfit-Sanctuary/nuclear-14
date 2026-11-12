@@ -1,0 +1,16 @@
+- type: loadout
+  id: N14LoadoutBeltUtility
+  category: Belts
+  cost: 5
+  requirements:
+    - !type:OverallTimeRequirement
+      min: 3600
+    - !type:CharacterJobRequirement # Forge-Change
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPrisoner
+  items:
+    - N14ClothingBeltUtilityFilled
+
