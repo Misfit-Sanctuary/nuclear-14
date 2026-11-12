@@ -5,8 +5,8 @@
   category: Belts
   cost: 5
   requirements:
-    - !type:OverallTimeRequirement
-      min: 3600
+    # - !type:OverallTimeRequirement 
+    #   min: 3600
     - !type:CharacterJobRequirement # Forge-Change
       inverted: true
       jobs:
