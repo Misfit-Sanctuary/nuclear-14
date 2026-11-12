@@ -932,7 +932,7 @@ undecided-loadout-category-misfits-ncr-ht-defender-description =
 uundecided-loadout-category-misfits-shaman-stinger-name = Shaman of the Stinger Kit
 undecided-loadout-category-misfits-shaman-stinger-desc =
     Tribal Spear, box of throwing knives, Medical Belt,
-    2 mourning powder, 2 Berserker Powder, 2 Bloodshield.
+    2 mourning powder, 2 Berserker Powder.
 
 uundecided-loadout-category-misfits-shaman-root-name = Shaman of the Root Kit
 undecided-loadout-category-misfits-shaman-root-desc =
@@ -944,4 +944,4 @@ uundecided-loadout-category-misfits-shaman-shroom-name = Shaman of the Shroom Ki
 undecided-loadout-category-misfits-shaman-shroom-desc =
     Cudgel, Medical Belt,
     5 Cave Mushrooms, 5 Irradiated Mushroom,
-    bitterdrink, 2 gravesalt.
+    bitterdrink, 2 Gravesalt, 2 Bloodshield.
