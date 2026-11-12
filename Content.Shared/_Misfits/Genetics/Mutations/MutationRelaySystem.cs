@@ -20,6 +20,7 @@ public sealed class MutationRelaySystem : EntitySystem
         SubscribeLocalEvent<MutatableComponent, DamageModifyEvent>(RelayEvent);
         SubscribeLocalEvent<MutatableComponent, ModifyViewconeAngleEvent>(RelayEvent);
         SubscribeLocalEvent<MutatableComponent, SpeechFontOverrideEvent>(RelayEvent);
+        SubscribeLocalEvent<MutatableComponent, SpeechFontSizeOverrideEvent>(RelayEvent);
     }
 
     public void RelayEvent<T>(Entity<MutatableComponent> ent, ref T args) where T: notnull

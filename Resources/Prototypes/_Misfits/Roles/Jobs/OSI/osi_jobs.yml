@@ -45,6 +45,9 @@
         factions:
           - Wastelander
           - NCR
+      # #Misfits Add - command voice: bigger chat text
+      - type: SpeechFontOverride
+        fontSizeBonus: 4
       - type: CPRTraining
   - !type:AddTraitSpecial
     traits: [ TraitSwiftLearner, TraitScrounger, TraitEducated, MisfitsPetEyebotOSI ]

@@ -27,6 +27,9 @@
       factions:
       - PlayerSuperMutant
       - Wastelander
+    # #Misfits Add - deathclaw throat: bigger chat text
+    - type: SpeechFontOverride
+      fontSizeBonus: 4
 
 - type: playTimeTracker
   id: SentientDeathclaw
@@ -60,6 +63,9 @@
       factions:
       - PlayerSuperMutant
       - Wastelander
+    # #Misfits Add - deathclaw throat: bigger chat text
+    - type: SpeechFontOverride
+      fontSizeBonus: 4
 
 - type: playTimeTracker
   id: SentientDeathclawRegular

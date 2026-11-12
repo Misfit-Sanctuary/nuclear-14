@@ -40,6 +40,9 @@
           - Eighties
           - PlayerRaider
           - Wastelander
+      # #Misfits Add - command voice: bigger chat text
+      - type: SpeechFontOverride
+        fontSizeBonus: 4
   - !type:AddTraitSpecial
     traits: [ N14RidingPerk ]
 

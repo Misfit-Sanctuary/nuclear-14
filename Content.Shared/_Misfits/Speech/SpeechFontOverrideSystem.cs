@@ -10,11 +10,23 @@ public sealed class SpeechFontOverrideSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<SpeechFontOverrideComponent, SpeechFontOverrideEvent>(OnOverride);
+        SubscribeLocalEvent<SpeechFontOverrideComponent, SpeechFontSizeOverrideEvent>(OnFontSizeOverride);
     }
 
     private void OnOverride(Entity<SpeechFontOverrideComponent> ent, ref SpeechFontOverrideEvent args)
     {
-        if (!ent.Comp.SourceOnly || args.Source == ent.Owner)
-            args.Font = ent.Comp.Font;
+        if (ent.Comp.Font is not { } font || (ent.Comp.SourceOnly && args.Source != ent.Owner))
+            return;
+
+        args.Font = font;
+    }
+
+    private void OnFontSizeOverride(Entity<SpeechFontOverrideComponent> ent, ref SpeechFontSizeOverrideEvent args)
+    {
+        if (ent.Comp.FontSizeBonus == 0)
+            return;
+
+        args.FontSize += ent.Comp.FontSizeBonus;
+        args.IsActive = true;
     }
 }
