@@ -1,5 +1,7 @@
+# Filled
+
 - type: loadout
-  id: N14LoadoutBeltUtility
+  id: N14LoadoutBeltUtilityFilled
   category: Belts
   cost: 5
   requirements:
@@ -14,3 +16,89 @@
   items:
     - N14ClothingBeltUtilityFilled
 
+- type: loadout
+  id: N14LoadoutBeltMedicalFilled
+  category: Belts
+  cost: 8 # Belt full of meds gotta be expensive
+  items:
+    - N14ClothingBeltMedicalFilled
+
+- type: loadout
+  id: N14LoadoutWasterKatanaBeltT2Filled
+  category: Belts
+  cost: 5 # It's ridculusly easy to get this katana, might as well put it in here
+  items:
+    - ClothingBeltWasterKatanaBeltT2Filled
+
+- type: loadout
+  id: N14LoadoutWasterKatanaBeltT1Filled
+  category: Belts
+  cost: 3 # it's here too
+  items:
+    - ClothingBeltWasterKatanaBeltT1Filled
+
+
+- type: loadout
+  id: N14LoadoutBeltFarmerFilled
+  category: Belts
+  cost: 5 # farming stuff
+  items:
+    - ClothingBeltFarmerFilled
+    
+# Empty
+
+- type: loadout
+  id: N14LoadoutBeltMedical
+  category: Belts
+  cost: 2
+  items:
+    - ClothingBeltMedical
+
+- type: loadout
+  id: N14LoadoutBeltMiltary
+  category: Belts
+  cost: 2
+  items:
+    - ClothingBeltMilitary
+
+- type: loadout
+  id: N14LoadoutBeltRevolver 
+  category: Belts
+  cost: 2
+  items:
+    - ClothingBeltRevolver
+
+- type: loadout
+  id: N14LoadoutBeltCowboy 
+  category: Belts
+  cost: 2
+  items:
+    - ClothingBeltCowboy
+    
+- type: loadout 
+  id: N14LoadoutBeltUtility
+  category: Belts
+  cost: 2
+  items:
+    - ClothingBeltUtility
+    
+- type: loadout 
+  id: N14LoadoutBeltFarmer
+  category: Belts
+  cost: 2
+  items:
+    - ClothingBeltFarmer
+
+- type: loadout 
+  id: N14LoadoutBeltAssault
+  category: Belts
+  cost: 2
+  items:
+    - ClothingBeltAssault
+
+- type: loadout 
+  id: N14LoadoutBeltRope
+  category: Belts
+  cost: 1
+  items:
+    - ClothingBeltRope
