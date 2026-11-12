@@ -13,6 +13,12 @@
   - type: SpawnItemsOnUse
     items:
       - id: ClothingBeltMedical
+      - id: ThrowingKnivesKit
+      - id: N14BerserkerPowder
+        amount: 2
+      - id: N14MourningPoultice
+        amount: 2
+      - id: N14WastelandTribalSpear
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -35,6 +41,8 @@
       - id: N14HealingPowder
         amount: 2
       - id: N14TribalMachete
+      - id: N14Bitterdrink
+      - id: N14AloeSalve
     sound:
       path: /Audio/Effects/unwrap.ogg
 
@@ -52,5 +60,19 @@
   - type: SpawnItemsOnUse
     items:
       - id: ClothingBeltMedical
+      - id: N14TribalClub
+      - id: N14SmellingSalts
+        amount: 5
+      - id: N14Bitterdrink
+      - id: N14FoodFlyAmanita
+        amount: 2
+      - id: N14FoodLingzhi
+        amount: 2
+      - id: N14FoodMushroom
+        amount: 2
+      - id: N14FloraProduceWildCaveFungus
+        amount: 2
+      - id: N14FloraProduceWildCaveFungusRad
+        amount: 2
     sound:
       path: /Audio/Effects/unwrap.ogg
