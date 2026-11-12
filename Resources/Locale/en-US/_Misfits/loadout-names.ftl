@@ -891,3 +891,5 @@ loadout-name-LoadoutPatreonEquityPartnerHat = equity partner hat (Patreon)
 loadout-name-LoadoutPatreonVentureCapitalistHat = venture capitalist hat (Patreon)
 loadout-name-LoadoutPatreonShareholderHat = shareholder hat (Patreon)
 loadout-name-LoadoutPatreonPrincipalShareholderHat = principal shareholder hat (Patreon)
+loadout-name-MisfitsLoadoutUniformHospitaller = Hospitaller habit
+loadout-name-MisfitsNeckHospitallerShemagh = Hospitaller shemagh

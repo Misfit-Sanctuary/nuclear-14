@@ -468,3 +468,34 @@
         - Tribe
   items:
     - M14ClothingUniformWhiteLegsUniform
+
+# #Misfits Add - Hospitaller gear, wastelander and townsfolk only
+- type: loadout
+  id: MisfitsLoadoutUniformHospitaller
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - MisfitsClothingUniformHospitaller
+
+- type: loadout
+  id: MisfitsNeckHospitallerShemagh
+  category: Neck
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutNeck
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - MisfitsClothingNeckHospitallerShemagh
