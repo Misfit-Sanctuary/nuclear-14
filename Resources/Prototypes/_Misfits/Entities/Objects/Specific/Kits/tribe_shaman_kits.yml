@@ -1,0 +1,56 @@
+
+- type: entity
+  name: shaman-stinger kit
+  parent: KitBase
+  id: KitTribalHealerStinger
+  description: "For poisoning your enemies."
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: ClothingBeltMedical
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: shaman-root kit
+  parent: KitBase
+  id: KitTribalHealerRoot
+  description: "For healing your kins."
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: ClothingBeltMedical
+      - id: N14HealingPoultice
+        amount: 2
+      - id: N14HealingPowder
+        amount: 2
+      - id: N14TribalMachete
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: shaman-shroom kit
+  parent: KitBase
+  id: KitTribalHealerShroom
+  description: "MUSHROOM."
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: ClothingBeltMedical
+    sound:
+      path: /Audio/Effects/unwrap.ogg
