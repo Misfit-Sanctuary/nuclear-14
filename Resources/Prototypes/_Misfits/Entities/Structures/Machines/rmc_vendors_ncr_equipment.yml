@@ -253,7 +253,8 @@
       entries:
       - { id: MisfitsNCRCommandArmor, category: Armor, tier: 3, amount: 2, maxAmount: 2, jobs: [ NCRCommander ], requiredJob: NCR Commanding Officer }
       - { id: N14ClothingOuterNCRDressJacketCO, category: Armor, tier: 3 }
-      - { id: MisfitsClothingHeadsetNCRMaster, category: Radio, tier: 3 }
+      - { id: MisfitsClothingHeadsetNCRCommander, category: Radio, tier: 3, jobs: [ NCRCommander ], requiredJob: NCR Commanding Officer }
+      - { id: MisfitsClothingHeadsetNCRMaster, category: Radio, tier: 3, jobs: [ NCRLTCol ], requiredJob: NCR Lieutenant Colonel }
       - { id: ClothingNeckPinNCRMajor, category: Neck, tier: 3 }
       - { id: ClothingNeckPinNCRLtColonel, category: Neck, tier: 3 }
       - { id: BoxFolderClipboard, category: Utility, tier: 3 }

@@ -249,6 +249,20 @@
       - EncryptionKeyNCRCommandUR # #Misfits Add - command net
       - EncryptionKeyWastelandGlobal
 
+# #Misfits Add - Commanding Officer headset: command net and OSI access, but no Ranger field encryption.
+- type: entity
+  parent: MisfitsClothingHeadsetNCRMaster
+  id: MisfitsClothingHeadsetNCRCommander
+  name: NCR commanding officer radio earpiece
+  description: A headset manufactured by the New California Republic in the Boneyard's factories, issued to the commanding officer of an NCR detachment. It carries the army's command net and government frequencies, but Ranger field encryption is withheld from it.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyNCRUR
+      - EncryptionKeyOSIUR
+      - EncryptionKeyNCRCommandUR
+      - EncryptionKeyWastelandGlobal
 
 - type: entity
   parent: N14ClothingHeadsetNCR

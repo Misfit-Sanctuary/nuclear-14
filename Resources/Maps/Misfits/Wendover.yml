@@ -729578,11 +729578,6 @@ entities:
       angularDamping: 0
 - proto: ChemDispenserEmpty
   entities:
-  - uid: 174062
-    components:
-    - type: Transform
-      parent: 1
-      pos: -20.5,-250.5
   - uid: 261828
     components:
     - type: Transform
@@ -729605,6 +729600,11 @@ entities:
     - type: Transform
       parent: 1
       pos: -16.5,-126.5
+  - uid: 174062
+    components:
+    - type: Transform
+      parent: 1
+      pos: -20.5,-250.5
 - proto: ChemistryEmptyBottle01
   entities:
   - uid: 1205
