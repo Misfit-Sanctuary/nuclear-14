@@ -129,7 +129,7 @@
   - type: EncryptionKey
     channels:
     - NCR
-    - NCRRangers
+    # #Misfits Change - Ranger field net withheld from the command key; Rangers carry it on their own headsets.
     - OSI
     defaultChannel: NCR
   - type: Sprite
@@ -321,7 +321,7 @@
   - type: EncryptionKey
     channels:
     - NCR
-    - NCRRangers
+    # #Misfits Change - Ranger field net withheld from the command key; Rangers carry it on their own headsets.
     - OSI
     defaultChannel: NCR
   - type: Sprite
