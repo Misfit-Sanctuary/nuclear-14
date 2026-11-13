@@ -103,7 +103,6 @@
         - NCRRangerRecruit
         - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRRangerStandard
-        - NCRVeteranRanger
   items:
     - N14ClothingHeadHatRangerB
 
@@ -118,21 +117,8 @@
         - NCRRangerRecruit
         - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRRangerStandard
-        - NCRVeteranRanger
   items:
     - N14ClothingHeadHatNCRBeretRecon
-
-- type: loadout
-  id: LoadoutNCRmaskDesert
-  category: Roles
-  cost: 1
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRVeteranRanger
-  items:
-    - N14ClothingMaskDesertMask
 
 - type: loadout
   id: LoadoutNCRuniformV1
@@ -293,7 +279,6 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRRangerStandard
-        - NCRVeteranRanger
         - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - ClothingNeckOldMantle
@@ -380,21 +365,6 @@
 #
 # Corvax-Add Start
 - type: loadout
-  id: LoadoutNCRClothingMaskGasRangerElite2
-  category: Roles
-  cost: 2
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRVeteranRanger
-    - !type:CharacterPlaytimeRequirement
-      tracker: NCRVeteranRanger
-      min: 216000 # 60 hours veterancy unlock "First Tour"
-  items:
-    - ClothingMaskGasRangerElite
-
-- type: loadout
   id: LoadoutNCRClothingMaskGasRangerPrice2
   category: Roles
   cost: 2
@@ -402,7 +372,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRRangerStandard
     - !type:CharacterPlaytimeRequirement
@@ -547,7 +516,6 @@
         - NCRRangerRecruit
         - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRRangerStandard
-        - NCRVeteranRanger
   items:
     - N14ClothingNeckCloakRangerPoncho
 
@@ -559,7 +527,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRRangerStandard
     - !type:CharacterPlaytimeRequirement
@@ -576,7 +543,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRRangerStandard
   items:

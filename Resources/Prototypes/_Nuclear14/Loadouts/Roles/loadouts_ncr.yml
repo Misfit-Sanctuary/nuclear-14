@@ -95,7 +95,6 @@
 
         - NCRRangerRecruit
         - NCRRangerStandard
-        - NCRVeteranRanger
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
@@ -127,7 +126,6 @@
 
         - NCRRangerRecruit
         - NCRRangerStandard
-        - NCRVeteranRanger
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
@@ -159,7 +157,6 @@
 
         - NCRRangerRecruit
         - NCRRangerStandard
-        - NCRVeteranRanger
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
@@ -190,7 +187,6 @@
 
         - NCRRangerRecruit
         - NCRRangerStandard
-        - NCRVeteranRanger
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
@@ -253,7 +249,6 @@
 
         - NCRRangerRecruit
         - NCRRangerStandard
-        - NCRVeteranRanger
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
@@ -284,7 +279,6 @@
 
         - NCRRangerRecruit
         - NCRRangerStandard
-        - NCRVeteranRanger
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
@@ -315,7 +309,6 @@
 
         - NCRRangerRecruit
         - NCRRangerStandard
-        - NCRVeteranRanger
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
@@ -391,7 +384,6 @@
         - NCRTrader
         - NCRRO
 
-
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
@@ -427,7 +419,6 @@
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
-
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
@@ -720,7 +711,6 @@
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
         - NCRRangerStandard
-        - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
 
@@ -777,21 +767,6 @@
     - N14ClothingEyesNCRGoggles
 
 - type: loadout
-  id: LoadoutNCRRangerFoxArmor
-  category: Roles
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRVeteranRanger
-    - !type:CharacterDepartmentTimeRequirement
-      department: Rangers
-      min: 216000
-  items:
-   - N14ClothingOuterRangerFox
-
-- type: loadout
   id: LoadoutNCRRangerEliteArmor
   category: Roles
   cost: 0
@@ -814,7 +789,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
@@ -841,7 +815,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
@@ -858,7 +831,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
@@ -868,36 +840,6 @@
     - N14ClothingHeadHatRangerHelmetPrice
 
 - type: loadout
-  id: LoadoutNCRN14ClothingOuterRangerWeathered
-  category: Roles
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRVeteranRanger
-    - !type:CharacterDepartmentTimeRequirement
-      department: Rangers
-      min: 72000 # 1200 minutes
-  items:
-    - N14ClothingOuterRangerWeathered
-
-- type: loadout
-  id: LoadoutNCRN14ClothingOuterRangerPrice
-  category: Roles
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRVeteranRanger
-    - !type:CharacterDepartmentTimeRequirement
-      department: Rangers
-      min: 72000 # 1200 minutes
-  items:
-    - N14ClothingOuterRangerPrice
-
-- type: loadout
   id: LoadoutN14ClothingNeckRangerDuster
   category: Roles
   cost: 1
@@ -905,25 +847,12 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRTrader
         - NCRCitizen
   items:
     - N14ClothingNeckRangerDuster
-
-- type: loadout
-  id: LoadoutN14ClothingOuterVetRangerRiotArmor
-  category: Roles
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRVeteranRanger
-  items:
-    - N14ClothingOuterVetRangerRiotArmor
 
 - type: loadout
   id: LoadoutN14ClothingNeckSaltRunnerDuster
@@ -933,7 +862,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRCitizen
@@ -952,7 +880,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
@@ -962,21 +889,6 @@
     - N14ClothingHatSaltRunnerHelmet
 
 - type: loadout
-  id: LoadoutN14ClothingHatSaltRunnerMask
-  category: Roles
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRVeteranRanger
-    - !type:CharacterDepartmentTimeRequirement
-      department: Rangers
-      min: 72000 # 1200 minutes
-  items:
-    - N14ClothingHatSaltRunnerMask
-
-- type: loadout
   id: LoadoutN14ClothingHeadFourLeafRangerHelmet
   category: Roles
   cost: 0
@@ -984,7 +896,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
@@ -1001,7 +912,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
@@ -1018,7 +928,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
@@ -1035,7 +944,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
@@ -1052,7 +960,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
@@ -1069,7 +976,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
@@ -1086,7 +992,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
@@ -1103,7 +1008,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
@@ -1120,7 +1024,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
@@ -1137,7 +1040,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
@@ -1154,7 +1056,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
@@ -1171,7 +1072,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRTrader
@@ -1190,7 +1090,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRTrader
@@ -1209,7 +1108,6 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
         - NCRRangerStandard
         - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRTrader
@@ -1230,7 +1128,6 @@
       jobs:
         - NCRRangerRecruit
         - NCRRangerStandard
-        - NCRVeteranRanger
         - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRCitizen
         - NCRTrader
@@ -1247,7 +1144,6 @@
       jobs:
         - NCRRangerRecruit
         - NCRRangerStandard
-        - NCRVeteranRanger
         - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRCitizen
         - NCRTrader
