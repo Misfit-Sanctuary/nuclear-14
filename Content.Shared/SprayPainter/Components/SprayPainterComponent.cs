@@ -40,6 +40,10 @@ public sealed partial class SprayPainterComponent : Component
     [DataField]
     public Dictionary<string, Color> ColorPalette = new();
 
+    // Arbitrary hex color for pipes, takes priority over the palette.
+    [DataField, AutoNetworkedField]
+    public Color? PickedCustomColor;
+
     /// <summary>
     /// Airlock style index selected.
     /// After prototype reload this might not be the same style but it will never be out of bounds.

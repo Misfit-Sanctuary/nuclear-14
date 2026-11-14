@@ -158,8 +158,8 @@
     visuals:
       enum.OpenableVisuals.Opened:
         enum.OpenableVisuals.Layer:
-          True: {state: "spray_colors" , color: "#5890f7"}
-          False: {state: "spray_cap_colors" , color: "#5890f7"}
+          True: {state: "spray_colors"}
+          False: {state: "spray_cap_colors"}
 
 #Red
 - type: entity
@@ -181,8 +181,8 @@
     visuals:
       enum.OpenableVisuals.Opened:
         enum.OpenableVisuals.Layer:
-          True: {state: "spray_colors" , color: "#ff3b3b"}
-          False: {state: "spray_cap_colors" , color: "#ff3b3b"}
+          True: {state: "spray_colors"}
+          False: {state: "spray_cap_colors"}
 
 #Green
 - type: entity
@@ -204,8 +204,8 @@
     visuals:
       enum.OpenableVisuals.Opened:
         enum.OpenableVisuals.Layer:
-          True: {state: "spray_colors" , color: "#73f170"}
-          False: {state: "spray_cap_colors" , color: "#73f170"}
+          True: {state: "spray_colors"}
+          False: {state: "spray_cap_colors"}
 
 #Black
 - type: entity
@@ -227,8 +227,8 @@
     visuals:
       enum.OpenableVisuals.Opened:
         enum.OpenableVisuals.Layer:
-          True: {state: "spray_colors" , color: "#3a3a3a"}
-          False: {state: "spray_cap_colors" , color: "#3a3a3a"}
+          True: {state: "spray_colors"}
+          False: {state: "spray_cap_colors"}
 
 #Orange
 - type: entity
@@ -250,8 +250,8 @@
     visuals:
       enum.OpenableVisuals.Opened:
         enum.OpenableVisuals.Layer:
-          True: {state: "spray_colors" , color: "#f6a44b"}
-          False: {state: "spray_cap_colors" , color: "#f6a44b"}
+          True: {state: "spray_colors"}
+          False: {state: "spray_cap_colors"}
 
 #Purple
 - type: entity
@@ -273,8 +273,8 @@
     visuals:
       enum.OpenableVisuals.Opened:
         enum.OpenableVisuals.Layer:
-          True: {state: "spray_colors" , color: "#c063f5"}
-          False: {state: "spray_cap_colors" , color: "#c063f5"}
+          True: {state: "spray_colors"}
+          False: {state: "spray_cap_colors"}
 
 #White
 - type: entity
@@ -296,8 +296,8 @@
     visuals:
       enum.OpenableVisuals.Opened:
         enum.OpenableVisuals.Layer:
-          True: {state: "spray_colors" , color: "#f2f2f2"}
-          False: {state: "spray_cap_colors" , color: "#f2f2f2"}
+          True: {state: "spray_colors"}
+          False: {state: "spray_cap_colors"}
 
 #DesertTan
 - type: entity
@@ -319,5 +319,5 @@
     visuals:
       enum.OpenableVisuals.Opened:
         enum.OpenableVisuals.Layer:
-          True: {state: "spray_colors" , color: "#ffd1a0"}
-          False: {state: "spray_cap_colors" , color: "#ffd1a0"}
+          True: {state: "spray_colors"}
+          False: {state: "spray_cap_colors"}

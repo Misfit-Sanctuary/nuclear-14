@@ -545,14 +545,7 @@ loadout-name-LoadoutN14ClothingNeckFourLeafDuster = Four Leaf duster
 loadout-name-ClothingNeckBellCollar = bell collar
 
 # Misfits Add - Consumable loadout names
-loadout-name-LoadoutSprayPaintGreen = green spray paint
-loadout-name-LoadoutSprayPaintBlue = blue spray paint
-loadout-name-LoadoutSprayPaintOrange = orange spray paint
-loadout-name-LoadoutSprayPaintWhite = white spray paint
-loadout-name-LoadoutSprayPaintBlack = black spray paint
-loadout-name-LoadoutSprayPaintPurple = purple spray paint
-loadout-name-LoadoutSprayPaintRed = red spray paint
-loadout-name-LoadoutSprayPaintDesertTan = desert tan spray paint
+loadout-name-LoadoutSprayPaint = spray paint
 loadout-name-LoadoutHealingPoutltice = healing poultice
 loadout-name-LoadoutHealingPowder = healing powder
 loadout-name-LoadoutPsycho = Psycho
@@ -898,3 +891,5 @@ loadout-name-LoadoutPatreonEquityPartnerHat = equity partner hat (Patreon)
 loadout-name-LoadoutPatreonVentureCapitalistHat = venture capitalist hat (Patreon)
 loadout-name-LoadoutPatreonShareholderHat = shareholder hat (Patreon)
 loadout-name-LoadoutPatreonPrincipalShareholderHat = principal shareholder hat (Patreon)
+loadout-name-MisfitsLoadoutUniformHospitaller = Hospitaller habit
+loadout-name-MisfitsNeckHospitallerShemagh = Hospitaller shemagh

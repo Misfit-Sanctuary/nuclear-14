@@ -37,6 +37,9 @@
         factions:
           - Enclave
           - Wastelander
+      # #Misfits Add - command voice: bigger chat text
+      - type: SpeechFontOverride
+        fontSizeBonus: 4
       - type: ReplacementAccent
         accent: n14Enclave
       - type: CPRTraining

@@ -19,6 +19,9 @@ public sealed partial class GraffitiSprayCanWindow : DefaultWindow
     /// </summary>
     public Action<string>? OnDecalPicked;
 
+    // Invoked when the player picks a paint colour; the slider includes a hex field.
+    public Action<Color>? OnColorPicked;
+
     // Parallel list to DecalList items — tracks the prototype ID at each index
     private readonly List<string> _decalIds = new();
 
@@ -36,13 +39,20 @@ public sealed partial class GraffitiSprayCanWindow : DefaultWindow
             if (args.ItemIndex >= 0 && args.ItemIndex < _decalIds.Count)
                 OnDecalPicked?.Invoke(_decalIds[args.ItemIndex]);
         };
+
+        ColorSelector.OnColorChanged += color => OnColorPicked?.Invoke(color.WithAlpha(1f));
     }
 
     /// <summary>
     /// Fills the list with all graffiti-tagged decals. Highlights the currently selected one.
     /// </summary>
-    public void Populate(IEnumerable<DecalPrototype> allDecals, string? selectedId, int charges)
+    public void Populate(IEnumerable<DecalPrototype> allDecals, string? selectedId, int charges, Color? sprayColor)
     {
+        // Null means the can has no PaintComponent, so there is nothing to recolour.
+        ColorRow.Visible = sprayColor.HasValue;
+        if (sprayColor is { } color && ColorSelector.Color != color)
+            ColorSelector.Color = color;
+
         _decalIds.Clear();
         DecalList.Clear();
 

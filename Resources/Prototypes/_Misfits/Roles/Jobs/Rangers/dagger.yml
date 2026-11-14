@@ -32,6 +32,9 @@
       - type: NpcFactionMember
         factions:
           - Rangers
+      # #Misfits Add - command voice: bigger chat text
+      - type: SpeechFontOverride
+        fontSizeBonus: 4
       - type: FactionRoster # #Cythisiax Added - DAGGER replaces Chief Ranger: roster GUI to recruit, promote and demote Rangers
         roster: Rangers
 

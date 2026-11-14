@@ -4,7 +4,6 @@ using Content.Server.Language;
 using Content.Server.Power.Components;
 using Content.Server.Radio.Components;
 using Content.Shared._Misfits.Expeditions;
-using Content.Shared._Misfits.Special;
 using Content.Shared._MultiZ.Core.Components;
 using Content.Server._MultiZ.Core;
 using Content.Shared.Chat;
@@ -38,7 +37,6 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
-    [Dependency] private readonly SharedSpecialSystem _special = default!;
     // Inject the concrete MZSystem: MZSharedSystem has two server subtypes, so Robust
     // refuses to resolve the supertype.
     [Dependency] private readonly MZSystem _multiZ = default!;
@@ -334,7 +332,7 @@ public sealed class RadioSystem : EntitySystem
             ? Loc.GetString("chat-manager-language-prefix", ("language", language.ChatName))
             : "";
         var messageColor = language.IsVisibleLanguage ? languageColor : channel.Color;
-        var fontSize = _special.GetCharismaChatFontSize(source, language.SpeechOverride.FontSize ?? speech.FontSize);
+        var fontSize = _chat.GetSpeechFontSize(source, language, speech);
 
         string channelText;
         if (channel.ShowFrequency && frequency.HasValue)

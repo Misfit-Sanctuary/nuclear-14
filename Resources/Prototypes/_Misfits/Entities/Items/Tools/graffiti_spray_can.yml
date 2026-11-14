@@ -23,3 +23,29 @@
   - type: GraffitiSprayCan
   - type: StaticPrice
     price: 3
+
+# #Misfits Add - generic can: pick any hex colour in the paint window and it sprays that colour.
+- type: entity
+  parent: PaintBase
+  id: N14SprayPaintGeneric
+  name: spray paint can
+  description: A dented pre-war aerosol can, its label worn off long before the war ended. The colour ring on the cap still clicks round to any shade you care to mix, and out here fresh paint is the cheapest claim you can stake on a wall.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/spraycans.rsi
+    layers:
+      - state: spray
+        map: ["Base"]
+      - state: spray_cap_colors
+        map: ["enum.OpenableVisuals.Layer"]
+  - type: Paint
+    color: "#808080"
+  # Only swaps sprite state; the colour comes from Paint.color, so a recoloured can keeps its new colour when capped.
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "spray_colors"}
+          False: {state: "spray_cap_colors"}
+  - type: StaticPrice
+    price: 3

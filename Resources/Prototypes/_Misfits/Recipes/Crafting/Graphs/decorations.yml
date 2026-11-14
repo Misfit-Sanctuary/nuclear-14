@@ -2035,3 +2035,38 @@
               prototype: SheetSteel1
               amount: 4
             - !type:DeleteEntity
+
+# #Misfits Add - Hospitaller banner construction graph
+- type: constructionGraph
+  id: MisfitsFlagHospitaller
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: HospitallerFlag
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 3
+            - material: Cloth
+              amount: 3
+              doAfter: 3
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+
+    - node: HospitallerFlag
+      entity: MisfitsDecorationFlagHospitaller
+      edges:
+        - to: start
+          steps:
+            - tool: Prying
+              doAfter: 5
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type:SpawnPrototype
+              prototype: MaterialCloth1
+              amount: 3
+            - !type:DeleteEntity

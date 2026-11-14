@@ -1908,6 +1908,37 @@
 
     Circuitry: 200
 
+# #Misfits Add - Hospitaller heavy armor
+- type: latheRecipe
+  id: MisfitsBPHospitallerHeavyArmor
+  result: MisfitsClothingOuterArmorHospitallerHeavy
+  category: N14BlueprintTownArmorT4
+  completetime: 18
+  requiresBlueprint: true
+  availableFaction:
+  - Townsfolk
+  materials:
+    Steel: 5500
+    N14Iron: 750
+    Cloth: 450
+    Thread: 500
+    Leather: 500
+
+# #Misfits Add - paired Hospitaller great helm
+- type: latheRecipe
+  id: MisfitsBPHospitallerHelmet
+  result: MisfitsClothingHeadHelmetHospitaller
+  category: N14BlueprintTownArmorT4
+  completetime: 10
+  requiresBlueprint: true
+  availableFaction:
+  - Townsfolk
+  materials:
+    Steel: 2200
+    Cloth: 150
+    Leather: 150
+    Plastic: 300
+
 # =====================================================================
 # TOWNSFOLK AMMO RECIPES
 # =====================================================================

@@ -1318,3 +1318,18 @@
     state: yellow-full
   objectType: Structure
   placementMode: PlaceFree
+
+# #Misfits Add - Hospitaller banner construction
+- type: construction
+  name: Banner of the Hospitallers
+  id: MisfitsDecorationFlagHospitaller
+  graph: MisfitsFlagHospitaller
+  startNode: start
+  targetNode: HospitallerFlag
+  description: A flag in use by the Knights Hospitaller, crimson and ash grey with a prominent white cross.
+  hide: false
+  icon:
+    sprite: _Misfits/Structures/Decoration/hospitaller_flag.rsi
+    state: hospitaller_flag
+  objectType: Structure
+  placementMode: SnapgridCenter
