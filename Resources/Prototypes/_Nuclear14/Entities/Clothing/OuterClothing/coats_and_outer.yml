@@ -308,7 +308,7 @@
   parent: N14ClothingOuterBase # balance this?
   id: N14ClothingOuterPoliceOfficer
   name: police officer uniform
-  description: Respect my authoritay.
+  description: A pre-war blue police officer uniform, used by police officers who prefer fashion and respects over protections, had thin kelvar vest underneath.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/police_officer.rsi
@@ -317,17 +317,17 @@
   - type: Armor
     modifiers:
      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.80
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.90
     priceMultiplier: 0.5
 
 - type: entity
   parent: N14ClothingOuterBase # balance this?
   id: N14ClothingOuterPoliceLieutenant
   name: police lieutenant uniform
-  description: A police uniform worn by lieutenants.
+  description: A pre-war blue police uniform worn by respected lieutenants who prefer fashion and respects over protection, had thin kelvar vest underneath.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/police_lieutenant.rsi
@@ -336,17 +336,17 @@
   - type: Armor
     modifiers:
      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.80
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.90
     priceMultiplier: 0.5
 
 - type: entity
   parent: N14ClothingOuterBase # balance this?
   id: N14ClothingOuterPoliceChief
   name: police chief uniform
-  description: A police uniform worn by the chief of police.
+  description: A pre-war blue police uniform worn by the chief of police who prefer fashion and respect over protection, had thin kelvar vest underneath.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/OuterClothing/Coats/police_chief.rsi
@@ -355,10 +355,10 @@
   - type: Armor
     modifiers:
      coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.80
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.90
     priceMultiplier: 0.5
 
 - type: entity

@@ -1,7 +1,7 @@
 # Town of [insert map here] should have its own NPCs for protection.
 - type: entity
   name: Civil Militia
-  parent: N14BaseMobRaider
+  parent: N14BaseMobWaster
   id: N14MobNPCTown
   suffix: NPC
   description: Uniformed angry mob ready to defend their homes, might not be the best at combat but he is trying his best.
@@ -15,7 +15,7 @@
 
 - type: entity
   name: Town Enforcer
-  parent: N14BaseMobRaider
+  parent: N14BaseMobWaster
   id: N14MobNPCTownGuard
   suffix: NPC
   description: Professional mercenary armed with a combat shotgun. He won't show mercy to anyone if they can't prove proof of their citizenship in a moment's notice.
@@ -102,7 +102,7 @@
 # Midwestern chapter's humanoid NPCs for event making and such.
 - type: entity
   name: Brotherhood Aspirant
-  parent: N14BaseMobRaider
+  parent: N14BaseMobWaster
   id: N14MobNPCMBoSSerf
   suffix: NPC
   description: These wastelanders aim to join the Brotherhood of Steel, and so they have been given dangerous quests to prove they are worthy first. Most do not return, dead or discouraged.
@@ -117,7 +117,7 @@
 
 - type: entity
   name: Brotherhood Knight
-  parent: N14BaseMobRaider
+  parent: N14BaseMobWaster
   id: N14MobNPCMBoSKnight
   suffix: NPC
   description: Soldiers of the Brotherhood of Steel, who will gladly fight and die for their ideals. Their chapter loyalties are unclear, but they still seem willing to help any brother or sister of steel.
@@ -307,7 +307,7 @@
 # The NCR Army's humanoid NPCs for event making and such.
 - type: entity
   name: NCR Army Guard
-  parent: N14BaseMobRaider
+  parent: N14BaseMobWaster
   id: N14MobNPCNCRGuard
   suffix: NPC
   description: An trooper in the uniform of the NCR Army's Military Police section. He's here to keep the order by spraying lead.
@@ -322,7 +322,7 @@
 
 - type: entity
   name: NCR Army Trooper
-  parent: N14BaseMobRaider
+  parent: N14BaseMobWaster
   id: N14MobNPCNCRTrooper
   suffix: NPC
   description: An Army trooper of the NCR. He's tasked to guard places and is quite easy to forget, but he's still dangerous.
@@ -333,7 +333,7 @@
       - NCRSecureArea
     - type: Gun
       minAngle: 2
-      maxAngle: 14
+      maxAngle: 30
       angleIncrease: 4
       angleDecay: 16
       fireRate: 2.5
@@ -409,7 +409,7 @@
 # The Blue Line caravan's humanoid NPCs for event making and such.
 - type: entity
   name: Blue Line Caravan Mercenary
-  parent: N14BaseMobRaider
+  parent: N14BaseMobWaster
   id: N14MobNPCCaravanMerc
   suffix: NPC
   description: A man hired to stand guard and ensure the safety of the Blue Line Caravan Company's interests. Paid well enough to shoot first, ask questions later, and not risk losing his contract over hesitation.
@@ -417,11 +417,10 @@
     - type: NpcFactionMember
       friendlyOrderable: true
       factions:
-      - Wastelander
-    - type: NPCRetaliation # Aggro on the attacker when damaged from any range
+      - CaravanCompany
     - type: Gun
-      minAngle: 4
-      maxAngle: 20
+      minAngle: 6
+      maxAngle: 34
       angleIncrease: 4
       angleDecay: 16
       fireRate: 4.5
@@ -441,7 +440,9 @@
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/SMGs/smg_magin.ogg
     - type: Loadout
       prototypes:
-        - CaravanMercNPC
+        - CaravanMercNPC1
+        - CaravanMercNPC2
+        - CaravanMercNPC3
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -494,10 +495,9 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/9mmSMG.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
-# The Blue Line caravan's humanoid NPCs for event making and such.
 - type: entity
   name: Blue Line Caravan Mercenary
-  parent: N14BaseMobRaider
+  parent: N14BaseMobWaster
   id: N14MobNPCCaravanMercRifle
   suffix: NPC
   description: A man hired to stand guard and ensure the safety of the Blue Line Caravan Company's interests. Paid well enough to shoot first, ask questions later, and not risk losing his contract over hesitating to shoot.
@@ -505,11 +505,11 @@
     - type: NpcFactionMember
       friendlyOrderable: true
       factions:
-      - Wastelander
+      - CaravanCompany
     - type: NPCRetaliation # Aggro on the attacker when damaged from any range
     - type: Gun
-      minAngle: 5
-      maxAngle: 30
+      minAngle: 8
+      maxAngle: 28
       angleIncrease: 4
       angleDecay: 16
       fireRate: 3.0
@@ -529,7 +529,9 @@
         path: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
     - type: Loadout
       prototypes:
-        - CaravanMercNPC
+        - CaravanMercNPC1
+        - CaravanMercNPC2
+        - CaravanMercNPC3
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -582,10 +584,9 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/assaultcarbine.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
-# The Blue Line caravan's humanoid NPCs for event making and such.
 - type: entity
   name: Blue Line Caravan Mercenary
-  parent: N14BaseMobRaider
+  parent: N14BaseMobWaster
   id: N14MobNPCCaravanMercR91Rifle
   suffix: NPC
   description: A man hired to stand guard and ensure the safety of the Blue Line Caravan Company's interests. Paid well enough to shoot first, ask questions later, and not risk losing his contract over hesitating to shoot.
@@ -593,11 +594,11 @@
     - type: NpcFactionMember
       friendlyOrderable: true
       factions:
-      - Wastelander
+      - CaravanCompany
     - type: NPCRetaliation # Aggro on the attacker when damaged from any range
     - type: Gun
-      minAngle: 10
-      maxAngle: 30
+      minAngle: 8
+      maxAngle: 26
       angleIncrease: 4
       angleDecay: 16
       fireRate: 2.5
@@ -617,7 +618,9 @@
         path: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
     - type: Loadout
       prototypes:
-        - CaravanMercNPC
+        - CaravanMercNPC1
+        - CaravanMercNPC2
+        - CaravanMercNPC3
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -670,10 +673,277 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/r91.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
+- type: entity
+  name: Blue Line Caravan Mercenary
+  parent: N14BaseMobWaster
+  id: N14MobNPCCaravanMerc10SMG
+  suffix: NPC
+  description: A man hired to stand guard and ensure the safety of the Blue Line Caravan Company's interests. Paid well enough to shoot first, ask questions later, and not risk losing his contract over hesitating to shoot.
+  components:
+    - type: NpcFactionMember
+      friendlyOrderable: true
+      factions:
+      - CaravanCompany
+    - type: NPCRetaliation # Aggro on the attacker when damaged from any range
+    - type: Gun
+      minAngle: 8
+      maxAngle: 30
+      angleIncrease: 4
+      angleDecay: 16
+      fireRate: 4.0
+      soundGunshot:
+        collection: N14Pistol10mmGunshot
+      useKey: false
+      selectedMode: FullAuto
+      availableModes:
+        - FullAuto
+    - type: BasicEntityAmmoProvider
+      proto: N14CartridgePistol10
+      capacity: 35
+      count: 35
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 3
+      rechargeSound:
+        path: /Audio/_Nuclear14/Weapons/Effects/Reload/SMGs/smg_magin.ogg
+    - type: Loadout
+      prototypes:
+        - CaravanMercNPC1
+        - CaravanMercNPC2
+        - CaravanMercNPC3
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/10mmSMG.rsi
+        state: inhand-right  # Only part we change, the gun sprite.
+
+- type: entity
+  name: Blue Line Caravan Mercenary
+  parent: N14BaseMobWaster
+  id: N14MobNPCCaravanMercFal
+  suffix: NPC
+  description: A man hired to stand guard and ensure the safety of the Blue Line Caravan Company's interests. Paid well enough to shoot first, ask questions later, and not risk losing his contract over hesitating to shoot.
+  components:
+    - type: NpcFactionMember
+      friendlyOrderable: true
+      factions:
+      - CaravanCompany
+    - type: NPCRetaliation # Aggro on the attacker when damaged from any range
+    - type: Gun
+      minAngle: 10
+      maxAngle: 27.5
+      angleIncrease: 4
+      angleDecay: 16
+      fireRate: 2.25
+      soundGunshot:
+        collection: N14MarksmanGunshot
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+    - type: BasicEntityAmmoProvider
+      proto: N14Cartridge762Rifle
+      capacity: 20
+      count: 20
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 3
+      rechargeSound:
+        path: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+    - type: Loadout
+      prototypes:
+        - CaravanMercNPC1
+        - CaravanMercNPC2
+        - CaravanMercNPC3
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/fal.rsi
+        state: inhand-right  # Only part we change, the gun sprite.
+
+- type: entity
+  name: Blue Line Caravan Mercenary
+  parent: N14BaseMobWaster
+  id: N14MobNPCCaravanMercM14
+  suffix: NPC
+  description: A man hired to stand guard and ensure the safety of the Blue Line Caravan Company's interests. Paid well enough to shoot first, ask questions later, and not risk losing his contract over hesitating to shoot.
+  components:
+    - type: NpcFactionMember
+      friendlyOrderable: true
+      factions:
+      - CaravanCompany
+    - type: NPCRetaliation # Aggro on the attacker when damaged from any range
+    - type: Gun
+      minAngle: 6
+      maxAngle: 17.5
+      angleIncrease: 4
+      angleDecay: 16
+      fireRate: 1.25
+      soundGunshot:
+        collection: N14MarksmanGunshot
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+    - type: BasicEntityAmmoProvider
+      proto: N14Cartridge762Rifle
+      capacity: 20
+      count: 20
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 3
+      rechargeSound:
+        path: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+    - type: Loadout
+      prototypes:
+        - CaravanMercNPC1
+        - CaravanMercNPC2
+        - CaravanMercNPC3
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/m14.rsi
+        state: inhand-right  # Only part we change, the gun sprite.
+
 # The Tribe faction's humanoid NPCs for event making and such.
 - type: entity
   name: Fire Hand Tribal
-  parent: N14BaseMobRaider
+  parent: N14BaseMobWaster
   id: N14MobNPCTribeSkir
   suffix: NPC
   description: The Fire Hands are skirmishers from the local village, bearing firearms against all outsiders to defend their home. They will give their lives for the tribe's safety.
@@ -759,7 +1029,7 @@
 
 - type: entity
   name: Champion Tribal
-  parent: N14BaseMobRaider
+  parent: N14BaseMobWaster
   id: N14MobNPCTribeWarr
   suffix: NPC
   description: They have sworn their life to the defense of the tribe and the village. They will attack any outsiders on sight, taking no chances with the safety of their people.

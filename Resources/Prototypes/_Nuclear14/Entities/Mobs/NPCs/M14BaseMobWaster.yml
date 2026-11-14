@@ -1,0 +1,146 @@
+- type: entity                   #Netural Human Npc
+  parent: BaseMobSpeciesOrganic
+  id: N14BaseMobWaster
+  abstract: true
+  name: Wastelander
+  suffix: AI
+  components:
+    #- type: RandomHumanoidAppearance #wassuy disabled for now may cause confusion
+    - type: Damageable    # Misfits Add - Override from BaseMobSpeciesOrganic to prevent hunger/thirst damage
+      damageContainer: MisfitsNPCBiological
+    - type: NpcFactionMember
+      factions:
+      - Wastelander
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        80: Critical 
+        160: Dead
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        60: 0.8
+    #- type: Destructible
+    - type: PassiveDamage
+      allowedStates:
+      - Critical # takes a bit to get out of crit, but if no one kills you and you don't lose all your blood, you live!
+      damageCap: 300 # makes it works with life giver
+      damage:
+        types:
+          # #Misfits Fix - PassiveDamage group healing is split across member types; direct types make burn regeneration visible. 1 Hp for every 4 seconds
+          Blunt: -0.5
+          Slash: -0.5
+          Piercing: -0.5
+          Heat: -0.5
+          Cold: -0.5
+          Shock: -0.5
+          Caustic: -0.5
+          Asphyxiation: -1 # Last longer in crit, takes a WHIIILE to get back up.
+          Bloodloss: -5.0
+          Poison: -0.5
+          Radiation: -0.5
+    - type: MindContainer
+      showExamineInfo: False
+    - type: InputMover
+    - type: MobMover
+    - type: SurgeryTarget
+      canOperate: true
+    - type: ProximityNPC # Misfits Add — sleep distant NPCs to reduce tick load
+    - type: NPCRetaliation # Aggro on the attacker when damaged from any range
+    - type: HTN
+      rootTask:
+        task: N14RangedHostileCompound
+      blackboard:
+        NavInteract: !type:Bool    #Wassuy buncha Nav so better ai
+          true
+        NavClimb: !type:Bool
+          true
+        NavPry: !type:Bool
+          true
+        NavSmash: !type:Bool
+          true
+        VisionRadius: !type:Single #Wassuy added this so they detect you less
+          10.5
+        MeleeRange: !type:Single
+          1.5
+    - type: MeleeWeapon
+      hidden: true
+      soundHit:
+        collection: Punch
+      attackRate: 1.5
+      range: 1.5
+      angle: 30
+      animation: WeaponArcPunch
+      damage:
+        types:
+          Blunt: 15
+    - type: Carriable
+    - type: Perishable
+      rotAfter: 3600 # Rots after an in-game day
+    - type: RotInto
+      entity: N14FoodMeatRadRaw # and becomes a single chunk of meat.
+    - type: Butcherable
+      butcheringType: Spike
+      spawned:
+      - id: N14FoodMeatRadRaw
+        amount: 8
+    - type: HumanoidAppearance
+      species: Human
+      hideLayersOnEquip:
+      - Hair
+      - Snout
+    - type: Sprite
+      layers:
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi #PJB on stencil clear being on the left leg: "...this is 'fine'" -https://github.com/space-wizards/space-station-14/pull/12217#issuecomment-1291677115
+        # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
+        # sprite refactor when
+        state: l_leg
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: [ "clownedon" ] # Dynamically generated
+        sprite: "Effects/creampie.rsi"
+        state: "creampie_human"
+        visible: false

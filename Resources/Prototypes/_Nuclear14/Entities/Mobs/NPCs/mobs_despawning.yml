@@ -6,7 +6,7 @@
   id: N14MobDespawning
   components:
   - type: TimedDespawn
-    lifetime: 2400 # 40 minutes
+    lifetime: 4800 # 80 minutes
 
 - type: entity
   parent: [ N14MobMolerat, N14MobDespawning ]

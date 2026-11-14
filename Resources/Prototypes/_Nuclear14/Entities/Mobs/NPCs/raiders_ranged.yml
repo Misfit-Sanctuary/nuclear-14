@@ -6,7 +6,7 @@
   components:
     - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
       minAngle: 8
-      maxAngle: 16
+      maxAngle: 20
       angleIncrease: 4
       angleDecay: 4
       fireRate: 2.0
@@ -91,8 +91,8 @@
   description: Once a Maggot of the Locust Tribe, they got at least a single kill and so have been armed with a basic pistol. If this chem fiend can do a successful raid, he’ll join the tribe’s Swarmers.
   components:
     - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
-      minAngle: 6
-      maxAngle: 14
+      minAngle: 7.5
+      maxAngle: 18
       angleIncrease: 4
       angleDecay: 4
       fireRate: 2.5
@@ -171,14 +171,186 @@
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
-  name: Locust Hivelord
+  name: Locust Buzzfly
   parent: N14BaseMobRaider
+  id: N14MobRaiderPsychoRanged9mmChinese
+  description: Once a Maggot of the Locust Tribe, they got at least a single kill and so have been armed with a basic pistol. If this chem fiend can do a successful raid, he’ll join the tribe’s Swarmers.
+  components:
+    - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
+      minAngle: 10
+      maxAngle: 18
+      angleIncrease: 4
+      angleDecay: 4
+      fireRate: 2.25
+      soundGunshot:
+        collection: N14PistolChineseGunshot
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+    - type: CombatMode
+    - type: BasicEntityAmmoProvider
+      proto: N14CartridgePistol9
+      capacity: 14
+      count: 14
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 3
+      rechargeSound:
+        path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
+    - type: Loadout
+      prototypes:
+        - RaiderPistol9Rounds1Gear
+        - RaiderPistol9Rounds2Gear
+        - RaiderPistol9Rounds3Gear
+        - RaiderPistol9Rounds4Gear
+        - RaiderPistol9Rounds5Gear
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/chinesepistol.rsi
+        state: inhand-right  # Only part we change, the gun sprite.
+
+- type: entity
+  name: Locust Buzzfly
+  parent: N14BaseMobRaider
+  id: N14MobRaiderPsychoRanged22lr
+  description: Once a Maggot of the Locust Tribe, they got at least a single kill and so have been armed with a basic pistol. If this chem fiend can do a successful raid, he’ll join the tribe’s Swarmers.
+  components:
+    - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
+      minAngle: 7.5
+      maxAngle: 12.5
+      angleIncrease: 4
+      angleDecay: 4
+      fireRate: 2.75
+      soundGunshot:
+        collection: N14PistolSpyGunshot
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+    - type: CombatMode
+    - type: BasicEntityAmmoProvider
+      proto: N14CartridgePistol22
+      capacity: 18
+      count: 18
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 3
+      rechargeSound:
+        path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
+    - type: Loadout
+      prototypes:
+        - RaiderPistol22lr1Gear
+        - RaiderPistol22lr2Gear
+        - RaiderPistol22lr3Gear
+        - RaiderPistol22lr4Gear
+        - RaiderPistol22lr5Gear
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/22lr.rsi
+        state: inhand-right  # Only part we change, the gun sprite.
+
+- type: entity
+  name: Locust Hivelord
+  parent: N14BaseMobRaiderBoss
   id: N14MobRaiderBossRifle
   description: Warchiefs of the Locust Tribe, they preach the destiny of their people to feed on the bounty of the weak, using chems and violence to keep their raiders under control. New ones always replace the dead.
   components:
     - type: Gun
-      minAngle: 20
-      maxAngle: 35
+      minAngle: 18
+      maxAngle: 32
       angleIncrease: 2
       angleDecay: 2
       fireRate: 4.0
@@ -195,7 +367,7 @@
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 3
       rechargeSound:
-        path: /Audio/_Nuclear14/Weapons/Guns/Raiders/Reloads/RIFLE1Reload.ogg
+        path: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
     - type: Loadout
       prototypes:
         - RaiderBossRifle1Gear
@@ -257,16 +429,102 @@
 
 - type: entity
   name: Locust Hivelord
-  parent: N14BaseMobRaider
+  parent: N14BaseMobRaiderBoss
+  id: N14MobRaiderBossChineseRifle
+  description: Warchiefs of the Locust Tribe, they preach the destiny of their people to feed on the bounty of the weak, using chems and violence to keep their raiders under control. New ones always replace the dead.
+  components:
+    - type: Gun
+      minAngle: 18
+      maxAngle: 34
+      angleIncrease: 2
+      angleDecay: 2
+      fireRate: 3.0
+      soundGunshot: 
+        collection: N14ChineseRifleGunshot
+      useKey: false
+      selectedMode: FullAuto
+      availableModes:
+        - FullAuto
+    - type: CombatMode
+    - type: BasicEntityAmmoProvider
+      proto: N14Cartridge762Rifle
+      capacity: 30
+      count: 30
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 3
+      rechargeSound:
+        path: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+    - type: Loadout
+      prototypes:
+        - RaiderBoss762Rifle1Gear
+        - RaiderBoss762Rifle2Gear
+        - RaiderBoss762Rifle3Gear
+        - RaiderBoss762Rifle4Gear
+        - RaiderBoss762Rifle5Gear
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/chineserifle.rsi
+        state: inhand-right  # Only part we change, the gun sprite.
+
+- type: entity
+  name: Locust Hivelord
+  parent: N14BaseMobRaiderBoss
   id: N14MobRaiderBoss
   description: Warchiefs of the Locust Tribe, they preach the destiny of their people to feed on the bounty of the weak, using chems and violence to keep their raiders under control. New ones always replace the dead.
   components:
     - type: Gun
-      minAngle: 8
-      maxAngle: 38
+      minAngle: 10
+      maxAngle: 40
       angleIncrease: 8
       angleDecay: 16
-      fireRate: 3.0
+      fireRate: 3.3
       soundGunshot:
         collection: N14Pistol10mmGunshot
       useKey: false
@@ -348,11 +606,11 @@
   description: Tribesmen armed with old rifles, they are former Swarmers promoted for competency. As one of the tribe's lieutenants, they have no vision for the future besides their next easy meal ticket.
   components:
     - type: Gun
-      minAngle: 2
-      maxAngle: 20
+      minAngle: 4
+      maxAngle: 22
       angleIncrease: 4
       angleDecay: 16
-      fireRate: 0.75
+      fireRate: 0.5
       soundGunshot:
         collection: N14SniperHuntingGunshot
       useKey: false
@@ -362,8 +620,8 @@
     - type: CombatMode
     - type: BasicEntityAmmoProvider
       proto: N14Cartridge308Rifle
-      capacity: 5
-      count: 5
+      capacity: 8
+      count: 8
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 3
       rechargeSound:
@@ -434,8 +692,8 @@
   description: Tribesmen armed with old rifles, they are former Swarmers promoted for competency. As one of the tribe's lieutenants, they have no vision for the future besides their next easy meal ticket.
   components:
     - type: Gun
-      minAngle: 2
-      maxAngle: 20
+      minAngle: 4
+      maxAngle: 26
       angleIncrease: 4
       angleDecay: 16
       fireRate: 0.75
@@ -448,8 +706,8 @@
     - type: CombatMode
     - type: BasicEntityAmmoProvider
       proto: N14Cartridge308Rifle
-      capacity: 5
-      count: 5
+      capacity: 10
+      count: 10
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 3
       rechargeSound:
@@ -514,17 +772,103 @@
         state: inhand-right # Only part we change, the gun sprite.
 
 - type: entity
+  name: Locust Longshot
+  parent: N14BaseMobRaider
+  id: N14MobRaiderHunterchinesemark
+  description: Tribesmen armed with old rifles, they are former Swarmers promoted for competency. As one of the tribe's lieutenants, they have no vision for the future besides their next easy meal ticket.
+  components:
+    - type: Gun
+      minAngle: 6
+      maxAngle: 32
+      angleIncrease: 4
+      angleDecay: 16
+      fireRate: 1.0
+      soundGunshot:
+        collection: N14MarksmanGunshot
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+    - type: CombatMode
+    - type: BasicEntityAmmoProvider
+      proto: N14Cartridge308Rifle
+      capacity: 10
+      count: 10
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 3
+      rechargeSound:
+        path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
+    - type: Loadout
+      prototypes:
+        - RaiderHunterMark1Gear
+        - RaiderHunterMark2Gear
+        - RaiderHunterMark3Gear
+        - RaiderHunterMark4Gear
+        - RaiderHunterMark5Gear
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/chinesemarksman.rsi
+        state: inhand-right # Only part we change, the gun sprite.
+
+- type: entity
   name: Locust Swarmer
   parent: N14BaseMobRaider
   id: N14MobRaiderSkrimisher
   description: This tribal raider was once a Buzzfly, but with their rise in the ranks they were given a shotgun and more prestige. He will steal what you have and burn what can't be carried away with him.
   components:
     - type: Gun
-      minAngle: 40
-      maxAngle: 110
+      minAngle: 23
+      maxAngle: 104
       angleIncrease: 8
       angleDecay: 16
-      fireRate: 4.0
+      fireRate: 3.0
       soundGunshot:
         collection: N14DoubleBarrelShotgunGunshot
       useKey: false
@@ -599,6 +943,179 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/double_shotgun.rsi
         state: inhand-right # Only part we change, the gun sprite.
 
+
+- type: entity
+  name: Locust Swarmer
+  parent: N14BaseMobRaider
+  id: N14MobRaiderSkrimishersawnoff
+  description: This tribal raider was once a Buzzfly, but with their rise in the ranks they were given a shotgun and more prestige. He will steal what you have and burn what can't be carried away with him.
+  components:
+    - type: Gun
+      minAngle: 23
+      maxAngle: 104
+      angleIncrease: 8
+      angleDecay: 16
+      fireRate: 3.0
+      soundGunshot:
+        collection: N14DoubleBarrelShotgunGunshot
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+    - type: CombatMode
+    - type: BasicEntityAmmoProvider
+      proto: N14ShellShotgun20
+      capacity: 2
+      count: 2
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 3
+      rechargeSound:
+        path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
+    - type: Loadout
+      prototypes:
+        - RaiderSkrimisher1Gear
+        - RaiderSkrimisher2Gear
+        - RaiderSkrimisher3Gear
+        - RaiderSkrimisher4Gear
+        - RaiderSkrimisher5Gear
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/sawed_off.rsi
+        state: inhand-right # Only part we change, the gun sprite.
+
+- type: entity
+  name: Locust Swarmer
+  parent: N14BaseMobRaider
+  id: N14MobRaiderSkrimishershotgun
+  description: This tribal raider was once a Buzzfly, but with their rise in the ranks they were given a shotgun and more prestige. He will steal what you have and burn what can't be carried away with him.
+  components:
+    - type: Gun
+      minAngle: 23
+      maxAngle: 104
+      angleIncrease: 8
+      angleDecay: 16
+      fireRate: 0.75
+      soundGunshot:
+        collection: N14ShotgunGunshot
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+    - type: CombatMode
+    - type: BasicEntityAmmoProvider
+      proto: N14ShellShotgun12
+      capacity: 6
+      count: 6
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 3
+      rechargeSound:
+        path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
+    - type: Loadout
+      prototypes:
+        - RaiderSkrimisher1Gear
+        - RaiderSkrimisher2Gear
+        - RaiderSkrimisher3Gear
+        - RaiderSkrimisher4Gear
+        - RaiderSkrimisher5Gear
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/pump.rsi
+        state: inhand-right # Only part we change, the gun sprite.
+
 - type: entity
   name: Locust Swarmer
   parent: N14BaseMobRaider
@@ -606,8 +1123,8 @@
   description: This tribal raider was once a Buzzfly, but with their rise in the ranks they were given a shotgun and more prestige. He will steal what you have and burn what can't be carried away with him.
   components:
     - type: Gun
-      minAngle: 30
-      maxAngle: 100
+      minAngle: 23
+      maxAngle: 104
       angleIncrease: 8
       angleDecay: 16
       fireRate: 3.0
@@ -692,8 +1209,8 @@
   description: They joined the invaders from Montana voluntarily, and so they’ve been given some decent equipment. Armed with the very basics and a heavy misunderstanding of American history.
   components:
     - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
-      minAngle: 4
-      maxAngle: 12
+      minAngle: 6
+      maxAngle: 14
       angleIncrease: 4
       angleDecay: 4
       fireRate: 2.0
@@ -778,8 +1295,8 @@
   description: Some conscripts and recruits actually survive their first fight, becoming professional soldiers in the war to rebuild America’s glory. They are given respect and priority medical treatment.
   components:
     - type: Gun
-      minAngle: 8
-      maxAngle: 32
+      minAngle: 10
+      maxAngle: 34
       angleIncrease: 4
       angleDecay: 16
       fireRate: 2.0
@@ -857,18 +1374,18 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/carbine.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
-- type: entity
+- type: entity #toefafafa
   name: Cult of Liberty Patriot
   parent: N14BaseMobRaider
   id: M14MobFernMercPrivateAutoRifle
   description: Some conscripts and recruits actually survive their first fight, becoming professional soldiers in the war to rebuild America’s glory. They are given respect and priority medical treatment.
   components:
     - type: Gun
-      minAngle: 15
-      maxAngle: 35
+      minAngle: 18
+      maxAngle: 38
       angleIncrease: 4
       angleDecay: 16
-      fireRate: 3.0
+      fireRate: 2.5
       soundGunshot:
         collection: N14RifleR91Gunshot
       useKey: false
@@ -1031,8 +1548,8 @@
   description: Serving as a mixture of commanders and spiritual guides for the members of the cult-militia, the Reverends take their marching orders directly from the leadership in Havre, Montana.
   components:
     - type: Gun
-      minAngle: 1.5
-      maxAngle: 13.5
+      minAngle: 8
+      maxAngle: 26
       angleIncrease: 1
       angleDecay: 4
       fireRate: 4.0
@@ -1112,8 +1629,8 @@
   description: Raider mercenaries hailing from Seattle, Washington until the Brotherhood of Steel pushed them out. This mercenary is loyal to the company, due to the quality of food and kit provided.
   components:
     - type: Gun
-      minAngle: 10
-      maxAngle: 26
+      minAngle: 12
+      maxAngle: 28
       angleIncrease: 4
       angleDecay: 16
       fireRate: 3.25
@@ -1198,8 +1715,8 @@
   description: Raider mercenaries hailing from Seattle, Washington until the Brotherhood of Steel pushed them out. This mercenary is loyal to the company, due to the quality of food and kit provided.
   components:
     - type: Gun
-      minAngle: 8
-      maxAngle: 24
+      minAngle: 10
+      maxAngle: 26
       angleIncrease: 4
       angleDecay: 16
       fireRate: 3.0
@@ -1284,8 +1801,8 @@
   description: Raider mercenaries hailing from Seattle, Washington until the Brotherhood of Steel pushed them out. This mercenary is loyal to the company, due to the quality of food and kit provided.
   components:
     - type: Gun
-      minAngle: 10
-      maxAngle: 25
+      minAngle: 12
+      maxAngle: 28
       angleIncrease: 4
       angleDecay: 16
       fireRate: 2.25
@@ -1364,14 +1881,100 @@
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
+  name: Warden Leadhead
+  parent: N14BaseMobRaider
+  id: N14MobEnforcerTrooper45Pistol
+  description: Raider mercenaries hailing from Seattle, Washington until the Brotherhood of Steel pushed them out. This mercenary is loyal to the company, due to the quality of food and kit provided.
+  components:
+    - type: Gun
+      minAngle: 10
+      maxAngle: 22.5
+      angleIncrease: 4
+      angleDecay: 16
+      fireRate: 2.0
+      soundGunshot:
+        collection: N14PistolColtGunshot
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+      - SemiAuto
+    - type: CombatMode
+    - type: BasicEntityAmmoProvider
+      proto: N14CartridgePistol45
+      capacity: 8
+      count: 8
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 3
+      rechargeSound:
+        path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
+    - type: Loadout
+      prototypes:
+        - EnforcerTrooper45Pistol1Gear
+        - EnforcerTrooper45Pistol2Gear
+        - EnforcerTrooper45Pistol3Gear
+        - EnforcerTrooper45Pistol4Gear
+        - EnforcerTrooper45Pistol5Gear
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/colt.rsi
+        state: inhand-right  # Only part we change, the gun sprite.
+
+- type: entity
   name: Warden Warhound
   parent: N14BaseMobRaider
   id: N14MobEnforcerWarden
   description: Veterans from the exodus out of Seattle with a grudge against the Brotherhood, they have experience in room to room combat and aim to collect more tinhead power suits as trophies.
   components:
     - type: Gun
-      minAngle: 40
-      maxAngle: 160
+      minAngle: 23
+      maxAngle: 104
       angleIncrease: 8
       angleDecay: 16
       fireRate: 1.5
@@ -1389,7 +1992,7 @@
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 3
       rechargeSound:
-        path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
+        path: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
     - type: Loadout
       prototypes:
         - EnforcerWarden1Gear
@@ -1451,31 +2054,31 @@
 
 - type: entity
   name: Warden Lieutenant
-  parent: N14BaseMobRaider
+  parent: N14BaseMobRaiderBoss
   id: N14MobEnforcerChief
   description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
     - type: Gun
-      minAngle: 2
-      maxAngle: 10
+      minAngle: 10
+      maxAngle: 24.5
       angleIncrease: 2
       angleDecay: 4
-      fireRate: 1.5
+      fireRate: 4.5
       soundGunshot:
-        collection: N14RevolverMagnunGunshot
+        collection: N14AutoRifleGunshot
       useKey: false
-      selectedMode: SemiAuto
+      selectedMode: FullAuto
       availableModes:
-        - SemiAuto
+        - FullAuto
     - type: CombatMode
     - type: BasicEntityAmmoProvider
-      proto: N14Cartridge44Magnum
-      capacity: 6
-      count: 6
+      proto: N14Cartridge762Rifle
+      capacity: 100
+      count: 100
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 3
       rechargeSound:
-        path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
+        path: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
     - type: Loadout
       prototypes:
         - EnforcerChief1Gear
@@ -1532,21 +2135,21 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/magnum.rsi
+      - sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/chineselmg.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
-- type: entity
+- type: entity #Wassuy, Deadeye boss, panfire the revolver before shooting slowly.
   name: Warden Lieutenant
-  parent: N14BaseMobRaider
+  parent: N14BaseMobRaiderBoss
   id: M14MobEnforcerChief357
   description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
     - type: Gun
-      minAngle: 2.5
-      maxAngle: 12.5
+      minAngle: 4.5
+      maxAngle: 17.5
       angleIncrease: 2
       angleDecay: 4
-      fireRate: 2.0
+      fireRate: 3.5
       soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Raiders/Firings/RevolverFire.ogg
       useKey: false
       selectedMode: SemiAuto
@@ -1558,9 +2161,9 @@
       capacity: 6
       count: 6
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 3
+      rechargeCooldown: 1.10
       rechargeSound:
-        path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
+        path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
     - type: Loadout
       prototypes:
         - EnforcerChief3571Gear
@@ -1622,38 +2225,38 @@
 
 - type: entity
   name: Warden Lieutenant
-  parent: N14BaseMobRaider
-  id: M14MobEnforcerChief10mmDual
+  parent: N14BaseMobRaiderBoss
+  id: M14MobEnforcerChiefBAR
   description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
     - type: Gun
-      minAngle: 14
-      maxAngle: 20
+      minAngle: 12.5
+      maxAngle: 34.5
       angleIncrease: 2
       angleDecay: 4
-      fireRate: 3.0
+      fireRate: 2.8
       soundGunshot:
-        collection: N14Revolver10mmGunshot
+        collection: N14AutoRifleGunshot
       useKey: false
-      selectedMode: SemiAuto
+      selectedMode: FullAuto
       availableModes:
-        - SemiAuto
+        - FullAuto
     - type: CombatMode
     - type: BasicEntityAmmoProvider
-      proto: N14CartridgePistol10
-      capacity: 16
-      count: 16
+      proto: N14Cartridge308Rifle
+      capacity: 21
+      count: 21
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 3
       rechargeSound:
-        path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
+        path: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
     - type: Loadout
       prototypes:
-        - EnforcerChief10mm1Gear
-        - EnforcerChief10mm2Gear
-        - EnforcerChief10mm3Gear
-        - EnforcerChief10mm4Gear
-        - EnforcerChief10mm5Gear
+        - EnforcerChiefBAR1Gear
+        - EnforcerChiefBAR2Gear
+        - EnforcerChiefBAR3Gear
+        - EnforcerChiefBAR4Gear
+        - EnforcerChiefBAR5Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -1703,45 +2306,43 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/10mmrevolver.rsi
+      - sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/autorifle.rsi
         state: inhand-right  # Only part we change, the gun sprite.
-      - sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/10mmrevolver.rsi
-        state: inhand-left   # Only part we change, the gun sprite.
 
 - type: entity
   name: Warden Lieutenant
   parent: N14BaseMobRaider
-  id: M14MobEnforcerChiefCowboyRepeater
+  id: M14MobEnforcerChiefBren
   description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
     - type: Gun
-      minAngle: 6
+      minAngle: 10
       maxAngle: 24
       angleIncrease: 2
       angleDecay: 4
-      fireRate: 1.0
+      fireRate: 2.25
       soundGunshot:
-        collection: N14LeverCarbineGunshot
+        collection: N14AutoRifleGunshot
       useKey: false
-      selectedMode: SemiAuto
+      selectedMode: FullAuto
       availableModes:
-        - SemiAuto
+        - FullAuto
     - type: CombatMode
     - type: BasicEntityAmmoProvider
-      proto: N14Bullet357
-      capacity: 12
-      count: 12
+      proto: N14Cartridge308Rifle
+      capacity: 40
+      count: 40
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 3
       rechargeSound:
-        path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
+        path: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
     - type: Loadout
       prototypes:
-        - EnforcerChiefRepeater1Gear
-        - EnforcerChiefRepeater2Gear
-        - EnforcerChiefRepeater3Gear
-        - EnforcerChiefRepeater4Gear
-        - EnforcerChiefRepeater5Gear
+        - EnforcerChiefBren1Gear
+        - EnforcerChiefBren2Gear
+        - EnforcerChiefBren3Gear
+        - EnforcerChiefBren4Gear
+        - EnforcerChiefBren5Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -1791,5 +2392,5 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/cowboyrepeater.rsi
+      - sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/bren.rsi
         state: inhand-right  # Only part we change, the gun sprite.

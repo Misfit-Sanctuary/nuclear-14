@@ -452,9 +452,9 @@
     prototypes:
       - N14MobCazador
 
-# Ranged Raider Variants
+# Ranged Raider Variants #Wassuy added more varitant for almost all the raiders with wendover raider name replaced the N14 default raider sets.
 - type: entity
-  name: Locusts Spawner - Pistol
+  name: Locusts Spawner - Buzzfly
   id: N14SpawnMobRaiderPsychoRanged
   parent: MarkerBase
   components:
@@ -468,8 +468,10 @@
     prototypes:
       - N14MobRaiderPsychoRanged
       - N14MobRaiderPsychoRanged9mm
+      - N14MobRaiderPsychoRanged9mmChinese
+      - N14MobRaiderPsychoRanged22lr
 - type: entity
-  name: Locusts Spawner - Rifle
+  name: Locusts Spawner - Longshot
   id: N14SpawnMobRaiderPsychoHunter
   parent: MarkerBase
   components:
@@ -483,8 +485,9 @@
     prototypes:
       - N14MobRaiderHunter
       - N14MobRaiderHunterEnfield
+      - N14MobRaiderHunterchinesemark
 - type: entity
-  name: Locusts Spawner - Shotgun
+  name: Locusts Spawner - Swarmer
   id: N14SpawnMobRaiderPsychoSkrimisher
   parent: MarkerBase
   components:
@@ -497,10 +500,12 @@
   - type: ConditionalSpawner
     prototypes:
       - N14MobRaiderSkrimisher
+      - N14MobRaiderSkrimishersawnoff
       - N14MobRaiderSkrimisherautoshotgun
+      - N14MobRaiderSkrimishershotgun
       
 - type: entity
-  name: Locusts Spawner - Boss
+  name: Locusts Spawner - Hivelord
   id: N14SpawnMobRaiderBoss
   parent: MarkerBase
   components:
@@ -514,7 +519,7 @@
     prototypes:
       - N14MobRaiderBoss
       - N14MobRaiderBossRifle
-
+      - N14MobRaiderBossChineseRifle
 - type: entity
   name: Liberty Cultists Spawner - Recruit
   id: N14SpawnMobRaiderFernRecruit
@@ -576,7 +581,7 @@
       - N14MobFernMercLieutenant
 
 - type: entity
-  name: Enforcer Spawner - Trooper
+  name: Warden Spawner - Leadhead
   id: N14SpawnMobRaiderEnforcerTrooper
   parent: MarkerBase
   components:
@@ -591,9 +596,10 @@
       - N14MobEnforcerTrooper
       - N14MobEnforcerTrooperSten
       - N14MobEnforcerTrooper45SMG
+      - N14MobEnforcerTrooper45Pistol
 
 - type: entity
-  name: Enforcer Spawner - Warden
+  name: Warden Spawner - Warhound
   id: N14SpawnMobRaiderEnforcerWarden
   parent: MarkerBase
   components:
@@ -608,7 +614,7 @@
       - N14MobEnforcerWarden
 
 - type: entity
-  name: Enforcer Spawner - Chief
+  name: Warden Spawner - Lieutenant
   id: N14SpawnMobRaiderEnforcerChief
   parent: MarkerBase
   components:
@@ -622,11 +628,11 @@
     prototypes:
       - N14MobEnforcerChief
       - M14MobEnforcerChief357
-      - M14MobEnforcerChief10mmDual
-      - M14MobEnforcerChiefCowboyRepeater
+      - M14MobEnforcerChiefBAR
+      - M14MobEnforcerChiefBren
 # Melee Raider Variants
 - type: entity
-  name: Locusts Spawner - Melee
+  name: Locusts Spawner - Maggot
   id: N14SpawnMobRaiderPsycho
   parent: MarkerBase
   components:
@@ -656,7 +662,7 @@
       - N14MobRaiderFernMelee
 
 - type: entity
-  name: Enforcer Spawner - Melee
+  name: Warden Spawner - Cudgel
   id: N14SpawnMobRaiderEnforcerMelee
   parent: MarkerBase
   components:
@@ -671,7 +677,7 @@
       - N14MobRaiderEnforcerMelee
 
 - type: entity
-  name: Enforcer Spawner - Shield
+  name: Warden Spawner - Sentinel
   id: M14SpawnMobRaiderEnforcerShieldman
   parent: MarkerBase
   components:
@@ -1097,7 +1103,7 @@
     prototypes:
       - N14MobNPCNCRTrooper
 
-- type: entity
+- type: entity #Wassuy added, more varitant for Caravan mercenaries
   name: Caravan Merc Spawner
   id: N14SpawnMobNPCCaravanMerc
   parent: MarkerBase
@@ -1113,6 +1119,10 @@
       - N14MobNPCCaravanMerc
       - N14MobNPCCaravanMercRifle
       - N14MobNPCCaravanMercR91Rifle
+      - N14MobNPCCaravanMercFal
+      - N14MobNPCCaravanMerc10SMG
+      - N14MobNPCCaravanMercM14
+
 - type: entity
   name: Tribal Skirmisher Spawner
   id: N14SpawnMobNPCTribeSkir
