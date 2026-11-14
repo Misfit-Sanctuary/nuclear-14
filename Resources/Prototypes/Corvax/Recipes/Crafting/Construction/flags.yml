@@ -150,3 +150,20 @@
     state: icon
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  id: MisfitsGallows
+  name: Gallows
+  graph: DecorationGallows
+  startNode: start
+  targetNode: Gallows
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  icon:
+    sprite: _Misfits/Structures/Decoration/gallows.rsi
+    state: gallows
+  conditions:
+  - !type:TileNotBlocked

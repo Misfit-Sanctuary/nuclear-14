@@ -56,12 +56,6 @@ public sealed partial class GallowsComponent : Component
     public TimeSpan NextCoughBloodTime;
 
     [DataField]
-    public float BlurMagnitude = 4f;
-
-    [DataField]
-    public TimeSpan StutterDuration = TimeSpan.FromMinutes(30);
-
-    [DataField]
     public DoAfterId? AttachDoAfter;
 
     [DataField]
