@@ -1,0 +1,89 @@
+# Fork-owned random event pool.
+#
+# These rules are fully independent of the upstream station events: the pool
+# only ever contains prototypes with a MisfitsEvent component, so none of the
+# old event prototypes can be rolled. They also do not need vents, midround
+# markers or an event-eligible station - entities arrive at a random
+# MisfitsEventAnchor (Entities/Markers/event_markers.yml) placed on the map.
+#
+# Triggering:
+#   misfitevent roll                  weighted roll from everything eligible right now
+#   misfitevent run <id>              force a specific event
+#   misfitevent interval <min> <max>  seconds between automatic rolls
+#   misfitevent next <seconds>        bring the next automatic roll forward
+#   misfitevent disable / enable      toggle automatic rolls
+#   misfitevent pool                  what can roll right now, with odds
+#   misfitevent list                  every event and its weight
+#
+# Automatic rolls are gated by the archived server cvar `misfits.events_enabled`
+# (default off). Unlike `misfitevent enable/disable`, which only lasts the round,
+# the cvar sticks across restarts. `misfitevent run/roll` ignore it.
+#
+# Fields:
+#   weight            relative chance of being picked by a roll
+#   earliestStart     minutes of round time before it may roll
+#   minimumPlayers    players online required to be eligible
+#   reoccurrenceDelay minutes before the same event can roll again
+#   maxOccurrences    per-round cap (omit for unlimited)
+#   duration          seconds the rule stays active before it ends
+#   spawnRadius       tiles around the anchor that spawns scatter in
+#   clusterRadius     when set, everything is massed into this many tiles of one spot
+#   countMin/countMax how many entities spawn
+#   spawns            weighted list of prototypes to spawn
+#   specialSpawns     guaranteed extra spawns (e.g. ghost role spawners)
+#   specialCountMin/specialCountMax  how many of those to place
+#
+# `delay` (GameRule.delay, in seconds) is the warning window between the event
+# being queued and it actually spawning.
+
+- type: entity
+  id: BaseMisfitsEvent
+  abstract: true
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MisfitsEvent
+
+- type: entity
+  id: MisfitsEventScheduler
+  parent: BaseGameRule
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MisfitsEventScheduler
+    minInterval: 600
+    maxInterval: 1200
+    firstEventDelay: 600
+
+# --- Events. Tune weights and counts freely. --------------------------------
+
+# A pack of feral ghouls that arrives as one massed group. Two of them are
+# sentient and are offered to ghosts through their own ghost role spawner.
+- type: entity
+  id: MisfitsGhoulHorde
+  name: ghoul horde
+  parent: BaseMisfitsEvent
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MisfitsEvent
+    weight: 10
+    earliestStart: 10
+    minimumPlayers: 2
+    reoccurrenceDelay: 20
+    maxOccurrences: 2
+    duration: 1
+    spawnRadius: 12 # how far from the anchor the pack may form
+    clusterRadius: 5 # once the spot is picked, everyone packs into this
+    countMin: 6
+    countMax: 10
+    announcement: misfits-event-ghoul-horde
+    spawns:
+    - id: N14MobGhoulFeral
+      weight: 8
+    - id: N14MobGhoulFeralReaver
+      weight: 1
+    specialSpawns:
+    - id: MisfitsSpawnPointGhostGhoul
+      weight: 1
+    specialCountMin: 2
+    specialCountMax: 2
+

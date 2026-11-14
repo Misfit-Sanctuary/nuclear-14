@@ -1,0 +1,33 @@
+# Markers used by the event pool: where events spawn, and the ghost role spawners they place.
+
+# Place these at map entrances in the map editor; events pick one at random, and renaming
+# the instance gives that anchor a readable name in the logs and the admin tab.
+- type: entity
+  id: MisfitsEventAnchor
+  name: event anchor
+  suffix: event
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Corvax/Markers/jobs.rsi
+    state: green
+  - type: MisfitsEventAnchor
+
+# Ghost roles placed by events: spawned at runtime, hidden from the spawn menu.
+- type: entity
+  id: MisfitsSpawnPointGhostGhoul
+  name: sentient ghoul ghost role
+  suffix: event
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    visible: false
+  # The ghost picks one of their own ghoul characters, or a randomly generated ghoul.
+  - type: MisfitsGhostRoleCharacterPicker
+    allowedSpecies: [ Ghoul ]
+    allowRandom: true
+  - type: GhostRole
+    name: misfits-ghost-role-ghoul-name
+    description: misfits-ghost-role-ghoul-description
+    rules: misfits-ghost-role-ghoul-rules
