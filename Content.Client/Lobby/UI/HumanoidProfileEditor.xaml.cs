@@ -221,11 +221,14 @@ namespace Content.Client.Lobby.UI
             Math.Max(0, _cfgManager.GetCVar(CCVars.GameLoadoutsPoints)
                 + SharedSpecialSystem.GetCharismaLoadoutPointModifier(SpecialProfile.EnsureValid(Profile?.Special).Charisma));
 
-        private static readonly ProtoId<GuideEntryPrototype> DefaultSpeciesGuidebook = "Species";
+        [ValidatePrototypeId<GuideEntryPrototype>]
+        private const string DefaultSpeciesGuidebook = "Species";
 
-        private static readonly ProtoId<LocalizedDatasetPrototype> StationAiNames = "NamesAI";
+        [ValidatePrototypeId<LocalizedDatasetPrototype>]
+        private const string StationAiNames = "NamesAI";
 
-        private static readonly ProtoId<DatasetPrototype> CyborgNames = "names_borg";
+        [ValidatePrototypeId<DatasetPrototype>]
+        private const string CyborgNames = "names_borg";
 
         public HumanoidProfileEditor(
             IClientPreferencesManager preferencesManager,

@@ -53,7 +53,8 @@ public sealed partial class DungeonSystem : SharedDungeonSystem
     private readonly JobQueue _dungeonJobQueue = new(DungeonJobTime);
     private readonly Dictionary<DungeonJob, CancellationTokenSource> _dungeonJobs = new();
 
-    public static readonly ProtoId<ContentTileDefinition> FallbackTileId = "FloorSteel";
+    [ValidatePrototypeId<ContentTileDefinition>]
+    public const string FallbackTileId = "FloorSteel";
 
     public override void Initialize()
     {

@@ -67,10 +67,10 @@ namespace Content.Server.Construction
 
             var xform = Transform(structure);
             var wasAnchored = xform.Anchored;
-            _transformSystem.TryAnchor(structure, false, xform);
+            xform.Anchored = false;
             xform.Coordinates = coordinates;
             xform.LocalRotation = constructionPrototype.CanRotate ? angle : Angle.Zero;
-            _transformSystem.TryAnchor(structure, wasAnchored, xform);
+            xform.Anchored = wasAnchored;
 
             RaiseLocalEvent(structure, new ConstructionCompletedEvent(structure, user));
             _adminLogger.Add(LogType.Construction, LogImpact.Low, $"{ToPrettyString(user):actor} unattended-built {prototype} into {ToPrettyString(structure)} at {Transform(structure).Coordinates}");

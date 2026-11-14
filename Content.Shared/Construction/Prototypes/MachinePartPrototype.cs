@@ -1,4 +1,5 @@
 ﻿using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Construction.Prototypes;
 
@@ -22,6 +23,6 @@ public sealed partial class MachinePartPrototype : IPrototype
     /// <summary>
     /// A stock part entity based on the machine part.
     /// </summary>
-    [DataField("stockPartPrototype", required: true)]
-    public EntProtoId StockPartPrototype = string.Empty;
+    [DataField("stockPartPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>), required: true)]
+    public string StockPartPrototype = string.Empty;
 }

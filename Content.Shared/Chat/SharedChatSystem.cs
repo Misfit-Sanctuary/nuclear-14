@@ -28,11 +28,13 @@ public abstract class SharedChatSystem : EntitySystem
     public const char TelepathicPrefix = '='; //Nyano - Summary: Adds the telepathic channel's prefix.
     public const char DefaultChannelKey = 'h';
 
+    [ValidatePrototypeId<RadioChannelPrototype>]
     public const string CommonChannel = "Common";
 
     public static string DefaultChannelPrefix = $"{RadioChannelPrefix}{DefaultChannelKey}";
 
-    public static readonly ProtoId<SpeechVerbPrototype> DefaultSpeechVerb = "Default";
+    [ValidatePrototypeId<SpeechVerbPrototype>]
+    public const string DefaultSpeechVerb = "Default";
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units

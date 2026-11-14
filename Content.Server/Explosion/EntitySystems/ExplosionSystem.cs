@@ -71,7 +71,8 @@ public sealed partial class ExplosionSystem : EntitySystem
     ///     find errors. However some components, like rogue arrows, or some commands like the admin-smite need to have
     ///     a "default" option specified outside of yaml data-fields. Hence this const string.
     /// </remarks>
-    public static readonly ProtoId<ExplosionPrototype> DefaultExplosionPrototypeId = "Default";
+    [ValidatePrototypeId<ExplosionPrototype>]
+    public const string DefaultExplosionPrototypeId = "Default";
 
     public override void Initialize()
     {

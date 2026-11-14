@@ -79,7 +79,8 @@ public abstract partial class SharedStorageSystem : EntitySystem
     /// </summary>
     public bool NestedStorage = true;
 
-    public static readonly ProtoId<ItemSizePrototype> DefaultStorageMaxItemSize = "Normal";
+    [ValidatePrototypeId<ItemSizePrototype>]
+    public const string DefaultStorageMaxItemSize = "Normal";
 
     public const float AreaInsertDelayPerItem = 0.075f;
     private static AudioParams _audioParams = AudioParams.Default
@@ -744,7 +745,7 @@ public abstract partial class SharedStorageSystem : EntitySystem
         UpdateAppearance((ent.Owner, ent.Comp, null));
     }
 
-    private void OnBoundUIAttempt(ref BoundUserInterfaceMessageAttempt args)
+    private void OnBoundUIAttempt(BoundUserInterfaceMessageAttempt args)
     {
         if (args.UiKey is not StorageComponent.StorageUiKey.Key ||
             _openStorageLimit == -1 ||
