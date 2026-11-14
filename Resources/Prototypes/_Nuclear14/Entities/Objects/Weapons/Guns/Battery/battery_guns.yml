@@ -671,6 +671,67 @@
     count: 4
 
 - type: entity
+  name: Tribeam laser rifle
+  parent: N14WeaponLaserRifle
+  id: MisfitsWeaponLaserRifleTribeam
+  description: A modified AER-9 intended for use in close-quarters urban combat. Due to the overloading of the weapon's power supply, it's capable of spitting out devastating short-range laser fire at the cost of long-range accuracy.
+  components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -14
+    maxAngle: -28
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_rifle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_rifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MicrofusionCellRed
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+          - N14MicrofusionCell
+  - type: Gun
+    minAngle: 15
+    maxAngle: 30
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 2
+    soundGunshot:
+      collection: N14LaserAutoRifleGunshot
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  # Weapon profile controls damage and beam color; MFC supplies charge.
+  - type: GunDamageBonus
+    hitscanProtoOverride: N14AER9AutoLaser # AER-9A does 20 dmg a shot - firing 3 beams = 60 damage total, or 120 DPS.
+    fireCostMultiplier: 3.0 # Tribeam = triple the charge cost per shot!
+  - type: FollowDistance
+    backStrength: 5
+  - type: StaticPrice
+    price: 250
+  - type: HitscanSpread
+    spread: 7
+    count: 3
+
+- type: entity
   name: crude laser rifle
   parent: N14WeaponLaserRifle
   id: N14WeaponLaserRifleCrude
