@@ -42,8 +42,8 @@ public sealed class EnclaveRecruitUnlockSystem : EntitySystem
     ];
 
     /// <summary>
-    /// Recruit playtime required before the jobs unlock (4 hours). Keep in sync
-    /// with the 14400s department time requirement on the entry job prototypes.
+    /// Recruit playtime required before the jobs unlock (4 hours). Keep in sync (11/14/26 Now at 2 hours)
+    /// with the 14400s department time requirement on the entry job prototypes. (11/14/26 Now at 7200s)
     /// </summary>
     private static readonly TimeSpan UnlockTime = TimeSpan.FromHours(4);
 
