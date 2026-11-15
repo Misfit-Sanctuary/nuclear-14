@@ -62,7 +62,7 @@
 # #Cythisiax Edited - each track is run by its own people: officers manage Enlisted / NCO,
 # the Head Scientist manages Junior Scientists / Scientists. Promoting to or demoting from
 # Junior Officer, Senior Officer or Head Scientist is reserved for the Commander (and
-# Reformer), via commandOnlyFrom.
+# Reformer/General), via commandOnlyFrom.
 - type: factionRoster
   id: Enclave
   name: faction-roster-name-enclave
@@ -76,7 +76,7 @@
     - EnclaveNCO
     - EnclaveJuniorOfficer
     - EnclaveSeniorOfficer
-    - EnclaveCommander # #Cythisiax Added - top of the track: only the Reformer can promote to or demote the Commander
+    - EnclaveCommander # #Cythisiax Added - top of the track: only the Reformer/General can promote to or demote the Commander
     commandOnlyFrom: EnclaveJuniorOfficer # #Cythisiax Added - only the Commander makes or breaks officers
   - name: faction-roster-track-science
     ranks:

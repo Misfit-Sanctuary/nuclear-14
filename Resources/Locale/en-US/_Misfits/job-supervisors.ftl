@@ -5,7 +5,7 @@ job-supervisors-ncr-nco = the NCR officers and your chain of command
 # #Misfits Add - Vertibird pilot supervisor strings.
 job-supervisors-ncr-vertibird-pilot = the NCR officers and the airframe you are trusted with
 
-# #Misfits Add - Enclave supervisor locale (expanded 8-role hierarchy). Reformer is admin-only apex role.
+# #Misfits Add - Enclave supervisor locale (expanded 8-role hierarchy). Reformer (General) is admin-only apex role.
 job-supervisors-enclave-reformer = Eden and the Enclave's founding mandate
 job-supervisors-enclave = the Enclave chain of command
 job-supervisors-enclave-commander = Enclave high command and your own judgment
