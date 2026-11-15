@@ -255,6 +255,26 @@
 
     N14Gold: 350
 
+- type: latheRecipe
+  id: N14BPBoSWeaponLaserRifleTribeam
+  result: MisfitsWeaponLaserRifleTribeam
+  category: N14BlueprintBoSWeaponsT3
+  completetime: 16
+  requiresBlueprint: true
+  availableFaction:
+  - BrotherhoodOfSteel
+  materials:
+    Steel: 6000
+
+    Glass: 1500
+
+    Circuitry: 400
+
+    ScrapElectronic: 500
+
+    Plastic: 1000
+
+    N14Gold: 100
 
 - type: latheRecipe
   id: N14BPBoSWeaponPlasmaRifle
@@ -2292,6 +2312,21 @@
 - type: latheRecipe
   id: N14BPTownAmmoMag12mmSMG
   result: N14MagazineSMG12mm
+  category: N14BlueprintTownAmmoT4
+  completetime: 7
+  requiresBlueprint: true
+  availableFaction:
+  - Townsfolk
+  materials:
+    Steel: 50
+
+    Lead: 70
+
+    N14Gunpowder: 35
+
+- type: latheRecipe
+  id: N14BPTownAmmoMagSMGwt550
+  result: N14MagazineSMGwt550
   category: N14BlueprintTownAmmoT4
   completetime: 7
   requiresBlueprint: true

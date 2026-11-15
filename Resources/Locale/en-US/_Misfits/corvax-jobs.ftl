@@ -71,9 +71,9 @@ GreatKhans = Great Khans
 department-GreatKhans = Great Khans
 department-GreatKhans-description = A feared raider tribe built around speed, firepower, and brutal attacks.
 
-# #Misfits Add - Vault Management: admin-only command role above Overseer
+# #Misfits Add - Vault Management: Whitelist-only command role above Overseer
 job-name-vaultmanagement = Vault Management
-job-description-vaultmanagement = You are the administrative overseer of the Vault. Ensure the facility runs smoothly, manage its residents, and make the hard decisions no one else can. This role is reserved for server administrators.
+job-description-vaultmanagement = You are the administrative overseer of the Vault. Ensure the facility runs smoothly, manage it's records, and make the hard decisions no one else can. 
 job-supervisors-vaultmanagement = the server administrators
 
 # #Misfits Add - NCR Major whitelist-only command billet

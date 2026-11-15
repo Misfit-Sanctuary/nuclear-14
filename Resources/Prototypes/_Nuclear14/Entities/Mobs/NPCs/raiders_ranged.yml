@@ -167,7 +167,7 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mmpistol.rsi
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
@@ -768,7 +768,7 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/10mmpistol.rsi
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/10mm.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity

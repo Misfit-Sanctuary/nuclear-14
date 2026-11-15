@@ -1,4 +1,4 @@
-# #Misfits Add - New Enclave clothing variants (sprites by Classic492).
+# #Misfits Add - New Enclave clothing variants (sprites by Classic492 and JJmanus).
 # These are standalone spawnable prototypes — they do NOT replace existing Enclave defaults.
 # Current Enclave job startingGear entries are unchanged.
 
@@ -25,3 +25,15 @@
     sprite: _Misfits/Clothing/Uniforms/enclave_uniform_grey.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/Uniforms/enclave_uniform_grey.rsi
+
+# --- Enclave Security Uniform ---
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitEnclaveSecurity
+  name: enclave security uniform
+  description: A blue standard security uniform of the enclave.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/enclave_uniform_security.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/enclave_uniform_security.rsi

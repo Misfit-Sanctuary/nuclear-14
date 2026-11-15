@@ -288,6 +288,9 @@
         - id: N14MagazineSMG12mm
           prob: 0.07
           orGroup: Ammunition
+        - id: N14MagazineSMGwt550
+          prob: 0.07
+          orGroup: Ammunition
         - id: MagazineBox12
           prob: 0.05
           orGroup: Ammunition
@@ -664,6 +667,9 @@
           prob: 0.07
           orGroup: Ammunition
         - id: N14MagazineSMG12mm
+          prob: 0.07
+          orGroup: Ammunition
+        - id: N14MagazineSMGwt550
           prob: 0.07
           orGroup: Ammunition
         - id: MagazineBox12
@@ -1208,6 +1214,19 @@
           prob: 0.10
         - id: N14Binoculars # #Misfits Add — rare binoculars find in junkpiles
           prob: 0.02
+#        # #Misfits Add: rare uncraftable 80mm mortar rounds.
+#        - id: RMCMortarShellHEAT
+#          prob: 0.012
+#        - id: RMCMortarShellEMP
+#          prob: 0.010
+#        - id: RMCMortarShellPhosphorus
+#          prob: 0.008
+#        - id: RMCMortarShellPlasma
+#          prob: 0.008
+#        - id: RMCMortarShellUranium
+#          prob: 0.008
+#        - id: RMCMortarShellChemical
+#          prob: 0.006
         - id: N14CombatKnife
           prob: 0.03
           orGroup: Tools
@@ -1465,6 +1484,9 @@
           prob: 0.07
           orGroup: Ammunition
         - id: N14MagazineSMG12mm
+          prob: 0.07
+          orGroup: Ammunition
+        - id: N14MagazineSMGwt550
           prob: 0.07
           orGroup: Ammunition
         - id: N14MagazineShotgun12
@@ -1938,6 +1960,9 @@
         - id: N14MagazineSMG12mm
           prob: 0.01
           orGroup: Ammunition
+        - id: N14MagazineSMGwt550
+          prob: 0.07
+          orGroup: Ammunition
         - id: MagazineBox12
           prob: 0.01
           orGroup: Ammunition
@@ -2307,6 +2332,9 @@
         - id: N14WeaponRifle762Marksman
           prob: 0.07
           orGroup: Weapon
+        - id: N14WeaponSMGWt550
+          prob: 0.06
+          orGroup: Weapon
         - id: N14WeaponShotgunDoubleBarrel
           prob: 0.05
           orGroup: Weapon
@@ -2327,6 +2355,9 @@
           orGroup: Weapon
         - id: N14WeaponSMG12mm
           prob: 0.09
+          orGroup: Weapon
+        - id: N14WeaponSMGWt550
+          prob: 0.07
           orGroup: Weapon
         - id: N14WeaponSMG12mmPipe
           prob: 0.07
@@ -2411,6 +2442,9 @@
           orGroup: Ammunition
         - id: N14MagazineSMG12mm
           prob: 0.1
+          orGroup: Ammunition
+        - id: N14MagazineSMGwt550
+          prob: 0.07
           orGroup: Ammunition
         - id: N14MagazineShotgun12
           prob: 0.07

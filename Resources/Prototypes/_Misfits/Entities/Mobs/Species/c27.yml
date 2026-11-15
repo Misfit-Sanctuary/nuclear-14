@@ -58,10 +58,10 @@
   - type: Physics
   - type: TraitSpeedModifier
     walkModifier: .4
-    sprintModifier: .223
+    sprintModifier: .4
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.5 # #Misfits Tweak - no innate slowdown on bare chassis; armor tiers apply their own penalties
-    baseSprintSpeed: 2.5 # sprint disabled (matches walk = no sprint acceleration)
+    baseWalkSpeed: 2.5 #
+    baseSprintSpeed: 4.5 #
   # #Misfits Tweak - chassis innate Armor removed; physical DR now comes entirely from
   # armor tier clothing. Bare chassis = 400 eHP (raw HP pool). Modset handles only
   # Shock weakness and Radiation immunity.

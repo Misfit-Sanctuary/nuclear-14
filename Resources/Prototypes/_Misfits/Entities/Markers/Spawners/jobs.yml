@@ -111,6 +111,18 @@
       - state: green
       - state: scribe
 
+- type: entity
+  parent: MisfitsSpawnPointBoSWestElderCommander
+  id: MisfitsSpawnPointBoSArchvist
+  name: Brotherhood Archivist
+  components:
+  - type: SpawnPoint
+    job_id: BoSArchivist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: scribe
+
 #Misfits Change /Tweak/: Overwrote old Washington BoS spawn points with new consolidated Brotherhood jobs.
 - type: entity
   parent: SpawnPointJobBase

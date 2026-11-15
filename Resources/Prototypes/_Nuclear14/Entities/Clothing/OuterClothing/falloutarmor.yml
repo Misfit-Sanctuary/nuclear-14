@@ -50,14 +50,14 @@
       coefficients:
         Blunt: 0.80
         Slash: 0.80
-        Piercing: 0.75
-        Heat: 0.75
+        Piercing: 0.70
+        Heat: 0.70
     priceMultiplier: 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.85
+    damageCoefficient: 0.75
   - type: ClothingSpeedModifier
-    walkModifier: 1.0 # Forge-Change
-    sprintModifier: 1.0 # Forge-Change
+    walkModifier: .8 # Forge-Change
+    sprintModifier: .8 # Forge-Change
 
 - type: entity
   parent: [N14FalloutArmorBase, N14ClothingOuterBase]
