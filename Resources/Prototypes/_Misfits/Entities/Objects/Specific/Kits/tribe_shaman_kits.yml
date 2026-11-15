@@ -7,7 +7,7 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/kits.rsi
-    state: base
+    state: medic
   - type: Item
     size: Huge
   - type: SpawnItemsOnUse
@@ -30,7 +30,7 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/kits.rsi
-    state: base
+    state: medic
   - type: Item
     size: Huge
   - type: SpawnItemsOnUse
@@ -54,7 +54,7 @@
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/kits.rsi
-    state: base
+    state: medic
   - type: Item
     size: Huge
   - type: SpawnItemsOnUse
