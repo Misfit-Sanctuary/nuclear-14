@@ -16,9 +16,9 @@
       species:
       - Human
       - Ghoul
-    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T2 faction timelock (4h Enclave)
+    - !type:CharacterDepartmentTimeRequirement # #Misfits Tweak - T2 faction timelock (2h Enclave)
       department: Enclave
-      min: 14400 # #Cythisiax Edited - 10h -> 4h: recruited players unlock Enlisted in 4 hours
+      min: 7200 # #Cythisiax Edited - 10h -> 4h: recruited players unlock Enlisted in 4 hours. Davisrocket Edited - 4h -> 2h: recruited players unlock Enlisted in 2 hours.
   startingGear: EnclaveEnlistedGear
   icon: "JobIconEnclaveEnlisted"
   supervisors: job-supervisors-enclave
