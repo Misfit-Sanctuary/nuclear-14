@@ -693,6 +693,39 @@
           maxAmount: 3
 
 - type: entity
+  parent: ClothingBeltMilitary
+  suffix: 545 rifle, randomfill
+  id: M14ClothingBeltRaider545RifleMilitary
+  components:
+    - type: StorageFill
+      contents:
+        - id: Magazine545Rifle
+          prob: 0.2
+          orGroup: Ammunition1
+          amount: 0
+          maxAmount: 2
+        - id: Magazine545RifleEmpty
+          prob: 0.4
+          orGroup: Ammunition2
+          amount: 0
+          maxAmount: 3
+        - id: N14Cartridge545Rifle
+          prob: 0.2
+          orGroup: Ammunition3
+          amount: 0
+          maxAmount: 4
+        - id: MagazineBox545
+          prob: 0.05
+          orGroup: Ammunition4
+          amount: 0
+          maxAmount: 2
+        - id: MagazineBox545Empty
+          prob: 0.1
+          orGroup: Ammunition5
+          amount: 0
+          maxAmount: 3
+
+- type: entity
   parent: ClothingBeltRope
   suffix: 20gauge, randomfill
   id: M14ClothingBeltRaider20gShotgunRope

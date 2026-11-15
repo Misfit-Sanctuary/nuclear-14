@@ -1208,8 +1208,7 @@
   id: N14MobFernMercRecruit
   description: They joined the invaders from Montana voluntarily, and so they’ve been given some decent equipment. Armed with the very basics and a heavy misunderstanding of American history.
   components:
-    - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
-      minAngle: 6
+    - type: Gun
       maxAngle: 14
       angleIncrease: 4
       angleDecay: 4
@@ -1322,6 +1321,11 @@
         - FernMercPrivate3Gear
         - FernMercPrivate4Gear
         - FernMercPrivate5Gear
+        - FernMercPrivate6Gear
+        - FernMercPrivate7Gear
+        - FernMercPrivate8Gear
+        - FernMercPrivate9Gear
+        - FernMercPrivate10Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -1374,7 +1378,7 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/carbine.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
-- type: entity #toefafafa
+- type: entity
   name: Cult of Liberty Patriot
   parent: N14BaseMobRaider
   id: M14MobFernMercPrivateAutoRifle
@@ -1408,6 +1412,11 @@
         - FernMercPrivate3Gear
         - FernMercPrivate4Gear
         - FernMercPrivate5Gear
+        - FernMercPrivate6Gear
+        - FernMercPrivate7Gear
+        - FernMercPrivate8Gear
+        - FernMercPrivate9Gear
+        - FernMercPrivate10Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -1458,6 +1467,97 @@
         state: body-overlay-2
         visible: false
       - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/r91.rsi
+        state: inhand-right  # Only part we change, the gun sprite.
+
+- type: entity
+  name: Cult of Liberty Patriot
+  parent: N14BaseMobRaider
+  id: M14MobFernMercPrivateVarmint
+  description: Some conscripts and recruits actually survive their first fight, becoming professional soldiers in the war to rebuild America’s glory. They are given respect and priority medical treatment.
+  components:
+    - type: Gun
+      minAngle: 4
+      maxAngle: 28
+      angleIncrease: 4
+      angleDecay: 16
+      fireRate: 0.8
+      soundGunshot:
+        collection: N14SniperVarmintGunshot
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+    - type: CombatMode
+    - type: BasicEntityAmmoProvider
+      proto: N14Cartridge556Rifle
+      capacity: 15
+      count: 15
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 3
+      rechargeSound:
+        path: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+    - type: Loadout
+      prototypes:
+        - FernMercPrivate1Gear
+        - FernMercPrivate2Gear
+        - FernMercPrivate3Gear
+        - FernMercPrivate4Gear
+        - FernMercPrivate5Gear
+        - FernMercPrivate6Gear
+        - FernMercPrivate7Gear
+        - FernMercPrivate8Gear
+        - FernMercPrivate9Gear
+        - FernMercPrivate10Gear
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/varmint.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity
@@ -2059,22 +2159,22 @@
   description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
     - type: Gun
-      minAngle: 10
-      maxAngle: 24.5
+      minAngle: 20
+      maxAngle: 45
       angleIncrease: 2
       angleDecay: 4
-      fireRate: 4.5
+      fireRate: 3.5
       soundGunshot:
-        collection: N14AutoRifleGunshot
+        collection: N14RifleR91Gunshot
       useKey: false
       selectedMode: FullAuto
       availableModes:
         - FullAuto
     - type: CombatMode
     - type: BasicEntityAmmoProvider
-      proto: N14Cartridge762Rifle
-      capacity: 100
-      count: 100
+      proto: N14Cartridge545Rifle
+      capacity: 24
+      count: 24
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 3
       rechargeSound:
@@ -2135,7 +2235,7 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
-      - sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/chineselmg.rsi
+      - sprite: Corvax/Objects/Weapons/Guns/Rifles/ak112.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
 - type: entity #Wassuy, Deadeye boss, panfire the revolver before shooting slowly.
@@ -2149,7 +2249,7 @@
       maxAngle: 17.5
       angleIncrease: 2
       angleDecay: 4
-      fireRate: 3.5
+      fireRate: 2.5
       soundGunshot: /Audio/_Nuclear14/Weapons/Guns/Raiders/Firings/RevolverFire.ogg
       useKey: false
       selectedMode: SemiAuto
@@ -2161,7 +2261,7 @@
       capacity: 6
       count: 6
     - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 1.10
+      rechargeCooldown: 2.0
       rechargeSound:
         path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
     - type: Loadout
@@ -2230,11 +2330,11 @@
   description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
     - type: Gun
-      minAngle: 12.5
-      maxAngle: 34.5
+      minAngle: 10
+      maxAngle: 40
       angleIncrease: 2
       angleDecay: 4
-      fireRate: 2.8
+      fireRate: 2.6
       soundGunshot:
         collection: N14AutoRifleGunshot
       useKey: false
@@ -2317,7 +2417,7 @@
   components:
     - type: Gun
       minAngle: 10
-      maxAngle: 24
+      maxAngle: 30
       angleIncrease: 2
       angleDecay: 4
       fireRate: 2.25

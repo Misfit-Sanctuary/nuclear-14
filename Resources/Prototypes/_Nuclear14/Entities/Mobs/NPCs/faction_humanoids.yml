@@ -418,6 +418,7 @@
       friendlyOrderable: true
       factions:
       - CaravanCompany
+    - type: NPCRetaliation # Aggro on the attacker when damaged from any range
     - type: Gun
       minAngle: 6
       maxAngle: 34

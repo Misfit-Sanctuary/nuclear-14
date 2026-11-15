@@ -18,33 +18,39 @@
         160: Dead
     - type: SlowOnDamage
       speedModifierThresholds:
-        60: 0.8
+        60: 0.6
     #- type: Destructible #Misfits Change /Add: Drop bottle caps on death (1-7) #wassuy this do not work, please someone fixit
     - type: PassiveDamage
       allowedStates:
-      - Critical # takes a bit to get out of crit, but if no one kills you and you don't lose all your blood, you live!
+      - Critical
+      - Dead # takes a bit to get out of crit, but if no one kills you and you don't lose all your blood, you live!
       damageCap: 300 # makes it works with life giver
       damage:
         types:
           # #Misfits Fix - PassiveDamage group healing is split across member types; direct types make burn regeneration visible. 1 Hp for every 4 seconds
-          Blunt: -0.5
-          Slash: -0.5
-          Piercing: -0.5
-          Heat: -0.5
-          Cold: -0.5
-          Shock: -0.5
-          Caustic: -0.5
+          Blunt: -0.75
+          Slash: -0.75
+          Piercing: -0.75
+          Heat: -0.75
+          Cold: -0.75
+          Shock: -0.75
+          Caustic: -0.75
           Asphyxiation: -1 # Last longer in crit, takes a WHIIILE to get back up.
           Bloodloss: -5.0
-          Poison: -0.5
-          Radiation: -0.5
+          Poison: -0.75
+          Radiation: -0.75
+    - type: Bloodstream
+      bloodMaxVolume: 100
+      bloodReagent: WastelandBlood
     - type: MindContainer
       showExamineInfo: False
     - type: InputMover
     - type: MobMover
+    - type: Tool
     - type: SurgeryTarget
       canOperate: true
     - type: ProximityNPC # Misfits Add — sleep distant NPCs to reduce tick load
+    - type: NPCRetaliation # Aggro on the attacker when damaged from any range
     - type: HTN
       rootTask:
         task: N14RangedHostileCompound
@@ -56,7 +62,7 @@
         NavPry: !type:Bool
           true
         NavSmash: !type:Bool
-          true
+          false
         VisionRadius: !type:Single #Wassuy added this so they detect you less
           10.5
         MeleeRange: !type:Single
@@ -69,7 +75,7 @@
       force: !type:Bool
         true
       useSound:
-        path: /Audio/Machines/vending_restock_start.ogg
+        path: /Audio/Items/crowbar.ogg
     - type: MeleeWeapon
       hidden: true
       soundHit:

@@ -22,22 +22,26 @@
     #- type: Destructible
     - type: PassiveDamage
       allowedStates:
-      - Critical # takes a bit to get out of crit, but if no one kills you and you don't lose all your blood, you live!
+      - Critical
+      - Dead # takes a bit to get out of crit, but if no one kills you and you don't lose all your blood, you live!
       damageCap: 300 # makes it works with life giver
       damage:
         types:
           # #Misfits Fix - PassiveDamage group healing is split across member types; direct types make burn regeneration visible. 1 Hp for every 4 seconds
-          Blunt: -0.5
-          Slash: -0.5
-          Piercing: -0.5
-          Heat: -0.5
-          Cold: -0.5
-          Shock: -0.5
-          Caustic: -0.5
+          Blunt: -0.75
+          Slash: -0.75
+          Piercing: -0.75
+          Heat: -0.75
+          Cold: -0.75
+          Shock: -0.75
+          Caustic: -0.75
           Asphyxiation: -1 # Last longer in crit, takes a WHIIILE to get back up.
           Bloodloss: -5.0
-          Poison: -0.5
-          Radiation: -0.5
+          Poison: -0.75
+          Radiation: -0.75
+    - type: Bloodstream
+      bloodMaxVolume: 100
+      bloodReagent: WastelandBlood
     - type: MindContainer
       showExamineInfo: False
     - type: InputMover

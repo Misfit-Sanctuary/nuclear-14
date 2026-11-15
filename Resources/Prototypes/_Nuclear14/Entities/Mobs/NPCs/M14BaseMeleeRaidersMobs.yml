@@ -1,0 +1,10 @@
+- type: entity    #Wassuy add, melee raider base
+  parent: N14BaseMobRaider
+  id: M14BaseMobMeleeRaider
+  abstract: true
+  name: Melee Raider
+  suffix: AI
+  components:
+    - type: HTN
+      rootTask:
+        task: RuminantHostileCompound #allowing them to grab nearby weapon if barehands, if there none, they unarmed combat.
