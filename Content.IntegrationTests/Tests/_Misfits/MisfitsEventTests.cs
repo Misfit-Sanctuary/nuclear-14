@@ -9,6 +9,7 @@ using Content.Server.EUI;
 using Content.Shared._Misfits.Ghost.Roles;
 using Robust.Server.Player;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.IntegrationTests.Tests._Misfits;
@@ -142,6 +143,47 @@ public sealed class MisfitsEventTests
         });
 
         Assert.That(tookRole, Is.True, "taking the role did not give the player a body");
+
+        // The gear in the spawner's YAML has to reach the body the role hands out.
+        await server.WaitPost(() =>
+        {
+            var body = players.Sessions.Single().AttachedEntity!.Value;
+            var inventory = entMan.System<Content.Shared.Inventory.InventorySystem>();
+
+            Assert.That(inventory.TryGetSlotEntity(body, "jumpsuit", out var worn), Is.True,
+                "the ghost role body spawned without its starting gear");
+            Assert.That(entMan.GetComponent<MetaDataComponent>(worn!.Value).EntityPrototype?.ID,
+                Is.EqualTo("N14ClothingUniformJumpsuitRags"), "the body wore the wrong gear");
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task DisabledEventsLeaveTheRollPool()
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Dirty = true });
+        var server = pair.Server;
+        var entMan = server.ResolveDependency<IEntityManager>();
+        var prototypes = server.ResolveDependency<IPrototypeManager>();
+
+        await server.WaitPost(() =>
+        {
+            var events = entMan.System<MisfitsEventSystem>();
+            var horde = prototypes.Index<EntityPrototype>("MisfitsGhoulHorde");
+
+            Assert.That(events.AvailableEvents(2, TimeSpan.FromMinutes(30)).ContainsKey(horde), Is.True,
+                "the ghoul horde was not rollable before being switched off");
+
+            events.SetEventDisabled(horde.ID, true);
+            Assert.That(events.IsEventDisabled(horde.ID), Is.True);
+            Assert.That(events.AvailableEvents(2, TimeSpan.FromMinutes(30)).ContainsKey(horde), Is.False,
+                "a disabled event stayed in the roll pool");
+
+            events.SetEventDisabled(horde.ID, false);
+            Assert.That(events.AvailableEvents(2, TimeSpan.FromMinutes(30)).ContainsKey(horde), Is.True,
+                "re-enabling the event did not put it back in the roll pool");
+        });
 
         await pair.CleanReturnAsync();
     }

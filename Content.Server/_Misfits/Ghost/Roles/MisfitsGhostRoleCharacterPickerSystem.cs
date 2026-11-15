@@ -1,5 +1,7 @@
 // #Misfits Add - Ghost roles where the ghost picks which body they take.
 using System.Linq;
+using Content.Server.Administration.Managers;
+using Content.Server.Chat.Managers;
 using Content.Server.EUI;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
@@ -11,6 +13,7 @@ using Content.Shared.Ghost;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind.Components;
 using Content.Shared.Preferences;
+using Content.Shared.Roles;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -20,6 +23,8 @@ namespace Content.Server._Misfits.Ghost.Roles;
 
 public sealed class MisfitsGhostRoleCharacterPickerSystem : EntitySystem
 {
+    [Dependency] private readonly IBanManager _bans = default!;
+    [Dependency] private readonly IChatManager _chat = default!;
     [Dependency] private readonly EuiManager _eui = default!;
     [Dependency] private readonly GhostRoleSystem _ghostRoles = default!;
     [Dependency] private readonly StationSpawningSystem _spawning = default!;
@@ -66,6 +71,16 @@ public sealed class MisfitsGhostRoleCharacterPickerSystem : EntitySystem
         // Only ghosts may take a ghost role.
         if (args.Player.AttachedEntity is not { Valid: true } mob || !HasComp<GhostComponent>(mob))
             return;
+
+        // Null while a player's bans are still loading; the spawner's prototype id is the ban key.
+        if (_bans.GetRoleBans(args.Player.UserId) is { } bans &&
+            MetaData(uid).EntityPrototype?.ID is { } roleId && bans.Contains(roleId))
+        {
+            args.Cancelled = true;
+            Log.Info($"{args.Player.Name} is rolebanned from {ToPrettyString(uid)}.");
+            _chat.DispatchServerMessage(args.Player, Loc.GetString("misfits-ghost-role-banned"));
+            return;
+        }
 
         // Clicking again gets this player a fresh picker; anyone else waits for it to expire.
         if (_openPickers.TryGetValue(uid, out var existing))
@@ -158,6 +173,11 @@ public sealed class MisfitsGhostRoleCharacterPickerSystem : EntitySystem
 
         var mob = _spawning.SpawnPlayerMob(Transform(uid).Coordinates, null, profile, null);
         _transform.AttachToGridOrMap(mob);
+
+        // Dress the body from YAML before the ghost takes it.
+        if (component.Gear is { } gear)
+            _spawning.EquipStartingGear(mob, gear);
+
         EnsureComp<MindContainerComponent>(mob);
 
         var spawnedEvent = new GhostRoleSpawnerUsedEvent(uid, mob);
@@ -266,6 +286,11 @@ public sealed partial class MisfitsGhostRoleCharacterPickerComponent : Component
     // Whether the "randomly generated character" option is offered.
     [DataField]
     public bool AllowRandom = true;
+
+    // startingGear prototype the spawned body is dressed with; see the startingGear entries.
+    [DataField]
+    public ProtoId<StartingGearPrototype>? Gear;
+
 
     // How long a picker may hold the role before it is offered again.
     [DataField]

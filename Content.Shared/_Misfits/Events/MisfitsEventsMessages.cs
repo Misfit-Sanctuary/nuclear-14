@@ -15,6 +15,9 @@ public enum MisfitsEventAdminAction : byte
 
     // Teleport the requesting admin to where this event last spawned.
     WarpToLastSpawn,
+
+    // Keep this event out of automatic rolls until it is switched back on.
+    SetDisabled,
 }
 
 // Client to server: request an events state snapshot.
@@ -31,6 +34,9 @@ public sealed class MisfitsEventAdminActionRequest : EntityEventArgs
     public float Max { get; set; } = 1200f;
     public float Seconds { get; set; }
     public bool Enabled { get; set; }
+
+    // SetDisabled only: true keeps the event out of automatic rolls.
+    public bool Disabled { get; set; }
 }
 
 // One event in an admin state snapshot.
@@ -40,6 +46,9 @@ public struct MisfitsEventInfo
     public string Id;
     public float Weight;
     public bool Eligible;
+
+    // Switched off by an admin, so no roll picks it.
+    public bool Disabled;
 
     // Whether this event recorded a spawn point this round.
     public bool HasSpawn;

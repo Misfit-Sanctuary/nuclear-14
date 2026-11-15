@@ -32,7 +32,23 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
 
+    // Events an admin switched off; they stay in the pool, but no roll picks them.
+    private readonly HashSet<string> _disabled = new();
+
     #region Pool
+
+    public bool IsEventDisabled(string eventId)
+    {
+        return _disabled.Contains(eventId);
+    }
+
+    public void SetEventDisabled(string eventId, bool disabled)
+    {
+        if (disabled)
+            _disabled.Add(eventId);
+        else
+            _disabled.Remove(eventId);
+    }
 
     // Every fork event, eligible or not.
     public Dictionary<EntityPrototype, MisfitsEventComponent> AllEvents()
@@ -72,6 +88,9 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
 
     private bool CanRun(EntityPrototype proto, MisfitsEventComponent component, int playerCount, TimeSpan roundTime)
     {
+        if (IsEventDisabled(proto.ID))
+            return false;
+
         if (GameTicker.IsGameRuleAdded(proto.ID))
             return false;
 

@@ -14,3 +14,8 @@ misfits-ghost-role-picker-none = You have no characters that fit this role.
 misfits-ghost-role-ghoul-name = Sentient Feral Ghoul
 misfits-ghost-role-ghoul-description = A feral ghoul that kept enough of its mind to think for itself. It runs with the horde it spawned alongside.
 misfits-ghost-role-ghoul-rules = You are a sentient feral ghoul. Stay with your horde and do not attack other ghouls.
+misfits-ghost-role-banned = You are banned from taking this ghost role.
+
+GhostRoles = Ghost roles
+department-GhostRoles-description = Per-player access to event ghost roles.
+job-name-misfits-ghost-role-ghoul = Sentient ghoul (ghost role access)

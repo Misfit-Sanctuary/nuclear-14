@@ -151,14 +151,24 @@ public sealed partial class MisfitsEventsTab : Control
                 SeparationOverride = 8,
             };
 
+            var eventId = info.Id;
+
+            // Switched-off events stay in the pool but no roll picks them.
+            var disabledCheck = new CheckBox { Text = "Disabled", Pressed = info.Disabled, MinWidth = 90 };
+            disabledCheck.OnToggled += args => Send(new MisfitsEventAdminActionRequest
+            {
+                Action = MisfitsEventAdminAction.SetDisabled,
+                EventId = eventId,
+                Disabled = args.Pressed,
+            });
+            row.AddChild(disabledCheck);
+
             row.AddChild(new Label
             {
                 Text = $"{info.Id}  (weight {info.Weight}, {(info.Eligible ? "eligible" : "not eligible")})",
                 HorizontalExpand = true,
                 Modulate = info.Eligible ? Color.White : Color.Gray,
             });
-
-            var eventId = info.Id;
             var runButton = new Button { Text = "Run", MinWidth = 70 };
             runButton.OnPressed += _ => Send(new MisfitsEventAdminActionRequest
             {

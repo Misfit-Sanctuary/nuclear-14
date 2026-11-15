@@ -1,5 +1,4 @@
 # Markers used by the event pool: where events spawn, and the ghost role spawners they place.
-
 # Place these at map entrances in the map editor; events pick one at random, and renaming
 # the instance gives that anchor a readable name in the logs and the admin tab.
 - type: entity
@@ -27,7 +26,17 @@
   - type: MisfitsGhostRoleCharacterPicker
     allowedSpecies: [ Ghoul ]
     allowRandom: true
+    gear: MisfitsGhoulHordeGear
   - type: GhostRole
     name: misfits-ghost-role-ghoul-name
     description: misfits-ghost-role-ghoul-description
     rules: misfits-ghost-role-ghoul-rules
+  # Bans key off this prototype id: roleban <player> MisfitsSpawnPointGhostGhoul <reason>
+
+# What the sentient ghoul arrives wearing and carrying; slot names are the wearer's.
+- type: startingGear
+  id: MisfitsGhoulHordeGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitRags
+    shoes: N14ClothingShoesRags
+    ears: MisfitsClothingHeadsetWastelandScrap

@@ -80,6 +80,13 @@ public sealed class MisfitsEventsAdminSystem : EntitySystem
                 message = TryWarpToLastSpawn(msg.EventId, args.SenderSession);
                 break;
 
+            case MisfitsEventAdminAction.SetDisabled:
+                _events.SetEventDisabled(msg.EventId, msg.Disabled);
+                message = msg.Disabled
+                    ? $"{msg.EventId} will not be rolled automatically."
+                    : $"{msg.EventId} can be rolled automatically again.";
+                break;
+
             case MisfitsEventAdminAction.SetCvarEnabled:
                 _config.SetCVar(CCVars.MisfitsEventsEnabled, msg.Enabled);
                 message = msg.Enabled
@@ -163,6 +170,7 @@ public sealed class MisfitsEventsAdminSystem : EntitySystem
                 Id = proto.ID,
                 Weight = component.Weight,
                 Eligible = available.ContainsKey(proto),
+                Disabled = _events.IsEventDisabled(proto.ID),
             };
 
             if (lastRuns.TryGetValue(proto.ID, out var last))
