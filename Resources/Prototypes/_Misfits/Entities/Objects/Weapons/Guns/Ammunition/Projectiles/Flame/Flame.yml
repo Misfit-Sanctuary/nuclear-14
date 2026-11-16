@@ -1,0 +1,164 @@
+- type: entity
+  name: flamethrower shot
+  id: BulletFlame
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Ammunition/Projectiles/flamer.rsi
+    scale: 1.0, 1.0
+    layers:
+    - state: flamershot
+      shader: unshaded
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: Ammo
+    muzzleFlash: FlamerMuzzleFlashEffect
+  - type: Projectile
+    damage:
+      types:
+        Heat: 30
+    impactEffect: BulletFlamerImpactEffect
+    soundHit:
+      path: "/Audio/Weapons/Guns/Hits/energy_meat1.ogg"
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.0
+    energy: 7.0
+  - type: IgniteOnCollide
+    fireStacks: 0.25
+  - type: TimedDespawn
+    lifetime: 1
+
+- type: entity
+  id: FlamerMuzzleFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Misfits/Objects/Weapons/Guns/Ammunition/Projectiles/flamer.rsi
+      state: muzzle_flamer
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+
+- type: entity
+  id: BulletFlamerImpactEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.25
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Misfits/Objects/Weapons/Guns/Ammunition/Projectiles/flamer.rsi
+      state: impact_flamer
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu
+
+- type: entity
+  name: incinerator explosive
+  id: BulletIncinerator
+  parent: BaseFireExplosiveProjectile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Ammunition/Projectiles/incinerator.rsi
+    scale: 1.2, 1.2
+    layers:
+    - state: incineratorshot
+      shader: unshaded
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: Ammo
+    muzzleFlash: IncineratorMuzzleFlashEffect
+  - type: Projectile
+    impactEffect: BulletIncineratorImpactEffect
+    damage:
+      types:
+        Heat: 24
+    soundHit:
+      path: "/Audio/Weapons/Guns/Hits/energy_meat1.ogg"
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 2.0
+    energy: 7.0
+  - type: IgniteOnCollide
+    fireStacks: 0.25
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    #Misfits Change - use the structural-capable N14 explosion profile.
+    explosionType: IncineratorExplosion
+    maxIntensity: 2 # max 30 per tile
+    intensitySlope: 1
+    totalIntensity: 15 # 60 total damage to distribute over tiles
+    maxTileBreak: 0
+  - type: TimedDespawn
+    lifetime: 1
+
+- type: entity
+  id: IncineratorMuzzleFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.75
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Misfits/Objects/Weapons/Guns/Ammunition/Projectiles/incinerator.rsi
+      state: muzzle_incinerator
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+
+- type: entity
+  id: BulletIncineratorImpactEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.25
+  - type: Sprite
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Misfits/Objects/Weapons/Guns/Ammunition/Projectiles/incinerator.rsi
+      state: impact_incinerator
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu
+

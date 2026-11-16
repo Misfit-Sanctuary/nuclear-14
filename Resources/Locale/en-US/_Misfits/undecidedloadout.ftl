@@ -925,3 +925,23 @@ undecided-loadout-category-misfits-ncr-ht-defender-description =
     Comes with a 5.56 LMG, a spare mag for it,
     3 sticks of dynamite, a stim and super stim, an MRE,
     a RadAway bag, and two rolls of gauze.
+
+
+# Shaman Kits
+
+undecided-loadout-category-misfits-shaman-stinger-name = Shaman of the Stinger Kit
+undecided-loadout-category-misfits-shaman-stinger-desc =
+    Tribal Spear, box of throwing knives, Medical Belt,
+    2 mourning powder, 2 Berserker Powder.
+
+undecided-loadout-category-misfits-shaman-root-name = Shaman of the Root Kit
+undecided-loadout-category-misfits-shaman-root-desc =
+    Huntstick, tribal machete, Medical Belt,
+    2 healing powder, 2 healing poultice,
+    bitterdrink, Healing Salve.
+
+undecided-loadout-category-misfits-shaman-shroom-name = Shaman of the Shroom Kit
+undecided-loadout-category-misfits-shaman-shroom-desc =
+    Cudgel, Medical Belt,
+    MUSHROOMS!!!
+    bitterdrink, 5 Smelling Salt.

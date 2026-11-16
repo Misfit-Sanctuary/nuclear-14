@@ -1,0 +1,154 @@
+#MARK: New Weapons
+
+- type: entity
+  name: Cyrolator
+  parent: N14Cryobase
+  id: N14Cryolator
+  description: An experimental cryo weapon.
+  components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -25
+    maxAngle: -45
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Cryo/cryolator.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-2
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Misfits/Objects/Weapons/Guns/Cryo/cryolator.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: true
+  - type: Item
+    size: Large
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14CryoCell
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14CryoCell
+  - type: Gun
+    minAngle: 25
+    maxAngle: 50
+    angleIncrease: 1
+    angleDecay: 3
+    projectileSpeed: 10
+    fireRate: 8
+    soundGunshot:
+      path: /Audio/_Nuclear14/Weapons/Guns/Flames/flamer.ogg
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: FollowDistance
+    backStrength: 4
+  - type: StaticPrice
+    price: 300
+
+- type: entity
+  name: Crystalizing Cyrolator
+  parent: N14Cryobase
+  id: N14CrystalizingCryolator
+  description: A modified experimental cryo weapon.
+  components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -25
+    maxAngle: -50
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Cryo/crystalizingcryolator.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-2
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Misfits/Objects/Weapons/Guns/Cryo/crystalizingcryolator.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: true
+  - type: Item
+    size: Large
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14SuperCooledCryoCell
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14SuperCooledCryoCell
+  - type: Gun
+    minAngle: 25
+    maxAngle: 50
+    angleIncrease: 1
+    angleDecay: 3
+    projectileSpeed: 30
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/_Nuclear14/Weapons/Guns/Flames/flamer.ogg
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: FollowDistance
+    backStrength: 4
+  - type: StaticPrice
+    price: 300
+
+- type: entity
+  id: N14Cryobase
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+  - type: Item
+    size: Large
+  - type: AmmoCounter
+  - type: Gun
+    minAngle: 25
+    maxAngle: 60
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 10
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Nuclear14/Weapons/Guns/Flames/flamer.ogg
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14CryoCell
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14CryoCell
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: StaticPrice
+    price: 100
+

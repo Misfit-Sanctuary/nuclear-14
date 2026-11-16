@@ -50,8 +50,10 @@
     sprintModifier: 0.6
   - type: FollowDistance
     backStrength: 6
-  - type: N14SuperHeavyWeapon
-    minStrength: 7
+  - type: N14SpecialStatRequirement
+    minimumStats:
+      Strength: 7
+    bypassWithPowerArmor: true
   - type: StaticPrice
     price: 1500
   - type: Execution
