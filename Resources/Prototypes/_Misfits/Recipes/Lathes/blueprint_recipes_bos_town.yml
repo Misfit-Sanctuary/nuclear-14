@@ -255,6 +255,26 @@
 
     N14Gold: 350
 
+- type: latheRecipe
+  id: N14BPBoSWeaponLaserRifleTribeam
+  result: MisfitsWeaponLaserRifleTribeam
+  category: N14BlueprintBoSWeaponsT3
+  completetime: 16
+  requiresBlueprint: true
+  availableFaction:
+  - BrotherhoodOfSteel
+  materials:
+    Steel: 6000
+
+    Glass: 1500
+
+    Circuitry: 400
+
+    ScrapElectronic: 500
+
+    Plastic: 1000
+
+    N14Gold: 100
 
 - type: latheRecipe
   id: N14BPBoSWeaponPlasmaRifle
