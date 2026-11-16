@@ -1,5 +1,4 @@
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Server.DeltaV.Weapons.Ranged.Systems;
 using Content.Shared.Weapons.Ranged;
 using Robust.Shared.GameStates;
@@ -36,8 +35,8 @@ public sealed partial class EnergyWeaponFireMode
     /// <summary>
     /// The projectile prototype associated with this firing mode
     /// </summary>
-    [DataField("proto", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string Prototype = default!;
+    [DataField("proto", required: true)]
+    public EntProtoId Prototype = default!;
 
     /// <summary>
     /// The battery cost to fire the projectile associated with this firing mode

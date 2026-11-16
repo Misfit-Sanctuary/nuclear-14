@@ -81,14 +81,14 @@
     sections:
     - name: Ammunition
       entries:
-      - { id: N14AmmoBox9mm, category: Ammo, tier: 1 }
-      - { id: N14AmmoBox45, category: Ammo, tier: 1 }
-      - { id: N14AmmoBox44Magnum, category: Ammo, tier: 1 }
-      - { id: N14AmmoBox12gauge, category: Ammo, tier: 1 }
-      - { id: N14AmmoBox556, category: Ammo, tier: 1 }
-      - { id: N14AmmoBox762, category: Ammo, tier: 1 }
-      - { id: N14AmmoBox308, category: Ammo, tier: 1 }
-      - { id: 40mmGrenadeFrag, category: Ammo, tier: 1, jobs: [ NCRWS ], requiredJob: Weapon Specialist }
+      - { id: N14AmmoBox9mm, category: Ammo, tier: 1, amount: 2, maxAmount: 2 }
+      - { id: N14AmmoBox45, category: Ammo, tier: 1, amount: 2, maxAmount: 2 }
+      - { id: N14AmmoBox44Magnum, category: Ammo, tier: 1, amount: 2, maxAmount: 2 }
+      - { id: N14AmmoBox12gauge, category: Ammo, tier: 1, amount: 2, maxAmount: 2 }
+      - { id: N14AmmoBox556, category: Ammo, tier: 1, amount: 2, maxAmount: 2 }
+      - { id: N14AmmoBox762, category: Ammo, tier: 1, amount: 2, maxAmount: 2 }
+      - { id: N14AmmoBox308, category: Ammo, tier: 1, amount: 2, maxAmount: 2 }
+      - { id: 40mmGrenadeFrag, category: Ammo, tier: 1, amount: 4, maxAmount: 4, jobs: [ NCRWS ], requiredJob: Weapon Specialist }
     - name: Magazines
       entries:
       - { id: N14MagazinePistol9mm, category: Magazines, tier: 1 }
@@ -124,14 +124,14 @@
       jobs: [ NCREngineer ]
       entries:
       - { id: N14WeaponPistol9mm, category: Ballistic, tier: 1 }
-      - { id: N14WeaponRifle556Butchered, category: Ballistic, tier: 1 }
-      - { id: N14WeaponSMG9mm, category: Ballistic, tier: 1 }
-      - { id: N14WeaponShotgunShort, category: Ballistic, tier: 1 }
-      - { id: N14WeaponShotgunAuto, category: Ballistic, tier: 1 }
+      - { id: N14WeaponRifle556Butchered, category: Ballistic, tier: 1, amount: 4, maxAmount: 4 }
+      - { id: N14WeaponSMG9mm, category: Ballistic, tier: 1, amount: 4, maxAmount: 4 }
+      - { id: N14WeaponShotgunShort, category: Ballistic, tier: 1, amount: 4, maxAmount: 4 }
+      - { id: N14WeaponShotgunAuto, category: Ballistic, tier: 1, amount: 4, maxAmount: 4 }
       - { id: N14ripper, category: Melee, tier: 1 }
       - { id: C4, category: Explosives, tier: 1 }
-      - { id: N14Dynamite, category: Explosives, tier: 1 }
-      - { id: N14TinNade, category: Explosives, tier: 1 }
+      #- { id: N14Dynamite, category: Explosives, tier: 1 }
+      #- { id: N14TinNade, category: Explosives, tier: 1 }
     - name: Tier 1 - Medic allocation
       jobs: [ NCRMedic, NCRDoctor ]
       entries:
@@ -143,58 +143,58 @@
       entries:
       - { id: N14WeaponPistol9mm, category: Ballistic, tier: 1 }
       - { id: N14WeaponPistol45Colt, category: Ballistic, tier: 1 }
-      - { id: N14WeaponRifleGrenade, category: Explosives, tier: 1 }
-      - { id: N14WeaponRifle308SniperRifle, category: Ballistic, tier: 1 }
-      - { id: N14WeaponSMG9mminfiltrator, category: Ballistic, tier: 1 }
+      - { id: N14WeaponRifleGrenade, category: Explosives, tier: 1, amount: 3, maxAmount: 3 }
+      - { id: N14WeaponRifle308SniperRifle, category: Ballistic, tier: 1, amount: 5, maxAmount: 5 }
+      - { id: N14WeaponSMG9mminfiltrator, category: Ballistic, tier: 1, amount: 5, maxAmount: 5 }
       - { id: N14WeaponSMG12mm, category: Ballistic, tier: 1 }
-      - { id: N14WeaponSMG12mmAdvanced, category: Ballistic, tier: 1 }
-      - { id: N14WeaponRifleOperative, category: Ballistic, tier: 1 }
+      #- { id: N14WeaponSMG12mmAdvanced, category: Ballistic, tier: 1 }
+      - { id: N14WeaponRifleOperative, category: Ballistic, tier: 1, amount: 1, maxAmount: 1 }
     - name: Tier 1 - Military Police allocation
       jobs: [ NCRMPinvestigator, NCRProvost, NCRMilitaryPoliceRecruit, NCRMilitaryPoliceSergeant, NCRMilitaryPoliceCaptain ]
       entries:
-      - { id: N14WeaponRevolverWebley, category: Ballistic, tier: 1 }
+      - { id: N14WeaponRevolverWebley, category: Ballistic, tier: 1, amount: 6, maxAmount: 6 }
       - { id: N14PoliceBaton, category: Melee, tier: 1 }
     - name: Tier 2 - Squad Leader allocation
-      jobs: [ NCRNCO, NCRStaffSergeant ]
+      jobs: [ NCRNCO, NCRStaffSergeant, NCRHeavyTrooper ]
       entries:
       - { id: N14WeaponPistol9mm, category: Ballistic, tier: 2 }
-      - { id: N14WeaponRifle556Carbine, category: Ballistic, tier: 2 }
-      - { id: N14WeaponLMG, category: Ballistic, tier: 2 }
-      - { id: N14WeaponRifle308Battle, category: Ballistic, tier: 2 }
-      - { id: N14WeaponShotgunAuto, category: Ballistic, tier: 2 }
-      - { id: N14WeaponShotgunTrench, category: Ballistic, tier: 2 }
+      - { id: N14WeaponRifle556Carbine, category: Ballistic, tier: 2, amount: 2, maxAmount: 2 }
+      - { id: N14WeaponLMG, category: Ballistic, tier: 2, amount: 2, maxAmount: 2 }
+      - { id: N14WeaponRifle308Battle, category: Ballistic, tier: 2, amount: 2, maxAmount: 2 }
+      - { id: N14WeaponShotgunAuto, category: Ballistic, tier: 2, amount: 2, maxAmount: 2 }
+      - { id: N14WeaponShotgunTrench, category: Ballistic, tier: 2, amount: 5, maxAmount: 5 }
       - { id: SmokeGrenade, category: Explosives, tier: 2 }
     - name: Tier 2 - Platoon Leader allocation
-      jobs: [ NCRPlatoonLeader ]
+      jobs: [ NCRPlatoonLeader, NCRHeavyTrooperLead ]
       entries:
-      - { id: N14WeaponLaserdotDesertEagle44, category: Ballistic, tier: 2 }
-      - { id: N14WeaponRifle308Battle, category: Ballistic, tier: 2 }
-      - { id: N14WeaponRifle556Carbine, category: Ballistic, tier: 2 }
-      - { id: N14WeaponSniper44LeverCarbine, category: Ballistic, tier: 2 }
-      - { id: NCRCommissarSabre, category: Melee, tier: 2 }
+      - { id: N14WeaponLaserdotDesertEagle44, category: Ballistic, tier: 2, amount: 2, maxAmount: 2 }
+      - { id: N14WeaponRifle308Battle, category: Ballistic, tier: 2, amount: 2, maxAmount: 2 }
+      - { id: N14WeaponRifle556Carbine, category: Ballistic, tier: 2, amount: 2, maxAmount: 2 }
+      - { id: N14WeaponSniper44LeverCarbine, category: Ballistic, tier: 2, amount: 2, maxAmount: 2 }
+      - { id: NCRCommissarSabre, category: Melee, tier: 2, amount: 2, maxAmount: 2 }
     - name: Tier 3 - Executive Officer / Requisition Officer allocation
       jobs: [ NCRExecutiveOfficer, NCRRO ]
       entries:
-      - { id: N14WeaponLaserdotDesertEagle44, category: Ballistic, tier: 3 }
-      - { id: N14WeaponRifle308Battle, category: Ballistic, tier: 3 }
-      - { id: N14WeaponRifle556Carbine, category: Ballistic, tier: 3 }
-      - { id: N14WeaponSniper44LeverCarbine, category: Ballistic, tier: 3 }
-      - { id: NCRCommissarSabre, category: Melee, tier: 3 }
+      - { id: N14WeaponLaserdotDesertEagle44, category: Ballistic, tier: 3, amount: 2, maxAmount: 2 }
+      - { id: N14WeaponRifle308Battle, category: Ballistic, tier: 3, amount: 1, maxAmount: 1 }
+      - { id: N14WeaponRifle556Carbine, category: Ballistic, tier: 3, amount: 1, maxAmount: 1 }
+      - { id: N14WeaponSniper44LeverCarbine, category: Ballistic, tier: 3, amount: 2, maxAmount: 2 }
+      - { id: NCRCommissarSabre, category: Melee, tier: 3, amount: 2, maxAmount: 2 }
     - name: Tier 3 - Military Police Captain allocation
       jobs: [ NCRMilitaryPoliceCaptain ]
       entries:
-      - { id: N14WeaponLaserdotDesertEagle44, category: Ballistic, tier: 3 }
-      - { id: N14WeaponRifle308Battle, category: Ballistic, tier: 3 }
-      - { id: N14WeaponRifle556Carbine, category: Ballistic, tier: 3 }
-      - { id: N14WeaponRifle762Marksman, category: Ballistic, tier: 3 }
-      - { id: NCRCommissarSabre, category: Melee, tier: 3 }
+      - { id: N14WeaponLaserdotDesertEagle44, category: Ballistic, tier: 3, amount: 1, maxAmount: 1 }
+      - { id: N14WeaponRifle308Battle, category: Ballistic, tier: 3, amount: 1, maxAmount: 1 }
+      - { id: N14WeaponRifle556Carbine, category: Ballistic, tier: 3, amount: 1, maxAmount: 1 }
+      - { id: N14WeaponRifle762Marksman, category: Ballistic, tier: 3, amount: 1, maxAmount: 1 }
+      - { id: NCRCommissarSabre, category: Melee, tier: 3, amount: 1, maxAmount: 1 }
     - name: Tier 3 - Commander allocation
       jobs: [ NCRCommander, NCRLTCol ]
       entries:
-      - { id: N14WeaponPistol9mm, category: Ballistic, tier: 3 }
-      - { id: N14WeaponRifle308Battle, category: Ballistic, tier: 3 }
-      - { id: N14WeaponRifle762Marksman, category: Ballistic, tier: 3 }
-      - { id: N14WeaponRifleM1GarandRepublicsPride, category: Ballistic, tier: 3 }
+      - { id: N14WeaponPistol9mm, category: Ballistic, tier: 3, amount: 2, maxAmount: 2 }
+      - { id: N14WeaponRifle308Battle, category: Ballistic, tier: 3, amount: 1, maxAmount: 1 }
+      - { id: N14WeaponRifle762Marksman, category: Ballistic, tier: 3, amount: 1, maxAmount: 1 }
+      - { id: N14WeaponRifleM1GarandRepublicsPride, category: Ballistic, tier: 3, amount: 1, maxAmount: 1 }
     replenishment:
     - currency: Bottlecaps
     - currency: NCRDollars

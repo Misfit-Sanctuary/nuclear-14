@@ -1,9 +1,8 @@
+using Robust.Shared.Prototypes;
 using Content.Server._Goobstation.StationRadio.Systems;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared.Chat;
 using Content.Shared.Radio;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Server.Radio.Components;
 
@@ -15,8 +14,8 @@ namespace Content.Server.Radio.Components;
 public sealed partial class RadioMicrophoneComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("broadcastChannel", customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]
-    public string BroadcastChannel = SharedChatSystem.CommonChannel;
+    [DataField("broadcastChannel")]
+    public ProtoId<RadioChannelPrototype> BroadcastChannel = SharedChatSystem.CommonChannel;
 
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("listenRange")]

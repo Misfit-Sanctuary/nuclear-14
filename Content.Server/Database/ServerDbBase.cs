@@ -1885,6 +1885,24 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return true;
         }
 
+        // #Cythisiax Added - Faction roster: list every player holding any of the given job
+        // whitelists, with their last seen username, for the faction lead's roster GUI.
+        public async Task<List<JobWhitelistHolder>> GetJobWhitelistHolders(
+            IReadOnlyCollection<string> roles,
+            CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+            var roleList = roles.ToList();
+            var rows = await db.DbContext.RoleWhitelists
+                .Where(w => roleList.Contains(w.RoleId))
+                .Select(w => new { w.PlayerUserId, w.Player.LastSeenUserName, w.RoleId })
+                .ToListAsync(cancel);
+
+            return rows
+                .Select(r => new JobWhitelistHolder(r.PlayerUserId, r.LastSeenUserName, r.RoleId))
+                .ToList();
+        }
+
         #endregion
 
         // #Misfits Change - Persistent currency

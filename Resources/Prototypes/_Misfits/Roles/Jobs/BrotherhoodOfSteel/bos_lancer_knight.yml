@@ -42,11 +42,11 @@
   id: BoSLancerKnightGear
   equipment:
     wallet: N14Wallet
-    jumpsuit: N14ClothingUniformJumpskirtBOSBlack
+    jumpsuit: M14ClothingUniformBrotherhoodKnightLancer
     back: N14ClothingBackpackMilitary
-    shoes: N14ClothingBootsLeatherFilled
+    shoes: N14ClothingBootsCombatFilled
     head: N14ClothingHeadHatBrotherhoodBeret
-    outerClothing: N14ClothingOuterJacketBomber
+    outerClothing: MisfitsClothingOuterBrotherhoodLancer
     hands: N14ClothingHandsGlovesCombat
     eyes: N14ClothingEyesGlassesPilot
     pocket1: BoSBrotherhoodKnightKits
@@ -55,7 +55,7 @@
     belt: ClothingBeltBoSWebbing
   storage:
     back:
-    - N14ClothingHeadHatBrotherhoodHelmetMK2
+    - N14ClothingHeadHatBrotherhoodLancerHelmet
     - N14BoxPlasticFilledMilitary
     # #Cythisiax Added - absorbed the Lancer deck-crew role; airframe repair needs a welding tool.
     - Welder

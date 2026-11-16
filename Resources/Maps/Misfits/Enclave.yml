@@ -4,8 +4,8 @@ meta:
   engineVersion: 286.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/24/2026 12:31:11
-  entityCount: 20764
+  time: 10/25/2026 17:28:48
+  entityCount: 20763
 maps:
 - 1
 grids:
@@ -23761,7 +23761,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -9.5,-9.5
     - type: Drain
-      accumulator: 0.25683966
+      accumulator: 0.19852562
     - type: Fixtures
       fixtures: {}
   - uid: 1294
@@ -23771,7 +23771,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -8.5,-9.5
     - type: Drain
-      accumulator: 0.038482968
+      accumulator: 0.50368863
     - type: Fixtures
       fixtures: {}
   - uid: 3286
@@ -23781,7 +23781,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 20.5,63.5
     - type: Drain
-      accumulator: 0.6227561
+      accumulator: 0.46454665
     - type: Fixtures
       fixtures: {}
   - uid: 15228
@@ -23790,7 +23790,7 @@ entities:
       parent: 2
       pos: 0.5,67.5
     - type: Drain
-      accumulator: 0.07444892
+      accumulator: 0.075740755
     - type: Fixtures
       fixtures: {}
   - uid: 15229
@@ -23799,7 +23799,7 @@ entities:
       parent: 2
       pos: -16.5,44.5
     - type: Drain
-      accumulator: 0.8941617
+      accumulator: 0.008918755
     - type: Fixtures
       fixtures: {}
   - uid: 18434
@@ -23808,7 +23808,7 @@ entities:
       parent: 2
       pos: 32.5,7.5
     - type: Drain
-      accumulator: 0.2978278
+      accumulator: 0.49577177
     - type: Fixtures
       fixtures: {}
   - uid: 18488
@@ -23817,7 +23817,7 @@ entities:
       parent: 2
       pos: 32.5,6.5
     - type: Drain
-      accumulator: 0.02158112
+      accumulator: 0.43269733
     - type: Fixtures
       fixtures: {}
 - proto: FloorLavaEntity
@@ -33988,13 +33988,6 @@ entities:
     - type: Transform
       parent: 2
       pos: -1.8215461,46.57679
-- proto: MisfitsCrateAluminiumBlueprintsEnclave
-  entities:
-  - uid: 16036
-    components:
-    - type: Transform
-      parent: 2
-      pos: 47.5,-3.5
 - proto: MisfitsCrateBreakPlainDamagedBotanyTools
   entities:
   - uid: 10014

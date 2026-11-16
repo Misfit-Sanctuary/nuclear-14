@@ -425,8 +425,18 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                         && TryComp<PullerComponent>(user, out var pullerComp)
                         && pullerComp.Pulling == target.Value)
                     {
+                        // #Misfits Fix - nothing ever added GrabbableComponent, so this directed event
+                        // had no handler: grab escalation never ran at all.
+                        EnsureComp<GrabbableComponent>(target.Value);
                         var grabAttempt = new GrabAttemptEvent(user, target.Value);
                         RaiseLocalEvent(target.Value, ref grabAttempt);
+
+                        // #Misfits Fix - record the Grab combo input from the click itself. The grab
+                        // system only raised it when an escalation actually committed, so any silent
+                        // bail (stage cooldown, unresolvable components) swallowed the input.
+                        if (HasComp<CanPerformComboComponent>(user))
+                            RaiseLocalEvent(user, new MisfitsComboAttackPerformedEvent(user, target.Value, user, MisfitsComboAttackType.Grab));
+
                         if (grabAttempt.Cancelled)
                         {
                             // Grab was handled — skip normal light attack
@@ -441,11 +451,13 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     animation = weapon.Animation;
                     break;
                 case DisarmAttackEvent disarm:
-                    if (!DoDisarm(user, disarm, weaponUid, weapon, session))
-                        return false;
-                    // #Misfits Add - Raise combo event for the martial arts engine after a disarm
+                    // #Misfits Fix - the shove counts as a Disarm input for the combo engine even when the
+                    // target has nothing to drop; the old early return swallowed the input entirely.
+                    var disarmed = DoDisarm(user, disarm, weaponUid, weapon, session);
                     if (target != null && HasComp<CanPerformComboComponent>(user))
                         RaiseLocalEvent(user, new MisfitsComboAttackPerformedEvent(user, target.Value, weaponUid, MisfitsComboAttackType.Disarm));
+                    if (!disarmed)
+                        return false;
                     animation = weapon.Animation;
                     break;
                 case HeavyAttackEvent heavy:

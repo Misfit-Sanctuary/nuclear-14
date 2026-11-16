@@ -176,10 +176,10 @@
 
 #MARK: Feral Dog
 - type: entity
-  name: feral dog
+  name: Feral Hound
   id: N14MobDogFeral
   parent: N14MobBaseHostile
-  description: Starving and irradiated, these partially ghoulified mutts are not friendly.
+  description: Starving and irradiated, these partially ghoulified mutts are not friendly, and they will bite.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -273,7 +273,7 @@
   name: Yao Guai
   id: N14MobYaoguai
   parent: N14MobBaseHostile
-  description: Descended from the American black bears, their capacity for destruction is only matched by their massive appetite.
+  description: Descended from the American black bears, their capacity for destruction is only matched by their massive appetite. They want your picnic basket.
   components:
   - type: Damageable
     damageContainer: Biological

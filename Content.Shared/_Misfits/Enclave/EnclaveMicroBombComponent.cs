@@ -80,24 +80,5 @@ public sealed class EnclaveDetonatorActivateMessage : BoundUserInterfaceMessage
     }
 }
 
-[Serializable, NetSerializable]
-public sealed class EnclaveRecruitEuiState : EuiStateBase
-{
-    public readonly string CharacterName;
-
-    public EnclaveRecruitEuiState(string characterName)
-    {
-        CharacterName = characterName;
-    }
-}
-
-[Serializable, NetSerializable]
-public sealed class EnclaveRecruitDecisionMessage : EuiMessageBase
-{
-    public readonly bool Accepted;
-
-    public EnclaveRecruitDecisionMessage(bool accepted)
-    {
-        Accepted = accepted;
-    }
-}
+// #Cythisiax Removed - EnclaveRecruitEuiState / EnclaveRecruitDecisionMessage: the Enclave
+// consent dialog was replaced by the generic faction roster recruitment offer.

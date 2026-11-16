@@ -120,8 +120,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitEnclave
-  name: U.S. Army uniform
-  description: A uniform worn by members of the U.S. Army.
+  name: Enclave uniform
+  description: A uniform worn by members of the Enclave.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/enclaveuni.rsi
@@ -298,8 +298,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuittribalpantsf
-  name: tribal clothing
-  description: Simple pants for simple people.
+  name: Tribal Cold Shoulder Outfit
+  description: The world may be cruel, but you don't care. Show the outsiders you are not impressed with their guns or their wealth, you're doing just fine.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/tribal-pants-f.rsi
@@ -309,8 +309,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuittribalpantsm
-  name: tribal clothing
-  description: Simple pants for simple people.
+  name: Tribal Champion Outfit
+  description: Worn by the bravest of a tribe's warriors, to puff out your chest to an indifferent world.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/tribal-pants-m.rsi

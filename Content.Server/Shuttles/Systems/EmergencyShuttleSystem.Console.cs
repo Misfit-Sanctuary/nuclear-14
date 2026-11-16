@@ -1,3 +1,4 @@
+using Robust.Shared.Prototypes;
 using System.Threading;
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.Screens.Components;
@@ -65,8 +66,7 @@ public sealed partial class EmergencyShuttleSystem
 
     private CancellationTokenSource? _roundEndCancelToken;
 
-    [ValidatePrototypeId<AccessLevelPrototype>]
-    private const string EmergencyRepealAllAccess = "EmergencyShuttleRepealAll";
+    private static readonly ProtoId<AccessLevelPrototype> EmergencyRepealAllAccess = "EmergencyShuttleRepealAll";
     private static readonly Color DangerColor = Color.Red;
 
     /// <summary>

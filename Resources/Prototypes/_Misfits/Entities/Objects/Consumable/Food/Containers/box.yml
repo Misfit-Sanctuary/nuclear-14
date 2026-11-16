@@ -1,0 +1,24 @@
+- type: entity
+  parent: BoxBase
+  id: MisfitsStorageFoodBox
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0, 0, 1, 1
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: foodBox
+  - type: Construction
+    graph: FoodBoxGraph
+    node: FoodBox
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,1,4
+    whitelist:
+      components:
+      - Food
+  - type: StorageFillVisualizer
+    maxFillLevels: 1
+    fillBaseName: foodBox

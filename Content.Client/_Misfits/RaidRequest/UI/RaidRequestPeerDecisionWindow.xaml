@@ -1,56 +1,41 @@
-<!-- #Misfits Add - Peer-approval popup shown to the highest-ranking online member of a
-     target faction or group when an opposing faction submits a /raid request. The leader can
-     YES/NO directly, bypassing admin review while still publishing into RaidRequest history. -->
+<!-- #Misfits Refactor - Peer-approval popup shown to the highest-ranking online member of a
+     target faction or group when someone submits a /raid request against them. Laid out like
+     the faction recruit offer dialog: heading, details, note, then Refuse / Allow at the bottom right. -->
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-                      Title="{Loc raid-request-peer-window-title}"
-                      Resizable="False"
-                      SetSize="520 460"
-                      MinSize="500 420">
+                      Title="{Loc 'raid-request-peer-window-title'}"
+                      MinSize="480 380"
+                      SetSize="520 420">
+    <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="8">
+        <Label Name="HeaderTitleLabel" StyleClasses="LabelHeading" />
+        <RichTextLabel Name="HeaderLabel" HorizontalExpand="True" />
 
-    <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="0">
+        <PanelContainer StyleClasses="BackgroundDark" VerticalExpand="True">
+            <ScrollContainer HScrollEnabled="False">
+                <BoxContainer Orientation="Vertical" Margin="6 4" SeparationOverride="4">
+                    <Label Text="{Loc 'raid-request-peer-from-label'}" StyleClasses="LabelKeyText" />
+                    <RichTextLabel Name="FromLabel" HorizontalExpand="True" />
+                    <Label Text="{Loc 'raid-request-peer-location-label'}" StyleClasses="LabelKeyText" />
+                    <RichTextLabel Name="LocationLabel" HorizontalExpand="True" />
+                    <Label Text="{Loc 'raid-request-peer-reason-label'}" StyleClasses="LabelKeyText" />
+                    <RichTextLabel Name="ReasonLabel" HorizontalExpand="True" />
+                </BoxContainer>
+            </ScrollContainer>
+        </PanelContainer>
 
-        <controls:StripeBack>
-            <PanelContainer>
-                <Label Text="{Loc raid-request-peer-window-title}" StyleClasses="LabelBig" Align="Center" Margin="0 4"/>
-            </PanelContainer>
-        </controls:StripeBack>
+        <LineEdit Name="CommentEdit" PlaceHolder="{Loc 'raid-request-peer-comment-placeholder'}"
+                  HorizontalExpand="True" />
+        <!-- #Cythisiax Fixed - long note was a non-wrapping LabelSubText that ran off the window -->
+        <PanelContainer StyleClasses="BackgroundDark">
+            <RichTextLabel Text="{Loc 'raid-request-peer-note'}" Margin="6 4" HorizontalExpand="True" />
+        </PanelContainer>
+        <RichTextLabel Name="StatusLabel" HorizontalExpand="True" />
 
-        <RichTextLabel Name="HeaderLabel" Margin="10 8 10 4" HorizontalExpand="True"/>
-
-        <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 0"/>
-
-        <BoxContainer Orientation="Vertical" Margin="10 6 10 6" SeparationOverride="2">
-            <Label Text="{Loc raid-request-peer-from-label}" Modulate="#FFA040"/>
-            <RichTextLabel Name="FromLabel" HorizontalExpand="True"/>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <Control HorizontalExpand="True" />
+            <Button Name="DenyButton" Text="{Loc 'raid-request-peer-deny-button'}" MinWidth="120" />
+            <Button Name="ApproveButton" Text="{Loc 'raid-request-peer-approve-button'}" MinWidth="120"
+                    StyleClasses="Caution" />
         </BoxContainer>
-
-        <BoxContainer Orientation="Vertical" Margin="10 0 10 6" SeparationOverride="2">
-            <Label Text="{Loc raid-request-peer-location-label}" Modulate="#FFA040"/>
-            <RichTextLabel Name="LocationLabel" HorizontalExpand="True"/>
-        </BoxContainer>
-
-        <BoxContainer Orientation="Vertical" Margin="10 0 10 6" SeparationOverride="2">
-            <Label Text="{Loc raid-request-peer-reason-label}" Modulate="#FFA040"/>
-            <RichTextLabel Name="ReasonLabel" HorizontalExpand="True"/>
-        </BoxContainer>
-
-        <PanelContainer MinHeight="1" Modulate="#404040" Margin="10 0"/>
-
-        <BoxContainer Orientation="Vertical" Margin="10 6 10 4" SeparationOverride="2">
-            <Label Text="{Loc raid-request-peer-comment-label}"/>
-            <LineEdit Name="CommentEdit" PlaceHolder="{Loc raid-request-peer-comment-placeholder}"
-                      HorizontalExpand="True"/>
-        </BoxContainer>
-
-        <BoxContainer Orientation="Horizontal" Margin="10 4 10 8" SeparationOverride="8">
-            <Button Name="ApproveButton" Text="{Loc raid-request-peer-approve-button}"
-                    HorizontalExpand="True" StyleClasses="Caution"/>
-            <Button Name="DenyButton" Text="{Loc raid-request-peer-deny-button}"
-                    HorizontalExpand="True" StyleClasses="OpenRight"/>
-        </BoxContainer>
-
-        <RichTextLabel Name="StatusLabel" Margin="10 0 10 8" HorizontalExpand="True"/>
-
     </BoxContainer>
 </controls:FancyWindow>

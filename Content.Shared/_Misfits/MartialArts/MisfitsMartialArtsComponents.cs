@@ -70,7 +70,8 @@ public sealed partial class CanPerformComboComponent : Component
     public List<MisfitsComboAttackType> LastAttacks = new();
 
     /// <summary>All combo prototypes this entity is allowed to perform.</summary>
-    [DataField]
+    // #Misfits Fix - was DataField only, so the client never knew the moveset and could never match a combo
+    [DataField, AutoNetworkedField]
     public List<ProtoId<MisfitsComboPrototype>> AllowedCombos = new();
 
     /// <summary>Time after which the combo buffer resets if no new attacks are made.</summary>

@@ -360,3 +360,51 @@
        - Rangers
   items:
     - N14ClothingHeadHatChineseHelmetMk2
+
+- type: loadout
+  id: N14ClothingHeadHatBrotherhoodSidecapPurple
+  category: Head
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutHead
+  - !type:CharacterDepartmentRequirement
+    inverted: false
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - N14ClothingBrotherhoodSidecap
+
+- type: loadout
+  id: N14ClothingHeadHatBrotherhoodSidecapBlack
+  category: Head
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutHead
+  - !type:CharacterDepartmentRequirement
+    inverted: false
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - N14ClothingBrotherhoodSidecapBlack
+
+- type: loadout
+  id: N14ClothingHeadHatBrotherhoodSidecapTan
+  category: Head
+  cost: 0
+  exclusive: true
+  requirements:
+  - !type:CharacterItemGroupRequirement
+    group: N14LoadoutHead
+  - !type:CharacterDepartmentRequirement
+    inverted: false
+    departments:
+    - BrotherhoodOfSteel
+    - BrotherhoodOfSteelLancers
+  items:
+  - N14ClothingBrotherhoodSidecapTan

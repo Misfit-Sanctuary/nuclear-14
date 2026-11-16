@@ -20,6 +20,9 @@ public sealed class RaidRequestClientSystem : EntitySystem
 
     private RaidRequestWindow? _window;
 
+    // #Misfits Add - Pick the starting tab once fresh data arrives after /raid is opened.
+    private bool _pickTabOnData;
+
     // #Misfits Add - Peer-approval popup. At most one is open at a time; if the server fires
     // a second prompt before the first is decided, we replace the contents in place.
     private RaidRequestPeerDecisionWindow? _peerWindow;
@@ -49,6 +52,7 @@ public sealed class RaidRequestClientSystem : EntitySystem
 
         SubscribeNetworkEvent<RaidRequestPanelDataMsg>(OnPanelData);
         SubscribeNetworkEvent<RaidRequestSubmitResultMsg>(OnSubmitResult);
+        SubscribeNetworkEvent<RaidRequestJoinResultMsg>(OnJoinResult); // #Misfits Add
         SubscribeNetworkEvent<RaidRequestAdminListMsg>(OnAdminList);
         SubscribeNetworkEvent<RaidRequestAdminUpdateMsg>(OnAdminUpdate);
         SubscribeNetworkEvent<RaidRequestDecisionResultMsg>(OnDecisionResult);
@@ -67,6 +71,13 @@ public sealed class RaidRequestClientSystem : EntitySystem
             "Open the Raid Request panel.",
             "raid",
             OpenRaidPanel);
+
+        // #Cythisiax Added - /raidjoin shortcut, mirrors /warjoin: opens /raid on the Raids tab
+        _conHost.RegisterCommand(
+            "raidjoin",
+            "Open the Raid Request panel on the Raids tab to join an approved raid.",
+            "raidjoin",
+            OpenRaidJoinPanel);
     }
 
     public override void Shutdown()
@@ -87,7 +98,18 @@ public sealed class RaidRequestClientSystem : EntitySystem
     {
         EnsureWindow();
         _window!.OpenCentered();
+        _pickTabOnData = true;
         // Ask the server for fresh panel data — target resolution lives server-side.
+        RaiseNetworkEvent(new RaidRequestOpenPanelMsg());
+    }
+
+    // #Cythisiax Added - /raidjoin: same window, straight to the Raids tab where joining lives
+    private void OpenRaidJoinPanel(IConsoleShell shell, string argStr, string[] args)
+    {
+        EnsureWindow();
+        _window!.OpenCentered();
+        _pickTabOnData = false;
+        _window.ShowTab(RaidRequestWindow.RaidsTab);
         RaiseNetworkEvent(new RaidRequestOpenPanelMsg());
     }
 
@@ -98,6 +120,10 @@ public sealed class RaidRequestClientSystem : EntitySystem
 
         _window = new RaidRequestWindow();
         _window.OnClose += () => _window = null;
+        _window.OnRefresh += () => RaiseNetworkEvent(new RaidRequestOpenPanelMsg());
+        // #Misfits Add - Volunteer for a side of an approved raid.
+        _window.OnJoin += (requestId, side) =>
+            RaiseNetworkEvent(new RaidRequestJoinMsg { RequestId = requestId, Side = side });
 
         _window.OnSubmit += (target, location, reason) =>
         {
@@ -115,7 +141,20 @@ public sealed class RaidRequestClientSystem : EntitySystem
 
     private void OnPanelData(RaidRequestPanelDataMsg msg)
     {
-        _window?.UpdateState(msg);
+        if (_window == null)
+            return;
+
+        _window.UpdateState(msg);
+
+        // Open on "Raids" when there is something to join or the player can't request one;
+        // otherwise go straight to the request form.
+        if (_pickTabOnData)
+        {
+            _pickTabOnData = false;
+            _window.ShowTab(msg.OpenRaids.Count > 0 || !msg.CanSubmit
+                ? RaidRequestWindow.RaidsTab
+                : RaidRequestWindow.DeclareTab);
+        }
     }
 
     private void OnSubmitResult(RaidRequestSubmitResultMsg msg)
@@ -123,9 +162,19 @@ public sealed class RaidRequestClientSystem : EntitySystem
         _window?.ShowResult(msg.Success, msg.Message);
         if (msg.Success)
         {
-            // Auto-refresh panel so the player sees their new entry in "My Requests".
+            // #Misfits Tweak - clear the form and jump to "My requests" so the new entry is visible.
+            _window?.ResetForm();
+            _window?.ShowTab(RaidRequestWindow.MyRequestsTab);
             RaiseNetworkEvent(new RaidRequestOpenPanelMsg());
         }
+    }
+
+    // #Misfits Add - Join result: show it and refresh so the card shows the new side.
+    private void OnJoinResult(RaidRequestJoinResultMsg msg)
+    {
+        _window?.ShowResult(msg.Success, msg.Message);
+        if (msg.Success)
+            RaiseNetworkEvent(new RaidRequestOpenPanelMsg());
     }
 
     // ── Network handlers: admin ───────────────────────────────────────────

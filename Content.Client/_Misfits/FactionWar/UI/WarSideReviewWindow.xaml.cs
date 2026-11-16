@@ -43,17 +43,16 @@ public sealed partial class WarSideReviewWindow : FancyWindow
         _removeSelections.Clear();
         ParticipantsContainer.RemoveAllChildren();
 
-        HeaderLabel.SetMarkup(
-            $"[bold]Review side:[/bold] {FormattedMessage.EscapeText(prompt.SideName)}\n" +
-            "Default is [bold]Keep[/bold]. Click to mark a participant as [bold]Remove[/bold].");
+        // #Misfits Refactor - roster-style rows: name + job on the left, a Remove toggle on the right.
+        HeaderLabel.Text = Loc.GetString("faction-war-review-header", ("side", prompt.SideName));
 
         if (prompt.Participants.Count == 0)
         {
             ParticipantsContainer.AddChild(new Label
             {
-                Text = "No joined participants to review on your side.",
+                Text = Loc.GetString("faction-war-review-empty"),
+                StyleClasses = { "LabelSubText" },
                 Margin = new Thickness(4, 2),
-                FontColorOverride = Color.Gray,
             });
         }
         else
@@ -62,46 +61,57 @@ public sealed partial class WarSideReviewWindow : FancyWindow
             {
                 _removeSelections[participant.Entity] = false;
 
+                var panel = new PanelContainer { StyleClasses = { "BackgroundDark" } };
                 var row = new BoxContainer
                 {
                     Orientation = BoxContainer.LayoutOrientation.Horizontal,
-                    HorizontalExpand = true,
-                    SeparationOverride = 8,
-                    Margin = new Thickness(2, 2),
+                    SeparationOverride = 6,
+                    Margin = new Thickness(6, 4),
                 };
+                panel.AddChild(row);
 
-                var nameLabel = new Label
+                var info = new BoxContainer
                 {
-                    Text = string.IsNullOrWhiteSpace(participant.JobName)
-                        ? participant.CharacterName
-                        : $"{participant.CharacterName} ({participant.JobName})",
+                    Orientation = BoxContainer.LayoutOrientation.Vertical,
                     HorizontalExpand = true,
-                    ClipText = true,
                 };
+                var nameLabel = new Label { Text = participant.CharacterName, ClipText = true };
+                info.AddChild(nameLabel);
+                if (!string.IsNullOrWhiteSpace(participant.JobName))
+                    info.AddChild(new Label { Text = participant.JobName, StyleClasses = { "LabelSubText" } });
+                row.AddChild(info);
 
-                var toggleButton = new Button
+                var toggle = new Button
                 {
-                    Text = "Keep",
-                    Modulate = Color.ForestGreen,
-                    MinWidth = 90,
+                    Text = Loc.GetString("faction-war-review-remove"),
+                    ToggleMode = true,
+                    MinWidth = 100,
+                    VerticalAlignment = VAlignment.Center,
+                    StyleClasses = { "Caution" },
                 };
 
                 var entity = participant.Entity;
-                toggleButton.OnPressed += _ =>
+                toggle.OnToggled += args =>
                 {
-                    var nowRemove = !_removeSelections[entity];
-                    _removeSelections[entity] = nowRemove;
-                    toggleButton.Text = nowRemove ? "Remove" : "Keep";
-                    toggleButton.Modulate = nowRemove ? Color.IndianRed : Color.ForestGreen;
+                    _removeSelections[entity] = args.Pressed;
+                    nameLabel.FontColorOverride = args.Pressed ? Color.FromHex("#8a8a8a") : null;
+                    UpdateRemoveCount();
                 };
 
-                row.AddChild(nameLabel);
-                row.AddChild(toggleButton);
-                ParticipantsContainer.AddChild(row);
+                row.AddChild(toggle);
+                ParticipantsContainer.AddChild(panel);
             }
         }
 
+        UpdateRemoveCount();
         ShowResult(true, string.Empty);
+    }
+
+    private void UpdateRemoveCount()
+    {
+        var removing = _removeSelections.Count(kvp => kvp.Value);
+        RemoveCountLabel.Text = Loc.GetString("faction-war-review-count",
+            ("keep", _removeSelections.Count - removing), ("remove", removing));
     }
 
     public void ShowResult(bool success, string message)

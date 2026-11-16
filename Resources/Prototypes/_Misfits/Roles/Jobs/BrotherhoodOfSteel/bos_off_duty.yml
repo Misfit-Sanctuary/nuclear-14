@@ -31,12 +31,16 @@
   id: BoSOffDutyGear
   equipment:
     wallet: N14Wallet
-    jumpsuit: N14ClothingUniformJumpsuitBOSBlack
+    jumpsuit: M14ClothingUniformBrotherhoodCasual
+    back: N14ClothingBackpackSatchelMilitary
     shoes: N14ClothingBootsLeatherFilled
     head: N14ClothingHeadHatBrotherhoodFieldCap
     ears: MisfitsClothingHeadsetWastelandScrap # Turned in your headset to avoid easy loss of comms.
     belt: ClothingBeltMilitary
     id: MisfitsIDBOSOffDuty
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitary
 
 - type: playTimeTracker
   id: BoSOffDuty

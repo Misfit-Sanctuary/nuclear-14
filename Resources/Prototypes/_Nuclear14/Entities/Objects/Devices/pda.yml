@@ -256,3 +256,7 @@
       - MisfitsWastelandMapCartridge
   - type: PdaBorderColor
     borderColor: "#7C5D00"
+  - type: HealthAnalyzer
+    scanDelay: 1.4
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"

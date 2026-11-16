@@ -1,0 +1,197 @@
+# #Cythisiax Added - DAGGER combat loadout: the DAGGER picks one long rifle at spawn.
+# Every kit carries the same field medical supplies and grenades; only the rifle and its ammo differ.
+
+- type: entity
+  id: NCRdaggerloadoutkits
+  name: Undecided DAGGER Loadout Kit
+  parent: NCRcadetloadoutkits
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: marksman
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - DaggerAntiMaterielSet
+    - DaggerNCRRifleSet
+    - DaggerBozarSet
+    - DaggerCanadianSniperSet
+
+#MARK: Sets
+
+- type: UndecidedLoadoutBackpackSet
+  id: DaggerAntiMaterielSet
+  name: undecided-loadout-category-dagger-anti-materiel-name
+  description: undecided-loadout-category-dagger-anti-materiel-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: marksman
+  content:
+  - KitDaggerAntiMateriel
+
+- type: UndecidedLoadoutBackpackSet
+  id: DaggerNCRRifleSet
+  name: undecided-loadout-category-dagger-ncr-rifle-name
+  description: undecided-loadout-category-dagger-ncr-rifle-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: marksman
+  content:
+  - KitDaggerNCRRifle
+
+- type: UndecidedLoadoutBackpackSet
+  id: DaggerBozarSet
+  name: undecided-loadout-category-dagger-bozar-name
+  description: undecided-loadout-category-dagger-bozar-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: gunner
+  content:
+  - KitDaggerBozar
+
+- type: UndecidedLoadoutBackpackSet
+  id: DaggerCanadianSniperSet
+  name: undecided-loadout-category-dagger-canadian-name
+  description: undecided-loadout-category-dagger-canadian-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: marksman
+  content:
+  - KitDaggerCanadianSniper
+
+#MARK: Kits
+
+- type: entity
+  abstract: true
+  parent: KitBase
+  id: KitDaggerBase
+  name: DAGGER kit
+  description: A cache containing the field equipment of a DAGGER operative.
+  components:
+  - type: Sprite
+    state: marksman
+  - type: Item
+    size: Huge
+
+- type: entity
+  parent: KitDaggerBase
+  id: KitDaggerAntiMateriel
+  name: DAGGER anti-materiel kit
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: ClothingBeltNCRPouches
+      - id: N14WeaponSniper50AntiMateriel
+      - id: N14Magazine50AMR
+        amount: 3
+      - id: MagazineBox50
+      # Field medical
+      - id: N14Stimpak
+        amount: 3
+      - id: MedicatedSuture
+      - id: N14Bandage
+        amount: 2
+      # Grenades
+      - id: MisfitsGrenadeImpact
+        amount: 2
+      - id: GrenadeShrapnel
+        amount: 2
+      - id: SmokeGrenade
+        amount: 2
+      - id: MisfitsGrenadeWhitePhosphorus
+      - id: N14CombatKnife
+      - id: N14BoxCardboardMREBoxKFilled
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: KitDaggerBase
+  id: KitDaggerNCRRifle
+  name: DAGGER .50 rifle kit
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: ClothingBeltNCRPouches
+      - id: N14WeaponSniper50NCRRifle
+      - id: MagazineBox50
+        amount: 2
+      # Field medical
+      - id: N14Stimpak
+        amount: 3
+      - id: MedicatedSuture
+      - id: N14Bandage
+        amount: 2
+      # Grenades
+      - id: MisfitsGrenadeImpact
+        amount: 2
+      - id: GrenadeShrapnel
+        amount: 2
+      - id: SmokeGrenade
+        amount: 2
+      - id: MisfitsGrenadeWhitePhosphorus
+      - id: N14CombatKnife
+      - id: N14BoxCardboardMREBoxKFilled
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: KitDaggerBase
+  id: KitDaggerBozar
+  name: DAGGER Bozar kit
+  components:
+  - type: Sprite
+    state: gunner
+  - type: SpawnItemsOnUse
+    items:
+      - id: ClothingBeltNCRPouches
+      - id: N14WeaponRifleBozarGRA
+      - id: LMGMagazine556Rifle
+        amount: 2
+      - id: MagazineBox556
+      # Field medical
+      - id: N14Stimpak
+        amount: 3
+      - id: MedicatedSuture
+      - id: N14Bandage
+        amount: 2
+      # Grenades
+      - id: MisfitsGrenadeImpact
+        amount: 2
+      - id: GrenadeShrapnel
+        amount: 2
+      - id: SmokeGrenade
+        amount: 2
+      - id: MisfitsGrenadeWhitePhosphorus
+      - id: N14CombatKnife
+      - id: N14BoxCardboardMREBoxKFilled
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: KitDaggerBase
+  id: KitDaggerCanadianSniper
+  name: DAGGER Canadian sniper kit
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: ClothingBeltNCRPouches
+      - id: N14WeaponSniper308Canadian
+      - id: MagazineBox308
+        amount: 2
+      # Field medical
+      - id: N14Stimpak
+        amount: 3
+      - id: MedicatedSuture
+      - id: N14Bandage
+        amount: 2
+      # Grenades
+      - id: MisfitsGrenadeImpact
+        amount: 2
+      - id: GrenadeShrapnel
+        amount: 2
+      - id: SmokeGrenade
+        amount: 2
+      - id: MisfitsGrenadeWhitePhosphorus
+      - id: N14CombatKnife
+      - id: N14BoxCardboardMREBoxKFilled
+    sound:
+      path: /Audio/Effects/unwrap.ogg

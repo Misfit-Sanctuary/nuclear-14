@@ -5,7 +5,11 @@
   - type: Sprite
     sprite: Corvax/Structures/Door/bunkerdoor.rsi
   - type: Occluder
-    boundingBox: "-1.5,-0.5,1.5,0.5"
+    polygon:
+    - -1.5,-0.5
+    - 1.5,-0.5
+    - 1.5,0.5
+    - -1.5,0.5
   - type: Fixtures
     fixtures:
       fix1:

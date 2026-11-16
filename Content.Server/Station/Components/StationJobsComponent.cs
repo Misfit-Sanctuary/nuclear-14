@@ -3,8 +3,6 @@ using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 
 namespace Content.Server.Station.Components;
 
@@ -59,8 +57,8 @@ public sealed partial class StationJobsComponent : Component
     /// <remarks>
     /// This should not be mutated or used directly unless you really know what you're doing, go through StationJobsSystem.
     /// </remarks>
-    [DataField("jobList", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<uint?, JobPrototype>))]
-    public Dictionary<string, uint?> JobList = new();
+    [DataField("jobList")]
+    public Dictionary<ProtoId<JobPrototype>, uint?> JobList = new();
 
     /// <summary>
     /// The round-start list of jobs.
@@ -68,14 +66,14 @@ public sealed partial class StationJobsComponent : Component
     /// <remarks>
     /// This should not be mutated, ever.
     /// </remarks>
-    [DataField("roundStartJobList", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<uint?, JobPrototype>))]
-    public Dictionary<string, uint?> RoundStartJobList = new();
+    [DataField("roundStartJobList")]
+    public Dictionary<ProtoId<JobPrototype>, uint?> RoundStartJobList = new();
 
     /// <summary>
     /// Overflow jobs that round-start can spawn infinitely many of.
     /// </summary>
-    [DataField("overflowJobs", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<JobPrototype>))]
-    public HashSet<string> OverflowJobs = new();
+    [DataField("overflowJobs")]
+    public HashSet<ProtoId<JobPrototype>> OverflowJobs = new();
 
     /// <summary>
     /// A dictionary relating a NetUserId to the jobs they have on station.
@@ -84,7 +82,6 @@ public sealed partial class StationJobsComponent : Component
     [DataField]
     public Dictionary<NetUserId, List<ProtoId<JobPrototype>>> PlayerJobs = new();
 
-    [DataField("availableJobs", required: true,
-        customTypeSerializer: typeof(PrototypeIdDictionarySerializer<List<int?>, JobPrototype>))]
-    public Dictionary<string, List<int?>> SetupAvailableJobs = default!;
+    [DataField("availableJobs", required: true)]
+    public Dictionary<ProtoId<JobPrototype>, List<int?>> SetupAvailableJobs = default!;
 }

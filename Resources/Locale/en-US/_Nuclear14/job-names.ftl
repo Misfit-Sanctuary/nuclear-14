@@ -95,6 +95,8 @@ job-description-osi-eyebot = Serve the NCR Office of Science and Industry as a l
 # Rangers
 job-name-ranger-patrol = Patrol Ranger
 job-description-ranger-patrol = Scout ahead, patrol the frontier, and prove you belong among the Rangers.
+job-name-ranger = Ranger
+job-description-ranger = Work the frontier as a full Ranger of the station. Enforce Ranger law, scout the wastes, and answer to the Ranger Lead above you.
 job-name-ranger-recruit = Patrol Ranger
 job-description-ranger-recruit = Scout ahead, patrol the frontier, and prove you belong among the Rangers.
 job-name-ranger-field = Field Ranger
@@ -103,10 +105,12 @@ job-name-ranger-ranking = Field Ranger
 job-description-ranger-ranking = Operate independently or in small teams, enforce Ranger law, and protect the frontier.
 job-name-ranger-chief = Chief Desert Ranger
 job-description-ranger-chief = As Chief Desert Ranger, you lead all ranger operations, ensuring the safety and training of your ranks. Your mission is to forge alliances, direct large-scale missions, and maintain the legacy of justice in the wasteland.
-job-name-ranger-veteran-n14 = Veteran Ranger
+job-name-ranger-veteran-n14 = Ranger Lead
 job-description-ranger-veteran-n14 = Lead Ranger operations in the region, choose your methods, and answer only to your mission and your code.
 job-name-ranger-veteran = Veteran Ranger
 job-description-ranger-veteran = Lead Ranger operations in the region, choose your methods, and answer only to your mission and your code.
+job-name-ranger-medic = Ranger Medic
+job-description-ranger-medic = Keep your patrol alive out on the frontier - patch wounds, hand out stimpaks and pull Rangers back from the edge.
 
 # #Misfits Change - rename tribe role display names to Willowers variants without changing job IDs.
 # Tribal

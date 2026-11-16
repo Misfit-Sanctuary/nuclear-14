@@ -73,8 +73,9 @@
         <Label Text="Admin Observe" Margin="10 4 10 2" Modulate="#FFA500"
                StyleClasses="LabelBig"/>
 
-        <Label Text="Observe a war from a participant's perspective. See [ALLY]/[ENEMY] tags without getting one yourself."
-               Margin="10 0 10 4" Modulate="#AAAAAA" StyleClasses="LabelSubText"/>
+        <!-- #Cythisiax Fixed - wrap long description (brackets escaped for RichTextLabel markup) -->
+        <RichTextLabel Text="Observe a war from a participant's perspective. See \[ALLY\]/\[ENEMY\] tags without getting one yourself."
+               Margin="10 0 10 4" HorizontalExpand="True"/>
 
         <BoxContainer Orientation="Horizontal" Margin="10 4 10 4" SeparationOverride="8">
             <Label Text="War Participant:" VerticalAlignment="Center" MinWidth="90"/>

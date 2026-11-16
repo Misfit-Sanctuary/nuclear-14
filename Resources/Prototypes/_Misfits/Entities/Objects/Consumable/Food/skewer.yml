@@ -1,0 +1,18 @@
+#- Spicy n Sweet Skewer: 2 jalapeno, 2 black berry, 1 skewer -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodSkewerSpicySweet
+  components:
+  - type: Food
+    eatMessage: food-desc-spicySweetSkewer-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: sweetSpicySkewer
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: BlackberryJam
+          Quantity: 10
+        - ReagentId: ExtractGlowpepper
+          Quantity: 15

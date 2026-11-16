@@ -360,7 +360,8 @@
 - type: entity
   parent: N14FoodPacketTrash
   id: N14FoodDandyboyapplesTrash
-  name: empty Dandyboy Apples box
+  name: empty Dandy Boy Apples box
+  description: Like the real American dream, this box is an empty promise.
   components:
   - type: Sprite
     state: dandyapples_trash
@@ -392,7 +393,7 @@
 - type: entity
   parent: N14FoodPacketTrash
   id: N14FoodSugarbombsTrash
-  description: Likely more nutritious than the cereal that was in it.
+  description: Likely more nutritious than the cereal it held.
   name: empty Sugar Bombs box
   components:
   - type: Sprite

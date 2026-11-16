@@ -23,6 +23,7 @@
   requireAdminNotify: true
   joinNotifyCrew: true
   canBeAntag: false
+  overwatchCategory: OverwatchCommand
   overrideConsoleVisibility: false
   accessGroups:
   - VaultOverseer # Full vault access
@@ -39,7 +40,8 @@
   equipment:
     wallet: N14Wallet
     jumpsuit: N14ClothingUniformJumpsuitVault14
-    back: N14ClothingBackpackVaultBlue
+    back: M14VaultSecuritySatchel
+    outerClothing: N14ClothingOuterOverseerCoat
     shoes: N14ClothingBootsBlack
     eyes: ClothingEyesGlassesSunglasses
     id: N14VaultOverseerPDA
@@ -49,6 +51,7 @@
   storage:
     back:
     - N14Bandage
+    - EncryptionKeySecurity
     - N14CurrencyPrewarMoney500
     - N14CurrencyPrewarMoney500
 

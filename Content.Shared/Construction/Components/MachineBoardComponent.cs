@@ -2,7 +2,6 @@ using Content.Shared.Construction.Prototypes;
 using Content.Shared.Stacks;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
 namespace Content.Shared.Construction.Components
 {
@@ -11,8 +10,8 @@ namespace Content.Shared.Construction.Components
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-        [DataField("requirements", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<int, MachinePartPrototype>))]
-        public Dictionary<string, int> Requirements = new();
+        [DataField("requirements")]
+        public Dictionary<ProtoId<MachinePartPrototype>, int> Requirements = new();
 
         [DataField("materialRequirements")]
         public Dictionary<string, int> MaterialIdRequirements = new();

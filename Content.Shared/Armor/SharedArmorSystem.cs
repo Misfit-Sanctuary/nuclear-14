@@ -45,7 +45,8 @@ public abstract class SharedArmorSystem : EntitySystem
         if (TryComp<MaskComponent>(uid, out var mask) && mask.IsToggled)
             return;
 
-        args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers);
+        // #Misfits Add - pass the shot's armor piercing so this armor is weakened or reinforced
+        args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers, args.Args.ArmorPiercing);
     }
 
     private void OnBorgDamageModify(EntityUid uid, ArmorComponent component,
@@ -54,7 +55,8 @@ public abstract class SharedArmorSystem : EntitySystem
         if (TryComp<MaskComponent>(uid, out var mask) && mask.IsToggled)
             return;
 
-        args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers);
+        // #Misfits Add - pass the shot's armor piercing so this armor is weakened or reinforced
+        args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers, args.Args.ArmorPiercing);
     }
 
     private void OnArmorVerbExamine(EntityUid uid, ArmorComponent component, GetVerbsEvent<ExamineVerb> args)
@@ -82,7 +84,7 @@ public abstract class SharedArmorSystem : EntitySystem
         {
             msg.PushNewline();
 
-            var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.ToLower());
+            var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.Id.ToLower());
             msg.AddMarkup(Loc.GetString("armor-coefficient-value",
                 ("type", armorType),
                 ("value", MathF.Round((1f - coefficientArmor.Value) * 100, 1))
@@ -93,7 +95,7 @@ public abstract class SharedArmorSystem : EntitySystem
         {
             msg.PushNewline();
 
-            var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.ToLower());
+            var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.Id.ToLower());
             msg.AddMarkup(Loc.GetString("armor-reduction-value",
                 ("type", armorType),
                 ("value", flatArmor.Value)

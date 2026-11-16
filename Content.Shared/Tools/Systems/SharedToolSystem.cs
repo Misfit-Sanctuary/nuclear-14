@@ -201,7 +201,7 @@ public abstract partial class SharedToolSystem : EntitySystem
     [PublicAPI]
     public bool HasAllQualities(EntityUid uid, IEnumerable<string> qualities, ToolComponent? tool = null)
     {
-        return Resolve(uid, ref tool, false) && tool.Qualities.ContainsAll(qualities);
+        return Resolve(uid, ref tool, false) && qualities.All(q => tool.Qualities.Contains(q));
     }
 
     private bool CanStartToolUse(EntityUid tool, EntityUid user, EntityUid? target, float fuel, IEnumerable<string> toolQualitiesNeeded, ToolComponent? toolComponent = null)
@@ -210,7 +210,7 @@ public abstract partial class SharedToolSystem : EntitySystem
             return false;
 
         // check if the tool can do what's required
-        if (!toolComponent.Qualities.ContainsAll(toolQualitiesNeeded))
+        if (!toolQualitiesNeeded.All(q => toolComponent.Qualities.Contains(q)))
             return false;
 
         // check if the user allows using the tool

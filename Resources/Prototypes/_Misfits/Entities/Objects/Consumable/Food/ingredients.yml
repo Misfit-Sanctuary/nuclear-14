@@ -18,4 +18,115 @@
               Quantity: 82
     - type: Extractable
       grindableSolutionName: food
-      
+
+# diced Meat
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodDicedMeat
+  components:
+  - type: Food
+    eatMessage: food-desc-dicedMeat-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: dicedMeat
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+  - type: ScoopableSolution
+    solution: food
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: DicedMeat
+          Quantity: 10
+
+# diced Tato
+- type: entity
+  parent: MisfitsFoodBase
+  id:  MisfitsFoodDicedTato
+  components:
+  - type: Food
+    eatMessage: food-desc-dicedTato-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: dicedTato
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+  - type: ScoopableSolution
+    solution: food
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: DicedTato
+          Quantity: 10
+
+# diced Garlic
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodDicedGarlic
+  components:
+  - type: Food
+    eatMessage: food-desc-dicedGarlic-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: dicedGarlic
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+  - type: ScoopableSolution
+    solution: food
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: DicedGarlic
+          Quantity: 10
+
+# diced Onion
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodDicedOnion
+  components:
+  - type: Food
+    eatMessage: food-desc-dicedOnion-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: dicedOnion
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+  - type: ScoopableSolution
+    solution: food
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: DicedOnion
+          Quantity: 10
+
+# Cans & Containers
+- type: entity
+  parent: [N14ReagentPacketBase, ItemHeftyBase]
+  id: MisfitsItemRaiserCan
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: raiserCan
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Raiser
+          Quantity: 20

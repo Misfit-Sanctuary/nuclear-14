@@ -75,10 +75,13 @@
           NCRVertibirdPilot: [ 1, 1 ] # #Misfits Add
           NCRRO: [ 1, 1 ]
           NCRChiefRanger: [ 1, 0 ]  # #Misfits Change - admin-only Chief Ranger; renamed from ChiefRanger
+          NCRDagger: [ 1, 1 ] # #Cythisiax Added - DAGGER slot alongside Chief Ranger
           NCRVeteranRanger: [ 1, 1 ] # #Misfits Change - renamed from RangerVeteran
-          NCRFieldRanger: [ 1, 1 ]   # #Misfits Add - Field Ranger slot
-          NCRPatrolRanger: [ 1, 1 ]  # #Misfits Change - renamed from RangerRecruit (was Patrol Ranger by FTL)
-          NCRRangerRecruit: [ 2, 2 ] # #Misfits Add - entry-level Ranger Recruit slot
+          #NCRFieldRanger: [ 1, 1 ]   # #Misfits Removed - Field Ranger retired; slot split into +2 Patrol Ranger and +1 Ranger Recruit
+          #NCRPatrolRanger: [ 3, 3 ]  # #Misfits Change - patrol slots retired; the Rangers post these through NCRRangerStandard instead
+          NCRRangerStandard: [ 4, 4 ] # #Misfits Add - main Ranger rung; carries the former patrol and field ranger duties
+          NCRRangerRecruit: [ 2, 2 ] # #Misfits Add - entry-level Ranger Recruit
+          NCRRangerMedic: [ 1, 1 ] # #Misfits Add - Ranger Medic slot
           NCRFirstSergeant: [ 1, 1 ]
           #NCRStaffSergeant: [ 1, 1 ] # #Misfits Removed - replaced by NCRHeavyTrooper as T5 specialist slot
           NCRHeavyTrooper: [ 2, 2 ]
@@ -103,6 +106,7 @@
           OSIScientist: [ 2, 2 ]
           OSIAssistant: [ 3, 3 ]
           BoSWestElderCommander: [ 1, 0 ] # Misfits Change # #Misfits Tweak - 0 active slots (admin-notify role)
+          BoSArchivist: [ 1, 1 ] # Misfits Add - new database management role
           BoSMidPaladinCommander: [ 1, 1 ]
           BoSHeadKnight: [ 1, 1 ]  #Misfits Change /Add/: New consolidated BoS jobs
           BoSWestScribe: [ 1, 1 ] # Misfits Change
@@ -117,6 +121,7 @@
           BoSMidSquire: [ 3, 3 ]
           BoSInitiate: [ 3, 3 ]  #Misfits Change /Add/
           BoSOffDuty: [4, 4] # Misfits Change - new off-duty BoS role for non-combatants and latejoiners
+          VaultManagement: [ 1, 1 ] #Misfits Add - whitelist-only Vault Management role
           Overseer: [ 1, 1 ]
           VaultDoctor: [ 3, 3 ]
           VaultDweller: [ 4, 4 ]
@@ -166,7 +171,7 @@
           SyntheticSentryBot: [ 0, 0 ] # #Misfits Add: sentry bot late join slots
           SyntheticRobobrain: [ 1, 3 ] # #Misfits Add: robobrain late join slots
           # #Misfits Add - Enclave faction activation: whitelist-only roles. Spawns at Vault bunker (~-92.5, 50.5).
-          EnclaveReformer: [ 1, 0 ]      # admin-only leader (The Reformer); 0 active latejoin slots
+          EnclaveReformer: [ 1, 0 ]      # admin-only leader (The Reformer/General); 0 active latejoin slots
           EnclaveCommander: [ 1, 1 ]
           EnclaveSeniorOfficer: [ 1, 1 ]
           EnclaveJuniorOfficer: [ 1, 1 ]

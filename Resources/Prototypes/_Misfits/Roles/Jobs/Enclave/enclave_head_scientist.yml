@@ -40,6 +40,9 @@
       - type: ReplacementAccent
         accent: n14Enclave
       - type: CPRTraining
+      - type: FactionRoster # #Cythisiax Added - roster GUI: the Head Scientist manages Junior Scientists and Scientists
+        roster: Enclave
+        action: ActionOpenFactionRosterEnclave
   - !type:AddTraitSpecial # #Misfits Add - Enclave scientists are issued an Enclave Eyebot companion
     traits: [ MisfitsPetEyebotEnclave ]
 
