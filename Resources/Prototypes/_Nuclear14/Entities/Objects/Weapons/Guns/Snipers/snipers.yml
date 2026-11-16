@@ -151,16 +151,13 @@
   # #Misfits Add - built-in optic (plain YAML Scope component)
   - type: Scope
     requireWielding: true
+    requiredPerception: 9
     zoomLevels:
     - name: 6x
       zoom: 1.18
       offset: 17
       allowMovement: false
       doAfter: 1.00
-  # #Misfits Add - scoped weapon; a scope is only as good as the eye behind it
-  - type: N14SpecialStatRequirement
-    minimumStats:
-      Perception: 9
   - type: StaticPrice
     price: 200
 
@@ -202,16 +199,13 @@
   # #Misfits Add - built-in optic (plain YAML Scope component)
   - type: Scope
     requireWielding: true
+    requiredPerception: 8
     zoomLevels:
     - name: 3x
       zoom: 1.07
       offset: 9
       allowMovement: false
       doAfter: 0.70
-  # #Misfits Add - scoped weapon; a scope is only as good as the eye behind it
-  - type: N14SpecialStatRequirement
-    minimumStats:
-      Perception: 8
   - type: StaticPrice
     price: 175
   # #Misfits Add — scope attachment slot on .50 NCR rifle
@@ -607,16 +601,13 @@
   # #Misfits Add - built-in optic (plain YAML Scope component)
   - type: Scope
     requireWielding: true
+    requiredPerception: 8
     zoomLevels:
     - name: 6x
       zoom: 1.17
       offset: 16
       allowMovement: false
       doAfter: 1.00
-  # #Misfits Add - scoped weapon; a scope is only as good as the eye behind it
-  - type: N14SpecialStatRequirement
-    minimumStats:
-      Perception: 8
   - type: StaticPrice
     price: 175
 # Forge-add-end
@@ -732,16 +723,13 @@
   # #Misfits Add - built-in optic, pure YAML component (no item, no attachment)
   - type: Scope
     requireWielding: true
+    requiredPerception: 7
     zoomLevels:
     - name: 5x
       zoom: 1.13
       offset: 15
       allowMovement: false
       doAfter: 0.70
-  # #Misfits Add - a scoped precision rifle demands a steady eye
-  - type: N14SpecialStatRequirement
-    minimumStats:
-      Perception: 7
   - type: StaticPrice
     price: 500
 

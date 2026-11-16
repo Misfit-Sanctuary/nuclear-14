@@ -1,5 +1,7 @@
 // #Misfits Add - Core shared scoping system (ported from RMC-14 Scoping)
 using System.Numerics;
+using Content.Shared._Misfits.Special;
+using Content.Shared._Misfits.Special.Components;
 using Content.Shared.Actions;
 using Content.Shared.Camera;
 using Content.Shared.DoAfter;
@@ -26,6 +28,7 @@ public abstract partial class SharedScopeSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
+    [Dependency] private readonly SharedSpecialSystem _special = default!;
     [Dependency] protected readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
@@ -315,13 +318,23 @@ public abstract partial class SharedScopeSystem : EntitySystem
             return Fail(user, "n14-action-popup-scoping-user-must-wield", scope.Owner, popup);
         }
 
+        // A sharp eye is only needed to look through the optic, not to carry or fire the weapon.
+        if (scope.Comp.RequiredPerception > SpecialProfile.Minimum &&
+            HasComp<SpecialComponent>(user) &&
+            !_special.HasRequirement(user, SpecialStat.Perception, scope.Comp.RequiredPerception))
+        {
+            return Fail(user, "n14-action-popup-scoping-user-not-perceptive", scope.Owner, popup,
+                ("required", scope.Comp.RequiredPerception));
+        }
+
         return true;
     }
 
-    private bool Fail(EntityUid user, string message, EntityUid target, bool popup)
+    /// Reports why scoping was refused, with optional extra format arguments for the message.
+    private bool Fail(EntityUid user, string message, EntityUid target, bool popup, params (string, object)[] args)
     {
         if (popup)
-            _popup.PopupClient(Loc.GetString(message, ("scope", target)), user, user);
+            _popup.PopupClient(Loc.GetString(message, [("scope", target), ..args]), user, user);
 
         return false;
     }

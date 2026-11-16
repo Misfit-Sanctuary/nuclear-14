@@ -7,6 +7,7 @@ namespace Content.Shared._Misfits.Scope;
 /// Add it to any prototype, for example:
 /// - type: Scope
 ///   requireWielding: true
+///   requiredPerception: 7
 ///   zoomLevels:
 ///   - name: 5x
 ///     zoom: 1.2
@@ -51,6 +52,10 @@ public sealed partial class ScopeComponent : Component
     /// If true, the item must be wielded before scoping is allowed.
     [DataField]
     public bool RequireWielding;
+
+    /// Effective Perception needed to look through this optic; at or below the stat minimum disables the check.
+    [DataField]
+    public int RequiredPerception;
 
     /// If true, the scope can also be toggled by using the item in hand (binoculars).
     [DataField]
