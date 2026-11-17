@@ -306,16 +306,18 @@ public abstract partial class SharedProjectileSystem : EntitySystem
              args.OtherEntity == component.ExtraIgnoredEntity))
         {
             args.Cancelled = true;
+            return;
         }
 
-        // #Misfits Edited - Broadcast extension point so fork systems (aircraft/vertibird) can add their
-        // own projectile collision rules without a duplicate PreventCollideEvent subscription.
-        if (!args.Cancelled)
-        {
-            var ev = new ProjectilePreventCollideEvent((uid, component), args.OtherEntity);
-            RaiseLocalEvent(ref ev);
-            args.Cancelled = ev.Cancelled;
-        }
+        // #Misfits Add: Projectile collide events to broadcast and raise directed on projectile and otherEntity(ent to be hit)
+        //               Many other systems may want to prevent projectiles from colliding
+        //               broadcast is used by vertibird system (don't know why this isn't just an event directed at args.OtherEntity)
+
+        var ev = new ProjectilePreventCollideEvent((uid, component), args.OtherEntity);
+        RaiseLocalEvent(ref ev);
+        RaiseLocalEvent(args.OtherEntity, ref ev);
+        RaiseLocalEvent(uid, ref ev);
+        args.Cancelled = ev.Cancelled;
     }
 
     public void SetShooter(EntityUid id, ProjectileComponent component, EntityUid shooterId)

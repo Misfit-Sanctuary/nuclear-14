@@ -12,18 +12,15 @@
   - type: RefillableSolution
     solution: motorbikeFuel
   - type: Vehicle
-    renderOver: None
-    overlayPrototype: MisfitsMountRiderOverlay
-  - type: EngineNeedsFuel
+#    renderOver: None
+#    overlayPrototype: MisfitsMountRiderOverlay
+  - type: FuelEngine
   - type: VehicleEngine
   - type: DriveOnBuckle
   - type: SolutionConsumer
-#  - type: DirectionalBuckleOffset
-#    offsets:
-#      North: 0, -0.05
-#      South: 0, 0
-#      East: -0.15, -0.18
-#      West: 0.15, -0.18
+  - type: DirectionalBuckleOffset
+    offsets:
+    - { North: "0, -0.05", South: "0, 0", East: "-0.15, -0.18" , West: "0.15, -0.18" }
   - type: Damageable
     damageContainer: MisfitsVehicleNormal
     damageModifierSet: Motorbike
@@ -85,6 +82,7 @@
     solution: motorbikeFuel
   - type: Strap
     size: 300
+    friendlyFire: true
     whitelist:
       requireAll: true
       components:
@@ -161,9 +159,11 @@
     layers:
     - state: bike_flamy2
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
-  - type: Vehicle
-    renderOver: None
+  - type: Overlay
     overlayPrototype: MisfitsMountRiderOverlay
+  - type: Vehicle
+#    renderOver: None
+#    overlayPrototype: MisfitsMountRiderOverlay
 
 - type: entity
   id: VehicleBikeFlameyOverlay
@@ -173,7 +173,7 @@
   - type: Sprite
     sprite: _Nuclear14/Objects/Vehicles/bikesbuggy.rsi
     layers:
-      - state: bike_flamy1_overlay
+      - state: bike_flamy1-overlay
     noRot: true
     drawdepth: OverMobs # Set the drawdepth here to be above players non-clickable
   - type: Tag
@@ -205,14 +205,12 @@
     - state: bike_scrambler2
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
   - type: Vehicle
-    renderOver: None
-    overlayPrototype: MisfitsMountRiderOverlay
+#    renderOver: None
+#    overlayPrototype: MisfitsMountRiderOverlay
   - type: DirectionalBuckleOffset
     offsets:
-      North: 0, -0.05
-      South: 0, 0.12
-      East: -0.22, -0.16
-      West: 0.22, -0.16
+    - { North: "0, -0.05", South: "0, 0.12", SouthEast: "0.22, 0.12", East: "-0.22, -0.16" , West: "0.22, -0.16" }
+    - { North: "-0.15, -0.05", South: "-0.15, 0.12", East: "-0.37, -0.16" , West: "0.37, -0.16" }
 # acceleration seems to be used wrong or is broken. Bike will stay perma slow
 #  - type: MovementSpeedModifier
 #    acceleration: 0.5 # #Cythisiax Added - Scrambler takes ~4.6s to reach max speed (heavy bike feel)
@@ -226,7 +224,7 @@
   - type: Sprite
     sprite: _Nuclear14/Objects/Vehicles/bikesbuggy.rsi
     layers:
-      - state: bike_scrambler1_overlay
+      - state: bike_scrambler1-overlay
     noRot: true
     drawdepth: OverMobs # Set the drawdepth here to be above players non-clickable
   - type: Tag

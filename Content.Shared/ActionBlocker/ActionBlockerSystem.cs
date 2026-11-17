@@ -14,6 +14,7 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Speech;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Melee.Events;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 
@@ -182,7 +183,7 @@ namespace Content.Shared.ActionBlocker
             return !ev.Cancelled;
         }
 
-        public bool CanAttack(EntityUid uid, EntityUid? target = null, Entity<MeleeWeaponComponent>? weapon = null, bool disarm = false)
+        public bool CanAttack(EntityUid uid, EntityUid? target = null, Entity<MeleeWeaponComponent>? weapon = null, bool disarm = false, AttackEvent? attackType = null)
         {
             // If target is in a container can we attack
             if (target != null && _container.IsEntityInContainer(target.Value))
@@ -210,7 +211,7 @@ namespace Content.Shared.ActionBlocker
             if (target == null)
                 return true;
 
-            var tev = new GettingAttackedAttemptEvent();
+            var tev = new GettingAttackedAttemptEvent(Attacker: uid, attackType);
             RaiseLocalEvent(target.Value, ref tev);
             return !tev.Cancelled;
         }

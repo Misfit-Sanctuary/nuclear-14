@@ -26,8 +26,9 @@
     solution: motorbikeFuel
   - type: Vehicle
     renderOver: None
-  - type: EngineNeedsFuel
+  - type: FuelEngine
   - type: VehicleEngine
+    requestOnByDefault: true
   - type: DriveOnBuckle
   - type: SolutionConsumer
   - type: Damageable
@@ -158,7 +159,6 @@
 #        enum.VehicleVisualLayers.Overlay:
 #          True: { state: "bike2-rider-overlay", visible: true }
 #          False: { state: "bike2-rider-overlay", visible: false }
-  - type:
   - type: Sprite
     sprite: _Nuclear14/Objects/Vehicles/bikesbuggy.rsi
     layers:

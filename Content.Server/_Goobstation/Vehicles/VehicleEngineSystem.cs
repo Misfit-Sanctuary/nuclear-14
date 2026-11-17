@@ -17,7 +17,8 @@ public sealed partial class VehicleEngineSystem : Shared.Vehicles.VehicleEngineS
     {
         args.Affected = true;
         args.Disabled = true;
-        RaiseLocalEvent(ent, ref _engineOffEvent);
+        var ev = new EngineOffEvent();
+        RaiseLocalEvent(ent, ref ev);
     }
 
 }

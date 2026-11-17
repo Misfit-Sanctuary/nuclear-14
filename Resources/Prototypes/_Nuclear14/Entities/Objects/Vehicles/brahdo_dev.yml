@@ -98,10 +98,7 @@
   - type: Mountable
   - type: DirectionalBuckleOffset
     offsets:
-      North: 0, -0.5
-      South: 0, 0.5
-      East: -0.5, 0
-      West: 0.5, 0
+     - { North: "0, -0.5", South: "0, 0.5", East: "-0.5, 0" , West: "0.5, 0" }
 
 - type: entity
   parent: MisfitsBrahdo_Dev

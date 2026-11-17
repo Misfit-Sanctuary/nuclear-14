@@ -352,7 +352,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     return false;
                 }
 
-                if (!Blocker.CanAttack(user, target, (weaponUid, weapon)))
+                if (!Blocker.CanAttack(user, target, (weaponUid, weapon),  attackType: light))
                     return false;
 
                 // Can't self-attack if you're the weapon
@@ -370,7 +370,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     return false;
                 }
 
-                if (!Blocker.CanAttack(user, target, (weaponUid, weapon), true))
+                if (!Blocker.CanAttack(user, target, (weaponUid, weapon), true, attackType: disarm))
                     return false;
                 break;
             default:
@@ -729,7 +729,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             // primarily because this was an untargeted wideswing: if a subscriber to that event cared about
             // the potential target (such as for pacifism), they need to be made aware of the target here.
             // In that case, just continue.
-            if (!Blocker.CanAttack(user, entity, (weapon, component)))
+            if (!Blocker.CanAttack(user, entity, (weapon, component), attackType: ev))
             {
                 targets.RemoveAt(i);
                 continue;

@@ -11,18 +11,18 @@ using Robust.Client.Graphics;
 
 namespace Content.Client.Vehicles;
 
-public sealed class VehicleSystem : SharedVehicleSystem
+public sealed partial class VehicleSystem : SharedVehicleSystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IEyeManager _eye = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IEyeManager _eye = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<VehicleComponent, AppearanceChangeEvent>(OnAppearanceChange);
-        SubscribeLocalEvent<VehicleComponent, MoveEvent>(OnMove);
+        //SubscribeLocalEvent<VehicleComponent, AppearanceChangeEvent>(OnAppearanceChange);
+        //SubscribeLocalEvent<VehicleComponent, MoveEvent>(OnMove);
     }
 
     protected override void OnStrapSetAnimate(Entity<VehicleComponent> ent)
@@ -76,7 +76,7 @@ public sealed class VehicleSystem : SharedVehicleSystem
         //     return;
         // }
 
-        ent.Comp.OriginalDrawDepth ??= spriteComp.DrawDepth;
+        //ent.Comp.OriginalDrawDepth ??= spriteComp.DrawDepth;
         _sprite.SetDrawDepth((ent, spriteComp), (int)Content.Shared.DrawDepth.DrawDepth.Objects);
 
         if (ent.Comp.RenderOver == VehicleRenderOver.None)

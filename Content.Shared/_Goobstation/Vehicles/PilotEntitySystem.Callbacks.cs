@@ -3,10 +3,10 @@ using Content.Shared.Hands;
 
 namespace Content.Shared.Vehicles;
 
-public sealed partial class InputRelayControllerSystem : EntitySystem
+public sealed partial class PilotEntitySystem : EntitySystem
 {
 
-    private void EventCallBacks()
+    private void DriveOnBuckleHandles()
     {
         SubscribeLocalEvent<DriveOnBuckleComponent, EngineOffEvent>(OnEngineOff);
         SubscribeLocalEvent<DriveOnBuckleComponent, EngineOnEvent>(OnEngineOn);
@@ -25,7 +25,7 @@ public sealed partial class InputRelayControllerSystem : EntitySystem
         if (!car.Comp.Pilots.Contains(args.Buckle.Owner))
             return;
         var pilot = args.Buckle;
-        StopPiloting(car, pilot);
+        Unpilot(car, pilot);
     }
 
     private void OnDropped(EntityUid car, DriveOnBuckleComponent comp, VirtualItemDeletedEvent args)
@@ -39,11 +39,11 @@ public sealed partial class InputRelayControllerSystem : EntitySystem
     }
     private void OnEngineOff(Entity<DriveOnBuckleComponent> car,  ref EngineOffEvent args)
     {
-        TryRemoveAllPilots(car);
+        TryUnpilotAll(car);
     }
     private void OnEngineOn(Entity<DriveOnBuckleComponent> car,  ref EngineOnEvent args)
     {
-        TryPilotAllStrapped(car);
+        TryPilotAll(car);
     }
 
 

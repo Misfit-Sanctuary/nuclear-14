@@ -29,13 +29,12 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     [Robust.Shared.IoC.Dependency] private SharedAmbientSoundSystem _ambientSound = default!;
     [Robust.Shared.IoC.Dependency] private SharedAppearanceSystem _appearance = default!;
     [Robust.Shared.IoC.Dependency] private SharedAudioSystem _audio = default!;
-    [Robust.Shared.IoC.Dependency] private SharedBuckleSystem _buckle = default!;
-    [Robust.Shared.IoC.Dependency] private SharedMoverController _mover = default!;
-    [Robust.Shared.IoC.Dependency] private SharedVirtualItemSystem _virtualItem = default!;
     [Robust.Shared.IoC.Dependency] private SharedTransformSystem _transform = default!;
     [Robust.Shared.IoC.Dependency] private ActionContainerSystem _actionContainerSystem = default!;
     [Robust.Shared.IoC.Dependency] private SharedActionsSystem _sharedAct = default!;
-
+/// <summary>
+/// TODO: make visual overlaycomp seperate. make action granting seperate comp on buckle
+/// </summary>
     public override void Initialize()
     {
         base.Initialize();
@@ -43,13 +42,16 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         // TODO: reset appearence data, rem actions, and other needed things on remove
         // SubscribeLocalEvent<VehicleComponent, ComponentRemove>(OnRemove);
 
-        SubscribeLocalEvent<VehicleComponent, HornActionEvent>(OnHorn);
-        SubscribeLocalEvent<VehicleComponent, SirenActionEvent>(OnSiren);
+        // SubscribeLocalEvent<VehicleComponent, HornActionEvent>(OnHorn);
+        // SubscribeLocalEvent<VehicleComponent, SirenActionEvent>(OnSiren);
 
         SubscribeLocalEvent<VehicleComponent, StrappedEvent>(OnStrap);
         SubscribeLocalEvent<VehicleComponent, UnstrappedEvent>(OnUnstrapped);
         SubscribeLocalEvent<VehicleComponent, EngineOnEvent>(EngineOn);
         SubscribeLocalEvent<VehicleComponent, EngineOffEvent>(EngineOff);
+
+        SubscribeLocalEvent<VehicleComponent, InputRelaySetEv>(DriverEnable);
+        SubscribeLocalEvent<VehicleComponent, InputRelayRemovedEv>(DriverDisable);
         // TODO: prolly change to some access comp?
         // SubscribeLocalEvent<VehicleComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
 
@@ -81,46 +83,44 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void EngineOn(Entity<VehicleComponent> vehicle, ref EngineOnEvent args)
     {
-        // _appearance.SetData(vehicle.Owner, VehicleState.Animated, true);
-        // _appearance.SetData(vehicle.Owner, VehicleState.Animated, true);
+        _appearance.SetData(vehicle.Owner, VehicleState.Animated, true);
         _ambientSound.SetAmbience(vehicle.Owner, true);
     }
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void EngineOff(Entity<VehicleComponent> vehicle, ref EngineOffEvent args)
     {
-        // _appearance.SetData(vehicle.Owner, VehicleState.Animated, false);
+        _appearance.SetData(vehicle.Owner, VehicleState.Animated, false);
         _ambientSound.SetAmbience(vehicle.Owner, false);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void DriverEnable(Entity<VehicleComponent>  vehicle, ref InputRelaySetEv ev)
     {
-        _actionContainerSystem.TransferAllActions(vehicle.Owner, ev.Driver);
-        SetupDriverOverlay(vehicle);
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void SetupDriverOverlay(Entity<VehicleComponent> ent)
-    {
-        if (ent.Comp.OverlayPrototype == null)
-            return;
-
-        // // Misfits server spawns the overlay & networks it a predicted client spawn would leave duplicate that never gets deleted (cuz its not networked)
-        // if (_net.IsClient)
-        //     return;
-        var overlay = Spawn(ent.Comp.OverlayPrototype, Transform(ent).Coordinates);
-        _transform.SetParent(overlay, ent);
-        _transform.SetLocalPosition(overlay, Vector2.Zero);
-        _transform.SetLocalRotation(overlay, Angle.Zero);
-        ent.Comp.ActiveOverlay = overlay;
+        //_actionContainerSystem.TransferAllActions(vehicle.Owner, ev.Driver);
+        //SetupDriverOverlay(vehicle);
     }
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void DriverDisable(Entity<VehicleComponent>  vehicle, ref InputRelayRemovedEv ev)
     {
-        _sharedAct.RemoveProvidedActions(vehicle.Owner, ev.Driver);
-        TryQueueDel(vehicle.Comp.ActiveOverlay);
-        vehicle.Comp.ActiveOverlay = null;
+        //_sharedAct.RemoveProvidedActions(vehicle.Owner, ev.Driver);
+
     }
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void SetupDriverOverlay(Entity<VehicleComponent> ent)
+    {
+        // if (ent.Comp.OverlayPrototype == null)
+        //     return;
+
+        // // Misfits server spawns the overlay & networks it a predicted client spawn would leave duplicate that never gets deleted (cuz its not networked)
+        // if (_net.IsClient)
+        //     return;
+        //var overlay = Spawn(ent.Comp.OverlayPrototype, Transform(ent).Coordinates);
+        // _transform.SetParent(overlay, ent);
+        // _transform.SetLocalPosition(overlay, Vector2.Zero);
+        // _transform.SetLocalRotation(overlay, Angle.Zero);
+        // ent.Comp.ActiveOverlay = overlay;
+    }
+
 
 
     /// <summary>
@@ -136,26 +136,26 @@ public abstract partial class SharedVehicleSystem : EntitySystem
     //     args.Entities.Add(driver.Value);
     // }
 
-    private void OnHorn(EntityUid uid, VehicleComponent component, InstantActionEvent args)
-    {
-        if (args.Handled || component.HornSound == null)
-            return;
-
-        _audio.PlayPvs(component.HornSound, uid);
-        args.Handled = true;
-    }
-
-    private void OnSiren(EntityUid uid, VehicleComponent comp, InstantActionEvent args)
-    {
-        if (args.Handled || comp.SirenSound == null)
-            return;
-
-        comp.SirenEnabled = !comp.SirenEnabled;
-        comp.SirenStream = comp.SirenEnabled
-            ? _audio.Stop(comp.SirenStream)
-            : _audio.PlayPvs(comp.SirenSound, uid)?.Entity;
-        args.Handled = true;
-    }
+    // private void OnHorn(EntityUid uid, VehicleComponent component, InstantActionEvent args)
+    // {
+    //     if (args.Handled || component.HornSound == null)
+    //         return;
+    //
+    //     _audio.PlayPvs(component.HornSound, uid);
+    //     args.Handled = true;
+    // }
+    //
+    // private void OnSiren(EntityUid uid, VehicleComponent comp, InstantActionEvent args)
+    // {
+    //     if (args.Handled || comp.SirenSound == null)
+    //         return;
+    //
+    //     comp.SirenEnabled = !comp.SirenEnabled;
+    //     comp.SirenStream = comp.SirenEnabled
+    //         ? _audio.Stop(comp.SirenStream)
+    //         : _audio.PlayPvs(comp.SirenSound, uid)?.Entity;
+    //     args.Handled = true;
+    // }
 }
 
 

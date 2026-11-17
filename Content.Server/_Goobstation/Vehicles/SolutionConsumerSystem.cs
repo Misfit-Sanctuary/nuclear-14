@@ -78,10 +78,8 @@ public sealed partial class SolutionConsumerSystem : EntitySystem
         while (_runningBikesQuery.MoveNext(out var uid, out _, out var consumeComp, out var sol))
         {
             if(!_solution.TryGetSolution((uid,sol),consumeComp.FuelSolution,out var fuelSolution))
-            {
-                DebugTools.Assert(true);
                 continue;
-            }
+
             var roundedNum = consumeComp.FuelUsePerSecond.Float();
             var solutionToConsume = FixedPoint2.Min(FixedPoint2.New(roundedNum),fuelSolution.Value.Comp.Solution.Volume);
             _solutionConsumedEv = new(fuelSolution.Value, solutionToConsume, consumeComp.AllowedReagents);
@@ -100,7 +98,7 @@ public sealed partial class SolutionConsumerSystem : EntitySystem
         base.Update(frameTime);
         // misfits: server tps is usually 30. So as an example
         //          this runs on the 30th tick. Runs every second
-        var tickToRun = _time.CurTick.Value % MathF.Round(_time.TickRate);
+        var tickToRun = _time.CurTick.Value % _time.TickRate;
         if (tickToRun != 0)
             return;
         QueueLocalEvent(_solutionTickEv);

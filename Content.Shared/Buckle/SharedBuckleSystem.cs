@@ -50,5 +50,6 @@ public abstract partial class SharedBuckleSystem : EntitySystem
         InitializeBuckle();
         InitializeStrap();
         InitializeInteraction();
+        InitFriendlyFire();
     }
 }

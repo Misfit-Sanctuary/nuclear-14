@@ -11,10 +11,10 @@
       - outerClothing
       - back
   - type: Vehicle # for some reason this is the only comp that forces it to take just one hand.
-    renderOver: South
-    overlayPrototype: MisfitsMountRiderOverlay
+#    renderOver: South
+#    overlayPrototype: MisfitsMountRiderOverlay
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: Objects
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       sprite: _Misfits/Mobs/Animals/brahdo-standard.rsi
@@ -46,7 +46,7 @@
       requireAll: true
       components:
       - HumanoidAppearance
-      - RidingPerk
+#      - RidingPerk
     # #Misfits Fix - Super Mutants and Power Armor wearers are too heavy to ride
     blacklist:
       tags:
@@ -61,13 +61,16 @@
       path: /Audio/_NC/Effects/dismount-saddle.ogg
       params:
         volume: 20 # It's normal
+  - type: DirectionalBuckleOffset
+    offsets:
+    - { North: "0, 0.1", South: "0, .4", East: "-0.15, 0.05" , West: "0.15, 0" }
   - type: Mountable
-    riderOffset: 0, 0.45
-    directionOffsets:
-      North: 0, 0.05
-      South: 0, 0.4
-      East: -0.15, 0.05
-      West: 0.15, 0
+#    riderOffset: 0, 0.45
+#    directionOffsets:
+#      North: 0, 0.05
+#      South: 0, 0.4
+#      East: -0.15, 0.05
+#      West: 0.15, 0
 #  - type: BrahdoSpooked
 #    spookDuration: 5
 #    buckChance: 0.15
@@ -124,6 +127,7 @@
   - type: UnequipOnTrigger
     slotsToUnequip:
     - outerClothing
+  - type: DriveOnBuckle
   - type: Inventory
     templateId: brahdo
   - type: InventorySlots
@@ -166,7 +170,7 @@
   description: "A mutated horse favored among couriers and scouts. It is a head shorter than others, and seems to have needed that nimble stature to survive through uneven terrain. Treat it right and it'll never let you down"
   components:
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: Objects
     scale: 0.9, 0.9
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -174,12 +178,12 @@
       state: base
     - map: [ "outerClothing" ]
   - type: Mountable
-    riderOffset: 0, 0.42
-    directionOffsets:
-      North: 0, 0.05
-      South: 0, 0.35
-      East: -0.14, 0.05
-      West: 0.14, 0
+#    riderOffset: 0, 0.42
+#    directionOffsets:
+#      North: 0, 0.05
+#      South: 0, 0.35
+#      East: -0.14, 0.05
+#      West: 0.14, 0
   - type: Fixtures
     fixtures:
       fix1:
@@ -221,7 +225,7 @@
   description: "A Mutated horse that was likely ridden by an experienced waster. It is past its prime, but history has left it faster and sturdier than most."
   components:
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: Objects
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       sprite: _Misfits/Mobs/Animals/brahdo-grey.rsi
@@ -268,7 +272,7 @@
         layer:
         - MobLayer
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: Objects
     scale: 1.2, 1.2
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -276,12 +280,12 @@
       state: base
     - map: [ "outerClothing" ]
   - type: Mountable
-    riderOffset: 0, 0.55
-    directionOffsets:
-      North: 0, 0.05
-      South: 0, 0.5
-      East: -0.18, 0.05
-      West: 0.18, 0
+#    riderOffset: 0, 0.55
+#    directionOffsets:
+#      North: 0, 0.05
+#      South: 0, 0.5
+#      East: -0.18, 0.05
+#      West: 0.18, 0
 #  - type: BrahdoSpooked
 #    spookDuration: 1
 #    buckChance: 0.0
@@ -314,7 +318,7 @@
   description: "A Mutated and unfortunately ghoulified horse. Rarely seen or used, as hardly anyone would be willing to venture that deeply into irradiated depths in the first place. This one seems to have kept its mind."
   components:
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: Objects
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       sprite: _Misfits/Mobs/Animals/brahdo-ghoul.rsi

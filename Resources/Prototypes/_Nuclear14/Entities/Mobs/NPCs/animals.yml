@@ -438,12 +438,12 @@
       types:
         Blunt: 10
   - type: Mountable
-    riderOffset: 0, 0.28
-    directionOffsets:
-      North: 0, 0
-      South: 0, 0.08
-      East: 0, 0
-      West: 0, 0
+#    riderOffset: 0, 0.28
+#    directionOffsets:
+#      North: 0, 0
+#      South: 0, 0.08
+#      East: 0, 0
+#      West: 0, 0
   - type: Tag
     tags:
     - Brahmin
@@ -639,12 +639,12 @@
       - HumanoidAppearance
       - TribalHuntParticipant
   - type: Mountable
-    riderOffset: 0, 0.3
-    directionOffsets:
-      North: 0, 0
-      South: 0, 0.1
-      East: -0.22, 0
-      West: 0.22, 0
+#    riderOffset: 0, 0.3
+#    directionOffsets:
+#      North: 0, 0
+#      South: 0, 0.1
+#      East: -0.22, 0
+#      West: 0.22, 0
   - type: Tag
     tags:
     - Radstag

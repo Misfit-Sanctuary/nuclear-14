@@ -8,12 +8,6 @@ namespace Content.Shared.Buckle;
 
 public partial class SharedBuckleSystem
 {
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void BuckleRequiredSetup(Entity<BuckleComponent> buckle, Entity<StrapComponent> strap)
-    {
-        _joints.SetRelay(buckle, strap);
-        SetStance(buckle, strap);
-    }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void SetStance(Entity<BuckleComponent> buckle, Entity<StrapComponent> strap)
@@ -62,12 +56,7 @@ public partial class SharedBuckleSystem
         Appearance.SetData(buckle, BuckleVisuals.Buckled, false);
         _audio.PlayPredicted(strap.Comp.UnbuckleSound, strap, buckle);
     }
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void UnbuckleRequiredSetup(Entity<BuckleComponent> buckle, Entity<StrapComponent> strap)
-    {
-        SetBuckledTo(buckle, null);
-        _joints.RefreshRelay(buckle);
-    }
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void UnbuckleKnockdown(Entity<BuckleComponent> buckle, Entity<StrapComponent> strap)
     {

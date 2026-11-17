@@ -1,8 +1,24 @@
 namespace Content.Shared._Goobstation.Vehicles;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class OverlayComponent : Component
 {
-    [DataField(required: true)]
-    public EntProtoId OverlayPrototype;
+    [DataField]
+    public EntProtoId OverlayPrototype = "Error";
+
+    [AutoNetworkedField]
+    public EntityUid OverlayEntity = EntityUid.Invalid;
+
+
+}
+[Serializable, NetSerializable]
+public enum OverlayMaps : byte
+{
+    Base,
+    Equippable
+}
+[Serializable, NetSerializable]
+public enum OverlayLayer : byte
+{
+    Primary
 }

@@ -10,3 +10,56 @@
   - type: Tag
     tags:
     - HideContextMenu
+
+- type: entity
+  id: BaseSaddleOverlay
+  abstract: true
+#  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OverlayMaps.Equippable:
+        enum.OverlayLayer.Primary:
+          True: { state: "base-overlay", visible: true }
+          False: { state: "base-overlay", visible: false }
+  - type: Sprite
+    drawdepth: OverMobs
+    sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddle.rsi
+    layers:
+      - map: ["enum.OverlayLayer.Primary"]
+        state: base-overlay
+  #      enum.OverlayMaps.Base:
+  #        enum.OverlayLayer.Primary:
+  #          True: {state: "base-overlay", visible: true}
+  #          False: {state: "base-overlay", visible: false}
+
+
+- type: entity
+  parent: BaseSaddleOverlay
+  id: WhiteSaddleOverlay
+  name: white saddle overlay
+  #  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: OverMobs
+    sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddle.rsi
+    layers:
+    - map: ["enum.OverlayLayer.Primary"]
+      state: base-overlay
+#  - type: Tag
+#    tags:
+#    - HideContextMenu
+
+- type: entity
+  parent: BaseSaddleOverlay
+  id: RedSaddleOverlay
+  name: red saddle overlay
+  components:
+  - type: Sprite
+    drawdepth: OverMobs
+    layers:
+    - map: ["enum.OverlayLayer.Primary"]
+      sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddle.rsi
+      state: base-overlay
+      color: "#601014"

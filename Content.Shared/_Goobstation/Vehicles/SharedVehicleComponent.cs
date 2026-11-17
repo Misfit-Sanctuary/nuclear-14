@@ -16,41 +16,41 @@ namespace Content.Shared.Vehicles;
 public sealed partial class VehicleComponent : Component
 {
 
-    [ViewVariables]
-    public EntityUid? HornAction;
-
-    [ViewVariables]
-    public EntityUid? SirenAction;
-
-    public bool SirenEnabled = false;
-
-    public EntityUid? SirenStream;
+    // [ViewVariables]
+    // public EntityUid? HornAction;
+    //
+    // [ViewVariables]
+    // public EntityUid? SirenAction;
+    //
+    // public bool SirenEnabled = false;
+    //
+    // public EntityUid? SirenStream;
 
     /// <summary>
     /// If non-zero how many virtual items to spawn on the driver
     /// unbuckles them if they dont have enough
     /// </summary>
-    [DataField]
-    public int RequiredHands = 1;
+    // [DataField]
+    // public int RequiredHands = 1;
 
     /// <summary>
     /// we just turn the engine on/off on buckle/unbuckle
     /// removing the need for a key
     /// </summary>
-    [DataField]
-    public bool RequireKey = true;
+    // [DataField]
+    // public bool RequireKey = true;
 
     /// <summary>
     /// What sounds to play when the driver presses the horn action (plays once)
     /// </summary>
-    [DataField]
-    public SoundSpecifier? HornSound;
+    // [DataField]
+    // public SoundSpecifier? HornSound;
 
     /// <summary>
     /// What sounds to play when the driver presses the siren action (loops)
     /// </summary>
-    [DataField]
-    public SoundSpecifier? SirenSound;
+    // [DataField]
+    // public SoundSpecifier? SirenSound;
 
     /// <summary>
     /// If they should be rendered ontop of the vehicle if true or behind
@@ -61,38 +61,29 @@ public sealed partial class VehicleComponent : Component
     /// <summary>
     /// name of the key container
     /// </summary>
-    [DataField]
-    public string KeySlot = "key_slot";
+    // [DataField]
+    // public string KeySlot = "key_slot";
 
     /// <summary>
     /// prevent removal of the key when there is a driver
     /// </summary>
-    [DataField]
-    public bool PreventEjectOfKey = true;
+    // [DataField]
+    // public bool PreventEjectOfKey = true;
 
     /// <summary>
     /// if the Vehicle is broken
     /// </summary>
-    [DataField]
-    public bool IsBroken;
+    // [DataField]
+    // public bool IsBroken;
 
-    /// <summary>
-    /// The entity prototype to spawn as an overlay on the driver.
-    /// </summary>
-    [DataField]
-    public EntProtoId? OverlayPrototype;
 
-    /// <summary>
-    /// The currently active overlay entity, so we can delete it on unbuckle.
-    /// </summary>
-    [ViewVariables]
-    public EntityUid? ActiveOverlay;
+
 
     /// <summary>
     /// Misfits Sprites draw depth before a rider raised it, restored on dismount
     /// </summary>
-    [ViewVariables]
-    public int? OriginalDrawDepth;
+    // [ViewVariables]
+    // public int? OriginalDrawDepth;
 }
 
 

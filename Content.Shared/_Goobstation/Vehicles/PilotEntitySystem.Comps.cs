@@ -5,24 +5,20 @@ using Content.Shared.Inventory.VirtualItem;
 
 namespace Content.Shared.Vehicles;
 
-public sealed partial class InputRelayControllerSystem : EntitySystem
+public sealed partial class PilotEntitySystem : EntitySystem
 {
     [Dependency] private SharedVirtualItemSystem _virtualItem = default!;
     [Dependency] private SharedHandsSystem _handsSystem = default!;
     [Dependency] private INetManager _net = default!;
+    // Move all this
     private void CompListeners()
     {
         SubscribeLocalEvent<RequireFreeHandComponent, InputRelayTrySetEv>(OnTryFreeHands);
         SubscribeLocalEvent<RequireFreeHandComponent, InputRelaySetEv>(OnSetRelay);
         SubscribeLocalEvent<RequireFreeHandComponent, InputRelayRemovedEv>(OnRemoveRelay);
-        SubscribeLocalEvent<EngineNeedsFuelComponent, InputRelayTrySetEv>(OnTryEngineFuelOn);
-    }
 
-    private void OnTryEngineFuelOn(Entity<EngineNeedsFuelComponent> ent, ref InputRelayTrySetEv args)
-    {
-        args.Cancel = !HasComp<ActiveSolutionConsumerComponent>(ent);
     }
-
+    
     private void OnTryFreeHands(Entity<RequireFreeHandComponent> ent, ref InputRelayTrySetEv ev)
     {
         if (TryComp<HandsComponent>(ent, out var handComp) &&

@@ -5,9 +5,16 @@ namespace Content.Shared._Misfits.Buckle;
 /// <summary>
 /// Positions buckled entities with a different on screen offset for each cardinal
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class DirectionalBuckleOffsetComponent : Component
 {
-    [DataField]
-    public Dictionary<Direction, Vector2> Offsets = new();
+
+    [DataField(tag: "offsets", required: true)]
+    public Dictionary<Direction, Vector2>[] YamlOffsets = [];
+
+    public Vector2[,] Offsets = default!;
+
+    [DataField,AutoNetworkedField]
+    public List<EntityUid> BuckleOffsetSlots = new();
+
 }

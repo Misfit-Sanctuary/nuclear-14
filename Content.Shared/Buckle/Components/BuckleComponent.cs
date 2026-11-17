@@ -128,7 +128,7 @@ public record struct UnbuckleAttemptEvent(
 /// Event raised directed at a strap entity after something has been buckled to it.
 /// </summary>
 [ByRefEvent]
-public record struct StrappedEvent(Entity<StrapComponent> Strap, Entity<BuckleComponent> Buckle, bool Moved = false);
+public record struct StrappedEvent(Entity<StrapComponent> Strap, Entity<BuckleComponent> Buckle, Vector2 RelativeOffset, Angle Rotation);
 
 /// <summary>
 /// Event raised directed at a buckle entity after it has been buckled.

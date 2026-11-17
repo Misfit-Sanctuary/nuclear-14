@@ -115,13 +115,6 @@
     - state: buggy_dune
     noRot: true
   - type: Vehicle
-    requiredHands: 2
-    renderOver: None
-    overlayPrototype: VehicleBuggyOverlay
-    hornSound:
-      collection: BikeHorn
-      params:
-        variation: 0.125
   - type: MovementSpeedModifier
     acceleration: 6
     friction: 0.1

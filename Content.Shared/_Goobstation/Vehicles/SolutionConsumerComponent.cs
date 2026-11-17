@@ -18,11 +18,11 @@ public sealed partial class SolutionConsumerComponent : Component
     public FixedPoint2 FuelUsePerSecond = FixedPoint2.New(0.13f);
 }
 
-[Serializable, NetSerializable]
-public enum MotorbikeVisuals : byte
-{
-    Burning,
-}
-
-[Serializable, NetSerializable]
-public sealed partial class MotorbikeRefuelDoAfterEvent : SimpleDoAfterEvent;
+// [Serializable, NetSerializable]
+// public enum MotorbikeVisuals : byte
+// {
+//     Burning,
+// }
+//
+// [Serializable, NetSerializable]
+// public sealed partial class MotorbikeRefuelDoAfterEvent : SimpleDoAfterEvent;
