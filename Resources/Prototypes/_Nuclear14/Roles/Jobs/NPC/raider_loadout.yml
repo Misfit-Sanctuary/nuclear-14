@@ -1534,7 +1534,7 @@
     gloves: N14ClothingHandsGlovesCombat
     head: N14ClothingHeadHatDeputy
     eyes: N14ClothingEyesSunGlasses
-    outerClothing: N14ClothingOuterMBoSKnightArmor
+    outerClothing: N14ClothingOuterCombatArmorChinese
     back: M14ClothingSatchelRandomFill
     belt: M14ClothingBeltRaider308ShortMagMilitary
     pocket1: N14RaiderStash
@@ -1547,7 +1547,7 @@
     gloves: N14ClothingHandsGlovesCombat
     head: N14ClothingHeadHatDeputy
     mask: ClothingMaskNeckGaiter
-    outerClothing: N14ClothingOuterMBoSKnightArmor
+    outerClothing: N14ClothingOuterCombatArmorChinese
     belt: M14ClothingBeltRaider308ShortMagMilitary
     back: M14ClothingSatchelRandomFill
     pocket1: N14RaiderStash
@@ -1625,7 +1625,7 @@
     gloves: N14ClothingHandsGlovesCombat
     head: N14ClothingHeadHatCombatHelmetMK2
     mask: N14ClothingMaskBreather
-    outerClothing: N14ClothingOuterBoSCombatArmor
+    outerClothing: N14ClothingOuterCombatArmorChinese
     belt: M14ClothingBeltRaider308ShortMagMilitary
     back: N14ClothingBackpackDuffelSalvage
     pocket1: N14RaiderStash
@@ -1638,7 +1638,7 @@
     gloves: N14ClothingHandsGlovesCombat
     head: N14ClothingHeadHatDeputy
     eyes: N14ClothingEyesSunGlasses
-    outerClothing: N14ClothingOuterMBoSKnightArmor
+    outerClothing: N14ClothingOuterCombatArmorChinese
     back: M14ClothingSatchelRandomFill
     belt: M14ClothingBeltRaider357RevolverMountie
     pocket1: N14RaiderStash
@@ -1651,7 +1651,7 @@
     gloves: N14ClothingHandsGlovesCombat
     head: N14ClothingHeadHatDeputy
     mask: ClothingMaskNeckGaiter
-    outerClothing: N14ClothingOuterMBoSKnightArmor
+    outerClothing: N14ClothingOuterCombatArmorChinese
     back: M14ClothingSatchelRandomFill
     belt: M14ClothingBeltRaider357RevolverMountie
     pocket1: N14RaiderStash
@@ -1677,7 +1677,7 @@
     gloves: N14ClothingHandsGlovesCombat
     head: N14ClothingHeadHatMountie
     eyes: N14ClothingEyesSunGlasses
-    outerClothing: N14ClothingOuterMBoSKnightArmor
+    outerClothing: N14ClothingOuterCombatArmorChinese
     belt: M14ClothingBeltRaider357RevolverMountie
     back: M14ClothingSatchelRandomFill
     pocket1: N14RaiderStash
@@ -1730,7 +1730,7 @@
     gloves: N14ClothingHandsGlovesCombat
     head: N14ClothingHeadHatCombatHelmetMK2
     mask: N14ClothingMaskBreather
-    outerClothing: N14ClothingOuterBoSCombatArmor
+    outerClothing: N14ClothingOuterCombatArmorChinese
     belt: M14ClothingBeltRaider357RevolverHolster
     back: N14ClothingBackpackDuffelSalvage
     pocket1: N14RaiderStash
@@ -1743,7 +1743,7 @@
     gloves: N14ClothingHandsGlovesCombat
     head: N14ClothingHeadHatDeputy
     eyes: N14ClothingEyesSunGlasses
-    outerClothing: N14ClothingOuterMBoSKnightArmor
+    outerClothing: N14ClothingOuterCombatArmorChinese
     back: M14ClothingSatchelRandomFill
     belt: M14ClothingBeltRaider308LongMagMilitary
     pocket1: N14RaiderStash
@@ -1756,7 +1756,7 @@
     gloves: N14ClothingHandsGlovesCombat
     head: N14ClothingHeadHatDeputy
     mask: ClothingMaskNeckGaiter
-    outerClothing: N14ClothingOuterMBoSKnightArmor
+    outerClothing: N14ClothingOuterCombatArmorChinese
     back: M14ClothingSatchelRandomFill
     belt: M14ClothingBeltRaider308LongMagMilitary
     pocket1: N14RaiderStash
@@ -1834,7 +1834,7 @@
     gloves: N14ClothingHandsGlovesCombat
     head: N14ClothingHeadHatCombatHelmetMK2
     mask: N14ClothingMaskBreather
-    outerClothing: N14ClothingOuterBoSCombatArmor
+    outerClothing: N14ClothingOuterCombatArmorChinese
     belt: M14ClothingBeltRaider308LongMagMilitary
     back: N14ClothingBackpackDuffelSalvage
     pocket1: N14RaiderStash
@@ -2207,10 +2207,9 @@
   id: PsychoRaider9Gear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitWastelandDoc
-    shoes: N14ClothingBootsLeather
+    shoes: N14ClothingShoesRaider
     gloves: N14ClothingHandsGlovesBrownBiker
     head: N14ClothingHeadHatHeadscarf
-    outerClothing: ClothingOuterVestFlak
     pocket1: N14RaiderStash
     pocket2: Brutepack1 # Corvax-Change
   inhand:
