@@ -1,7 +1,11 @@
 // #Misfits Add - Server-side scope system with PVS relay entity (ported from RMC-14)
 using System.Numerics;
+using Content.Server.Chat.Managers;
+using Content.Shared._Misfits.Rangefinder;
 using Content.Shared._Misfits.Scope;
+using Content.Shared.Chat;
 using Robust.Server.GameObjects;
+using Robust.Server.Player;
 using Robust.Shared.Player;
 
 namespace Content.Server._Misfits.Scope;
@@ -14,6 +18,15 @@ namespace Content.Server._Misfits.Scope;
 public sealed class ScopeSystem : SharedScopeSystem
 {
     [Dependency] private readonly ViewSubscriberSystem _viewSubscriber = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IPlayerManager _player = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<LaserRangefinderComponent, RangefinderReadingEvent>(OnRangefinderReading);
+    }
 
     /// <summary>
     /// Overrides shared StartScoping to spawn a relay entity at the offset position
@@ -87,5 +100,14 @@ public sealed class ScopeSystem : SharedScopeSystem
         // Reposition the relay at the new offset relative to the user
         var userCoords = Transform(user).Coordinates;
         _transform.SetCoordinates(relay, userCoords.Offset(newOffset));
+    }
+
+    // Rangefinder readings go into the user's own chat.
+    private void OnRangefinderReading(EntityUid uid, LaserRangefinderComponent component, ref RangefinderReadingEvent args)
+    {
+        if (!_player.TryGetSessionByEntity(args.User, out var session))
+            return;
+
+        _chat.ChatMessageToOne(ChatChannel.Local, args.Text, args.Text, EntityUid.Invalid, false, session.Channel);
     }
 }
