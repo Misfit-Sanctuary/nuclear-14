@@ -48,9 +48,9 @@ public sealed class RadioDeviceSystem : EntitySystem
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private HashSet<(string, EntityUid)> _recentlySent = new();
 
-    // Frontier: minimum, maximum radio frequencies
-    private const int MinRadioFrequency = 1000;
-    private const int MaxRadioFrequency = 3000;
+    // Frontier: minimum, maximum radio frequencies. Public so rolled team radios stay inside the band.
+    public const int MinHandheldFrequency = 1000;
+    public const int MaxHandheldFrequency = 3000;
 
     public override void Initialize()
     {
@@ -367,7 +367,7 @@ public sealed class RadioDeviceSystem : EntitySystem
             return;
 
         // Update frequency if valid and within range.
-        if (args.Frequency >= MinRadioFrequency && args.Frequency <= MaxRadioFrequency)
+        if (args.Frequency >= MinHandheldFrequency && args.Frequency <= MaxHandheldFrequency)
             microphone.Comp.Frequency = args.Frequency;
         // Update UI with current frequency.
         UpdateHandheldRadioUi(microphone);

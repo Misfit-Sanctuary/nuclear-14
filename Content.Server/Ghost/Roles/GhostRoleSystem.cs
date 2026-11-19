@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration;
 using Content.Server.EUI;
+using Content.Server.GameTicking;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Ghost.Roles.Raffles;
@@ -56,6 +57,7 @@ namespace Content.Server.Ghost.Roles
         [Dependency] private readonly IConfigurationManager _cfg = default!; // #Misfits Add - Ghost role cooldown
         [Dependency] private readonly IChatManager _chatManager = default!; // #Misfits Add - Ghost role cooldown
         [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
+        [Dependency] private readonly GameTicker _gameTicker = default!; // #Misfits Add - taking a role from the lobby joins the round
 
         private uint _nextRoleIdentifier;
         private bool _needsUpdateGhostRoleCount = true;
@@ -135,13 +137,16 @@ namespace Content.Server.Ghost.Roles
 
         public void OpenEui(ICommonSession session)
         {
-            if (session.AttachedEntity is not { Valid: true } attached ||
-                !EntityManager.HasComponent<GhostComponent>(attached))
-                return;
+            // #Misfits Add - anyone without a body (the lobby, limbo) may read the list without observing;
+            // a body that is not a ghost may not, and a ghost still has the death cooldown.
+            if (session.AttachedEntity is { Valid: true } attached)
+            {
+                if (!EntityManager.HasComponent<GhostComponent>(attached))
+                    return;
 
-            // #Misfits Add - Ghost role cooldown: block recently-dead players from browsing ghost roles.
-            if (IsOnGhostRoleCooldown(session, attached))
-                return;
+                if (IsOnGhostRoleCooldown(session, attached))
+                    return;
+            }
 
             if (_openUis.ContainsKey(session))
                 CloseEui(session);
@@ -474,6 +479,10 @@ namespace Content.Server.Ghost.Roles
         /// (A raffle will have the same ID as the ghost role it's for.)</param>
         private void JoinRaffle(ICommonSession player, uint identifier)
         {
+            // #Misfits Add - a raffle is won as a ghost, so a player with no body (the lobby) cannot enter one.
+            if (player.AttachedEntity is not { Valid: true })
+                return;
+
             if (!_ghostRoles.TryGetValue(identifier, out var roleEnt))
                 return;
 
@@ -583,17 +592,32 @@ namespace Content.Server.Ghost.Roles
             if (player.AttachedEntity is { } takeoverGhost && IsOnGhostRoleCooldown(player, takeoverGhost))
                 return false;
 
+            // #Misfits Add - taken without a body, the player is in the lobby and has to be put into the round.
+            var fromLobby = player.AttachedEntity is not { Valid: true };
+
             var ev = new TakeGhostRoleEvent(player);
             RaiseLocalEvent(role, ref ev);
 
             if (!ev.TookRole)
                 return false;
 
+            // A picker role hands the body over later, and joins the round on its own.
+            if (fromLobby && player.AttachedEntity is { Valid: true })
+                JoinRoundFromLobby(player);
+
             if (player.AttachedEntity != null)
                 _adminLogger.Add(LogType.GhostRoleTaken, LogImpact.Low, $"{player:player} took the {role.Comp.RoleName:roleName} ghost role {ToPrettyString(player.AttachedEntity.Value):entity}");
 
             CloseEui(player);
             return true;
+        }
+
+        // #Misfits Add - a role taken without a ghost has to put the player in the round, or the client stays in the lobby.
+        // Only call this for a player who was in the lobby; it is what tells the client to leave the lobby screen.
+        public void JoinRoundFromLobby(ICommonSession player)
+        {
+            _playerManager.JoinGame(player);
+            _gameTicker.PlayerJoinGame(player);
         }
 
         public void Follow(ICommonSession player, uint identifier)

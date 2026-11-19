@@ -1,0 +1,13 @@
+# #Misfits Add - the alpha gecko's action: shape a nest it can be fed at.
+- type: entity
+  id: ActionGeckoMakeNest
+  name: action-name-gecko-make-nest
+  description: action-desc-gecko-make-nest
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 120
+    icon:
+      sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+      state: egg_deathclaw
+    event: !type:MisfitsMakeNestActionEvent

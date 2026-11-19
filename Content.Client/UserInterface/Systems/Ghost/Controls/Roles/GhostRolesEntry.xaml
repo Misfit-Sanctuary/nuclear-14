@@ -13,4 +13,9 @@
                   SeparationOverride="5">
         <!-- Buttons are added here by code -->
     </BoxContainer>
+    <!-- #Misfits Add - shown for a lobby player when the role is a raffle. -->
+    <Label Name="RaffleNote"
+           Text="{Loc 'ghost-roles-window-raffle-needs-ghost'}"
+           StyleClasses="LabelSubText"
+           Margin="0 4 0 0" />
 </BoxContainer>

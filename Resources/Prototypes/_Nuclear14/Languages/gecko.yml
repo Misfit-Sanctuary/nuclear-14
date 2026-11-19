@@ -1,0 +1,19 @@
+# #Misfits Add - the geckos' own tongue: hisses, clicks and throaty chirps the pack understands.
+- type: language
+  id: N14Gecko
+  isVisibleLanguage: false
+  speech:
+    color: "#FFFFFFcc"
+  obfuscation:
+    !type:SyllableObfuscation
+    minSyllables: 1
+    maxSyllables: 3
+    replacement:
+    - hiss
+    - hss
+    - sss
+    - chk
+    - tk
+    - kree
+    - rrk
+    - skree

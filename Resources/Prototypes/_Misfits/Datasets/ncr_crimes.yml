@@ -1,0 +1,6 @@
+# #Misfits Add - charges the law event can be about, drawn from the NCR's list of offenses.
+- type: localizedDataset
+  id: MisfitsNcrCrimes
+  values:
+    prefix: misfits-ncr-crime-
+    count: 12

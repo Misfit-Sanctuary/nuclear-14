@@ -31,6 +31,10 @@
                                                             Text="{Loc 'ui-lobby-observe-button'}"
                                                             StyleClasses="PipBoy"
                                                             WindowType="{x:Type lobbyUi:ObserveWarningWindow}" />
+                                        <!-- #Misfits Add - read the ghost role list without observing first -->
+                                        <Button Name="GhostRolesButton" Access="Public"
+                                                Text="{Loc 'ui-lobby-ghost-roles-button'}"
+                                                StyleClasses="PipBoy" />
                                         <Label Name="StartTime"
                                                Access="Public"
                                                Align="Left"

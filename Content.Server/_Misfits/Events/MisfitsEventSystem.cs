@@ -3,7 +3,10 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Rules;
+using Content.Server._Misfits.Ghost.Roles;
+using Content.Server.Radio.EntitySystems;
 using Content.Shared._Misfits.Events;
+using Content.Shared.Dataset;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Maps;
@@ -13,6 +16,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Maths;
 using Robust.Shared.Player;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -24,6 +28,7 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
     private const int SpawnAttempts = 25;
     private const float MinSpawnDistance = 2f;
 
+
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
@@ -31,9 +36,24 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
 
     // Events an admin switched off; they stay in the pool, but no roll picks them.
     private readonly HashSet<string> _disabled = new();
+
+    // Waves still to arrive, per running event rule.
+    private readonly Dictionary<EntityUid, List<PendingWave>> _waves = new();
+
+    private sealed class PendingWave
+    {
+        public TimeSpan Due;
+        public MapCoordinates Around;
+        public float Radius;
+        public List<MisfitsEventSpawnEntry> Spawns = new();
+        public int CountMin;
+        public int CountMax;
+        public string? Announcement;
+    }
 
     #region Pool
 
@@ -191,15 +211,9 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
         component.LastFailure = null;
 
         if (component.Announcement is { } announcement)
-        {
-            _chat.DispatchGlobalAnnouncement(
-                Loc.GetString(announcement),
-                sender: "Wasteland",
-                playSound: false,
-                colorOverride: Color.Gold);
-        }
+            Announce(announcement);
 
-        if (!TryGetAnchor(out var anchor, out var location, out var zoneRadius))
+        if (!TryGetAnchor(component, out var anchor, out var location, out var zoneRadius))
         {
             component.LastFailure = "could not find a spawn point";
             Log.Warning($"Could not find a spawn anchor for Misfits event {args.RuleId}, nothing spawned.");
@@ -227,15 +241,25 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
             scatter = component.ClusterRadius;
         }
 
-        var spawned = SpawnEntries(spawns, component.CountMin, component.CountMax, spawnAround, scatter);
+        // Structures go down first, so the roles that follow arrive on their floor.
+        var structures = PlaceStructures(component.Structures, spawnAround);
+
+        // Rolled once per team here, so every spawner of that team shares one frequency.
+        component.TeamFrequencies = RollTeamFrequencies(component);
+
+        // One line for the whole run, so every role in it is told the same thing.
+        component.BriefingText = RollBriefing(component);
+
+        var spawned = SpawnEntries(spawns, component.CountMin, component.CountMax, spawnAround, scatter,
+            component);
         var specialSpawned = SpawnEntries(specials, component.SpecialCountMin, component.SpecialCountMax,
-            spawnAround, scatter);
+            spawnAround, scatter, component);
 
         component.LastSpawnedCount = spawned + specialSpawned;
         component.LastSpawnLocation = location;
 
         Log.Info($"Misfits event {args.RuleId} spawned {spawned} entities and {specialSpawned} special spawns " +
-                 $"near '{location}' at {spawnAround}.");
+                 $"and placed {structures} structures near '{location}' at {spawnAround}.");
 
         if (component.LastSpawnedCount == 0)
         {
@@ -246,6 +270,8 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
 
         // Remember where it happened so ghosts can warp to it from chat.
         component.SpawnedAt = spawnAround;
+
+        ScheduleWaves(uid, component, spawnAround, scatter);
         NotifyGhosts(uid);
     }
 
@@ -295,7 +321,7 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
 
     // Spawns countMin..countMax weighted picks from entries around a point.
     private int SpawnEntries(List<MisfitsEventSpawnEntry> entries, int countMin, int countMax,
-        MapCoordinates around, float radius)
+        MapCoordinates around, float radius, MisfitsEventComponent? frequencies = null)
     {
         if (entries.Count == 0)
             return 0;
@@ -303,17 +329,27 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
         var max = Math.Max(countMin, countMax);
         var count = RobustRandom.Next(Math.Max(0, countMin), max + 1);
 
+        // Unique entries leave the pool once picked, so a nest and its guardian both arrive.
+        var remaining = new List<MisfitsEventSpawnEntry>(entries);
+
         var spawned = 0;
         for (var i = 0; i < count; i++)
         {
-            if (!TryPickSpawn(entries, out var spawn))
+            if (!TryPickSpawn(remaining, out var spawn))
                 continue;
 
-            if (!TryFindSpawnCoords(around, radius, out var coords))
-                continue;
+            // An entry can place a whole group at once, e.g. a trader with both guards.
+            for (var placed = 0; placed < Math.Max(1, spawn.Count); placed++)
+            {
+                if (!TryFindSpawnCoords(around, radius, out var coords))
+                    break;
 
-            Spawn(spawn, coords);
-            spawned++;
+                var spawnedEntity = Spawn(spawn.Id, coords);
+                ApplyRoleData(spawnedEntity, frequencies);
+                spawned++;
+            }
+
+            remaining.RemoveAll(entry => entry.Unique && entry.Id == spawn.Id);
         }
 
         return spawned;
@@ -324,6 +360,8 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
 
+        TickWaves(uid, component);
+
         if (component.Duration <= TimeSpan.Zero)
             return;
 
@@ -333,8 +371,176 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
         ForceEndSelf(uid, gameRule);
     }
 
+    protected override void Ended(EntityUid uid, MisfitsEventComponent component, GameRuleComponent gameRule,
+        GameRuleEndedEvent args)
+    {
+        base.Ended(uid, component, gameRule, args);
+        _waves.Remove(uid);
+        component.TeamFrequencies.Clear();
+        component.BriefingText = null;
+    }
+
+    // Queues the event's later groups, all around the spot it already spawned at.
+    private void ScheduleWaves(EntityUid uid, MisfitsEventComponent component, MapCoordinates around, float radius)
+    {
+        var pending = new List<PendingWave>();
+
+        foreach (var wave in component.Waves)
+        {
+            var spawns = ValidSpawns(wave.Spawns);
+            if (spawns.Count == 0 || wave.Delay < 0f)
+                continue;
+
+            pending.Add(new PendingWave
+            {
+                Due = Timing.CurTime + TimeSpan.FromSeconds(wave.Delay),
+                Around = around,
+                Radius = radius,
+                Spawns = spawns,
+                CountMin = wave.CountMin,
+                CountMax = wave.CountMax,
+                Announcement = wave.Announcement,
+            });
+        }
+
+        if (pending.Count > 0)
+            _waves[uid] = pending;
+    }
+
+    private void TickWaves(EntityUid uid, MisfitsEventComponent component)
+    {
+        if (!_waves.TryGetValue(uid, out var waves))
+            return;
+
+        for (var i = waves.Count - 1; i >= 0; i--)
+        {
+            var wave = waves[i];
+            if (Timing.CurTime < wave.Due)
+                continue;
+
+            var spawned = SpawnEntries(wave.Spawns, wave.CountMin, wave.CountMax, wave.Around, wave.Radius,
+                component);
+            component.LastSpawnedCount += spawned;
+
+            if (wave.Announcement is { } line)
+                Announce(line);
+
+            Log.Info($"Misfits event wave spawned {spawned} entities near '{component.LastSpawnLocation}' at " +
+                     $"{wave.Around}.");
+            waves.RemoveAt(i);
+        }
+
+        if (waves.Count == 0)
+            _waves.Remove(uid);
+    }
+
+    // Merges pre-mapped structures onto the map at a point; each file's own origin lands there. Internal for tests only.
+    internal int PlaceStructures(List<MisfitsEventStructure> structures, MapCoordinates around)
+    {
+        var placed = 0;
+
+        foreach (var structure in structures)
+        {
+            if (structure.Chance < 1f && RobustRandom.NextFloat() >= structure.Chance)
+                continue;
+
+            try
+            {
+                if (_mapLoader.TryMergeMap(around.MapId, structure.Path, out _, offset: around.Position))
+                {
+                    placed++;
+                    continue;
+                }
+
+                Log.Error($"Could not place event structure {structure.Path} on map {around.MapId}.");
+            }
+            catch (Exception e)
+            {
+                // A broken map file should cost the event its building, not the whole event.
+                Log.Error($"Event structure {structure.Path} failed to load: {e}");
+            }
+        }
+
+        return placed;
+    }
+
+    // One frequency per radio team in the event, waves included, rolled once when it starts.
+    private Dictionary<string, int> RollTeamFrequencies(MisfitsEventComponent component)
+    {
+        var frequencies = new Dictionary<string, int>();
+
+        foreach (var id in AllSpawnIds(component))
+        {
+            if (!_prototype.TryIndex<EntityPrototype>(id, out var proto))
+                continue;
+
+            if (!proto.TryGetComponent<MisfitsGhostRoleCharacterPickerComponent>(out var picker))
+                continue;
+
+            if (picker.RadioTeam is not { } team || frequencies.ContainsKey(team))
+                continue;
+
+            // Inside the band a handheld radio can actually be tuned to.
+            frequencies[team] = RobustRandom.Next(RadioDeviceSystem.MinHandheldFrequency,
+                RadioDeviceSystem.MaxHandheldFrequency + 1);
+        }
+
+        return frequencies;
+    }
+
+    // Everything an event can spawn, later waves included.
+    private static IEnumerable<EntProtoId> AllSpawnIds(MisfitsEventComponent component)
+    {
+        foreach (var entry in component.Spawns)
+            yield return entry.Id;
+
+        foreach (var entry in component.SpecialSpawns)
+            yield return entry.Id;
+
+        foreach (var wave in component.Waves)
+        {
+            foreach (var entry in wave.Spawns)
+                yield return entry.Id;
+        }
+    }
+
+    // Stamps the rolled frequency and the run's briefing on a spawner, so its picker knows what to hand out.
+    private void ApplyRoleData(EntityUid uid, MisfitsEventComponent? component)
+    {
+        if (component == null || !TryComp<MisfitsGhostRoleCharacterPickerComponent>(uid, out var picker))
+            return;
+
+        if (picker.RadioTeam is { } team && component.TeamFrequencies.TryGetValue(team, out var frequency))
+            picker.Frequency = frequency;
+
+        picker.Briefing = component.BriefingText;
+    }
+
+    // One line from the event's briefing dataset, or null when it has none.
+    private string? RollBriefing(MisfitsEventComponent component)
+    {
+        if (component.Briefing is not { } id ||
+            !_prototype.TryIndex<LocalizedDatasetPrototype>(id, out var dataset) ||
+            dataset.Values.Count == 0)
+        {
+            return null;
+        }
+
+        return Loc.GetString(dataset.Values[RobustRandom.Next(dataset.Values.Count)]);
+    }
+
+    private void Announce(string announcement)
+    {
+        _chat.DispatchGlobalAnnouncement(
+            Loc.GetString(announcement),
+            sender: "Wasteland",
+            playSound: false,
+            colorOverride: Color.Gold);
+    }
+
     // Where the event spawns: a random anchor marker on this map, named for the logs.
-    private bool TryGetAnchor(out MapCoordinates anchor, out string location, out float zoneRadius)
+    private bool TryGetAnchor(MisfitsEventComponent component, out MapCoordinates anchor, out string location,
+        out float zoneRadius)
     {
         zoneRadius = 0f;
 
@@ -345,6 +551,9 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
         var query = EntityQueryEnumerator<MisfitsEventAnchorComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var marker, out var xform))
         {
+            if (!KindMatches(component, marker.Kind))
+                continue;
+
             var known = (_transform.GetMapCoordinates(xform), MetaData(uid).EntityName, marker.Radius);
             if (xform.MapID == GameTicker.DefaultMap)
                 roundAnchors.Add(known);
@@ -367,6 +576,14 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
         location = "observer spawn";
         Log.Warning($"No MisfitsEventAnchor on this map, using the observer spawn point at {anchor}.");
         return true;
+    }
+
+    // An event with no listed kinds takes any anchor; generic anchors are always usable.
+    private static bool KindMatches(MisfitsEventComponent component, MisfitsEventAnchorKind kind)
+    {
+        return kind == MisfitsEventAnchorKind.Any ||
+               component.AnchorKinds.Count == 0 ||
+               component.AnchorKinds.Contains(kind);
     }
 
     private bool IsWalkable(EntityUid gridUid, MapGridComponent grid, Vector2i tile)
@@ -426,9 +643,9 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
         return valid;
     }
 
-    private bool TryPickSpawn(List<MisfitsEventSpawnEntry> entries, out EntProtoId spawn)
+    private bool TryPickSpawn(List<MisfitsEventSpawnEntry> entries, out MisfitsEventSpawnEntry spawn)
     {
-        return TryPickWeighted(entries.Select(entry => (entry.Id, entry.Weight)).ToList(), out spawn);
+        return TryPickWeighted(entries.Select(entry => (entry, entry.Weight)).ToList(), out spawn);
     }
 
     // Weighted pick from (item, weight) pairs; false when nothing has weight.

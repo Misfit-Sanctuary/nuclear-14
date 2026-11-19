@@ -32,6 +32,15 @@
 #   spawns            weighted list of prototypes to spawn
 #   specialSpawns     guaranteed extra spawns (e.g. ghost role spawners)
 #   specialCountMin/specialCountMax  how many of those to place
+#   unique: true      on a spawn entry, so it is only placed once (nest + guardian)
+#   count: 2          on a spawn entry, to place a whole group at once
+#   structures        whole saved maps merged onto the anchor before the spawns, e.g.
+#                     - path: /Maps/_Misfits/Events/RaiderFort.yml
+#                       chance: 0.5   # optional, 1 for always
+#                     The file's own origin lands on the anchor and the spawns land on its floor.
+#   anchorKinds       anchor kinds it may use (Town / Wilderness); empty accepts any
+#   waves             later groups: delay in seconds, countMin/countMax, spawns, announcement
+#                     (give the event a duration longer than its last wave)
 #
 # `delay` (GameRule.delay, in seconds) is the warning window between the event
 # being queued and it actually spawning.
@@ -86,4 +95,143 @@
       weight: 1
     specialCountMin: 2
     specialCountMax: 2
+
+# A fire gecko pack in the wastes: four sentient geckos and a sentient alpha that makes its own nest.
+- type: entity
+  id: MisfitsDragon
+  name: fire gecko pack
+  parent: BaseMisfitsEvent
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MisfitsEvent
+    weight: 8
+    earliestStart: 15
+    minimumPlayers: 6
+    reoccurrenceDelay: 30
+    maxOccurrences: 1
+    duration: 1
+    anchorKinds: [ Wilderness ]
+    spawnRadius: 10
+    clusterRadius: 8
+    announcement: misfits-event-dragon
+    # Both entries are unique, so the count is how many roles are placed: four geckos and the alpha.
+    specialSpawns:
+    - id: MisfitsSpawnPointGeckoFire
+      unique: true
+      count: 4
+    - id: MisfitsMobGeckoFireAlpha
+      unique: true
+    specialCountMin: 2
+    specialCountMax: 2
+
+# A runaway slave with two hired Legion hunters, all player-run.
+- type: entity
+  id: MisfitsEscapedSlave
+  name: escaped slave
+  parent: BaseMisfitsEvent
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MisfitsEvent
+    weight: 9
+    earliestStart: 10
+    minimumPlayers: 5
+    reoccurrenceDelay: 20
+    maxOccurrences: 1
+    duration: 1
+    anchorKinds: [ Wilderness ]
+    spawnRadius: 6
+    clusterRadius: 3
+    announcement: misfits-event-slave
+    specialSpawns:
+    - id: MisfitsSpawnPointGhostLegionSlave
+      unique: true
+    - id: MisfitsSpawnPointGhostLegionHunter
+      weight: 1
+    specialCountMin: 3
+    specialCountMax: 3
+
+# A wanted criminal, then a Ranger arriving a little later on the same spot.
+- type: entity
+  id: MisfitsLaw
+  name: nobody runs from the law
+  parent: BaseMisfitsEvent
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MisfitsEvent
+    weight: 9
+    earliestStart: 12
+    minimumPlayers: 6
+    reoccurrenceDelay: 25
+    maxOccurrences: 1
+    duration: 120 # long enough for the ranger wave below to fire
+    anchorKinds: [ Town ]
+    spawnRadius: 6
+    clusterRadius: 3
+    announcement: misfits-event-law
+    briefing: MisfitsNcrCrimes # one random NCR charge, told to both the criminal and the ranger
+    specialSpawns:
+    - id: MisfitsSpawnPointGhostCriminal
+      unique: true
+    specialCountMin: 1
+    specialCountMax: 1
+    waves:
+    - delay: 45
+      countMin: 1
+      countMax: 1
+      announcement: misfits-event-law-ranger
+      spawns:
+      - id: MisfitsSpawnPointGhostRanger
+
+# Four raiders riding in to make the town's day worse.
+- type: entity
+  id: MisfitsRaiders
+  name: raiders
+  parent: BaseMisfitsEvent
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MisfitsEvent
+    weight: 10
+    earliestStart: 8
+    minimumPlayers: 4
+    reoccurrenceDelay: 25
+    maxOccurrences: 2
+    duration: 1
+    anchorKinds: [ Town ]
+    spawnRadius: 8
+    clusterRadius: 4
+    announcement: misfits-event-raiders
+    specialSpawns:
+    - id: MisfitsSpawnPointGhostRaider
+      weight: 1
+    specialCountMin: 4
+    specialCountMax: 4
+
+# A travelling caravan: its own wagon, a trader and two guards, all player-run.
+- type: entity
+  id: MisfitsCaravan
+  name: roaming trader
+  parent: BaseMisfitsEvent
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MisfitsEvent
+    weight: 7
+    earliestStart: 10
+    minimumPlayers: 6
+    reoccurrenceDelay: 30
+    maxOccurrences: 2
+    duration: 1
+    anchorKinds: [ Town ]
+    spawnRadius: 4
+    clusterRadius: 2
+    announcement: misfits-event-caravan
+    specialSpawns:
+    - id: MisfitsTrademachineCaravan
+      unique: true
+    - id: MisfitsSpawnPointGhostTrader
+      unique: true
+    - id: MisfitsSpawnPointGhostCaravanGuard
+      unique: true
+      count: 2
+    specialCountMin: 3
+    specialCountMax: 3
 

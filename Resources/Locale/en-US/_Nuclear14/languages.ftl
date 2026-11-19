@@ -22,6 +22,10 @@ language-N14Dog-name = Bark Tongue
 language-N14Dog-description = Your may bark and hope that there is someone who can understand it.
 chat-language-N14Dog-name = X
 
+language-N14Gecko-name = Gecko Tongue
+language-N14Gecko-description = Hisses, clicks and throaty chirps, shared by the geckos of the wasteland.
+chat-language-N14Gecko-name = X
+
 language-N14Insect-name = Critter Chatter
 language-N14Insect-description = Weather you come from the dirt or the water, you're still able to communicate with fellow insects.
 chat-language-N14Insect-name = X

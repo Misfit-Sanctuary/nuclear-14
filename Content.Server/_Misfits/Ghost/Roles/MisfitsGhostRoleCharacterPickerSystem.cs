@@ -6,14 +6,19 @@ using Content.Server.EUI;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Events;
+using Content.Server.Mind;
+using Content.Server.Paper;
 using Content.Server.Preferences.Managers;
 using Content.Server.Station.Systems;
 using Content.Shared._Misfits.Ghost.Roles;
 using Content.Shared.Ghost;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Content.Shared.Storage;
+using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -30,8 +35,13 @@ public sealed class MisfitsGhostRoleCharacterPickerSystem : EntitySystem
     [Dependency] private readonly StationSpawningSystem _spawning = default!;
     [Dependency] private readonly IServerPreferencesManager _preferences = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly MindSystem _minds = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly PaperSystem _paper = default!;
+    [Dependency] private readonly SharedStorageSystem _storage = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     // Picker reserving each spawner, so it can be closed on timeout or when the player leaves ghost.
     private readonly Dictionary<EntityUid, MisfitsGhostRoleCharacterPickerEui> _openPickers = new();
@@ -68,8 +78,8 @@ public sealed class MisfitsGhostRoleCharacterPickerSystem : EntitySystem
         if (!TryComp<GhostRoleComponent>(uid, out var role) || MetaData(uid).EntityPaused)
             return;
 
-        // Only ghosts may take a ghost role.
-        if (args.Player.AttachedEntity is not { Valid: true } mob || !HasComp<GhostComponent>(mob))
+        // #Misfits Add - a player in the lobby has no body yet; an attached one has to be a ghost.
+        if (args.Player.AttachedEntity is { Valid: true } mob && !HasComp<GhostComponent>(mob))
             return;
 
         // Null while a player's bans are still loading; the spawner's prototype id is the ban key.
@@ -162,8 +172,12 @@ public sealed class MisfitsGhostRoleCharacterPickerSystem : EntitySystem
         if (!TryComp<GhostRoleComponent>(uid, out var role))
             return false;
 
-        if (player.AttachedEntity is not { Valid: true } ghost || !HasComp<GhostComponent>(ghost))
+        // #Misfits Add - a player in the lobby has no body yet; an attached one has to be a ghost.
+        if (player.AttachedEntity is { Valid: true } ghost && !HasComp<GhostComponent>(ghost))
             return false;
+
+        // #Misfits Add - no body at this point means the role was picked from the lobby.
+        var fromLobby = player.AttachedEntity is not { Valid: true };
 
         if (ResolveProfile(player, component, index) is not { } profile)
         {
@@ -178,6 +192,13 @@ public sealed class MisfitsGhostRoleCharacterPickerSystem : EntitySystem
         if (component.Gear is { } gear)
             _spawning.EquipStartingGear(mob, gear);
 
+        // #Misfits Add - event roles arrive in their own faction, with whatever abilities the role gives them.
+        EntityManager.AddComponents(mob, component.AddComponents);
+
+        // A team role arrives with its net, so a body taken later still finds the rest of the crew.
+        if (component.Frequency > 0)
+            GiveFrequencyNote(mob, component.Frequency);
+
         EnsureComp<MindContainerComponent>(mob);
 
         var spawnedEvent = new GhostRoleSpawnerUsedEvent(uid, mob);
@@ -185,9 +206,57 @@ public sealed class MisfitsGhostRoleCharacterPickerSystem : EntitySystem
 
         _ghostRoles.GhostRoleInternalCreateMindAndTransfer(player, uid, mob, role);
 
+        // #Misfits Add - picked from the lobby, the player now has a body and belongs in the round.
+        if (fromLobby)
+            _ghostRoles.JoinRoundFromLobby(player);
+
+        // #Misfits Add - the running event's briefing, e.g. the crime this role is wanted for, goes to the taker.
+        if (component.Briefing is { } briefing)
+            _chat.DispatchServerMessage(player, briefing);
+
+        if (component.Objective is { } objective)
+            GiveObjective(mob, objective, DescribeObjective(component, component.Briefing));
+
         // The spawner is a one-shot marker: removing it unregisters the role.
         QueueDel(uid);
         return true;
+    }
+
+    // The team's frequency on a note, into the backpack; left on the ground if the role has no bag.
+    // The radio itself comes from the role's kit, so the note is what tells them where to tune it.
+    private void GiveFrequencyNote(EntityUid mob, int frequency)
+    {
+        var note = Spawn("Paper", Transform(mob).Coordinates);
+        _paper.SetContent(note, Loc.GetString("misfits-event-radio-note", ("frequency", frequency)));
+
+        if (_inventory.TryGetSlotEntity(mob, "back", out var back))
+            _storage.Insert(back.Value, note, out _, storageComp: CompOrNull<StorageComponent>(back.Value));
+    }
+
+    // Hands the role's freeform objective to the mind it just created.
+    private void GiveObjective(EntityUid mob, string title, string? description)
+    {
+        if (!_minds.TryGetMind(mob, out var mindId, out var mind))
+            return;
+
+        var objective = Spawn("LoreMasterCustomObjective");
+        _metaData.SetEntityName(objective, Loc.GetString(title));
+
+        if (description is { } text)
+            _metaData.SetEntityDescription(objective, text);
+
+        _minds.AddObjective(mindId, mind, objective);
+    }
+
+    // The role's own objective text, with the run's briefing underneath it.
+    private string? DescribeObjective(MisfitsGhostRoleCharacterPickerComponent component, string? briefing)
+    {
+        var description = component.ObjectiveDescription is { } id ? Loc.GetString(id) : null;
+
+        if (briefing == null)
+            return description;
+
+        return description == null ? briefing : $"{description}\n\n{briefing}";
     }
 
     // Called by the picker EUI on close, whatever the reason.
@@ -254,9 +323,10 @@ public sealed class MisfitsGhostRoleCharacterPickerSystem : EntitySystem
             if (!component.AllowRandom)
                 return null;
 
-            return component.AllowedSpecies.Count > 0
-                ? HumanoidCharacterProfile.RandomWithSpecies(_random.Pick(component.AllowedSpecies).Id)
-                : HumanoidCharacterProfile.Random();
+            // Never roll a random race: a role that lists species only gets those, and anything else is human.
+            return HumanoidCharacterProfile.RandomWithSpecies(component.AllowedSpecies.Count > 0
+                ? _random.Pick(component.AllowedSpecies).Id
+                : "Human");
         }
 
         foreach (var (slot, profile) in GetCharacters(player, component))
@@ -290,6 +360,30 @@ public sealed partial class MisfitsGhostRoleCharacterPickerComponent : Component
     // startingGear prototype the spawned body is dressed with; see the startingGear entries.
     [DataField]
     public ProtoId<StartingGearPrototype>? Gear;
+
+    // Components put on the spawned body, e.g. the role's faction or an ability only it has.
+    [DataField]
+    public ComponentRegistry AddComponents = new();
+
+    // Radio team this role belongs to; every role on a team shares one frequency per event run.
+    [DataField]
+    public string? RadioTeam;
+
+    // Frequency the event rolled for this role's team; zero means the role gets no note.
+    [ViewVariables]
+    public int Frequency;
+
+    // Loc string for an objective the taker gets, e.g. "bring the criminal to justice"; null for none.
+    [DataField]
+    public string? Objective;
+
+    // Optional loc string for that objective's detail line.
+    [DataField]
+    public string? ObjectiveDescription;
+
+    // Text the running event rolled for this role, e.g. the crime the law event is about; null for none.
+    [ViewVariables]
+    public string? Briefing;
 
 
     // How long a picker may hold the role before it is offered again.

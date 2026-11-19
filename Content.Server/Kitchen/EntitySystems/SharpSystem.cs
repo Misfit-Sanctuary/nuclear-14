@@ -1,6 +1,4 @@
-﻿using Content.Server._Misfits.Deathclaw;
-using Content.Server.Body.Systems;
-using Content.Shared._Misfits.Deathclaw;
+﻿using Content.Server.Body.Systems;
 using Content.Server.Kitchen.Components;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Stack;
@@ -167,10 +165,9 @@ public sealed class SharpSystem : EntitySystem
         if (component.Type != ButcheringType.Knife || args.Hands == null || !args.CanAccess || !args.CanInteract)
             return;
 
-        // Sentient Deathclaw claws are sharp enough to butcher with empty hands. This deliberately
-        // uses the common sentient marker, not Bwonsamdi's StructureBreaker authorization.
+        // #Misfits Change - a mob that is itself sharp (deathclaw claws, gecko teeth) butchers with empty hands.
         var tool = args.Using;
-        if (tool == null && HasComp<SharpComponent>(args.User) && HasComp<SentientDeathclawComponent>(args.User))
+        if (tool == null && HasComp<SharpComponent>(args.User))
             tool = args.User;
 
         bool disabled = false;

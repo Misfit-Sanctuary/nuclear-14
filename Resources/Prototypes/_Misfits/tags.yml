@@ -9,6 +9,10 @@
 #   4. Adding a new enum value in WastelandMapTacticalFeedKind (WastelandMapComponent.cs)
 #   5. Handling the new enum in WastelandMapCartridgeSystem.GetLoaderFeed()
 #   6. Handling the new enum in WastelandMapSystem.GetTrackedBlips()
+# #Misfits Add - the key that frees the travelling caravan's wagon.
+- type: Tag
+  id: CaravanWagonKey
+
 - type: Tag
   id: IdCardBrotherhood
 

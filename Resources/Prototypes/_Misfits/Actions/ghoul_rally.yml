@@ -1,0 +1,11 @@
+# #Misfits Add - the sentient ghouls of the horde event: a shout that rouses the pack.
+- type: entity
+  id: ActionGhoulRally
+  name: action-name-ghoul-rally
+  description: action-desc-ghoul-rally
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 90
+    icon: _Misfits/Interface/Actions/warcry.png
+    event: !type:MisfitsGhoulRallyActionEvent
