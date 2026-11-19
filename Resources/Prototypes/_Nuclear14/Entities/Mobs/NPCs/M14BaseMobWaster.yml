@@ -26,7 +26,6 @@
       - Critical # takes a bit to get out of crit, but if no one kills you and you don't lose all your blood, you live!
       damageCap: 300 # makes it works with life giver
       damage:
-        types:
         types:          #wassuy changes, nerfed regen
           Blunt: -0.5
           Slash: -0.5
