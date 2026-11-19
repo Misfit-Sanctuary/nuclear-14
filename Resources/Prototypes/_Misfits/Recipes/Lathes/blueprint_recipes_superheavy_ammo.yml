@@ -1,0 +1,51 @@
+# #Misfits Add - super-heavy ammunition manufacture.
+# Each recipe below is gated by its own blueprint item (see
+# _Misfits/Entities/Objects/Blueprints/superheavy_ammo_blueprints.yml), so a belt
+# or box can only be built once the matching plan sits in a workbench storage.
+# Material amounts use the lathe's internal units where 100 units = one sheet.
+
+- type: latheCategory
+  id: MisfitsBlueprintSuperHeavyAmmo
+  name: lathe-category-blueprint-superheavy-ammo
+
+# .50 HMG linked belt - feeds the super-heavy .50 machine gun.
+- type: latheRecipe
+  id: N14BPSuperHeavyAmmo50Belt
+  result: N14Magazine50HMG
+  category: MisfitsBlueprintSuperHeavyAmmo
+  completetime: 20
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  materials:
+    Lead: 1000
+    N14Brass: 500
+    N14Gunpowder: 600
+    Steel: 300
+
+# 20 gauge linked belt - feeds the heavy automatic shotgun.
+- type: latheRecipe
+  id: N14BPSuperHeavyAmmo20GaugeBelt
+  result: N14Magazine20gaugeBelt
+  category: MisfitsBlueprintSuperHeavyAmmo
+  completetime: 15
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  materials:
+    Lead: 450
+    N14Brass: 225
+    N14Gunpowder: 375
+    Plastic: 250
+    Steel: 100
+
+# 30mm ammo box - feeds the automatic grenade launcher.
+- type: latheRecipe
+  id: N14BPSuperHeavyAmmo30mmBox
+  result: N14Magazine30mmBelt
+  category: MisfitsBlueprintSuperHeavyAmmo
+  completetime: 15
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  materials:
+    Steel: 500
+    N14Iron: 350
+    N14Gunpowder: 400

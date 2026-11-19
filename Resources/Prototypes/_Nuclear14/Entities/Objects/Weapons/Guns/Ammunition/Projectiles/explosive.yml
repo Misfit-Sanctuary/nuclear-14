@@ -38,7 +38,7 @@
     maxTileBreak: 0
 
 
-# #Misfits Add - 30mm HE grenade. Far weaker than the 40mm: ~20 damage at the
+# #Misfits Add - 30mm HE grenade. Far weaker than the 40mm: ~30 damage at the
 # epicenter, dropping to nothing just past the adjacent tiles (a small cross).
 - type: entity
   id: GrenadeProjectile30mm
@@ -53,7 +53,7 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Misfits30mmHE
-    maxIntensity: 2 # 2 * 10 damage-per-intensity = ~20 per tile
+    maxIntensity: 2 # 2 * 15 damage-per-intensity = ~30 per tile
     intensitySlope: 4
     totalIntensity: 10 # exactly fills the four orthogonal neighbours, then stops
     maxTileBreak: 0
