@@ -1,6 +1,6 @@
 - type: entity
   name: Locust Maggot
-  parent: M14BaseMobMeleeRaider
+  parent: N14BaseMobRaider
   id: N14MobRaiderPsycho
   description: Weakest mongrels of the Locust Tribe, they’re armed with flimsy knives and pumped with chems. They are impossible to reason with, seeing your death as a chance to rise in the tribe's ranks.
   components:
@@ -18,7 +18,7 @@
 - type: entity
   name: Cult of Liberty Conscript
   id: N14MobRaiderFernMelee
-  parent: M14BaseMobMeleeRaider
+  parent: N14BaseMobRaider
   description: Pressed into service by backwoods crusaders, they now serve at the frontlines of the militia's push into the region. Confused and scared, they see you as a threat and will aim to kill.
   components:
     - type: Loadout
@@ -35,7 +35,7 @@
 - type: entity
   name: Warden Cudgel
   id: N14MobRaiderEnforcerMelee
-  parent: M14BaseMobMeleeRaider
+  parent: N14BaseMobRaider
   description: Seasoned mercenaries promoted from the rank of Leadhead, they’ve been given full body armor and increased authority, and are often used as peacekeepers when hired by towns.
   components:
     - type: Loadout
