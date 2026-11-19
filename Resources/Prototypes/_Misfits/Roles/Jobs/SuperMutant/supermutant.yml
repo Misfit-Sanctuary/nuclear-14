@@ -107,6 +107,8 @@
     - !type:CharacterSpeciesRequirement
       species:
         - SuperMutant
+  accessGroups:
+  - CaesarLegionRecruit
   special: # #Misfits Add - register with PlayerSuperMutant faction so Loremaster tab can detect this job
   - !type:AddComponentSpecial
     components:
@@ -126,7 +128,7 @@
     outerClothing: ClothingSuperMutantGladiatorArmor
     shoes: ClothingSuperMutantGladiatorBoots
     head: ClothingSuperMutantGladiatorHelmet
-    id: N14IDLegionaryBadgeSlave # Gladiator serves under Legion authority
+    id: N14IDLegionaryBadge # Gladiator serves under Legion authority
     back: N14ClothingBackpackMilitary # #Misfits Add - backslot for storing a secondary weapon
     suitstorage: N14WastelandTribalSpear # #Misfits Add - back holster slot; starts with a spear stowed on the back
 
