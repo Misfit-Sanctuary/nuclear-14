@@ -1,3 +1,6 @@
+
+#MARK: Locust Pistol
+
 - type: entity
   name: Locust Buzzfly
   parent: N14BaseMobRaider
@@ -5,8 +8,8 @@
   description: Once a Maggot of the Locust Tribe, they got at least a single kill and so have been armed with a basic pistol. If this chem fiend can do a successful raid, he’ll join the hostile tribe’s Swarmers.
   components:
     - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
-      minAngle: 8
-      maxAngle: 20
+      minAngle: 12
+      maxAngle: 34
       angleIncrease: 4
       angleDecay: 4
       fireRate: 2.0
@@ -94,7 +97,7 @@
   description: Once a Maggot of the Locust Tribe, they got at least a single kill and so have been armed with a basic pistol. If this chem fiend can do a successful raid, he’ll join the tribe’s Swarmers.
   components:
     - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
-      minAngle: 7.5
+      minAngle: 8
       maxAngle: 18
       angleIncrease: 4
       angleDecay: 4
@@ -183,8 +186,8 @@
   description: Once a Maggot of the Locust Tribe, they got at least a single kill and so have been armed with a basic pistol. If this chem fiend can do a successful raid, he’ll join the tribe’s Swarmers.
   components:
     - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
-      minAngle: 10
-      maxAngle: 18
+      minAngle: 12
+      maxAngle: 32
       angleIncrease: 4
       angleDecay: 4
       fireRate: 2.25
@@ -272,8 +275,8 @@
   description: Once a Maggot of the Locust Tribe, they got at least a single kill and so have been armed with a basic pistol. If this chem fiend can do a successful raid, he’ll join the tribe’s Swarmers.
   components:
     - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
-      minAngle: 7.5
-      maxAngle: 17.5
+      minAngle: 8
+      maxAngle: 20
       angleIncrease: 4
       angleDecay: 4
       fireRate: 3.0
@@ -354,6 +357,8 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/22lr.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
+#MARK: Locust Boss
+
 - type: entity
   name: Locust Hivelord
   parent: N14BaseMobRaiderBoss
@@ -362,7 +367,7 @@
   components:
     - type: Gun
       minAngle: 18
-      maxAngle: 32
+      maxAngle: 30
       angleIncrease: 2
       angleDecay: 2
       fireRate: 4.0
@@ -387,6 +392,9 @@
         - RaiderBossRifle3Gear
         - RaiderBossRifle4Gear
         - RaiderBossRifle5Gear
+        - RaiderBossRifle6Gear
+        - RaiderBossRifle7Gear
+        - RaiderBossRifle8Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -473,6 +481,9 @@
         - RaiderBoss762Rifle3Gear
         - RaiderBoss762Rifle4Gear
         - RaiderBoss762Rifle5Gear
+        - RaiderBoss762Rifle6Gear
+        - RaiderBoss762Rifle7Gear
+        - RaiderBoss762Rifle8Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -559,6 +570,9 @@
         - RaiderBoss3Gear
         - RaiderBoss4Gear
         - RaiderBoss5Gear
+        - RaiderBoss6Gear
+        - RaiderBoss7Gear
+        - RaiderBoss8Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -611,6 +625,8 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/10mmPIPE.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
+#MARK: Locust Sniper
+
 - type: entity
   name: Locust Longshot
   parent: N14BaseMobRaider
@@ -618,11 +634,11 @@
   description: Tribesmen armed with old rifles, they are former Swarmers promoted for competency. As one of the tribe's lieutenants, they have no vision for the future besides their next easy meal ticket.
   components:
     - type: Gun
-      minAngle: 4
-      maxAngle: 26
+      minAngle: 6
+      maxAngle: 28
       angleIncrease: 4
       angleDecay: 16
-      fireRate: 0.5
+      fireRate: 0.75
       soundGunshot:
         collection: N14SniperHuntingGunshot
       useKey: false
@@ -645,6 +661,9 @@
         - RaiderHunter3Gear
         - RaiderHunter4Gear
         - RaiderHunter5Gear
+        - RaiderHunter6Gear
+        - RaiderHunter7Gear
+        - RaiderHunter8Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -704,11 +723,11 @@
   description: Tribesmen armed with old rifles, they are former Swarmers promoted for competency. As one of the tribe's lieutenants, they have no vision for the future besides their next easy meal ticket.
   components:
     - type: Gun
-      minAngle: 1
+      minAngle: 4
       maxAngle: 28
       angleIncrease: 4
       angleDecay: 16
-      fireRate: 0.75
+      fireRate: 0.6
       soundGunshot:
         collection: N14SniperHuntingGunshot
       useKey: false
@@ -731,6 +750,9 @@
         - RaiderHunter3Gear
         - RaiderHunter4Gear
         - RaiderHunter5Gear
+        - RaiderHunter6Gear
+        - RaiderHunter7Gear
+        - RaiderHunter8Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -791,7 +813,7 @@
   components:
     - type: Gun
       minAngle: 8
-      maxAngle: 32
+      maxAngle: 34
       angleIncrease: 4
       angleDecay: 16
       fireRate: 1.0
@@ -809,7 +831,7 @@
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 3
       rechargeSound:
-        path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
+        path: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
     - type: Loadout
       prototypes:
         - RaiderHunterMark1Gear
@@ -817,6 +839,9 @@
         - RaiderHunterMark3Gear
         - RaiderHunterMark4Gear
         - RaiderHunterMark5Gear
+        - RaiderHunterMark6Gear
+        - RaiderHunterMark7Gear
+        - RaiderHunterMark8Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -869,6 +894,8 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/chinesemarksman.rsi
         state: inhand-right # Only part we change, the gun sprite.
 
+#MARK: Locust Shotgun
+
 - type: entity
   name: Locust Swarmer
   parent: N14BaseMobRaider
@@ -903,6 +930,9 @@
         - RaiderSkrimisher3Gear
         - RaiderSkrimisher4Gear
         - RaiderSkrimisher5Gear
+        - RaiderSkrimisher6Gear
+        - RaiderSkrimisher7Gear
+        - RaiderSkrimisher8Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -990,6 +1020,9 @@
         - RaiderSkrimisher3Gear
         - RaiderSkrimisher4Gear
         - RaiderSkrimisher5Gear
+        - RaiderSkrimisher6Gear
+        - RaiderSkrimisher7Gear
+        - RaiderSkrimisher8Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -1053,7 +1086,7 @@
       maxAngle: 104
       angleIncrease: 8
       angleDecay: 16
-      fireRate: 0.75
+      fireRate: 0.8
       soundGunshot:
         collection: N14ShotgunGunshot
       useKey: false
@@ -1076,6 +1109,9 @@
         - RaiderSkrimisher3Gear
         - RaiderSkrimisher4Gear
         - RaiderSkrimisher5Gear
+        - RaiderSkrimisher6Gear
+        - RaiderSkrimisher7Gear
+        - RaiderSkrimisher8Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -1162,6 +1198,9 @@
         - RaiderSkrimisher3Gear
         - RaiderSkrimisher4Gear
         - RaiderSkrimisher5Gear
+        - RaiderSkrimisher6Gear
+        - RaiderSkrimisher7Gear
+        - RaiderSkrimisher8Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -1214,6 +1253,8 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/canadian_shotgun.rsi
         state: inhand-right # Only part we change, the gun sprite.
 
+#MARK: Liberty Pistol
+
 - type: entity
   name: Cult of Liberty Recruit
   parent: N14BaseMobRaider
@@ -1242,11 +1283,14 @@
         path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
     - type: Loadout
       prototypes:
-        - FernMercPrivate1Gear
-        - FernMercPrivate2Gear
-        - FernMercPrivate3Gear
-        - FernMercPrivate4Gear
-        - FernMercPrivate5Gear
+        - FernMercRecruit1Gear
+        - FernMercRecruit2Gear
+        - FernMercRecruit3Gear
+        - FernMercRecruit4Gear
+        - FernMercRecruit5Gear
+        - FernMercRecruit6Gear
+        - FernMercRecruit7Gear
+        - FernMercRecruit8Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -1298,6 +1342,8 @@
         visible: false
       - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/10mm.rsi
         state: inhand-right  # Only part we change, the gun sprite.
+
+#MARK: Liberty Rifle
 
 - type: entity
   name: Cult of Liberty Patriot
@@ -1572,6 +1618,8 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/varmint.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
+#MARK: Liberty Shotgun
+
 - type: entity
   name: Cult of Liberty Zealot
   parent: N14BaseMobRaider
@@ -1652,6 +1700,8 @@
         visible: false
       - sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/combat_shotgun.rsi
         state: inhand-right  # Only part we change, the gun sprite.
+
+#MARK: Liberty Boss
 
 - type: entity
   name: Cult of Liberty Reverend
@@ -1734,6 +1784,8 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/12mmSMG.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
+#MARK: Warden Leadhead
+
 - type: entity
   name: Warden Leadhead
   parent: N14BaseMobRaider
@@ -1768,6 +1820,9 @@
         - EnforcerTrooper3Gear
         - EnforcerTrooper4Gear
         - EnforcerTrooper5Gear
+        - EnforcerTrooper6Gear
+        - EnforcerTrooper7Gear
+        - EnforcerTrooper8Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -1854,6 +1909,9 @@
         - EnforcerTrooper3Gear
         - EnforcerTrooper4Gear
         - EnforcerTrooper5Gear
+        - EnforcerTrooper6Gear
+        - EnforcerTrooper7Gear
+        - EnforcerTrooper8Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -1913,11 +1971,11 @@
   description: Raider mercenaries hailing from Seattle, Washington until the Brotherhood of Steel pushed them out. This mercenary is loyal to the company, due to the quality of food and kit provided.
   components:
     - type: Gun
-      minAngle: 12
+      minAngle: 14.5
       maxAngle: 28
       angleIncrease: 4
       angleDecay: 16
-      fireRate: 2.25
+      fireRate: 2.5
       soundGunshot:
         collection: N1445SMGGunshot
       useKey: false
@@ -1940,6 +1998,9 @@
         - EnforcerTrooper453Gear
         - EnforcerTrooper454Gear
         - EnforcerTrooper455Gear
+        - EnforcerTrooper456Gear
+        - EnforcerTrooper457Gear
+        - EnforcerTrooper458Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -2026,6 +2087,9 @@
         - EnforcerTrooper45Pistol3Gear
         - EnforcerTrooper45Pistol4Gear
         - EnforcerTrooper45Pistol5Gear
+        - EnforcerTrooper45Pistol6Gear
+        - EnforcerTrooper45Pistol7Gear
+        - EnforcerTrooper45Pistol8Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -2078,6 +2142,8 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/colt.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
+#MARK: Warden Warhound
+
 - type: entity
   name: Warden Warhound
   parent: N14BaseMobRaider
@@ -2089,7 +2155,7 @@
       maxAngle: 104
       angleIncrease: 8
       angleDecay: 16
-      fireRate: 1.5
+      fireRate: 1.75
       soundGunshot:
         collection: N14RiotShotgunGunshot
       useKey: false
@@ -2112,6 +2178,9 @@
         - EnforcerWarden3Gear
         - EnforcerWarden4Gear
         - EnforcerWarden5Gear
+        - EnforcerWarden6Gear
+        - EnforcerWarden7Gear
+        - EnforcerWarden8Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -2164,6 +2233,8 @@
       - sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/riot_shotgun.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
+#MARK: Warden Boss
+
 - type: entity
   name: Warden Lieutenant
   parent: N14BaseMobRaiderBoss
@@ -2198,6 +2269,9 @@
         - EnforcerChief3Gear
         - EnforcerChief4Gear
         - EnforcerChief5Gear
+        - EnforcerChief6Gear
+        - EnforcerChief7Gear
+        - EnforcerChief8Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -2283,6 +2357,9 @@
         - EnforcerChief3573Gear
         - EnforcerChief3574Gear
         - EnforcerChief3575Gear
+        - EnforcerChief3576Gear
+        - EnforcerChief3577Gear
+        - EnforcerChief3578Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -2455,6 +2532,9 @@
         - EnforcerChiefBren3Gear
         - EnforcerChiefBren4Gear
         - EnforcerChiefBren5Gear
+        - EnforcerChiefBren6Gear
+        - EnforcerChiefBren7Gear
+        - EnforcerChiefBren8Gear
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]

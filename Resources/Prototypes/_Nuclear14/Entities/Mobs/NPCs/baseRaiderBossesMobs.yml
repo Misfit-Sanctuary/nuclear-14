@@ -6,6 +6,7 @@
   suffix: AI
   components:
     #- type: RandomHumanoidAppearance #wassuy disabled for now may cause confusion
+    - type: Special
     - type: Damageable    # Misfits Add - Override from BaseMobSpeciesOrganic to prevent hunger/thirst damage
       damageContainer: MisfitsNPCBiological
     - type: NpcFactionMember
@@ -22,26 +23,21 @@
     #- type: Destructible #Misfits Change /Add: Drop bottle caps on death (1-7) #wassuy this do not work, please someone fixit
     - type: PassiveDamage
       allowedStates:
-      - Critical
-      - Dead # takes a bit to get out of crit, but if no one kills you and you don't lose all your blood, you live!
+      - Critical # takes a bit to get out of crit, but if no one kills you and you don't lose all your blood, you live!
       damageCap: 300 # makes it works with life giver
       damage:
         types:
-          # #Misfits Fix - PassiveDamage group healing is split across member types; direct types make burn regeneration visible. 1 Hp for every 4 seconds
-          Blunt: -2
-          Slash: -2
-          Piercing: -2
-          Heat: -2
-          Cold: -2
-          Shock: -1
-          Caustic: -1
-          Asphyxiation: -2 # Last longer in crit, takes a WHIIILE to get back up.
-          Bloodloss: -5.0
-          Poison: -2
-          Radiation: -2
-    - type: Bloodstream
-      bloodMaxVolume: 100
-      bloodReagent: WastelandBlood
+          Blunt: -0.20
+          Slash: -0.20
+          Piercing: -0.20
+          Heat: -0.20
+          Cold: -0.20
+          Shock: -0.20
+          Caustic: -0.20
+          Asphyxiation: -0.5
+          Bloodloss: -0.20
+          Poison: -0.10
+          Radiation: -0.10
     - type: MindContainer
       showExamineInfo: False
     - type: InputMover
@@ -90,12 +86,16 @@
     - type: Perishable
       rotAfter: 3600 # Rots after an in-game day
     - type: RotInto
-      entity: N14FoodMeatRadRaw # and becomes a single chunk of meat.
+      entity: N14FoodMeatHuman # and becomes a single chunk of meat.
     - type: Butcherable
       butcheringType: Spike
       spawned:
-      - id: N14FoodMeatRadRaw
+      - id: N14FoodMeatHuman
+        amount: 4
+      - id: MaterialBones1
         amount: 8
+      - id: TorsoSkeleton
+        amount: 1
     - type: HumanoidAppearance
       species: Human
       hideLayersOnEquip:

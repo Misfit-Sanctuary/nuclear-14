@@ -175,16 +175,40 @@
         maxAmount: 2
         orGroup: StashMeds1
       - id: N14SuperStimpak
-        prob: 0.0125
+        prob: 0.014
         amount: 0
         maxAmount: 2
         orGroup: StashMeds1
+      - id: N14Antidote
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
+      - id: N14ChemicalSyringeAntidote
+        prob: 0.0150
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
+      - id: SyringeSaline
+        prob: 0.015
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
+      - id: N14Traumapack
+        prob: 0.015
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
       - id: N14MagazinePistol9mm #Let's give them som basic ammo types.
         prob: 0.5
         amount: 0
         maxAmount: 2
         orGroup: StashAmmo1
       - id: N14MagazineSMG9mm
+        prob: 0.15
+        amount: 0
+        maxAmount: 2
+      - id: N14MagazinePistol22lr
         prob: 0.15
         amount: 0
         maxAmount: 2
@@ -230,12 +254,47 @@
         maxAmount: 2
         orGroup: StashAmmo1
       - id: N14MagazinePistol44
-        prob: 0.1
+        prob: 0.05
         amount: 0
         maxAmount: 2
         orGroup: StashAmmo1
       - id: Magazine545Rifle
         prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: N14MagazineSMG12mm
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: N14TopMagazineSMG12mm
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: N14MagazineLMG308
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: Magazine308RifleLong
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: Magazine308Rifle
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: ClipMagazine308Rifle
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: N14MagazinePistol12mm
+        prob: 0.025
         amount: 0
         maxAmount: 2
         orGroup: StashAmmo1
@@ -330,7 +389,27 @@
         maxAmount: 2
         orGroup: StashMeds2
       - id: N14SuperStimpak
-        prob: 0.0125
+        prob: 0.014
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14Antidote
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14ChemicalSyringeAntidote
+        prob: 0.015
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14Traumapack
+        prob: 0.015
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: SyringeSaline
+        prob: 0.01
         amount: 0
         maxAmount: 2
         orGroup: StashMeds2
@@ -484,7 +563,7 @@
         amount: 0
         maxAmount: 2
         orGroup: StashFood1
-      - id: FoodSnackChocolateBar
+      - id: FoodSnackChocolate
         prob: 0.10
         amount: 0
         maxAmount: 2
@@ -586,6 +665,11 @@
         orGroup: StashFood1
       - id: N14FoodTinC3
         prob: 0.025
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: FoodMealCornedbeef
+        prob: 0.05
         amount: 0
         maxAmount: 2
         orGroup: StashFood1
@@ -694,7 +778,7 @@
         amount: 0
         maxAmount: 2
         orGroup: StashFood1
-      - id: RadioHandheld  #Explorer Items
+      - id: RadioHandheld  #Explorer Items/Unlucky Items
         prob: 0.01
         amount: 0
         maxAmount: 2
@@ -749,6 +833,71 @@
         amount: 0
         maxAmount: 2
         orGroup: StashFood1
+      - id: N14JunkComponentCapacitor1
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentCapacitor2
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentCapacitor3
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentBoard1
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentBoard2
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentBoard3
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkTincan
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentTransistor1
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentTransistor2
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentTransistor3
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkTurpentine
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkWonderGlue
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkAbraxoCleaner
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
 
       - id: N14NukaCocktail  #Wassuy add, grenada!
         prob: 0.01
@@ -766,6 +915,26 @@
         maxAmount: 2
         orGroup: StashAmmo1
       - id: N14NukaNade
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: MisfitsGrenadeFragDefensive
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: GrenadeShrapnel
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: MisfitsGrenadeImpact
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: SmokeGrenade
         prob: 0.01
         amount: 0
         maxAmount: 2

@@ -11,6 +11,17 @@
 
 - type: entity
   parent: N14ClothingUniformBase
+  id: M14ClothingUniformRaider
+  name: reinforced long johns
+  description: An reinforced pair of soiled wastelander's rags, tattered with some ducttapes and a wide leather belt.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/reinforcedlongjohns.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/reinforcedlongjohns.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
   id: M14ClothingUniformMarlowdudsUniform
   name: marlow gang attire
   description: A washed out crimson overshirt with blue neckerchief and suspended black slacks. The attire is synonymous with the colors of the criminal Marlow gang.

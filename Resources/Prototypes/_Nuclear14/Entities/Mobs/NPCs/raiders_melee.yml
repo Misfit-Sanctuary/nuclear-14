@@ -11,7 +11,10 @@
       - PsychoRaider3Gear
       - PsychoRaider4Gear
       - PsychoRaider5Gear
-#RuminantHostileCompound
+      - PsychoRaider6Gear
+      - PsychoRaider7Gear
+      - PsychoRaider8Gear
+
 - type: entity
   name: Cult of Liberty Conscript
   id: N14MobRaiderFernMelee
@@ -25,6 +28,9 @@
       - FernConscript3Gear
       - FernConscript4Gear
       - FernConscript5Gear
+      - FernConscript6Gear
+      - FernConscript7Gear
+      - FernConscript8Gear
 
 - type: entity
   name: Warden Cudgel
@@ -39,6 +45,9 @@
       - EnforcerBeatcop3Gear
       - EnforcerBeatcop4Gear
       - EnforcerBeatcop5Gear
+      - EnforcerBeatcop6Gear
+      - EnforcerBeatcop7Gear
+      - EnforcerBeatcop8Gear
 
 - type: entity
   name: Warden Sentinel
