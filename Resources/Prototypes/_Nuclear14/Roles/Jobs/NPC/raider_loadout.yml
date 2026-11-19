@@ -1945,6 +1945,26 @@
     pocket1: N14RaiderStash
 
 - type: startingGear
+  id: EnforcerBeatcop9Gear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecBlue
+    shoes: N14ClothingBootsBlack
+    mask: N14ClothingMaskBreather
+    outerClothing: N14ClothingOuterPoliceVest
+    pocket1: N14RaiderStash
+
+- type: startingGear
+  id: EnforcerBeatcop10Gear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecBlue
+    shoes: N14ClothingBootsBlack
+    head: ClothingHeadHelmetBasic
+    gloves: ClothingHandsGlovesFingerless
+    mask: N14ClothingMaskBreather
+    outerClothing: N14ClothingOuterPoliceVest
+    pocket1: N14RaiderStash
+
+- type: startingGear
   id: FernConscript1Gear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitFudd
@@ -2047,6 +2067,29 @@
   - N14CombatKnife
 
 - type: startingGear
+  id: FernConscript9Gear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitFudd
+    mask: ClothingMaskGasExplorer
+    shoes: N14ClothingBootsLeather
+    outerClothing: N14ClothingOuterVestLeather
+    pocket1: N14RaiderStash
+  inhand:
+  - N14CombatKnife
+
+- type: startingGear
+  id: FernConscript10Gear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitFudd
+    mask: N14ClothingMaskPatriotMask
+    shoes: N14ClothingBootsLeather
+    outerClothing: N14ClothingOuterVestLeather
+    head: N14ClothingHeadHatArmyCap
+    pocket1: N14RaiderStash
+  inhand:
+  - N14CombatKnife
+
+- type: startingGear
   id: PsychoRaider1Gear
   equipment:
     jumpsuit: N14ClothingUniformJumpsuitRags
@@ -2143,8 +2186,32 @@
     jumpsuit: N14ClothingUniformJumpsuitMechanic
     shoes: N14ClothingShoesBrown
     mask: N14ClothingMaskWhiteBalaclava
-    outerClothing: N14ClothingOuterLeatherArmor
     pocket1: N14RaiderStash
     pocket2: Brutepack1 # Corvax-Change
   inhand:
   - N14GolfClub
+
+- type: startingGear
+  id: PsychoRaider9Gear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitWastelandDoc
+    shoes: N14ClothingBootsLeather
+    head: N14ClothingHeadHatHeadscarf
+    outerClothing: ClothingOuterVestFlak
+    pocket1: N14RaiderStash
+    pocket2: Brutepack1 # Corvax-Change
+  inhand:
+  - N14NailBoard
+
+- type: startingGear
+  id: PsychoRaider9Gear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitWastelandDoc
+    shoes: N14ClothingBootsLeather
+    gloves: N14ClothingHandsGlovesBrownBiker
+    head: N14ClothingHeadHatHeadscarf
+    outerClothing: ClothingOuterVestFlak
+    pocket1: N14RaiderStash
+    pocket2: Brutepack1 # Corvax-Change
+  inhand:
+  - N14KitchenKnife
