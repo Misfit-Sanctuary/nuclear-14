@@ -36,18 +36,18 @@
       - Critical # takes a bit to get out of crit, but if no one kills you and you don't lose all your blood, you live!
       damageCap: 300 # makes it works with life giver
       damage:
-        types:
-          Blunt: -0.20
-          Slash: -0.20
-          Piercing: -0.20
-          Heat: -0.20
-          Cold: -0.20
-          Shock: -0.20
-          Caustic: -0.20
-          Asphyxiation: -0.5
-          Bloodloss: -0.20
-          Poison: -0.10
-          Radiation: -0.10
+        types:          #wassuy changes, nerfed regen
+          Blunt: -0.3
+          Slash: -0.3
+          Piercing: -0.3
+          Heat: -0.3
+          Cold: -0.3
+          Shock: -0.3
+          Caustic: -0.3
+          Asphyxiation: -1
+          Bloodloss: -3
+          Poison: -0.3
+          Radiation: -0.3
     - type: MindContainer
       showExamineInfo: False
     - type: InputMover
