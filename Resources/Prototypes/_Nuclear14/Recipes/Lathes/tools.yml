@@ -282,3 +282,13 @@
   materials:
     Glass: 100
     Steel: 100
+
+# #Misfits Add: rangefinder for mortar crews, priced the same as binoculars.
+- type: latheRecipe
+  id: N14LaserRangefinder
+  result: N14LaserRangefinder
+  category: N14Tools
+  completetime: 2
+  materials:
+    Glass: 100
+    Steel: 100

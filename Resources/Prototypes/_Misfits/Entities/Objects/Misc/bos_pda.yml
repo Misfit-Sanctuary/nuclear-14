@@ -41,3 +41,11 @@
   components:
   - type: Pda
     id: N14IDBrotherhoodOfSteelHolotagKnight
+
+- type: entity
+  parent: N14BasePipboy
+  id: N14Archivist_PipBoy
+  suffix: Archivist
+  components:
+  - type: Pda
+    id: N14IDBrotherhoodOfSteelHolotagArchivist

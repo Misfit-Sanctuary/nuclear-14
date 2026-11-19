@@ -133,3 +133,15 @@
   fireColor: "#53FF38"
   texturePath: /Textures/Effects/fire_greyscale.rsi
   fireStates: 3
+
+- type: explosion
+  id: IncineratorExplosion
+  damagePerIntensity:
+    types:
+      Heat: 16
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 6
+  fireStacks: 0.25
+  tileBreakChance: [0]
+  tileBreakIntensity: [0]
