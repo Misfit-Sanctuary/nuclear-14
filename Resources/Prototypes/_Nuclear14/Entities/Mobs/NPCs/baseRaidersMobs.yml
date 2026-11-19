@@ -5,6 +5,10 @@
   name: Raider
   suffix: AI
   components:
+  special:
+    - !type:AddComponentSpecial
+      components:
+        - type: MisfitsBloodyMess
     #- type: RandomHumanoidAppearance #wassuy disabled for now may cause confusion
     - type: Special  #misfits add, wassuy added speical so they would be a lil tougher to deal with
     - type: Damageable    # Misfits Add - Override from BaseMobSpeciesOrganic to prevent hunger/thirst damage
@@ -38,9 +42,6 @@
           Bloodloss: -0.10
           Poison: -0.10
           Radiation: -0.10
-    - type: Bloodstream
-      bloodMaxVolume: 100
-      bloodReagent: WastelandBlood
     - type: MindContainer
       showExamineInfo: False
     - type: InputMover
