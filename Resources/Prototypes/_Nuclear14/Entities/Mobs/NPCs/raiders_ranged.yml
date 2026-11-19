@@ -8,8 +8,8 @@
   description: Once a Maggot of the Locust Tribe, they got at least a single kill and so have been armed with a basic pistol. If this chem fiend can do a successful raid, he’ll join the hostile tribe’s Swarmers.
   components:
     - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
-      minAngle: 12
-      maxAngle: 34
+      minAngle: 14
+      maxAngle: 36
       angleIncrease: 4
       angleDecay: 4
       fireRate: 2.0
@@ -97,8 +97,8 @@
   description: Once a Maggot of the Locust Tribe, they got at least a single kill and so have been armed with a basic pistol. If this chem fiend can do a successful raid, he’ll join the tribe’s Swarmers.
   components:
     - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
-      minAngle: 8
-      maxAngle: 18
+      minAngle: 10
+      maxAngle: 20
       angleIncrease: 4
       angleDecay: 4
       fireRate: 2.5
@@ -186,8 +186,8 @@
   description: Once a Maggot of the Locust Tribe, they got at least a single kill and so have been armed with a basic pistol. If this chem fiend can do a successful raid, he’ll join the tribe’s Swarmers.
   components:
     - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
-      minAngle: 12
-      maxAngle: 32
+      minAngle: 14
+      maxAngle: 34
       angleIncrease: 4
       angleDecay: 4
       fireRate: 2.25
@@ -275,8 +275,8 @@
   description: Once a Maggot of the Locust Tribe, they got at least a single kill and so have been armed with a basic pistol. If this chem fiend can do a successful raid, he’ll join the tribe’s Swarmers.
   components:
     - type: Gun #Mobs currently cannot bolt a gun, so we have to simulate them firing it
-      minAngle: 8
-      maxAngle: 20
+      minAngle: 10
+      maxAngle: 22  #get it? 22lr
       angleIncrease: 4
       angleDecay: 4
       fireRate: 3.0
@@ -366,8 +366,8 @@
   description: Warchiefs of the Locust Tribe, they preach the destiny of their people to feed on the bounty of the weak, using chems and violence to keep their raiders under control. New ones always replace the dead.
   components:
     - type: Gun
-      minAngle: 18
-      maxAngle: 30
+      minAngle: 14
+      maxAngle: 32
       angleIncrease: 2
       angleDecay: 2
       fireRate: 4.0
@@ -455,7 +455,7 @@
   components:
     - type: Gun
       minAngle: 18
-      maxAngle: 34
+      maxAngle: 36
       angleIncrease: 2
       angleDecay: 2
       fireRate: 3.0
@@ -543,8 +543,8 @@
   description: Warchiefs of the Locust Tribe, they preach the destiny of their people to feed on the bounty of the weak, using chems and violence to keep their raiders under control. New ones always replace the dead.
   components:
     - type: Gun
-      minAngle: 10
-      maxAngle: 40
+      minAngle: 12
+      maxAngle: 42
       angleIncrease: 8
       angleDecay: 16
       fireRate: 3.3
@@ -1262,7 +1262,8 @@
   description: They joined the invaders from Montana voluntarily, and so they’ve been given some decent equipment. Armed with the very basics and a heavy misunderstanding of American history.
   components:
     - type: Gun
-      maxAngle: 14
+      minAngle: 12
+      maxAngle: 28
       angleIncrease: 4
       angleDecay: 4
       fireRate: 2.0
@@ -1352,8 +1353,8 @@
   description: Some conscripts and recruits actually survive their first fight, becoming professional soldiers in the war to rebuild America’s glory. They are given respect and priority medical treatment.
   components:
     - type: Gun
-      minAngle: 10
-      maxAngle: 34
+      minAngle: 14
+      maxAngle: 38
       angleIncrease: 4
       angleDecay: 16
       fireRate: 2.0
@@ -1793,8 +1794,8 @@
   description: Raider mercenaries hailing from Seattle, Washington until the Brotherhood of Steel pushed them out. This mercenary is loyal to the company, due to the quality of food and kit provided.
   components:
     - type: Gun
-      minAngle: 12
-      maxAngle: 28
+      minAngle: 14
+      maxAngle: 30
       angleIncrease: 4
       angleDecay: 16
       fireRate: 3.25
@@ -1883,7 +1884,7 @@
   components:
     - type: Gun
       minAngle: 10
-      maxAngle: 26
+      maxAngle: 28
       angleIncrease: 4
       angleDecay: 16
       fireRate: 3.0
@@ -1971,8 +1972,8 @@
   description: Raider mercenaries hailing from Seattle, Washington until the Brotherhood of Steel pushed them out. This mercenary is loyal to the company, due to the quality of food and kit provided.
   components:
     - type: Gun
-      minAngle: 14.5
-      maxAngle: 28
+      minAngle: 14
+      maxAngle: 30
       angleIncrease: 4
       angleDecay: 16
       fireRate: 2.5
@@ -2060,8 +2061,8 @@
   description: Raider mercenaries hailing from Seattle, Washington until the Brotherhood of Steel pushed them out. This mercenary is loyal to the company, due to the quality of food and kit provided.
   components:
     - type: Gun
-      minAngle: 10
-      maxAngle: 22.5
+      minAngle: 12
+      maxAngle: 24
       angleIncrease: 4
       angleDecay: 16
       fireRate: 2.0
@@ -2242,8 +2243,8 @@
   description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
     - type: Gun
-      minAngle: 20
-      maxAngle: 45
+      minAngle: 22
+      maxAngle: 46
       angleIncrease: 2
       angleDecay: 4
       fireRate: 3.5
@@ -2324,15 +2325,15 @@
       - sprite: Corvax/Objects/Weapons/Guns/Rifles/ak112.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
-- type: entity #Wassuy, Deadeye boss, panfire the revolver before shooting slowly.
+- type: entity
   name: Warden Lieutenant
   parent: N14BaseMobRaiderBoss
   id: M14MobEnforcerChief357
   description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
     - type: Gun
-      minAngle: 4.5
-      maxAngle: 17.5
+      minAngle: 4
+      maxAngle: 18
       angleIncrease: 2
       angleDecay: 4
       fireRate: 2.5
@@ -2419,7 +2420,7 @@
   description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
     - type: Gun
-      minAngle: 10
+      minAngle: 16
       maxAngle: 40
       angleIncrease: 2
       angleDecay: 4
@@ -2505,8 +2506,8 @@
   description: Leaders within the Warden Company, these mercenary officers wear the power armor of defeated Brotherhood soldiers, while planning to retake Seattle using local pillage as funds.
   components:
     - type: Gun
-      minAngle: 10
-      maxAngle: 30
+      minAngle: 18
+      maxAngle: 42
       angleIncrease: 2
       angleDecay: 4
       fireRate: 2.25
