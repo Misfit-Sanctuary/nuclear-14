@@ -371,7 +371,7 @@
 - type: startingGear
   id: RaiderHunter6Gear
   equipment:
-    jumpsuit: M14CLothingUniformRaider
+    jumpsuit: M14ClothingUniformRaider
     shoes: N14ClothingShoesRaider
     head: ClothingMaskGasFire
     outerClothing: M14ClothingOuterArmorKit
@@ -457,7 +457,7 @@
 - type: startingGear
   id: RaiderHunterMark6Gear
   equipment:
-    jumpsuit: M14CLothingUniformRaider
+    jumpsuit: M14ClothingUniformRaider
     shoes: N14ClothingShoesRaider
     head: ClothingMaskGasFire
     outerClothing: M14ClothingOuterArmorKit
@@ -478,7 +478,7 @@
 - type: startingGear
   id: RaiderHunterMark8Gear
   equipment:
-    jumpsuit: M14CLothingUniformRaider
+    jumpsuit: M14ClothingUniformRaider
     shoes: N14ClothingShoesRaider
     gloves: N14ClothingHandsGlovesCloth
     mask: N14ClothingMaskRedMask
@@ -642,7 +642,7 @@
     gloves: N14ClothingHandsGlovesLeather
     head: N14ClothingHeadHatEldersDamagedSkullHelm
     mask: ClothingMaskGasExplorer
-    outerClothing: N14ClothingOuterRaiderCombat
+    outerClothing: N14ClothingOuterCombatTribal
     back: N14ClothingBackpackRandomFill
     belt: M14ClothingBeltRaider10mmSMGPouches
     pocket1: N14RaiderStash
@@ -737,7 +737,7 @@
     gloves: N14ClothingHandsGlovesLeather
     head: N14ClothingHeadHatEldersDamagedSkullHelm
     mask: ClothingMaskGasExplorer
-    outerClothing: N14ClothingOuterRaiderCombat
+    outerClothing: N14ClothingOuterCombatTribal
     back: N14ClothingBackpackRandomFill
     belt: M14ClothingBeltRaider545RiflePouches
     pocket1: N14RaiderStash
@@ -832,7 +832,7 @@
     gloves: N14ClothingHandsGlovesLeather
     head: N14ClothingHeadHatEldersDamagedSkullHelm
     mask: ClothingMaskGasExplorer
-    outerClothing: N14ClothingOuterRaiderCombat
+    outerClothing: N14ClothingOuterCombatTribal
     back: N14ClothingBackpackRandomFill
     belt: M14ClothingBeltRaider762RifleRope
     pocket1: N14RaiderStash
@@ -1403,7 +1403,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecBlue
     shoes: N14ClothingBootsCombat
-    head: N14HeadHatVaultRiot
+    head: N14ClothingHeadHatVaultRiot
     eyes: N14ClothingEyesSunGlasses
     mask: N14ClothingMaskGrill
     outerClothing: N14ClothingOuterVaultSecVest
