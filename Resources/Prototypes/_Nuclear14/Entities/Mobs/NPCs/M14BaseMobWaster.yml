@@ -27,17 +27,18 @@
       damageCap: 300 # makes it works with life giver
       damage:
         types:
-          Blunt: -0.25
-          Slash: -0.25
-          Piercing: -0.25
-          Heat: -0.25
-          Cold: -0.25
-          Shock: -0.25
-          Caustic: -0.25
+        types:          #wassuy changes, nerfed regen
+          Blunt: -0.5
+          Slash: -0.5
+          Piercing: -0.5
+          Heat: -0.5
+          Cold: -0.5
+          Shock: -0.5
+          Caustic: -0.5
           Asphyxiation: -1
           Bloodloss: -4
-          Poison: -0.25
-          Radiation: -0.25
+          Poison: -0.5
+          Radiation: -0.5
     - type: Bloodstream
       bloodMaxVolume: 100
       bloodReagent: WastelandBlood
