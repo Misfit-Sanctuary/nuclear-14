@@ -37,8 +37,7 @@
     waveMaxSeconds: 20
     waveWarningSeconds: 0
     waveMinMobCount: 1
-    waveMaxMobCount: 4  #Wassuy changes 3 to 4, just extra becasue you rarely get 3 and make extractor too easy due it spawn only 1 or 2 everytime.
-    waveSpawnMinDistance: 8
+    waveMaxMobCount: 3
     waveSpawnMaxDistance: 14
     waveSpawnAttempts: 40
     waveSpawnPvsBuffer: 3
@@ -83,9 +82,10 @@
         N14MobMaterialExtractorRaiderSkirmisherStrongWave: 5
         N14MobMaterialExtractorRaiderHunterStrongWave: 5
       bosses:
-        N14MobMaterialExtractorRaiderBossWave: 60
+        N14MobMaterialExtractorRaiderBossWave: 50
         N14MobMaterialExtractorRaiderBossStrongWave: 30
-        N14MobMaterialExtractorRaiderHunterWave: 10
+        N14MobMaterialExtractorRaiderHunterWave: 15
+        N14MobMaterialExtractorRaiderHunterStrongWave: 5
     - name: super mutant warband
       weight: 20
       minCount: 2
