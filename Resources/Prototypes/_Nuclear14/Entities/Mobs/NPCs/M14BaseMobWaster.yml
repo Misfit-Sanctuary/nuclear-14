@@ -46,7 +46,7 @@
     - type: InputMover
     - type: MobMover
     - type: SurgeryTarget
-      canOperate: true
+      canOperate: false #Wassuy changes, cannot farm organs and limbs from them aswell, are you a fucking psycho?!
     - type: ProximityNPC # Misfits Add — sleep distant NPCs to reduce tick load
     - type: NPCRetaliation # Aggro on the attacker when damaged from any range
     - type: HTN
