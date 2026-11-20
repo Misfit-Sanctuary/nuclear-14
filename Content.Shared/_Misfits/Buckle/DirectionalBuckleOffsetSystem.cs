@@ -11,7 +11,26 @@ public sealed partial class DirectionalBuckleOffsetSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private ILogManager _logManager = default!;
     [Dependency] private SharedBuckleSystem _buckle = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
     private ISawmill _sawmill = default!;
+
+    private static readonly float Diagonal = MathF.Sqrt(2);
+
+    public static readonly Vector2[] RotMult =
+        [new(1,1), new(2, 1),
+        new(-1,1), new(-1, 2) ,
+        new(-1,-1),new(2, -1),
+        new(1,-1), new(1, 2)];
+
+    // var dx = cos * vec.X - sin * vec.Y;
+    // vec.X = (dx+sin*Y)/cos
+    // var dy = sin * vec.X + cos * vec.Y;
+    private static Vector2 Offset(Vector2 offset, int index)
+    {
+        var x = offset.X * RotMult[index].X + offset.X * RotMult[index].Y;
+        var y = offset.Y * RotMult[index].X + offset.Y * RotMult[index].Y;
+        return new Vector2(x, y);
+    }
     public override void Initialize()
     {
         base.Initialize();
@@ -20,10 +39,29 @@ public sealed partial class DirectionalBuckleOffsetSystem : EntitySystem
         SubscribeLocalEvent<DirectionalBuckleOffsetComponent, UnstrappedEvent>(OnUnstrapped);
         SubscribeLocalEvent<DirectionalBuckleOffsetComponent, StrappedEvent>(OnStrapped);
         SubscribeLocalEvent<DirectionalBuckleOffsetComponent, BuckleOffsetOverride>(OnBuckleOffsetOverride);
+        SubscribeLocalEvent<DirectionalBuckleOffsetComponent, MoveEvent>(OnMove);
 
     }
 
-    private const int NumDirections = 7;
+    private void OnMove(Entity<DirectionalBuckleOffsetComponent> ent, ref MoveEvent ev)
+    {
+        if (ev.OldRotation == ev.NewRotation)
+            return;
+        var dir = (int) ev.NewRotation.GetDir();
+        var entList = ent.Comp.BuckleOffsetSlots;
+
+        for (int i = 0; i < entList.Count; i++)
+        {
+            if (entList[i] == EntityUid.Invalid)
+                continue;
+            var offset = ent.Comp.Offsets[i, dir];
+            //_xform.SetCoordinates()
+            _xform.SetLocalPosition(entList[i], offset);
+        }
+
+    }
+
+    private const int NumDirections = 8;
     /// <summary>
     /// Init procedure where we fill out arrays Offsets and BuckleOffsetSlots
     /// </summary>
@@ -46,7 +84,8 @@ public sealed partial class DirectionalBuckleOffsetSystem : EntitySystem
             {
                 if (comp.YamlOffsets[i].TryGetValue((Direction)j, out var pos))
                 {
-                    comp.Offsets[i, j] = pos;
+
+                    comp.Offsets[i, j] = pos*RotMult[j];
                     continue;
                 }
 
@@ -66,16 +105,17 @@ public sealed partial class DirectionalBuckleOffsetSystem : EntitySystem
     {
         if (!_timing.IsFirstTimePredicted || _timing.ApplyingState)
             return;
-        for (var i = 0; i < ent.Comp.BuckleOffsetSlots.Count; i++)
-            if (ent.Comp.BuckleOffsetSlots[i] == EntityUid.Invalid)
-            {
-                ent.Comp.BuckleOffsetSlots[i] = ev.Buckle.Owner;
-                var offset = ent.Comp.Offsets[i, (int) ev.Rotation.GetDir()];
-                ev.RelativeOffset = offset;
-                Dirty(ent, ent.Comp);
-                return;
-            }
-        // this is possible since max amount of entities on a strap can be higher than supplied offsets
+        var entList = ent.Comp.BuckleOffsetSlots;
+        // gets earliest free index. Treat invaild as "empty"
+        var index = entList.IndexOf(EntityUid.Invalid);
+
+        // not an error if this happens. amount of entities a strap supports vs direction offset slots are different
+        if (index == -1)
+            return;
+
+        entList[index] = ev.Buckle.Owner;
+        Dirty(ent, ent.Comp);
+
     }
     /// <summary>
     /// We remove entity from the buckleOffsetSlot, replacing it with invalid entity
@@ -87,15 +127,17 @@ public sealed partial class DirectionalBuckleOffsetSystem : EntitySystem
     {
         if (!_timing.IsFirstTimePredicted || _timing.ApplyingState)
             return;
-        DebugTools.Assert(ent.Comp.BuckleOffsetSlots.Contains(ev.Buckle.Owner));
-        for (var i = 0; i < ent.Comp.BuckleOffsetSlots.Count; i++)
-            if ( ent.Comp.BuckleOffsetSlots[i] == ev.Buckle.Owner)
-            {
-                ent.Comp.BuckleOffsetSlots[i] = EntityUid.Invalid;
-                Dirty(ent, ent.Comp);
-                return;
-            }
-        _sawmill.Error($"Entity {MetaData(ev.Buckle.Owner).EntityName} could not be found in strap. Shouldnt be possible when unstrapped called");
+
+        var entList = ent.Comp.BuckleOffsetSlots;
+        var index = entList.IndexOf(ev.Buckle.Owner);
+        if (index == -1)
+        {
+            _sawmill.Error($"Entity {MetaData(ev.Buckle.Owner).EntityName} could not be found in strap. Shouldnt be possible");
+            return;
+        }
+
+        entList[index] = EntityUid.Invalid;
+        Dirty(ent, ent.Comp);
     }
     /// <summary>
     /// We offset the entity by the direction it is facing and what slot it occupies currently
@@ -107,18 +149,17 @@ public sealed partial class DirectionalBuckleOffsetSystem : EntitySystem
     {
         if (ev.Handled)
             return;
-        var dir = ev.Xform.LocalRotation.GetDir();
-        var count = ent.Comp.BuckleOffsetSlots.Count;
-        for (var i = 0; i < count; i++)
+        var entList = ent.Comp.BuckleOffsetSlots;
+        var index = entList.IndexOf(ev.Buckle.Owner);
+        if (index == -1)
         {
-            if (ent.Comp.BuckleOffsetSlots[i] != ev.Buckle.Owner)
-                continue;
-
-            var offset = ent.Comp.Offsets[i, (int) dir];
-            _buckle.BuckleTransformCheck(ev.Buckle, ev.Strap, ev.Xform, offset);
-            ev.Handled = true;
+            _sawmill.Error($"Entity {MetaData(ev.Buckle.Owner).EntityName} could not be found in strap. Shouldnt be possible");
             return;
         }
-        _sawmill.Error($"Entity {MetaData(ev.Buckle.Owner).EntityName} could not be found in strap. Shouldnt be possible");
+
+        var dir = (int) Transform(ev.Strap).LocalRotation.GetDir();
+        var offset = ent.Comp.Offsets[index, dir];
+        _buckle.BuckleTransformCheck(ev.Buckle, ev.Strap, ev.Xform, offset);
+        ev.Handled = true;
     }
 }

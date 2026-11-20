@@ -10,7 +10,7 @@
     openSlots:
       - outerClothing
       - back
-  - type: Vehicle # for some reason this is the only comp that forces it to take just one hand.
+#  - type: Vehicle # for some reason this is the only comp that forces it to take just one hand.
 #    renderOver: South
 #    overlayPrototype: MisfitsMountRiderOverlay
   - type: Sprite
@@ -41,6 +41,7 @@
   - type: Stamina
     critThreshold: 200
   - type: Strap
+    lockToBuckleOffset: true
     # #Misfits Change - brahdo riding now requires the shared riding perk instead of any humanoid.
     whitelist:
       requireAll: true
@@ -63,7 +64,7 @@
         volume: 20 # It's normal
   - type: DirectionalBuckleOffset
     offsets:
-    - { North: "0, 0.1", South: "0, .4", East: "-0.15, 0.05" , West: "0.15, 0" }
+    - { North: "0.5, 0.5", South: "0.5, .5", East: "0.5, 0.5" , West: "0.5, 0.5", SouthEast: "0.5, 0.5", SouthWest: "0.5, 0.5", NorthWest: "0.5, 0.5", NorthEast: "0.5, 0.5"}
   - type: Mountable
 #    riderOffset: 0, 0.45
 #    directionOffsets:
@@ -156,7 +157,6 @@
     - Latin
     - Tribal
     - Sign
-
 - type: entity
   parent: MisfitsMobBrahdo_Base
   id: MisfitsMobBrahdo_Standard

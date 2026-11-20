@@ -11,7 +11,7 @@ public sealed partial class DirectionalBuckleOffsetComponent : Component
 
     [DataField(tag: "offsets", required: true)]
     public Dictionary<Direction, Vector2>[] YamlOffsets = [];
-
+    [ViewVariables(VVAccess.ReadOnly)]
     public Vector2[,] Offsets = default!;
 
     [DataField,AutoNetworkedField]

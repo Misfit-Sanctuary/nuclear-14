@@ -9,16 +9,16 @@ using Robust.Shared.GameStates;
 
 namespace Content.Client.Buckle;
 
-internal sealed class BuckleSystem : SharedBuckleSystem
+internal sealed partial class BuckleSystem : SharedBuckleSystem
 {
-    [Dependency] private readonly RotationVisualizerSystem _rotationVisualizerSystem = default!;
+    [Dependency] private RotationVisualizerSystem _rotationVisualizerSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<BuckleComponent, AppearanceChangeEvent>(OnAppearanceChange);
-        SubscribeLocalEvent<StrapComponent, MoveEvent>(OnStrapMoveEvent);
+        //SubscribeLocalEvent<StrapComponent, MoveEvent>(OnStrapMoveEvent);
         //SubscribeLocalEvent<BuckleComponent, BuckledEvent>(OnBuckledEvent);
         //SubscribeLocalEvent<BuckleComponent, UnbuckledEvent>(OnUnbuckledEvent);
         SubscribeLocalEvent<BuckleComponent, AttemptMobCollideEvent>(OnMobCollide);

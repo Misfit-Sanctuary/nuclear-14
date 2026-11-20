@@ -9,6 +9,11 @@ public sealed partial class OverlayComponent : Component
     [AutoNetworkedField]
     public EntityUid OverlayEntity = EntityUid.Invalid;
 
+    [AutoNetworkedField]
+    public bool Equipped = false;
+
+    [AutoNetworkedField]
+    public bool Base = true;
 
 }
 [Serializable, NetSerializable]
