@@ -90,6 +90,11 @@ public sealed partial class MisfitsEventComponent : Component
     [ViewVariables]
     public string? BriefingText;
 
+    // Names of the bodies that took this run's roles, keyed by the role key the spawner declares.
+    // A role briefing's $tokens are filled from here, e.g. the ranger's warrant naming the criminal.
+    [ViewVariables]
+    public Dictionary<string, string> RoleNames = new();
+
     // Optional locale string announced to everyone when it starts.
     [DataField]
     public string? Announcement;

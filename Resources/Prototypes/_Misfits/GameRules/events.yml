@@ -200,6 +200,7 @@
     spawnRadius: 8
     clusterRadius: 4
     announcement: misfits-event-raiders
+    briefing: MisfitsRaiderMotive # one motive per raid, shared by every raider
     specialSpawns:
     - id: MisfitsSpawnPointGhostRaider
       weight: 1

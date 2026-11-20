@@ -1,7 +1,10 @@
 // #Misfits Add - Ghost roles where the ghost picks which body they take.
 using System.Linq;
+using System.Text;
+using Content.Server._Misfits.Events;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
+using Content.Server.Clothing.Systems;
 using Content.Server.EUI;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
@@ -11,6 +14,7 @@ using Content.Server.Paper;
 using Content.Server.Preferences.Managers;
 using Content.Server.Station.Systems;
 using Content.Shared._Misfits.Ghost.Roles;
+using Content.Shared.Dataset;
 using Content.Shared.Ghost;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Inventory;
@@ -42,6 +46,9 @@ public sealed class MisfitsGhostRoleCharacterPickerSystem : EntitySystem
     [Dependency] private readonly PaperSystem _paper = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly LoadoutSystem _loadouts = default!;
+    [Dependency] private readonly MisfitsEventSystem _events = default!;
 
     // Picker reserving each spawner, so it can be closed on timeout or when the player leaves ghost.
     private readonly Dictionary<EntityUid, MisfitsGhostRoleCharacterPickerEui> _openPickers = new();
@@ -188,11 +195,27 @@ public sealed class MisfitsGhostRoleCharacterPickerSystem : EntitySystem
         var mob = _spawning.SpawnPlayerMob(Transform(uid).Coordinates, null, profile, null);
         _transform.AttachToGridOrMap(mob);
 
-        // Dress the body from YAML before the ghost takes it.
-        if (component.Gear is { } gear)
-            _spawning.EquipStartingGear(mob, gear);
+        // Dress the body from YAML before the ghost takes it; a role that lists several kits rolls one per body.
+        if (component.Gear.Count > 0)
+            _spawning.EquipStartingGear(mob, _random.Pick(component.Gear));
+
+        // #Misfits Add - a job role arrives in that job's own kit, with its job's specials (faction, abilities, traits),
+        // then in whatever the player picked in the customize menu.
+        if (component.Job is { } jobId)
+        {
+            if (_prototypes.TryIndex<JobPrototype>(jobId, out var job))
+            {
+                if (job.StartingGear is { } jobGear)
+                    _spawning.EquipStartingGear(mob, jobGear);
+
+                _spawning.ApplyJobSpecials(mob, job);
+            }
+
+            _loadouts.ApplyEventLoadout(mob, jobId, profile, player);
+        }
 
         // #Misfits Add - event roles arrive in their own faction, with whatever abilities the role gives them.
+        // Last, so a role's own components win over anything its job set.
         EntityManager.AddComponents(mob, component.AddComponents);
 
         // A team role arrives with its net, so a body taken later still finds the rest of the crew.
@@ -210,12 +233,18 @@ public sealed class MisfitsGhostRoleCharacterPickerSystem : EntitySystem
         if (fromLobby)
             _ghostRoles.JoinRoundFromLobby(player);
 
-        // #Misfits Add - the running event's briefing, e.g. the crime this role is wanted for, goes to the taker.
-        if (component.Briefing is { } briefing)
-            _chat.DispatchServerMessage(player, briefing);
+        // #Misfits Add - the run files this body's name, so a later role's briefing can name it, e.g. the ranger's warrant.
+        if (component.RoleKey is { } roleKey && component.Rule is { } rule && Exists(rule))
+            RaiseLocalEvent(rule, new MisfitsEventRoleTakenEvent(roleKey, MetaData(mob).EntityName));
+
+        // #Misfits Add - the role's own line and the run's briefing, e.g. the crime this role is wanted for.
+        var briefing = ResolveBriefing(component);
+
+        if (briefing is { } text)
+            _chat.DispatchServerMessage(player, text);
 
         if (component.Objective is { } objective)
-            GiveObjective(mob, objective, DescribeObjective(component, component.Briefing));
+            GiveObjective(mob, objective, DescribeObjective(component, briefing));
 
         // The spawner is a one-shot marker: removing it unregisters the role.
         QueueDel(uid);
@@ -246,6 +275,65 @@ public sealed class MisfitsGhostRoleCharacterPickerSystem : EntitySystem
             _metaData.SetEntityDescription(objective, text);
 
         _minds.AddObjective(mindId, mind, objective);
+    }
+
+    // The role's own line first, then the run's shared briefing; null when the role has neither.
+    private string? ResolveBriefing(MisfitsGhostRoleCharacterPickerComponent component)
+    {
+        var own = OwnBriefing(component);
+        var run = FillTokens(component.RunBriefing, component.Rule);
+
+        if (own == null)
+            return run;
+
+        return run == null ? own : $"{own}\n\n{run}";
+    }
+
+    // One line from the role's own dataset, already filled in; null when it has none or its token is not known yet.
+    private string? OwnBriefing(MisfitsGhostRoleCharacterPickerComponent component)
+    {
+        if (component.Briefing is not { } id ||
+            !_prototypes.TryIndex<LocalizedDatasetPrototype>(id, out var dataset) ||
+            dataset.Values.Count == 0)
+        {
+            return null;
+        }
+
+        return FillTokens(Loc.GetString(_random.Pick(dataset.Values)), component.Rule);
+    }
+
+    // Replaces $tokens with what the run knows, e.g. $criminal with the name of the body that took that role.
+    // Null when the line needs a token the run cannot fill, so the line is dropped rather than shown half-written.
+    private string? FillTokens(string? text, EntityUid? rule)
+    {
+        if (text == null || !text.Contains('$'))
+            return text;
+
+        if (rule is not { } owner)
+            return null;
+
+        var filled = new StringBuilder(text.Length);
+        for (var i = 0; i < text.Length; i++)
+        {
+            if (text[i] != '$')
+            {
+                filled.Append(text[i]);
+                continue;
+            }
+
+            var start = i + 1;
+            var end = start;
+            while (end < text.Length && (char.IsLetterOrDigit(text[end]) || text[end] == '_'))
+                end++;
+
+            if (end == start || !_events.TryGetRoleName(owner, text[start..end], out var name))
+                return null;
+
+            filled.Append(name);
+            i = end - 1;
+        }
+
+        return filled.ToString();
     }
 
     // The role's own objective text, with the run's briefing underneath it.
@@ -357,9 +445,14 @@ public sealed partial class MisfitsGhostRoleCharacterPickerComponent : Component
     [DataField]
     public bool AllowRandom = true;
 
-    // startingGear prototype the spawned body is dressed with; see the startingGear entries.
+    // startingGear prototypes one of which the spawned body is dressed with at random, so a role that spawns as a
+    // crowd can vary its kits by listing more than one; see the startingGear entries.
     [DataField]
-    public ProtoId<StartingGearPrototype>? Gear;
+    public List<ProtoId<StartingGearPrototype>> Gear = new();
+
+    // Job whose kit the role arrives in, and whose loadouts the player picked in the customize menu.
+    [DataField]
+    public ProtoId<JobPrototype>? Job;
 
     // Components put on the spawned body, e.g. the role's faction or an ability only it has.
     [DataField]
@@ -381,9 +474,23 @@ public sealed partial class MisfitsGhostRoleCharacterPickerComponent : Component
     [DataField]
     public string? ObjectiveDescription;
 
-    // Text the running event rolled for this role, e.g. the crime the law event is about; null for none.
+    // Dataset rolled for this role alone, shown before the run's briefing, e.g. the ranger's warrant. Its $tokens are
+    // filled with what the run knows, e.g. $criminal with the name of the body that took the role declaring
+    // roleKey: criminal.
+    [DataField]
+    public ProtoId<LocalizedDatasetPrototype>? Briefing;
+
+    // Key this role is filed under once taken, so another role's briefing can name its body; e.g. "criminal".
+    [DataField]
+    public string? RoleKey;
+
+    // The run's own briefing line, stamped when the event spawns this role; shown under the role's own line.
     [ViewVariables]
-    public string? Briefing;
+    public string? RunBriefing;
+
+    // The running event that placed this role; null when it was placed by hand. Needed to look tokens up.
+    [ViewVariables]
+    public EntityUid? Rule;
 
 
     // How long a picker may hold the role before it is offered again.

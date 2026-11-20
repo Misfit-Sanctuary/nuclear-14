@@ -200,6 +200,12 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         if (!_prototypeManager.TryIndex(job?.Prototype ?? string.Empty, out JobPrototype? prototype))
             return;
 
+        ApplyJobSpecials(entity, prototype);
+    }
+
+    // #Misfits Add - a ghost-role body never carries a station job, so its job's specials are applied directly.
+    public void ApplyJobSpecials(EntityUid entity, JobPrototype prototype)
+    {
         foreach (var jobSpecial in prototype.Special)
             jobSpecial.AfterEquip(entity);
     }

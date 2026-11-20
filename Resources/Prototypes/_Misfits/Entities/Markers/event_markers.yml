@@ -45,7 +45,7 @@
   - type: MisfitsGhostRoleCharacterPicker
     allowedSpecies: [ Ghoul ]
     allowRandom: true
-    gear: MisfitsGhoulHordeGear
+    gear: [ MisfitsGhoulHordeGear ]
     # One of the horde, not meat for it: the feral ghouls' own faction, and a shout to send them in.
     addComponents:
     - type: NpcFactionMember
@@ -81,7 +81,13 @@
   - type: MisfitsGhostRoleCharacterPicker
     allowedSpecies: [ Human, Ghoul, GhoulGlowing ]
     radioTeam: raiders
-    gear: MisfitsRaiderGear
+    # The motive is rolled once by the event, so the whole crew shares it.
+    # One of these at random per raider, so a raid is not four identical kits.
+    gear:
+    - MisfitsRaiderGear
+    - MisfitsRaiderGearShotgun
+    - MisfitsRaiderGearPistol
+    - MisfitsRaiderGearScrap
     objective: misfits-objective-raider
     objectiveDescription: misfits-objective-raider-desc
   - type: GhostRole
@@ -100,7 +106,7 @@
     visible: false
   - type: MisfitsGhostRoleCharacterPicker
     allowedSpecies: [ Human, Ghoul, GhoulGlowing ]
-    gear: MisfitsLegionSlaveGear
+    gear: [ MisfitsLegionSlaveGear ]
     objective: misfits-objective-slave
     objectiveDescription: misfits-objective-slave-desc
   - type: GhostRole
@@ -120,7 +126,7 @@
   - type: MisfitsGhostRoleCharacterPicker
     allowedSpecies: [ Human, Ghoul, GhoulGlowing ]
     radioTeam: legion
-    gear: MisfitsLegionHunterGear
+    gear: [ MisfitsLegionHunterGear ]
     objective: misfits-objective-hunter
     objectiveDescription: misfits-objective-hunter-desc
   - type: GhostRole
@@ -139,7 +145,9 @@
     visible: false
   - type: MisfitsGhostRoleCharacterPicker
     allowedSpecies: [ Human, Ghoul, GhoulGlowing ]
-    gear: MisfitsCriminalGear
+    gear: [ MisfitsCriminalGear ]
+    # The run remembers whoever takes this role as $criminal for the ranger's warrant.
+    roleKey: criminal
     objective: misfits-objective-criminal
     objectiveDescription: misfits-objective-criminal-desc
   - type: GhostRole
@@ -158,7 +166,10 @@
     visible: false
   - type: MisfitsGhostRoleCharacterPicker
     allowedSpecies: [ Human, Ghoul ]
-    gear: MisfitsRangerGear
+    # The ranger's own job kit and the loadout items they picked for it in the customize menu.
+    job: NCRRangerStandard
+    # A warrant naming $criminal, shown above the run's shared crime.
+    briefing: MisfitsNcrRangerWarrant
     objective: misfits-objective-ranger
     objectiveDescription: misfits-objective-ranger-desc
   - type: GhostRole
@@ -178,7 +189,7 @@
   - type: MisfitsGhostRoleCharacterPicker
     allowedSpecies: [ Human, Ghoul, GhoulGlowing ]
     radioTeam: caravan
-    gear: MisfitsTraderGear
+    gear: [ MisfitsTraderGear ]
     objective: misfits-objective-trader
     objectiveDescription: misfits-objective-trader-desc
   - type: GhostRole
@@ -198,7 +209,7 @@
   - type: MisfitsGhostRoleCharacterPicker
     allowedSpecies: [ Human, Ghoul, GhoulGlowing ]
     radioTeam: caravan
-    gear: MisfitsCaravanGuardGear
+    gear: [ MisfitsCaravanGuardGear ]
     objective: misfits-objective-caravan-guard
     objectiveDescription: misfits-objective-caravan-guard-desc
   - type: GhostRole
@@ -308,6 +319,7 @@
 # --- Gear for the event ghost roles above. ---
 
 # Raider: the WhiteLegs raider kit, minus their tribal uniform, so the role stays generic wasteland.
+# The other three are the rest of the pool the raider event rolls from; same slot layout, different kit.
 - type: startingGear
   id: MisfitsRaiderGear
   equipment:
@@ -329,6 +341,75 @@
     belt:
     - Magazine45SubMachineGun
     - Magazine45SubMachineGun
+
+# Raider with a shotgun and a scavenged nightstalker hood.
+- type: startingGear
+  id: MisfitsRaiderGearShotgun
+  equipment:
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformDesertPants
+    outerClothing: N14ClothingOuterRaiderCombat2
+    shoes: N14ClothingShoesRaider
+    mask: N14ClothingMaskBrownMask
+    head: N14ClothingHeadHatNightstalker
+    ears: MisfitsClothingHeadsetWastelandScrap
+    gloves: N14ClothingHandsGlovesLeather
+    back: N14ClothingBackpackMilitary
+    belt: ClothingBeltMilitary
+  inhand:
+  - N14WeaponShotgun
+  storage:
+    back:
+    - N14BoxPlasticFilledWastelander
+    - RadioHandheld
+    - N14ShellShotgun12
+    - N14ShellShotgun12
+
+# Raider in badlands armor with a 9mm, masking up against the dust.
+- type: startingGear
+  id: MisfitsRaiderGearPistol
+  equipment:
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitWastelandDoc
+    outerClothing: N14ClothingOuterRaiderBadlands
+    shoes: N14ClothingShoesBrown
+    mask: N14ClothingMaskRedMask
+    head: ClothingHeadHatWelding
+    ears: MisfitsClothingHeadsetWastelandScrap
+    gloves: N14ClothingHandsGlovesLeather
+    back: N14ClothingBackpackTrekker
+    belt: N14ClothingBeltLeatherPouches
+  inhand:
+  - N14WeaponPistol9mm
+  storage:
+    back:
+    - N14BoxPlasticFilledWastelander
+    - RadioHandheld
+    - N14MagazinePistol9mm
+    - N14MagazinePistol9mm
+
+# Raider in homemade metal armor with a 10mm SMG and a cowboy hat.
+- type: startingGear
+  id: MisfitsRaiderGearScrap
+  equipment:
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
+    outerClothing: N14ClothingOuterLightMetalArmor
+    shoes: N14ClothingShoesRaider
+    mask: N14ClothingMaskBrownMask
+    head: N14ClothingHeadHatCowboyBrown
+    ears: MisfitsClothingHeadsetWastelandScrap
+    gloves: N14ClothingHandsGlovesLeather
+    back: N14ClothingBackpackMilitary
+    belt: ClothingBeltMilitary
+  inhand:
+  - N14WeaponSMG10mm
+  storage:
+    back:
+    - N14BoxPlasticFilledWastelander
+    - RadioHandheld
+    - N14MagazineSMG10mm
+    - N14MagazineSMG10mm
 
 # Escaped slave: the Legion slave kit, collar and all, plus whatever they grabbed on the way out.
 - type: startingGear
@@ -393,28 +474,6 @@
     - N14BoxPlasticFilledWastelander
     - N14AmmoBox22lr
     - N14CurrencyPrewarMoney100
-
-# Ranger: the NCR patrol ranger kit, keeping the belt revolver and dropping the faction badge.
-- type: startingGear
-  id: MisfitsRangerGear
-  equipment:
-    wallet: N14Wallet
-    head: N14ClothingHeadHatNCRPatrolRangerCampaign
-    eyes: ClothingEyesGlassesSunglasses
-    jumpsuit: N14ClothingUniformNCRPatrolRanger
-    shoes: N14ClothingBootsLeather
-    outerClothing: N14ClothingOuterNCRPatrolRangerArmorVariant
-    gloves: N14ClothingHandsGlovesBlackLeather
-    ears: MisfitsClothingHeadsetNCRRanger
-    belt: ClothingBeltRevolverdesertfilled
-    back: N14ClothingBackpackMilitary
-    pocket1: N14Stimpak
-    pocket2: N14Bandage
-  storage:
-    back:
-    - N14BoxPlasticFilledMilitary
-    - FlashlightSeclite
-    - N14Binoculars
 
 # Trader: the waster trader kit. The dogtags are what opens the caravan machine, so no flatpack.
 # The caravan key travels in the backpack: in the wagon's lock, it lets the wagon be hauled.

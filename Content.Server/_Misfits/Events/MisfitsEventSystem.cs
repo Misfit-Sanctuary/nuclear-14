@@ -55,6 +55,33 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
         public string? Announcement;
     }
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<MisfitsEventComponent, MisfitsEventRoleTakenEvent>(OnRoleTaken);
+    }
+
+    // A taken role's body is filed under its role key, so a later role's briefing can name it.
+    private void OnRoleTaken(EntityUid uid, MisfitsEventComponent component, MisfitsEventRoleTakenEvent args)
+    {
+        component.RoleNames[args.Key] = args.Name;
+    }
+
+    // What the run knows for a briefing token, e.g. the body that took the role with that key.
+    public bool TryGetRoleName(EntityUid rule, string key, out string name)
+    {
+        if (TryComp<MisfitsEventComponent>(rule, out var component) &&
+            component.RoleNames.TryGetValue(key, out var known))
+        {
+            name = known;
+            return true;
+        }
+
+        name = string.Empty;
+        return false;
+    }
+
     #region Pool
 
     public bool IsEventDisabled(string eventId)
@@ -209,6 +236,7 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
         component.SpawnedAt = null;
         component.LastSpawnLocation = null;
         component.LastFailure = null;
+        component.RoleNames.Clear();
 
         if (component.Announcement is { } announcement)
             Announce(announcement);
@@ -251,9 +279,9 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
         component.BriefingText = RollBriefing(component);
 
         var spawned = SpawnEntries(spawns, component.CountMin, component.CountMax, spawnAround, scatter,
-            component);
+            uid, component);
         var specialSpawned = SpawnEntries(specials, component.SpecialCountMin, component.SpecialCountMax,
-            spawnAround, scatter, component);
+            spawnAround, scatter, uid, component);
 
         component.LastSpawnedCount = spawned + specialSpawned;
         component.LastSpawnLocation = location;
@@ -321,7 +349,7 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
 
     // Spawns countMin..countMax weighted picks from entries around a point.
     private int SpawnEntries(List<MisfitsEventSpawnEntry> entries, int countMin, int countMax,
-        MapCoordinates around, float radius, MisfitsEventComponent? frequencies = null)
+        MapCoordinates around, float radius, EntityUid rule, MisfitsEventComponent? component = null)
     {
         if (entries.Count == 0)
             return 0;
@@ -345,7 +373,7 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
                     break;
 
                 var spawnedEntity = Spawn(spawn.Id, coords);
-                ApplyRoleData(spawnedEntity, frequencies);
+                ApplyRoleData(spawnedEntity, rule, component);
                 spawned++;
             }
 
@@ -419,7 +447,7 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
                 continue;
 
             var spawned = SpawnEntries(wave.Spawns, wave.CountMin, wave.CountMax, wave.Around, wave.Radius,
-                component);
+                uid, component);
             component.LastSpawnedCount += spawned;
 
             if (wave.Announcement is { } line)
@@ -504,8 +532,9 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
         }
     }
 
-    // Stamps the rolled frequency and the run's briefing on a spawner, so its picker knows what to hand out.
-    private void ApplyRoleData(EntityUid uid, MisfitsEventComponent? component)
+    // Stamps the rolled frequency, the run's briefing and the run itself on a spawner, so its picker knows what to
+    // hand out and which run to file a taken body's name under.
+    private void ApplyRoleData(EntityUid uid, EntityUid rule, MisfitsEventComponent? component)
     {
         if (component == null || !TryComp<MisfitsGhostRoleCharacterPickerComponent>(uid, out var picker))
             return;
@@ -513,7 +542,8 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
         if (picker.RadioTeam is { } team && component.TeamFrequencies.TryGetValue(team, out var frequency))
             picker.Frequency = frequency;
 
-        picker.Briefing = component.BriefingText;
+        picker.Rule = rule;
+        picker.RunBriefing = component.BriefingText;
     }
 
     // One line from the event's briefing dataset, or null when it has none.
@@ -686,3 +716,16 @@ public sealed class MisfitsEventSystem : GameRuleSystem<MisfitsEventComponent>
 
 // Outcome of one run: where it spawned (null when it failed), how many, and why not.
 public readonly record struct MisfitsLastRun(MapCoordinates? At, int Count, string? Failure, string? Location);
+
+// Raised on the running event when a player takes one of its roles, so the run can remember that body's name.
+public sealed class MisfitsEventRoleTakenEvent : EntityEventArgs
+{
+    public readonly string Key;
+    public readonly string Name;
+
+    public MisfitsEventRoleTakenEvent(string key, string name)
+    {
+        Key = key;
+        Name = name;
+    }
+}

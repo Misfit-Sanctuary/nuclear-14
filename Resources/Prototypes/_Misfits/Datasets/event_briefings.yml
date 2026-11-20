@@ -1,0 +1,15 @@
+# #Misfits Add - briefing lines: a run's shared line, or one a single role is told on top of it.
+# A token like $criminal is filled with the name of the body that took the role declaring roleKey: criminal;
+# if that role has not been taken yet the line is dropped rather than shown half-written.
+
+- type: localizedDataset
+  id: MisfitsRaiderMotive
+  values:
+    prefix: misfits-raider-motive-
+    count: 5
+
+- type: localizedDataset
+  id: MisfitsNcrRangerWarrant
+  values:
+    prefix: misfits-ncr-warrant-
+    count: 4

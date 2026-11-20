@@ -84,19 +84,33 @@ misfits-objective-criminal-desc = A Ranger is coming for you.
 misfits-objective-ranger = Bring the criminal to justice
 misfits-objective-ranger-desc = Find the wanted criminal and bring them in.
 
+# What a raider crew is after; rolled once per raid and shared by every raider.
+misfits-raider-motive-0 = Take what the town has and be gone before the dust settles.
+misfits-raider-motive-1 = The boss wants this place emptied. Coin, chems, anything that is not nailed down.
+misfits-raider-motive-2 = These settlers sold your crew out. Make them pay for it.
+misfits-raider-motive-3 = Somebody in town is sitting on a stash that should have been yours.
+misfits-raider-motive-4 = Prove you are worth your keep. Come back with loot.
+
+# The ranger's warrant; $criminal is the name of the body that took the criminal role this run.
+misfits-ncr-warrant-0 = A warrant is out on $criminal. Bring them in, alive if you can.
+misfits-ncr-warrant-1 = The Republic wants $criminal standing trial. That is the job.
+misfits-ncr-warrant-2 = $criminal was last seen in town. Do not let them slip away.
+misfits-ncr-warrant-3 = Track $criminal down and bring them back, in chains if you have to.
+
 # The charge rolled for the law event; the criminal and the ranger are both told this same line.
-misfits-ncr-crime-1 = Wanted by the NCR for murder.
-misfits-ncr-crime-2 = Wanted by the NCR for manslaughter.
-misfits-ncr-crime-3 = Wanted by the NCR for assault.
-misfits-ncr-crime-4 = Wanted by the NCR for armed robbery.
-misfits-ncr-crime-5 = Wanted by the NCR for theft.
-misfits-ncr-crime-6 = Wanted by the NCR for trafficking illegal chems.
-misfits-ncr-crime-7 = Wanted by the NCR for sabotaging NCR equipment.
-misfits-ncr-crime-8 = Wanted by the NCR for sedition.
-misfits-ncr-crime-9 = Wanted by the NCR for treason.
-misfits-ncr-crime-10 = Wanted by the NCR for cannibalism.
-misfits-ncr-crime-11 = Wanted by the NCR for desertion from the NCRA.
-misfits-ncr-crime-12 = Wanted by the NCR for hooliganism.
+misfits-ncr-crime-0 = Wanted by the NCR for murder.
+misfits-ncr-crime-1 = Wanted by the NCR for manslaughter.
+misfits-ncr-crime-2 = Wanted by the NCR for assault.
+misfits-ncr-crime-3 = Wanted by the NCR for armed robbery.
+misfits-ncr-crime-4 = Wanted by the NCR for theft.
+misfits-ncr-crime-5 = Wanted by the NCR for trafficking illegal chems.
+misfits-ncr-crime-6 = Wanted by the NCR for sabotaging NCR equipment.
+misfits-ncr-crime-7 = Wanted by the NCR for sedition.
+misfits-ncr-crime-8 = Wanted by the NCR for treason.
+misfits-ncr-crime-9 = Wanted by the NCR for cannibalism.
+misfits-ncr-crime-10 = Wanted by the NCR for desertion from the NCRA.
+misfits-ncr-crime-11 = Wanted by the NCR for hooliganism.
+misfits-ncr-crime-12 = Wanted by the NCR for Arson.
 misfits-objective-trader = Sell your stock
 misfits-objective-trader-desc = Keep the caravan in business.
 misfits-objective-caravan-guard = Protect the caravan

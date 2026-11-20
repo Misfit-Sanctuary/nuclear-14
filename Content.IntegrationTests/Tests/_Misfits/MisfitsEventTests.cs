@@ -17,6 +17,8 @@ using Content.Server.Speech.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._Misfits.Events;
 using Content.Shared._Misfits.Ghost.Roles;
+using Content.Shared._Misfits.MartialArts;
+using Content.Shared._Misfits.Mounts;
 using Content.Shared.Actions;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Dataset;
@@ -273,7 +275,7 @@ public sealed class MisfitsEventTests
                 "the law event does not roll a crime");
 
             var crimes = prototypes.Index<LocalizedDatasetPrototype>("MisfitsNcrCrimes");
-            Assert.That(crimes.Values, Has.Count.EqualTo(12), "the NCR crime dataset lost entries");
+            Assert.That(crimes.Values, Has.Count.EqualTo(13), "the NCR crime dataset lost entries");
             foreach (var crime in crimes.Values)
                 Assert.That(localisation.GetString(crime), Is.Not.Empty, $"{crime} has no text");
 
@@ -297,11 +299,89 @@ public sealed class MisfitsEventTests
             var query = entMan.EntityQueryEnumerator<MisfitsGhostRoleCharacterPickerComponent>();
             while (query.MoveNext(out _, out var picker))
             {
-                Assert.That(picker.Briefing, Is.EqualTo(briefing), "a role spawner was not told the crime");
+                Assert.That(picker.RunBriefing, Is.EqualTo(briefing), "a role spawner was not told the crime");
                 pickers++;
             }
 
             Assert.That(pickers, Is.GreaterThan(0), "the law event placed no role spawner");
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task LawRangerIsWarrantedOnTheTakenCriminal()
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true, Dirty = true });
+        var server = pair.Server;
+        var entMan = server.ResolveDependency<IEntityManager>();
+        var players = server.ResolveDependency<IPlayerManager>();
+        var testMap = await pair.CreateTestMap();
+
+        EntityUid rule = default;
+        EntityUid criminalSpawner = default;
+
+        await server.WaitPost(() =>
+        {
+            entMan.SpawnEntity("MisfitsEventAnchorTown", testMap.GridCoords);
+            rule = entMan.System<MisfitsEventSystem>().RunEvent("MisfitsLaw")!.Value;
+
+            var query = entMan.EntityQueryEnumerator<MisfitsGhostRoleCharacterPickerComponent>();
+            while (query.MoveNext(out var uid, out _))
+            {
+                if (entMan.GetComponent<MetaDataComponent>(uid).EntityPrototype?.ID == "MisfitsSpawnPointGhostCriminal")
+                    criminalSpawner = uid;
+            }
+        });
+
+        Assert.That(criminalSpawner, Is.Not.EqualTo(default(EntityUid)), "the law event placed no criminal");
+
+        await server.WaitPost(() =>
+        {
+            var session = players.Sessions.Single();
+            players.SetAttachedEntity(session, null);
+
+            Assert.That(entMan.System<MisfitsGhostRoleCharacterPickerSystem>().TrySpawn(session, criminalSpawner, -1),
+                Is.True, "the criminal role could not be taken");
+        });
+
+        var criminalName = string.Empty;
+
+        await server.WaitPost(() =>
+        {
+            var session = players.Sessions.Single();
+            criminalName = entMan.GetComponent<MetaDataComponent>(session.AttachedEntity!.Value).EntityName;
+
+            // The run files the body that took the role, which is what fills $criminal in the warrant.
+            Assert.That(entMan.System<MisfitsEventSystem>().TryGetRoleName(rule, "criminal", out var known), Is.True,
+                "the run did not record the criminal's name");
+            Assert.That(known, Is.EqualTo(criminalName));
+
+            // Back to a ghost for the second role; the event's wave would place this spawner on its own.
+            players.SetAttachedEntity(session, entMan.SpawnEntity("AdminObserver", testMap.GridCoords));
+
+            var rangerSpawner = entMan.SpawnEntity("MisfitsSpawnPointGhostRanger", testMap.GridCoords);
+            entMan.GetComponent<MisfitsGhostRoleCharacterPickerComponent>(rangerSpawner).Rule = rule;
+
+            Assert.That(entMan.System<MisfitsGhostRoleCharacterPickerSystem>().TrySpawn(session, rangerSpawner, -1),
+                Is.True, "the ranger role could not be taken");
+        });
+
+        await server.WaitPost(() =>
+        {
+            // The ranger's own warrant line should name the criminal the run remembered.
+            var named = false;
+            var query = entMan.EntityQueryEnumerator<MetaDataComponent>();
+            while (query.MoveNext(out _, out var meta))
+            {
+                if (meta.EntityPrototype?.ID == "LoreMasterCustomObjective" &&
+                    meta.EntityDescription?.Contains(criminalName) == true)
+                {
+                    named = true;
+                }
+            }
+
+            Assert.That(named, Is.True, $"no objective named {criminalName}, so the warrant never reached the ranger");
         });
 
         await pair.CleanReturnAsync();
@@ -359,10 +439,12 @@ public sealed class MisfitsEventTests
         string[] gearIds =
         [
             "MisfitsRaiderGear",
+            "MisfitsRaiderGearShotgun",
+            "MisfitsRaiderGearPistol",
+            "MisfitsRaiderGearScrap",
             "MisfitsLegionSlaveGear",
             "MisfitsLegionHunterGear",
             "MisfitsCriminalGear",
-            "MisfitsRangerGear",
             "MisfitsTraderGear",
             "MisfitsCaravanGuardGear",
         ];
@@ -387,6 +469,77 @@ public sealed class MisfitsEventTests
 
                 entMan.DeleteEntity(mob);
             }
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task RaiderKitsVaryAndTheRangerTakesItsJobKit()
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Dirty = true });
+        var server = pair.Server;
+        var prototypes = server.ResolveDependency<IPrototypeManager>();
+
+        await server.WaitPost(() =>
+        {
+            Assert.That(prototypes.Index<EntityPrototype>("MisfitsSpawnPointGhostRaider")
+                .TryGetComponent<MisfitsGhostRoleCharacterPickerComponent>(out var raider), Is.True,
+                "the raider spawner has no character picker");
+            Assert.That(raider!.Gear, Has.Count.GreaterThan(1), "every raider would spawn in the same kit");
+
+            foreach (var kit in raider.Gear)
+                Assert.That(prototypes.HasIndex(kit), Is.True, $"the raider pool lists a missing kit: {kit.Id}");
+
+            Assert.That(prototypes.Index<EntityPrototype>("MisfitsSpawnPointGhostRanger")
+                .TryGetComponent<MisfitsGhostRoleCharacterPickerComponent>(out var ranger), Is.True,
+                "the ranger spawner has no character picker");
+            Assert.That(ranger!.Job.HasValue, Is.True, "the ranger does not spawn in a job kit");
+
+            var job = prototypes.Index<JobPrototype>(ranger.Job.Value);
+            Assert.That(job.StartingGear, Is.Not.Null, "the ranger job has no kit to arrive in");
+        });
+
+        await pair.CleanReturnAsync();
+    }
+
+    [Test]
+    public async Task EventRangerArrivesWithTheJobSpecials()
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true, Dirty = true });
+        var server = pair.Server;
+        var entMan = server.ResolveDependency<IEntityManager>();
+        var players = server.ResolveDependency<IPlayerManager>();
+        var testMap = await pair.CreateTestMap();
+
+        EntityUid spawner = default;
+
+        await server.WaitPost(() =>
+        {
+            spawner = entMan.SpawnEntity("MisfitsSpawnPointGhostRanger", testMap.GridCoords);
+        });
+
+        await server.WaitPost(() =>
+        {
+            var session = players.Sessions.Single();
+            players.SetAttachedEntity(session, null);
+
+            Assert.That(entMan.System<MisfitsGhostRoleCharacterPickerSystem>().TrySpawn(session, spawner, -1),
+                Is.True, "the ranger role could not be taken");
+        });
+
+        await server.WaitPost(() =>
+        {
+            var body = players.Sessions.Single().AttachedEntity!.Value;
+
+            // The job's specials: its faction, its combat technique and its traits, not just its kit.
+            Assert.That(entMan.System<NpcFactionSystem>().ContainsFaction(body, "Rangers"), Is.True,
+                "the ranger spawned outside the Rangers faction");
+            Assert.That(entMan.TryGetComponent<MartialArtsKnowledgeComponent>(body, out var arts), Is.True,
+                "the ranger spawned without the job's combat technique");
+            Assert.That(arts!.MartialArtsForm, Is.EqualTo(MisfitsMartialArtsForms.RangerCombatTechnique));
+            Assert.That(entMan.HasComponent<RidingPerkComponent>(body), Is.True,
+                "the ranger spawned without the job's riding perk");
         });
 
         await pair.CleanReturnAsync();
