@@ -138,6 +138,10 @@
   parent: [N14MobRaiderBoss, N14MobMaterialExtractorRangedWaveBase]
 
 - type: entity
+  id: N14MobMaterialExtractorRaiderBossBetterWave
+  parent: [N14MobRaiderBossChineseRifle, N14MobMaterialExtractorRangedWaveBase]
+
+- type: entity
   id: N14MobMaterialExtractorRaiderBossStrongWave
   parent: [N14MobRaiderBossRifle, N14MobMaterialExtractorRangedWaveBase]
 
