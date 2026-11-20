@@ -23,21 +23,13 @@
     #- type: Destructible #Misfits Change /Add: Drop bottle caps on death (1-7) #wassuy this do not work, please someone fixit
     - type: PassiveDamage
       allowedStates:
-      - Critical # takes a bit to get out of crit, but if no one kills you and you don't lose all your blood, you live!
+      - Alive
       damageCap: 300 # makes it works with life giver
       damage:
-        types:          #wassuy changes, nerfed regen
-          Blunt: -0.3
-          Slash: -0.3
-          Piercing: -0.3
-          Heat: -0.3
-          Cold: -0.3
-          Shock: -0.3
-          Caustic: -0.3
+        types:          #wassuy changes, reverted regen to original regen, being alive regen but dont heal main damages.
           Asphyxiation: -1
-          Bloodloss: -3
-          Poison: -0.3
-          Radiation: -0.3
+          Bloodloss: -1
+          Poison: -1
     - type: MindContainer
       showExamineInfo: False
     - type: InputMover
@@ -60,7 +52,7 @@
         NavSmash: !type:Bool
           false
         VisionRadius: !type:Single #Wassuy added this so they detect you less
-          10.5
+          11
         MeleeRange: !type:Single
           1.5
       qualities:  #You cannot cheat junkies with stupid doors!

@@ -111,7 +111,7 @@
 
 - type: entity
   id: N14MobMaterialExtractorRaiderPistolWave
-  parent: [N14MobRaiderPsychoRanged, N14MobRaiderPsychoRanged9mm, N14MobRaiderPsychoRanged9mmChinese, N14MobRaiderPsychoRanged22lr, N14MobMaterialExtractorRangedWaveBase]
+  parent: [N14MobRaiderPsychoRanged, N14MobMaterialExtractorRangedWaveBase]
 
 - type: entity
   id: N14MobMaterialExtractorRaiderPistolStrongWave
@@ -119,7 +119,7 @@
 
 - type: entity
   id: N14MobMaterialExtractorRaiderSkirmisherWave
-  parent: [N14MobRaiderSkrimisher, N14MobRaiderSkrimishersawnoff, N14MobRaiderSkrimishershotgun, N14MobRaiderSkrimisherautoshotgun,N14MobMaterialExtractorRangedWaveBase]
+  parent: [N14MobRaiderSkrimisher, N14MobMaterialExtractorRangedWaveBase]
 
 - type: entity
   id: N14MobMaterialExtractorRaiderSkirmisherStrongWave

@@ -634,7 +634,7 @@
   description: Tribesmen armed with old rifles, they are former Swarmers promoted for competency. As one of the tribe's lieutenants, they have no vision for the future besides their next easy meal ticket.
   components:
     - type: Gun
-      minAngle: 6
+      minAngle: 4
       maxAngle: 28
       angleIncrease: 4
       angleDecay: 16
@@ -723,7 +723,7 @@
   description: Tribesmen armed with old rifles, they are former Swarmers promoted for competency. As one of the tribe's lieutenants, they have no vision for the future besides their next easy meal ticket.
   components:
     - type: Gun
-      minAngle: 4
+      minAngle: 2
       maxAngle: 28
       angleIncrease: 4
       angleDecay: 16
@@ -2587,3 +2587,7 @@
         visible: false
       - sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/bren.rsi
         state: inhand-right  # Only part we change, the gun sprite.
+
+#MARK: Extractor Locust Raider
+#locust should be the one raiding extractor only due to their lore.
+#nothing here... due to it being too complicated to add.
