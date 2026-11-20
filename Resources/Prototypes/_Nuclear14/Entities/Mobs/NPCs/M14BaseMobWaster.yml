@@ -26,7 +26,7 @@
       - Critical # takes a bit to get out of crit, but if no one kills you and you don't lose all your blood, you live!
       damageCap: 300 # makes it works with life giver
       damage:
-        types:          #wassuy changes, nerfed regen
+        types:          #Wassuy changes, nerfed regen
           Blunt: -0.5
           Slash: -0.5
           Piercing: -0.5
@@ -38,7 +38,7 @@
           Bloodloss: -5
           Poison: -0.5
           Radiation: -0.5
-    - type: Bloodstream
+    - type: Bloodstream #Wassuy changes, cannot farm blood from netural/friendly npcs
       bloodMaxVolume: 100
       bloodReagent: WastelandBlood
     - type: MindContainer
