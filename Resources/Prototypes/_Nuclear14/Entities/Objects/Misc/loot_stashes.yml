@@ -2,80 +2,947 @@
   name: little stash
   parent: BaseItem
   id: N14RaiderStash
-  description: A small tin hiding riches, treasures, or maybe just garbage. You'll only know when you open it.
+  description: A little tin stash alternate for backpacks, hiding riches, treasures, booby traps or maybe just garbage. You'll only know when you open it, or maybe don't if you have a bad luck.
   components:
   - type: Sprite
-    scale: 0.5, 0.5
+    scale: 0.75, 0.75
     sprite: _Nuclear14/Objects/Misc/currency.rsi
     state: moneypouch
   - type: Item
     size: Small
   - type: StaticPrice
-    price: 0
+    price: 50
   - type: SpawnItemsOnUse
     items:
+      - id: FlippoLighter
+        prob: 0.00005
+        amount: 0
+        maxAmount: 2
+        orGroup: StashLighter1
+      - id: CheapLighter
+        prob: 0.0001
+        amount: 0
+        maxAmount: 2
+        orGroup: StashLighter1
+      - id: Lighter
+        prob: 0.0001
+        amount: 0
+        maxAmount: 2
+        orGroup: StashLighter1
+      - id: M14DrinkDirtyWaterBottleFull
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashLighter1
+      - id: N14CigaretteMarlboro
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCig1
+      - id: N14CigaretteWinston
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCig1
+      - id: N14CigaretteRepublic
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCig1
+      - id: N14CigaretteSalem
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCig1
+      - id: N14CigaretteLuckyStrike  #feelin' lucky
+        prob: 0.001
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCig1
+      - id: N14CigaretteKool
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCig1
+      - id: N14CigaretteRollie
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCig1
+      - id: N14Cigarette # Our dudes should have smoking problem.
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCig1
       - id: N14CurrencyCap # Our dudes should carry some money.
-        prob: 0.6
-        orGroup: StashCash
+        prob: 0.75
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCash1
       - id: N14CurrencyCap10
-        prob: 0.3
-        orGroup: StashCash
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCash1
+      - id: N14CurrencyPrewar
+        prob: 0.75
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCash1
+      - id: N14CurrencyPrewarMoney10
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCash1
+      - id: N14CurrencyNCRDollar
+        prob: 0.75
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCash1
+      - id: N14CurrencyNCRDollar10
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCash1
       - id: N14DirtyGauze1 # Let's also give them some medicine or chems.
         prob: 0.25
-        orGroup: StashMeds
-      - id: N14Ointment1
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
+      - id: MisfitsHealingSalve
+        prob: 0.135
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
+      - id: MisfitsMakeshiftRepairPatch
+        prob: 0.135
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
+      - id: MisfitsSnakebiteTourniquet
         prob: 0.1375
-        orGroup: StashMeds
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
+      - id: N14Ointment1
+        prob: 0.135
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
       - id: N14CleanGauze1
         prob: 0.125
-        orGroup: StashMeds
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
       - id: N14Jet
         prob: 0.05
-        orGroup: StashMeds
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
       - id: N14Turbo
         prob: 0.05
-        orGroup: StashMeds
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
       - id: N14Psycho
         prob: 0.05
-        orGroup: StashMeds
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
       - id: N14RadAwayBloodbag
         prob: 0.05
-        orGroup: StashMeds
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
       - id: N14HealingPowder
         prob: 0.05
-        orGroup: StashMeds
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
       - id: N14HealingPoultice
         prob: 0.05
-        orGroup: StashMeds
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
       - id: N14StimpakDirty
         prob: 0.1
-        orGroup: StashMeds
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
       - id: N14Stimpak
         prob: 0.025
-        orGroup: StashMeds
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
       - id: N14SuperStimpak
-        prob: 0.0125
-        orGroup: StashMeds
+        prob: 0.014
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
+      - id: N14Antidote
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
+      - id: N14ChemicalSyringeAntidote
+        prob: 0.0150
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
+      - id: SyringeSaline
+        prob: 0.015
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds1
+      - id: N14Traumapack
+        prob: 0.015
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
       - id: N14MagazinePistol9mm #Let's give them som basic ammo types.
         prob: 0.5
-        orGroup: StashAmmo
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
       - id: N14MagazineSMG9mm
         prob: 0.15
-        orGroup: StashAmmo
+        amount: 0
+        maxAmount: 2
+      - id: N14MagazinePistol22lr
+        prob: 0.15
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
       - id: N14MagazinePistol10mm
         prob: 0.15
-        orGroup: StashAmmo
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
       - id: Magazine556Rifle
         prob: 0.05
-        orGroup: StashAmmo
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: N14MagazineSMG10mm
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
       - id: LongMagazine556Rifle
         prob: 0.05
-        orGroup: StashAmmo
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
       - id: N14MagazineShotgun12
         prob: 0.05
-        orGroup: StashAmmo
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
       - id: N14MagazineShotgun20
         prob: 0.05
-        orGroup: StashAmmo
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: Magazine762Rifle
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: Magazine762AmmoShort
+        prob: 0.1
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: N14MagazinePistol44
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: Magazine545Rifle
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: N14MagazineSMG12mm
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: N14TopMagazineSMG12mm
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: N14MagazineLMG308
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: Magazine308RifleLong
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: Magazine308Rifle
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: ClipMagazine308Rifle
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: N14MagazinePistol12mm
+        prob: 0.025
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: N14MagazinePistol45
+        prob: 0.1
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: N14CurrencyCap # Our dudes should carry some money.
+        prob: 0.75
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCash2
+      - id: N14CurrencyCap10
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCash2
+      - id: N14CurrencyPrewar
+        prob: 0.75
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCash2
+      - id: N14CurrencyPrewarMoney10
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCash2
+      - id: N14CurrencyNCRDollar
+        prob: 0.75
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCash2
+      - id: N14CurrencyNCRDollar10
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashCash2
+      - id: N14DirtyGauze1 # Let's also give them some medicine or chems.
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14Ointment1
+        prob: 0.1375
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14CleanGauze1
+        prob: 0.125
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14Jet
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14Turbo
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14Psycho
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14RadAwayBloodbag
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14HealingPowder
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14HealingPoultice
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14StimpakDirty
+        prob: 0.1
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14Stimpak
+        prob: 0.025
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14SuperStimpak
+        prob: 0.014
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14Antidote
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14ChemicalSyringeAntidote
+        prob: 0.015
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14Traumapack
+        prob: 0.015
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: SyringeSaline
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashMeds2
+      - id: N14FoodMeatRadscorpionLegBoiled  #Cooked foods
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodMeatBrahminCutletCooked
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodMeatMirelurkClawCooked
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodMeatRadchickenCutletCooked
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodMeatRadchickenCooked
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: MisfitsFoodMeatJerky
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodMouldy
+        prob: 0.35
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodMeatRadCutletCooked
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodMeatCooked
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: FoodMeatRatdoubleKebab
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodMeatSnakeKebab
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodMeatIguanaCooked
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodMeatRadroachFilletCooked
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodMeatSquirrelCooked
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: FoodMeatRedfishCooked
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodMeatRadRaw   #Raw meats
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodMeatIguana
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: FoodMeatRat
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FloraProduceWildBananaYucca  #Fruits
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FloraProduceWildBlackberries
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FloraProduceWildBuffaloGourd
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FloraProduceWildCabbage
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FloraProduceWildPinyonNuts
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FloraProduceWildMaize
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FloraProduceWildMutfruit
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FloraProduceWildOnion
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FloraProduceWildPricklyPearFruit
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FloraProduceWildTato
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodBerries
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1  #Packaged/Canned foods/snacks
+      - id: FoodSnackSemki
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: FoodSnackChocolate
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: FoodSnackEnergy
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: FoodSnackProteinbar
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodCondimentPacketProtein
+        prob: 0.25
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: FoodSnackRedalertnuts
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodSugarbombs
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodYumyumdeviledeggs
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodSalisburysteak
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodFancyladssnackcakes
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodInstamash
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodDandyboyapples
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodCram
+        prob: 0.10
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: FoodTinBeans
+        prob: 0.025
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodPorkBeans
+        prob: 0.025
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: FoodTinMRE
+        prob: 0.025
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodCannedFish
+        prob: 0.025
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodTinK
+        prob: 0.025
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodTinKCracker
+        prob: 0.025
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodTinC1
+        prob: 0.025
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodTinC2
+        prob: 0.025
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14FoodTinC3
+        prob: 0.025
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: FoodMealCornedbeef
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: M14DrinkDirtyWaterBottleFull  #Drinks
+        prob: 0.75
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14DrinkIrradiatedNukaColaBottleFull
+        prob: 0.5
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14DrinkNukaColaBottleFull
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: DrinkColaCan
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: DrinkGrapeCan
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14DrinkNukaColaGrape
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: DrinkVodkaBottleFull
+        prob: 0.025
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14DrinkGammagulpBeer
+        prob: 0.025
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14DrinkWhisky
+        prob: 0.025
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14DrinkWine
+        prob: 0.025
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: DrinkWaterBottleFull
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14ReagentContainerMayo #Cookings/Pickles
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14ReagentContainerFlourSmall
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14ReagentContainerCornmealSmall
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14ReagentContainerRiceSmall
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14ReagentContainerSugarSmall
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14PickledCabbage
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14PickledCarrots
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14PickledCorn
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14PickledJalapenos
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14PickledOnions
+        prob: 0.05
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: RadioHandheld  #Explorer Items/Unlucky Items
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: MisfitsWendoverMap
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: Fork
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: Spoon
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkBaseball
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14Junk8Ball
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentBulb1
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentBulb2
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentBulb3
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkCoffeepot
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkCookpot
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentCapacitor1
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentCapacitor2
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentCapacitor3
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentBoard1
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentBoard2
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentBoard3
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkTincan
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentTransistor1
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentTransistor2
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkComponentTransistor3
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkDuctTape
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkTurpentine
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkWonderglue
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+      - id: N14JunkAbraxoCleaner
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashFood1
+
+      - id: N14NukaCocktail  #Wassuy add, grenada!
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: N14TinNade
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: N14BaseballNade
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: N14NukaNade
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: MisfitsGrenadeFragDefensive
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: GrenadeShrapnel
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: MisfitsGrenadeImpact
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
+      - id: SmokeGrenade
+        prob: 0.01
+        amount: 0
+        maxAmount: 2
+        orGroup: StashAmmo1
     sound:
       path: /Audio/Items/can_open3.ogg

@@ -32,7 +32,7 @@
         removeKeyOnFinish: false
   - tasks:
     - !type:HTNCompoundTask
-      task: N14MeleeCombatCompound
+      task: N14MaterialExtractorWaveCompound
 
 - type: entity
   abstract: true
@@ -105,21 +105,45 @@
   id: N14MobMaterialExtractorRadscorpionBossWave
   parent: [N14MobRadscorpion, N14MobMaterialExtractorWaveBase]
 
+- type: entity  #Wassuy added
+  id: N14MobMaterialExtractorRaiderMeleeWave
+  parent: [N14MobRaiderPsycho, N14MobMaterialExtractorRangedWaveBase]
+
 - type: entity
   id: N14MobMaterialExtractorRaiderPistolWave
   parent: [N14MobRaiderPsychoRanged, N14MobMaterialExtractorRangedWaveBase]
+
+- type: entity
+  id: N14MobMaterialExtractorRaiderPistolStrongWave
+  parent: [N14MobRaiderPsychoRanged9mmChinese, N14MobMaterialExtractorRangedWaveBase]
 
 - type: entity
   id: N14MobMaterialExtractorRaiderSkirmisherWave
   parent: [N14MobRaiderSkrimisher, N14MobMaterialExtractorRangedWaveBase]
 
 - type: entity
+  id: N14MobMaterialExtractorRaiderSkirmisherStrongWave
+  parent: [N14MobRaiderSkrimisherautoshotgun, N14MobMaterialExtractorRangedWaveBase]
+
+- type: entity
   id: N14MobMaterialExtractorRaiderHunterWave
   parent: [N14MobRaiderHunter, N14MobMaterialExtractorRangedWaveBase]
 
 - type: entity
+  id: N14MobMaterialExtractorRaiderHunterStrongWave
+  parent: [N14MobRaiderHunterchinesemark, N14MobMaterialExtractorRangedWaveBase]
+
+- type: entity
   id: N14MobMaterialExtractorRaiderBossWave
   parent: [N14MobRaiderBoss, N14MobMaterialExtractorRangedWaveBase]
+
+- type: entity
+  id: N14MobMaterialExtractorRaiderBossBetterWave
+  parent: [N14MobRaiderBossChineseRifle, N14MobMaterialExtractorRangedWaveBase]
+
+- type: entity
+  id: N14MobMaterialExtractorRaiderBossStrongWave
+  parent: [N14MobRaiderBossRifle, N14MobMaterialExtractorRangedWaveBase]
 
 - type: entity
   id: N14MobMaterialExtractorSuperMutantWave

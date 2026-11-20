@@ -38,7 +38,6 @@
     waveWarningSeconds: 0
     waveMinMobCount: 1
     waveMaxMobCount: 3
-    waveSpawnMinDistance: 8
     waveSpawnMaxDistance: 14
     waveSpawnAttempts: 40
     waveSpawnPvsBuffer: 3
@@ -55,7 +54,7 @@
       family: Wildlife
       mobs:
         N14MobMaterialExtractorMoleratWave: 18
-        N14MobMaterialExtractorGeckoWave: 15
+        N14MobMaterialExtractorGecke: 15
         N14MobMaterialExtractorMirelurkWave: 12
         N14MobMaterialExtractorRadhogWave: 10
         N14MobMaterialExtractorFireGeckoWave: 8
@@ -69,18 +68,23 @@
         N14MobMaterialExtractorYaoguaiWave: 45
         N14MobMaterialExtractorDeathclawWave: 35
         N14MobMaterialExtractorRadscorpionBossWave: 20
-    - name: raider gun crew
+    - name: locust raiding party
       weight: 30
       minCount: 2
-      maxCount: 4
+      maxCount: 6   #Wassuy changed max 4 to 6. Raider live longer in packs, a reference to random N14 TIPS in loading screen.
       family: Raider
       mobs:
-        N14MobMaterialExtractorRaiderPistolWave: 45
-        N14MobMaterialExtractorRaiderSkirmisherWave: 35
+        N14MobMaterialExtractorRaiderMeleeWave: 20
+        N14MobMaterialExtractorRaiderPistolWave: 20
+        N14MobMaterialExtractorRaiderSkirmisherWave: 20
         N14MobMaterialExtractorRaiderHunterWave: 20
+        N14MobMaterialExtractorRaiderPistolStrongWave: 10
+        N14MobMaterialExtractorRaiderSkirmisherStrongWave: 5
+        N14MobMaterialExtractorRaiderHunterStrongWave: 5
       bosses:
-        N14MobMaterialExtractorRaiderBossWave: 70
-        N14MobMaterialExtractorRaiderHunterWave: 30
+        N14MobMaterialExtractorRaiderBossWave: 50
+        N14MobMaterialExtractorRaiderBossBetterWave: 30
+        N14MobMaterialExtractorRaiderBossStrongWave: 20
     - name: super mutant warband
       weight: 20
       minCount: 2
@@ -93,7 +97,7 @@
       bosses:
         N14MobMaterialExtractorSuperMutantNCOWave: 55
         N14MobMaterialExtractorSuperMutantArmoredWave: 35
-        N14MobMaterialExtractorBehemothWave: 10
+        N14MobMaterialExtractorBehemothWaoWavve: 10
     - name: nightkin hunting party
       weight: 20
       minCount: 1
