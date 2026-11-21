@@ -1,0 +1,98 @@
+# Hood
+
+- type: entity
+  parent: ClothingHeadBase
+  id: MisfitsRedFoxHead
+  abstract: true
+  name: Crimson Fox's Pelt
+  description: A fox pelt headwear, given to Decimus Vexus long ago, brushed and cared for. It is of a Crimson Red.
+  components:
+  - type: Sprite
+    scale: .5,.5
+    sprite: _Misfits/Clothing/CaesarLegion/CrimsonFox/head.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/CrimsonFox/head.rsi
+    slots: [HEAD]
+
+- type: entity
+  id: !type:CreateVariants
+    values: [MisfitsRedFoxHeadCenturion, MisfitsRedFoxHeadOther]
+  parent: !type:CreateVariants
+    sequences: [[MisfitsRedFoxHead,N14ClothingHeadHatPaladinSlayerCenturionHelmet],[MisfitsRedFoxHead,N14ClothingHeadHatExplorerHelmet]]
+
+# Outerwear
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitsRedFoxOuter
+  abstract: true
+  name: Victor Imperator's Plate
+  description: A suit of heavy battle-worn armour forged by blackened iron. Full of overlapping plates reinforced with leather providing protection without sacrificing mobility.
+  components:
+  - type: Sprite
+    scale: .5,.5
+    sprite: _Misfits/Clothing/CaesarLegion/CrimsonFox/outer.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/CrimsonFox/outer.rsi
+    slots: [outerClothing]
+
+- type: entity
+  id: !type:CreateVariants
+    values: [MisfitsRedFoxOuterCenturion, MisfitsRedFoxOuterOther]
+  parent: !type:CreateVariants
+    sequences: [[MisfitsRedFoxOuter,N14ClothingOuterPaladinSlayerCenturionArmor],[MisfitsRedFoxOuter,N14ClothingLegionReconArmor]]
+
+# Mask
+
+- type: entity
+  parent: ClothingMaskBase
+  id: MisfitsRedFoxMask
+  name: The Helm of the Fox
+  description: A Iron plated helmet, bashed and shaped, with little screws on either side so the face plate can lift.
+  components:
+  - type: Sprite
+    scale: .5,.5
+    sprite: _Misfits/Clothing/CaesarLegion/CrimsonFox/mask.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/CrimsonFox/mask.rsi
+    slots: [mask]
+  - type: FlashImmunity
+
+# boots
+
+- type: entity
+  parent: ClothingShoesBase
+  id: MisfitsRedFoxFeet
+  abstract: true
+  name: Victor Imperator's Boots
+  description: A pair of rough combat boots plated with iron
+  components:
+  - type: Sprite
+    scale: .5,.5
+    sprite: _Misfits/Clothing/CaesarLegion/CrimsonFox/feet.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/CrimsonFox/feet.rsi
+    slots: [FEET]
+    renderLayer: innerShoes
+
+- type: entity
+  id: !type:CreateVariants
+    values: [ MisfitsRedFoxBootsCenturion, MisfitsRedFoxBootsOther ]
+  parent: !type:CreateVariants
+    sequences: [ [ MisfitsRedFoxFeet,N14ClothingBootsCenturion ],[ MisfitsRedFoxFeet] ]
+
+
+# Hands
+
+- type: entity
+  parent: ClothingHandsBase
+  id: MisfitsRedFoxHands
+  name: Bracers of the Victor Imperator
+  description: A pair of rough combat bracers plated with iron
+  components:
+  - type: Sprite
+    scale: .5,.5
+    sprite: _Misfits/Clothing/CaesarLegion/CrimsonFox/hands.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/CrimsonFox/hands.rsi
+    slots: [gloves]
