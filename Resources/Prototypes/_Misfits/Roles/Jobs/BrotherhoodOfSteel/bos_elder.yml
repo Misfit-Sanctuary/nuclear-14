@@ -68,6 +68,11 @@
         - BoSMidPaladin
         - BoSMidScribe
         - BoSMidSquire
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Elder
+    prefix: Eld.
+    color: "#3B72BF"
 
 - type: startingGear
   id: BoSWestElderCommanderGear

@@ -92,6 +92,13 @@
         factions:
           - NCR
           - Wastelander
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinNCRPrivate1st }
+    - { pin: ClothingNeckPinNCRSpecialist, hours: 20 }
+    - { pin: ClothingNeckPinNCRCorporal, hours: 40 }
+    - { pin: ClothingNeckPinNCRSergeant, hours: 60 }
 
 # --- Brotherhood of Steel variant ----------------------------------------------------
 - type: job

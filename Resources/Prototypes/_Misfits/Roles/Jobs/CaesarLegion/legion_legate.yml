@@ -68,6 +68,11 @@
   #- !type:AddComponentSpecial
   #  components:
   #    - type: GrantLegionGladiatorial
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Legate
+    prefix: Lgt.
+    color: "#8b0000"
 
 - type: startingGear
   id: CaesarLegionLegateGear

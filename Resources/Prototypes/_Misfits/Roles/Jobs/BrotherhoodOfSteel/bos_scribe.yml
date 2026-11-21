@@ -89,6 +89,11 @@
         understands:
           - English
           - N14BrotherBeep
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Scribe
+    prefix: Scr.
+    color: "#3B72BF"
 
 - type: startingGear
   id: BoSScribeGear

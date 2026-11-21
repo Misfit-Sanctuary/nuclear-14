@@ -38,6 +38,11 @@
         roster: Enclave
         action: ActionOpenFactionRosterEnclave
       - type: PowerArmorProficiency
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinEnclaveSecondLieutenant }
+    - { pin: ClothingNeckPinEnclaveFirstLieutenant, hours: 20 }
 
 - type: startingGear
   id: EnclaveJuniorOfficerGear

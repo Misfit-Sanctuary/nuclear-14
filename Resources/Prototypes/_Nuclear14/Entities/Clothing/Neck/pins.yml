@@ -1,4 +1,4 @@
-# #Cythisiax Removed - RankTitle components; the pin still carries the rank, mapped through factionRank insignia (see _Misfits/FactionRank)
+# #Cythisiax Edited - each rank pin carries its own rank, whoever wears it gets the prefix in chat
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckPinNCRRecruit
@@ -17,6 +17,11 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Recruit
+    prefix: RCT
+    paygrade: E-1
+    color: "#d77715"
 
 - type: entity
   parent: ClothingNeckPinNCRRecruit
@@ -36,6 +41,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Private
+    prefix: PV2
+    paygrade: E-2
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -50,6 +59,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Private First Class
+    prefix: PFC
+    paygrade: E-3
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -64,6 +77,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Corporal
+    prefix: CPL
+    paygrade: E-4
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -78,6 +95,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Specialist
+    prefix: SPC
+    paygrade: E-4
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -92,6 +113,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Sergeant
+    prefix: SGT
+    paygrade: E-5
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -106,6 +131,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Staff Sergeant
+    prefix: SSG
+    paygrade: E-6
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -120,6 +149,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Sergeant First Class
+    prefix: SFC
+    paygrade: E-7
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -134,6 +167,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Master Sergeant
+    prefix: MSG
+    paygrade: E-8
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -148,6 +185,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: First Sergeant
+    prefix: 1SG
+    paygrade: E-8
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -162,6 +203,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Sergeant Major
+    prefix: SGM
+    paygrade: E-9
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -176,6 +221,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Command Sergeant Major
+    prefix: CSM
+    paygrade: E-9
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -190,6 +239,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Warrant Officer
+    prefix: WO1
+    paygrade: W-1
 
 # #Misfits Add - Chief Warrant Officer grades for the NCR aviation track.
 # No warrant-specific sprites exist, so these borrow officer pin art the same way
@@ -212,6 +265,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Chief Warrant Officer 2
+    prefix: CW2
+    paygrade: W-2
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -231,6 +288,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Chief Warrant Officer 3
+    prefix: CW3
+    paygrade: W-3
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -245,6 +306,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Second Lieutenant
+    prefix: 2LT
+    paygrade: O-1
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -264,6 +329,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: First Lieutenant
+    prefix: 1LT
+    paygrade: O-2
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -283,6 +352,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Captain
+    prefix: CPT
+    paygrade: O-3
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -297,6 +370,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Major
+    prefix: MAJ
+    paygrade: O-4
 
 - type: entity
   parent: ClothingNeckPinNCRFirstLieutenant
@@ -311,6 +388,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Lieutenant Colonel
+    prefix: LTC
+    paygrade: O-5
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -330,6 +411,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Corpsman
+    prefix: Doc
+    paygrade: ""
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -344,3 +429,7 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Chief Physician
+    prefix: Dr.
+    paygrade: ""
