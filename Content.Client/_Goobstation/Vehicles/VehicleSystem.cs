@@ -11,56 +11,52 @@ using Robust.Client.Graphics;
 
 namespace Content.Client.Vehicles;
 
-public sealed class VehicleSystem : SharedVehicleSystem
+public sealed partial class VehicleSystem : SharedVehicleSystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IEyeManager _eye = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IEyeManager _eye = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<VehicleComponent, AppearanceChangeEvent>(OnAppearanceChange);
-        SubscribeLocalEvent<VehicleComponent, MoveEvent>(OnMove);
+        //SubscribeLocalEvent<VehicleComponent, AppearanceChangeEvent>(OnAppearanceChange);
+        //SubscribeLocalEvent<VehicleComponent, MoveEvent>(OnMove);
     }
 
-    public override void Update(float frameTime)
+    protected override void OnStrapSetAnimate(Entity<VehicleComponent> ent)
     {
-        base.Update(frameTime);
-
-        var burning = EntityQueryEnumerator<MotorbikeComponent, SpriteComponent>();
-        while (burning.MoveNext(out var uid, out var motorbike, out var sprite))
-        {
-            if (!motorbike.Burning)
-                continue;
-
-            var flashRed = ((int) (_timing.CurTime.TotalSeconds * 5)) % 2 == 0;
-            sprite.LayerSetColor(0, flashRed ? Color.Red : Color.White);
-        }
+        _sprite.LayerSetAutoAnimated(ent.Owner, VehicleVisualLayers.AutoAnimate, true);
     }
 
+    protected override void OnUnstrapSetAnimate(Entity<VehicleComponent> ent)
+    {
+        _sprite.LayerSetAutoAnimated(ent.Owner, VehicleVisualLayers.AutoAnimate, false);
+    }
+
+// LayerSetAutoAnimated(ent, VehicleVisualLayers.AutoAnimate, true);
     private void OnAppearanceChange(Entity<VehicleComponent> ent, ref AppearanceChangeEvent args)
     {
-        if (args.Sprite == null
-            || !_appearance.TryGetData(ent, VehicleState.Animated, out bool animated)
-            || !TryComp<SpriteComponent>(ent, out var spriteComp))
-            return;
+        // if (args.Sprite == null
+        //     || !_appearance.TryGetData(ent, VehicleState.Animated, out bool animated)
+        //     || !TryComp<SpriteComponent>(ent, out var spriteComp))
+        //     return;
+        //
+        // SpritePos(ent);
+        //
+        // if(!_sprite.TryGetLayer((ent,spriteComp),0,out var layer, false))
+        //     return;
+        //
+        // _sprite.LayerSetAutoAnimated(layer, animated);
 
-        SpritePos(ent);
-
-        if(!_sprite.TryGetLayer((ent,spriteComp),0,out var layer, false))
-            return;
-
-        _sprite.LayerSetAutoAnimated(layer, animated);
-
-        if (_appearance.TryGetData(ent, MotorbikeVisuals.Burning, out bool burning))
-            spriteComp.LayerSetColor(0, burning ? Color.Red : Color.White);
+        // if (_appearance.TryGetData(ent, MotorbikeVisuals.Burning, out bool burning))
+        //     spriteComp.LayerSetColor(0, burning ? Color.Red : Color.White);
     }
 
     private void OnMove(Entity<VehicleComponent> ent, ref MoveEvent args)
     {
-        SpritePos(ent);
+        //SpritePos(ent);
     }
 
     private void SpritePos(Entity<VehicleComponent> ent)
@@ -68,19 +64,19 @@ public sealed class VehicleSystem : SharedVehicleSystem
         if (!TryComp<SpriteComponent>(ent, out var spriteComp))
             return;
 
-        // Misfits DrawOver always exists, so check its value. restore the original depth when nobody is riding.
-        if (!_appearance.TryGetData(ent, VehicleState.DrawOver, out bool drawOver) || !drawOver)
-        {
-            if (ent.Comp.OriginalDrawDepth is { } originalDepth)
-            {
-                _sprite.SetDrawDepth((ent, spriteComp), originalDepth);
-                ent.Comp.OriginalDrawDepth = null;
-            }
+        // // Misfits DrawOver always exists, so check its value. restore the original depth when nobody is riding.
+        // if (!_appearance.TryGetData(ent, VehicleState.DrawOver, out bool drawOver) || !drawOver)
+        // {
+        //     if (ent.Comp.OriginalDrawDepth is { } originalDepth)
+        //     {
+        //         _sprite.SetDrawDepth((ent, spriteComp), originalDepth);
+        //         ent.Comp.OriginalDrawDepth = null;
+        //     }
+        //
+        //     return;
+        // }
 
-            return;
-        }
-
-        ent.Comp.OriginalDrawDepth ??= spriteComp.DrawDepth;
+        //ent.Comp.OriginalDrawDepth ??= spriteComp.DrawDepth;
         _sprite.SetDrawDepth((ent, spriteComp), (int)Content.Shared.DrawDepth.DrawDepth.Objects);
 
         if (ent.Comp.RenderOver == VehicleRenderOver.None)

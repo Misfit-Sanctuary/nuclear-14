@@ -4,6 +4,6 @@ namespace Content.Shared._Misfits.Mounts;
 public sealed partial class MountRiderOverlayComponent : Component
 {
     [DataField]
-    public string StateSuffix = "-rider-overlay";
+    public string StateSuffix = "-overlay";
 
 }

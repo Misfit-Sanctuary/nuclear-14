@@ -1,10 +1,6 @@
-using System.Numerics;
 using Content.Shared.Alert;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared.Buckle.Components;
 
@@ -42,6 +38,9 @@ public sealed partial class StrapComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public Vector2 BuckleOffset = Vector2.Zero;
+    // TODO: THIS!!!!!
+    // [DataField, AutoNetworkedField]
+    // public Vector2 DirectionalOffset = Vector2.Zero;
 
     /// <summary>
     /// Keeps a buckled entity fixed at <see cref="BuckleOffset"/> if movement
@@ -50,6 +49,11 @@ public sealed partial class StrapComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool LockToBuckleOffset;
+    /// <summary>
+    /// Wide swings and projectiles from you will ignore anyone you are buckled with and the ride itself if true
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool FriendlyFire = false;
 
     /// <summary>
     /// The angle to rotate the player by when they get strapped

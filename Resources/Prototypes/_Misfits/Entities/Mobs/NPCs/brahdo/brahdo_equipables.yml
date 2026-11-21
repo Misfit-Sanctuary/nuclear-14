@@ -5,6 +5,7 @@
   description: DEBUG DEBUG
   abstract: true
   components:
+  - type: Appearance
   - type: Sprite
     sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddleIcon.rsi
     layers:
@@ -142,6 +143,8 @@
   name: armored Legion brahdo saddle
   description: an armored Legion brahdo saddle.
   components:
+  - type: Overlay
+    overlayPrototype: RedSaddleOverlay
   - type: Clothing
     sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddle-legion.rsi
   - type: Sprite
