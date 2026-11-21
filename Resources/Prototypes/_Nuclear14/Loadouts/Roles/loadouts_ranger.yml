@@ -323,9 +323,11 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
+        - NCRRangerStandard
         - NCRVeteranRanger
-    - !type:CharacterPlaytimeRequirement
-      tracker: NCRVeteranRanger
+        - NCRRangerMedic
+    - !type:CharacterDepartmentTimeRequirement
+      department: Rangers
       min: 216000 # 60 hours veterancy unlock "First Tour"
   items:
     - ClothingMaskGasRangerDesert
@@ -387,9 +389,11 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
+        - NCRRangerStandard
         - NCRVeteranRanger
-    - !type:CharacterPlaytimeRequirement
-      tracker: NCRVeteranRanger
+        - NCRRangerMedic
+    - !type:CharacterDepartmentTimeRequirement
+      department: Rangers
       min: 216000 # 60 hours veterancy unlock "First Tour"
   items:
     - ClothingMaskGasRangerElite
@@ -403,8 +407,6 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRRangerMedic # #Misfits Add - Ranger Medic
-        - NCRRangerStandard
     - !type:CharacterPlaytimeRequirement
       tracker: NCRVeteranRanger
       min: 72000 # 1200 minutes
@@ -595,9 +597,13 @@
         - NCRRangerStandard
         - NCRVeteranRanger
         - NCRRangerMedic # #Misfits Add - Ranger Medic
-    - !type:CharacterPlaytimeRequirement
-      tracker: NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
+    - !type:CharacterDepartmentTimeRequirement
+      department: Rangers
       min: 216000 # 60 hours veterancy unlock "First Tour"
+    - !type:CharacterTraitRequirement
+      traits:
+      - LanguageLatin
+      - LanguageNerd
   items:
     - N14ClothingUniformJumpsuitRangerRoman
 # Forge-Add End
