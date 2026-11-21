@@ -14,19 +14,40 @@ public sealed partial class DirectionalBuckleOffsetSystem : EntitySystem
     [Dependency] private SharedTransformSystem _xform = default!;
     private ISawmill _sawmill = default!;
 
-    private static readonly float Diagonal = MathF.Sqrt(2);
+    private static float Diagonal = 1/MathF.Sqrt(2);
 
     public static readonly Vector2[] RotMult =
-        [new(1,1), new(2, 1),
-        new(-1,1), new(-1, 2) ,
-        new(-1,-1),new(2, -1),
-        new(1,-1), new(1, 2)];
+        [new(1,1), new(1, 1), // south, southEast
+        new(1,-1), new(1, 1) , // east, NorthEast
+        new(-1,-1),new(1, 1), // north, northwest
+        new(-1,1), new(1, 1)]; // west, southwest
 
     // var dx = cos * vec.X - sin * vec.Y;
-    // vec.X = (dx+sin*Y)/cos
     // var dy = sin * vec.X + cos * vec.Y;
-    private static Vector2 Offset(Vector2 offset, int index)
+    // dx = 1/sqrt(2)*X - (-1/sqrt(2))*Y
+    // dx = .5, X = dx*p
+    // dx = cos * dx*p - sin * dy*d
+    // dx = cos * dx*p - sin * dy*d
+    // dx = 1/sqrt(2) * dx*p - (-1/sqrt(2)) * dy*d
+    // dx = p (1/sqrt(2) * dx - (-1/sqrt(2)) * dy)
+    // dx / (1/sqrt(2) * dx - (-1/sqrt(2)) * dy) = p
+    //dx - 1/sqrt(2) * dx*p = - (-1/sqrt(2)) * dy*d
+
+    // dy = sin*dx*p + cos*dy*d
+    // dy = -1/sqrt(2) * dx*p + (1/sqrt(2)) * dy*p
+    // dy = p(-1/sqrt(2) * dx + (1/sqrt(2)) * dy)
+    // p = dy/(-1/sqrt(2) * dx + (1/sqrt(2)) * dy)
+
+    // dx = 1/sqrt(2) * dx*p - (-1/sqrt(2)) * dy*d
+    // dx = 1/-sqrt(2)*X + (1/sqrt(2))*Y
+
+    private static Vector2 DiagMult(Vector2 offset, int index)
     {
+        // dx / (1/sqrt(2) * dx - (-1/sqrt(2)) * dy) = p
+        // p = dy/(-1/sqrt(2) * dx + (1/sqrt(2)) * dy)
+        var xp = offset.X / (Diagonal * offset.X - Diagonal * offset.Y);
+        var yp = offset.Y / (Diagonal * offset.X + Diagonal * offset.Y);
+
         var x = offset.X * RotMult[index].X + offset.X * RotMult[index].Y;
         var y = offset.Y * RotMult[index].X + offset.Y * RotMult[index].Y;
         return new Vector2(x, y);
