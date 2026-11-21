@@ -1,4 +1,3 @@
-using Robust.Shared.Prototypes;
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Maps;
@@ -21,9 +20,11 @@ namespace Content.Server.Construction.Commands
         public string Description => "Puts an underplating tile below every wall on a grid.";
         public string Help => $"Usage: {Command} <gridId> | {Command}";
 
-        public static readonly ProtoId<ContentTileDefinition> TilePrototypeId = "Plating";
+        [ValidatePrototypeId<ContentTileDefinition>]
+        public const string TilePrototypeId = "Plating";
 
-        public static readonly ProtoId<TagPrototype> WallTag = "Wall";
+        [ValidatePrototypeId<TagPrototype>]
+        public const string WallTag = "Wall";
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {

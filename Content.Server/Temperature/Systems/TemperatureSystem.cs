@@ -34,7 +34,8 @@ public sealed class TemperatureSystem : EntitySystem
 
     private float _accumulatedFrametime;
 
-    public static readonly ProtoId<AlertCategoryPrototype> TemperatureAlertCategory = "Temperature";
+    [ValidatePrototypeId<AlertCategoryPrototype>]
+    public const string TemperatureAlertCategory = "Temperature";
 
     public override void Initialize()
     {

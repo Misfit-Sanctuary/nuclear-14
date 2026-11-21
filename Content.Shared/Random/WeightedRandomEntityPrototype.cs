@@ -1,4 +1,5 @@
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
 namespace Content.Shared.Random;
 
@@ -11,6 +12,6 @@ public sealed partial class WeightedRandomEntityPrototype : IWeightedRandomProto
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    [DataField("weights")]
+    [DataField("weights", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<float, EntityPrototype>))]
     public Dictionary<string, float> Weights { get; private set; } = new();
 }

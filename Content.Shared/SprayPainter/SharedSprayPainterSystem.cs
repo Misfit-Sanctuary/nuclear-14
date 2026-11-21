@@ -33,7 +33,8 @@ public abstract class SharedSprayPainterSystem : EntitySystem
     public List<AirlockStyle> Styles { get; private set; } = new();
     public List<AirlockGroupPrototype> Groups { get; private set; } = new();
 
-    private static readonly ProtoId<AirlockDepartmentsPrototype> Departments = "Departments";
+    [ValidatePrototypeId<AirlockDepartmentsPrototype>]
+    private const string Departments = "Departments";
 
     public override void Initialize()
     {

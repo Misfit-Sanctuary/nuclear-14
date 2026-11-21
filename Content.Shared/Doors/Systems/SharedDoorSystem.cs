@@ -1,4 +1,3 @@
-using Robust.Shared.Prototypes;
 using System.Linq;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -48,7 +47,8 @@ public abstract partial class SharedDoorSystem : EntitySystem
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
 
 
-    public static readonly ProtoId<TagPrototype> DoorBumpTag = "DoorBumpOpener";
+    [ValidatePrototypeId<TagPrototype>]
+    public const string DoorBumpTag = "DoorBumpOpener";
 
     /// <summary>
     ///     A body must have an intersection percentage larger than this in order to be considered as colliding with a

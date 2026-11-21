@@ -1,4 +1,3 @@
-using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
 using Content.Shared.GameTicking.Prototypes;
 using Robust.Shared.Network;
@@ -16,7 +15,8 @@ namespace Content.Shared.GameTicking
         // See ideally these would be pulled from the job definition or something.
         // But this is easier, and at least it isn't hardcoded.
         //TODO: Move these, they really belong in StationJobsSystem or a cvar.
-        public static readonly ProtoId<JobPrototype> FallbackOverflowJob = "Wastelander"; // #Misfits Change - Survivor unused; Wastelander is the correct fallback
+        [ValidatePrototypeId<JobPrototype>]
+        public const string FallbackOverflowJob = "Wastelander"; // #Misfits Change - Survivor unused; Wastelander is the correct fallback
 
         public const string FallbackOverflowJobName = "job-name-wastelander"; // #Misfits Change
 

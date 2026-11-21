@@ -1,6 +1,6 @@
-﻿using Robust.Shared.Prototypes;
-using System.Threading;
+﻿using System.Threading;
 using Content.Shared.Tools;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Nyanotrasen.Digging;
 
@@ -12,8 +12,8 @@ public sealed partial class EarthDiggingComponent : Component
     public bool ToolComponentNeeded = true;
 
     [ViewVariables]
-    [DataField("qualityNeeded")]
-    public ProtoId<ToolQualityPrototype> QualityNeeded = "Digging";
+    [DataField("qualityNeeded", customTypeSerializer:typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
+    public string QualityNeeded = "Digging";
 
     [ViewVariables]
     [DataField("delay")]

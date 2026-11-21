@@ -253,7 +253,7 @@ namespace Content.IntegrationTests.Tests
                     }
 
                     var comp = entManager.GetComponent<StationJobsComponent>(station);
-                    var jobs = new HashSet<string>(comp.SetupAvailableJobs.Keys.Select(x => x.Id));
+                    var jobs = new HashSet<string>(comp.SetupAvailableJobs.Keys);
 
                     // Test all availableJobs have spawnPoints
                     // This is done inside gamemap test because loading the map takes ages and we already have it.

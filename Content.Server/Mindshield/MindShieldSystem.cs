@@ -1,4 +1,3 @@
-using Robust.Shared.Prototypes;
 using Content.Server.Administration.Logs;
 using Content.Server.Mind;
 using Content.Server.Popups;
@@ -23,7 +22,8 @@ public sealed class MindShieldSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
 
-    public static readonly ProtoId<TagPrototype> MindShieldTag = "MindShield";
+    [ValidatePrototypeId<TagPrototype>]
+    public const string MindShieldTag = "MindShield";
 
     public override void Initialize()
     {

@@ -12,9 +12,11 @@ namespace Content.Client.Interactable.Components
 
         private const float DefaultWidth = 1;
 
-        private static readonly ProtoId<ShaderPrototype> ShaderInRange = "SelectionOutlineInrange";
+        [ValidatePrototypeId<ShaderPrototype>]
+        private const string ShaderInRange = "SelectionOutlineInrange";
 
-        private static readonly ProtoId<ShaderPrototype> ShaderOutOfRange = "SelectionOutline";
+        [ValidatePrototypeId<ShaderPrototype>]
+        private const string ShaderOutOfRange = "SelectionOutline";
 
         private bool _inRange;
         private ShaderInstance? _shader;

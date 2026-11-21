@@ -162,7 +162,7 @@ public abstract partial class SharedStationAiSystem
         return _uiSystem.IsUiOpen(target, AiUi.Key, ev.Actor);
     }
 
-    private void OnMessageAttempt(ref BoundUserInterfaceMessageAttempt ev)
+    private void OnMessageAttempt(BoundUserInterfaceMessageAttempt ev)
     {
         if (ev.Actor == ev.Target)
             return;

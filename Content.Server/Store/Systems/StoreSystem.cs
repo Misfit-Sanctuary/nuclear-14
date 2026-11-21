@@ -119,7 +119,7 @@ public sealed partial class StoreSystem : EntitySystem
     public Dictionary<string, FixedPoint2> GetCurrencyValue(EntityUid uid, CurrencyComponent component)
     {
         var amount = EntityManager.GetComponentOrNull<StackComponent>(uid)?.Count ?? 1;
-        return component.Price.ToDictionary(v => v.Key.Id, p => p.Value * amount);
+        return component.Price.ToDictionary(v => v.Key, p => p.Value * amount);
     }
 
     /// <summary>
@@ -133,11 +133,11 @@ public sealed partial class StoreSystem : EntitySystem
         if (!Resolve(store.Owner, ref store.Comp))
             return false;
 
-        var value = currency.Comp.Price.ToDictionary(v => v.Key.Id, p => p.Value);
+        var value = currency.Comp.Price;
         if (TryComp(currency.Owner, out StackComponent? stack) && stack.Count != 1)
         {
             value = currency.Comp.Price
-                .ToDictionary(v => v.Key.Id, p => p.Value * stack.Count);
+                .ToDictionary(v => v.Key, p => p.Value * stack.Count);
         }
 
         if (!TryAddCurrency(value, store, store.Comp))

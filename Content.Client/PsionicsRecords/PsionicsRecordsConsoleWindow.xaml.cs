@@ -29,7 +29,8 @@ public sealed partial class PsionicsRecordsConsoleWindow : FancyWindow
 
     public readonly EntityUid Console;
 
-    private static readonly ProtoId<DatasetPrototype> ReasonPlaceholders = "PsionicsRecordsRecordsPlaceholders";
+    [ValidatePrototypeId<DatasetPrototype>]
+    private const string ReasonPlaceholders = "PsionicsRecordsRecordsPlaceholders";
 
     public Action<uint?>? OnKeySelected;
     public Action<StationRecordFilterType, string>? OnFiltersChanged;

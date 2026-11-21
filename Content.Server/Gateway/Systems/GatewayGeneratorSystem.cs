@@ -36,7 +36,8 @@ public sealed class GatewayGeneratorSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _maps = default!;
     [Dependency] private readonly TileSystem _tile = default!;
 
-    private static readonly ProtoId<DatasetPrototype> PlanetNames = "names_borer";
+    [ValidatePrototypeId<DatasetPrototype>]
+    private const string PlanetNames = "names_borer";
 
     // TODO:
     // Fix shader some more

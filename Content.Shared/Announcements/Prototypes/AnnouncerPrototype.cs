@@ -53,7 +53,7 @@ public sealed partial class AnnouncementData
     /// <summary>
     ///    Use a soundCollection instead of a single sound
     /// </summary>
-    [DataField("collection")]
+    [DataField("collection"), ValidatePrototypeId<SoundCollectionPrototype>]
     public string? Collection;
 
     /// <summary>

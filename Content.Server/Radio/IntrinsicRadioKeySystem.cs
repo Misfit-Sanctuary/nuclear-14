@@ -1,5 +1,4 @@
 using Content.Server.Radio.Components;
-using Robust.Shared.Prototypes;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 
@@ -25,9 +24,9 @@ public sealed class IntrinsicRadioKeySystem : EntitySystem
         UpdateChannels(uid, args.Component, ref component.Channels);
     }
 
-    private void UpdateChannels(EntityUid _, EncryptionKeyHolderComponent component, ref HashSet<ProtoId<RadioChannelPrototype>> channels)
+    private void UpdateChannels(EntityUid _, EncryptionKeyHolderComponent component, ref HashSet<string> channels)
     {
         channels.Clear();
-        channels.UnionWith(component.Channels.Select(c => new ProtoId<RadioChannelPrototype>(c)));
+        channels.UnionWith(component.Channels);
     }
 }

@@ -61,25 +61,25 @@ public sealed class StaticFieldValidationTest
     [Reflect(false)]
     private sealed class StringValid
     {
-        public static ProtoId<TagPrototype> Tag = "StaticFieldTestTag";
+        [ValidatePrototypeId<TagPrototype>] public static string Tag = "StaticFieldTestTag";
     }
 
     [Reflect(false)]
     private sealed class StringInvalid
     {
-        public static ProtoId<TagPrototype> Tag = string.Empty;
+        [ValidatePrototypeId<TagPrototype>] public static string Tag = string.Empty;
     }
 
     [Reflect(false)]
     private sealed class StringArrayValid
     {
-        public static ProtoId<TagPrototype>[] Tag = ["StaticFieldTestTag", "StaticFieldTestTag"];
+        [ValidatePrototypeId<TagPrototype>] public static string[] Tag = ["StaticFieldTestTag", "StaticFieldTestTag"];
     }
 
     [Reflect(false)]
     private sealed class StringArrayInvalid
     {
-        public static ProtoId<TagPrototype>[] Tag = [string.Empty, "StaticFieldTestTag", string.Empty];
+        [ValidatePrototypeId<TagPrototype>] public static string[] Tag = [string.Empty, "StaticFieldTestTag", string.Empty];
     }
 
     [Reflect(false)]

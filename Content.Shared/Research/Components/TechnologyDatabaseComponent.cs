@@ -1,8 +1,9 @@
-using Robust.Shared.Prototypes;
 using Content.Shared.Lathe;
 using Content.Shared.Research.Prototypes;
 using Content.Shared.Research.Systems;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared.Research.Components;
 
@@ -13,8 +14,8 @@ public sealed partial class TechnologyDatabaseComponent : Component
     ///     A main discipline that bypasses the T3 Softcap
     /// </summary>
     [AutoNetworkedField]
-    [DataField("mainDiscipline")]
-    public ProtoId<TechDisciplinePrototype>? MainDiscipline;
+    [DataField("mainDiscipline", customTypeSerializer: typeof(PrototypeIdSerializer<TechDisciplinePrototype>))]
+    public string? MainDiscipline;
 
     [AutoNetworkedField]
     [DataField("currentTechnologyCards")]
@@ -24,15 +25,15 @@ public sealed partial class TechnologyDatabaseComponent : Component
     /// Which research disciplines are able to be unlocked
     /// </summary>
     [AutoNetworkedField]
-    [DataField("supportedDisciplines")]
-    public List<ProtoId<TechDisciplinePrototype>> SupportedDisciplines = new();
+    [DataField("supportedDisciplines", customTypeSerializer: typeof(PrototypeIdListSerializer<TechDisciplinePrototype>))]
+    public List<string> SupportedDisciplines = new();
 
     /// <summary>
     /// The ids of all the technologies which have been unlocked.
     /// </summary>
     [AutoNetworkedField]
-    [DataField("unlockedTechnologies")]
-    public List<ProtoId<TechnologyPrototype>> UnlockedTechnologies = new();
+    [DataField("unlockedTechnologies", customTypeSerializer: typeof(PrototypeIdListSerializer<TechnologyPrototype>))]
+    public List<string> UnlockedTechnologies = new();
 
     /// <summary>
     /// The ids of all the lathe recipes which have been unlocked.
@@ -40,8 +41,8 @@ public sealed partial class TechnologyDatabaseComponent : Component
     /// </summary>
     /// todo: if you unlock all the recipes in a tech, it doesn't count as unlocking the tech. sadge
     [AutoNetworkedField]
-    [DataField("unlockedRecipes")]
-    public List<ProtoId<LatheRecipePrototype>> UnlockedRecipes = new();
+    [DataField("unlockedRecipes", customTypeSerializer: typeof(PrototypeIdListSerializer<LatheRecipePrototype>))]
+    public List<string> UnlockedRecipes = new();
 
     [DataField, AutoNetworkedField]
     public float SoftCapMultiplier = 1;

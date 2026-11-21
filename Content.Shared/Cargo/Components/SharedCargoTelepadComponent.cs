@@ -3,6 +3,7 @@ using Content.Shared.DeviceLinking;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Cargo.Components;
 
@@ -30,8 +31,8 @@ public sealed partial class CargoTelepadComponent : Component
     /// <summary>
     ///     The machine part that affects <see cref="Delay"/>
     /// </summary>
-    [DataField(), ViewVariables(VVAccess.ReadWrite)]
-    public ProtoId<MachinePartPrototype> MachinePartTeleportDelay = "Capacitor";
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>)), ViewVariables(VVAccess.ReadWrite)]
+    public string MachinePartTeleportDelay = "Capacitor";
 
     /// <summary>
     ///     A multiplier applied to <see cref="Delay"/> for each level of <see cref="MachinePartTeleportDelay"/>
@@ -54,9 +55,9 @@ public sealed partial class CargoTelepadComponent : Component
     /// <summary>
     ///     The paper-type prototype to spawn with the order information.
     /// </summary>
-    [DataField(), ViewVariables(VVAccess.ReadWrite)]
-    public EntProtoId PrinterOutput = "PaperCargoInvoice";
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>)), ViewVariables(VVAccess.ReadWrite)]
+    public string PrinterOutput = "PaperCargoInvoice";
 
-    [DataField(), ViewVariables(VVAccess.ReadWrite)]
-    public ProtoId<SinkPortPrototype> ReceiverPort = "OrderReceiver";
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>)), ViewVariables(VVAccess.ReadWrite)]
+    public string ReceiverPort = "OrderReceiver";
 }

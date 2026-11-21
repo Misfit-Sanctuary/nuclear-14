@@ -1,5 +1,5 @@
-﻿using Robust.Shared.Prototypes;
-using Content.Shared.Construction.Prototypes;
+﻿using Content.Shared.Construction.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Xenoarchaeology.Equipment.Components;
 
@@ -16,8 +16,8 @@ public sealed partial class TraversalDistorterComponent : Component
     [DataField]
     public float BaseBiasChance = 0.7f;
 
-    [DataField]
-    public ProtoId<MachinePartPrototype> MachinePartBiasChance = "Manipulator";
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
+    public string MachinePartBiasChance = "Manipulator";
 
     [DataField]
     public float PartRatingBiasChance = 1.1f;

@@ -46,7 +46,8 @@ public sealed partial class RevenantSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly VisibilitySystem _visibility = default!;
 
-    private static readonly EntProtoId RevenantShopId = "ActionRevenantShop";
+    [ValidatePrototypeId<EntityPrototype>]
+    private const string RevenantShopId = "ActionRevenantShop";
 
     public override void Initialize()
     {

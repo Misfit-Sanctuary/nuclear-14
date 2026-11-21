@@ -451,11 +451,7 @@
   - type: AnimationPlayer
   - type: Appearance
   - type: Occluder
-    polygon:
-    - -1.5,-0.5
-    - 2.5,-0.5
-    - 2.5,1
-    - -1.5,1
+    boundingBox: "-1.5,-0.5,2.5,1"
   - type: Fixtures
     fixtures:
       fix1:

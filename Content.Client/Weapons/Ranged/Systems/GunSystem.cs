@@ -64,7 +64,8 @@ public sealed partial class GunSystem : SharedGunSystem
     private EntityQuery<SpriteComponent> _spriteQuery;
 
 
-    public static readonly EntProtoId HitscanProto = "HitscanEffect";
+    [ValidatePrototypeId<EntityPrototype>]
+    public const string HitscanProto = "HitscanEffect";
 
     public bool SpreadOverlay
     {

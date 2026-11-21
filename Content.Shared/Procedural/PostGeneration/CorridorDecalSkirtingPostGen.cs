@@ -1,4 +1,6 @@
 using Content.Shared.Decals;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
 namespace Content.Shared.Procedural.PostGeneration;
 

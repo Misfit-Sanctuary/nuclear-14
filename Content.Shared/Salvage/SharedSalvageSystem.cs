@@ -23,7 +23,8 @@ public abstract partial class SharedSalvageSystem : EntitySystem
     /// <summary>
     /// Main loot table for salvage expeditions.
     /// </summary>
-    public static readonly ProtoId<SalvageLootPrototype> ExpeditionsLootProto = "SalvageLoot";
+    [ValidatePrototypeId<SalvageLootPrototype>]
+    public const string ExpeditionsLootProto = "SalvageLoot";
 
     public static string GetFTLName(DatasetPrototype dataset, int seed)
     {

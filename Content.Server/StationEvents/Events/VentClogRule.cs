@@ -2,7 +2,6 @@ using Content.Server.Atmos.Piping.Unary.Components;
 using Content.Server.Station.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
-using Robust.Shared.Prototypes;
 using JetBrains.Annotations;
 using Robust.Shared.Random;
 using System.Linq;
@@ -27,7 +26,7 @@ public sealed class VentClogRule : StationEventSystem<VentClogRuleComponent>
         // TODO: "safe random" for chems. Right now this includes admin chemicals.
         var allReagents = PrototypeManager.EnumeratePrototypes<ReagentPrototype>()
             .Where(x => !x.Abstract)
-            .Select(x => new ProtoId<ReagentPrototype>(x.ID)).ToList();
+            .Select(x => x.ID).ToList();
 
         foreach (var (_, transform) in EntityManager.EntityQuery<GasVentPumpComponent, TransformComponent>())
         {

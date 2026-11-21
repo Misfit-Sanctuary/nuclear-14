@@ -1,4 +1,3 @@
-using Robust.Shared.Prototypes;
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Containers.EntitySystems;
@@ -72,7 +71,8 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private IAdminLogManager _adminLogger = default!;
         [Dependency] private SharedSuicideSystem _suicide = default!;
 
-        private static readonly EntProtoId MalfunctionSpark = "Spark";
+        [ValidatePrototypeId<EntityPrototype>]
+        private const string MalfunctionSpark = "Spark";
 
         public override void Initialize()
         {
@@ -195,7 +195,7 @@ namespace Content.Server.Kitchen.EntitySystems
                     // all reagents that is same ingredient proto or ingredient is parent
                     // make it a list since if it's an enumerator and reagent gets deleted(reduced to 0) it changes the enumerator and throws error
                     var matchedIdAndParent = sol.Comp.Solution.Contents.Where(x => x.Reagent.Prototype == ingredient.Key ||
-                                          (_prototype.Index<ReagentPrototype>(x.Reagent.Prototype).Parents is { } pl && pl.Contains(ingredient.Key.Id))).ToList();
+                                          (_prototype.Index<ReagentPrototype>(x.Reagent.Prototype).Parents is { } pl && pl.Contains(ingredient.Key))).ToList();
 
                     var toRemTotal = ingredient.Value;
 

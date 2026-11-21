@@ -1,4 +1,5 @@
 ﻿using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 using Content.Server.Singularity.EntitySystems;
 
@@ -26,7 +27,7 @@ public sealed partial class SingularityGeneratorComponent : Component
     /// <summary>
     ///     The prototype ID used to spawn a singularity.
     /// </summary>
-    [DataField("spawnId")]
+    [DataField("spawnId", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     [ViewVariables(VVAccess.ReadWrite)]
-    public EntProtoId? SpawnPrototype = "Singularity";
+    public string? SpawnPrototype = "Singularity";
 }

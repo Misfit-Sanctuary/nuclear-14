@@ -539,10 +539,10 @@ namespace Content.Server.Construction
             // ikr
             var xform = Transform(structure);
             var wasAnchored = xform.Anchored;
-            _transformSystem.TryAnchor(structure, false, xform);
+            xform.Anchored = false;
             xform.Coordinates = GetCoordinates(ev.Location);
             xform.LocalRotation = constructionPrototype.CanRotate ? ev.Angle : Angle.Zero;
-            _transformSystem.TryAnchor(structure, wasAnchored, xform);
+            xform.Anchored = wasAnchored;
 
             var entComplEv = new ConstructionCompletedEvent(structure, user); // Forge-Change
             RaiseLocalEvent(structure, entComplEv); // Forge-Change

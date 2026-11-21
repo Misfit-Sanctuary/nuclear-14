@@ -3,6 +3,9 @@ using Content.Shared.Parallax.Biomes.Markers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Noise;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared.Parallax.Biomes;
 
@@ -33,8 +36,8 @@ public sealed partial class BiomeComponent : Component
     /// This is really just here for prototype reload support.
     /// </remarks>
     [ViewVariables(VVAccess.ReadWrite),
-     DataField("template")]
-    public ProtoId<BiomeTemplatePrototype>? Template;
+     DataField("template", customTypeSerializer: typeof(PrototypeIdSerializer<BiomeTemplatePrototype>))]
+    public string? Template;
 
     /// <summary>
     /// If we've already generated a tile and couldn't deload it then we won't ever reload it in future.
@@ -69,8 +72,8 @@ public sealed partial class BiomeComponent : Component
     /// <summary>
     /// Track what markers we've loaded already to avoid double-loading.
     /// </summary>
-    [DataField("loadedMarkers")]
-    public Dictionary<ProtoId<BiomeMarkerLayerPrototype>, HashSet<Vector2i>> LoadedMarkers = new();
+    [DataField("loadedMarkers", customTypeSerializer:typeof(PrototypeIdDictionarySerializer<HashSet<Vector2i>, BiomeMarkerLayerPrototype>))]
+    public Dictionary<string, HashSet<Vector2i>> LoadedMarkers = new();
 
     [DataField]
     public HashSet<ProtoId<BiomeMarkerLayerPrototype>> MarkerLayers = new();
