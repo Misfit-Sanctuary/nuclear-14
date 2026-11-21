@@ -60,6 +60,10 @@ public sealed class MortarBui(EntityUid owner, Enum uiKey) : BoundUserInterface(
 
         static void SetValue(FloatSpinBox spinBox, int value)
         {
+            // Leave a box someone is typing in alone when new state arrives.
+            if (spinBox.HasKeyboardFocus())
+                return;
+
             spinBox.Value = value;
         }
 

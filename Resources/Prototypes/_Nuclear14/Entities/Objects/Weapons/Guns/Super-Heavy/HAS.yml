@@ -30,9 +30,10 @@
     minAngle: -20
     maxAngle: -60
   - type: Gun
-    minAngle: 18
-    maxAngle: 55
-    angleIncrease: 4
+    # #Misfits Change - tightened the spray: narrower cone and slower bloom.
+    minAngle: 12
+    maxAngle: 38
+    angleIncrease: 3
     angleDecay: 12
     fireRate: 3
     selectedMode: FullAuto

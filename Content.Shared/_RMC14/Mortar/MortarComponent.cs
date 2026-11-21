@@ -37,10 +37,10 @@ public sealed partial class MortarComponent : Component
     [DataField, AutoNetworkedField]
     public Vector2i Dial;
 
-    /// Metres of range per tile of possible miss, rolled fresh for every shot.
+    /// Metres of range per tile of the widest possible miss, leaned towards the aim.
 
     [DataField, AutoNetworkedField]
-    public int TilesPerOffset = 20;
+    public int TilesPerOffset = 40;
 
     [DataField, AutoNetworkedField]
     public int MaxTarget = 10000;
