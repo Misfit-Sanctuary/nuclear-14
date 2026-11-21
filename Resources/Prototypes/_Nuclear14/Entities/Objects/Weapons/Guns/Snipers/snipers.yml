@@ -148,6 +148,16 @@
   - type: Appearance
   - type: FollowDistance
     backStrength: 3
+  # #Misfits Add - built-in optic (plain YAML Scope component)
+  - type: Scope
+    requireWielding: true
+    requiredPerception: 9
+    zoomLevels:
+    - name: 6x
+      zoom: 1.18
+      offset: 17
+      allowMovement: false
+      doAfter: 1.00
   - type: StaticPrice
     price: 200
 
@@ -186,6 +196,16 @@
       collection: N14AntiMaterielGunshot
   - type: FollowDistance
     backStrength: 3
+  # #Misfits Add - built-in optic (plain YAML Scope component)
+  - type: Scope
+    requireWielding: true
+    requiredPerception: 8
+    zoomLevels:
+    - name: 3x
+      zoom: 1.07
+      offset: 9
+      allowMovement: false
+      doAfter: 0.70
   - type: StaticPrice
     price: 175
   # #Misfits Add — scope attachment slot on .50 NCR rifle
@@ -578,6 +598,16 @@
             - N14Cartridge308Rifle
   - type: FollowDistance
     backStrength: 3
+  # #Misfits Add - built-in optic (plain YAML Scope component)
+  - type: Scope
+    requireWielding: true
+    requiredPerception: 8
+    zoomLevels:
+    - name: 6x
+      zoom: 1.17
+      offset: 16
+      allowMovement: false
+      doAfter: 1.00
   - type: StaticPrice
     price: 175
 # Forge-add-end
@@ -690,6 +720,16 @@
     - SemiAuto
     soundGunshot:
       collection: N14SniperVarmintGunshot
+  # #Misfits Add - built-in optic, pure YAML component (no item, no attachment)
+  - type: Scope
+    requireWielding: true
+    requiredPerception: 7
+    zoomLevels:
+    - name: 5x
+      zoom: 1.13
+      offset: 15
+      allowMovement: false
+      doAfter: 0.70
   - type: StaticPrice
     price: 500
 

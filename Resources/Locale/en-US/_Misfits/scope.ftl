@@ -23,6 +23,7 @@ n14-action-popup-scoping-user-must-not-contained = You can't look through {THE($
 
 # Error: weapon must be wielded to scope
 n14-action-popup-scoping-user-must-wield = You need to wield {THE($scope)} first.
+n14-action-popup-scoping-user-not-perceptive = You need at least { $required } Perception to make anything out through {THE($scope)}.
 
 # Action names
 n14-action-toggle-scope = Toggle Scope

@@ -80,7 +80,16 @@
     fireRate: 4
     soundGunshot:
       collection: N14PistolSpyGunshot
-
+  # #Misfits Add - built-in optic (plain YAML Scope component)
+  - type: Scope
+    requireWielding: true
+    requiredPerception: 8
+    zoomLevels:
+    - name: 5x
+      zoom: 1.14
+      offset: 15
+      allowMovement: false
+      doAfter: 0.70
 - type: entity
   name: Ak-112
   parent: N14WeaponRifleBase
