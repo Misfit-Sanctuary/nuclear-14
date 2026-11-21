@@ -1,0 +1,41 @@
+- type: entity
+  id: Xmaswreath
+  name: holiday wreath
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: WallMount
+  - type: Physics
+    canCollide: false
+    bodyType: Static
+  - type: Appearance
+  - type: Rotatable
+  - type: Fixtures
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _BPL14/Objects/Christmas/wreath.rsi
+    layers:
+      - state: icon
+
+- type: entity
+  id: Xmasgarland
+  name: holiday garland
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: WallMount
+  - type: Physics
+    canCollide: false
+    bodyType: Static
+  - type: Appearance
+  - type: Rotatable
+  - type: Fixtures
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _BPL14/Objects/Christmas/garland.rsi
+    layers:
+      - state: icon
