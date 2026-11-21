@@ -219,21 +219,22 @@
     - N14Cigarette
 
 # Tools
-- type: loadout
-  id: N14LoadoutBeltUtility
-  category: Items
-  cost: 5
-  requirements:
-    - !type:OverallTimeRequirement
-      min: 3600
-    - !type:CharacterJobRequirement # Forge-Change
-      inverted: true
-      jobs:
-      - BoSMidSerf
-      - CaesarLegionSlave
-      - NCRPrisoner
-  items:
-    - N14ClothingBeltUtilityFilled
+# - type: loadout
+#   id: N14LoadoutBeltUtility
+#   category: Items
+#   cost: 5
+#   requirements:
+#     - !type:OverallTimeRequirement
+#       min: 3600
+#     - !type:CharacterJobRequirement # Forge-Change
+#       inverted: true
+#       jobs:
+#       - BoSMidSerf
+#       - CaesarLegionSlave
+#       - NCRPrisoner
+#   items:
+#     - N14ClothingBeltUtilityFilled
+# Misfit - Moved to Belt Area
 
 - type: loadout
   id: LoadoutItemBarberScissors
