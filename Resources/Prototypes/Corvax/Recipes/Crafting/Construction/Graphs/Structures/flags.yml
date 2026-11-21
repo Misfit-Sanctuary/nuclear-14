@@ -266,13 +266,35 @@
         - to: LegionCross
           steps:
             - material: WoodPlank
-              amount: 2
+              amount: 5
               doAfter: 3
           completed:
             - !type:SnapToGrid
               southRotation: true
     - node: LegionCross
       entity: N14DecorationLegionCross
+
+# # Misfits Add - Gallows construction
+
+- type: constructionGraph
+  id: DecorationGallows
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: Gallows
+      steps:
+      - material: WoodPlank
+        amount: 10
+        doAfter: 10
+      - material: Cloth
+        amount: 5
+        doAfter: 10
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+  - node: Gallows
+    entity: MisfitsGallows
 
 # new canaan town subfaction flag
 - type: constructionGraph

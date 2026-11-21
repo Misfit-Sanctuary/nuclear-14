@@ -70,7 +70,7 @@
   parent: N14DecorationFlagLegion
   id: N14DecorationLegionCross
   name: Crucifix
-  description: Profligats turned facing west, so that they may watch their world die.
+  description: Profligates turned facing west, so that they may watch their world die.
   suffix: Mapping
   components:
   - type: Sprite
@@ -89,7 +89,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          collection: MetalBreak
+          collection: WoodDestroy
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Transform

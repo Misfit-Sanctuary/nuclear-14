@@ -32,3 +32,24 @@
       path: /Audio/Effects/silence.ogg
   - type: NoSelfUnbuckle
   - type: Gallows
+  - type: Construction
+    graph: DecorationGallows
+    node: Gallows
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Damageable
+    damageModifierSet: Wood
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
