@@ -55,6 +55,9 @@
         factions:
           - Wastelander
           - Followers # #Misfits Add - enables Followers death-alert targeting
+      # #Misfits Add - command voice: bigger chat text
+      - type: SpeechFontOverride
+        fontSizeBonus: 4
       - type: CPRTraining
   - !type:AddTraitSpecial
     traits:
@@ -120,6 +123,9 @@
         factions:
           - Wastelander
           - Followers # #Misfits Add - enables Followers death-alert targeting
+      # #Misfits Add - command voice: bigger chat text
+      - type: SpeechFontOverride
+        fontSizeBonus: 4
       - type: CPRTraining
   - !type:AddTraitSpecial
     traits:

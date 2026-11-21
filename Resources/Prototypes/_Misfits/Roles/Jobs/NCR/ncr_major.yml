@@ -44,6 +44,9 @@
           factions:
             - Wastelander
             - NCR
+        # #Misfits Add - command voice: bigger chat text
+        - type: SpeechFontOverride
+          fontSizeBonus: 4
 
 # Major shares the Captain's visual loadout — distinct rank is represented via
 # the access level. Use the Major collar pin directly so the rank is shown

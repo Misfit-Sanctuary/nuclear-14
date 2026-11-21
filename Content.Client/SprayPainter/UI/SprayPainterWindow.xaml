@@ -30,6 +30,10 @@
             <ItemList Name="ColorList"
                       SizeFlagsStretchRatio="8"
                       VerticalExpand="True"/>
+            <Label Name="CustomColorLabel"
+                   Text="{Loc 'spray-painter-custom-color'}"/>
+            <ColorSelectorSliders Name="CustomColorSelector"
+                                  IsAlphaVisible="False"/>
         </BoxContainer>
         <PanelContainer StyleClasses="LowDivider" />
         <controls:SprayPainterDecals Name="DecalControls"

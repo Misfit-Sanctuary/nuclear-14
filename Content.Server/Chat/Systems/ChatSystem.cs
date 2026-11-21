@@ -1006,6 +1006,15 @@ public sealed partial class ChatSystem : SharedChatSystem
         return msg;
     }
 
+    // Chat font size after language, speech verb, charisma and loud-voice modifiers.
+    public int GetSpeechFontSize(EntityUid source, LanguagePrototype language, SpeechVerbPrototype speech)
+    {
+        var fontSize = _special.GetCharismaChatFontSize(source, language.SpeechOverride.FontSize ?? speech.FontSize);
+        var ev = new SpeechFontSizeOverrideEvent(fontSize);
+        RaiseLocalEvent(source, ref ev);
+        return ev.IsActive ? ev.FontSize : fontSize;
+    }
+
     /// <summary>
     ///     Wraps a message sent by the specified entity into an "x says y" string.
     /// </summary>
@@ -1043,7 +1052,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         var languageDisplay = language.IsVisibleLanguage
             ? Loc.GetString("chat-manager-language-prefix", ("language", language.ChatName))
             : "";
-        var fontSize = _special.GetCharismaChatFontSize(source, language.SpeechOverride.FontSize ?? speech.FontSize);
+        var fontSize = GetSpeechFontSize(source, language, speech);
         var font = new SpeechFontOverrideEvent(source, language.SpeechOverride.FontId ?? speech.FontId);
         RaiseLocalEvent(source, ref font);
 

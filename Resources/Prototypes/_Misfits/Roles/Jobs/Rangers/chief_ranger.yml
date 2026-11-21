@@ -34,6 +34,9 @@
       - type: NpcFactionMember
         factions:
           - Rangers
+      # #Misfits Add - command voice: bigger chat text
+      - type: SpeechFontOverride
+        fontSizeBonus: 4
       - type: FactionRoster # #Cythisiax Added - roster GUI: the Chief Ranger can manage every Ranger up to Ranger Lead
         roster: Rangers
 

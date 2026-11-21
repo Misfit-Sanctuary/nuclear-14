@@ -81,3 +81,17 @@
     sprite: _Misfits/Structures/Decoration/newcanaanflag.rsi
     state: newcanaanflag
     noRot: true
+
+# #Misfits Add - Hospitaller banner, craftable standing flag (sprite by saint)
+- type: entity
+  parent: N14DecorationFlagFlammable
+  id: MisfitsDecorationFlagHospitaller
+  name: Banner of the Hospitallers
+  description: The banner of the Hospitaller Order, wasteland knights who took the old cross of Saint John for their own. They tend the sick, bury the dead, and answer raiders with the same unchanging courtesy.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Structures/Decoration/hospitaller_flag.rsi
+    state: hospitaller_flag
+  - type: Construction
+    graph: MisfitsFlagHospitaller
+    node: HospitallerFlag

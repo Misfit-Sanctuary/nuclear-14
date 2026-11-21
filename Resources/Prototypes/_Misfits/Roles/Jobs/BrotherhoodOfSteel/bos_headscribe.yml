@@ -31,6 +31,9 @@
       - type: NpcFactionMember
         factions:
           - BrotherhoodOfSteel
+      # #Misfits Add - command voice: bigger chat text
+      - type: SpeechFontOverride
+        fontSizeBonus: 4
       - type: CPRTraining
       - type: LanguageKnowledge # #Misfits Add: Scribes speak and understand Brotherhood binary code by default.
         speaks:

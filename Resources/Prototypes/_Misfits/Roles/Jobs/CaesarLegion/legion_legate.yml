@@ -33,6 +33,9 @@
       - type: NpcFactionMember
         factions:
           - CaesarLegion
+      # #Misfits Add - command voice: bigger chat text
+      - type: SpeechFontOverride
+        fontSizeBonus: 4
       - type: ReplacementAccent
         accent: latin
       - type: Warcry
