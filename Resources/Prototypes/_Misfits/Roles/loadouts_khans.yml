@@ -4,9 +4,10 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - GreatKhans
+    - !type:CharacterJobRequirement
+      jobs:
+      - C27
+      - GreatKhan
   items:
     - MisfitsClothingHeadKhanHelmet
 
@@ -16,9 +17,10 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - GreatKhans
+    - !type:CharacterJobRequirement
+      jobs:
+      - C27
+      - GreatKhan
   items:
     - MisfitsClothingHeadKhanFurHelmet
 
@@ -29,9 +31,10 @@
   cost: 2 #following the N14ClothingHeadHatCombatHelmet loadout points
   exclusive: true
   requirements:
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - GreatKhans
+    - !type:CharacterJobRequirement
+      jobs:
+      - C27
+      - GreatKhan
   items:
     - MisfitsClothingHeadKhanFullHelmet
 
