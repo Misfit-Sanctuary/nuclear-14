@@ -85,3 +85,37 @@
       outerClothing: MisfitsCruorisMandexOuter
       mask: MisfitsCruorisMandexMask
       shoes: MisfitsCruorisMandexBoots
+
+- type: personalLoadoutProfile
+  id: MisfitsPersonalLoadoutRedFoxArmorCenturion
+  accountNames:
+  - Artivus
+  characterNames:
+  - Decimus Vexus
+  equipment:
+  - jobs:
+    - CaesarLegionCenturion
+    replacements:
+      head: MisfitsRedFoxHeadCenturion
+      gloves: MisfitsRedFoxHands
+      outerClothing: MisfitsRedFoxOuterCenturion
+      mask: MisfitsRedFoxMask
+      shoes: MisfitsRedFoxBootsCenturion
+
+- type: personalLoadoutProfile
+  id: MisfitsPersonalLoadoutRedFoxArmorOther
+  accountNames:
+  - Artivus
+  characterNames:
+  - Decimus Vexus
+  equipment:
+  - jobs:
+    - CaesarLegionFrumentarii
+    - CaesarLegionExplorer
+    - CaesarLegionCitizen
+    replacements:
+      head: MisfitsRedFoxHeadOther
+      gloves: MisfitsRedFoxHands
+      outerClothing: MisfitsRedFoxOuterOther
+      mask: MisfitsRedFoxMask
+      shoes: MisfitsRedFoxBootsOther
