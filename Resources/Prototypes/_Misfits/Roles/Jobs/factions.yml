@@ -128,3 +128,26 @@
   roles:
   - GreatKhan
 
+# #Misfits Add - whitelist key for the event ghost role. Nothing spawns this job; add
+# MisfitsGhostRoleJobWhitelistRequirement (jobs: [ GhostRoleSentientGhoul ]) to a spawner to require it.
+# Grants happen in the admin whitelist panel (whitelistsearch).
+- type: playTimeTracker
+  id: GhostRoleSentientGhoul
+
+- type: job
+  id: GhostRoleSentientGhoul
+  name: job-name-misfits-ghost-role-ghoul
+  playTimeTracker: GhostRoleSentientGhoul
+  whitelisted: true
+  setPreference: false
+
+- type: department
+  id: GhostRoles
+  description: department-GhostRoles-description
+  color: "#6b8e23"
+  weight: -110
+  editorHidden: true
+  uiCategory: Whitelist
+  roles:
+  - GhostRoleSentientGhoul
+

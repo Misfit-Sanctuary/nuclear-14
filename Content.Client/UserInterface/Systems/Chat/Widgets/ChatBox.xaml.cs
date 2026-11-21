@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Client._Misfits.Chat; // #Misfits Change
+using Content.Client._Misfits.Events; // #Misfits Change — fork event [Warp] link
 using Content.Client.Administration.Systems; // #Misfits Change
 using Content.Client.Guidebook.RichText; // #Misfits Change
 using Content.Client.UserInterface.Systems.Chat.Controls;
@@ -324,6 +325,31 @@ public partial class ChatBox : UIWidget, ILinkClickHandler // #Misfits Change �
             var netEntity = link["chatghost:".Length..];
             _console.ExecuteCommand($"ghostfollow {netEntity}");
         }
+        // #Misfits Add — warp to a fork event that was just announced.
+        else if (link.StartsWith("eventwarp:"))
+        {
+            if (int.TryParse(link["eventwarp:".Length..], out var ruleId))
+                _entManager.System<MisfitsEventsClientSystem>().RequestWarp(new NetEntity(ruleId));
+        }
+    }
+
+    // #Misfits Add — fork event line: text plus a clickable [Warp] link to the event.
+    public void AddEventLine(string text, NetEntity rule)
+    {
+        var formatted = new FormattedMessage();
+
+        formatted.PushColor(Color.Gold);
+        formatted.AddText(text);
+        formatted.Pop();
+        formatted.AddText(" ");
+
+        formatted.PushTag(new MarkupNode("adminlink", new MarkupParameter("[Warp]"),
+            new Dictionary<string, MarkupParameter>
+            {
+                ["link"] = new MarkupParameter("eventwarp:" + rule.Id),
+            }), selfClosing: true);
+
+        Contents.AddMessage(formatted, AdminChatTags, null);
     }
 
     public void Focus(ChatSelectChannel? channel = null)

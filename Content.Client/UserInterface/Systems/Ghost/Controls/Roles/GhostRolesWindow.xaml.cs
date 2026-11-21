@@ -18,11 +18,12 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             EntryContainer.DisposeAllChildren();
         }
 
-        public void AddEntry(string name, string description, bool hasAccess, FormattedMessage? reason, IEnumerable<GhostRoleInfo> roles, SpriteSystem spriteSystem)
+        public void AddEntry(string name, string description, bool hasAccess, FormattedMessage? reason,
+            IEnumerable<GhostRoleInfo> roles, SpriteSystem spriteSystem, bool isGhost)
         {
             NoRolesMessage.Visible = false;
 
-            var entry = new GhostRolesEntry(name, description, hasAccess, reason, roles, spriteSystem);
+            var entry = new GhostRolesEntry(name, description, hasAccess, reason, roles, spriteSystem, isGhost);
             entry.OnRoleSelected += OnRoleRequestButtonClicked;
             entry.OnRoleFollow += OnRoleFollow;
             EntryContainer.AddChild(entry);

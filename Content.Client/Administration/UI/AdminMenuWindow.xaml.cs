@@ -40,6 +40,8 @@ public sealed partial class AdminMenuWindow : DefaultWindow
         MasterTabContainer.SetTabTitle((int) TabIndex.LoreMaster, Loc.GetString("misfits-admin-menu-loremaster-tab"));
         // #Misfits Change - Door Logs tab
         MasterTabContainer.SetTabTitle((int) TabIndex.DoorLogs, Loc.GetString("misfits-admin-menu-door-logs-tab"));
+        // #Misfits Change - Fork event pool tab
+        MasterTabContainer.SetTabTitle((int) TabIndex.MisfitsEvents, Loc.GetString("misfits-admin-menu-events-tab"));
         MasterTabContainer.OnTabChanged += OnTabChanged;
 
         // #Misfits Add — subscribe to ticket events for badge count on Staff tab
@@ -114,5 +116,6 @@ public sealed partial class AdminMenuWindow : DefaultWindow
         // TicketStats removed — stats are now squished into the Staff tab
         LoreMaster, // #Misfits Change
         DoorLogs, // #Misfits Change
+        MisfitsEvents, // #Misfits Add - Fork event pool tab
     }
 }

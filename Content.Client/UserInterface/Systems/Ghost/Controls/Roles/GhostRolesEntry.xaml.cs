@@ -16,7 +16,8 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
         public event Action<GhostRoleInfo>? OnRoleSelected;
         public event Action<GhostRoleInfo>? OnRoleFollow;
 
-        public GhostRolesEntry(string name, string description, bool hasAccess, FormattedMessage? reason, IEnumerable<GhostRoleInfo> roles, SpriteSystem spriteSystem)
+        public GhostRolesEntry(string name, string description, bool hasAccess, FormattedMessage? reason,
+            IEnumerable<GhostRoleInfo> roles, SpriteSystem spriteSystem, bool isGhost)
         {
             RobustXamlLoader.Load(this);
             _spriteSystem = spriteSystem;
@@ -24,9 +25,20 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             Title.Text = name;
             Description.SetMessage(description);
 
+            // #Misfits Add - the lobby holds no ghost: no following, and a raffle is listed but cannot be joined.
+            RaffleNote.Visible = !isGhost && roles.Any(role => role.Kind != GhostRoleKind.FirstComeFirstServe);
+
             foreach (var role in roles)
             {
                 var button = new GhostRoleEntryButtons(role);
+
+                if (!isGhost)
+                {
+                    button.FollowButton.Visible = false;
+                    button.RequestButton.RemoveStyleClass("OpenRight"); // normal corners without the Follow button
+                    button.RequestButton.Disabled = role.Kind != GhostRoleKind.FirstComeFirstServe;
+                }
+
                 button.RequestButton.OnPressed += _ => OnRoleSelected?.Invoke(role);
                 button.FollowButton.OnPressed += _ => OnRoleFollow?.Invoke(role);
 

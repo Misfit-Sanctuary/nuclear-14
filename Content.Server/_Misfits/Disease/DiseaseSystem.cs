@@ -416,13 +416,12 @@ public sealed class DiseaseSystem : EntitySystem
 
     private void OnProtectionEquipped(EntityUid uid, DiseaseProtectionComponent comp, GotEquippedEvent args)
     {
+        // #Misfits Fix - this component is server-only, so it has nothing to dirty.
         comp.IsActive = true;
-        Dirty(uid, comp);
     }
 
     private void OnProtectionUnequipped(EntityUid uid, DiseaseProtectionComponent comp, GotUnequippedEvent args)
     {
         comp.IsActive = false;
-        Dirty(uid, comp);
     }
 }

@@ -1,0 +1,135 @@
+# The travelling caravan's wagon: the town machine's shell with its own stock list.
+# Prices are deliberately above town rates; edit freely.
+
+- type: entity
+  parent: TrademachineWaster
+  id: MisfitsTrademachineCaravan
+  name: wandering caravan wagon
+  description: A wagon that has been out in the wastes too long, carrying things the town does not stock.
+  suffix: vendor, caravan
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: NcStore
+    buyPresets:
+    - MisfitsCaravan_Buy
+    sellPresets:
+    - MisfitsCaravan_Sell
+  # Shopkeeper access only, same as the town caravan.
+  - type: AccessReader
+    access:
+    - [ "WasterTrader" ]
+  # #Misfits Add - nailed to the spot until the trader's key is in this slot, then free to be hauled.
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: vehicle-slot-component-slot-name-keys
+        whitelist:
+          tags:
+          - CaravanWagonKey
+  - type: Pullable
+  - type: CaravanWagonKey
+
+# #Misfits Add - the caravan's key: the trader's kit carries it, and the wagon rolls once it is in the slot.
+- type: entity
+  parent: BaseKey
+  id: MisfitsCaravanKey
+  name: caravan key
+  description: A heavy brass key on a leather loop. Turned in the wagon's lock, it frees the wagon to be hauled.
+  components:
+  - type: Sprite
+    sprite: Objects/Vehicles/motorbike.rsi
+    state: keys
+  - type: Tag
+    tags:
+    - CaravanWagonKey
+
+- type: storeCategoryStructured
+  id: MisfitsCaravanBuy_Energy
+  name: "Exotic energy"
+  entries:
+  - proto: N14WeaponLaserPistol
+    price: 400
+  - proto: N14WeaponLaserRifle
+    price: 700
+  - proto: N14WeaponLaserRiflePrototypeAER14
+    price: 900
+  - proto: N14WeaponPlasmaRifle
+    price: 800
+  - proto: N14WeaponPlasmaDefender
+    price: 850
+  - proto: N14MicrofusionCell
+    price: 400
+  - proto: N14PlasmaCartridge
+    price: 200
+
+- type: storeCategoryStructured
+  id: MisfitsCaravanBuy_Exotic
+  name: "Exotic goods"
+  entries:
+  - proto: N14Med-X
+    price: 900
+  - proto: N14Turbo
+    price: 600
+  - proto: N14MedkitCombatFilled
+    price: 800
+  - proto: N14RadAwayInhaler
+    price: 400
+  - proto: N14ClothingOuterCombatArmorMK2
+    price: 1000
+  - proto: N14ClothingOuterRangerCoat
+    price: 500
+  - proto: N14ClothingOuterLegionnaireVeteranArmor
+    price: 450
+  - proto: N14MaterialCircuitry
+    amount: 10
+    price: 500
+
+- type: storeCategoryStructured
+  id: MisfitsCaravanBuy_Oddities
+  name: "Oddities"
+  entries:
+  - proto: N14MaterialNightstalkerPelt
+    price: 120
+  - proto: N14MaterialYaoguaiHide
+    price: 120
+  - proto: N14FoodCazadorAcidSac
+    price: 140
+  - proto: N14MaterialRadscorpionTail
+    price: 150
+  - proto: N14FoodEggDeathclaw
+    price: 200
+
+- type: storePresetStructured
+  id: MisfitsCaravan_Buy
+  currency: Caps
+  categories:
+  - MisfitsCaravanBuy_Energy
+  - MisfitsCaravanBuy_Exotic
+  - MisfitsCaravanBuy_Oddities
+
+- type: storeCategoryStructured
+  id: MisfitsCaravanSell_Goods
+  name: "Buying"
+  entries:
+  - proto: N14WeaponLaserPistol
+    price: 200
+  - proto: N14WeaponLaserRifle
+    price: 350
+  - proto: N14MicrofusionCell
+    price: 200
+  - proto: N14MaterialCircuitry
+    price: 250
+  - proto: N14Med-X
+    price: 450
+  - proto: N14ClothingOuterRangerCoat
+    price: 250
+  - proto: N14MaterialNightstalkerPelt
+    price: 60
+  - proto: N14MaterialRadscorpionTail
+    price: 75
+
+- type: storePresetStructured
+  id: MisfitsCaravan_Sell
+  currency: Caps
+  categories:
+  - MisfitsCaravanSell_Goods

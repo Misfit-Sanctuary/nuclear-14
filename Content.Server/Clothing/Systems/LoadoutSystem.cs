@@ -21,6 +21,7 @@ using Content.Shared.Traits.Assorted.Components;
 using Robust.Shared.Collections;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network; // #Cythisiax Add - player NetUserId for Patreon tier enforcement
+using Robust.Shared.Player; // #Misfits Add - event roles apply loadouts straight to a session
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
@@ -84,6 +85,25 @@ public sealed class LoadoutSystem : EntitySystem
             player: ev.Player.UserId); // #Cythisiax Edited - pass player for Patreon tier enforcement
     }
 
+
+    // #Misfits Add - event ghost roles are not spawned by a station job, so they hand their loadout over directly.
+    public void ApplyEventLoadout(EntityUid uid, ProtoId<JobPrototype> job, HumanoidCharacterProfile profile,
+        ICommonSession player)
+    {
+        if (!_configurationManager.GetCVar(CCVars.GameLoadoutsEnabled)
+            || !_protoMan.TryIndex(job, out var jobProto))
+            return;
+
+        // Same flags a station job spawn uses: the player's own playtime and whitelist state, never assumed.
+        ApplyCharacterLoadout(
+            uid,
+            job,
+            profile,
+            _playTimeTracking.GetTrackerTimes(player),
+            player.ContentData()?.Whitelisted ?? false,
+            jobProto: jobProto,
+            player: player.UserId);
+    }
 
     /// Equips every loadout, then puts whatever extras it can in inventories
     public void ApplyCharacterLoadout(

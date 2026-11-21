@@ -1,0 +1,523 @@
+# Markers used by the event pool: where events spawn, and the ghost role spawners they place.
+# Place these at map entrances in the map editor; events pick one at random, and renaming
+# the instance gives that anchor a readable name in the logs and the admin tab.
+- type: entity
+  id: MisfitsEventAnchor
+  name: event anchor
+  suffix: event
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Corvax/Markers/jobs.rsi
+    state: green
+  - type: MisfitsEventAnchor
+
+# Town and wilderness anchors, so events that want one kind can find them.
+- type: entity
+  parent: MisfitsEventAnchor
+  id: MisfitsEventAnchorTown
+  name: event anchor (town)
+  suffix: event
+  components:
+  - type: MisfitsEventAnchor
+    kind: Town
+
+- type: entity
+  parent: MisfitsEventAnchor
+  id: MisfitsEventAnchorWilderness
+  name: event anchor (wilderness)
+  suffix: event
+  components:
+  - type: MisfitsEventAnchor
+    kind: Wilderness
+
+# Ghost roles placed by events: spawned at runtime, hidden from the spawn menu.
+- type: entity
+  id: MisfitsSpawnPointGhostGhoul
+  name: sentient ghoul ghost role
+  suffix: event
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    visible: false
+  # The ghost picks one of their own ghoul characters, or a randomly generated ghoul.
+  - type: MisfitsGhostRoleCharacterPicker
+    allowedSpecies: [ Ghoul ]
+    allowRandom: true
+    gear: [ MisfitsGhoulHordeGear ]
+    # One of the horde, not meat for it: the feral ghouls' own faction, and a shout to send them in.
+    addComponents:
+    - type: NpcFactionMember
+      factions:
+      - Feral
+    - type: MisfitsGhoulRally
+  - type: GhostRole
+    name: misfits-ghost-role-ghoul-name
+    description: misfits-ghost-role-ghoul-description
+    rules: misfits-ghost-role-ghoul-rules
+  # Bans key off this prototype id: roleban <player> MisfitsSpawnPointGhostGhoul <reason>
+
+# What the sentient ghoul arrives wearing and carrying; slot names are the wearer's.
+- type: startingGear
+  id: MisfitsGhoulHordeGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitRags
+    shoes: N14ClothingShoesRags
+    ears: MisfitsClothingHeadsetWastelandScrap
+
+# --- Event ghost roles. The picker offers the taker their own characters (any species
+# unless allowedSpecies is set); gear and objective come from here, not from code. ---
+
+- type: entity
+  id: MisfitsSpawnPointGhostRaider
+  name: sentient raider ghost role
+  suffix: event
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    visible: false
+  - type: MisfitsGhostRoleCharacterPicker
+    allowedSpecies: [ Human, Ghoul, GhoulGlowing ]
+    radioTeam: raiders
+    # The motive is rolled once by the event, so the whole crew shares it.
+    # One of these at random per raider, so a raid is not four identical kits.
+    gear:
+    - MisfitsRaiderGear
+    - MisfitsRaiderGearShotgun
+    - MisfitsRaiderGearPistol
+    - MisfitsRaiderGearScrap
+    objective: misfits-objective-raider
+    objectiveDescription: misfits-objective-raider-desc
+  - type: GhostRole
+    name: misfits-ghost-role-raider-name
+    description: misfits-ghost-role-raider-description
+    rules: misfits-ghost-role-raider-rules
+
+- type: entity
+  id: MisfitsSpawnPointGhostLegionSlave
+  name: escaped slave ghost role
+  suffix: event
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    visible: false
+  - type: MisfitsGhostRoleCharacterPicker
+    allowedSpecies: [ Human, Ghoul, GhoulGlowing ]
+    gear: [ MisfitsLegionSlaveGear ]
+    objective: misfits-objective-slave
+    objectiveDescription: misfits-objective-slave-desc
+  - type: GhostRole
+    name: misfits-ghost-role-slave-name
+    description: misfits-ghost-role-slave-description
+    rules: misfits-ghost-role-slave-rules
+
+- type: entity
+  id: MisfitsSpawnPointGhostLegionHunter
+  name: legion bounty hunter ghost role
+  suffix: event
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    visible: false
+  - type: MisfitsGhostRoleCharacterPicker
+    allowedSpecies: [ Human, Ghoul, GhoulGlowing ]
+    radioTeam: legion
+    gear: [ MisfitsLegionHunterGear ]
+    objective: misfits-objective-hunter
+    objectiveDescription: misfits-objective-hunter-desc
+  - type: GhostRole
+    name: misfits-ghost-role-hunter-name
+    description: misfits-ghost-role-hunter-description
+    rules: misfits-ghost-role-hunter-rules
+
+- type: entity
+  id: MisfitsSpawnPointGhostCriminal
+  name: wanted criminal ghost role
+  suffix: event
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    visible: false
+  - type: MisfitsGhostRoleCharacterPicker
+    allowedSpecies: [ Human, Ghoul, GhoulGlowing ]
+    gear: [ MisfitsCriminalGear ]
+    # The run remembers whoever takes this role as $criminal for the ranger's warrant.
+    roleKey: criminal
+    objective: misfits-objective-criminal
+    objectiveDescription: misfits-objective-criminal-desc
+  - type: GhostRole
+    name: misfits-ghost-role-criminal-name
+    description: misfits-ghost-role-criminal-description
+    rules: misfits-ghost-role-criminal-rules
+
+- type: entity
+  id: MisfitsSpawnPointGhostRanger
+  name: ranger ghost role
+  suffix: event
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    visible: false
+  - type: MisfitsGhostRoleCharacterPicker
+    allowedSpecies: [ Human, Ghoul ]
+    # The ranger's own job kit and the loadout items they picked for it in the customize menu.
+    job: NCRRangerStandard
+    # A warrant naming $criminal, shown above the run's shared crime.
+    briefing: MisfitsNcrRangerWarrant
+    objective: misfits-objective-ranger
+    objectiveDescription: misfits-objective-ranger-desc
+  - type: GhostRole
+    name: misfits-ghost-role-ranger-name
+    description: misfits-ghost-role-ranger-description
+    rules: misfits-ghost-role-ranger-rules
+
+- type: entity
+  id: MisfitsSpawnPointGhostTrader
+  name: travelling trader ghost role
+  suffix: event
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    visible: false
+  - type: MisfitsGhostRoleCharacterPicker
+    allowedSpecies: [ Human, Ghoul, GhoulGlowing ]
+    radioTeam: caravan
+    gear: [ MisfitsTraderGear ]
+    objective: misfits-objective-trader
+    objectiveDescription: misfits-objective-trader-desc
+  - type: GhostRole
+    name: misfits-ghost-role-trader-name
+    description: misfits-ghost-role-trader-description
+    rules: misfits-ghost-role-trader-rules
+
+- type: entity
+  id: MisfitsSpawnPointGhostCaravanGuard
+  name: caravan guard ghost role
+  suffix: event
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    visible: false
+  - type: MisfitsGhostRoleCharacterPicker
+    allowedSpecies: [ Human, Ghoul, GhoulGlowing ]
+    radioTeam: caravan
+    gear: [ MisfitsCaravanGuardGear ]
+    objective: misfits-objective-caravan-guard
+    objectiveDescription: misfits-objective-caravan-guard-desc
+  - type: GhostRole
+    name: misfits-ghost-role-caravan-guard-name
+    description: misfits-ghost-role-caravan-guard-description
+    rules: misfits-ghost-role-caravan-guard-rules
+
+# --- Fire gecko nest. The alpha is a mob takeover: the ghost becomes the gecko itself, and shapes its own nest. ---
+
+# No longer spawned by the event: the alpha's make nest action leaves one behind.
+- type: entity
+  parent: BaseStructure
+  id: MisfitsGeckoNest
+  name: fire gecko nest
+  description: A mound of warm shells and half-eaten bones.
+  suffix: event
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+    state: egg_deathclaw
+    scale: 1.4,1.4
+  - type: MisfitsGeckoNest
+
+# A gecko of the pack: the fire gecko with hands and clothing slots, so the alpha's brood can carry and wear things.
+- type: entity
+  parent: N14MobGeckoFire
+  id: MisfitsMobGeckoFirePack
+  suffix: event
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Hands
+  - type: ComplexInteraction
+  - type: MisfitsMobHands
+  # Claws and teeth: a gecko can butcher a corpse without a knife.
+  - type: Sharp
+  # Wasteland animals inherit an accent that replaces every word with a growl; the pack talks instead.
+  - type: ReplacementAccent
+    replacementChance: 0
+  # English for talking to wastelanders, plus the pack's own tongue.
+  - type: LanguageKnowledge
+    speaks:
+    - English
+    - N14Gecko
+    understands:
+    - English
+    - N14Gecko
+  # Pockets, belt, back and a hat slot that shows on the sprite.
+  - type: Inventory
+    templateId: misfitsGecko
+  - type: InventorySlots
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  # Hat sprites are drawn for a human head: slide them onto the gecko's head in each side view, and raise every
+  # view a few pixels so the brim sits on the skull rather than over the eyes.
+  - type: MisfitsClothingDirectionOffset
+    slots:
+      head:
+        South: 0, 0.09375
+        North: 0, 0.09375
+        East: 0.15625, 0.09375
+        West: -0.15625, 0.09375
+
+- type: entity
+  parent: MisfitsMobGeckoFirePack
+  id: MisfitsMobGeckoFireAlpha
+  name: alpha fire gecko
+  description: A fire gecko grown huge on easy meals, mean enough to hold a nest.
+  suffix: event
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    scale: 1.5,1.5
+  # The ghost that takes the alpha names it on the spot.
+  - type: MisfitsNamePrompt
+  - type: ActionGrant
+    actions:
+    - ActionGeckoMakeNest
+  - type: GhostRole
+    name: misfits-ghost-role-gecko-name
+    description: misfits-ghost-role-gecko-description
+    rules: misfits-ghost-role-gecko-rules
+    allowMovement: true
+  - type: GhostTakeoverAvailable
+
+# A pack gecko ghost role: the nest grows one each time it is fed enough.
+- type: entity
+  parent: MarkerBase
+  id: MisfitsSpawnPointGeckoFire
+  name: fire gecko ghost role
+  suffix: event
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    visible: false
+  - type: GhostRole
+    name: misfits-ghost-role-gecko-pack-name
+    description: misfits-ghost-role-gecko-pack-description
+    rules: misfits-ghost-role-gecko-pack-rules
+  - type: GhostRoleMobSpawner
+    prototype: MisfitsMobGeckoFirePack
+    deleteOnSpawn: true
+
+# --- Gear for the event ghost roles above. ---
+
+# Raider: the WhiteLegs raider kit, minus their tribal uniform, so the role stays generic wasteland.
+# The other three are the rest of the pool the raider event rolls from; same slot layout, different kit.
+- type: startingGear
+  id: MisfitsRaiderGear
+  equipment:
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitRags
+    outerClothing: N14ClothingOuterRaiderCombat1
+    shoes: N14ClothingShoesRaider
+    neck: ClothingNeckBlackScarf
+    head: N14ClothingHeadHatBeanie
+    ears: MisfitsClothingHeadsetWastelandScrap
+    gloves: N14ClothingHandsGlovesLeather
+    back: N14ClothingBackpackMilitary
+    belt: ClothingBeltMilitary
+    suitstorage: N14WeaponSMG45
+  storage:
+    back:
+    - N14BoxPlasticFilledWastelander
+    - RadioHandheld
+    belt:
+    - Magazine45SubMachineGun
+    - Magazine45SubMachineGun
+
+# Raider with a shotgun and a scavenged nightstalker hood.
+- type: startingGear
+  id: MisfitsRaiderGearShotgun
+  equipment:
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformDesertPants
+    outerClothing: N14ClothingOuterRaiderCombat2
+    shoes: N14ClothingShoesRaider
+    mask: N14ClothingMaskBrownMask
+    head: N14ClothingHeadHatNightstalker
+    ears: MisfitsClothingHeadsetWastelandScrap
+    gloves: N14ClothingHandsGlovesLeather
+    back: N14ClothingBackpackMilitary
+    belt: ClothingBeltMilitary
+  inhand:
+  - N14WeaponShotgun
+  storage:
+    back:
+    - N14BoxPlasticFilledWastelander
+    - RadioHandheld
+    - N14ShellShotgun12
+    - N14ShellShotgun12
+
+# Raider in badlands armor with a 9mm, masking up against the dust.
+- type: startingGear
+  id: MisfitsRaiderGearPistol
+  equipment:
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitWastelandDoc
+    outerClothing: N14ClothingOuterRaiderBadlands
+    shoes: N14ClothingShoesBrown
+    mask: N14ClothingMaskRedMask
+    head: ClothingHeadHatWelding
+    ears: MisfitsClothingHeadsetWastelandScrap
+    gloves: N14ClothingHandsGlovesLeather
+    back: N14ClothingBackpackTrekker
+    belt: N14ClothingBeltLeatherPouches
+  inhand:
+  - N14WeaponPistol9mm
+  storage:
+    back:
+    - N14BoxPlasticFilledWastelander
+    - RadioHandheld
+    - N14MagazinePistol9mm
+    - N14MagazinePistol9mm
+
+# Raider in homemade metal armor with a 10mm SMG and a cowboy hat.
+- type: startingGear
+  id: MisfitsRaiderGearScrap
+  equipment:
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
+    outerClothing: N14ClothingOuterLightMetalArmor
+    shoes: N14ClothingShoesRaider
+    mask: N14ClothingMaskBrownMask
+    head: N14ClothingHeadHatCowboyBrown
+    ears: MisfitsClothingHeadsetWastelandScrap
+    gloves: N14ClothingHandsGlovesLeather
+    back: N14ClothingBackpackMilitary
+    belt: ClothingBeltMilitary
+  inhand:
+  - N14WeaponSMG10mm
+  storage:
+    back:
+    - N14BoxPlasticFilledWastelander
+    - RadioHandheld
+    - N14MagazineSMG10mm
+    - N14MagazineSMG10mm
+
+# Escaped slave: the Legion slave kit, collar and all, plus whatever they grabbed on the way out.
+- type: startingGear
+  id: MisfitsLegionSlaveGear
+  equipment:
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitRags
+    shoes: N14ClothingShoesRags
+    neck: NCClothingCollarLegionSlave
+    ears: MisfitsClothingHeadsetWastelandScrap
+    back: N14ClothingBackpackTrekker
+    pocket1: N14Bandage
+    pocket2: N14Bandage
+  storage:
+    back:
+    - N14BoxPlasticFilledWastelander
+
+# Legion bounty hunter: the veteran Legionnaire kit, rearmed with the revolver they hunt with.
+- type: startingGear
+  id: MisfitsLegionHunterGear
+  equipment:
+    wallet: N14Wallet
+    head: N14ClothingHeadHatLegionHood
+    mask: N14ClothingMaskBrownMask
+    jumpsuit: N14ClothingUniformJumpsuitLegionnaire
+    shoes: N14ClothingShoesKaligi
+    outerClothing: N14ClothingOuterCombatArmorMK2
+    gloves: N14ClothingHandsGlovesTribal
+    ears: N14ClothingHeadsetLegion
+    belt: ClothingBeltMilitary
+    back: N14ClothingBackpackMilitary
+    pocket1: N14HealingPowder
+    pocket2: N14AmmoBox44Magnum
+  inhand:
+  - N14WeaponRevolver44Magnum
+  - N14AmmoBox44Magnum
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryLegion
+    - N14HealingPowder
+    - N14Binoculars
+    - RadioHandheld
+
+# Wanted criminal: the NCR prisoner jumpsuit, so the fugitive is recognisable at a glance.
+- type: startingGear
+  id: MisfitsCriminalGear
+  equipment:
+    wallet: N14WalletCash
+    jumpsuit: ClothingUniformJumpsuitPrisoner
+    shoes: N14ClothingShoesBlack
+    gloves: N14ClothingHandsGlovesLeather
+    ears: MisfitsClothingHeadsetWastelandScrap
+    belt: N14ClothingBeltLeatherPouches
+    back: N14ClothingBackpackTrekker
+    pocket1: N14Stimpak
+    pocket2: N14Bandage
+  inhand:
+  - N14WeaponPistol22lr
+  - N14AmmoBox22lr
+  storage:
+    back:
+    - N14BoxPlasticFilledWastelander
+    - N14AmmoBox22lr
+    - N14CurrencyPrewarMoney100
+
+# Trader: the waster trader kit. The dogtags are what opens the caravan machine, so no flatpack.
+# The caravan key travels in the backpack: in the wagon's lock, it lets the wagon be hauled.
+- type: startingGear
+  id: MisfitsTraderGear
+  equipment:
+    wallet: N14WalletCash
+    jumpsuit: N14ClothingUniformJumpsuitMerchant
+    shoes: N14ClothingShoesBlack
+    gloves: N14ClothingHandsGlovesLeather
+    ears: MisfitsClothingHeadsetWastelandScrap
+    id: N14ClothingNeckDogtagsTrader
+    back: N14ClothingBackpackExplorer
+    pocket1: N14Multitool
+    pocket2: N14Bandage
+  storage:
+    back:
+    - MisfitsCaravanKey
+    - N14BoxPlasticFilledWastelander
+    - RadioHandheld
+    - N14Stimpak
+    - N14CurrencyPrewarMoney100
+
+# Caravan guard: the guard kit (satchel, baton, knife) with the police vest swapped for lighter armour.
+- type: startingGear
+  id: MisfitsCaravanGuardGear
+  equipment:
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitSettlerRags
+    shoes: N14ClothingBootsLeatherFilled
+    outerClothing: N14ClothingOuterPoliceCombat
+    gloves: N14ClothingHandsGlovesLeather
+    ears: MisfitsClothingHeadsetWastelandScrap
+    belt: N14ClothingBeltPoliceFilled
+    back: N14ClothingBackpackMilitary
+    pocket1: N14Stimpak
+    pocket2: N14Bandage
+  inhand:
+  - N14WeaponPistol9mmChinese
+  - N14AmmoBox9mm
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitary
+    - N14PoliceBaton
+    - N14CombatKnife
+    - N14AmmoBox9mm
+    - RadioHandheld

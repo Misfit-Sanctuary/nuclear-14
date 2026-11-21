@@ -6,10 +6,12 @@ using Content.Client.Players.PlayTimeTracking;
 using Content.Shared.Clothing.Loadouts.Prototypes;
 using Content.Shared.Customization.Systems;
 using Content.Shared.Eui;
+using Content.Shared.Ghost;
 using Content.Shared.Ghost.Roles;
 using Content.Shared.Preferences;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
+using Robust.Client.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 
@@ -95,6 +97,10 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             var configManager = IoCManager.Resolve<IConfigurationManager>();
             var sponsorManager = IoCManager.Resolve<SponsorManager>(); // Forge-Change
 
+            // #Misfits Add - no local body means the lobby, where a first-come role can be taken directly.
+            var localPlayer = IoCManager.Resolve<IPlayerManager>().LocalEntity;
+            var isGhost = localPlayer is { } attached && entityManager.HasComponent<GhostComponent>(attached);
+
             var groupedRoles = ghostState.GhostRoles.GroupBy(
                 role => (role.Name, role.Description, role.Requirements));
             foreach (var group in groupedRoles)
@@ -118,7 +124,8 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
                     out var reasons))
                     hasAccess = false;
 
-                _window.AddEntry(name, description, hasAccess, characterReqs.GetRequirementsText(reasons), group, spriteSystem);
+                _window.AddEntry(name, description, hasAccess, characterReqs.GetRequirementsText(reasons), group,
+                    spriteSystem, isGhost);
             }
 
             var closeRulesWindow = ghostState.GhostRoles.All(role => role.Identifier != _windowRulesId);

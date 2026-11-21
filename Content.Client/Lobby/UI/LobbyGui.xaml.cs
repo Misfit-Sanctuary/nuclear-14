@@ -26,6 +26,8 @@ namespace Content.Client.Lobby.UI
             MapCredit.SetMarkup(Loc.GetString("lobby-state-map-no-map-text")); // #Misfits Add - map credit default
 
             LeaveButton.OnPressed += _ => _consoleHost.ExecuteCommand("disconnect");
+            // #Misfits Add - asks the server for the ghost role list; taking one still needs a ghost.
+            GhostRolesButton.OnPressed += _ => _consoleHost.RemoteExecuteCommand(null, "ghostroles");
             OptionsButton.OnPressed += _ => UserInterfaceManager.GetUIController<OptionsUIController>().ToggleWindow();
         }
 

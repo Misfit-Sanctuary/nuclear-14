@@ -1,0 +1,31 @@
+<!-- #Misfits Add - Fork event pool admin tab -->
+<Control
+    xmlns="https://spacestation14.io"
+    Margin="4"
+    MinSize="50 50">
+    <BoxContainer Orientation="Vertical" SeparationOverride="6">
+        <Label Name="StatusLabel" />
+        <BoxContainer Orientation="Horizontal" SeparationOverride="12">
+            <CheckBox Name="CvarCheck" />
+            <CheckBox Name="AutoCheck" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <Label Text="Interval (seconds):" VerticalAlignment="Center" />
+            <LineEdit Name="MinIntervalEdit" MinWidth="80" />
+            <Label Text="to" VerticalAlignment="Center" />
+            <LineEdit Name="MaxIntervalEdit" MinWidth="80" />
+            <Button Name="ApplyIntervalButton" Text="Apply" MinWidth="90" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <Button Name="RollButton" Text="Roll random event" MinWidth="160" />
+            <Label Text="Next roll (seconds):" VerticalAlignment="Center" />
+            <LineEdit Name="NextRollEdit" MinWidth="80" />
+            <Button Name="SetNextButton" Text="Set" MinWidth="70" />
+            <Button Name="RefreshButton" Text="Refresh" MinWidth="90" />
+        </BoxContainer>
+        <Label Name="ResultLabel" />
+        <ScrollContainer VerticalExpand="True">
+            <BoxContainer Name="EventsContainer" Orientation="Vertical" SeparationOverride="4" />
+        </ScrollContainer>
+    </BoxContainer>
+</Control>
