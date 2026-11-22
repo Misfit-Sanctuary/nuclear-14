@@ -2,6 +2,7 @@
 using Content.Server.GameTicking;
 using Content.Shared._Misfits.MartialArts;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Item;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
@@ -86,7 +87,7 @@ public sealed class GrantMartialArtsSystem : EntitySystem
             return;
 
         // Items will be handled on UseInHand instead
-        if (HasComp<Content.Shared.Item.ItemComponent>(uid))
+        if (HasComp<ItemComponent>(uid))
             return;
 
         TryGrantMartialArt(uid, uid, comp);
@@ -100,6 +101,9 @@ public sealed class GrantMartialArtsSystem : EntitySystem
         where TComp : GrantMartialArtKnowledgeComponent
     {
         if (args.Handled)
+            return;
+
+        if (uid == args.User || !HasComp<ItemComponent>(uid))
             return;
 
         var user = args.User;
@@ -162,6 +166,9 @@ public sealed class GrantMartialArtsSystem : EntitySystem
                 break;
             }
         }
+
+        if (item == recipient)
+            RemCompDeferred(recipient, comp);
 
         // Show the learn popup on the recipient
         if (comp.LearnMessage != null)
