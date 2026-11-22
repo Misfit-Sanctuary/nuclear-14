@@ -86,6 +86,7 @@
     outerClothing: N14ClothingOuterPoliceVest
     shoes: N14ClothingBootsBlack
     head: N14ClothingHeadHatArmyBeret
+
 - type: startingGear
   id: CaravanMercNPC2
   equipment:
@@ -93,6 +94,7 @@
     outerClothing: N14ClothingOuterPoliceVest
     shoes: N14ClothingBootsBlack
     head: N14ClothingHeadHatCaravan
+
 - type: startingGear
   id: CaravanMercNPC3
   equipment:
@@ -100,6 +102,53 @@
     outerClothing: N14ClothingOuterPoliceVest
     shoes: N14ClothingBootsBlack
     head: N14ClothingHeadHatCaravan
+    gloves: N14ClothingHandsGlovesNCR
+
+- type: startingGear
+  id: CaravanMercNPC4
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitCaravanOveralls
+    outerClothing: N14ClothingOuterPoliceVest
+    shoes: N14ClothingBootsBlack
+    head: N14ClothingHeadHatArmyBeret
+    gloves: N14ClothingHandsGlovesNCR
+
+- type: startingGear
+  id: CaravanMercNPC5
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitCaravanOveralls
+    outerClothing: N14ClothingOuterPoliceVest
+    shoes: N14ClothingBootsBlack
+    head: N14ClothingHeadHatArmyBeret
+    eyes: ClothingEyesGlassesCheapSunglasses
+    gloves: N14ClothingHandsGlovesBlackBiker
+
+- type: startingGear
+  id: CaravanMercNPC6
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitCaravanOveralls
+    outerClothing: N14ClothingOuterPoliceVest
+    shoes: N14ClothingBootsBlack
+    head: N14ClothingHeadHatCaravan
+    eyes: ClothingEyesGlassesCheapSunglasses
+
+- type: startingGear
+  id: CaravanMercNPC7
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitCaravanOveralls
+    outerClothing: N14ClothingOuterPoliceVest
+    shoes: N14ClothingBootsBlack
+    head: N14ClothingHeadHatArmyBeret
+    eyes: ClothingEyesGlassesCheapSunglassesAviator
+
+- type: startingGear
+  id: CaravanMercNPC8
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitCaravanOveralls
+    outerClothing: N14ClothingOuterPoliceVest
+    shoes: N14ClothingBootsBlack
+    head: N14ClothingHeadHatCaravan
+    eyes: ClothingEyesGlassesCheapSunglassesAviator
     gloves: N14ClothingHandsGlovesNCR
 
 # Tribal faction NPCs

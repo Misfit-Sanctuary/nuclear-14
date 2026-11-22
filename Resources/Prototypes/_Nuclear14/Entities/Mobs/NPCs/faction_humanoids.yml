@@ -444,6 +444,11 @@
         - CaravanMercNPC1
         - CaravanMercNPC2
         - CaravanMercNPC3
+        - CaravanMercNPC4
+        - CaravanMercNPC5
+        - CaravanMercNPC6
+        - CaravanMercNPC7
+        - CaravanMercNPC8
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -513,7 +518,7 @@
       maxAngle: 28
       angleIncrease: 4
       angleDecay: 16
-      fireRate: 3.0
+      fireRate: 3.5
       soundGunshot:
         collection: N14CarbineGunshot
       useKey: false
@@ -533,6 +538,11 @@
         - CaravanMercNPC1
         - CaravanMercNPC2
         - CaravanMercNPC3
+        - CaravanMercNPC4
+        - CaravanMercNPC5
+        - CaravanMercNPC6
+        - CaravanMercNPC7
+        - CaravanMercNPC8
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -602,7 +612,7 @@
       maxAngle: 26
       angleIncrease: 4
       angleDecay: 16
-      fireRate: 2.5
+      fireRate: 3.0
       soundGunshot:
         collection: N14RifleR91Gunshot
       useKey: false
@@ -622,6 +632,11 @@
         - CaravanMercNPC1
         - CaravanMercNPC2
         - CaravanMercNPC3
+        - CaravanMercNPC4
+        - CaravanMercNPC5
+        - CaravanMercNPC6
+        - CaravanMercNPC7
+        - CaravanMercNPC8
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -691,7 +706,7 @@
       maxAngle: 30
       angleIncrease: 4
       angleDecay: 16
-      fireRate: 4.0
+      fireRate: 4.25
       soundGunshot:
         collection: N14Pistol10mmGunshot
       useKey: false
@@ -711,6 +726,11 @@
         - CaravanMercNPC1
         - CaravanMercNPC2
         - CaravanMercNPC3
+        - CaravanMercNPC4
+        - CaravanMercNPC5
+        - CaravanMercNPC6
+        - CaravanMercNPC7
+        - CaravanMercNPC8
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -780,7 +800,7 @@
       maxAngle: 27.5
       angleIncrease: 4
       angleDecay: 16
-      fireRate: 2.25
+      fireRate: 2.75
       soundGunshot:
         collection: N14MarksmanGunshot
       useKey: false
@@ -800,6 +820,11 @@
         - CaravanMercNPC1
         - CaravanMercNPC2
         - CaravanMercNPC3
+        - CaravanMercNPC4
+        - CaravanMercNPC5
+        - CaravanMercNPC6
+        - CaravanMercNPC7
+        - CaravanMercNPC8
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -869,7 +894,7 @@
       maxAngle: 17.5
       angleIncrease: 4
       angleDecay: 16
-      fireRate: 1.25
+      fireRate: 2.0
       soundGunshot:
         collection: N14MarksmanGunshot
       useKey: false
@@ -889,6 +914,11 @@
         - CaravanMercNPC1
         - CaravanMercNPC2
         - CaravanMercNPC3
+        - CaravanMercNPC4
+        - CaravanMercNPC5
+        - CaravanMercNPC6
+        - CaravanMercNPC7
+        - CaravanMercNPC8
     - type: Sprite
       layers: # Long boring part to make sure layering is correct
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -939,6 +969,288 @@
         state: body-overlay-2
         visible: false
       - sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/m14.rsi
+        state: inhand-right  # Only part we change, the gun sprite.
+
+- type: entity
+  name: Blue Line Caravan Mercenary
+  parent: N14BaseMobWaster
+  id: N14MobNPCCaravanMercWebley
+  suffix: NPC
+  description: A man hired to stand guard and ensure the safety of the Blue Line Caravan Company's interests. Paid well enough to not care about anyone else but will not hesitate to shoot back in self defense or a threat its nearby.
+  components:
+    - type: NpcFactionMember
+      friendlyOrderable: true
+      factions:
+      - CaravanCompany
+    - type: NPCRetaliation # Aggro on the attacker when damaged from any range
+    - type: Gun
+      minAngle: 4.5
+      maxAngle: 15
+      angleIncrease: 4
+      angleDecay: 16
+      fireRate: 2.0
+      soundGunshot:
+        collection: N14RevolverMagnunGunshot
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+    - type: BasicEntityAmmoProvider
+      proto: N14Cartridge44Magnum
+      capacity: 6
+      count: 6
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 3
+      rechargeSound:
+        path: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+    - type: Loadout
+      prototypes:
+        - CaravanMercNPC1
+        - CaravanMercNPC2
+        - CaravanMercNPC3
+        - CaravanMercNPC4
+        - CaravanMercNPC5
+        - CaravanMercNPC6
+        - CaravanMercNPC7
+        - CaravanMercNPC8
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/webley_revolver.rsi
+        state: inhand-right  # Only part we change, the gun sprite.
+
+- type: entity
+  name: Blue Line Caravan Mercenary
+  parent: N14BaseMobWaster
+  id: N14MobNPCCaravanMerc9Pistol
+  suffix: NPC
+  description: A man hired to stand guard and ensure the safety of the Blue Line Caravan Company's interests. Paid well enough to not care about anyone else but will not hesitate to shoot back in self defense or a threat its nearby.
+  components:
+    - type: NpcFactionMember
+      friendlyOrderable: true
+      factions:
+      - CaravanCompany
+    - type: NPCRetaliation # Aggro on the attacker when damaged from any range
+    - type: Gun
+      minAngle: 8
+      maxAngle: 16
+      angleIncrease: 4
+      angleDecay: 4
+      fireRate: 2.5
+      soundGunshot:
+        collection: N14Pistol9mmGunshot
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+    - type: BasicEntityAmmoProvider
+      proto: N14CartridgePistol9
+      capacity: 12
+      count: 12
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 3
+      rechargeSound:
+        path: /Audio/_Nuclear14/Weapons/Effects/Reload/Pistols/pistol_magin.ogg
+    - type: Loadout
+      prototypes:
+        - CaravanMercNPC1
+        - CaravanMercNPC2
+        - CaravanMercNPC3
+        - CaravanMercNPC4
+        - CaravanMercNPC5
+        - CaravanMercNPC6
+        - CaravanMercNPC7
+        - CaravanMercNPC8
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/9mm.rsi
+        state: inhand-right  # Only part we change, the gun sprite.
+
+- type: entity
+  name: Blue Line Caravan Mercenary
+  parent: N14BaseMobWaster
+  id: N14MobNPCCaravanMercSniper
+  suffix: NPC
+  description: A man hired to stand guard and ensure the safety of the Blue Line Caravan Company's interests. Paid well enough to not care about anyone else but will not hesitate to shoot back in self defense or a threat its nearby.
+  components:
+    - type: NpcFactionMember
+      friendlyOrderable: true
+      factions:
+      - CaravanCompany
+    - type: NPCRetaliation # Aggro on the attacker when damaged from any range
+    - type: Gun
+      minAngle: 4
+      maxAngle: 32.5
+      angleIncrease: 4
+      angleDecay: 16
+      fireRate: 0.75
+      soundGunshot:
+        collection: N14SniperHuntingGunshot
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+    - type: BasicEntityAmmoProvider
+      proto: N14Cartridge308Rifle
+      capacity: 8
+      count: 8
+    - type: RechargeBasicEntityAmmo
+      rechargeCooldown: 3
+      rechargeSound:
+        path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
+    - type: Loadout
+      prototypes:
+        - CaravanMercNPC1
+        - CaravanMercNPC2
+        - CaravanMercNPC3
+        - CaravanMercNPC4
+        - CaravanMercNPC5
+        - CaravanMercNPC6
+        - CaravanMercNPC7
+        - CaravanMercNPC8
+    - type: Sprite
+      layers: # Long boring part to make sure layering is correct
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.Face" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi
+      - shader: StencilMask
+        map: ["enum.HumanoidVisualLayers.StencilMask"]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: unisex_full
+        visible: false
+      - map: ["jumpsuit"]
+      - map: ["enum.HumanoidVisualLayers.LFoot"]
+      - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: ["enum.HumanoidVisualLayers.LHand"]
+      - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "ears" ]
+      - map: [ "innerBelt" ]
+      - map: [ "innerNeck" ]
+      - map: [ "outerClothing" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "neck" ]
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.HumanoidVisualLayers.Wings" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/hunting.rsi
         state: inhand-right  # Only part we change, the gun sprite.
 
 # The Tribe faction's humanoid NPCs for event making and such.
