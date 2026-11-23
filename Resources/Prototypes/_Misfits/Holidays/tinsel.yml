@@ -270,3 +270,27 @@
       - state: base6
         color: "#2A8FBD"
       - state: sparkles
+
+
+- type: entity
+  id: Xmasbluetinsel
+  name: holiday vault tinsel
+  description: Some blue tinsel. brought to you by Vault-tec.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: WallMount
+  - type: Physics
+    canCollide: false
+    bodyType: Static
+  - type: Appearance
+  - type: Rotatable
+  - type: Fixtures
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _BPL14/Objects/Christmas/tinsel.rsi
+    layers:
+      - state: icon
+        color: "#1F76B2"
