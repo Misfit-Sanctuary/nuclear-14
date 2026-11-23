@@ -20,7 +20,6 @@ public sealed partial class FactionMotdWindow : FancyWindow
     public event Action? OnRefresh;
     public event Action<string>? OnSave;
 
-    /// <summary>MOTD last received from the server, so a refresh doesn't clobber unsaved edits.</summary>
     private string? _serverText;
 
     public FactionMotdWindow()
@@ -70,7 +69,6 @@ public sealed partial class FactionMotdWindow : FancyWindow
                 ("time", updated.ToLocalTime().ToString("yyyy-MM-dd HH:mm")))
             : string.Empty;
 
-        // Leadership writes the MOTD, so render it as plain text (no markup), like the roster oath.
         MessageLabel.SetMessage(FormattedMessage.FromUnformatted(state.Text.Length > 0
             ? state.Text
             : Loc.GetString(state.CanEdit ? "faction-motd-empty-leader" : "faction-motd-empty")));
@@ -90,7 +88,6 @@ public sealed partial class FactionMotdWindow : FancyWindow
         SetStatus(state.Status, state.StatusIsError);
     }
 
-    /// <summary>Leadership opening an empty MOTD lands straight on the editor.</summary>
     public void ShowEditorIfEmpty(FactionMotdStateMsg state)
     {
         if (state.CanEdit && state.Text.Length == 0)

@@ -32,6 +32,11 @@
         accent: latin
   - !type:AddTraitSpecial
     traits: [ LanguageLatin ]
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Explorer
+    prefix: Expl.
+    color: "#8b0000"
 
 - type: startingGear
   id: CaesarLegionExplorerGear

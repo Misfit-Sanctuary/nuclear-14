@@ -1,7 +1,6 @@
 # NCR Loadouts
-# Rank pins are NOT distributed via loadouts. NCRRankPinSpawnSystem auto-gives
-# the correct pin (based on playtime) directly into the player's hand on spawn.
-# See: Resources/Prototypes/_Misfits/NCR/ncr_rank_pin_progressions.yml
+# Rank pins are NOT distributed via loadouts. FactionRankSystem equips the earned pin on spawn. # #Cythisiax Edited - new rank system
+# See: Resources/Prototypes/_Misfits/NCR/ncr_rank_ladders.yml
 
 # ── COSMETIC LOADOUTS ─────────────────────────────────────────────────────────
 # Shared cosmetics available to all active NCR roles.

@@ -37,6 +37,13 @@
           - Wastelander
           - NCR
       - type: CPRTraining
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinNCRSecondLieutenant }
+    - { pin: ClothingNeckPinNCRFirstLieutenant, hours: 30 }
+    - { pin: ClothingNeckPinNCRCaptain, hours: 60 }
+    - { pin: ClothingNeckPinNCRMajor, hours: 100 }
 
 - type: startingGear
   id: NCRDoctorGear

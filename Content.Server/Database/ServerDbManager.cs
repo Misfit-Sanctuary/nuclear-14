@@ -386,6 +386,8 @@ namespace Content.Server.Database
 
         Task<CharacterPlayerData?> GetCharacterPlayerDataAsync(Guid playerId, string characterName, CancellationToken cancel = default);
         Task UpsertCharacterPlayerDataAsync(CharacterPlayerData data);
+        Task<List<FactionCharacterRank>> GetFactionCharacterRanksAsync(Guid playerId, string characterName, CancellationToken cancel = default); // #Cythisiax Added - faction rank
+        Task UpsertFactionCharacterRankAsync(FactionCharacterRank data); // #Cythisiax Added - faction rank
 
         #endregion
 
@@ -1231,6 +1233,20 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.UpsertCharacterPlayerDataAsync(data));
+        }
+
+        // #Cythisiax Added - faction rank
+        public Task<List<FactionCharacterRank>> GetFactionCharacterRanksAsync(Guid playerId, string characterName, CancellationToken cancel)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetFactionCharacterRanksAsync(playerId, characterName, cancel));
+        }
+
+        // #Cythisiax Added - faction rank
+        public Task UpsertFactionCharacterRankAsync(FactionCharacterRank data)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpsertFactionCharacterRankAsync(data));
         }
 
         #endregion

@@ -11,6 +11,7 @@ using System.Text.Json;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
+using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
@@ -40,16 +41,12 @@ public sealed class FactionMotdSystem : EntitySystem
 
     private static readonly ResPath SavePath = new("/faction_motds.json");
 
-    /// <summary>Minimum time between two saves by the same player.</summary>
     private static readonly TimeSpan SaveCooldown = TimeSpan.FromSeconds(5);
 
-    /// <summary>Saved MOTDs per factionMotd prototype ID.</summary>
     private Dictionary<string, MotdEntry> _motds = new();
 
-    /// <summary>Job ID → factionMotd it belongs to. Rebuilt on prototype reload.</summary>
     private readonly Dictionary<string, FactionMotdPrototype> _memberJobs = new();
 
-    /// <summary>Leadership job ID → factionMotd it may edit.</summary>
     private readonly Dictionary<string, FactionMotdPrototype> _leaderJobs = new();
 
     private readonly Dictionary<NetUserId, TimeSpan> _lastSave = new();
@@ -85,7 +82,6 @@ public sealed class FactionMotdSystem : EntitySystem
         _memberJobs.Clear();
         _leaderJobs.Clear();
 
-        // Sorted so a job claimed by two factions resolves the same way every time.
         foreach (var motd in _proto.EnumeratePrototypes<FactionMotdPrototype>().OrderBy(p => p.ID))
         {
             var excluded = motd.ExcludedJobs.Select(j => j.Id).ToHashSet();
@@ -105,7 +101,6 @@ public sealed class FactionMotdSystem : EntitySystem
             foreach (var job in motd.Jobs)
                 _memberJobs.TryAdd(job.Id, motd);
 
-            // Leadership always belongs to the faction it leads, overriding any other claim.
             foreach (var job in motd.Leadership)
             {
                 _memberJobs[job.Id] = motd;
@@ -114,12 +109,6 @@ public sealed class FactionMotdSystem : EntitySystem
         }
     }
 
-    // ── Membership ─────────────────────────────────────────────────────────
-
-    /// <summary>
-    /// Resolves the faction (and leadership) of the player's current character from its job.
-    /// Ghosts and jobless characters are not in a faction.
-    /// </summary>
     private bool TryGetFaction(ICommonSession session,
         [NotNullWhen(true)] out FactionMotdPrototype? faction,
         out bool leader,
@@ -150,8 +139,6 @@ public sealed class FactionMotdSystem : EntitySystem
         return _memberJobs.TryGetValue(jobId, out faction);
     }
 
-    // ── Spawn popup ────────────────────────────────────────────────────────
-
     private void OnPlayerSpawned(PlayerSpawnCompleteEvent args)
     {
         if (args.JobId == null || !TryGetFactionForJob(args.JobId, out var faction, out var leader))
@@ -162,18 +149,15 @@ public sealed class FactionMotdSystem : EntitySystem
         if (hasMotd)
         {
             RaiseNetworkEvent(BuildState(faction, leader, onSpawn: true), args.Player);
-            _chat.DispatchServerMessage(args.Player,
+            SendChat(args.Player,
                 Loc.GetString("faction-motd-chat-spawn", ("faction", FactionMarkup(faction))));
         }
         else if (leader)
         {
-            // Nudge leadership when their faction has nothing posted yet.
-            _chat.DispatchServerMessage(args.Player,
+            SendChat(args.Player,
                 Loc.GetString("faction-motd-chat-leader-empty", ("faction", FactionMarkup(faction))));
         }
     }
-
-    // ── Window ─────────────────────────────────────────────────────────────
 
     private void OnOpenRequest(FactionMotdOpenRequestMsg msg, EntitySessionEventArgs args)
     {
@@ -259,7 +243,6 @@ public sealed class FactionMotdSystem : EntitySystem
         NotifyMembers(faction, session, characterName);
     }
 
-    /// <summary>Tells every other online member of the faction that the MOTD changed.</summary>
     private void NotifyMembers(FactionMotdPrototype faction, ICommonSession author, string authorName)
     {
         var line = Loc.GetString("faction-motd-chat-updated",
@@ -274,8 +257,14 @@ public sealed class FactionMotdSystem : EntitySystem
             if (!TryGetFaction(session, out var memberFaction, out _, out _) || memberFaction.ID != faction.ID)
                 continue;
 
-            _chat.DispatchServerMessage(session, line);
+            SendChat(session, line);
         }
+    }
+
+    private void SendChat(ICommonSession session, string markup)
+    {
+        _chat.ChatMessageToOne(ChatChannel.Server, FormattedMessage.RemoveMarkupPermissive(markup), markup,
+            default, false, session.Channel);
     }
 
     private void SendStatus(ICommonSession session, FactionMotdPrototype faction, bool success, string status, bool leader = true)
@@ -311,8 +300,6 @@ public sealed class FactionMotdSystem : EntitySystem
     {
         return $"[color={faction.Color.ToHex()}]{FormattedMessage.EscapeText(Loc.GetString(faction.Name))}[/color]";
     }
-
-    // ── Persistence ────────────────────────────────────────────────────────
 
     private void Load()
     {

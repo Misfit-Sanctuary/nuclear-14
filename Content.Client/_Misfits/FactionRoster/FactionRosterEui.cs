@@ -22,6 +22,7 @@ public sealed class FactionRosterEui : BaseEui
         _window.OnDischarge += id => SendMessage(new FactionRosterDischargeMessage(id));
         _window.OnToggleSpecialty += (id, role) => SendMessage(new FactionRosterToggleSpecialtyMessage(id, role));
         _window.OnRecruit += target => SendMessage(new FactionRosterRecruitMessage(target));
+        _window.OnPinRank += (id, promote) => SendMessage(new FactionRosterPinRankMessage(id, promote)); // #Cythisiax Added - rank pins
         _window.OnSetOath += oath => SendMessage(new FactionRosterSetOathMessage(oath));
     }
 

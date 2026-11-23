@@ -18,12 +18,12 @@ faction-roster-tab-recruit = Recruit
 faction-roster-tab-oath = Oath
 faction-roster-filter-placeholder = Search by name...
 faction-roster-loading = Loading roster...
-# #Cythisiax Edited - the roster only lists connected members now
+# #Cythisiax Edited - the roster only lists members currently playing a faction job
 faction-roster-summary = {$online} {$online ->
     [one] member
    *[other] members
-} online.
-faction-roster-empty = No members online.
+} on duty.
+faction-roster-empty = No members on duty.
 # #Cythisiax Added - shown when someone without discharge rights tries to remove a member
 faction-roster-status-discharge-denied = You can only demote down to the lowest rank. Removing someone from the faction needs higher command.
 
@@ -86,3 +86,29 @@ faction-recruit-offer-header = {$recruiter} invites you to join the {$faction}
 faction-recruit-offer-note = Closing this window declines the offer.
 faction-recruit-offer-accept = Accept
 faction-recruit-offer-decline = Decline
+
+# #Cythisiax Added - NCR, Legion and Brotherhood rosters, track prerequisites and rank pins
+faction-roster-name-ncr = New California Republic Army
+faction-roster-name-legion = Caesar's Legion
+faction-roster-name-bos = Brotherhood of Steel
+
+faction-roster-track-ncr-army = Army
+faction-roster-track-ncr-mp = Military Police
+faction-roster-track-legion = Legion
+faction-roster-track-bos-initiates = Initiates
+faction-roster-track-bos-knights = Knights
+faction-roster-track-bos-paladins = Paladins
+faction-roster-track-bos-scribes = Scribes
+
+faction-roster-offer-ncr = {$recruiter} is offering you a place in the New California Republic Army.
+faction-roster-offer-legion = {$recruiter} offers you the chance to serve Caesar's Legion.
+faction-roster-offer-bos = {$recruiter} offers you the chance to join the Brotherhood of Steel as an Initiate.
+
+faction-roster-status-requires = {$name} must be a {$rank} first.
+faction-roster-status-pin-denied = Only command can change rank pins.
+faction-roster-status-min-pin = {$name} already wears the lowest rank pin.
+
+faction-roster-pin-rank = Pin: {$rank}
+faction-roster-pin-label = Pin
+faction-roster-pin-promote-tooltip = Promote their rank pin one step. It's saved on their character.
+faction-roster-pin-demote-tooltip = Demote their rank pin one step. If that's below what their playtime earned, it stays that way until command changes it.
