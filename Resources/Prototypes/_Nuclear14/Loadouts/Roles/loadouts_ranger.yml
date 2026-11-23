@@ -190,6 +190,7 @@
         - NCRFieldRanger
         - NCRPatrolRanger
         - NCRVeteranRanger
+        - NCRRangerMedic
   items:
     - N14ClothingHandsGlovesNCR
 
@@ -208,6 +209,26 @@
         - SuperMutantNCRRanger
   items:
     - N14MedkitCombatFilled
+
+- type: loadout
+  id: LoadoutNCRRangerSequoia
+  category: Roles
+  cost: 4
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
+        #- NCRVeteranRanger add if lead ranger ever gets the sequoia removed
+        - SuperMutantRanger 
+        - SuperMutantNCRRanger
+        - NCRPatrolRanger
+        - NCRRangerMedic
+    - !type:CharacterDepartmentTimeRequirement
+      department: Rangers
+      min: 216000 # 60 hours, lot of ranger time needed since this is your mark for being in the rangers for 20 years, if someone can add an age lock be my guest but im not super sure how to
+  items:
+    - N14WeaponRevolver45-70RangerSequoia
 
 # Corvax-Add Start
 - type: loadout

@@ -46,9 +46,11 @@
         - NCRExecutiveOfficer
         - NCRPlatoonLeader
         - NCRVertibirdPilot
+        - NCRRangerRecruit
         - NCRVeteranRanger
         - NCRFieldRanger
         - NCRPatrolRanger
+        - NCRRangerMedic
         - NCRDoctor
         - NCRFirstSergeant
         - NCRStaffSergeant
@@ -123,6 +125,7 @@
         #- TownDoctor # Misfits Change - Removed Town Doctor
         - NCRDoctor
         - NCRMedic
+        - NCRRangerMedic
         #- BoSWashingtonScribe #Misfits Change /Comment-out/: Washington BoS removed
         - BoSMidScribe
         - BoSScribe
