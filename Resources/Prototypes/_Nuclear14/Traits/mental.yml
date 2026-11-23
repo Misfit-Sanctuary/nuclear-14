@@ -1,11 +1,10 @@
 - type: trait
   id: N14CarefulSteps
   category: Mental
-  points: -2
+  points: -4
   functions:
     - !type:TraitAddComponent
       components:
-        - type: NoSlip
         - type: StepTriggerImmune
           whitelist:
             types:
