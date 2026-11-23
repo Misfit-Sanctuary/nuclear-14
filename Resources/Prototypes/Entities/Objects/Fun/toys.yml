@@ -2189,3 +2189,64 @@
     damage:
       types:
         Blunt: 1000
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieHGDiana
+  name: Theseus Plushie
+  description: A  small version of the honorguard Diana Theseus Callisto, in casual clothing and no power armor. Hand stitched by Callista Pierce.
+  components:
+  - type: Sprite
+    state: plushie_hgdiana
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/bite.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Human/femalescream_2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/bite.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Effects/bite.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/bite.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Effects/PowerSink/electric.ogg
+    damage:
+      types:
+        Slash: 1
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieGaoJie
+  name: "NUSA Plushie #35"
+  description: We have nothing to lose but $59.99 at your local NUSA gift shop.
+  components:
+  - type: Sprite
+    state: plushie_gaojie
+  - type: EmitSoundOnUse
+    sound:
+      collection: ToySqueak
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Human/femalescream_3.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      collection: ToySqueak
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Voice/Human/femalescream_3.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: ToySqueak
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Voice/Human/femalescream_3.ogg
