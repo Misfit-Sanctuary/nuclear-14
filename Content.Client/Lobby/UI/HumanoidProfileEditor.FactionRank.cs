@@ -32,49 +32,8 @@ namespace Content.Client.Lobby.UI
 
         private void AddRankPicker(BoxContainer jobContainer, JobPrototype job)
         {
-            if (Profile == null || string.IsNullOrWhiteSpace(Profile.Name) || job.Rank is not { Pins.Count: > 0 })
-                return;
-
-            var prefs = RankPreferences;
-            if (!prefs.TryGetOptions(Profile.Name, out var options))
-                return;
-
-            var jobOptions = options.Jobs.FirstOrDefault(j => j.Job == job.ID);
-            if (jobOptions?.Held is not { } held)
-                return;
-
-            var characterName = Profile.Name;
-            var picker = new OptionButton
-            {
-                MinWidth = 190,
-                VerticalAlignment = VAlignment.Center,
-                Margin = new(3f, 3f, 3f, 0f),
-                ToolTip = Loc.GetString("faction-rank-picker-tooltip"),
-            };
-
-            for (var i = 0; i < jobOptions.Ranks.Count; i++)
-            {
-                var option = jobOptions.Ranks[i];
-                var label = option.Unlocked
-                    ? option.Name
-                    : option.Capped
-                        ? Loc.GetString("faction-rank-picker-capped", ("rank", option.Name))
-                        : Loc.GetString("faction-rank-picker-locked", ("rank", option.Name), ("hours", option.Hours));
-
-                picker.AddItem(label, i);
-                picker.SetItemDisabled(i, !option.Unlocked);
-
-                if (option.Pin == held)
-                    picker.SelectId(i);
-            }
-
-            picker.OnItemSelected += args =>
-            {
-                picker.SelectId(args.Id);
-                prefs.SetRank(characterName, job.ID, jobOptions.Ranks[args.Id].Pin);
-            };
-
-            jobContainer.AddChild(picker);
+            if (RankPreferences.BuildPicker(Profile?.Name, job, 190, out _) is { } picker)
+                jobContainer.AddChild(picker);
         }
     }
 }
