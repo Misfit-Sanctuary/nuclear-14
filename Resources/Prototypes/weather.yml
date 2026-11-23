@@ -105,6 +105,7 @@
   duration: 600
   chance: 1 # Misfits: reduced from 2
   message: weather-rain
+  snowAccumulation: -0.0025
   # Misfits Change Add: Rain puddle spawning. Puddles grow silently on open outdoor tiles
   # near players only. Volume is capped at 15 u (below the 20 u overflow threshold) so
   # the fluid spreader is never triggered and puddles won't creep indoors.
@@ -178,6 +179,17 @@
   temperature: 280
   duration: 500
   chance: 0 # Misfits: snow events are excluded from random weather pool
+  allowedMaps: [ Wendover ]
+  snowAccumulation: 0.00067
+  snowfall:
+    density: 0.22
+    flakeSize: 0.8
+    fallSpeed: 0.9
+    wind: 0.15
+    gust: 0.25
+    sway: 1.4
+    haze: 0
+    landing: 0.35
   message: weather-snowfall-light
 
 - type: weather
@@ -193,6 +205,17 @@
   temperature: 270
   duration: 500
   chance: 0 # Misfits: snow events are excluded from random weather pool
+  allowedMaps: [ Wendover ]
+  snowAccumulation: 0.0014
+  snowfall:
+    density: 0.42
+    flakeSize: 1.0
+    fallSpeed: 1.3
+    wind: 0.4
+    gust: 0.7
+    sway: 1.0
+    haze: 0.06
+    landing: 0.7
   message: weather-snowfall-medium
 
 - type: weather
@@ -208,6 +231,17 @@
   temperature: 260
   duration: 500
   chance: 0 # Misfits: snow events are excluded from random weather pool
+  allowedMaps: [ Wendover ]
+  snowAccumulation: 0.0029
+  snowfall:
+    density: 0.68
+    flakeSize: 1.35
+    fallSpeed: 1.8
+    wind: 1.0
+    gust: 1.4
+    sway: 0.7
+    haze: 0.18
+    landing: 1.2
   visibilityClearRadius: 6
   visibilityClearBuffer: 2
   showMessage: true
@@ -230,3 +264,4 @@
   chance: 1
   sender: weather-announcement
   message: weather-storm
+  snowAccumulation: -0.004
