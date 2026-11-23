@@ -13036,3 +13036,20 @@ Entries:
   id: 6578
   time: '2026-11-20T21:17:10.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2196
+- author: cythisiax
+  changes:
+    - type: Add
+      message: Rank prefixes for factions based off badge & pinned rank.
+    - type: Tweak
+      message: >-
+        All rank prefixes can be adjusted by job specific tag in their
+        respective yaml.
+    - type: Tweak
+      message: Unnecessary material extractor things.
+    - type: Tweak
+      message: MP Commander can no longer go to Lieutenant Colonel rank, capped to LT.
+    - type: Fix
+      message: Roster GUI issue for Enclave
+  id: 6579
+  time: '2026-11-23T19:33:52.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2207
