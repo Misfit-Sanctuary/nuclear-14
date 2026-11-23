@@ -27,9 +27,10 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.75
-        density: 50
+        density: 300
         mask:
         - MobMask
+        - TableMask
         layer:
         - MobLayer
   - type: DamageStateVisuals
@@ -64,17 +65,25 @@
         volume: 20 # It's normal
   - type: DirectionalBuckleOffset
     offsets:
-    - { North: "0.5, 0.5", South: "0.5, .5", East: "0.5, 0.5" , West: "0.5, 0.5", SouthEast: "0.5, 0.5", SouthWest: "0.5, 0.5", NorthWest: "0.5, 0.5", NorthEast: "0.5, 0.5"}
-  - type: Mountable
+    - { North: "0, 0.25", South: "0, .4", East: "-0.15, 0.05" , West: "0.15, 0", SouthEast: "0, .4", SouthWest: "0, .4", NorthWest: "0, 0.25", NorthEast: "0, 0.25"}
 #    riderOffset: 0, 0.45
 #    directionOffsets:
 #      North: 0, 0.05
 #      South: 0, 0.4
 #      East: -0.15, 0.05
 #      West: 0.15, 0
-#  - type: BrahdoSpooked
-#    spookDuration: 5
-#    buckChance: 0.15
+  - type: Mountable
+  - type: EffectOnCollide
+    damageOnCollide: true
+    stunOnCollide: false
+    pushOnCollide: true
+    collideHardOnly: true
+    collideCooldown: 0.25
+    minimumSpeed: 3.5
+    damage:
+      groups:
+        Brute: 10.0
+    pushForce: 1000
   - type: Tag
     tags:
     - FootstepSound
@@ -96,7 +105,7 @@
       50: .95 # dont get hit chuds
       100: .90
       150: .80
-      180: .70 # lol
+      180: .70
   - type: MovementSpeedModifier
     baseWalkSpeed : 5.0
     baseSprintSpeed : 5.0

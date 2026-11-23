@@ -1,57 +1,34 @@
-using System.Numerics;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
+using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
 
 namespace Content.Shared._Misfits.Buckle;
 
+/// <summary>
+/// use case is when placing passangers/drivers for a drivable with default strapOffset isnt enough(sprite is not accomodating, looks weird, ect...)
+/// so you need to "manually" define each offset for each direction the sprite faces
+/// Should not be used for anything that needs to offset more than 4-6 visible passangers
+/// Need to develop another system to have that be feasible(prolly a vehicle made up of multiple entities)
+/// </summary>
 public sealed partial class DirectionalBuckleOffsetSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private ILogManager _logManager = default!;
     [Dependency] private SharedBuckleSystem _buckle = default!;
     [Dependency] private SharedTransformSystem _xform = default!;
+
     private ISawmill _sawmill = default!;
+//      attempt to correct local pos offsets. Need to figure out how to fix diagonals
+//     private static float Diagonal = 1 / MathF.Sqrt(2);
+//
+//     public static readonly Vector2[] RotMult =
+//         [new(1,1), new(2*Diagonal, 0), // south, southEast
+//         new(1,-1), new(0, -2*Diagonal) , // east, NorthEast
+//         new(-1,-1),new(-2*Diagonal, 0), // north, northwest
+//         new(-1,1), new(0, 2*Diagonal)]; // west, southwest
 
-    private static float Diagonal = 1/MathF.Sqrt(2);
-
-    public static readonly Vector2[] RotMult =
-        [new(1,1), new(1, 1), // south, southEast
-        new(1,-1), new(1, 1) , // east, NorthEast
-        new(-1,-1),new(1, 1), // north, northwest
-        new(-1,1), new(1, 1)]; // west, southwest
-
-    // var dx = cos * vec.X - sin * vec.Y;
-    // var dy = sin * vec.X + cos * vec.Y;
-    // dx = 1/sqrt(2)*X - (-1/sqrt(2))*Y
-    // dx = .5, X = dx*p
-    // dx = cos * dx*p - sin * dy*d
-    // dx = cos * dx*p - sin * dy*d
-    // dx = 1/sqrt(2) * dx*p - (-1/sqrt(2)) * dy*d
-    // dx = p (1/sqrt(2) * dx - (-1/sqrt(2)) * dy)
-    // dx / (1/sqrt(2) * dx - (-1/sqrt(2)) * dy) = p
-    //dx - 1/sqrt(2) * dx*p = - (-1/sqrt(2)) * dy*d
-
-    // dy = sin*dx*p + cos*dy*d
-    // dy = -1/sqrt(2) * dx*p + (1/sqrt(2)) * dy*p
-    // dy = p(-1/sqrt(2) * dx + (1/sqrt(2)) * dy)
-    // p = dy/(-1/sqrt(2) * dx + (1/sqrt(2)) * dy)
-
-    // dx = 1/sqrt(2) * dx*p - (-1/sqrt(2)) * dy*d
-    // dx = 1/-sqrt(2)*X + (1/sqrt(2))*Y
-
-    private static Vector2 DiagMult(Vector2 offset, int index)
-    {
-        // dx / (1/sqrt(2) * dx - (-1/sqrt(2)) * dy) = p
-        // p = dy/(-1/sqrt(2) * dx + (1/sqrt(2)) * dy)
-        var xp = offset.X / (Diagonal * offset.X - Diagonal * offset.Y);
-        var yp = offset.Y / (Diagonal * offset.X + Diagonal * offset.Y);
-
-        var x = offset.X * RotMult[index].X + offset.X * RotMult[index].Y;
-        var y = offset.Y * RotMult[index].X + offset.Y * RotMult[index].Y;
-        return new Vector2(x, y);
-    }
     public override void Initialize()
     {
         base.Initialize();
@@ -63,7 +40,10 @@ public sealed partial class DirectionalBuckleOffsetSystem : EntitySystem
         SubscribeLocalEvent<DirectionalBuckleOffsetComponent, MoveEvent>(OnMove);
 
     }
-
+    /// <summary>
+    /// OnMove we setCoords of all non-invlaid entities by offset
+    /// </summary>
+    /// <param name="ent"> often some entity being ridden that has specific offsets for the rider(s)</param>
     private void OnMove(Entity<DirectionalBuckleOffsetComponent> ent, ref MoveEvent ev)
     {
         if (ev.OldRotation == ev.NewRotation)
@@ -76,15 +56,21 @@ public sealed partial class DirectionalBuckleOffsetSystem : EntitySystem
             if (entList[i] == EntityUid.Invalid)
                 continue;
             var offset = ent.Comp.Offsets[i, dir];
-            //_xform.SetCoordinates()
-            _xform.SetLocalPosition(entList[i], offset);
+            var coords = new EntityCoordinates(ent, offset);
+            var entXform = Transform(entList[i]);
+            // we do not go by local position since it transforms the offsets by the rotation of parent
+            // This makes setting these via yaml alot more annoying. Still an issue with diagonals
+            _xform.SetCoordinates(entList[i], entXform, coords, rotation: Angle.Zero);
+            entXform.ActivelyLerping = ent.Comp.EnableLerping;
+            // _xform.SetLocalPosition(entList[i], offset);
         }
 
     }
 
     private const int NumDirections = 8;
     /// <summary>
-    /// Init procedure where we fill out arrays Offsets and BuckleOffsetSlots
+    /// Init procedure where we fill out arrays Offsets with YamlOffsets/defaults
+    /// and BuckleOffsetSlots by defaults (starts "empty" so full of invalidEntityUid)
     /// </summary>
     private void OnCompStart(EntityUid uid, DirectionalBuckleOffsetComponent comp, ComponentStartup args)
     {
@@ -98,15 +84,14 @@ public sealed partial class DirectionalBuckleOffsetSystem : EntitySystem
         // Offsets is supplied by YamlOffsets where not all directions might have a value
         // so uses strapOffset as a default for missing direction
         var numSlots = comp.YamlOffsets.Length;
-        comp.Offsets = new Vector2[numSlots,NumDirections];
+        comp.Offsets = new Vector2[numSlots, NumDirections];
         for (var i = 0; i < numSlots; i++)
         {
             for (var j = 0; j < NumDirections; j++)
             {
-                if (comp.YamlOffsets[i].TryGetValue((Direction)j, out var pos))
+                if (comp.YamlOffsets[i].TryGetValue((Direction) j, out var pos) && pos != Vector2.Zero)
                 {
-
-                    comp.Offsets[i, j] = pos*RotMult[j];
+                    comp.Offsets[i, j] = pos;
                     continue;
                 }
 
@@ -120,7 +105,7 @@ public sealed partial class DirectionalBuckleOffsetSystem : EntitySystem
         Dirty(uid, comp);
     }
     /// <summary>
-    /// We add strapped entity to buckleOffsetSlot. Slot to use is the first slot with an invalid entity
+    /// We add strapped entity to buckleOffsetSlot. Slot(index in array) to use is the first slot with an empty aka invalid entity, so swap that
     /// </summary>
     private void OnStrapped(Entity<DirectionalBuckleOffsetComponent> ent, ref StrappedEvent ev)
     {
@@ -139,11 +124,15 @@ public sealed partial class DirectionalBuckleOffsetSystem : EntitySystem
 
     }
     /// <summary>
-    /// We remove entity from the buckleOffsetSlot, replacing it with invalid entity
-    /// notably we dont use another data structure like a hashset
-    /// to preserve the ordering of any enitites in the buckled list
-    /// since that index is what determines their offset
+    /// Swap ent out in buckleOffsetSlot with invalidEntity to mark as empty
     /// </summary>
+    /// <remarks>
+    /// notably we dont use another data structure like a hashset
+    /// we want to preserve the ordering of any enitites in the buckled list
+    /// since that index is what determines their offset and "spot" in like a car
+    /// person riding shotgun needs a different offset than the driver
+    /// also iterating through a list is less expensive than hashset/dictionary FOR SMALL SIZED lists
+    /// </remarks>
     private void OnUnstrapped(Entity<DirectionalBuckleOffsetComponent> ent, ref UnstrappedEvent ev)
     {
         if (!_timing.IsFirstTimePredicted || _timing.ApplyingState)
@@ -161,15 +150,24 @@ public sealed partial class DirectionalBuckleOffsetSystem : EntitySystem
         Dirty(ent, ent.Comp);
     }
     /// <summary>
-    /// We offset the entity by the direction it is facing and what slot it occupies currently
+    /// Override for BuckleTransformCheck <see cref="SharedBuckleSystem.BuckleTransformCheck"/>
+    /// does the same thing but we use SetCoordinates instead of SetLocalPosition
     /// </summary>
     private void OnBuckleOffsetOverride(
         Entity<DirectionalBuckleOffsetComponent> ent,
         ref BuckleOffsetOverride ev
     )
     {
+
         if (ev.Handled)
             return;
+        // Clientside will be lerping so their pos will not match
+        // the direction slot they are supposed to be, causing fake unbuckling
+        if (Transform(ev.Buckle).ActivelyLerping)
+        {
+            ev.Handled = true;
+            return;
+        }
         var entList = ent.Comp.BuckleOffsetSlots;
         var index = entList.IndexOf(ev.Buckle.Owner);
         if (index == -1)
@@ -180,7 +178,28 @@ public sealed partial class DirectionalBuckleOffsetSystem : EntitySystem
 
         var dir = (int) Transform(ev.Strap).LocalRotation.GetDir();
         var offset = ent.Comp.Offsets[index, dir];
-        _buckle.BuckleTransformCheck(ev.Buckle, ev.Strap, ev.Xform, offset);
+        DirectionalTransformCheck(ev.Buckle, ev.Strap, ev.Xform, offset);
         ev.Handled = true;
+    }
+
+    private void DirectionalTransformCheck(
+        Entity<BuckleComponent> buckle,
+        Entity<StrapComponent> strap,
+        TransformComponent xform,
+        Vector2 offset)
+    {
+        var strapComp = strap.Comp;
+        var delta = (xform.LocalPosition - offset).LengthSquared();
+
+        if (!(delta > 1e-5))
+            return;
+
+        if (strapComp.LockToBuckleOffset)
+        {
+            var coords = new EntityCoordinates(strap, offset);
+            _xform.SetCoordinates(buckle.Owner, Transform(buckle.Owner), coords, rotation: Angle.Zero);
+            return;
+        }
+        _buckle.Unbuckle(buckle, (strap.Owner, strapComp), null);
     }
 }
