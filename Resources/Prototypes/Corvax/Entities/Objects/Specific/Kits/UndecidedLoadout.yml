@@ -59,6 +59,19 @@
     - CenturionArmorUnbrokenSet
 
 - type: entity
+  id: LegionSpeculatoreloadoutkits
+  name: kit
+  description: "please only take one."
+  parent: LegionCenturionloadoutkits
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - SpeculatoreExecutionerSet # more sets to come
+
+- type: entity
   id: LegionVenatorloadoutkits
   name: kit
   description: "please only take one."
@@ -567,6 +580,16 @@
     state: base
   content:
   - KitCenturionArmorRangerHunter
+
+- type: UndecidedLoadoutBackpackSet
+  id: SpeculatoreExecutionerSet
+  name: undecided-loadout-category-corvax-speculatore-executioner-name
+  description: undecided-loadout-category-corvax-speculatore-executioner-description
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+  - KitSpeculatoreExecutioner
 
 - type: UndecidedLoadoutBackpackSet
   id: VenatorMarksmanSet

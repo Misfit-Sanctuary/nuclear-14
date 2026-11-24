@@ -250,6 +250,18 @@
 
 - type: entity
   parent: MisfitsSpawnPointCaesarLegionCenturion
+  id: MisfitsSpawnPointCaesarLegionSpec
+  name: Legion Speculatore
+  components:
+  - type: SpawnPoint
+    job_id: CaesarLegionSpeculatore
+  - type: Sprite
+    layers:
+      - state: green
+      - state: venator
+
+- type: entity
+  parent: MisfitsSpawnPointCaesarLegionCenturion
   id: MisfitsSpawnPointCaesarLegionExplorer
   name: Legion Explorer
   components:

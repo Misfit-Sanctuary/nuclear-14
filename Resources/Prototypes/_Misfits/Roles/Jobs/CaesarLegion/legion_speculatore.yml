@@ -1,0 +1,84 @@
+- type: job
+  id: CaesarLegionSpeculatore
+  setPreference: true
+  hideWithoutJobWhitelist: true # #Misfits Change - Speculatore is whitelist-only; hidden from job picker without it
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 115
+  name: job-name-caesar-legion-speculatore
+  description: job-description-caesar-legion-speculatore
+  playTimeTracker: CaesarLegionFrumentarii
+  requirements:
+    - !type:CharacterDepartmentTimeRequirement # Legion total timelock
+      department: CaesarLegion
+      min: 90000 
+    - !type:CharacterSpeciesRequirement
+      species:
+      - Human
+  startingGear: CaesarLegionSpeculatoreGear
+  alwaysUseSpawner: true
+  icon: "JobIconlegionerVenator"
+  supervisors: job-name-caesar-legion-speculatore
+  canBeAntag: false
+  accessGroups:
+  - CaesarLegionFrumentarii # im just gonna keep the frum access this is fine i hope -zablik
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+          - CaesarLegion
+      - type: Warcry
+        action: ActionLegionWarcry
+        targetDepartment: CaesarLegion
+        range: 6
+        speedBonus: 0.30 # #Misfits Tweak - reduced from 0.50, was too strong
+        duration: 10
+        overlayColor: "#D64545"
+        speechVerb: MisfitsLegionWarcry
+        warcryMessage: warcry-message-legion
+        warcryMessageCount: 6
+        buffPopup: warcry-popup-buffed-legion
+        excludedJobs:
+        - SuperMutantGladiator
+        cautionPopup: true
+        activatorJobs:
+        - CaesarLegionVexillarius
+        - CaesarLegionDean
+        - CaesarLegionPrimeDecanus
+        - CaesarLegionVeteranDecanus
+        - CaesarLegionCenturion
+        - CaesarLegionLegate
+        - CaesarLegionOptio
+        - CaesarLegionPriestessOfMars
+        - CaesarLegionAcolyteOfMars
+        - CaesarLegionSpeculatore
+#      - type: ReplacementAccent  # #Misfits Removed - forced latin speech replacement removed per request; Frumentarii should be able to speak normally
+#        accent: latin
+  - !type:AddTraitSpecial
+    traits: [ LanguageLatin ]
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Speculatore
+    prefix: Spec.
+    color: "#8b0000"
+
+- type: startingGear
+  id: CaesarLegionSpeculatoreGear
+  equipment:
+    wallet: N14Wallet
+    jumpsuit: N14ClothingUniformJumpsuitLegionnaire
+    ears: N14ClothingHeadsetLegion
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingShoesKaligi
+    gloves: N14ClothingHandsGlovesTribal
+    belt: N14Gladius
+    pocket1: LegionVenatorloadoutkits # they need a weapon, frum kits
+    pocket2: LegionSpeculatoreloadoutkits
+    id: N14IDLegionaryMedalSpeculatore
+  innerClothingSkirt: N14ClothingUniformJumpsuitLegionnaireOther
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryLegion #Misfits Change /Tweak/: Legion uses tribal medicine, not stimpaks
+    - N14HealingPowder
+    - N14Binoculars
