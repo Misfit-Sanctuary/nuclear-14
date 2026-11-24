@@ -53,24 +53,6 @@
       maxCount: 6
       family: Wildlife
       mobs:
-<<<<<<< HEAD
-        N14MobMaterialExtractorMoleratWave: 18
-        N14MobMaterialExtractorGecke: 15
-        N14MobMaterialExtractorMirelurkWave: 12
-        N14MobMaterialExtractorRadhogWave: 10
-        N14MobMaterialExtractorFireGeckoWave: 8
-        N14MobMaterialExtractorNightstalkerCubWave: 7
-        N14MobMaterialExtractorGiantAntWave: 6
-        N14MobMaterialExtractorNightstalkerWave: 5
-        N14MobMaterialExtractorRadMirelurkWave: 4
-        N14MobMaterialExtractorGiantFireAntWave: 4
-        N14MobMaterialExtractorRadscorpionWave: 4
-      bosses:
-        N14MobMaterialExtractorYaoguaiWave: 45
-        N14MobMaterialExtractorDeathclawWave: 35
-        N14MobMaterialExtractorRadscorpionBossWave: 20
-    - name: locust raiding party #Wassuy changed name to locust raiding party, due to lore, locust should be the only one raiding the extractor.
-=======
         N14MobMolerat: 18
         N14MobGecko: 15
         N14MobMirelurk: 12
@@ -105,25 +87,11 @@
         N14MobDeathclawAlbino: 60
         N14MobDeathclawMetal: 40
     - name: raider gun crew
->>>>>>> 58a8109e900befbb77f6c89f54bed620bb532562
       weight: 30
       minCount: 2
       maxCount: 6   #Wassuy changed max 4 to 6. Raider live longer in packs, a reference to random N14 TIPS in loading screen.
       family: Raider
       mobs:
-<<<<<<< HEAD
-        N14MobMaterialExtractorRaiderMeleeWave: 20
-        N14MobMaterialExtractorRaiderPistolWave: 20
-        N14MobMaterialExtractorRaiderSkirmisherWave: 20
-        N14MobMaterialExtractorRaiderHunterWave: 20
-        N14MobMaterialExtractorRaiderPistolStrongWave: 10
-        N14MobMaterialExtractorRaiderSkirmisherStrongWave: 5
-        N14MobMaterialExtractorRaiderHunterStrongWave: 5
-      bosses:
-        N14MobMaterialExtractorRaiderBossWave: 50
-        N14MobMaterialExtractorRaiderBossBetterWave: 30
-        N14MobMaterialExtractorRaiderBossStrongWave: 20
-=======
         N14MobRaiderPsychoRanged: 30
         N14MobRaiderPsychoRanged9mm: 15
         N14MobRaiderSkrimisher: 25
@@ -164,7 +132,6 @@
         N14MobEnforcerChief: 30
         M14MobEnforcerChief357: 15
         M14MobEnforcerChiefCowboyRepeater: 15
->>>>>>> 58a8109e900befbb77f6c89f54bed620bb532562
     - name: super mutant warband
       weight: 20
       minCount: 2
@@ -176,15 +143,9 @@
         N14MobSuperMutantRanged: 25
         N14MobSuperMutantSuicider: 10
       bosses:
-<<<<<<< HEAD
-        N14MobMaterialExtractorSuperMutantNCOWave: 55
-        N14MobMaterialExtractorSuperMutantArmoredWave: 35
-        N14MobMaterialExtractorBehemothWaoWavve: 10
-=======
         N14MobSuperMutantNCO: 55
         N14MobSuperMutantArmored: 35
         N14MobBehemoth: 10
->>>>>>> 58a8109e900befbb77f6c89f54bed620bb532562
     - name: nightkin hunting party
       weight: 20
       minCount: 1
