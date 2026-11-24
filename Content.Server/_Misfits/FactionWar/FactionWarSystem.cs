@@ -105,6 +105,7 @@ public sealed class FactionWarSystem : EntitySystem
         "NCRPrisoner",
         "CaesarLegionSlave",
         "CaesarLegionFrumentarii",
+        "CaesarLegionSpeculatore",
         "CaesarLegionCitizen",
         "CaesarLegionTrader",
         "NCRCitizen",

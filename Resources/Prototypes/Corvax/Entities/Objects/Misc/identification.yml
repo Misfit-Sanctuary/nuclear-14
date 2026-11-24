@@ -384,6 +384,25 @@
 
 - type: entity
   parent: N14IDPassportBlank
+  id: N14IDLegionaryMedalSpeculatore
+  name: legion speculatore medallion
+  description: "This decorated medallion marks you as property of the Legion, you were tasked with a job like no other, to survey and infiltrate the ranks of the legion, to police it and to uphold its policies and laws."
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/identification.rsi
+    state: medal-silver-3
+  - type: IdCard # #Misfits Add - display "medallion" instead of default "ID card"
+    nameLocId: n14-id-medallion-name
+    fullNameLocId: n14-id-medallion-full-name
+  - type: PresetIdCard
+    job: CaesarLegionSpeculatore
+  #Misfits Add - IdCardLegion enables this medallion to appear on the Centurion's tactical map terminal
+  - type: Tag
+    tags:
+    - IdCardLegion
+
+- type: entity
+  parent: N14IDPassportBlank
   id: N14IDLegionaryMedalPrimeDecanus
   name: legion prime decanus medallion
   description: "This dull medallion marks you as property of the Legion, a valued soldier of Caesar who has earned the right of command, one who has proven their worth beyond that of an eager gloryhound."
