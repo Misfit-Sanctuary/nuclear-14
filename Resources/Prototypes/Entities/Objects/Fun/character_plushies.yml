@@ -1,60 +1,6 @@
 ## Misfits made Plushies - Separate from others for organization. 
 
 - type: entity
-  parent: BaseItem
-  id: BasePlushie
-  abstract: true
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/CharacterPlushies/toys.rsi
-  - type: Tag
-    tags:
-      - Payload
-      - ClothMade
-  - type: EmitSoundOnUse
-    sound:
-      collection: ToySqueak
-  - type: EmitSoundOnActivate
-    sound:
-      collection: ToySqueak
-  - type: EmitSoundOnCollide
-    sound:
-      collection: ToySqueak
-  - type: EmitSoundOnLand
-    sound:
-      collection: ToyFall
-  - type: EmitSoundOnTrigger
-    sound:
-      collection: ToySqueak
-  - type: UseDelay
-    delay: 1.0
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      collection: ToySqueak
-    damage:
-      types:
-        Blunt: 0
-  - type: DamageOtherOnHit
-  - type: PhysicalComposition
-    materialComposition:
-      Cloth: 100
-  - type: StaticPrice
-    price: 5
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      collection: ToySqueak
-    delay: 2
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-
-- type: entity
   parent: BasePlushie
   id: PlushiePeterPro
   name: PeterPro plushie
@@ -86,7 +32,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieDangerouslyJoyful
-  name: Dangerously Joyful Plushie
+  name: Dangerously Joyful plushie
   description: HOIHOI!
   components:
   - type: Sprite
@@ -115,7 +61,7 @@
 - type: entity
   parent: BasePlushie
   id: Plushie_Scribe
-  name: Cicero Plushie
+  name: Cicero plushie
   description: A plushie of a Scribe of the Brotherhood of Steel, it smells really bad, no manner of washing remove the rancid stench.
   components:
   - type: Sprite
@@ -177,7 +123,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieHGDiana
-  name: Theseus Plushie
+  name: Theseus plushie
   description: A  small version of the honorguard Diana Theseus Callisto, in casual clothing and no power armor. Hand stitched by Callista Pierce.
   components:
   - type: Sprite
@@ -210,7 +156,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieGaoJie
-  name: "NUSA Plushie #35"
+  name: "NUSA plushie #35"
   description: We have nothing to lose but $59.99 at your local NUSA gift shop.
   components:
   - type: Sprite
