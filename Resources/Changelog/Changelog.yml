@@ -13085,3 +13085,12 @@ Entries:
   id: 6583
   time: '2026-11-24T01:35:52.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2193
+- author: sigmatique
+  changes:
+    - type: Fix
+      message: >-
+        Tesla APA MK2 Power System Fix - Tesla MK2 now has X02 Power Systems,
+        the same as its parent (APA MK2)
+  id: 6584
+  time: '2026-11-24T01:44:37.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2201
