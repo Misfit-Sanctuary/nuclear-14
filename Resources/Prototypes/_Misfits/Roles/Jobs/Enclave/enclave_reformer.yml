@@ -42,6 +42,10 @@
         roster: Enclave
         action: ActionOpenFactionRosterEnclave
       - type: PowerArmorProficiency
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinEnclaveGeneral }
 
 # #Misfits Change - Reformer/General keeps Hellfire Advanced PA (Hellfire is now Reformer/General-exclusive; Commander uses APA MK II).
 - type: startingGear

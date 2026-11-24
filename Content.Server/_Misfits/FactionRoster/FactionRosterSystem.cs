@@ -4,6 +4,12 @@
 // whitelist, so every change writes to the database through JobWhitelistManager, exactly
 // like the admin whitelist panel. Factions with extra recruitment rules hook in through
 // FactionRosterRecruitAttemptEvent / FactionRosterRecruitedEvent.
+// #Cythisiax Edited - the roster also lists anyone on duty in one of its jobs right now, whitelisted or
+// not (NCR, Legion and BoS jobs open up by playtime too). Tracks can be run by jobs off the track
+// (every BoS Head runs Initiate -> Squire) and can require a role first (BoS castes need Squire).
+// Specialties can be limited to certain jobs (Head Knight -> Knight-Lancer, Priestess -> Mars roles,
+// Elder -> Honor Guard). Rank managers (NCR / Enclave Commander+) can also move someone's rank pin,
+// which FactionRankSystem saves on their character.
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -13,6 +19,7 @@ using Content.Server.Database;
 using Content.Server.EUI;
 using Content.Server.Players.JobWhitelist;
 using Content.Server._Misfits.Administration.WhitelistLogs;
+using Content.Server._Misfits.FactionRank;
 using Content.Shared.Actions;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
@@ -49,6 +56,7 @@ public sealed class FactionRosterSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly WhitelistLogSystem _whitelistLog = default!;
+    [Dependency] private readonly FactionRankSystem _factionRank = default!; // #Cythisiax Added - rank pins
 
     /// <summary>Longest oath leadership may save.</summary>
     public const int MaxOathLength = 8000;
@@ -73,6 +81,17 @@ public sealed class FactionRosterSystem : EntitySystem
     {
         public string UserName = userName;
         public readonly HashSet<string> Roles = new();
+
+        // #Cythisiax Added - the roster job they're playing this round, which may not be whitelisted
+        public string? ActiveJob;
+
+        public HashSet<string> Held()
+        {
+            if (ActiveJob == null || Roles.Contains(ActiveJob))
+                return Roles;
+
+            return new HashSet<string>(Roles) { ActiveJob };
+        }
     }
 
     /// <summary>
@@ -182,7 +201,7 @@ public sealed class FactionRosterSystem : EntitySystem
             var index = job == null ? -1 : roster.Tracks[t].Ranks.IndexOf(job);
             if (index >= 0)
                 limits[t] = index;
-            else if (!command)
+            else if (!command && (job == null || !roster.Tracks[t].Managers.Contains(job))) // #Cythisiax Edited - track managers run the whole track
                 limits[t] = 0;
         }
 
@@ -261,6 +280,33 @@ public sealed class FactionRosterSystem : EntitySystem
         }
     }
 
+    // #Cythisiax Added - pull in everyone on duty in a roster job this round, whitelisted or not
+    private Dictionary<NetUserId, RosterRecord>? MergeActiveMembers(FactionRosterPrototype roster)
+    {
+        if (!_cache.TryGetValue(roster.ID, out var cache))
+            return null;
+
+        foreach (var record in cache.Values)
+            record.ActiveJob = null;
+
+        var roles = AllRoles(roster).Select(r => r.Id).ToHashSet();
+        foreach (var session in _player.Sessions)
+        {
+            if (session.AttachedEntity is not { } body || CurrentJob(body) is not { } job || !roles.Contains(job))
+                continue;
+
+            if (!cache.TryGetValue(session.UserId, out var record))
+            {
+                record = new RosterRecord(session.Name);
+                cache[session.UserId] = record;
+            }
+
+            record.ActiveJob = job;
+        }
+
+        return cache;
+    }
+
     private void DirtyUis(string rosterId)
     {
         foreach (var ui in _openUis)
@@ -314,12 +360,13 @@ public sealed class FactionRosterSystem : EntitySystem
     {
         // #Cythisiax Edited - only command roles that sit above every track (DAGGER, Reformer) are
         // untouchable; a command role ranked on a track (Commander) follows normal rank limits.
-        if (target == viewer.UserId || IsTracklessCommand(roster, record.Roles))
+        if (target == viewer.UserId || IsTracklessCommand(roster, record.Held()))
             return true;
 
+        var held = record.Held();
         for (var t = 0; t < roster.Tracks.Count; t++)
         {
-            if (RankIndex(roster.Tracks[t], record.Roles) >= authority.Limits[t])
+            if (RankIndex(roster.Tracks[t], held) >= authority.Limits[t])
                 return true;
         }
 
@@ -330,7 +377,7 @@ public sealed class FactionRosterSystem : EntitySystem
     private static bool HoldsRolesOutside(FactionRosterPrototype roster, int track, RosterRecord record)
     {
         var trackRanks = roster.Tracks[track].Ranks.Select(r => r.Id).ToHashSet();
-        return record.Roles.Any(r => !trackRanks.Contains(r));
+        return record.Held().Any(r => !trackRanks.Contains(r));
     }
 
     public FactionRosterEuiState BuildState(FactionRosterPrototype roster, ICommonSession viewer, string? status)
@@ -359,35 +406,51 @@ public sealed class FactionRosterSystem : EntitySystem
     private List<FactionRosterMember> BuildMembers(FactionRosterPrototype roster, Authority authority, ICommonSession viewer)
     {
         var members = new List<FactionRosterMember>();
-        if (!_cache.TryGetValue(roster.ID, out var cache))
+        if (MergeActiveMembers(roster) is not { } cache) // #Cythisiax Edited - include on-duty members
             return members;
 
         foreach (var (userId, record) in cache)
         {
-            if (record.Roles.Count == 0)
+            var held = record.Held();
+            if (held.Count == 0)
                 continue;
 
             string? characterName = null;
             var online = _player.TryGetSessionById(userId, out var session);
 
-            // #Cythisiax Added - roster lists only members who are connected right now
-            if (!online)
+            // #Cythisiax Edited - roster lists only members playing one of this faction's jobs
+            // this round; whitelisted players in the lobby, ghosting or on another faction's job
+            // don't show up.
+            if (record.ActiveJob == null || !online || session!.AttachedEntity is not { } body)
                 continue;
 
-            if (session!.AttachedEntity is { } body)
-                characterName = Name(body);
+            characterName = Name(body);
 
             var locked = IsLocked(roster, authority, viewer, userId, record);
 
             var standings = new List<FactionRosterStanding>();
             for (var t = 0; t < roster.Tracks.Count; t++)
             {
-                var rank = RankIndex(roster.Tracks[t], record.Roles);
+                var track = roster.Tracks[t];
+                var rank = RankIndex(track, held);
                 standings.Add(new FactionRosterStanding(
                     rank,
-                    !locked && rank + 1 < authority.Limits[t],
-                    // #Cythisiax Edited - removing the lowest rank needs discharge permission
-                    !locked && rank >= 0 && (rank > 0 || authority.CanDischarge && HoldsRolesOutside(roster, t, record))));
+                    !locked && rank + 1 < authority.Limits[t] && MeetsRequirement(roster, track, rank, held), // #Cythisiax Edited - track prerequisite
+                    // #Cythisiax Edited - removing the lowest rank needs discharge permission, unless they fall back to the track's prerequisite
+                    !locked && rank >= 0 && (rank > 0 || FallsBackTo(roster, track, held) || authority.CanDischarge && HoldsRolesOutside(roster, t, record))));
+            }
+
+            // #Cythisiax Added - rank pin, for pin factions
+            string? pinRank = null;
+            var canPromotePin = false;
+            var canDemotePin = false;
+            if (session.AttachedEntity is { } pinBody &&
+                _factionRank.TryGetPinStanding(pinBody, out var pinName, out var pinIndex, out var pinCount))
+            {
+                pinRank = pinName;
+                var canManage = CanManagePins(roster, viewer) && userId != viewer.UserId && !IsTracklessCommand(roster, held);
+                canPromotePin = canManage && pinIndex + 1 < pinCount;
+                canDemotePin = canManage && pinIndex > 0;
             }
 
             members.Add(new FactionRosterMember(
@@ -395,11 +458,15 @@ public sealed class FactionRosterSystem : EntitySystem
                 record.UserName,
                 characterName,
                 online,
-                IsCommand(roster, record.Roles),
-                roster.Protected.Where(p => record.Roles.Contains(p.Id)).Select(p => p.Id).ToList(),
+                IsCommand(roster, held),
+                roster.Protected.Where(p => held.Contains(p.Id)).Select(p => p.Id).ToList(),
                 locked,
                 standings,
-                roster.Specialties.Where(s => record.Roles.Contains(s.Id)).Select(s => s.Id).ToList()));
+                roster.Specialties.Where(s => held.Contains(s.Id)).Select(s => s.Id).ToList(),
+                roster.Specialties.Where(s => CanToggleSpecialty(roster, authority, viewer, userId, record, s.Id)).Select(s => s.Id).ToList(),
+                pinRank,
+                canPromotePin,
+                canDemotePin));
         }
 
         return members;
@@ -460,9 +527,14 @@ public sealed class FactionRosterSystem : EntitySystem
             return error;
 
         var ranks = roster.Tracks[track].Ranks;
-        var rank = RankIndex(roster.Tracks[track], record.Roles);
+        var rank = RankIndex(roster.Tracks[track], record.Held());
         if (rank + 1 >= authority.Limits[track])
             return Loc.GetString("faction-roster-status-max-rank", ("name", DisplayName(target, record)));
+
+        // #Cythisiax Added - e.g. a BoS caste needs Squire first
+        if (!MeetsRequirement(roster, roster.Tracks[track], rank, record.Held()))
+            return Loc.GetString("faction-roster-status-requires",
+                ("name", DisplayName(target, record)), ("rank", JobName(roster.Tracks[track].Requires!.Value)));
 
         var newRole = ranks[rank + 1];
         Grant(roster, actor, target, record, newRole, "Promoted");
@@ -477,12 +549,13 @@ public sealed class FactionRosterSystem : EntitySystem
             return error;
 
         var ranks = roster.Tracks[track].Ranks;
-        var rank = RankIndex(roster.Tracks[track], record.Roles);
+        var rank = RankIndex(roster.Tracks[track], record.Held());
         if (rank < 0 || rank == 0 && !HoldsRolesOutside(roster, track, record))
             return Loc.GetString("faction-roster-status-min-rank", ("name", DisplayName(target, record)));
 
-        // #Cythisiax Added - stripping the lowest rank removes them from the track; that needs discharge permission
-        if (rank == 0 && !authority.CanDischarge)
+        // #Cythisiax Added - stripping the lowest rank removes them from the track; that needs discharge permission,
+        // unless they drop back to the track's prerequisite (a BoS Paladin back to Squire)
+        if (rank == 0 && !authority.CanDischarge && !FallsBackTo(roster, roster.Tracks[track], record.Held()))
             return Loc.GetString("faction-roster-status-discharge-denied");
 
         Revoke(roster, actor, target, record, [ranks[rank]], "Demoted");
@@ -534,13 +607,22 @@ public sealed class FactionRosterSystem : EntitySystem
         if (specialty == default)
             return null;
 
-        if (!TryGetEditable(roster, actor, target, null, out var record, out _, out var error))
-            return error;
+        // #Cythisiax Edited - specialty rules decide who may toggle it, instead of the usual rank reach
+        var authority = GetAuthority(roster, actor);
+        if (MergeActiveMembers(roster) is not { } cache || !cache.TryGetValue(target, out var record))
+            return Loc.GetString("faction-roster-status-not-member");
+
+        if (!CanToggleSpecialty(roster, authority, actor, target, record, role))
+        {
+            return roster.SpecialtyRules.TryGetValue(role, out var rule) && rule.Requires is { } needs && !HoldsOrAbove(roster, record.Held(), needs.Id)
+                ? Loc.GetString("faction-roster-status-requires", ("name", DisplayName(target, record)), ("rank", JobName(needs)))
+                : Loc.GetString("faction-roster-status-locked", ("name", DisplayName(target, record)));
+        }
 
         if (record.Roles.Contains(role))
         {
             // Removing their only role would silently drop them off the roster; that's Discharge.
-            if (record.Roles.Count == 1)
+            if (record.Held().Count == 1)
                 return Loc.GetString("faction-roster-status-min-rank", ("name", DisplayName(target, record)));
 
             Revoke(roster, actor, target, record, [specialty], "Revoked specialty");
@@ -571,7 +653,7 @@ public sealed class FactionRosterSystem : EntitySystem
         if (track is { } t && (t < 0 || t >= roster.Tracks.Count))
             return false;
 
-        if (!_cache.TryGetValue(roster.ID, out var cache) || !cache.TryGetValue(target, out record!))
+        if (MergeActiveMembers(roster) is not { } cache || !cache.TryGetValue(target, out record!)) // #Cythisiax Edited - include on-duty members
         {
             error = Loc.GetString("faction-roster-status-not-member");
             return false;
@@ -590,6 +672,104 @@ public sealed class FactionRosterSystem : EntitySystem
         }
 
         return true;
+    }
+
+    // #Cythisiax Added - holding a rank counts if they hold it or anything above it on its track
+    // (someone on duty as a Senior Knight without whitelists still counts as a Knight)
+    private static bool HoldsOrAbove(FactionRosterPrototype roster, HashSet<string> held, string role)
+    {
+        if (held.Contains(role))
+            return true;
+
+        foreach (var track in roster.Tracks)
+        {
+            var index = track.Ranks.FindIndex(r => r.Id == role);
+            if (index >= 0 && RankIndex(track, held) >= index)
+                return true;
+        }
+
+        return false;
+    }
+
+    // #Cythisiax Added - track prerequisite: only checked for the track's first rank
+    private static bool MeetsRequirement(FactionRosterPrototype roster, FactionRosterTrack track, int rank, HashSet<string> held)
+    {
+        return rank >= 0 || track.Requires is not { } needs || HoldsOrAbove(roster, held, needs.Id);
+    }
+
+    // #Cythisiax Added - losing the track's first rank just drops them back to its prerequisite
+    private static bool FallsBackTo(FactionRosterPrototype roster, FactionRosterTrack track, HashSet<string> held)
+    {
+        return track.Requires is { } needs && HoldsOrAbove(roster, held, needs.Id);
+    }
+
+    // #Cythisiax Added - NCR / Enclave Commander+ (or an admin-granted roster) can move rank pins
+    private bool CanManagePins(FactionRosterPrototype roster, ICommonSession viewer)
+    {
+        if (viewer.AttachedEntity is not { } body)
+            return false;
+
+        if (TryComp<FactionRosterComponent>(body, out var comp) && comp.IgnoreJobRequirement && comp.Roster == roster.ID)
+            return true;
+
+        return CurrentJob(body) is { } job && roster.RankManagers.Contains(job);
+    }
+
+    // #Cythisiax Added - a specialty rule names who may hand it out; without one the usual rank reach applies
+    private bool CanToggleSpecialty(
+        FactionRosterPrototype roster,
+        Authority authority,
+        ICommonSession viewer,
+        NetUserId target,
+        RosterRecord record,
+        string role)
+    {
+        if (target == viewer.UserId || IsTracklessCommand(roster, record.Held()))
+            return false;
+
+        if (!roster.SpecialtyRules.TryGetValue(role, out var rule))
+            return !IsLocked(roster, authority, viewer, target, record);
+
+        if (rule.Requires is { } needs && !HoldsOrAbove(roster, record.Held(), needs.Id) && !record.Roles.Contains(role))
+            return false;
+
+        if (authority.Command)
+            return true;
+
+        var job = viewer.AttachedEntity is { } body ? CurrentJob(body) : null;
+        return job != null && rule.Managers.Contains(job);
+    }
+
+    // #Cythisiax Added - move a member's rank pin one step; FactionRankSystem saves it on their character
+    public string? ChangePinRank(FactionRosterPrototype roster, ICommonSession actor, NetUserId target, bool promote)
+    {
+        if (!CanManagePins(roster, actor))
+            return Loc.GetString("faction-roster-status-pin-denied");
+
+        if (target == actor.UserId)
+            return Loc.GetString("faction-roster-status-self");
+
+        if (MergeActiveMembers(roster) is not { } cache || !cache.TryGetValue(target, out var record))
+            return Loc.GetString("faction-roster-status-not-member");
+
+        if (IsTracklessCommand(roster, record.Held()))
+            return Loc.GetString("faction-roster-status-locked", ("name", DisplayName(target, record)));
+
+        if (!_player.TryGetSessionById(target, out var session) || session.AttachedEntity is not { } body)
+            return Loc.GetString("faction-roster-status-not-member");
+
+        if (!_factionRank.TryStepPinRank(body, session, promote, out var newRank))
+        {
+            return Loc.GetString(promote ? "faction-roster-status-max-rank" : "faction-roster-status-min-pin",
+                ("name", DisplayName(target, record)));
+        }
+
+        LogChange(roster, actor, record, target, promote ? "Promoted pin" : "Demoted pin", newRank);
+        Notify(target, Loc.GetString(promote ? "faction-roster-notify-promoted" : "faction-roster-notify-demoted", ("rank", newRank)));
+        DirtyUis(roster.ID);
+
+        return Loc.GetString(promote ? "faction-roster-status-promoted" : "faction-roster-status-demoted",
+            ("name", DisplayName(target, record)), ("rank", newRank));
     }
 
     private void Grant(

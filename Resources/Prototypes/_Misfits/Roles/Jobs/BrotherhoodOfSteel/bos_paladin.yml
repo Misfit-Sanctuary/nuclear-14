@@ -84,6 +84,11 @@
         factions:
           - BrotherhoodOfSteel
       - type: PowerArmorProficiency # #Misfits Add: Paladins start in T-45; grant proficiency automatically so they can equip their starting gear.
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Paladin
+    prefix: Pal.
+    color: "#3B72BF"
 
 - type: startingGear
   id: BoSPaladinGear

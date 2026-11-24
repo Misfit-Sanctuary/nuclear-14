@@ -14,7 +14,6 @@ public sealed class FactionMotdClientSystem : EntitySystem
 
     private FactionMotdWindow? _window;
 
-    /// <summary>The player explicitly asked for the window, so open it on the next state.</summary>
     private bool _openRequested;
 
     public override void Initialize()
@@ -52,7 +51,6 @@ public sealed class FactionMotdClientSystem : EntitySystem
     {
         var fresh = _window == null;
 
-        // Status replies (saves, refreshes) only update a window that is already open.
         if (fresh && !_openRequested && !msg.OnSpawn)
             return;
 

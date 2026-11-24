@@ -1,23 +1,27 @@
+# #Cythisiax Edited - each rank pin carries its own rank, whoever wears it gets the prefix in chat
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckPinNCRRecruit
   name: ncr recruit rank pin
   description: This shiny rank pin is handed out to those who have just joined the NCRA. Don't forget to pin it to your clothes!
   components:
-  - type: RankTitle
-    rankTitle: Recruit
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
     - state: recruit
   - type: Clothing
-    sprite: /_Nuclear14/Clothing/Neck/Misc/pins.rsi
+    sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi # #Cythisiax Fixed - leading slash pointed outside /Textures, worn pins showed the error sprite
     clothingVisuals:
       neck:
       - state: empty-equipped
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Recruit
+    prefix: RCT
+    paygrade: E-1
+    color: "#d77715"
 
 - type: entity
   parent: ClothingNeckPinNCRRecruit
@@ -25,8 +29,6 @@
   name: ncr private rank pin
   description: This rank pin designates the owner as a private in the NCRA. You've got a lot to learn, don't forget to ask your superiors what to do.
   components:
-  - type: RankTitle
-    rankTitle: Private
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -39,6 +41,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Private
+    prefix: PV2
+    paygrade: E-2
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -46,8 +52,6 @@
   name: ncr private first class rank pin
   description: This rank pin denotes the owner as a private first class in the NCRA. You're making good progress, remember to ask for direction when you need something to do.
   components:
-  - type: RankTitle
-    rankTitle: Private First Class
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -55,6 +59,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Private First Class
+    prefix: PFC
+    paygrade: E-3
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -62,8 +70,6 @@
   name: ncr corporal rank pin
   description: This rank pin designates the owner as a corporal in the NCRA. You've got responsibilities to attend to, you're expected to start teaching and leading recruits.
   components:
-  - type: RankTitle
-    rankTitle: Corporal
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -71,6 +77,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Corporal
+    prefix: CPL
+    paygrade: E-4
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -78,8 +88,6 @@
   name: ncr specialist rank pin
   description: This rank pin denotes the owner as a specialist in the NCRA. You're a skilled member of the military's enlisted ranks now, so the expectations are starting to rise.
   components:
-  - type: RankTitle
-    rankTitle: Specialist
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -87,6 +95,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Specialist
+    prefix: SPC
+    paygrade: E-4
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -94,8 +106,6 @@
   name: ncr sergeant rank pin
   description: This rank pin designates the owner as a sergeant in the NCRA. Welcome to middle management, ensure the lower ranks of the enlisted behave properly and know how to do their jobs.
   components:
-  - type: RankTitle
-    rankTitle: Sergeant
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -103,6 +113,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Sergeant
+    prefix: SGT
+    paygrade: E-5
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -110,8 +124,6 @@
   name: ncr staff sergeant rank pin
   description: This rank pin denotes the owner as a staff sergeant in the NCRA. Ensure the soldiers aren't causing trouble with the locals and start spending your funds on a personal motorcycle.
   components:
-  - type: RankTitle
-    rankTitle: Staff Sergeant
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -119,6 +131,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Staff Sergeant
+    prefix: SSG
+    paygrade: E-6
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -126,8 +142,6 @@
   name: ncr sergeant first class rank pin
   description: This rank pin designates the owner as a sergeant first class in the NCRA. At this point you are expected to lead the lower ranks, and advise the officers while not getting in their way.
   components:
-  - type: RankTitle
-    rankTitle: Sergeant First Class
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -135,6 +149,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Sergeant First Class
+    prefix: SFC
+    paygrade: E-7
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -142,8 +160,6 @@
   name: ncr master sergeant rank pin
   description: This rank pin denotes the owner as a master sergeant in the NCRA. There's no screwing around at this stage of your career, you're expected to act as a model soldier, as you represent the NCR to the wasteland.
   components:
-  - type: RankTitle
-    rankTitle: Master Sergeant
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -151,6 +167,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Master Sergeant
+    prefix: MSG
+    paygrade: E-8
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -158,8 +178,6 @@
   name: ncr first sergeant rank pin
   description: This rank pin designates the owner as a first sergeant in the NCRA. People expect only the best from someone of your station, so don't disappoint them. You need to be competent in combat, leadership, and negotiations.
   components:
-  - type: RankTitle
-    rankTitle: First Sergeant
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -167,6 +185,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: First Sergeant
+    prefix: 1SG
+    paygrade: E-8
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -174,8 +196,6 @@
   name: ncr sergeant major rank pin
   description: This rank pin denotes the owner as a sergeant major in the NCRA. Your job now is to ensure the enlisted men perform their duties, and keep the officers from stepping into trouble.
   components:
-  - type: RankTitle
-    rankTitle: Sergeant Major
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -183,6 +203,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Sergeant Major
+    prefix: SGM
+    paygrade: E-9
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -190,8 +214,6 @@
   name: ncr command sergeant major rank pin
   description: This rank pin denotes the owner as a command sergeant major in the NCRA. You are responsible for all those beneath you, and the expectations are immense. Don't disappoint your country.
   components:
-  - type: RankTitle
-    rankTitle: Command Sergeant Major
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -199,6 +221,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Command Sergeant Major
+    prefix: CSM
+    paygrade: E-9
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -206,8 +232,6 @@
   name: ncr warrant officer rank pin
   description: This rank pin designates the owner as a warrant officer in the NCRA. You're too high of a rank to be yelled at by the sergeants, but too low of a rank to have any serious responsibilities.
   components:
-  - type: RankTitle
-    rankTitle: Warrant Officer
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -215,6 +239,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Warrant Officer
+    prefix: WO1
+    paygrade: W-1
 
 # #Misfits Add - Chief Warrant Officer grades for the NCR aviation track.
 # No warrant-specific sprites exist, so these borrow officer pin art the same way
@@ -225,8 +253,6 @@
   name: ncr chief warrant officer 2 rank pin
   description: This rank pin denotes the owner as a chief warrant officer 2 in the NCRA. You are a highly skilled specialist, with technical expertise the army needs. You're still not bulletproof from reprimands, so behave.
   components:
-  - type: RankTitle
-    rankTitle: Chief Warrant Officer 2
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -239,6 +265,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Chief Warrant Officer 2
+    prefix: CW2
+    paygrade: W-2
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -246,8 +276,6 @@
   name: ncr chief warrant officer 3 rank pin
   description: This rank pin denotes the owner as a chief warrant officer 3 in the NCRA. The equipment under your care is your top priority, and command respects your ability to get the job done. They might start asking you to teach others.
   components:
-  - type: RankTitle
-    rankTitle: Chief Warrant Officer 3
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -260,6 +288,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Chief Warrant Officer 3
+    prefix: CW3
+    paygrade: W-3
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -267,8 +299,6 @@
   name: ncr second lieutenant rank pin
   description: This rank pin denotes the owner as a second lieutenant in the NCRA. You are expected to lead the soldiers, and to learn from any officers above you. Remember, dead men get no glory, so don't get yourself or your subordinates killed.
   components:
-  - type: RankTitle
-    rankTitle: Second Lieutenant
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -276,6 +306,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Second Lieutenant
+    prefix: 2LT
+    paygrade: O-1
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -283,8 +317,6 @@
   name: ncr first lieutenant rank pin
   description: This rank pin denotes the owner as a first lieutenant in the NCRA. You've got a lot of responsibilities to answer to now, and your subordinates need to know you can get them home alive. Don't let them down now.
   components:
-  - type: RankTitle
-    rankTitle: First Lieutenant
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -297,6 +329,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: First Lieutenant
+    prefix: 1LT
+    paygrade: O-2
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -304,8 +340,6 @@
   name: ncr captain rank pin
   description: This rank pin denotes the owner as a captain in the NCRA. Lead the troopers out of danger and ensure the mission objective is achieved. At this point in your career, you're expected to take the lead and make the hard choices.
   components:
-  - type: RankTitle
-    rankTitle: Captain
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -318,6 +352,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Captain
+    prefix: CPT
+    paygrade: O-3
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -325,8 +363,6 @@
   name: ncr major rank pin
   description: This rank pin denotes the owner as a major in the NCRA. You are among the highest ranking officers in the region, and what you do reflects on the country as a whole. Remember to listen to your subordinates, and to lead by example.
   components:
-  - type: RankTitle
-    rankTitle: Major
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -334,6 +370,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Major
+    prefix: MAJ
+    paygrade: O-4
 
 - type: entity
   parent: ClothingNeckPinNCRFirstLieutenant
@@ -341,8 +381,6 @@
   name: ncr lieutenant colonel rank pin
   description: This rank pin denotes the owner as a lieutenant colonel in the NCRA. You are among the very best of military high command, and it is your job to ensure the soldiers here don't ruin the reputation you've worked so hard to build.
   components:
-  - type: RankTitle
-    rankTitle: Lieutenant Colonel
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -350,6 +388,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Lieutenant Colonel
+    prefix: LTC
+    paygrade: O-5
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -357,8 +399,6 @@
   name: ncr doctor rank pin
   description: This rank pin denotes the owner as a doctor in the NCRA. While you aren't expected to act as infantry normally, you are still part of the military and should follow orders according to your rank and mission priorities.
   components:
-  - type: RankTitle
-    rankTitle: Corpsman
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -371,6 +411,10 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Corpsman
+    prefix: Doc
+    paygrade: ""
 
 - type: entity
   parent: ClothingNeckPinNCRPrivate
@@ -378,8 +422,6 @@
   name: ncr chief physician rank pin
   description: This rank pin designates the owner as a chief physician in the NCRA. The other medics need to learn from your teachings, and there's a flood of injured troopers to tend to. At the very least, people respect your dedication and skills.
   components:
-  - type: RankTitle
-    rankTitle: Chief Physician
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -387,3 +429,7 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Chief Physician
+    prefix: Dr.
+    paygrade: ""

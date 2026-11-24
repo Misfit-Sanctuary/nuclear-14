@@ -95,3 +95,189 @@
   - EnclaveHeadScientist # #Cythisiax Added - runs the science track
   - EnclaveCommander
   - EnclaveReformer
+  rankManagers: # #Cythisiax Added - only the Commander (and Reformer) move Enclave rank pins
+  - EnclaveCommander
+  - EnclaveReformer
+
+# #Cythisiax Added - roster actions for the NCR, Legion and Brotherhood rosters
+- type: entity
+  parent: ActionOpenFactionRoster
+  id: ActionOpenFactionRosterNCR
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi, state: ncrLeader }
+    checkCanInteract: false
+    event: !type:OpenFactionRosterActionEvent
+
+- type: entity
+  parent: ActionOpenFactionRoster
+  id: ActionOpenFactionRosterLegion
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi, state: centurion }
+    checkCanInteract: false
+    event: !type:OpenFactionRosterActionEvent
+
+- type: entity
+  parent: ActionOpenFactionRoster
+  id: ActionOpenFactionRosterBoS
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi, state: bosMCommander }
+    checkCanInteract: false
+    event: !type:OpenFactionRosterActionEvent
+
+# #Cythisiax Added - NCR: the Commander runs the Army and MP tracks, side roles and everyone's rank
+# pin; the Lieutenant Colonel sits above all of it, Commander included. Anyone on duty in an NCR
+# job shows up even without a whitelist (most NCR jobs open up by playtime). Recruiting is an
+# in-character invitation that hands them the Trooper whitelist.
+- type: factionRoster
+  id: NCR
+  name: faction-roster-name-ncr
+  offerText:
+  - faction-roster-offer-ncr
+  tracks:
+  - name: faction-roster-track-ncr-army
+    ranks:
+    - NCRCadet
+    - NCRNCO
+    - NCRPlatoonLeader
+    - NCRExecutiveOfficer
+    - NCRCommander
+  - name: faction-roster-track-ncr-mp
+    ranks:
+    - NCRMilitaryPoliceRecruit
+    - NCRMilitaryPoliceSergeant
+    - NCRMilitaryPoliceCaptain
+  specialties:
+  - NCRMedic
+  - NCREngineer
+  - NCRWS
+  - NCRHeavyTrooper
+  - NCRHeavyTrooperLead
+  - NCRVertibirdPilot
+  - NCRRO
+  - NCRDoctor
+  protected:
+  - NCRCommander
+  - NCRLTCol
+  authorizedJobs:
+  - NCRCommander
+  - NCRLTCol
+  oathEditors:
+  - NCRCommander
+  - NCRLTCol
+  rankManagers:
+  - NCRCommander
+  - NCRLTCol
+  recruitGrants:
+  - NCRCadet
+
+# #Cythisiax Added - Legion: Centurions run the line up to Optio, the Legate makes Centurions and
+# can do anything. The Priestess of Mars hands out the Mars roles (Acolyte, Temple Guard); only the
+# Legate appoints a Priestess. The badge carries the rank, so there are no pins here.
+- type: factionRoster
+  id: Legion
+  name: faction-roster-name-legion
+  offerText:
+  - faction-roster-offer-legion
+  tracks:
+  - name: faction-roster-track-legion
+    ranks:
+    - CaesarLegionLegionnaireRecruit
+    - CaesarLegionLegionnaireWarrior
+    - CaesarLegionLegionnaireVeteran
+    - CaesarLegionDean
+    - CaesarLegionPrimeDecanus
+    - CaesarLegionVeteranDecanus
+    - CaesarLegionOptio
+    - CaesarLegionCenturion
+  specialties:
+  - CaesarLegionVexillarius
+  - CaesarLegionExplorer
+  - CaesarLegionFrumentarii
+  - CaesarLegionHoundmaster
+  - CaesarLegionAuxilia
+  - CaesarLegionForgemaster
+  - CaesarLegionAcolyteOfMars
+  - CaesarLegionTempleGuard
+  - CaesarLegionPriestessOfMars
+  specialtyRules:
+    CaesarLegionAcolyteOfMars:
+      managers: [ CaesarLegionPriestessOfMars ]
+    CaesarLegionTempleGuard:
+      managers: [ CaesarLegionPriestessOfMars ]
+    CaesarLegionPriestessOfMars:
+      managers: []
+  protected:
+  - CaesarLegionLegate
+  authorizedJobs:
+  - CaesarLegionCenturion
+  - CaesarLegionLegate
+  - CaesarLegionPriestessOfMars
+  oathEditors:
+  - CaesarLegionLegate
+  dischargers:
+  - CaesarLegionCenturion
+  recruitGrants:
+  - CaesarLegionLegionnaireRecruit
+
+# #Cythisiax Added - Brotherhood: any Head can raise an Initiate to Squire. From Squire, each caste
+# Head brings people into their own caste and promotes them up to just below Head. Heads can drop
+# someone back to Squire but only the Elder removes anyone from the Brotherhood. The Head Knight
+# assigns Knight-Lancer to Knights; Honor Guard comes from the Elder alone. No pins.
+- type: factionRoster
+  id: BrotherhoodOfSteel
+  name: faction-roster-name-bos
+  offerText:
+  - faction-roster-offer-bos
+  tracks:
+  - name: faction-roster-track-bos-initiates
+    ranks:
+    - BoSInitiate
+    - BoSMidSquire
+    managers:
+    - BoSHeadKnight
+    - BoSMidPaladinCommander
+    - BoSWestScribe
+  - name: faction-roster-track-bos-knights
+    ranks:
+    - BoSKnight
+    - BoSMidKnight
+    - BoSHeadKnight
+    requires: BoSMidSquire
+  - name: faction-roster-track-bos-paladins
+    ranks:
+    - BoSPaladin
+    - BoSMidPaladin
+    - BoSMidPaladinCommander
+    requires: BoSMidSquire
+  - name: faction-roster-track-bos-scribes
+    ranks:
+    - BoSScribe
+    - BoSMidScribe
+    - BoSWestScribe
+    requires: BoSMidSquire
+  specialties:
+  - BoSLancerKnight
+  - BoSHonorGuard
+  specialtyRules:
+    BoSLancerKnight:
+      managers: [ BoSHeadKnight ]
+      requires: BoSKnight
+    BoSHonorGuard:
+      managers: []
+  protected:
+  - BoSWestElderCommander
+  authorizedJobs:
+  - BoSHeadKnight
+  - BoSMidPaladinCommander
+  - BoSWestScribe
+  - BoSWestElderCommander
+  oathEditors:
+  - BoSWestElderCommander
+  recruitGrants:
+  - BoSInitiate

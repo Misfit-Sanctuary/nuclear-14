@@ -38,6 +38,14 @@
       - type: PowerArmorProficiency
       - type: VertibirdPilotPerk # #Misfits Add - pilot perk granted free with the role
       - type: VertibirdCrew # #Misfits Add - trained crew repair the airframe faster
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinEnclaveSergeant }
+    - { pin: ClothingNeckPinEnclaveStaffSergeant, hours: 20 }
+    - { pin: ClothingNeckPinEnclaveSFC, hours: 40 }
+    - { pin: ClothingNeckPinEnclaveMasterSergeant, hours: 60 }
+    - { pin: ClothingNeckPinEnclaveSergeantMajor, hours: 80 }
 
 - type: startingGear
   id: EnclaveVertibirdPilotGear
