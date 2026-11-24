@@ -28,7 +28,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   # Balance: all economic and encounter tuning is kept here.
-  - type: MaterialExtractor
+  - type: MaterialExtractor  #Due to recent cyhtsia changes, all extractor mob now no longer detect players at long ranges, this need to be fixed or reverted otherwise player would get free materials without risk of getting attacked.
     operatorRadius: 4
     pulseIntervalSeconds: 2
     firstWaveMinSeconds: 15
@@ -86,52 +86,59 @@
       bosses:
         N14MobDeathclawAlbino: 60
         N14MobDeathclawMetal: 40
-    - name: raider gun crew
+    - name: locust raiding parties
       weight: 30
       minCount: 2
       maxCount: 6   #Wassuy changed max 4 to 6. Raider live longer in packs, a reference to random N14 TIPS in loading screen.
       family: Raider
       mobs:
-        N14MobRaiderPsychoRanged: 30
-        N14MobRaiderPsychoRanged9mm: 15
-        N14MobRaiderSkrimisher: 25
-        N14MobRaiderSkrimisherautoshotgun: 10
-        N14MobRaiderHunter: 15
+        N14MobRaiderPsychoRanged: 10
+        N14MobRaiderPsychoRanged22lr: 10
+        N14MobRaiderPsychoRanged9mm: 10
+        N14MobRaiderPsychoRanged9mmChinese: 10
+        N14MobRaiderSkrimisher: 15
+        N14MobRaiderSkrimishersawnoff: 10
+        N14MobRaiderSkrimishershotgun: 10
+        N14MobRaiderSkrimisherautoshotgun: 5
+        N14MobRaiderHunter: 5
         N14MobRaiderHunterEnfield: 5
-        N14MobRaiderPsycho: 15
-      bosses:
+        N14MobRaiderHunterchinesemark: 5
+        N14MobRaiderPsycho: 5
+
+      bosses:         
         N14MobRaiderBoss: 45
-        N14MobRaiderBossRifle: 25
-        N14MobRaiderHunter: 30
-    - name: cult of liberty
-      weight: 15
-      minCount: 2
-      maxCount: 4
-      family: Raider
-      mobs:
-        N14MobFernMercRecruit: 35
-        N14MobFernMercPrivate: 30
-        N14MobRaiderFernMelee: 25
-        M14MobFernMercPrivateAutoRifle: 10
-      bosses:
-        N14MobFernMercSergeant: 60
-        N14MobFernMercLieutenant: 40
-    - name: warden patrol
-      weight: 15
-      minCount: 2
-      maxCount: 4
-      family: Raider
-      mobs:
-        N14MobEnforcerTrooper: 30
-        N14MobEnforcerTrooperSten: 15
-        N14MobEnforcerTrooper45SMG: 15
-        N14MobRaiderEnforcerMelee: 20
-        N14MobRaiderEnforcerShield: 20
-      bosses:
-        N14MobEnforcerWarden: 40
-        N14MobEnforcerChief: 30
-        M14MobEnforcerChief357: 15
-        M14MobEnforcerChiefCowboyRepeater: 15
+        N14MobRaiderBossRifle: 30
+        N14MobRaiderBossChineseRifle: 25
+        #N14MobRaiderHunter: 30 they are not even a boss.
+    #- name: cult of liberty  #wassuy changes, they should NOT be spawning at extractors and should be locusts only, lore reason, cult having their own goal already and dont randomly raid extractor for stuffs.
+      #weight: 15
+      #minCount: 2
+      #maxCount: 4
+      #family: Raider
+      #mobs:
+      #  N14MobFernMercRecruit: 35
+      #  N14MobFernMercPrivate: 30
+      #  N14MobRaiderFernMelee: 25
+      #  M14MobFernMercPrivateAutoRifle: 10
+      #bosses:
+      #  N14MobFernMercSergeant: 60
+      #  N14MobFernMercLieutenant: 40
+    #- name: warden patrol  #wassuy changes, they should NOT be spawning at extractors and should be locusts only, lore reason, warden are a raider merc groups fleeing from bos, they do not raid it aswell nor patrol around.
+      #weight: 15
+      #minCount: 2
+      #maxCount: 4
+      #family: Raider
+      #mobs:
+      #  N14MobEnforcerTrooper: 30
+      #  N14MobEnforcerTrooperSten: 15
+      #  N14MobEnforcerTrooper45SMG: 15
+      #  N14MobRaiderEnforcerMelee: 20
+      #  N14MobRaiderEnforcerShield: 20
+      #bosses:
+      # - N14MobEnforcerChief: 50
+      # - M14MobEnforcerChief357: 20
+      # - M14MobEnforcerChiefBAR: 20
+      # - M14MobEnforcerChiefBren: 10
     - name: super mutant warband
       weight: 20
       minCount: 2
