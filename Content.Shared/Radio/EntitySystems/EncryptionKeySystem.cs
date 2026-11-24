@@ -97,7 +97,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
                 if (key.DefaultChannel != null &&
                     component.DefaultChannel == null &&
                     (!TryComp<DisabledEncryptionChannelsComponent>(ent, out var disabledDefault) ||
-                     !disabledDefault.Channels.Contains(key.DefaultChannel)))
+                     !disabledDefault.Channels.Contains(key.DefaultChannel.Value)))
                 {
                     component.DefaultChannel = key.DefaultChannel;
                 }
@@ -106,7 +106,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
 
         if (TryComp<DisabledEncryptionChannelsComponent>(uid, out var disabledHolder))
         {
-            component.Channels.ExceptWith(disabledHolder.Channels);
+            component.Channels.ExceptWith(disabledHolder.Channels.Select(c => c.Id));
             if (component.DefaultChannel != null && disabledHolder.Channels.Contains(component.DefaultChannel))
                 component.DefaultChannel = component.Channels.FirstOrDefault();
         }
@@ -249,7 +249,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         if(component.Channels.Count > 0)
         {
             args.PushMarkup(Loc.GetString("examine-encryption-channels-prefix"));
-            AddChannelsExamine(component.Channels, component.DefaultChannel, args, _protoManager, "examine-encryption-channel");
+            AddChannelsExamine(component.Channels.Select(c => c.Id).ToHashSet(), component.DefaultChannel, args, _protoManager, "examine-encryption-channel");
         }
     }
 

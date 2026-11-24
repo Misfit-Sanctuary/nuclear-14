@@ -1,6 +1,8 @@
 // #Misfits Add - System that grants martial arts knowledge from Training Manuals and job startup components
+using Content.Server.GameTicking;
 using Content.Shared._Misfits.MartialArts;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Item;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
@@ -10,8 +12,9 @@ namespace Content.Server._Misfits.MartialArts;
 /// <summary>
 /// Grants a martial arts form to an entity when a <see cref="GrantMartialArtKnowledgeComponent"/> is used in hand.
 /// Also handles job-default styles: Legion Centurion/Legate receive LegionGladiatorial,
-/// Veteran Ranger/Ranger Chief receive RangerCombatTechnique — these use ComponentStartup since
-/// their GrantXxx components are added via AddComponentSpecial in YAML.
+/// Ranger and Ranger Lead receive RangerCombatTechnique — their GrantXxx components are added
+/// via AddComponentSpecial in YAML, so they are applied on ComponentStartup and again once the
+/// player has fully spawned (PlayerSpawnCompleteEvent) to avoid special-ordering races.
 /// </summary>
 public sealed class GrantMartialArtsSystem : EntitySystem
 {
@@ -44,6 +47,31 @@ public sealed class GrantMartialArtsSystem : EntitySystem
         SubscribeLocalEvent<GrantWastelandStreetFightingComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<GrantTribalWarriorComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<GrantShadowStrikeComponent, ComponentStartup>(OnStartup);
+
+        // #Misfits Fix - job-granted arts arrive as spawn specials, which races the ComponentStartup
+        // path above; apply them once more when spawning is finished so the role always gets its art.
+        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
+    }
+
+    /// <summary>
+    /// Grants any job-default art the mob carries once spawning has finished.
+    /// Skips mobs that already learned a form so the learn popup is not repeated.
+    /// </summary>
+    private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent ev)
+    {
+        var mob = ev.Mob;
+
+        if (!Exists(mob) || HasComp<MartialArtsKnowledgeComponent>(mob))
+            return;
+
+        if (TryComp<GrantRangerCombatComponent>(mob, out var ranger))
+            TryGrantMartialArt(mob, mob, ranger);
+
+        if (HasComp<MartialArtsKnowledgeComponent>(mob))
+            return;
+
+        if (TryComp<GrantLegionGladiatorialComponent>(mob, out var legion))
+            TryGrantMartialArt(mob, mob, legion);
     }
 
     /// <summary>
@@ -59,7 +87,7 @@ public sealed class GrantMartialArtsSystem : EntitySystem
             return;
 
         // Items will be handled on UseInHand instead
-        if (HasComp<Content.Shared.Item.ItemComponent>(uid))
+        if (HasComp<ItemComponent>(uid))
             return;
 
         TryGrantMartialArt(uid, uid, comp);
@@ -73,6 +101,9 @@ public sealed class GrantMartialArtsSystem : EntitySystem
         where TComp : GrantMartialArtKnowledgeComponent
     {
         if (args.Handled)
+            return;
+
+        if (uid == args.User || !HasComp<ItemComponent>(uid))
             return;
 
         var user = args.User;
@@ -135,6 +166,9 @@ public sealed class GrantMartialArtsSystem : EntitySystem
                 break;
             }
         }
+
+        if (item == recipient)
+            RemCompDeferred(recipient, comp);
 
         // Show the learn popup on the recipient
         if (comp.LearnMessage != null)

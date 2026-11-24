@@ -2,7 +2,6 @@ using Content.Shared.ReverseEngineering;
 using Content.Shared.Construction.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Audio;
 
 namespace Content.Server.ReverseEngineering;
@@ -13,11 +12,11 @@ namespace Content.Server.ReverseEngineering;
 [RegisterComponent]
 public sealed partial class ReverseEngineeringMachineComponent : Component
 {
-    [DataField("diskPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string DiskPrototype = "TechnologyDisk";
+    [DataField("diskPrototype")]
+    public EntProtoId DiskPrototype = "TechnologyDisk";
 
-    [DataField("machinePartScanBonus", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-    public string MachinePartScanBonus = "MatterBin"; // DeltaV Code: Change part checked for bonus to MatterBin as it is what is used in the crafting recipe
+    [DataField("machinePartScanBonus")]
+    public ProtoId<MachinePartPrototype> MachinePartScanBonus = "MatterBin"; // DeltaV Code: Change part checked for bonus to MatterBin as it is what is used in the crafting recipe
 
     /// <summary>
     /// Added to the 3d6, scales off of scanner.
@@ -25,8 +24,8 @@ public sealed partial class ReverseEngineeringMachineComponent : Component
     public int ScanBonus = 1;
 
 
-    [DataField("machinePartDangerAversionScore", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-    public string MachinePartDangerAversionScore = "Manipulator";
+    [DataField("machinePartDangerAversionScore")]
+    public ProtoId<MachinePartPrototype> MachinePartDangerAversionScore = "Manipulator";
 
     /// <summary>
     /// If we rolled destruction, this is added to the roll and if it <= 9 it becomes

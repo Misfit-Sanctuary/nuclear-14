@@ -1,4 +1,4 @@
-# #Misfits Add - New Enclave clothing variants (sprites by Classic492).
+# #Misfits Add - New Enclave clothing variants (sprites by Classic492 and JJmanus).
 # These are standalone spawnable prototypes — they do NOT replace existing Enclave defaults.
 # Current Enclave job startingGear entries are unchanged.
 
@@ -6,8 +6,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitEnclaveBlue
-  name: U.S. Army uniform (blue)
-  description: A blue field-variant of the standard U.S. Army uniform. Worn by personnel operating in colder or more covert environments.
+  name: enclave uniform (blue)
+  description: A blue field-variant of the standard enclave uniform, worn by personnel operating in more arctic environments, and theoretically in naval operations.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/Uniforms/enclave_uniform_blue.rsi
@@ -18,10 +18,22 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitEnclaveGrey
-  name: U.S. Army uniform (grey)
-  description: A grey field-variant of the standard U.S. Army uniform. Blends better in ash-grey ruins and rocky terrain.
+  name: enclave uniform (grey)
+  description: A grey field-variant of the standard enclave uniform, blends in well with urban ruins and rocky terrain. Not many lush forests remain to worry about.
   components:
   - type: Sprite
     sprite: _Misfits/Clothing/Uniforms/enclave_uniform_grey.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/Uniforms/enclave_uniform_grey.rsi
+
+# --- Enclave Security Uniform ---
+- type: entity
+  parent: N14ClothingUniformBase
+  id: N14ClothingUniformJumpsuitEnclaveSecurity
+  name: enclave security uniform
+  description: A blue standard security uniform of the enclave.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/enclave_uniform_security.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/enclave_uniform_security.rsi

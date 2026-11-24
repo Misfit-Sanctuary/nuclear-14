@@ -90,6 +90,9 @@
   - type: Sprite
     sprite: _Misfits/Clothing/Neck/newcanaanshemagh_neck.rsi
   - type: Clothing
+    quickEquip: true
+    slots:
+    - neck
     sprite: _Misfits/Clothing/Neck/newcanaanshemagh_neck.rsi
   - type: ToggleableClothing
     clothingPrototype: MisfitsClothingMaskNewCanaanShemagh
@@ -129,6 +132,7 @@
   name: New Canaanite altar
   id: MisfitsConstructAltar
   graph: MisfitsGraphAltar
+  hide: false
   startNode: start
   targetNode: newcanaan
   category: construction-category-furniture
@@ -152,12 +156,10 @@
       completed:
       - !type:SnapToGrid
       steps:
-      - material: Plasteel
-        amount: 10
-      - material: Bluespace
-        amount: 3
-      - material: Gold
-        amount: 4
+      - material: WoodPlank
+        amount: 5
+      - material: Cloth
+        amount: 2
         doAfter: 5
   - node: newcanaan
     entity: MisfitsAltarNewCanaan

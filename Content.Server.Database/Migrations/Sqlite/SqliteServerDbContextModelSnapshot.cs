@@ -751,6 +751,48 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("connection_log", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.FactionCharacterRank", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("faction_character_rank_id");
+
+                    b.Property<string>("CharacterName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("character_name");
+
+                    b.Property<bool>("GrantCapped")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("grant_capped");
+
+                    b.Property<string>("GrantedRank")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("granted_rank");
+
+                    b.Property<string>("HeldRank")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("held_rank");
+
+                    b.Property<string>("Ladder")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("ladder");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("player_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_faction_character_rank");
+
+                    b.HasIndex("PlayerId", "CharacterName", "Ladder")
+                        .IsUnique();
+
+                    b.ToTable("faction_character_rank", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.HelpTicketEvent", b =>
                 {
                     b.Property<int>("Id")

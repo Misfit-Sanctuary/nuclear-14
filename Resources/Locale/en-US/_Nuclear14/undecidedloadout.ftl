@@ -206,6 +206,14 @@ undecided-loadout-category-lt-commissar-description =
 
 # Ranger stuff thingies
 
+# #Misfits Add - Ranger Medic loadout sets.
+undecided-loadout-category-ranger-medic-name = Ranger Medic Kit
+undecided-loadout-category-ranger-medic-description =
+    A scoped 7.62 marksman rifle, spare magazines, a combat defibrillator and a full medical pouch.
+undecided-loadout-category-ranger-corpsman-name = Ranger Corpsman Kit
+undecided-loadout-category-ranger-corpsman-description =
+    An automatic combat shotgun, a combat defibrillator and the gear to work under fire.
+
 undecided-loadout-category-ranger-service-name = Ranger Service Kit
 undecided-loadout-category-ranger-service-description =
     Includes 1 NCR belt, 1 butchered service rifle, 4 service rifle magazines,

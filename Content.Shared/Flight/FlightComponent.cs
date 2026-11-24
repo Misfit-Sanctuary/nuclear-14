@@ -1,7 +1,6 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Flight;
 
@@ -12,8 +11,8 @@ namespace Content.Shared.Flight;
 [RegisterComponent, NetworkedComponent(), AutoGenerateComponentState]
 public sealed partial class FlightComponent : Component
 {
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? ToggleAction = "ActionToggleFlight";
+    [DataField]
+    public EntProtoId? ToggleAction = "ActionToggleFlight";
 
     [DataField, AutoNetworkedField]
     public EntityUid? ToggleActionEntity;

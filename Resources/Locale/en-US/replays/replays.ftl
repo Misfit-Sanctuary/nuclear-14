@@ -42,5 +42,5 @@ cmd-replay-spectate-help = replay_spectate [optional entity]
 cmd-replay-spectate-desc = Attaches or detaches the local player to a given entity uid.
 cmd-replay-spectate-hint = Optional EntityUid
 
-cmd-replay-toggleui-desc = Toggle the replay control widget.
+# cmd-replay-toggleui-desc = Toggle the replay control widget. # loc already defined in engine
 cmd-replay-toggleui-help = replay_toggleui

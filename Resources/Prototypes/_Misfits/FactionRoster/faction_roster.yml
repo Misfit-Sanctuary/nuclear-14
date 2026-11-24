@@ -1,0 +1,283 @@
+# #Cythisiax Added - Faction roster: faction leadership's roster / recruitment / oath GUI.
+# Each factionRoster below is one faction. To give another faction the tool, add a
+# factionRoster entry and put a FactionRoster component on its leadership jobs.
+
+- type: entity
+  id: ActionOpenFactionRoster
+  name: Faction Roster
+  description: Review your faction's members, recruit nearby players, and promote or demote your people.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: _Nuclear14/Markers/Jobs/rangers.rsi, state: veteran }
+    checkCanInteract: false
+    event: !type:OpenFactionRosterActionEvent
+
+- type: entity
+  parent: ActionOpenFactionRoster
+  id: ActionOpenFactionRosterEnclave
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: /Textures/_Misfits/Interface/Misc/job_icons/Enclave.rsi, state: EnclaveCommander }
+    checkCanInteract: false
+    event: !type:OpenFactionRosterActionEvent
+
+# Rangers: Recruit -> Ranger -> Ranger Lead -> Chief Ranger, with DAGGER above them all as
+# the highest theatre authority. Each rank manages the ranks beneath it: the Ranger Lead
+# handles Recruits and Rangers, the Chief Ranger can also remove Ranger Leads, and DAGGER
+# can promote to or demote the Chief Ranger. Recruiting grants the Ranger Recruit whitelist.
+- type: factionRoster
+  id: Rangers
+  name: faction-roster-name-rangers
+  offerText:
+  - faction-roster-offer-rangers
+  tracks:
+  - name: faction-roster-track-rangers
+    ranks:
+    - NCRRangerRecruit
+    - NCRRangerStandard
+    - NCRVeteranRanger
+    - NCRChiefRanger
+  specialties:
+  - NCRRangerMedic
+  protected:
+  - NCRDagger
+  authorizedJobs:
+  - NCRVeteranRanger
+  - NCRChiefRanger
+  - NCRDagger
+  oathEditors:
+  - NCRVeteranRanger
+  - NCRChiefRanger
+  - NCRDagger
+  dischargers: # #Cythisiax Added - Ranger Leads can only demote to Recruit; booting someone needs Chief+ (DAGGER is command)
+  - NCRChiefRanger
+  recruitGrants:
+  - NCRRangerRecruit
+
+# Enclave: replaces the old officer "Recruit" verb. Recruiting grants no whitelist; the
+# EnclaveRecruitSystem assigns the in-round EnclaveRecruit job and micro-bomb, and the
+# Enlisted / Junior Scientist whitelists unlock after 4h of recruit time as before.
+# #Cythisiax Edited - each track is run by its own people: officers manage Enlisted / NCO,
+# the Head Scientist manages Junior Scientists / Scientists. Promoting to or demoting from
+# Junior Officer, Senior Officer or Head Scientist is reserved for the Commander (and
+# Reformer/General), via commandOnlyFrom.
+- type: factionRoster
+  id: Enclave
+  name: faction-roster-name-enclave
+  offerText: # the Form 104-E contract and oath the Enclave consent window already used
+  - enclave-recruit-contract-text
+  - enclave-recruit-oath-text
+  tracks:
+  - name: faction-roster-track-military
+    ranks:
+    - EnclaveEnlisted
+    - EnclaveNCO
+    - EnclaveJuniorOfficer
+    - EnclaveSeniorOfficer
+    - EnclaveCommander # #Cythisiax Added - top of the track: only the Reformer/General can promote to or demote the Commander
+    commandOnlyFrom: EnclaveJuniorOfficer # #Cythisiax Added - only the Commander makes or breaks officers
+  - name: faction-roster-track-science
+    ranks:
+    - EnclaveJuniorScientist
+    - EnclaveScientist
+    - EnclaveHeadScientist
+    commandOnlyFrom: EnclaveHeadScientist # #Cythisiax Added - only the Commander appoints the Head Scientist
+  specialties:
+  - EnclaveVertibirdPilot
+  protected:
+  - EnclaveCommander
+  - EnclaveReformer
+  authorizedJobs:
+  - EnclaveJuniorOfficer
+  - EnclaveSeniorOfficer
+  - EnclaveHeadScientist # #Cythisiax Added - runs the science track
+  - EnclaveCommander
+  - EnclaveReformer
+  rankManagers: # #Cythisiax Added - only the Commander (and Reformer) move Enclave rank pins
+  - EnclaveCommander
+  - EnclaveReformer
+
+# #Cythisiax Added - roster actions for the NCR, Legion and Brotherhood rosters
+- type: entity
+  parent: ActionOpenFactionRoster
+  id: ActionOpenFactionRosterNCR
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi, state: ncrLeader }
+    checkCanInteract: false
+    event: !type:OpenFactionRosterActionEvent
+
+- type: entity
+  parent: ActionOpenFactionRoster
+  id: ActionOpenFactionRosterLegion
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi, state: centurion }
+    checkCanInteract: false
+    event: !type:OpenFactionRosterActionEvent
+
+- type: entity
+  parent: ActionOpenFactionRoster
+  id: ActionOpenFactionRosterBoS
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: { sprite: /Textures/Corvax/Interface/Misc/job_icons.rsi, state: bosMCommander }
+    checkCanInteract: false
+    event: !type:OpenFactionRosterActionEvent
+
+# #Cythisiax Added - NCR: the Commander runs the Army and MP tracks, side roles and everyone's rank
+# pin; the Lieutenant Colonel sits above all of it, Commander included. Anyone on duty in an NCR
+# job shows up even without a whitelist (most NCR jobs open up by playtime). Recruiting is an
+# in-character invitation that hands them the Trooper whitelist.
+- type: factionRoster
+  id: NCR
+  name: faction-roster-name-ncr
+  offerText:
+  - faction-roster-offer-ncr
+  tracks:
+  - name: faction-roster-track-ncr-army
+    ranks:
+    - NCRCadet
+    - NCRNCO
+    - NCRPlatoonLeader
+    - NCRExecutiveOfficer
+    - NCRCommander
+  - name: faction-roster-track-ncr-mp
+    ranks:
+    - NCRMilitaryPoliceRecruit
+    - NCRMilitaryPoliceSergeant
+    - NCRMilitaryPoliceCaptain
+  specialties:
+  - NCRMedic
+  - NCREngineer
+  - NCRWS
+  - NCRHeavyTrooper
+  - NCRHeavyTrooperLead
+  - NCRVertibirdPilot
+  - NCRRO
+  - NCRDoctor
+  protected:
+  - NCRCommander
+  - NCRLTCol
+  authorizedJobs:
+  - NCRCommander
+  - NCRLTCol
+  oathEditors:
+  - NCRCommander
+  - NCRLTCol
+  rankManagers:
+  - NCRCommander
+  - NCRLTCol
+  recruitGrants:
+  - NCRCadet
+
+# #Cythisiax Added - Legion: Centurions run the line up to Optio, the Legate makes Centurions and
+# can do anything. The Priestess of Mars hands out the Mars roles (Acolyte, Temple Guard); only the
+# Legate appoints a Priestess. The badge carries the rank, so there are no pins here.
+- type: factionRoster
+  id: Legion
+  name: faction-roster-name-legion
+  offerText:
+  - faction-roster-offer-legion
+  tracks:
+  - name: faction-roster-track-legion
+    ranks:
+    - CaesarLegionLegionnaireRecruit
+    - CaesarLegionLegionnaireWarrior
+    - CaesarLegionLegionnaireVeteran
+    - CaesarLegionDean
+    - CaesarLegionPrimeDecanus
+    - CaesarLegionVeteranDecanus
+    - CaesarLegionOptio
+    - CaesarLegionCenturion
+  specialties:
+  - CaesarLegionVexillarius
+  - CaesarLegionExplorer
+  - CaesarLegionFrumentarii
+  - CaesarLegionHoundmaster
+  - CaesarLegionAuxilia
+  - CaesarLegionForgemaster
+  - CaesarLegionAcolyteOfMars
+  - CaesarLegionTempleGuard
+  - CaesarLegionPriestessOfMars
+  specialtyRules:
+    CaesarLegionAcolyteOfMars:
+      managers: [ CaesarLegionPriestessOfMars ]
+    CaesarLegionTempleGuard:
+      managers: [ CaesarLegionPriestessOfMars ]
+    CaesarLegionPriestessOfMars:
+      managers: []
+  protected:
+  - CaesarLegionLegate
+  authorizedJobs:
+  - CaesarLegionCenturion
+  - CaesarLegionLegate
+  - CaesarLegionPriestessOfMars
+  oathEditors:
+  - CaesarLegionLegate
+  dischargers:
+  - CaesarLegionCenturion
+  recruitGrants:
+  - CaesarLegionLegionnaireRecruit
+
+# #Cythisiax Added - Brotherhood: any Head can raise an Initiate to Squire. From Squire, each caste
+# Head brings people into their own caste and promotes them up to just below Head. Heads can drop
+# someone back to Squire but only the Elder removes anyone from the Brotherhood. The Head Knight
+# assigns Knight-Lancer to Knights; Honor Guard comes from the Elder alone. No pins.
+- type: factionRoster
+  id: BrotherhoodOfSteel
+  name: faction-roster-name-bos
+  offerText:
+  - faction-roster-offer-bos
+  tracks:
+  - name: faction-roster-track-bos-initiates
+    ranks:
+    - BoSInitiate
+    - BoSMidSquire
+    managers:
+    - BoSHeadKnight
+    - BoSMidPaladinCommander
+    - BoSWestScribe
+  - name: faction-roster-track-bos-knights
+    ranks:
+    - BoSKnight
+    - BoSMidKnight
+    - BoSHeadKnight
+    requires: BoSMidSquire
+  - name: faction-roster-track-bos-paladins
+    ranks:
+    - BoSPaladin
+    - BoSMidPaladin
+    - BoSMidPaladinCommander
+    requires: BoSMidSquire
+  - name: faction-roster-track-bos-scribes
+    ranks:
+    - BoSScribe
+    - BoSMidScribe
+    - BoSWestScribe
+    requires: BoSMidSquire
+  specialties:
+  - BoSLancerKnight
+  - BoSHonorGuard
+  specialtyRules:
+    BoSLancerKnight:
+      managers: [ BoSHeadKnight ]
+      requires: BoSKnight
+    BoSHonorGuard:
+      managers: []
+  protected:
+  - BoSWestElderCommander
+  authorizedJobs:
+  - BoSHeadKnight
+  - BoSMidPaladinCommander
+  - BoSWestScribe
+  - BoSWestElderCommander
+  oathEditors:
+  - BoSWestElderCommander
+  recruitGrants:
+  - BoSInitiate

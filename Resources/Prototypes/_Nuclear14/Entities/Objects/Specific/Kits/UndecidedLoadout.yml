@@ -221,9 +221,15 @@
     state: rifleman
   - type: UndecidedLoadoutBackpack
     possibleSets:
-    - RangerServiceSet
+    # #Misfits Change - patrol and field sets merged into one Ranger kit list
     - RangerRiflemanSet
     - RangerCQBSet
+    - RangerTrailmanSet
+    - RangerMarksmanSet
+    - RangerSniperSet
+    - RangerOperativeSet
+    # #Misfits Removed - ranger service kit (issued a butchered service rifle)
+    # - RangerServiceSet
 
 - type: entity
   id: NCRrangerloadoutkits
@@ -233,16 +239,17 @@
 - type: entity
   id: NCRfieldrangerloadoutkits
   name: Undecided NCR Field Ranger Loadout Kit
-  parent: NCRcadetloadoutkits
+  parent: NCRpatrolrangerloadoutkits # #Misfits Change - shares the merged Ranger kit list
   components:
   - type: Sprite
     state: marksman
-  - type: UndecidedLoadoutBackpack
-    possibleSets:
-    - RangerTrailmanSet
-    - RangerMarksmanSet
-    - RangerSniperSet
-    - RangerOperativeSet
+  # #Misfits Change - set list now inherited from the merged patrol/field list
+  # - type: UndecidedLoadoutBackpack
+  #   possibleSets:
+  #   - RangerTrailmanSet
+  #   - RangerMarksmanSet
+  #   - RangerSniperSet
+  #   - RangerOperativeSet
 
 - type: entity
   id: NCRveteranrangerloadoutkits
@@ -259,6 +266,18 @@
     - VeteranRangerHeavySniperSet
     - VeteranRangerAssaultSet
     - VeteranRangerMarksmanSet
+
+- type: entity
+  id: NCRrangermedicloadoutkits
+  name: Undecided NCR Ranger Medic Loadout Kit
+  parent: NCRcadetloadoutkits
+  components:
+  - type: Sprite
+    state: medic
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - RangerMedicSet
+    - RangerCorpsmanSet
 
 # Brotherhood Initiates
 - type: entity
@@ -747,6 +766,26 @@
     state: marksman
   content:
   - KitOperativeRanger
+
+- type: UndecidedLoadoutBackpackSet
+  id: RangerMedicSet
+  name: undecided-loadout-category-ranger-medic-name
+  description: undecided-loadout-category-ranger-medic-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: medic
+  content:
+  - KitRangerMedic
+
+- type: UndecidedLoadoutBackpackSet
+  id: RangerCorpsmanSet
+  name: undecided-loadout-category-ranger-corpsman-name
+  description: undecided-loadout-category-ranger-corpsman-description
+  sprite:
+    sprite: _Nuclear14/Objects/Misc/kits.rsi
+    state: medic
+  content:
+  - KitRangerCorpsman
 
 #MARK: Veteran Kits
 - type: UndecidedLoadoutBackpackSet

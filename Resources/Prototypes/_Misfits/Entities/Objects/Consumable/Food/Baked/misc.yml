@@ -104,3 +104,102 @@
       tags:
         - Pancake
       
+
+#Shortcake Cookie: 1 butter slice, 5u ExtractRazorgrainFlour, 5u milk -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+
+  id: MisfitsFoodShortcakeCookie
+  components:
+  - type: Food
+    eatMessage: food-desc-shortCake-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: shortCake
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+
+#- Thick Pancake: 10u flour, 5u milk, 5u egg, 5u Raiser -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+
+  id: MisfitsFoodThickPancake
+  components:
+  - type: Food
+    eatMessage: food-desc-thickPancake-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: thickPancake
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+
+#- Meat Dumpling: 1 dough slice, 5u ground animal protein -> 5 sec
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodMeatDumpling
+  components:
+  - type: Food
+    eatMessage: food-desc-meatDumpling-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: meatDumpling
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Protein
+          Quantity: 5
+
+#Mug cake: 1 Mug, 1 dough slice, 5u sugar ??
+- type: entity
+  parent: N14CookedFoodBowlBase
+  id: MisfitsFoodMugCake
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: mugCake
+  - type: Food
+    eatMessage: food-desc-mugCake-eat
+    trash:
+    - DrinkMug
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: Sugar
+          Quantity: 5
+
+#- Khan Meat Dumpling: 1 dumpling, 5u jet, 1 leather, 1 wood -> 5 sec
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodMeatDumpling_Jet
+  components:
+  - type: Food
+    eatMessage: food-desc-meatDumplingKhan-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: khanMeatDumpling
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: MovespeedMixture
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Cellulose
+          Quantity: 10

@@ -34,7 +34,15 @@
           - Wastelander
       - type: ReplacementAccent
         accent: n14Enclave
+      - type: FactionRoster # #Cythisiax Added - replaces the Recruit verb: roster GUI to recruit, promote and demote Enclave personnel
+        roster: Enclave
+        action: ActionOpenFactionRosterEnclave
       - type: PowerArmorProficiency
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinEnclaveSecondLieutenant }
+    - { pin: ClothingNeckPinEnclaveFirstLieutenant, hours: 20 }
 
 - type: startingGear
   id: EnclaveJuniorOfficerGear

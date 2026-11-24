@@ -1,0 +1,85 @@
+- type: entity
+  name: base cryocell
+  description: A light blue microfusion cell, experimental in nature, and cold to the touch.
+  id: N14BaseCryoCell
+  abstract: true
+  parent: BaseItem
+  components:
+  - type: Battery
+    pricePerJoule: 0.015
+  - type: Explosive
+    explosionType: N14DefaultStructural
+    maxIntensity: 200
+    intensitySlope: 1.5
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Ammunition/Battery/Cryo/cryocell.rsi
+  - type: SolutionContainerManager
+    solutions:
+      battery:
+        maxVol: 5
+  - type: InjectableSolution
+    solution: battery
+  - type: DrawableSolution
+    solution: battery
+  - type: Extractable
+    juiceSolution:
+      reagents:
+        - ReagentId: Zinc
+          Quantity: 5
+  - type: Appearance
+  - type: PowerCellVisuals
+  - type: Riggable
+
+- type: entity
+  name: cryocell
+  description: A light blue microfusion cell, experimental in nature, and cold to the touch.
+  id: N14CryoCell
+  suffix: Full
+  parent: N14BaseCryoCell
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Ammunition/Battery/Cryo/cryocell.rsi
+    scale: 0.2, 0.3
+    layers:
+      - map: [ "enum.PowerCellVisualLayers.Base" ]
+        state: empty
+      - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+        state: o3
+        shader: unshaded
+  - type: Tag
+    tags:
+      - N14CryoCell
+      - N14AmmoCell
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletCryolator
+    fireCost: 10
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+
+- type: entity
+  name: supercooled cryocell
+  description: A light purple microfusion cell, experimental in nature, and very cold to the touch.
+  id: N14SuperCooledCryoCell
+  suffix: Full
+  parent: N14BaseCryoCell
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Ammunition/Battery/Cryo/supercooledcryocell.rsi
+    scale: 0.2, 0.3
+    layers:
+      - map: [ "enum.PowerCellVisualLayers.Base" ]
+        state: empty
+      - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+        state: o3
+        shader: unshaded
+  - type: Tag
+    tags:
+      - N14SuperCooledCryoCell
+      - N14AmmoCell
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletCrystalizingCryolator
+    fireCost: 50
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000

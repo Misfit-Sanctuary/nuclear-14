@@ -30,6 +30,11 @@
       species:
       - Human
       - Ghoul
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Field Ranger
+    prefix: Fld.
+    color: "#6B8E23"
 
 - type: startingGear
   id: NCRFieldRangerGear

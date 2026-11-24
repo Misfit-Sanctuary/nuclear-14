@@ -1,8 +1,8 @@
+using Robust.Shared.Prototypes;
 using Content.Shared.Chat;
 using Content.Shared.Tools;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Radio.Components;
 
@@ -21,8 +21,8 @@ public sealed partial class EncryptionKeyHolderComponent : Component
     /// <summary>
     ///     The tool required to extract the encryption keys from the headset.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<ToolQualityPrototype>))]
-    public string KeysExtractionMethod = "Screwing";
+    [DataField]
+    public ProtoId<ToolQualityPrototype> KeysExtractionMethod = "Screwing";
 
     [DataField]
     public int KeySlots = 2;

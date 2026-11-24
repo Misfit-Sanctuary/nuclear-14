@@ -357,7 +357,7 @@ public sealed class SuicideCommandTests
             consoleHost.GetSessionShell(playerMan.Sessions.First()).ExecuteCommand("suicide");
             var lethalDamageThreshold = mobThresholdsComp.Thresholds.Keys.Last();
 
-            if (damageableComp.DamageContainerID is not "Silicon")
+            if (damageableComp.DamageContainerID?.Id is not "Silicon")
                 Assert.Multiple(() =>
                 {
                     Assert.That(mobStateSystem.IsDead(player, mobStateComp));

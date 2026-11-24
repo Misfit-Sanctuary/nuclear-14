@@ -13,14 +13,15 @@
     damageContainer: Inorganic
     damageModifierSet: Metallic # standard metallic resists; tweaked via mob-level modifier in Phase F
   - type: BodyPart
-    severIntegrity: 150
-    integrityThresholds:
-      CriticallyWounded: 150
-      HeavilyWounded: 120
-      ModeratelyWounded: 90
-      SomewhatWounded: 60
-      LightlyWounded: 30
-      Healthy: 15
+    canSever: false
+#    severIntegrity: 150
+#    integrityThresholds:
+#      CriticallyWounded: 150
+#      HeavilyWounded: 120
+#      ModeratelyWounded: 90
+#      SomewhatWounded: 60
+#      LightlyWounded: 30
+#      Healthy: 15
   - type: ContainerContainer
     containers:
       bodypart: !type:Container
@@ -28,6 +29,7 @@
   - type: StaticPrice
     price: 0
   # No Extractable — robotic chassis pieces don't yield biological reagents.
+  - type: Ungibbable
 
 - type: entity
   id: MisfitsTorsoC27
@@ -136,9 +138,8 @@
   - type: Item
     size: Normal
   - type: MovementBodyPart
-    walkSpeed: 1.25
-    sprintSpeed: 1.25
-    acceleration: 4
+    walkSpeed: 3.125
+    sprintSpeed: 5.625
 
 - type: entity
   id: MisfitsRightLegC27
@@ -153,69 +154,38 @@
   - type: Item
     size: Normal
   - type: MovementBodyPart
-    walkSpeed: 1.25
-    sprintSpeed: 1.25
-    acceleration: 4
+    walkSpeed: 3.125
+    sprintSpeed: 5.625
 
 - type: entity
   parent: MisfitsLeftLegC27
   id: MisfitsLeftLegC27ZAX
   name: "left c-27 leg (z.a.x)"
-  components:
-  - type: MovementBodyPart
-    walkSpeed: 2.5
-    sprintSpeed: 2.5
-    acceleration: 4
 
 - type: entity
   parent: MisfitsRightLegC27
   id: MisfitsRightLegC27ZAX
   name: "right c-27 leg (z.a.x)"
-  components:
-  - type: MovementBodyPart
-    walkSpeed: 2.5
-    sprintSpeed: 2.5
-    acceleration: 4
 
 - type: entity
   parent: MisfitsLeftLegC27
   id: MisfitsLeftLegC27Integrator
   name: "left c-27 leg (integrator)"
-  components:
-  - type: MovementBodyPart
-    walkSpeed: 1.5
-    sprintSpeed: 2.5
-    acceleration: 4
 
 - type: entity
   parent: MisfitsRightLegC27
   id: MisfitsRightLegC27Integrator
   name: "right c-27 leg (integrator)"
-  components:
-  - type: MovementBodyPart
-    walkSpeed: 1.5
-    sprintSpeed: 2.5
-    acceleration: 4
 
 - type: entity
   parent: MisfitsLeftLegC27
   id: MisfitsLeftLegC27Assault
   name: "left c-27 leg (assault)"
-  components:
-  - type: MovementBodyPart
-    walkSpeed: 1.35
-    sprintSpeed: 2.25
-    acceleration: 4
 
 - type: entity
   parent: MisfitsRightLegC27
   id: MisfitsRightLegC27Assault
   name: "right c-27 leg (assault)"
-  components:
-  - type: MovementBodyPart
-    walkSpeed: 1.35
-    sprintSpeed: 2.25
-    acceleration: 4
 
 - type: entity
   parent: MisfitsLeftLegC27
@@ -223,9 +193,8 @@
   name: "left c-27 leg (recon)"
   components:
   - type: MovementBodyPart
-    walkSpeed: 1.65
-    sprintSpeed: 2.75
-    acceleration: 4
+    walkSpeed: 3.5
+    sprintSpeed: 6
 
 - type: entity
   parent: MisfitsRightLegC27
@@ -233,6 +202,5 @@
   name: "right c-27 leg (recon)"
   components:
   - type: MovementBodyPart
-    walkSpeed: 1.65
-    sprintSpeed: 2.75
-    acceleration: 4
+    walkSpeed: 3.5
+    sprintSpeed: 6

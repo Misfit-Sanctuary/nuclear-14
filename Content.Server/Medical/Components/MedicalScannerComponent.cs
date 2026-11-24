@@ -1,7 +1,7 @@
+using Robust.Shared.Prototypes;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.MedicalScanner;
 using Robust.Shared.Containers;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Medical.Components
 {
@@ -17,8 +17,8 @@ namespace Content.Server.Medical.Components
 
         public float MetemKarmaBonus = 0.25f;
 
-        [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-        public string MachinePartCloningFailChance = "Capacitor";
+        [DataField]
+        public ProtoId<MachinePartPrototype> MachinePartCloningFailChance = "Capacitor";
 
         [DataField]
         public float PartRatingFailMultiplier = 0.75f;

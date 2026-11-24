@@ -39,13 +39,18 @@
         factions:
           - Wastelander
           - NCR
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinNCRFirstLieutenant }
+    - { pin: ClothingNeckPinNCRCaptain, hours: 20 }
 
 - type: startingGear
   id: NCRExecutiveOfficerGear
   equipment:
     wallet: N14Wallet
     head: N14ClothingHeadHatNCRBeretOfficer
-    ears: MisfitsClothingHeadsetNCRMaster
+    ears: MisfitsClothingHeadsetNCRCommand # #Misfits Change - junior officer: command net without the senior OSI key
     back: N14ClothingBackpackNCR
     jumpsuit: N14ClothingOfficerUniformNCRDesert
     outerClothing: N14ClothingOuterNCRDressJacket

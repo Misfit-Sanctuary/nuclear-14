@@ -1,7 +1,6 @@
 # NCR Loadouts
-# Rank pins are NOT distributed via loadouts. NCRRankPinSpawnSystem auto-gives
-# the correct pin (based on playtime) directly into the player's hand on spawn.
-# See: Resources/Prototypes/_Misfits/NCR/ncr_rank_pin_progressions.yml
+# Rank pins are NOT distributed via loadouts. FactionRankSystem equips the earned pin on spawn. # #Cythisiax Edited - new rank system
+# See: Resources/Prototypes/_Misfits/NCR/ncr_rank_ladders.yml
 
 # ── COSMETIC LOADOUTS ─────────────────────────────────────────────────────────
 # Shared cosmetics available to all active NCR roles.
@@ -28,8 +27,8 @@
         - NCRRO
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
         - NCRVeteranRanger
         - SuperMutantRanger
         - SuperMutantNCRRanger
@@ -37,6 +36,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingEyesGlassesGoggles
 
@@ -62,13 +62,14 @@
         - NCRRO
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
         - NCRVeteranRanger
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingHandsGlovesNCR
 
@@ -94,13 +95,13 @@
         - NCRRO
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
-        - NCRVeteranRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingHeadHatWinterBoonie
 
@@ -126,13 +127,13 @@
         - NCRRO
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
-        - NCRVeteranRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingHeadHatWoodBoonie
 
@@ -158,13 +159,13 @@
         - NCRRO
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
-        - NCRVeteranRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingHeadHatDesertBoonie
 
@@ -189,46 +190,47 @@
         - NCRCadet
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
-        - NCRVeteranRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingNeckCloakNCR
 
-- type: loadout
-  id: LoadoutNCRCloakNCRGhillie
-  category: Neck
-  cost: 1
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRCommander
-        - NCRDoctor
-        - NCRExecutiveOfficer
-        - NCRPlatoonLeader
-        - NCRVertibirdPilot
-        - NCRNCO
-        - NCREngineer
-        - NCRMedic
-        - NCRWS
-        - NCRHeavyTrooper
-        - NCRCadet
-
-        - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
-        - NCRVeteranRanger
-
-        - NCRMilitaryPoliceCaptain
-        - NCRMilitaryPoliceSergeant
-        - NCRMilitaryPoliceRecruit
-  items:
-    - N14ClothingNeckCloakGhillie
+# #Cythisiax Removed - DAGGER exclusive: the ghillie cloak is DAGGER-only gear (NCR woodland cloak loadout remains the camo option)
+#- type: loadout
+#  id: LoadoutNCRCloakNCRGhillie
+#  category: Neck
+#  cost: 1
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRCommander
+#        - NCRDoctor
+#        - NCRExecutiveOfficer
+#        - NCRPlatoonLeader
+#        - NCRVertibirdPilot
+#        - NCRNCO
+#        - NCREngineer
+#        - NCRMedic
+#        - NCRWS
+#        - NCRHeavyTrooper
+#        - NCRCadet
+#
+#        - NCRRangerRecruit
+#        - NCRRangerStandard
+#        - NCRVeteranRanger
+#
+#        - NCRMilitaryPoliceCaptain
+#        - NCRMilitaryPoliceSergeant
+#        - NCRMilitaryPoliceRecruit
+#        - NCRRangerMedic # #Misfits Add - Ranger Medic
+#  items:
+#    - N14ClothingNeckCloakGhillie
 
 - type: loadout
   id: LoadoutNCRCloakNCRSnow
@@ -251,13 +253,13 @@
         - NCRCadet
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
-        - NCRVeteranRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingNeckCloakNCRSnow
 
@@ -282,13 +284,13 @@
         - NCRCadet
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
-        - NCRVeteranRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingNeckCloakNCRWoods
 
@@ -313,13 +315,13 @@
         - NCRCadet
 
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
-        - NCRVeteranRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingMaskBrownBalaclava
 
@@ -347,8 +349,8 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
         - NCRVeteranRanger
         - NCRCitizen
         - NCRTrader
@@ -357,6 +359,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingUniformDesertPants
 
@@ -384,17 +387,17 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
         - NCRVeteranRanger
         - NCRCitizen
         - NCRTrader
         - NCRRO
 
-
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingUniformDesertPantsFull
 
@@ -422,16 +425,16 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
 
-
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement # T7 faction timelock (40h NCR)
       department: NCR
       min: 36000 # 10 hours
@@ -462,8 +465,8 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
@@ -471,6 +474,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement # T7 faction timelock (40h NCR)
       department: NCR
       min: 36000 # 10 hours
@@ -501,8 +505,8 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
@@ -510,6 +514,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 144000 # 40 hours, work for them shorts!
@@ -540,8 +545,8 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
@@ -549,6 +554,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement # T7 faction timelock (40h NCR)
       department: NCR
       min: 36000 # 10 hours
@@ -579,8 +585,8 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
@@ -588,6 +594,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 18000 # 5 hours
@@ -618,8 +625,8 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
         - NCRVeteranRanger
         - NCRRO
         - NCRCitizen
@@ -627,6 +634,7 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 72000 # 20 hours
@@ -683,14 +691,15 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
         - NCRVeteranRanger
         - NCRRO
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - ClothingBeltNCRHarness
 
@@ -718,15 +727,15 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
-        - NCRVeteranRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
         - NCRRO
         - NCRCitizen
 
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 144000 # 40 hours, work for that hat!
@@ -760,8 +769,8 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
         - NCRVeteranRanger
         - NCRCitizen
         - NCRTrader
@@ -769,26 +778,12 @@
         - NCRMilitaryPoliceCaptain
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: NCR
       min: 144000 # 40 hours, work for that hat!
   items:
     - N14ClothingEyesNCRGoggles
-
-- type: loadout
-  id: LoadoutNCRRangerFoxArmor
-  category: Roles
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRVeteranRanger
-    - !type:CharacterDepartmentTimeRequirement
-      department: Rangers
-      min: 216000
-  items:
-   - N14ClothingOuterRangerFox
 
 - type: loadout
   id: LoadoutNCRRangerEliteArmor
@@ -813,9 +808,9 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRPatrolRanger
-        - NCRFieldRanger # slightly weaker than the duster, but stronger than the combat armor, so giving it to field
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingOuterRangerRedwood
 
@@ -827,7 +822,9 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger # Statistically identical to NCR combat armor mk1 which they spawn with by default
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingOuterRangerArmorOld
 
@@ -839,8 +836,9 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -855,8 +853,9 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -864,72 +863,32 @@
     - N14ClothingHeadHatRangerHelmetPrice
 
 - type: loadout
-  id: LoadoutNCRN14ClothingOuterRangerWeathered
-  category: Roles
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRVeteranRanger
-    - !type:CharacterDepartmentTimeRequirement
-      department: Rangers
-      min: 72000 # 1200 minutes
-  items:
-    - N14ClothingOuterRangerWeathered
-
-- type: loadout
-  id: LoadoutNCRN14ClothingOuterRangerPrice
-  category: Roles
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRVeteranRanger
-    - !type:CharacterDepartmentTimeRequirement
-      department: Rangers
-      min: 72000 # 1200 minutes
-  items:
-    - N14ClothingOuterRangerPrice
-
-- type: loadout
   id: LoadoutN14ClothingNeckRangerDuster
   category: Roles
-  cost: 0
+  cost: 1
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRTrader
         - NCRCitizen
   items:
     - N14ClothingNeckRangerDuster
 
 - type: loadout
-  id: LoadoutN14ClothingOuterVetRangerRiotArmor
-  category: Roles
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRVeteranRanger
-  items:
-    - N14ClothingOuterVetRangerRiotArmor
-
-- type: loadout
   id: LoadoutN14ClothingNeckSaltRunnerDuster
   category: Roles
-  cost: 0
+  cost: 1
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger # Purely cosmetic, goes over armor
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRCitizen
         - NCRTrader
     - !type:CharacterDepartmentTimeRequirement
@@ -946,28 +905,14 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
   items:
     - N14ClothingHatSaltRunnerHelmet
-
-- type: loadout
-  id: LoadoutN14ClothingHatSaltRunnerMask
-  category: Roles
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRVeteranRanger
-    - !type:CharacterDepartmentTimeRequirement
-      department: Rangers
-      min: 72000 # 1200 minutes
-  items:
-    - N14ClothingHatSaltRunnerMask
 
 - type: loadout
   id: LoadoutN14ClothingHeadFourLeafRangerHelmet
@@ -977,8 +922,9 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -993,8 +939,9 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -1009,8 +956,9 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -1025,8 +973,9 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 46800 # 780 minutes
@@ -1041,8 +990,9 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -1057,8 +1007,9 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -1073,8 +1024,9 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger # Purely cosmetic, identical to field ranger mask
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 46800 # 780 minutes
@@ -1084,13 +1036,14 @@
 - type: loadout
   id: LoadoutN14ClothingOuterCaliforniaGirlVetRangerRiotArmor
   category: Roles
-  cost: 0
+  cost: 3 # #Misfits Change - riot armor variant, 3 loadout points
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -1100,13 +1053,14 @@
 - type: loadout
   id: LoadoutN14ClothingOuterCanOpenerVetRangerRiotArmor
   category: Roles
-  cost: 0
+  cost: 3 # #Misfits Change - riot armor variant, 3 loadout points
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -1116,13 +1070,14 @@
 - type: loadout
   id: LoadoutN14ClothingOuterDemoExpertVetRangerRiotArmor
   category: Roles
-  cost: 0
+  cost: 3 # #Misfits Change - riot armor variant, 3 loadout points
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -1132,13 +1087,14 @@
 - type: loadout
   id: LoadoutN14ClothingOuterTheDevoutVetRangerRiotArmor
   category: Roles
-  cost: 0
+  cost: 3 # #Misfits Change - riot armor variant, 3 loadout points
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 46800 # 780 minutes
@@ -1148,13 +1104,14 @@
 - type: loadout
   id: LoadoutN14ClothingNeckHighlandRangerDuster
   category: Roles
-  cost: 0
+  cost: 1
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRTrader
         - NCRCitizen
     - !type:CharacterDepartmentTimeRequirement
@@ -1166,13 +1123,14 @@
 - type: loadout
   id: LoadoutN14ClothingNeckFourLeafDuster
   category: Roles
-  cost: 0
+  cost: 1
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRTrader
         - NCRCitizen
     - !type:CharacterDepartmentTimeRequirement
@@ -1189,8 +1147,9 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRVeteranRanger
-        - NCRFieldRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRTrader
         - NCRCitizen
     - !type:CharacterDepartmentTimeRequirement
@@ -1208,9 +1167,9 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
-        - NCRVeteranRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRCitizen
         - NCRTrader
   items:
@@ -1225,9 +1184,9 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
-        - NCRVeteranRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRCitizen
         - NCRTrader
   items:
@@ -1257,12 +1216,13 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
         - NCRVeteranRanger
         - NCRRO
         - SuperMutantRanger
         - SuperMutantNCRRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - ClothingBeltNCRPouches
 
@@ -1290,12 +1250,13 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
         - NCRVeteranRanger
         - NCRRO
         - SuperMutantRanger
         - SuperMutantNCRRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - ClothingBeltNCRBandolier
 
@@ -1323,12 +1284,13 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
         - NCRVeteranRanger
         - NCRRO
         - SuperMutantRanger
         - SuperMutantNCRRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - ClothingBeltMilitary
 
@@ -1356,11 +1318,12 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
+        - NCRChiefRanger # #Misfits Add - Chief Ranger gets the same customization loadouts as the Ranger job
         - NCRVeteranRanger
         - NCRRO
         - SuperMutantRanger
         - SuperMutantNCRRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - ClothingBeltRevolver

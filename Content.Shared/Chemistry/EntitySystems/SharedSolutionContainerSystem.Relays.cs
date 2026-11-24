@@ -92,7 +92,7 @@ public abstract partial class SharedSolutionContainerSystem
         UpdateAppearance(entity.Comp.Container, (solutionId, solutionComp, entity.Comp));
 
         var relayEvent = new SolutionContainerChangedEvent(solution, entity.Comp.ContainerName);
-        RaiseLocalEvent(entity.Comp.Container, ref relayEvent);
+        RaiseLocalEvent(entity.Comp.Container, ref relayEvent, true);
     }
 
     protected virtual void OnSolutionOverflow(Entity<ContainedSolutionComponent> entity, ref SolutionOverflowEvent args)

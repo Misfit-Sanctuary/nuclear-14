@@ -44,3 +44,233 @@
     defaultTarget: SteakCooked
   - type: StaticPrice # Forge-Change
     price: 1 # PH
+
+# red fish cutlet
+- type: entity
+  parent: FoodMeatBase
+  id: N14RedfishCutletRaw
+  components:
+  - type: Food
+    eatMessage: food-desc-redFishCutlet-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: redFishCutlet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: N14UncookedAnimalProteinsRad
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 2 # Red fish has vitamins even when raw
+  - type: GeneralConstructs
+    generalEnts:
+      Cooked: N14RedfishCutletCooked
+  - type: Construction
+    graph: GraphCookAny
+    node: start
+    defaultTarget: CookNode
+
+# red fish cutlet RARE
+- type: entity
+  parent: FoodMeatBase
+  id: MisfitsRedfishRareRaw
+  components:
+  - type: Food
+    eatMessage: food-desc-redFishRare-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: redFishCut
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Vitamin
+          Quantity: 10 # Red fish has vitamins even when raw
+  - type: SliceableFood
+    count: 5
+    slice: N14RedfishCutletRaw
+
+#  cooked red fish cutlet
+- type: entity
+  parent: FoodMeatBase
+  id: N14RedfishCutletCooked
+  components:
+  - type: Food
+    eatMessage: food-desc-redFishCutletCooked-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: redFishCutletCooked
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Protein
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 2 # Red fish has vitamins even when raw
+  - type: GeneralConstructs
+    generalEnts:
+      Cooked: N14RedfishCutletCooked
+  - type: Construction
+    graph: GraphCookAny
+    node: CookNode
+    defaultTarget: start
+
+# sausage
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSausage
+  components:
+  - type: Food
+    eatMessage: food-desc-sausageCooked-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: sausage
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: N14UncookedAnimalProteinsRad
+          Quantity: 4
+        - ReagentId: Fat
+          Quantity: 2
+  - type: GeneralConstructs
+    generalEnts:
+      Cooked: MisfitsFoodSausageCooked
+  - type: Construction
+    graph: GraphCookAny
+    node: start
+    defaultTarget: CookNode
+
+# sausage cooked
+- type: entity
+  parent: MisfitsFoodSmallBase
+  id: MisfitsFoodSausageCooked
+  components:
+  - type: Food
+    eatMessage: food-desc-sausageCooked-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: sausageFried
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Protein
+          Quantity: 4
+        - ReagentId: Nutriment
+          Quantity: 2
+  - type: GeneralConstructs
+    generalEnts:
+      Cooked: MisfitsFoodSausageCooked
+  - type: Construction
+    graph: GraphCookAny
+    node: CookNode
+    defaultTarget: start
+
+#Sausage Chain: 20u Ground Animal Protein, Ruminant/Animal Stomach -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodSausageChain
+  components:
+  - type: Food
+    eatMessage: food-desc-sausageChain-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: sausageChain
+  - type: SliceableFood
+    slice: MisfitsFoodSausage
+    count: 4
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: N14UncookedAnimalProteinsRad
+          Quantity: 20
+        - ReagentId: Fat
+          Quantity: 8
+
+#- Meat Jerky: 1 meat cutlet, 5u salt -> 15 sec
+- type: entity
+  parent: MisfitsFoodBase
+
+  id: MisfitsFoodMeatJerky
+  components:
+  - type: Food
+    eatMessage: food-desc-meatJerk-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: meatJerky
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 2
+        - ReagentId: TableSalt
+          Quantity: 4
+
+#Sausage Roll: 5u Raw Egg, 1 sausage, 1 dough slice -> 10 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodSausageRoll
+  components:
+  - type: Food
+    eatMessage: food-desc-sausageRoll-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: sausageRoll
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Protein
+          Quantity: 15
+        - ReagentId: BubGames
+          Quantity: 1
+
+#- Kebab Slice: slice a kebab pilar
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodKebabSlice
+  components:
+  - type: Food
+    eatMessage: food-desc-kebabSlice-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: kebabSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 12
+        - ReagentId: Protein
+          Quantity: 2
+
+#- Kebab Pilar: 5 raw brahmin steaks, 1 wood -> 30 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodKebabPilar
+  components:
+  - type: Item
+    size: Huge
+  - type: Food
+    eatMessage: food-desc-kebabPilar-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: kebabPilar
+  - type: SliceableFood
+    slice: MisfitsFoodKebabSlice
+    count: 15
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 90
+        - ReagentId: Protein
+          Quantity: 45

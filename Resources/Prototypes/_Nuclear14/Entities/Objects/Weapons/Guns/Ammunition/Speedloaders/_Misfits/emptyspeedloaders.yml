@@ -1,0 +1,39 @@
+
+- type: entity
+  id: N14Speedloader44MagnumEmpty
+  name: speed loader (.44 magnum)
+  suffix: empty
+  parent: SpeedLoader44
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  id: N14SpeedLoader357Empty
+  name: "speed loader (.357 magnum)"
+  suffix: empty
+  parent: N14SpeedLoader357
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+
+- type: entity
+  id: SpeedLoader10Empty
+  name: "speed loader (10mm)"
+  suffix: empty
+  parent: SpeedLoader10
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]

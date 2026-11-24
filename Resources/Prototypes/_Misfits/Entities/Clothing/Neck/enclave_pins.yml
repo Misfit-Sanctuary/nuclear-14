@@ -1,3 +1,4 @@
+# #Cythisiax Edited - each rank pin carries its own rank, whoever wears it gets the prefix in chat
 # #Misfits Add - Enclave rank pin entities for the expanded role hierarchy.
 # Uses NCR pin sprites as placeholders until custom Enclave art is created.
 
@@ -5,11 +6,9 @@
 - type: entity
   parent: ClothingNeckPinBase
   id: ClothingNeckPinEnclavePrivate
-  name: U.S. Army private pin
-  description: A United States Government rank insignia showing the wearer's rank.
+  name: enclave private rank pin
+  description: This shiny government rank insignia designates you as the nearest disposable asset for your commanders. Try not to die, your training was expensive.
   components:
-  - type: RankTitle
-    rankTitle: Private
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -24,102 +23,127 @@
   - type: Tag
     tags:
     - SuperMutantWearable
+  - type: FactionRank
+    name: Private
+    prefix: PVT
+    paygrade: E-1
+    color: "#c6cf00"
 
 # Enlisted ranks
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclavePFC
-  name: U.S. Army private first class pin
+  name: enclave private first class rank pin
+  description: These shiny rank pins tend to be handed out to those that have shown basic competency, or at least survivability. Follow your superiors and listen.
   components:
-  - type: RankTitle
-    rankTitle: Private First Class
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
     - state: private1st
+  - type: FactionRank
+    name: Private First Class
+    prefix: PFC
+    paygrade: E-3
 
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclaveSpecialist
-  name: U.S. Army specialist pin
+  name: enclave specialist rank pin
+  description: This dulled insignia denotes you as an experienced soldier, someone trusted to get the job done among the enlisted. So try not to avoid your duties.
   components:
-  - type: RankTitle
-    rankTitle: Specialist
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
     - state: specialist
+  - type: FactionRank
+    name: Specialist
+    prefix: SPC
+    paygrade: E-4
 
 # NCO ranks
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclaveSergeant
-  name: U.S. Army sergeant pin
+  name: enclave sergeant rank pin
+  description: These brand new pins are handed out to those who have started an exciting career as military-middle-management. You're responsible for the enlisted now.
   components:
-  - type: RankTitle
-    rankTitle: Sergeant
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
     - state: sergeant
+  - type: FactionRank
+    name: Sergeant
+    prefix: SGT
+    paygrade: E-5
 
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclaveStaffSergeant
-  name: U.S. Army staff sergeant pin
+  name: enclave staff sergeant rank pin
+  description: This dulled insignia is earned by those who can lead men into battle, and train even the weakest recruits into warriors. Comes with a discount for a used Corvega!
   components:
-  - type: RankTitle
-    rankTitle: Staff Sergeant
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
     - state: sergeant1st
+  - type: FactionRank
+    name: Staff Sergeant
+    prefix: SSG
+    paygrade: E-6
 
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclaveSFC
-  name: U.S. Army sergeant first class pin
+  name: enclave sergeant first class rank pin
+  description: When the officers see this weathered insignia pinned on you, they know you'll get the job done. You don't get this rank just riding a desk after all, but you still have to.
   components:
-  - type: RankTitle
-    rankTitle: Sergeant First Class
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
     - state: mastersergeant
+  - type: FactionRank
+    name: Sergeant First Class
+    prefix: SFC
+    paygrade: E-7
 
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclaveMasterSergeant
-  name: U.S. Army master sergeant pin
+  name: enclave master sergeant rank pin
+  description: This battered rank insignia denotes a professional who has no illusions about their duty. Your commanders know you'll not hesitate to follow orders.
   components:
-  - type: RankTitle
-    rankTitle: Master Sergeant
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
     - state: sergeantmajor
+  - type: FactionRank
+    name: Master Sergeant
+    prefix: MSG
+    paygrade: E-8
 
 # pins.rsi has no E-9 art, so this borrows the sergeantmajor state like the NCR senior NCO pins do.
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclaveSergeantMajor
-  name: U.S. Army sergeant major pin
+  name: enclave sergeant major rank pin
+  description: This venerable insignia is given to those who have become one of the very best. Make sure the officers don't mess up, and tell the junior enlisted how easy they have it.
   components:
-  - type: RankTitle
-    rankTitle: Sergeant Major
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
     - state: sergeantmajor
+  - type: FactionRank
+    name: Sergeant Major
+    prefix: SGM
+    paygrade: E-9
 
 # Junior Officer ranks
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclaveSecondLieutenant
-  name: U.S. Army second lieutenant pin
+  name: enclave second lieutenant rank pin
+  description: These shiny bars show others you are officially part of the command structure, but you still have a lot to prove. Try not to earn the men's respect by putting their lives in undue risk.
   components:
-  - type: RankTitle
-    rankTitle: Second Lieutenant
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -129,90 +153,110 @@
     clothingVisuals:
       neck:
       - state: silver-equipped
+  - type: FactionRank
+    name: Second Lieutenant
+    prefix: 2LT
+    paygrade: O-1
 
 - type: entity
   parent: ClothingNeckPinEnclaveSecondLieutenant
   id: ClothingNeckPinEnclaveFirstLieutenant
-  name: U.S. Army first lieutenant pin
+  name: enclave first lieutenant rank pin
+  description: These dulled bars are proof you're not entirely naive, that you're a competent part of the command element. But the enlisted still might not trust you with their lives yet, so don't get cocky.
   components:
-  - type: RankTitle
-    rankTitle: First Lieutenant
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
     - state: firstlieutenant
+  - type: FactionRank
+    name: First Lieutenant
+    prefix: 1LT
+    paygrade: O-2
 
 # Senior Officer ranks
 - type: entity
   parent: ClothingNeckPinEnclaveSecondLieutenant
   id: ClothingNeckPinEnclaveCaptain
-  name: U.S. Army captain pin
+  name: enclave captain rank pin
+  description: This golden insignia is either proof of your effectiveness, or all the more amazing for being attached to someone who has no idea what they're doing. Prove to your subordinates it's the first case.
   components:
-  - type: RankTitle
-    rankTitle: Captain
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
     - state: captain
+  - type: FactionRank
+    name: Captain
+    prefix: CPT
+    paygrade: O-3
 
 - type: entity
   parent: ClothingNeckPinEnclaveSecondLieutenant
   id: ClothingNeckPinEnclaveMajor
-  name: U.S. Army major pin
+  name: enclave major rank pin
+  description: This battered rank belongs to a battered history, climbing to this position is no easy feat. Unless the base commander is present, all responsibility falls onto your shoulders, but you've got this.
   components:
-  - type: RankTitle
-    rankTitle: Major
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
     - state: major
+  - type: FactionRank
+    name: Major
+    prefix: MAJ
+    paygrade: O-4
 
 # Commander ranks
 - type: entity
   parent: ClothingNeckPinEnclaveSecondLieutenant
   id: ClothingNeckPinEnclaveLtColonel
-  name: U.S. Army lieutenant colonel pin
+  name: enclave lieutenant colonel rank pin
+  description: This insignia denotes a member of the upper military command structure, base commanders and above. Keep soldiers motivated with pretty lies and confide your dark truths where they won't hurt the mission.
   components:
-  - type: RankTitle
-    rankTitle: Lieutenant Colonel
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
     - state: major
+  - type: FactionRank
+    name: Lieutenant Colonel
+    prefix: LTC
+    paygrade: O-5
 
 - type: entity
   parent: ClothingNeckPinEnclaveSecondLieutenant
   id: ClothingNeckPinEnclaveColonel
-  name: U.S. Army colonel pin
+  name: enclave colonel rank pin
+  description: This dulled rank insignia usually indicate someone near the very top of the food chain, more politician than soldier now. There's one rung left in that ladder to climb, either by flattery or by merit.
   components:
-  - type: RankTitle
-    rankTitle: Colonel
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
     - state: captain
+  - type: FactionRank
+    name: Colonel
+    prefix: COL
+    paygrade: O-6
 
 - type: entity
   parent: ClothingNeckPinEnclaveSecondLieutenant
   id: ClothingNeckPinEnclaveGeneral
-  name: U.S. Army general pin
+  name: enclave general rank pin
+  description: This shiny rank insignia is pinned to the uniforms of the highest ranking officers in the military. There's nowhere left to climb, nobody left to impress, only kingdoms to be conquered and medals to collect.
   components:
-  - type: RankTitle
-    rankTitle: General
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
     - state: captain
+  - type: FactionRank
+    name: General
+    prefix: GEN
+    paygrade: O-7
 
 # Science ranks
 - type: entity
   parent: ClothingNeckPinEnclavePrivate
   id: ClothingNeckPinEnclaveJuniorScientist
-  name: U.S. Army junior scientist pin
-  description: A United States Government research division insignia showing the wearer's rank.
+  name: enclave junior scientist rank pin
+  description: A shiny rank pin that denotes the owner as a government scientist, junior level. While not part of the military they are still government employees, and they are expected to watch and learn from superiors.
   components:
-  - type: RankTitle
-    rankTitle: Junior Scientist
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -222,14 +266,17 @@
     clothingVisuals:
       neck:
       - state: empty-equipped
+  - type: FactionRank
+    name: Junior Scientist
+    prefix: Jr. Sci.
+    paygrade: ""
 
 - type: entity
   parent: ClothingNeckPinEnclaveJuniorScientist
   id: ClothingNeckPinEnclaveScientist
-  name: U.S. Army scientist pin
+  name: enclave scientist rank pin
+  description: This well polished rank pin designates the owner as a government scientist, expected to teach junior scientists, conduct standard research, and follow the orders of the head scientist.
   components:
-  - type: RankTitle
-    rankTitle: Scientist
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
@@ -239,15 +286,22 @@
     clothingVisuals:
       neck:
       - state: red-equipped
+  - type: FactionRank
+    name: Scientist
+    prefix: Sci.
+    paygrade: ""
 
 - type: entity
   parent: ClothingNeckPinEnclaveScientist
   id: ClothingNeckPinEnclaveHeadScientist
-  name: U.S. Army head scientist pin
+  name: enclave head scientist rank pin
+  description: This pristine rank pin denotes the owner as a government scientist, senior level. Lead the other scientists, conduct advanced research, and report directly to the government on your progress.
   components:
-  - type: RankTitle
-    rankTitle: Head Scientist
   - type: Sprite
     sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
     layers:
     - state: chiefphysician
+  - type: FactionRank
+    name: Head Scientist
+    prefix: Head Sci.
+    paygrade: ""

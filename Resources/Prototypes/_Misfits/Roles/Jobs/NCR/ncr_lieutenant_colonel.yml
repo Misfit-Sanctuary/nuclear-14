@@ -38,6 +38,9 @@
   special:
     - !type:AddComponentSpecial
       components:
+        - type: FactionRoster # #Cythisiax Added - roster GUI: top NCR command, manages everyone incl. the Commander
+          roster: NCR
+          action: ActionOpenFactionRosterNCR
         - type: NpcFactionMember
           factions:
             - NCR

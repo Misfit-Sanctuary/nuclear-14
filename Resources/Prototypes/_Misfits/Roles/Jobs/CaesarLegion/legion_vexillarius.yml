@@ -63,6 +63,11 @@
         - CaesarLegionAcolyteOfMars
   - !type:AddTraitSpecial
     traits: [ LanguageLatin ]
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Vexillarius
+    prefix: Vex.
+    color: "#8b0000"
 
 - type: startingGear
   id: CaesarLegionVexillariusGear

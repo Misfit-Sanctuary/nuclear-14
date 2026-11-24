@@ -92,7 +92,8 @@
     - N14BPNCRWeaponRifle762Fal
     - N14BPNCRWeaponRifle308Battle
     - N14BPNCRWeaponDesertEagle44
-    - N14BPNCRWeaponRevolver45-70RangerSequoia
+    # #Misfits Removed - Sequoia is Ranger Field Kit only now
+    # - N14BPNCRWeaponRevolver45-70RangerSequoia
     - N14BPNCRWeaponShotgunChinese
     - N14BPNCRWeaponSniper45-70BrushGun
     - N14BPNCRWeaponRifle762Marksman
@@ -112,6 +113,7 @@
     - N14BPNCRWeaponLMG
     - N14BPNCRWeaponSMG12mmAdvanced
     - N14BPNCRWeaponMinigun
+    - N14BPNCRWeaponSMGWt550
 
 # #Misfits Add - T5 anti-materiel rifle; costs so much scrap it earns its own tier
 - type: entity
@@ -172,18 +174,17 @@
   - type: Blueprint
     recipes:
     - N14BPNCRArmorCombatArmor
-    - N14BPNCRArmorRangerVest
-    - N14BPNCRArmorRangerCoat
-    - N14BPNCRArmorRangerDuster
+    # #Misfits Removed - ranger armor and helmets are Ranger Field Kit only now
+    # - N14BPNCRArmorRangerVest
+    # - N14BPNCRArmorRangerCoat
+    # - N14BPNCRArmorRangerDuster
     # #Misfits Add - paired combat and ranger helmets
     - N14BPNCRArmorCombatHelmet
-    - N14BPNCRArmorRangerHelmet
-    - N14BPNCRArmorRangerHelmetDesert
-    - N14BPNCRArmorRangerHelmetOld
-    # #Misfits Add - Added Field Ranger sidegrade recipe
-    - N14BPNCRArmorRangerFieldArmor
-    # #Misfits Add - Added Recruit Ranger sidegrade recipe
-    - N14BPNCRArmorRangerFlakVest
+    # - N14BPNCRArmorRangerHelmet
+    # - N14BPNCRArmorRangerHelmetDesert
+    # - N14BPNCRArmorRangerHelmetOld
+    # - N14BPNCRArmorRangerFieldArmor
+    # - N14BPNCRArmorRangerFlakVest
     # #Misfits Add - Added Medic Combat Armor
     - MisfitsBPNCRArmorMedicCombatArmor
 
@@ -198,7 +199,8 @@
     - N14BPNCRArmorCombatArmorMK2
     # #Misfits Add - paired elite combat and ranger helmets
     - N14BPNCRArmorCombatHelmetMK2
-    - N14BPNCRArmorRangerHelmetElite
+    # #Misfits Removed - ranger helmet is Ranger Field Kit only now
+    # - N14BPNCRArmorRangerHelmetElite
     # #Misfits Removed - user requested no power armor helmet recipes
     # - N14BPNCRArmorPowerHelmetT45NCR
 
@@ -267,6 +269,7 @@
     - MisfitsBPNCR40mmTearGas
     - MisfitsBPNCR40mmHEDP
     - MisfitsBPNCR40mmIncendiary
+    - N14BPNCRAmmoMagSMGWt550
 
 - type: entity
   parent: N14BlueprintBase
@@ -285,6 +288,23 @@
     - N14BPNCRAmmoBoxOver308
     - N14BPNCRAmmoMagTopSMG12mm
     - N14BPNCRAmmoVertibirdGunBelt # #Misfits Add - vertibird turret belt
+
+# --- NCR Mortar Ordnance ---
+- type: entity
+  parent: N14BlueprintBase
+  id: MisfitsBlueprintNCRMortarOrdnance
+  name: NCR mortar ordnance manual
+  description: Quartermaster paperwork for the M29 80mm mortar. Covers high-explosive, fragmentation, incendiary, smoke, illumination and kinetic rounds.
+  components:
+  - type: Blueprint
+    recipes:
+    - MisfitsBPNCRMortarShellHE
+    - MisfitsBPNCRMortarShellFrag
+    - MisfitsBPNCRMortarShellIncendiary
+    - MisfitsBPNCRMortarShellSmoke
+    - MisfitsBPNCRMortarShellIllumination
+    - MisfitsBPNCRMortarShellKinetic
+
 
 # =====================================================================
 # CAESAR'S LEGION BLUEPRINTS
@@ -369,6 +389,7 @@
     - N14BPLegionWeaponLauncherMissile
     - N14BPLegionWeaponBren           # #Misfits Add - Bren LMG (.308 FullAuto)
     - N14BPLegionWeaponShotgunNeostead  # #Misfits Add - Semi-auto shotgun
+    - N14BPLegionWeaponSMGWt550
 
 # #Misfits Add - T5 Legion Weapons: Scorcher flamethrower (single apex incendiary)
 - type: entity
@@ -501,6 +522,7 @@
     - MisfitsBPLegion40mmHEDP
     - MisfitsBPLegion40mmIncendiary
     - MisfitsBPLegionGrenadeFragDefensive
+    - N14BPLegionAmmoMagSMGWt550
 
 - type: entity
   parent: N14BlueprintBase
@@ -517,6 +539,23 @@
     - N14BPLegionAmmoMagazine308M60Box     # #Misfits Add - .308 50-round box mag for M60 LMG
     - N14BPLegionAmmoOverMag308
     - N14BPLegionAmmoBoxOver308
+
+# --- Legion Mortar Ordnance ---
+- type: entity
+  parent: N14BlueprintBase
+  id: MisfitsBlueprintLegionMortarOrdnance
+  name: Legion mortar munitions codex
+  description: Mortar loads scratched onto hide by Legion armorsmiths. High-explosive, fragmentation, incendiary, smoke, illumination and kinetic rounds.
+  components:
+  - type: Blueprint
+    recipes:
+    - MisfitsBPLegionMortarShellHE
+    - MisfitsBPLegionMortarShellFrag
+    - MisfitsBPLegionMortarShellIncendiary
+    - MisfitsBPLegionMortarShellSmoke
+    - MisfitsBPLegionMortarShellIllumination
+    - MisfitsBPLegionMortarShellKinetic
+
 
 # =====================================================================
 # BROTHERHOOD OF STEEL BLUEPRINTS
@@ -567,6 +606,7 @@
   - type: Blueprint
     recipes:
     - N14BPBoSWeaponLaserRifleAuto
+    - N14BPBoSWeaponLaserRifleTribeam
     - N14BPBoSWeaponPlasmaRifle
     - N14BPBoSWeaponPlasmaRifleAuto
     - N14BPBoSWeaponPlasmaRifleUrban
@@ -960,6 +1000,7 @@
     - N14BPTownAmmoBox45-70
     - N14BPTownAmmoMag12mmSMG
     - N14BPTownAmmoMag556Long
+    - N14BPTownAmmoMagSMGwt550
 
 # =====================================================================
 # VAULT BLUEPRINTS

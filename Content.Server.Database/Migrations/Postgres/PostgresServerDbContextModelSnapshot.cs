@@ -793,6 +793,50 @@ namespace Content.Server.Database.Migrations.Postgres
                         });
                 });
 
+            modelBuilder.Entity("Content.Server.Database.FactionCharacterRank", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("faction_character_rank_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CharacterName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("character_name");
+
+                    b.Property<bool>("GrantCapped")
+                        .HasColumnType("boolean")
+                        .HasColumnName("grant_capped");
+
+                    b.Property<string>("GrantedRank")
+                        .HasColumnType("text")
+                        .HasColumnName("granted_rank");
+
+                    b.Property<string>("HeldRank")
+                        .HasColumnType("text")
+                        .HasColumnName("held_rank");
+
+                    b.Property<string>("Ladder")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("ladder");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("player_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_faction_character_rank");
+
+                    b.HasIndex("PlayerId", "CharacterName", "Ladder")
+                        .IsUnique();
+
+                    b.ToTable("faction_character_rank", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.HelpTicketEvent", b =>
                 {
                     b.Property<int>("Id")

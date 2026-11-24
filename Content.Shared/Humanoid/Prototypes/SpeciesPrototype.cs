@@ -2,7 +2,6 @@ using Content.Shared.Clothing.Loadouts.Prototypes; // #Misfits Change
 using Content.Shared.Roles; // #Misfits Change
 using Content.Shared.Traits; // #Misfits Change
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Humanoid.Prototypes;
 

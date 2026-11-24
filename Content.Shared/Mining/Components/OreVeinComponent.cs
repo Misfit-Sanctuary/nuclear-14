@@ -1,6 +1,6 @@
+using Robust.Shared.Prototypes;
 using Content.Shared.Mining;
 using Content.Shared.Random;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Mining.Components;
 
@@ -20,13 +20,13 @@ public sealed partial class OreVeinComponent : Component
     /// <summary>
     /// The weighted random prototype used for determining what ore will be dropped.
     /// </summary>
-    [DataField("oreRarityPrototypeId", customTypeSerializer: typeof(PrototypeIdSerializer<WeightedRandomOrePrototype>))]
-    public string? OreRarityPrototypeId;
+    [DataField("oreRarityPrototypeId")]
+    public ProtoId<WeightedRandomOrePrototype>? OreRarityPrototypeId;
 
     /// <summary>
     /// The ore that this entity holds.
     /// If set in the prototype, it will not be overriden.
     /// </summary>
-    [DataField("currentOre", customTypeSerializer: typeof(PrototypeIdSerializer<OrePrototype>)), ViewVariables(VVAccess.ReadWrite)]
-    public string? CurrentOre;
+    [DataField("currentOre"), ViewVariables(VVAccess.ReadWrite)]
+    public ProtoId<OrePrototype>? CurrentOre;
 }

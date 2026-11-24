@@ -176,10 +176,10 @@
 
 #MARK: Feral Dog
 - type: entity
-  name: feral dog
+  name: Feral Hound
   id: N14MobDogFeral
   parent: N14MobBaseHostile
-  description: Starving and irradiated, these partially ghoulified mutts are not friendly.
+  description: Starving and irradiated, these partially ghoulified mutts are not friendly, and they will bite.
   components:
   - type: Sprite
     drawdepth: Mobs

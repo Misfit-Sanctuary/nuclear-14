@@ -1,5 +1,148 @@
-﻿# fixing and migrating chocolate & adjecent recipes from _Nuclear14
-# soon more! Recipes here means they are confirmed to work.
+﻿# Wasteland recipes, sorted alphabetically.
+# Enclave uses vanilla ingredients/recipes; other factions use N14/Misfits.
+# All recipes here have been fixed and manually tested.
+
+# Categories:
+# - Breads & Sandwiches
+# - Cutlets
+# - Deserts
+# - Dumplings
+# - Italian
+# - Kebabs & Skewers
+# - Meat
+# - Rice
+# - Sushi 
+ 
+# Breads & Sandwiches
+- type: microwaveMealRecipe
+  id: MisfitsRecipeCabbageMeatBread
+  name: Cabbage n' Meat Bread
+  result: MisfitsFoodCabbageMeatBread
+  time: 10
+  reagents:
+    N14UncookedAnimalProteinsRad: 5
+  solids:
+    N14FoodDough: 1
+    N14FloraProduceWildCabbage : 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeKebabWrap
+  name: Kebab Wrap
+  result: MisfitsFoodKebabWrap
+  time: 5
+  solids:
+    MisfitsFoodKebabSlice: 3
+    N14FloraProduceWildCabbage: 1
+    N14FloraProduceWildOnion: 1
+    N14FoodDoughSlice: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeMilkBread
+  name: Milk Bread
+  result: MisfitsFoodMilkBread
+  time: 10
+  reagents:
+    ExtractRazorgrainFlour: 10
+    N14MilkBrahmin: 10
+    Raiser: 5
+  solids:
+    N14FoodButterSlice: 1
+
+# Cutlets
+- type: microwaveMealRecipe
+  id: MisfitsRecipeRedfishCutletCooked
+  name: redfish cutlet recipe
+  result: N14RedfishCutletCooked
+  time: 5
+  solids:
+    N14RedfishCutletRaw: 1
+
+# Deserts 
+- type: microwaveMealRecipe
+  id: MisfitsRecipeCarrotGummy
+  name: Carrot Vitamin Gummy
+  result: MisfitsFoodCarrotGummy
+  time: 5
+  reagents:
+    JuiceCarrot: 5
+    Sugar: 5
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeMugCake
+  name: Mug Cake
+  result: MisfitsFoodMugCake
+  time: 5
+  reagents:
+    Sugar: 5
+  solids:
+    DrinkMug: 1
+    N14FoodDoughSlice: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeShortcakeCookie
+  name: Shortcake Cookie
+  result: MisfitsFoodShortcakeCookie
+  time: 5
+  reagents:
+    ExtractRazorgrainFlour: 5
+    N14MilkBrahmin: 5
+  solids:
+    N14FoodButterSlice: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeThickPancake
+  name: Thick Pancake
+  result: MisfitsFoodThickPancake
+  time: 10
+  reagents:
+    ExtractRazorgrainFlour: 10
+    N14MilkBrahmin: 5
+    Egg: 6
+    Raiser: 5
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeToffeeSheet
+  name: Toffee Sheet
+  result: MisfitsFoodToffeeSheet
+  time: 30
+  reagents:
+    Sugar: 40
+  solids:
+    N14FloraProduceWildPinyonNuts: 2
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeZoyMothMothmallow
+  name: mothmallow recipe
+  result: FoodMothMothmallow
+  time: 10
+  reagents:
+    Sugar: 10
+    Rum: 5
+    MisfitsMilkZoy: 5
+  solids:
+    MisfitsFloraProduceWildZoybeans: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeZoyWaffleFlour # alternate recipes that use zoybeans/zoy milk
+  name: soy waffle recipe
+  result: N14CookedFoodBakedWaffleSoy
+  time: 10
+  reagents:
+    Flour: 5
+    MisfitsMilkZoy: 5
+    Egg: 6
+    SodaWater: 5
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeZoyWaffleRazorgrain
+  name: soy waffle recipe
+  result: N14CookedFoodBakedWaffleSoy
+  time: 10
+  reagents:
+    ExtractRazorgrainFlour: 5
+    MisfitsMilkZoy: 5
+    Egg: 6
+    SodaWater: 5
 
 - type: microwaveMealRecipe
   id: N14RecipeBrownies
@@ -26,7 +169,7 @@
     N14FoodCannabisButter: 2
     MisfitsFoodChocolateBar: 2
     N14FoodEggChicken: 3 
-    
+
 - type: microwaveMealRecipe
   id: N14RecipeCannabisButter
   name: cannabis butter recipe
@@ -35,7 +178,7 @@
   solids:
     N14FoodButter: 1
     N14FloraProduceWildCannabis: 6 # tmp before cannabis plant & produce get moved to _Misfits
-    
+
 - type: microwaveMealRecipe
   id: N14RecipeChocolateCake
   name: chocolate cake recipe
@@ -44,7 +187,7 @@
   solids:
     N14CookedFoodCakePlain: 1
     MisfitsFoodChocolateBar: 2
-    
+
 - type: microwaveMealRecipe
   id: N14RecipeChocolateChipPancake
   name: chocolate chip pancake recipe
@@ -56,7 +199,7 @@
     Egg: 6
   solids:
     MisfitsFoodChocolateBar: 1
-    
+
 - type: microwaveMealRecipe
   id: N14RecipeChocolateTart
   name: chocolate lava tart recipe
@@ -69,7 +212,7 @@
     N14FoodDoughPie: 1
     MisfitsFoodChocolateBar: 3
     FoodPlateTin: 1
-    
+
 - type: microwaveMealRecipe
   id: N14RecipeCookie
   name: cookie recipe
@@ -81,6 +224,195 @@
   solids:
     N14FoodButter: 1
     MisfitsFoodChocolateBar: 1
+
+# Dumplings
+- type: microwaveMealRecipe
+  id: MisfitsRecipeCoxinha
+  name: Coxinha
+  result: MisfitsFoodCoxinha
+  time: 5
+  reagents:
+    N14UncookedAnimalProteinsRad: 5
+    TableSalt: 5
+  solids:
+    N14FoodDoughSlice: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeMeatDumpling
+  name: meat Dumpling
+  result: MisfitsFoodMeatDumpling
+  time: 5
+  reagents:
+    N14UncookedAnimalProteinsRad: 5
+  solids:
+    N14FoodDoughSlice: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeMeatDumpling_Jet
+  name: Khan Meat Dumping
+  result: MisfitsFoodMeatDumpling_Jet
+  time: 5
+  reagents:
+    MovespeedMixture: 5
+  solids:
+    MisfitsFoodMeatDumpling: 1
+    MaterialWoodPlank1: 1
+    N14MaterialLeather1: 1
+
+# Italian
+
+
+# Kebabs & Skewers
+- type: microwaveMealRecipe
+  id: MisfitsRecipeKebabPilar
+  name: Kebab Pilar
+  result: MisfitsFoodKebabPilar
+  time: 30
+  solids:
+    MaterialWoodPlank1: 1
+    N14FoodMeatBrahmin: 5
+
+# Meat
+- type: microwaveMealRecipe
+  id: MisfitsRecipeMeatJerky1 # this one uses vanilla ingredients (technically irrelevant recipe)
+  name: Meat Jerky
+  result: MisfitsFoodMeatJerky
+  time: 15
+  reagents:
+    TableSalt: 5
+  solids:
+    FoodMeatCutletCooked: 1
     
+- type: microwaveMealRecipe
+  id: MisfitsRecipeMeatJerky2
+  name: Meat Jerky
+  result: MisfitsFoodMeatJerky
+  time: 15
+  reagents:
+    TableSalt: 5
+  solids:
+    N14FoodMeatHumanCutletCooked: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeMeatJerky3
+  name: Meat Jerky
+  result: MisfitsFoodMeatJerky
+  time: 15
+  reagents:
+    TableSalt: 5
+  solids:
+    N14FoodMeatRadCutletCooked: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipePemmison
+  name: Pemmison
+  result: MisfitsFoodPemmison
+  time: 10
+  solids:
+    N14FoodMeatRadstagCutlet: 1
+    N14FloraProduceWildPinyonNuts: 2
+    N14FloraProduceWildBlackberries: 2
+
+# Rice
+- type: microwaveMealRecipe
+  id: MisfitsRecipeRiceCake
+  name: Rice Cake
+  result: MisfitsFoodRiceCake
+  time: 5
+  reagents:
+    TableSalt: 5
+  solids:
+    N14CookedFoodRiceBoiled: 1
+
+# Sushi 
+- type: microwaveMealRecipe
+  id: MisfitsRecipeLegionSuperRaw 
+  name: Fried Legion Patriotic Roll
+  result: MisfitsFoodSushiLegionSuperRaw
+  time: 5
+  reagents:
+    Rice: 10
+  solids:
+    MaterialCloth1: 1
+    MaterialWoodPlank1: 1
+    MisfitsFoodSushiSpicyRaw: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSushiCheeseRaw 
+  name: Fried Cream Cheese Sushi
+  result: MisfitsFoodSushiCheeseRaw
+  time: 5
+  reagents:
+    Rice: 10
+    N14MilkBrahmin: 5
+  solids:
+    N14FoodCheeseSlice: 1
+    N14RedfishCutletRaw: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSushiCooked 
+  name: Fried Simple Sushi
+  result: MisfitsFoodSushiCooked
+  time: 5
+  reagents:
+    Rice: 10
+  solids:
+    N14RedfishCutletCooked: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSushiFishRaw 
+  name: Fried Fish Sushi
+  result: MisfitsFoodSushiFishRaw
+  time: 5
+  reagents:
+    Rice: 10
+  solids:
+    N14RedfishCutletRaw: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSushiMeatLargeRaw 
+  name: Fried Large Sushi
+  result: MisfitsFoodSushiMeatLargeRaw
+  time: 10
+  reagents:
+    Rice: 20
+  solids:
+    N14FloraProduceWildCarrot: 2
+    N14RedfishCutletRaw: 2
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSushiNCRRaw #- New California Roll
+  name: Fried New California Roll
+  result: MisfitsFoodSushiNCRRaw
+  time: 5
+  reagents:
+    Rice: 10
+  solids:
+    N14FloraProduceWildCarrot: 2
+    N14RedfishCutletRaw: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSushiNCRSuperRaw #- NCR Patriotic Roll
+  name: NCR Patriotic Roll
+  result: MisfitsFoodSushiNCRSuperRaw
+  time: 5
+  reagents:
+    Rice: 10
+  solids:
+    MaterialCloth1: 1
+    MaterialWoodPlank1: 1
+    MisfitsFoodSushiNCRRaw: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeSushiRaw 
+  name: Simple Sushi
+  result: MisfitsFoodSushiRaw
+  time: 5
+  reagents:
+    Rice: 10
+  solids:
+    N14RedfishCutletRaw: 1
+
 
     
+
