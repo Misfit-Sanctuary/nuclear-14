@@ -54,10 +54,10 @@
       maxCount: 6
       family: Wildlife
       mobs:
-        N14MobMaterialExtractorMoleratWave: 18
-        N14MobMaterialExtractorGeckoWave: 15
+        N14MobMaterialExtractorMoleratWave: 25
+        N14MobMaterialExtractorGeckoWave: 18
         N14MobMaterialExtractorMirelurkWave: 12
-        N14MobMaterialExtractorRadhogWave: 10
+        #N14MobMaterialExtractorRadhogWave: 10    #Wassuy changes, not hostile, plus can be kept as a pet, this will stall and make extractor basically free threats
         N14MobMaterialExtractorFireGeckoWave: 8
         N14MobMaterialExtractorNightstalkerCubWave: 7
         N14MobMaterialExtractorGiantAntWave: 6
@@ -129,7 +129,7 @@
     optimalPower: 1000
     maxTargetPower: 1000
     # A full 250u tank lasts about two hours while the extractor runs.
-    optimalBurnRate: 0.03333333
+    optimalBurnRate: 0.01      #0.03333333
     fuelEfficiencyConstant: 0.3
   - type: PowerSupplier
     supplyRate: 1000
