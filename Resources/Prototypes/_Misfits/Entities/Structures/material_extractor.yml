@@ -2,7 +2,7 @@
   parent: N14MachineWaterTreatmentBroken
   id: N14SeismicMaterialExtractor
   name: seismic material extractor
-  description: A battered pre-war drill that hammers the ground for usable raw materials. Its racket draws unwanted attention.
+  description: A battered pre-war drill that hammers the ground for usable raw materials. Its racket draws unwanted attention and consumes high amount of fuel because of its size.
   components:
   - type: Sprite
     sprite: _Misfits/Structures/Machines/seismic_extractor.rsi
@@ -54,17 +54,17 @@
       maxCount: 6
       family: Wildlife
       mobs:
-        N14MobMolerat: 18
+        N14MobMolerat: 28
         N14MobGecko: 15
         N14MobMirelurk: 12
-        N14MobRadhog: 10
-        N14MobPigrat: 10
-        N14MobRadroach: 10
-        N14MobGeckoFire: 8
+        #N14MobRadhog: 0 was 10, #Not hostile, can be kept as a pet
+        N14MobPigrat: 12
+        N14MobRadroach: 12
+        N14MobGeckoFire: 10
         N14MobDogFeral: 8
-        N14MobBloatfly: 8
-        N14MobNightstalkerCub: 7
-        N14MobGiantAnt: 6
+        #N14MobBloatfly: 0 was 8, #currently bugged and wont shoot anything
+        N14MobNightstalkerCub: 8
+        N14MobGiantAnt: 7
         N14MobNightstalker: 5
         N14MobRadMirelurk: 4
         N14MobGiantFireAnt: 4
@@ -209,8 +209,8 @@
     minTargetPower: 1000
     optimalPower: 1000
     maxTargetPower: 1000
-    # A full 250u tank lasts about two hours while the extractor runs.
-    optimalBurnRate: 0.01      #0.03333333
+    # A full 250u tank lasts 1000 seconds while the extractor runs.
+    optimalBurnRate: 0.25     #wassuy changes, from 0.03333333 to that, fuel its just way too commons and everybody alway dump the fuel once they done using it, and extractor never normally run out of fuels.
     fuelEfficiencyConstant: 0.3
   - type: PowerSupplier
     supplyRate: 1000
