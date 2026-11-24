@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseStructure
   id: N14VehicleBikeRust1
-  name: rusted bike
-  description: Cool bike if it wasn't rusted and missing wheels.
+  name: rusted bike wreckage
+  description: She has suffered since the end of the world, abandoned as her tanks ran dry, picked over for parts and left to decay. She will never ride again, but you can look at her and dream about a better life.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Vehicles/bikesbuggy.rsi
@@ -44,12 +44,12 @@
           SheetSteel1:
             min: 1
             max: 2
-            
+
 - type: entity
   parent: N14VehicleBikeRust1
   id: N14VehicleCarWreck
-  name: wrecked car
-  description: Cool bike if it wasn't rusted and missing wheels.
+  name: rusted buggy wreckage
+  description: Wasteland buggies used to be a common sight in the desert, but the little personal transports were slowly picked off by explosives and opportunistic scavengers. She'll never ride again.
   components:
   - type: Sprite
     state: derelict

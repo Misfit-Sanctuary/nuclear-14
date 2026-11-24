@@ -234,7 +234,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatBrotherhoodCap
-  name: Brotherhood of Steel Cap
+  name: Brotherhood of steel cap
   description: A cap worn by members of the Brotherhood of Steel.
   components:
   - type: Sprite
@@ -247,26 +247,26 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatBrotherhoodBeret
-  name: Brotherhood of Steel Beret
+  name: Brotherhood of steel beret
   description: A beret worn by members of the Brotherhood of Steel.
   components:
   - type: Sprite
-    sprite: _Nuclear14/Clothing/Head/FalloutHats/brotherhoodberet.rsi
+    sprite: _Misfits/Clothing/Head/bos_beret.rsi
   - type: Clothing
-    sprite: _Nuclear14/Clothing/Head/FalloutHats/brotherhoodberet.rsi
+    sprite: _Misfits/Clothing/Head/bos_beret.rsi
   # - type: ClothingSpecialModifier
     # perceptionModifier: 1
 
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatBrotherhoodFieldCap
-  name: BoS Field Cap
-  description: A cap worn by Paladins of the Brotherhood of Steel during their field duties.
+  name: Brotherhood field cap
+  description: A cap worn by members of the 509th Chapter during non-combat field operations. Decorative goggles included!
   components:
   - type: Sprite
-    sprite: _Nuclear14/Clothing/Head/FalloutHats/brotherhoodhat.rsi
+    sprite: _Misfits/Clothing/Head/bos_field_cap.rsi
   - type: Clothing
-    sprite: _Nuclear14/Clothing/Head/FalloutHats/brotherhoodhat.rsi
+    sprite: _Misfits/Clothing/Head/bos_field_cap.rsi
   # - type: ClothingSpecialModifier
     # perceptionModifier: 1
 
@@ -274,8 +274,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatEnclaveIntel
-  name: U.S. Army recon beret
-  description: A sharp-looking beret worn by U.S. Army intelligence officers.
+  name: Enclave recon beret
+  description: A sharp-looking beret worn by Enclave intelligence officers.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/enclaveintel.rsi
@@ -287,8 +287,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatEnclaveOfficer
-  name: U.S. Army officer cap
-  description: A decorative looking cap worn by U.S. Army officers.
+  name: Enclave officer cap
+  description: A decorative looking cap worn by Enclave officers.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/enclaveofficer.rsi
@@ -300,8 +300,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatEnclavePeacekeeperCap
-  name: U.S. Army peacekeeper cap
-  description: A military cap worn by U.S. Army Peacekeepers.
+  name: Enclave peacekeeper cap
+  description: A military cap worn by Enclave Peacekeepers.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/enclavepeacekeeper.rsi
@@ -313,8 +313,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatEnclaveScientist
-  name: U.S. Army scientist beret
-  description: A blue beret worn by U.S. Army Scientists.
+  name: Enclave scientist beret
+  description: A blue beret worn by Enclave Scientists.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/enclavescience.rsi
@@ -421,8 +421,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatTribalOutcastHood
-  name: tribal outcast hood
-  description: Shame! A hood worn by outcasts.
+  name: Tribal Outcast Hood
+  description: Worn by those who have been exiled by their community, these ragged coverings traditionally mark one who has yet to redeem themselves, seeking out some impossible task to do so. Yet many more mark those who have given up on coming home.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/tribalhoodoutcast.rsi
@@ -448,8 +448,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingDrylanderGoggles
-  name: tribal goggled wraps
-  description: Headgear fashioned of rags with a pair of goggles.
+  name: Tribal Fire Hand Headwrap
+  description: Made to maintain clear sight in even the worst of duststorms, these goggles and rags have become a traditional garb of Fire Hand skirmishers in the local tribe. They help keep sand out of the eyes, along with the acrid sting of the thundering guns.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/drylander-goggles.rsi
@@ -680,8 +680,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatCaravan
-  name: railwayman's cap
-  description: A hat perfect for the working man/woman/person/ghoul.
+  name: Blue Line Worker Hat
+  description: Commonly worn by the lower class in the Kingdom of Manitoba, this cap is a popular choice for cargo haulers and security guards in the Blue Line Company.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/caravancompanyhat.rsi
@@ -693,8 +693,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatCaravanUniform
-  name: Blue Line Caravan Co. employee hat
-  description: Serving the Blue Line Caravan Company loudly and proudly.
+  name: Blue Line Merchant Hat
+  description: Once these caps were worn by American pilots from Horizon Skyways, but their acquisition of the Winnipeg International Airport was shortlived before the bombs dropped. Now the transit center serves as the headquarters of a post-war caravan company.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/caravancompanyuniformhat.rsi
@@ -706,8 +706,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: N14ClothingHeadHatCaravanSuit
-  name: Blue Line Caravan Co. boss' hat
-  description: Hat worn by those affectionately known as the Big Cheese, the Head Honcho, or simply Boss
+  name: Blue Line Head Merchant Hat
+  description: The little golden wings on the front of this cap used to be a badge for experienced  pilots from Horizon Skyways, now they mark the head merchants of the Blue Line Company. These caps signify very influential citizens of the Kingdom of Manitoba.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Head/FalloutHats/caravancompanysuithat.rsi

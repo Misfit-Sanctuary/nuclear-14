@@ -153,6 +153,7 @@ public sealed class RadioSystem : EntitySystem
         var name = evt.VoiceName;
 
         name = FormattedMessage.EscapeText(name);
+        name = evt.ColorRankPrefix(name); // #Cythisiax Added - faction-colored rank prefix
 
         // most radios are relayed to chat, so lets parse the chat message beforehand
         var content = escapeMarkup
@@ -246,7 +247,7 @@ public sealed class RadioSystem : EntitySystem
 
         var nameEv = new TransformSpeakerNameEvent(messageSource, Name(messageSource));
         RaiseLocalEvent(messageSource, nameEv);
-        var name = FormattedMessage.EscapeText(nameEv.VoiceName);
+        var name = nameEv.ColorRankPrefix(FormattedMessage.EscapeText(nameEv.VoiceName)); // #Cythisiax Edited - faction-colored rank prefix
 
         // Append "over the radio" so it reads e.g. "laughs over the radio."
         var emoteBase = emoteText.TrimEnd();

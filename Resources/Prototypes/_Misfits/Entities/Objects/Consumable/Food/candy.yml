@@ -1,0 +1,204 @@
+#- Toffee -> 1 Pinion nut, 15u sugar -> 15 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodToffee
+  components:
+  - type: Food
+    eatMessage: food-desc-toffeeBar-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: toffeeChunk
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 10
+
+#Toffee Sheet: 2 pinion nut, 40u sugar -> 30 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodToffeeSheet
+  components:
+  - type: Food
+    eatMessage: food-desc-toffee-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: toffeeSheet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Sugar
+          Quantity: 60
+  - type: SliceableFood
+    slice: MisfitsFoodToffee
+    count: 6
+
+#- VaultTech Lolipop: 10u sugar, 1 paper -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodLollipop_VaultTech
+  components:
+  - type: Food
+    eatMessage: food-desc-vaultLolli-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: vaultLollipop
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 10
+
+#- Carrot Vitamin Gummy: 5u carrot juice, 5u sugar -> 5 sec
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodCarrotGummy
+  components:
+  - type: Food
+    eatMessage: food-desc-carrotGummy-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: carrotCandy2
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: JuiceCarrot
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Candy
+
+## CANDIES!!!
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodCarrotCandy
+  components:
+  - type: Food
+    eatMessage: food-desc-carrotCandy-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: carrotCandy
+  - type: Tag
+    tags:
+    - Candy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: PickledCarrots
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodBuffaloGourdCandy
+  components:
+  - type: Food
+    eatMessage: food-desc-buffaloGourdCandy-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: buffaloGourdCandy
+  - type: Tag
+    tags:
+    - Candy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: BuffaloGourdJam
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodBlackberryCandy
+  components:
+  - type: Food
+    eatMessage: food-desc-blackberryCandy-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: berryCandy
+  - type: Tag
+    tags:
+    - Candy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: BlackberryJam
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodButterscotchCandy
+  components:
+  - type: Food
+    eatMessage: food-desc-butterscotchCandy-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: butterscotchCandy
+  - type: Tag
+    tags:
+    - Candy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Butterscotch
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 5
+
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodJawbreakerCandy
+  components:
+  - type: Food
+    eatMessage: food-desc-jawbreakerCandy-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: jetJawbreaker
+  - type: Tag
+    tags:
+    - Candy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 10
+
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodJetCandy
+  components:
+  - type: Food
+    eatMessage: food-desc-jawbreakerJetCandy-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: jetJawbreaker
+  - type: Tag
+    tags:
+    - Candy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: MovespeedMixture
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 10

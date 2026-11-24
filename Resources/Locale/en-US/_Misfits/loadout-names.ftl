@@ -139,7 +139,7 @@ loadout-name-MisfitsLoadoutOuterWhiteLegsArmor = white legs tribal armor
 
 # Shoes
 loadout-name-ClothingShoesBootsLaceupVault = laceup shoes
-loadout-name-N14LoadoutShoesBlack = black shoes
+loadout-name-N14LoadoutShoesBlack = black loafers
 loadout-name-N14LoadoutShoesBrown = brown shoes
 loadout-name-N14LoadoutBootsBlack = black boots
 loadout-name-N14LoadoutBootsCowboy = cowboy boots
@@ -290,7 +290,7 @@ loadout-name-N14Machete = machete
 loadout-name-N14TribalMachete = tribal machete
 loadout-name-N14TribalClub = tribal club
 loadout-name-N14TribalHatchet = tribal hatchet
-loadout-name-N14TribalSword = tribal sword
+loadout-name-N14TribalSword = Sawtooth Sword
 loadout-name-N14KitchenKnife = kitchen knife
 loadout-name-N14BrassKnife = brass knife
 loadout-name-N14WastelandTribalSpear = wasteland tribal spear
@@ -661,6 +661,13 @@ loadout-name-LoadoutEnclaveSMPinSFC = Enclave sergeant first class pin (Supermut
 loadout-name-LoadoutEnclaveSMPinMasterSergeant = Enclave master sergeant pin (Supermutant)
 loadout-name-LoadoutEnclaveSMPinSergeantMajor = Enclave sergeant major pin (Supermutant)
 
+# Misfits Add - Enclave Vertibird Pilot rank pin loadouts
+loadout-name-LoadoutEnclaveVPPinSergeant = Enclave sergeant pin (Vertibird Pilot)
+loadout-name-LoadoutEnclaveVPPinStaffSergeant = Enclave staff sergeant pin (Vertibird Pilot)
+loadout-name-LoadoutEnclaveVPPinSFC = Enclave sergeant first class pin (Vertibird Pilot)
+loadout-name-LoadoutEnclaveVPPinMasterSergeant = Enclave master sergeant pin (Vertibird Pilot)
+loadout-name-LoadoutEnclaveVPPinSergeantMajor = Enclave sergeant major pin (Vertibird Pilot)
+
 # NCR rank pin additions
 loadout-name-LoadoutNCRPinChiefPhysicianMedic = NCR chief physician pin (Medic)
 loadout-name-LoadoutNCRPinMajorMisfits = NCR major pin
@@ -879,6 +886,7 @@ loadout-name-LoadoutNCRRangerFoxArmor = fox ranger combat armor
 loadout-name-MisfitsLoadoutHeadAntlerSkull = antler skullcap
 loadout-name-MisfitsLoadoutBoSMidwestCommanderPowerArmor = BoS Commander Power Armor
 loadout-name-MisfitsLoadoutFollowerResponderDuster = Follower Responder Duster
+loadout-name-MisfitsLoadoutEnclaveReformerHellfirePowerArmor = Hellfire Power Armor
 
 # #Cythisiax Add - Patreon supporter loadout names/category
 loadout-category-Patreon = Patreon

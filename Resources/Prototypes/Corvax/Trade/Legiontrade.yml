@@ -119,6 +119,8 @@
     price: 50
   - proto: N14WeaponSMG10mm
     price: 63
+  - proto: N14WeaponSMGWt550
+    price: 120
 
 - type: storeCategoryStructured
   id: LegionBuy2_Shotguns
@@ -126,12 +128,12 @@
   entries:
   - proto: N14WeaponShotgunNeostead
     price: 160
-    count: 2
+    count: 3
   - proto: N14WeaponShotgunBoomstick
     price: 25
   - proto: N14WeaponShotgunBlowback
     price: 110
-    count: 3
+    count: 4
   - proto: N14WeaponShotgunAuto
     price: 75
   - proto: N14WeaponShotgunSawedOff
@@ -216,6 +218,8 @@
     price: 55
   - proto: N14AmmoBox45
     price: 40
+  - proto: N14AmmoBox127
+    price: 60
   - proto: 40mmGrenadeFrag
     price: 63
     count: 10
@@ -367,9 +371,9 @@
   - proto: N14ClothingNeckCloakLegionWhite
     price: 10
   - proto: N14ClothingUniformJumpsuitLegionnaire
-    price: 1
+    price: 3
   - proto: N14ClothingUniformJumpsuitLegionnaireOther
-    price: 1
+    price: 3
   - proto: M14LegionBackpackCapeBlack
     price: 25
   - proto: M14LegionBackpackCapeRed
@@ -497,6 +501,8 @@
     price: 55
   - proto: N14WeaponRifle556CarbineOld
     price: 30
+  - proto: N14WeaponSniperPaciencia
+    price: 5
 
 - type: storeCategoryStructured
   id: LegionSell2_Smgs
@@ -536,6 +542,8 @@
     price: 35
   - proto: N14WeaponSMG12mmAdvanced
     price: 75
+  - proto: N14WeaponSMGWt550
+    price: 60
 
 
 - type: storeCategoryStructured
@@ -671,8 +679,6 @@
     price: 105
   - proto: N14ClothingOuterCombatTribal
     price: 44
-  - proto: N14ClothingOuterCombatArmorRCMP
-    price: 56
   - proto: N14ClothingOuterRaiderCombat1
     price: 62
   - proto: N14ClothingOuterPoliceCombat
@@ -884,9 +890,9 @@
   - proto: N14ClothingNeckCloakLegionWhite
     price: 5
   - proto: N14ClothingUniformJumpsuitLegionnaire
-    price: 1
+    price: 4
   - proto: N14ClothingUniformJumpsuitLegionnaireOther
-    price: 1
+    price: 4 # cant be any less or it allows an exploit of butching for cloth then selling it for profit
   - proto: M14LegionBackpackCapeBlack
     price: 13
   - proto: M14LegionBackpackCapeRed
@@ -957,6 +963,9 @@
     price: 4
   - proto: N14MaterialCircuitry1
     price: 5
+  - proto: Charcoal1
+    amount: 1
+    price: 1
   - proto: N14FoodMeatRadlurkClaw
     price: 5
   - proto: N14FoodEggDeathclaw

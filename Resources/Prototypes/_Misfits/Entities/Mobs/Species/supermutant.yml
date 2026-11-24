@@ -114,7 +114,7 @@
   - type: RadiationReceiver
   - type: RadiationHealing
     healCap: 360
-  # Misfits Change - base fist damage 15 (2x Oni modifier brings effective damage to 30).
+  # // #Cythisiax Fixed - base fist damage 15 becomes 18 with the 1.2x melee multiplier.
   - type: MeleeWeapon
     soundHit:
       collection: Punch
@@ -134,14 +134,14 @@
       Male: MisfitsSuperMutantEmotes
       Female: MisfitsSuperMutantEmotes
       Unsexed: MisfitsSuperMutantEmotes
-  # Misfits Change - 2x multiplier on all outgoing melee damage (unarmed + wielded weapons).
+  # // #Cythisiax Fixed - use a flat 1.2x multiplier on all outgoing melee damage.
   - type: Oni
     modifiers:
       coefficients:
-        Blunt: 2.0
-        Slash: 2.0
-        Piercing: 2.0
-        Shock: 2.0
+        Blunt: 1.2 # // #Cythisiax Fixed - replace the 2x mutant melee bonus.
+        Slash: 1.2 # // #Cythisiax Fixed - replace the 2x mutant melee bonus.
+        Piercing: 1.2 # // #Cythisiax Fixed - replace the 2x mutant melee bonus.
+        Shock: 1.2 # // #Cythisiax Fixed - replace the 2x mutant melee bonus.
   - type: MeleeThrowOnHit
     speed: 15
     lifetime: 0.025

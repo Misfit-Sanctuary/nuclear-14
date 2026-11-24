@@ -269,13 +269,7 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
         if (!_enabled)
             return;
 
-        // Not every mob has the modifier component so do it as a separate query.
-        var count = Count<ActiveNPCComponent>();
-
-        // Grow pooled array if needed (never shrink to avoid churn).
-        if (_npcPool.Length < count)
-            _npcPool = new (EntityUid, NPCSteeringComponent, InputMoverComponent, TransformComponent)[count];
-
+        // #Cythisiax Edited - size the pool from steering NPCs encountered, not every active NPC.
         var query = EntityQueryEnumerator<ActiveNPCComponent, NPCSteeringComponent, InputMoverComponent, TransformComponent>();
         var index = 0;
 
@@ -286,6 +280,10 @@ public sealed partial class NPCSteeringSystem : SharedNPCSteeringSystem
             // are skipped together, preventing wasted CPU on frozen mobs.
             if (!IsChunkLoaded(uid, xform))
                 continue;
+
+            // #Cythisiax Added - grow geometrically only when the reusable pool is full.
+            if (index == _npcPool.Length)
+                Array.Resize(ref _npcPool, Math.Max(16, _npcPool.Length * 2));
 
             _npcPool[index] = (uid, steering, mover, xform);
             index++;

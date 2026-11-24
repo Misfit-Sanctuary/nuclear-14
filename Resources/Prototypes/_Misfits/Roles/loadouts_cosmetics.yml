@@ -319,7 +319,7 @@
 
 - type: loadout
   id: MisfitsLoadoutHandsNCR
-  category: Accessories
+  category: Hands
   cost: 0
   requirements:
     - !type:CharacterItemGroupRequirement
@@ -533,7 +533,7 @@
 
 - type: loadout
   id: MisfitsLoadoutHeadNCRSidecap
-  category: Accessories
+  category: Head
   cost: 0
   requirements:
     - !type:CharacterJobRequirement
@@ -559,7 +559,7 @@
 
 - type: loadout
   id: MisfitsLoadoutHeadNCRBeretOfficer
-  category: Accessories
+  category: Head
   cost: 0
   requirements:
     - !type:CharacterJobRequirement
@@ -574,7 +574,7 @@
 
 - type: loadout
   id: MisfitsLoadoutHeadNCRBeretMedic
-  category: Accessories
+  category: Head
   cost: 0
   requirements:
     - !type:CharacterJobRequirement
@@ -585,7 +585,7 @@
 
 - type: loadout
   id: MisfitsLoadoutHeadNCRBeretQM
-  category: Accessories
+  category: Head
   cost: 0
   requirements:
     - !type:CharacterJobRequirement
@@ -602,7 +602,7 @@
 
 - type: loadout
   id: MisfitsLoadoutNeckNCRmantleQM
-  category: Accessories
+  category: Head
   cost: 0
   requirements:
     - !type:CharacterJobRequirement
@@ -613,7 +613,7 @@
 
 - type: loadout
   id: MisfitsLoadoutHeadNCRSlouch
-  category: Accessories
+  category: Head
   cost: 0
   requirements:
     - !type:CharacterJobRequirement
@@ -633,9 +633,9 @@
         - NCRMilitaryPoliceSergeant
         - NCRMilitaryPoliceCaptain
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRCitizen
         - NCRTrader
         - NCRRO
@@ -646,61 +646,65 @@
 
 - type: loadout
   id: MisfitsLoadoutHeadArmyBeretRanger
-  category: Accessories
+  category: Head
   cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
+        - NCRDagger # #Cythisiax Added - DAGGER alongside Chief Ranger
   items:
     - N14ClothingHeadHatArmyBeretRanger
 
 - type: loadout
   id: MisfitsLoadoutHeadNCRBeretRecon
-  category: Accessories
+  category: Head
   cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
+        - NCRDagger # #Cythisiax Added - DAGGER alongside Chief Ranger
   items:
     - N14ClothingHeadHatNCRBeretRecon
 
 - type: loadout
   id: MisfitsLoadoutHeadRanger
-  category: Accessories
+  category: Head
   cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
+        - NCRDagger # #Cythisiax Added - DAGGER alongside Chief Ranger
   items:
     - N14ClothingHeadHatRanger
 
 - type: loadout
   id: MisfitsLoadoutHeadRangerB
-  category: Accessories
+  category: Head
   cost: 0
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
+        - NCRDagger # #Cythisiax Added - DAGGER alongside Chief Ranger
   items:
     - N14ClothingHeadHatRangerB
 
@@ -713,6 +717,7 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
+        - BoSOffDuty
         - BoSInitiate
         - BoSMidSquire
         - BoSKnight
@@ -723,6 +728,7 @@
         # #Cythisiax Removed - Lancer rank folded into Lancer-Knight
         - BoSMidPaladin
         - BoSWestScribe
+        - BoSArchivist
         - BoSMidScribe
         - BoSHeadKnight
         - BoSMidPaladinCommander
@@ -738,6 +744,7 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
+        - BoSOffDuty
         - BoSInitiate
         - BoSMidSquire
         - BoSKnight
@@ -750,6 +757,7 @@
         - BoSHeadKnight
         - BoSMidPaladinCommander
         - BoSHonorGuard # #Cythisiax Added - Honor Guard gets the shared BoS cosmetic beret
+        - BoSArchivist
         - BoSWestElderCommander
   items:
     - N14ClothingHeadHatBrotherhoodBeret
@@ -761,6 +769,7 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
+        - BoSOffDuty
         - BoSInitiate
         - BoSMidSquire
         - BoSKnight
@@ -777,6 +786,32 @@
         - BoSWestElderCommander
   items:
     - N14ClothingHeadHatBrotherhoodFieldCap
+
+- type: loadout
+  id: MisfitsLoadoutMaskBrotherhoodHeadCover
+  category: Mask
+  cost: 0
+  requirements:
+  - !type:CharacterJobRequirement
+    jobs:
+    - BoSOffDuty
+    - BoSInitiate
+    - BoSMidSquire
+    - BoSKnight
+    - BoSScribe
+    - BoSPaladin
+    - BoSMidKnight
+    - BoSLancerKnight
+    # #Cythisiax Removed - Lancer rank folded into Lancer-Knight
+    - BoSMidPaladin
+    - BoSWestScribe
+    - BoSArchivist
+    - BoSMidScribe
+    - BoSHeadKnight
+    - BoSMidPaladinCommander
+    - BoSWestElderCommander
+  items:
+  - N14ClothingMaskBrotherhoodHeadCover
 
 # #Misfits Add - Belt: Brotherhood of Steel Squire webbing.
 
@@ -1241,6 +1276,7 @@
     - EnclaveVertibirdPilot
     - EnclaveSeniorOfficer
     - EnclaveCommander
+    - EnclaveReformer
     - EnclaveJuniorScientist
     - EnclaveScientist
     - EnclaveHeadScientist
@@ -1263,6 +1299,7 @@
     - EnclaveVertibirdPilot
     - EnclaveSeniorOfficer
     - EnclaveCommander
+    - EnclaveReformer
     - EnclaveJuniorScientist
     - EnclaveScientist
     - EnclaveHeadScientist
@@ -1273,7 +1310,7 @@
 
 - type: loadout
   id: MisfitsLoadoutNeckCloakNCR
-  category: Accessories
+  category: Neck
   cost: 0
   exclusive: true
   requirements:
@@ -1302,7 +1339,7 @@
 
 - type: loadout
   id: MisfitsLoadoutNeckCloakNCRSnow
-  category: Accessories
+  category: Neck
   cost: 0
   exclusive: true
   requirements:
@@ -1331,7 +1368,7 @@
 
 - type: loadout
   id: MisfitsLoadoutNeckMantleNCR
-  category: Accessories
+  category: Neck
   cost: 0
   exclusive: true
   requirements:
@@ -1354,7 +1391,7 @@
 
 - type: loadout
   id: MisfitsLoadoutNeckCloakNCRWoods
-  category: Accessories
+  category: Neck
   cost: 0
   exclusive: true
   requirements:
@@ -1362,11 +1399,12 @@
       group: N14LoadoutNeck
     - !type:CharacterJobRequirement
       jobs:
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRRangerRecruit
-        - NCRFieldRanger
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
         - NCRChiefRanger
+        - NCRDagger # #Cythisiax Added - DAGGER alongside Chief Ranger
   items:
     - N14ClothingNeckCloakNCRWoods
 
@@ -1374,7 +1412,7 @@
 
 - type: loadout
   id: MisfitsLoadoutNeckCloakTribal
-  category: Accessories
+  category: Neck
   cost: 0
   exclusive: true
   requirements:

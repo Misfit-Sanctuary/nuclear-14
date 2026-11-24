@@ -31,9 +31,16 @@ public sealed class PlayGlobalSoundCommand : IConsoleCommand
 
         switch (args.Length)
         {
-            // No arguments, show command help.
+            // Client admins can select a local file and play it immediately after upload.
             case 0:
-                shell.WriteLine(Loc.GetString("play-global-sound-command-help"));
+                if (shell.Player == null)
+                {
+                    shell.WriteLine(Loc.GetString("play-global-sound-command-help"));
+                    return;
+                }
+
+                _entManager.System<ServerGlobalSoundSystem>().PromptAdminGlobalUpload(shell.Player);
+                shell.WriteLine("Select an OGG, PCM WAV, or MP3 file (3 MB max) to play globally.");
                 return;
 
             // No users, play sound for everyone.

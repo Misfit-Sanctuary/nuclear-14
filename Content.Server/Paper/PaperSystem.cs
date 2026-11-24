@@ -10,6 +10,7 @@ using Content.Shared.Paper;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using static Content.Shared.Paper.SharedPaperComponent;
 
@@ -116,6 +117,20 @@ namespace Content.Server.Paper
                 paperComp.Mode = PaperAction.Write;
                 _uiSystem.OpenUi(uid, PaperUiKey.Key, args.User);
                 UpdateUserInterface(uid, paperComp);
+                
+                // Delay 1 tick before refreshing UI state to ensure contents load on first open.
+                // remove when actual underlying problem is found
+                Timer.Spawn(TimeSpan.Zero, () =>
+                {
+                    if (Deleted(uid))
+                        return;
+
+                    if (!_uiSystem.HasUi(uid, PaperUiKey.Key))
+                        return;
+
+                    UpdateUserInterface(uid, paperComp);
+                });
+                
                 args.Handled = true;
                 return;
             }

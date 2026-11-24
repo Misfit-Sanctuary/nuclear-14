@@ -1,0 +1,34 @@
+#Tato Soup: 1/1/1/1/1 mix of water, diced meat, tato, garlic and onion, must be heated.
+# reaction tato soup
+- type: reaction
+  id: TatoSoupReaction
+  impact: Low
+  quantized: true
+  minTemp: 305
+  reactants:
+    DicedMeat:
+      amount: 1
+    DicedGarlic:
+      amount: 1
+    DicedTato:
+      amount: 1
+    DicedOnion:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    TatoSoup: 5
+
+# reaction garlic sauce
+- type: reaction
+  id: GarlicSauceReaction
+  impact: Low
+  quantized: true
+  minTemp: 305
+  reactants:
+    Cream:
+      amount: 2
+    DicedGarlic:
+      amount: 1
+  products:
+    GarlicSauce: 3

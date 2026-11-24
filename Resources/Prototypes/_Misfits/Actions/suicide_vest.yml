@@ -1,0 +1,13 @@
+- type: entity
+  id: MisfitsActionSuicideVestDetonate
+  name: Detonate vest
+  description: Arms the vest you're wearing. Once the countdown starts there's no going back.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 0.5
+    icon:
+      sprite: _Misfits/Clothing/OuterClothing/suicide_vest.rsi
+      state: icon
+    itemIconStyle: BigAction
+    event: !type:SuicideVestDetonateEvent

@@ -37,20 +37,26 @@
           - Wastelander
           - NCR
       - type: CPRTraining
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinNCRPrivate1st }
+    - { pin: ClothingNeckPinNCRSpecialist, hours: 20 }
+    - { pin: ClothingNeckPinNCRSergeant, hours: 40 }
 
 - type: startingGear
   id: NCRMedicGear
   equipment:
     wallet: N14Wallet
-    jumpsuit: N14ClothingUniformNCRMedicVariant # Corvax-Change
-    outerClothing: N14ClothingOuterCoatFollowersArmored
-    back: N14ClothingBackpackNCR # Corvax-Change
-    shoes: N14ClothingBootsLeatherFilled
-    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
     head: N14ClothingHeadHatNCRBeretMedic #Misfits Add - Medics can spawn with a beret, since helmets are given in loadouts.
+    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
+    back: N14ClothingBackpackNCR # Corvax-Change
+    jumpsuit: N14ClothingUniformNCRMedicVariant # Corvax-Change
+    outerClothing: MisfitsClothingOuterNCRMedicLabCoat # #Misfits Change - NCR medic lab coat replaces Followers armored coat
+    shoes: N14ClothingBootsLeatherFilled
     belt: ClothingBeltNCR
     id: N14IDNCRDogtagDoctor
-    pocket2: NCRmedicloadoutkits
+    # #Cythisiax Removed - Main NCR job slots now obtain selectable equipment from the requisitions vendors.
   innerClothingSkirt: N14ClothingUniformNCRDesert # Corvax-Change
   satchel: N14ClothingBackpackSatchelNCRFilled
   storage: # Corvax-Change

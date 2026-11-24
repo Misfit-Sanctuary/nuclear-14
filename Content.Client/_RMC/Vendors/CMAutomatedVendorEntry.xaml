@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PanelContainer xmlns="https://spacestation14.io" HorizontalExpand="True">
+  <BoxContainer Orientation="Horizontal" SeparationOverride="8" HorizontalExpand="True">
+    <TextureRect Name="ItemIcon" SetSize="40 40" Stretch="KeepAspectCentered" />
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+      <Label Name="NameLabel" HorizontalExpand="True" />
+      <Label Name="DetailLabel" />
+    </BoxContainer>
+    <Button Name="ActionButton" MinWidth="90" />
+  </BoxContainer>
+</PanelContainer>

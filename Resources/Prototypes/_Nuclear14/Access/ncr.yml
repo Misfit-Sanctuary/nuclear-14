@@ -32,6 +32,10 @@
   id: OSI
   name: id-card-access-level-osi
 
+- type: accessLevel
+  id: NCRProvost
+  name: id-card-access-level-ncrprovost
+
 - type: accessGroup
   id: NCR
   #Misfits Change /Fix/: Base NCR access should only open base NCR doors.
@@ -110,3 +114,14 @@
   - NCRLT
   - NCRCaptain
   - NCRMajor
+
+- type: accessGroup
+  id: NCRProvost
+  tags:
+  - NCR
+  - NCRSGT
+  - NCRMedic
+  - NCRLT
+  - NCRCaptain
+  - NCRMajor
+  - NCRProvost

@@ -1,0 +1,85 @@
+#Container New
+#Welding incompatible, C# is needed to make a call to allow a lock and welding to simulatanously exist, would be a nice future functionality to add
+#The storage fill visualizer is not fully functional and has some bugs regarding how it displays
+- type: entity
+  id: MisfitsAmmoContainer
+  name: Ammo Canister
+  description: A pre-war canister used to store bulk ammunition. 
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Lock
+  - type: LockVisuals
+  - type: AccessReader
+  - type: Icon
+    sprite: _Misfits/Structures/Container/ammocan.rsi
+    state: icon
+  - type: Sprite
+    sprite: _Misfits/Structures/Container/ammocan.rsi
+    layers:
+      - state: base
+      - state: ammo-0
+      - map: ["enum.StorageFillLayers.Fill"]
+      - state: locked
+        map: ["enum.LockVisualLayers.Lock"]
+  - type: StorageFillVisualizer
+    maxFillLevels: 6
+    fillBaseName: ammo
+  - type: Anchorable
+  - type: Appearance
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Storage
+    grid:
+    - 0,0,5,3
+    maxItemSize: Small
+    whitelist:
+      tags:
+        - N14AmmoCell
+        - Document
+      components:
+        - BallisticAmmoProvider
+        - CartridgeAmmo
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable
+  - type: Pullable

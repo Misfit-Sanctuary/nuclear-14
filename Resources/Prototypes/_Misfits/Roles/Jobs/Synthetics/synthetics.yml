@@ -2,7 +2,9 @@
 # Each robot species (Mr. Handy, Protectron, Mr. Gutsy, Assaultron) gets its own job,
 # locked to that species via CharacterSpeciesRequirement. The species restrictedJobs
 # field ensures only the matching species can see each job in the lobby.
-# Access is gated via per-job whitelist (admin: jobwhitelistadd <player> SyntheticMrHandy).
+# #Cythisiax Edited - Mr. Handy and Protectron are open non-faction silicon roles; other synthetic jobs remain whitelisted.
+# #Cythisiax Note - the Police/Firefighter/Constructron chassis stay whitelist-only through each variant species'
+# own whitelistRequired + jobWhitelistUnlock (SyntheticProtectron), not through this job's whitelist flag.
 
 # #Misfits Add - Empty gear prototype: triggers EquipIdCard in StationSpawningSystem
 # so the job's access tags are applied to the robot's nav card on spawn.
@@ -20,8 +22,8 @@
   overwatchCategory: OverwatchRobotics
   setPreference: true
   overrideConsoleVisibility: true
-  whitelisted: true # #Misfits Change
-  hideWithoutWhitelist: true # #Misfits Change
+  whitelisted: false # #Cythisiax Edited - open the non-faction Mr. Handy role without a whitelist.
+  hideWithoutWhitelist: false # #Cythisiax Edited - keep the open Mr. Handy role visible to all players.
   startingGear: SyntheticGear # #Misfits Fix - triggers EquipIdCard so vault access is applied to nav card
   access: # #Misfits Add - vault access for vault-assigned robot
   - VaultDweller
@@ -50,8 +52,8 @@
   overwatchCategory: OverwatchRobotics
   setPreference: true
   overrideConsoleVisibility: true
-  whitelisted: true # #Misfits Change
-  hideWithoutWhitelist: true # #Misfits Change
+  whitelisted: false # #Cythisiax Edited - open the non-faction Protectron role without a whitelist.
+  hideWithoutWhitelist: false # #Cythisiax Edited - keep the open Protectron role visible to all players.
   startingGear: SyntheticGear # #Misfits Fix - triggers EquipIdCard so vault access is applied to nav card
   access: # #Misfits Add - vault access for vault-assigned robot
   - VaultDweller
@@ -62,7 +64,9 @@
     species:
     - RobotProtectron
     - RobotProtectronPolice # #Misfits Add: model variant shares Protectron whitelist/job.
-    - RobotProtectronBuilder # #Misfits Add: model variant shares Protectron whitelist/job.
+    # #Cythisiax Fix - the Constructron (Builder) chassis must stay listed here or it is unspawnable: the player
+    # selects it via the whitelist-gated species, then needs this job to accept that species.
+    - RobotProtectronBuilder
     - RobotProtectronFire # #Misfits Add: model variant shares Protectron whitelist/job.
   special: # #Misfits Add - register with PlayerRobot faction so Loremaster tab can detect this job
   - !type:AddComponentSpecial

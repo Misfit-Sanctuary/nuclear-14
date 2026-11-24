@@ -53,10 +53,15 @@ ticket-audit-filter-search = Search
 ticket-audit-filter-clear = Clear Filters
 ticket-audit-filter-month-this = This Month
 ticket-audit-filter-month-last = Last Month
+ticket-audit-filter-month-two-ago = Two Months Ago
 
 # Tab titles
 ticket-audit-tab-events = Audit Events
 ticket-audit-tab-stats = Admin Statistics
+ticket-audit-tab-actions = Admin Actions
+ticket-audit-tab-player-logs = Player Logs
+ticket-audit-actions-requires-logs = Admin Logs permission is required to view these records.
+ticket-audit-player-logs-select = Enter an exact player name or GUID and press Search to view their logs.
 
 # Events list headers
 ticket-audit-header-time = Time

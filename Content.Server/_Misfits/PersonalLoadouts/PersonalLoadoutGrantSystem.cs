@@ -2,6 +2,7 @@ using Content.Server.GameTicking;
 using Content.Shared._Misfits.PersonalLoadouts;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
+using Content.Shared.Inventory;
 using Content.Shared.Roles;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -16,6 +17,7 @@ public sealed class PersonalLoadoutGrantSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly ClothingSystem _clothing = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     public override void Initialize()
     {
@@ -41,6 +43,12 @@ public sealed class PersonalLoadoutGrantSystem : EntitySystem
             {
                 if (skin.Jobs.Any(job => job.Id == args.JobId))
                     SpawnSkinnedPowerArmor(args.JobId, skin, Transform(args.Mob).Coordinates);
+            }
+
+            foreach (var equipment in profile.Equipment)
+            {
+                if (equipment.Jobs.Any(job => job.Id == args.JobId))
+                    ReplaceEquipment(args.Mob, equipment, Transform(args.Mob).Coordinates);
             }
         }
     }
@@ -77,6 +85,36 @@ public sealed class PersonalLoadoutGrantSystem : EntitySystem
                 if (skin.HelmetClothingVisuals != null)
                     _clothing.SetClothingVisuals(uid, skin.HelmetClothingVisuals, helmetClothing);
             }
+        }
+    }
+
+    private void ReplaceEquipment(
+        EntityUid mob,
+        PersonalLoadoutEquipmentSet equipment,
+        EntityCoordinates coordinates)
+    {
+        foreach (var (slot, prototype) in equipment.Replacements)
+        {
+            EntityUid? previous = null;
+            if (_inventory.TryGetSlotEntity(mob, slot, out var existing))
+            {
+                previous = existing;
+                if (!_inventory.TryUnequip(mob, slot, out _, silent: true, force: true))
+                    continue;
+            }
+
+            var replacement = Spawn(prototype, coordinates);
+            if (_inventory.TryEquip(mob, replacement, slot, silent: true, force: true))
+            {
+                if (previous != null)
+                    Del(previous.Value);
+
+                continue;
+            }
+
+            Del(replacement);
+            if (previous != null)
+                _inventory.TryEquip(mob, previous.Value, slot, silent: true, force: true);
         }
     }
 

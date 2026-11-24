@@ -111,15 +111,17 @@ public sealed class RandomDecalSpawnerSystem : EntitySystem
             if (comp.RandomColorList != null && comp.RandomColorList.Count != 0)
                 color = _random.Pick(comp.RandomColorList);
 
-            _decal.TryAddDecal(
-                decalProtoId,
-                position,
-                out _,
-                color,
-                rotation,
-                comp.ZIndex,
-                cleanable
-            );
+            if (_decal.TryAddDecal(
+                    decalProtoId,
+                    position,
+                    out var decalId,
+                    color,
+                    rotation,
+                    comp.ZIndex,
+                    cleanable))
+            {
+                RaiseLocalEvent(ent.Owner, new RandomDecalSpawnedEvent(xform.GridUid.Value, decalId, position, color));
+            }
 
             if (comp.MaxDecalsPerTile is > 0)
                 addedDecals[tileRefStr]++;

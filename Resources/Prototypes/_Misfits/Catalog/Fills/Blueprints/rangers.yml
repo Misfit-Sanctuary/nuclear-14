@@ -1,0 +1,13 @@
+# #Misfits Add - Ranger field kit blueprints, shipped together so the whole
+# weapons/ammo/armor collection can be issued in one crate.
+
+- type: entity
+  id: MisfitsCrateAluminiumBlueprintsRangers
+  suffix: Filled, Blueprints, Rangers
+  parent: N14CrateAluminium
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14BlueprintRangerWeapons
+    - id: N14BlueprintRangerAmmo
+    - id: N14BlueprintRangerArmor

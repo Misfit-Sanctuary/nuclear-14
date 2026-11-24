@@ -1,0 +1,212 @@
+# Misfits robotic/C-27 repair topicals.
+- type: stack
+  id: MisfitsMakeshiftRepairPatch
+  name: makeshift repair patch
+  icon:
+    sprite: _Nuclear14/Objects/Misc/materials.rsi
+    state: militaryfiber
+  spawn: MisfitsMakeshiftRepairPatch
+  maxCount: 15
+  itemSize: 1
+
+- type: stack
+  id: MisfitsReinforcedPlatingPatch
+  name: reinforced plating patch
+  icon:
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: alloys
+  spawn: MisfitsReinforcedPlatingPatch
+  maxCount: 15
+  itemSize: 1
+
+- type: stack
+  id: MisfitsInsulationPatch
+  name: insulation patch
+  icon:
+    sprite: _Nuclear14/Objects/Misc/materials.rsi
+    state: rubber
+  spawn: MisfitsInsulationPatch
+  maxCount: 15
+  itemSize: 1
+
+- type: stack
+  id: MisfitsAdvancedRepairPatch
+  name: advanced repair patch
+  icon:
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: board_3
+  spawn: MisfitsAdvancedRepairPatch
+  maxCount: 15
+  itemSize: 1
+
+- type: entity
+  parent: BaseHealingItem
+  id: MisfitsMakeshiftRepairPatch
+  name: makeshift repair patch
+  description: A rough metal splint held in place by salvaged cable and cloth. Stops minor damage to a robotic chassis.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/materials.rsi
+    state: militaryfiber
+  - type: Healing
+    damageContainers:
+    - Silicon
+    damage:
+      groups:
+        Brute: -12
+    delay: 2.0
+  - type: Stack
+    stackType: MisfitsMakeshiftRepairPatch
+    count: 1
+  - type: Construction
+    graph: MisfitsMakeshiftRepairPatch
+    node: makeshiftrepairpatch
+
+- type: entity
+  parent: BaseHealingItem
+  id: MisfitsReinforcedPlatingPatch
+  name: reinforced plating patch
+  description: A fitted metal reinforcement that seals dents, fractures, and torn plating on a robotic chassis.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: alloys
+  - type: Healing
+    damageContainers:
+    - Silicon
+    damage:
+      groups:
+        Brute: -30
+    delay: 3.0
+  - type: Stack
+    stackType: MisfitsReinforcedPlatingPatch
+    count: 1
+  - type: Construction
+    graph: MisfitsReinforcedPlatingPatch
+    node: reinforcedplatingpatch
+
+- type: entity
+  parent: BaseHealingItem
+  id: MisfitsInsulationPatch
+  name: insulation patch
+  description: Insulating tape and conductive mesh designed to repair scorched insulation and damaged robotic wiring.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/materials.rsi
+    state: rubber
+  - type: Healing
+    damageContainers:
+    - Silicon
+    damage:
+      types:
+        Heat: -20
+        Shock: -20
+    delay: 2.5
+  - type: Stack
+    stackType: MisfitsInsulationPatch
+    count: 1
+  - type: Construction
+    graph: MisfitsInsulationPatch
+    node: insulationpatch
+
+- type: entity
+  parent: BaseHealingItem
+  id: MisfitsAdvancedRepairPatch
+  name: advanced repair patch
+  description: A preassembled repair plate with embedded circuitry, insulation, and sealant. Restores multiple types of robotic chassis damage.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: board_3
+  - type: Healing
+    damageContainers:
+    - Silicon
+    damage:
+      groups:
+        Brute: -25
+      types:
+        Heat: -15
+        Shock: -15
+        Caustic: -15
+    delay: 5.0
+  - type: Stack
+    stackType: MisfitsAdvancedRepairPatch
+    count: 1
+  - type: Construction
+    graph: MisfitsAdvancedRepairPatch
+    node: advancedrepairpatch
+
+# Batch-size variants printed by workbenches.
+# Standard metal workbench: 5. Tinker workbench: 8.
+
+- type: entity
+  parent: MisfitsMakeshiftRepairPatch
+  id: MisfitsMakeshiftRepairPatch5
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: MisfitsMakeshiftRepairPatch
+    count: 5
+
+- type: entity
+  parent: MisfitsMakeshiftRepairPatch
+  id: MisfitsMakeshiftRepairPatch8
+  suffix: 8
+  components:
+  - type: Stack
+    stackType: MisfitsMakeshiftRepairPatch
+    count: 8
+
+- type: entity
+  parent: MisfitsReinforcedPlatingPatch
+  id: MisfitsReinforcedPlatingPatch5
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: MisfitsReinforcedPlatingPatch
+    count: 5
+
+- type: entity
+  parent: MisfitsReinforcedPlatingPatch
+  id: MisfitsReinforcedPlatingPatch8
+  suffix: 8
+  components:
+  - type: Stack
+    stackType: MisfitsReinforcedPlatingPatch
+    count: 8
+
+- type: entity
+  parent: MisfitsInsulationPatch
+  id: MisfitsInsulationPatch5
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: MisfitsInsulationPatch
+    count: 5
+
+- type: entity
+  parent: MisfitsInsulationPatch
+  id: MisfitsInsulationPatch8
+  suffix: 8
+  components:
+  - type: Stack
+    stackType: MisfitsInsulationPatch
+    count: 8
+
+- type: entity
+  parent: MisfitsAdvancedRepairPatch
+  id: MisfitsAdvancedRepairPatch5
+  suffix: 5
+  components:
+  - type: Stack
+    stackType: MisfitsAdvancedRepairPatch
+    count: 5
+
+- type: entity
+  parent: MisfitsAdvancedRepairPatch
+  id: MisfitsAdvancedRepairPatch8
+  suffix: 8
+  components:
+  - type: Stack
+    stackType: MisfitsAdvancedRepairPatch
+    count: 8

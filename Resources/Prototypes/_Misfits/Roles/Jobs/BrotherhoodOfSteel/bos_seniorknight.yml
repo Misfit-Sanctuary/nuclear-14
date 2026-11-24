@@ -32,14 +32,19 @@
       - type: NpcFactionMember
         factions:
           - BrotherhoodOfSteel
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Senior Knight
+    prefix: Sr. Kn.
+    color: "#3B72BF"
 
 - type: startingGear
   id: BoSMidKnightGear
   equipment:
     wallet: N14Wallet
-    jumpsuit: N14ClothingUniformJumpskirtBOSBlack  #Misfits Change /Tweak/: New consolidated BoS gear
+    jumpsuit: M14ClothingUniformBrotherhoodSeniorKnight  #Misfits Change /Tweak/: New consolidated BoS gear
     back: N14ClothingBackpackMilitary
-    shoes: N14ClothingBootsLeatherFilled
+    shoes: N14ClothingBootsCombatFilled
     head: N14ClothingHeadHatCapkhighBoS
     pocket1: BoSBrotherhoodSeniorKnightKits
     hands: N14ClothingHandsGlovesCombat
@@ -48,7 +53,6 @@
     belt: ClothingBeltBoSWebbing
   storage:
     back:
-    - N14ClothingHeadHatBrotherhoodHelmetKnight
     - N14BoxPlasticFilledMilitary
 
 - type: playTimeTracker

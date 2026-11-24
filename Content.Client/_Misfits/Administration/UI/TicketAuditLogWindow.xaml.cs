@@ -23,6 +23,8 @@ public sealed partial class TicketAuditLogWindow : DefaultWindow
 
     private const int PageSize = 100;
     private int _currentOffset = 0;
+    private int _adminLogOffset = 0;
+    private int _playerLogOffset = 0;
     private int _totalCount = 0;
     
     // #Misfits Add - expanded filter fields
@@ -41,6 +43,8 @@ public sealed partial class TicketAuditLogWindow : DefaultWindow
         var tabContainer = this.FindControl<TabContainer>("AuditTabContainer")!;
         tabContainer.SetTabTitle(0, Loc.GetString("ticket-audit-tab-events"));
         tabContainer.SetTabTitle(1, Loc.GetString("ticket-audit-tab-stats"));
+        tabContainer.SetTabTitle(2, Loc.GetString("ticket-audit-tab-actions"));
+        tabContainer.SetTabTitle(3, Loc.GetString("ticket-audit-tab-player-logs"));
 
         var entMan = IoCManager.Resolve<IEntityManager>();
         _bwoinkSys = entMan.System<BwoinkSystem>();
@@ -51,8 +55,13 @@ public sealed partial class TicketAuditLogWindow : DefaultWindow
         var clearFilterButton = this.FindControl<Button>("ClearFilterButton");
         var thisMonthButton = this.FindControl<Button>("ThisMonthButton");
         var lastMonthButton = this.FindControl<Button>("LastMonthButton");
+        var twoMonthsAgoButton = this.FindControl<Button>("TwoMonthsAgoButton");
         var prevPageButton = this.FindControl<Button>("PrevPageButton");
         var nextPageButton = this.FindControl<Button>("NextPageButton");
+        var prevActionPageButton = this.FindControl<Button>("PrevActionPageButton");
+        var nextActionPageButton = this.FindControl<Button>("NextActionPageButton");
+        var prevPlayerLogPageButton = this.FindControl<Button>("PrevPlayerLogPageButton");
+        var nextPlayerLogPageButton = this.FindControl<Button>("NextPlayerLogPageButton");
 
         filterButton!.OnPressed += _ => ApplyFilters();
         clearFilterButton!.OnPressed += _ =>
@@ -73,12 +82,15 @@ public sealed partial class TicketAuditLogWindow : DefaultWindow
             _filterStartDate = null;
             _filterEndDate = null;
             _currentOffset = 0;
+            _adminLogOffset = 0;
+            _playerLogOffset = 0;
             Refresh();
         };
 
         // #Misfits Add - month quick-selector buttons
         thisMonthButton!.OnPressed += _ => SetThisMonth();
         lastMonthButton!.OnPressed += _ => SetLastMonth();
+        twoMonthsAgoButton!.OnPressed += _ => SetTwoMonthsAgo();
 
         // Pagination
         prevPageButton!.OnPressed += _ =>
@@ -90,6 +102,26 @@ public sealed partial class TicketAuditLogWindow : DefaultWindow
         nextPageButton!.OnPressed += _ =>
         {
             _currentOffset += PageSize;
+            RefreshEvents();
+        };
+        prevActionPageButton!.OnPressed += _ =>
+        {
+            _adminLogOffset = Math.Max(0, _adminLogOffset - PageSize);
+            RefreshEvents();
+        };
+        nextActionPageButton!.OnPressed += _ =>
+        {
+            _adminLogOffset += PageSize;
+            RefreshEvents();
+        };
+        prevPlayerLogPageButton!.OnPressed += _ =>
+        {
+            _playerLogOffset = Math.Max(0, _playerLogOffset - PageSize);
+            RefreshEvents();
+        };
+        nextPlayerLogPageButton!.OnPressed += _ =>
+        {
+            _playerLogOffset += PageSize;
             RefreshEvents();
         };
 
@@ -138,6 +170,8 @@ public sealed partial class TicketAuditLogWindow : DefaultWindow
         _filterEndDate = TryParseDate(endEdit.Text.Trim());
 
         _currentOffset = 0;
+        _adminLogOffset = 0;
+        _playerLogOffset = 0;
         Refresh();
     }
 
@@ -155,6 +189,8 @@ public sealed partial class TicketAuditLogWindow : DefaultWindow
         endEdit.Text = _filterEndDate.Value.ToString("yyyy-MM-dd");
         
         _currentOffset = 0;
+        _adminLogOffset = 0;
+        _playerLogOffset = 0;
         Refresh();
     }
 
@@ -176,6 +212,29 @@ public sealed partial class TicketAuditLogWindow : DefaultWindow
         endEdit.Text = _filterEndDate.Value.ToString("yyyy-MM-dd");
         
         _currentOffset = 0;
+        _adminLogOffset = 0;
+        _playerLogOffset = 0;
+        Refresh();
+    }
+
+    // #Misfits Add - month quick-selector: set dates to the full month two months ago
+    private void SetTwoMonthsAgo()
+    {
+        var startEdit = this.FindControl<LineEdit>("StartDateEdit")!;
+        var endEdit = this.FindControl<LineEdit>("EndDateEdit")!;
+
+        var firstDayOfCurrentMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1, 0, 0, 0, DateTimeKind.Local);
+        var targetMonthStart = firstDayOfCurrentMonth.AddMonths(-2);
+
+        _filterStartDate = targetMonthStart;
+        _filterEndDate = targetMonthStart.AddMonths(1).AddSeconds(-1);
+
+        startEdit.Text = _filterStartDate.Value.ToString("yyyy-MM-dd");
+        endEdit.Text = _filterEndDate.Value.ToString("yyyy-MM-dd");
+
+        _currentOffset = 0;
+        _adminLogOffset = 0;
+        _playerLogOffset = 0;
         Refresh();
     }
 
@@ -207,6 +266,8 @@ public sealed partial class TicketAuditLogWindow : DefaultWindow
             filterPlayerId: _filterPlayerId,
             limit: PageSize,
             offset: _currentOffset,
+            adminLogOffset: _adminLogOffset,
+            playerLogOffset: _playerLogOffset,
             filterPlayerName: _filterPlayerName,
             filterAdminName: _filterAdminName,
             filterAdminId: _filterAdminId,
@@ -230,6 +291,14 @@ public sealed partial class TicketAuditLogWindow : DefaultWindow
         var prevPageButton = this.FindControl<Button>("PrevPageButton");
         var nextPageButton = this.FindControl<Button>("NextPageButton");
         var statsList = this.FindControl<BoxContainer>("StatsList");
+        var actionList = this.FindControl<BoxContainer>("AdminActionList");
+        var actionPageLabel = this.FindControl<Label>("ActionPageLabel");
+        var prevActionButton = this.FindControl<Button>("PrevActionPageButton");
+        var nextActionButton = this.FindControl<Button>("NextActionPageButton");
+        var playerLogList = this.FindControl<BoxContainer>("PlayerLogList");
+        var playerLogPageLabel = this.FindControl<Label>("PlayerLogPageLabel");
+        var prevPlayerLogButton = this.FindControl<Button>("PrevPlayerLogPageButton");
+        var nextPlayerLogButton = this.FindControl<Button>("NextPlayerLogPageButton");
 
         if (eventList == null || pageLabel == null || prevPageButton == null || nextPageButton == null)
             return;
@@ -281,6 +350,58 @@ public sealed partial class TicketAuditLogWindow : DefaultWindow
 
         prevPageButton.Disabled = _currentOffset <= 0;
         nextPageButton.Disabled = _currentOffset + PageSize >= _totalCount;
+
+        if (actionList != null && actionPageLabel != null && prevActionButton != null && nextActionButton != null)
+        {
+            _adminLogOffset = msg.AdminLogOffset;
+            actionList.DisposeAllChildren();
+            foreach (var entry in msg.AdminActionLogs)
+            {
+                var row = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, HorizontalExpand = true };
+                row.AddChild(new Label { Text = entry.Date.ToLocalTime().ToString("yyyy-MM-dd HH:mm"), MinWidth = 150 });
+                row.AddChild(new Label { Text = entry.Type.ToString(), MinWidth = 110 });
+                row.AddChild(new Label { Text = entry.Message, ToolTip = entry.Message, HorizontalExpand = true, ClipText = true });
+                actionList.AddChild(row);
+            }
+            if (msg.AdminActionLogs.Count == 0)
+                actionList.AddChild(new Label
+                {
+                    Text = msg.CanViewAdminActionLogs
+                        ? Loc.GetString("ticket-audit-log-empty")
+                        : Loc.GetString("ticket-audit-actions-requires-logs"),
+                });
+
+            actionPageLabel.Text = $"Page {(_adminLogOffset / PageSize) + 1}";
+            prevActionButton.Disabled = _adminLogOffset == 0;
+            nextActionButton.Disabled = !msg.HasMoreAdminActionLogs;
+        }
+
+        if (playerLogList != null && playerLogPageLabel != null && prevPlayerLogButton != null && nextPlayerLogButton != null)
+        {
+            _playerLogOffset = msg.PlayerLogOffset;
+            playerLogList.DisposeAllChildren();
+            foreach (var entry in msg.PlayerLogs)
+            {
+                var row = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, HorizontalExpand = true };
+                row.AddChild(new Label { Text = entry.Date.ToLocalTime().ToString("yyyy-MM-dd HH:mm"), MinWidth = 150 });
+                row.AddChild(new Label { Text = entry.Type.ToString(), MinWidth = 110 });
+                row.AddChild(new Label { Text = entry.Message, ToolTip = entry.Message, HorizontalExpand = true, ClipText = true });
+                playerLogList.AddChild(row);
+            }
+            if (msg.PlayerLogs.Count == 0)
+                playerLogList.AddChild(new Label
+                {
+                    Text = !msg.CanViewAdminActionLogs
+                        ? Loc.GetString("ticket-audit-actions-requires-logs")
+                        : !msg.HasPlayerLogFilter
+                            ? Loc.GetString("ticket-audit-player-logs-select")
+                            : Loc.GetString("ticket-audit-log-empty"),
+                });
+
+            playerLogPageLabel.Text = $"Page {(_playerLogOffset / PageSize) + 1}";
+            prevPlayerLogButton.Disabled = _playerLogOffset == 0;
+            nextPlayerLogButton.Disabled = !msg.HasMorePlayerLogs;
+        }
 
         // #Misfits Change - populate statistics tab with split AHELP/MHELP sections + period summary
         if (msg.AdminStats != null && statsList != null)

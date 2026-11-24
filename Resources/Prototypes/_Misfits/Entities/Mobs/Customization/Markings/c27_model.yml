@@ -62,3 +62,51 @@
   sprites:
   - sprite: _Misfits/Mobs/Species/C27/parts.rsi
     state: torso_m
+
+# Integrator — brown/tan for biomechanical
+- type: marking
+  id: C27ModelIntegrator
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [C27]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#8a7a62"
+  sprites:
+  - sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: torso_m
+
+# Assault — dark brown for heavy armor
+- type: marking
+  id: C27ModelAssault
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [C27]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#4a3a2a"
+  sprites:
+  - sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: torso_m
+
+# Recon — green for stealth/recon
+- type: marking
+  id: C27ModelRecon
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [C27]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#3a5a4a"
+  sprites:
+  - sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: torso_m

@@ -344,6 +344,11 @@ namespace Content.Server.Database
 
         Task<bool> RemoveJobWhitelist(Guid player, ProtoId<JobPrototype> job);
 
+        // #Cythisiax Added - Faction roster: all holders of any of the given job whitelists.
+        Task<List<JobWhitelistHolder>> GetJobWhitelistHolders(
+            IReadOnlyCollection<string> roles,
+            CancellationToken cancel = default);
+
         #endregion
 
         #region DB Notifications
@@ -381,6 +386,8 @@ namespace Content.Server.Database
 
         Task<CharacterPlayerData?> GetCharacterPlayerDataAsync(Guid playerId, string characterName, CancellationToken cancel = default);
         Task UpsertCharacterPlayerDataAsync(CharacterPlayerData data);
+        Task<List<FactionCharacterRank>> GetFactionCharacterRanksAsync(Guid playerId, string characterName, CancellationToken cancel = default); // #Cythisiax Added - faction rank
+        Task UpsertFactionCharacterRankAsync(FactionCharacterRank data); // #Cythisiax Added - faction rank
 
         #endregion
 
@@ -1172,6 +1179,15 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.RemoveJobWhitelist(player, job));
         }
 
+        // #Cythisiax Added - Faction roster: all holders of any of the given job whitelists.
+        public Task<List<JobWhitelistHolder>> GetJobWhitelistHolders(
+            IReadOnlyCollection<string> roles,
+            CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetJobWhitelistHolders(roles, cancel));
+        }
+
         public void SubscribeToNotifications(Action<DatabaseNotification> handler)
         {
             lock (_notificationHandlers)
@@ -1217,6 +1233,20 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.UpsertCharacterPlayerDataAsync(data));
+        }
+
+        // #Cythisiax Added - faction rank
+        public Task<List<FactionCharacterRank>> GetFactionCharacterRanksAsync(Guid playerId, string characterName, CancellationToken cancel)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetFactionCharacterRanksAsync(playerId, characterName, cancel));
+        }
+
+        // #Cythisiax Added - faction rank
+        public Task UpsertFactionCharacterRankAsync(FactionCharacterRank data)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpsertFactionCharacterRankAsync(data));
         }
 
         #endregion
@@ -1647,6 +1677,9 @@ namespace Content.Server.Database
     }
 
     public sealed record PlayTimeUpdate(NetUserId User, string Tracker, TimeSpan Time);
+
+    // #Cythisiax Added - Faction roster: one (player, job whitelist) row with the player's last seen username.
+    public sealed record JobWhitelistHolder(Guid UserId, string UserName, string RoleId);
 
     internal sealed class SyncAsyncEnumerable<T> : IAsyncEnumerable<T>
     {

@@ -15,7 +15,10 @@ public static class Identity
     /// </summary>
     public static string Name(EntityUid uid, IEntityManager ent, EntityUid? viewer=null)
     {
-        var uidName = ent.GetComponent<MetaDataComponent>(uid).EntityName;
+        if (!ent.TryGetComponent<MetaDataComponent>(uid, out var metadata))
+            return uid.ToString();
+
+        var uidName = metadata.EntityName;
 
         if (!ent.TryGetComponent<IdentityComponent>(uid, out var identity))
             return uidName;
@@ -24,7 +27,10 @@ public static class Identity
         if (ident is null)
             return uidName;
 
-        var identName = ent.GetComponent<MetaDataComponent>(ident.Value).EntityName;
+        if (!ent.TryGetComponent<MetaDataComponent>(ident.Value, out var identityMetadata))
+            return uidName;
+
+        var identName = identityMetadata.EntityName;
         if (viewer == null || !CanSeeThroughIdentity(uid, viewer.Value, ent))
         {
             return identName;

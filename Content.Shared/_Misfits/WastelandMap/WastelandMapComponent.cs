@@ -44,6 +44,9 @@ public enum WastelandMapTrackedBlipKind : byte
     TribeCritical,     // Tribe member in critical condition during the Rite of Returning
     MaterialExtractor, // permanent seismic extractor landmark
     ExpeditionEntrance, // round-scoped unknown underground expedition entrance
+    RadioTowerOffline, // public radio is blocked until this tower is activated
+    RadioTowerOnline, // activated public-radio tower
+    GlobalPin, // administrator-created, round-scoped landmark visible on every map feed
 }
 
 [Serializable, NetSerializable]
@@ -67,6 +70,7 @@ public enum WastelandMapTacticalFeedKind : byte
     Followers,
     Tribe, // #Misfits Add - Willower pendant tactical feed
     Bwonsamdi, // private map-wide feed of critical and dead player souls
+    C27, // #Misfits Add - C-27 marker: the feed is resolved per viewer from the chassis's own ID card
 }
 
 [Serializable, NetSerializable]

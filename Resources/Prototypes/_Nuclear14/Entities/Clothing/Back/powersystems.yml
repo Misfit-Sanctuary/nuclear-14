@@ -33,3 +33,51 @@
   - type: ClothingSpeedModifier
     walkModifier: 4.75 # Don't be alarmed, it's this high to compensate for the suit's base slowdown.
     sprintModifier: 4.75
+
+- type: entity
+  parent: N14ClothingPowerSystemsBack
+  id: MisfitsCombustionEnginePowerSystemsBack
+  name: combustion engine
+  description: A jury-rigged combustion generator bolted where a fusion core once sat. Burns welding fuel to drive a hydraulic pump, pressurizing lines that run to piston actuators at each joint. Heavy, loud, and hot, but it keeps the suit moving when supply lines run dry. Internal tank holds 300 units of welding fuel.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Power/power.rsi
+    state: diesel-off
+    layers:
+    - state: diesel-off
+      map: [ "enum.CombustionEngineVisualLayers.Body" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    sprite: _Nuclear14/Structures/Power/power.rsi
+    slots:
+    - back
+  - type: SolutionContainerManager
+    solutions:
+      fuel:
+        maxVol: 300
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 300
+  - type: RefillableSolution
+    solution: fuel
+  - type: AmbientSound
+    sound: /Audio/_Misfits/N14/Machines/gennie.ogg
+    range: 3
+    volume: -8
+    enabled: false
+  - type: ExaminableSolution
+    solution: fuel
+    heldOnly: false
+  - type: CombustionEngine
+    fuelSolution: fuel
+    fuelReagent: WeldingFuel
+    fuelUsePerSecond: 0.15
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.CombustionEngineVisuals.Running:
+        Body:
+          True: { state: diesel-on }
+          False: { state: diesel-off }

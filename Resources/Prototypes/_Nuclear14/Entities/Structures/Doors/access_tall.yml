@@ -69,6 +69,16 @@
   - type: Wires
     layoutId: HighSec
 
+- type: entity
+  parent: N14DoorMetalRedTall
+  id: N14DoorWoodSecureLockedNCRProvostTall
+  suffix: NCR, Locked, Provost
+  components:
+  - type: AccessReader
+    access: [["NCRProvost"]]
+  - type: Wires
+    layoutId: AirlockSecurity
+
 #MARK: BoS Midwest
 - type: entity
   parent: N14DoorAirlockTall

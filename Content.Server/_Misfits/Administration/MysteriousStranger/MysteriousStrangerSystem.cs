@@ -32,8 +32,7 @@ public sealed class MysteriousStrangerSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly VisibilitySystem _visibility = default!;
 
-    [ValidatePrototypeId<EntityPrototype>]
-    public const string StrangerPrototype = "N14MobMysteriousStranger";
+    public static readonly EntProtoId StrangerPrototype = "N14MobMysteriousStranger";
 
     public override void Initialize()
     {
@@ -127,7 +126,7 @@ public sealed class MysteriousStrangerSystem : EntitySystem
 
         _mind.TransferTo(mindId, stranger, mind: mind);
 
-        _adminLogger.Add(LogType.Action, LogImpact.High,
+        _adminLogger.Add(LogType.AdminAudit, LogImpact.High,
             $"{admin.Name} spawned in as a mysterious stranger {ToPrettyString(stranger):stranger} targeting {ToPrettyString(target):target}");
         return true;
     }

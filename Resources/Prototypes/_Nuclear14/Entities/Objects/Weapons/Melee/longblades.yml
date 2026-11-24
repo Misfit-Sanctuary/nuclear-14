@@ -124,14 +124,79 @@
     attackRate: 0.25
     damage:
       types:
-        Slash: 6
-        Piercing: 3
-        Structural: 18
+        Slash: 8
+        Piercing: 2
+        Structural: 27
     soundHit:
       path: /Audio/_Nuclear14/Weapons/Melee/Swing/ripper.ogg
   - type: Item
     size: Large
     sprite: _Nuclear14/Objects/Weapons/Melee/ripper.rsi
+  - type: DisarmMalus
+  - type: RefillableSolution
+    solution: Welder
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 300
+        maxVol: 300
+  - type: UseDelay
+    delay: 1
+  - type: Tool
+    qualities:
+      - Sawing
+    speedModifier: 3.0
+  - type: StaticPrice
+    price: 50
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/Medical/Surgery/saw.ogg
+  - type: BoneSaw
+    speed: 0.75
+  - type: Scalpel
+    speed: 0.5
+
+- type: entity
+  name: Gorehew
+  parent: N14Machete
+  id: M14Gorehew
+  description: A well used ripper, caked in rust and gore. A sign of status among the 80s gang.
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Melee/Gorehew.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Melee/Gorehew.rsi
+    state: icon
+  - type: EmbeddableProjectile
+    sound: /Audio/_Nuclear14/Weapons/Melee/Swing/ripper.ogg
+  - type: EmbedPassiveDamage
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 25
+        Piercing: 11
+  - type: Sharp
+  - type: MeleeWeapon
+    autoAttack: true
+    angle: 0
+    wideAnimationRotation: -135
+    attackRate: 0.25
+    damage:
+      types:
+        Slash: 10
+        Piercing: 4
+        Structural: 35
+    soundHit:
+      path: /Audio/_Nuclear14/Weapons/Melee/Swing/ripper.ogg
+  - type: Item
+    size: Large
+    sprite: _Nuclear14/Objects/Weapons/Melee/Gorehew.rsi
   - type: DisarmMalus
   - type: RefillableSolution
     solution: Welder
@@ -208,13 +273,14 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 40
-        Piercing: 8
+        Slash: 32
+        Piercing: 18
   - type: MeleeWeapon
+    attackRate: 0.9
     damage:
       types:
-        Slash: 38
-        Piercing: 9
+        Slash: 40
+        Piercing: 15
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -234,7 +300,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 32
+        Slash: 40
         Piercing: 8
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
@@ -244,10 +310,10 @@
     price: 70
 
 - type: entity
-  name: tribal sword
+  name: Sawtooth Sword
   parent: N14Machete
   id: N14TribalSword
-  description: A tribal sword, made from teeth and claws from the hunts and bound to a piece of wood.
+  description: Fashioned together from claws and teeth bound to an old piece of wood, this weapon is more used as a last resort when actual metal is in scarce supply for a tribe.
   components:
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Melee/tribal_sword.rsi
@@ -269,3 +335,57 @@
     sprite: _Nuclear14/Objects/Weapons/Melee/tribal_sword.rsi
   - type: StaticPrice
     price: 50
+
+- type: entity
+  name: waster katana
+  parent: N14Machete
+  id: N14WasterKatanaT1
+  description: A crudely made katana, this weapon is a simple blade with a simple hilt, but it can still cut through flesh and bone.
+  components:
+  - type: Tag
+    tags:
+    - WasterKatanaT1
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Melee/wasterkatanat1.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 25
+        Slash: 20
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: _Nuclear14/Objects/Weapons/Melee/wasterkatanat1.rsi
+  - type: Construction
+    graph: N14WasterKatanaT1
+    node: wasterkatana1
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  name: superior waster katana
+  parent: N14Machete
+  id: N14WasterKatanaT2
+  description: A crudely made katana, this weapon is a simple blade with a simple hilt. This one appears upgraded with a better hilt and a sharper blade, making it more effective.
+  components:
+  - type: Tag
+    tags:
+    - WasterKatanaT2
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Melee/wasterkatanat2.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 30
+        Slash: 25
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: _Nuclear14/Objects/Weapons/Melee/wasterkatanat2.rsi
+  - type: Construction
+    graph: N14WasterKatanaT2
+    node: wasterkatana2
+  - type: StaticPrice
+    price: 75

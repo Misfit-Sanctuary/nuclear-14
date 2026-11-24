@@ -1,5 +1,4 @@
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 using Robust.Shared.Utility;
 
 namespace Content.Client.Guidebook;
@@ -27,7 +26,7 @@ public partial class GuideEntry
     /// <summary>
     ///     The "children" of this guide for when guides are shown in a tree / table of contents.
     /// </summary>
-    [DataField("children", customTypeSerializer:typeof(PrototypeIdListSerializer<GuideEntryPrototype>))]
+    [DataField("children")]
     public List<string> Children = new();
 
     /// <summary>

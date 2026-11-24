@@ -21,6 +21,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 using Content.Shared._NC.Sponsor; // Forge-Change
+using Content.Client._Misfits.FactionRank; // #Cythisiax Added - latejoin rank picker
 
 namespace Content.Client.LateJoin
 {
@@ -52,6 +53,10 @@ namespace Content.Client.LateJoin
 
         private readonly Control _base;
 
+        // #Cythisiax Added - rank dropdown for pin jobs
+        private readonly FactionRankPreferenceSystem _rankPreferences;
+        private bool _rankPickersPending;
+
         public LateJoinGui()
         {
             MinSize = SetSize = new Vector2(520, 560); // #Misfits Tweak - wider to fit 4 job category tabs
@@ -71,6 +76,10 @@ namespace Content.Client.LateJoin
 
             Contents.AddChild(_base);
 
+            // #Cythisiax Added - redraw once the rank options come back, only if a picker was waiting on them
+            _rankPreferences = _entitySystem.GetEntitySystem<FactionRankPreferenceSystem>();
+            _rankPreferences.OptionsUpdated += OnRankOptionsUpdated;
+
             _jobRequirements.Updated += RebuildUI;
             RebuildUI();
 
@@ -85,8 +94,16 @@ namespace Content.Client.LateJoin
             _gameTicker.LobbyJobsAvailableUpdated += JobsAvailableUpdated;
         }
 
+        // #Cythisiax Added
+        private void OnRankOptionsUpdated(string _)
+        {
+            if (_rankPickersPending)
+                RebuildUI();
+        }
+
         private void RebuildUI()
         {
+            _rankPickersPending = false; // #Cythisiax Added
             _base.RemoveAllChildren();
             _jobLists.Clear();
             _jobButtons.Clear();
@@ -360,7 +377,23 @@ namespace Content.Client.LateJoin
                             });
                         }
 
-                        departmentContents.AddChild(jobButton);
+                        // #Cythisiax Edited - pin jobs (NCR / Enclave) get their rank dropdown beside the job button
+                        var rankPicker = _rankPreferences.BuildPicker(
+                            (_prefs.Preferences?.SelectedCharacter as HumanoidCharacterProfile)?.Name,
+                            prototype, 160, out var rankPending);
+                        _rankPickersPending |= rankPending;
+                        if (rankPicker != null)
+                        {
+                            jobButton.HorizontalExpand = true;
+                            var jobRow = new BoxContainer { Orientation = LayoutOrientation.Horizontal };
+                            jobRow.AddChild(jobButton);
+                            jobRow.AddChild(rankPicker);
+                            departmentContents.AddChild(jobRow);
+                        }
+                        else
+                        {
+                            departmentContents.AddChild(jobButton);
+                        }
 
                         jobButton.OnPressed += _ => SelectedId.Invoke((id, jobButton.JobId));
 
@@ -465,6 +498,7 @@ namespace Content.Client.LateJoin
             if (disposing)
             {
                 _jobRequirements.Updated -= RebuildUI;
+                _rankPreferences.OptionsUpdated -= OnRankOptionsUpdated; // #Cythisiax Added
                 _gameTicker.LobbyJobsAvailableUpdated -= JobsAvailableUpdated;
                 _jobButtons.Clear();
                 _jobCategories.Clear();

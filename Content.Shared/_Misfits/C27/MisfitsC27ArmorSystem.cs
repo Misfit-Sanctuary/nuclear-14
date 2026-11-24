@@ -114,6 +114,9 @@ public sealed class MisfitsC27ArmorSystem : EntitySystem
         return species == "C27"
             || species == "C27NCR"
             || species == "C27BoS"
-            || species == "C27ZAX";
+            || species == "C27ZAX"
+            || species == "C27Integrator" // #Misfits Add - Integrator chassis configuration
+            || species == "C27Assault" // #Misfits Add - Assault chassis configuration
+            || species == "C27Recon"; // #Misfits Add - Recon chassis configuration
     }
 }

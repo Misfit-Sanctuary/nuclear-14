@@ -34,6 +34,11 @@
         accent: latin
   - !type:AddTraitSpecial
     traits: [ LanguageLatin, N14PetDogLegion ]
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Houndmaster
+    prefix: Hndm.
+    color: "#8b0000"
 
 - type: startingGear
   id: CaesarLegionHoundmasterGear
@@ -55,6 +60,7 @@
     back:
     - N14BoxPlasticFilledMilitaryLegion #Misfits Change /Tweak/: Legion uses tribal medicine, not stimpaks
     - N14HealingPowder
+    - SyndicateWhistle
 
 - type: playTimeTracker
   id: CaesarLegionHoundmaster

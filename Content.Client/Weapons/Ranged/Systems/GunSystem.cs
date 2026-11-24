@@ -64,8 +64,7 @@ public sealed partial class GunSystem : SharedGunSystem
     private EntityQuery<SpriteComponent> _spriteQuery;
 
 
-    [ValidatePrototypeId<EntityPrototype>]
-    public const string HitscanProto = "HitscanEffect";
+    public static readonly EntProtoId HitscanProto = "HitscanEffect";
 
     public bool SpreadOverlay
     {
@@ -269,7 +268,7 @@ public sealed partial class GunSystem : SharedGunSystem
                             RemoveShootable(ent.Value);
                         break;
                     case HitscanPrototype:
-                        PredictHitscan(gunUid, fromCoordinates, worldAngle.ToVec(), worldAngle, gun.Target, user);
+                        PredictHitscan(gunUid, fromCoordinates, worldAngle.ToVec(), gun.Target, user);
                         Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                         Recoil(user, direction, gun.CameraRecoilScalarModified);
                         break;
@@ -374,7 +373,7 @@ public sealed partial class GunSystem : SharedGunSystem
                         RemoveShootable(ent.Value);
                     break;
                 case HitscanPrototype:
-                    PredictHitscan(gunUid, fromCoordinates, mapDirection, mapDirection.ToAngle(), gun.Target, user);
+                    PredictHitscan(gunUid, fromCoordinates, mapDirection, gun.Target, user);
                     Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                     Recoil(user, mapDirection, gun.CameraRecoilScalarModified);
                     break;
@@ -526,11 +525,10 @@ public sealed partial class GunSystem : SharedGunSystem
         _physics.UpdateIsPredicted(uid);
         base.ShootProjectile(uid, direction, gunVelocity, gunUid, user, speed);
     }
-
+    // TODO misfits: for now we dont try predicting visuals of deflections until refactor can be done
     private void PredictHitscan(EntityUid gunUid,
         EntityCoordinates fromCoordinates,
         Vector2 direction,
-        Angle worldAngle,
         EntityUid? target,
         EntityUid? user)
     {
@@ -544,8 +542,68 @@ public sealed partial class GunSystem : SharedGunSystem
         if (fromMap.MapId == MapId.Nullspace || direction.LengthSquared() <= 0.0001f)
             return;
 
+        // #Misfits Add - one predicted ray per pellet so shotgun hitscan beams match the server
+        foreach (var rayDirection in GetHitscanDirections(gunUid, direction))
+            PredictHitscanRay(gunUid, fromMap, rayDirection, hitscan, target, user);
+
+        // original code for client side predicted deflect visuals. Didnt sync with actual server hitscans on deflect due to rng desync
+        /*
+                for (var reflectAttempt = 0; reflectAttempt < reflectAttempts; reflectAttempt++)
+                {
+
+                    if (!TryGetPredictedHitscanResult(
+                            from,
+                            normalizedDirection,
+                            hitscan,
+                            source,
+                            ignoredEntity,
+                            target,
+                            historicalTick,
+                            out var hit,
+                            out var distance))
+                    {
+
+                        if (reflectAttempt == 0)
+                            SpawnPredictedHitscanEffects(fromEffect, worldAngle, normalizedDirection, hitscan, hitscan.MaxLength);
+                        break;
+                    }
+
+                    hitEntity = hit;
+                    SpawnPredictedHitscanEffects(fromEffect, worldAngle, normalizedDirection, hitscan, distance);
+
+                    if (hitscan.Reflective == ReflectType.None)
+                        break;
+
+                    var reflectEv = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, normalizedDirection, false);
+                    RaiseLocalEvent(hit, ref reflectEv);
+
+                    if (!reflectEv.Reflected || reflectEv.Direction.LengthSquared() <= 0.0001f)
+                        break;
+
+                    fromEffect = GetShotEffectCoordinates(Transform(hit).Coordinates.ToMap(EntityManager, _xform));
+                    from = fromEffect.ToMap(EntityManager, _xform);
+                    normalizedDirection = reflectEv.Direction.Normalized();
+                    worldAngle = normalizedDirection.ToAngle();
+                }
+
+
+
+                if (hitEntity is not null && HasComp<DamageableComponent>(hitEntity) && !HasComp<ActorComponent>(hitEntity))
+                    _color.RaiseEffect(Color.Red, new List<EntityUid> { hitEntity.Value }, Filter.Local());
+        */
+
+    }
+
+    // #Misfits Add - casts and renders one predicted hitscan ray
+    private void PredictHitscanRay(
+        EntityUid gunUid,
+        MapCoordinates fromMap,
+        Vector2 direction,
+        HitscanPrototype hitscan,
+        EntityUid? target,
+        EntityUid? user)
+    {
         var normalizedDirection = direction.Normalized();
-        var from = fromMap;
         // [Changed by MisfitsCrew/Operator] Use grid/map effect coordinates so predicted beam
         // sprites are not parented to bikes or other ridden entities.
         var fromEffect = GetShotEffectCoordinates(fromMap);
@@ -554,48 +612,22 @@ public sealed partial class GunSystem : SharedGunSystem
         var ignoredEntity = GetShotExtraIgnoredEntity(user);
         var source = user ?? gunUid;
         var historicalTick = GetPredictedHitscanTick();
-        var reflectAttempts = hitscan.Reflective != ReflectType.None ? 3 : 1;
-        EntityUid? hitEntity = null;
 
-        for (var reflectAttempt = 0; reflectAttempt < reflectAttempts; reflectAttempt++)
-        {
-            if (!TryGetPredictedHitscanResult(
-                    from,
+        // TODO misfits: for now we dont try predicting visuals of deflections until refactor can be done
+        TryGetPredictedHitscanResult(
+                    fromMap,
                     normalizedDirection,
                     hitscan,
                     source,
                     ignoredEntity,
                     target,
                     historicalTick,
-                    out var hit,
-                    out var distance))
-            {
-                if (reflectAttempt == 0)
-                    SpawnPredictedHitscanEffects(fromEffect, worldAngle, normalizedDirection, hitscan, hitscan.MaxLength);
+                    out var hitEntity,
+                    out var distance);
 
-                break;
-            }
-
-            hitEntity = hit;
-            SpawnPredictedHitscanEffects(fromEffect, worldAngle, normalizedDirection, hitscan, distance);
-
-            if (hitscan.Reflective == ReflectType.None)
-                break;
-
-            var reflectEv = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, normalizedDirection, false);
-            RaiseLocalEvent(hit, ref reflectEv);
-
-            if (!reflectEv.Reflected || reflectEv.Direction.LengthSquared() <= 0.0001f)
-                break;
-
-            fromEffect = GetShotEffectCoordinates(Transform(hit).Coordinates.ToMap(EntityManager, _xform));
-            from = fromEffect.ToMap(EntityManager, _xform);
-            normalizedDirection = reflectEv.Direction.Normalized();
-            worldAngle = normalizedDirection.ToAngle();
-        }
-
-        if (hitEntity != null && HasComp<DamageableComponent>(hitEntity.Value))
-            _color.RaiseEffect(Color.Red, new List<EntityUid> { hitEntity.Value }, Filter.Local());
+        SpawnPredictedHitscanEffects(fromEffect, normalizedDirection.ToAngle(), normalizedDirection, hitscan, distance);
+        if (hitEntity == EntityUid.Invalid && HasComp<DamageableComponent>(hitEntity) && !HasComp<ActorComponent>(hitEntity))
+            _color.RaiseEffect(Color.Red, new List<EntityUid> { hitEntity }, Filter.Local());
     }
 
     private GameTick GetPredictedHitscanTick()
@@ -615,7 +647,7 @@ public sealed partial class GunSystem : SharedGunSystem
         out EntityUid hit,
         out float distance)
     {
-        hit = default;
+        hit = EntityUid.Invalid;
         distance = hitscan.MaxLength;
 
         var ray = new CollisionRay(from.Position, direction, hitscan.CollisionMask);
@@ -630,8 +662,8 @@ public sealed partial class GunSystem : SharedGunSystem
 
         // #Cythisiax Fixed - Revert PR #1103 rider hitscan deferral: shots at a ridden bike hit the
         // bike fixture again (bike takes full damage) instead of being deferred to the rider/passing through.
-        EntityUid? staticHit = null;
-        EntityUid? currentDynamicHit = null;
+
+        //EntityUid? currentDynamicHit = null;
         var staticDistance = hitscan.MaxLength;
         var currentDynamicDistance = hitscan.MaxLength;
 
@@ -641,7 +673,7 @@ public sealed partial class GunSystem : SharedGunSystem
                 result.HitEntity == ignoredEntity ||
                 !IsValidHitscanTarget(result.HitEntity, target, firedFromContainer))
                 continue;
-
+            /*
             if (TryComp<PhysicsComponent>(result.HitEntity, out var resultPhysics) &&
                 resultPhysics.BodyType != BodyType.Static)
             {
@@ -649,45 +681,40 @@ public sealed partial class GunSystem : SharedGunSystem
                 currentDynamicDistance = MathF.Min(currentDynamicDistance, result.Distance);
                 continue;
             }
-
-            staticHit = result.HitEntity;
-            staticDistance = result.Distance;
-            break;
-        }
-
-        if (TryGetHistoricalHitscanResult(
-                from,
-                direction,
-                hitscan.MaxLength,
-                hitscan.CollisionMask,
-                source,
-                ignoredEntity,
-                target,
-                firedFromContainer,
-                historicalTick,
-                out var historicalHit,
-                out var historicalDistance) &&
-            historicalDistance <= staticDistance)
-        {
-            hit = historicalHit;
-            distance = historicalDistance;
+*/
+            hit = result.HitEntity;
+            distance = result.Distance;
             return true;
         }
+        /*
+                if (TryGetHistoricalHitscanResult(
+                        from,
+                        direction,
+                        hitscan.MaxLength,
+                        hitscan.CollisionMask,
+                        source,
+                        ignoredEntity,
+                        target,
+                        firedFromContainer,
+                        historicalTick,
+                        out var historicalHit,
+                        out var historicalDistance) &&
+                    historicalDistance <= staticDistance)
+                {
+                    hit = historicalHit;
+                    distance = historicalDistance;
+                    return true;
+                }
+        */
 
-        if (staticHit != null)
-        {
-            hit = staticHit.Value;
-            distance = staticDistance;
-            return true;
-        }
-
-        if (currentDynamicHit != null)
-        {
-            hit = currentDynamicHit.Value;
-            distance = currentDynamicDistance;
-            return true;
-        }
-
+        /*
+                if (currentDynamicHit != null)
+                {
+                    hit = currentDynamicHit.Value;
+                    distance = currentDynamicDistance;
+                    return true;
+                }
+        */
         return false;
     }
 

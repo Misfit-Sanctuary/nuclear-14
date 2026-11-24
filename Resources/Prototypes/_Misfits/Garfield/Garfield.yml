@@ -1,0 +1,41 @@
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodLasagnaGood
+  components:
+  - type: Food
+    eatMessage: food-desc-lasagna-eat2
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: lasagna
+    color: green
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: UnstableMutagen
+          Quantity: 20
+        - ReagentId: Romerol
+          Quantity: 10
+  - type: RadiationSource
+    intensity: 20
+    slope: 1
+
+- type: microwaveMealRecipe
+  id: MisfitsRecipeLasagnaRealVersion
+  name: Perfected Lasagna
+  result: MisfitsFoodLasagnaGood
+  time: 30
+  solids:
+    N14FoodMeatRadRaw: 1
+    N14FoodCheeseSlice: 1
+    N14FoodDoughSlice: 1
+    N14FloraProduceWildTato: 1
+    MisfitsGlowingBloodPack: 1
+  reagents:
+    NukaColaQuantum: 10
+    IrradiatedNukaCola: 10
+    ExtractFungusRad: 10
+    MisfitsNerveblock: 10
+    GreyMatter: 10

@@ -5,6 +5,7 @@ using Content.Server.Power.Generator;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
+using Content.Server._Misfits.Expeditions;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
@@ -12,7 +13,9 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Power.Generator;
+using Content.Shared._Misfits.Expeditions;
 using Content.Shared._Misfits.MaterialExtractor;
+using Content.Shared._NC14.DayNightCycle;
 using Content.Shared.Storage;
 using Content.Shared.Spawning;
 using Content.Shared.Chat;
@@ -57,6 +60,7 @@ public sealed partial class MaterialExtractorSystem : EntitySystem
     [Dependency] private TurfSystem _turf = default!;
     [Dependency] private GeneratorSystem _generator = default!;
     [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private ExpeditionBossSystem _bosses = default!;
 
     public override void Initialize()
     {
@@ -184,7 +188,20 @@ public sealed partial class MaterialExtractorSystem : EntitySystem
             UpdateLowFuelWarning(uid, extractor);
             UpdateUi(uid, extractor, true, false, false);
 
-            extractor.ActiveAttackers.RemoveWhere(attacker => Deleted(attacker));
+            extractor.ActiveAttackers.RemoveWhere(attacker =>
+                Deleted(attacker) ||
+                TryComp<MobStateComponent>(attacker, out var state) && state.CurrentState == MobState.Dead);
+
+            // A new themed encounter is not scheduled until the previous one is
+            // defeated. This prevents raiders, mutants, and wildlife from being
+            // mixed by overlapping rotations (and prevents their factions from
+            // fighting each other instead of the players).
+            if (extractor.WaveActive && extractor.ActiveAttackers.Count == 0)
+            {
+                extractor.WaveActive = false;
+                extractor.WarningSent = false;
+                extractor.NextWave = _timing.CurTime + NextWaveDelay(extractor);
+            }
 
             if (_timing.CurTime < extractor.DamagePauseUntil)
             {
@@ -192,7 +209,8 @@ public sealed partial class MaterialExtractorSystem : EntitySystem
                 continue;
             }
 
-            if (!extractor.WarningSent && _timing.CurTime >= extractor.NextWave - TimeSpan.FromSeconds(extractor.WaveWarningSeconds))
+            if (!extractor.WaveActive && !extractor.WarningSent &&
+                _timing.CurTime >= extractor.NextWave - TimeSpan.FromSeconds(extractor.WaveWarningSeconds))
             {
                 extractor.WarningSent = true;
                 SetBeacon(uid, extractor, true);
@@ -200,7 +218,7 @@ public sealed partial class MaterialExtractorSystem : EntitySystem
                     AudioParams.Default.WithVolume(-3f).WithMaxDistance(30f));
             }
 
-            if (_timing.CurTime >= extractor.NextWave)
+            if (!extractor.WaveActive && _timing.CurTime >= extractor.NextWave)
                 StartWave(uid, extractor);
 
             if (_timing.CurTime >= extractor.NextPulse)
@@ -323,19 +341,43 @@ public sealed partial class MaterialExtractorSystem : EntitySystem
             ChatTransmitRange.Normal,
             ignoreActionBlocker: true);
 
-        var count = _random.Next(extractor.WaveMinMobCount, extractor.WaveMaxMobCount + 1);
-        var prototype = SelectWaveMob(extractor);
+        var theme = SelectWaveTheme(extractorUid, extractor);
+        var bossWave = theme != null &&
+                       extractor.WavesStarted + 1 >= extractor.BossWaveMinNumber &&
+                       theme.Bosses.Count > 0 &&
+                       _random.Prob(extractor.BossWaveChance);
+        var count = bossWave
+            ? 1
+            : theme == null
+                ? _random.Next(extractor.WaveMinMobCount, extractor.WaveMaxMobCount + 1)
+                : _random.Next(theme.MinCount, theme.MaxCount + 1);
+        var spawned = 0;
 
         for (var i = 0; i < count; i++)
         {
             if (!TryFindWaveSpawnCoordinates(extractorUid, extractor, out var spawnCoordinates))
                 continue;
 
+            var prototype = theme == null
+                ? SelectWaveMob(extractor)
+                : SelectWeightedPrototype(bossWave ? theme.Bosses : theme.Mobs,
+                    $"material extractor theme '{theme.Name}'");
             var attacker = EntityManager.SpawnIfUnobstructed(prototype, spawnCoordinates, CollisionGroup.MobMask);
             if (attacker == null)
                 continue;
 
+            spawned++;
             extractor.ActiveAttackers.Add(attacker.Value);
+
+            if (bossWave && theme != null)
+            {
+                var partySize = CountEncounterPlayers(extractorUid, extractor.EncounterPlayerRadius);
+                _bosses.ConfigureFinalGuardian(attacker.Value,
+                    GetBossFamily(theme.Family, prototype),
+                    prototype,
+                    partySize,
+                    new Random(_random.Next()));
+            }
 
             if (TryComp<HTNComponent>(attacker.Value, out var htn))
             {
@@ -346,8 +388,111 @@ public sealed partial class MaterialExtractorSystem : EntitySystem
         }
 
         extractor.WarningSent = false;
-        extractor.NextWave = _timing.CurTime + TimeSpan.FromSeconds(_random.Next(extractor.WaveMinSeconds, extractor.WaveMaxSeconds + 1));
+        if (spawned > 0)
+        {
+            extractor.WaveActive = true;
+            extractor.WavesStarted++;
+        }
+        else
+        {
+            // Invalid/blocked spawn positions should retry soon, not consume a
+            // rotation or spin every server tick.
+            extractor.NextWave = _timing.CurTime + TimeSpan.FromSeconds(5);
+        }
         SetBeacon(extractorUid, extractor, true);
+    }
+
+    private TimeSpan NextWaveDelay(MaterialExtractorComponent extractor)
+        => TimeSpan.FromSeconds(_random.Next(extractor.WaveMinSeconds, extractor.WaveMaxSeconds + 1));
+
+    private MaterialExtractorWaveTheme? SelectWaveTheme(EntityUid extractorUid, MaterialExtractorComponent extractor)
+    {
+        if (extractor.WaveThemes.Count == 0)
+            return null;
+
+        var isNight = IsNight(extractorUid, extractor);
+        var totalWeight = 0;
+        foreach (var theme in extractor.WaveThemes)
+        {
+            if ((!theme.NightOnly || isNight) && theme.Mobs.Count > 0 && theme.Weight > 0)
+                totalWeight += theme.Weight;
+        }
+
+        if (totalWeight <= 0)
+            throw new InvalidOperationException("Material extractor has no eligible wave themes with positive weight.");
+
+        var roll = _random.Next(totalWeight);
+        foreach (var theme in extractor.WaveThemes)
+        {
+            if ((theme.NightOnly && !isNight) || theme.Mobs.Count == 0 || theme.Weight <= 0)
+                continue;
+
+            roll -= theme.Weight;
+            if (roll < 0)
+                return theme;
+        }
+
+        throw new InvalidOperationException("Material extractor failed to select an eligible wave theme.");
+    }
+
+    private bool IsNight(EntityUid extractorUid, MaterialExtractorComponent extractor)
+    {
+        if (Transform(extractorUid).MapUid is not { } mapUid ||
+            !TryComp<DayNightCycleComponent>(mapUid, out var dayNight) ||
+            dayNight.CycleDurationMinutes <= 0f)
+            return false;
+
+        var duration = dayNight.CycleDurationMinutes * 60f;
+        var elapsed = MathF.Max(0f, (float) _timing.CurTime.TotalSeconds - dayNight.RoundStartTimeSeconds);
+        var cycleTime = (elapsed + dayNight.StartOffset * duration) % duration / duration;
+        return cycleTime >= extractor.NightStart && cycleTime < extractor.NightEnd;
+    }
+
+    private int CountEncounterPlayers(EntityUid extractorUid, float radius)
+    {
+        var extractorTransform = Transform(extractorUid);
+        var origin = _transform.GetWorldPosition(extractorUid);
+        var radiusSquared = radius * radius;
+        var count = 0;
+        var query = EntityQueryEnumerator<ActorComponent, MobStateComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out _, out var mobState, out var transform))
+        {
+            if (mobState.CurrentState == MobState.Alive && transform.MapID == extractorTransform.MapID &&
+                Vector2.DistanceSquared(_transform.GetWorldPosition(uid), origin) <= radiusSquared)
+                count++;
+        }
+
+        return Math.Max(count, 1);
+    }
+
+    private static ExpeditionMobFamily GetBossFamily(ExpeditionMobFamily themeFamily, string prototype)
+    {
+        if (prototype.Contains("Deathclaw", StringComparison.Ordinal))
+            return ExpeditionMobFamily.Deathclaw;
+        if (prototype.Contains("Radscorpion", StringComparison.Ordinal))
+            return ExpeditionMobFamily.Radscorpion;
+
+        return themeFamily;
+    }
+
+    private string SelectWeightedPrototype(Dictionary<string, int> prototypes, string source)
+    {
+        var totalWeight = 0;
+        foreach (var weight in prototypes.Values)
+            totalWeight += Math.Max(weight, 0);
+
+        if (totalWeight <= 0)
+            throw new InvalidOperationException($"{source} must have a positive prototype weight total.");
+
+        var roll = _random.Next(totalWeight);
+        foreach (var (prototype, weight) in prototypes)
+        {
+            roll -= Math.Max(weight, 0);
+            if (roll < 0)
+                return prototype;
+        }
+
+        throw new InvalidOperationException($"{source} failed weighted prototype selection.");
     }
 
     private bool TryFindWaveSpawnCoordinates(EntityUid extractorUid, MaterialExtractorComponent extractor, out EntityCoordinates spawnCoordinates)

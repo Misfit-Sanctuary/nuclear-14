@@ -34,6 +34,9 @@
   special:
   - !type:AddComponentSpecial
     components:
+      - type: FactionRoster # #Cythisiax Added - roster GUI: Initiate -> Squire, Paladin caste
+        roster: BrotherhoodOfSteel
+        action: ActionOpenFactionRosterBoS
       - type: NpcFactionMember
         factions:
           - BrotherhoodOfSteel
@@ -44,15 +47,21 @@
         understands:
         - English
         - N14BrotherBeep
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Head Paladin
+    prefix: Hd. Pal.
+    color: "#3B72BF"
 
 - type: startingGear
   id: BoSMidPaladinCommanderGear
   equipment:
     wallet: N14Wallet
-    jumpsuit: N14ClothingUniformBosRecon  #Misfits Change /Tweak/: New consolidated BoS gear
+    jumpsuit: M14ClothingUniformBrotherhoodPaladin  #Misfits Change /Tweak/: New consolidated BoS gear
     back: N14ClothingBackpackMilitary
-    shoes: N14ClothingBootsLeatherFilled
+    shoes: N14ClothingBootsCombatFilled
     head: N14ClothingPaladinBeret
+    mask: N14ClothingMaskBrotherhoodHeadCover
     outerClothing: N14ClothingOuterPowerArmorWashT51Elite #Misfits Tweak: Head Paladin wears T-51b (was T-51BC commander)
     hands: N14ClothingHandsGlovesCombat
     pocket1: BoSBrotherhoodHeadPaladinKits

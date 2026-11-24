@@ -35,7 +35,7 @@ player-first-join-message = Player {$name} joined for the first time.
 # Displayed in chat to admins when a player leaves
 player-leave-message = Player {$name} left.
 
-latejoin-arrival-announcement = {$character} ({$job}) has arrived at the station!
+latejoin-arrival-announcement = {$character} ({$job}) has arrived in the region!
 latejoin-arrival-sender = Station
 # Misfits Change - wasteland theme: shuttle → train
 # latejoin-arrivals-direction = A shuttle transferring you to your station will arrive shortly.

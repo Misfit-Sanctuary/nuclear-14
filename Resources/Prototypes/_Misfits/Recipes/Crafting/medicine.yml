@@ -62,7 +62,7 @@
   parent: BaseHealingItem
   id: MisfitsDaturaHide
   name: datura hide
-  description: A numbing datura ointment for severe thermal burns. It is specialized for Heat damage and is poor treatment for other wounds.
+  description: A numbing datura ointment for severe thermal burns. It is specialized for Heat and Shock damage and is poor treatment for other wounds.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
@@ -72,11 +72,12 @@
   - type: Healing
     damageContainers:
     - Biological
-    # BURN SPECIALIST: HEAT.
-    # Strong single-type healing is the reward for diagnosing the injury correctly.
     damage:
       types:
-        Heat: -12
+        Heat: -10
+        Shock: -10
+        Caustic: -2.5
+        Cold: -2.5
     delay: 2.5
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
@@ -103,9 +104,9 @@
     - Biological
     damage:
       types:
-        Poison: -2
+        Poison: -10
       groups:
-        Brute: 2
+        Brute: 2.5
     bloodlossModifier: -10
     delay: 1.5
     healingBeginSound:
@@ -130,11 +131,11 @@
     state: bitterdrink
   - type: SolutionContainerManager
     solutions:
-      food:
-        maxVol: 10
+      drink:
+        maxVol: 50
         reagents:
         - ReagentId: MisfitsFieryPurgative
-          Quantity: 10
+          Quantity: 50
   - type: Construction
     graph: MisfitsFieryPurgative
     node: fierypurgative
@@ -151,10 +152,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 15
         reagents:
         - ReagentId: MisfitsBloodShield
-          Quantity: 10
+          Quantity: 15
   - type: Construction
     graph: MisfitsBloodShield
     node: bloodshield
@@ -183,7 +184,7 @@
   parent: BaseHealingItem
   id: MisfitsHealingSalve
   name: healing salve
-  description: A sticky herbal salve used to close lacerations and other slashing wounds. It is deliberately specialized rather than a universal ointment.
+  description: A sticky herbal salve used to close lacerations and other slashing or piercing wounds.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
@@ -193,11 +194,11 @@
   - type: Healing
     damageContainers:
     - Biological
-    # BRUTE SPECIALIST: SLASH.
     damage:
       types:
         Slash: -12
-    # Helps with the hemorrhage associated with open lacerations.
+        Piercing: -12
+        Blunt: -3
     bloodlossModifier: -3
     delay: 2
     healingBeginSound:
@@ -223,10 +224,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 5
+        maxVol: 10
         reagents:
         - ReagentId: MisfitsGravesalt
-          Quantity: 5
+          Quantity: 10
   - type: Construction
     graph: MisfitsGravesalt
     node: gravesalt
@@ -505,13 +506,15 @@
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 10
+        maxVol: 50
         reagents:
         - ReagentId: MisfitsGlowingBloodPack
-          Quantity: 10
+          Quantity: 50
   - type: Hypospray
     solutionName: pen
     transferAmount: 10
+  - type: UseDelay
+    delay: 0.5
   - type: Construction
     graph: MisfitsGlowingBloodPack
     node: glowingbloodpack
@@ -520,7 +523,7 @@
   parent: BaseHealingItem
   id: MisfitsHerbalAnodyne
   name: herbal anodyne
-  description: A soothing herbal balm massaged into bruised and battered tissue. It is specialized for blunt trauma rather than cuts or burns.
+  description: A soothing herbal balm massaged into bruised and battered tissue.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi
@@ -530,8 +533,9 @@
   - type: Healing
     damageContainers:
     - Biological
-    # BRUTE SPECIALIST: BLUNT.
     damage:
+      groups:
+        Burn: -15
       types:
         Blunt: -10
     delay: 2.5
@@ -561,13 +565,11 @@
   - type: Healing
     damageContainers:
     - Biological
-    # BURN SPECIALIST: CAUSTIC.
-    # A small Poison heal represents cleaning contaminated tissue without turning
-    # this into a general antidote.
     damage:
       types:
         Caustic: -10
-        Poison: -2
+        Heat: -5
+        Poison: -3
     delay: 2.5
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
@@ -593,10 +595,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10
+        maxVol: 20
         reagents:
         - ReagentId: MisfitsHerbalStimulant
-          Quantity: 10
+          Quantity: 20
   - type: Construction
     graph: MisfitsHerbalStimulant
     node: herbalstimulant

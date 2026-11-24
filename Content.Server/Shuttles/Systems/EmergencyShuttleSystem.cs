@@ -1,3 +1,4 @@
+using Robust.Shared.Prototypes;
 using System.Numerics;
 using System.Threading;
 using Content.Server.Access.Systems;
@@ -77,8 +78,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
 
     private bool _emergencyShuttleEnabled;
 
-    [ValidatePrototypeId<TagPrototype>]
-    private const string DockTag = "DockEmergency";
+    private static readonly ProtoId<TagPrototype> DockTag = "DockEmergency";
 
     public override void Initialize()
     {

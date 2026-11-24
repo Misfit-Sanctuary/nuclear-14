@@ -3,8 +3,6 @@ using Content.Shared.Access;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared._N14.Special
 {
@@ -42,8 +40,8 @@ namespace Content.Shared._N14.Special
         [DataField("setPreference")]
         public bool SetPreference { get; } = true;
 
-        [DataField("icon", customTypeSerializer: typeof(PrototypeIdSerializer<StatusIconPrototype>))]
-        public string Icon { get; } = "JobIconUnknown";
+        [DataField("icon")]
+        public ProtoId<StatusIconPrototype> Icon { get; } = "JobIconUnknown";
 
         [DataField("order")]
         public int Order {get; set; }

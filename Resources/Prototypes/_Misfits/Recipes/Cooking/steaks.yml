@@ -1,0 +1,47 @@
+- type: constructionGraph
+  id: GraphSteakBrahdo
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: SteakCooked
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 305
+  - node: SteakCooked
+    entity: MisfitsFoodMeatBrahdoCooked
+
+- type: constructionGraph
+  id: GraphCookAny
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: CookNode
+      completed:
+      - !type:PlaySound
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 305
+  - node: CookNode
+    entity: !type:GeneralNodeEntity
+      protoKey: Cooked
+
+#- type: constructionGraph
+#  id: GraphSushi
+#  start: start
+#  graph:
+#  - node: start
+#    edges:
+#    - to: SushiFried
+#      completed:
+#      - !type:PlaySound
+#        sound: /Audio/Effects/sizzle.ogg
+#      steps:
+#      - minTemperature: 305
+#  - node: SushiFried
+#    entity: !type:GeneralNodeEntity
+#      protoKey: SushiFried
+

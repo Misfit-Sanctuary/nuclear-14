@@ -4,7 +4,8 @@
   parent: [ BaseMech, CombatMech ]
   categories: [ HideSpawnMenu ]
   components:
-  - type: PowerArmorMech
+  # // #Cythisiax Added - Apply personal inventory, hand combat, and training rules to PA mechs.
+  - type: MechPowerArmor
   - type: Sprite
     drawdepth: Mobs
     noRot: true

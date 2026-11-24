@@ -111,6 +111,15 @@
     price: 10
   - proto: N14FoodSalisburysteak
     price: 10
+  - proto: N14ReagentContainerRice
+    price: 10
+  - proto: N14ReagentContainerFlour
+    price: 10
+  - proto: N14ReagentContainerSugar
+    price: 10
+  - proto: MisfitsItemRaiserCan
+    price: 10
+
 
 - type: storeCategoryStructured
   id: WasterBuy2_SurvivalGear
@@ -124,7 +133,7 @@
     price: 10
   - proto: Charcoal1
     amount: 1
-    price: 20
+    price: 10
   - proto: BoxFlare
     price: 35
   - proto: Torch
@@ -168,21 +177,23 @@
   name: "Long guns"
   entries:
   - proto: N14WeaponLaserRifleCrude
-    price: 200
+    price: 300
   - proto: N14WeaponPlasmaRifleCrude
-    price: 240
+    price: 350
   - proto: N14WeaponLaserRifle
     price: 450
   - proto: N14WeaponSniper50Pipe
     price: 1200
-    count: 4
+    count: 3
   - proto: N14WeaponSMG10mmPipe
     price: 170
   - proto: N14WeaponSMG12mmPipe
     price: 125
+  - proto: N14WeaponSMGWt550
+    price: 360
   - proto: N14WeaponSMG12mmAdvancedChinese
     price: 350
-    count: 2
+    count: 3
   - proto: N14WeaponLMGchinese
     price: 3600
     count: 2
@@ -216,7 +227,7 @@
   - proto: N14WeaponPistol22lr
     price: 20
   - proto: N14WeaponLaserPistol
-    price: 60
+    price: 250
   - proto: N14WeaponPistol9mmChinese
     price: 18
 
@@ -226,8 +237,6 @@
   entries:
   - proto: N14ClothingOuterCombatTribal
     price: 350
-  - proto: N14ClothingOuterCombatArmorRCMP
-    price: 450
   - proto: N14ClothingOuterRaiderCombat1
     price: 500
   - proto: N14ClothingOuterPoliceCombat
@@ -292,6 +301,8 @@
     price: 220
   - proto: N14AmmoBox22lr
     price: 100
+  - proto: N14AmmoBox127
+    price: 220
 
 - type: storeCategoryStructured
   id: WasterBuy2_Medicine
@@ -343,6 +354,7 @@
   - proto: N14MaterialCircuitry
     amount: 10
     price: 375
+    count: 8
 
 - type: storeCategoryStructured
   id: WasterBuy2_Cosmetic
@@ -372,6 +384,8 @@
   id: WasterBuy2_Sprouts
   name: "Cuttings"
   entries:
+  - proto: MisfitsKokoaSeeds
+    price: 5
   - proto: N14FloraWildAgaveClippingSeed
     price: 5
   - proto: N14FloraWildBananaYuccaClippingSeed
@@ -422,6 +436,12 @@
     price: 5
   - proto: N14FloraWildXanderRootClippingSeed
     price: 5
+  - proto: CocoaSeeds
+    price: 10
+  - proto: RiceSeeds
+    price: 10
+  - proto: SugarcaneSeeds
+    price: 10
 
 - type: storeCategoryStructured
   id: WasterBuy2_Currency # IF YOU CHANGE ONE EXCHANGE RATE, YOU MUST CHANGE ALL OTHERS ACROSS ALL FOUR FILES TO MATCH, OR YOU WILL CREATE AN INFINITE MONEY GLITCH
@@ -513,7 +533,7 @@
   - proto: N14Flashlight
     price: 5
   - proto: Charcoal
-    price: 10
+    price: 5
   - proto: BoxFlare
     price: 18
   - proto: Torch
@@ -716,6 +736,8 @@
     price: 550
   - proto: N14WeaponSMGAmerican180
     price: 30
+  - proto: N14WeaponSMGWt550
+    price: 180
   - proto: N14WeaponSMG9mm
     price: 72
   - proto: N14WeaponSMGGreaseGun
@@ -742,6 +764,8 @@
     price: 138
   - proto: N14WeaponSMG12mmAdvanced
     price: 330
+  - proto: N14WeaponSniperPaciencia
+    price: 20
 
 - type: storeCategoryStructured
   id: WasterSell2_Handguns
@@ -798,8 +822,6 @@
   entries:
   - proto: N14ClothingOuterCombatTribal
     price: 175
-  - proto: N14ClothingOuterCombatArmorRCMP
-    price: 225
   - proto: N14ClothingOuterRaiderCombat1
     price: 250
   - proto: N14ClothingOuterPoliceCombat
@@ -1078,8 +1100,6 @@
     price: 20
   - proto: N14FoodMeatMirelurkClaw
     price: 20
-  - proto: N14MaterialCircuitry1
-    price: 25
   - proto: N14FoodMeatRadlurkClaw
     price: 25
   - proto: N14FoodEggDeathclaw

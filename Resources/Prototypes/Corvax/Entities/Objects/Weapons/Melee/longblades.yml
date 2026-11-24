@@ -321,7 +321,7 @@
       collection: MetalThud
     activatedDamage:
         types:
-            Heat: 60
+            Heat: 55
   # Misfits Fix - WelderComponent restores fuel quantity display when held
   - type: Welder
   - type: RefillableSolution

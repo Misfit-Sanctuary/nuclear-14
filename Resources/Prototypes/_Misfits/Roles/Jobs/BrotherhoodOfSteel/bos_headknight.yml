@@ -84,6 +84,9 @@
   special:
   - !type:AddComponentSpecial
     components:
+      - type: FactionRoster # #Cythisiax Added - roster GUI: Initiate -> Squire, Knight caste
+        roster: BrotherhoodOfSteel
+        action: ActionOpenFactionRosterBoS
       - type: NpcFactionMember
         factions:
           - BrotherhoodOfSteel
@@ -93,14 +96,19 @@
         understands:
         - English
         - N14BrotherBeep
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Head Knight
+    prefix: Hd. Kn.
+    color: "#3B72BF"
 
 - type: startingGear
   id: BoSHeadKnightGear
   equipment:
     wallet: N14Wallet
-    jumpsuit: N14ClothingUniformJumpskirtBOSBlack
+    jumpsuit: M14ClothingUniformBrotherhoodSeniorKnight
     back: N14ClothingBackpackMilitary
-    shoes: N14ClothingBootsLeatherFilled
+    shoes: N14ClothingBootsCombatFilled
     head: N14ClothingHeadKnightBeret
     outerClothing: MisfitsBoSHeadKnightArmor # #Misfits Tweak: T6 armor (0.65/0.60) — Head Knight tier, equal to NCR Staff Sergeant / Legion Prime Decanus
     hands: N14ClothingHandsGlovesCombat
@@ -110,7 +118,7 @@
     belt: ClothingBeltBoSWebbing
   storage:
     back:
-    - N14ClothingHeadHatBrotherhoodHelmetPaladin
+    - N14ClothingHeadHatBrotherhoodHelmetHeadKnight
     - N14BoxPlasticFilledMilitary
 
 - type: playTimeTracker

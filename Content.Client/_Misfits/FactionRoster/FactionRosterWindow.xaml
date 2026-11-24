@@ -1,0 +1,45 @@
+<!-- #Cythisiax Added - Faction roster: the faction roster, recruitment and oath window. -->
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'faction-roster-window-title'}"
+                      MinSize="760 480"
+                      SetSize="900 580">
+    <BoxContainer Orientation="Vertical" Margin="6" SeparationOverride="6">
+        <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+            <Label Name="SummaryLabel" HorizontalExpand="True" VerticalAlignment="Center" />
+            <Button Name="RefreshButton" Text="{Loc 'faction-roster-refresh'}" MinWidth="90" />
+        </BoxContainer>
+
+        <TabContainer Name="Tabs" VerticalExpand="True">
+            <!-- Roster tab -->
+            <BoxContainer Orientation="Vertical" SeparationOverride="4" Margin="4">
+                <LineEdit Name="FilterBox" PlaceHolder="{Loc 'faction-roster-filter-placeholder'}" />
+                <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                    <BoxContainer Name="MemberList" Orientation="Vertical" SeparationOverride="2" />
+                </ScrollContainer>
+            </BoxContainer>
+
+            <!-- Recruit tab -->
+            <BoxContainer Orientation="Vertical" SeparationOverride="4" Margin="4">
+                <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                    <BoxContainer Name="CandidateList" Orientation="Vertical" SeparationOverride="2" />
+                </ScrollContainer>
+            </BoxContainer>
+
+            <!-- Oath tab -->
+            <BoxContainer Orientation="Vertical" SeparationOverride="4" Margin="4">
+                <Label Name="OathHint" StyleClasses="LabelSubText" />
+                <PanelContainer StyleClasses="BackgroundDark" VerticalExpand="True">
+                    <TextEdit Name="OathEdit" VerticalExpand="True" HorizontalExpand="True" Margin="4" />
+                </PanelContainer>
+                <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                    <Label Name="OathCounter" StyleClasses="LabelSubText" HorizontalExpand="True" VerticalAlignment="Center" />
+                    <Button Name="OathResetButton" Text="{Loc 'faction-roster-oath-reset'}" MinWidth="120" />
+                    <Button Name="OathSaveButton" Text="{Loc 'faction-roster-oath-save'}" MinWidth="120" />
+                </BoxContainer>
+            </BoxContainer>
+        </TabContainer>
+
+        <Label Name="StatusLabel" StyleClasses="LabelSubText" />
+    </BoxContainer>
+</controls:FancyWindow>

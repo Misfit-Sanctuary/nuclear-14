@@ -46,6 +46,7 @@
     - NCRMedic
     - NCRLT
     - NCRRanger
+    - NCRProvost
     - CaesarLegion # Misfit: Legion Start
     - CaesarLegionRecruit #Misfits Add - Cell door gate access for Legion IDs
     - CaesarLegionSlave
@@ -70,6 +71,18 @@
     - 80s # Misfit: 80s Start
     - 80sHead
     - 80sSlave
+    - Enclave # Misfit: Enclave Start
+    - EnclaveNCO
+    - EnclaveOfficer
+    - EnclaveCommand
+    - EnclaveScience
+    - EnclaveRoleAll
+    - EnclaveRoleScientist
+    - EnclaveRoleHeadScientist
+    - EnclaveRoleNCO
+    - EnclaveRoleJuniorOfficer
+    - EnclaveRoleSeniorOfficer
+    - EnclaveRoleCommander
 
     privilegedIdSlot:
       name: id-card-console-privileged-id

@@ -28,15 +28,20 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using static Content.Client.Inventory.ClientInventorySystem;
 using static Robust.Client.UserInterface.Control;
+using Content.Shared.Storage.EntitySystems;
+using Content.Shared.Storage;
+using Content.Shared._Misfits.Interaction;
 
 namespace Content.Client.Inventory
 {
     [UsedImplicitly]
-    public sealed class StrippableBoundUserInterface : BoundUserInterface
+    public sealed partial class StrippableBoundUserInterface : BoundUserInterface
     {
-        [Dependency] private readonly IPlayerManager _player = default!;
-        [Dependency] private readonly IUserInterfaceManager _ui = default!;
-
+        [Dependency] private ClientInventorySystem _inventorySystem = default!;
+        [Dependency] private IPlayerManager _player = default!;
+        [Dependency] private IUserInterfaceManager _ui = default!;
+        [Dependency] private SharedUserInterfaceSystem _uiShared = default!;
+        [Dependency] private SharedStorageSystem _sharedStorage = default!;
         private readonly ExamineSystem _examine;
         private readonly InventorySystem _inv;
         private readonly SharedCuffableSystem _cuffable;
@@ -179,6 +184,41 @@ namespace Content.Client.Inventory
             _strippingMenu!.HandsContainer.AddChild(button);
         }
 
+        private void SlotPressed_Open(GUIBoundKeyEventArgs ev, SlotControl slot)
+        {
+
+            if (_player.LocalEntity is null)
+            {
+                ev.Handle();
+                return;
+            }
+
+            if (ev.Function == EngineKeyFunctions.UIClick)
+            {
+                SendMessage(new StrippingSlotButtonPressed(slot.SlotName, slot is HandButton));
+                ev.Handle();
+                return;
+            }
+
+            if (ev.Function == ContentKeyFunctions.ExamineEntity)
+            {
+                _inventorySystem.UIInventoryExamine(slot.SlotName, Owner);
+            }
+            else if (ev.Function == EngineKeyFunctions.UseSecondary)
+            {
+                _inventorySystem.UIInventoryOpenContextMenu(slot.SlotName, Owner);
+            }
+            else if (ev.Function == ContentKeyFunctions.AltActivateItemInWorld)
+            {
+                _inventorySystem.UIInventoryAltActivateItem(slot.SlotName, Owner);
+            }
+            else
+            {
+                return;
+            }
+            //ev.Handle();
+
+        }
         private void SlotPressed(GUIBoundKeyEventArgs ev, SlotControl slot)
         {
             // TODO: allow other interactions? Verbs? But they should then generate a pop-up and/or have a delay so the
@@ -198,7 +238,6 @@ namespace Content.Client.Inventory
             else if (ev.Function == EngineKeyFunctions.UseSecondary)
                 _ui.GetUIController<VerbMenuUIController>().OpenVerbMenu(slot.Entity.Value);
         }
-
         private void AddInventoryButton(EntityUid invUid, string slotId, InventoryComponent inv)
         {
             if (!_inv.TryGetSlotContainer(invUid, slotId, out var container, out var slotDef, inv))
@@ -219,7 +258,16 @@ namespace Content.Client.Inventory
 
 
             var button = new SlotButton(new SlotData(slotDef, container));
-            button.Pressed += SlotPressed;
+            if (EntMan.TryGetComponent<OpenSlotComponent>(invUid, out var slotComp) &&
+            slotComp.OpenSlots.Contains(slotId))
+            {
+                button.Pressed += SlotPressed_Open;
+                button.StoragePressed += StoragePressed;
+            }
+            else
+            {
+                button.Pressed += SlotPressed;
+            }
 
             _strippingMenu!.InventoryContainer.AddChild(button);
 
@@ -227,12 +275,28 @@ namespace Content.Client.Inventory
 
             LayoutContainer.SetPosition(button, slotDef.StrippingWindowPos * (SlotControl.DefaultButtonSize + ButtonSeparation));
         }
-
+        /// repeat code
+        public void StoragePressed(GUIBoundKeyEventArgs args, SlotControl control)
+        {
+            if (_player.LocalEntity is not null && control.Entity is not null)
+            {
+                _uiShared.TryOpenUi(control.Entity.Value, StorageComponent.StorageUiKey.Key, _player.LocalEntity.Value, true);
+                args.Handle();
+            }
+        }
         private void UpdateEntityIcon(SlotControl button, EntityUid? entity)
         {
             // Hovering, highlighting & storage are features of general hands & inv GUIs. This UI just re-uses these because I'm lazy.
             button.ClearHover();
-            button.StorageButton.Visible = false;
+            if (entity is null)
+            {
+                button.SetEntity(null);
+                return;
+            }
+
+            button.StorageButton.Visible = EntMan.HasComponent<AccessByParentComponent>(entity);
+
+
 
             if (entity == null)
             {

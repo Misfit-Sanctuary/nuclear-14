@@ -39,12 +39,19 @@
           - NCR
       - type: VertibirdPilotPerk # #Misfits Add - pilot perk granted free with the role
       - type: VertibirdCrew # #Misfits Add - trained crew repair the airframe faster
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinNCRWarrantOfficer }
+    - { pin: ClothingNeckPinNCRChiefWarrantOfficer2, hours: 20 }
+    - { pin: ClothingNeckPinNCRChiefWarrantOfficer3, hours: 40 }
 
 - type: startingGear
   id: NCRVertibirdPilotGear
   equipment:
     wallet: N14Wallet
     head: N14ClothingHeadHatNCRBeretOfficer
+    ears: N14ClothingHeadsetNCR
     back: N14ClothingBackpackNCR
     jumpsuit: N14ClothingOfficerUniformNCRDesert
     outerClothing: MisfitsNCROfficerArmor
@@ -52,8 +59,7 @@
     hands: N14ClothingHandsGlovesCombat
     belt: ClothingBeltNCR
     eyes: N14ClothingEyesGlassesPilot
-    ears: N14ClothingHeadsetNCR
-    pocket1: NCRLTloadoutkits
+    # #Cythisiax Removed - Main NCR job slots now obtain selectable equipment from the requisitions vendors.
     pocket2: RadioHandheld
     id: N14IDNCRDogtagOfficer
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert

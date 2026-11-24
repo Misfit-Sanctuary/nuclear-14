@@ -106,6 +106,10 @@ public sealed partial class PowerArmorIntegrityComponent : Component
     // #Misfits Add - allows per-armor-variant control over the servo-lock mechanic
     [DataField, AutoNetworkedField]
     public bool DisableServosLock;
+
+    ///     Whether the 25% integrity steam warning has been triggered.
+    [DataField, AutoNetworkedField]
+    public bool SteamWarned;
 }
 
 /// <summary>

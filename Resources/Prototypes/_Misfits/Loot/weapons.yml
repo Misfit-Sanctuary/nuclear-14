@@ -16,10 +16,21 @@
   - type: EntityTableSpawner
     table: !type:NestedSelector
       tableId: M14WeaponLootAllTiers
-      prob: 0.75
+      prob: 1
     # Keep the MarkerBase after its one map-init roll so mappers can reveal and
     # delete it with Show Spawns, like the existing N14 map spawners.
     deleteSpawnerAfterSpawn: false
+
+- type: entity
+  name: Weapon Cache Room Spawner
+  suffix: Tiered
+  id: M14WeaponLootCacheRoomSpawner
+  parent: MarkerBase
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: M14WeaponLootCacheRoom
+      prob: 1
 
 # The broad world distribution deliberately falls off hard at higher tiers.
 # Add map markers rather than fixed guns to keep a location's exact loot unknown.
@@ -31,16 +42,27 @@
     children:
     - !type:NestedSelector
       tableId: M14WeaponLootTier1
-      weight: 60
+      weight: 45
     - !type:NestedSelector
       tableId: M14WeaponLootTier2
-      weight: 25
+      weight: 30
     - !type:NestedSelector
       tableId: M14WeaponLootTier3
-      weight: 10
+      weight: 25
     - !type:NestedSelector
       tableId: M14WeaponLootTier4
-      weight: 4
+      weight: 15
     - !type:NestedSelector
       tableId: M14WeaponLootTier5
-      weight: 1
+      weight: 5
+
+- type: entityTable
+  id: M14WeaponLootCacheRoom
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: M14WeaponLootTier4
+      weight: 30
+    - !type:NestedSelector
+      tableId: M14WeaponLootTier5
+      weight: 5

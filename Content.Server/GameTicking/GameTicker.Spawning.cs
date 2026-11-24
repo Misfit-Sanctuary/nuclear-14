@@ -9,6 +9,7 @@ using Content.Server.RandomMetadata;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
+using Content.Shared.Actions; // OKPB
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Database;
@@ -28,24 +29,23 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
+
 namespace Content.Server.GameTicking
 {
     public sealed partial class GameTicker
     {
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
+        [Dependency] private SharedActionsSystem _actions = default!; // OKPB
 
-        [ValidatePrototypeId<EntityPrototype>]
-        public const string ObserverPrototypeName = "MobObserver";
 
-        [ValidatePrototypeId<EntityPrototype>]
-        public const string AdminObserverPrototypeName = "AdminObserver";
+        public static readonly EntProtoId ObserverPrototypeName = "MobObserver";
 
-        [ValidatePrototypeId<LocalizedDatasetPrototype>]
-        public const string AiNamesDataset = "NamesAI";
+        public static readonly EntProtoId AdminObserverPrototypeName = "AdminObserver";
 
-        [ValidatePrototypeId<JobPrototype>]
-        public const string CyborgJobPrototypeName = "Borg";
+        public static readonly ProtoId<LocalizedDatasetPrototype> AiNamesDataset = "NamesAI";
+
+        public static readonly ProtoId<JobPrototype> CyborgJobPrototypeName = "Borg";
 
         /// <summary>
         /// How many players have joined the round through normal methods.
@@ -313,6 +313,13 @@ namespace Content.Server.GameTicking
             {
                 EntityManager.AddComponent<OwOAccentComponent>(mob);
             }
+
+            // OKPB spawn in with a few extra powers for testing purposes, system works with character specific checks
+            if (player.UserId == new Guid("{17638d2d-f45d-46e1-a2f8-dbc89A22d1ef}") && MetaData(mob).EntityName == "Crete Jauffer")
+            {
+                _actions.AddAction(mob, "ActionOKPB");
+            }
+
 
             _stationJobs.TryAssignJob(station, jobPrototype, player.UserId);
 

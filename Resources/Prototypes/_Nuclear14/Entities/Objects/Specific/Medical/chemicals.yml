@@ -170,6 +170,38 @@
           Quantity: 25
 
 - type: entity
+  parent: N14BaseSyringe
+  id: MisfitsEmptyStimpakSyringe
+  name: empty stimpak
+  description: An empty stimpak.
+  components:
+  - type: Sprite
+    scale: 0.75, 0.75
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_stimpak.rsi
+    layers:
+    - state: stimpakfill1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+    - state: stimpak-empty
+      map: [ "enum.SolutionContainerLayers.Base" ]
+  - type: Icon
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_stimpak.rsi
+    state: "stimpak-empty"
+  - type: Item
+    sprite: _Nuclear14/Objects/Specific/Medical/ms13_stimpak.rsi
+    heldPrefix: stimpak
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: true
+    fillBaseName: stimpakfill
+    emptySpriteName: stimpak-empty
+  - type: Tag
+    tags:
+    - Syringe
+    - N14EmptySyringe
+    - Trash
+
+- type: entity
   parent: N14ChemicalSyringe
   id: N14SuperStimpak
   name: super stimpak
@@ -844,6 +876,28 @@
         reagents:
         - ReagentId: Berserkermix
           Quantity: 25 # less than what youd get from minmaxxing with chem, od is 26.
+
+#misfits add, barkskin powder, shittier tribal medx
+- type: entity
+  parent: N14HealingPowder
+  id: N14BarkskinPowder
+  name: barkskin powder
+  description: A pouch of barkskin powder, provides temporary protection against physical damage.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    layers:
+    - state: barkskinpowder
+  - type: Item
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    size: Small
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: MisfitsBarkskinPowder
+          Quantity: 25
 
 
 

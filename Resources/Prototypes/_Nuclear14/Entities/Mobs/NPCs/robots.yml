@@ -140,7 +140,7 @@
   parent: N14MobRobotHostileMelee
   id: N14MobRobotAssaultronHostile
   name: Assaultron
-  description: Horrifying. Fast. Deadly.
+  description: Military gynoids designed for frontline combat, with an emphasis on agility and brutality. They were made to thrive in combat, which wouldn't be so bad if their targeting chips were still functional.
   components:
   - type: IdleSound #Misfits Change - use the dedicated Assaultron idle loop set
   - type: SpamEmitSound #Misfits Change - periodic Assaultron idle chatter
@@ -259,7 +259,7 @@
   parent: N14MobRobotHostileMelee
   id: N14MobRobotProtectronHostile
   name: Protectron
-  description: A common protectron looking for a fight.
+  description: When workers started to demand better wages, employers preferred to replace them wholesale with these general purpose protectrons instead.
   components:
   - type: IdleSound #Misfits Change - use the dedicated Protectron idle loop set
   - type: SpamEmitSound #Misfits Change - periodic Protectron idle chatter
@@ -339,8 +339,8 @@
 - type: entity
   parent: N14MobRobotProtectronHostile
   id: N14MobRobotProtectronBuilderHostile
-  name: Protectron
-  description: A protectron builder looking for a fight.
+  name: Utility Protectron
+  description: Overworking their employees and refusing to provide them with proper safety equipment, many companies instead replaced their workers with these durable automatons who worked tirelessly and without complaint.
   components:
   - type: Sprite
     sprite: _Nuclear14/Mobs/Robots/protectron-builder.rsi
@@ -374,8 +374,8 @@
 - type: entity
   parent: N14MobRobotProtectronHostile
   id: N14MobRobotProtectronFireHostile
-  name: Protectron
-  description: A protectron firefighter looking for a fight.
+  name: Fire Brigadier Protectron
+  description: The failing infrastructure and large scale riots of the United States as the end of days approached were too much for human volunteers to handle, and so the reliable protectrons were given yet another duty.
   components:
   - type: Sprite
     sprite: _Nuclear14/Mobs/Robots/protectron-fire.rsi
@@ -409,8 +409,8 @@
 - type: entity
   parent: N14MobRobotProtectronHostile
   id: N14MobRobotProtectronPoliceHostile
-  name: Protectron
-  description: A protectron police bot looking for a fight.
+  name: Police Protectron
+  description: Officers began to refuse to beat down protestors, due to both moral complaints at the scale of violence politicians demanded, and lack of consistent payment from their employers. Yet even they could be replaced.
   components:
   - type: Sprite
     sprite: _Nuclear14/Mobs/Robots/protectron-police.rsi
@@ -551,8 +551,8 @@
 - type: entity
   parent: N14MobRobotHostileMelee
   id: N14MobRobotMrHandyClaw
-  name: Mr Handy
-  description: A domestic Mr Handy model with a claw attachment.
+  name: Mister Handy
+  description: The perfect domestic servant, always pleased to help out around the house. And it looks like this NexGen model has a claw attachment ready to help with ending your miserable life.
   suffix: hostile, claw
   components:
   - type: IdleSound #Misfits Change - use the dedicated Mr. Handy idle loop set
@@ -657,7 +657,7 @@
 - type: entity
   parent: N14MobRobotMrHandyClaw
   id: N14MobRobotMrHandySaw
-  description: A domestic Mr Handy model with a saw attachment.
+  description: The perfect domestic servant, always pleased to help out around the house. And it looks like this NexGen model has a buzzsaw attachment ready to help with ending your miserable life.
   suffix: hostile, saw
   components:
   - type: MeleeWeapon
@@ -708,8 +708,8 @@
 - type: entity
   parent: N14MobRobotHostile
   id: N14MobRobotMrHandyGun
-  name: Mr Handy
-  description: A domestic Mr Handy model with a gun attachment.
+  name: Modified Mister Handy
+  description: The perfect domestic servant, always pleased to help out around the house. It looks like this NexGen model has been illegally modified with a gun attachment, that's going to void the warranty! And your life, too.
   suffix: hostile, gun
   components:
   - type: IdleSound #Misfits Change - use the dedicated Mr. Handy idle loop set
@@ -765,7 +765,7 @@
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
   - type: Loadout
     prototypes:
-      - RaiderPistolGear
+      - RaiderPistol1Gear
   - type: HTN
     rootTask:
       task: N14RangedHostileCompound
@@ -796,8 +796,8 @@
 - type: entity
   parent: N14MobRobotHostile
   id: N14MobRobotMrHandyGutsy
-  name: Mr Gutsy
-  description: A military Mr Gutsy model with a plasma attachment.
+  name: Mister Gutsy
+  description: Even hardened pre-war military veterans were spread thin while deployed domestically to handle the food riots, so their numbers were supplemented by Mister Handy robots modified with new military lawsets and integrated plasma weaponry.
   suffix: hostile, plasma
   components:
   - type: IdleSound #Misfits Change - use the dedicated Mr. Gutsy idle loop set
@@ -883,7 +883,7 @@
   parent: N14MobRobotHostile
   id: N14MobRobotRobobrain
   name: Robobrain
-  description: A military Robobrain outfitted with a laser weapon.
+  description: Two hundred years without basic sensory input or social interaction could drive anyone insane, killing this brain in a jar is probably a mercy. But its laser attachment is standing in the way of that.
   suffix: hostile, laser
   components:
   - type: MovementSpeedModifier

@@ -1,0 +1,24 @@
+- type: construction
+  name: brahdo saddle
+  id: ClothingBrahdoSaddle_BasicStorage
+  graph: ConstructGraph_BrahdoSaddleStorage
+  startNode: start
+  targetNode: saddleStorage
+  category: construction-category-clothing
+  description: a storage saddle
+  icon: { sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddleIcon.rsi, state: icon }
+  objectType: Item
+  hide: false
+
+
+# - type: construction
+#   name: brahdo saddle
+#   id: MisfitsBrahdoSaddle_BasicArmor
+#   graph: ConstructGraph_BrahdoSaddleArmor
+#   startNode: start
+#   targetNode: saddleArmor
+#   category: construction-category-clothing
+#   description: an armored saddle
+#   icon: { sprite: _Misfits/Clothing/Animal/Brahdo/Armor/saddleIcon.rsi, state: icon }
+#   objectType: Item
+#   hide: false

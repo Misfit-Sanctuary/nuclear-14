@@ -170,7 +170,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
             return;
 
         var comp = EnsureComp<DeviceLinkSinkComponent>(uid);
-        comp.Ports ??= new HashSet<string>();
+        comp.Ports ??= new HashSet<ProtoId<SinkPortPrototype>>();
 
         foreach (var port in ports)
         {

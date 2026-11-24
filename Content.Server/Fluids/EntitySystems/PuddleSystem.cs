@@ -56,14 +56,11 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
     [Dependency] private readonly SpeedModifierContactsSystem _speedModContacts = default!;
     [Dependency] private readonly TileFrictionController _tile = default!;
 
-    [ValidatePrototypeId<ReagentPrototype>]
-    private const string Blood = "Blood";
+    private static readonly ProtoId<ReagentPrototype> Blood = "Blood";
 
-    [ValidatePrototypeId<ReagentPrototype>]
-    private const string Slime = "Slime";
+    private static readonly ProtoId<ReagentPrototype> Slime = "Slime";
 
-    [ValidatePrototypeId<ReagentPrototype>]
-    private const string CopperBlood = "CopperBlood";
+    private static readonly ProtoId<ReagentPrototype> CopperBlood = "CopperBlood";
 
     private static string[] _standoutReagents = [Blood, Slime, CopperBlood];
 
@@ -309,18 +306,21 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         _reactive.DoEntityReaction(args.Slipped, splitSol, ReactionMethod.Touch);
     }
 
-    /// <inheritdoc/>
+    /// <summary>
+    ///
+    /// </summary>
     public override void Update(float frameTime)
     {
+
         base.Update(frameTime);
         foreach (var ent in _deletionQueue)
-        {
             Del(ent);
-        }
-
         _deletionQueue.Clear();
+        var e = _timing.CurTick.Value;
 
-        TickEvaporation();
+
+        if(_timing.CurTick.Value % _timing.TickRate == 0)
+            TickEvaporation();
     }
 
     private void OnPuddleInit(Entity<PuddleComponent> entity, ref ComponentInit args)

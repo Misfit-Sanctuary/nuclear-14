@@ -84,15 +84,20 @@
         factions:
           - BrotherhoodOfSteel
       - type: PowerArmorProficiency # #Misfits Add: Paladins start in T-45; grant proficiency automatically so they can equip their starting gear.
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Paladin
+    prefix: Pal.
+    color: "#3B72BF"
 
 - type: startingGear
   id: BoSPaladinGear
   equipment:
     wallet: N14Wallet
-    jumpsuit: N14ClothingUniformBosRecon
+    jumpsuit: M14ClothingUniformBrotherhoodPaladin
     back: N14ClothingBackpackMilitary
-    shoes: N14ClothingBootsLeatherFilled
-    head: N14ClothingHeadHatCapkhighBoS
+    shoes: N14ClothingBootsCombatFilled
+    mask: N14ClothingMaskBrotherhoodHeadCover
     outerClothing: MisfitsT45ClothingOuterPowerArmorBoS
     hands: N14ClothingHandsGlovesCombat
     pocket1: BoSBrotherhoodPaladinKits

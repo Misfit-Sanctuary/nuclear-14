@@ -42,6 +42,11 @@
         understands:
         - English
         - N14BrotherBeep
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Honor Guard
+    prefix: HG
+    color: "#3B72BF"
 
 # #Cythisiax Added - Honor Guard kit: the Head Paladin loadout with the 509th T-51bc
 # and Honor Guard holotags in place of the Head Paladin Pip-Boy.
@@ -49,10 +54,11 @@
   id: BoSHonorGuardGear
   equipment:
     wallet: N14Wallet
-    jumpsuit: N14ClothingUniformBosRecon
+    jumpsuit: M14ClothingUniformBrotherhoodPaladin
     back: N14ClothingBackpackMilitary
-    shoes: N14ClothingBootsLeatherFilled
+    shoes: N14ClothingBootsCombatFilled
     head: N14ClothingPaladinBeret
+    mask: N14ClothingMaskBrotherhoodHeadCover
     outerClothing: MisfitsClothingOuterPowerArmorBoS509HonorGuard
     hands: N14ClothingHandsGlovesCombat
     pocket1: BoSBrotherhoodHeadPaladinKits

@@ -32,7 +32,7 @@ department-BrotherhoodMidwest-description = The Brotherhood of Steel
 department-CaravanCompany-description = The local Caravan Company responsible for import and export of goods.
 department-NCR-description = A settler detachment sent by the New California Republic
 department-Ranger-description = Desert Rangers which haven't joined the NCR and instead kept being their own faction. Their view of NCR isn't the best, but they tolerate them.
-department-Rangers-description = Veteran, field, and patrol rangers operating beside, but outside, the NCR military chain of command.
+department-Rangers-description = Ranger lead, ranger, and recruit rangers operating beside, but outside, the NCR military chain of command.
 # #Misfits Add - NCR Office of Science and Industry.
 department-OSI-description = The New California Republic's civilian science branch: researchers, engineers, and field operatives advancing the Republic's knowledge and industry.
 department-Tribe-description = The Willowers, a local tribal faction trying to get by.

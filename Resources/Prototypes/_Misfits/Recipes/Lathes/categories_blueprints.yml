@@ -161,9 +161,9 @@
   id: N14BlueprintBoSAmmoT4
   name: lathe-category-blueprint-bos-ammo-t4
 
-- type: latheCategory
-  id: N14BlueprintBoSAmmoT5
-  name: lathe-category-blueprint-bos-ammo-t5
+#- type: latheCategory
+#  id: N14BlueprintBoSAmmoT5
+#  name: lathe-category-blueprint-bos-ammo-t5
 
 # === TOWNSFOLK ===
 - type: latheCategory
@@ -411,4 +411,14 @@
 - type: latheCategory
   id: N14BlueprintEightiesAmmoT4
   name: lathe-category-blueprint-eighties-ammo-t4
+
+
+# === MORTAR ORDNANCE === # #Misfits Add - M29 shell production.
+- type: latheCategory
+  id: MisfitsBlueprintNCRMortarOrdnance
+  name: lathe-category-blueprint-ncr-mortar-ordnance
+
+- type: latheCategory
+  id: MisfitsBlueprintLegionMortarOrdnance
+  name: lathe-category-blueprint-legion-mortar-ordnance
 

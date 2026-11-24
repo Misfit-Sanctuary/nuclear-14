@@ -31,6 +31,11 @@ public sealed class LoreMasterClientSystem : EntitySystem
         RaiseNetworkEvent(new RequestLoreMasterFactionInfoEvent { FactionId = factionId });
     }
 
+    public void UploadLocalAudio(byte[] data, string extension)
+    {
+        RaiseNetworkEvent(new UploadLoreMasterAudioEvent(data, extension));
+    }
+
     /// <summary>Ask the server to issue an objective to the highest-ranking online faction member.</summary>
     public void IssueObjective(string factionId, string objectivePrototype)
     {

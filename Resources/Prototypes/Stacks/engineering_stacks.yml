@@ -12,3 +12,10 @@
   spawn: InflatableDoorStack1
   maxCount: 4
   itemSize: 1
+
+- type: stack
+  id: ConveyorBeltStack
+  name: conveyor belt
+  icon: { sprite: /Textures/Structures/conveyor.rsi, state: conveyor_loose }
+  spawn: ConveyorBeltAssembly
+  maxCount: 3

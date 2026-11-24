@@ -4,8 +4,10 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponLootTier3_MeleeBlunt
+          weight: 5
       - !type:NestedSelector
           tableId: M14WeaponLootTier3_MeleeSharp
+          weight: 5
 #      - !type:NestedSelector
 #          tableId: M14WeaponLootTier3_MeleeOther
 # stuff here
@@ -16,8 +18,10 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponLootTier3_MeleeBluntOneHanded
+          weight: 5
       - !type:NestedSelector
           tableId: M14WeaponLootTier3_MeleeBluntTwoHanded
+          weight: 4
 
 - type: entityTable
   id: M14WeaponLootTier3_MeleeSharp
@@ -25,8 +29,10 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponLootTier3_MeleeSharpOneHanded
+          weight: 5
       - !type:NestedSelector
           tableId: M14WeaponLootTier3_MeleeSharpTwoHanded
+          weight: 4
 
 - type: entityTable
   id: M14WeaponLootTier3_MeleeOther
@@ -34,5 +40,7 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponLootTier3_MeleeOtherOneHanded
+          weight: 5
       - !type:NestedSelector
           tableId: M14WeaponLootTier3_MeleeOtherTwoHanded
+          weight: 4

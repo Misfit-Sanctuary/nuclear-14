@@ -71,6 +71,9 @@
     - C27
     - C27NCR
     - C27BoS
+    - C27Integrator # #Misfits Add - chassis configurations may wear heavy plating
+    - C27Assault
+    - C27Recon
   # #Misfits Tweak - 50% DR → 800 effective HP. No integrity system; pure coefficient.
   - type: Armor
     modifiers:
@@ -96,6 +99,12 @@
     sprintModifier: 0.75
   - type: ExplosionResistance
     damageCoefficient: 0.15 # #Misfits Tweak - 85% explosion reduction
+  - type: FootstepModifier # #Misfits Add - combat plating = heavy stomp footsteps
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/largethud.ogg
+      params:
+        volume: 3
+        maxDistance: 15
 
 - type: entity
   abstract: true
@@ -119,6 +128,12 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
+  - type: FootstepModifier # #Misfits Add - heavy plating = heavy stomp footsteps
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/largethud.ogg
+      params:
+        volume: 3
+        maxDistance: 15
 
 # === Concrete: Light tier ===
 

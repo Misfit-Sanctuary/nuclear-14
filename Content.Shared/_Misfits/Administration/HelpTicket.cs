@@ -217,6 +217,8 @@ public sealed class HelpTicketAuditEntry
 [Serializable, NetSerializable]
 public sealed class HelpTicketAuditRequestMessage : EntityEventArgs
 {
+    public int AdminLogOffset { get; init; }
+    public int PlayerLogOffset { get; init; }
     /// <summary>When set, only return events for this player. Null returns all players.</summary>
     public Guid? FilterPlayerId { get; init; }
     /// <summary>Maximum number of entries to return (default 100).</summary>
@@ -272,6 +274,14 @@ public sealed class TicketPeriodSummary
 [Serializable, NetSerializable]
 public sealed class HelpTicketAuditResponseMessage : EntityEventArgs
 {
+    public List<Content.Shared.Administration.Logs.SharedAdminLog> AdminActionLogs { get; init; } = new();
+    public int AdminLogOffset { get; init; }
+    public bool HasMoreAdminActionLogs { get; init; }
+    public bool CanViewAdminActionLogs { get; init; }
+    public List<Content.Shared.Administration.Logs.SharedAdminLog> PlayerLogs { get; init; } = new();
+    public int PlayerLogOffset { get; init; }
+    public bool HasMorePlayerLogs { get; init; }
+    public bool HasPlayerLogFilter { get; init; }
     public List<HelpTicketAuditEntry> Entries { get; init; } = new();
     /// <summary>Total matching row count (for pagination).</summary>
     public int TotalCount { get; init; }

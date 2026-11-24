@@ -1,6 +1,7 @@
 using Content.Shared._Misfits.Currency.Components;
 using Content.Shared._Misfits.Requisitions;
 using Content.Shared._Misfits.Requisitions.Prototypes;
+using Content.Shared.Access;
 using Robust.Shared.GameStates;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -19,6 +20,9 @@ public sealed partial class RequisitionsComputerComponent : Component
 
     [DataField]
     public CurrencyType? AcceptedCurrency;
+
+    [DataField, AutoNetworkedField]
+    public List<HashSet<ProtoId<AccessLevelPrototype>>> CheckoutAccess = new();
 
     [DataField]
     public EntityUid? Account;

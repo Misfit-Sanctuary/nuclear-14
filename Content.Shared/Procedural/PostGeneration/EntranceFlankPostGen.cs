@@ -1,5 +1,5 @@
+using Robust.Shared.Prototypes;
 using Content.Shared.Maps;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Procedural.PostGeneration;
 
@@ -8,8 +8,8 @@ namespace Content.Shared.Procedural.PostGeneration;
 /// </summary>
 public sealed partial class EntranceFlankPostGen : IPostDunGen
 {
-    [DataField("tile", customTypeSerializer:typeof(PrototypeIdSerializer<ContentTileDefinition>))]
-    public string Tile = "FloorSteel";
+    [DataField("tile")]
+    public ProtoId<ContentTileDefinition> Tile = "FloorSteel";
 
     [DataField("entities")]
     public List<string> Entities = new();

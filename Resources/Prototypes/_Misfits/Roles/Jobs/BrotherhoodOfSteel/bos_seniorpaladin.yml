@@ -37,15 +37,20 @@
         factions:
           - BrotherhoodOfSteel
       - type: PowerArmorProficiency # #Misfits Add: Senior Paladins can equip power armor.
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Senior Paladin
+    prefix: Sr. Pal.
+    color: "#3B72BF"
 
 - type: startingGear
   id: BoSMidPaladinGear
   equipment:
     wallet: N14Wallet
-    jumpsuit: N14ClothingUniformBosRecon  #Misfits Change /Tweak/: New consolidated BoS gear
+    jumpsuit: M14ClothingUniformBrotherhoodPaladin  #Misfits Change /Tweak/: New consolidated BoS gear
     back: N14ClothingBackpackMilitary
-    shoes: N14ClothingBootsLeatherFilled
-    head: N14ClothingHeadHatCapkhighBoS
+    shoes: N14ClothingBootsCombatFilled
+    mask: N14ClothingMaskBrotherhoodHeadCover
     outerClothing: N14ClothingOuterPowerArmorT60BOS # #Misfits Change - Senior Paladin now wears BOS T60 with Brotherhood tactical HUD helmet
     pocket1: BoSBrotherhoodSeniorPaladinKits
     hands: N14ClothingHandsGlovesCombat

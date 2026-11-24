@@ -1,6 +1,6 @@
+using Robust.Shared.Prototypes;
 using Content.Server.Construction.Components;
 using Content.Shared.Construction.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Power.Components;
 
@@ -13,8 +13,8 @@ public sealed partial class UpgradePowerSupplyRampingComponent : Component
     /// <summary>
     ///     The machine part that affects the power supply ramping
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-    public string MachinePartRampRate = "Capacitor";
+    [DataField]
+    public ProtoId<MachinePartPrototype> MachinePartRampRate = "Capacitor";
 
     /// <summary>
     ///     The multiplier used for scaling the power supply ramping

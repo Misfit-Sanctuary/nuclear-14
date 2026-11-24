@@ -9,54 +9,69 @@
     # Weapons remain possible, but high-end guns are a minority of final-boss drops.
     - !type:NestedSelector
       tableId: M14WeaponLootTier3
-      weight: 30
+      weight: 80
     - !type:NestedSelector
       tableId: M14WeaponLootTier4
-      weight: 10
-    # Equipment outcomes are deliberately faction-neutral and portable.
-    - !type:EntSelector
-      id: N14ClothingOuterLeatherArmor
-      weight: 18
+      weight: 20
+
+
+# Equipment outcomes are deliberately faction-neutral and portable.
+- type: entityTable
+  id: M14ExpeditionBossArmorReward
+  table: !type:GroupSelector
+    rolls: !type:IntegerRangeNumberRNGSelector
+      min: 1
+      max: 2
+    children:
+    - !type:NoneSelector
+      weight: 100
     - !type:EntSelector
       id: N14ClothingOuterMetalArmor
-      weight: 14
-    - !type:EntSelector
-      id: N14ClothingOuterCombatArmor
-      weight: 8
-    - !type:EntSelector
-      id: N14ClothingOuterJacketBomber
-      weight: 10
+      weight: 80
     - !type:EntSelector
       id: N14ClothingOuterPoliceVest
-      weight: 10
+      weight: 80
+    - !type:EntSelector
+      id: N14ClothingOuterCombatArmor
+      weight: 50
+    - !type:EntSelector
+      id: N14ClothingOuterBattlecoatCoat
+      weight: 40
+    - !type:EntSelector
+      id: N14ClothingOuterCoatCombatDuster
+      weight: 30
+
 
 - type: entityTable
   id: M14ExpeditionBossRecoveryReward
   table: !type:GroupSelector
+    rolls: !type:IntegerRangeNumberRNGSelector
+      min: 2
+      max: 5
     children:
     - !type:EntSelector
       id: N14Stimpak
-      weight: 35
+      weight: 200
     - !type:EntSelector
       id: N14RadAwayInhaler
-      weight: 20
+      weight: 200
     - !type:EntSelector
       id: N14Hydra
-      weight: 10
-    - !type:EntSelector
-      id: N14MedkitBruteFilled
-      weight: 20
+      weight: 100
     - !type:EntSelector
       id: N14MedkitCombatFilled
-      weight: 15
+      weight: 50
 
 - type: entityTable
   id: M14ExpeditionBossMaterialsReward
   table: !type:GroupSelector
+    rolls: !type:IntegerRangeNumberRNGSelector
+      min: 5
+      max: 10
     children:
     - !type:EntSelector
       id: N14ScrapElectronic10
-      weight: 28
+      weight: 30
     - !type:EntSelector
       id: N14ScrapSteel10
       weight: 28
@@ -68,7 +83,7 @@
       weight: 14
     - !type:EntSelector
       id: N14ScrapLead10
-      weight: 12
+      weight: 20
 
 - type: entityTable
   id: M14ExpeditionBossReward
@@ -80,28 +95,22 @@
       tableId: M14ExpeditionBossRecoveryReward
     - !type:NestedSelector
       tableId: M14ExpeditionBossMaterialsReward
+    - !type:NestedSelector
+      tableId: M14ExpeditionBossArmorReward
 
 # Optional deep guardians pay a meaningful but deliberately smaller reward.
 # The table favors recovery, materials, and Tier 2 over another high-end gun.
 - type: entityTable
   id: M14ExpeditionGuardianReward
-  table: !type:GroupSelector
+  table: !type:AllSelector
     children:
     - !type:NestedSelector
       tableId: M14WeaponLootTier2
-      weight: 45
     - !type:NestedSelector
       tableId: M14WeaponLootTier3
-      weight: 12
-    - !type:EntSelector
-      id: N14ClothingOuterLeatherArmor
-      weight: 14
-    - !type:EntSelector
-      id: N14Stimpak
-      weight: 14
-    - !type:EntSelector
-      id: N14ScrapElectronic10
-      weight: 15
+    - !type:NestedSelector
+      tableId: M14ExpeditionBossMaterialsReward
+
 
 # Retains the previous two guaranteed Tier 3 caches for dangerous focused
 # Deathclaw and Super Mutant expeditions, but releases them only from the
@@ -109,10 +118,12 @@
 - type: entityTable
   id: M14ExpeditionHighRiskBossReward
   table: !type:AllSelector
+    rolls: !type:IntegerRangeNumberRNGSelector
+      min: 1
+      max: 2
     children:
     - !type:NestedSelector
       tableId: M14ExpeditionBossReward
     - !type:NestedSelector
       tableId: M14WeaponLootTier3
-    - !type:NestedSelector
-      tableId: M14WeaponLootTier3
+

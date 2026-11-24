@@ -678,6 +678,27 @@
 
     Glass: 500
 
+- type: latheRecipe
+  id: N14BPNCRWeaponSMGWt550
+  result: N14WeaponSMGWt550
+  category: N14BlueprintNCRWeaponsT4
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 8000
+
+    N14Iron: 500
+
+    Leather: 100
+
+    ScrapElectronic: 500
+
+    Circuitry: 200
+
+    N14Brass: 300
+
 
 - type: latheRecipe
   id: N14BPNCRWeaponLMGAutoRifle
@@ -695,6 +716,25 @@
     Wood: 2000
 
     N14Brass: 250
+
+- type: latheRecipe
+  id: N14BPNCRWeaponRifleM7Spear
+  result: N14WeaponRifleM7SpearScope
+  category: N14BlueprintNCRWeaponsT4
+  completetime: 20
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 10000
+
+    N14Iron: 300
+
+    Plastic: 200
+
+    N14Brass: 200
+
+    Glass: 200
 
 
 - type: latheRecipe
@@ -943,6 +983,21 @@
 
     Thread: 150
 
+    Leather: 120
+
+# #Misfits Add - NCR medic combat armor blueprint
+- type: latheRecipe
+  id: MisfitsBPNCRArmorMedicCombatArmor
+  result: MisfitsClothingOuterNCRMedicCombatArmor
+  category: N14BlueprintNCRArmorT3
+  completetime: 15
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 6000
+    Cloth: 1000
+    Thread: 150
     Leather: 120
 
 
@@ -1380,8 +1435,40 @@
 
 
 - type: latheRecipe
+  id: N14BPNCRAmmoBox68
+  result: N14AmmoBox68
+  category: N14BlueprintNCRAmmoT3
+  completetime: 8
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Lead: 45
+
+    N14Brass: 35
+
+    N14Gunpowder: 35
+
+
+- type: latheRecipe
   id: N14BPNCRAmmoClipMagazine308Rifle # #Misfits Change - replaced GarandEnbloc308 recipe
   result: ClipMagazine308Rifle
+  category: N14BlueprintNCRAmmoT3
+  completetime: 5
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 200
+
+    Lead: 20
+
+    N14Gunpowder: 15
+
+
+- type: latheRecipe
+  id: N14BPNCRAmmoMag68Rifle
+  result: Magazine68Rifle
   category: N14BlueprintNCRAmmoT3
   completetime: 5
   requiresBlueprint: true
@@ -1462,6 +1549,21 @@
 - type: latheRecipe
   id: N14BPNCRAmmoMag12mmSMG
   result: N14MagazineSMG12mm
+  category: N14BlueprintNCRAmmoT3
+  completetime: 7
+  requiresBlueprint: true
+  availableFaction:
+  - NCR
+  materials:
+    Steel: 200
+
+    Lead: 40
+
+    N14Gunpowder: 20
+
+- type: latheRecipe
+  id: N14BPNCRAmmoMagSMGWt550
+  result: N14MagazineSMGwt550
   category: N14BlueprintNCRAmmoT3
   completetime: 7
   requiresBlueprint: true
@@ -2053,6 +2155,19 @@
     Wood: 1500
     N14Iron: 500
 
+- type: latheRecipe
+  id: N14BPLegionWeaponSniperPaciencia
+  result: N14WeaponSniperPaciencia
+  category: N14BlueprintLegionWeaponsT2
+  completetime: 9
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 4000
+    Wood: 2500
+    N14Iron: 500
+
 # --- Legion Tier 3 Weapons (Veteran grade) ---
 - type: latheRecipe
   id: N14BPLegionWeaponCeremonialSword
@@ -2346,6 +2461,27 @@
   - CaesarLegion
   materials:
     Steel: 8500
+
+    N14Iron: 500
+
+    Leather: 100
+
+    ScrapElectronic: 500
+
+    Circuitry: 200
+
+    N14Brass: 300
+
+- type: latheRecipe
+  id: N14BPLegionWeaponSMGWt550
+  result: N14WeaponSMGWt550
+  category: N14BlueprintLegionWeaponsT4
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 8000
 
     N14Iron: 500
 
@@ -2787,6 +2923,21 @@
     N14Brass: 35
     N14Gunpowder: 35
 
+- type: latheRecipe
+  id: MisfitsBPLegionSuicideVest
+  result: MisfitsSuicideVest
+  category: N14BlueprintLegionAmmoT2
+  completetime: 12
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Cloth: 100
+    Leather: 100
+    N14Gunpowder: 500
+    Steel: 200
+
 # --- Legion Tier 3 Ammo ---
 - type: latheRecipe
   id: N14BPLegionAmmoBox45-70
@@ -2802,6 +2953,21 @@
     N14Brass: 35
 
     N14Gunpowder: 40
+
+- type: latheRecipe
+  id: N14BPLegionAmmoMagSMGWt550
+  result: N14MagazineSMGwt550
+  category: N14BlueprintLegionAmmoT3
+  completetime: 7
+  requiresBlueprint: true
+  availableFaction:
+  - CaesarLegion
+  materials:
+    Steel: 200
+
+    Lead: 40
+
+    N14Gunpowder: 20
 
 
 - type: latheRecipe

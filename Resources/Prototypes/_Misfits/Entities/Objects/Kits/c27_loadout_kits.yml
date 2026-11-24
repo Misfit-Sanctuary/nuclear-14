@@ -30,22 +30,18 @@
 # concrete KitC27_*Medium / *Heavy entities and their UndecidedLoadoutBackpackSet
 # definitions below are kept (they are now spawned by the blueprint lathe recipes).
 
-# #Misfits Removed - Generic-model loadout kit no longer issued.
-# The 'Unassigned' (C27 species) variant now spawns with the chassis jumpsuit only;
-# any armor must be obtained through crafting via the Generic C-27 Armor Blueprint.
-# Kept commented out per the no-deletion rule so the prototype ID can be restored
-# without losing the original Light/Medium/Heavy picker.
-#- type: entity
-#  id: C27GenericLoadoutKit
-#  name: C-27 Armor Selection Kit
-#  description: Select your chassis armor weight class. Generic faction markings.
-#  parent: BaseC27LoadoutKit
-#  components:
-#  - type: UndecidedLoadoutBackpack
-#    possibleSets:
-#    - C27_GenericLightSet
-#    - C27_GenericMediumSet
-#    - C27_GenericHeavySet
+# Generic C-27s receive their armor selector at roundstart.
+- type: entity
+  id: C27GenericLoadoutKit
+  name: C-27 Armor Selection Kit
+  description: Select your chassis armor weight class. Generic faction markings.
+  parent: BaseC27LoadoutKit
+  components:
+  - type: UndecidedLoadoutBackpack
+    possibleSets:
+    - C27_GenericLightSet
+    - C27_GenericMediumSet
+    - C27_GenericHeavySet
 
 - type: entity
   id: C27NCRLoadoutKit

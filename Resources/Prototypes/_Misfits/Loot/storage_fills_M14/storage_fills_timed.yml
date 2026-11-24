@@ -272,6 +272,9 @@
         - id: N14MagazineSMG12mm
           prob: 0.2
           orGroup: Ammunition
+        - id: N14MagazineSMGwt550
+          prob: 0.07
+          orGroup: Ammunition
         - id: MagazineBox12
           prob: 0.1
           orGroup: Ammunition
@@ -332,6 +335,43 @@
           orGroup: Currency
           amount: 1
           maxAmount: 25
+      #Foodstuff
+        - id: N14ReagentContainerRice
+          prob: 0.1
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: N14ReagentContainerFlour
+          prob: 0.1
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: N14ReagentContainerSugar
+          prob: 0.1
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: MisfitsItemRaiserCan
+          prob: 0.1
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: CocoaSeeds
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
+        - id: RiceSeeds
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
+        - id: SugarcaneSeeds
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
+        - id: GarlicSeeds
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
 
 - type: entity
   abstract: true
@@ -376,6 +416,8 @@
         - id: N14FloraWildCoyoteTobaccoClippingSeed
           prob: 0.02
         - id: N14FloraWildCannabisClippingSeed
+          prob: 0.02
+        - id: MisfitsKokoaSeeds
           prob: 0.02
         - id: N14FloraDaturaClippingSeed
           prob: 0.01
@@ -551,6 +593,9 @@
         - id: N14SuperSledgeHammer
           prob: 0.1
           orGroup: Weapon
+        - id: N14WeaponSniperPaciencia
+          prob: 0.05
+          orGroup: Weapon
         - id: N14TribalMachete
           prob: 0.4
           orGroup: Weapon
@@ -589,6 +634,9 @@
           orGroup: Ammunition
         - id: N14MagazineSMG12mm
           prob: 0.2
+          orGroup: Ammunition
+        - id: N14MagazineSMGwt550
+          prob: 0.07
           orGroup: Ammunition
         - id: MagazineBox12
           prob: 0.1
@@ -1007,6 +1055,43 @@
           orGroup: Currency
           amount: 1
           maxAmount: 25
+      #Foodstuff
+        - id: N14ReagentContainerRice
+          prob: 0.1
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: N14ReagentContainerFlour
+          prob: 0.1
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: N14ReagentContainerSugar
+          prob: 0.1
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: MisfitsItemRaiserCan
+          prob: 0.1
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: CocoaSeeds
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
+        - id: RiceSeeds
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
+        - id: SugarcaneSeeds
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
+        - id: GarlicSeeds
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
 
 - type: entity
   abstract: true
@@ -1272,6 +1357,9 @@
         - id: N14MagazineSMG12mm
           prob: 0.2
           orGroup: Ammunition
+        - id: N14MagazineSMGwt550
+          prob: 0.07
+          orGroup: Ammunition
         - id: MagazineBox12
           prob: 0.1
           orGroup: Ammunition
@@ -1460,6 +1548,43 @@
           orGroup: Currency
           amount: 1
           maxAmount: 25
+      #Foodstuff
+        - id: N14ReagentContainerRice
+          prob: 0.1
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: N14ReagentContainerFlour
+          prob: 0.1
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: N14ReagentContainerSugar
+          prob: 0.1
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: MisfitsItemRaiserCan
+          prob: 0.1
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: CocoaSeeds
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
+        - id: RiceSeeds
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
+        - id: SugarcaneSeeds
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
+        - id: GarlicSeeds
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
 
 - type: entity
   abstract: true
@@ -1711,6 +1836,8 @@
           prob: 0.01
         - id: N14MagazineSMG12mm
           prob: 0.01
+        - id: N14MagazineSMGwt550
+          prob: 0.01
         - id: MagazineBox12
           prob: 0.01
         - id: N14MagazineShotgun12
@@ -1750,6 +1877,43 @@
           orGroup: Currency
           amount: 1
           maxAmount: 25
+      #Foodstuff
+        - id: N14ReagentContainerRice
+          prob: 0.1
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: N14ReagentContainerFlour
+          prob: 0.1
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: N14ReagentContainerSugar
+          prob: 0.1
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: MisfitsItemRaiserCan
+          prob: 0.1
+          orGroup: Consumables
+          amount: 1
+          maxAmount: 1
+        - id: CocoaSeeds
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
+        - id: RiceSeeds
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
+        - id: SugarcaneSeeds
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
+        - id: GarlicSeeds
+          prob: 0.1
+          amount: 1
+          maxAmount: 1
 
 - type: entity
   abstract: true
@@ -1833,7 +1997,13 @@
         - id: N14WeaponRifle762Chinese
           prob: 0.1
           orGroup: Weapon
+        - id: N14WeaponRifleOperative
+          prob: 0.1
+          orGroup: Weapon
         - id: N14WeaponRifle762Marksman
+          prob: 0.2
+          orGroup: Weapon
+        - id: N14WeaponSMGWt550
           prob: 0.2
           orGroup: Weapon
         - id: N14WeaponShotgunDoubleBarrel
@@ -1857,6 +2027,9 @@
         - id: N14WeaponSMG12mm
           prob: 0.3
           orGroup: Weapon
+        - id: N14WeaponSMGWt550
+          prob: 0.2
+          orGroup: Weapon
         - id: N14WeaponSMG12mmPipe
           prob: 0.2
           orGroup: Weapon
@@ -1865,6 +2038,9 @@
           orGroup: Weapon
         - id: N14WeaponSniperHunting
           prob: 0.2
+          orGroup: Weapon
+        - id: N14WeaponSniperPaciencia
+          prob: 0.05
           orGroup: Weapon
         - id: N14WeaponSniper44LeverCarbine
           prob: 0.1
@@ -1934,6 +2110,9 @@
           orGroup: Ammunition
         - id: N14MagazineSMG12mm
           prob: 0.4
+          orGroup: Ammunition
+        - id: N14MagazineSMGwt550
+          prob: 0.07
           orGroup: Ammunition
         - id: N14MagazineShotgun12
           prob: 0.2
@@ -2375,6 +2554,8 @@
         - id: N14FloraWildCoyoteTobaccoClippingSeed
           prob: 0.05
         - id: N14FloraWildCannabisClippingSeed
+          prob: 0.05
+        - id: MisfitsKokoaSeeds
           prob: 0.05
         - id: N14FloraDaturaClippingSeed
           prob: 0.05

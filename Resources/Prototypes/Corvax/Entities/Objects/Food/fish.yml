@@ -99,6 +99,10 @@
     defaultTarget: FoodMeatRedfishCooked
   - type: StaticPrice
     price: 5
+  - type: SliceableFood
+    count: 1
+    slice: N14RedfishCutletRaw
+
 
 - type: entity
   name: raw white fish

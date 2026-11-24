@@ -1,5 +1,4 @@
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Mining;
 
@@ -13,8 +12,8 @@ public sealed partial class OrePrototype : IPrototype
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    [DataField("oreEntity", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string? OreEntity;
+    [DataField("oreEntity")]
+    public EntProtoId? OreEntity;
 
     [DataField("minOreYield")]
     public int MinOreYield = 1;

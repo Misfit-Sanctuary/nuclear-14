@@ -37,6 +37,8 @@
         - type: FootstepVolumeModifier
           sprintVolumeModifier: -10
           walkVolumeModifier: -10
+          # Half the footstep reduction; 0 would make sneak not affect armor at all.
+          clothVolumeModifier: -5
 
 - type: trait
   id: N14Singer

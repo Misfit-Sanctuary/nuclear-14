@@ -731,3 +731,18 @@
     backStrength: 4
   - type: StaticPrice
     price: 350
+
+- type: entity
+  name: Neostead 2000
+  parent: N14WeaponShotgunNeostead
+  id: N14WeaponShotgunNeosteadBoS
+  description: A Brotherhood-issue semi-automatic shotgun fed from twin underbarrel tubes holding ten shells total. Technology well ahead of the pre-war mainstream — This is one of the few still available in the Brotherhood's armories, following the loss of the weapon's schematics.
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/neostead_brotherhood.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/neostead_brotherhood.rsi

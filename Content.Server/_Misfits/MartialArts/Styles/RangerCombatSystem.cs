@@ -16,7 +16,7 @@ namespace Content.Server._Misfits.MartialArts.Styles;
 /// Ranger Combat Technique — the precision fighting doctrine of the Desert Rangers.
 /// Veteran Rangers and Ranger Chiefs begin with this style.
 /// Focuses on quick disarms, joint locks (armbar at Suffocate), and takedown throws.
-/// Combos: QuickDisarm (Disarm+Harm), PressurePoint (Harm+Disarm+Disarm), TakedownThrow (Grab+Harm), ArmBar (Grab+Grab at Hard+).
+/// Combos: TakedownThrow (Harm x3), ArmBar (Harm, Harm, Disarm), PressurePoint (Harm then Disarm), QuickDisarm (Disarm).
 /// </summary>
 public sealed class RangerCombatSystem : EntitySystem
 {
@@ -88,15 +88,17 @@ public sealed class RangerCombatSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("martial-arts-ranger-takedown-throw", ("target", target)), target, uid, PopupType.Medium);
     }
 
-    /// <summary>Arm Bar: Grab+Grab at Hard+ — locks the target in an arm bar; high stamina drain and paralysis.</summary>
+    /// <summary>Arm Bar: Grab x3 — locks the target in an arm bar; high stamina drain and paralysis.</summary>
     private void ExecuteArmBar(EntityUid uid, EntityUid target, MisfitsComboPrototype combo)
     {
-        if (!TryComp<GrabIntentComponent>(uid, out var grabComp) || grabComp.GrabStage < GrabStage.Hard)
-            return;
-
-        // Force to Suffocate stage to represent the lock
-        if (TryComp<GrabbableComponent>(target, out var grabbable))
+        // #Misfits Fix - no longer bails when the grab is missing or below Hard; the lock still lands
+        // and the Suffocate stage is only forced when the performer is actually holding the target.
+        if (TryComp<GrabIntentComponent>(uid, out var grabComp)
+            && grabComp.GrabStage >= GrabStage.Hard
+            && TryComp<GrabbableComponent>(target, out var grabbable))
+        {
             _grab.TrySetGrabStages(uid, grabComp, target, grabbable, GrabStage.Suffocate);
+        }
 
         ApplyComboEffects(uid, target, combo);
         _stun.TryKnockdown(target, TimeSpan.FromSeconds(combo.ParalyzeTime), true);

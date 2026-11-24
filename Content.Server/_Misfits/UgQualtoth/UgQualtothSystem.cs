@@ -47,21 +47,21 @@ namespace Content.Server._Misfits.UgQualtoth;
 /// </summary>
 public sealed class UgQualtothSystem : EntitySystem
 {
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speedMod = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private MovementSpeedModifierSystem _speedMod = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     // Marking prototype IDs — one overlay per stage, each replaces the previous.
     private const string MarkingStage1 = "UgQualtothStage1";
@@ -69,8 +69,8 @@ public sealed class UgQualtothSystem : EntitySystem
     private const string MarkingStage3 = "UgQualtothStage3";
 
     // Damage modifier set IDs.
-    private const string Stage2DamageModifier      = "UgQualtothStage2";
-    private const string Stage3DamageModifier      = "UgQualtothStage3";
+    private const string Stage2DamageModifier = "UgQualtothStage2";
+    private const string Stage3DamageModifier = "UgQualtothStage3";
     private const string AbominationDamageModifier = "UgQualtothAbomination";
 
     // DoAfter ritual duration in seconds.
@@ -180,7 +180,7 @@ public sealed class UgQualtothSystem : EntitySystem
     {
         // Pick one of the three proximity strings based on how many times the player has been near.
         // Cycles through 1→2→3→1... so each visit feels slightly different.
-        var variant = (int)(curTime.TotalMinutes % 3) + 1;
+        var variant = (int) (curTime.TotalMinutes % 3) + 1;
         _popup.PopupEntity(
             Loc.GetString($"ug-qualtoth-proximity-{variant}"),
             uid, uid, PopupType.SmallCaution);
@@ -219,7 +219,7 @@ public sealed class UgQualtothSystem : EntitySystem
         {
             var remaining = (worshipper.NextPrayAllowedAt.Value - _timing.CurTime).TotalMinutes;
             _popup.PopupEntity(
-                Loc.GetString("ug-qualtoth-pray-cooldown", ("minutes", (int)Math.Ceiling(remaining))),
+                Loc.GetString("ug-qualtoth-pray-cooldown", ("minutes", (int) Math.Ceiling(remaining))),
                 idol, user, PopupType.SmallCaution);
             return;
         }
@@ -305,7 +305,7 @@ public sealed class UgQualtothSystem : EntitySystem
             _audio.PlayPvs(idol.Comp.PraySound, idol);
 
         _popup.PopupEntity(
-            Loc.GetString("ug-qualtoth-pray-success", ("devotion", (int)worshipper.Devotion)),
+            Loc.GetString("ug-qualtoth-pray-success", ("devotion", (int) worshipper.Devotion)),
             user, user, PopupType.MediumCaution);
 
         _chat.TrySendInGameICMessage(user,
@@ -366,7 +366,7 @@ public sealed class UgQualtothSystem : EntitySystem
                     new Entity<UgQualtothArtifactComponent>(idolUid, idolComp));
 
                 _popup.PopupEntity(
-                    Loc.GetString("ug-qualtoth-sacrifice-reward", ("devotion", (int)worshipperComp.Devotion)),
+                    Loc.GetString("ug-qualtoth-sacrifice-reward", ("devotion", (int) worshipperComp.Devotion)),
                     worshipperUid, worshipperUid, PopupType.Medium);
             }
 

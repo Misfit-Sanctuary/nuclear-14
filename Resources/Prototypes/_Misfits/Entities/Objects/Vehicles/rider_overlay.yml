@@ -1,0 +1,12 @@
+- type: entity
+  id: MisfitsMountRiderOverlay
+  name: rider overlay
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: OverMobs
+  - type: MountRiderOverlay
+  - type: Tag
+    tags:
+    - HideContextMenu

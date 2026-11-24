@@ -1,7 +1,9 @@
 using Content.Shared._Misfits.Special;
 using Content.Shared._Misfits.Special.Components;
 using Content.Server.Administration;
+using Content.Server.Administration.Logs;
 using Content.Shared.Administration;
+using Content.Shared.Database;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 
@@ -10,6 +12,7 @@ namespace Content.Server._Misfits.Special;
 [AdminCommand(AdminFlags.Admin)]
 public sealed class SpecialGetCommand : IConsoleCommand
 {
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IEntityManager _entities = default!;
     [Dependency] private readonly IPlayerManager _players = default!;
 
@@ -44,6 +47,10 @@ public sealed class SpecialGetCommand : IConsoleCommand
             shell.WriteError("Target has no SpecialComponent.");
             return;
         }
+
+        if (shell.Player is { } actor && _players.TryGetSessionByUsername(args[0], out var targetPlayer))
+            _adminLog.Add(LogType.AdminAudit, LogImpact.Low,
+                $"{actor:actor} viewed SPECIAL values for {targetPlayer:subject}");
 
         foreach (var stat in Content.Shared._Misfits.Special.SpecialStats.All)
         {
@@ -85,6 +92,7 @@ public sealed class SpecialGetCommand : IConsoleCommand
 [AdminCommand(AdminFlags.Admin)]
 public sealed class SpecialSetCommand : IConsoleCommand
 {
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IEntityManager _entities = default!;
     [Dependency] private readonly IPlayerManager _players = default!;
 
@@ -124,11 +132,16 @@ public sealed class SpecialSetCommand : IConsoleCommand
         }
 
         var special = _entities.EnsureComponent<SpecialComponent>(target.Value);
+        var previous = specialSystem.GetBase(target.Value, stat, special);
         if (!specialSystem.TrySetBase(target.Value, stat, value, special))
         {
             shell.WriteError($"Value must be between {SpecialProfile.Minimum} and {SpecialProfile.Maximum}.");
             return;
         }
+
+        if (shell.Player is { } actor && _players.TryGetSessionByUsername(args[0], out var targetPlayer))
+            _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+                $"{actor:actor} changed {targetPlayer:subject} SPECIAL {stat} base from {previous} to {value}");
 
         shell.WriteLine($"{stat} set to {value}.");
     }
@@ -234,6 +247,7 @@ public sealed class SpecialSetCommand : IConsoleCommand
 [AdminCommand(AdminFlags.Admin)]
 public sealed class SpecialModCommand : IConsoleCommand
 {
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IEntityManager _entities = default!;
     [Dependency] private readonly IPlayerManager _players = default!;
 
@@ -286,12 +300,17 @@ public sealed class SpecialModCommand : IConsoleCommand
         }
 
         var special = _entities.EnsureComponent<SpecialComponent>(target.Value);
+        var previous = specialSystem.GetEffective(target.Value, stat, special);
 
         if (!specialSystem.TryModifyTemporary(target.Value, stat, modifier, duration, source, special))
         {
             shell.WriteError("Could not apply modifier.");
             return;
         }
+
+        if (shell.Player is { } actor && _players.TryGetSessionByUsername(args[0], out var targetPlayer))
+            _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+                $"{actor:actor} applied SPECIAL {stat} modifier {modifier} to {targetPlayer:subject}, effective {previous} -> {specialSystem.GetEffective(target.Value, stat, special)}, duration {duration?.TotalSeconds} seconds, source {source}");
 
         shell.WriteLine($"{stat} temporary modifier {modifier:+#;-#;0} applied.");
     }

@@ -1,0 +1,81 @@
+- type: latheRecipe
+  id: MisfitsMakeshiftRepairPatchMetal
+  result: MisfitsMakeshiftRepairPatch5
+  category: N14Parts
+  completetime: 8
+  materials:
+    Steel: 240
+    N14Copper: 80
+    Cloth: 120
+
+- type: latheRecipe
+  id: MisfitsMakeshiftRepairPatchTinker
+  result: MisfitsMakeshiftRepairPatch8
+  category: N14Parts
+  completetime: 12
+  materials:
+    Steel: 360
+    N14Copper: 120
+    Cloth: 180
+
+- type: latheRecipe
+  id: MisfitsReinforcedPlatingPatchMetal
+  result: MisfitsReinforcedPlatingPatch5
+  category: N14Parts
+  completetime: 12
+  materials:
+    Steel: 720
+    Plastic: 320
+    N14Copper: 120
+
+- type: latheRecipe
+  id: MisfitsReinforcedPlatingPatchTinker
+  result: MisfitsReinforcedPlatingPatch8
+  category: N14Parts
+  completetime: 18
+  materials:
+    Steel: 1080
+    Plastic: 480
+    N14Copper: 180
+
+- type: latheRecipe
+  id: MisfitsInsulationPatchMetal
+  result: MisfitsInsulationPatch5
+  category: N14Parts
+  completetime: 12
+  materials:
+    Plastic: 440
+    N14Copper: 200
+    Cloth: 160
+
+- type: latheRecipe
+  id: MisfitsInsulationPatchTinker
+  result: MisfitsInsulationPatch8
+  category: N14Parts
+  completetime: 18
+  materials:
+    Plastic: 660
+    N14Copper: 300
+    Cloth: 240
+
+- type: latheRecipe
+  id: MisfitsAdvancedRepairPatchMetal
+  result: MisfitsAdvancedRepairPatch5
+  category: N14Parts
+  completetime: 20
+  materials:
+    Steel: 1000
+    Plastic: 800
+    Circuitry: 400
+    N14Copper: 240
+
+- type: latheRecipe
+  id: MisfitsAdvancedRepairPatchTinker
+  result: MisfitsAdvancedRepairPatch8
+  category: N14Parts
+  completetime: 30
+  materials:
+    Steel: 1500
+    Plastic: 1200
+    Circuitry: 600
+    N14Copper: 360

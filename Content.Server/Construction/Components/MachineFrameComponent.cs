@@ -1,7 +1,7 @@
-﻿using Content.Shared.Construction.Components;
+﻿using Robust.Shared.Prototypes;
+using Content.Shared.Construction.Components;
 using Content.Shared.Construction.Prototypes;
 using Robust.Shared.Containers;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
 namespace Content.Server.Construction.Components
 {
@@ -14,8 +14,8 @@ namespace Content.Server.Construction.Components
         [ViewVariables]
         public bool HasBoard => BoardContainer?.ContainedEntities.Count != 0;
 
-        [DataField("progress", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<int, MachinePartPrototype>))]
-        public Dictionary<string, int> Progress = new();
+        [DataField("progress")]
+        public Dictionary<ProtoId<MachinePartPrototype>, int> Progress = new();
 
         [ViewVariables]
         public readonly Dictionary<string, int> MaterialProgress = new();
@@ -26,8 +26,8 @@ namespace Content.Server.Construction.Components
         [ViewVariables]
         public readonly Dictionary<string, int> TagProgress = new();
 
-        [DataField("requirements", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<int, MachinePartPrototype>))]
-        public Dictionary<string, int> Requirements = new();
+        [DataField("requirements")]
+        public Dictionary<ProtoId<MachinePartPrototype>, int> Requirements = new();
 
         [ViewVariables]
         public Dictionary<string, int> MaterialRequirements = new();

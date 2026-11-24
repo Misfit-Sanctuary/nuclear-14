@@ -16,5 +16,5 @@ public sealed partial class SurgeryTendWoundsEffectComponent : Component
     public DamageSpecifier Damage = default!;
 
     [DataField, AutoNetworkedField]
-    public float HealMultiplier = 0.07f;
+    public float HealMultiplier = 0.175f;
 }

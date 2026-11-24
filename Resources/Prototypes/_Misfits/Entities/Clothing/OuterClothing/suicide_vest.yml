@@ -1,0 +1,41 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: MisfitsSuicideVest
+  name: suicide vest
+  description: A crude vest packed with exploives.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/suicide_vest.rsi
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/suicide_vest.rsi
+  - type: SuicideVest
+    delay: 4
+    delayOptions:
+    - 4
+    - 10
+    - 15
+    minDelay: 4
+    detonateSound:
+      path: /Audio/_Misfits/IED/detonate.ogg
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 550
+    intensitySlope: 4
+    maxIntensity: 40
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger
+  - type: GibOnTrigger
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        base:
+          Primed: { state: primed }
+          Unprimed: { state: icon }

@@ -42,3 +42,124 @@
   - type: SpawnPoint
     job_id: BoSMidPaladinCommander
     spawn_type: LateJoin
+
+# Mapper-only paired warpers. A row can contain multiple copies of the same endpoint: every
+# AtoB targets a BtoA, never another AtoB (and likewise for C/D, F/G, and J/H). If multiple
+# opposite endpoints exist, travel selects one of them. These are not latejoin or cryo points.
+- type: entity
+  id: MisfitsWarperPointBase
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    drawdepth: FloorObjects
+    sprite: _Nuclear14/Structures/Walls/nc14/matrix.rsi
+    state: matrix
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      warp-trigger:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        hard: false
+        mask:
+        - MobMask
+        layer:
+        - Impassable
+  - type: StepTrigger
+    stepOn: true
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.2
+
+- type: entity
+  parent: MisfitsWarperPointBase
+  id: MisfitsWarperPointAtoB
+  name: warper point A to B
+  suffix: walk-over warp to B
+  components:
+  - type: AutoWarper
+  - type: WarpPoint
+    id: MisfitsWarperPointAtoB
+    location: Misfits Warper Point A to B
+
+- type: entity
+  parent: MisfitsWarperPointBase
+  id: MisfitsWarperPointBtoA
+  name: warper point B to A
+  suffix: walk-over warp to A
+  components:
+  - type: AutoWarper
+  - type: WarpPoint
+    id: MisfitsWarperPointBtoA
+    location: Misfits Warper Point B to A
+
+- type: entity
+  parent: MisfitsWarperPointBase
+  id: MisfitsWarperPointCtoD
+  name: warper point C to D
+  suffix: walk-over warp to D
+  components:
+  - type: AutoWarper
+  - type: WarpPoint
+    id: MisfitsWarperPointCtoD
+    location: Misfits Warper Point C to D
+
+- type: entity
+  parent: MisfitsWarperPointBase
+  id: MisfitsWarperPointDtoC
+  name: warper point D to C
+  suffix: walk-over warp to C
+  components:
+  - type: AutoWarper
+  - type: WarpPoint
+    id: MisfitsWarperPointDtoC
+    location: Misfits Warper Point D to C
+
+- type: entity
+  parent: MisfitsWarperPointBase
+  id: MisfitsWarperPointFtoG
+  name: warper point F to G
+  suffix: walk-over warp to G
+  components:
+  - type: AutoWarper
+  - type: WarpPoint
+    id: MisfitsWarperPointFtoG
+    location: Misfits Warper Point F to G
+
+- type: entity
+  parent: MisfitsWarperPointBase
+  id: MisfitsWarperPointGtoF
+  name: warper point G to F
+  suffix: walk-over warp to F
+  components:
+  - type: AutoWarper
+  - type: WarpPoint
+    id: MisfitsWarperPointGtoF
+    location: Misfits Warper Point G to F
+
+- type: entity
+  parent: MisfitsWarperPointBase
+  id: MisfitsWarperPointJtoH
+  name: warper point J to H
+  suffix: walk-over warp to H
+  components:
+  - type: AutoWarper
+  - type: WarpPoint
+    id: MisfitsWarperPointJtoH
+    location: Misfits Warper Point J to H
+
+- type: entity
+  parent: MisfitsWarperPointBase
+  id: MisfitsWarperPointHtoJ
+  name: warper point H to J
+  suffix: walk-over warp to J
+  components:
+  - type: AutoWarper
+  - type: WarpPoint
+    id: MisfitsWarperPointHtoJ
+    location: Misfits Warper Point H to J

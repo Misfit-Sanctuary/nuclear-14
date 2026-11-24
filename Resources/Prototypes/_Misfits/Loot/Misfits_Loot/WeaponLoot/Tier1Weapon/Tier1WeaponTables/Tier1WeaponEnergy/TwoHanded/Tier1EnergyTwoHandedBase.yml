@@ -6,7 +6,7 @@
 #          tableId: M14WeaponLootTier1_EnergyRifleAuto
       - !type:NestedSelector
           tableId: M14WeaponLootTier1_EnergyRifleSemi
-
+          weight: 5
 
 - type: entityTable
   id: M14WeaponLootTier1_EnergyRifleAuto
@@ -14,10 +14,13 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponLootTier1_LaserRifleAuto
+          weight: 5
       - !type:NestedSelector
           tableId: M14WeaponLootTier1_PlasmaRifleAuto
+          weight: 5
       - !type:NestedSelector
           tableId: M14WeaponLootTier1_OtherRifleAuto
+          weight: 5
 
 - type: entityTable
   id: M14WeaponLootTier1_EnergyRifleSemi
@@ -25,6 +28,7 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponLootTier1_LaserRifleSemi
+          weight: 5
 #      - !type:NestedSelector
 #          tableId: M14WeaponLootTier1_PlasmaRifleSemi
 #      - !type:NestedSelector

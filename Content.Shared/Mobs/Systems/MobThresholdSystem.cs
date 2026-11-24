@@ -29,13 +29,18 @@ public sealed class MobThresholdSystem : EntitySystem
     {
         var thresholds = new Dictionary<FixedPoint2, MobState>();
 
-        foreach (var (key, value) in component.Thresholds)
-            thresholds.Add(key, value);
+        // Components can be torn down while PVS is serializing state in parallel.
+        // Treat cleared data as empty instead of throwing once per connected session.
+        if (component.Thresholds != null)
+        {
+            foreach (var (key, value) in component.Thresholds)
+                thresholds.Add(key, value);
+        }
 
         args.State = new MobThresholdsComponentState(thresholds,
             component.TriggersAlerts,
             component.CurrentThresholdState,
-            component.StateAlertDict,
+            component.StateAlertDict ?? new Dictionary<MobState, ProtoId<AlertPrototype>>(),
             component.ShowOverlays,
             component.AllowRevives);
     }

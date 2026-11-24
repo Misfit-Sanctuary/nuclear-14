@@ -1,5 +1,5 @@
-﻿using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+﻿using Robust.Shared.Prototypes;
+using Robust.Shared.GameStates;
 
 
 namespace Content.Shared._NC.TTS;
@@ -15,6 +15,6 @@ public sealed partial class TTSComponent : Component
     /// Prototype of used voice for TTS.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("voice", customTypeSerializer: typeof(PrototypeIdSerializer<TTSVoicePrototype>))]
-    public string? VoicePrototypeId { get; set; }
+    [DataField("voice")]
+    public ProtoId<TTSVoicePrototype>? VoicePrototypeId { get; set; }
 }

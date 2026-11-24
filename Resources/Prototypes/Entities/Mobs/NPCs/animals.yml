@@ -3203,10 +3203,10 @@
     minSaturation: 5.0
 
 - type: entity
-  name: caracal cat
+  name: Caracal Cat
   id: MobCatCaracal
   parent: MobCat
-  description: Hilarious.
+  description: These are wild cats with an aggressive nature that should not be treated like household pets. They are normally solitary and shy around humans, but also territorial. Speaking of territory, what are they doing in the United States?
   components:
   - type: Sprite
     sprite: Mobs/Pets/caracal.rsi

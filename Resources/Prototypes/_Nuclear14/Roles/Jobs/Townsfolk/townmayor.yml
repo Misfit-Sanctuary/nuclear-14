@@ -39,7 +39,7 @@
     ears: MisfitsClothingHeadsetTown
     back: N14ClothingBackpackExplorer # Corvax-Change
     shoes: N14ClothingShoesBrown
-    id: N14IDBadgeTownMayor
+    id: M14MayorPipboy
     pocket1: RadioHandheld
     wallet: N14WalletLottaCash
   innerClothingSkirt: N14ClothingUniformJumpskirtFalloutBlack
@@ -48,6 +48,7 @@
   storage: # Corvax-Change
     back:
     - N14BoxPlasticFilledWastelander
+    - M14NukaBreaker
 
 - type: playTimeTracker
   id: TownMayor

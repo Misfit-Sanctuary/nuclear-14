@@ -25,7 +25,7 @@ ent-N14WeaponRifleSKS = SKS
 ent-SKSEnbloc308 = en-bloc clip (SKS, .308)
     .desc = A 10-round en-bloc clip for the SKS rifle. Standard-issue ammunition for Legion heavy riflemen in the field.
 
-# Infiltrator — ported from Fortune13 / LoneStar (SS13) — Misfits Add
+# Operative — ported from Fortune13 / LoneStar (SS13) — Misfits Add
 
-ent-N14WeaponRifleInfiltrator = Infiltrator
+ent-N14WeaponRifleOperative = Operative
     .desc = A heavily modified R91 assault rifle with an extended suppressed barrel, tightened internals, and custom trigger group. Fires 5.56mm at a ferocious rate with reduced acoustic signature. Rare and highly coveted.

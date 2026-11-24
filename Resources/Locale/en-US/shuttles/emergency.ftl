@@ -16,22 +16,22 @@ emergency-shuttle-command-launch-desc = Early launches the train if possible.
 
 # Emergency shuttle
 # emergency-shuttle-left = The Emergency Shuttle has left the station. Estimate {$transitTime} seconds until the shuttle arrives at CentCom.
-emergency-shuttle-left = The train has left the station. Estimate {$transitTime} seconds until it clears the region.
+emergency-shuttle-left = The megastorm has entered the region. Estimate {$transitTime} seconds until it touches down in the local area.
 # emergency-shuttle-launch-time = The emergency shuttle will launch in {$consoleAccumulator} seconds.
-emergency-shuttle-launch-time = The train will depart in {$consoleAccumulator} seconds.
+emergency-shuttle-launch-time = The megastorm will arrive in {$consoleAccumulator} seconds.
 # emergency-shuttle-docked = The Emergency Shuttle has docked {$direction} of the station, {$location}. It will leave in {$time} seconds.
-emergency-shuttle-docked = The train has arrived {$direction} of the station, {$location}. It will depart in {$time} seconds.
+emergency-shuttle-docked = The megastorm has arrived {$direction} of the region, {$location}. It will make impact in {$time} seconds.
 # emergency-shuttle-good-luck = The Emergency Shuttle is unable to find a station. Good luck.
-emergency-shuttle-good-luck = The train is unable to find the station. Good luck out there.
+emergency-shuttle-good-luck = The megastorm has passed over the region. Good luck out there.
 # emergency-shuttle-nearby = The Emergency Shuttle is unable to find a valid docking port. It has warped {$direction}.
-emergency-shuttle-nearby = The train is unable to find a valid docking port. It has rerouted {$direction}.
+emergency-shuttle-nearby = The megastorm has diverted from its original path. It has changed direction to the {$direction}.
 
 # Emergency shuttle console popup / announcement
-emergency-shuttle-console-no-early-launches = Early departure is disabled
-# emergency-shuttle-console-auth-left = {$remaining} authorizations needed until shuttle is launched early.
-emergency-shuttle-console-auth-left = {$remaining} authorizations needed until train departs early.
+emergency-shuttle-console-no-early-launches = The megastorm will come when it is ready.
+# emergency-shuttle-console-auth-left = {$remaining} weather station authorizations needed to call the storm in early.
+emergency-shuttle-console-auth-left = {$remaining} authorizations needed until the weather station forces the megastorm arrival.
 # emergency-shuttle-console-auth-revoked = Early launch authorization revoked, {$remaining} authorizations needed.
-emergency-shuttle-console-auth-revoked = Early departure authorization revoked, {$remaining} authorizations needed.
+emergency-shuttle-console-auth-revoked = Early megastorm authorization revoked, {$remaining} weather station authorizations needed.
 emergency-shuttle-console-denied = Access denied
 
 # UI

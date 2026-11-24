@@ -11,7 +11,7 @@
     table: !type:NestedSelector
       tableId: M14WeaponLootTier1
       prob: 1.0
-    deleteSpawnerAfterSpawn: false
+
 
 - type: entity
   name: Expedition Weapon Loot Spawner
@@ -23,7 +23,7 @@
     table: !type:NestedSelector
       tableId: M14WeaponLootTier2
       prob: 1.0
-    deleteSpawnerAfterSpawn: false
+
 
 - type: entity
   name: Expedition Weapon Loot Spawner
@@ -35,7 +35,7 @@
     table: !type:NestedSelector
       tableId: M14WeaponLootTier3
       prob: 1.0
-    deleteSpawnerAfterSpawn: false
+
 
 - type: entity
   name: Expedition Weapon Loot Spawner
@@ -47,7 +47,7 @@
     table: !type:NestedSelector
       tableId: M14WeaponLootTier4
       prob: 1.0
-    deleteSpawnerAfterSpawn: false
+
 
 - type: entity
   name: Expedition Weapon Loot Spawner
@@ -59,4 +59,4 @@
     table: !type:NestedSelector
       tableId: M14WeaponLootTier5
       prob: 1.0
-    deleteSpawnerAfterSpawn: false
+

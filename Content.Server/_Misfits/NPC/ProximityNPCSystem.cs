@@ -3,6 +3,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Shared._Misfits.CCVar;
 using Content.Shared._Misfits.NPC;
+using Content.Shared._NC.Mountable.Components;
 using Content.Shared.Movement.Components;
 /// Misfit Change: sound handling moved to NPCSystem wake and sleep methods
 // using Content.Shared.Audio;
@@ -156,6 +157,10 @@ public sealed partial class ProximityNPCSystem : EntitySystem
             // sleeps the AI on PlayerAttachedEvent; re-waking it here would re-enable
             // hostile NPC behaviour while a player/admin is in control.
             if (HasComp<ActorComponent>(uid))
+                continue;
+
+            // Misifts skip mounts while a rider is on them
+            if (TryComp<MountableComponent>(uid, out var mountable) && mountable.Rider != null && mountable.RiderControlsMovement)
                 continue;
 
 

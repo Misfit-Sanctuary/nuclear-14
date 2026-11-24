@@ -4,17 +4,35 @@ using Robust.Shared.Random;
 
 namespace Content.Shared.EntityTable;
 
-public sealed class EntityTableSystem : EntitySystem
+public abstract partial class EntityTableSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-
-    public IEnumerable<EntProtoId> GetSpawns(EntityTableSelector? table, System.Random? rand = null)
+    [Dependency] private readonly INetManager _net = default!;
+    protected static IRobustRandom SystemRNGInstance = default!;
+    public override void Initialize()
     {
-        if (table == null)
+        SystemRNGInstance = InitSystemRNG();
+    }
+
+    public IEnumerable<EntProtoId> GetSpawns(EntityTableSelector? table)
+    {
+        if (table == null || _net.IsClient) // we probably want to move all rng logic to server
             return new List<EntProtoId>();
 
-        rand ??= _random.GetRandom();
-        return table.GetSpawns(rand, EntityManager, _prototypeManager);
+        return table.GetSpawns(SystemRNGInstance, EntityManager, _prototypeManager);
+    }
+
+    public IEnumerable<EntProtoId> GetSpawns(EntityTableSelector? table, IRobustRandom randomInstance)
+    {
+        if (table == null || _net.IsClient) // we probably want to move all rng logic to server
+            return new List<EntProtoId>();
+
+        return table.GetSpawns(randomInstance, EntityManager, _prototypeManager);
+    }
+
+    public virtual IRobustRandom InitSystemRNG()
+    {
+        return _random;
     }
 }

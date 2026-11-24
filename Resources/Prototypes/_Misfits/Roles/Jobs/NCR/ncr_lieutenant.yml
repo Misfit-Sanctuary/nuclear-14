@@ -39,21 +39,25 @@
         factions:
           - Wastelander
           - NCR
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinNCRFirstLieutenant }
+    - { pin: ClothingNeckPinNCRCaptain, hours: 20 }
 
 - type: startingGear
   id: NCRExecutiveOfficerGear
   equipment:
     wallet: N14Wallet
     head: N14ClothingHeadHatNCRBeretOfficer
+    ears: MisfitsClothingHeadsetNCRMaster
     back: N14ClothingBackpackNCR
     jumpsuit: N14ClothingOfficerUniformNCRDesert
     outerClothing: N14ClothingOuterNCRDressJacket
     shoes: N14ClothingBootsCombatFilled
-
     belt: ClothingBeltNCR
     eyes: ClothingEyesGlassesSunglasses
-    ears: N14ClothingHeadsetNCR
-    pocket1: NCRLTloadoutkits
+    # #Cythisiax Removed - Main NCR job slots now obtain selectable equipment from the requisitions vendors.
     pocket2: RadioHandheld
     id: N14IDNCRDogtagOfficer
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert

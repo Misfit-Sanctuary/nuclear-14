@@ -103,6 +103,7 @@ namespace Content.Server.GameTicking
                 "Overflow role does not have the correct name!");
             InitializeGameRules();
             InitializeReplays();
+            InitializeFactionMetrics(); // #Cythisiax Added - register live faction population metrics.
             _initialized = true;
         }
 
@@ -123,6 +124,7 @@ namespace Content.Server.GameTicking
             base.Shutdown();
 
             ShutdownGameRules();
+            ShutdownFactionMetrics(); // #Cythisiax Added - unregister live faction population metrics.
         }
 
         private void SendServerMessage(string message)

@@ -5,7 +5,8 @@
 - type: entity
   parent: N14VehicleVertibird
   id: N14VehicleVertibirdBoS
-  name: Brotherhood of Steel vertibird
+  name: Brotherhood of Steel Vertibird
+  description: These heavy tilt-rotor aircrafts, rigged for short-range wasteland flight, are rare and valuable pre-war equipment. Proudly painted in the heraldry of the Brotherhood of Steel, it is a symbol of their strength and zeal.
   suffix: Flyable, Wendover
   components:
   - type: Vertibird
@@ -29,7 +30,8 @@
 - type: entity
   parent: N14VehicleVertibirdWreck
   id: N14VehicleVertibirdBoSWreck
-  name: grounded Brotherhood of Steel vertibird
+  name: Grounded Brotherhood of Steel Vertibird
+  description: This grounded pre-war aircraft is still under maintenance, but it will soon dominate the skies once more. Proudly painted in the heraldry of the Brotherhood of Steel, it is a symbol of their strength and zeal.
   suffix: Mapping
   components:
   - type: Sprite
@@ -39,7 +41,8 @@
 - type: entity
   parent: N14VehicleVertibird
   id: N14VehicleVertibird509th
-  name: 509th Brotherhood of Steel vertibird
+  name: 509th Brotherhood of Steel Vertibird
+  description: These heavy tilt-rotor aircrafts, rigged for short-range wasteland flight, are rare and valuable pre-war equipment. Proudly painted in the heraldry of the 509th Chapter of the Brotherhood of Steel, it is a symbol of their conviction.
   suffix: Flyable, Wendover
   components:
   - type: Vertibird
@@ -63,7 +66,8 @@
 - type: entity
   parent: N14VehicleVertibirdWreck
   id: N14VehicleVertibird509thWreck
-  name: grounded 509th Brotherhood of Steel vertibird
+  name: Grounded 509th Brotherhood of Steel Vertibird
+  description: This grounded pre-war aircraft is still under maintenance, but it will soon dominate the skies once more. Proudly painted in the heraldry of the 509th Chapter of the Brotherhood of Steel, it is a symbol of their conviction.
   suffix: Mapping
   components:
   - type: Sprite
@@ -73,7 +77,8 @@
 - type: entity
   parent: N14VehicleVertibird
   id: N14VehicleVertibirdEnclave
-  name: Enclave vertibird
+  name: Enclave Vertibird
+  description: These heavy tilt-rotor aircrafts, rigged for short-range wasteland flight, are rare and valuable pre-war equipment. The seal of the Enclave is prominent over its blackened shell, a symbol of America's past glory and wartime dominance.
   suffix: Flyable, Wendover
   components:
   - type: Vertibird
@@ -97,7 +102,8 @@
 - type: entity
   parent: N14VehicleVertibirdWreck
   id: N14VehicleVertibirdEnclaveWreck
-  name: grounded Enclave vertibird
+  name: Grounded Enclave Vertibird
+  description: This grounded pre-war aircraft is still under maintenance, but it will soon dominate the skies once more. The seal of the Enclave is prominent over its blackened shell, a symbol of America's past glory and wartime dominance.
   suffix: Mapping
   components:
   - type: Sprite
@@ -107,7 +113,8 @@
 - type: entity
   parent: N14VehicleVertibird
   id: N14VehicleVertibirdNCR
-  name: NCR vertibird
+  name: NCR Vertibird
+  description: These heavy tilt-rotor aircrafts, rigged for short-range wasteland flight, are rare and valuable pre-war equipment. The flag of the New California Republic has been painted over its front, a symbol of the growing nation's ambition and influence.
   suffix: Flyable, Wendover
   components:
   - type: Vertibird
@@ -131,7 +138,8 @@
 - type: entity
   parent: N14VehicleVertibirdWreck
   id: N14VehicleVertibirdNCRWreck
-  name: grounded NCR vertibird
+  name: Grounded NCR Vertibird
+  description: This grounded pre-war aircraft is still under maintenance, but it will soon dominate the skies once more. The flag of the New California Republic has been painted over its front, a symbol of the growing nation's ambition and influence.
   suffix: Mapping
   components:
   - type: Sprite
@@ -141,7 +149,8 @@
 - type: entity
   parent: N14VehicleVertibird
   id: N14VehicleVertibirdVaultTec
-  name: Vault-Tec vertibird
+  name: Vault-Tec Vertibird
+  description: These heavy tilt-rotor aircrafts, rigged for short-range wasteland flight, are rare and valuable pre-war equipment. The logo of Vault-Tec has been stenciled over its body, a symbol of the pre-war corporation's influence over its own government.
   suffix: Flyable, Wendover
   components:
   - type: Vertibird
@@ -165,7 +174,8 @@
 - type: entity
   parent: N14VehicleVertibirdWreck
   id: N14VehicleVertibirdVaultTecWreck
-  name: grounded Vault-Tec vertibird
+  name: Grounded Vault-Tec Vertibird
+  description: This grounded pre-war aircraft is still under maintenance, but it will soon dominate the skies once more. The logo of Vault-Tec has been stenciled over its body, a symbol of the pre-war corporation's influence over its own government.
   suffix: Mapping
   components:
   - type: Sprite

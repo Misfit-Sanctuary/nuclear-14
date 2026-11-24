@@ -1,0 +1,133 @@
+# Great Khans faction armor — ported from SS13 Big-Iron reference repo.
+# The Great Khans are a major Fallout NV raider faction absent from N14 until now.
+# All khans equipments are balanced around wastelanders as they are primarily are wastelanders/raiders due to them not being a faction on the server but as wastelanders.
+# Sprites: placeholder centurionheavyarmor.rsi until _Misfits RSIs are sourced and converted.
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitsClothingOuterKhansJacket
+  name: khans jacket
+  description: Jackets popular with the Great Khans show off their skull emblem on the back, with small lead plate inserts providing some protection. Worn by rank-and-file Khan members.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansjacket.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansjacket.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.88
+        Slash: 0.80
+        Piercing: 0.82
+        Heat: 0.78
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: MisfitsClothingOuterKhansJacket
+  id: MisfitsClothingOuterKhansVest
+  name: khans vest
+  description: Vests popular with the Great Khans show off their skull emblem on the back, with small lead plate inserts providing some protection. Worn by rank-and-file Khan members. #Alternative sprite of Jacket. If there is ever a "alt" click for sprite change put this with MisfitsClothingOuterKhansJacket
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansaltjacket.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansaltjacket.rsi
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitsClothingOuterKhansArmoredJacket
+  name: khans armored jacket
+  description: A Great Khans armored jacket with ceramic and metal inserts — more protection, same attitude. Standard issue for Khan enforcers looking to make a statement without slowing down.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansarmoredjacket.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansarmoredjacket.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.775
+        Slash: 0.775
+        Piercing: 0.775
+        Heat: 0.775
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+
+- type: entity
+  parent: MisfitsClothingOuterKhansArmoredJacket
+  id: MisfitsClothingOuterKhansArmoredVest #Alternative sprite of Armored Jacket. If there is ever a "alt" click for sprite change put this with MisfitsClothingOuterKhansArmoredJacket
+  name: khans armored vest
+  description: A black leather vest. There is an illustration on the back - an aggressive, red-eyed skull wearing a fur hat with horns. The skull has a mongoloid moustache - it's obviously a Great Khans emblem.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansaltarmoredjacket.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansaltarmoredjacket.rsi
+
+- type: entity
+  parent: N14ClothingOuterCombatArmor
+  id: MisfitsClothingOuterKhansBattlecoatBlack
+  name: khans black battlecoat
+  description: Pre-war combat armor repainted in the red and black of the Great Khans. Road warrior chic — the Khan who wears this has seen enough firefights to bother upgrading.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansbattlecoatblack.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansbattlecoatblack.rsi
+
+- type: entity
+  parent: N14ClothingOuterCombatArmor
+  id: MisfitsClothingOuterKhansBattlecoatRed
+  name: khans red battlecoat
+  description: Pre-war combat armor repainted in the red and black of the Great Khans. Road warrior chic — the Khan who wears this has seen enough firefights to bother upgrading. #Alternative sprite of Combat Jacket. If there is ever a "alt" click for sprite change put this with MisfitsClothingOuterKhansBattlecoatBlack
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansbattlecoatred.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khansbattlecoatred.rsi
+
+- type: entity
+  parent: N14ClothingOuterCombatArmor
+  id: N14ClothingOuterKhanbatCombatArmor
+  name: khanbat armor
+  description: An old set of combat armor, repainted in the blue color of the Khans.
+  components:
+  # #Misfits Fix - RSI lives in _Misfits/Clothing/OuterClothing/Armor, path was stale (_Nuclear14).
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khanbatarmor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khanbatarmor.rsi
+
+- type: entity
+  parent: N14ClothingOuterKhanbatCombatArmor
+  id: N14ClothingOuterTribeCombatArmor
+  name: Tribal Combat armor
+  description: An old set of combat armor, repainted in the blue color of the Willows.
+
+- type: entity
+  parent: N14ClothingOuterKhanbatCombatArmorMK2
+  id: N14ClothingOuterTribeCombatArmorMk2
+  name: reinforced Tribal combat armor
+  description: An old set of combat armor, repainted in the colors of the willows, with a Painted Face on the back."
+  components:
+  # #Misfits Fix - RSI lives in _Misfits/Clothing/OuterClothing/Armor, path was stale (_Nuclear14).
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khanbatarmormk2.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khanbatarmormk2.rsi
+
+
+
+- type: entity
+  parent: N14ClothingOuterCombatArmorMK2
+  id: N14ClothingOuterKhanbatCombatArmorMK2
+  name: reinforced khanbat combat armor
+  description: An old set of combat armor, repainted in the colors of the Khans, with a big mongol on the back."
+  components:
+  # #Misfits Fix - RSI lives in _Misfits/Clothing/OuterClothing/Armor, path was stale (_Nuclear14).
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khanbatarmormk2.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Armor/khanbatarmormk2.rsi

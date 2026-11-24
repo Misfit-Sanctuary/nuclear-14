@@ -1054,6 +1054,12 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 query = query.Where(log => log.RoundId == filter.Round);
             }
 
+            if (!string.IsNullOrWhiteSpace(filter.PlayerName))
+                query = query.Where(log => log.Message.ToLower().Contains(filter.PlayerName.ToLower()));
+
+            if (!string.IsNullOrWhiteSpace(filter.AdminName))
+                query = query.Where(log => log.Message.ToLower().Contains(filter.AdminName.ToLower()));
+
             if (filter.Types != null)
             {
                 query = query.Where(log => filter.Types.Contains(log.Type));
@@ -1115,6 +1121,8 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             };
 
             const int hardLogLimit = 500_000;
+            if (filter.Offset > 0)
+                query = query.Skip(Math.Min(filter.Offset, hardLogLimit));
             if (filter.Limit != null)
             {
                 query = query.Take(Math.Min(filter.Limit.Value, hardLogLimit));
@@ -1877,6 +1885,24 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return true;
         }
 
+        // #Cythisiax Added - Faction roster: list every player holding any of the given job
+        // whitelists, with their last seen username, for the faction lead's roster GUI.
+        public async Task<List<JobWhitelistHolder>> GetJobWhitelistHolders(
+            IReadOnlyCollection<string> roles,
+            CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+            var roleList = roles.ToList();
+            var rows = await db.DbContext.RoleWhitelists
+                .Where(w => roleList.Contains(w.RoleId))
+                .Select(w => new { w.PlayerUserId, w.Player.LastSeenUserName, w.RoleId })
+                .ToListAsync(cancel);
+
+            return rows
+                .Select(r => new JobWhitelistHolder(r.PlayerUserId, r.LastSeenUserName, r.RoleId))
+                .ToList();
+        }
+
         #endregion
 
         // #Misfits Change - Persistent currency
@@ -1972,6 +1998,52 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             else
             {
                 db.DbContext.CharacterPlayerData.Add(data);
+            }
+
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        #endregion
+
+        // #Cythisiax Added - Faction rank: per-character held/granted rank rows
+
+        #region FactionRank
+
+        public async Task<List<FactionCharacterRank>> GetFactionCharacterRanksAsync(
+            Guid playerId, string characterName, CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            return await db.DbContext.FactionCharacterRank
+                .Where(r => r.PlayerId == playerId && r.CharacterName == characterName)
+                .ToListAsync(cancel);
+        }
+
+        public async Task UpsertFactionCharacterRankAsync(FactionCharacterRank data)
+        {
+            await using var db = await GetDb();
+
+            var existing = await db.DbContext.FactionCharacterRank
+                .Where(r => r.PlayerId == data.PlayerId && r.CharacterName == data.CharacterName && r.Ladder == data.Ladder)
+                .SingleOrDefaultAsync();
+
+            if (existing != null)
+            {
+                existing.HeldRank = data.HeldRank;
+                existing.GrantedRank = data.GrantedRank;
+                existing.GrantCapped = data.GrantCapped;
+            }
+            else
+            {
+                db.DbContext.FactionCharacterRank.Add(new FactionCharacterRank
+                {
+                    PlayerId = data.PlayerId,
+                    CharacterName = data.CharacterName,
+                    Ladder = data.Ladder,
+                    HeldRank = data.HeldRank,
+                    GrantedRank = data.GrantedRank,
+                    GrantCapped = data.GrantCapped,
+                });
             }
 
             await db.DbContext.SaveChangesAsync();

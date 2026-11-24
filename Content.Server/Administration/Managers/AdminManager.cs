@@ -542,6 +542,11 @@ namespace Content.Server.Administration.Managers
             return false;
         }
 
+        public bool IsAdminCommand(string commandName)
+        {
+            return _commandPermissions.AdminCommands.ContainsKey(commandName);
+        }
+
         public bool CheckInvokable(CommandSpec command, ICommonSession? user, out IConError? error)
         {
             if (user is null)
