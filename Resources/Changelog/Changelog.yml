@@ -13053,3 +13053,12 @@ Entries:
   id: 6579
   time: '2026-11-23T19:33:52.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2207
+- author: sigmatique
+  changes:
+    - type: Fix
+      message: Robots can now stand up by themselves if forced/fallen down
+    - type: Fix
+      message: Robobrain starting cell changed to the antique powercell prototype
+  id: 6580
+  time: '2026-11-24T00:51:25.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2206
