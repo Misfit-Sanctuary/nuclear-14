@@ -28,7 +28,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   # Balance: all economic and encounter tuning is kept here.
-  - type: MaterialExtractor  #Due to recent cyhtsia changes, all extractor mob now no longer detect players at long ranges, this need to be fixed or reverted otherwise player would get free materials without risk of getting attacked.
+  - type: MaterialExtractor  #Due to recent cythsisa changes, all extractor mob now no longer detect players at long ranges, this need to be fixed or reverted otherwise player would get free materials without risk of getting attacked.
     operatorRadius: 4
     pulseIntervalSeconds: 2
     firstWaveMinSeconds: 15
