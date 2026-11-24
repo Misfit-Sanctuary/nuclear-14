@@ -493,6 +493,39 @@
     price: 150
 
 - type: entity
+  name: Tribal Shotgun
+  parent: N14WeaponShotgunBase
+  id: N14WeaponShotgunTribal
+  description: A semi automatic Tribal shotgun, uses 12 gauge shells
+  components:
+  - type: Gun
+    fireRate: 3
+    soundGunshot:
+      collection: N14ShotgunGunshot
+  - type: GunRequiresWield
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/canadian_shotgun.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/tribal_shotgun.rsi
+  - type: Item
+    size: Large
+    sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/tribal_shotgun.rsi
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - N14ShellShotgun12
+    capacity: 8
+    proto: N14ShellShotgun12
+    soundInsert:
+      path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
+  - type: StaticPrice
+    price: 150
+
+- type: entity
   name: boom stick
   parent: N14WeaponShotgunBase
   id: N14WeaponShotgunBoomstick
