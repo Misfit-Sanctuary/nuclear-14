@@ -8,8 +8,8 @@
     sprite: _Misfits/Objects/Weapons/Melee/sculptor.rsi
     quickEquip: false
     slots:
-    - Belt
     - suitStorage
+    - back
   - type: Sprite
     sprite: _Misfits/Objects/Weapons/Melee/sculptor.rsi
     state: icon
@@ -22,7 +22,6 @@
     damage:
       types:
         Slash: 175
-    ignoreResistances: true
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item

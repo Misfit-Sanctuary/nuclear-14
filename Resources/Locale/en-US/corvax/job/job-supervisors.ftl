@@ -1,6 +1,6 @@
 job-name-caesar-legion = obey The Augustus.
 job-name-caesar-legion-supervisors = obey The Augustus, the Legate, and the Centurion.
-job-name-caesar-legion-speculatore = obey The Augustus and the Legate.
+job-supervisors-caesar-legion-speculatore = obey The Augustus and the Legate.
 job-name-caesar-legion-other = obey The Augustus, the Legate, the Centurion and the Decani.
 job-name-caesar-legion-female = obey The Augustus, the Legate, the Centurion, and the Priestess.
 job-supervisors-caesar-legion-slave = obey The Augustus, the Legate, the Centurion, and all other members of the Legion.

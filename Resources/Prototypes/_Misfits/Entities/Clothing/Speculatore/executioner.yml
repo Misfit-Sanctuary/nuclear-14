@@ -74,6 +74,9 @@
     sprite: _Misfits/Clothing/CaesarLegion/Speculatore/Executioner/execneck.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/CaesarLegion/Speculatore/Executioner/execneck.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
 
 - type: entity
   parent: ClothingUniformBase
