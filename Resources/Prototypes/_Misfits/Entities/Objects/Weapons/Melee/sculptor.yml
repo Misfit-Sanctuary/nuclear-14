@@ -1,0 +1,29 @@
+- type: entity
+  parent: N14Machete
+  id: LegionSpecSculptor
+  name: Sculptor
+  description: A powerful weapon only to be used to punish lawbreakers who were ordered to meet a untimely death, never to be taken out of castrum or used on anyone else.
+  components:
+  - type: Clothing
+    sprite: _Misfits/Objects/Weapons/Melee/sculptor.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Melee/sculptor.rsi
+    state: icon
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 25
+  - type: MeleeWeapon
+    attackRate: 0.7
+    damage:
+      types:
+        Slash: 175
+    ignoreResistances: true
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: _Misfits/Objects/Weapons/Melee/sculptor.rsi
