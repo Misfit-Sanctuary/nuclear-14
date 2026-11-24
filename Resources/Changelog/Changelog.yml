@@ -13076,3 +13076,12 @@ Entries:
   id: 6582
   time: '2026-11-24T01:04:58.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2194
+- author: ComradeLeanna
+  changes:
+    - type: Fix
+      message: >-
+        Fixed cases where vault would not be translated to voûte when using the
+        French accent.
+  id: 6583
+  time: '2026-11-24T01:35:52.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2193
