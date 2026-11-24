@@ -11,7 +11,6 @@
   description: A mask featuring a smile akin to a comedy mask, theres bloodstains that drip from the top from a spiked crown which digs into the wearers skin.
   components:
   - type: Sprite
-    scale: .25,.25
     sprite: _Misfits/Clothing/CaesarLegion/CruorisMandex/cruorishood.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/CaesarLegion/CruorisMandex/cruorishood.rsi
@@ -26,7 +25,6 @@
   description: A bright red set of torn clothes, they look like theyve been repurposed from a robe.
   components:
   - type: Sprite
-    scale: .35,.35
     sprite: _Misfits/Clothing/CaesarLegion/CruorisMandex/cruorisinner.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/CaesarLegion/CruorisMandex/cruorisinner.rsi
@@ -41,7 +39,6 @@
   description: Tight iron bloodstained and rusted spiked braces which constantly cut into the wearers wrists.
   components:
   - type: Sprite
-    scale: .5,.5
     sprite: _Misfits/Clothing/CaesarLegion/CruorisMandex/cruorisbraces.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/CaesarLegion/CruorisMandex/cruorisbraces.rsi
@@ -61,7 +58,6 @@
   description: Similar to a legionaries armor, just rusted with blood and bearing two pauldrons ripped off a power armor set and stained with blood.
   components:
   - type: Sprite
-    scale: .4,.4
     sprite: _Misfits/Clothing/CaesarLegion/CruorisMandex/cruorisouter.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/CaesarLegion/CruorisMandex/cruorisouter.rsi
@@ -76,7 +72,6 @@
   description: A mask featuring a frown akin to a tragedy mask, theres bloodstains that drip from the top from a spiked crown that digs into the wearers skin.
   components:
   - type: Sprite
-    scale: .25,.25
     sprite: _Misfits/Clothing/CaesarLegion/CruorisMandex/cruorismask.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/CaesarLegion/CruorisMandex/cruorismask.rsi
@@ -91,7 +86,6 @@
   description: A set of rusted and bloodstained power armor legs, non functional, but adorned as a trophy.
   components:
   - type: Sprite
-    scale: .35,.35
     sprite: _Misfits/Clothing/CaesarLegion/CruorisMandex/cruorisboots.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/CaesarLegion/CruorisMandex/cruorisboots.rsi
@@ -100,3 +94,16 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: N14FootstepPowerArmor
+
+# Neck
+
+- type: entity
+  parent: ClothingNeckBase
+  id: MisfitsCruorisMandexNeck
+  name: Vestigia Pauldrons
+  description: A pair of pauldrons ripped from the corpse of a dead paladin and kept as a trophy.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/CruorisMandex/cruorisneck.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/CruorisMandex/cruorisneck.rsi
