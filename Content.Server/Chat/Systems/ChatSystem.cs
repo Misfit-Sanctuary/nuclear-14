@@ -479,6 +479,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         var speech = speechVerbOverride ?? GetSpeechVerb(source, message);
 
+        TransformSpeakerNameEvent? rankNameEv = null; // #Cythisiax Added - faction-colored rank prefix
         // get the entity's apparent name (if no override provided).
         string name;
         if (nameOverride != null)
@@ -490,12 +491,15 @@ public sealed partial class ChatSystem : SharedChatSystem
             var nameEv = new TransformSpeakerNameEvent(source, Name(source));
             RaiseLocalEvent(source, nameEv);
             name = nameEv.VoiceName ?? Name(source);
+            rankNameEv = nameEv; // #Cythisiax Added - faction-colored rank prefix
             // Check for a speech verb override
             if (nameEv.SpeechVerb != null && _prototypeManager.TryIndex(nameEv.SpeechVerb, out var proto))
                 speech = proto;
         }
 
         name = FormattedMessage.EscapeText(name);
+        if (rankNameEv != null) // #Cythisiax Added - faction-colored rank prefix
+            name = rankNameEv.ColorRankPrefix(name);
 
         // The chat message wrapped in a "x says y" string
         var wrappedMessage = WrapPublicMessage(source, name, message, language: language, speechOverride: speech);
@@ -556,6 +560,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         // get the entity's name by visual identity (if no override provided).
         string nameIdentity = FormattedMessage.EscapeText(nameOverride ?? Identity.Name(source, EntityManager));
+        TransformSpeakerNameEvent? rankNameEv = null; // #Cythisiax Added - faction-colored rank prefix
         // get the entity's name by voice (if no override provided).
         string name;
         if (nameOverride != null)
@@ -567,12 +572,15 @@ public sealed partial class ChatSystem : SharedChatSystem
             var nameEv = new TransformSpeakerNameEvent(source, Name(source));
             RaiseLocalEvent(source, nameEv);
             name = nameEv.VoiceName;
+            rankNameEv = nameEv; // #Cythisiax Added - faction-colored rank prefix
 
             // #Misfits Fix - if name-transform supplies a speech verb, use it for wrapping.
             if (nameEv.SpeechVerb != null && _prototypeManager.TryIndex(nameEv.SpeechVerb, out var proto))
                 speech = proto;
         }
         name = FormattedMessage.EscapeText(name);
+        if (rankNameEv != null) // #Cythisiax Added - faction-colored rank prefix
+            name = rankNameEv.ColorRankPrefix(name);
 
         var languageObfuscatedMessage = SanitizeInGameICMessage(source, _language.ObfuscateSpeech(message, language), out var emoteStr, true, _configurationManager.GetCVar(CCVars.ChatPunctuation), (!CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Parent.Name == "en") || (CultureInfo.CurrentCulture.IsNeutralCulture && CultureInfo.CurrentCulture.Name == "en"));
 

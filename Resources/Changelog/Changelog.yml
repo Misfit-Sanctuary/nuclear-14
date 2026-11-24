@@ -12953,3 +12953,126 @@ Entries:
   id: 6567
   time: '2026-11-10T00:07:08.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2136
+- author: Enkidienne
+  changes:
+    - type: Add
+      message: Mortars and related equipements
+  id: 6568
+  time: '2026-11-10T21:01:01.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2135
+- author: JohnKieser
+  changes:
+    - type: Tweak
+      message: RMC Mortars and associated items shouldn't be available as BPs
+  id: 6569
+  time: '2026-11-10T21:30:21.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2179
+- author: Davisrocket
+  changes:
+    - type: Add
+      message: Enclave Commander now spawns with Enclave Microbomb Detonator
+  id: 6570
+  time: '2026-11-12T05:18:36.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2181
+- author: hobolyra
+  changes:
+    - type: Add
+      message: BoS Archivist role
+  id: 6571
+  time: '2026-11-12T05:19:38.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2176
+- author: RedBookcase
+  changes:
+    - type: Add
+      message: >-
+        Adds the Tribeam Laser Rifle! It spawns randomly as loot and can be
+        crafted by the Brotherhood or purchased in the Enclave ASRS.
+  id: 6572
+  time: '2026-11-14T01:48:28.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2171
+- author: Davisrocket
+  changes:
+    - type: Add
+      message: Ammo Canister with functionality
+  id: 6573
+  time: '2026-11-14T01:49:53.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2182
+- author: Wazura
+  changes:
+    - type: Add
+      message: Added 3 kits to Willow Shaman
+    - type: Add
+      message: Gave Shaman Health Analyzer
+  id: 6574
+  time: '2026-11-14T02:28:00.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2184
+- author: Davisrocket
+  changes:
+    - type: Fix
+      message: RSI Error in Shaman Kits
+  id: 6575
+  time: '2026-11-15T01:24:56.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2189
+- author: Davisrocket
+  changes:
+    - type: Tweak
+      message: Enclave Recruitment playtime reduced to 2 hours for Enlisted/Junior Sci
+    - type: Tweak
+      message: Enclave Reformer renamed to Enclave General
+  id: 6576
+  time: '2026-11-15T01:27:09.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2188
+- author: Tytos
+  changes:
+    - type: Tweak
+      message: sm gladiators have access to legion base now
+  id: 6577
+  time: '2026-11-16T15:45:03.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2190
+- author: JohnKieser
+  changes:
+    - type: Add
+      message: Commissioned player armor for Artivus. Sprites by barkuaad!!
+  id: 6578
+  time: '2026-11-20T21:17:10.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2196
+- author: cythisiax
+  changes:
+    - type: Add
+      message: Rank prefixes for factions based off badge & pinned rank.
+    - type: Tweak
+      message: >-
+        All rank prefixes can be adjusted by job specific tag in their
+        respective yaml.
+    - type: Tweak
+      message: Unnecessary material extractor things.
+    - type: Tweak
+      message: MP Commander can no longer go to Lieutenant Colonel rank, capped to LT.
+    - type: Fix
+      message: Roster GUI issue for Enclave
+  id: 6579
+  time: '2026-11-23T19:33:52.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2207
+- author: sigmatique
+  changes:
+    - type: Fix
+      message: Robots can now stand up by themselves if forced/fallen down
+    - type: Fix
+      message: Robobrain starting cell changed to the antique powercell prototype
+  id: 6580
+  time: '2026-11-24T00:51:25.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2206
+- author: Laus4Deus
+  changes:
+    - type: Fix
+      message: Ash Viper Venom not having obtainable ingredients
+  id: 6581
+  time: '2026-11-24T00:52:58.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2200
+- author: Davisrocket
+  changes:
+    - type: Tweak
+      message: Gauss Rifle Availability Reduced to One for enclave requisition
+  id: 6582
+  time: '2026-11-24T01:04:58.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2194

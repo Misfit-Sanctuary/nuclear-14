@@ -43,17 +43,17 @@ public sealed partial class MaterialExtractorComponent : Component
     [DataField] public List<MaterialExtractorWaveTheme> WaveThemes = new();
     [DataField] public Dictionary<string, int> WaveMobWeights = new()
     {
-        ["N14MobMaterialExtractorMoleratWave"] = 24,
-        ["N14MobMaterialExtractorGeckoWave"] = 18,
-        ["N14MobMaterialExtractorMirelurkWave"] = 12,
-        ["N14MobMaterialExtractorRadhogWave"] = 10,
-        ["N14MobMaterialExtractorFireGeckoWave"] = 8,
-        ["N14MobMaterialExtractorNightstalkerCubWave"] = 8,
-        ["N14MobMaterialExtractorGiantAntWave"] = 7,
-        ["N14MobMaterialExtractorNightstalkerWave"] = 4,
-        ["N14MobMaterialExtractorRadMirelurkWave"] = 3,
-        ["N14MobMaterialExtractorGiantFireAntWave"] = 3,
-        ["N14MobMaterialExtractorRadscorpionWave"] = 3,
+        ["N14MobMolerat"] = 24,
+        ["N14MobGecko"] = 18,
+        ["N14MobMirelurk"] = 12,
+        ["N14MobRadhog"] = 10,
+        ["N14MobGeckoFire"] = 8,
+        ["N14MobNightstalkerCub"] = 8,
+        ["N14MobGiantAnt"] = 7,
+        ["N14MobNightstalker"] = 4,
+        ["N14MobRadMirelurk"] = 3,
+        ["N14MobGiantFireAnt"] = 3,
+        ["N14MobRadscorpion"] = 3,
     };
     [DataField] public float PoorDepositChance = 0.25f;
     [DataField] public float RichDepositChance = 0.15f;

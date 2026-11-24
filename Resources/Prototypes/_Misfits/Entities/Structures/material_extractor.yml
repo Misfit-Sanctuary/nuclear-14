@@ -54,46 +54,99 @@
       maxCount: 6
       family: Wildlife
       mobs:
-        N14MobMaterialExtractorMoleratWave: 18
-        N14MobMaterialExtractorGeckoWave: 15
-        N14MobMaterialExtractorMirelurkWave: 12
-        N14MobMaterialExtractorRadhogWave: 10
-        N14MobMaterialExtractorFireGeckoWave: 8
-        N14MobMaterialExtractorNightstalkerCubWave: 7
-        N14MobMaterialExtractorGiantAntWave: 6
-        N14MobMaterialExtractorNightstalkerWave: 5
-        N14MobMaterialExtractorRadMirelurkWave: 4
-        N14MobMaterialExtractorGiantFireAntWave: 4
-        N14MobMaterialExtractorRadscorpionWave: 4
+        N14MobMolerat: 18
+        N14MobGecko: 15
+        N14MobMirelurk: 12
+        N14MobRadhog: 10
+        N14MobPigrat: 10
+        N14MobRadroach: 10
+        N14MobGeckoFire: 8
+        N14MobDogFeral: 8
+        N14MobBloatfly: 8
+        N14MobNightstalkerCub: 7
+        N14MobGiantAnt: 6
+        N14MobNightstalker: 5
+        N14MobRadMirelurk: 4
+        N14MobGiantFireAnt: 4
+        N14MobRadscorpion: 4
+        N14MobRadscorpionBark: 3
+        N14MobGeckoGolden: 3
+        N14MobCazador: 3
       bosses:
-        N14MobMaterialExtractorYaoguaiWave: 45
-        N14MobMaterialExtractorDeathclawWave: 35
-        N14MobMaterialExtractorRadscorpionBossWave: 20
+        N14MobYaoguai: 45
+        N14MobDeathclaw: 35
+        N14MobRadscorpion: 20
+    - name: deathclaw pack
+      weight: 10
+      minCount: 1
+      maxCount: 2
+      family: Deathclaw
+      mobs:
+        N14MobDeathclaw: 70
+        N14MobRadLurker: 30
+      bosses:
+        N14MobDeathclawAlbino: 60
+        N14MobDeathclawMetal: 40
     - name: raider gun crew
       weight: 30
       minCount: 2
       maxCount: 4
       family: Raider
       mobs:
-        N14MobMaterialExtractorRaiderPistolWave: 45
-        N14MobMaterialExtractorRaiderSkirmisherWave: 35
-        N14MobMaterialExtractorRaiderHunterWave: 20
+        N14MobRaiderPsychoRanged: 30
+        N14MobRaiderPsychoRanged9mm: 15
+        N14MobRaiderSkrimisher: 25
+        N14MobRaiderSkrimisherautoshotgun: 10
+        N14MobRaiderHunter: 15
+        N14MobRaiderHunterEnfield: 5
+        N14MobRaiderPsycho: 15
       bosses:
-        N14MobMaterialExtractorRaiderBossWave: 70
-        N14MobMaterialExtractorRaiderHunterWave: 30
+        N14MobRaiderBoss: 45
+        N14MobRaiderBossRifle: 25
+        N14MobRaiderHunter: 30
+    - name: cult of liberty
+      weight: 15
+      minCount: 2
+      maxCount: 4
+      family: Raider
+      mobs:
+        N14MobFernMercRecruit: 35
+        N14MobFernMercPrivate: 30
+        N14MobRaiderFernMelee: 25
+        M14MobFernMercPrivateAutoRifle: 10
+      bosses:
+        N14MobFernMercSergeant: 60
+        N14MobFernMercLieutenant: 40
+    - name: warden patrol
+      weight: 15
+      minCount: 2
+      maxCount: 4
+      family: Raider
+      mobs:
+        N14MobEnforcerTrooper: 30
+        N14MobEnforcerTrooperSten: 15
+        N14MobEnforcerTrooper45SMG: 15
+        N14MobRaiderEnforcerMelee: 20
+        N14MobRaiderEnforcerShield: 20
+      bosses:
+        N14MobEnforcerWarden: 40
+        N14MobEnforcerChief: 30
+        M14MobEnforcerChief357: 15
+        M14MobEnforcerChiefCowboyRepeater: 15
     - name: super mutant warband
       weight: 20
       minCount: 2
       maxCount: 4
       family: SuperMutant
       mobs:
-        N14MobMaterialExtractorSuperMutantWave: 25
-        N14MobMaterialExtractorSuperMutantMeleeWave: 45
-        N14MobMaterialExtractorSuperMutantRangedWave: 30
+        N14MobSuperMutantNPC: 25
+        N14MobSuperMutantMelee: 40
+        N14MobSuperMutantRanged: 25
+        N14MobSuperMutantSuicider: 10
       bosses:
-        N14MobMaterialExtractorSuperMutantNCOWave: 55
-        N14MobMaterialExtractorSuperMutantArmoredWave: 35
-        N14MobMaterialExtractorBehemothWave: 10
+        N14MobSuperMutantNCO: 55
+        N14MobSuperMutantArmored: 35
+        N14MobBehemoth: 10
     - name: nightkin hunting party
       weight: 20
       minCount: 1
@@ -101,10 +154,36 @@
       nightOnly: true
       family: SuperMutant
       mobs:
-        N14MobMaterialExtractorNightkinWave: 65
-        N14MobMaterialExtractorNightkinVeteranWave: 35
+        N14MobNightkin: 65
+        N14MobNightkinVeteran: 35
       bosses:
-        N14MobMaterialExtractorNightkinEliteWave: 100
+        N14MobNightkinElite: 100
+    - name: feral ghoul horde
+      weight: 20
+      minCount: 3
+      maxCount: 6
+      family: Ghoul
+      mobs:
+        N14MobGhoulFeral: 60
+        N14MobGhoulFeralRotter: 25
+        N14MobGhoulFeralReaver: 15
+      bosses:
+        N14MobGhoulFeralReaver: 100
+    - name: rogue robots
+      weight: 10
+      minCount: 1
+      maxCount: 3
+      family: Robot
+      mobs:
+        N14MobRobotProtectronHostile: 35
+        N14MobRobotEyebot: 25
+        N14MobRobotProtectronPoliceHostile: 20
+        N14MobRobotMrHandyGun: 10
+        N14MobRobotMrHandyGutsy: 10
+      bosses:
+        N14MobRobotAssaultronHostile: 40
+        N14MobRobotSentryBot: 30
+        N14MobRobotRobobrain: 30
     poorDepositChance: 0.25
     richDepositChance: 0.15
     poorYieldMultiplier: 0.7

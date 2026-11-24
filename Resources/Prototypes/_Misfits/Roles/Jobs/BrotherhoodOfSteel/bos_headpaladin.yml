@@ -34,6 +34,9 @@
   special:
   - !type:AddComponentSpecial
     components:
+      - type: FactionRoster # #Cythisiax Added - roster GUI: Initiate -> Squire, Paladin caste
+        roster: BrotherhoodOfSteel
+        action: ActionOpenFactionRosterBoS
       - type: NpcFactionMember
         factions:
           - BrotherhoodOfSteel
@@ -47,6 +50,11 @@
         understands:
         - English
         - N14BrotherBeep
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Head Paladin
+    prefix: Hd. Pal.
+    color: "#3B72BF"
 
 - type: startingGear
   id: BoSMidPaladinCommanderGear

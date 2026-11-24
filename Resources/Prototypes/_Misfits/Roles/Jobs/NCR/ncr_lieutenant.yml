@@ -42,6 +42,11 @@
       # #Misfits Add - command voice: bigger chat text
       - type: SpeechFontOverride
         fontSizeBonus: 4
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinNCRFirstLieutenant }
+    - { pin: ClothingNeckPinNCRCaptain, hours: 20 }
 
 - type: startingGear
   id: NCRExecutiveOfficerGear

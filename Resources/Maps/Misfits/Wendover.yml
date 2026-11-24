@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 11/05/2026 07:28:46
-  entityCount: 294775
+  entityCount: 294778
 maps:
 - 1
 grids:
@@ -759306,6 +759306,11 @@ entities:
     - type: Transform
       parent: 1
       pos: -113.5,-205.5
+  - uid: 294779
+    components:
+    - type: Transform
+      parent: 1
+      pos: -87.58167,212.67804
 - proto: filingCabinetRandom
   entities:
   - uid: 13684
@@ -1452835,6 +1452840,12 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: -124.5,-197.5
+  - uid: 294778
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: -85.5,214.5
 - proto: N14ComputerTerminalRustedBroken
   entities:
   - uid: 84373
@@ -2336976,5 +2336987,12 @@ entities:
     components:
     - type: Transform
       pos: 324.5,106.5
+      parent: 1
+- proto: MisfitsSpawnPointBoSArchvist
+  entities:
+  - uid: 294776
+    components:
+    - type: Transform
+      pos: -84.5,215.5
       parent: 1
 ...

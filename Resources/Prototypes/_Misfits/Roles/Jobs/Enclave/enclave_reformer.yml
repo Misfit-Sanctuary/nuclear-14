@@ -6,8 +6,8 @@
   hideWithoutJobWhitelist: true
   jobWhitelistBypassesRoleTimers: true # bypass faction timelocks — admin-only
   weight: 130
-  displayWeight: 130 # keep the Reformer alone at the top of the Enclave rank stack
-  # #Misfits Removed - showBorder moved to Commander so the gap appears after Reformer instead of above it
+  displayWeight: 130 # keep the Reformer/General alone at the top of the Enclave rank stack
+  # #Misfits Removed - showBorder moved to Commander so the gap appears after Reformer/General instead of above it
   overrideConsoleVisibility: false
   canBeAntag: false
   name: job-name-enclave-reformer
@@ -21,7 +21,7 @@
     - !type:CharacterDepartmentTimeRequirement # #Misfits Add - admin-only leadership timelock
       department: Enclave
       min: 144000 # 40 hours — admin role
-  startingGear: EnclaveReformerGear # #Misfits Change - dedicated Reformer gear keeps Hellfire (Commander moved to APA MK II)
+  startingGear: EnclaveReformerGear # #Misfits Change - dedicated Reformer/General gear keeps Hellfire (Commander moved to APA MK II)
   icon: "JobIconEnclaveReformer"
   supervisors: job-supervisors-enclave-reformer
   requireAdminNotify: true
@@ -45,8 +45,12 @@
         roster: Enclave
         action: ActionOpenFactionRosterEnclave
       - type: PowerArmorProficiency
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinEnclaveGeneral }
 
-# #Misfits Change - Reformer keeps Hellfire Advanced PA (Hellfire is now Reformer-exclusive; Commander uses APA MK II).
+# #Misfits Change - Reformer/General keeps Hellfire Advanced PA (Hellfire is now Reformer/General-exclusive; Commander uses APA MK II).
 - type: startingGear
   id: EnclaveReformerGear
   equipment:

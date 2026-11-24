@@ -42,6 +42,9 @@
   special:
     - !type:AddComponentSpecial
       components:
+        - type: FactionRoster # #Cythisiax Added - roster GUI: hands out the Mars roles
+          roster: Legion
+          action: ActionOpenFactionRosterLegion
         - type: BibleUser #Lets them heal with bibles
         - type: NpcFactionMember
           factions:

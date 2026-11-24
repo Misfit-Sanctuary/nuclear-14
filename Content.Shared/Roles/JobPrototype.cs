@@ -194,6 +194,9 @@ namespace Content.Shared.Roles
 
         [DataField]
         public ProtoId<OverwatchCategoryPrototype>? OverwatchCategory { get; private set; }
+
+        [DataField]
+        public Content.Shared._Misfits.FactionRank.JobRank? Rank { get; private set; } // #Cythisiax Added - the rank this job wears, set right in the job yaml
     }
 
     /// <summary>

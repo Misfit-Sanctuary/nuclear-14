@@ -32,6 +32,9 @@
   special:
   - !type:AddComponentSpecial
     components:
+      - type: FactionRoster # #Cythisiax Added - roster GUI: promote Legion job slots up to Optio
+        roster: Legion
+        action: ActionOpenFactionRosterLegion
       - type: NpcFactionMember
         factions:
           - CaesarLegion
@@ -70,6 +73,11 @@
   #- !type:AddComponentSpecial
   #  components:
   #    - type: GrantLegionGladiatorial
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Centurion
+    prefix: Cent.
+    color: "#8b0000"
 
 - type: startingGear
   id: CaesarLegionCenturionGear

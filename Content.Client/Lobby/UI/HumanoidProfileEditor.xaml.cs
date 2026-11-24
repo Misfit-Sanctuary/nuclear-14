@@ -1357,6 +1357,7 @@ namespace Content.Client.Lobby.UI
 
                     _jobPriorities.Add((job.ID, selector));
                     jobContainer.AddChild(selector);
+                    AddRankPicker(jobContainer, job); // #Cythisiax Added - rank pin picker for NCR / Enclave jobs
                     departmentContents.AddChild(jobContainer);
                 }
             }
@@ -1544,6 +1545,7 @@ namespace Content.Client.Lobby.UI
 
                     _jobPriorities.Add((job.ID, selector));
                     jobContainer.AddChild(selector);
+                    AddRankPicker(jobContainer, job); // #Cythisiax Added - rank pin picker for NCR / Enclave jobs
                     departmentContents.AddChild(jobContainer);
                 }
             }

@@ -60,6 +60,7 @@ namespace Content.Server.Database
         public DbSet<MarketPriceHistory> MarketPriceHistory { get; set; } = default!; // #Cythisiax Add - Market supply/demand price history
         public DbSet<MarketSale> MarketSale { get; set; } = default!; // #Cythisiax Add - Market completed-sale ledger
         public DbSet<MarketSoldItem> MarketSoldItem { get; set; } = default!; // #Cythisiax Add - Sold-item anti-relist tags
+        public DbSet<FactionCharacterRank> FactionCharacterRank { get; set; } = default!; // #Cythisiax Added - per-character faction rank (held pick + leadership grant)
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -138,6 +139,11 @@ namespace Content.Server.Database
             // #Misfits Change - One row per player-character pair for persistent player data
             modelBuilder.Entity<CharacterPlayerData>()
                 .HasIndex(c => new { c.PlayerId, c.CharacterName })
+                .IsUnique();
+
+            // #Cythisiax Added - one rank row per character per rank ladder
+            modelBuilder.Entity<FactionCharacterRank>()
+                .HasIndex(r => new { r.PlayerId, r.CharacterName, r.Ladder })
                 .IsUnique();
 
             // #Misfits Change - Unique persistence IDs for world objects
@@ -1664,6 +1670,31 @@ namespace Content.Server.Database
     {
         [Required, Key]
         public string SoldTag { get; set; } = null!;
+    }
+
+    // #Cythisiax Added - Faction rank: one row per character per rank ladder. HeldRank is the rank the
+    // player picked to wear, GrantedRank is what leadership set through the roster. GrantCapped means
+    // leadership set it below what playtime earned, so it's a hard cap until they change it again.
+    [Table("faction_character_rank")]
+    public sealed class FactionCharacterRank
+    {
+        [Required, Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
+        [Required]
+        public Guid PlayerId { get; set; }
+
+        [Required]
+        public string CharacterName { get; set; } = null!;
+
+        [Required]
+        public string Ladder { get; set; } = null!;
+
+        public string? HeldRank { get; set; }
+
+        public string? GrantedRank { get; set; }
+
+        public bool GrantCapped { get; set; }
     }
 
     /// A hardware ID value together with its <see cref="HwidType"/>.

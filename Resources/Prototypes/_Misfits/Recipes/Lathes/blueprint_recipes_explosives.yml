@@ -447,3 +447,121 @@
   id: MisfitsBPLegion40mmIncendiary
   category: N14BlueprintLegionAmmoT3
   availableFaction: [ CaesarLegion ]
+
+# === NCR MORTAR ORDNANCE === # #Misfits Add - 80mm M29 rounds, blueprint locked.
+- type: latheRecipe
+  id: MisfitsBPNCRMortarShellHE
+  result: RMCMortarShellHE
+  category: MisfitsBlueprintNCRMortarOrdnance
+  completetime: 8
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction: [ NCR ]
+  materials:
+    Steel: 800
+    N14Gunpowder: 600
+    N14Iron: 300
+
+- type: latheRecipe
+  id: MisfitsBPNCRMortarShellFrag
+  result: RMCMortarShellFrag
+  category: MisfitsBlueprintNCRMortarOrdnance
+  completetime: 8
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction: [ NCR ]
+  materials:
+    Steel: 700
+    N14Gunpowder: 500
+    N14Iron: 400
+
+- type: latheRecipe
+  id: MisfitsBPNCRMortarShellIncendiary
+  result: RMCMortarShellIncendiary
+  category: MisfitsBlueprintNCRMortarOrdnance
+  completetime: 8
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction: [ NCR ]
+  materials:
+    Steel: 700
+    N14Gunpowder: 400
+    N14Iron: 300
+
+- type: latheRecipe
+  id: MisfitsBPNCRMortarShellSmoke
+  result: RMCMortarShellSmoke
+  category: MisfitsBlueprintNCRMortarOrdnance
+  completetime: 6
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction: [ NCR ]
+  materials:
+    Steel: 500
+    N14Gunpowder: 250
+    N14Iron: 200
+
+- type: latheRecipe
+  id: MisfitsBPNCRMortarShellIllumination
+  result: RMCMortarShellIllumination
+  category: MisfitsBlueprintNCRMortarOrdnance
+  completetime: 6
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction: [ NCR ]
+  materials:
+    Steel: 400
+    N14Gunpowder: 200
+    N14Iron: 150
+    Glass: 100
+
+- type: latheRecipe
+  id: MisfitsBPNCRMortarShellKinetic
+  result: RMCMortarShellKinetic
+  category: MisfitsBlueprintNCRMortarOrdnance
+  completetime: 3
+  requiresBlueprint: true
+  applyMaterialDiscount: false
+  availableFaction: [ NCR ]
+  materials:
+    Steel: 200
+    N14Gunpowder: 50
+    N14Iron: 100
+
+# === LEGION MORTAR ORDNANCE === # #Misfits Add - mirrors the NCR costs.
+- type: latheRecipe
+  parent: MisfitsBPNCRMortarShellHE
+  id: MisfitsBPLegionMortarShellHE
+  category: MisfitsBlueprintLegionMortarOrdnance
+  availableFaction: [ CaesarLegion ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCRMortarShellFrag
+  id: MisfitsBPLegionMortarShellFrag
+  category: MisfitsBlueprintLegionMortarOrdnance
+  availableFaction: [ CaesarLegion ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCRMortarShellIncendiary
+  id: MisfitsBPLegionMortarShellIncendiary
+  category: MisfitsBlueprintLegionMortarOrdnance
+  availableFaction: [ CaesarLegion ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCRMortarShellSmoke
+  id: MisfitsBPLegionMortarShellSmoke
+  category: MisfitsBlueprintLegionMortarOrdnance
+  availableFaction: [ CaesarLegion ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCRMortarShellIllumination
+  id: MisfitsBPLegionMortarShellIllumination
+  category: MisfitsBlueprintLegionMortarOrdnance
+  availableFaction: [ CaesarLegion ]
+
+- type: latheRecipe
+  parent: MisfitsBPNCRMortarShellKinetic
+  id: MisfitsBPLegionMortarShellKinetic
+  category: MisfitsBlueprintLegionMortarOrdnance
+  availableFaction: [ CaesarLegion ]
+

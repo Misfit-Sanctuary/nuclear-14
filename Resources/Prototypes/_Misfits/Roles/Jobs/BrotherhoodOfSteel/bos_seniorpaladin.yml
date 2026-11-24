@@ -37,6 +37,11 @@
         factions:
           - BrotherhoodOfSteel
       - type: PowerArmorProficiency # #Misfits Add: Senior Paladins can equip power armor.
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Senior Paladin
+    prefix: Sr. Pal.
+    color: "#3B72BF"
 
 - type: startingGear
   id: BoSMidPaladinGear

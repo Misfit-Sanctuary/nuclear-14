@@ -107,6 +107,8 @@
     - !type:CharacterSpeciesRequirement
       species:
         - SuperMutant
+  accessGroups:
+  - CaesarLegionRecruit
   special: # #Misfits Add - register with PlayerSuperMutant faction so Loremaster tab can detect this job
   - !type:AddComponentSpecial
     components:
@@ -126,7 +128,7 @@
     outerClothing: ClothingSuperMutantGladiatorArmor
     shoes: ClothingSuperMutantGladiatorBoots
     head: ClothingSuperMutantGladiatorHelmet
-    id: N14IDLegionaryBadgeSlave # Gladiator serves under Legion authority
+    id: N14IDLegionaryBadge # Gladiator serves under Legion authority
     back: N14ClothingBackpackMilitary # #Misfits Add - backslot for storing a secondary weapon
     suitstorage: N14WastelandTribalSpear # #Misfits Add - back holster slot; starts with a spear stowed on the back
 
@@ -307,6 +309,12 @@
           - PlayerSuperMutant  # keeps Loremaster/perk detection working
           - NCR                # recognised as ally by NCR faction AI and tabs
           - Wastelander
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinNCRPrivate }
+    - { pin: ClothingNeckPinNCRPrivate1st, hours: 20 }
+    - { pin: ClothingNeckPinNCRSpecialist, hours: 40 }
 
 - type: startingGear
   id: SuperMutantNCRTrooperGear
@@ -496,6 +504,17 @@
         - type: ReplacementAccent
           accent: n14Enclave
         - type: PowerArmorProficiency
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinEnclavePrivate }
+    - { pin: ClothingNeckPinEnclavePFC, hours: 20 }
+    - { pin: ClothingNeckPinEnclaveSpecialist, hours: 40 }
+    - { pin: ClothingNeckPinEnclaveSergeant, hours: 60 }
+    - { pin: ClothingNeckPinEnclaveStaffSergeant, hours: 80 }
+    - { pin: ClothingNeckPinEnclaveSFC, hours: 100 }
+    - { pin: ClothingNeckPinEnclaveMasterSergeant, hours: 120 }
+    - { pin: ClothingNeckPinEnclaveSergeantMajor, hours: 140 }
 - type: startingGear # Enclave will give the Enlisted mutant their weapons
   id: SuperMutantEnclaveGear
   equipment:

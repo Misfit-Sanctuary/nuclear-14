@@ -88,6 +88,9 @@ public sealed class FactionRosterEui : BaseEui
                 if (_entMan.TryGetEntity(recruit.Target, out var target))
                     _status = _system.OfferRecruitment(roster, user, target.Value);
                 break;
+            case FactionRosterPinRankMessage pin: // #Cythisiax Added - rank pin promote/demote
+                _status = _system.ChangePinRank(roster, Player, pin.UserId, pin.Promote);
+                break;
             case FactionRosterSetOathMessage oath:
                 _status = _system.SetOath(roster, Player, oath.Oath);
                 break;

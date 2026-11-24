@@ -22,7 +22,11 @@ public sealed record FactionRosterMember(
     List<string> CommandRoles,
     bool Locked,
     List<FactionRosterStanding> Standings,
-    List<string> Specialties);
+    List<string> Specialties,
+    List<string> ToggleableSpecialties, // #Cythisiax Added - specialties the viewer may toggle for this member
+    string? PinRank, // #Cythisiax Added - rank pin they wear, for pin factions
+    bool CanPromotePin,
+    bool CanDemotePin);
 
 /// <summary>A nearby player who can be offered recruitment.</summary>
 [Serializable, NetSerializable]
@@ -105,6 +109,14 @@ public sealed class FactionRosterToggleSpecialtyMessage(NetUserId userId, string
 {
     public readonly NetUserId UserId = userId;
     public readonly string Role = role;
+}
+
+// #Cythisiax Added - move a member's rank pin one step up or down their ladder
+[Serializable, NetSerializable]
+public sealed class FactionRosterPinRankMessage(NetUserId userId, bool promote) : EuiMessageBase
+{
+    public readonly NetUserId UserId = userId;
+    public readonly bool Promote = promote;
 }
 
 [Serializable, NetSerializable]

@@ -30,6 +30,9 @@
   special:
   - !type:AddComponentSpecial
     components:
+      - type: FactionRoster # #Cythisiax Added - roster GUI: top Legion command
+        roster: Legion
+        action: ActionOpenFactionRosterLegion
       - type: NpcFactionMember
         factions:
           - CaesarLegion
@@ -68,6 +71,11 @@
   #- !type:AddComponentSpecial
   #  components:
   #    - type: GrantLegionGladiatorial
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Legate
+    prefix: Lgt.
+    color: "#8b0000"
 
 - type: startingGear
   id: CaesarLegionLegateGear

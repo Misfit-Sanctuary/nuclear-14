@@ -44,6 +44,9 @@
   special:
   - !type:AddComponentSpecial
     components:
+      - type: FactionRoster # #Cythisiax Added - roster GUI: promote NCR job slots and rank pins
+        roster: NCR
+        action: ActionOpenFactionRosterNCR
       - type: NpcFactionMember
         factions:
           - Wastelander
@@ -51,6 +54,11 @@
       # #Misfits Add - command voice: bigger chat text
       - type: SpeechFontOverride
         fontSizeBonus: 4
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinNCRCaptain }
+    - { pin: ClothingNeckPinNCRMajor, hours: 20 }
 
 - type: startingGear
   id: NCRCommanderGear

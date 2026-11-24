@@ -1,4 +1,6 @@
 // #Cythisiax Added - Faction roster: the faction roster, recruitment and oath window.
+// #Cythisiax Edited - rows also show the rank pin someone wears with ▲/▼ for rank managers, and only
+// the specialties the viewer is actually allowed to hand that person.
 
 using System.Linq;
 using Content.Client.UserInterface.Controls;
@@ -33,6 +35,7 @@ public sealed partial class FactionRosterWindow : FancyWindow
     public event Action<NetUserId, int>? OnDemote;
     public event Action<NetUserId>? OnDischarge;
     public event Action<NetUserId, string>? OnToggleSpecialty;
+    public event Action<NetUserId, bool>? OnPinRank;
     public event Action<NetEntity>? OnRecruit;
     public event Action<string?>? OnSetOath;
 
@@ -180,6 +183,14 @@ public sealed partial class FactionRosterWindow : FancyWindow
             MinWidth = 190,
         };
         ranks.AddChild(new Label { Text = RankText(state, member) });
+        if (member.PinRank != null)
+        {
+            ranks.AddChild(new Label
+            {
+                Text = Loc.GetString("faction-roster-pin-rank", ("rank", member.PinRank)),
+                StyleClasses = { "LabelSubText" },
+            });
+        }
         if (!member.Command && member.Specialties.Count > 0)
         {
             ranks.AddChild(new Label
@@ -190,15 +201,21 @@ public sealed partial class FactionRosterWindow : FancyWindow
         }
         row.AddChild(ranks);
 
-        if (member.Locked)
-            return panel;
+        if (member.CanPromotePin || member.CanDemotePin)
+            row.AddChild(BuildPinButtons(member));
 
         var multiTrack = state.Tracks.Count > 1;
-        for (var t = 0; t < state.Tracks.Count && t < member.Standings.Count; t++)
-            row.AddChild(BuildTrackButtons(state.Tracks[t], member, member.Standings[t], t, multiTrack));
+        if (!member.Locked)
+        {
+            for (var t = 0; t < state.Tracks.Count && t < member.Standings.Count; t++)
+                row.AddChild(BuildTrackButtons(state.Tracks[t], member, member.Standings[t], t, multiTrack));
+        }
 
         foreach (var specialty in state.Specialties)
         {
+            if (!member.ToggleableSpecialties.Contains(specialty))
+                continue;
+
             var held = member.Specialties.Contains(specialty);
             var toggle = new Button
             {
@@ -214,7 +231,7 @@ public sealed partial class FactionRosterWindow : FancyWindow
         }
 
         // #Cythisiax Added - only those allowed to discharge see the button
-        if (!state.CanDischarge)
+        if (!state.CanDischarge || member.Locked)
             return panel;
 
         var discharge = new ConfirmButton
@@ -279,6 +296,44 @@ public sealed partial class FactionRosterWindow : FancyWindow
         else if (standing.Rank == 0)
             demote.ToolTip = Loc.GetString("faction-roster-demote-remove-tooltip", ("rank", JobName(track.Ranks[0])));
         demote.OnPressed += _ => OnDemote?.Invoke(member.UserId, index);
+        box.AddChild(demote);
+
+        return box;
+    }
+
+    private Control BuildPinButtons(FactionRosterMember member)
+    {
+        var box = new BoxContainer
+        {
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            SeparationOverride = 2,
+            VerticalAlignment = VAlignment.Center,
+        };
+
+        box.AddChild(new Label
+        {
+            Text = Loc.GetString("faction-roster-pin-label"),
+            StyleClasses = { "LabelSubText" },
+            VerticalAlignment = VAlignment.Center,
+            Margin = new Thickness(0, 0, 2, 0),
+        });
+
+        var promote = new Button
+        {
+            Text = "▲",
+            Disabled = !member.CanPromotePin,
+            ToolTip = Loc.GetString("faction-roster-pin-promote-tooltip"),
+        };
+        promote.OnPressed += _ => OnPinRank?.Invoke(member.UserId, true);
+        box.AddChild(promote);
+
+        var demote = new Button
+        {
+            Text = "▼",
+            Disabled = !member.CanDemotePin,
+            ToolTip = Loc.GetString("faction-roster-pin-demote-tooltip"),
+        };
+        demote.OnPressed += _ => OnPinRank?.Invoke(member.UserId, false);
         box.AddChild(demote);
 
         return box;
