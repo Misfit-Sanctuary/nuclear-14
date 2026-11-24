@@ -644,7 +644,6 @@
       jobs:
         - NCRMedic
         - NCRDoctor
-        - NCRRangerMedic        
   items:
     - M14ClothingUniformNCRMedic
 
@@ -658,7 +657,6 @@
       jobs:
         - NCRMedic
         - NCRDoctor
-        - NCRRangerMedic
   items:
     - M14ClothingUniformNCRMedicSkirt
 
@@ -801,12 +799,10 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRRangerStandard
-        - NCRRangerMedic
         - NCRVeteranRanger
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
-      min: 216000 # 60 hours veterancy unlock "First Tour"
+      min: 108000
   items:
    - N14ClothingOuterRangerElite
 
@@ -846,6 +842,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -861,6 +859,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -916,14 +916,12 @@
 - type: loadout
   id: LoadoutN14ClothingOuterVetRangerRiotArmor
   category: Roles
-  cost: 3
+  cost: 0
   exclusive: true
   requirements:
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRRangerStandard
-        - NCRRangerMedic
   items:
     - N14ClothingOuterVetRangerRiotArmor
 
@@ -972,8 +970,6 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
-        - NCRRangerStandard
-        - NCRRangerMedic
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 72000 # 1200 minutes
@@ -1117,21 +1113,6 @@
     - N14ClothingOuterCaliforniaGirlVetRangerRiotArmor
 
 - type: loadout
-  id: LoadoutN14ClothingOuterRangerCombatDesert
-  category: Roles
-  cost: 3
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRVeteranRanger
-    - !type:CharacterDepartmentTimeRequirement
-      department: Rangers
-      min: 72000 # 1200 minutes
-  items:
-    - N14ClothingOuterRangerCombatDesert
-
-- type: loadout
   id: LoadoutN14ClothingOuterCanOpenerVetRangerRiotArmor
   category: Roles
   cost: 3 # #Misfits Change - riot armor variant, 3 loadout points
@@ -1181,23 +1162,6 @@
       min: 46800 # 780 minutes
   items:
     - N14ClothingOuterTheDevoutVetRangerRiotArmor
-
-- type: loadout
-  id: LoadoutN14ClothingOuterRangerArmorB
-  category: Roles
-  cost: 3 # #Misfits Change - Patrol armor variant, 3 points
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRVeteranRanger
-        - NCRRangerStandard
-        - NCRRangerMedic # #Misfits Add - Ranger Medic
-    - !type:CharacterDepartmentTimeRequirement
-      department: Rangers
-      min: 72000 # 1200 minutes
-  items:
-    - N14ClothingOuterRangerArmorB
 
 - type: loadout
   id: LoadoutN14ClothingNeckHighlandRangerDuster

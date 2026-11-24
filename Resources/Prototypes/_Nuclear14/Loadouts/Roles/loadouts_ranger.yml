@@ -1,0 +1,603 @@
+# MARK: Ranger
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRRangerVest
+#  category: Roles
+#  cost: 1
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRanger
+#  items:
+#    - N14ClothingOuterRangerVest
+#
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRRangerRedwood
+#  category: Roles
+#  cost: 4
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRanger
+#    - !type:CharacterPlaytimeRequirement # Forge-change
+#      tracker: NCRRanger
+#      min: 72000
+#  items:
+#    - N14ClothingOuterRangerRedwood # Forge-change
+#
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRRangerCombat
+#  category: Roles
+#  cost: 2
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRanger
+#    - !type:CharacterPlaytimeRequirement # Forge-change
+#      tracker: NCRRanger
+#      min: 54000
+#  items:
+#    - N14ClothingOuterRangerArmorOld # Forge-change
+#
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRRangerCoyote
+#  category: Roles
+#  cost: 6
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRanger
+#    - !type:CharacterPlaytimeRequirement # Forge-change
+#      tracker: NCRRanger
+#      min: 144000
+#  items:
+#    - N14ClothingOuterRangerCoyote # Forge-change
+#
+#
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRRangerScorpion
+#  category: Roles
+#  cost: 4
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRanger
+#    - !type:CharacterPlaytimeRequirement # Forge-change
+#      tracker: NCRRanger
+#      min: 54000
+#  items:
+#    - N14ClothingOuterRangerScorpion # Forge-change
+#
+- type: loadout
+  id: LoadoutNCRN14ClothingNeckCloakRanger
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+  items:
+    - N14ClothingNeckCloakRanger
+
+# Corvax-Add End
+
+- type: loadout
+  id: LoadoutNCRhatB
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRangerRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
+        - NCRVeteranRanger
+  items:
+    - N14ClothingHeadHatRangerB
+
+- type: loadout
+  id: LoadoutNCRhatBeret
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRangerRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
+        - NCRVeteranRanger
+  items:
+    - N14ClothingHeadHatNCRBeretRecon
+
+- type: loadout
+  id: LoadoutNCRmaskDesert
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRVeteranRanger
+  items:
+    - N14ClothingMaskDesertMask
+
+- type: loadout
+  id: LoadoutNCRuniformV1
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRangerRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
+        - NCRVeteranRanger
+  items:
+    - N14ClothingUniformRangerV1
+
+- type: loadout
+  id: LoadoutNCRuniformV2
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRangerRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
+        - NCRVeteranRanger
+  items:
+    - N14ClothingUniformRangerV2
+
+- type: loadout
+  id: LoadoutNCRuniformV3
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRangerRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
+        - NCRVeteranRanger
+  items:
+    - N14ClothingUniformRangerV3
+
+- type: loadout
+  id: LoadoutNCRgloves
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRangerRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
+        - NCRVeteranRanger
+  items:
+    - N14ClothingHandsGlovesNCR
+
+# misc
+- type: loadout
+  id: LoadoutNCRRangerMedkit
+  category: Roles
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRangerStandard
+        - NCRVeteranRanger
+        - SuperMutantRanger
+        - SuperMutantNCRRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+  items:
+    - N14MedkitCombatFilled
+
+# Corvax-Add Start
+- type: loadout
+  id: LoadoutNCRN14ClothingUniformRangerVeteranRed
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRangerStandard
+        - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+  items:
+    - N14ClothingUniformRangerVeteranRed
+
+- type: loadout
+  id: LoadoutNCRN14ClothingUniformRangerVeteran
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRangerStandard
+        - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+  items:
+    - N14ClothingUniformRangerVeteran
+
+- type: loadout
+  id: LoadoutNCRN14ClothingUniformRangerVeteranBlack
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRangerStandard
+        - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+  items:
+    - N14ClothingUniformRangerVeteranBlack
+
+- type: loadout
+  id: LoadoutNCRN14ClothingUniformRangerBlue
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRangerRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
+        - NCRVeteranRanger
+  items:
+    - N14ClothingUniformRangerBlue
+
+- type: loadout
+  id: LoadoutNCRN14ClothingUniformRangerModif
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRangerRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
+        - NCRVeteranRanger
+  items:
+    - N14ClothingUniformRangerModif
+
+- type: loadout
+  id: LoadoutNCRClothingNeckOldMantle
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRangerStandard
+        - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+  items:
+    - ClothingNeckOldMantle
+# Corvax-Add End
+
+# Misfits Change - Disabled: armor with resistance values removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRuniformHelmetDesert
+#  category: Roles
+#  cost: 2
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRangerVeteran
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: NCRRangerVeteran
+#      min: 216000 # 60 hours veterancy unlock "First Tour"
+#  items:
+#    - N14ClothingHeadHatRangerHelmetDesert
+#
+- type: loadout
+  id: LoadoutNCRuniformMaskDesert
+  category: Roles
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRVeteranRanger
+    - !type:CharacterPlaytimeRequirement
+      tracker: NCRVeteranRanger
+      min: 216000 # 60 hours veterancy unlock "First Tour"
+  items:
+    - ClothingMaskGasRangerDesert
+
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRuniformCombatDesert
+#  category: Roles
+#  cost: 2
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRangerVeteran
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: NCRRangerVeteran
+#      min: 216000 # 60 hours veterancy unlock "First Tour"
+#  items:
+#    - N14ClothingOuterRangerCombatDesert
+#
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRRangerEliteOld
+#  category: Roles
+#  cost: 2
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRangerVeteran
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: NCRRangerVeteran
+#      min: 216000 # 60 hours veterancy unlock "First Tour"
+#  items:
+#    - N14ClothingOuterRangerEliteOld
+#
+# Misfits Change - Disabled: armor with resistance values removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRRangerHelmetEliteOld1
+#  category: Roles
+#  cost: 2
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRangerVeteran
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: NCRRangerVeteran
+#      min: 216000 # 60 hours veterancy unlock "First Tour"
+#  items:
+#    - N14ClothingHeadHatRangerHelmetEliteOld
+#
+# Corvax-Add Start
+- type: loadout
+  id: LoadoutNCRClothingMaskGasRangerElite2
+  category: Roles
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRVeteranRanger
+    - !type:CharacterPlaytimeRequirement
+      tracker: NCRVeteranRanger
+      min: 216000 # 60 hours veterancy unlock "First Tour"
+  items:
+    - ClothingMaskGasRangerElite
+
+- type: loadout
+  id: LoadoutNCRClothingMaskGasRangerPrice2
+  category: Roles
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
+    - !type:CharacterPlaytimeRequirement
+      tracker: NCRVeteranRanger
+      min: 72000 # 1200 minutes
+  items:
+    - ClothingMaskGasRangerPrice
+
+# #Cythisiax Removed - DAGGER exclusive: the ranger modified gas mask is DAGGER-only gear (Elite/Price mask loadouts remain)
+#- type: loadout
+#  id: LoadoutNCRClothingMaskGasRangerModif2
+#  category: Roles
+#  cost: 2
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRVeteranRanger
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: NCRVeteranRanger
+#      min: 72000 # 1200 minutes
+#  items:
+#    - ClothingMaskGasRangerModif
+
+# Misfits Change - Disabled: armor with resistance values removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRN14ClothingHeadHatRangerHelmetFox2
+#  category: Roles
+#  cost: 2
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRangerVeteran
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: NCRRangerVeteran
+#      min: 72000 # 1200 minutes
+#  items:
+#    - N14ClothingHeadHatRangerHelmetFox
+#
+# Misfits Change - Disabled: armor with resistance values removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRN14ClothingHeadHatRangerHelmetPrice2
+#  category: Roles
+#  cost: 2
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRangerVeteran
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: NCRRangerVeteran
+#      min: 72000 # 1200 minutes
+#  items:
+#    - N14ClothingHeadHatRangerHelmetPrice
+#
+# Misfits Change - Disabled: armor with resistance values removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRN14ClothingHeadHatRangerHelmetModif2
+#  category: Roles
+#  cost: 2
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRangerVeteran
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: NCRRangerVeteran
+#      min: 216000 # 60 hours veterancy unlock "First Tour"
+#  items:
+#    - N14ClothingHeadHatRangerHelmetModif
+#
+# Misfits Change - Disabled: armor with resistance values removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRN14ClothingHeadHatRangerHelmet2
+#  category: Roles
+#  cost: 2
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRangerVeteran
+#  items:
+#    - N14ClothingHeadHatRangerHelmet
+#
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRN14ClothingOuterRangerWeathered
+#  category: Roles
+#  cost: 2
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRangerVeteran
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: NCRRangerVeteran
+#      min: 72000 # 1200 minutes
+#  items:
+#    - N14ClothingOuterRangerWeathered
+#
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRN14ClothingOuterRangerFox
+#  category: Roles
+#  cost: 2
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRangerVeteran
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: NCRRangerVeteran
+#      min: 72000 # 1200 minutes
+#  items:
+#    - N14ClothingOuterRangerFox
+#
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutNCRN14ClothingOuterRangerPrice
+#  category: Roles
+#  cost: 2
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRRangerVeteran
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: NCRRangerVeteran
+#      min: 72000 # 1200 minutes
+#  items:
+#    - N14ClothingOuterRangerPrice
+#
+- type: loadout
+  id: LoadoutNCRNeckCloakRangerPoncho
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRangerRecruit
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
+        - NCRVeteranRanger
+  items:
+    - N14ClothingNeckCloakRangerPoncho
+
+- type: loadout
+  id: LoadoutNCRClothingMaskGasRanger2
+  category: Roles
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
+    - !type:CharacterPlaytimeRequirement
+      tracker: NCRVeteranRanger
+      min: 216000 # 60 hours veterancy unlock "First Tour"
+  items:
+    - ClothingMaskGasRanger
+
+- type: loadout
+  id: LoadoutNCRClothingMaskGasRiot2
+  category: Roles
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
+  items:
+    - ClothingMaskGasRiot
+# Corvax-Add End
+
+# Forge-Add Start
+- type: loadout
+  id: LoadoutNCRRangerRoman
+  category: Roles
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        - NCRRangerStandard
+        - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+    - !type:CharacterPlaytimeRequirement
+      tracker: NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
+      min: 216000 # 60 hours veterancy unlock "First Tour"
+  items:
+    - N14ClothingUniformJumpsuitRangerRoman
+# Forge-Add End
