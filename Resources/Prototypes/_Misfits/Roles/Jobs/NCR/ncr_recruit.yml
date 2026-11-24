@@ -29,6 +29,14 @@
         factions:
           - Wastelander
           - NCR
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    department: NCR
+    pins:
+    - { pin: ClothingNeckPinNCRRecruit }
+    - { pin: ClothingNeckPinNCRPrivate, hours: 20 }
+    - { pin: ClothingNeckPinNCRPrivate1st, hours: 40 }
+    - { pin: ClothingNeckPinNCRSpecialist, hours: 60 }
 
 - type: startingGear
   id: NCRCadetGear

@@ -1,14 +1,15 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC-BY-NC-SA-4.0",
-  "copyright": "Made by mars33_2.0 (discord)",
+  "copyright": "Resprite by JJmanus (discord), original made by mars33_2.0 (discord)",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "inhand-right"
+      "name": "inhand-right",
+      "directions": 4
     },
     {
         "name": "equipped-OUTERCLOTHING",
@@ -45,7 +46,8 @@
       "name": "icon"
     },
     {
-      "name": "inhand-left"
+      "name": "inhand-left",
+      "directions": 4
     }
   ]
 }

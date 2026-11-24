@@ -72,6 +72,26 @@ public sealed partial class FactionRosterPrototype : IPrototype
     /// <summary>How close (in tiles) a player must stand to be offered recruitment.</summary>
     [DataField]
     public float RecruitRange = 3f;
+
+    // #Cythisiax Added - specialties only certain jobs may hand out (e.g. Head Knight -> Knight-Lancer,
+    // Priestess -> Mars roles, Elder -> Honor Guard). Command roles can always toggle them.
+    [DataField]
+    public Dictionary<string, FactionRosterSpecialtyRule> SpecialtyRules = new();
+
+    // #Cythisiax Added - jobs that may promote/demote a member's rank pin (NCR Commander+, Enclave Commander+)
+    [DataField]
+    public List<ProtoId<JobPrototype>> RankManagers = new();
+}
+
+// #Cythisiax Added - who may toggle a specialty, and what the member must already hold to get it
+[DataDefinition]
+public sealed partial class FactionRosterSpecialtyRule
+{
+    [DataField]
+    public List<ProtoId<JobPrototype>> Managers = new();
+
+    [DataField]
+    public ProtoId<JobPrototype>? Requires;
 }
 
 [DataDefinition]
@@ -91,4 +111,13 @@ public sealed partial class FactionRosterTrack
     /// </summary>
     [DataField]
     public ProtoId<JobPrototype>? CommandOnlyFrom;
+
+    // #Cythisiax Added - jobs off this track that can still run it in full (e.g. every BoS Head runs Initiate -> Squire)
+    [DataField]
+    public List<ProtoId<JobPrototype>> Managers = new();
+
+    // #Cythisiax Added - role a member must hold before they can get this track's first rank (BoS castes need Squire).
+    // Taking that first rank back drops them to it, so it's a demotion rather than a discharge.
+    [DataField]
+    public ProtoId<JobPrototype>? Requires;
 }

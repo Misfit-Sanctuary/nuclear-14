@@ -36,6 +36,11 @@
           - Rangers
       - type: FactionRoster # #Cythisiax Added - roster GUI: the Chief Ranger can manage every Ranger up to Ranger Lead
         roster: Rangers
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Chief Ranger
+    prefix: Chf.
+    color: "#6B8E23"
 
 - type: startingGear
   id: NCRChiefRangerGear
