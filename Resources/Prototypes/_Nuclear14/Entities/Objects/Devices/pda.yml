@@ -260,3 +260,34 @@
     scanDelay: 1.4
     scanningEndSound:
       path: "/Audio/Items/Medical/healthscanner.ogg"
+
+- type: entity
+  parent: N14BasePipboy
+  id: N14VaultManagementPDA
+  suffix: Vault, Management
+  components:
+  - type: Pda
+    id: N14IDCardVaultManagement
+    penSlot:
+      startingItem: PenCap
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: CartridgeLoader
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - NanoChatCartridge
+      - PipBoyContactsCartridge
+      - PipBoyGroupsCartridge
+      - PipBoyDirectoryCartridge
+      - PipBoySettingsCartridge
+      - MisfitsWastelandMapCartridge
+  - type: PdaBorderColor
+    borderColor: "#7C5D00"
+  - type: HealthAnalyzer
+    scanDelay: 1.4
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"

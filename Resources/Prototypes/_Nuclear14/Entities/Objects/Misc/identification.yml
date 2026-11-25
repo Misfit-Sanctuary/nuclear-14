@@ -107,6 +107,15 @@
   - type: PresetIdCard
     job: VaultSalvageSpecialist
 
+- type: entity
+  parent: N14IDCardVault
+  id: N14IDCardVaultManagement
+  name: vault management ID card
+  description: Oversight, not Overseer. Keep an eye on things, Vault-tec is always watching.
+  components:
+  - type: PresetIdCard
+    job: VaultManagement
+
 #MARK: Passports
 - type: entity
   parent: N14IDCard

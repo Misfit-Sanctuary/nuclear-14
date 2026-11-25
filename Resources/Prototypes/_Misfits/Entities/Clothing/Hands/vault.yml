@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHandsGlovesCaptain
+  id: ClothingHandsGlovesVaultManagement
+  name: vault-tec gloves
+  description: Protecting your hands like vault-tec protects your future. 
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Hands/Gloves/vault.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Hands/Gloves/vault.rsi
