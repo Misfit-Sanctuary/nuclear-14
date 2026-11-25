@@ -13155,3 +13155,14 @@ Entries:
   id: 6591
   time: '2026-11-25T02:30:58.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2204
+- author: ToasterEnjoyer
+  changes:
+    - type: Add
+      message: Added timelocked sequoia
+    - type: Fix
+      message: >-
+        ranger roles who already got CPR or riding for free cannot take them as
+        perks
+  id: 6592
+  time: '2026-11-25T02:31:29.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2203
