@@ -15,16 +15,12 @@
             <BoxContainer Orientation="Vertical" Margin="4">
                 <RichTextLabel Text="{Loc 'rmc-mortar-target-title'}" HorizontalAlignment="Center" />
                 <RichTextLabel Name="MortarPositionLabel" Access="Public" HorizontalAlignment="Center" />
-                <BoxContainer Orientation="Horizontal" Margin="4 8">
-                    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                        <BoxContainer Name="TargetXContainer" Access="Public" Orientation="Horizontal" Margin="0 0 0 4">
-                            <Label Text="{Loc 'rmc-mortar-target-x'}" Margin="0 0 5 0" />
-                        </BoxContainer>
-                        <BoxContainer Name="TargetYContainer" Access="Public" Orientation="Horizontal" Margin="0 0 0 8">
-                            <Label Text="{Loc 'rmc-mortar-target-y'}" Margin="0 0 5 0" />
-                        </BoxContainer>
-                        <Button Name="SetTargetButton" Access="Public"
-                                Text="{Loc 'rmc-mortar-target-set'}" HorizontalExpand="True" />
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="4 8">
+                    <BoxContainer Name="TargetXContainer" Access="Public" Orientation="Horizontal" Margin="0 0 0 4">
+                        <Label Text="{Loc 'rmc-mortar-target-x'}" Margin="0 0 5 0" />
+                    </BoxContainer>
+                    <BoxContainer Name="TargetYContainer" Access="Public" Orientation="Horizontal" Margin="0 0 0 8">
+                        <Label Text="{Loc 'rmc-mortar-target-y'}" Margin="0 0 5 0" />
                     </BoxContainer>
                 </BoxContainer>
             </BoxContainer>
@@ -38,21 +34,19 @@
             </PanelContainer.PanelOverride>
             <BoxContainer Orientation="Vertical" Margin="4">
                 <RichTextLabel Text="{Loc 'rmc-mortar-offset-title'}" HorizontalAlignment="Center" />
-                <BoxContainer Orientation="Horizontal" Margin="4 8">
-                    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                        <BoxContainer Name="DialXContainer" Access="Public" Orientation="Horizontal" Margin="0 0 0 4">
-                            <Label Text="{Loc 'rmc-mortar-offset-x'}" Margin="0 0 5 0" />
-                        </BoxContainer>
-                        <BoxContainer Name="DialYContainer" Access="Public" Orientation="Horizontal" Margin="0 0 0 8">
-                            <Label Text="{Loc 'rmc-mortar-offset-y'}" Margin="0 0 5 0" />
-                        </BoxContainer>
-                        <Button Name="SetOffsetButton" Access="Public"
-                                Text="{Loc 'rmc-mortar-offset-set'}" HorizontalExpand="True" />
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="4 8">
+                    <BoxContainer Name="DialXContainer" Access="Public" Orientation="Horizontal" Margin="0 0 0 4">
+                        <Label Text="{Loc 'rmc-mortar-offset-x'}" Margin="0 0 5 0" />
+                    </BoxContainer>
+                    <BoxContainer Name="DialYContainer" Access="Public" Orientation="Horizontal" Margin="0 0 0 8">
+                        <Label Text="{Loc 'rmc-mortar-offset-y'}" Margin="0 0 5 0" />
                     </BoxContainer>
                 </BoxContainer>
                 <RichTextLabel Name="MaxDialLabel" Access="Public" HorizontalAlignment="Center" />
             </BoxContainer>
         </PanelContainer>
+        <Button Name="SetButton" Access="Public"
+                Text="{Loc 'rmc-mortar-aim-set'}" HorizontalExpand="True" Margin="0 8 0 0" />
         <PanelContainer HorizontalExpand="True" Margin="0 8 0 0">
             <PanelContainer.PanelOverride>
                 <graphics:StyleBoxFlat

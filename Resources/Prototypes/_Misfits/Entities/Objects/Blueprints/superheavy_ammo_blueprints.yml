@@ -1,0 +1,37 @@
+# #Misfits Add - super-heavy ammunition blueprint items.
+# Each plan unlocks exactly one lathe recipe: the belt or box that feeds one of
+# the belt-fed super-heavy weapons. Recipes live in
+# _Misfits/Recipes/Lathes/blueprint_recipes_superheavy_ammo.yml.
+
+# .50 HMG linked belt - super-heavy .50 machine gun.
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintSuperHeavyAmmo50Belt
+  name: Super-Heavy .50 Belt Plans
+  description: Loading and linking plans for .50 HMG ammunition, drawn for the high-capacity belt that feeds the super-heavy .50 machine gun.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPSuperHeavyAmmo50Belt
+
+# 20 gauge linked belt - heavy automatic shotgun.
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintSuperHeavyAmmo20GaugeBelt
+  name: Super-Heavy 20 Gauge Belt Plans
+  description: Crimping and linking plans for 20 gauge shells, drawn for the belt that feeds the heavy automatic shotgun.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPSuperHeavyAmmo20GaugeBelt
+
+# 30mm ammo box - automatic grenade launcher.
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintSuperHeavyAmmo30mmBox
+  name: Super-Heavy 30mm Box Plans
+  description: Fusing and boxing plans for 30mm high-explosive grenades, drawn for the ammunition box that feeds the automatic grenade launcher.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPSuperHeavyAmmo30mmBox

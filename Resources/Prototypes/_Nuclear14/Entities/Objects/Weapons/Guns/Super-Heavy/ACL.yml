@@ -14,7 +14,9 @@
     minAngle: -19
     maxAngle: -60
   - type: Sprite
-    sprite: _Nuclear14/Objects/Weapons/Guns/SuperHeavy/AGL.rsi
+    # #Misfits Fix - the icon art is 64x32, so it needs a 64x32 RSI. In the
+    # 32x32 AGL.rsi it was read as two frames and the launcher rendered cut in half.
+    sprite: _Nuclear14/Objects/Weapons/Guns/SuperHeavy/AGL_icon.rsi
     layers:
       - state: icon_AGL
         map: ["enum.GunVisualLayers.Base"]
@@ -28,9 +30,10 @@
     sprite: _Nuclear14/Objects/Weapons/Guns/SuperHeavy/AGL.rsi
   - type: AmmoCounter
   - type: Gun
-    minAngle: 22
-    maxAngle: 90
-    angleIncrease: 4
+    # #Misfits Change - slightly tighter cone and slower bloom.
+    minAngle: 20
+    maxAngle: 84
+    angleIncrease: 3.5
     angleDecay: 12
     fireRate: 3
     selectedMode: FullAuto

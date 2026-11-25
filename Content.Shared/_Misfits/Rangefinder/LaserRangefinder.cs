@@ -57,6 +57,10 @@ public sealed partial class LaserRangefinderDoAfterEvent : SimpleDoAfterEvent
     }
 }
 
+/// Raised on the server once a reading is taken, so the server system can post it to chat.
+[ByRefEvent]
+public readonly record struct RangefinderReadingEvent(EntityUid User, string Text);
+
 /// <summary>
 ///     Runs the rangefinder: aim at a spot, wait out the do-after, get the coordinates back.
 /// </summary>
@@ -131,13 +135,13 @@ public sealed partial class LaserRangefinderSystem : EntitySystem
         // own range check will work out for the same coordinates.
         var distance = (mapCoordinates.Position - _transform.GetMapCoordinates(ent.Owner).Position).Length();
 
+        var reading = Loc.GetString("laser-rangefinder-reading",
+            ("x", target.X),
+            ("y", target.Y),
+            ("distance", (int) MathF.Round(distance)));
+
         // Shown locally by the client's predicted run; the server side of this call does nothing.
-        _popup.PopupClient(Loc.GetString("laser-rangefinder-reading",
-                ("x", target.X),
-                ("y", target.Y),
-                ("distance", (int) MathF.Round(distance))),
-            args.User,
-            PopupType.Large);
+        _popup.PopupClient(reading, args.User, PopupType.Large);
 
         if (_net.IsClient)
             return;
@@ -145,6 +149,10 @@ public sealed partial class LaserRangefinderSystem : EntitySystem
         ent.Comp.LastTarget = target;
         Dirty(ent);
         _audio.PlayPvs(ent.Comp.LaserSound, ent.Owner);
+
+        // Chat is server only, so the same line is handed to the server system that posts it.
+        var ev = new RangefinderReadingEvent(args.User, reading);
+        RaiseLocalEvent(ent.Owner, ref ev);
     }
 
     private void OnRangefinderExamined(Entity<LaserRangefinderComponent> ent, ref ExaminedEvent args)

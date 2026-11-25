@@ -66,8 +66,7 @@ public abstract partial class SharedMortarSystem : EntitySystem
 
         SubscribeLocalEvent<MortarComponent, UseInHandEvent>(OnMortarUseInHand, before: [typeof(ActivatableUISystem)]);
         SubscribeLocalEvent<MortarComponent, DeployMortarDoAfterEvent>(OnMortarDeployDoAfter);
-        SubscribeLocalEvent<MortarComponent, TargetMortarDoAfterEvent>(OnMortarTargetDoAfter);
-        SubscribeLocalEvent<MortarComponent, DialMortarDoAfterEvent>(OnMortarDialDoAfter);
+        SubscribeLocalEvent<MortarComponent, SetMortarDoAfterEvent>(OnMortarSetDoAfter);
         SubscribeLocalEvent<MortarComponent, InteractUsingEvent>(OnMortarInteractUsing);
         SubscribeLocalEvent<MortarComponent, LoadMortarShellDoAfterEvent>(OnMortarLoadDoAfter);
         SubscribeLocalEvent<MortarComponent, AnchorStateChangedEvent>(OnMortarAnchorStateChanged);
@@ -86,8 +85,7 @@ public abstract partial class SharedMortarSystem : EntitySystem
         Subs.BuiEvents<MortarComponent>(MortarUiKey.Key,
             subs =>
             {
-                subs.Event<MortarTargetBuiMsg>(OnMortarTargetBui);
-                subs.Event<MortarDialBuiMsg>(OnMortarDialBui);
+                subs.Event<MortarSetBuiMsg>(OnMortarSetBui);
                 subs.Event<MortarCameraBuiMsg>(OnMortarCameraBui);
             });
     }
@@ -194,48 +192,27 @@ public abstract partial class SharedMortarSystem : EntitySystem
         _audio.PlayPvs(mortar.Comp.DeploySound, mortar.Owner);
     }
 
-    private void OnMortarTargetDoAfter(Entity<MortarComponent> mortar, ref TargetMortarDoAfterEvent args)
+    private void OnMortarSetDoAfter(Entity<MortarComponent> mortar, ref SetMortarDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled)
+        if (args.Cancelled || args.Handled || _net.IsClient)
             return;
 
         args.Handled = true;
 
         var user = args.User;
 
-        // Checked here as well as when the aim starts, in case the ground changed during the do-after.
-        if (RefuseRoofedTarget(mortar, args.Vector, user))
+        // Checked again here, in case the ground changed during the do-after.
+        if (!CanFireAt(mortar, args.Target + args.Dial, user))
             return;
+
+        mortar.Comp.Target = args.Target;
+        mortar.Comp.Dial = args.Dial;
+        mortar.Comp.HasTarget = true;
+        Dirty(mortar);
 
         var selfMsg = Loc.GetString("rmc-mortar-target-finish-self", ("mortar", mortar));
         var othersMsg = Loc.GetString("rmc-mortar-target-finish-others", ("user", user), ("mortar", mortar));
-        _popup.PopupPredicted(selfMsg, othersMsg, mortar.Owner, user);
-
-        if (_net.IsClient)
-            return;
-
-        mortar.Comp.Target = args.Vector;
-        mortar.Comp.HasTarget = true;
-        Dirty(mortar);
-    }
-
-    private void OnMortarDialDoAfter(Entity<MortarComponent> mortar, ref DialMortarDoAfterEvent args)
-    {
-        if (args.Cancelled || args.Handled)
-            return;
-
-        args.Handled = true;
-
-        if (_net.IsClient)
-            return;
-
-        mortar.Comp.Dial = args.Vector;
-        Dirty(mortar);
-
-        var user = args.User;
-        var selfMsg = Loc.GetString("rmc-mortar-dial-finish-self", ("mortar", mortar));
-        var othersMsg = Loc.GetString("rmc-mortar-dial-finish-others", ("user", user), ("mortar", mortar));
-        _popup.PopupPredicted(selfMsg, othersMsg, mortar.Owner, user);
+        PopupSelfAndOthers(selfMsg, othersMsg, user, mortar.Owner);
     }
 
     private void OnMortarInteractUsing(Entity<MortarComponent> mortar, ref InteractUsingEvent args)
@@ -256,7 +233,7 @@ public abstract partial class SharedMortarSystem : EntitySystem
 
         if (!mortar.Comp.Deployed)
         {
-            _popup.PopupEntity(Loc.GetString("rmc-mortar-not-deployed", ("mortar", mortar)), user, user, PopupType.SmallCaution);
+            PopupRefusal(user, "rmc-mortar-not-deployed", mortar);
             return;
         }
 
@@ -341,6 +318,12 @@ public abstract partial class SharedMortarSystem : EntitySystem
             return;
 
         mortar.Comp.Deployed = false;
+
+        // Folding wipes everything the mortar was holding on to.
+        mortar.Comp.HasTarget = false;
+        mortar.Comp.Target = Vector2i.Zero;
+        mortar.Comp.Dial = Vector2i.Zero;
+        mortar.Comp.ImpactCamera = null;
         Dirty(mortar);
 
         if (_fixture.GetFixtureOrNull(mortar.Owner, mortar.Comp.FixtureId) is { } fixture)
@@ -385,19 +368,23 @@ public abstract partial class SharedMortarSystem : EntitySystem
         args.Cancelled = true;
     }
 
-    private void OnMortarTargetBui(Entity<MortarComponent> mortar, ref MortarTargetBuiMsg args)
+    private void OnMortarSetBui(Entity<MortarComponent> mortar, ref MortarSetBuiMsg args)
     {
         var target = new Vector2i(
             Math.Clamp(args.Target.X, -mortar.Comp.MaxTarget, mortar.Comp.MaxTarget),
             Math.Clamp(args.Target.Y, -mortar.Comp.MaxTarget, mortar.Comp.MaxTarget));
 
+        var dial = new Vector2i(
+            Math.Clamp(args.Dial.X, -mortar.Comp.MaxDial, mortar.Comp.MaxDial),
+            Math.Clamp(args.Dial.Y, -mortar.Comp.MaxDial, mortar.Comp.MaxDial));
+
         var user = args.Actor;
 
-        // Refuse the aim up front rather than letting them wind the mortar onto a roof they can't hit.
-        if (RefuseRoofedTarget(mortar, target, user))
+        // Refuse a bad aim up front, not once the do-after has run or a shell is loaded.
+        if (!CanFireAt(mortar, target + dial, user))
             return;
 
-        var ev = new TargetMortarDoAfterEvent(target);
+        var ev = new SetMortarDoAfterEvent(target, dial);
         var doAfter = new DoAfterArgs(EntityManager, user, mortar.Comp.TargetDelay, ev, mortar)
         {
             BreakOnMove = true,
@@ -411,27 +398,6 @@ public abstract partial class SharedMortarSystem : EntitySystem
         _popup.PopupPredicted(selfMsg, othersMsg, mortar.Owner, user);
     }
 
-    private void OnMortarDialBui(Entity<MortarComponent> mortar, ref MortarDialBuiMsg args)
-    {
-        var target = new Vector2i(
-            Math.Clamp(args.Target.X, -mortar.Comp.MaxDial, mortar.Comp.MaxDial),
-            Math.Clamp(args.Target.Y, -mortar.Comp.MaxDial, mortar.Comp.MaxDial));
-
-        var user = args.Actor;
-        var ev = new DialMortarDoAfterEvent(target);
-        var doAfter = new DoAfterArgs(EntityManager, user, mortar.Comp.DialDelay, ev, mortar)
-        {
-            BreakOnMove = true,
-        };
-
-        if (!_doAfter.TryStartDoAfter(doAfter))
-            return;
-
-        var selfMsg = Loc.GetString("rmc-mortar-dial-start-self", ("mortar", mortar));
-        var othersMsg = Loc.GetString("rmc-mortar-dial-start-others", ("user", user), ("mortar", mortar));
-        _popup.PopupPredicted(selfMsg, othersMsg, mortar.Owner, user);
-    }
-
     /// Shows one message to the user and another to everyone nearby.
 
     private void PopupSelfAndOthers(string selfMsg, string othersMsg, EntityUid user, EntityUid subject)
@@ -440,16 +406,48 @@ public abstract partial class SharedMortarSystem : EntitySystem
         _popup.PopupEntity(othersMsg, subject, Filter.PvsExcept(user, entityManager: EntityManager), false, PopupType.Medium);
     }
 
-    /// Refuses an aim that would come down under a roof. True means abandon it.
+    /// Refuses an aim the mortar can't fire at, popping up the reason. True means take it.
 
-    private bool RefuseRoofedTarget(Entity<MortarComponent> mortar, Vector2i target, EntityUid user)
+    private bool CanFireAt(Entity<MortarComponent> mortar, Vector2i aim, EntityUid? user)
     {
-        var coordinates = new MapCoordinates(new Vector2(target.X, target.Y), _transform.GetMapCoordinates(mortar).MapId);
-        if (!IsRoofed(coordinates))
-            return false;
+        if (AimError(mortar, aim) is not { } error)
+            return true;
 
-        _popup.PopupClient(Loc.GetString("rmc-mortar-target-roofed"), mortar.Owner, user);
-        return true;
+        PopupRefusal(user, error, null);
+        return false;
+    }
+
+    /// Why the mortar can't fire at a coordinate, or null if it can.
+
+    private LocId? AimError(Entity<MortarComponent> mortar, Vector2i aim)
+    {
+        var mortarCoordinates = _transform.GetMapCoordinates(mortar);
+        var aimPosition = new Vector2(aim.X, aim.Y);
+        var coordinates = new MapCoordinates(aimPosition, mortarCoordinates.MapId);
+
+        if (!_map.TryFindGridAt(coordinates, out var gridUid, out var grid))
+            return "rmc-mortar-target-not-area";
+
+        var tile = _map.WorldToTile(gridUid, grid, coordinates.Position);
+        if (!_map.TryGetTileRef(gridUid, grid, tile, out var tileRef) || tileRef.Tile.IsEmpty)
+            return "rmc-mortar-target-not-area";
+
+        if (_tile[tileRef.Tile.TypeId] is ContentTileDefinition def && def.ID == ContentTileDefinition.SpaceID)
+            return "rmc-mortar-target-not-area";
+
+        // A roof stops the round, so nothing under it can be a target.
+        if (TryComp<RoofComponent>(gridUid, out var roof) && _roof.IsRooved((gridUid, grid, roof), tile))
+            return "rmc-mortar-target-roofed";
+
+        var distance = (mortarCoordinates.Position - aimPosition).Length();
+
+        if (distance < mortar.Comp.MinimumRange)
+            return "rmc-mortar-target-too-close";
+
+        if (distance > mortar.Comp.MaximumRange)
+            return "rmc-mortar-target-too-far";
+
+        return null;
     }
 
     /// Works out where the next shell would land and whether the shot is legal.
@@ -466,13 +464,13 @@ public abstract partial class SharedMortarSystem : EntitySystem
 
         if (!mortar.Comp.Deployed)
         {
-            PopupError(user, "rmc-mortar-not-deployed", mortar);
+            PopupRefusal(user, "rmc-mortar-not-deployed", mortar);
             return false;
         }
 
         if (!mortar.Comp.HasTarget)
         {
-            PopupError(user, "rmc-mortar-not-aimed", mortar);
+            PopupRefusal(user, "rmc-mortar-not-aimed", mortar);
             return false;
         }
 
@@ -480,54 +478,39 @@ public abstract partial class SharedMortarSystem : EntitySystem
 
         // Target is an absolute map coordinate, not an offset from the mortar.
         var aim = mortar.Comp.Target + mortar.Comp.Dial;
+
+        // Checked again here, since the ground can change after the mortar was set.
+        if (!CanFireAt(mortar, aim, user))
+            return false;
+
         var aimPosition = new Vector2(aim.X, aim.Y);
 
-        var distance = (mortarCoordinates.Position - aimPosition).Length();
-        if (distance < mortar.Comp.MinimumRange)
-        {
-            PopupError(user, "rmc-mortar-target-too-close", null);
-            return false;
-        }
-
-        if (distance > mortar.Comp.MaximumRange)
-        {
-            PopupError(user, "rmc-mortar-target-too-far", null);
-            return false;
-        }
-
-        // The aim is what has to be legal; where the round actually comes down is decided below.
-        if (!IsValidTargetTile(new MapCoordinates(aimPosition, mortarCoordinates.MapId), out var targetError))
-        {
-            PopupError(user, targetError, null);
-            return false;
-        }
-
-        // Less accurate the further out, rolled fresh for every shot.
-        var tilesPer = MathF.Max(mortar.Comp.TilesPerOffset, 1);
-        var xOffset = (int) MathF.Floor(MathF.Abs(aimPosition.X - mortarCoordinates.Position.X) / tilesPer);
-        var yOffset = (int) MathF.Floor(MathF.Abs(aimPosition.Y - mortarCoordinates.Position.Y) / tilesPer);
-        var target = aim + new Vector2i(_random.Next(-xOffset, xOffset + 1), _random.Next(-yOffset, yOffset + 1));
-
-        if (mortar.Comp.FireRandomOffset is { Length: > 0 } spread)
-        {
-            target += new Vector2i(_random.Pick(spread), _random.Pick(spread));
-        }
+        // Less accurate the further out: each axis rolls its own deflection.
+        var profile = mortar.Comp.Scatter;
+        var target = aim + new Vector2i(
+            Scatter(profile, profile.BucketFor(aimPosition.X - mortarCoordinates.Position.X)),
+            Scatter(profile, profile.BucketFor(aimPosition.Y - mortarCoordinates.Position.Y)));
 
         impact = new MapCoordinates(new Vector2(target.X, target.Y), mortarCoordinates.MapId);
 
         if (_container.TryGetContainer(mortar.Owner, mortar.Comp.ContainerId, out var container) &&
             !_container.CanInsert(shell.Owner, container))
         {
-            PopupError(user, "rmc-mortar-cant-insert", mortar);
+            PopupRefusal(user, "rmc-mortar-cant-insert", mortar);
             return false;
         }
 
         return true;
     }
 
-    private void PopupError(EntityUid? user, LocId message, Entity<MortarComponent>? mortar)
+    /// Refuses the user's action; the client predicts these checks but says nothing.
+
+    private void PopupRefusal(EntityUid? user, LocId message, Entity<MortarComponent>? mortar)
     {
         if (user is not { } recipient)
+            return;
+
+        if (_net.IsClient)
             return;
 
         var text = mortar is { } m
@@ -537,56 +520,12 @@ public abstract partial class SharedMortarSystem : EntitySystem
         _popup.PopupEntity(text, recipient, recipient, PopupType.SmallCaution);
     }
 
-    /// Whether a shell can come down at a coordinate, and why not if it cannot.
+    /// A miss for one axis: a magnitude by weight, then a coin for which side of the aim.
 
-    private bool IsValidTargetTile(MapCoordinates coordinates, out LocId error)
+    private int Scatter(MortarScatterProfile profile, int bucket)
     {
-        error = "rmc-mortar-target-not-area";
-
-        if (!_map.TryFindGridAt(coordinates, out var gridUid, out var grid))
-            return false;
-
-        var tile = _map.WorldToTile(gridUid, grid, coordinates.Position);
-        if (!_map.TryGetTileRef(gridUid, grid, tile, out var tileRef))
-            return false;
-
-        if (tileRef.Tile.IsEmpty)
-            return false;
-
-        if (_tile[tileRef.Tile.TypeId] is ContentTileDefinition def &&
-            def.ID == ContentTileDefinition.SpaceID)
-        {
-            return false;
-        }
-
-        // A roof stops the round, so nothing under it can be a target.
-        if (IsRoofed(gridUid, grid, tile))
-        {
-            error = "rmc-mortar-target-roofed";
-            return false;
-        }
-
-        return true;
-    }
-
-    /// Whether this tile of this grid is roofed over.
-
-    private bool IsRoofed(EntityUid gridUid, MapGridComponent grid, Vector2i tile)
-    {
-        if (!TryComp<RoofComponent>(gridUid, out var roof))
-            return false;
-
-        return _roof.IsRooved((gridUid, grid, roof), tile);
-    }
-
-    /// Whether a map coordinate landed under a roof.
-
-    protected bool IsRoofed(MapCoordinates coordinates)
-    {
-        if (!_map.TryFindGridAt(coordinates, out var gridUid, out var grid))
-            return false;
-
-        return IsRoofed(gridUid, grid, _map.WorldToTile(gridUid, grid, coordinates.Position));
+        var magnitude = profile.MagnitudeFor(bucket, _random.NextFloat());
+        return magnitude * (_random.Next(2) == 0 ? -1 : 1);
     }
 
     public void PopupWarning(MapCoordinates coordinates, float range, LocId warning, LocId warningAbove)
@@ -761,6 +700,13 @@ public abstract partial class SharedMortarSystem : EntitySystem
                 mortar = container.Owner;
 
             _container.Remove(shell, container, force: true);
+        }
+
+        // No grid or map left to land on, so the round dies with the ground it was aimed at.
+        if (TerminatingOrDeleted(active.Coordinates.EntityId))
+        {
+            QueueDel(shell);
+            return;
         }
 
         _transform.SetCoordinates(shell, active.Coordinates);

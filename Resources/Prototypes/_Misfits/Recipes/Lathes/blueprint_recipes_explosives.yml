@@ -458,9 +458,9 @@
   applyMaterialDiscount: false
   availableFaction: [ NCR ]
   materials:
-    Steel: 800
-    N14Gunpowder: 600
-    N14Iron: 300
+    Steel: 400
+    N14Gunpowder: 300
+    N14Iron: 150
 
 - type: latheRecipe
   id: MisfitsBPNCRMortarShellFrag
@@ -471,9 +471,9 @@
   applyMaterialDiscount: false
   availableFaction: [ NCR ]
   materials:
-    Steel: 700
-    N14Gunpowder: 500
-    N14Iron: 400
+    Steel: 350
+    N14Gunpowder: 250
+    N14Iron: 200
 
 - type: latheRecipe
   id: MisfitsBPNCRMortarShellIncendiary
@@ -484,9 +484,9 @@
   applyMaterialDiscount: false
   availableFaction: [ NCR ]
   materials:
-    Steel: 700
-    N14Gunpowder: 400
-    N14Iron: 300
+    Steel: 350
+    N14Gunpowder: 200
+    N14Iron: 150
 
 - type: latheRecipe
   id: MisfitsBPNCRMortarShellSmoke
@@ -497,9 +497,9 @@
   applyMaterialDiscount: false
   availableFaction: [ NCR ]
   materials:
-    Steel: 500
-    N14Gunpowder: 250
-    N14Iron: 200
+    Steel: 250
+    N14Gunpowder: 125
+    N14Iron: 100
 
 - type: latheRecipe
   id: MisfitsBPNCRMortarShellIllumination
@@ -510,10 +510,10 @@
   applyMaterialDiscount: false
   availableFaction: [ NCR ]
   materials:
-    Steel: 400
-    N14Gunpowder: 200
-    N14Iron: 150
-    Glass: 100
+    Steel: 200
+    N14Gunpowder: 100
+    N14Iron: 75
+    Glass: 50
 
 - type: latheRecipe
   id: MisfitsBPNCRMortarShellKinetic
@@ -524,9 +524,9 @@
   applyMaterialDiscount: false
   availableFaction: [ NCR ]
   materials:
-    Steel: 200
-    N14Gunpowder: 50
-    N14Iron: 100
+    Steel: 100
+    N14Gunpowder: 25
+    N14Iron: 50
 
 # === LEGION MORTAR ORDNANCE === # #Misfits Add - mirrors the NCR costs.
 - type: latheRecipe
