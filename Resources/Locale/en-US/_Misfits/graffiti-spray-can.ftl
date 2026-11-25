@@ -1,5 +1,6 @@
 ## #Misfits Add - Locale strings for the graffiti spray can system.
 
+graffiti-spray-can-color-label = Paint color (any hex code):
 graffiti-spray-can-window-title = Graffiti Spray Can
 graffiti-spray-can-select-label = Select a design, then click a surface to spray it.
 graffiti-spray-can-charges-label = Charges remaining: {$charges}

@@ -4,6 +4,7 @@
 using Content.Client._Misfits.GraffitiSprayCan.UI;
 using Content.Shared._Misfits.GraffitiSprayCan;
 using Content.Shared.Decals;
+using Content.Shared.Paint;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 
@@ -27,6 +28,7 @@ public sealed class GraffitiSprayCanBoundUserInterface : BoundUserInterface
 
         // Forward selection back to the server
         _window.OnDecalPicked = id => SendMessage(new GraffitiDecalSelectedMessage(id));
+        _window.OnColorPicked = color => SendMessage(new GraffitiColorSelectedMessage(color));
     }
 
     private void RefreshWindow()
@@ -39,12 +41,17 @@ public sealed class GraffitiSprayCanBoundUserInterface : BoundUserInterface
 
         string? selectedId = null;
         int charges = 0;
+        Color? sprayColor = null;
         if (EntMan.TryGetComponent(Owner, out GraffitiSprayCanComponent? comp))
         {
             selectedId = comp.SelectedDecalId;
             charges = comp.Charges;
         }
 
-        _window.Populate(decals, selectedId, charges);
+        // Only Paint-backed cans can be recoloured; the picker row hides itself otherwise.
+        if (EntMan.TryGetComponent(Owner, out PaintComponent? paint))
+            sprayColor = paint.Color;
+
+        _window.Populate(decals, selectedId, charges, sprayColor);
     }
 }

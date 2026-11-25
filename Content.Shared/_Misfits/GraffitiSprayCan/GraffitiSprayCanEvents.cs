@@ -29,6 +29,18 @@ public sealed class GraffitiDecalSelectedMessage : BoundUserInterfaceMessage
     }
 }
 
+// Sent by the client when the player picks a paint colour for the can.
+[Serializable, NetSerializable]
+public sealed class GraffitiColorSelectedMessage : BoundUserInterfaceMessage
+{
+    public readonly Color Color;
+
+    public GraffitiColorSelectedMessage(Color color)
+    {
+        Color = color;
+    }
+}
+
 /// <summary>
 /// Do-after event fired when the spray animation completes, carrying the decal ID and target coordinates.
 /// </summary>
