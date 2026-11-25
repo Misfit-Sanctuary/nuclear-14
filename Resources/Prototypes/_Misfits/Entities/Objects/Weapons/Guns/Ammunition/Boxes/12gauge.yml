@@ -9,3 +9,12 @@
     layers:
       - state: base
       - state: beanbag
+
+- type: entity
+  parent: MagazineBox12gauge
+  id: MisfitsMagazineBox12GaugeSlug
+  name: ammunition box (12 gauge slug)
+  description: A cardboard box of twelve gauge slug shells. For when pellets are not enough.
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun12Slug

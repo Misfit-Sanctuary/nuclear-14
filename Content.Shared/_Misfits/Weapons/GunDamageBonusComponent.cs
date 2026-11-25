@@ -59,7 +59,12 @@ public sealed partial class HitscanSpreadComponent : Component
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ArmorPiercingComponent : Component
 {
-    /// Armour shift from -1 to 1. Positive ignores that fraction of armour, negative adds it instead.
+    /// <summary>
+    ///     Fraction of a hit's total damage, from 0 to 1, that is dealt through armour. That part is
+    ///     applied with every resistance ignored, so armour coefficients, damage modifier sets and
+    ///     power armour integrity absorption cannot reduce it. 0.5 means half of the damage punches
+    ///     straight through: 40 total damage becomes 20 through the armour and 20 stopped by it.
+    /// </summary>
     [DataField, AutoNetworkedField]
-    public float Piercing = 0.5f;
+    public float Piercing;
 }

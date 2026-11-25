@@ -1,0 +1,20 @@
+# #Misfits Add - Pre-filled 12 gauge drums. The vanilla N14MagazineShotgun12 loads
+# buckshot, so these cover the other 12 gauge shells that share its whitelist tag.
+
+- type: entity
+  parent: N14BaseMagazineShotgun12
+  id: MisfitsMagazineShotgun12Slug
+  name: ammo drum (12 gauge slug)
+  description: A drum of twelve gauge slug shells.
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun12Slug
+
+- type: entity
+  parent: N14BaseMagazineShotgun12
+  id: MisfitsMagazineShotgun12Beanbag
+  name: ammo drum (12 gauge beanbag)
+  description: A drum of twelve gauge beanbag shells.
+  components:
+  - type: BallisticAmmoProvider
+    proto: MisfitsShellShotgun12Beanbag

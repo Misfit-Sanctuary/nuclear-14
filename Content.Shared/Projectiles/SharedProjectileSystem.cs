@@ -114,17 +114,33 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         var otherName = ToPrettyString(target);
         var direction = ourBody.LinearVelocity.Normalized();
 
-        // #Misfits Add - let the firing weapon pierce part of the target's worn armor
-        var armorPiercing = TryComp<ArmorPiercingComponent>(component.Weapon, out var piercingComp) ? piercingComp.Piercing : 0f;
+        // #Misfits Add - partial AP: this fraction of the damage ignores armour; gun and ammo AP stack.
+        var ammoPiercing = TryComp<ArmorPiercingComponent>(uid, out var ammoAp) ? ammoAp.Piercing : 0f;
+        var gunPiercing = TryComp<ArmorPiercingComponent>(component.Weapon, out var gunAp) ? gunAp.Piercing : 0f;
+
+        var armorPiercing = Math.Clamp(ammoPiercing + gunPiercing, 0f, 1f);
+
+        // #Misfits Add - the pierced part ignores every resistance, including power armour integrity.
+        DamageSpecifier? piercedDamage = null;
+        if (_netManager.IsServer && armorPiercing > 0f)
+        {
+            piercedDamage = _damageableSystem.TryChangeDamage(target,
+                ev.Damage * armorPiercing,
+                ignoreResistances: true,
+                origin: component.Shooter);
+        }
 
         // nullable for some reason and why dont we want client to do trychange? need to check later
         var modifiedDamage = (_netManager.IsServer
             ? _damageableSystem.TryChangeDamage(target,
-                ev.Damage,
+                ev.Damage * (1f - armorPiercing),
                 component.IgnoreResistances,
-                origin: component.Shooter,
-                armorPiercing: armorPiercing)
+                origin: component.Shooter)
             : new DamageSpecifier(ev.Damage)) ?? new DamageSpecifier();
+
+        // #Misfits Add - count the through-armour part in the reported hit total.
+        if (piercedDamage != null)
+            modifiedDamage += piercedDamage;
 
         var filter = Filter.Pvs(coordinates, entityMan: EntityManager);
         if (_guns.GunPrediction && TryComp(projectile, out PredictedProjectileServerComponent? serverProjectile))

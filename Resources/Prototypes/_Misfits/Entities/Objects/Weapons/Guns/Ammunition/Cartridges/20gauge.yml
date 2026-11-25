@@ -16,3 +16,19 @@
     proto: PelletShotgun20Beanbag
   - type: SpentAmmoVisuals
     state: beanbag
+
+# #Misfits Add - 20 gauge slug shell, shares the N14ShellShotgun20 tag with the
+# existing 20 gauge shotguns, ammo boxes and drums.
+- type: entity
+  id: N14ShellShotgun20Slug
+  name: slug shell (20 gauge)
+  parent: N14BaseShell20Shotgun
+  components:
+  - type: Sprite
+    layers:
+      - state: slug
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: PelletShotgun20Slug
+  - type: SpentAmmoVisuals
+    state: slug

@@ -9,3 +9,12 @@
     layers:
       - state: base
       - state: beanbag
+
+- type: entity
+  parent: MagazineBox20gauge
+  id: MisfitsMagazineBox20GaugeSlug
+  name: ammunition box (20 gauge slug)
+  description: A cardboard box of twenty gauge slug shells. For when pellets are not enough.
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun20Slug

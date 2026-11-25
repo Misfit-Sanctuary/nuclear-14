@@ -779,3 +779,34 @@
     - suitStorage
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/neostead_brotherhood.rsi
+
+- type: entity
+  name: Hunting Shotgun
+  parent: [N14WeaponShotgunBase, BaseGunWieldable]
+  id: N14WeaponShotgunHunting
+  description: A bottom-loading pump-action shotgun built for greater range and power over similar shotguns. Faster flying shells mean more effective against armor. Uses 12 gauge shells.
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,4,0
+    sprite: _Misfits/Objects/Weapons/Guns/Shotguns/Hunting_Shotgun.rsi
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Shotguns/Hunting_Shotgun_icon.rsi
+  - type: Clothing
+    sprite: _Misfits/Objects/Weapons/Guns/Shotguns/Hunting_Shotgun.rsi
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - N14ShellShotgun12
+    capacity: 8
+    proto: N14ShellShotgun12
+    soundInsert:
+      path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/shotgun_insert.ogg
+  - type: Tag
+    tags:
+    - WeaponShotgunHunting
+  - type: Wieldable
+  - type: ArmorPiercing
+    piercing: 0.2
