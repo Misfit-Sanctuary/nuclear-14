@@ -2,7 +2,7 @@
   parent: N14MachineWaterTreatmentBroken
   id: N14SeismicMaterialExtractor
   name: seismic material extractor
-  description: A battered pre-war drill that hammers the ground for usable raw materials. Its racket draws unwanted attention and consumes high amount of fuel because of its size.
+  description: A battered pre-war drill that hammers the ground for usable raw materials. Its racket draws unwanted attention.
   components:
   - type: Sprite
     sprite: _Misfits/Structures/Machines/seismic_extractor.rsi
@@ -54,15 +54,15 @@
       maxCount: 6
       family: Wildlife
       mobs:
-        N14MobMolerat: 28
+        N14MobMolerat: 18
         N14MobGecko: 15
-        N14MobMirelurk: 10
-        #N14MobRadhog: 0 was 10, #Not hostile, can be kept as a pet
+        N14MobMirelurk: 12
+        #N14MobRadhog: 10 #wassuy changes, netural animals, can be kept as a pet
         N14MobPigrat: 10
         N14MobRadroach: 10
-        N14MobGeckoFire: 10
+        N14MobGeckoFire: 8
         N14MobDogFeral: 8
-        N14MobBloatfly: 8
+        #N14MobBloatfly: 8 #wassuy changes, bugged and does not spit projectile, i dont know how to fix so i will make it blank for now.
         N14MobNightstalkerCub: 7
         N14MobGiantAnt: 6
         N14MobNightstalker: 5
@@ -209,7 +209,7 @@
     minTargetPower: 1000
     optimalPower: 1000
     maxTargetPower: 1000
-    # A full 250u tank lasts 2 hours while the extractor runs.
+    # A full 250u tank lasts about two hours while the extractor runs.
     optimalBurnRate: 0.03333333
     fuelEfficiencyConstant: 0.3
   - type: PowerSupplier
