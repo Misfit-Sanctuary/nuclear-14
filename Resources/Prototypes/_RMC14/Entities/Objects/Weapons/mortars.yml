@@ -42,6 +42,11 @@
     slots:
     - Back
   - type: Mortar
+    # Aim tile likeliest, and every 40 tiles of range buys one more tile of possible deflection.
+    scatter:
+      tilesPerOffset: 40
+      offsetWeights: [ 5, 4, 3, 2, 1 ]
+      maxOffset: 4
   - type: Damageable
   - type: Destructible
     thresholds:

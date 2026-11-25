@@ -39,11 +39,9 @@ public sealed class MortarBui(EntityUid owner, Enum uiKey) : BoundUserInterface(
             SetSpinBox(_window.DialX, mortar.MaxDial, mortar.Dial.X);
             SetSpinBox(_window.DialY, mortar.MaxDial, mortar.Dial.Y);
 
-            _window.SetTargetButton.OnPressed += _ =>
-                SendPredictedMessage(new MortarTargetBuiMsg((Parse(_window.TargetX), Parse(_window.TargetY))));
-
-            _window.SetOffsetButton.OnPressed += _ =>
-                SendPredictedMessage(new MortarDialBuiMsg((Parse(_window.DialX), Parse(_window.DialY))));
+            _window.SetButton.OnPressed += _ => SendPredictedMessage(new MortarSetBuiMsg(
+                (Parse(_window.TargetX), Parse(_window.TargetY)),
+                (Parse(_window.DialX), Parse(_window.DialY))));
 
             _window.CameraButton.OnPressed += _ =>
                 SendMessage(new MortarCameraBuiMsg());

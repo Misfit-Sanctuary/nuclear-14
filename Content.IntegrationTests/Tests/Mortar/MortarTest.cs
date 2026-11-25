@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using Content.Server.Chemistry.Containers.EntitySystems;
@@ -42,12 +43,23 @@ public sealed class MortarTest
 
         var serverSession = server.PlayerMan.GetSessionById(client.Session!.UserId);
 
+        var target = new Vector2i(20, 20);
+
         EntityUid mortar = default;
         await server.WaitPost(() =>
         {
             var player = entMan.SpawnEntity("MobHuman", map.GridCoords);
             server.PlayerMan.SetAttachedEntity(serverSession, player);
             mortar = entMan.SpawnEntity("RMCMortarKit", map.GridCoords);
+
+            // The set action checks the aimed tile, so the one tile map needs ground out to the target.
+            var mapSystem = server.System<SharedMapSystem>();
+            var plating = new Tile(map.Tile.Tile.TypeId);
+            for (var x = 0; x <= target.X; x++)
+            {
+                for (var y = 0; y <= target.Y; y++)
+                    mapSystem.SetTile(map.Grid.Owner, map.Grid.Comp, new Vector2i(x, y), plating);
+            }
         });
 
         // Let the client learn about the mortar.
@@ -93,7 +105,6 @@ public sealed class MortarTest
 
         await pair.RunTicksSync(10);
 
-        var target = new Vector2i(20, 20);
         var sent = false;
 
         await client.WaitPost(() =>
@@ -105,7 +116,7 @@ public sealed class MortarTest
                 return;
             }
 
-            bui.SendMessage(new MortarTargetBuiMsg(target));
+            bui.SendMessage(new MortarSetBuiMsg(target, Vector2i.Zero));
             sent = true;
         });
 
@@ -146,7 +157,7 @@ public sealed class MortarTest
                 if (cEntMan.TryGetComponent<UserInterfaceComponent>(clientMortar, out var ui) &&
                     ui!.ClientOpenInterfaces.TryGetValue(MortarUiKey.Key, out var bui))
                 {
-                    bui.SendMessage(new MortarTargetBuiMsg(roofedTarget));
+                    bui.SendMessage(new MortarSetBuiMsg(roofedTarget, Vector2i.Zero));
                     roofedSent = true;
                 }
             });
@@ -777,6 +788,49 @@ public sealed class MortarTest
                     "A splatter was left behind without radiating.");
                 Assert.That(lifetime, Is.EqualTo(45f).Within(0.5f),
                     "The splatters do not burn out on their own.");
+            });
+        }
+        finally
+        {
+            await pair.CleanReturnAsync();
+        }
+    }
+
+    /// The shipped mortar takes its scatter profile from its prototype, not just the code defaults.
+
+    [Test]
+    public async Task ScatterProfileIsLoadedFromYaml()
+    {
+        var pair = await PoolManager.GetServerClient(new PoolSettings());
+        var server = pair.Server;
+        var entMan = server.EntMan;
+        var map = await pair.CreateTestMap();
+
+        EntityUid mortar = default;
+        await server.WaitPost(() => mortar = entMan.SpawnEntity("RMCMortarKit", map.GridCoords));
+
+        var weights = new List<float>();
+        var tilesPerOffset = 0f;
+        var maxOffset = -1;
+
+        await server.WaitPost(() =>
+        {
+            var scatter = entMan.GetComponent<MortarComponent>(mortar).Scatter;
+            tilesPerOffset = scatter.TilesPerOffset;
+            maxOffset = scatter.MaxOffset;
+            weights.AddRange(scatter.OffsetWeights);
+        });
+
+        try
+        {
+            Assert.Multiple(() =>
+            {
+                Assert.That(tilesPerOffset, Is.EqualTo(40f),
+                    "The prototype did not load tilesPerOffset, so tuning it in YAML would do nothing.");
+                Assert.That(weights, Is.EqualTo(new[] { 5f, 4f, 3f, 2f, 1f }),
+                    "The prototype's scatter weights did not load in order.");
+                Assert.That(maxOffset, Is.EqualTo(4),
+                    "The prototype did not load maxOffset.");
             });
         }
         finally

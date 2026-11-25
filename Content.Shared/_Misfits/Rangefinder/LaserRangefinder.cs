@@ -58,17 +58,8 @@ public sealed partial class LaserRangefinderDoAfterEvent : SimpleDoAfterEvent
 }
 
 /// Raised on the server once a reading is taken, so the server system can post it to chat.
-public sealed class RangefinderReadingEvent : EntityEventArgs
-{
-    public readonly EntityUid User;
-    public readonly string Text;
-
-    public RangefinderReadingEvent(EntityUid user, string text)
-    {
-        User = user;
-        Text = text;
-    }
-}
+[ByRefEvent]
+public readonly record struct RangefinderReadingEvent(EntityUid User, string Text);
 
 /// <summary>
 ///     Runs the rangefinder: aim at a spot, wait out the do-after, get the coordinates back.
@@ -160,7 +151,8 @@ public sealed partial class LaserRangefinderSystem : EntitySystem
         _audio.PlayPvs(ent.Comp.LaserSound, ent.Owner);
 
         // Chat is server only, so the same line is handed to the server system that posts it.
-        RaiseLocalEvent(ent.Owner, new RangefinderReadingEvent(args.User, reading));
+        var ev = new RangefinderReadingEvent(args.User, reading);
+        RaiseLocalEvent(ent.Owner, ref ev);
     }
 
     private void OnRangefinderExamined(Entity<LaserRangefinderComponent> ent, ref ExaminedEvent args)
