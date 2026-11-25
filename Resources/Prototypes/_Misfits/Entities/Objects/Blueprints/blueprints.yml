@@ -933,6 +933,9 @@
     - MisfitsBPNewCanaanRiot_duster
     - MisfitsBPNewCanaanRiot_helm
     - MisfitsBPNewCanaanRiot_gasmask
+    - MisfitsBPHospitallerHeavyArmor
+    # #Misfits Add - paired Hospitaller great helm
+    - MisfitsBPHospitallerHelmet
 
 # --- Town Ammo ---
 - type: entity
@@ -1255,6 +1258,7 @@
     - N14BPTribeWeaponPolearm
     - N14BPTribeWeaponSniper50Pipe
     - N14BPTribeWeaponSuperSledgeHammer
+    - N14BPTribeWeaponShotgunTribal
 # --- Tribe Armor ---
 - type: entity
   parent: N14BlueprintBase
@@ -1289,6 +1293,7 @@
     - N14BPTribeArmorHelmetTribalShamanHeadband
     - N14BPTribeArmorHelmetHeadtakerwraps
     - MisfitsBPTribeArmorHelmetHelmetOfPeace
+    - N14BPTribeWesternWayfarerSalvagedArmor
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeArmorT3
@@ -1298,10 +1303,11 @@
   - type: Blueprint
     recipes:
     - N14BPTribeArmorTribalArmorHeavy
-    #- N14BPTribeArmorCombatTribal
+    - N14BPTribeArmorCombatTribal
     - MisfitsBPTribeArmorHelmetRadstagSkull
-    - N14BPClothingOuterTribeCombatArmor
+    #- N14BPClothingOuterTribeCombatArmor
     - N14BPTribeClothingHeadHatCombatHelmet
+    - N14BTribeWardenPlate
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeArmorT4
@@ -1313,8 +1319,8 @@
     - N14BPTribeArmorRadArmor
     - N14BPTribeArmorInsectArmor
     - N14BPTribeArmorHelmetEdlerSkullhelm
-    - N14BPClothingOuterTribeCombatArmorMk2
-    - N14BPTribeClothingHeadHatCombatHelmetMK2
+    - N14BPClothingOuterWayfarerHeavyArmor
+    #- N14BPTribeClothingHeadHatCombatHelmetMK2
 # --- Tribe Ammo ---
 - type: entity
   parent: N14BlueprintBase

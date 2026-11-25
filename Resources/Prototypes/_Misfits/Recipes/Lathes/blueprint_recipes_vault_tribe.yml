@@ -1145,6 +1145,23 @@
     Wood: 900
     Scrap: 5000
 
+- type: latheRecipe
+  id: N14BPTribeWeaponShotgunTribal
+  result: N14WeaponShotgunTribal
+  category: N14BlueprintTribeWeaponsT4
+  completetime: 12
+  requiresBlueprint: true
+  availableFaction:
+  - Tribe
+  materials:
+    Steel: 7500
+
+    Wood: 1500
+
+    N14Iron: 1500
+
+    N14Brass: 500
+
 # =====================================================================
 # TRIBE ARMOR RECIPES
 # =====================================================================
@@ -1269,6 +1286,23 @@
     Thread: 1750
     Leather: 1500
 
+- type: latheRecipe
+  id: N14BPTribeWesternWayfarerSalvagedArmor
+  result: M14ClothingOuterWesternWayfarerArmor
+  category: N14BlueprintTribeArmorT2
+  completetime: 7
+  requiresBlueprint: true
+  availableFaction:
+  - Tribe
+  materials:
+    Leather: 1500
+
+    Cloth: 1000
+
+    Thread: 700
+
+    Steel: 1000
+
 
 
 
@@ -1302,18 +1336,35 @@
     Thread: 900
 
 - type: latheRecipe
-  id: N14BPClothingOuterTribeCombatArmor
-  result: N14ClothingOuterTribeCombatArmor
+  id: N14BTribeWardenPlate
+  result: M14ClothingOuterWardenPlate
   category: N14BlueprintTribeArmorT3
   completetime: 10
   requiresBlueprint: true
   availableFaction:
   - Tribe
   materials:
-    Steel: 6000
-    Cloth: 500
-    Leather: 250
-    Plastic: 250
+    Steel: 3000
+
+    Cloth: 150
+
+    Thread: 120
+
+    Leather: 70
+
+#- type: latheRecipe
+#  id: N14BPClothingOuterTribeCombatArmor
+#  result: N14ClothingOuterTribeCombatArmor
+ # category: N14BlueprintTribeArmorT3
+#  completetime: 10
+#  requiresBlueprint: true
+#  availableFaction:
+#  - Tribe
+#  materials:
+#    Steel: 6000
+#    Cloth: 500
+#    Leather: 250
+#    Plastic: 250
 
 # --- Tribe Tier 4 Armor ---
 - type: latheRecipe
@@ -1346,9 +1397,9 @@
     N14Iron: 1200
 
 - type: latheRecipe
-  id: N14BPClothingOuterTribeCombatArmorMk2
-  result: N14ClothingOuterTribeCombatArmorMk2
-  category: N14BlueprintTribeArmorT3
+  id: N14BPClothingOuterWayfarerHeavyArmor
+  result: M14ClothingOuterWesternWayfarerHeavyArmor
+  category: N14BlueprintTribeArmorT4
   completetime: 10
   requiresBlueprint: true
   availableFaction:
@@ -1359,7 +1410,6 @@
     Thread : 250
     Leather: 350
     Plastic: 250
-    Circuitry : 100
 
 # =====================================================================
 # TRIBE AMMO RECIPES

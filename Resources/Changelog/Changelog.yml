@@ -13117,3 +13117,93 @@ Entries:
   id: 6587
   time: '2026-11-24T06:40:14.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2186
+- author: ZABLIK51
+  changes:
+    - type: Tweak
+      message: Cruoris Mendax armor resprite
+  id: 6588
+  time: '2026-11-24T23:28:08.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2210
+- author: ZABLIK51
+  changes:
+    - type: Add
+      message: Added Legion Speculatore. They are in your walls.
+  id: 6589
+  time: '2026-11-24T23:30:13.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2209
+- author: cythisiax
+  changes:
+    - type: Add
+      message: >-
+        Snow accumulation on ground tiles and objects during snowfall weathers
+        with player foot tracking. Video in #sneak-peeks.
+  id: 6590
+  time: '2026-11-25T00:07:41.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2208
+- author: sigmatique
+  changes:
+    - type: Add
+      message: Honor Guard plushie (character and art by Car/Screechlord)
+    - type: Add
+      message: Gao Jie plushie (character and art by skaothi)
+    - type: Tweak
+      message: >-
+        Rearranged player-added plushies into their own RSI folders and credited
+        their respective artists
+    - type: Remove
+      message: Removed SEVER plush from Town shop
+  id: 6591
+  time: '2026-11-25T02:30:58.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2204
+- author: ToasterEnjoyer
+  changes:
+    - type: Add
+      message: Added timelocked sequoia
+    - type: Fix
+      message: >-
+        ranger roles who already got CPR or riding for free cannot take them as
+        perks
+  id: 6592
+  time: '2026-11-25T02:31:29.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2203
+- author: Enkidienne
+  changes:
+    - type: Add
+      message: >-
+        Hospitalier clothes to loadout, armor to town BP, and craftable flag.
+        Sprites of new armor, clothes, and flag by neonvandal
+    - type: Add
+      message: >-
+        Spraycan in loadout are replace by a new greyscale one. Open its UI to
+        select a hexcode color.
+    - type: Add
+      message: ranger prometheus tracker.
+    - type: Add
+      message: >-
+        All COs and high ranked officer of all factions now naturally sound
+        louder.
+  id: 6593
+  time: '2026-11-25T03:25:29.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2183
+- author: hobolyra
+  changes:
+    - type: Tweak
+      message: Crank recipe changed to use Quantum instead of amonia
+  id: 6594
+  time: '2026-11-25T03:44:22.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2213
+- author: riptidetheshark87-tech
+  changes:
+    - type: Add
+      message: New helmet of peace sprite. Art by BerryWuffy
+    - type: Add
+      message: new tribal shotgun. T4 BP craftable. Art by BerryWuffy/CaramelKitten
+    - type: Tweak
+      message: >-
+        Wayfarer scav, heavy and Warden plate armor moved from loadout to tribal
+        BP
+    - type: Remove
+      message: Tribal combat armor Mk2 as tribe BP(replaced by wayfarer heavy armor)
+  id: 6595
+  time: '2026-11-25T04:19:55.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2211

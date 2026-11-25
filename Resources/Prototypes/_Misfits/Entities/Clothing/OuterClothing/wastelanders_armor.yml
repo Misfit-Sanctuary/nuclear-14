@@ -341,15 +341,18 @@
     sprite: _Misfits/Clothing/OuterClothing/Armor/westernwayfarerarmor.rsi
   - type: Clothing
     sprite: _Misfits/Clothing/OuterClothing/Armor/westernwayfarerarmor.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.15
+    sprintModifier: 1.15
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.88
-        Slash: 0.80
-        Piercing: 0.82
-        Heat: 0.78
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.90
   - type: ExplosionResistance
-    damageCoefficient: 0.92
+    damageCoefficient: 0.85
 
 #Technically should be considered heavy armor but drip was needed. If it ever becomes a 'heavy' armor then put the stats to this one and Warden Plate to heavy armors.
 - type: entity
@@ -365,12 +368,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.88
-        Slash: 0.80
-        Piercing: 0.82
-        Heat: 0.78
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.60
+        Heat: 0.60
+    priceMultiplier: 0.5
   - type: ExplosionResistance
-    damageCoefficient: 0.92
+    damageCoefficient: 0.80
 
 - type: entity
   parent: N14FalloutArmorBase
@@ -385,9 +389,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.88
-        Slash: 0.80
-        Piercing: 0.82
-        Heat: 0.78
+        Blunt: 0.75
+        Slash: 0.75
+        Piercing: 0.70
+        Heat: 0.70
+    priceMultiplier: 0.6
   - type: ExplosionResistance
-    damageCoefficient: 0.92
+    damageCoefficient: 0.75
+  - type: Reflect
+    reflectProb: 0.05
+    spread: 150

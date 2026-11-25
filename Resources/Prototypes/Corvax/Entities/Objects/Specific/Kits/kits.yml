@@ -2079,6 +2079,32 @@
     sound:
       path: /Audio/Effects/unwrap.ogg
 
+
+# Misfits Add - Speculatore attire selection kits.
+
+- type: entity
+  name: speculatore executioner kit
+  parent: KitBase
+  id: KitSpeculatoreExecutioner
+  description: "Speculatore executioner attire"
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  - type: Item
+    size: Huge
+  - type: SpawnItemsOnUse
+    items:
+      - id: MisfitsSpecExecArmor
+      - id: MisfitsSpecExecBoots
+      - id: MisfitsSpecExecHand
+      - id: MisfitsSpecExecMask
+      - id: MisfitsSpecExecNeck
+      - id: MisfitsSpecExecTunic
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+
 # #Misfits Add - Centurion armor selection kits: armor + matching helmet spawned together.
 # These three kits are the content for LegionCenturionArmorloadoutkits (pocket2 of Centurion startingGear).
 

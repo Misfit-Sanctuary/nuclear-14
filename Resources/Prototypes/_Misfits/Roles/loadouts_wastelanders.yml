@@ -255,50 +255,50 @@
   items:
     -  M14ClothingOuterRustwalkersLightArmor
 
-- type: loadout
-  id: MisfitsLoadoutOuterWesternWayfarerArmor
-  category: Outer
-  cost: 4
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutOuter
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Wastelander
-        - Tribe
-  items:
-    -  M14ClothingOuterWesternWayfarerArmor
+#- type: loadout
+#  id: MisfitsLoadoutOuterWesternWayfarerArmor
+#  category: Outer
+#  cost: 4
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterItemGroupRequirement
+#      group: N14LoadoutOuter
+#    - !type:CharacterDepartmentRequirement
+#      departments:
+#        - Wastelander
+#        - Tribe
+#  items:
+#    -  M14ClothingOuterWesternWayfarerArmor
 
-- type: loadout
-  id: MisfitsLoadoutOuterWesternWayfarerHeavyArmor
-  category: Outer
-  cost: 4
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutOuter
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Wastelander
-        - Tribe
-  items:
-    -  M14ClothingOuterWesternWayfarerHeavyArmor
+#- type: loadout
+#  id: MisfitsLoadoutOuterWesternWayfarerHeavyArmor
+#  category: Outer
+#  cost: 4
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterItemGroupRequirement
+#      group: N14LoadoutOuter
+#    - !type:CharacterDepartmentRequirement
+#      departments:
+#        - Wastelander
+#        - Tribe
+#  items:
+#    -  M14ClothingOuterWesternWayfarerHeavyArmor
 
-- type: loadout
-  id: MisfitsLoadoutOuterWardenPlate
-  category: Outer
-  cost: 4
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: N14LoadoutOuter
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - Wastelander
-        - Tribe
-  items:
-    -  M14ClothingOuterWardenPlate
+#- type: loadout
+#  id: MisfitsLoadoutOuterWardenPlate
+#  category: Outer
+#  cost: 4
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterItemGroupRequirement
+#      group: N14LoadoutOuter
+#    - !type:CharacterDepartmentRequirement
+#      departments:
+#        - Wastelander
+#        - Tribe
+# items:
+#    -  M14ClothingOuterWardenPlate
 
 #If this ever becomes a faction remove the armor from here.
 - type: loadout
@@ -468,3 +468,34 @@
         - Tribe
   items:
     - M14ClothingUniformWhiteLegsUniform
+
+# #Misfits Add - Hospitaller gear, wastelander and townsfolk only
+- type: loadout
+  id: MisfitsLoadoutUniformHospitaller
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutUniform
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - MisfitsClothingUniformHospitaller
+
+- type: loadout
+  id: MisfitsNeckHospitallerShemagh
+  category: Neck
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: N14LoadoutNeck
+    - !type:CharacterDepartmentRequirement
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - MisfitsClothingNeckHospitallerShemagh

@@ -296,6 +296,10 @@ undecided-loadout-category-misfits-centurion-armor-unbroken-description =
     Armor for a Centurion who refuses to stay dead.
     Paired with a matching helmet. Reinforced and patched from countless battles.
 
+undecided-loadout-category-corvax-speculatore-executioner-name = Speculatore Executioner
+undecided-loadout-category-corvax-speculatore-executioner-description =
+    Executioner attire. For the deadliest of occasions.
+
 undecided-loadout-category-corvax-venator-marksman-name = Venator Marksman
 undecided-loadout-category-corvax-venator-marksman-description =
     Includes a .308 sniper rifle, a rope belt,

@@ -49,6 +49,9 @@
         - type: NpcFactionMember
           factions:
             - CaesarLegion
+        # #Misfits Add - command voice: bigger chat text
+        - type: SpeechFontOverride
+          fontSizeBonus: 4
         - type: ReplacementAccent
           accent: latin
         - type: CPRTraining # Priestess is a former Auxilia and serves as Legion support officer; retains medical training.
@@ -68,6 +71,7 @@
           cautionPopup: true
           activatorJobs:
           - CaesarLegionVexillarius
+          - CaesarLegionSpeculatore
           - CaesarLegionDean
           - CaesarLegionPrimeDecanus
           - CaesarLegionVeteranDecanus

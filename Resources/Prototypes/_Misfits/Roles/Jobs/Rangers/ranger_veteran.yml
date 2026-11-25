@@ -27,6 +27,9 @@
       - type: NpcFactionMember
         factions:
           - Rangers
+      # #Misfits Add - command voice: bigger chat text
+      - type: SpeechFontOverride
+        fontSizeBonus: 4
       - type: GrantRangerCombat # #Misfits Change - re-enabled: Ranger Lead starts with the Ranger Combat Technique
       - type: FactionRoster # #Cythisiax Added - roster GUI: recruit, promote and demote Rangers via job whitelists
         roster: Rangers

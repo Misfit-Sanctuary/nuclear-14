@@ -14,5 +14,14 @@
         <ItemList Name="DecalList"
                   VerticalExpand="True"
                   Margin="4"/>
+        <BoxContainer Name="ColorRow"
+                      Orientation="Vertical"
+                      SeparationOverride="2">
+            <Label Text="{Loc 'graffiti-spray-can-color-label'}"
+                   Margin="6 0 6 0"/>
+            <ColorSelectorSliders Name="ColorSelector"
+                                  IsAlphaVisible="False"
+                                  Margin="4"/>
+        </BoxContainer>
     </BoxContainer>
 </DefaultWindow>

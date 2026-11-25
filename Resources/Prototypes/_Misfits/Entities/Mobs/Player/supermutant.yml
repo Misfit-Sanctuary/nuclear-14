@@ -9,6 +9,9 @@
     - type: NpcFactionMember
       factions:
       - Wastelander
+    # #Misfits Add - huge frame, loud voice: speech renders in bigger chat text
+    - type: SpeechFontOverride
+      fontSizeBonus: 2
     # // #Cythisiax Added - player super mutants regenerate beyond the inherited 20 damage cap.
     - type: PassiveDamage
       allowedStates:
