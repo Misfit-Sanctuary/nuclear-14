@@ -36,5 +36,15 @@
   visibilityClearBuffer: 2
   showMessage: true
   chance: 0 # Misfits: admin-only, excluded from random weather pool
+  snowAccumulation: 0.006
+  snowfall:
+    density: 0.95
+    flakeSize: 1.6
+    fallSpeed: 2.6
+    wind: 3.2
+    gust: 2.2
+    sway: 0.35
+    haze: 0.55
+    landing: 1.8
   sender: weather-announcement
   message: weather-snowfall-extreme

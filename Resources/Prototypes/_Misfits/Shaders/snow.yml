@@ -1,0 +1,9 @@
+- type: shader
+  id: SnowCap
+  kind: source
+  path: "/Textures/Shaders/snow_cap.swsl"
+
+- type: shader
+  id: Snowfall
+  kind: source
+  path: "/Textures/Shaders/snowfall.swsl"

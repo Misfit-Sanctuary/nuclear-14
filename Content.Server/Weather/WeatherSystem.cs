@@ -34,6 +34,7 @@ public sealed class WeatherSystem : SharedWeatherSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly IGameMapManager _gameMapManager = default!;
 
     private const float WeatherEffectInterval = 1f;
     private const string DefaultWeatherPrototype = "Default";
@@ -431,12 +432,21 @@ public sealed class WeatherSystem : SharedWeatherSystem
         return MapId.Nullspace;
     }
 
+    private bool CanRollOnCurrentMap(WeatherPrototype proto)
+    {
+        if (proto.AllowedMaps.Count == 0)
+            return true;
+
+        var mapId = _gameMapManager.GetSelectedMap()?.ID;
+        return mapId != null && proto.AllowedMaps.Contains(mapId);
+    }
+
     private WeatherPrototype? RandomWeather()
     {
         int totalChance = 0;
         foreach (var proto in _prototype.EnumeratePrototypes<WeatherPrototype>())
         {
-            if (proto.Chance <= 0)
+            if (proto.Chance <= 0 || !CanRollOnCurrentMap(proto))
                 continue;
 
             totalChance += proto.Chance;
@@ -449,7 +459,7 @@ public sealed class WeatherSystem : SharedWeatherSystem
         int curr = 0;
         foreach (var proto in _prototype.EnumeratePrototypes<WeatherPrototype>())
         {
-            if (proto.Chance <= 0)
+            if (proto.Chance <= 0 || !CanRollOnCurrentMap(proto))
                 continue;
 
             if (curr <= tgtChance && tgtChance < curr + proto.Chance)

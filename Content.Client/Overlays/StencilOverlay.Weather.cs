@@ -78,6 +78,13 @@ public sealed partial class StencilOverlay
         } // #Misfits Fix - end stencil rebuild throttle block
 
         worldHandle.SetTransform(Matrix3x2.Identity);
+
+        if (weatherProto.Snowfall is { } snowfall)
+        {
+            _snowfall.Draw(args, weatherProto, snowfall, alpha, _blep!.Texture, invMatrix);
+            return;
+        }
+
         var curTime = _timing.RealTime;
         var sprite = _sprite.GetFrame(weatherProto.Sprite, curTime);
 
