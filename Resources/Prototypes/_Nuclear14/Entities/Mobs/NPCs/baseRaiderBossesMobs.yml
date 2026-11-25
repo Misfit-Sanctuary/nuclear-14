@@ -84,10 +84,13 @@
       spawned:
       - id: N14FoodMeatHuman
         amount: 4
+        prob: 0.75
       - id: MaterialBones1
         amount: 8
+        prob: 0.75
       - id: TorsoSkeleton
         amount: 1
+        prob: 0.75
     - type: HumanoidAppearance
       species: Human
       hideLayersOnEquip:

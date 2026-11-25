@@ -46,7 +46,7 @@
     - type: InputMover
     - type: MobMover
     - type: SurgeryTarget
-      canOperate: false #Wassuy changes, cannot farm organs and limbs from them aswell, are you a fucking psycho?!
+      canOperate: true
     - type: ProximityNPC # Misfits Add — sleep distant NPCs to reduce tick load
     - type: NPCRetaliation # Aggro on the attacker when damaged from any range
     - type: HTN
@@ -86,10 +86,13 @@
       spawned:
       - id: N14FoodMeatHuman
         amount: 4
+        prob: 0.75
       - id: MaterialBones1
         amount: 8
+        prob: 0.75
       - id: TorsoSkeleton
         amount: 1
+        prob: 0.75
     - type: HumanoidAppearance
       species: Human
       hideLayersOnEquip:
