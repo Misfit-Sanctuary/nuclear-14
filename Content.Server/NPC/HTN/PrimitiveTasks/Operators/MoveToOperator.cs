@@ -145,6 +145,11 @@ public sealed partial class MoveToOperator : HTNOperator, IHtnConditionalShutdow
         if (!blackboard.TryGetValue<EntityCoordinates>(TargetKey, out var targetCoordinates, _entManager))
             return;
 
+        // The owner or target can be deleted between planning and task startup.
+        if (!_entManager.TryGetComponent<TransformComponent>(uid, out _) ||
+            !_entManager.TryGetComponent<TransformComponent>(targetCoordinates.EntityId, out _))
+            return;
+
         // Re-use the path we may have if applicable.
         var comp = _steering.Register(uid, targetCoordinates);
         comp.ArriveOnLineOfSight = StopOnLineOfSight;

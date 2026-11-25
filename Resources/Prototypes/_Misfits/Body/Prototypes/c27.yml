@@ -39,3 +39,158 @@
       part: MisfitsRightLegC27
     left leg:
       part: MisfitsLeftLegC27
+
+# Integrator configuration body. #Misfits Add - torso adds a heart (bloodstream metabolizer, maxReagents 2) and a stomach (Food/Drink), so only this chassis can be injected and eat.
+- type: body
+  id: C27Integrator
+  name: "c-27 humanoid robot (integrator)"
+  root: torso
+  slots:
+    head:
+      part: MisfitsHeadC27
+      connections:
+      - torso
+      organs:
+        brain: PositronicBrain # #Misfits Add - reuse existing posibrain organ entity
+        eyes: OrganHumanEyes # #Misfits Add - optical sensors share the standard eyes organ slot
+    torso:
+      part: MisfitsTorsoC27
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head
+      organs:
+        heart: OrganHumanHeart # #Misfits Add - bloodstream metabolizer for syringe injections
+        stomach: MisfitsOrganC27IntegratorStomach # #Misfits Add - biomass digester, eats anything
+    right arm:
+      part: MisfitsRightArmC27
+      connections:
+      - right hand
+    left arm:
+      part: MisfitsLeftArmC27
+      connections:
+      - left hand
+    right hand:
+      part: MisfitsRightHandC27
+    left hand:
+      part: MisfitsLeftHandC27
+    right leg:
+      part: MisfitsRightLegC27Integrator
+    left leg:
+      part: MisfitsLeftLegC27Integrator
+
+# #Misfits Add - Z.A.X chassis body; carries the 5.0/5.0 leg servos.
+- type: body
+  id: C27ZAX
+  name: "c-27 humanoid robot (z.a.x)"
+  root: torso
+  slots:
+    head:
+      part: MisfitsHeadC27
+      connections:
+      - torso
+      organs:
+        brain: PositronicBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: MisfitsTorsoC27
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head
+    right arm:
+      part: MisfitsRightArmC27
+      connections:
+      - right hand
+    left arm:
+      part: MisfitsLeftArmC27
+      connections:
+      - left hand
+    right hand:
+      part: MisfitsRightHandC27
+    left hand:
+      part: MisfitsLeftHandC27
+    right leg:
+      part: MisfitsRightLegC27ZAX
+    left leg:
+      part: MisfitsLeftLegC27ZAX
+
+# #Misfits Add - Assault chassis body; carries the 2.7/4.5 leg servos.
+- type: body
+  id: C27Assault
+  name: "c-27 humanoid robot (assault)"
+  root: torso
+  slots:
+    head:
+      part: MisfitsHeadC27
+      connections:
+      - torso
+      organs:
+        brain: PositronicBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: MisfitsTorsoC27
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head
+    right arm:
+      part: MisfitsRightArmC27
+      connections:
+      - right hand
+    left arm:
+      part: MisfitsLeftArmC27
+      connections:
+      - left hand
+    right hand:
+      part: MisfitsRightHandC27
+    left hand:
+      part: MisfitsLeftHandC27
+    right leg:
+      part: MisfitsRightLegC27Assault
+    left leg:
+      part: MisfitsLeftLegC27Assault
+
+# #Misfits Add - Recon chassis body; carries the 3.3/5.5 leg servos.
+- type: body
+  id: C27Recon
+  name: "c-27 humanoid robot (recon)"
+  root: torso
+  slots:
+    head:
+      part: MisfitsHeadC27
+      connections:
+      - torso
+      organs:
+        brain: PositronicBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: MisfitsTorsoC27
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head
+    right arm:
+      part: MisfitsRightArmC27
+      connections:
+      - right hand
+    left arm:
+      part: MisfitsLeftArmC27
+      connections:
+      - left hand
+    right hand:
+      part: MisfitsRightHandC27
+    left hand:
+      part: MisfitsLeftHandC27
+    right leg:
+      part: MisfitsRightLegC27Recon
+    left leg:
+      part: MisfitsLeftLegC27Recon

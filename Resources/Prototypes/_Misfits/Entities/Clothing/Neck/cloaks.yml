@@ -10,3 +10,49 @@
     sprite: _Misfits/Clothing/Neck/WesternPoncho.rsi
   - type: StaticPrice
     price: 50
+
+# BOS Neckwear
+
+- type: entity
+  parent: ClothingNeckBase
+  id: M14ClothingNeckCloakBrotherhood509th
+  name: Brotherhood 509th cloak
+  description: A deep black-and-purple cloak worn by members of the 509th Chapter.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Neck/bos_cloak_509th.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Neck/bos_cloak_509th.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: M14ClothingNeckMantleBrotherhood509th
+  name: Brotherhood 509th mantle
+  description: A deep purple-and-black mantle worn by members of the 509th Chapter.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Neck/bos_mantle_509th.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Neck/bos_mantle_509th.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: M14ClothingNeckTabardBrotherhoodPurple
+  name: Brotherhood tabard [purple]
+  description: A flowing purple tabard worn by the more chivalric members of the 509th Chapter.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Neck/bos_tabard_purple.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Neck/bos_tabard_purple.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: M14ClothingNeckTabardBrotherhoodWhite
+  name: Brotherhood tabard [white]
+  description: A flowing white tabard worn by the more chivalric members of the 509th Chapter.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Neck/bos_tabard_white.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Neck/bos_tabard_white.rsi

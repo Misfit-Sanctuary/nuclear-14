@@ -1,0 +1,15 @@
+# #Misfits Add - C-27 Integrator organs.
+
+- type: entity
+  id: MisfitsOrganC27IntegratorStomach
+  parent: OrganHumanStomach
+  name: biomass digester
+  description: "Converts raw organic matter into usable biomass. Will not refuse a meal."
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [Human, C27Integrator]
+  # Lets the Integrator eat requiresSpecialDigestion items; the Food entry keeps normal meals working.
+  - type: Stomach
+    specialDigestible:
+      components:
+      - Food

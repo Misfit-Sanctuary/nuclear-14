@@ -5,25 +5,8 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: N14WeaponShotgunPipe
-      weight: 8
-    - !type:EntSelector
-      id: N14WeaponShotgunSawedOff
-      weight: 8
-    - !type:EntSelector
       id: N14WeaponShotgunCaravan
-      weight: 7
-    - !type:EntSelector
-      id: N14WeaponShotgunDoubleBarrel
-      weight: 6
-
-    - !type:EntSelector
-      id: N14WeaponShotgunBoomstick
-      weight: 6
-
-    - !type:EntSelector
-      id: N14WeaponShotgunLever
-      weight: 6
+      weight: 5
     - !type:EntSelector
       id: N14WeaponShotgunShort
-      weight: 6
+      weight: 5

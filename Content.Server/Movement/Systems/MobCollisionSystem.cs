@@ -3,6 +3,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Player;
+using Robust.Shared.Physics.Components; // #Cythisiax Added - query collision bodies and physics together.
 
 namespace Content.Server.Movement.Systems;
 
@@ -27,11 +28,12 @@ public sealed class MobCollisionSystem : SharedMobCollisionSystem
         if (!CfgManager.GetCVar(CCVars.MovementMobPushing))
             return;
 
-        var query = EntityQueryEnumerator<MobCollisionComponent>();
+        // #Cythisiax Edited - only visit mobs that have a physics body to inspect for contacts.
+        var query = EntityQueryEnumerator<MobCollisionComponent, PhysicsComponent>();
 
-        while (query.MoveNext(out var uid, out var comp))
+        while (query.MoveNext(out var uid, out var comp, out var physics))
         {
-            if (_actorQuery.HasComp(uid) || !PhysicsQuery.TryComp(uid, out var physics))
+            if (_actorQuery.HasComp(uid))
                 continue;
 
             HandleCollisions((uid, comp, physics), frameTime);

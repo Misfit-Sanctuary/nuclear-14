@@ -97,30 +97,22 @@ namespace Content.Server.Kitchen.EntitySystems
 
                     if (TryComp<StackComponent>(item, out var stack))
                     {
-                        // #Misfits Fix: stacked produce can collapse down to shared reagent state,
-                        // so sample a single fresh unit and scale from that instead of trusting
-                        // the merged stack's live solution data.
-                        var unitSolution = stack.Count > 1
-                            ? GetStackUnitSolution(item, active.Program, uid)
-                            : solution;
-
-                        // #Misfits Fix: If we cannot derive a per-unit sample, fall back to the
-                        // live solution so we still process at least single-count stacks.
-                        unitSolution ??= solution;
-
-                        if (unitSolution.Volume <= 0)
+                        // A stack represents multiple copies of this item's live solution. Do not
+                        // spawn a prototype here: botany replaces that solution with the harvested
+                        // plant's chemistry, and a prototype would turn a stack into a different yield.
+                        if (solution.Volume <= 0)
                             continue;
 
                         // Maximum number of items we can process in the stack without going over AvailableVolume.
                         // We add a small tolerance, because floats are inaccurate.
                         var fitsCount = Math.Min(stack.Count,
-                            (int) MathF.Floor((containerSolution.AvailableVolume / unitSolution.Volume).Float() + 0.01f));
+                            (int) MathF.Floor((containerSolution.AvailableVolume / solution.Volume).Float() + 0.01f));
 
                         if (fitsCount <= 0)
                             continue;
 
                         // Make a copy of the per-item solution to scale.
-                        var scaledSolution = new Solution(unitSolution);
+                        var scaledSolution = new Solution(solution);
                         scaledSolution.ScaleSolution(fitsCount);
                         solution = scaledSolution;
 
@@ -368,23 +360,6 @@ namespace Content.Server.Kitchen.EntitySystems
                 GrinderProgram.Juice => CompOrNull<ExtractableComponent>(uid)?.JuiceSolution,
                 _ => null,
             };
-        }
-
-        private Solution? GetStackUnitSolution(EntityUid source, GrinderProgram program, EntityUid grinder)
-        {
-            var prototype = Prototype(source)?.ID;
-            if (prototype is null)
-                return null;
-
-            var sample = EntityManager.SpawnEntity(prototype, Transform(grinder).Coordinates);
-            var solution = GetProgramSolution(sample, program);
-
-            // #Misfits Fix: Copy the sampled solution before deleting the temporary entity.
-            // Returning the component-owned solution directly can become stale after deletion.
-            var copied = solution is null ? null : new Solution(solution);
-
-            Del(sample);
-            return copied;
         }
 
         private bool CanGrind(EntityUid uid)

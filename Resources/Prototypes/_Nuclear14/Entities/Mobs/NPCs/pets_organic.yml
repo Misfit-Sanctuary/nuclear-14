@@ -152,12 +152,7 @@
     - DoorBumpOpener
     - VulpEmotes
   - type: InventorySlots
-  - type: Strippable
   - type: PetCollarHolder
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
   - type: Inventory
     speciesId: cat
     templateId: cat_pet
@@ -171,6 +166,7 @@
       components:
       - Gun
       - MeleeWeapon
+  - type: MisfitsPetNoPickup # So they cant pick up items but can drag
   - type: ActionGrant # #Cythisiax Added - give pet dogs the deathclaw-style melee charge ability (inherited by all N14MobPetDog variants)
     actions:
     - MisfitsActionMeleeCharge
@@ -490,7 +486,7 @@
   name: Pet Ant
   id: N14MobPetAnt
   parent: N14MobPetRoach
-  description: It's an ant... but giant. Seems to be relatively peaceful.
+  description: Giant ant pheromones can be used to confuse and control these massive insects, which can then be trained to be dutiful companions and workers as they acclimate to their new environment.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -564,7 +560,7 @@
   name: Pet Rat
   id: N14MobPetPigrat
   parent: N14MobPetBasic
-  description: Part pig, part rat, full pest. Watch out for the cleaned teeth?
+  description: Their evolutionary instinct drives them to join larger rodent colonies instead of making their own nests, so they made for natural pets and were quickly domesticated. They tend to be fiercely loyal if treated well.
   components:
   - type: RandomMetadata
     nameSegments: [names_N14pet_dog]

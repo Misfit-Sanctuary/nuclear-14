@@ -34,6 +34,7 @@
         Base: dead
       Dead:
         Base: dead
+  - type: LayingDown # #Misfits Change: Allows robot frames to stand up after being forced down
   - type: RobotDownedVisuals # #Misfits Change: force the dead frame while the robot is lying down
   - type: Stripping # #Misfits Change: allow player robots to open strip UI with hover + E
   - type: RobotCriticalSparking # #Misfits Change: spark and crackle while near destruction, stop once repaired
@@ -205,7 +206,6 @@
         - MisfitsRobotNavCard
       key_slots:
         - EncryptionKeyWastelandGlobal
-        - EncryptionKeyVault
   - type: ItemSlots
     slots:
       cell_slot:
@@ -301,7 +301,6 @@
         - MisfitsRobotNavCardRobCo # RobCo Industries Navigation
       key_slots:
         - EncryptionKeyWastelandGlobal
-        - EncryptionKeyVault
   - type: ItemSlots
     slots:
       cell_slot:
@@ -397,7 +396,6 @@
         - MisfitsRobotNavCard # General Atomics Navigation
       key_slots:
         - EncryptionKeyWastelandGlobal
-        - EncryptionKeyVault
   - type: ItemSlots
     slots:
       cell_slot:
@@ -468,7 +466,6 @@
         - MisfitsRobotNavCardRobCo
       key_slots:
         - EncryptionKeyWastelandGlobal
-        - EncryptionKeyVault
 
 - type: entity
   parent: N14PlayerSyntheticProtectron
@@ -504,7 +501,7 @@
         - MisfitsRobotNavCardRobCo
       key_slots:
         - EncryptionKeyWastelandGlobal
-        - EncryptionKeyVault
+
 
 - type: entity
   parent: N14PlayerSyntheticProtectron
@@ -559,7 +556,6 @@
         - MisfitsRobotNavCardRobCo
       key_slots:
         - EncryptionKeyWastelandGlobal
-        - EncryptionKeyVault
 
 # Tribal Protectron
 - type: entity
@@ -1190,12 +1186,11 @@
         - MisfitsRobotNavCardRobCo
       key_slots:
         - EncryptionKeyWastelandGlobal
-        - EncryptionKeyVault
   - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHyper
+        startingItem: PowerCellAntiqueProto
 
 # ────────────────────────────────────────────────────────
 # Robobrain — Laser variant
@@ -1242,4 +1237,3 @@
         - MisfitsRobotNavCardRobCo
       key_slots:
         - EncryptionKeyWastelandGlobal
-        - EncryptionKeyVault

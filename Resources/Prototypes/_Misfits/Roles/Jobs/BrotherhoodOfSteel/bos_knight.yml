@@ -83,14 +83,19 @@
       - type: NpcFactionMember
         factions:
           - BrotherhoodOfSteel
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Knight
+    prefix: Kn.
+    color: "#3B72BF"
 
 - type: startingGear
   id: BoSKnightGear
   equipment:
     wallet: N14Wallet
-    jumpsuit: N14ClothingUniformJumpskirtBOSBlack
+    jumpsuit: M14ClothingUniformBrotherhoodKnight
     back: N14ClothingBackpackMilitary
-    shoes: N14ClothingBootsLeatherFilled
+    shoes: N14ClothingBootsCombatFilled
     head: N14ClothingHeadHatCapkhighBoS
     outerClothing: MisfitsBoSKnightArmor # #Misfits Tweak: T4 armor (0.75/0.70) — Knight tier, equal to NCR Specialist / Legion Veteran Legionnaire
     hands: N14ClothingHandsGlovesCombat
@@ -100,7 +105,7 @@
     belt: ClothingBeltBoSWebbing
   storage:
     back:
-    - N14ClothingHeadHatBrotherhoodHelmetMK2
+    - N14ClothingHeadHatBrotherhoodHelmet
     - N14BoxPlasticFilledMilitary
     - N14Binoculars # #Misfits Add - Knights spawn with binoculars for field operations
     - MisfitsGrenadeFragDefensive # #Misfits Add - faction council standard Knight ordnance

@@ -7,13 +7,19 @@
     MinSize="50 50">
     <BoxContainer Orientation="Vertical" SeparationOverride="8" VerticalExpand="True">
 
-        <!-- Fax Manager, local audio, and Force War shortcuts -->
+        <!-- Fax Manager, audio, map, and Force War shortcuts -->
         <BoxContainer Orientation="Horizontal" SeparationOverride="8">
             <Button Name="FaxManagerButton" Text="{Loc loremaster-tab-fax-manager}" Access="Public" MinWidth="140"/>
             <Button Name="UploadLocalAudioButton" Text="{Loc loremaster-tab-upload-local-audio}" Access="Public" MinWidth="150"/>
+            <Button Name="UploadGlobalAudioButton" Text="{Loc loremaster-tab-upload-global-audio}" Access="Public" MinWidth="150"/>
             <Button Name="UploadMapButton" Text="{Loc loremaster-tab-upload-map}" Access="Public" MinWidth="140"/>
             <Button Name="ForceWarButton" Text="Force War" Access="Public" MinWidth="120"/>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
             <Label Text="{Loc loremaster-tab-local-audio-hint}" VerticalAlignment="Center" Modulate="#808080"/>
+            <Label Text="{Loc loremaster-tab-global-audio-hint}" VerticalAlignment="Center" Modulate="#808080"/>
+            <Label Name="GlobalAudioStatusLabel" Access="Public" VerticalAlignment="Center"/>
         </BoxContainer>
 
         <!-- Separator -->

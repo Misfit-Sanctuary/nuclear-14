@@ -70,6 +70,12 @@
                         StyleClasses="ButtonSmall"
                         MinWidth="120"
                         Margin="0 0 8 0" />
+                    <Button
+                        Name="TwoMonthsAgoButton"
+                        Text="{Loc 'ticket-audit-filter-month-two-ago'}"
+                        StyleClasses="ButtonSmall"
+                        MinWidth="140"
+                        Margin="0 0 8 0" />
                     
                     <!-- Action buttons -->
                     <Button
@@ -119,6 +125,26 @@
                 <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
                     <BoxContainer Name="StatsList" Orientation="Vertical" HorizontalExpand="True" />
                 </ScrollContainer>
+            </BoxContainer>
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="4">
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                    <BoxContainer Name="AdminActionList" Orientation="Vertical" HorizontalExpand="True" />
+                </ScrollContainer>
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 4 0 0">
+                    <Button Name="PrevActionPageButton" Text="{Loc 'ticket-audit-pagination-prev'}" Disabled="True" />
+                    <Label Name="ActionPageLabel" HorizontalExpand="True" HorizontalAlignment="Center" />
+                    <Button Name="NextActionPageButton" Text="{Loc 'ticket-audit-pagination-next'}" Disabled="True" />
+                </BoxContainer>
+            </BoxContainer>
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="4">
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                    <BoxContainer Name="PlayerLogList" Orientation="Vertical" HorizontalExpand="True" />
+                </ScrollContainer>
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 4 0 0">
+                    <Button Name="PrevPlayerLogPageButton" Text="{Loc 'ticket-audit-pagination-prev'}" Disabled="True" />
+                    <Label Name="PlayerLogPageLabel" HorizontalExpand="True" HorizontalAlignment="Center" />
+                    <Button Name="NextPlayerLogPageButton" Text="{Loc 'ticket-audit-pagination-next'}" Disabled="True" />
+                </BoxContainer>
             </BoxContainer>
         </TabContainer>
 

@@ -4,8 +4,17 @@
     children:
     - !type:EntSelector
       id: N14TinNade
+      weight: 10
     - !type:EntSelector
-      id: N14FirecrackerHalf
+      id: N14TinNade
+      weight: 5
+    - !type:EntSelector
+      id: N14BaseballNade
+      weight: 5
+    - !type:EntSelector
+      id: N14KettleBomb
+      weight: 5
     - !type:EntSelector
       id: N14Firecracker
+      weight: 4
 

@@ -134,8 +134,39 @@
           types:
             Poison: 2
 
+## Sweets liquid
 - type: reagent
-  parent: BaseDrink
+  id: MisfitsBaseSweetDrink
+  group: Drinks
+  abstract: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:AdjustReagent
+        reagent: Sugar
+        amount: 2
+      - !type:HealthChange # Misfits Add
+        damage:
+          types:
+            Dehydration: -0.3
+  footstepSound:
+    collection: FootstepSticky
+  reactiveEffects:
+    Extinguish:
+      methods: [ Touch ]
+      effects:
+      - !type:ExtinguishReaction
+  plantMetabolism:
+  - !type:PlantAdjustWater
+    amount: 1
+  tileReactions:
+  - !type:ExtinguishTileReaction { }
+  - !type:SpillIfPuddlePresentTileReaction { }
+
+- type: reagent
+  parent: MisfitsBaseSweetDrink
   id: AgaveJam
   name: reagent-name-agavejam
   desc: reagent-desc-agavejam
@@ -144,7 +175,7 @@
   color: "#e9f2ed"
 
 - type: reagent
-  parent: BaseDrink
+  parent: MisfitsBaseSweetDrink
   id: BlackberryJam
   name: reagent-name-blackberryjam
   desc: reagent-desc-blackberryjam
@@ -153,7 +184,7 @@
   color: "#1c0029"
 
 - type: reagent
-  parent: BaseDrink
+  parent: MisfitsBaseSweetDrink
   id: CactusJam
   name: reagent-name-cactusjam
   desc: reagent-desc-cactusjam
@@ -162,7 +193,7 @@
   color: "#a7bb20"
 
 - type: reagent
-  parent: BaseDrink
+  parent: MisfitsBaseSweetDrink
   id: BrocJam
   name: reagent-name-brocjam
   desc: reagent-desc-brocjam
@@ -171,7 +202,7 @@
   color: "#d79e1c"
 
 - type: reagent
-  parent: BaseDrink
+  parent: MisfitsBaseSweetDrink
   id: MultifruitJam
   name: reagent-name-multifruitjam
   desc: reagent-desc-multifruitjam
@@ -180,7 +211,7 @@
   color: "#7640dc"
 
 - type: reagent
-  parent: BaseDrink
+  parent: MisfitsBaseSweetDrink
   id: PickledCabbage
   name: reagent-name-pickledcabbage
   desc: reagent-desc-pickledcabbage
@@ -189,7 +220,7 @@
   color: "#6e7e33"
 
 - type: reagent
-  parent: BaseDrink
+  parent: MisfitsBaseSweetDrink
   id: PickledCarrots
   name: reagent-name-pickledcarrots
   desc: reagent-desc-pickledcarrots
@@ -198,7 +229,7 @@
   color: "#984607"
 
 - type: reagent
-  parent: BaseDrink
+  parent: MisfitsBaseSweetDrink
   id: PickledCorn
   name: reagent-name-pickledcorn
   desc: reagent-desc-pickledcorn
@@ -207,7 +238,7 @@
   color: "#c69d0b"
 
 - type: reagent
-  parent: BaseDrink
+  parent: MisfitsBaseSweetDrink
   id: PickledJalapenos
   name: reagent-name-pickledjalapenos
   desc: reagent-desc-pickledjalapenos
@@ -216,7 +247,7 @@
   color: "#36420d"
 
 - type: reagent
-  parent: BaseDrink
+  parent: MisfitsBaseSweetDrink
   id: PickledOnions
   name: reagent-name-pickledonions
   desc: reagent-desc-pickledonions
@@ -225,7 +256,7 @@
   color: "#772130"
 
 - type: reagent
-  parent: BaseDrink
+  parent: MisfitsBaseSweetDrink
   id: PricklyPearJam
   name: reagent-name-pricklypearjam
   desc: reagent-desc-pricklypearjam
@@ -234,7 +265,7 @@
   color: "#a01e79"
 
 - type: reagent
-  parent: BaseDrink
+  parent: MisfitsBaseSweetDrink
   id: StarlightJam
   name: reagent-name-starlightjam
   desc: reagent-desc-starlightjam
@@ -243,9 +274,29 @@
   color: "#d77bba"
 
 - type: reagent
-  parent: BaseDrink
+  parent: MisfitsBaseSweetDrink
   id: TarberryJam
   name: reagent-name-tarberryjam
   desc: reagent-desc-tarberryjam
   physicalDesc: reagent-physical-desc-sugary
   flavor: sweet
+
+
+- type: reagent
+  parent: MisfitsBaseSweetDrink
+  id: BuffaloGourdJam
+  name: reagent-name-extract-buffalo-gourd
+  desc: reagent-desc-extract-buffalo-gourd
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: watermelon
+  color: "#f0ff8c"
+
+
+- type: reagent
+  parent: MisfitsBaseSweetDrink
+  id: Butterscotch
+  name: reagent-name-butterscotch
+  desc: reagent-desc-butterscotch
+  physicalDesc: reagent-physical-butterscotch
+  flavor: sweet
+  color: "#d77bba"

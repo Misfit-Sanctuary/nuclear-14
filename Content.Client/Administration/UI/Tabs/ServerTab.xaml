@@ -51,6 +51,11 @@
                 <LineEdit Name="PopulationAdjustValue" PlaceHolder="{Loc misfits-population-adjust-placeholder}" MinWidth="80" />
                 <Label Text="{Loc misfits-server-tab-population-adjust-desc}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
             </BoxContainer>
+            <!-- #Misfits Add - MOTD editor: message, pictures and poll, applied to everyone at once -->
+            <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                <Button Name="MotdButton" Text="{Loc misfits-server-tab-motd-button}" MinWidth="180" />
+                <Label Text="{Loc misfits-server-tab-motd-desc}" VerticalAlignment="Center" StyleClasses="LabelSubText" />
+            </BoxContainer>
         </BoxContainer>
     </ScrollContainer>
 </Control>

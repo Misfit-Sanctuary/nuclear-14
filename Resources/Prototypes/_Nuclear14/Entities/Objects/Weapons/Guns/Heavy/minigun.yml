@@ -111,7 +111,7 @@
   - type: Gun
     minAngle: 7 # #Burger - nerfed spread vs pre-buff (was 4); wider cone to make up for higher ROF
     maxAngle: 30 # #Burger - nerfed spread vs pre-buff (was 12)
-    angleIncrease: 6 # # - nerfed spread vs pre-buff (was 2)
+    angleIncrease: 5 # # - nerfed spread vs pre-buff (was 2)
     angleDecay: 12
     fireRate: 15 # #Burger - prior proposed ROF (was 6)
   - type: ClothingSpeedModifier
@@ -142,7 +142,7 @@
   - type: Gun
     minAngle: 5
     maxAngle: 14
-    angleIncrease: 5 # #Burger - makes the steady spread slightly less predictable (was 3)
+    angleIncrease: 4 # #Burger - makes the steady spread slightly less predictable (was 3)
     angleDecay: 8
     fireRate: 15 # #Burger - ROF to match buffed base minigun (was 8)
   - type: HeldSpeedModifier

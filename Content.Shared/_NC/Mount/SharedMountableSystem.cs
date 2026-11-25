@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._Misfits.Buckle;
 using Content.Shared._NC.Mountable.Components;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
@@ -21,9 +22,9 @@ public sealed class SharedMountSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
     [Dependency] private readonly SharedMoverController _mover = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly DirectionalBuckleOffsetSystem _buckleOffset = default!;
 
     public override void Initialize()
     {
@@ -52,15 +53,18 @@ public sealed class SharedMountSystem : EntitySystem
     private void OnMountMove(Entity<MountableComponent> ent, ref MoveEvent args)
     {
         // #Misfits Fix — only update rider offset when mount rotation changes
-        if (args.NewRotation == args.OldRotation)
+        if (args.NewRotation == args.OldRotation || ent.Comp.Rider is not { } rider)
             return;
 
-        if (ent.Comp.Rider is not { } rider)
-            return;
+        _buckleOffset.SnapToOffset(ent, rider, GetRiderLocalOffset(ent.Comp, args.NewRotation));
+    }
 
-        var direction = args.NewRotation.GetDir();
-        var offset = ent.Comp.RiderOffset + ent.Comp.DirectionOffsets.GetValueOrDefault(direction, Vector2.Zero);
-        _transform.SetLocalPositionNoLerp(rider, offset);
+    // parented to mount
+    public static Vector2 GetRiderLocalOffset(MountableComponent comp, Angle mountRotation)
+    {
+        var direction = SpriteFacing.GetCardinalDir(mountRotation);
+        var offset = comp.RiderOffset + comp.DirectionOffsets.GetValueOrDefault(direction, Vector2.Zero);
+        return (-mountRotation).RotateVec(offset);
     }
     private void OnMeleeHit(Entity<MountableComponent> ent, ref MeleeHitEvent args)
     {
@@ -96,13 +100,7 @@ public sealed class SharedMountSystem : EntitySystem
         Dirty(ent.Owner, ent.Comp);
         Dirty(args.Buckle.Owner, rider);
 
-        // #Misfits Fix — set initial rider offset based on current mount facing
-        if (TryComp(ent, out TransformComponent? mountXform))
-        {
-            var direction = mountXform.LocalRotation.GetDir();
-            var offset = ent.Comp.RiderOffset + ent.Comp.DirectionOffsets.GetValueOrDefault(direction, Vector2.Zero);
-            _transform.SetLocalPositionNoLerp(args.Buckle.Owner, offset);
-        }
+        _buckleOffset.SnapToOffset(ent, args.Buckle.Owner, GetRiderLocalOffset(ent.Comp, Transform(ent).LocalRotation));
 
         var controlAttempt = new MountMovementControlAttemptEvent(args.Buckle.Owner);
         RaiseLocalEvent(ent.Owner, ref controlAttempt);

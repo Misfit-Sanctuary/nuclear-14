@@ -9,3 +9,22 @@
     - type: NpcFactionMember
       factions:
       - Wastelander
+    # // #Cythisiax Added - player super mutants regenerate beyond the inherited 20 damage cap.
+    - type: PassiveDamage
+      allowedStates:
+      - Alive
+      - Critical
+      damageCap: 350
+      damage:
+        groups:
+          Brute: 0
+        types:
+          Blunt: -0.20
+          Slash: -0.20
+          Piercing: -0.20
+          Heat: -0.20
+          Cold: -0.20
+          Shock: -0.20
+          Caustic: -0.20
+          Asphyxiation: -0.35
+          Bloodloss: -0.10

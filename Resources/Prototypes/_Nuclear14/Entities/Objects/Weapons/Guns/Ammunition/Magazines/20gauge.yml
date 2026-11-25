@@ -46,3 +46,39 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
 
+# #Misfits Add - linked belt magazine for the heavy automatic shotgun.
+- type: entity
+  id: N14Magazine20gaugeBelt
+  name: "ammo belt (20 gauge)"
+  parent: BaseItem
+  components:
+  - type: Tag
+    tags:
+      - N14Magazine20gauge
+  - type: N14LinkedBelt
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - N14ShellShotgun20
+    proto: N14ShellShotgun20
+    capacity: 75
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Item
+    size: Large
+  - type: Sprite
+    netsync: false
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/7.62/belt.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+

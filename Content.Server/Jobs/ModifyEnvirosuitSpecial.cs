@@ -1,3 +1,4 @@
+using Robust.Shared.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Inventory;
@@ -16,8 +17,7 @@ public sealed partial class ModifyEnvirosuitSpecial : JobSpecial
     [DataField(required: true)]
     public int Charges { get; private set; }
 
-    [ValidatePrototypeId<SpeciesPrototype>]
-    private const string Species = "Plasmaman";
+    private static readonly ProtoId<SpeciesPrototype> Species = "Plasmaman";
 
     private const string Slot = "jumpsuit";
 

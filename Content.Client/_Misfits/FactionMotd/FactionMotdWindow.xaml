@@ -1,0 +1,49 @@
+<!-- #Cythisiax Added - Faction MOTD: message-of-the-day window, laid out like the faction roster / recruit offer.
+     Members get the "Message" tab only; faction leadership also gets the "Edit" tab. -->
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'faction-motd-window-title'}"
+                      MinSize="480 340"
+                      SetSize="560 440">
+    <BoxContainer Orientation="Vertical" Margin="6" SeparationOverride="6">
+
+        <!-- Faction and who last wrote the message -->
+        <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                <RichTextLabel Name="HeaderLabel" HorizontalExpand="True" />
+                <Label Name="AuthorLabel" StyleClasses="LabelSubText" />
+            </BoxContainer>
+            <Button Name="RefreshButton" Text="{Loc 'faction-motd-refresh'}" MinWidth="90" VerticalAlignment="Center" />
+        </BoxContainer>
+
+        <TabContainer Name="Tabs" VerticalExpand="True">
+
+            <!-- Message -->
+            <BoxContainer Orientation="Vertical" SeparationOverride="4" Margin="4">
+                <PanelContainer StyleClasses="BackgroundDark" VerticalExpand="True">
+                    <ScrollContainer VerticalExpand="True" HScrollEnabled="False" Margin="6 4">
+                        <RichTextLabel Name="MessageLabel" HorizontalExpand="True" />
+                    </ScrollContainer>
+                </PanelContainer>
+            </BoxContainer>
+
+            <!-- Edit (leadership only) -->
+            <BoxContainer Orientation="Vertical" SeparationOverride="4" Margin="4">
+                <RichTextLabel Text="{Loc 'faction-motd-edit-hint'}" HorizontalExpand="True" />
+                <PanelContainer StyleClasses="BackgroundDark" VerticalExpand="True">
+                    <TextEdit Name="MotdEdit" VerticalExpand="True" HorizontalExpand="True" Margin="4" />
+                </PanelContainer>
+                <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+                    <Label Name="CounterLabel" StyleClasses="LabelSubText" HorizontalExpand="True" VerticalAlignment="Center" />
+                    <Button Name="ClearButton" Text="{Loc 'faction-motd-clear'}" MinWidth="110" StyleClasses="Caution" />
+                    <Button Name="SaveButton" Text="{Loc 'faction-motd-save'}" MinWidth="110" />
+                </BoxContainer>
+            </BoxContainer>
+        </TabContainer>
+
+        <BoxContainer Orientation="Horizontal" SeparationOverride="6">
+            <Label Name="StatusLabel" StyleClasses="LabelSubText" HorizontalExpand="True" VerticalAlignment="Center" />
+            <Button Name="CloseButtonBottom" Text="{Loc 'faction-motd-acknowledge'}" MinWidth="120" />
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

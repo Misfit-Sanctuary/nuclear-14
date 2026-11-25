@@ -1,5 +1,4 @@
-﻿
-# medical
+﻿# medical
 
 - type: entity
   id: MisfitsShelfWoodMedicalTribe
@@ -25,6 +24,33 @@
     - id: N14JunkAbraxoCleaner
 
 - type: entity
+  id: MisfitsShelfWoodMedicalTribeAlt
+  suffix: Filled, Medical, Tribe, Alt, No Analyzer
+  parent: N14ShelfWood1
+  components:
+  - type: StorageFill
+    contents:
+    - id: N14MedkitFilled
+    # Basic wound care
+    - id: N14AloeSalve
+      amount: 3
+    - id: N14CleanGauze10
+      amount: 3
+    - id: N14DirtyGauze10
+      amount: 3
+    # Traditional medicine
+    - id: N14Bitterdrink
+      amount: 2
+    - id: N14SmellingSalts
+      amount: 2
+    # Herbal topicals
+    - id: MisfitsHealingSalve5
+    - id: MisfitsHerbalAnodyne5
+    - id: MisfitsHerbalAntimicrobial5
+    - id: MisfitsDaturaHide5
+    - id: MisfitsSnakebiteTourniquet5
+
+- type: entity
   id: MisfitsShelfWoodMedicalTribeChems
   suffix: Filled, Medical, Tribe, Chems
   parent: N14ShelfWood1
@@ -46,3 +72,53 @@
     - id: N14SmellingSalts
       amount: 2
     - id: N14JunkAbraxoCleaner
+
+- type: entity
+  id: MisfitsShelfWoodMedicalTribeChemsAlt
+  suffix: Filled, Medical, Tribe, Chems, Alt
+  parent: N14ShelfWood1
+  components:
+  - type: StorageFill
+    contents:
+    # Traditional healing
+    - id: N14HealingPowder
+      amount: 4
+    - id: N14HealingPoultice
+      amount: 4
+    - id: N14MourningPoultice
+      amount: 2
+    # Herbal drinks / stimulants
+    - id: N14Bitterdrink
+      amount: 2
+    - id: MisfitsHerbalStimulant
+      amount: 2
+    # Basic medical supplies
+    - id: N14DirtyGauze10
+      amount: 3
+    - id: N14SmellingSalts
+      amount: 2
+    # Herbal medicine
+    - id: MisfitsHerbalAnodyne5
+
+- type: entity
+  id: MisfitsShelfWoodMedicalTribeTopicals
+  suffix: Filled, Medical, Tribe, Topicals
+  parent: N14ShelfWood1
+  components:
+  - type: StorageFill
+    contents:
+    - id: MisfitsHealingSalve5
+      amount: 3
+    - id: MisfitsHerbalAnodyne5
+      amount: 3
+    - id: MisfitsHerbalAntimicrobial5
+      amount: 3
+    - id: MisfitsDaturaHide5
+      amount: 3
+    - id: MisfitsSnakebiteTourniquet5
+      amount: 3
+    - id: N14AloeSalve
+      amount: 2
+    - id: N14DirtyGauze10
+      amount: 2
+    - id: N14SmellingSalts

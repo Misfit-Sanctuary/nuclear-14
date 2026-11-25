@@ -111,6 +111,18 @@
       - state: green
       - state: scribe
 
+- type: entity
+  parent: MisfitsSpawnPointBoSWestElderCommander
+  id: MisfitsSpawnPointBoSArchvist
+  name: Brotherhood Archivist
+  components:
+  - type: SpawnPoint
+    job_id: BoSArchivist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: scribe
+
 #Misfits Change /Tweak/: Overwrote old Washington BoS spawn points with new consolidated Brotherhood jobs.
 - type: entity
   parent: SpawnPointJobBase
@@ -663,6 +675,19 @@
     layers:
       - state: green
       - state: recruit
+# #Misfits Add - Ranger Medic spawn point, posted alongside the other ranger spawners.
+- type: entity
+  parent: MisfitsSpawnPointNCRCadet
+  id: MisfitsSpawnPointNCRRangerMedic
+  name: NCR Ranger Medic
+  components:
+  - type: SpawnPoint
+    job_id: NCRRangerMedic
+  - type: Sprite
+    sprite: _Nuclear14/Markers/Jobs/rangers.rsi
+    layers:
+      - state: green
+      - state: recruit
 
 # NCR Office of Science and Industry (OSI) spawn points. # #Misfits Add
 # Spawn near the NCRA labs/medic area like the NCR Doctor.
@@ -829,7 +854,7 @@
 - type: entity
   parent: MisfitsSpawnPointEnclaveCommander
   id: MisfitsSpawnPointEnclaveReformer
-  name: Enclave Reformer
+  name: Enclave General
   components:
   - type: SpawnPoint
     job_id: EnclaveReformer

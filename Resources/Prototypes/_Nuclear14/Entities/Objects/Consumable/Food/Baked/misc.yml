@@ -119,15 +119,6 @@
 # Cookies
 
 - type: entity
-  name: cookie
-  parent: N14CookedFoodBakedBase
-  id: N14CookedFoodBakedCookie
-  description: COOKIE!!!
-  components:
-  - type: Sprite
-    state: COOKIE!!!
-
-- type: entity
   name: oatmeal cookie
   parent: N14CookedFoodBakedBase
   id: N14CookedFoodBakedCookieOatmeal
@@ -305,46 +296,6 @@
     - Fruit
 
 - type: entity
-  name: chocolate chip pancake
-  parent: N14CookedFoodBakedBase
-  id: N14CookedFoodBakedPancakeCc
-  description: A fluffy and delicious chocolate chip pancake.
-  components:
-  - type: Stack
-    stackType: Pancake
-    count: 1
-    composite: true
-    layerStates:
-    - pancakescc1
-    - pancakescc2
-    - pancakescc3
-  - type: Sprite
-    state: pancakescc1
-    layers:
-    - state: pancakescc1
-      map: ["pancakescc1"]
-      visible: false
-    - state: pancakescc2
-      map: ["pancakescc2"]
-      visible: false
-    - state: pancakescc3
-      map: ["pancakescc3"]
-      visible: false
-  - type: Appearance
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 6
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Theobromine
-          Quantity: 1
-  - type: Tag
-    tags:
-    - Pancake
-
-- type: entity
   name: waffles
   parent: N14CookedFoodBakedBase
   id: N14CookedFoodBakedWaffle
@@ -456,32 +407,6 @@
           Quantity: 0.5
 
 - type: entity
-  name: brownies
-  parent: N14CookedFoodBakedBase
-  id: N14CookedFoodBakedBrownieBatch
-  description: A pan of brownies.
-  components:
-  - type: FlavorProfile
-    flavors:
-      - sweet
-      - chocolate
-  - type: Sprite
-    sprite: Objects/Consumable/Food/Baked/brownie.rsi
-    state: brownie-batch
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 78
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: Theobromine
-          Quantity: 18
-  - type: SliceableFood
-    count: 6
-    slice: FoodBakedBrownie
-
-- type: entity
   name: brownie
   parent: N14CookedFoodBakedBase
   id: N14CookedFoodBakedBrownie
@@ -504,35 +429,6 @@
           Quantity: 5
         - ReagentId: Theobromine
           Quantity: 3
-
-- type: entity
-  name: special brownies
-  parent: N14CookedFoodBakedBase
-  id: N14CookedFoodBakedCannabisBrownieBatch
-  description: A pan of special brownies that let you get cozily high. Hard to eat just one...
-  components:
-  - type: FlavorProfile
-    flavors:
-      - sweet
-      - magical
-      - chocolate
-  - type: Sprite
-    sprite: Objects/Consumable/Food/Baked/brownie.rsi
-    state: brownie-batch
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 228
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: Theobromine
-          Quantity: 18
-        - ReagentId: THC
-          Quantity: 150
-  - type: SliceableFood
-    count: 6
-    slice: N14CookedFoodBakedCannabisBrownie
 
 - type: entity
   name: special brownie

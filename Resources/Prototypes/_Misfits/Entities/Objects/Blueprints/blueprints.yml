@@ -92,7 +92,8 @@
     - N14BPNCRWeaponRifle762Fal
     - N14BPNCRWeaponRifle308Battle
     - N14BPNCRWeaponDesertEagle44
-    - N14BPNCRWeaponRevolver45-70RangerSequoia
+    # #Misfits Removed - Sequoia is Ranger Field Kit only now
+    # - N14BPNCRWeaponRevolver45-70RangerSequoia
     - N14BPNCRWeaponShotgunChinese
     - N14BPNCRWeaponSniper45-70BrushGun
     - N14BPNCRWeaponRifle762Marksman
@@ -108,9 +109,11 @@
     recipes:
     - N14BPNCRWeaponSniper50NCR
     - N14BPNCRWeaponLMGAutoRifle
+    - N14BPNCRWeaponRifleM7Spear
     - N14BPNCRWeaponLMG
     - N14BPNCRWeaponSMG12mmAdvanced
     - N14BPNCRWeaponMinigun
+    - N14BPNCRWeaponSMGWt550
 
 # #Misfits Add - T5 anti-materiel rifle; costs so much scrap it earns its own tier
 - type: entity
@@ -171,18 +174,19 @@
   - type: Blueprint
     recipes:
     - N14BPNCRArmorCombatArmor
-    - N14BPNCRArmorRangerVest
-    - N14BPNCRArmorRangerCoat
-    - N14BPNCRArmorRangerDuster
+    # #Misfits Removed - ranger armor and helmets are Ranger Field Kit only now
+    # - N14BPNCRArmorRangerVest
+    # - N14BPNCRArmorRangerCoat
+    # - N14BPNCRArmorRangerDuster
     # #Misfits Add - paired combat and ranger helmets
     - N14BPNCRArmorCombatHelmet
-    - N14BPNCRArmorRangerHelmet
-    - N14BPNCRArmorRangerHelmetDesert
-    - N14BPNCRArmorRangerHelmetOld
-    # #Misfits Add - Added Field Ranger sidegrade recipe
-    - N14BPNCRArmorRangerFieldArmor
-    # #Misfits Add - Added Recruit Ranger sidegrade recipe
-    - N14BPNCRArmorRangerFlakVest
+    # - N14BPNCRArmorRangerHelmet
+    # - N14BPNCRArmorRangerHelmetDesert
+    # - N14BPNCRArmorRangerHelmetOld
+    # - N14BPNCRArmorRangerFieldArmor
+    # - N14BPNCRArmorRangerFlakVest
+    # #Misfits Add - Added Medic Combat Armor
+    - MisfitsBPNCRArmorMedicCombatArmor
 
 - type: entity
   parent: N14BlueprintBase
@@ -195,7 +199,8 @@
     - N14BPNCRArmorCombatArmorMK2
     # #Misfits Add - paired elite combat and ranger helmets
     - N14BPNCRArmorCombatHelmetMK2
-    - N14BPNCRArmorRangerHelmetElite
+    # #Misfits Removed - ranger helmet is Ranger Field Kit only now
+    # - N14BPNCRArmorRangerHelmetElite
     # #Misfits Removed - user requested no power armor helmet recipes
     # - N14BPNCRArmorPowerHelmetT45NCR
 
@@ -244,6 +249,8 @@
     recipes:
     - N14BPNCRAmmoBox762
     - N14BPNCRAmmoBox308
+    - N14BPNCRAmmoBox68
+    - N14BPNCRAmmoMag68Rifle
     - N14BPNCRAmmoBox127
     - N14BPNCRAmmoBox44Magnum
     - N14BPNCRAmmoMag762Rifle
@@ -262,6 +269,7 @@
     - MisfitsBPNCR40mmTearGas
     - MisfitsBPNCR40mmHEDP
     - MisfitsBPNCR40mmIncendiary
+    - N14BPNCRAmmoMagSMGWt550
 
 - type: entity
   parent: N14BlueprintBase
@@ -280,6 +288,23 @@
     - N14BPNCRAmmoBoxOver308
     - N14BPNCRAmmoMagTopSMG12mm
     - N14BPNCRAmmoVertibirdGunBelt # #Misfits Add - vertibird turret belt
+
+# --- NCR Mortar Ordnance ---
+- type: entity
+  parent: N14BlueprintBase
+  id: MisfitsBlueprintNCRMortarOrdnance
+  name: NCR mortar ordnance manual
+  description: Quartermaster paperwork for the M29 80mm mortar. Covers high-explosive, fragmentation, incendiary, smoke, illumination and kinetic rounds.
+  components:
+  - type: Blueprint
+    recipes:
+    - MisfitsBPNCRMortarShellHE
+    - MisfitsBPNCRMortarShellFrag
+    - MisfitsBPNCRMortarShellIncendiary
+    - MisfitsBPNCRMortarShellSmoke
+    - MisfitsBPNCRMortarShellIllumination
+    - MisfitsBPNCRMortarShellKinetic
+
 
 # =====================================================================
 # CAESAR'S LEGION BLUEPRINTS
@@ -329,6 +354,7 @@
     - N14BPLegionWeaponSMG10mmChinese
     - N14BPLegionWeaponSniper44LeverShortCarbine
     - N14BPLegionWeaponSniper308Ross
+    - N14BPLegionWeaponSniperPaciencia
 
 - type: entity
   parent: N14BlueprintBase
@@ -363,6 +389,7 @@
     - N14BPLegionWeaponLauncherMissile
     - N14BPLegionWeaponBren           # #Misfits Add - Bren LMG (.308 FullAuto)
     - N14BPLegionWeaponShotgunNeostead  # #Misfits Add - Semi-auto shotgun
+    - N14BPLegionWeaponSMGWt550
 
 # #Misfits Add - T5 Legion Weapons: Scorcher flamethrower (single apex incendiary)
 - type: entity
@@ -468,6 +495,7 @@
     - N14BPLegionAmmoMag9mmSMGDrum
     - N14BPLegionAmmoMag10mmSMG
     - N14BPLegionAmmoBox308
+    - MisfitsBPLegionSuicideVest
 
 - type: entity
   parent: N14BlueprintBase
@@ -494,6 +522,7 @@
     - MisfitsBPLegion40mmHEDP
     - MisfitsBPLegion40mmIncendiary
     - MisfitsBPLegionGrenadeFragDefensive
+    - N14BPLegionAmmoMagSMGWt550
 
 - type: entity
   parent: N14BlueprintBase
@@ -510,6 +539,23 @@
     - N14BPLegionAmmoMagazine308M60Box     # #Misfits Add - .308 50-round box mag for M60 LMG
     - N14BPLegionAmmoOverMag308
     - N14BPLegionAmmoBoxOver308
+
+# --- Legion Mortar Ordnance ---
+- type: entity
+  parent: N14BlueprintBase
+  id: MisfitsBlueprintLegionMortarOrdnance
+  name: Legion mortar munitions codex
+  description: Mortar loads scratched onto hide by Legion armorsmiths. High-explosive, fragmentation, incendiary, smoke, illumination and kinetic rounds.
+  components:
+  - type: Blueprint
+    recipes:
+    - MisfitsBPLegionMortarShellHE
+    - MisfitsBPLegionMortarShellFrag
+    - MisfitsBPLegionMortarShellIncendiary
+    - MisfitsBPLegionMortarShellSmoke
+    - MisfitsBPLegionMortarShellIllumination
+    - MisfitsBPLegionMortarShellKinetic
+
 
 # =====================================================================
 # BROTHERHOOD OF STEEL BLUEPRINTS
@@ -560,6 +606,7 @@
   - type: Blueprint
     recipes:
     - N14BPBoSWeaponLaserRifleAuto
+    - N14BPBoSWeaponLaserRifleTribeam
     - N14BPBoSWeaponPlasmaRifle
     - N14BPBoSWeaponPlasmaRifleAuto
     - N14BPBoSWeaponPlasmaRifleUrban
@@ -599,47 +646,41 @@
   parent: N14BlueprintBase
   id: N14BlueprintBoSArmorT1
   name: BoS Initiate Armor Pattern
-  description: Brotherhood standard armor assembly instructions for new initiates. Tier 1 armor.
+  description: Brotherhood standard armor assembly instructions for Initiates and Squires. Tier 1 armor.
   components:
   - type: Blueprint
     recipes:
-    - N14BPBoSArmorWBoSInitiateArmor
-    # #Misfits Add - paired initiate helmet
+    # #Misfits Note - Armor here is sub-Combat Armor level.
+    - N14BPBoSArmorInitiate
+    - N14BPBoSArmorSquire
+    # #Misfits Add - standard Brotherhood Combat Helmet
     - N14BPBoSArmorHelmetBrotherhood
 
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintBoSArmorT2
   name: BoS Squire Armor Blueprint
-  description: Brotherhood armorer's manual for Squire-grade equipment. Tier 2 armor.
+  description: Brotherhood armorer's manual for standardized combat armor. Tier 2 armor.
   components:
   - type: Blueprint
     recipes:
-    - N14BPBoSArmorWBoSSquireArmor
-    - N14BPBoSArmorMBoSSquireArmor
-    - N14BPBoSArmorMidwestArmor
-    # #Misfits Add - paired knight and midwest helmets
-    - N14BPBoSArmorHelmetBrotherhoodKnight
-    - N14BPBoSArmorHelmetBrotherhoodMidwest
+    # #Misfits Note - Armor here is Combat Armor level.
+    - N14BPBoSArmorCombat
 
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintBoSArmorT3
   name: BoS Knight Armor Schematic
-  description: Full combat armor assembly plans from the Brotherhood Knight ranks. Tier 3 armor.
+  description: Schematics for the Brotherhood's most advanced marks of combat armor. Tier 3 armor.
   components:
   - type: Blueprint
     recipes:
-    - N14BPBoSArmorWBoSKnightArmor
-    - N14BPBoSArmorMBoSKnightArmor
-    - N14BPBoSArmorWBoSSeniorKArmor
-    - N14BPBoSArmorMBoSSeniorKArmor
-    - N14BPBoSArmorMidwestArmorMK2
-    # #Misfits Add - paired captain / paladin / MK2 / midwest veteran helmets
-    - N14BPBoSArmorHelmetBrotherhoodCaptain
-    - N14BPBoSArmorHelmetBrotherhoodPaladin
+    # #Misfits Note - Armor here is Combat Armor Mk2 level.
+    - N14BPBoSArmorBrotherhoodMK2
     - N14BPBoSArmorHelmetBrotherhoodMK2
-    - N14BPBoSArmorHelmetBrotherhoodMidwestVeteran
+    # #Misfits Note - And Armor here is Combat Armor Mk3 level.
+    - N14BPBoSArmorBrotherhoodMK3
+    - N14BPBoSArmorHelmetBrotherhoodMK3
 
 - type: entity
   parent: N14BlueprintBase
@@ -662,7 +703,6 @@
   components:
   - type: Blueprint
     recipes:
-    - N14BPBoSAmmoPowerCellSmall
     - N14BPBoSAmmoElectronChargePackRed
     - N14BPBoSAmmoBox10mm
     # #Misfits Add - kinetic ammo for T1 mediocre guns (9mm / .45 / 12ga)
@@ -681,7 +721,6 @@
   - type: Blueprint
     recipes:
     - N14BPBoSAmmoPowerCellHigh
-    - N14BPBoSAmmoElectronChargePackGreen
     - N14BPBoSAmmoPlasmaCartridge
     # #Misfits Add - kinetic ammo for T2 mediocre guns (7.62 M14 / 5.45 AK-112)
     - N14BPBoSAmmoBox762
@@ -697,8 +736,6 @@
   components:
   - type: Blueprint
     recipes:
-    - N14BPBoSAmmoPowerCellAdvanced
-    - N14BPBoSAmmoElectronChargePackBlue
     - N14BPBoSAmmoPlasmaShell
     - N14BPBoSAmmoPlasmaCartridgeMultiplas
     - MisfitsBPBoSGrenadeFragOffensive # #Misfits Add - efficient conventional ordnance
@@ -725,16 +762,15 @@
     # #Misfits Change - duplicate FC recipe removed; consolidated to single generic fusion core
     - N14BPBoSAmmoVertibirdGunBelt # #Misfits Add - vertibird turret belt
 
-- type: entity
-  parent: N14BlueprintBase
-  id: N14BlueprintBoSAmmoT5
-  name: BoS Experimental Violet-Spectrum Cell Plans
-  description: Highly classified experimental schematics for violet-spectrum energy cells. Tier 5 ammo.
-  components:
-  - type: Blueprint
-    recipes:
-    - N14BPBoSAmmoMicrofusionViolet
-    - N14BPBoSAmmoElectronChargePackViolet
+#- type: entity
+#  parent: N14BlueprintBase
+#  id: N14BlueprintBoSAmmoT5
+#  name: BoS Experimental Violet-Spectrum Cell Plans
+#  description: Highly classified experimental schematics for violet-spectrum energy cells. Tier 5 ammo.
+#  components:
+#  - type: Blueprint
+#    recipes:
+#    - N14BPBoSAmmoMicrofusionViolet
 
 # =====================================================================
 # TOWNSFOLK BLUEPRINTS
@@ -762,7 +798,6 @@
     - N14BPTownWeaponPistolM1911
     - N14BPTownWeaponPistol12mm
     - N14BPTownWeaponShotgunSawedOff
-    - N14BPTownWeaponSMGAmerican180
     - N14BPTownWeaponRevolver357Detective
     - N14BPTownWeaponSniperCowboyRepeater
 
@@ -792,6 +827,7 @@
     - N14BPTownWeaponSMGPPSh41
     - N14BPTownWeaponRifleAk112
     - N14BPTownWeaponSniper308Ross
+    - N14BPTownWeaponSniperPaciencia
     - N14BPTownWeaponSniper44LeverShortCarbine
 
 - type: entity
@@ -843,6 +879,9 @@
     - N14BPTownArmorLightLeatherArmor
     # #Misfits Add - paired basic town guard hat
     - N14BPTownArmorHelmetTownGuard
+    # #New_Canaan town aligned sub-faction
+    - MisfitsBPNewCanaanLeatherVest
+    - MisfitsBPNewCanaanShemagh
 
 - type: entity
   parent: N14BlueprintBase
@@ -859,6 +898,8 @@
     # #Misfits Add - paired Brodie and basic metal helmets
     - N14BPTownArmorHelmetBrodie
     - N14BPTownArmorHelmetMetal
+    # #New_Canaan town aligned sub-faction
+    - MisfitsBPNewCanaanPoliceVest
 
 - type: entity
   parent: N14BlueprintBase
@@ -871,7 +912,7 @@
     - N14BPTownArmorTownGuardRiot
     - N14BPTownArmorPoliceCombat
     - N14BPTownArmorSheriffVest
-    - N14BPTownArmorMetalArmor
+    - N14BPTownArmorVestRCMP
     # #Misfits Add - paired riot Brodie variants and RCMP helmet
     - N14BPTownArmorHelmetBrodieCover
     - N14BPTownArmorHelmetBrodieVisor
@@ -885,13 +926,13 @@
   components:
   - type: Blueprint
     recipes:
-    - N14BPTownArmorCombatArmor
-    - N14BPTownArmorScavengerHeavyArmor
-    - N14BPTownArmorInsectArmor
-    # #Misfits Add - paired combat and pre-war military helmets
-    - N14BPTownArmorHelmetCombat
-    - N14BPTownArmorHelmetCombatCargo
-    - N14BPTownArmorHelmetPrewarMilitary
+    - N14BPTownArmorCombatArmorRCMP
+    # #Misfits Add - paired RCMP helmets/armors
+    - N14BPTownArmorHelmetSpecRCMP
+   # #New_Canaan town aligned sub-faction
+    - MisfitsBPNewCanaanRiot_duster
+    - MisfitsBPNewCanaanRiot_helm
+    - MisfitsBPNewCanaanRiot_gasmask
 
 # --- Town Ammo ---
 - type: entity
@@ -910,7 +951,6 @@
     # #Misfits Add - ammo for T1 mediocre guns (.45 / 12mm / .22 drum / .357)
     - N14BPTownAmmoMag45Pistol
     - N14BPTownAmmoMagPistol12mm
-    - N14BPTownAmmoMagAmerican180Drum
     - N14BPTownAmmoBox357
     - N14BPTownAmmoSpeedLoader357
 
@@ -960,6 +1000,7 @@
     - N14BPTownAmmoBox45-70
     - N14BPTownAmmoMag12mmSMG
     - N14BPTownAmmoMag556Long
+    - N14BPTownAmmoMagSMGwt550
 
 # =====================================================================
 # VAULT BLUEPRINTS
@@ -996,6 +1037,7 @@
     - N14BPVaultWeaponRifle10mmM1Carbine
     - N14BPVaultWeaponShotgunTrench
     - N14BPVaultWeaponSMG10mmChinese
+    - N14BPVaultWeaponAmerican180
 
 - type: entity
   parent: N14BlueprintBase
@@ -1079,6 +1121,7 @@
     - N14BPVaultArmorHelmetMarine
     - M14BPVaultPaintCombatHelmet
     - N14BPVaultArmorScoutSuit
+    - M14BPVaultNVG
 
 # --- Vault Ammo ---
 - type: entity
@@ -1151,14 +1194,14 @@
     - N14BPTribeWeaponTribalClub
     - N14BPTribeWeaponWastelandSpear
     - N14BPTribeWeaponRevolver44Tribal
-    - N14BPTribeWeaponBrokenPipe
+    #- N14BPTribeWeaponBrokenPipe
+    - N14BPTribeWeaponLoveandHate
     # #Misfits Add - mediocre scavenged kinetic guns (T1)
-    - N14BPTribeWeaponPistol9mmChinese
+    #- N14BPTribeWeaponPistol9mmChinese
     - N14BPTribeWeaponPistol12mm
     - N14BPTribeWeaponShotgunSawedOff
-    - N14BPTribeWeaponSniperCowboyRepeater
-    - N14BPTribeWeaponRevolver357Detective
-
+    #- N14BPTribeWeaponSniperCowboyRepeater
+    #- N14BPTribeWeaponRevolver357Detective
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeWeaponsT2
@@ -1174,11 +1217,11 @@
     - N14BPTribeWeaponPistol10mmPipe
     - N14BPTribeWeaponShotgunPipe
     # #Misfits Add - mediocre scavenged kinetic guns (T2)
-    - N14BPTribeWeaponSMGPPSh41
-    - N14BPTribeWeaponRifle10mmM1Carbine
-    - N14BPTribeWeaponSniper308Ross
+    #- N14BPTribeWeaponSMGPPSh41
+    #- N14BPTribeWeaponRifle10mmM1Carbine
+    #- N14BPTribeWeaponSniper308Ross
     - N14BPTribeWeaponSniper44LeverShortCarbine
-
+    - N14BPTribeWeaponPistolColt45
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeWeaponsT3
@@ -1193,7 +1236,12 @@
     - N14BPTribeWeaponTribalSpear
     - N14BPTribeWeaponSMG12mmPipe
     - N14BPTribeWeaponRifle556Pipe
-
+    - N14BPTribeWeaponSMGGreasegun
+    - N14BPTribeWeaponAutoRifle556Tribal
+    - N14BPTribeWeaponSniper308Tribal
+    - N14BPTribeWeaponSniper308TribalUpgraded
+    - N14BPTribeWeaponSniper556Tribal
+    - N14BPTribeWeaponSniper556TribalUpgraded
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeWeaponsT4
@@ -1207,7 +1255,6 @@
     - N14BPTribeWeaponPolearm
     - N14BPTribeWeaponSniper50Pipe
     - N14BPTribeWeaponSuperSledgeHammer
-
 # --- Tribe Armor ---
 - type: entity
   parent: N14BlueprintBase
@@ -1219,7 +1266,6 @@
     recipes:
     - N14BPTribeArmorHelmetRadstagSkull
     - N14BPTribeArmorHelmetTribalShamanHat
-
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeArmorT2
@@ -1243,7 +1289,6 @@
     - N14BPTribeArmorHelmetTribalShamanHeadband
     - N14BPTribeArmorHelmetHeadtakerwraps
     - MisfitsBPTribeArmorHelmetHelmetOfPeace
-
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeArmorT3
@@ -1253,9 +1298,10 @@
   - type: Blueprint
     recipes:
     - N14BPTribeArmorTribalArmorHeavy
-    - N14BPTribeArmorCombatTribal
+    #- N14BPTribeArmorCombatTribal
     - MisfitsBPTribeArmorHelmetRadstagSkull
-
+    - N14BPClothingOuterTribeCombatArmor
+    - N14BPTribeClothingHeadHatCombatHelmet
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeArmorT4
@@ -1267,7 +1313,8 @@
     - N14BPTribeArmorRadArmor
     - N14BPTribeArmorInsectArmor
     - N14BPTribeArmorHelmetEdlerSkullhelm
-
+    - N14BPClothingOuterTribeCombatArmorMk2
+    - N14BPTribeClothingHeadHatCombatHelmetMK2
 # --- Tribe Ammo ---
 - type: entity
   parent: N14BlueprintBase
@@ -1286,7 +1333,6 @@
     - N14BPTribeAmmoMagPistol12mm
     - N14BPTribeAmmoBox357
     - N14BPTribeAmmoSpeedLoader357
-
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeAmmoT2
@@ -1300,7 +1346,6 @@
     - N14BPTribeAmmoMag10mmPipe
     # #Misfits Add - ammo for T2 mediocre guns (9mm drum; .308 box already at T3)
     - N14BPTribeAmmoMag9mmSMGDrum
-
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeAmmoT3
@@ -1312,9 +1357,8 @@
     - N14BPTribeAmmoBox127
     - N14BPTribeAmmoBox308
     - N14BPTribeAmmoSpeedLoader45-70
-    - MisfitsBPTribeGrenadeTin # #Misfits Add - Willower faction-council improvised explosives
-    - MisfitsBPTribeDynamite
-
+    # - MisfitsBPTribeGrenadeTin # #Misfits Add - Willower faction-council improvised explosives
+    # - MisfitsBPTribeDynamite
 - type: entity
   parent: N14BlueprintBase
   id: N14BlueprintTribeAmmoT4

@@ -17,8 +17,8 @@ reagent-desc-rushing-water = A diluted stimulant mixture that accelerates the bo
 reagent-name-blood-shield = blood shield
 reagent-desc-blood-shield = A thick wasteland tonic that promotes recovery while helping the body clear circulating toxins.
 
-reagent-name-datura-hide = datura hide
-reagent-desc-datura-hide = A sticky datura preparation that deadens sensation and briefly makes injuries easier to endure.
+reagent-name-barkskin-powder = barkskin powder
+reagent-desc-barkskin-powder = A damp herbal powder preparation that toughens the skin and provides temporary protection against physical damage.
 
 reagent-name-snakebite-tourniquet = snakebite tourniquet
 reagent-desc-snakebite-tourniquet = A concentrated field treatment for animal venoms, designed to rapidly purge common wasteland toxins.

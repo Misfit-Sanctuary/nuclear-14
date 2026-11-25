@@ -15,8 +15,9 @@ using Robust.Shared.Timing;
 namespace Content.Client._Misfits.FactionWar;
 
 /// <summary>
-/// Manages the <see cref="AllyTagOverlay"/> and the <see cref="FactionWarWindow"/>/<see cref="WarJoinWindow"/> GUIs.
-/// The /war client command opens the faction war panel; /warjoin opens the enlistment panel.
+/// Manages the <see cref="AllyTagOverlay"/> and the <see cref="FactionWarWindow"/> GUI.
+/// The /war client command opens the war panel; /warjoin opens the same panel on its Wars tab,
+/// where pending wars can be joined. // #Misfits Tweak - /warjoin merged into the /war panel.
 /// All game-logic validation stays server-side.
 /// </summary>
 public sealed class FactionWarClientSystem : EntitySystem
@@ -40,7 +41,6 @@ public sealed class FactionWarClientSystem : EntitySystem
     private Dictionary<NetEntity, FactionWarParticipantInfo> _warParticipants = new();
     private AllyTagOverlay?    _overlay;
     private FactionWarWindow?  _window;
-    private WarJoinWindow?     _warJoinWindow;
     private ForceWarWindow?    _forceWarWindow;
     private WarSideReviewWindow? _warSideReviewWindow;
     private WarInviteWindow? _warInviteWindow;
@@ -94,8 +94,6 @@ public sealed class FactionWarClientSystem : EntitySystem
         base.Shutdown();
         _window?.Close();
         _window = null;
-        _warJoinWindow?.Close();
-        _warJoinWindow = null;
         _forceWarWindow?.Close();
         _forceWarWindow = null;
         _warSideReviewWindow?.Close();
@@ -113,13 +111,9 @@ public sealed class FactionWarClientSystem : EntitySystem
         UpdateLocalWarContext();
         UpdateOverlayVisibility();
 
-        // Refresh war panel if open so Active Wars list repopulates after respawn/state change.
+        // Refresh the war panel if open so the war list and join buttons follow state changes.
         if (_window != null)
-            RaiseNetworkEvent(new FactionWarOpenPanelRequestEvent());
-
-        // Refresh warjoin panel if open (pending wars may have changed phase).
-        if (_warJoinWindow != null)
-            RaiseNetworkEvent(new FactionWarJoinPanelRequestEvent());
+            RequestPanelData();
 
         // Keep force-war ceasefire dropdown current.
         _forceWarWindow?.UpdateActiveWars(_activeWars);
@@ -139,10 +133,11 @@ public sealed class FactionWarClientSystem : EntitySystem
         if (_window == null)
             return;
 
-        _window.UpdateState(msg, _playerManager.LocalSession?.UserId, _pendingCeasefireProposal);
-
-        if (msg.StatusMessage != null)
-            _window.ShowResult(false, msg.StatusMessage);
+        var localEntity = _playerManager.LocalSession?.AttachedEntity is { } attached
+            ? GetNetEntity(attached)
+            : (NetEntity?) null;
+        _window.UpdateState(msg, _playerManager.LocalSession?.UserId, localEntity, _pendingCeasefireProposal);
+        // StatusMessage (round-start lock / cooldown) is shown on the Declare tab by UpdateState.
     }
 
     private void OnCommandResult(FactionWarCommandResultEvent msg)
@@ -152,10 +147,10 @@ public sealed class FactionWarClientSystem : EntitySystem
 
     private void OnJoinPanelData(PlayerWarJoinPanelDataEvent msg)
     {
-        if (_warJoinWindow == null)
+        if (_window == null)
             return;
 
-        _warJoinWindow.UpdateState(msg);
+        _window.UpdateJoinState(msg);
 
         UpdateLocalWarContext();
 
@@ -164,11 +159,11 @@ public sealed class FactionWarClientSystem : EntitySystem
 
     private void OnJoinResult(FactionWarJoinResultEvent msg)
     {
-        _warJoinWindow?.ShowResult(msg.Success, msg.Message);
+        _window?.ShowResult(msg.Success, msg.Message);
 
         // If join succeeded, refresh panel data to update the UI state.
-        if (msg.Success)
-            RaiseNetworkEvent(new FactionWarJoinPanelRequestEvent());
+        if (msg.Success && _window != null)
+            RequestPanelData();
     }
 
     private void OnParticipantsUpdated(FactionWarParticipantsUpdatedEvent msg)
@@ -183,7 +178,8 @@ public sealed class FactionWarClientSystem : EntitySystem
         _pendingCeasefireProposal = msg;
         EnsureWarWindow();
         _window!.OpenCentered();
-        RaiseNetworkEvent(new FactionWarOpenPanelRequestEvent());
+        _window!.ShowTab(FactionWarWindow.WarsTab);
+        RequestPanelData();
     }
 
     private void OnForceWarResult(FactionWarForceResultEvent msg)
@@ -233,16 +229,24 @@ public sealed class FactionWarClientSystem : EntitySystem
         _window!.OpenCentered();
 
         // Ask server for fresh panel data (faction detection must happen server-side).
-        RaiseNetworkEvent(new FactionWarOpenPanelRequestEvent());
+        RequestPanelData();
     }
 
     // ── /warjoin client command ────────────────────────────────────────────
 
     private void OpenWarJoinPanel(IConsoleShell shell, string argStr, string[] args)
     {
-        EnsureWarJoinWindow();
-        _warJoinWindow!.OpenCentered();
+        // #Misfits Tweak - joining now lives on the /war panel's Wars tab.
+        EnsureWarWindow();
+        _window!.OpenCentered();
+        _window!.ShowTab(FactionWarWindow.WarsTab);
+        RequestPanelData();
+    }
 
+    /// <summary>The /war panel shows both the war list and join options, so ask for both.</summary>
+    private void RequestPanelData()
+    {
+        RaiseNetworkEvent(new FactionWarOpenPanelRequestEvent());
         RaiseNetworkEvent(new FactionWarJoinPanelRequestEvent());
     }
 
@@ -295,6 +299,8 @@ public sealed class FactionWarClientSystem : EntitySystem
 
         _window.OnAcceptCeasefireProposal += otherPlayer =>
         {
+            // #Misfits Fix - answered, so stop showing the ceasefire banner.
+            _pendingCeasefireProposal = null;
             RaiseNetworkEvent(new CeasefireAcceptedEvent
             {
                 OtherPlayer = otherPlayer,
@@ -303,22 +309,17 @@ public sealed class FactionWarClientSystem : EntitySystem
 
         _window.OnRejectCeasefireProposal += otherPlayer =>
         {
+            // #Misfits Fix - answered, so stop showing the ceasefire banner.
+            _pendingCeasefireProposal = null;
             RaiseNetworkEvent(new CeasefireRejectedEvent
             {
                 OtherPlayer = otherPlayer,
             });
         };
-    }
 
-    private void EnsureWarJoinWindow()
-    {
-        if (_warJoinWindow != null)
-            return;
+        _window.OnRefresh += RequestPanelData;
 
-        _warJoinWindow = new WarJoinWindow();
-        _warJoinWindow.OnClose += () => _warJoinWindow = null;
-
-        _warJoinWindow.OnJoinWar += (warKey, chosenSide) =>
+        _window.OnJoinWar += (warKey, chosenSide) =>
         {
             RaiseNetworkEvent(new PlayerWarJoinRequestEvent
             {

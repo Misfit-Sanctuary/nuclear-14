@@ -1,29 +1,19 @@
-<!-- #Misfits Add - Mandatory raid-over acknowledgement window. -->
+<!-- #Misfits Refactor - Mandatory raid-over acknowledgement, laid out like the faction recruit offer dialog. -->
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-                      Title="{Loc raid-concluded-window-title}"
+                      Title="{Loc 'raid-concluded-window-title'}"
                       Resizable="False"
-                      SetSize="520 270"
-                      MinSize="500 250">
-
-    <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="0">
-        <controls:StripeBack>
-            <PanelContainer>
-                <Label Text="{Loc raid-concluded-window-title}" StyleClasses="LabelBig" Align="Center" Margin="0 4"/>
-            </PanelContainer>
-        </controls:StripeBack>
-
-        <RichTextLabel Name="HeaderLabel" Margin="12 14 12 6"
-                       HorizontalExpand="True" HorizontalAlignment="Center"/>
-        <RichTextLabel Name="PartiesLabel" Margin="12 2 12 10"
-                       HorizontalExpand="True" HorizontalAlignment="Center"/>
-
-        <PanelContainer MinHeight="1" Modulate="#603030" Margin="12 0"/>
-
-        <RichTextLabel Text="{Loc raid-concluded-warning}" Margin="14 12 14 12"
-                       HorizontalExpand="True" HorizontalAlignment="Center"/>
-
-        <Button Name="AcknowledgeButton" Text="{Loc raid-concluded-acknowledge}"
-                Margin="12 4 12 12" HorizontalExpand="True" StyleClasses="OpenBoth"/>
+                      SetSize="480 230"
+                      MinSize="440 210">
+    <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="8">
+        <RichTextLabel Name="HeaderLabel" HorizontalExpand="True" />
+        <RichTextLabel Name="PartiesLabel" HorizontalExpand="True" />
+        <PanelContainer StyleClasses="BackgroundDark" VerticalExpand="True">
+            <RichTextLabel Text="{Loc 'raid-concluded-warning'}" Margin="6 4" HorizontalExpand="True" />
+        </PanelContainer>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <Control HorizontalExpand="True" />
+            <Button Name="AcknowledgeButton" Text="{Loc 'raid-concluded-acknowledge'}" MinWidth="160" />
+        </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

@@ -77,7 +77,7 @@
   - type: GunRequiresWield
   - type: AmmoCounter
   - type: Gun
-    fireRate: 2
+    fireRate: 1.2
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -110,9 +110,9 @@
     price: 100
 
 # #Misfits Add - Heavy Assault Rifle. A pre-war 5.56 automatic rifle issued to power
-# armored infantry. Ballistics and handling are a straight copy of the R-91 assault
-# rifle (N14WeaponRifle556R91); the only mechanical difference is the 80-round heavy
-# magazine it feeds from. World sprite lives in a wider 48x32 icon RSI (same split-RSI
+# armored infantry. Ballistics and handling are an upgrade to the assault carbine.
+# the differences is the 80-round heavy 5.56 magazine and a 6.0 Rate-of-fire.
+# World sprite lives in a wider 48x32 icon RSI (same split-RSI
 # pattern as the service rifle and the M72), held/equipped art in the 32x32 RSI.
 - type: entity
   name: heavy assault rifle
@@ -127,6 +127,7 @@
     - Back
     - suitStorage
   - type: Item
+    size: Huge
     sprite: _Misfits/Objects/Weapons/Guns/Rifles/t60heavyrifle.rsi
   - type: Sprite
     sprite: _Misfits/Objects/Weapons/Guns/Rifles/t60heavyrifleicon.rsi
@@ -135,13 +136,23 @@
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
+  - type: GunRequiresWield
+  - type: GunWieldBonus
+    minAngle: -21
+    maxAngle: -40
   - type: Gun
+    fireRate: 6
     minAngle: 24
     maxAngle: 45
     angleIncrease: 4
     angleDecay: 16
     soundGunshot:
       collection: N14RifleR91Gunshot
+  - type: Wieldable
+    wieldedSpeedModifier: 0.75
+  - type: ClothingSpeedModifier
+    walkModifier: 0.80
+    sprintModifier: 0.80
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -162,3 +173,9 @@
             - N14Cartridge556Rifle
   - type: StaticPrice
     price: 150
+
+- type: entity
+  name: makeshift auto rifle
+  parent: N14WeaponAutoRifle556Legion
+  id: N14WeaponAutoRifle556Tribal
+  description: A makeshift automatic rifle of Tribal origin, light and extremely cheap, chambered in 5.56mm

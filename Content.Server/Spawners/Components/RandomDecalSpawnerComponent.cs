@@ -1,6 +1,9 @@
 using Robust.Shared.Prototypes;
 using Content.Shared.Maps;
 using Content.Shared.Decals;
+using Robust.Shared.GameObjects;
+using Robust.Shared.Map;
+using Robust.Shared.Maths;
 
 namespace Content.Server.Spawners.Components;
 
@@ -119,4 +122,16 @@ public sealed partial class RandomDecalSpawnerComponent : Component
     /// </summary>
     [DataField]
     public bool DeleteSpawnerAfterSpawn = false;
+}
+
+/// <summary>
+/// Raised after a random decal spawner successfully adds a decal to a grid.
+/// Consumers can opt into managing the decal without making all grid decals transient.
+/// </summary>
+public sealed class RandomDecalSpawnedEvent(EntityUid gridUid, uint decalId, EntityCoordinates coordinates, Color color) : EntityEventArgs
+{
+    public EntityUid GridUid { get; } = gridUid;
+    public uint DecalId { get; } = decalId;
+    public EntityCoordinates Coordinates { get; } = coordinates;
+    public Color Color { get; } = color;
 }

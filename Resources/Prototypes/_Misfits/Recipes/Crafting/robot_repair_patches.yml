@@ -1,0 +1,133 @@
+- type: construction
+  name: makeshift repair patch
+  id: MisfitsMakeshiftRepairPatch
+  graph: MisfitsMakeshiftRepairPatch
+  startNode: start
+  targetNode: makeshiftrepairpatch
+  category: construction-category-medical
+  description: Produce 2 makeshift repair patches from salvaged materials.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Misc/materials.rsi
+    state: militaryfiber
+  objectType: Item
+
+- type: construction
+  name: reinforced plating patch
+  id: MisfitsReinforcedPlatingPatch
+  graph: MisfitsReinforcedPlatingPatch
+  startNode: start
+  targetNode: reinforcedplatingpatch
+  category: construction-category-medical
+  description: Produce 2 reinforced plating patches from salvaged materials.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: alloys
+  objectType: Item
+
+- type: construction
+  name: insulation patch
+  id: MisfitsInsulationPatch
+  graph: MisfitsInsulationPatch
+  startNode: start
+  targetNode: insulationpatch
+  category: construction-category-medical
+  description: Produce 2 insulation patches from salvaged materials.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Misc/materials.rsi
+    state: rubber
+  objectType: Item
+
+- type: construction
+  name: advanced repair patch
+  id: MisfitsAdvancedRepairPatch
+  graph: MisfitsAdvancedRepairPatch
+  startNode: start
+  targetNode: advancedrepairpatch
+  category: construction-category-medical
+  description: Produce 2 advanced repair patches from salvaged materials.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: board_3
+  objectType: Item
+
+- type: constructionGraph
+  id: MisfitsMakeshiftRepairPatch
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: makeshiftrepairpatch
+      completed:
+      - !type:SetStackCount
+        amount: 2
+      steps:
+      - material: Steel
+      - material: Cable
+      - material: Cloth
+        doAfter: 3
+  - node: makeshiftrepairpatch
+    entity: MisfitsMakeshiftRepairPatch
+
+- type: constructionGraph
+  id: MisfitsReinforcedPlatingPatch
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: reinforcedplatingpatch
+      completed:
+      - !type:SetStackCount
+        amount: 2
+      steps:
+      - material: Steel
+        amount: 2
+      - material: Plastic
+      - material: Cable
+        doAfter: 5
+  - node: reinforcedplatingpatch
+    entity: MisfitsReinforcedPlatingPatch
+
+- type: constructionGraph
+  id: MisfitsInsulationPatch
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: insulationpatch
+      completed:
+      - !type:SetStackCount
+        amount: 2
+      steps:
+      - material: Plastic
+      - material: Cable
+        amount: 2
+      - material: Cloth
+        doAfter: 4
+  - node: insulationpatch
+    entity: MisfitsInsulationPatch
+
+- type: constructionGraph
+  id: MisfitsAdvancedRepairPatch
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: advancedrepairpatch
+      completed:
+      - !type:SetStackCount
+        amount: 2
+      steps:
+      - material: Steel
+        amount: 2
+      - material: Plastic
+        amount: 2
+      - material: Circuitry
+      - material: Cable
+        amount: 3
+        doAfter: 7
+  - node: advancedrepairpatch
+    entity: MisfitsAdvancedRepairPatch

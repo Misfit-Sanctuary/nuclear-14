@@ -71,8 +71,7 @@ public sealed partial class ExplosionSystem : EntitySystem
     ///     find errors. However some components, like rogue arrows, or some commands like the admin-smite need to have
     ///     a "default" option specified outside of yaml data-fields. Hence this const string.
     /// </remarks>
-    [ValidatePrototypeId<ExplosionPrototype>]
-    public const string DefaultExplosionPrototypeId = "Default";
+    public static readonly ProtoId<ExplosionPrototype> DefaultExplosionPrototypeId = "Default";
 
     public override void Initialize()
     {
@@ -310,8 +309,9 @@ public sealed partial class ExplosionSystem : EntitySystem
             if (direction.LengthSquared() > dst2)
                 continue;
 
-            // they are close enough to combine so just add total intensity and prevent queuing another one
-            queued.TotalIntensity += totalIntensity;
+            // #Misfits make explosives diminiush returns
+            queued.CombinedIntensities.Add(totalIntensity);
+            queued.TotalIntensity = GetCombinedIntensity(queued.CombinedIntensities, type.CombineFalloff);
             return;
         }
 
@@ -326,8 +326,25 @@ public sealed partial class ExplosionSystem : EntitySystem
             MaxTileBreak = maxTileBreak,
             CanCreateVacuum = canCreateVacuum
         };
+        boom.CombinedIntensities.Add(totalIntensity); // #Misfits Add
         _explosionQueue.Enqueue(boom);
         _queuedExplosions.Add(boom);
+    }
+
+    // #Misfits
+    private static float GetCombinedIntensity(List<float> intensities, float falloff)
+    {
+        intensities.Sort((a, b) => b.CompareTo(a));
+
+        var total = 0f;
+        var multiplier = 1f;
+        foreach (var intensity in intensities)
+        {
+            total += intensity * multiplier;
+            multiplier *= falloff;
+        }
+
+        return total;
     }
 
     /// <summary>

@@ -1,0 +1,158 @@
+
+# diced meat
+- type: reagent
+  id: DicedMeat
+  name: reagent-name-dicedMeat
+  parent: BaseJuice
+  desc: reagent-desc-food-dicedMeat
+  physicalDesc: reagent-physical-desc-dicedMeat
+  group: Foods
+  flavor: bitter
+  color: "#fc6e5b"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: N14UncookedAnimalProteinsRad
+        amount: 1
+
+#Diced Tato: Obtained via Cutting a Tato. Can be added to a container as a chem as 10u of it.
+- type: reagent
+  id: DicedTato
+  name: reagent-name-dicedTato
+  parent: BaseJuice
+  desc: reagent-desc-food-dicedTato
+  physicalDesc: reagent-physical-desc-starchy
+  group: Foods
+  flavor: potatoes
+  color: "#302000"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: ExtractTato
+        amount: 1
+#Diced Garlic: Obtained via Cutting a Garlic. Can be added to a container as 10u chem of it.
+- type: reagent
+  id: DicedGarlic
+  name: reagent-name-dicedGarlic
+  parent: BaseJuice
+  desc: reagent-desc-food-dicedGarlic
+  physicalDesc: reagent-physical-desc-diced
+  group: Foods
+  flavor: bitter
+  color: "#bdb4b3"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 1
+      - !type:AdjustReagent
+        reagent: Vitamin
+        amount: .4
+      - !type:AdjustReagent
+        reagent: Allicin
+        amount: .4
+
+#Diced Onion:
+- type: reagent
+  id: DicedOnion
+  name: reagent-name-dicedOnion
+  parent: BaseJuice
+  desc: reagent-desc-food-dicedOnion
+  physicalDesc: reagent-physical-desc-diced
+  group: Foods
+  flavor: bitter
+  color: "#bdb4b3"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 1
+      - !type:AdjustReagent
+        reagent: Vitamin
+        amount: .4
+      - !type:AdjustReagent
+        reagent: Allicin
+        amount: .4
+
+#Tato Soup: 1/1/1/1/1 mix of water, diced meat, tato, garlic and onion, must be heated.
+# Tato soup
+- type: reagent
+  id: TatoSoup
+  name: reagent-name-tatoSoup
+  group: Foods
+  desc: food-desc-tatoSoup
+  physicalDesc: reagent-physical-desc-robust
+  flavor: tatoSoup
+  color: "#755e13"
+  recognizable: true
+  boilingPoint: 100.0
+  meltingPoint: 0.0
+  plantMetabolism:
+  - !type:PlantAdjustWater
+    amount: 2
+  - !type:PlantAdjustToxins
+    amount: -1
+  - !type:PlantAdjustHealth
+    amount: 2
+  metabolisms:
+    Food:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 3.5
+      - !type:AdjustReagent
+        reagent: Water
+        amount: 2
+      - !type:AdjustReagent
+        reagent: Protein
+        amount: 2.5
+
+# Garlic Sauce
+- type: reagent
+  id: GarlicSauce
+  desc: reagent-physical-desc-garlicSauce
+  name: reagent-name-garlicSauce
+  group: Foods
+  physicalDesc: reagent-physical-desc-robust
+  flavor: garlicSauce
+  color: "#755e13"
+  recognizable: true
+  boilingPoint: 100.0
+  meltingPoint: 0.0
+  plantMetabolism:
+  - !type:PlantAdjustWater
+    amount: 1
+  - !type:PlantAdjustHealth
+    amount: 1
+  metabolisms:
+    Food:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 1
+      - !type:AdjustReagent
+        reagent: Water
+        amount: 1
+      - !type:AdjustReagent
+        reagent: Protein
+        amount: 1
+
+# Raiser
+- type: reagent
+  id: Raiser
+  name: reagent-name-raiser
+  desc: reagent-desc-food-raiser
+  physicalDesc: reagent-physical-desc-powdery
+  group: Foods
+  flavor: powder
+  color: "#94979c"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: .01

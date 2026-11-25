@@ -12,6 +12,7 @@ n14-requisitions-unlinked = [color=#cf2f2f][bold]● Not linked — no elevator 
 n14-requisitions-platform-raise = Raise platform
 n14-requisitions-platform-lower = Lower platform
 n14-requisitions-platform-lower-confirm = Confirm sell?
+n14-requisitions-platform-lower-confirm-scrap = Confirm? {$count}
 n14-requisitions-platform-busy = Terminal is busy
 n14-requisitions-platform-missing = No platform
 
@@ -20,13 +21,18 @@ n14-requisitions-balance = [bold]Supply budget: ${$balance}[/bold]
 n14-requisitions-capacity = Platform: {$count}/{$capacity}
 n14-requisitions-categories-title = Categories
 n14-requisitions-category-all = All
+n14-requisitions-category-ammunition = Ammunition
 n14-requisitions-category-apparel = Apparel
+n14-requisitions-category-detonable = Detonable
 n14-requisitions-category-equipment = Equipment
-n14-requisitions-category-security = Security
+n14-requisitions-category-firearms = Firearms
 n14-requisitions-category-maintenance = Maintenance
 n14-requisitions-category-medical = Medical
+n14-requisitions-category-power-armor = Power Armor
 n14-requisitions-category-provisions = Provisions
-n14-requisitions-category-ammunition = Ammunition
+n14-requisitions-category-recreation = Recreation
+n14-requisitions-category-science = Science
+n14-requisitions-category-security = Security
 n14-requisitions-category-supplies = Supplies
 n14-requisitions-search-placeholder = Search...
 
@@ -68,9 +74,12 @@ n14-requisitions-history-print = Print transcript
 n14-requisitions-sell-onplatform = On the platform
 n14-requisitions-sell-item = {$item}  [color=#5fbf5f]x{$count}[/color]  [color=#33FF33]${$value}[/color]
 n14-requisitions-sell-item-trade = {$item}  [color=#5fbf5f]x{$count}[/color]  [color=#33FF33]trade[/color]
+n14-requisitions-sell-item-delivery = {$item}  [color=#5fbf5f]x{$count}[/color]  [color=#e0c040]for request[/color]
+n14-requisitions-sell-item-delivery-suffix = {" "} [color=#e0c040]+ request[/color]
+n14-requisitions-sell-item-worthless = [color=#999999]{$item}  x{$count}[/color]  [color=#cf2f2f]no buyer, will be destroyed[/color]
 n14-requisitions-sell-total = [bold]Appraised total: ${$value}[/bold]
 n14-requisitions-sell-refresh = Refresh
-n14-requisitions-sell-empty = Nothing of value on the platform.
+n14-requisitions-sell-empty = The platform is empty.
 n14-requisitions-sell-catalog-title = Accepted goods
 n14-requisitions-sell-catalog-empty = This terminal lists no buy-back goods.
 n14-requisitions-sell-catalog-row = {$item} → {$reward}

@@ -111,6 +111,10 @@
   - type: MaterialStorage
   - type: Conveyor
   - type: Rotatable
+  - type: DirectionalArrowIndicator
+    arrows:
+    - offset: 0, -1.35
+    - offset: 0, 0
   - type: InteractionPopup
     successChance: 1.0
     interactSuccessString: petting-success-recycler

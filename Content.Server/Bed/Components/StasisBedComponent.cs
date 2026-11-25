@@ -1,5 +1,5 @@
+using Robust.Shared.Prototypes;
 using Content.Shared.Construction.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Bed.Components
 {
@@ -16,7 +16,7 @@ namespace Content.Server.Bed.Components
         [DataField]
         public float Multiplier = 10f;
 
-        [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-        public string MachinePartMetabolismModifier = "Capacitor";
+        [DataField]
+        public ProtoId<MachinePartPrototype> MachinePartMetabolismModifier = "Capacitor";
     }
 }

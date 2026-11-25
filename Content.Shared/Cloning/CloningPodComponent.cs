@@ -12,8 +12,7 @@ namespace Content.Shared.Cloning;
 [RegisterComponent]
 public sealed partial class CloningPodComponent : Component
 {
-    [ValidatePrototypeId<SinkPortPrototype>]
-    public const string PodPort = "CloningPodReceiver";
+    public static readonly ProtoId<SinkPortPrototype> PodPort = "CloningPodReceiver";
 
     [ViewVariables]
     public ContainerSlot BodyContainer = default!;
@@ -158,16 +157,14 @@ public sealed partial class CloningPodComponent : Component
     /// <summary>
     ///     The proto that the Metem Machine picks a random Humanoid from
     /// </summary>
-    [ValidatePrototypeId<WeightedRandomPrototype>]
     [DataField]
-    public string MetempsychoticHumanoidPool = "MetempsychoticHumanoidPool";
+    public ProtoId<WeightedRandomPrototype> MetempsychoticHumanoidPool = "MetempsychoticHumanoidPool";
 
     /// <summary>
     ///     The proto that the Metem Machine picks a random Non-Humanoid from
     /// </summary>
-    [ValidatePrototypeId<WeightedRandomPrototype>]
     [DataField]
-    public string MetempsychoticNonHumanoidPool = "MetempsychoticNonhumanoidPool";
+    public ProtoId<WeightedRandomPrototype> MetempsychoticNonHumanoidPool = "MetempsychoticNonhumanoidPool";
 
     #endregion
 }

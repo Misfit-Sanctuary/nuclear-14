@@ -17,3 +17,31 @@
   coefficients:
     Shock: 1.45
     Radiation: 0.0
+
+# Integrator — reduced shock/caustic, heat weakness
+- type: damageModifierSet
+  id: MisfitsC27IntegratorSilicon
+  coefficients:
+    Shock: 0.7
+    Caustic: 0.7
+    Heat: 1.25
+    Radiation: 0.0
+
+# Assault — 20% DR, shock vulnerability
+- type: damageModifierSet
+  id: MisfitsC27AssaultSilicon
+  coefficients:
+    Blunt: 0.8
+    Slash: 0.8
+    Piercing: 0.8
+    Heat: 0.8
+    Caustic: 0.8
+    Shock: 2.25
+    Radiation: 0.0
+
+# Recon — standard
+- type: damageModifierSet
+  id: MisfitsC27ReconSilicon
+  coefficients:
+    Shock: 1.0
+    Radiation: 0.0

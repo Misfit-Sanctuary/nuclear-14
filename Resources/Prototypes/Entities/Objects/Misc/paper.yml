@@ -339,10 +339,10 @@
 
 
 - type: entity
-  name: pen
+  name: pencil
   parent: BaseItem
   id: Pen
-  description: 'A dark ink pen.'
+  description: 'Mightier than the sword, but only if you sharpen it.'
   components:
   - type: Tag
     tags:

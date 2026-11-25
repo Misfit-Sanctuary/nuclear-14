@@ -4,6 +4,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Movement.Systems;
 using Content.Shared._N14.Radiation.Components;
 using Content.Shared.Radiation.Events;
+using Content.Shared.Humanoid; // #Cythisiax Added - identify FEV species for radiation immunity.
 using Robust.Shared.Maths;
 
 namespace Content.Server._N14.Radiation;
@@ -92,7 +93,7 @@ public sealed partial class RadiationHealingSystem : EntitySystem
     /// and converts it to healing instead. Radiation is stripped from the damage specifier so
     /// it never reaches the health pool or body parts.
     ///
-    /// Misfits Change: Radiation damage will still happen, but will also trigger radiation healing
+    /// #Cythisiax Fixed - FEV species take no radiation damage; other radiation-healing species retain their existing behavior.
     /// </summary>
     private void OnBeforeRadiationDamage(
         EntityUid uid, RadiationHealingComponent component, ref BeforeDamageChangedEvent args
@@ -102,8 +103,10 @@ public sealed partial class RadiationHealingSystem : EntitySystem
             || radDamage <= FixedPoint2.Zero)
             return;
 
-        // Remove radiation — it won't be applied as damage
-        // args.Damage.DamageDict.Remove("Radiation");
+        // #Cythisiax Fixed - FEV species absorb radiation from the environment, food, and reagents without taking radiation damage.
+        if (TryComp<HumanoidAppearanceComponent>(uid, out var appearance) &&
+            (appearance.Species == "SuperMutant" || appearance.Species == "Nightkin"))
+            args.Damage.DamageDict.Remove("Radiation");
 
         // Convert the intercepted radiation into healing spread across physical damage types
         var healAmount = radDamage.Float() * component.HealPerRad;

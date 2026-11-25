@@ -39,18 +39,25 @@
         factions:
           - Wastelander
           - NCR
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinNCRPrivate }
+    - { pin: ClothingNeckPinNCRPrivate1st, hours: 20 }
+    - { pin: ClothingNeckPinNCRSpecialist, hours: 40 }
+    - { pin: ClothingNeckPinNCRCorporal, hours: 60 }
 
 - type: startingGear
   id: NCRHeavyTrooperGear
   equipment:
     wallet: N14Wallet
+    ears: N14ClothingHeadsetNCR               # NCR radio earpiece
     back: N14ClothingBackpackNCR                 # #Misfits Fix - Minigun moved to pocket1 so custom backpack selection no longer overwrites it
     jumpsuit: N14ClothingOfficerUniformNCRDesert  # standard NCR officer uniform under the suit
     outerClothing: MisfitsNCRHeavyTrooperSalvagedPowerArmorT45
     shoes: N14ClothingBootsCombatFilled
-    ears: N14ClothingHeadsetNCR               # NCR radio earpiece
     belt: ClothingBeltNCR
-    pocket1: NCRHeavyTrooperLoadoutKits                 # #Misfits Tweak - given their own kits -bill
+    # #Cythisiax Removed - Main NCR job slots now obtain selectable equipment from the requisitions vendors.
     pocket2: RadioHandheld
     id: N14IDNCRDogtagWS                      # Specialist-tier dogtag
   innerClothingSkirt: N14ClothingOfficerUniformNCRDesert

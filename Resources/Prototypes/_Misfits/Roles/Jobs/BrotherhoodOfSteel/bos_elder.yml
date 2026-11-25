@@ -27,6 +27,9 @@
   special:
   - !type:AddComponentSpecial
     components:
+      - type: FactionRoster # #Cythisiax Added - roster GUI: Elder manages the whole Brotherhood
+        roster: BrotherhoodOfSteel
+        action: ActionOpenFactionRosterBoS
       - type: NpcFactionMember
         factions:
           - BrotherhoodOfSteel
@@ -56,6 +59,7 @@
         - BoSMidPaladinCommander
         - BoSHonorGuard # #Cythisiax Added - personal-whitelist HONOR GUARD warcry
         - BoSWestScribe
+        - BoSArchivist
         - BoSInitiate
         - BoSKnight
         - BoSPaladin
@@ -64,15 +68,20 @@
         - BoSMidPaladin
         - BoSMidScribe
         - BoSMidSquire
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Elder
+    prefix: Eld.
+    color: "#3B72BF"
 
 - type: startingGear
   id: BoSWestElderCommanderGear
   equipment:
     wallet: N14Wallet
-    jumpsuit: N14ClothingUniformJumpskirtBOSBlack  #Misfits Change /Tweak/: New consolidated BoS gear
+    jumpsuit: M14ClothingUniformBrotherhoodParade  #Misfits Change /Tweak/: New consolidated BoS gear
     back: N14ClothingBackpackMilitary
-    shoes: N14ClothingBootsLeatherFilled
-    outerClothing: N14ClothingOuterBrotherhoodElderCoat
+    shoes: N14ClothingBootsCombatMK2Filled
+    outerClothing: MisfitsClothingOuterBrotherhoodElderBomber
     hands: N14ClothingHandsGlovesCombat
     pocket1: BoSBrotherhoodElderKits
     id: N14IDBrotherhoodOfSteelHolotagElder

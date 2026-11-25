@@ -4,6 +4,8 @@ using Content.Shared._Misfits.Special;
 using Content.Shared._Misfits.Special.Components;
 using Content.Shared._Misfits.SpecialStats;
 using Content.Shared.Overlays;
+using Content.Shared.Damage.Prototypes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Misfits.SpecialStats;
 
@@ -130,7 +132,7 @@ public sealed class SpecialIntelligenceHudSystem : EntitySystem
         args.Handled = true;
     }
 
-    private static void EnsureBiologicalContainer(ICollection<string> damageContainers)
+    private static void EnsureBiologicalContainer(ICollection<ProtoId<DamageContainerPrototype>> damageContainers)
     {
         if (!damageContainers.Contains(BiologicalDamageContainer))
             damageContainers.Add(BiologicalDamageContainer);

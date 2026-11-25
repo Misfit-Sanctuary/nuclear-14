@@ -3,24 +3,14 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: N14TinNade
+      id: MisfitsGrenadeImpact
+      weight: 2
     - !type:EntSelector
-      id: N14BaseballNade
+      id: MisfitsGrenadeFragDefensive
+      weight: 2
     - !type:EntSelector
-      id: N14KettleBomb
+      id: GrenadeShrapnel
+      weight: 2
     - !type:EntSelector
-      id: N14Dynamite
-    - !type:EntSelector
-      id: N14NukaNade
-    - !type:EntSelector
-      id: N14NukaCocktail
-    - !type:EntSelector
-      id: N14FirecrackerFull
-    - !type:EntSelector
-      id: N14FirecrackerHalf
-    - !type:EntSelector
-      id: N14Firecracker
-    - !type:EntSelector
-      id: N14PlasmaGrenade
-    - !type:EntSelector
-      id: N14CryoGrenade
+      id: EmpGrenade
+      weight: 3

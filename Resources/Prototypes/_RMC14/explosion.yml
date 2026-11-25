@@ -1,0 +1,47 @@
+# Mortar shell explosion, ported from AU-14/ColonialMarinesUniverse.
+- type: explosion
+  id: RMCMortar
+  damagePerIntensity:
+    types:
+      Blunt: 6.25
+      Heat: 6.25
+      Structural: 55
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireColor: Transparent
+  fireStates: 3
+
+# Fragmentation shell. Wide and shallow: it kills infantry over a large area but carries no structural
+# damage and never breaks tiles, so it is useless against cover.
+- type: explosion
+  id: RMCMortarFrag
+  damagePerIntensity:
+    types:
+      Piercing: 7.5
+      Blunt: 3.75
+  tileBreakChance: [0, 0, 0]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireColor: Transparent
+  fireStates: 3
+
+# Shaped charge. Tiny radius, but structural damage is high enough to tear through walls and barricades.
+# The tile break thresholds are far lower than the HE shell's because the blast is so much smaller.
+- type: explosion
+  id: RMCMortarHEAT
+  damagePerIntensity:
+    types:
+      Structural: 120
+      Blunt: 10
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 3, 7]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireColor: Transparent
+  fireStates: 3

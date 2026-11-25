@@ -168,6 +168,7 @@ namespace Content.Shared.Movement.Systems
                 || PullableQuery.TryGetComponent(uid, out var pullable) && pullable.BeingPulled)
             {
                 UsedMobMovement[uid] = false;
+                SetWishDir((uid, mover), Vector2.Zero);
                 return;
             }
 
@@ -306,6 +307,8 @@ namespace Content.Shared.Movement.Systems
             if (!weightless || touching)
                 Accelerate(ref velocity, in worldTotal, accel, frameTime);
 
+            SetWishDir((uid, mover), worldTotal);
+
             PhysicsSystem.SetLinearVelocity(physicsUid, velocity, body: physicsComponent);
 
             // Ensures that players do not spiiiiiiin
@@ -371,7 +374,24 @@ namespace Content.Shared.Movement.Systems
             velocity *= newSpeed;
         }
 
-        private void Accelerate(ref Vector2 currentVelocity, in Vector2 velocity, float accel, float frameTime)
+        public Vector2 GetWishDir(Entity<InputMoverComponent?> mover)
+        {
+            if (!MoverQuery.Resolve(mover.Owner, ref mover.Comp, false))
+                return Vector2.Zero;
+
+            return mover.Comp.WishDir;
+        }
+
+        public void SetWishDir(Entity<InputMoverComponent> mover, Vector2 wishDir)
+        {
+            // Misfits dirty this when other new stuff ported
+            mover.Comp.WishDir = wishDir;
+        }
+
+        /// <summary>
+        /// Adjusts the current velocity to the target velocity based on the specified acceleration.
+        /// </summary>
+        public static void Accelerate(ref Vector2 currentVelocity, in Vector2 velocity, float accel, float frameTime)
         {
             var wishDir = velocity != Vector2.Zero ? velocity.Normalized() : Vector2.Zero;
             var wishSpeed = velocity.Length();
@@ -472,6 +492,14 @@ namespace Content.Shared.Movement.Systems
             if (TryComp<FootstepModifierComponent>(uid, out var moverModifier))
             {
                 sound = moverModifier.FootstepSoundCollection;
+                return true;
+            }
+
+            // OuterClothing slot overrides footstep sound.
+            if (_inventory.TryGetSlotEntity(uid, "outerClothing", out var outerClothing) &&
+                TryComp<FootstepModifierComponent>(outerClothing, out var outerModifier))
+            {
+                sound = outerModifier.FootstepSoundCollection;
                 return true;
             }
 

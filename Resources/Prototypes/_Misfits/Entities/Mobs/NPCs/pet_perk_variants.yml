@@ -96,20 +96,16 @@
     needsHands: false
   - type: Hands # #Misfits Add - allows dragging and item handling
   - type: BorgHands # #Misfits Add - gives cats actual holdable hand slots
-    handCount: 2
+    handCount: 1
   - type: ComplexInteraction # #Misfits Add - allows click-opening doors and other complex hand interactions
   - type: RobotWeaponPickupBlacklist # #Misfits Add - cats should not be able to pick up guns/melee weapons
     blacklist:
       components:
       - Gun
       - MeleeWeapon
+  - type: MisfitsPetNoPickup # So they cant pick up items but can drag
   - type: InventorySlots
-  - type: Strippable
   - type: PetCollarHolder
-  - type: UserInterface
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -862,3 +858,30 @@
     - N14Robot
     - N14BrotherBeep
     - Sign
+
+- type: entity
+  parent: N14MobPetDogLegion
+  id: N14MobPetDogMacula
+  name: Macula
+  description: A peculiar hound that has its very own eyes filled with hatred. Has some blood around their mouth.
+  components:
+  - type: RandomMetadataExcluded
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: macula
+      sprite: _Nuclear14/Mobs/Animals/macula.rsi
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      110: Critical
+      200: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: macula
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead

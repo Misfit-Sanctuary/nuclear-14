@@ -2,13 +2,10 @@ using Content.Shared.Damage;
 using Content.Shared.Physics;
 using Content.Shared.Weapons.Reflect;
 using Robust.Shared.Audio;
-using Robust.Shared.Maths;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.Weapons.Ranged;
 
-[Prototype("hitscan")]
+[Prototype]
 public sealed partial class HitscanPrototype : IPrototype, IShootable
 {
     [ViewVariables]
@@ -34,18 +31,19 @@ public sealed partial class HitscanPrototype : IPrototype, IShootable
     // BulletImpassable mask (see BaseBullet), and glass uses GlassLayer which has no Opaque,
     // so the old Opaque-only mask made lasers fly straight through windows. Adding
     // BulletImpassable makes lasers collide with exactly what bullets collide with.
-    [DataField("collisionMask")]
+    [DataField("collisionMask", readOnly: true)]
     public int CollisionMask = (int) (CollisionGroup.Opaque | CollisionGroup.BulletImpassable);
 
     /// <summary>
     /// What we count as for reflection.
     /// </summary>
-    [DataField("reflective")] public ReflectType Reflective = ReflectType.Energy;
+    [DataField("reflective", readOnly: true)]
+    public ReflectType Reflective = ReflectType.Energy;
 
     /// <summary>
     /// Sound that plays upon the thing being hit.
     /// </summary>
-    [DataField("sound")]
+    [DataField("sound", readOnly: true)]
     public SoundSpecifier? Sound;
 
     /// <summary>
@@ -57,18 +55,18 @@ public sealed partial class HitscanPrototype : IPrototype, IShootable
     /// <summary>
     /// Try not to set this too high.
     /// </summary>
-    [DataField("maxLength")]
+    [DataField("maxLength", readOnly: true)]
     public float MaxLength = 20f;
 
     // #Misfits Add: optional beam colour tint applied on the client
-    [DataField("tintColor")]
+    [DataField("tintColor", readOnly: true)]
     public Color? TintColor;
 
     // #Misfits Add: vertical scale multiplier for the beam sprite (wider = thicker beam)
-    [DataField("beamWidth")]
+    [DataField("beamWidth", readOnly: true)]
     public float BeamWidth = 1f;
 
     // #Misfits Add: how long the beam visual stays on-screen (seconds)
-    [DataField("beamDuration")]
+    [DataField("beamDuration", readOnly: true)]
     public float BeamDuration = 0.48f;
 }

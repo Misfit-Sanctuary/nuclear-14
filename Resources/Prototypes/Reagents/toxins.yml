@@ -569,6 +569,9 @@
           - !type:OrganType # Misfits Change: super mutants can stomach raw food
             type: SuperMutant
             shouldHave: false
+          - !type:OrganType # Misfits Add: C-27 Integrator digests raw matter
+            type: C27Integrator
+            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
@@ -582,6 +585,9 @@
           - !type:OrganType # Misfits Change: super mutants can stomach raw food
             type: SuperMutant
             shouldHave: false
+          - !type:OrganType # Misfits Add: C-27 Integrator digests raw matter
+            type: C27Integrator
+            shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:OrganType
@@ -589,6 +595,9 @@
           shouldHave: false
         - !type:OrganType # Misfits Change: super mutants can stomach raw food
           type: SuperMutant
+          shouldHave: false
+        - !type:OrganType # Misfits Add: C-27 Integrator digests raw matter
+          type: C27Integrator
           shouldHave: false
         damage:
           types:
@@ -610,6 +619,8 @@
         conditions:
         - !type:OrganType
           type: SuperMutant
+        - !type:OrganType # Misfits Add: C-27 Integrator digests raw matter
+          type: C27Integrator
         reagent: Protein
         amount: 0.5
 

@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseItem
+  id: MisfitsFoodBase
+  abstract: true
+  components:
+  - type: Temperature
+  - type: FlavorProfile
+    flavors:
+    - food
+  - type: Food
+  - type: Sprite
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodSmallBase
+  abstract: true
+  components:
+  - type: Item
+    size: Tiny

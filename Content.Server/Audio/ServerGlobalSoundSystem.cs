@@ -1,5 +1,6 @@
 ﻿using Content.Server.Station.Systems;
 using Content.Shared.Audio;
+using Content.Shared._Misfits.Administration;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Console;
@@ -23,6 +24,16 @@ public sealed class ServerGlobalSoundSystem : SharedGlobalSoundSystem
     {
         var msg = new AdminSoundEvent(filename, audioParams);
         RaiseNetworkEvent(msg, playerFilter, recordReplay: replay);
+    }
+
+    public void PromptAdminGlobalUpload(ICommonSession admin)
+    {
+        RaiseNetworkEvent(new PromptGlobalAdminAudioUploadEvent(), Filter.SinglePlayer(admin));
+    }
+
+    public void PlayAdminMapWav(Filter playerFilter, byte[] wav, float volume)
+    {
+        RaiseNetworkEvent(new PlayMapAdminWavEvent(wav, volume), playerFilter);
     }
 
     private Filter GetStationAndPvs(EntityUid source)

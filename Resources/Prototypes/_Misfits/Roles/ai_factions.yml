@@ -158,11 +158,16 @@
   - CaesarLegion
   - HostileRobot
   - Enclave
+  - EnclaveSecureArea
   - Feral
+  - SuperMutant
 
+#MARK: Enclave
 # #Misfits Add - Enclave remnant faction for player jobs and future map-side automation.
 - type: npcFaction
   id: Enclave
+  friendly:
+  - EnclaveSecureArea
   hostile:
   - BrotherhoodOfSteel
   - BrotherhoodOfSteelSecureArea
@@ -173,7 +178,37 @@
   - WastelandAnimal
   - Deathclaw
   - Raider
+  - HostileRobot
   - Feral
+
+- type: npcFaction
+  id: EnclaveSecureArea
+  friendly:
+  - Enclave
+  hostile:
+  - Wastelander
+  - BrotherhoodOfSteel
+  - BrotherhoodOfSteelSecureArea
+  - CaravanCompany
+  - CaravanCompanySecureArea
+  - NCR
+  - NCRSecureArea
+  - Rangers
+  - Townsfolk
+  - TownsfolkSecureArea
+  - Tribal
+  - TribalSecureArea
+  - Vault
+  - VaultSecureArea
+  - Zetan
+  - WastelandAnimal
+  - WastelandInsect
+  - Deathclaw
+  - Raider
+  - HostileRobot
+  - Feral
+  - CaesarLegion
+  - SuperMutant
 
 # #Misfits Add - Followers of the Apocalypse player faction.
 # Used by BuildFactionFilter to target death-alert chat messages at Followers players.
@@ -208,3 +243,4 @@
   - CaesarLegion
   - SuperMutant
   - Enclave
+  - EnclaveSecureArea

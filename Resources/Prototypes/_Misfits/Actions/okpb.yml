@@ -1,0 +1,55 @@
+# The action
+
+- type: entity
+  id: ActionOKPB
+  name: OKPB
+  description: Redirect photons into a kinetic barrier
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 10
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Misfits/Effects/okpb_deploy.ogg
+    icon:
+      sprite: _Misfits/Objects/Misc/okpb.rsi
+      state: okpb
+    event: !type:InstantSpawnSpellEvent
+      prototype: WallOKPB
+      posData: !type:TargetInFront
+      
+      
+# The wall itself
+
+- type: entity
+  id: WallOKPB
+  name: Organic Kinetic Photon Barrier
+  components:
+    - type: TimedDespawn
+      lifetime: 12
+    - type: Tag
+      tags:
+        - Wall
+    - type: Physics
+      bodyType: Static
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+          mask:
+            - FullTileMask
+          layer:
+            - GlassLayer
+    - type: Airtight
+    - type: Sprite
+      drawdepth: WallTops
+      sprite: _Misfits/Objects/Misc/okpb.rsi
+      state: okpb_alpha
+    - type: Icon
+      sprite: _Misfits/Objects/Misc/okpb.rsi
+      state: okpb_alpha
+    - type: Clickable
+    - type: Reflect
+      reflectProb: 0.7

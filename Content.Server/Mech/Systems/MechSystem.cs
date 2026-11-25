@@ -1,5 +1,7 @@
 using System.Linq;
 using Content.Server.Atmos.EntitySystems;
+// #Cythisiax Added - Gate PA mech movement on the pilot's power armor training.
+using Content.Shared._Misfits.PowerArmor;
 using Content.Server.Mech.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -59,6 +61,10 @@ public sealed partial class MechSystem : SharedMechSystem
 
         SubscribeLocalEvent<MechComponent, UpdateCanMoveEvent>(OnMechCanMoveEvent);
 
+        // #Cythisiax Added - Refresh a piloted suit when training is gained or removed.
+        SubscribeLocalEvent<PowerArmorProficiencyComponent, ComponentInit>(OnPilotTrainingChanged);
+        SubscribeLocalEvent<PowerArmorProficiencyComponent, ComponentShutdown>(OnPilotTrainingChanged);
+
 
         SubscribeLocalEvent<MechPilotComponent, ToolUserAttemptUseEvent>(OnToolUseAttempt);
         SubscribeLocalEvent<MechPilotComponent, InhaleLocationEvent>(OnInhale);
@@ -75,8 +81,19 @@ public sealed partial class MechSystem : SharedMechSystem
 
     private void OnMechCanMoveEvent(EntityUid uid, MechComponent component, UpdateCanMoveEvent args)
     {
-        if (component.Broken || component.Integrity <= 0 || component.Energy <= 0)
+        // #Cythisiax Fixed - Untrained pilots may enter a PA mech but cannot move it.
+        if (component.Broken || component.Integrity <= 0 || component.Energy <= 0 ||
+            HasComp<MechPowerArmorComponent>(uid) &&
+            component.PilotSlot.ContainedEntity is { } pilot &&
+            !HasComp<PowerArmorProficiencyComponent>(pilot))
             args.Cancel();
+    }
+
+    // #Cythisiax Added - Training manuals can grant proficiency after entering the suit.
+    private void OnPilotTrainingChanged(EntityUid uid, PowerArmorProficiencyComponent component, EntityEventArgs args)
+    {
+        if (TryComp<MechPilotComponent>(uid, out var pilot) && HasComp<MechPowerArmorComponent>(pilot.Mech))
+            _actionBlocker.UpdateCanMove(pilot.Mech);
     }
 
     private void OnInteractUsing(EntityUid uid, MechComponent component, InteractUsingEvent args)

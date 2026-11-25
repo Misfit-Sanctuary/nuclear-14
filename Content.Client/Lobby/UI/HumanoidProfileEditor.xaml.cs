@@ -167,6 +167,9 @@ namespace Content.Client.Lobby.UI
                 ("C27NCR", "humanoid-profile-editor-robot-model-c27-ncr"),
                 ("C27BoS", "humanoid-profile-editor-robot-model-c27-bos"),
                 ("C27ZAX", "humanoid-profile-editor-robot-model-c27-zax"),
+                ("C27Integrator", "humanoid-profile-editor-robot-model-c27-integrator"),
+                ("C27Assault", "humanoid-profile-editor-robot-model-c27-assault"),
+                ("C27Recon", "humanoid-profile-editor-robot-model-c27-recon"),
             },
             // Ordinary Deathclaw life stages share the same whitelist/job. Bwonsamdi is intentionally excluded.
             ["Deathclaw"] = new[]
@@ -175,6 +178,14 @@ namespace Content.Client.Lobby.UI
                 ("DeathclawAdolescent", "humanoid-profile-editor-deathclaw-variant-adolescent"),
                 ("DeathclawHatchling", "humanoid-profile-editor-deathclaw-variant-hatchling"),
             },
+        };
+
+        // #Misfits Add - hover text for Robot Model dropdown entries, keyed by species ID.
+        private static readonly Dictionary<string, string> RobotModelTooltips = new()
+        {
+            ["C27Integrator"] = "humanoid-profile-editor-robot-model-c27-integrator-tooltip",
+            ["C27Assault"] = "humanoid-profile-editor-robot-model-c27-assault-tooltip",
+            ["C27Recon"] = "humanoid-profile-editor-robot-model-c27-recon-tooltip",
         };
 
         private readonly Dictionary<string, BoxContainer> _jobCategories;
@@ -210,14 +221,11 @@ namespace Content.Client.Lobby.UI
             Math.Max(0, _cfgManager.GetCVar(CCVars.GameLoadoutsPoints)
                 + SharedSpecialSystem.GetCharismaLoadoutPointModifier(SpecialProfile.EnsureValid(Profile?.Special).Charisma));
 
-        [ValidatePrototypeId<GuideEntryPrototype>]
-        private const string DefaultSpeciesGuidebook = "Species";
+        private static readonly ProtoId<GuideEntryPrototype> DefaultSpeciesGuidebook = "Species";
 
-        [ValidatePrototypeId<LocalizedDatasetPrototype>]
-        private const string StationAiNames = "NamesAI";
+        private static readonly ProtoId<LocalizedDatasetPrototype> StationAiNames = "NamesAI";
 
-        [ValidatePrototypeId<DatasetPrototype>]
-        private const string CyborgNames = "names_borg";
+        private static readonly ProtoId<DatasetPrototype> CyborgNames = "names_borg";
 
         public HumanoidProfileEditor(
             IClientPreferencesManager preferencesManager,
@@ -1349,6 +1357,7 @@ namespace Content.Client.Lobby.UI
 
                     _jobPriorities.Add((job.ID, selector));
                     jobContainer.AddChild(selector);
+                    AddRankPicker(jobContainer, job); // #Cythisiax Added - rank pin picker for NCR / Enclave jobs
                     departmentContents.AddChild(jobContainer);
                 }
             }
@@ -1536,6 +1545,7 @@ namespace Content.Client.Lobby.UI
 
                     _jobPriorities.Add((job.ID, selector));
                     jobContainer.AddChild(selector);
+                    AddRankPicker(jobContainer, job); // #Cythisiax Added - rank pin picker for NCR / Enclave jobs
                     departmentContents.AddChild(jobContainer);
                 }
             }
@@ -1872,6 +1882,31 @@ namespace Content.Client.Lobby.UI
             }
 
             RobotModelButton.SelectId(selectedIndex);
+            ApplyRobotModelTooltips(familyOptions);
+        }
+
+        // #Misfits Add - per-chassis hover text on the Robot Model dropdown items.
+        private void ApplyRobotModelTooltips((string SpeciesId, string NameLocKey)[] familyOptions)
+        {
+            // OptionButton builds its popup as OptionsScroll > vbox > items box > one Button per option.
+            var scroll = RobotModelButton.OptionsScroll;
+            if (scroll.ChildCount == 0)
+                return;
+
+            var contents = scroll.Children[0];
+            if (contents.ChildCount < 2)
+                return;
+
+            var items = contents.Children[1];
+
+            for (var i = 0; i < familyOptions.Length && i < items.ChildCount; i++)
+            {
+                if (items.Children[i] is not Button button)
+                    continue;
+
+                if (RobotModelTooltips.TryGetValue(familyOptions[i].SpeciesId, out var locKey))
+                    button.ToolTip = Loc.GetString(locKey);
+            }
         }
 
         // #Misfits Add: returns the model option array for the current species' family, or null if none.
@@ -1913,7 +1948,8 @@ namespace Content.Client.Lobby.UI
                 return;
 
             var isRobotSpecies = IsRobotSpecies(Profile.Species);
-            var isC27Species = Profile.Species is "C27" or "C27NCR" or "C27BoS" or "C27ZAX";
+            var isC27Species = Profile.Species is "C27" or "C27NCR" or "C27BoS" or "C27ZAX"
+                or "C27Integrator" or "C27Assault" or "C27Recon";
 
             EyesContainer.Visible = !isRobotSpecies;
             HeightContainer.Visible = !isRobotSpecies || isC27Species;
@@ -2010,6 +2046,9 @@ namespace Content.Client.Lobby.UI
                 || speciesId == "C27NCR" // #Misfits Add - C-27 NCR variant picked via Robot Model dropdown
                 || speciesId == "C27BoS" // #Misfits Add - C-27 Brotherhood variant picked via Robot Model dropdown
                 || speciesId == "C27ZAX" // #Misfits Add - C-27 Z.A.X variant picked via Robot Model dropdown
+                || speciesId == "C27Integrator" // #Misfits Add - C-27 Integrator config picked via Robot Model dropdown
+                || speciesId == "C27Assault" // #Misfits Add - C-27 Assault config picked via Robot Model dropdown
+                || speciesId == "C27Recon" // #Misfits Add - C-27 Recon config picked via Robot Model dropdown
                 || speciesId == "RobotProtectronTribal" // Misfits Add - Protectron Spirit-Tender
                 || speciesId == "DeathclawAdolescent"
                 || speciesId == "DeathclawHatchling";

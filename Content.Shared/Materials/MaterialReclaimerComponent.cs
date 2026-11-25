@@ -130,6 +130,10 @@ public sealed partial class MaterialReclaimerComponent : Component
     /// </remarks>
     [DataField, AutoNetworkedField]
     public int ItemsProcessed;
+
+    /// Misfits
+    [DataField]
+    public bool ChopsLogs;
 }
 
 [NetSerializable, Serializable]

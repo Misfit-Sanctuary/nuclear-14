@@ -1,0 +1,93 @@
+- type: entity
+  parent: ClothingShoesBase
+  id: MisfitsOptioShoes
+  name: metal boots
+  description: Optio's metal boots, not too worn out yet.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/Optio/optioboots.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/Optio/optioboots.rsi
+  - type: NoSlip
+  - type: ClothingSlowOnDamageModifier # Forge-Add
+    modifier: 0.85
+
+- type: entity
+  parent: ClothingNeckBase
+  id: MisfitsOptioScarf
+  name: red scarf
+  description: Those holding the rank of optio often act as diplomats and orators, this scarf certainly helps with presentation.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/Optio/optioscarf.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/Optio/optioscarf.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: MisfitsOptioGauntlets
+  name: optio gauntlets
+  description: Pristine looking gauntlets made for an optio.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/Optio/optiohand.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/Optio/optiohand.rsi
+
+- type: entity
+  parent: N14FalloutArmorBase
+  id: MisfitsOptioArmor
+  name: optio armor
+  description: Set of armor made for a centurion in training. Not unique, not as protective, but certainly shiny and helps with presentation.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/Optio/optioarmor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/Optio/optioarmor.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.05 #A little faster than the previous recon
+    sprintModifier: 1.05
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.60 # wah wah, second in command should have good armor
+        Heat: 0.65
+  - type: ExplosionResistance
+    damageCoefficient: 0.82
+
+- type: entity
+  parent: ClothingHeadBase
+  id: MisfitsOptioHelmet
+  name: optio helmet
+  description: Helmet made for a centurion in training. Draws attention. Good for diplomatic missions, not that great for war.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/Optio/optiohelmet.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/Optio/optiohelmet.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
+  - type: HideLayerClothing
+    force: true
+    slots:
+    - Hair
+
+- type: entity
+  parent: ClothingUniformBase
+  id: MisfitsOptioTunic
+  name: optio tunic
+  description: Tunic of an optio.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/Optio/optiotunic.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/Optio/optiotunic.rsi

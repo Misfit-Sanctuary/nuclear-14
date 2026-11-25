@@ -47,6 +47,13 @@ namespace Content.Shared.Movement.Components
 
         public MoveButtons HeldMoveButtons = MoveButtons.None;
 
+        // I don't know if we even need this networked? It's mostly so conveyors can calculate properly.
+        /// <summary>
+        /// Direction to move this tick.
+        /// </summary>
+        [ViewVariables]
+        public Vector2 WishDir;
+
         /// <summary>
         /// Entity our movement is relative to.
         /// </summary>

@@ -115,6 +115,10 @@ namespace Content.Server.NPC.Pathfinding
             };
 
             UpdateGrid(options);
+            // #Cythisiax Added - avoid dispatching an empty parallel batch when no paths are queued.
+            if (_pathRequests.Count == 0)
+                return;
+
             _stopwatch.Restart();
             var amount = Math.Min(PathTickLimit, _pathRequests.Count);
             var results = ArrayPool<PathResult>.Shared.Rent(amount);

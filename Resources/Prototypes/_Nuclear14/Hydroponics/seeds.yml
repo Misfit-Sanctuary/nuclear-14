@@ -571,3 +571,50 @@
       Min: 1
       Max: 10
       PotencyDivisor: 25
+
+- type: seed
+  id: N14WildCaveFungus
+  name: Cave Fungus
+  noun: Spores
+  displayName: Cave Fungi
+  plantRsi: _Nuclear14/Objects/Specific/Hydroponics/cavefungus.rsi
+  packetPrototype: N14FloraWildCaveFungusClippingSeed
+  productPrototypes:
+    - N14FloraProduceWildCaveFungus
+  mutationPrototypes:
+    - N14WildCaveFungusRad
+  lifespan: 25
+  maturation: 20
+  production: 1
+  yield: 3
+  potency: 10
+  growthStages: 3
+  waterConsumption: 2
+  chemicals:
+    ExtractFungus:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 25
+
+- type: seed
+  id: N14WildCaveFungusRad
+  name: Irradiated Cave Fungus
+  noun: Spores
+  displayName: Irradiated Cave Fungi
+  plantRsi: _Nuclear14/Objects/Specific/Hydroponics/cavefungusrad.rsi
+  packetPrototype: N14FloraWildCaveFungusRadClippingSeed
+  productPrototypes:
+    - N14FloraProduceWildCaveFungusRad
+  lifespan: 25
+  maturation: 20
+  production: 1
+  yield: 3
+  potency: 10
+  growthStages: 3
+  waterConsumption: 2
+  chemicals:
+    ExtractFungusRad:
+      Min: 1
+      Max: 10
+      PotencyDivisor: 25
+

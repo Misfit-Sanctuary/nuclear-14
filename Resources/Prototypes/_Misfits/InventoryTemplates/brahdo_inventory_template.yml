@@ -1,0 +1,24 @@
+- type: inventoryTemplate
+  id: brahdo
+  slots:
+    - name: back
+      fullTextureName: template_small
+      slotTexture: back
+      slotFlags: BACK
+      slotGroup: SecondHotbar
+      dependsOn: outerClothing
+      stripTime: 2
+      uiWindowPos: 0,0
+      strippingWindowPos: 0,0
+      displayName: Back Pack
+    - name: outerClothing
+      slotTexture: suit_storage
+      slotFlags: OUTERCLOTHING
+      slotGroup: SecondHotbar
+      stripTime: 2
+      uiWindowPos: 1,0
+      strippingWindowPos: 1,0
+      displayName: Saddle
+      whitelist:
+        tags:
+          - Brahdo

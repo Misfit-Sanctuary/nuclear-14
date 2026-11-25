@@ -1,8 +1,8 @@
+using Robust.Shared.Prototypes;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
 using Robust.Shared.Noise;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared.Parallax.Biomes.Layers;
 
@@ -10,7 +10,7 @@ namespace Content.Shared.Parallax.Biomes.Layers;
 public sealed partial class BiomeDecalLayer : IBiomeWorldLayer
 {
     /// <inheritdoc/>
-    [DataField("allowedTiles", customTypeSerializer:typeof(PrototypeIdListSerializer<ContentTileDefinition>))]
+    [DataField("allowedTiles")]
     public List<string> AllowedTiles { get; private set; } = new();
 
     /// <summary>
@@ -29,8 +29,8 @@ public sealed partial class BiomeDecalLayer : IBiomeWorldLayer
     /// <inheritdoc/>
     [DataField("invert")] public bool Invert { get; private set; } = false;
 
-    [DataField("decals", required: true, customTypeSerializer:typeof(PrototypeIdListSerializer<DecalPrototype>))]
-    public List<string> Decals = new();
+    [DataField("decals", required: true)]
+    public List<ProtoId<DecalPrototype>> Decals = new();
 
     [DataField("color")]
     public Color Color = Color.White;

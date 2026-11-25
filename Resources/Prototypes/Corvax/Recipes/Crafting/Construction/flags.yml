@@ -133,3 +133,20 @@
     state: legionflag
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  id: N14DecorationLegionCross
+  name: Crucifix
+  graph: DecorationLegionCross
+  startNode: start
+  targetNode: LegionCross
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Decoration/Flags/legioncross.rsi
+    state: icon
+  conditions:
+    - !type:TileNotBlocked

@@ -6,7 +6,6 @@
   jobWhitelistBypassesRoleTimers: true # #Misfits Change
   weight: 105
   displayWeight: 123
-  showBorder: true
   overrideConsoleVisibility: false
   canBeAntag: false
   name: job-name-enclave-nco
@@ -36,6 +35,14 @@
       - type: ReplacementAccent
         accent: n14Enclave
       - type: PowerArmorProficiency
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinEnclaveSergeant }
+    - { pin: ClothingNeckPinEnclaveStaffSergeant, hours: 20 }
+    - { pin: ClothingNeckPinEnclaveSFC, hours: 40 }
+    - { pin: ClothingNeckPinEnclaveMasterSergeant, hours: 60 }
+    - { pin: ClothingNeckPinEnclaveSergeantMajor, hours: 80 }
 
 - type: startingGear
   id: EnclaveNCOGear

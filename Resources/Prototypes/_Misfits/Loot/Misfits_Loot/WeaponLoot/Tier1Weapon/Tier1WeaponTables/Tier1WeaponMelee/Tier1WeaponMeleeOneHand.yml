@@ -4,8 +4,6 @@
     children:
     - !type:EntSelector
       id: N14BrokenPipe
-    - !type:EntSelector
-      id: N14PoliceBaton
 #omfg we need more one handed blunt
 
 - type: entityTable
@@ -13,12 +11,13 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: N14ScrapMachete
-    - !type:EntSelector
       id: N14KitchenKnife
     - !type:EntSelector
       id: N14ButchersCleaver
-
+    - !type:EntSelector
+      id: N14TribalKnife
+    - !type:EntSelector
+      id: N14CombatKnife
 
 - type: entityTable
   id: M14WeaponLootTier1_MeleeOtherOneHanded

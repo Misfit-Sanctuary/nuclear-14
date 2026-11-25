@@ -1,5 +1,7 @@
 using System.Linq;
 using Content.Shared.Access.Components;
+// #Cythisiax Added - Distinguish wearable mech power armor from conventional mechs.
+using Content.Shared._Misfits.PowerArmor;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Destructible;
@@ -424,6 +426,10 @@ public abstract class SharedMechSystem : EntitySystem
         if (args.Handled)
             return;
 
+        // #Cythisiax Fixed - Let PA pilots attack with their active hand weapon.
+        if (HasComp<MechPowerArmorComponent>(component.Mech))
+            return;
+
         if (!TryComp<MechComponent>(component.Mech, out var mech))
             return;
 
@@ -445,6 +451,15 @@ public abstract class SharedMechSystem : EntitySystem
 
     private void OnAccessibleOverride(EntityUid uid, MechPilotComponent component, ref AccessibleOverrideEvent args)
     {
+        // #Cythisiax Fixed - Personal equipment remains accessible inside a PA mech.
+        if (args.User == uid && HasComp<MechPowerArmorComponent>(component.Mech) &&
+            (IsPilotEquipment(uid, args.Target) || _interaction.CanAccessViaStorage(uid, args.Target)))
+        {
+            args.Handled = true;
+            args.Accessible = true;
+            return;
+        }
+
         if (args.User != uid ||
             !TryComp<MechComponent>(component.Mech, out var mech) ||
             mech.CurrentSelectedEquipment != null)
@@ -458,6 +473,15 @@ public abstract class SharedMechSystem : EntitySystem
 
     private void OnInRangeOverride(EntityUid uid, MechPilotComponent component, ref InRangeOverrideEvent args)
     {
+        // #Cythisiax Fixed - Reach the pilot's own slots without checking from outside the suit.
+        if (args.User == uid && HasComp<MechPowerArmorComponent>(component.Mech) &&
+            (IsPilotEquipment(uid, args.Target) || _interaction.CanAccessViaStorage(uid, args.Target)))
+        {
+            args.Handled = true;
+            args.InRange = true;
+            return;
+        }
+
         if (args.User != uid ||
             !TryComp<MechComponent>(component.Mech, out var mech) ||
             mech.CurrentSelectedEquipment != null)
@@ -467,6 +491,13 @@ public abstract class SharedMechSystem : EntitySystem
 
         args.Handled = true;
         args.InRange = _interaction.InRangeUnobstructed(component.Mech, args.Target);
+    }
+
+    // #Cythisiax Added - Only direct hand and inventory contents belong to the pilot; storage handles its own contents.
+    private bool IsPilotEquipment(EntityUid pilot, EntityUid target)
+    {
+        return target == pilot ||
+               _container.TryGetContainingContainer(target, out var container) && container.Owner == pilot;
     }
 
     // Goobstation: Prevent guns being used out of mechs if CCVAR is set.

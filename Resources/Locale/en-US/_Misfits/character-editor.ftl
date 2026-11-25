@@ -83,6 +83,12 @@ humanoid-profile-editor-robot-model-c27-generic = Generic Chassis
 humanoid-profile-editor-robot-model-c27-ncr = NCR Issue
 humanoid-profile-editor-robot-model-c27-bos = Brotherhood Issue
 humanoid-profile-editor-robot-model-c27-zax = Z.A.X Chassis
+humanoid-profile-editor-robot-model-c27-integrator = Integrator Chassis
+humanoid-profile-editor-robot-model-c27-assault = Assault Chassis
+humanoid-profile-editor-robot-model-c27-recon = Recon Chassis
+humanoid-profile-editor-robot-model-c27-integrator-tooltip = Integrator - A pre-war C-27 model robot of unusual make with various pieces of tubing running along it's torso, arms, and legs joints as well as some sort of synthetic fibers mimicking musculature along it's chassis. Seem's unusually twitchy as compared to others of it's model.
+humanoid-profile-editor-robot-model-c27-assault-tooltip = Assault - A pre-war C-27 model robot with a reinforced chassis and towering build. Every step it takes seems to thunder loudly with the whirring of heavy servos and armor plating.
+humanoid-profile-editor-robot-model-c27-recon-tooltip = Recon - A pre-war C-27 model robot featuring a lankier build and lighter armor plating, additional optical sensors and a more advanced antenna can be noted quickly, and it seem's to move much more silently than other models.
 
 # Ordinary sentient Deathclaw life-stage selector.
 humanoid-profile-editor-deathclaw-variant-adult = Adult

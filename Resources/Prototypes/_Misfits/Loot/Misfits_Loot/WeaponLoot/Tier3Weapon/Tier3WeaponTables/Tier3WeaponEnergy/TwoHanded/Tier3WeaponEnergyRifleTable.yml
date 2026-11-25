@@ -4,8 +4,10 @@
     children:
     - !type:EntSelector
       id: N14WeaponLaserRifleAuto
-      weight: 1
-
+      weight: 5
+    - !type:EntSelector
+      id: N14WeaponLaserRCW
+      weight: 5
 
 - type: entityTable
   id: M14WeaponLootTier3_PlasmaRifleAuto
@@ -20,7 +22,7 @@
     children:
     - !type:EntSelector
       id: N14WeaponFlamer
-      weight: 1
+      weight: 5
 
 
 - type: entityTable
@@ -28,23 +30,14 @@
   table: !type:GroupSelector
     children:
     - !type:EntSelector
-      id: N14WeaponLaserRifleCrude
-      weight: 1
-    - !type:EntSelector
-      id: N14WeaponLaserRifleMakeshift
-      weight: 1
-    - !type:EntSelector
       id: N14WeaponLaserRifleWattz2000
-      weight: 1
-    - !type:EntSelector
-      id: N14WeaponLaserRifleWattz3000
-      weight: 1
+      weight: 5
     - !type:EntSelector
       id: N14WeaponLaserRifleRecharger
-      weight: 1
+      weight: 5
     - !type:EntSelector
       id: N14WeaponLaserRifle
-      weight: 1
+      weight: 5
 
 - type: entityTable
   id: M14WeaponLootTier3_PlasmaRifleSemi
@@ -52,10 +45,7 @@
     children:
     - !type:EntSelector
       id: N14WeaponPlasmaRifleCrude
-      weight: 1
-    - !type:EntSelector
-      id: N14WeaponPlasmaRifle
-      weight: 1
+      weight: 5
 
 
 - type: entityTable

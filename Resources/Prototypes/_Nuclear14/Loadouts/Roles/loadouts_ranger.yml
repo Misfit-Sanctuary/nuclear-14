@@ -85,7 +85,8 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
+        - NCRRangerStandard
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingNeckCloakRanger
 
@@ -100,8 +101,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
         - NCRVeteranRanger
   items:
     - N14ClothingHeadHatRangerB
@@ -115,8 +116,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
         - NCRVeteranRanger
   items:
     - N14ClothingHeadHatNCRBeretRecon
@@ -142,8 +143,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
         - NCRVeteranRanger
   items:
     - N14ClothingUniformRangerV1
@@ -157,8 +158,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
         - NCRVeteranRanger
   items:
     - N14ClothingUniformRangerV2
@@ -172,8 +173,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
         - NCRVeteranRanger
   items:
     - N14ClothingUniformRangerV3
@@ -187,8 +188,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
         - NCRVeteranRanger
         - NCRRangerMedic
   items:
@@ -203,10 +204,11 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
-        - SuperMutantRanger 
+        - SuperMutantRanger
         - SuperMutantNCRRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14MedkitCombatFilled
 
@@ -239,8 +241,9 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingUniformRangerVeteranRed
 
@@ -252,8 +255,9 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingUniformRangerVeteran
 
@@ -265,8 +269,9 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - N14ClothingUniformRangerVeteranBlack
 
@@ -279,8 +284,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
         - NCRVeteranRanger
   items:
     - N14ClothingUniformRangerBlue
@@ -294,8 +299,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
         - NCRVeteranRanger
   items:
     - N14ClothingUniformRangerModif
@@ -308,9 +313,9 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
   items:
     - ClothingNeckOldMantle
 # Corvax-Add End
@@ -419,26 +424,29 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
     - !type:CharacterPlaytimeRequirement
       tracker: NCRVeteranRanger
       min: 72000 # 1200 minutes
   items:
     - ClothingMaskGasRangerPrice
 
-- type: loadout
-  id: LoadoutNCRClothingMaskGasRangerModif2
-  category: Roles
-  cost: 2
-  exclusive: true
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - NCRVeteranRanger
-    - !type:CharacterPlaytimeRequirement
-      tracker: NCRVeteranRanger
-      min: 72000 # 1200 minutes
-  items:
-    - ClothingMaskGasRangerModif
+# #Cythisiax Removed - DAGGER exclusive: the ranger modified gas mask is DAGGER-only gear (Elite/Price mask loadouts remain)
+#- type: loadout
+#  id: LoadoutNCRClothingMaskGasRangerModif2
+#  category: Roles
+#  cost: 2
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - NCRVeteranRanger
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: NCRVeteranRanger
+#      min: 72000 # 1200 minutes
+#  items:
+#    - ClothingMaskGasRangerModif
 
 # Misfits Change - Disabled: armor with resistance values removed from roundstart loadout menu
 #- type: loadout
@@ -558,8 +566,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRRangerRecruit
-        - NCRFieldRanger
-        - NCRPatrolRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
         - NCRVeteranRanger
   items:
     - N14ClothingNeckCloakRangerPoncho
@@ -573,6 +581,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
     - !type:CharacterPlaytimeRequirement
       tracker: NCRVeteranRanger
       min: 216000 # 60 hours veterancy unlock "First Tour"
@@ -588,6 +598,8 @@
     - !type:CharacterJobRequirement
       jobs:
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
+        - NCRRangerStandard
   items:
     - ClothingMaskGasRiot
 # Corvax-Add End
@@ -601,8 +613,9 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
+        - NCRRangerStandard
         - NCRVeteranRanger
+        - NCRRangerMedic # #Misfits Add - Ranger Medic
     - !type:CharacterPlaytimeRequirement
       tracker: NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
       min: 216000 # 60 hours veterancy unlock "First Tour"

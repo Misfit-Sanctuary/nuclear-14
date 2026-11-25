@@ -2,14 +2,14 @@
 # Four variants: Mr. Handy, Protectron, Mr. Gutsy, Assaultron.
 # roundStart: true so whitelisted players see them in the character editor species dropdown
 # and via the Robot Type variant picker panel.
-# Access is gated per-job (e.g. jobwhitelistadd <player> SyntheticMrHandy).
+# #Cythisiax Edited - base Mr. Handy and Protectron profiles follow their open non-faction jobs; other robot species retain job-whitelist gating.
 
 - type: species
   id: RobotMrHandy
   name: species-name-robot-mr-handy
   roundStart: true
   order: 10 # #Misfits Change: robots last
-  whitelistRequired: true # #Misfits Change
+  whitelistRequired: false # #Cythisiax Edited - allow profiles for the open non-faction Mr. Handy role.
   restrictedCustomization: true # #Misfits Change
   allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so Mister Handy Etiquette is visible/selectable
   - Speech
@@ -57,7 +57,7 @@
   name: species-name-robot-protectron
   roundStart: true
   order: 11 # #Misfits Change: robots last
-  whitelistRequired: true # #Misfits Change
+  whitelistRequired: false # #Cythisiax Edited - allow profiles for the open non-faction Protectron role.
   restrictedCustomization: true # #Misfits Change
   allowedTraitCategories: # #Misfits Fix - robot accent perks: allow Speech traits so accents persist on save
   - Speech
@@ -112,9 +112,9 @@
   - TraitsSpeechUncategorized
   - TraitsSpeechAccents
   - TraitsSpeechLanguages
-  jobWhitelistUnlock: SyntheticProtectron # #Misfits Add
+  jobWhitelistUnlock: SyntheticProtectron # #Misfits Add - the existing Protectron job whitelist is the Constructron whitelist
   restrictedJobs: # #Misfits Add
-  - SyntheticProtectron
+  - SyntheticProtectron # #Cythisiax Note - keep in sync with the species list on the SyntheticProtectron job
   sprites: RobotSprites
   markingLimits: RobotMarkingLimits
   prototype: N14PlayerSyntheticProtectronBuilder

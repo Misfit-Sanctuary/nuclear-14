@@ -4,5 +4,7 @@
     children:
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_GunsExplosiveSmallArm
+          weight: 5
       - !type:NestedSelector
           tableId: M14WeaponLootTier5_GunsExplosiveHeavy
+          weight: 4

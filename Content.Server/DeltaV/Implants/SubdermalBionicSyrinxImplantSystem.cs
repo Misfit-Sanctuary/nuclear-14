@@ -1,4 +1,5 @@
-﻿using Content.Server.VoiceMask;
+﻿using Robust.Shared.Prototypes;
+using Content.Server.VoiceMask;
 using Content.Shared.Implants;
 using Content.Shared.Tag;
 
@@ -8,8 +9,7 @@ public sealed class SubdermalBionicSyrinxImplantSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tag = default!;
 
-    [ValidatePrototypeId<TagPrototype>]
-    private const string BionicSyrinxImplant = "BionicSyrinxImplant";
+    private static readonly ProtoId<TagPrototype> BionicSyrinxImplant = "BionicSyrinxImplant";
 
     public override void Initialize()
     {

@@ -1203,7 +1203,9 @@
     graph: Cutlet
     node: start
     defaultTarget: cutlet
-
+  - type: SliceableFood
+    count: 1
+    slice: MisfitsFoodDicedMeat
 - type: entity
   name: raw bear cutlet
   parent: FoodMeatBase

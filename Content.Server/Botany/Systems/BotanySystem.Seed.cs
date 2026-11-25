@@ -3,6 +3,8 @@ using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
 using Content.Shared.Botany;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Physics;
@@ -11,6 +13,7 @@ using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Slippery;
 using Content.Shared.StepTrigger.Components;
+using Content.Shared.Stacks;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
@@ -43,6 +46,22 @@ public sealed partial class BotanySystem : EntitySystem
 
         SubscribeLocalEvent<SeedComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<ProduceComponent, ExaminedEvent>(OnProduceExamined);
+        SubscribeLocalEvent<ProduceComponent, StackSplitEvent>(OnProduceStackSplit);
+    }
+
+    /// <summary>
+    /// Preserve a harvested plant's generated chemistry when its stack is split.
+    /// StackSystem creates the split entity from the prototype, whose solution is not
+    /// the live potency-derived solution assigned by <see cref="ProduceGrown"/>.
+    /// </summary>
+    private void OnProduceStackSplit(EntityUid uid, ProduceComponent produce, ref StackSplitEvent args)
+    {
+        if (!_solutionContainerSystem.TryGetSolution(uid, produce.SolutionName, out var source)
+            || !_solutionContainerSystem.TryGetSolution(args.NewId, produce.SolutionName, out var split))
+            return;
+
+        split.Value.Comp.Solution = new Solution(source.Value.Comp.Solution);
+        _solutionContainerSystem.UpdateChemicals(split.Value);
     }
 
     public bool TryGetSeed(SeedComponent comp, [NotNullWhen(true)] out SeedData? seed)

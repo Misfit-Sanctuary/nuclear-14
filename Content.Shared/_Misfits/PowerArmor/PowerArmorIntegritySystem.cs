@@ -3,6 +3,7 @@ using Content.Shared.Armor;
 using Content.Shared.Clothing;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
+using Content.Shared.Explosion.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Examine;

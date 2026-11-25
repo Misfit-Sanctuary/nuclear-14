@@ -1,6 +1,7 @@
 using System.Text;
 using System.Threading.Tasks;
 using Content.Server.Administration.Managers;
+using Content.Server.Administration.Logs;
 using Content.Server.Database;
 using Content.Server.EUI;
 using Content.Server.GameTicking;
@@ -23,6 +24,7 @@ public sealed class AdminNotesManager : IAdminNotesManager, IPostInjectInit
     [Dependency] private readonly EuiManager _euis = default!;
     [Dependency] private readonly IEntitySystemManager _systems = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
 
     public const string SawmillId = "admin.notes";
 
@@ -173,6 +175,9 @@ public sealed class AdminNotesManager : IAdminNotesManager, IPostInjectInit
             seen
         );
         NoteAdded?.Invoke(note);
+        if (createdBy is { } adminId)
+            _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+                $"{createdByName} ({adminId}) added {type} #{noteId} for {player:targetPlayerId}; severity {severity}, secret {secret}, expiry {expiryTime}");
     }
 
     private async Task<SharedAdminNote?> GetAdminRemark(int id, NoteType type)
@@ -221,6 +226,8 @@ public sealed class AdminNotesManager : IAdminNotesManager, IPostInjectInit
         }
 
         _sawmill.Info($"{deletedBy.Name} has deleted {type} {noteId}");
+        _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+            $"{deletedBy:actor} deleted {type} #{noteId} for {note.Player.UserId:targetPlayerId}");
         NoteDeleted?.Invoke(note);
     }
 
@@ -313,6 +320,8 @@ public sealed class AdminNotesManager : IAdminNotesManager, IPostInjectInit
             EditedByName = editedBy.Name,
             ExpiryTime = expiryTime
         };
+        _adminLog.Add(LogType.AdminAudit, LogImpact.Medium,
+            $"{editedBy:actor} edited {type} #{noteId} for {note.Player.UserId:targetPlayerId}; severity {note.NoteSeverity} -> {severity}, secret {note.Secret} -> {secret}, expiry {note.ExpiryTime} -> {expiryTime}, message changed {note.Message != message}");
         NoteModified?.Invoke(newNote);
     }
 

@@ -1,3 +1,4 @@
+using Robust.Shared.Prototypes;
 using System.Threading;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
@@ -5,7 +6,6 @@ using Content.Shared.Explosion;
 using Content.Shared.Nuke;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Nuke
 {
@@ -91,8 +91,8 @@ namespace Content.Server.Nuke
         ///     information (e.g., the light that the explosion gives off).
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("explosionType", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<ExplosionPrototype>))]
-        public string ExplosionType = default!;
+        [DataField("explosionType", required: true)]
+        public ProtoId<ExplosionPrototype> ExplosionType = default!;
 
         /// <summary>
         ///     The maximum intensity the explosion can have on a single time. This limits the maximum damage and tile

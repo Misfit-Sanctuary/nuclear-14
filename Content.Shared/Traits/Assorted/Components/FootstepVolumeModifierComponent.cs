@@ -19,4 +19,7 @@ public sealed partial class FootstepVolumeModifierComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float WalkVolumeModifier;
+
+    [DataField, AutoNetworkedField]
+    public float ClothVolumeModifier;
 }

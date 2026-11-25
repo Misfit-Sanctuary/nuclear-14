@@ -337,8 +337,8 @@
 - type: entity
   parent: N14ClothingBeltStorageBase
   id: ClothingBeltEnclave
-  name: U.S. Army belt
-  description: A leather belt designed by the U.S. Army.
+  name: enclave belt
+  description: A leather belt designed by the Enclave, if you're trying to hide your identity, this is the most embarassing way to get spotted as a member of the Enclave.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Belt/enclavebelt.rsi
@@ -366,3 +366,66 @@
   - type: Clothing
     sprite: _Nuclear14/Clothing/Belt/mountiebandolier.rsi
   - type: Appearance
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltWasterKatanaBeltT1
+  name: waster katana sheath
+  description: A simple crudely made leather sheath for a waster katana.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Belt/Wastersheatt1.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Belt/Wastersheatt1.rsi
+  - type: Storage
+    grid:
+      - 0,0,3,1
+    whitelist:
+      tags:
+        - WasterKatanaT1
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - WasterKatanaT1
+  - type: Appearance
+  - type: Tag
+    tags:
+      - BeltSlotNotBelt
+      - WasterKatanaBeltT1
+  - type: Construction
+    graph: N14WasterKatanaBeltT1
+    node: wasterkatanabelt1
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltWasterKatanaBeltT2
+  name: reinforced waster katana sheath
+  description: An upgraded version of the waster katana sheath, built to hold a superior blade.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Belt/Wastersheatt2.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Belt/Wastersheatt2.rsi
+  - type: Storage
+    grid:
+      - 0,0,3,1
+    whitelist:
+      tags:
+        - WasterKatanaT2
+  - type: ItemMapper
+    mapLayers:
+      sheath-sabre:
+        whitelist:
+          tags:
+          - WasterKatanaT2
+  - type: Appearance
+  - type: Tag
+    tags:
+      - BeltSlotNotBelt
+  - type: Construction
+    graph: N14WasterKatanaBeltT2
+    node: wasterkatanabelt2

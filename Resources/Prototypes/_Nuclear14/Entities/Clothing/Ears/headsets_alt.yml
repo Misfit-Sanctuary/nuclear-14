@@ -3,7 +3,7 @@
   parent: Clothing
   id: N14ClothingHeadsetAlt
   name: headset
-  description: An earpiece with an intercom built into it, almost like a radio? Takes encryption keys.
+  description: An earpiece with a built-in intercom, it takes encryption keys and is your main method of communication long distance.
   components:
   - type: Headset
     # #Misfits Add - all N14 headsets passively receive PBS (Broadcast) without a key; transmit requires EncryptionKeyPBS
@@ -15,7 +15,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyCommon
+      - EncryptionKeyCommonUR
       - EncryptionKeyWastelandGlobal
   - type: EncryptionKeyHolder
     keySlots: 4
@@ -32,12 +32,13 @@
 - type: entity
   parent: N14ClothingHeadsetAlt
   id: N14ClothingHeadsetVaulttec #No longer used, all Vault dwellers got the same headset now
-  name: Vault-Tec over-ear headset
+  name: Vault-Tec headset
+  description: A pre-war over-ear headset manufactured by Vault-Tec, issued to generations of vault dwellers and re-used by their descendants.
   components:
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyStationMaster
+      - EncryptionKeyStationMasterUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: Clothing/Ears/Headsets/centcom.rsi
@@ -47,12 +48,13 @@
 - type: entity
   parent: N14ClothingHeadsetAlt
   id: N14ClothingHeadsetVaultCommand #No longer used, all Vault dwellers got the same headset now
-  name: command over-ear headset
+  name: Vault-Tec command headset
+  description: A pre-war over-head headset manufactured by Vault-Tec, for use by heads of staff and overseers. Only issued to the most trusted of vault residents.
   components:
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyStationMaster
+      - EncryptionKeyStationMasterUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: Clothing/Ears/Headsets/command.rsi
@@ -62,12 +64,13 @@
 - type: entity
   parent: N14ClothingHeadsetAlt
   id: N14ClothingHeadsetVaultDweller
-  name: vault over-ear headset
+  name: Vault-Tec headset
+  description: A pre-war over-ear headset manufactured by Vault-Tec, issued to generations of vault dwellers and re-used by their descendants.
   components:
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyVault
+      - EncryptionKeyVaultUR
   - type: Sprite
     sprite: _Misfits/Clothing/Ears/Headsets/vault.rsi
   - type: Clothing
@@ -76,13 +79,14 @@
 - type: entity
   parent: N14ClothingHeadsetAlt
   id: N14ClothingHeadsetVaultMedical #No longer used, all Vault dwellers got the same headset now
-  name: medical over-ear headset
+  name: Vault-Tec medical headset
+  description: A pre-war over-ear headset manufactured by Vault-Tec, used by vault doctors to communicate discrete medical information to prevent possible panic.
   components:
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyMedical
-      - EncryptionKeyCommon
+      - EncryptionKeyMedicalUR
+      - EncryptionKeyCommonUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: Clothing/Ears/Headsets/medical.rsi
@@ -92,13 +96,14 @@
 - type: entity
   parent: N14ClothingHeadsetAlt
   id: N14ClothingHeadsetVaultSecurity #No longer used, all Vault dwellers got the same headset now
-  name: security over-ear headset
+  name: Vault-Tec security headset
+  description: A pre-war over-ear headset manufactured by Vault-Tec, used by vault security personnel to coordinate their operations and maintain order in the vault.
   components:
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeySecurity
-      - EncryptionKeyCommon
+      - EncryptionKeySecurityUR
+      - EncryptionKeyCommonUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: Clothing/Ears/Headsets/security.rsi
@@ -108,13 +113,14 @@
 - type: entity
   parent: N14ClothingHeadsetAlt
   id: N14ClothingHeadsetVaultEngineering #No longer used, all Vault dwellers got the same headset now
-  name: engineering over-ear headset
+  name: Vault-Tec engineering headset
+  description: A pre-war over-ear headset manufactured by Vault-Tec, used by vault engineers to prevent any reactor meltdowns and hunt down any other technical abnormalities.
   components:
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyEngineering
-      - EncryptionKeyCommon
+      - EncryptionKeyEngineeringUR
+      - EncryptionKeyCommonUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: Clothing/Ears/Headsets/engineering.rsi
@@ -124,13 +130,14 @@
 - type: entity
   parent: N14ClothingHeadsetAlt
   id: N14ClothingHeadsetVaultScience #No longer used, all Vault dwellers got the same headset now
-  name: science over-ear headset
+  name: Vault-Tec science headset
+  description: A pre-war over-ear headset manufactured by Vault-Tec, used by vault scientists to discover new things about the strange outside world and help their community survive the unknown.
   components:
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyScience
-      - EncryptionKeyCommon
+      - EncryptionKeyScienceUR
+      - EncryptionKeyCommonUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: Clothing/Ears/Headsets/science.rsi
@@ -173,12 +180,13 @@
 - type: entity
   parent: N14ClothingHeadsetAlt
   id: N14ClothingHeadsetEnclave
-  name: U.S. Army radio earpiece
+  name: Enclave radio earpiece
+  description: A pre-war headset manufactured by the United States Government, used now by the Enclave for secure communication in a hostile wasteland.
   components:
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyEnclave
+      - EncryptionKeyEnclaveUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: _Misfits/Clothing/Ears/Headsets/enclave_headset.rsi
@@ -189,11 +197,12 @@
   parent: N14ClothingHeadsetAlt
   id: N14ClothingHeadsetNCR
   name: NCR radio earpiece
+  description: A headset manufactured by the New California Republic in the Boneyard's factories, used by the military to stay coordinated and receive orders.
   components:
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyNCR
+      - EncryptionKeyNCRUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: _Misfits/Clothing/Ears/Headsets/ncr.rsi
@@ -204,26 +213,67 @@
   parent: N14ClothingHeadsetNCR
   id: MisfitsClothingHeadsetOSI
   name: OSI radio earpiece
-  description: An NCR headset fitted with separate Office of Science and Industry encryption.
+  description: A headset manufactured by the New California Republic in the Boneyard's factories, used by the Office of Science and Industry to conduct government operations.
   components:
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyNCR
-      - EncryptionKeyOSI
+      - EncryptionKeyNCRUR
+      - EncryptionKeyOSIUR
       - EncryptionKeyWastelandGlobal
 
 - type: entity
   parent: N14ClothingHeadsetNCR
   id: MisfitsClothingHeadsetNCRRanger
   name: NCR Ranger radio earpiece
-  description: An NCR headset fitted with separate Ranger field encryption.
+  description: A headset manufactured by the New California Republic in the Boneyard's factories, used by the NCR rangers to maintain operational security and report scouting details.
   components:
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyNCR
-      - EncryptionKeyNCRRangers
+      # #Misfits Removed - NCRA channel dropped; Rangers only carry Ranger field encryption
+      #- EncryptionKeyNCRUR
+      - EncryptionKeyNCRRangersUR
+      - EncryptionKeyWastelandGlobal
+
+- type: entity
+  parent: N14ClothingHeadsetNCR
+  id: MisfitsClothingHeadsetNCRMaster
+  name: NCR command radio earpiece
+  description: A headset manufactured by the New California Republic in the Boneyard's factories, used by NCR command staff to order around the soldiers and filter through reports from the field.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyNCRMasterUR
+      - EncryptionKeyNCRCommandUR # #Misfits Add - command net
+      - EncryptionKeyWastelandGlobal
+
+
+- type: entity
+  parent: N14ClothingHeadsetNCR
+  id: MisfitsClothingHeadsetNCRCommand
+  name: NCR command radio earpiece
+  description: An NCR headset fitted with the command net. # #Misfits Add
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyNCRUR
+      - EncryptionKeyNCRCommandUR
+      - EncryptionKeyWastelandGlobal
+
+- type: entity
+  parent: MisfitsClothingHeadsetNCRRanger
+  id: MisfitsClothingHeadsetNCRRangerCommand
+  name: NCR Ranger command radio earpiece
+  description: A Ranger headset carrying both Ranger field encryption and the NCR command net. # #Misfits Add
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyNCRRangersUR
+      - EncryptionKeyNCRCommandUR
       - EncryptionKeyWastelandGlobal
 
 # #Misfits Change - Legion headset
@@ -231,11 +281,12 @@
   parent: N14ClothingHeadsetAlt
   id: N14ClothingHeadsetLegion
   name: Legion radio earpiece
+  description: A headset scrounged up from the Grand Canyon, once used by park rangers and now given new purpose by Caesar's Legion. These are a limited commodity, and issued only in critical frontline territories.
   components:
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyLegion
+      - EncryptionKeyLegionUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: _Misfits/Clothing/Ears/Headsets/legion.rsi
@@ -247,6 +298,7 @@
   parent: N14ClothingHeadsetLightScribe
   id: N14ClothingHeadsetFollowers
   name: Followers radio headset
+  description: A headset manufactured in the Boneyard's factories, used by the Followers of the Apocalypse to coordinate their paramedics in the field and manage their charitable efforts with local communities.
   components:
   - type: Item
     heldPrefix: off
@@ -254,7 +306,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyFollowers
+      - EncryptionKeyFollowersUR
       - EncryptionKeyWastelandGlobal
   - type: Sprite
     sprite: _Misfits/Clothing/Ears/Headsets/followerslight.rsi

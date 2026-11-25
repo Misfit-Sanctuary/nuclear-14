@@ -30,8 +30,12 @@
     components:
       - type: NpcFactionMember
         factions:
-          - Wastelander
-          - NCR
+          - Rangers # #Misfits Change - Rangers are their own faction, not NCR Army (keeps them out of NCR wars/raids)
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: NCR Ranger
+    prefix: Rgr.
+    color: "#6B8E23"
 
 - type: startingGear
   id: NCRRangerGear

@@ -156,4 +156,20 @@ public sealed class ClothingSpeedModifierSystem : EntitySystem
             _movementSpeed.RefreshMovementSpeedModifiers(container.Owner);
         }
     }
+
+    /// Sets the speed modifier values on a clothing item and refreshes the wearer's movement speed.
+    public void SetSpeedModifier(EntityUid uid, float walkModifier, float sprintModifier)
+    {
+        if (!TryComp<ClothingSpeedModifierComponent>(uid, out var component))
+            return;
+
+        component.WalkModifier = walkModifier;
+        component.SprintModifier = sprintModifier;
+        Dirty(uid, component);
+
+        if (_container.TryGetContainingContainer((uid, null, null), out var container))
+        {
+            _movementSpeed.RefreshMovementSpeedModifiers(container.Owner);
+        }
+    }
 }

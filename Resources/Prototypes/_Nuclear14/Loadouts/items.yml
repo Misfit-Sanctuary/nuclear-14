@@ -144,6 +144,7 @@
       - EnclaveVertibirdPilot
       - EnclaveSeniorOfficer
       - EnclaveCommander
+      - EnclaveReformer
       - EnclaveJuniorScientist
       - EnclaveScientist
       - EnclaveHeadScientist
@@ -421,5 +422,13 @@
   cost: 0
   items:
     - SprayPaintDesertTan
+
+- type: loadout
+  id: LoadoutLuxuryPen
+  category: Items
+  cost: 0
+  items:
+    - LuxuryPen
+
 
 

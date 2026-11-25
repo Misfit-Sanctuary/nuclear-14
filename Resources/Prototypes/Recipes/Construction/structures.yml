@@ -1485,7 +1485,7 @@
   hide: false
   icon:
     sprite: Structures/conveyor.rsi
-    state: conveyor_stopped_cw
+    state: conveyor_stopped
   conditions:
     - !type:TileNotBlocked
     - !type:SpecialStatCondition

@@ -171,12 +171,12 @@ trait-description-N14PillowKnuckles =
 trait-name-N14IronFist = Iron Fists
 trait-description-N14IronFist =
     Your knuckles are almost like they're made of iron, no one wants to get punched by you.
-    You deal [color=green]+1[/color] [color=yellow]Blunt[/color] damage in unarmed melee combat.
+    You deal [color=green]+15[/color] [color=yellow]Blunt[/color] damage in unarmed melee combat.
 
 trait-name-N14RadClaws = Rad Claws
 trait-description-N14RadClaws =
     Being a ghoul is not all that bad, you've got sharp claws that you can use in a brawl.
-    You deal [color=green]+1[/color] [color=yellow]Slash[/color] and [color=yellow]Radiation[/color] damage in unarmed melee combat.
+    You deal [color=yellow]+10 Slash[/color] and [color=green]+5 Radiation[/color] damage in unarmed melee combat.
 
 trait-name-N14WeakLiquor = Weak Liquor
 trait-description-N14WeakLiquor =
@@ -213,8 +213,8 @@ trait-description-N14LifeTaker =
 trait-name-N14LifeGiver = Life Giver
 trait-description-N14LifeGiver =
     Whether it be through raw grit, willpower, or some sort of augmentation you are more difficult to kill.
-    Your damage [color=yellow]threshold for Critical[/color] is [color=green]increased by 5 points[/color].
-    And the damage [color=yellow]threshold for Death[/color] is [color=green]increased by 10 points[/color].
+    Your damage [color=yellow]threshold for Critical[/color] is [color=green]increased by 25 points[/color].
+    And the damage [color=yellow]threshold for Death[/color] is [color=green]increased by 50 points[/color].
 
 trait-name-N14BadReflexes = Bad Reflexes
 trait-description-N14BadReflexes =

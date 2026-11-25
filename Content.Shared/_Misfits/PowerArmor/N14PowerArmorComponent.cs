@@ -23,3 +23,9 @@ public sealed partial class N14PowerArmorComponent : Component
     [DataField, AutoNetworkedField]
     public bool RequiresProficiency = true;
 }
+
+// #Cythisiax Added - Identify pilotable power armor that uses the wearer's hands and training.
+[RegisterComponent]
+public sealed partial class MechPowerArmorComponent : Component
+{
+}

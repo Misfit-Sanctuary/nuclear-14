@@ -1,6 +1,6 @@
+using Robust.Shared.Prototypes;
 using Content.Shared.Atmos;
 using Content.Shared.Construction.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Atmos.Portable
 {
@@ -51,8 +51,8 @@ namespace Content.Server.Atmos.Portable
         /// <summary>
         ///     The machine part that modifies the maximum internal pressure
         /// </summary>
-        [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-        public string MachinePartMaxPressure = "MatterBin";
+        [DataField]
+        public ProtoId<MachinePartPrototype> MachinePartMaxPressure = "MatterBin";
 
         /// <summary>
         ///     How much the <see cref="MachinePartMaxPressure"/> will affect the pressure.
@@ -76,8 +76,8 @@ namespace Content.Server.Atmos.Portable
         /// <summary>
         ///     The machine part which modifies the speed of <see cref="TransferRate"/>
         /// </summary>
-        [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-        public string MachinePartTransferRate = "Manipulator";
+        [DataField]
+        public ProtoId<MachinePartPrototype> MachinePartTransferRate = "Manipulator";
 
         /// <summary>
         /// How much the <see cref="MachinePartTransferRate"/> will modify the rate.

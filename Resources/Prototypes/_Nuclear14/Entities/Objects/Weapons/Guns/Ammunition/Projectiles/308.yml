@@ -7,7 +7,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 38
+        Piercing: 40
   # Misfits Add - .308 full-power sniper/battle rifle round; very good range retention
   - type: BallisticDamageFalloff
     falloffStartTiles: 11.0
@@ -24,8 +24,8 @@
     damage:
       types:
         Piercing: 58
-        Structural: 30
-  # Misfits Add -  Overpressure. Best of the best ammo. Long range, high damage, lethal impact. 
+        Structural: 50
+  # Misfits Add -  Overpressure. Best of the best ammo. Long range, high damage, lethal impact.
   - type: BallisticDamageFalloff
     falloffStartTiles: 15.0
     maxFalloffTiles: 25.0

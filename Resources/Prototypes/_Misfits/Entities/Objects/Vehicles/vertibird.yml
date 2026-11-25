@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseStructure
   id: N14VehicleVertibirdWreck
-  name: grounded vertibird
-  description: A grounded pre-War tilt-rotor aircraft with enough bulk to dominate the skyline.
+  name: Grounded Vertibird
+  description: This grounded pre-war aircraft is still under maintenance, but it will soon dominate the skies once more. Looking at it, you can almost hear the gunship in motion, the sky full of its violent noise.
   suffix: Mapping
   components:
   - type: Sprite
@@ -46,8 +46,8 @@
 - type: entity
   parent: BaseStructureDynamic
   id: N14VehicleVertibird
-  name: vertibird
-  description: A heavy tilt-rotor aircraft rigged for short-range wasteland flight.
+  name: Vertibird
+  description: These heavy tilt-rotor aircrafts, rigged for short-range wasteland flight, are rare and valuable pre-war equipment. Securing one is a promotion, losing one is a demotion or worse.
   suffix: Flyable, Wendover
   components:
   - type: Vertibird

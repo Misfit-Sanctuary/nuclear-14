@@ -11,16 +11,14 @@ using Content.Shared.Temperature.Components;
 
 namespace Content.Server._Misfits.Chemistry;
 
+// #Cythisiax Edited - describe the joined query used to limit periodic hot-solution work.
 /// <summary>
 /// #Misfits Change
 /// Heats solution containers on any entity that reports as hot/lit via IsHotEvent,
 /// allowing normal minTemp chemistry to run inside heated containers.
 ///
-/// Query-inversion rationale: iterating every SolutionContainerManagerComponent
-/// means touching thousands of entities every half-second. Instead we enumerate
-/// the 7 "can be hot" component types — typically only 10-50 entities total —
-/// and check whether each of those happens to also carry a solution container.
-/// This is an order-of-magnitude reduction in entities visited per update tick.
+/// #Cythisiax Edited - intersect hot-capable components with solution managers so broad
+/// component types do not cause unrelated entities to be visited every half-second.
 /// </summary>
 public sealed class HeatedCigaretteReactionSystem : EntitySystem
 {
@@ -30,19 +28,9 @@ public sealed class HeatedCigaretteReactionSystem : EntitySystem
     private const float HeatedSolutionTemperature = 450f;
     private float _accumulator;
 
-    // Cached query for solution containers — resolved once in Initialize so we
-    // can call TryGetComponent cheaply inside the hot-entity loops below.
-    private EntityQuery<SolutionContainerManagerComponent> _solutionQuery;
-
     // Reused each update to deduplicate entities that carry more than one
     // hot-capable component (e.g. a thruster that is also flammable).
     private readonly HashSet<EntityUid> _visited = new();
-
-    public override void Initialize()
-    {
-        base.Initialize();
-        _solutionQuery = GetEntityQuery<SolutionContainerManagerComponent>();
-    }
 
     public override void Update(float frameTime)
     {
@@ -56,30 +44,28 @@ public sealed class HeatedCigaretteReactionSystem : EntitySystem
         // Enumerate the (small) set of entities that can possibly be hot.
         // Each query targets one hot-capable component type; the shared _visited
         // HashSet prevents processing the same entity twice.
-        ProcessHotQuery(EntityQueryEnumerator<IgnitionSourceComponent>());
-        ProcessHotQuery(EntityQueryEnumerator<AlwaysHotComponent>());
-        ProcessHotQuery(EntityQueryEnumerator<FlammableComponent>());
-        ProcessHotQuery(EntityQueryEnumerator<ItemToggleHotComponent>());
-        ProcessHotQuery(EntityQueryEnumerator<MatchstickComponent>());
-        ProcessHotQuery(EntityQueryEnumerator<SmokableComponent>());
-        ProcessHotQuery(EntityQueryEnumerator<ThrusterComponent>());
+        // #Cythisiax Edited - intersect with solution containers before visiting broad types such as Flammable.
+        ProcessHotQuery(EntityQueryEnumerator<IgnitionSourceComponent, SolutionContainerManagerComponent>());
+        ProcessHotQuery(EntityQueryEnumerator<AlwaysHotComponent, SolutionContainerManagerComponent>());
+        ProcessHotQuery(EntityQueryEnumerator<FlammableComponent, SolutionContainerManagerComponent>());
+        ProcessHotQuery(EntityQueryEnumerator<ItemToggleHotComponent, SolutionContainerManagerComponent>());
+        ProcessHotQuery(EntityQueryEnumerator<MatchstickComponent, SolutionContainerManagerComponent>());
+        ProcessHotQuery(EntityQueryEnumerator<SmokableComponent, SolutionContainerManagerComponent>());
+        ProcessHotQuery(EntityQueryEnumerator<ThrusterComponent, SolutionContainerManagerComponent>());
     }
 
     /// <summary>
     /// Iterates entities with the given hot-capable component, skipping already-visited UIDs,
     /// then checks IsHotEvent and heats any attached solution containers.
     /// </summary>
-    private void ProcessHotQuery<T>(EntityQueryEnumerator<T> enumerator)
+    private void ProcessHotQuery<T>(EntityQueryEnumerator<T, SolutionContainerManagerComponent> enumerator)
         where T : IComponent
     {
-        while (enumerator.MoveNext(out var uid, out _))
+        // #Cythisiax Edited - process only entities that have both a hot-capable component and a solution manager.
+        while (enumerator.MoveNext(out var uid, out _, out var manager))
         {
             // Skip if already handled via a different hot-capable component.
             if (!_visited.Add(uid))
-                continue;
-
-            // Skip if this entity has no solution container — nothing to heat.
-            if (!_solutionQuery.TryGetComponent(uid, out var manager))
                 continue;
 
             // Ask the entity whether it is currently hot/lit.

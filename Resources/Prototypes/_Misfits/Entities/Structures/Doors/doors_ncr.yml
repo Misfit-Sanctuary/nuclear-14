@@ -1,0 +1,209 @@
+﻿- type: entity
+  parent: N14DoorMetalBarSlanted
+  id: MisfitsDoorCellSlantedLockedProvost
+  suffix: Provost, Locked
+  components:
+  - type: AccessReader
+    access: [["NCRProvost"]]
+  - type: Wires
+    layoutId: AirlockCargo
+
+- type: entity
+  parent: N14DoorCell
+  id: MisfitsDoorCellLockedProvost
+  suffix: Provost, Locked
+  components:
+  - type: AccessReader
+    access: [["NCRProvost"]]
+  - type: Wires
+    layoutId: AirlockCargo
+
+- type: entity
+  parent: N14DoorCellRust
+  id: MisfitsDoorCellRustLockedProvost
+  suffix: Provost, Locked
+  components:
+  - type: AccessReader
+    access: [["NCRProvost"]]
+  - type: Wires
+    layoutId: AirlockCargo
+
+- type: entity
+  parent: N14DoorWoodWhiteSlanted
+  id: MisfitsDoorWoodSlantedWhiteLockedProvost
+  suffix: Provost, Locked
+  components:
+  - type: AccessReader
+    access: [["NCRProvost"]]
+  - type: Wires
+    layoutId: AirlockCargo
+
+- type: entity
+  parent: N14DoorWoodRedSlanted
+  id: MisfitsDoorWoodSlantedRedLockedProvost
+  suffix: Provost, Locked
+  components:
+  - type: AccessReader
+    access: [["NCRProvost"]]
+  - type: Wires
+    layoutId: AirlockCargo
+
+- type: entity
+  parent: FenceMetalGate
+  id: MisfitsDoorFenceMetalGateLockedProvost
+  suffix: Provost, Locked
+  components:
+  - type: AccessReader
+    access: [["NCRProvost"]]
+  - type: Wires
+    layoutId: AirlockCargo
+
+- type: entity
+  parent: N14DoorBunker
+  id: MisfitsDoorBunkerLockedNCRProvost
+  suffix: NCR Provost, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNCRProvost ]
+  - type: Wires
+    layoutId: HighSec
+
+- type: entity
+  parent: N14DoorBunkerGlass
+  id: MisfitsDoorBunkerGlassLockedNCRProvost
+  suffix: NCR Provost, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNCRProvost ]
+  - type: Wires
+    layoutId: HighSec
+
+- type: entity
+  parent: N14DoorBunker3X
+  id: MisfitsDoorBunker3XLockedNCRProvost
+  suffix: NCR Provost, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNCRProvost ]
+  - type: Wires
+    layoutId: HighSec
+
+- type: entity
+  parent: N14DoorBunkerGlass3X
+  id: MisfitsDoorBunkerGlass3XLockedNCRProvost
+  suffix: NCR Provost, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNCRProvost ]
+  - type: Wires
+    layoutId: HighSec
+
+# RANGER ACCESS
+
+- type: entity
+  parent: N14DoorMetalBarSlanted
+  id: MisfitsDoorCellSlantedLockedRanger
+  suffix: Ranger, Locked
+  components:
+  - type: AccessReader
+    access: [["NCRRanger"]]
+  - type: Wires
+    layoutId: AirlockCargo
+
+- type: entity
+  parent: N14DoorCell
+  id: MisfitsDoorCellLockedRanger
+  suffix: Ranger, Locked
+  components:
+  - type: AccessReader
+    access: [["NCRRanger"]]
+  - type: Wires
+    layoutId: AirlockCargo
+
+- type: entity
+  parent: N14DoorCellRust
+  id: MisfitsDoorCellRustLockedRanger
+  suffix: Ranger, Locked
+  components:
+  - type: AccessReader
+    access: [["NCRRanger"]]
+  - type: Wires
+    layoutId: AirlockCargo
+
+- type: entity
+  parent: N14DoorWoodWhiteSlanted
+  id: MisfitsDoorWoodSlantedWhiteLockedRanger
+  suffix: Ranger, Locked
+  components:
+  - type: AccessReader
+    access: [["NCRRanger"]]
+  - type: Wires
+    layoutId: AirlockCargo
+
+- type: entity
+  parent: N14DoorWoodRedSlanted
+  id: MisfitsDoorWoodSlantedRedLockedRanger
+  suffix: Ranger, Locked
+  components:
+  - type: AccessReader
+    access: [["NCRRanger"]]
+  - type: Wires
+    layoutId: AirlockCargo
+
+- type: entity
+  parent: FenceMetalGate
+  id: MisfitsDoorFenceMetalGateLockedRanger
+  suffix: Ranger, Locked
+  components:
+  - type: AccessReader
+    access: [["NCRRanger"]]
+  - type: Wires
+    layoutId: AirlockCargo
+
+- type: entity
+  parent: N14DoorBunker
+  id: MisfitsDoorBunkerLockedNCRRanger
+  suffix: NCR Ranger, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNCRRanger ]
+  - type: Wires
+    layoutId: HighSec
+
+- type: entity
+  parent: N14DoorBunkerGlass
+  id: MisfitsDoorBunkerGlassLockedNCRRanger
+  suffix: NCR Ranger, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNCRRanger ]
+  - type: Wires
+    layoutId: HighSec
+
+- type: entity
+  parent: N14DoorBunker3X
+  id: MisfitsDoorBunker3XLockedNCRRanger
+  suffix: NCR Ranger, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNCRRanger ]
+  - type: Wires
+    layoutId: HighSec
+
+- type: entity
+  parent: N14DoorBunkerGlass3X
+  id: MisfitsDoorBunkerGlass3XLockedNCRRanger
+  suffix: NCR Ranger, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNCRRanger ]
+  - type: Wires
+    layoutId: HighSec

@@ -12,6 +12,11 @@ undecided-loadout-category-explorer-raider-description =
     Includes a 10mm chinese smg, 2 bolas, 2 magazines for the smg, a 1911,
     a healing poultice, a healing powder, 2 K rations, and a ceramic flask.
 
+undecided-loadout-category-explorer-hunter-name = Explorer Hunter
+undecided-loadout-category-explorer-hunter-description =
+    Includes a rapid fire hunting rifle, 2 308. Ammo boxes, a bola, healing powder,
+    a healing poultice, 2 K rations, and a ceramic flask.
+
 # Migrated Corvax legacy Legion keys
 undecided-loadout-category-bestiary-name = Centurion-Bestiary Kit
 undecided-loadout-category-bestiary-description =
@@ -295,19 +300,28 @@ undecided-loadout-category-corvax-venator-marksman-name = Venator Marksman
 undecided-loadout-category-corvax-venator-marksman-description =
     Includes a .308 sniper rifle, a rope belt,
     4 mags of Overpressure .308, night vision goggles,
-    2 healing poultice, 2 K rations,
+    3 smoke grenades, 2 healing poultice, 2 K rations,
     a ceramic flask, and mustard.
 
 undecided-loadout-category-corvax-venator-stalker-name = Venator Stalker
 undecided-loadout-category-corvax-venator-stalker-description =
     Includes an advanced 12.7mm SMG, 3 spare 12.7 magazines,
-    a rope belt, night vision goggles, 2 healing poultice,
-    2 K rations, a ceramic flask, and mustard.
+    a rope belt, 2 smoke grenades, night vision goggles,
+    2 healing poultice, 2 K rations,
+    a ceramic flask, and mustard.
 
 undecided-loadout-category-corvax-venator-executioner-name = Venator Executioner
 undecided-loadout-category-corvax-venator-executioner-description =
-    Includes a blowback shotgun, a rope belt,
-    2 boxes of 12 gauge shells, a ceremonial sword,
+    Includes a blowback shotgun, a ceremonial sword,
+    a rope belt, 2 boxes of 12 gauge shells,
+    an offensive grenade, night vision goggles,
+    2 healing poultice, 2 K rations,
+    a ceramic flask, and mustard.
+
+undecided-loadout-category-corvax-venator-operative-name = Venator Operative
+undecided-loadout-category-corvax-venator-operative-description =
+    Includes a modified and supressed R91, a rope belt,
+    3 spare 5.56 magazines, an offensive frag grenade,
     night vision goggles, 2 healing poultice, 2 K rations,
     a ceramic flask, and mustard.
 
@@ -544,44 +558,48 @@ undecided-loadout-category-corvax-ranger-smg-description =
 undecided-loadout-category-misfits-enclave-command-laser-name = Command Laser Kit
 undecided-loadout-category-misfits-enclave-command-laser-description =
     Includes an Enclave officer coat, a military belt,
-    a Wattz 2000 laser rifle, a laser pistol, a handheld radio,
-    2 smoke grenades, 1 frag grenade, 1 stimpak,
-    1 super stimpak, 2 gauze packs, and 1 flare.
+    a Wattz 3000 laser rifle with 2 MF cells,
+    an AEP-7 Laser Pistol with 2 energy cells,
+    a handheld radio, 2 smoke grenades, 1 frag grenade,
+    1 stimpak, 1 super stimpak, and 2 gauze packs.
 
 undecided-loadout-category-misfits-enclave-command-shock-name = Command Shock Kit
 undecided-loadout-category-misfits-enclave-command-shock-description =
     Includes Enclave armor, a military belt,
-    an automatic laser rifle, a recharger laser pistol,
+    an AER-12 Laser Rifle, a recharger laser pistol,
     a handheld radio, 1 smoke grenade, 1 frag grenade,
     1 stimpak, 1 super stimpak, 1 RadAway blood bag,
-    1 gauze pack, and 1 flare.
+    and 1 gauze pack.
 
 undecided-loadout-category-misfits-enclave-command-plasma-name = Command Plasma Kit
 undecided-loadout-category-misfits-enclave-command-plasma-description =
     Includes an Enclave officer coat, a military belt,
     a plasma defender, 3 plasma cartridges, a handheld radio,
     2 smoke grenades, 1 stimpak, 1 super stimpak,
-    1 RadAway blood bag, 1 gauze pack, and 1 flare.
+    1 RadAway blood bag, and 1 gauze pack.
 
 undecided-loadout-category-misfits-enclave-rifleman-name = Trooper Rifleman Kit
 undecided-loadout-category-misfits-enclave-rifleman-description =
     Includes Peacekeeper armor, a military belt,
-    a recharger laser rifle, a laser pistol, a handheld radio,
-    1 smoke grenade, 1 stimpak, 1 gauze pack, and 1 flare.
+    a Wattz 2000 laser rifle with 2 MF cells,
+    an AEP-7 Laser Pistol with 2 energy cells,
+    a handheld radio, 1 smoke grenade, 1 stimpak,
+    and 1 gauze pack.
 
 undecided-loadout-category-misfits-enclave-shocktrooper-name = Trooper Shock Kit
 undecided-loadout-category-misfits-enclave-shocktrooper-description =
     Includes Enclave armor, a military belt,
-    an automatic plasma rifle, a plasma pistol,
-    4 plasma cartridges, 1 smoke grenade, 1 stimpak,
-    1 super stimpak, 1 gauze pack, and 1 flare.
+    an urban plasma rifle, a plasma pistol,
+    2 plasma cartridges, 1 smoke grenade, 1 stimpak,
+    1 super stimpak, and 1 gauze pack.
 
 undecided-loadout-category-misfits-enclave-suppressor-name = Trooper Suppressor Kit
 undecided-loadout-category-misfits-enclave-suppressor-description =
     Includes Peacekeeper armor, a military belt,
-    an automatic laser rifle, a laser pistol,
+    an AER-12 Laser Rifle with 2 MF cells,
+    an AEP-7 Laser Pistol with 2 energy cells,
     2 smoke grenades, 1 frag grenade, 1 stimpak,
-    1 RadAway blood bag, 1 gauze pack, and 1 flare.
+    1 RadAway blood bag, and 1 gauze pack.
 
 undecided-loadout-category-misfits-enclave-field-research-name = Field Research Kit
 undecided-loadout-category-misfits-enclave-field-research-description =
@@ -769,7 +787,7 @@ undecided-loadout-category-misfits-acolyte-healing-desc =
 
 undecided-loadout-category-misfits-acolyte-zealot-name = Acolyte Zealot
 undecided-loadout-category-misfits-acolyte-zealot-desc =
-    Includes a Gladius, Legionnaire buckler,
+    Includes a Blade of Mars, Legionnaire buckler,
     spear quiver, An SKS, 308 clips,
     2 K rations, and a ceramic flask.
 
@@ -782,7 +800,7 @@ undecided-loadout-category-misfits-acolyte-slaver-desc =
 
 undecided-loadout-category-misfits-temple-guard-protector-name = Temple Guard Protector
 undecided-loadout-category-misfits-temple-guard-protector-desc =
-    Includes a poleaxe, a heater shield, a colt 45 with two magazines,
+    Includes a bardiche, a heater shield, a colt 45 with two magazines,
     1 bandage, 2 Healing Powders, 2 K rations, and a ceramic flask.
 
 undecided-loadout-category-misfits-temple-guard-enforcer-name = Temple Guard Enforcer
@@ -907,3 +925,23 @@ undecided-loadout-category-misfits-ncr-ht-defender-description =
     Comes with a 5.56 LMG, a spare mag for it,
     3 sticks of dynamite, a stim and super stim, an MRE,
     a RadAway bag, and two rolls of gauze.
+
+
+# Shaman Kits
+
+undecided-loadout-category-misfits-shaman-stinger-name = Shaman of the Stinger Kit
+undecided-loadout-category-misfits-shaman-stinger-desc =
+    Tribal Spear, box of throwing knives, Medical Belt,
+    2 mourning powder, 2 Berserker Powder.
+
+undecided-loadout-category-misfits-shaman-root-name = Shaman of the Root Kit
+undecided-loadout-category-misfits-shaman-root-desc =
+    Huntstick, tribal machete, Medical Belt,
+    2 healing powder, 2 healing poultice,
+    bitterdrink, Healing Salve.
+
+undecided-loadout-category-misfits-shaman-shroom-name = Shaman of the Shroom Kit
+undecided-loadout-category-misfits-shaman-shroom-desc =
+    Cudgel, Medical Belt,
+    MUSHROOMS!!!
+    bitterdrink, 5 Smelling Salt.

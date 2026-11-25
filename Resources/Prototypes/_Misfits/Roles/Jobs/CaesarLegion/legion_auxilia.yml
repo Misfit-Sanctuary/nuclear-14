@@ -12,10 +12,6 @@
     - !type:CharacterSpeciesRequirement
       species:
       - Human
-    - !type:CharacterSexRequirement
-      sex: Female
-    - !type:CharacterGenderRequirement
-      gender: Female
   startingGear: CaesarLegionAuxiliaGear
   alwaysUseSpawner: true
   icon: "JobIconlegionerRecruit"
@@ -34,6 +30,11 @@
       - type: CPRTraining
   - !type:AddTraitSpecial
     traits: [ LanguageLatin ]
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Auxilia
+    prefix: Aux.
+    color: "#8b0000"
 
 - type: startingGear
   id: CaesarLegionAuxiliaGear

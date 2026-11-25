@@ -7,12 +7,12 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 20
+        Piercing: 22
   # Misfits Add - 5.56mm intermediate rifle round; good range retention
   - type: BallisticDamageFalloff
     falloffStartTiles: 9.0
     maxFalloffTiles: 18.0
     minDamageMultiplier: 0.57
   # #Misfits Add: 5.56mm is a medium-caliber rifle round; power armor has a low chance to glance it.
-  - type: Reflective
-    reflective: MediumCaliber
+  #- type: Reflective
+  #  reflective: MediumCaliber

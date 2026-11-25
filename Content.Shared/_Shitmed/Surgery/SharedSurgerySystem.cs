@@ -10,6 +10,7 @@ using Content.Shared.Body.Part;
 using Content.Shared.Damage;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Organ;
 using Content.Shared.Buckle.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Systems;
@@ -197,7 +198,17 @@ public abstract partial class SharedSurgerySystem : EntitySystem
             return;
         }
 
-        var organSlotIdToOrgan = _body.GetPartOrgans(args.Part, part).ToDictionary(o => o.Item2.SlotId, o => o.Item2);
+        var organSlotIdToOrgan = new Dictionary<string, OrganComponent>();
+        foreach (var (_, organ) in _body.GetPartOrgans(args.Part, part))
+        {
+            // Duplicate organ slots indicate invalid anatomy. Do not crash the surgery UI
+            // or arbitrarily choose one of the duplicate organs.
+            if (!organSlotIdToOrgan.TryAdd(organ.SlotId, organ))
+            {
+                args.Cancelled = true;
+                return;
+            }
+        }
 
         var allOnAddFound = true;
         var zeroOnAddFound = true;

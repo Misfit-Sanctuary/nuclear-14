@@ -16,9 +16,11 @@ using Content.Shared.Mobs; // #Misfits Add - MobState, MobStateChangedEvent
 using Content.Shared.Mobs.Components; // #Misfits Add - MobStateComponent
 using Content.Shared.Mobs.Systems; // #Misfits Add - MobStateSystem
 using Content.Shared.Tag;
+using Content.Shared.Inventory; // #Misfits Add - InventorySystem for C-27 ID slot lookups
 using Content.Shared._Misfits.WastelandMap;
 using Content.Shared._Misfits.MaterialExtractor;
 using Content.Shared._Misfits.Expeditions;
+using Content.Shared._Misfits.Radio;
 using Content.Shared._Misfits.TreeOfLife;
 using Content.Shared._Misfits.Deathclaw;
 using Content.Shared._Misfits.TribalHunt;
@@ -111,8 +113,9 @@ public sealed class WastelandMapSystem : EntitySystem
     [Dependency] private readonly IChatManager _chatManager = default!;
     // #Misfits Add - Auto-detect map bounds and texture
     [Dependency] private readonly SharedMapSystem _mapManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+[Dependency] private readonly SharedMapSystem _mapSystem = default!;
+[Dependency] private readonly InventorySystem _inventorySystem = default!; // #Misfits Add - C-27 ID slot lookup
 
     private const int MaxSharedAnnotations = 128;
     private const int MaxStrokePoints = 512; // 256 UV points × 2 floats each
@@ -149,7 +152,7 @@ public sealed class WastelandMapSystem : EntitySystem
         SubscribeLocalEvent<WastelandMapComponent, WastelandMapRemoveAnnotationMessage>(OnRemoveAnnotationMessage);
         SubscribeLocalEvent<WastelandMapComponent, WastelandMapClearAnnotationsMessage>(OnClearAnnotationsMessage);
         SubscribeLocalEvent<WastelandMapComponent, WastelandMapCommunicationsMessage>(OnCommunicationsMessage);
-        SubscribeLocalEvent<BwonsamdiComponent, OpenUiActionEvent>(OnBwonsamdiSoulCompassOpen);
+        SubscribeLocalEvent<WastelandMapComponent, OpenUiActionEvent>(OnMapOpenAction); // #Misfits Add - seed state on the action path, not just the ActivatableUI path
         // #Misfits Add - notify Followers players when a player humanoid dies
         SubscribeLocalEvent<MindContainerComponent, MobStateChangedEvent>(OnMindedEntityMobStateChanged);
         // #Misfits Add - track MapId→gameMap for auto-detect bounds/texture
@@ -288,19 +291,17 @@ public sealed class WastelandMapSystem : EntitySystem
         _uiSystem.SetUiState(uid, WastelandMapUiKey.Key, BuildState(uid, comp, userMap, actor: args.User));
     }
 
-    // An action opens the BUI directly, bypassing ActivatableUI's AfterOpen event.
-    // Seed the state immediately so the Soul Compass never opens as a blank map.
-    private void OnBwonsamdiSoulCompassOpen(Entity<BwonsamdiComponent> ent, ref OpenUiActionEvent args)
+    // #Misfits Change - an action bypasses ActivatableUI's AfterOpen event (the only other seed point), so seed here or the map opens blank.
+    private void OnMapOpenAction(Entity<WastelandMapComponent> ent, ref OpenUiActionEvent args)
     {
         if (args.Key is not WastelandMapUiKey.Key ||
-            !TryComp<WastelandMapComponent>(ent, out var map) ||
             !TryComp<UserInterfaceComponent>(ent, out var ui))
         {
             return;
         }
 
         _uiSystem.SetUiState((ent.Owner, ui), WastelandMapUiKey.Key,
-            BuildState(ent.Owner, map, Transform(args.Performer).MapID, actor: args.Performer));
+            BuildState(ent.Owner, ent.Comp, Transform(args.Performer).MapID, actor: args.Performer));
     }
 
     // #Misfits Add - preserve unrestricted maps unless they define a leadership allowlist.
@@ -384,7 +385,7 @@ public sealed class WastelandMapSystem : EntitySystem
         // #Misfits Add - auto-detect map texture and bounds if not hardcoded
         var (texPath, bounds) = ResolveMapConfig(comp, mapId);
 
-        var feed = feedOverride ?? GetEffectiveFeed(comp);
+        var feed = feedOverride ?? GetEffectiveFeed(comp, actor);
         var trackedBlips = GetTrackedBlips(feed, mapId, bounds, actor);
         var sharedAnnotations = GetSharedAnnotations(comp, mapId, feed).ToArray();
         var overwatch = uid == null
@@ -408,8 +409,13 @@ public sealed class WastelandMapSystem : EntitySystem
             communications);
     }
 
-    public WastelandMapTacticalFeedKind GetEffectiveFeed(WastelandMapComponent comp)
+    public WastelandMapTacticalFeedKind GetEffectiveFeed(WastelandMapComponent comp, EntityUid? actor = null)
     {
+        // #Misfits Add - C-27 maps are faction-agnostic: the feed is resolved per viewer from the
+        // chassis's own ID card so an NCR unit only sees NCR and a Brotherhood unit only sees BoS.
+        if (comp.TacticalFeed == WastelandMapTacticalFeedKind.C27)
+            return GetTacticalFeedForEntity(actor ?? comp.Owner);
+
         if (comp.TacticalFeed != WastelandMapTacticalFeedKind.None)
             return comp.TacticalFeed;
 
@@ -418,13 +424,43 @@ public sealed class WastelandMapSystem : EntitySystem
             : WastelandMapTacticalFeedKind.None;
     }
 
+    /// <summary>
+    /// #Misfits Add - Resolves the tactical feed from the ID card the entity is actually wearing.
+    /// Only the dedicated ID slot is consulted: a card that is held or pocketed must not grant a
+    /// feed, otherwise a C-27 could view enemy blips by picking up a dropped dogtag.
+    /// </summary>
+    public WastelandMapTacticalFeedKind GetTacticalFeedForEntity(EntityUid entity)
+    {
+        if (!_inventorySystem.TryGetSlotEntity(entity, "id", out var idCard) || idCard == null)
+            return WastelandMapTacticalFeedKind.None;
+
+        return GetTacticalFeedFromIdCard(idCard.Value);
+    }
+
+    /// <summary>
+    /// #Misfits Add - Maps a faction ID card to its shared tactical feed.
+    /// </summary>
+    public WastelandMapTacticalFeedKind GetTacticalFeedFromIdCard(EntityUid idCard)
+    {
+        if (_tag.HasTag(idCard, "IdCardBrotherhood"))
+            return WastelandMapTacticalFeedKind.Brotherhood;
+        if (_tag.HasTag(idCard, "IdCardVault"))
+            return WastelandMapTacticalFeedKind.Vault;
+        if (_tag.HasTag(idCard, "IdCardNCR"))
+            return WastelandMapTacticalFeedKind.NCR;
+        if (_tag.HasTag(idCard, "IdCardEnclave"))
+            return WastelandMapTacticalFeedKind.Enclave;
+
+        return WastelandMapTacticalFeedKind.None;
+    }
+
     public bool TryAddAnnotation(EntityUid actor, WastelandMapComponent comp, MapId mapId, WastelandMapAnnotation annotation, WastelandMapTacticalFeedKind? feedOverride = null)
     {
         var sanitized = SanitizeAnnotation(annotation);
         if (sanitized == null)
             return false;
 
-        var annotations = GetSharedAnnotations(comp, mapId, feedOverride ?? GetEffectiveFeed(comp));
+        var annotations = GetSharedAnnotations(comp, mapId, feedOverride ?? GetEffectiveFeed(comp, actor));
         annotations.Add(sanitized.Value);
         if (annotations.Count > MaxSharedAnnotations)
             annotations.RemoveAt(0);
@@ -434,7 +470,7 @@ public sealed class WastelandMapSystem : EntitySystem
 
     public bool TryRemoveAnnotation(EntityUid actor, WastelandMapComponent comp, MapId mapId, int index, WastelandMapTacticalFeedKind? feedOverride = null)
     {
-        var annotations = GetSharedAnnotations(comp, mapId, feedOverride ?? GetEffectiveFeed(comp));
+        var annotations = GetSharedAnnotations(comp, mapId, feedOverride ?? GetEffectiveFeed(comp, actor));
         if (index < 0 || index >= annotations.Count)
             return false;
 
@@ -444,7 +480,7 @@ public sealed class WastelandMapSystem : EntitySystem
 
     public bool TryClearAnnotations(EntityUid actor, WastelandMapComponent comp, MapId mapId, WastelandMapTacticalFeedKind? feedOverride = null)
     {
-        var annotations = GetSharedAnnotations(comp, mapId, feedOverride ?? GetEffectiveFeed(comp));
+        var annotations = GetSharedAnnotations(comp, mapId, feedOverride ?? GetEffectiveFeed(comp, actor));
         if (annotations.Count == 0)
             return false;
 
@@ -761,6 +797,8 @@ public sealed class WastelandMapSystem : EntitySystem
             AppendFactionBlips(_blipScratch, feed, mapId, bounds);
             AppendMaterialExtractorBlips(_blipScratch, mapId, bounds);
             AppendExpeditionEntranceBlips(_blipScratch, mapId, bounds);
+            AppendRadioTowerBlips(_blipScratch, mapId, bounds);
+            AppendGlobalMapPins(_blipScratch, mapId, bounds);
             if (AllowsSharedOverlays(feed)) // #Misfits Change - Tribe maps are tagged-ID-only.
                 AppendTribalHuntTargetBlips(_blipScratch, mapId, bounds);
             nonActorBlips = _blipScratch.ToArray();
@@ -822,6 +860,12 @@ public sealed class WastelandMapSystem : EntitySystem
                 break;
             case WastelandMapTacticalFeedKind.Bwonsamdi:
                 AppendBwonsamdiSoulBlips(buffer, mapId, bounds);
+                break;
+            // #Misfits Add - only reachable via an explicit feed override; GetEffectiveFeed
+            // resolves a C27 map to the wearer's own faction instead of returning C27.
+            case WastelandMapTacticalFeedKind.C27:
+                AppendIdCardBlips(buffer, mapId, bounds, "IdCardNCR");
+                AppendIdCardBlips(buffer, mapId, bounds, "IdCardBrotherhood");
                 break;
         }
     }
@@ -937,6 +981,48 @@ public sealed class WastelandMapSystem : EntitySystem
                 coordinates.Position.Y,
                 Loc.GetString("n14-expedition-entrance-map-label"),
                 WastelandMapTrackedBlipKind.ExpeditionEntrance));
+        }
+    }
+
+    private void AppendRadioTowerBlips(List<WastelandMapTrackedBlip> buffer, MapId mapId, Box2 bounds)
+    {
+        var query = EntityQueryEnumerator<RadioTowerComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var tower, out var xform))
+        {
+            var coordinates = _transform.GetMapCoordinates(uid, xform);
+            if (coordinates.MapId != mapId || !bounds.Contains(coordinates.Position))
+                continue;
+
+            buffer.Add(new WastelandMapTrackedBlip(
+                coordinates.Position.X,
+                coordinates.Position.Y,
+                Loc.GetString(tower.Activated
+                    ? "n14-radio-tower-map-label-online"
+                    : "n14-radio-tower-map-label-offline"),
+                tower.Activated
+                    ? WastelandMapTrackedBlipKind.RadioTowerOnline
+                    : WastelandMapTrackedBlipKind.RadioTowerOffline));
+        }
+    }
+
+    /// <summary>
+    /// Adds administrator-created GPS markers after the permanent landmarks. These are deliberately
+    /// feed-agnostic: any WastelandMap whose rendered area contains the pin receives it.
+    /// </summary>
+    private void AppendGlobalMapPins(List<WastelandMapTrackedBlip> buffer, MapId mapId, Box2 bounds)
+    {
+        var query = EntityQueryEnumerator<GlobalMapPinComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var pin, out var xform))
+        {
+            var coordinates = _transform.GetMapCoordinates(uid, xform);
+            if (coordinates.MapId != mapId || !bounds.Contains(coordinates.Position))
+                continue;
+
+            buffer.Add(new WastelandMapTrackedBlip(
+                coordinates.Position.X,
+                coordinates.Position.Y,
+                pin.Label,
+                WastelandMapTrackedBlipKind.GlobalPin));
         }
     }
 

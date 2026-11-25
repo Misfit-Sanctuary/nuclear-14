@@ -120,8 +120,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitEnclave
-  name: U.S. Army uniform
-  description: A uniform worn by members of the U.S. Army.
+  name: Enclave uniform
+  description: A uniform worn by members of the Enclave.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/enclaveuni.rsi
@@ -298,8 +298,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuittribalpantsf
-  name: tribal clothing
-  description: Simple pants for simple people.
+  name: Tribal Cold Shoulder Outfit
+  description: The world may be cruel, but you don't care. Show the outsiders you are not impressed with their guns or their wealth, you're doing just fine.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/tribal-pants-f.rsi
@@ -309,8 +309,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuittribalpantsm
-  name: tribal clothing
-  description: Simple pants for simple people.
+  name: Tribal Champion Outfit
+  description: Worn by the bravest of a tribe's warriors, to puff out your chest to an indifferent world.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/tribal-pants-m.rsi
@@ -732,8 +732,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitCaravanShirt
-  name: Blue Line Caravan Co. uniform
-  description: A white shirt and pair of blue slacks, yellow armband affixed to both sleeves signifying membership of Blue Line Caravan Company.
+  name: Blue Line Merchant Outfit
+  description: Once this was the uniform of Horizon Skyways pilots, but they were quickly adapted post-war by the Blue Line Caravan Company's merchants as they took the Winnipeg International Airport as a new headquarters to run goods across the continent.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/caravancompanyuniform.rsi
@@ -743,8 +743,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitCaravanOveralls
-  name: Blue Line Caravan Co. overalls
-  description: A white shirt and pair of workers overalls, yellow armband affixed to both sleeves signifying membership of Blue Line Caravan Company.
+  name: Blue Line Worker Outfit
+  description: Worn by the common workers of the Blue Line Caravan Company, this uniform is the choice of cargo haulers and company gunmen alike. Keep the goods safe, or you don't have a home to return to.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/caravancompanyoveralls.rsi
@@ -754,8 +754,8 @@
 - type: entity
   parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitCaravanSuit
-  name: Blue Line Caravan Co. suit
-  description: A finely trimmed suit, gold pin tacked on the chest. Worn only by those who have earned the favour and trust of The Boss, enough to run branches of their Blue Line Caravan Company.
+  name: Blue Line Head Merchant Outfit
+  description: Uniform of the best pre-war pilots on the continent, now reserved for the most highly ranked merchants of the Blue Line Caravan Company. To wear this tailored suit with its gold buttons and pin is to be among those in King Gunn's best regards.
   components:
   - type: Sprite
     sprite: _Nuclear14/Clothing/Uniforms/FalloutSuits/caravancompanysuit.rsi

@@ -1,0 +1,132 @@
+﻿- type: entity
+  name: stick of cannabis butter
+  parent: N14FoodBakingBase
+  id: N14FoodCannabisButter # tmp, changing ID means replacing prototype in all map files!
+  description: Add this to your favorite baked goods for an irie time.
+  components:
+    - type: Sprite
+      state: butter
+      color: "#82C36E"
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 100
+          reagents:
+            - ReagentId: Butter
+              Quantity: 10
+            - ReagentId: THC
+              Quantity: 82
+    - type: Extractable
+      grindableSolutionName: food
+
+# diced Meat
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodDicedMeat
+  components:
+  - type: Food
+    eatMessage: food-desc-dicedMeat-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: dicedMeat
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+  - type: ScoopableSolution
+    solution: food
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: DicedMeat
+          Quantity: 10
+
+# diced Tato
+- type: entity
+  parent: MisfitsFoodBase
+  id:  MisfitsFoodDicedTato
+  components:
+  - type: Food
+    eatMessage: food-desc-dicedTato-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: dicedTato
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+  - type: ScoopableSolution
+    solution: food
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: DicedTato
+          Quantity: 10
+
+# diced Garlic
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodDicedGarlic
+  components:
+  - type: Food
+    eatMessage: food-desc-dicedGarlic-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: dicedGarlic
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+  - type: ScoopableSolution
+    solution: food
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: DicedGarlic
+          Quantity: 10
+
+# diced Onion
+- type: entity
+  parent: MisfitsFoodBase
+  id: MisfitsFoodDicedOnion
+  components:
+  - type: Food
+    eatMessage: food-desc-dicedOnion-eat
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: dicedOnion
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+  - type: ScoopableSolution
+    solution: food
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: DicedOnion
+          Quantity: 10
+
+# Cans & Containers
+- type: entity
+  parent: [N14ReagentPacketBase, ItemHeftyBase]
+  id: MisfitsItemRaiserCan
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Consumable/Food/FoodStuffs.rsi
+    state: raiserCan
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Raiser
+          Quantity: 20

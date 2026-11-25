@@ -9,6 +9,10 @@ species-name-c27 = C-27 Humanoid Robot
 species-name-c27-ncr = C-27 Humanoid Robot (NCR)
 species-name-c27-bos = C-27 Humanoid Robot (Brotherhood)
 species-name-c27-zax = C-27 Humanoid Robot (Z.A.X)
+species-name-c27-integrator = C-27 Humanoid Robot (Integrator)
+species-name-c27-assault = C-27 Humanoid Robot (Assault)
+species-name-c27-recon = C-27 Humanoid Robot (Recon)
+
 species-name-robot = Robot
 species-name-robot-mr-handy = Mr. Handy
 species-name-robot-mr-handy-zax = Mr. Handy (Z.A.X)
