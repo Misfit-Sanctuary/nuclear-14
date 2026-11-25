@@ -89,7 +89,7 @@
     - name: locust raiding parties
       weight: 30
       minCount: 2
-      maxCount: 6   #Wassuy changed max 4 to 6. Raider live longer in packs, a reference to random N14 TIPS in loading screen.
+      maxCount: 6   #Wassuy changed max 4 to 6. Raider live longer in packs, a reference to random N14 TIPS in loading screen, locusts raid in large.
       family: Raider
       mobs:
         N14MobRaiderPsychoRanged: 10
