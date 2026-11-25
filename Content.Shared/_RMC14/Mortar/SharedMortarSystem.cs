@@ -692,10 +692,6 @@ public abstract partial class SharedMortarSystem : EntitySystem
 
     private void ImpactMortarShell(EntityUid shell, ActiveMortarShellComponent active)
     {
-        // Unreachable today, since the query skips deleted shells, but a payload could kill one mid-loop.
-        if (TerminatingOrDeleted(shell))
-            return;
-
         // The tube it was fired from is the only thing a payload is allowed to report back to.
         EntityUid? mortar = null;
         if (_container.TryGetContainingContainer((shell, (TransformComponent?) null, null), out var container))
