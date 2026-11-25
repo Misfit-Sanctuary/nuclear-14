@@ -7,6 +7,7 @@ using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Stunnable;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Misfits.Scope;
 
@@ -38,15 +39,22 @@ public partial class SharedScopeSystem
     /// </summary>
     private void OnRemove(Entity<ScopingComponent> user, ref ComponentRemove args)
     {
-        if (TerminatingOrDeleted(user.Owner))
-            return;
-
         // Removal is the last chance to drop this system's eye offset contribution.
-        user.Comp.EyeOffset = Vector2.Zero;
-        UpdateOffset(user.Owner);
+        if (!TerminatingOrDeleted(user))
+        {
+            user.Comp.EyeOffset = Vector2.Zero;
+            UpdateOffset(user);
+        }
 
-        if (TryComp(user.Comp.Scope, out ScopeComponent? scope) && scope.User == user.Owner)
-            Unscope((user.Comp.Scope!.Value, scope));
+        // The component pair is written together, so the scope this user names is the one to
+        // release; Unscope returns straight away if it has already been released.
+        if (user.Comp.Scope is { } scopeUid && TryComp<ScopeComponent>(scopeUid, out var scope))
+        {
+            DebugTools.Assert(scope.User is null || scope.User == user,
+                "ScopingComponent points at a scope that is in use by someone else.");
+
+            Unscope((scopeUid, scope));
+        }
     }
 
     /// <summary>
@@ -55,13 +63,13 @@ public partial class SharedScopeSystem
     /// </summary>
     private void OnShutdown(Entity<ScopingComponent> user, ref ComponentShutdown args)
     {
-        if (TerminatingOrDeleted(user.Owner))
+        if (TerminatingOrDeleted(user))
             return;
 
         // The component can still be dispatched GetEyeOffsetEvent while it shuts down, so drop
         // its contribution before the total is recomputed.
         user.Comp.EyeOffset = Vector2.Zero;
-        UpdateOffset(user.Owner);
+        UpdateOffset(user);
     }
 
     /// <summary>
@@ -163,12 +171,16 @@ public partial class SharedScopeSystem
         var scope = ent.Comp.Scope;
         RemCompDeferred<ScopingComponent>(ent);
 
+        // The component pair is written together, so the scope this user names is the one to
+        // release; Unscope returns straight away if it has already been released.
         if (scope is not { } scopeUid ||
-            !TryComp(scopeUid, out ScopeComponent? scopeComponent) ||
-            scopeComponent.User != ent.Owner)
+            !TryComp(scopeUid, out ScopeComponent? scopeComponent))
         {
             return;
         }
+
+        DebugTools.Assert(scopeComponent.User is null || scopeComponent.User == ent,
+            "ScopingComponent points at a scope that is in use by someone else.");
 
         Unscope((scopeUid, scopeComponent));
     }

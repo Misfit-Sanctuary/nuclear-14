@@ -1,7 +1,6 @@
 // #Misfits Add - Core shared scoping system (ported from RMC-14 Scoping)
 using System.Numerics;
 using Content.Shared._Misfits.Special;
-using Content.Shared._Misfits.Special.Components;
 using Content.Shared.Actions;
 using Content.Shared.Camera;
 using Content.Shared.DoAfter;
@@ -67,9 +66,6 @@ public abstract partial class SharedScopeSystem : EntitySystem
                 continue;
             }
 
-            if (TerminatingOrDeleted(user) || TerminatingOrDeleted(scopeUid))
-                continue;
-
             var currentDirection = _transform.GetWorldRotation(user).GetCardinalDir();
             if (currentDirection == oldDirection)
                 continue;
@@ -133,8 +129,8 @@ public abstract partial class SharedScopeSystem : EntitySystem
 
         Unscope(scope);
 
-        if (!TerminatingOrDeleted(user) && !TerminatingOrDeleted(scope.Owner))
-            _actions.RemoveProvidedActions(user, scope.Owner);
+        if (!TerminatingOrDeleted(user) && !TerminatingOrDeleted(scope))
+            _actions.RemoveProvidedActions(user, scope);
     }
 
     private void OnScopeTerminating(Entity<ScopeComponent> scope, ref EntityTerminatingEvent args)
@@ -210,9 +206,6 @@ public abstract partial class SharedScopeSystem : EntitySystem
     /// Completes scoping: applies the eye offset, zoom and scope state.
     private void ScopeIn(Entity<ScopeComponent> scope, EntityUid user)
     {
-        if (TerminatingOrDeleted(user) || TerminatingOrDeleted(scope.Owner))
-            return;
-
         // If the user is already scoping something else, stop that first.
         if (TryComp(user, out ScopingComponent? existing))
             UserStopScoping((user, existing));
@@ -256,24 +249,34 @@ public abstract partial class SharedScopeSystem : EntitySystem
         if (scope.Comp.User is not { } user)
             return false;
 
+        // This also runs when the user is mid-deletion, since their ScopingComponent is removed
+        // as part of it: the scope has to be released then too, or its PVS relay outlives them.
         OnScopeEnded(scope, user);
 
-        // Drop the eye offset now, before the deferred removal, so the view resets on this frame.
-        ClearEyeOffset(user);
+        var userAlive = !TerminatingOrDeleted(user);
 
+        // Drop the eye offset now, before the deferred removal, so the view resets on this frame.
+        if (userAlive)
+            ClearEyeOffset(user);
+
+        // A no-op while the component is already being removed.
         RemCompDeferred<ScopingComponent>(user);
 
         scope.Comp.User = null;
         scope.Comp.ScopingDirection = null;
 
-        if (!TerminatingOrDeleted(scope.Owner))
+        if (!TerminatingOrDeleted(scope))
             Dirty(scope);
 
-        if (scope.Comp.UnScopePopup != null && !TerminatingOrDeleted(user))
-            PopupUser(scope, user, scope.Comp.UnScopePopup);
+        if (userAlive)
+        {
+            if (scope.Comp.UnScopePopup != null)
+                PopupUser(scope, user, scope.Comp.UnScopePopup);
+
+            _contentEye.ResetZoom(user);
+        }
 
         _actions.SetToggled(scope.Comp.ScopingToggleActionEntity, false);
-        _contentEye.ResetZoom(user);
         return true;
     }
 
@@ -301,29 +304,36 @@ public abstract partial class SharedScopeSystem : EntitySystem
     /// Checks every condition required to scope, optionally showing a popup; also used on DoAfter completion.
     public bool CanScope(Entity<ScopeComponent> scope, EntityUid user, bool popup = false)
     {
+        // A DoAfter cancels once its user or target is deleted, but an entity queued for deletion
+        // still looks alive for the rest of the tick; skip those before touching anything.
+        if (EntityManager.IsQueuedForDeletion(user) || EntityManager.IsQueuedForDeletion(scope))
+            return false;
+
         // The scoped item must be the active hand item.
-        if (!_hands.TryGetActiveItem(user, out var held) || held != scope.Owner)
-            return Fail(user, "n14-action-popup-scoping-user-must-hold", scope.Owner, popup);
+        if (!_hands.TryGetActiveItem(user, out var held) || held != scope)
+            return Fail(user, "n14-action-popup-scoping-user-must-hold", scope, popup);
 
         if (_pulling.IsPulled(user))
-            return Fail(user, "n14-action-popup-scoping-user-must-not-pulled", scope.Owner, popup);
+            return Fail(user, "n14-action-popup-scoping-user-must-not-pulled", scope, popup);
 
         if (_container.IsEntityInContainer(user))
-            return Fail(user, "n14-action-popup-scoping-user-must-not-contained", scope.Owner, popup);
+            return Fail(user, "n14-action-popup-scoping-user-must-not-contained", scope, popup);
 
         if (scope.Comp.RequireWielding &&
-            TryComp(scope.Owner, out WieldableComponent? wieldable) &&
+            TryComp(scope, out WieldableComponent? wieldable) &&
             !wieldable.Wielded)
         {
-            return Fail(user, "n14-action-popup-scoping-user-must-wield", scope.Owner, popup);
+            return Fail(user, "n14-action-popup-scoping-user-must-wield", scope, popup);
         }
 
         // A sharp eye is only needed to look through the optic, not to carry or fire the weapon.
-        if (scope.Comp.RequiredPerception > SpecialProfile.Minimum &&
-            HasComp<SpecialComponent>(user) &&
+        // Entities without a SpecialComponent are judged at the default Perception, and ghosts opt
+        // out of SPECIAL gates entirely; UsesSpecialStats is what separates those two cases.
+        if (scope.Comp.RequiredPerception > 0 &&
+            _special.UsesSpecialStats(user) &&
             !_special.HasRequirement(user, SpecialStat.Perception, scope.Comp.RequiredPerception))
         {
-            return Fail(user, "n14-action-popup-scoping-user-not-perceptive", scope.Owner, popup,
+            return Fail(user, "n14-action-popup-scoping-user-not-perceptive", scope, popup,
                 ("required", scope.Comp.RequiredPerception));
         }
 
@@ -350,7 +360,7 @@ public abstract partial class SharedScopeSystem : EntitySystem
     }
 
     /// Resolves the scope an entity is currently using, if any.
-    public bool TryGetActiveScope(EntityUid user, out Entity<ScopeComponent> scope)
+    public bool TryGetActiveScope(EntityUid user, out Entity<ScopeComponent>? scope)
     {
         scope = default;
 
@@ -403,15 +413,12 @@ public abstract partial class SharedScopeSystem : EntitySystem
     /// Zeroes this system's eye offset contribution and recomputes the rest; call while ScopingComponent still exists.
     private void ClearEyeOffset(EntityUid user)
     {
-        if (TerminatingOrDeleted(user))
+        // No component means this system contributes no offset, so there is nothing to zero or recompute.
+        if (!TryComp(user, out ScopingComponent? scoping))
             return;
 
-        if (TryComp(user, out ScopingComponent? scoping))
-        {
-            scoping.EyeOffset = Vector2.Zero;
-            Dirty(user, scoping);
-        }
-
+        scoping.EyeOffset = Vector2.Zero;
+        Dirty(user, scoping);
         UpdateOffset(user);
     }
 

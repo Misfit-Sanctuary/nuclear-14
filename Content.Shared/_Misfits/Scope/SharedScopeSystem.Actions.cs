@@ -25,12 +25,12 @@ public abstract partial class SharedScopeSystem
     private void OnScopeMapInit(Entity<ScopeComponent> scope, ref MapInitEvent args)
     {
         // The toggle action is always created; the cycle action only with more than one zoom level.
-        _actionContainer.EnsureAction(scope.Owner, ref scope.Comp.ScopingToggleActionEntity, scope.Comp.ScopingToggleAction.Id);
+        _actionContainer.EnsureAction(scope, ref scope.Comp.ScopingToggleActionEntity, scope.Comp.ScopingToggleAction.Id);
 
         if (scope.Comp.ZoomLevels.Count > 1)
-            _actionContainer.EnsureAction(scope.Owner, ref scope.Comp.CycleZoomLevelActionEntity, scope.Comp.CycleZoomLevelAction.Id);
+            _actionContainer.EnsureAction(scope, ref scope.Comp.CycleZoomLevelActionEntity, scope.Comp.CycleZoomLevelAction.Id);
 
-        Dirty(scope.Owner, scope.Comp);
+        Dirty(scope);
     }
 
     /// Grants the scope actions while the scoped item is held in hand.

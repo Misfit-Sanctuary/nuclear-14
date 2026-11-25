@@ -239,10 +239,6 @@
       doAfter: 0.80
   - type: StaticPrice
     price: 125
-  # #Misfits Add — built-in scope on marksman carbine (description already states it has a scope)
-  # - type: N14Scope
-  #   eyeOffset: 5
-
 - type: entity
   name: service rifle
   parent: N14WeaponRifleBase
@@ -351,9 +347,6 @@
         whitelist:
           tags:
             - N14Cartridge556Rifle
-  # #Misfits Add — built-in scope on scoped service rifle (explicitly described as having an optic)
-  # - type: N14Scope
-  #   eyeOffset: 5
   # #Misfits Add - built-in optic (plain YAML Scope component)
   - type: Scope
     requireWielding: true

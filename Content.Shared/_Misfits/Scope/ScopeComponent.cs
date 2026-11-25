@@ -1,6 +1,9 @@
 // #Misfits Add - Directional scope component (ported from RMC-14 Scoping)
+using Content.Shared._Misfits.Special;
 using Robust.Shared.GameStates;
+using Robust.Shared.Log;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Misfits.Scope;
 
@@ -16,7 +19,7 @@ namespace Content.Shared._Misfits.Scope;
 ///     doAfter: 0.7
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedScopeSystem))]
-public sealed partial class ScopeComponent : Component
+public sealed partial class ScopeComponent : Component, ISerializationHooks
 {
     /// Index into ZoomLevels of the currently selected zoom level.
     [DataField, AutoNetworkedField]
@@ -53,7 +56,7 @@ public sealed partial class ScopeComponent : Component
     [DataField]
     public bool RequireWielding;
 
-    /// Effective Perception needed to look through this optic; at or below the stat minimum disables the check.
+    /// Effective Perception needed to look through this optic; 0 disables the check.
     [DataField]
     public int RequiredPerception;
 
@@ -76,4 +79,16 @@ public sealed partial class ScopeComponent : Component
     /// Popup shown when scoping out; null suppresses it.
     [DataField]
     public string? UnScopePopup = "n14-action-popup-scoping-stopping-user";
+
+    /// Runs once when the prototype is loaded, so a bad perception gate is reported there instead of being tolerated on every spawn.
+    void ISerializationHooks.AfterDeserialization()
+    {
+        if (RequiredPerception == 0 || SpecialProfile.IsWithinBounds(RequiredPerception))
+            return;
+
+        Logger.GetSawmill("misfits.scope").Error(
+            $"requiredPerception is {RequiredPerception}, but must be 0 (no requirement) or {SpecialProfile.Minimum}-{SpecialProfile.Maximum}. Disabling the check.");
+
+        RequiredPerception = 0;
+    }
 }
