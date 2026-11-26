@@ -21,8 +21,8 @@
     - Snout
     hideOnToggle: true
   # #Misfits Add - Gas masks provide disease protection when worn
-  - type: DiseaseProtection
-    protection: 0.7
+  #- type: DiseaseProtection       #Wassuy disabled this because it cause fatal in debug
+  #  protection: 0.7
 
 - type: entity
   parent: ClothingMaskPullableBase
