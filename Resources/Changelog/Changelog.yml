@@ -13300,3 +13300,37 @@ Entries:
   id: 6602
   time: '2026-11-26T05:30:13.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2205
+- author: cythisiax
+  changes:
+    - type: Add
+      message: >-
+        Snowballs! You can click a snowpacked tile, and your character doAfter's
+        a snowball. Keep clicking for easter egg.
+    - type: Add
+      message: Snowman creation, figure out how to make it!
+    - type: Tweak
+      message: >-
+        Any prototype that exists with `onfire` melts snow around it, i.e open
+        campfires. (There is still no temperature gameplay design)
+    - type: Add
+      message: >-
+        Reskinned chicken sprite with feathers = turkey placeholder, pulled
+        tgstation sprite so it was different than chicken, less work.
+    - type: Tweak
+      message: >-
+        Snow weather EdgeFade update so it didn't look strange, now softened all
+        together, a bit better with no adjacent snow tiles.
+    - type: Tweak
+      message: >-
+        Updated rainfall weather, removed cascading sprite-screen overlay for
+        shader rainfall with water droplets, like snow shader. I plan to update
+        all weather types with this hash w/o sine reasonably. But I am new to
+        shaders.
+    - type: Tweak
+      message: >-
+        Removed Ashfall/Sandstorm weather rotation for the duration of the year.
+        SnowMedium & SnowLight are now in weather rotation, blizzards & heavy
+        are admin only.
+  id: 6603
+  time: '2026-11-26T16:02:19.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2217
