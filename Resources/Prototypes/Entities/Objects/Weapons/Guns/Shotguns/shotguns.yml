@@ -30,6 +30,7 @@
       path: /Audio/Weapons/Guns/Empty/empty.ogg
     fireOnDropChance: 0.2
   - type: BallisticAmmoProvider
+    fillTransferAmount: 1
     whitelist:
       tags:
       - ShellShotgun

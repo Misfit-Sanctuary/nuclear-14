@@ -36,6 +36,11 @@
   id: NCRProvost
   name: id-card-access-level-ncrprovost
 
+# #Misfits Add - Ranger command access: Ranger Lead and Chief Ranger only.
+- type: accessLevel
+  id: NCRRangerCommand
+  name: id-card-access-level-ncr-ranger-command
+
 - type: accessGroup
   id: NCR
   #Misfits Change /Fix/: Base NCR access should only open base NCR doors.

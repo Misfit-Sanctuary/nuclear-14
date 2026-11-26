@@ -102,4 +102,8 @@ public sealed partial class BallisticAmmoProviderComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField]
     public SoundSpecifier? SoundInsert = new SoundPathSpecifier("/Audio/Weapons/Guns/MagIn/bullet_insert.ogg");
 
+    /// <summary>Rounds moved per fill do-after when poured into from a box or drum.</summary>
+    [DataField]
+    public int FillTransferAmount = 5;
+
 }
