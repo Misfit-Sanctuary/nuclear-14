@@ -615,9 +615,9 @@
         - NCRRangerStandard
         - NCRVeteranRanger
         - NCRRangerMedic # #Misfits Add - Ranger Medic
-    - !type:CharacterPlaytimeRequirement
-      tracker: NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
-      min: 216000 # 60 hours veterancy unlock "First Tour"
+    - !type:CharacterDepartmentTimeRequirement
+      department: Rangers
+      min: 216000 # 60 hours 
   items:
     - N14ClothingUniformJumpsuitRangerRoman
 # Forge-Add End
