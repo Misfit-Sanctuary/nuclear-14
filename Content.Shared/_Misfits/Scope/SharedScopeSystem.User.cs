@@ -1,4 +1,5 @@
 // #Misfits Add - User-side scoping handlers (movement, stun, knockdown, pull, mob state)
+using System.Numerics;
 using Content.Shared.Camera;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Events;
@@ -6,19 +7,21 @@ using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Stunnable;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Misfits.Scope;
 
 /// <summary>
-/// Partial class handling events on the ScopingComponent (applied to the user).
-/// Covers all conditions that should break scoping — movement, stun, knockdown,
-/// being pulled, entering a container, disconnecting, or dying.
+/// Handles events on the <see cref="ScopingComponent"/> applied to the user. Every condition
+/// that should break scoping movement, stun, knockdown, being pulled, entering a container,
+/// disconnecting or dying  funnels into <see cref="UserStopScoping"/>.
 /// </summary>
 public partial class SharedScopeSystem
 {
     private void InitializeUser()
     {
         SubscribeLocalEvent<ScopingComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<ScopingComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<ScopingComponent, MoveInputEvent>(OnMoveInput);
         SubscribeLocalEvent<ScopingComponent, PullStartedMessage>(OnPullStarted);
         SubscribeLocalEvent<ScopingComponent, EntParentChangedMessage>(OnParentChanged);
@@ -32,12 +35,41 @@ public partial class SharedScopeSystem
     }
 
     /// <summary>
-    /// When the ScopingComponent is removed, update the eye offset so the viewport resets.
+    /// Scoping was removed without going through <see cref="Unscope"/>
     /// </summary>
     private void OnRemove(Entity<ScopingComponent> user, ref ComponentRemove args)
     {
+        // Removal is the last chance to drop this system's eye offset contribution.
         if (!TerminatingOrDeleted(user))
+        {
+            user.Comp.EyeOffset = Vector2.Zero;
             UpdateOffset(user);
+        }
+
+        // The component pair is written together, so the scope this user names is the one to
+        // release; Unscope returns straight away if it has already been released.
+        if (user.Comp.Scope is { } scopeUid && TryComp<ScopeComponent>(scopeUid, out var scope))
+        {
+            DebugTools.Assert(scope.User is null || scope.User == user,
+                "ScopingComponent points at a scope that is in use by someone else.");
+
+            Unscope((scopeUid, scope));
+        }
+    }
+
+    /// <summary>
+    /// Once the component is gone, its eye offset is no longer contributed by
+    /// <see cref="OnGetEyeOffset"/>, so recompute the user's total offset.
+    /// </summary>
+    private void OnShutdown(Entity<ScopingComponent> user, ref ComponentShutdown args)
+    {
+        if (TerminatingOrDeleted(user))
+            return;
+
+        // The component can still be dispatched GetEyeOffsetEvent while it shuts down, so drop
+        // its contribution before the total is recomputed.
+        user.Comp.EyeOffset = Vector2.Zero;
+        UpdateOffset(user);
     }
 
     /// <summary>
@@ -88,7 +120,7 @@ public partial class SharedScopeSystem
     }
 
     /// <summary>
-    /// Provides this system's eye offset additively when the engine queries total offset.
+    /// Provides this system's eye offset additively when the engine queries the total offset.
     /// </summary>
     private void OnGetEyeOffset(Entity<ScopingComponent> ent, ref GetEyeOffsetEvent args)
     {
@@ -131,15 +163,25 @@ public partial class SharedScopeSystem
     }
 
     /// <summary>
-    /// Cleanly stops scoping from the user side — removes ScopingComponent
-    /// and calls Unscope on the scope entity.
+    /// Cleanly stops scoping from the user side removes <see cref="ScopingComponent"/> and
+    /// calls <see cref="Unscope"/> on the scope entity.
     /// </summary>
     private void UserStopScoping(Entity<ScopingComponent> ent)
     {
         var scope = ent.Comp.Scope;
         RemCompDeferred<ScopingComponent>(ent);
 
-        if (TryComp(scope, out ScopeComponent? scopeComponent) && scopeComponent.User == ent)
-            Unscope((scope.Value, scopeComponent));
+        // The component pair is written together, so the scope this user names is the one to
+        // release; Unscope returns straight away if it has already been released.
+        if (scope is not { } scopeUid ||
+            !TryComp(scopeUid, out ScopeComponent? scopeComponent))
+        {
+            return;
+        }
+
+        DebugTools.Assert(scopeComponent.User is null || scopeComponent.User == ent,
+            "ScopingComponent points at a scope that is in use by someone else.");
+
+        Unscope((scopeUid, scopeComponent));
     }
 }
