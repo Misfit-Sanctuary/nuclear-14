@@ -1,6 +1,9 @@
 using System.Numerics;
+using Content.Shared.DoAfter;
 using Content.Shared.Movement.Systems;
+using Robust.Shared.Audio; // #Cythisiax Added - thunder sound on rain
 using Robust.Shared.GameStates;
+using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 
@@ -16,6 +19,116 @@ namespace Content.Shared.Weather
 
         [ViewVariables(VVAccess.ReadWrite), DataField]
         public SnowfallLook? Snowfall;
+
+        // #Cythisiax Added - rain drawn with the rain shader instead of the old sprite
+        [ViewVariables(VVAccess.ReadWrite), DataField]
+        public RainfallLook? Rainfall;
+    }
+
+    // #Cythisiax Added - how a rain weather looks, streaks fall fast and straight where snow drifts and sways
+    [DataDefinition]
+    public sealed partial class RainfallLook
+    {
+        [DataField]
+        public float Density = 0.4f;
+
+        // how long the streaks are, higher is a harder downpour
+        [DataField]
+        public float StreakLength = 1f;
+
+        [DataField]
+        public float FallSpeed = 9f;
+
+        [DataField]
+        public float Wind = 0.6f;
+
+        [DataField]
+        public float Gust = 0.6f;
+
+        [DataField]
+        public float Haze;
+
+        [DataField]
+        public float Splash = 0.5f;
+
+        [DataField]
+        public Color RainColor = new(0.72f, 0.79f, 0.88f);
+
+        [DataField]
+        public Color HazeColor = new(0.55f, 0.6f, 0.68f);
+
+        // average lightning strikes per minute, 0 is no lightning
+        [DataField]
+        public float Lightning;
+
+        [DataField]
+        public SoundSpecifier? Thunder;
+    }
+
+    // #Cythisiax Added - lightning timing worked out from the synced game clock so every player sees the same strikes
+    public static class RainLightning
+    {
+        public const double SlotSeconds = 0.25;
+        public const double FlashSeconds = 0.9;
+
+        public static long Slot(TimeSpan time)
+        {
+            return (long) Math.Floor(time.TotalSeconds / SlotSeconds);
+        }
+
+        public static bool Strikes(long slot, float perMinute)
+        {
+            if (perMinute <= 0f)
+                return false;
+
+            var chance = perMinute * SlotSeconds / 60.0;
+            return Content.Shared._Misfits.Weather.SnowCoverMath.Hash((int) slot, 9157) < chance;
+        }
+
+        public static float Strength(long slot)
+        {
+            return 0.6f + 0.4f * Content.Shared._Misfits.Weather.SnowCoverMath.Hash((int) slot, 31);
+        }
+
+        public static float ThunderDelay(long slot)
+        {
+            return 0.3f + 2.4f * Content.Shared._Misfits.Weather.SnowCoverMath.Hash((int) slot, 77);
+        }
+
+        // how bright the sky is from every strike in the last second, a quick double flicker then a fade
+        public static float Flash(TimeSpan time, float perMinute)
+        {
+            if (perMinute <= 0f)
+                return 0f;
+
+            var now = Slot(time);
+            var back = (long) Math.Ceiling(FlashSeconds / SlotSeconds);
+            var total = 0f;
+
+            for (var slot = now - back; slot <= now; slot++)
+            {
+                if (!Strikes(slot, perMinute))
+                    continue;
+
+                var age = (float) (time.TotalSeconds - slot * SlotSeconds);
+                if (age < 0f || age > FlashSeconds)
+                    continue;
+
+                float shape;
+                if (age < 0.07f)
+                    shape = 1f;
+                else if (age < 0.13f)
+                    shape = 0.25f;
+                else if (age < 0.22f)
+                    shape = 0.85f;
+                else
+                    shape = 0.85f * MathF.Exp(-(age - 0.22f) * 6f);
+
+                total = MathF.Max(total, shape * Strength(slot));
+            }
+
+            return total;
+        }
     }
 
     [DataDefinition]
@@ -44,6 +157,17 @@ namespace Content.Shared.Weather
 
         [DataField]
         public float Landing = 0.5f;
+
+        // #Cythisiax Added - flake and haze colours so other snow types like radioactive snow can tint the fall
+        [DataField]
+        public Color FlakeColor = new(0.95f, 0.97f, 1f);
+
+        [DataField]
+        public Color HazeColor = new(0.84f, 0.87f, 0.92f);
+
+        // #Cythisiax Added - makes the flakes pulse a little brighter, used for radioactive snow
+        [DataField]
+        public float Glow;
     }
 }
 
@@ -120,12 +244,34 @@ namespace Content.Shared._Misfits.Weather
         public Dictionary<Vector2i, byte[]> Tiles = new();
     }
 
+    [Serializable, NetSerializable]
+    public struct SnowHeat
+    {
+        public Vector2 Position;
+        public float Radius;
+
+        public SnowHeat(Vector2 position, float radius)
+        {
+            Position = position;
+            Radius = radius;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class SnowMeltEvent : EntityEventArgs
+    {
+        public NetEntity Grid;
+        public float Elapsed;
+        public List<SnowHeat> Heats = new();
+    }
+
     public sealed class SnowWalkerState
     {
         public EntityUid Grid;
         public Vector2 LastPosition;
         public float Carry;
         public bool LeftFoot;
+        public float Snowy;
     }
 
     [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
@@ -293,6 +439,68 @@ namespace Content.Shared._Misfits.Weather
             }
         }
 
+        public const float BigHeatRadius = 1.7f;
+        public const float SmallHeatRadius = 0.6f;
+        private const float MeltSpeed = 0.18f;
+
+        public static void Melt(SnowTrampleComponent trample, SnowHeat heat, float elapsed)
+        {
+            var step = (int) (255f * MeltSpeed * elapsed);
+            if (step <= 0)
+                return;
+
+            var reach = heat.Radius * 1.25f + 1f / Cells;
+            var minX = (int) MathF.Floor((heat.Position.X - reach) * Cells);
+            var maxX = (int) MathF.Floor((heat.Position.X + reach) * Cells);
+            var minY = (int) MathF.Floor((heat.Position.Y - reach) * Cells);
+            var maxY = (int) MathF.Floor((heat.Position.Y + reach) * Cells);
+            var changed = false;
+
+            for (var cy = minY; cy <= maxY; cy++)
+            {
+                for (var cx = minX; cx <= maxX; cx++)
+                {
+                    var centre = new Vector2((cx + 0.5f) / Cells, (cy + 0.5f) / Cells);
+                    var edge = heat.Radius * (0.8f + 0.45f * Noise(cx / 7f, cy / 7f));
+                    var falloff = 1f - (centre - heat.Position).Length() / edge;
+                    if (falloff <= 0f)
+                        continue;
+
+                    var target = (int) (255f * MathF.Min(1f, falloff * 2.2f));
+                    var tileIndices = new Vector2i(FloorDiv(cx, Cells), FloorDiv(cy, Cells));
+                    if (!trample.Tiles.TryGetValue(tileIndices, out var tile))
+                    {
+                        tile = new SnowTrampleTile();
+                        trample.Tiles[tileIndices] = tile;
+                    }
+
+                    var index = (cy - tileIndices.Y * Cells) * Cells + (cx - tileIndices.X * Cells);
+                    var current = tile.Cells[index];
+                    if (current >= target)
+                        continue;
+
+                    tile.Cells[index] = (byte) Math.Min(target, current + step);
+                    tile.Version++;
+                    changed = true;
+                }
+            }
+
+            if (changed)
+                trample.Version++;
+        }
+
+        public static bool NearHeat(List<SnowHeat> heats, Vector2 position, float scale)
+        {
+            foreach (var heat in heats)
+            {
+                var reach = heat.Radius * scale;
+                if (Vector2.DistanceSquared(heat.Position, position) <= reach * reach)
+                    return true;
+            }
+
+            return false;
+        }
+
         public static float Sample(SnowTrampleComponent trample, Vector2 position, float radius)
         {
             return SampleCells(trample, position + new Vector2(0f, FeetOffset), radius);
@@ -389,6 +597,126 @@ namespace Content.Shared._Misfits.Weather
             var top = a + (b - a) * fx;
             var bottom = c + (d - c) * fx;
             return top + (bottom - top) * fy;
+        }
+    }
+
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+    public sealed partial class SnowballComponent : Component
+    {
+        [DataField, AutoNetworkedField]
+        public float Size = 1f;
+
+        [DataField]
+        public bool Giant;
+
+        [DataField]
+        public bool Snowman;
+
+        [ViewVariables]
+        public EntityUid Grid;
+
+        [ViewVariables]
+        public Vector2 LastPosition;
+
+        [ViewVariables]
+        public float Carry;
+
+        [ViewVariables]
+        public float Trail;
+    }
+
+    [Serializable, NetSerializable]
+    public struct SnowTrailDot
+    {
+        public Vector2 Position;
+        public float Radius;
+        public float Strength;
+        public float Life;
+
+        public SnowTrailDot(Vector2 position, float radius, float strength = 1f, float life = 90f)
+        {
+            Position = position;
+            Radius = radius;
+            Strength = strength;
+            Life = life;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class SnowTrailEvent : EntityEventArgs
+    {
+        public NetEntity Grid;
+        public List<SnowTrailDot> Dots = new();
+    }
+
+    [RegisterComponent]
+    public sealed partial class SnowTrailComponent : Component
+    {
+        [ViewVariables]
+        public List<(SnowTrailDot Dot, TimeSpan Time)> Marks = new();
+    }
+
+    [Serializable, NetSerializable]
+    public sealed partial class SnowballMakeDoAfterEvent : SimpleDoAfterEvent
+    {
+        [DataField]
+        public NetCoordinates Coordinates;
+
+        private SnowballMakeDoAfterEvent()
+        {
+        }
+
+        public SnowballMakeDoAfterEvent(NetCoordinates coordinates)
+        {
+            Coordinates = coordinates;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed partial class SnowballPackDoAfterEvent : SimpleDoAfterEvent
+    {
+        [DataField]
+        public NetCoordinates Coordinates;
+
+        private SnowballPackDoAfterEvent()
+        {
+        }
+
+        public SnowballPackDoAfterEvent(NetCoordinates coordinates)
+        {
+            Coordinates = coordinates;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed partial class SnowmanBuildDoAfterEvent : SimpleDoAfterEvent
+    {
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class SnowballHitEvent : EntityEventArgs
+    {
+        public NetEntity Target;
+        public float Amount;
+    }
+
+    public static class SnowballMath
+    {
+        public const int MaxPacks = 4;
+        public const float GiantStart = 1f;
+        public const float GiantMax = 2.5f;
+        public const float GiantRadius = 0.3f;
+        public const float SnowmanMin = 1.6f;
+        public const float SnowmanScale = 31f / 28f;
+
+        public static float ItemScale(float size)
+        {
+            return 1f + 0.15f * (size - 1f);
+        }
+
+        public static float GiantScale(float size)
+        {
+            return 0.33f * size;
         }
     }
 }

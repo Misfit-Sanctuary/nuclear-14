@@ -12,7 +12,7 @@
       volume: -6
   temperature: 330
   duration: 500
-  chance: 1
+  chance: 0 # #Cythisiax Edited - ash and sand storms are out of the random rotation
   visibilityClearRadius: 5
   visibilityClearBuffer: 2
   message: weather-ashfall
@@ -29,7 +29,7 @@
       volume: -6
   temperature: 320
   duration: 500
-  chance: 1
+  chance: 0 # #Cythisiax Edited - ash and sand storms are out of the random rotation
   message: weather-ashfall-light
 
 - type: weather
@@ -44,7 +44,7 @@
       volume: -6
   temperature: 340
   duration: 500
-  chance: 1
+  chance: 0 # #Cythisiax Edited - ash and sand storms are out of the random rotation
   visibilityClearRadius: 8
   visibilityClearBuffer: 2
   showMessage: true
@@ -103,7 +103,15 @@
       volume: -6
   temperature: 300
   duration: 600
-  chance: 1 # Misfits: reduced from 2
+  chance: 0 # #Cythisiax Edited - replaced in the rotation by RainLight to RainThunderStorm, kept so saved maps still load
+  rainfall: # #Cythisiax Added - drawn with the rain shader
+    density: 0.5
+    streakLength: 1.0
+    fallSpeed: 9
+    wind: 0.6
+    gust: 0.5
+    haze: 0.06
+    splash: 0.6
   message: weather-rain
   snowAccumulation: -0.0025
   # Misfits Change Add: Rain puddle spawning. Puddles grow silently on open outdoor tiles
@@ -142,7 +150,7 @@
       volume: -6
   temperature: 320
   duration: 500
-  chance: 1
+  chance: 0 # #Cythisiax Edited - ash and sand storms are out of the random rotation
   visibilityClearRadius: 8
   visibilityClearBuffer: 2
   message: weather-sandstorm
@@ -159,7 +167,7 @@
       volume: -6
   temperature: 330
   duration: 500
-  chance: 1
+  chance: 0 # #Cythisiax Edited - ash and sand storms are out of the random rotation
   visibilityClearRadius: 6
   visibilityClearBuffer: 2
   showMessage: true
@@ -178,7 +186,7 @@
       volume: -6
   temperature: 280
   duration: 500
-  chance: 0 # Misfits: snow events are excluded from random weather pool
+  chance: 8 # #Cythisiax Edited - common snow on Wendover, weighted high so the rare snow stays rare
   allowedMaps: [ Wendover ]
   snowAccumulation: 0.00067
   snowfall:
@@ -204,7 +212,7 @@
       volume: -6
   temperature: 270
   duration: 500
-  chance: 0 # Misfits: snow events are excluded from random weather pool
+  chance: 6 # #Cythisiax Edited - snow rolls on Wendover
   allowedMaps: [ Wendover ]
   snowAccumulation: 0.0014
   snowfall:
@@ -217,6 +225,40 @@
     haze: 0.06
     landing: 0.7
   message: weather-snowfall-medium
+
+# #Cythisiax Added - rare glowing green snow on Wendover, irradiates anyone caught outside
+- type: weather
+  id: SnowfallRadioactive
+  sprite:
+    sprite: /Textures/Effects/weather.rsi
+    state: snowfall_med
+  sound:
+    path: /Audio/Effects/Weather/snowstorm_weak.ogg
+    params:
+      loop: true
+      volume: -6
+  temperature: 270
+  duration: 180
+  chance: 1
+  allowedMaps: [ Wendover ]
+  radioactive: true
+  rads: 0.5
+  snowAccumulation: 0.0014
+  snowfall:
+    density: 0.45
+    flakeSize: 1.0
+    fallSpeed: 1.1
+    wind: 0.35
+    gust: 0.6
+    sway: 1.1
+    haze: 0.1
+    landing: 0.8
+    flakeColor: "#B8FF8C"
+    hazeColor: "#9CC48A"
+    glow: 1
+  showMessage: true
+  sender: weather-announcement
+  message: weather-snowfall-radioactive
 
 - type: weather
   id: SnowfallHeavy
@@ -261,7 +303,166 @@
   temperature: 310
   duration: 600
   showMessage: true
-  chance: 1
+  chance: 0 # #Cythisiax Edited - replaced in the rotation by RainThunderStorm, kept so saved maps still load
+  rainfall: # #Cythisiax Added - drawn with the rain shader with lightning
+    density: 0.7
+    streakLength: 1.6
+    fallSpeed: 12
+    wind: 1.6
+    gust: 1.2
+    haze: 0.22
+    splash: 0.9
+    lightning: 4
+    thunder:
+      collection: RainThunder
+      params:
+        volume: -4
   sender: weather-announcement
   message: weather-storm
   snowAccumulation: -0.004
+
+# #Cythisiax Added - rain levels to match the snow levels, all drawn with the rain shader
+- type: weather
+  id: RainLight
+  sprite:
+    sprite: /Textures/Effects/weather.rsi
+    state: rain
+  sound:
+    path: /Audio/Effects/Weather/rain.ogg
+    params:
+      loop: true
+      volume: -9
+  temperature: 295
+  duration: 600
+  chance: 2
+  snowAccumulation: -0.0012
+  rainfall:
+    density: 0.28
+    streakLength: 0.6
+    fallSpeed: 8
+    wind: 0.3
+    gust: 0.3
+    haze: 0
+    splash: 0.35
+  message: weather-rain-light
+
+- type: weather
+  id: RainMedium
+  sprite:
+    sprite: /Textures/Effects/weather.rsi
+    state: rain
+  sound:
+    collection: Rain
+    params:
+      loop: true
+      volume: -6
+  temperature: 290
+  duration: 600
+  chance: 2
+  snowAccumulation: -0.0025
+  rainfall:
+    density: 0.5
+    streakLength: 1.0
+    fallSpeed: 9
+    wind: 0.6
+    gust: 0.5
+    haze: 0.06
+    splash: 0.6
+  message: weather-rain-medium
+
+- type: weather
+  id: RainHeavy
+  sprite:
+    sprite: /Textures/Effects/weather.rsi
+    state: storm
+  sound:
+    path: /Audio/Effects/Weather/rain_heavy.ogg
+    params:
+      loop: true
+      volume: -5
+  temperature: 285
+  duration: 600
+  chance: 1
+  snowAccumulation: -0.004
+  rainfall:
+    density: 0.75
+    streakLength: 1.5
+    fallSpeed: 11
+    wind: 1.2
+    gust: 0.9
+    haze: 0.18
+    splash: 0.95
+  visibilityClearRadius: 7
+  visibilityClearBuffer: 2
+  showMessage: true
+  sender: weather-announcement
+  message: weather-rain-heavy
+
+- type: weather
+  id: RainHeavyExtreme
+  sprite:
+    sprite: /Textures/Effects/weather.rsi
+    state: storm
+  sound:
+    path: /Audio/Effects/Weather/rain_heavy.ogg
+    params:
+      loop: true
+      volume: -1
+  temperature: 280
+  duration: 600
+  chance: 0 # admin only, same as extreme snow
+  snowAccumulation: -0.006
+  rainfall:
+    density: 0.95
+    streakLength: 2.2
+    fallSpeed: 14
+    wind: 3.0
+    gust: 2.0
+    haze: 0.45
+    splash: 1.3
+  visibilityClearRadius: 5
+  visibilityClearBuffer: 2
+  showMessage: true
+  sender: weather-announcement
+  message: weather-rain-extreme
+
+- type: weather
+  id: RainThunderStorm
+  sprite:
+    sprite: /Textures/Effects/weather.rsi
+    state: storm
+  sound:
+    path: /Audio/Effects/Weather/rain_heavy.ogg
+    params:
+      loop: true
+      volume: -4
+  temperature: 288
+  duration: 600
+  chance: 1
+  snowAccumulation: -0.004
+  rainfall:
+    density: 0.7
+    streakLength: 1.6
+    fallSpeed: 12
+    wind: 1.6
+    gust: 1.2
+    haze: 0.22
+    splash: 0.9
+    rainColor: "#B4C0D4"
+    hazeColor: "#4A5262"
+    lightning: 5
+    thunder:
+      collection: RainThunder
+      params:
+        volume: -4
+  visibilityClearRadius: 8
+  visibilityClearBuffer: 2
+  showMessage: true
+  sender: weather-announcement
+  message: weather-rain-thunderstorm
+
+- type: soundCollection
+  id: RainThunder
+  files:
+    - /Audio/_RMC/Effects/thunderclap1.ogg
+    - /Audio/_RMC/Effects/thunderclap2.ogg

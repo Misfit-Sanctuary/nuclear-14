@@ -85,6 +85,13 @@ public sealed partial class StencilOverlay
             return;
         }
 
+        // #Cythisiax Added - rain weathers draw with the rain shader instead of the scrolling sprite
+        if (weatherProto.Rainfall is { } rainfall)
+        {
+            _rainfall.Draw(args, weatherProto, rainfall, alpha, _blep!.Texture, invMatrix);
+            return;
+        }
+
         var curTime = _timing.RealTime;
         var sprite = _sprite.GetFrame(weatherProto.Sprite, curTime);
 

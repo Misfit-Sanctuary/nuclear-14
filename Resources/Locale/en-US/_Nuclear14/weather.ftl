@@ -19,3 +19,12 @@ weather-snowfall-extreme = Extreme snowfall is approaching.
 weather-radioactive-particles = Radioactive fallout is approaching. Seek shelter immediately.
 weather-radioactive-rain = Radioactive rain is approaching. Seek shelter immediately.
 
+# #Cythisiax Added - rare radioactive snow on Wendover
+weather-snowfall-radioactive = Radioactive snowfall is approaching. Seek shelter immediately.
+
+# #Cythisiax Added - rain levels
+weather-rain-light = Light rain is starting.
+weather-rain-medium = Rain is approaching.
+weather-rain-heavy = Heavy rain is approaching.
+weather-rain-extreme = A torrential downpour is approaching. Visibility will be very poor.
+weather-rain-thunderstorm = A thunderstorm is approaching.

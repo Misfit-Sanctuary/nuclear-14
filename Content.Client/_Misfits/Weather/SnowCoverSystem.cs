@@ -1,14 +1,17 @@
+using System.Numerics;
+using Color = Robust.Shared.Maths.Color;
 using Content.Client.IconSmoothing;
 using Content.Client.Weather;
 using Content.Shared.Doors.Components;
-using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 using Content.Shared.Ghost;
 using Content.Shared.Item;
 using Content.Shared.Light.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Physics;
-using Content.Shared._Misfits.Weather;
 using Content.Shared.Weather;
+using Content.Shared._Misfits.Weather;
+using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
+using Image = SixLabors.ImageSharp.Image;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -24,9 +27,6 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp;
-using System.Numerics;
-using Image = SixLabors.ImageSharp.Image;
-using Color = Robust.Shared.Maths.Color;
 
 namespace Content.Client._Misfits.Weather;
 
@@ -50,6 +50,8 @@ public sealed partial class SnowCoverSystem : EntitySystem
     private readonly Dictionary<EntityUid, SnowWalkerState> _walkers = new();
     private readonly Dictionary<EntityUid, TimeSpan> _seenWalking = new();
     private readonly List<SnowFootprint> _prints = new();
+    private static readonly TimeSpan HeatMemory = TimeSpan.FromSeconds(5);
+    private readonly Dictionary<EntityUid, (TimeSpan Time, List<SnowHeat> Heats)> _heats = new();
 
     public override void Initialize()
     {
@@ -57,6 +59,9 @@ public sealed partial class SnowCoverSystem : EntitySystem
         _overlay.AddOverlay(new SnowCoverOverlay());
         SubscribeNetworkEvent<SnowFootprintsEvent>(OnFootprints);
         SubscribeNetworkEvent<SnowTrampleSnapshotEvent>(OnSnapshot);
+        SubscribeNetworkEvent<SnowMeltEvent>(OnMelt);
+        SubscribeNetworkEvent<SnowballHitEvent>(OnSnowballHit);
+        SubscribeNetworkEvent<SnowTrailEvent>(OnTrail);
         _console.RegisterCommand("snowdebug", "Shows what the snow tops are finding near you", "snowdebug [paint]", SnowDebugCommand);
     }
 
@@ -99,6 +104,42 @@ public sealed partial class SnowCoverSystem : EntitySystem
         }
     }
 
+    private void OnTrail(SnowTrailEvent ev)
+    {
+        if (!TryGetEntity(ev.Grid, out var grid))
+            return;
+
+        var trail = EnsureComp<SnowTrailComponent>(grid.Value);
+        var now = _timing.RealTime;
+        foreach (var dot in ev.Dots)
+        {
+            trail.Marks.Add((dot, now));
+        }
+    }
+
+    private void OnMelt(SnowMeltEvent ev)
+    {
+        if (!TryGetEntity(ev.Grid, out var grid))
+            return;
+
+        var trample = EnsureComp<SnowTrampleComponent>(grid.Value);
+        foreach (var heat in ev.Heats)
+        {
+            SnowCoverMath.Melt(trample, heat, ev.Elapsed);
+        }
+
+        _heats[grid.Value] = (_timing.RealTime, ev.Heats);
+    }
+
+    private bool NearHeat(EntityUid gridUid, TransformComponent xform, float scale)
+    {
+        if (!_heats.TryGetValue(gridUid, out var entry) || _timing.RealTime - entry.Time > HeatMemory)
+            return false;
+
+        var position = Vector2.Transform(_transform.GetWorldPosition(xform), _transform.GetInvWorldMatrix(gridUid));
+        return SnowCoverMath.NearHeat(entry.Heats, position, scale);
+    }
+
     private void OnSnapshot(SnowTrampleSnapshotEvent ev)
     {
         if (!TryGetEntity(ev.Grid, out var grid))
@@ -131,6 +172,13 @@ public sealed partial class SnowCoverSystem : EntitySystem
 
         var elapsed = _fillTimer;
         _fillTimer = 0f;
+
+        var trailNow = _timing.RealTime;
+        var trails = EntityQueryEnumerator<SnowTrailComponent>();
+        while (trails.MoveNext(out var trail))
+        {
+            trail.Marks.RemoveAll(mark => (trailNow - mark.Time).TotalSeconds > mark.Dot.Life);
+        }
 
         var query = EntityQueryEnumerator<SnowTrampleComponent, TransformComponent>();
         while (query.MoveNext(out var trample, out var xform))
@@ -271,7 +319,7 @@ public sealed partial class SnowCoverSystem : EntitySystem
                 continue;
             }
 
-            if (HasComp<ItemComponent>(uid) || HasComp<InputMoverComponent>(uid))
+            if (HasComp<ItemComponent>(uid) || HasComp<InputMoverComponent>(uid) || HasComp<SnowballComponent>(uid))
             {
                 Count("skipped, item or mob", uid);
                 continue;
@@ -294,6 +342,12 @@ public sealed partial class SnowCoverSystem : EntitySystem
             if (!IsOutside(gridUid, grid, indices))
             {
                 Count("skipped, under a roof", uid);
+                continue;
+            }
+
+            if (NearHeat(gridUid, xform, 1f))
+            {
+                Count("skipped, next to a fire", uid);
                 continue;
             }
 
@@ -498,6 +552,7 @@ public sealed partial class SnowCoverSystem : EntitySystem
     private const float PeopleIndoorMeltSeconds = 20f;
     private const float PeopleOutdoorMeltSeconds = 150f;
     private const float PeopleMoveSpeed = 0.5f;
+    private const float WarmRange = 1.6f;
     private const float ServerFillSpeed = 3f;
 
     private float _peopleTimer;
@@ -546,6 +601,10 @@ public sealed partial class SnowCoverSystem : EntitySystem
             var outside = xform.GridUid is { } gridUid &&
                           TryComp<MapGridComponent>(gridUid, out var grid) &&
                           IsOpen(gridUid, grid, _map.TileIndicesFor(gridUid, grid, xform.Coordinates), false);
+
+            var warm = xform.GridUid is { } heatGrid && NearHeat(heatGrid, xform, WarmRange);
+            if (warm)
+                outside = false;
 
             var moving = (position - person.LastPosition).Length() / elapsed > PeopleMoveSpeed;
             person.LastPosition = position;
@@ -609,6 +668,20 @@ public sealed partial class SnowCoverSystem : EntitySystem
         }
     }
 
+    private void OnSnowballHit(SnowballHitEvent ev)
+    {
+        if (!TryGetEntity(ev.Target, out var target) || !HasComp<SpriteComponent>(target))
+            return;
+
+        if (!_people.TryGetValue(target.Value, out var person))
+        {
+            person = new PersonSnow { LastPosition = _transform.GetWorldPosition(target.Value) };
+            _people[target.Value] = person;
+        }
+
+        person.Amount = MathF.Min(1f, person.Amount + ev.Amount);
+    }
+
     private void ClearPerson(EntityUid uid, PersonSnow person)
     {
         if (person.Shader == null)
@@ -649,7 +722,7 @@ public sealed partial class SnowCoverOverlay : GridOverlay
     private static readonly ResPath SnowTexturePath = new("/Textures/Tiles/Planet/Snow/snow.png");
     private const int SnowVariants = 13;
     private const float CacheMargin = 6f;
-    private const float FadePixels = 12f;
+    private const float FadePixels = 16f; // #Cythisiax Edited - half a tile of fade so the straight edge stays soft
     private const float MaxAlpha = 0.92f;
     private const float BareAlpha = 0.2f;
     private static readonly TimeSpan CacheLifetime = TimeSpan.FromSeconds(2);
@@ -702,6 +775,35 @@ public sealed partial class SnowCoverOverlay : GridOverlay
         _footprintTextures.Clear();
     }
 
+    private const float TrailAlpha = 0.85f;
+    private const int TrailPixels = 12;
+    private Texture? _trailTexture;
+
+    private Texture GetTrailTexture()
+    {
+        if (_trailTexture != null)
+            return _trailTexture;
+
+        using var image = new Image<Rgba32>(TrailPixels, TrailPixels);
+        var centre = TrailPixels / 2f;
+        for (var y = 0; y < TrailPixels; y++)
+        {
+            for (var x = 0; x < TrailPixels; x++)
+            {
+                var d = new Vector2(x + 0.5f - centre, y + 0.5f - centre).Length() / centre;
+                var a = Math.Clamp(1f - d, 0f, 1f);
+                a = a * a * (3f - 2f * a);
+                if (SnowCoverMath.Hash(x * 7 + 3, y * 13 + 5) < 0.2f)
+                    a *= 0.7f;
+
+                image[x, y] = new Rgba32(236, 241, 250, (byte) (255 * MathF.Min(1f, a * 1.6f)));
+            }
+        }
+
+        _trailTexture = _clyde.LoadTextureFromImage(image, "snow-trail");
+        return _trailTexture;
+    }
+
     private void LoadTextures()
     {
         if (_sheet != null)
@@ -736,16 +838,21 @@ public sealed partial class SnowCoverOverlay : GridOverlay
         LoadTextures();
 
         var cached = GetCache(grid, args.WorldAABB);
-        if (cached.Open.Count == 0)
-            return;
+        var hasSnow = cached.Open.Count > 0;
 
-        _entManager.TryGetComponent<SnowTrampleComponent>(grid.Owner, out var trample);
-        var version = trample?.Version ?? 0;
-        if (cached.DrawDepth != cover.Depth || cached.DrawVersion != version)
-            BuildDrawList(grid.Owner, cached, grid.Comp.TileSize, cover.Depth, trample);
-        cached.DrawVersion = version;
+        if (hasSnow)
+        {
+            _entManager.TryGetComponent<SnowTrampleComponent>(grid.Owner, out var trample);
+            var version = trample?.Version ?? 0;
+            if (cached.DrawDepth != cover.Depth || cached.DrawVersion != version)
+                BuildDrawList(grid.Owner, cached, grid.Comp.TileSize, cover.Depth, trample);
+            cached.DrawVersion = version;
+        }
 
-        if (cached.Draws.Count == 0)
+        _entManager.TryGetComponent<SnowTrailComponent>(grid.Owner, out var trail);
+        var hasTrail = trail != null && trail.Marks.Count > 0;
+
+        if ((!hasSnow || cached.Draws.Count == 0) && !hasTrail)
             return;
 
         var worldMatrix = _transform.GetWorldMatrix(xform);
@@ -755,12 +862,35 @@ public sealed partial class SnowCoverOverlay : GridOverlay
         var handle = args.WorldHandle;
         handle.SetTransform(worldMatrix);
 
-        foreach (var draw in cached.Draws)
+        if (hasSnow)
         {
-            if (!localView.Intersects(draw.Box))
-                continue;
+            foreach (var draw in cached.Draws)
+            {
+                if (!localView.Intersects(draw.Box))
+                    continue;
 
-            handle.DrawTextureRect(draw.Texture, draw.Box, draw.Color);
+                handle.DrawTextureRect(draw.Texture, draw.Box, draw.Color);
+            }
+        }
+
+        if (hasTrail)
+        {
+            var texture = GetTrailTexture();
+            var now = _timing.RealTime;
+            foreach (var (dot, time) in trail!.Marks)
+            {
+                var box = Box2.CenteredAround(dot.Position, new Vector2(dot.Radius * 2f));
+                if (!localView.Intersects(box))
+                    continue;
+
+                var age = (float) ((now - time).TotalSeconds / MathF.Max(dot.Life, 0.1f));
+                var fade = Math.Clamp(1f - age, 0f, 1f);
+                var alpha = TrailAlpha * dot.Strength * fade * fade * (3f - 2f * fade);
+                if (alpha <= 0f)
+                    continue;
+
+                handle.DrawTextureRect(texture, box, Color.White.WithAlpha(alpha));
+            }
         }
 
         handle.SetTransform(Matrix3x2.Identity);
@@ -893,8 +1023,7 @@ public sealed partial class SnowCoverOverlay : GridOverlay
         if (mask == 0)
             return 1f;
 
-        var wobble = 2.5f * MathF.Sin(px / size * MathF.Tau * 2f) + 2f * MathF.Sin(py / size * MathF.Tau * 3f + 1f);
-
+        // #Cythisiax Fixed - straight fade along the tile edge, the old sine wobble drew upside down U bumps on every tile
         var dist = float.MaxValue;
         if ((mask & North) != 0) dist = MathF.Min(dist, py);
         if ((mask & South) != 0) dist = MathF.Min(dist, size - py);
@@ -905,7 +1034,7 @@ public sealed partial class SnowCoverOverlay : GridOverlay
         if ((mask & SouthWest) != 0) dist = MathF.Min(dist, new Vector2(px, size - py).Length());
         if ((mask & SouthEast) != 0) dist = MathF.Min(dist, new Vector2(size - px, size - py).Length());
 
-        var t = Math.Clamp((dist + wobble) / FadePixels, 0f, 1f);
+        var t = Math.Clamp(dist / FadePixels, 0f, 1f);
         return t * t * (3f - 2f * t);
     }
 
@@ -1146,6 +1275,9 @@ public sealed class SnowfallRenderer
         _shader.SetParameter("sway", look.Sway);
         _shader.SetParameter("haze", look.Haze);
         _shader.SetParameter("landing", look.Landing);
+        _shader.SetParameter("flakeColor", new Vector3(look.FlakeColor.R, look.FlakeColor.G, look.FlakeColor.B)); // #Cythisiax Added - tinted snow
+        _shader.SetParameter("hazeColor", new Vector3(look.HazeColor.R, look.HazeColor.G, look.HazeColor.B)); // #Cythisiax Added - tinted snow
+        _shader.SetParameter("glow", look.Glow); // #Cythisiax Added - glowing flakes for radioactive snow
         _shader.SetParameter("clearRadius", proto.VisibilityClearRadius);
         _shader.SetParameter("clearBuffer", proto.VisibilityClearBuffer);
 
@@ -1154,5 +1286,87 @@ public sealed class SnowfallRenderer
         handle.UseShader(_shader);
         handle.DrawRect(args.WorldBounds, Color.White);
         handle.UseShader(null);
+    }
+}
+
+public sealed partial class SnowballSystem : EntitySystem
+{
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+
+    private const string SpinLayer = "spin";
+
+    private readonly Dictionary<EntityUid, (Vector2 Position, float Angle)> _spin = new();
+    private readonly List<EntityUid> _gone = new();
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<SnowballComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<SnowballComponent, AfterAutoHandleStateEvent>(OnState);
+        SubscribeLocalEvent<SnowballComponent, ComponentShutdown>(OnShutdown);
+    }
+
+    private void OnStartup(Entity<SnowballComponent> ent, ref ComponentStartup args)
+    {
+        UpdateScale(ent);
+    }
+
+    private void OnState(Entity<SnowballComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        UpdateScale(ent);
+    }
+
+    private void OnShutdown(Entity<SnowballComponent> ent, ref ComponentShutdown args)
+    {
+        _spin.Remove(ent);
+    }
+
+    private void UpdateScale(Entity<SnowballComponent> ent)
+    {
+        if (!TryComp<SpriteComponent>(ent, out var sprite))
+            return;
+
+        var scale = ent.Comp.Giant
+            ? SnowballMath.GiantScale(ent.Comp.Size) * (ent.Comp.Snowman ? SnowballMath.SnowmanScale : 1f)
+            : SnowballMath.ItemScale(ent.Comp.Size);
+
+        _sprite.SetScale((ent.Owner, sprite), new Vector2(scale, scale));
+    }
+
+    public override void FrameUpdate(float frameTime)
+    {
+        base.FrameUpdate(frameTime);
+
+        var query = EntityQueryEnumerator<SnowballComponent, SpriteComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var ball, out var sprite, out var xform))
+        {
+            if (!ball.Giant)
+                continue;
+
+            var position = _transform.GetWorldPosition(xform);
+            if (!_spin.TryGetValue(uid, out var spin))
+            {
+                _spin[uid] = (position, 0f);
+                continue;
+            }
+
+            var delta = position - spin.Position;
+            var distance = delta.Length();
+            if (distance < 0.0005f)
+                continue;
+
+            if (distance < 2f)
+            {
+                var along = MathF.Abs(delta.X) >= MathF.Abs(delta.Y) ? -delta.X : delta.Y;
+                var radius = SnowballMath.GiantRadius * MathF.Max(ball.Size, 0.5f);
+                spin.Angle += MathF.Sign(along) * distance / radius;
+
+                if (_sprite.LayerMapTryGet((uid, sprite), SpinLayer, out var layer, false))
+                    _sprite.LayerSetRotation((uid, sprite), layer, new Angle(spin.Angle));
+            }
+
+            _spin[uid] = (position, spin.Angle);
+        }
     }
 }
