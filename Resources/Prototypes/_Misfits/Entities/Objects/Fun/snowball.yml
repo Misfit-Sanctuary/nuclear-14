@@ -69,6 +69,24 @@
   - type: Snowball
     giant: true
     snowman: true
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: FootstepSnow
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MisfitsSnowball:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
