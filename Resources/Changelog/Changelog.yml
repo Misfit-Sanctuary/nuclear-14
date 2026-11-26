@@ -13334,3 +13334,16 @@ Entries:
   id: 6603
   time: '2026-11-26T16:02:19.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2217
+- author: ToasterEnjoyer
+  changes:
+    - type: Fix
+      message: Rangers can actually use their 60 hour trophy now
+    - type: Tweak
+      message: >-
+        Changed some item visibility in loadouts for SMs, no available items
+        were changed
+    - type: Fix
+      message: The NCRR roman tunic should work
+  id: 6604
+  time: '2026-11-26T19:53:44.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2218
