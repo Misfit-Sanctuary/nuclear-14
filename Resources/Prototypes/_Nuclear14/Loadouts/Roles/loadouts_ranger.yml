@@ -220,12 +220,11 @@
   requirements:
     - !type:CharacterJobRequirement
       jobs:
-        - NCRFieldRanger # #Misfits Fix - renamed from NCRRanger
         #- NCRVeteranRanger add if lead ranger ever gets the sequoia removed
         - SuperMutantRanger 
         - SuperMutantNCRRanger
-        - NCRPatrolRanger
         - NCRRangerMedic
+        - NCRRangerStandard
     - !type:CharacterDepartmentTimeRequirement
       department: Rangers
       min: 216000 # 60 hours, lot of ranger time needed since this is your mark for being in the rangers for 20 years, if someone can add an age lock be my guest but im not super sure how to
