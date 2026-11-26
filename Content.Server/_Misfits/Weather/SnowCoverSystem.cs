@@ -11,6 +11,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
+using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Light.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
@@ -190,6 +191,13 @@ public sealed partial class SnowCoverSystem : EntitySystem
         while (hot.MoveNext(out var uid, out _, out var xform))
         {
             AddHeat(uid, xform, mapUid);
+        }
+
+        var toggles = EntityQueryEnumerator<ItemToggleHotComponent, ItemToggleComponent, TransformComponent>();
+        while (toggles.MoveNext(out var uid, out _, out var toggle, out var xform))
+        {
+            if (toggle.Activated)
+                AddHeat(uid, xform, mapUid);
         }
 
         foreach (var (gridUid, heats) in _heats)
