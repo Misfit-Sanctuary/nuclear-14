@@ -100,3 +100,16 @@
   - type: ToggleableClothing
     clothingPrototype: N14ClothingHeadHatHelmetVaultScoutHelmet
     slot: head
+
+# #Misfits Vault Management Jacket
+
+- type: entity
+  parent: N14ClothingOuterEnclaverOfficerCoat
+  id: MisfitsClothingOuterVaultManagementCoat
+  name: vault management coat
+  description: vault-tec cares for it's employees and assures their safety with these stylish coats. Think safe, think vault-tec.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/OuterClothing/Coats/vaultmanagercoat.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/OuterClothing/Coats/vaultmanagercoat.rsi
