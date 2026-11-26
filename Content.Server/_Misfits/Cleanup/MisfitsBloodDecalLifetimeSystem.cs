@@ -24,6 +24,7 @@ public sealed class MisfitsBloodDecalLifetimeSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedWeatherSystem _weather = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!; // #Cythisiax Added - look up rain weathers
 
     private readonly Dictionary<(EntityUid GridUid, uint DecalId), TrackedDecal> _tracked = new();
     private TimeSpan _nextUpdate;
@@ -113,12 +114,26 @@ public sealed class MisfitsBloodDecalLifetimeSystem : EntitySystem
             return false;
 
         var mapUid = Transform(gridUid).MapUid;
-        if (mapUid == null || !TryComp<WeatherComponent>(mapUid, out var weather) ||
-            !weather.Weather.TryGetValue(RainProtoId, out var rain) ||
-            (rain.State != WeatherState.Starting && rain.State != WeatherState.Running))
-        {
+        if (mapUid == null || !TryComp<WeatherComponent>(mapUid, out var weather))
             return false;
+
+        // #Cythisiax Edited - any rain weather washes blood now, not just the old Rain one
+        var raining = false;
+        foreach (var (protoId, data) in weather.Weather)
+        {
+            if (data.State != WeatherState.Starting && data.State != WeatherState.Running)
+                continue;
+
+            if (protoId == RainProtoId ||
+                _proto.TryIndex<WeatherPrototype>(protoId, out var proto) && proto.Rainfall != null)
+            {
+                raining = true;
+                break;
+            }
         }
+
+        if (!raining)
+            return false;
 
         TryComp<RoofComponent>(gridUid, out var roof);
         var tile = _map.GetTileRef(gridUid, grid, coordinates);

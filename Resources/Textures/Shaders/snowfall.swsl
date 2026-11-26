@@ -13,6 +13,10 @@ uniform highp float flakeSize;
 uniform highp float sway;
 uniform highp float haze;
 uniform highp float landing;
+// #Cythisiax Added - colours and glow so radioactive snow can use the same fall
+uniform highp vec3 flakeColor;
+uniform highp vec3 hazeColor;
+uniform highp float glow;
 
 uniform highp float clearRadius;
 uniform highp float clearBuffer;
@@ -114,8 +118,10 @@ void fragment() {
     highp float hazeA = haze * (0.3 + 0.7 * spread) * (0.55 + 0.9 * sheets);
     hazeA = clamp(hazeA, 0.0, 0.85);
 
-    highp vec3 flakeCol = vec3(0.95, 0.97, 1.0);
-    highp vec3 hazeCol = vec3(0.84, 0.87, 0.92);
+    // #Cythisiax Edited - colours come from the weather now, glow makes flakes slowly pulse brighter
+    highp float pulse = 0.5 + 0.5 * sin(TIME * 2.3 + valueNoise(world * 1.7) * 6.283);
+    highp vec3 flakeCol = min(flakeColor * (1.0 + glow * (0.25 + 0.45 * pulse)), vec3(1.0));
+    highp vec3 hazeCol = hazeColor;
 
     highp float outA = flakes + hazeA * (1.0 - flakes);
     highp vec3 rgb = (flakeCol * flakes + hazeCol * hazeA * (1.0 - flakes)) / max(outA, 0.001);

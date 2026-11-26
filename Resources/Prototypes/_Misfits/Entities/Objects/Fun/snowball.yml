@@ -1,0 +1,86 @@
+- type: entity
+  parent: BaseItem
+  id: MisfitsSnowball
+  name: snowball
+  description: A packed ball of snow. Throw it at someone, or keep packing it until it's too big to hold.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/snowball.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: Snowball
+  - type: TileFrictionModifier
+    modifier: 0.5
+  - type: TimedDespawn
+    lifetime: 600
+
+- type: entity
+  id: MisfitsSnowballGiant
+  name: giant snowball
+  description: A huge ball of packed snow. Roll it through fresh snow to make it bigger.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/snowball_giant.rsi
+    layers:
+    - state: ball
+    - state: spin
+      map: [ "spin" ]
+    scale: 0.33, 0.33
+    noRot: true
+  - type: Snowball
+    giant: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Pullable
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: true
+  - type: TileFrictionModifier
+    modifier: 0.35
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 200
+        restitution: 0.3
+        mask:
+        - CrateMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  id: MisfitsSnowman
+  name: snowman
+  description: A snowman with stick arms and a stick nose. He won't last once the snow stops.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Misc/snowman.rsi
+    noRot: true
+    layers:
+    - state: snowman
+      offset: 0, 0.5625
+  - type: Snowball
+    giant: true
+    snowman: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 200
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
