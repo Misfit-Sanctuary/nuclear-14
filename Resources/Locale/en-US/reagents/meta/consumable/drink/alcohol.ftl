@@ -276,3 +276,6 @@ reagent-desc-watermelon-wakeup = If you want to be awake, this will do it... Als
 
 reagent-name-rubberneck = rubberneck
 reagent-desc-rubberneck = A popular drink amongst those adhering to an all synthetic diet.
+
+reagent-name-eggnog = eggnog
+reagent-desc-eggnog = Not enough egg.
