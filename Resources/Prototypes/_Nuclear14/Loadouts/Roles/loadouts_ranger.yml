@@ -207,7 +207,7 @@
     - N14MedkitCombatFilled
 
 - type: loadout
-  id: LoadoutNCRRangerSequoia
+  id: LoadoutNCRRangerSequoia #JUST THE GUN, doesnt work with a belt since they spawn in the same spot
   category: Roles
   cost: 4
   exclusive: true
@@ -225,6 +225,24 @@
   items:
     - N14WeaponRevolver45-70RangerSequoia
 
+- type: loadout
+  id: LoadoutNCRRangerSequoiaWithBelt #Gun in the belt
+  category: Roles
+  cost: 5
+  exclusive: true
+  requirements:
+    - !type:CharacterJobRequirement
+      jobs:
+        #- NCRVeteranRanger add if lead ranger ever gets the sequoia removed
+        - SuperMutantRanger 
+        - SuperMutantNCRRanger
+        - NCRRangerMedic
+        - NCRRangerStandard
+    - !type:CharacterDepartmentTimeRequirement
+      department: Rangers
+      min: 216000 # 60 hours, lot of ranger time needed since this is your mark for being in the rangers for 20 years, if someone can add an age lock be my guest but im not super sure how to
+  items:
+    - ClothingBeltRevolvervetfilled
 # Corvax-Add Start
 - type: loadout
   id: LoadoutNCRN14ClothingUniformRangerVeteranRed
