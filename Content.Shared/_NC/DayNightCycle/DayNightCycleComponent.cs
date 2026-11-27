@@ -34,23 +34,24 @@ namespace Content.Shared._NC14.DayNightCycle
         public List<TimeEntry> TimeEntries { get; set; } = new()
         {
             // #Misfits Change - Dawn-to-dawn curve for 4h rounds (0 = round start = dawn, 1 = round end = dawn).
-            new() { Time = 0.00f, ColorHex = "#A87A4E" },  // Dawn (round start)
-            new() { Time = 0.06f, ColorHex = "#CDA06C" },  // Sunrise
-            new() { Time = 0.15f, ColorHex = "#E2BE89" },  // Early morning
-            new() { Time = 0.25f, ColorHex = "#EED3A0" },  // Morning
-            new() { Time = 0.375f, ColorHex = "#F7DDB0" }, // Late morning
-            new() { Time = 0.50f, ColorHex = "#FAE3B8" },  // Noon (peak)
-            new() { Time = 0.56f, ColorHex = "#EFD09A" },  // Early afternoon
-            new() { Time = 0.63f, ColorHex = "#D6AC74" },  // Late afternoon
-            new() { Time = 0.66f, ColorHex = "#9E6C45" },  // Sunset (2h 38m)
+            // #Cythisiax Edited - daytime was amber/piss-yellow all day
+            new() { Time = 0.00f, ColorHex = "#9A8A7A" },  // Dawn (round start)
+            new() { Time = 0.06f, ColorHex = "#C8BBAA" },  // Sunrise
+            new() { Time = 0.15f, ColorHex = "#E0DAD0" },  // Early morning
+            new() { Time = 0.25f, ColorHex = "#EDEAE4" },  // Morning
+            new() { Time = 0.375f, ColorHex = "#F3F2EE" }, // Late morning
+            new() { Time = 0.50f, ColorHex = "#F6F6F3" },  // Noon (peak)
+            new() { Time = 0.56f, ColorHex = "#F1F0EC" },  // Early afternoon
+            new() { Time = 0.63f, ColorHex = "#E2DCD2" },  // Late afternoon
+            new() { Time = 0.66f, ColorHex = "#A8907A" },  // Sunset (2h 38m)
             new() { Time = 0.71f, ColorHex = "#5C4650" },  // Twilight
             new() { Time = 0.75f, ColorHex = "#372C40" },  // Night falls
             new() { Time = 0.82f, ColorHex = "#241C30" },  // Night
             new() { Time = 0.89f, ColorHex = "#151021" }, // Deep night
             new() { Time = 0.94f, ColorHex = "#2B2234" },  // Pre-dawn first light
             new() { Time = 0.965f, ColorHex = "#523A3A" }, // Dawn glow
-            new() { Time = 0.985f, ColorHex = "#7E5C3C" }, // Dawn
-            new() { Time = 1.00f, ColorHex = "#A87A4E" }   // Full dawn (round end, wraps to start)
+            new() { Time = 0.985f, ColorHex = "#7E6A58" }, // Dawn // #Cythisiax Edited - less orange
+            new() { Time = 1.00f, ColorHex = "#9A8A7A" }   // Full dawn (round end, wraps to start)
         };
     }
 

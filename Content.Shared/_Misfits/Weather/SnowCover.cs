@@ -620,9 +620,6 @@ namespace Content.Shared._Misfits.Weather
 
         [ViewVariables]
         public float Carry;
-
-        [ViewVariables]
-        public float Trail;
     }
 
     [Serializable, NetSerializable]

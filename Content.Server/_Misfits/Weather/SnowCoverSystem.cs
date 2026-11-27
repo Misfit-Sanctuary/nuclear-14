@@ -507,17 +507,11 @@ public sealed partial class SnowballSystem : EntitySystem
     private const float HeatMeltSeconds = 60f;
     private const float MeltAway = 0.6f;
     private const string FixtureId = "fix1";
-    private const float LandSink = 0.45f;
-    private const float SmallPrintStep = 0.1f;
-    private const float SmallSnowDrag = 2.5f;
-    private const float TrailLength = 1.2f;
 
     private float _rollTimer;
     private readonly HashSet<EntityUid> _touching = new();
     private readonly List<SnowFootprint> _prints = new();
     private readonly List<EntityUid> _melted = new();
-    private readonly HashSet<EntityUid> _rolling = new();
-    private readonly List<EntityUid> _rollingDone = new();
 
     public override void Initialize()
     {
@@ -526,7 +520,6 @@ public sealed partial class SnowballSystem : EntitySystem
         SubscribeLocalEvent<SnowballComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<SnowballComponent, SnowballPackDoAfterEvent>(OnPack);
         SubscribeLocalEvent<SnowballComponent, ThrowDoHitEvent>(OnThrowHit);
-        SubscribeLocalEvent<SnowballComponent, LandEvent>(OnLand);
         SubscribeLocalEvent<SnowballComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
         SubscribeLocalEvent<SnowballComponent, SnowmanBuildDoAfterEvent>(OnBuildSnowman);
 
@@ -759,96 +752,6 @@ public sealed partial class SnowballSystem : EntitySystem
             SetGiantSize(ent, ent.Comp.Size - elapsed / HeatMeltSeconds * SnowballMath.GiantMax);
     }
 
-    private void OnLand(Entity<SnowballComponent> ent, ref LandEvent args)
-    {
-        if (ent.Comp.Giant || !HasComp<ThrownItemComponent>(ent))
-            return;
-
-        var xform = Transform(ent);
-        var snow = _snow.SnowAt(xform.Coordinates, out var gridUid, out var position);
-        if (gridUid == default || xform.ParentUid != gridUid)
-            return;
-
-        var ball = ent.Comp;
-        ball.Grid = gridUid;
-        ball.LastPosition = position;
-        ball.Carry = 0f;
-        ball.Trail = TrailLength * SnowballMath.ItemScale(ball.Size);
-        _rolling.Add(ent);
-
-        _audio.PlayPvs(SnowSound, xform.Coordinates, AudioParams.Default.WithVolume(-4f));
-
-        if (snow <= 0f)
-            return;
-
-        _prints.Clear();
-        _prints.Add(new SnowFootprint(position, 0.13f * SnowballMath.ItemScale(ball.Size), 150));
-        _snow.AddPrints(gridUid, ent, _prints);
-
-        if (TryComp<PhysicsComponent>(ent, out var body))
-            _physics.SetLinearVelocity(ent, body.LinearVelocity * LandSink, body: body);
-    }
-
-    private void RollSmall(EntityUid uid, float elapsed)
-    {
-        if (TerminatingOrDeleted(uid) ||
-            !TryComp<SnowballComponent>(uid, out var ball) ||
-            !TryComp<PhysicsComponent>(uid, out var body))
-        {
-            _rollingDone.Add(uid);
-            return;
-        }
-
-        var xform = Transform(uid);
-        var snow = _snow.SnowAt(xform.Coordinates, out var gridUid, out var position);
-        if (gridUid == default || gridUid != ball.Grid || xform.ParentUid != gridUid)
-        {
-            _rollingDone.Add(uid);
-            return;
-        }
-
-        var delta = position - ball.LastPosition;
-        var distance = delta.Length();
-
-        if (distance < 0.005f)
-        {
-            if (body.LinearVelocity.LengthSquared() < 0.0025f)
-                _rollingDone.Add(uid);
-
-            return;
-        }
-
-        var dir = delta / distance;
-        var scale = SnowballMath.ItemScale(ball.Size);
-        var travel = SmallPrintStep - ball.Carry;
-        _prints.Clear();
-
-        while (travel <= distance)
-        {
-            var spot = ball.LastPosition + dir * travel;
-            if (snow > 0f)
-            {
-                _prints.Add(new SnowFootprint(spot, 0.06f * scale, 90));
-            }
-            else if (ball.Trail > 0f)
-            {
-                _snow.AddTrail(gridUid, new SnowTrailDot(spot, 0.07f * scale * MathF.Min(1f, 0.4f + ball.Trail)));
-                ball.Trail -= SmallPrintStep;
-            }
-
-            travel += SmallPrintStep;
-        }
-
-        ball.Carry = distance - (travel - SmallPrintStep);
-        ball.LastPosition = position;
-
-        if (snow > 0f)
-        {
-            _snow.AddPrints(gridUid, uid, _prints);
-            _physics.SetLinearVelocity(uid, body.LinearVelocity * MathF.Max(0f, 1f - SmallSnowDrag * elapsed), body: body);
-        }
-    }
-
 
     private void Splat(EntityUid uid)
     {
@@ -913,16 +816,6 @@ public sealed partial class SnowballSystem : EntitySystem
             QueueDel(uid);
         }
 
-        _rollingDone.Clear();
-        foreach (var uid in _rolling)
-        {
-            RollSmall(uid, elapsed);
-        }
-
-        foreach (var uid in _rollingDone)
-        {
-            _rolling.Remove(uid);
-        }
     }
 
     private void Push(EntityUid uid, SnowballComponent ball, PhysicsComponent body)
