@@ -4,9 +4,10 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - GreatKhans
+    - !type:CharacterJobRequirement
+      jobs:
+      - C27
+      - GreatKhan
   items:
     - MisfitsClothingHeadKhanHelmet
 
@@ -16,9 +17,10 @@
   cost: 0
   exclusive: true
   requirements:
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - GreatKhans
+    - !type:CharacterJobRequirement
+      jobs:
+      - C27
+      - GreatKhan
   items:
     - MisfitsClothingHeadKhanFurHelmet
 
@@ -29,9 +31,10 @@
   cost: 2 #following the N14ClothingHeadHatCombatHelmet loadout points
   exclusive: true
   requirements:
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - GreatKhans
+    - !type:CharacterJobRequirement
+      jobs:
+      - C27
+      - GreatKhan
   items:
     - MisfitsClothingHeadKhanFullHelmet
 
@@ -45,9 +48,9 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - GreatKhans
+    - !type:CharacterJobRequirement
+      jobs:
+      - GreatKhan
   items:
     -  MisfitsClothingOuterKhansJacket
 
@@ -59,9 +62,9 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - GreatKhans
+    - !type:CharacterJobRequirement
+      jobs:
+      - GreatKhan
   items:
     -  MisfitsClothingOuterKhansVest
 
@@ -74,9 +77,9 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutOuter
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - GreatKhans
+    - !type:CharacterJobRequirement
+      jobs:
+      - GreatKhan
   items:
     -  MisfitsClothingOuterKhansBattlecoatBlack
 
@@ -90,9 +93,9 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutUniform
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - GreatKhans
+    - !type:CharacterJobRequirement
+      jobs:
+      - GreatKhan
   items:
     - M14ClothingUniformKhansUniform
 
@@ -119,8 +122,8 @@
   requirements:
     - !type:CharacterItemGroupRequirement
       group: N14LoadoutShoes
-    - !type:CharacterDepartmentRequirement
-      departments:
-        - GreatKhans
+    - !type:CharacterJobRequirement
+      jobs:
+      - GreatKhan
   items:
     - MisfitsMilitaryPeltBoots
