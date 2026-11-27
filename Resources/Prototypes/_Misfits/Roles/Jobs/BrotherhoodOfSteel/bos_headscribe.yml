@@ -34,6 +34,9 @@
       - type: NpcFactionMember
         factions:
           - BrotherhoodOfSteel
+      # #Misfits Add - command voice: bigger chat text
+      - type: SpeechFontOverride
+        fontSizeBonus: 4
       - type: CPRTraining
       - type: LanguageKnowledge # #Misfits Add: Scribes speak and understand Brotherhood binary code by default.
         speaks:
@@ -42,6 +45,11 @@
         understands:
           - English
           - N14BrotherBeep
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Head Scribe
+    prefix: Hd. Scr.
+    color: "#3B72BF"
 
 - type: startingGear
   id: BoSWestScribeGear

@@ -5,7 +5,7 @@ meta:
   forkId: ""
   forkVersion: ""
   time: 11/05/2026 07:28:46
-  entityCount: 294774
+  entityCount: 294778
 maps:
 - 1
 grids:
@@ -672332,40 +672332,6 @@ entities:
     - type: NavMap
     - type: RadiationGridResistance
     - type: DayNightCycle
-      timeEntries:
-      - colorHex: '#A87A4E'
-      - time: 0.06
-        colorHex: '#CDA06C'
-      - time: 0.15
-        colorHex: '#E2BE89'
-      - time: 0.25
-        colorHex: '#EED3A0'
-      - time: 0.375
-        colorHex: '#F7DDB0'
-      - time: 0.5
-        colorHex: '#FAE3B8'
-      - time: 0.56
-        colorHex: '#EFD09A'
-      - time: 0.63
-        colorHex: '#D6AC74'
-      - time: 0.66
-        colorHex: '#9E6C45'
-      - time: 0.71
-        colorHex: '#5C4650'
-      - time: 0.75
-        colorHex: '#372C40'
-      - time: 0.82
-        colorHex: '#241C30'
-      - time: 0.89
-        colorHex: '#151021'
-      - time: 0.94
-        colorHex: '#2B2234'
-      - time: 0.965
-        colorHex: '#523A3A'
-      - time: 0.985
-        colorHex: '#7E5C3C'
-      - time: 1
-        colorHex: '#A87A4E'
     - type: BecomesStation
       id: Wendover
     - type: Roof
@@ -759306,6 +759272,11 @@ entities:
     - type: Transform
       parent: 1
       pos: -113.5,-205.5
+  - uid: 294779
+    components:
+    - type: Transform
+      parent: 1
+      pos: -87.58167,212.67804
 - proto: filingCabinetRandom
   entities:
   - uid: 13684
@@ -1452835,6 +1452806,12 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: -124.5,-197.5
+  - uid: 294778
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: -85.5,214.5
 - proto: N14ComputerTerminalRustedBroken
   entities:
   - uid: 84373
@@ -1777417,6 +1777394,31 @@ entities:
       pos: 279.5,-270.5
 - proto: N14MachineWaterTreatmentBroken
   entities:
+  - uid: 134351
+    components:
+    - type: Transform
+      parent: 1
+      pos: 106.5,-2.5
+  - uid: 134352
+    components:
+    - type: Transform
+      parent: 1
+      pos: 106.5,1.5
+  - uid: 134353
+    components:
+    - type: Transform
+      parent: 1
+      pos: 112.5,-0.5
+  - uid: 134354
+    components:
+    - type: Transform
+      parent: 1
+      pos: 112.5,-4.5
+  - uid: 134355
+    components:
+    - type: Transform
+      parent: 1
+      pos: 112.5,3.5
   - uid: 134356
     components:
     - type: Transform
@@ -1777527,33 +1777529,6 @@ entities:
     - type: Transform
       parent: 1
       pos: 453.5,-281.5
-- proto: N14WaterPurifierBroken
-  entities:
-  - uid: 134351
-    components:
-    - type: Transform
-      parent: 1
-      pos: 106.5,-2.5
-  - uid: 134352
-    components:
-    - type: Transform
-      parent: 1
-      pos: 106.5,1.5
-  - uid: 134353
-    components:
-    - type: Transform
-      parent: 1
-      pos: 112.5,-0.5
-  - uid: 134354
-    components:
-    - type: Transform
-      parent: 1
-      pos: 112.5,-4.5
-  - uid: 134355
-    components:
-    - type: Transform
-      parent: 1
-      pos: 112.5,3.5
 - proto: N14Magazine
   entities:
   - uid: 134362
@@ -1784554,6 +1784529,7 @@ entities:
     - type: Transform
       parent: 1
       pos: 85.5,-6.5
+    - type: RadioTower
   - uid: 135127
     components:
     - type: Transform
@@ -1784569,7 +1784545,6 @@ entities:
     - type: Transform
       parent: 1
       pos: 100.5,149.5
-    - type: RadioTower
   - uid: 135130
     components:
     - type: Transform
@@ -1809656,6 +1809631,71 @@ entities:
       bodyType: Dynamic
     - type: Fixtures
       fixtures: {}
+- proto: N14SinkFilledWater
+  entities:
+  - uid: 73440
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: 169.5,234.5
+    - type: Fixtures
+      fixtures: {}
+  - uid: 73455
+    components:
+    - type: Transform
+      parent: 1
+      pos: 179.5,229.5
+    - type: Fixtures
+      fixtures: {}
+  - uid: 77257
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -129.5,-229.5
+    - type: Fixtures
+      fixtures: {}
+  - uid: 137437
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: -54.5,-135.5
+    - type: Fixtures
+      fixtures: {}
+  - uid: 137438
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 270.5,-272.5
+    - type: Fixtures
+      fixtures: {}
+  - uid: 137439
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: -325.5,-250.5
+    - type: Fixtures
+      fixtures: {}
+  - uid: 137441
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: -23.5,-112.5
+    - type: Fixtures
+      fixtures: {}
+  - uid: 137442
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -25.5,-119.5
+    - type: Fixtures
+      fixtures: {}
 - proto: N14SinkFilledWaterDirty
   entities:
   - uid: 137444
@@ -1809951,69 +1809991,6 @@ entities:
       parent: 1
       rot: -1.5707963267948966 rad
       pos: 85.5,231.5
-    - type: Fixtures
-      fixtures: {}
-  - uid: 73440
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: 169.5,234.5
-    - type: Fixtures
-      fixtures: {}
-  - uid: 73455
-    components:
-    - type: Transform
-      parent: 1
-      pos: 179.5,229.5
-    - type: Fixtures
-      fixtures: {}
-  - uid: 77257
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -129.5,-229.5
-    - type: Fixtures
-      fixtures: {}
-  - uid: 137437
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: -54.5,-135.5
-    - type: Fixtures
-      fixtures: {}
-  - uid: 137438
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: 270.5,-272.5
-    - type: Fixtures
-      fixtures: {}
-  - uid: 137439
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: -325.5,-250.5
-    - type: Fixtures
-      fixtures: {}
-  - uid: 137441
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: -23.5,-112.5
-    - type: Fixtures
-      fixtures: {}
-  - uid: 137442
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -25.5,-119.5
     - type: Fixtures
       fixtures: {}
 - proto: N14SinkFilledWaterIrradiated
@@ -1848181,36 +1848158,6 @@ entities:
       parent: 1
       rot: -1.5707963267948966 rad
       pos: 97.5,232.5
-  - uid: 142913
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -85.5,175.5
-  - uid: 142914
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -85.5,173.5
-  - uid: 142915
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -328.5,-252.5
-  - uid: 142916
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -85.5,177.5
-  - uid: 142917
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -164.5,110.5
 - proto: N14ToiletIrradiated
   entities:
   - uid: 142904
@@ -1848277,6 +1848224,38 @@ entities:
       parent: 1
       rot: 1.5707963267948966 rad
       pos: 443.5,-55.5
+- proto: N14ToiletWater
+  entities:
+  - uid: 142913
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -85.5,175.5
+  - uid: 142914
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -85.5,173.5
+  - uid: 142915
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -328.5,-252.5
+  - uid: 142916
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -85.5,177.5
+  - uid: 142917
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -164.5,110.5
 - proto: N14ToolboxFilled1
   entities:
   - uid: 10687
@@ -2174490,6 +2174469,43 @@ entities:
     - type: Transform
       parent: 1
       pos: -68.5,-156.5
+- proto: N14WellWaterClean
+  entities:
+  - uid: 80353
+    components:
+    - type: Transform
+      parent: 1
+      pos: -120.5,-166.5
+  - uid: 163207
+    components:
+    - type: Transform
+      parent: 1
+      pos: 309.5,-19.5
+  - uid: 179224
+    components:
+    - type: Transform
+      parent: 1
+      pos: -19.5,-135.5
+  - uid: 189789
+    components:
+    - type: Transform
+      parent: 1
+      pos: 188.5,-115.5
+  - uid: 189790
+    components:
+    - type: Transform
+      parent: 1
+      pos: -149.5,-163.5
+  - uid: 196304
+    components:
+    - type: Transform
+      parent: 1
+      pos: -44.5,157.5
+  - uid: 277645
+    components:
+    - type: Transform
+      parent: 1
+      pos: -27.5,-240.5
 - proto: N14WellWaterDirty
   entities:
   - uid: 73305
@@ -2174530,41 +2174546,6 @@ entities:
     - type: Transform
       parent: 1
       pos: 216.5,49.5
-  - uid: 80353
-    components:
-    - type: Transform
-      parent: 1
-      pos: -120.5,-166.5
-  - uid: 163207
-    components:
-    - type: Transform
-      parent: 1
-      pos: 309.5,-19.5
-  - uid: 179224
-    components:
-    - type: Transform
-      parent: 1
-      pos: -19.5,-135.5
-  - uid: 189789
-    components:
-    - type: Transform
-      parent: 1
-      pos: 188.5,-115.5
-  - uid: 189790
-    components:
-    - type: Transform
-      parent: 1
-      pos: -149.5,-163.5
-  - uid: 196304
-    components:
-    - type: Transform
-      parent: 1
-      pos: -44.5,157.5
-  - uid: 277645
-    components:
-    - type: Transform
-      parent: 1
-      pos: -27.5,-240.5
 - proto: N14WellWaterIrradiated
   entities:
   - uid: 189799
@@ -2320692,6 +2320673,358 @@ entities:
     - type: Transform
       parent: 1
       pos: 265.5,47.5
+- proto: Sink
+  entities:
+  - uid: 78417
+    components:
+    - type: Transform
+      parent: 1
+      pos: -116.5,-178.5
+  - uid: 199121
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -75.5,-30.5
+- proto: SinkEmpty
+  entities:
+  - uid: 199122
+    components:
+    - type: Transform
+      parent: 1
+      pos: 386.5,-40.5
+  - uid: 199123
+    components:
+    - type: Transform
+      parent: 1
+      pos: 384.5,-57.5
+  - uid: 199124
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: 31.5,-76.5
+    missingComponents:
+    - SolutionRegeneration
+  - uid: 199125
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: 81.5,-37.5
+  - uid: 199126
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: 56.5,-93.5
+- proto: SinkStemless
+  entities:
+  - uid: 199127
+    components:
+    - type: Transform
+      parent: 1
+      pos: 32.5,-24.5
+    missingComponents:
+    - SolutionRegeneration
+  - uid: 199128
+    components:
+    - type: Transform
+      parent: 1
+      pos: 103.5,0.5
+  - uid: 199129
+    components:
+    - type: Transform
+      parent: 1
+      pos: 75.5,-35.5
+  - uid: 199130
+    components:
+    - type: Transform
+      parent: 1
+      pos: 49.5,-54.5
+    missingComponents:
+    - SolutionRegeneration
+  - uid: 199131
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: 31.5,-33.5
+    missingComponents:
+    - SolutionRegeneration
+  - uid: 199132
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: 98.5,152.5
+  - uid: 199133
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: 78.5,-129.5
+    missingComponents:
+    - ReagentTank
+  - uid: 199134
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: 74.5,-135.5
+  - uid: 199135
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: -127.5,12.5
+    missingComponents:
+    - SolutionRegeneration
+  - uid: 199136
+    components:
+    - type: Transform
+      parent: 1
+      pos: -127.5,11.5
+    missingComponents:
+    - SolutionRegeneration
+  - uid: 199137
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -124.5,16.5
+    missingComponents:
+    - SolutionRegeneration
+  - uid: 199138
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: -123.5,16.5
+    missingComponents:
+    - SolutionRegeneration
+  - uid: 199139
+    components:
+    - type: Transform
+      parent: 1
+      pos: -89.5,-53.5
+    missingComponents:
+    - SolutionRegeneration
+  - uid: 199140
+    components:
+    - type: Transform
+      parent: 1
+      pos: -87.5,-53.5
+    missingComponents:
+    - SolutionRegeneration
+  - uid: 199141
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -26.455027,5.463581
+  - uid: 199142
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -26.492702,4.4274907
+  - uid: 199143
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -73.5,-13.5
+    missingComponents:
+    - SolutionRegeneration
+  - uid: 199144
+    components:
+    - type: Transform
+      parent: 1
+      pos: 3.5,89.5
+    missingComponents:
+    - SolutionRegeneration
+  - uid: 199145
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -38.5,5.5
+    missingComponents:
+    - SolutionRegeneration
+  - uid: 199146
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -38.5,4.5
+    missingComponents:
+    - SolutionRegeneration
+  - uid: 199147
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: 44.5,7.5
+    missingComponents:
+    - SolutionRegeneration
+  - uid: 199148
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: -99.5,-48.5
+    missingComponents:
+    - SolutionRegeneration
+  - uid: 199149
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -325.5,4.5
+  - uid: 199150
+    components:
+    - type: Transform
+      parent: 1
+      pos: -91.5,-53.5
+- proto: SinkStemlessWater
+  entities:
+  - uid: 54172
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: -144.5,-211.5
+  - uid: 54408
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: -144.5,-206.5
+  - uid: 199151
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: -82.5,174.5
+  - uid: 199152
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: -82.5,173.5
+  - uid: 199153
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -87.5,204.5
+  - uid: 199154
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: -80.5,204.5
+  - uid: 199155
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: 313.5,202.5
+  - uid: 199156
+    components:
+    - type: Transform
+      parent: 1
+      pos: -95.5,-122.5
+  - uid: 199157
+    components:
+    - type: Transform
+      parent: 1
+      pos: -23.5,-118.5
+  - uid: 199158
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -18.5,-129.5
+  - uid: 208312
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: -13.5,-124.5
+- proto: SinkWide
+  entities:
+  - uid: 54330
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: -139.5,-196.5
+  - uid: 108665
+    components:
+    - type: Transform
+      parent: 1
+      rot: -1.5707963267948966 rad
+      pos: -80.5,-210.5
+  - uid: 162180
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: -20.5,-252.5
+  - uid: 169593
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: -43.5,-270.5
+  - uid: 170785
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -147.5,-202.5
+  - uid: 174877
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: -42.5,-270.5
+  - uid: 177080
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: -147.5,-197.5
+  - uid: 199159
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -53.5,-122.5
+  - uid: 199160
+    components:
+    - type: Transform
+      parent: 1
+      pos: -91.5,187.5
+  - uid: 199161
+    components:
+    - type: Transform
+      parent: 1
+      rot: 3.141592653589793 rad
+      pos: -83.5,180.5
+  - uid: 199162
+    components:
+    - type: Transform
+      parent: 1
+      rot: 1.5707963267948966 rad
+      pos: -85.5,185.5
+  - uid: 273234
+    components:
+    - type: Transform
+      parent: 1
+      pos: -82.5,-214.5
 - proto: SmallLight
   entities:
   - uid: 199163
@@ -2336614,352 +2336947,18 @@ entities:
     - type: Transform
       parent: 1
       pos: 101.204796,162.60855
-- proto: SinkDirtyWater
+- proto: N14SpawnPointVaultManagement
   entities:
-  - uid: 78417
+  - uid: 294775
     components:
     - type: Transform
+      pos: 324.5,106.5
       parent: 1
-      pos: -116.5,-178.5
-  - uid: 199121
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -75.5,-30.5
-  - uid: 199122
-    components:
-    - type: Transform
-      parent: 1
-      pos: 386.5,-40.5
-  - uid: 199123
-    components:
-    - type: Transform
-      parent: 1
-      pos: 384.5,-57.5
-  - uid: 199124
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: 31.5,-76.5
-    missingComponents:
-    - SolutionRegeneration
-  - uid: 199125
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: 81.5,-37.5
-  - uid: 199126
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: 56.5,-93.5
-- proto: SinkStemlessDirtyWater
+- proto: MisfitsSpawnPointBoSArchvist
   entities:
-  - uid: 199127
+  - uid: 294776
     components:
     - type: Transform
+      pos: -84.5,215.5
       parent: 1
-      pos: 32.5,-24.5
-    missingComponents:
-    - SolutionRegeneration
-  - uid: 199128
-    components:
-    - type: Transform
-      parent: 1
-      pos: 103.5,0.5
-  - uid: 199129
-    components:
-    - type: Transform
-      parent: 1
-      pos: 75.5,-35.5
-  - uid: 199130
-    components:
-    - type: Transform
-      parent: 1
-      pos: 49.5,-54.5
-    missingComponents:
-    - SolutionRegeneration
-  - uid: 199131
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: 31.5,-33.5
-    missingComponents:
-    - SolutionRegeneration
-  - uid: 199132
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: 98.5,152.5
-  - uid: 199133
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: 78.5,-129.5
-    missingComponents:
-    - ReagentTank
-  - uid: 199134
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: 74.5,-135.5
-  - uid: 199135
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: -127.5,12.5
-    missingComponents:
-    - SolutionRegeneration
-  - uid: 199136
-    components:
-    - type: Transform
-      parent: 1
-      pos: -127.5,11.5
-    missingComponents:
-    - SolutionRegeneration
-  - uid: 199137
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -124.5,16.5
-    missingComponents:
-    - SolutionRegeneration
-  - uid: 199138
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: -123.5,16.5
-    missingComponents:
-    - SolutionRegeneration
-  - uid: 199139
-    components:
-    - type: Transform
-      parent: 1
-      pos: -89.5,-53.5
-    missingComponents:
-    - SolutionRegeneration
-  - uid: 199140
-    components:
-    - type: Transform
-      parent: 1
-      pos: -87.5,-53.5
-    missingComponents:
-    - SolutionRegeneration
-  - uid: 199141
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -26.455027,5.463581
-  - uid: 199142
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -26.492702,4.4274907
-  - uid: 199143
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -73.5,-13.5
-    missingComponents:
-    - SolutionRegeneration
-  - uid: 199144
-    components:
-    - type: Transform
-      parent: 1
-      pos: 3.5,89.5
-    missingComponents:
-    - SolutionRegeneration
-  - uid: 199145
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -38.5,5.5
-    missingComponents:
-    - SolutionRegeneration
-  - uid: 199146
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -38.5,4.5
-    missingComponents:
-    - SolutionRegeneration
-  - uid: 199147
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: 44.5,7.5
-    missingComponents:
-    - SolutionRegeneration
-  - uid: 199148
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: -99.5,-48.5
-    missingComponents:
-    - SolutionRegeneration
-  - uid: 199149
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -325.5,4.5
-  - uid: 199150
-    components:
-    - type: Transform
-      parent: 1
-      pos: -91.5,-53.5
-  - uid: 54172
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: -144.5,-211.5
-  - uid: 54408
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: -144.5,-206.5
-  - uid: 199151
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: -82.5,174.5
-  - uid: 199152
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: -82.5,173.5
-  - uid: 199153
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -87.5,204.5
-  - uid: 199154
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: -80.5,204.5
-  - uid: 199155
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: 313.5,202.5
-  - uid: 199156
-    components:
-    - type: Transform
-      parent: 1
-      pos: -95.5,-122.5
-  - uid: 199157
-    components:
-    - type: Transform
-      parent: 1
-      pos: -23.5,-118.5
-  - uid: 199158
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -18.5,-129.5
-  - uid: 208312
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: -13.5,-124.5
-- proto: SinkWideDirtyWater
-  entities:
-  - uid: 54330
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: -139.5,-196.5
-  - uid: 108665
-    components:
-    - type: Transform
-      parent: 1
-      rot: -1.5707963267948966 rad
-      pos: -80.5,-210.5
-  - uid: 162180
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: -20.5,-252.5
-  - uid: 169593
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: -43.5,-270.5
-  - uid: 170785
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -147.5,-202.5
-  - uid: 174877
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: -42.5,-270.5
-  - uid: 177080
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: -147.5,-197.5
-  - uid: 199159
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -53.5,-122.5
-  - uid: 199160
-    components:
-    - type: Transform
-      parent: 1
-      pos: -91.5,187.5
-  - uid: 199161
-    components:
-    - type: Transform
-      parent: 1
-      rot: 3.141592653589793 rad
-      pos: -83.5,180.5
-  - uid: 199162
-    components:
-    - type: Transform
-      parent: 1
-      rot: 1.5707963267948966 rad
-      pos: -85.5,185.5
-  - uid: 273234
-    components:
-    - type: Transform
-      parent: 1
-      pos: -82.5,-214.5
 ...

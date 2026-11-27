@@ -90,12 +90,20 @@
       - type: NpcFactionMember
         factions:
           - BrotherhoodOfSteel
+      # #Misfits Add - command voice: bigger chat text
+      - type: SpeechFontOverride
+        fontSizeBonus: 4
       - type: LanguageKnowledge # #Misfits Add: Heads understand Brotherhood binary code by default.
         speaks:
         - English
         understands:
         - English
         - N14BrotherBeep
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Head Knight
+    prefix: Hd. Kn.
+    color: "#3B72BF"
 
 - type: startingGear
   id: BoSHeadKnightGear

@@ -1,0 +1,52 @@
+# Mortar shell explosion, ported from AU-14/ColonialMarinesUniverse.
+- type: explosion
+  id: RMCMortar
+  damagePerIntensity:
+    types:
+      Blunt: 6.25
+      Heat: 6.25
+      Structural: 55
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+  # Full-size flame frames, so the blast reads as one large fireball.
+  intensityPerState: 8
+
+# Fragmentation shell. Wide and shallow: it kills infantry over a large area but carries no structural
+# damage and never breaks tiles, so it is useless against cover.
+- type: explosion
+  id: RMCMortarFrag
+  damagePerIntensity:
+    types:
+      Piercing: 7.5
+      Blunt: 3.75
+  tileBreakChance: [0, 0, 0]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: "#FFD9A8"
+  texturePath: /Textures/Effects/fire_greyscale.rsi
+  fireColor: "#FFE6CF"
+  fireStates: 3
+  # Smallest flame frame on every ring: a wide dust-pale scorch, not a fireball.
+  intensityPerState: 40
+
+# Shaped charge. Tiny radius, but structural damage is high enough to tear through walls and barricades.
+# The tile break thresholds are far lower than the HE shell's because the blast is so much smaller.
+- type: explosion
+  id: RMCMortarHEAT
+  damagePerIntensity:
+    types:
+      Structural: 120
+      Blunt: 10
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 3, 7]
+  tileBreakRerollReduction: 20
+  lightColor: "#FFF0C0"
+  texturePath: /Textures/Effects/fire_greyscale.rsi
+  fireColor: "#FFFFFF"
+  fireStates: 3
+  # White-hot and core-heavy, so the small footprint still reads as the sharpest hit.
+  intensityPerState: 2

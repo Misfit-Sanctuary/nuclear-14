@@ -1,7 +1,7 @@
-// #Cythisiax Added - Faction rank holder: put on a pin-faction character at spawn so the roster and
-// the rank system know which ladder and saved row they belong to without hitting the database.
+// #Cythisiax Added - Faction rank holder. Put on a pin-faction character at spawn so the roster and
+// the rank system know which job and saved row they belong to without hitting the database.
 
-using Content.Shared._Misfits.FactionRank;
+using Content.Shared.Roles;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
@@ -11,7 +11,7 @@ namespace Content.Server._Misfits.FactionRank;
 public sealed partial class FactionRankHolderComponent : Component
 {
     [ViewVariables]
-    public ProtoId<RankLadderPrototype> Ladder;
+    public ProtoId<JobPrototype> Job;
 
     [ViewVariables]
     public NetUserId UserId;

@@ -25,6 +25,7 @@ spray-painter-angle-rotation-reset = 0°
 spray-painter-angle-rotation-90-add = +90°
 
 spray-painter-selected-color = Selected color:
+spray-painter-custom-color = Custom color (any hex code):
 spray-painter-color-red = red
 spray-painter-color-yellow = yellow
 spray-painter-color-brown = brown

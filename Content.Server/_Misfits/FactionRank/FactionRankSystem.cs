@@ -1,18 +1,18 @@
-// #Cythisiax Added - Faction rank system: replaces NCRRankPinSpawnSystem and RankTitleSystem.
-// Where the prefix comes from depends on the faction:
-//  - Pin factions (NCR, Enclave): the pin is the rank. Each character has a saved row per ladder:
-//    the rank they chose to wear, plus whatever leadership set through the roster. The highest they
-//    can wear is what playtime earns, or what leadership granted if that's higher. A leadership
-//    demotion is a hard cap until leadership changes it again. Nobody gets moved up on their own:
-//    the first time they spawn they wear the highest they've earned, after that they stay put and
-//    get told when a higher rank is open, and they pick it in the lobby if they want it.
-//    Whoever wears the pin, on the neck or attached to their uniform/armor, gets its prefix.
-//  - No-pin factions (Rangers, Legion, BoS): the job slot is the rank and it's stamped on their
-//    ID tag at spawn. Whoever has that ID tag gets its prefix.
-// A worn pin wins over the ID tag. The ID's job title stays as-is either way.
-// In chat/radio the prefix goes in front of their name ("1SG John Doe"), but only when they're
-// speaking as themselves — masked, disguised or no-ID speakers keep whatever name they show as.
-// The prefix shows in the faction's radio channel color, so rank and radio read the same.
+// #Cythisiax Added - Faction rank system, replaces NCRRankPinSpawnSystem and RankTitleSystem.
+// Every rank is set in the job yaml under rank.
+//  - Pin factions (NCR, Enclave) list the pins the job works up through and the hours each takes.
+//    The pin is the rank, whoever wears it (on the neck or pinned to their uniform or armor) gets
+//    its prefix. Each character has a saved row per job with the pin they chose to wear, plus
+//    whatever leadership set through the roster. The highest they can wear is what playtime earns,
+//    or what leadership granted if that's higher. A leadership demotion is a hard cap until
+//    leadership changes it again. Nobody gets moved up on their own. The first time they spawn they
+//    wear the highest they've earned, after that they stay put and get told when a higher rank is
+//    open, and they pick it in the lobby if they want it.
+//  - Factions without pins (Rangers, Legion, BoS) write the rank right in the job, and it's stamped
+//    on their ID tag at spawn. Whoever has that ID tag gets its prefix.
+// A worn pin wins over the ID tag. The ID's job title stays as it is either way.
+// In chat and radio the prefix goes in front of their name, like 1SG John Doe, but only when
+// they're talking as themselves. Masked, disguised or no-ID speakers keep whatever name they show as.
 
 using System.Linq;
 using System.Threading.Tasks;
@@ -47,12 +47,11 @@ public sealed class FactionRankSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly PlayTimeTrackingManager _playTime = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly IChatManager _chat = default!;
 
     private const string InsigniaSlot = "neck";
-
-    private readonly Dictionary<string, FactionRankPrototype> _ranksByInsignia = new();
 
     public override void Initialize()
     {
@@ -60,58 +59,39 @@ public sealed class FactionRankSystem : EntitySystem
         SubscribeLocalEvent<HumanoidAppearanceComponent, TransformSpeakerNameEvent>(OnTransformSpeakerName,
             after: new[] { typeof(IdentitySystem), typeof(ServerInventorySystem) });
         SubscribeLocalEvent<InventoryComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
         SubscribeNetworkEvent<RequestFactionRankOptionsEvent>(OnRequestOptions);
         SubscribeNetworkEvent<SetFactionRankEvent>(OnSetRank);
-
-        BuildInsigniaLookup();
-    }
-
-    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
-    {
-        if (args.WasModified<FactionRankPrototype>())
-            BuildInsigniaLookup();
-    }
-
-    private void BuildInsigniaLookup()
-    {
-        _ranksByInsignia.Clear();
-        foreach (var rank in _proto.EnumeratePrototypes<FactionRankPrototype>())
-        {
-            if (rank.Insignia is { } insignia)
-                _ranksByInsignia[insignia.Id] = rank;
-        }
     }
 
     #region Spawn
 
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
     {
-        if (args.JobId == null || !TryGetLadder(args.JobId, out var ladder))
+        if (args.JobId == null || !_proto.TryIndex<JobPrototype>(args.JobId, out var job) || job.Rank is not { } rank)
             return;
 
-        if (IsPinLadder(ladder))
+        if (rank.Pins.Count > 0)
         {
             var holder = EnsureComp<FactionRankHolderComponent>(args.Mob);
-            holder.Ladder = ladder.ID;
+            holder.Job = job.ID;
             holder.UserId = args.Player.UserId;
             holder.CharacterName = args.Profile.Name;
-            LoadAndApplyPin(args.Mob, args.Player, ladder);
+            LoadAndApplyPin(args.Mob, args.Player, job);
             return;
         }
 
-        var earned = EarnedIndex(args.Player, ladder);
-        if (earned >= 0 &&
-            _proto.TryIndex(ladder.Thresholds[earned].Rank, out var rank) &&
-            _idCard.TryFindIdCard(args.Mob, out var idCard))
-        {
-            var comp = EnsureComp<FactionRankComponent>(idCard);
-            comp.Rank = rank.ID;
-            Dirty(idCard, comp);
-        }
+        if (rank.Prefix == null || !_idCard.TryFindIdCard(args.Mob, out var idCard))
+            return;
+
+        var comp = EnsureComp<FactionRankComponent>(idCard);
+        comp.Name = rank.Name ?? rank.Prefix;
+        comp.Prefix = rank.Prefix;
+        comp.Paygrade = rank.Paygrade;
+        comp.Color = rank.Color;
+        Dirty(idCard, comp);
     }
 
-    private async void LoadAndApplyPin(EntityUid mob, ICommonSession player, RankLadderPrototype ladder)
+    private async void LoadAndApplyPin(EntityUid mob, ICommonSession player, JobPrototype job)
     {
         var characterName = Comp<FactionRankHolderComponent>(mob).CharacterName;
         FactionCharacterRank? row = null;
@@ -119,7 +99,7 @@ public sealed class FactionRankSystem : EntitySystem
         try
         {
             var rows = await _db.GetFactionCharacterRanksAsync(player.UserId.UserId, characterName);
-            row = rows.FirstOrDefault(r => r.Ladder == ladder.ID);
+            row = rows.FirstOrDefault(r => r.Ladder == job.ID);
         }
         catch (Exception e)
         {
@@ -132,11 +112,12 @@ public sealed class FactionRankSystem : EntitySystem
         holder.GrantedRank = row?.GrantedRank;
         holder.GrantCapped = row?.GrantCapped ?? false;
 
-        var max = MaxIndex(ladder, EarnedIndex(player, ladder), holder.GrantedRank, holder.GrantCapped);
+        var pins = job.Rank!.Pins;
+        var max = MaxIndex(pins, EarnedIndex(player, job), holder.GrantedRank, holder.GrantCapped);
         if (max < 0)
             return;
 
-        var held = RankIndex(ladder, row?.HeldRank);
+        var held = PinIndex(pins, row?.HeldRank);
         var save = false;
         if (held < 0 || held > max)
         {
@@ -144,16 +125,16 @@ public sealed class FactionRankSystem : EntitySystem
             save = true;
         }
 
-        holder.HeldRank = ladder.Thresholds[held].Rank.Id;
+        holder.HeldRank = pins[held].Pin.Id;
         if (save)
             SaveHolder(holder);
 
-        ApplyPin(mob, ladder, held);
+        ApplyPin(mob, pins, held);
 
-        if (held < max && _proto.TryIndex(ladder.Thresholds[max].Rank, out var available))
+        if (held < max)
         {
             _chat.DispatchServerMessage(player,
-                Loc.GetString("faction-rank-available", ("rank", available.Name)));
+                Loc.GetString("faction-rank-available", ("rank", PinName(pins[max].Pin))));
         }
     }
 
@@ -161,54 +142,62 @@ public sealed class FactionRankSystem : EntitySystem
 
     #region Ladders
 
-    public bool TryGetLadder(ProtoId<JobPrototype> job, out RankLadderPrototype ladder)
+    private static int PinIndex(List<JobRankPin> pins, string? pin)
     {
-        foreach (var proto in _proto.EnumeratePrototypes<RankLadderPrototype>())
-        {
-            if (!proto.Jobs.Contains(job))
-                continue;
-
-            ladder = proto;
-            return true;
-        }
-
-        ladder = default!;
-        return false;
+        return pin == null ? -1 : pins.FindIndex(p => p.Pin.Id == pin);
     }
 
-    public bool IsPinLadder(RankLadderPrototype ladder)
+    private int EarnedIndex(ICommonSession player, JobPrototype job)
     {
-        return ladder.Thresholds.Any(t => _proto.TryIndex(t.Rank, out var rank) && rank.Insignia != null);
-    }
-
-    private static int RankIndex(RankLadderPrototype ladder, string? rank)
-    {
-        return rank == null ? -1 : ladder.Thresholds.FindIndex(t => t.Rank.Id == rank);
-    }
-
-    private int EarnedIndex(ICommonSession player, RankLadderPrototype ladder)
-    {
-        var seconds = 0;
+        var hours = 0.0;
         if (_playTime.TryGetTrackerTimes(player, out var times))
-            seconds = GetTrackerSeconds(times, ladder);
+            hours = GetTrackedTime(times, job).TotalHours;
 
+        var pins = job.Rank!.Pins;
         var index = -1;
-        for (var i = 0; i < ladder.Thresholds.Count; i++)
+        for (var i = 0; i < pins.Count; i++)
         {
-            if (seconds >= ladder.Thresholds[i].Min)
+            if (hours >= pins[i].Hours)
                 index = i;
         }
 
         return index;
     }
 
-    private static int MaxIndex(RankLadderPrototype ladder, int earned, string? granted, bool capped)
+    private static int MaxIndex(List<JobRankPin> pins, int earned, string? granted, bool capped)
     {
-        var grant = RankIndex(ladder, granted);
+        var grant = PinIndex(pins, granted);
         if (grant < 0)
             return earned;
 
         return capped ? grant : Math.Max(grant, earned);
+    }
+
+    private TimeSpan GetTrackedTime(Dictionary<string, TimeSpan> times, JobPrototype job)
+    {
+        if (job.Rank?.Department is not { } deptId)
+            return times.GetValueOrDefault(job.PlayTimeTracker.Id);
+
+        if (!_proto.TryIndex(deptId, out var dept))
+            return TimeSpan.Zero;
+
+        var total = TimeSpan.Zero;
+        foreach (var role in dept.Roles)
+        {
+            var trackerId = _proto.TryIndex<JobPrototype>(role, out var roleJob)
+                ? roleJob.PlayTimeTracker.Id
+                : role.Id;
+            total += times.GetValueOrDefault(trackerId);
+        }
+
+        return total;
+    }
+
+    private string PinName(EntProtoId pin)
+    {
+        return _proto.TryIndex(pin, out var proto) && proto.TryGetComponent<FactionRankComponent>(out var rank, _factory)
+            ? rank.Name
+            : pin.Id;
     }
 
     #endregion
@@ -222,17 +211,18 @@ public sealed class FactionRankSystem : EntitySystem
         count = 0;
 
         if (!TryComp<FactionRankHolderComponent>(body, out var holder) ||
-            !_proto.TryIndex(holder.Ladder, out var ladder))
+            !_proto.TryIndex(holder.Job, out var job) ||
+            job.Rank is not { } rank)
         {
             return false;
         }
 
-        index = RankIndex(ladder, holder.HeldRank);
-        if (index < 0 || !_proto.TryIndex(ladder.Thresholds[index].Rank, out var rank))
+        index = PinIndex(rank.Pins, holder.HeldRank);
+        if (index < 0)
             return false;
 
-        rankName = rank.Name;
-        count = ladder.Thresholds.Count;
+        rankName = PinName(rank.Pins[index].Pin);
+        count = rank.Pins.Count;
         return true;
     }
 
@@ -241,26 +231,25 @@ public sealed class FactionRankSystem : EntitySystem
         newRankName = string.Empty;
 
         if (!TryComp<FactionRankHolderComponent>(body, out var holder) ||
-            !_proto.TryIndex(holder.Ladder, out var ladder))
+            !_proto.TryIndex(holder.Job, out var job) ||
+            job.Rank is not { } rank)
         {
             return false;
         }
 
-        var held = RankIndex(ladder, holder.HeldRank);
+        var pins = rank.Pins;
+        var held = PinIndex(pins, holder.HeldRank);
         var next = promote ? held + 1 : held - 1;
-        if (held < 0 || next < 0 || next >= ladder.Thresholds.Count ||
-            !_proto.TryIndex(ladder.Thresholds[next].Rank, out var rank))
-        {
+        if (held < 0 || next < 0 || next >= pins.Count)
             return false;
-        }
 
-        holder.GrantedRank = rank.ID;
-        holder.GrantCapped = !promote && next < EarnedIndex(session, ladder);
-        holder.HeldRank = rank.ID;
+        holder.GrantedRank = pins[next].Pin.Id;
+        holder.GrantCapped = !promote && next < EarnedIndex(session, job);
+        holder.HeldRank = pins[next].Pin.Id;
         SaveHolder(holder);
-        ApplyPin(body, ladder, next);
+        ApplyPin(body, pins, next);
 
-        newRankName = rank.Name;
+        newRankName = PinName(pins[next].Pin);
         return true;
     }
 
@@ -272,7 +261,7 @@ public sealed class FactionRankSystem : EntitySystem
             {
                 PlayerId = holder.UserId.UserId,
                 CharacterName = holder.CharacterName,
-                Ladder = holder.Ladder.Id,
+                Ladder = holder.Job.Id,
                 HeldRank = holder.HeldRank,
                 GrantedRank = holder.GrantedRank,
                 GrantCapped = holder.GrantCapped,
@@ -298,14 +287,14 @@ public sealed class FactionRankSystem : EntitySystem
     private async void OnSetRank(SetFactionRankEvent ev, EntitySessionEventArgs args)
     {
         var session = args.SenderSession;
-        if (!_proto.TryIndex<RankLadderPrototype>(ev.Ladder, out var ladder) || !IsPinLadder(ladder))
+        if (!_proto.TryIndex<JobPrototype>(ev.Job, out var job) || job.Rank is not { Pins.Count: > 0 } rank)
             return;
 
         var rows = await LoadRows(session, ev.CharacterName);
-        var row = rows.FirstOrDefault(r => r.Ladder == ladder.ID);
+        var row = rows.FirstOrDefault(r => r.Ladder == job.ID);
 
-        var max = MaxIndex(ladder, EarnedIndex(session, ladder), row?.GrantedRank, row?.GrantCapped ?? false);
-        var pick = RankIndex(ladder, ev.Rank);
+        var max = MaxIndex(rank.Pins, EarnedIndex(session, job), row?.GrantedRank, row?.GrantCapped ?? false);
+        var pick = PinIndex(rank.Pins, ev.Pin);
         if (pick < 0 || pick > max)
             return;
 
@@ -313,9 +302,9 @@ public sealed class FactionRankSystem : EntitySystem
         {
             PlayerId = session.UserId.UserId,
             CharacterName = ev.CharacterName,
-            Ladder = ladder.ID,
+            Ladder = job.ID,
         };
-        row.HeldRank = ev.Rank;
+        row.HeldRank = ev.Pin;
 
         try
         {
@@ -327,7 +316,7 @@ public sealed class FactionRankSystem : EntitySystem
             return;
         }
 
-        rows.RemoveAll(r => r.Ladder == ladder.ID);
+        rows.RemoveAll(r => r.Ladder == job.ID);
         rows.Add(row);
         RaiseNetworkEvent(new FactionRankOptionsEvent(ev.CharacterName, BuildOptions(session, rows)), session);
     }
@@ -345,38 +334,36 @@ public sealed class FactionRankSystem : EntitySystem
         }
     }
 
-    private List<FactionRankLadderOptions> BuildOptions(ICommonSession session, List<FactionCharacterRank> rows)
+    private List<FactionRankJobOptions> BuildOptions(ICommonSession session, List<FactionCharacterRank> rows)
     {
-        var result = new List<FactionRankLadderOptions>();
-        foreach (var ladder in _proto.EnumeratePrototypes<RankLadderPrototype>())
+        var result = new List<FactionRankJobOptions>();
+        foreach (var job in _proto.EnumeratePrototypes<JobPrototype>())
         {
-            if (!IsPinLadder(ladder))
+            if (job.Rank is not { Pins.Count: > 0 } rank)
                 continue;
 
-            var row = rows.FirstOrDefault(r => r.Ladder == ladder.ID);
+            var row = rows.FirstOrDefault(r => r.Ladder == job.ID);
             var capped = row?.GrantCapped ?? false;
-            var earned = EarnedIndex(session, ladder);
-            var max = MaxIndex(ladder, earned, row?.GrantedRank, capped);
+            var earned = EarnedIndex(session, job);
+            var max = MaxIndex(rank.Pins, earned, row?.GrantedRank, capped);
 
-            var held = RankIndex(ladder, row?.HeldRank);
+            var held = PinIndex(rank.Pins, row?.HeldRank);
             if (held < 0 || held > max)
                 held = max;
 
-            var ranks = new List<FactionRankOption>();
-            for (var i = 0; i < ladder.Thresholds.Count; i++)
+            var options = new List<FactionRankOption>();
+            for (var i = 0; i < rank.Pins.Count; i++)
             {
-                ranks.Add(new FactionRankOption(
-                    ladder.Thresholds[i].Rank.Id,
+                var pin = rank.Pins[i];
+                options.Add(new FactionRankOption(
+                    pin.Pin.Id,
+                    PinName(pin.Pin),
                     i <= max,
-                    ladder.Thresholds[i].Min / 3600,
+                    pin.Hours,
                     capped && i > max && i <= earned));
             }
 
-            result.Add(new FactionRankLadderOptions(
-                ladder.ID,
-                ladder.Jobs.Select(j => j.Id).ToList(),
-                ranks,
-                held >= 0 ? ladder.Thresholds[held].Rank.Id : null));
+            result.Add(new FactionRankJobOptions(job.ID, options, held >= 0 ? rank.Pins[held].Pin.Id : null));
         }
 
         return result;
@@ -386,15 +373,16 @@ public sealed class FactionRankSystem : EntitySystem
 
     #region Prefix
 
-    public FactionRankPrototype? GetRank(EntityUid wearer)
+    public FactionRankComponent? GetRank(EntityUid wearer)
     {
-        if (TryGetWornPinRank(wearer, out var pinRank))
-            return pinRank;
+        foreach (var pin in WornPins(wearer))
+        {
+            if (!TerminatingOrDeleted(pin) && TryComp<FactionRankComponent>(pin, out var pinRank))
+                return pinRank;
+        }
 
         if (_idCard.TryFindIdCard(wearer, out var idCard) &&
-            TryComp<FactionRankComponent>(idCard, out var comp) &&
-            comp.Rank != null &&
-            _proto.TryIndex(comp.Rank.Value, out var idRank))
+            TryComp<FactionRankComponent>(idCard, out var idRank))
         {
             return idRank;
         }
@@ -422,7 +410,7 @@ public sealed class FactionRankSystem : EntitySystem
         if (rank == null)
             return;
 
-        var rankText = rank.Paygrade == null
+        var rankText = string.IsNullOrEmpty(rank.Paygrade)
             ? rank.Name
             : $"{rank.Name} ({rank.Paygrade})";
 
@@ -438,19 +426,18 @@ public sealed class FactionRankSystem : EntitySystem
 
     #region Pins
 
-    private void ApplyPin(EntityUid mob, RankLadderPrototype ladder, int index)
+    private void ApplyPin(EntityUid mob, List<JobRankPin> pins, int index)
     {
-        if (!_proto.TryIndex(ladder.Thresholds[index].Rank, out var rank) || rank.Insignia is not { } insignia)
-            return;
-
-        var ladderRanks = ladder.Thresholds.Select(t => t.Rank.Id).ToHashSet();
+        var insignia = pins[index].Pin.Id;
+        var jobPins = pins.Select(p => p.Pin.Id).ToHashSet();
         foreach (var pin in WornPins(mob).ToList())
         {
-            if (TryGetPinRank(pin, out var pinRank) && pinRank.ID != rank.ID && ladderRanks.Contains(pinRank.ID))
+            var id = MetaData(pin).EntityPrototype?.ID;
+            if (id != null && id != insignia && jobPins.Contains(id))
                 Del(pin);
         }
 
-        if (WornPins(mob).Any(p => MetaData(p).EntityPrototype?.ID == insignia.Id))
+        if (WornPins(mob).Any(p => MetaData(p).EntityPrototype?.ID == insignia))
             return;
 
         var newPin = Spawn(insignia, Transform(mob).Coordinates);
@@ -484,51 +471,5 @@ public sealed class FactionRankSystem : EntitySystem
         }
     }
 
-    private bool TryGetWornPinRank(EntityUid wearer, out FactionRankPrototype rank)
-    {
-        foreach (var pin in WornPins(wearer))
-        {
-            if (TryGetPinRank(pin, out rank))
-                return true;
-        }
-
-        rank = default!;
-        return false;
-    }
-
-    private bool TryGetPinRank(EntityUid pin, out FactionRankPrototype rank)
-    {
-        rank = default!;
-        if (TerminatingOrDeleted(pin))
-            return false;
-
-        var protoId = MetaData(pin).EntityPrototype?.ID;
-        return protoId != null && _ranksByInsignia.TryGetValue(protoId, out rank!);
-    }
-
     #endregion
-
-    private int GetTrackerSeconds(Dictionary<string, TimeSpan> times, RankLadderPrototype ladder)
-    {
-        if (string.IsNullOrEmpty(ladder.Tracker))
-            return 0;
-
-        if (!ladder.DepartmentTracker)
-            return times.TryGetValue(ladder.Tracker, out var t) ? (int) t.TotalSeconds : 0;
-
-        if (!_proto.TryIndex<DepartmentPrototype>(ladder.Tracker, out var dept))
-            return 0;
-
-        var total = TimeSpan.Zero;
-        foreach (var role in dept.Roles)
-        {
-            var trackerId = _proto.TryIndex<JobPrototype>(role, out var jobProto)
-                ? jobProto.PlayTimeTracker.Id
-                : role.Id;
-            if (times.TryGetValue(trackerId, out var roleTime))
-                total += roleTime;
-        }
-
-        return (int) total.TotalSeconds;
-    }
 }

@@ -8,7 +8,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Paint;
 
 /// Entity when used on another entity will paint target entity
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 [Access(typeof(SharedPaintSystem))]
 public sealed partial class PaintComponent : Component
 {

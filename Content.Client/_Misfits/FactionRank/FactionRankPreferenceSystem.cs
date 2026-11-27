@@ -1,21 +1,23 @@
-// #Cythisiax Added - Faction rank picker (client): asks the server which pin ranks a character has
-// unlocked and sends the player's pick back. The lobby job list reads from here to draw the rank
-// dropdown next to NCR / Enclave jobs.
+// #Cythisiax Added - Faction rank picker on the client. Asks the server which rank pins a character
+// has unlocked and sends the player's pick back. The lobby job list reads from here to draw the rank
+// dropdown next to NCR and Enclave jobs, and so does the latejoin menu, so a player can switch rank
+// right before they drop in mid-round.
 
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._Misfits.FactionRank;
-using Robust.Shared.Prototypes;
+using Content.Shared.Roles;
+using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
 
 namespace Content.Client._Misfits.FactionRank;
 
 public sealed class FactionRankPreferenceSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    // Playtime keeps ticking, so cached options go stale; ask again after this long.
+    // playtime keeps ticking so the cached list goes stale, ask again after this long
     private static readonly TimeSpan CacheTime = TimeSpan.FromMinutes(1);
 
     private readonly Dictionary<string, (FactionRankOptionsEvent Options, TimeSpan Received)> _options = new();
@@ -51,23 +53,60 @@ public sealed class FactionRankPreferenceSystem : EntitySystem
         return options != null;
     }
 
-    public void SetRank(string characterName, string ladder, string rank)
+    public void SetRank(string characterName, string job, string pin)
     {
-        RaiseNetworkEvent(new SetFactionRankEvent(characterName, ladder, rank));
+        RaiseNetworkEvent(new SetFactionRankEvent(characterName, job, pin));
     }
 
-    public RankLadderPrototype? GetPinLadder(string jobId)
+    // Rank dropdown for one job, used by the lobby editor and the latejoin list. Null when the job has
+    // no pins, or when the options haven't come back from the server yet (pending is true then, so the
+    // caller knows to redraw once they land).
+    public OptionButton? BuildPicker(string? characterName, JobPrototype job, float minWidth, out bool pending)
     {
-        foreach (var ladder in _proto.EnumeratePrototypes<RankLadderPrototype>())
-        {
-            if (!ladder.Jobs.Any(j => j.Id == jobId))
-                continue;
+        pending = false;
+        if (string.IsNullOrWhiteSpace(characterName) || job.Rank is not { Pins.Count: > 0 })
+            return null;
 
-            return ladder.Thresholds.Any(t => _proto.TryIndex(t.Rank, out var rank) && rank.Insignia != null)
-                ? ladder
-                : null;
+        if (!TryGetOptions(characterName, out var options))
+        {
+            pending = true;
+            return null;
         }
 
-        return null;
+        var jobOptions = options.Jobs.FirstOrDefault(j => j.Job == job.ID);
+        if (jobOptions?.Held is not { } held)
+            return null;
+
+        var picker = new OptionButton
+        {
+            MinWidth = minWidth,
+            VerticalAlignment = Control.VAlignment.Center,
+            Margin = new Thickness(3f, 0f, 3f, 0f),
+            ToolTip = Loc.GetString("faction-rank-picker-tooltip"),
+        };
+
+        for (var i = 0; i < jobOptions.Ranks.Count; i++)
+        {
+            var option = jobOptions.Ranks[i];
+            var label = option.Unlocked
+                ? option.Name
+                : option.Capped
+                    ? Loc.GetString("faction-rank-picker-capped", ("rank", option.Name))
+                    : Loc.GetString("faction-rank-picker-locked", ("rank", option.Name), ("hours", option.Hours));
+
+            picker.AddItem(label, i);
+            picker.SetItemDisabled(i, !option.Unlocked);
+
+            if (option.Pin == held)
+                picker.SelectId(i);
+        }
+
+        picker.OnItemSelected += args =>
+        {
+            picker.SelectId(args.Id);
+            SetRank(characterName, job.ID, jobOptions.Ranks[args.Id].Pin);
+        };
+
+        return picker;
     }
 }

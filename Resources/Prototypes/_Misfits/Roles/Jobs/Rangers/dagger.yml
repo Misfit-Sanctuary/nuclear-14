@@ -32,8 +32,16 @@
       - type: NpcFactionMember
         factions:
           - Rangers
+      # #Misfits Add - command voice: bigger chat text
+      - type: SpeechFontOverride
+        fontSizeBonus: 4
       - type: FactionRoster # #Cythisiax Added - DAGGER replaces Chief Ranger: roster GUI to recruit, promote and demote Rangers
         roster: Rangers
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: DAGGER
+    prefix: DGR
+    color: "#6B8E23"
 
 # #Cythisiax Edited - DAGGER kit: DAGGER-exclusive worn gear (old elite ranger helmet and armor,
 # modified ranger gas mask, ghillie cloak), a Sequoia sidearm and a choice of long rifle kit.

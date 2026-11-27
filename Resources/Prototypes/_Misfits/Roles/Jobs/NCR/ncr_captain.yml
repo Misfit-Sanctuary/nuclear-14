@@ -51,13 +51,21 @@
         factions:
           - Wastelander
           - NCR
+      # #Misfits Add - command voice: bigger chat text
+      - type: SpeechFontOverride
+        fontSizeBonus: 4
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinNCRCaptain }
+    - { pin: ClothingNeckPinNCRMajor, hours: 20 }
 
 - type: startingGear
   id: NCRCommanderGear
   equipment:
     wallet: N14Wallet
     head: N14ClothingHeadHatNCRBeretOfficer
-    ears: MisfitsClothingHeadsetNCRMaster
+    ears: MisfitsClothingHeadsetNCRMaster # #Misfits Change - command key carries NCR, OSI and the command net, no Ranger net
     back: N14ClothingBackpackNCR
     jumpsuit: N14ClothingOfficerUniformNCRDesert
     outerClothing: MisfitsNCRCommandArmor

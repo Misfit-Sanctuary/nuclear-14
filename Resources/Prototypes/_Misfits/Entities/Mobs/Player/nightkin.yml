@@ -10,6 +10,9 @@
     - type: NpcFactionMember
       factions:
       - Wastelander
+    # #Misfits Add - huge frame, loud voice: speech renders in bigger chat text
+    - type: SpeechFontOverride
+      fontSizeBonus: 2
     # #Misfits Add - innate stealth boy implant. cooldown = recharge after decloak.
     # still = fully invisible, slow walk = 0.1 whisper, running = normal 0.3 shimmer
     # cloakPoison ticks while the implant is running, so long cloaks cost health

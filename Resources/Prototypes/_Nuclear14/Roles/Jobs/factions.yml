@@ -32,6 +32,8 @@
   roles:
   # Command (Admin Only)
   - BoSWestElderCommander        # Elder          | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_elder.yml
+  # Command (Whitelist)
+  - BoSArchivist                 # Archivist      | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_archivist.yml
   # Head Officers
   - BoSMidPaladinCommander       # Head Paladin   | _Misfits/Roles/Jobs/BrotherhoodOfSteel/bos_headpaladin.yml
   #Misfits Change /Comment-out/: Washington BoS jobs removed from faction — prototypes commented out.
@@ -179,6 +181,7 @@
   color: "#0d47a1"
   uiCategory: MinorFaction
   roles:
+  - VaultManagement
   - Overseer
   - VaultSecurity
   - VaultDoctor
@@ -249,6 +252,7 @@
   # Command (Whitelisted)
   - CaesarLegionLegate          # Legate              | _Misfits/Roles/Jobs/CaesarLegion/legion_legate.yml # #Misfits Add
   - CaesarLegionCenturion       # Centurion           | _Misfits/Roles/Jobs/CaesarLegion/legion_centurion.yml # #Misfits Add
+  - CaesarLegionSpeculatore     # Speculatore         | _Misfits/Roles/Jobs/CaesarLegion/legion_speculatore.yml # #Misfits Add
   # Support Officers #Misfits Add: Optio and Priestess sit in their own tier between Command and NCOs.
   - CaesarLegionOptio          # Optio                | _Misfits/Roles/Jobs/CaesarLegion/legion_optio.yml # #Misfits Add
   - CaesarLegionPriestessOfMars # Priestess of Mars   | _Misfits/Roles/Jobs/CaesarLegion/legion_priestess_of_mars.yml # #Misfits Add

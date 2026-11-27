@@ -1,0 +1,15 @@
+- type: shader
+  id: SnowCap
+  kind: source
+  path: "/Textures/Shaders/snow_cap.swsl"
+
+- type: shader
+  id: Snowfall
+  kind: source
+  path: "/Textures/Shaders/snowfall.swsl"
+
+# #Cythisiax Added - rain shader built off the snowfall one
+- type: shader
+  id: Rainfall
+  kind: source
+  path: "/Textures/Shaders/rainfall.swsl"

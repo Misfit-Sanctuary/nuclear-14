@@ -57,6 +57,7 @@
         cautionPopup: true
         activatorJobs:
         - CaesarLegionVexillarius
+        - CaesarLegionSpeculatore
         - CaesarLegionDean
         - CaesarLegionPrimeDecanus
         - CaesarLegionVeteranDecanus
@@ -67,6 +68,11 @@
         - CaesarLegionAcolyteOfMars
   - !type:AddTraitSpecial
     traits: [ LanguageLatin ]
+  # #Cythisiax Added - rank shown in front of their name in chat, stamped on their ID tag
+  rank:
+    name: Veteran Decanus
+    prefix: Vet. Dec.
+    color: "#8b0000"
 
 - type: startingGear
   id: CaesarLegionVeteranDecanusGear

@@ -1,6 +1,6 @@
 - type: entity
   name: Locust Maggot
-  parent: N14BaseMobRaider
+  parent: M14BaseMobMeleeRaider
   id: N14MobRaiderPsycho
   description: Weakest mongrels of the Locust Tribe, they’re armed with flimsy knives and pumped with chems. They are impossible to reason with, seeing your death as a chance to rise in the tribe's ranks.
   components:
@@ -11,11 +11,16 @@
       - PsychoRaider3Gear
       - PsychoRaider4Gear
       - PsychoRaider5Gear
+      - PsychoRaider6Gear
+      - PsychoRaider7Gear
+      - PsychoRaider8Gear
+      - PsychoRaider9Gear
+      - PsychoRaider10Gear
 
 - type: entity
   name: Cult of Liberty Conscript
   id: N14MobRaiderFernMelee
-  parent: N14BaseMobRaider
+  parent: M14BaseMobMeleeRaider
   description: Pressed into service by backwoods crusaders, they now serve at the frontlines of the militia's push into the region. Confused and scared, they see you as a threat and will aim to kill.
   components:
     - type: Loadout
@@ -25,11 +30,16 @@
       - FernConscript3Gear
       - FernConscript4Gear
       - FernConscript5Gear
+      - FernConscript6Gear
+      - FernConscript7Gear
+      - FernConscript8Gear
+      - FernConscript9Gear
+      - FernConscript10Gear
 
 - type: entity
   name: Warden Cudgel
   id: N14MobRaiderEnforcerMelee
-  parent: N14BaseMobRaider
+  parent: M14BaseMobMeleeRaider
   description: Seasoned mercenaries promoted from the rank of Leadhead, they’ve been given full body armor and increased authority, and are often used as peacekeepers when hired by towns.
   components:
     - type: Loadout
@@ -39,6 +49,11 @@
       - EnforcerBeatcop3Gear
       - EnforcerBeatcop4Gear
       - EnforcerBeatcop5Gear
+      - EnforcerBeatcop6Gear
+      - EnforcerBeatcop7Gear
+      - EnforcerBeatcop8Gear
+      - EnforcerBeatcop9Gear
+      - EnforcerBeatcop10Gear
 
 - type: entity
   name: Warden Sentinel

@@ -33,12 +33,20 @@
       - type: NpcFactionMember
         factions:
           - Enclave
+      # #Misfits Add - command voice: bigger chat text
+      - type: SpeechFontOverride
+        fontSizeBonus: 4
       - type: ReplacementAccent
         accent: n14Enclave
       - type: FactionRoster # #Cythisiax Added - replaces the Recruit verb: roster GUI to recruit, promote and demote Enclave personnel
         roster: Enclave
         action: ActionOpenFactionRosterEnclave
       - type: PowerArmorProficiency
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinEnclaveLtColonel }
+    - { pin: ClothingNeckPinEnclaveColonel, hours: 20 }
 
 - type: startingGear
   id: EnclaveCommanderGear
@@ -47,7 +55,7 @@
     head: N14ClothingHeadHatEnclaveOfficer
     back: N14ClothingBackpackMilitary
     jumpsuit: N14ClothingUniformJumpsuitEnclave
-    # #Misfits Change - The Commander wears the officer coat; Hellfire remains Reformer-only.
+    # #Misfits Change - The Commander wears the officer coat; Hellfire remains Reformer/General-only.
     outerClothing: N14ClothingOuterEnclaverOfficerCoat
     shoes: N14ClothingBootsCombatFilled
     gloves: N14ClothingHandsGlovesCombat
@@ -61,6 +69,7 @@
   storage:
     back:
     - N14BoxPlasticFilledMilitary
+    - EnclaveMicroBombDetonator
 
 - type: playTimeTracker
   id: EnclaveCommander

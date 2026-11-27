@@ -39,6 +39,17 @@
 
 - type: entity
   parent: N14ClothingUniformBase
+  id: MistfitsClothingUniformJumpsuitVaultManagement
+  name: vault management jumpsuit
+  description: A jumpsuit worn by vault-tec management. Comfy and stylish!
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/vaultmanagement.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Uniforms/FalloutSuits/vaultmanagement.rsi
+
+- type: entity
+  parent: N14ClothingUniformBase
   id: N14ClothingUniformJumpsuitDetectiveAlt
   name: detective's suit
   description: A nice suit, perfect for investigating.

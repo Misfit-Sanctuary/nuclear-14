@@ -1,0 +1,90 @@
+# #Misfits Add - Legion Speculatore
+
+- type: entity
+  parent: MisfitsExplorerAssasin # Veteran explorer armor stats
+  id: MisfitsSpecExecArmor
+  name: executioner armor
+  description: The armor consists of a chestplate and a waistguard, well-taken care of.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/Speculatore/Executioner/execarmor.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/Speculatore/Executioner/execarmor.rsi
+
+- type: entity
+  parent: ClothingShoesBase
+  id: MisfitsSpecExecBoots
+  name: executioner boots
+  description: The lower half of these boots are rusted from constant contact with legionary blood, the kneepads appear to be skulls, likely of past traitors.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/Speculatore/Executioner/execboots.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/Speculatore/Executioner/execboots.rsi
+  - type: NoSlip
+  - type: ClothingSlowOnDamageModifier # Forge-Add
+    modifier: 0.85
+
+- type: entity
+  parent: ClothingHandsBase
+  id: MisfitsSpecExecHand
+  name: executioner gauntlets
+  description: The gauntlets are partly rusted, the knuckles dented and worn.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/Speculatore/Executioner/exechand.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: _Misfits/Clothing/CaesarLegion/Speculatore/Executioner/exechand.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/Speculatore/Executioner/exechand.rsi
+    slots: [gloves]
+  - type: MeleeWeapon
+    # Slashing damage applied when wearing and attacking — mirrors the Goliath Powerfist pattern
+    soundHit:
+      collection: MetalThud
+    range: 1.3
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 35
+    animation: WeaponArcFist
+    wideAnimation: WeaponArcFist
+    mustBeEquippedToUse: true
+
+- type: entity
+  parent: N14ClothingMaskPlate
+  id: MisfitsSpecExecMask
+  name: executioner mask
+  description: The skull of a most recent victim, still fresh, it reeks of death.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/Speculatore/Executioner/execmask.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/Speculatore/Executioner/execmask.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: MisfitsSpecExecNeck
+  name: executioner coat
+  description: A chain belt loops around the coat, with skulls of past legionaries hanging from the bottom, pauldrons ripped off a paladin rest on the shoulders, and a deathclaw skull sits on the left.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/Speculatore/Executioner/execneck.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/Speculatore/Executioner/execneck.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+
+- type: entity
+  parent: ClothingUniformBase
+  id: MisfitsSpecExecTunic
+  name: executioner robes
+  description: The robes have two yellow stripes in the front, visible and vibrant, marking danger as obvious.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/CaesarLegion/Speculatore/Executioner/exectunic.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/CaesarLegion/Speculatore/Executioner/exectunic.rsi

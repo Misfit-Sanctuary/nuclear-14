@@ -18,12 +18,12 @@ faction-roster-tab-recruit = Recruit
 faction-roster-tab-oath = Oath
 faction-roster-filter-placeholder = Search by name...
 faction-roster-loading = Loading roster...
-# #Cythisiax Edited - the roster only lists connected members now
+# #Cythisiax Edited - the roster only lists members currently playing a faction job
 faction-roster-summary = {$online} {$online ->
     [one] member
    *[other] members
-} online.
-faction-roster-empty = No members online.
+} on duty.
+faction-roster-empty = No members on duty.
 # #Cythisiax Added - shown when someone without discharge rights tries to remove a member
 faction-roster-status-discharge-denied = You can only demote down to the lowest rank. Removing someone from the faction needs higher command.
 

@@ -271,6 +271,18 @@
     sprite: _Misfits/Clothing/Head/Helmets/bos_helmet_mk2.rsi
 
 #MARK: Enclave
+# --- Enclave Security Helmet (White)---
+- type: entity
+  parent: N14ClothingHeadHatBaseHelmetMetal
+  id: N14ClothingHeadHatEnclaveSecurityHelmet
+  name: Enclave Security Helmet
+  description: A white security helmet worn by Enclave guards.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_security_helmet.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Head/FalloutHelmets/enclave_security_helmet.rsi
+
 # --- Enclave Pilot Helmet ---
 #- type: entity
 #  parent: N14ClothingHeadHatBaseHelmetMK2

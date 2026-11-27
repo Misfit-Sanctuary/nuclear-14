@@ -30,3 +30,17 @@
       amount: 1
   products:
     WhiteGilgamesh: 3
+
+- type: reaction
+  id: MisfitsEggnog
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    Egg:
+      amount: 1
+    N14MilkBrahmin:
+      amount: 4
+    Rum:
+      amount: 5
+  products:
+    Eggnog: 10

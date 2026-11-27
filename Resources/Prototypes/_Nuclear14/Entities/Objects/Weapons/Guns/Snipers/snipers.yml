@@ -31,15 +31,6 @@
     backStrength: 3
   - type: StaticPrice
     price: 75
-  # #Misfits Add — scope attachment slot; inherited by all lever-action carbines
-  # - type: ItemSlots
-  #   slots:
-  #     gun_scope:
-  #       name: Scope Slot
-  #       whitelist:
-  #         tags:
-  #         - RifleScope
-
 - type: entity
   name: lee enfield rifle
   parent: BaseWeaponSniper
@@ -69,15 +60,6 @@
       - N14Cartridge308Rifle
   - type: StaticPrice
     price: 100
-  # #Misfits Add — scope attachment slot on Lee Enfield
-  # - type: ItemSlots
-  #   slots:
-  #     gun_scope:
-  #       name: Scope Slot
-  #       whitelist:
-  #         tags:
-  #         - RifleScope
-
 - type: entity
   name: Anti-Materiel rifle
   parent: BaseWeaponRifle
@@ -135,12 +117,6 @@
           tags:
             - N14Cartridge50
             - N14Cartridge50HEIAP
-      # #Misfits Add — scope attachment slot on anti-materiel rifle
-      # gun_scope:
-      #   name: Scope Slot
-      #   whitelist:
-      #     tags:
-      #     - RifleScope
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -148,6 +124,16 @@
   - type: Appearance
   - type: FollowDistance
     backStrength: 3
+  # #Misfits Add - built-in optic (plain YAML Scope component)
+  - type: Scope
+    requireWielding: true
+    requiredPerception: 9
+    zoomLevels:
+    - name: 6x
+      zoom: 1.18
+      offset: 17
+      allowMovement: false
+      doAfter: 1.00
   - type: StaticPrice
     price: 200
 
@@ -186,17 +172,18 @@
       collection: N14AntiMaterielGunshot
   - type: FollowDistance
     backStrength: 3
+  # #Misfits Add - built-in optic (plain YAML Scope component)
+  - type: Scope
+    requireWielding: true
+    requiredPerception: 8
+    zoomLevels:
+    - name: 3x
+      zoom: 1.07
+      offset: 9
+      allowMovement: false
+      doAfter: 0.70
   - type: StaticPrice
     price: 175
-  # #Misfits Add — scope attachment slot on .50 NCR rifle
-  # - type: ItemSlots
-  #   slots:
-  #     gun_scope:
-  #       name: Scope Slot
-  #       whitelist:
-  #         tags:
-  #         - RifleScope
-
 - type: entity
   name: lever action carbine
   parent: N14WeaponSniperHunting
@@ -270,7 +257,7 @@
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/brushgun.rsi
   - type: Gun
-    fireRate: 2.5 # Forge-Change
+    fireRate: 3 # Forge-Change
     soundGunshot:
       collection: N14BrushGunGunshot
   - type: BallisticAmmoProvider
@@ -578,6 +565,16 @@
             - N14Cartridge308Rifle
   - type: FollowDistance
     backStrength: 3
+  # #Misfits Add - built-in optic (plain YAML Scope component)
+  - type: Scope
+    requireWielding: true
+    requiredPerception: 8
+    zoomLevels:
+    - name: 6x
+      zoom: 1.17
+      offset: 16
+      allowMovement: false
+      doAfter: 1.00
   - type: StaticPrice
     price: 175
 # Forge-add-end
@@ -690,6 +687,16 @@
     - SemiAuto
     soundGunshot:
       collection: N14SniperVarmintGunshot
+  # #Misfits Add - built-in optic, pure YAML component (no item, no attachment)
+  - type: Scope
+    requireWielding: true
+    requiredPerception: 7
+    zoomLevels:
+    - name: 5x
+      zoom: 1.13
+      offset: 15
+      allowMovement: false
+      doAfter: 0.70
   - type: StaticPrice
     price: 500
 
@@ -743,7 +750,7 @@
   name: Colt Rangemaster
   parent: N14WeaponSniperHunting
   id: N14WeaponRifle762Rangemaster
-  description: A semi-automatic 7.62mm rifle with a long barrel and scope-ready channel. Issued to NCR designated marksmen who needed reach without the weight of a full sniper platform. Ten rounds internally.
+  description: A semi-automatic 7.62mm rifle with a long barrel. Issued to NCR designated marksmen who needed reach without the weight of a full sniper platform. Ten rounds internally.
   components:
   - type: Clothing
     sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/rangemaster.rsi

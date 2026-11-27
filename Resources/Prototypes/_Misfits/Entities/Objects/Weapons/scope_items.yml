@@ -1,5 +1,4 @@
 # #Misfits Removed - Old N14Scope/Telescope-based prototypes, replaced by RMC-style ScopeComponent system
-# Old binoculars/scope attachment prototypes preserved below for history.
 # See git history for original definitions.
 
 # - type: entity
@@ -48,13 +47,14 @@
   #   tags:
   #   - Binoculars
 
-# N14 Rifle Scope Attachment — attach to a gun's ItemSlot to gain a scope action.
-# Uses ScopeComponent with attachment: true so it only activates from inside a container.
+# N14 Rifle Scope Attachment — a hand-held optic for a rifle, and the RifleScope-tagged
+# component consumed by the scoped-rifle crafting graphs. Like any Scope item it only works
+# while held in the active hand; inside a gun's item slot it does nothing.
 - type: entity
   parent: BaseItem
   id: N14WeaponScopeAttachment
   name: rifle scope
-  description: A detachable optic scope for a rifle. Attach it to a compatible weapon to gain a directional scope action.
+  description: A detachable optic scope for a rifle. Hold it in your active hand to look through it.
   components:
   - type: Item
     size: Small
@@ -62,7 +62,6 @@
     sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
     state: scope
   - type: Scope
-    attachment: true
     requireWielding: true
     zoomLevels:
     - name: 4x
@@ -75,3 +74,34 @@
     - RifleScope
   - type: StaticPrice
     price: 100
+
+# N14 Laser Rangefinder - scopable binoculars that also log the coordinates you aim at,
+# so a mortar crew knows what to dial into the mortar.
+- type: entity
+  parent: BaseItem
+  id: N14LaserRangefinder
+  name: laser rangefinder
+  description: A pre-war laser rangefinder. Steady it on a spot to log its coordinates, then dial those into a mortar.
+  components:
+  - type: Sprite
+    sprite: _Misfits/Objects/Devices/binoculars.rsi
+    state: binoculars_civ
+  - type: Item
+    size: Small
+    heldPrefix: binoculars
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Belt
+    - suitstorage
+  - type: Scope
+    useInHand: true
+    zoomLevels:
+    - name: 5x
+      zoom: 1.2
+      offset: 17
+      allowMovement: false
+      doAfter: 0.3
+  - type: LaserRangefinder
+  - type: StaticPrice
+    price: 150

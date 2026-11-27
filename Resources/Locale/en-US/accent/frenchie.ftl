@@ -225,26 +225,32 @@ accent-Frenchie-words-replace-74 = fusil à pompe
 accent-Frenchie-words-75 = vault
 accent-Frenchie-words-replace-75 = voûte
 
-accent-Frenchie-words-76 = irradiated
-accent-Frenchie-words-replace-76 = irradié
+accent-Frenchie-words-76 = vaultie
+accent-Frenchie-words-replace-76 = voûtee
 
-accent-Frenchie-words-77 = settlement
-accent-Frenchie-words-replace-77 = colonie
+accent-Frenchie-words-77 = vaults
+accent-Frenchie-words-replace-77 = voûtes
 
-accent-Frenchie-words-78 = sheriff
-accent-Frenchie-words-replace-78 = shérif
+accent-Frenchie-words-78 = irradiated
+accent-Frenchie-words-replace-78 = irradié
 
-accent-Frenchie-words-79 = deputy
-accent-Frenchie-words-replace-79 = adjoint
+accent-Frenchie-words-79 = settlement
+accent-Frenchie-words-replace-79 = colonie
 
-accent-Frenchie-words-80 = bounty
-accent-Frenchie-words-replace-80 = prime
+accent-Frenchie-words-80 = sheriff
+accent-Frenchie-words-replace-80 = shérif
 
-accent-Frenchie-words-81 = bounty hunter
-accent-Frenchie-words-replace-81 = chasseur de primes
+accent-Frenchie-words-81 = deputy
+accent-Frenchie-words-replace-81 = adjoint
 
-accent-Frenchie-words-82 = dynamite
-accent-Frenchie-words-replace-82 = dynamite
+accent-Frenchie-words-82 = bounty
+accent-Frenchie-words-replace-82 = prime
 
-accent-Frenchie-words-83 = explosive
-accent-Frenchie-words-replace-83 = explosif
+accent-Frenchie-words-83 = bounty hunter
+accent-Frenchie-words-replace-83 = chasseur de primes
+
+accent-Frenchie-words-84 = dynamite
+accent-Frenchie-words-replace-84 = dynamite
+
+accent-Frenchie-words-85 = explosive
+accent-Frenchie-words-replace-85 = explosif

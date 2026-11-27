@@ -6,6 +6,7 @@
   suffix: AI
   components:
     #- type: RandomHumanoidAppearance #wassuy disabled for now may cause confusion
+    - type: Special  #misfits add, wassuy added speical so they would be a lil tougher to deal with
     - type: Damageable    # Misfits Add - Override from BaseMobSpeciesOrganic to prevent hunger/thirst damage
       damageContainer: MisfitsNPCBiological
     - type: NpcFactionMember
@@ -18,33 +19,26 @@
         160: Dead
     - type: SlowOnDamage
       speedModifierThresholds:
-        60: 0.8
-    - type: Destructible #Misfits Change /Add: Drop bottle caps on death (1-7) #wassuy this do not work, please someone fixit
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 160
-        behaviors:
-        - !type:PlaySoundBehavior #Wassuy Change - raider death sound didnt really work tho, need fix too
-          sound:
-            collection: MisfitsRaiderDeath
-    - type: PassiveDamage # It's mostly for the faction NPCs, but can be here nonetheless.
+        60: 0.6
+    #- type: Destructible #Misfits Change /Add: Drop bottle caps on death (1-7) #wassuy this do not work, please someone fixit
+    - type: PassiveDamage
       allowedStates:
-      - Critical
-      damageCap: 300
+      - Alive
+      damageCap: 300 # makes it works with life giver
       damage:
-        groups:
-          Brute: -0.1
-          Burn: -0.1
-          Toxin: -0.1
-          Airloss: -1
+        types:          #wassuy changes, reverted regen to original regen, being alive regen but dont heal main damages.
+          Asphyxiation: -1
+          Bloodloss: -1
+          Poison: -1
     - type: MindContainer
       showExamineInfo: False
     - type: InputMover
     - type: MobMover
+    - type: Tool
     - type: SurgeryTarget
-      canOperate: false
+      canOperate: true
     - type: ProximityNPC # Misfits Add — sleep distant NPCs to reduce tick load
+    - type: NPCRetaliation # Aggro on the attacker when damaged from any range
     - type: HTN
       rootTask:
         task: N14RangedHostileCompound
@@ -54,32 +48,26 @@
         NavClimb: !type:Bool
           true
         NavPry: !type:Bool
-         true
+          true
         NavSmash: !type:Bool
-         true
+          false
         VisionRadius: !type:Single #Wassuy added this so they detect you less
           10.5
         MeleeRange: !type:Single
           1.5
-    - type: IdleSound #Wassuy added voiceline and combat sound here
-    - type: SpamEmitSound
-      minInterval: 30
-      maxInterval: 120
-      sound:
-        collection: MisfitsRaiderIdle
-        params:
-          volume: 6
-          maxDistance: 8
-    - type: AggroSound 
-      sound:
-        collection: MisfitsRaiderAlert
-        params:
-          volume: 3
-          maxDistance: 10
+      qualities:  #You cannot cheat junkies with stupid doors!
+        - Prying
+    - type: Prying
+      pryPowered: !type:Bool
+          true
+      force: !type:Bool
+        true
+      useSound:
+        path: /Audio/Items/crowbar.ogg
     - type: MeleeWeapon
       hidden: true
       soundHit:
-        collection: MisfitsRaiderAttack
+        collection: Punch
       attackRate: 1.5
       range: 1.5
       angle: 30
@@ -89,14 +77,21 @@
           Blunt: 15
     - type: Carriable
     - type: Perishable
-      rotAfter: 1800 # Rots after half of an in-game day
+      rotAfter: 3600 # Rots after an in-game day
     - type: RotInto
-      entity: N14FoodMeatRadRaw # and becomes a single chunk of meat.
+      entity: N14FoodMeatHuman # and becomes a single chunk of meat.
     - type: Butcherable
       butcheringType: Spike
       spawned:
-      - id: N14FoodMeatRadRaw
+      - id: N14FoodMeatHuman
+        amount: 4
+        prob: 0.75
+      - id: MaterialBones1
         amount: 8
+        prob: 0.75
+      - id: TorsoSkeleton
+        amount: 1
+        prob: 0.75
     - type: HumanoidAppearance
       species: Human
       hideLayersOnEquip:

@@ -1,0 +1,150 @@
+// #Cythisiax Added - rain version of the snowfall shader, thin slanted streaks, ground splashes, rain sheets and lightning flashes
+uniform sampler2D MASK_TEXTURE;
+
+uniform highp vec2 eyePos;
+uniform highp vec2 eyePixel;
+uniform highp float pixelsPerTile;
+
+uniform highp float intensity;
+uniform highp float fall;
+uniform highp float slant;
+uniform highp float sheetDrift;
+
+uniform highp float density;
+uniform highp float streakLength;
+uniform highp float haze;
+uniform highp float splash;
+uniform highp float flash;
+
+uniform highp vec3 rainColor;
+uniform highp vec3 hazeColor;
+
+uniform highp float clearRadius;
+uniform highp float clearBuffer;
+
+const highp float ART = 32.0;
+
+highp float hash12(highp vec2 p) {
+    highp vec3 p3 = fract(vec3(p.xyx) * 0.1031);
+    p3 += dot(p3, p3.yzx + 33.33);
+    return fract((p3.x + p3.y) * p3.z);
+}
+
+highp vec2 hash22(highp vec2 p) {
+    highp vec3 p3 = fract(vec3(p.xyx) * vec3(0.1031, 0.1030, 0.0973));
+    p3 += dot(p3, p3.yzx + 33.33);
+    return fract((p3.xx + p3.yz) * p3.zy);
+}
+
+highp float valueNoise(highp vec2 p) {
+    highp vec2 i = floor(p);
+    highp vec2 f = fract(p);
+    f = f * f * (3.0 - 2.0 * f);
+    highp float a = hash12(i);
+    highp float b = hash12(i + vec2(1.0, 0.0));
+    highp float c = hash12(i + vec2(0.0, 1.0));
+    highp float d = hash12(i + vec2(1.0, 1.0));
+    return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+}
+
+// one layer of streaks, the world is skewed so every streak leans with the wind and falls along its own line
+highp float streakLayer(highp vec2 world, highp float depth, highp float colTiles, highp float rowTiles,
+                        highp float speed, highp float lengthArt, highp float chance, highp float seed) {
+    highp vec2 p = eyePos + (world - eyePos) * depth;
+    p = floor(p * ART) / ART;
+
+    highp vec2 q = vec2(p.x + p.y * slant, p.y + fall * speed);
+    highp vec2 cellPos = vec2(q.x / colTiles, q.y / rowTiles) + seed;
+    highp vec2 cell = floor(cellPos);
+
+    if (hash12(cell * 1.3 + seed) > chance) {
+        return 0.0;
+    }
+
+    highp vec2 r = hash22(cell + seed * 2.7);
+    highp vec2 local = fract(cellPos) * vec2(colTiles, rowTiles) * ART;
+
+    highp float x = r.x * (colTiles * ART - 1.0);
+    highp float len = lengthArt * (0.6 + 0.8 * r.y);
+    highp float y = r.y * max(rowTiles * ART - len, 0.0);
+
+    highp float across = step(abs(local.x - x - 0.5), 0.5);
+    highp float along = (local.y - y) / len;
+    if (along < 0.0 || along > 1.0) {
+        return 0.0;
+    }
+
+    // brighter at the leading bottom end, fading up the tail
+    return across * (0.35 + 0.65 * (1.0 - along));
+}
+
+highp float splashes(highp vec2 world) {
+    highp vec2 p = floor(world * ART) / ART;
+    highp float cellTiles = 0.5;
+    highp vec2 cellPos = p / cellTiles;
+    highp vec2 cell = floor(cellPos);
+
+    highp float rate = 1.2 + 1.6 * splash;
+    highp float phase = TIME * rate + hash12(cell * 1.91);
+    highp float cycle = floor(phase);
+    highp float age = fract(phase);
+
+    if (hash12(cell + cycle * 5.3) > clamp(splash * 0.55, 0.0, 0.9)) {
+        return 0.0;
+    }
+
+    highp vec2 r = hash22(cell + cycle * 13.0);
+    highp vec2 d = (fract(cellPos) - (0.15 + 0.7 * r)) * cellTiles * ART;
+    d.y *= 1.8;
+
+    // a tiny ring that opens out and fades, flattened so it sits on the ground
+    highp float radius = 0.5 + age * 3.0;
+    highp float ring = 1.0 - step(0.75, abs(length(d) - radius));
+    highp float dot0 = (1.0 - step(0.8, length(d))) * (1.0 - step(0.25, age));
+    return max(ring, dot0) * (1.0 - age) * 0.7;
+}
+
+void fragment() {
+    highp vec2 world = eyePos + (FRAGCOORD.xy - eyePixel) / pixelsPerTile;
+
+    // sheets of heavier rain rolling through with the wind
+    highp float sheets = valueNoise(world * 0.22 + vec2(-sheetDrift, fall * 0.04));
+    sheets = sheets * 0.65 + valueNoise(world * 0.7 + vec2(-sheetDrift * 1.8, fall * 0.07)) * 0.35;
+    highp float gustDensity = density * (0.65 + 0.7 * sheets);
+
+    highp float far = streakLayer(world, 0.8, 0.35, 1.6, 0.75, 4.0 + streakLength * 4.0, gustDensity * 0.9, 13.0);
+    highp float mid = streakLayer(world, 1.0, 0.5, 2.0, 1.0, 6.0 + streakLength * 7.0, gustDensity * 0.6, 41.0);
+    highp float near = streakLayer(world, 1.3, 0.8, 2.6, 1.35, 9.0 + streakLength * 10.0, gustDensity * 0.35, 79.0);
+    highp float ground = splashes(world);
+
+    highp float drops = max(max(far * 0.35, mid * 0.55), max(near * 0.7, ground));
+
+    highp float spread;
+    if (clearRadius > 0.0) {
+        highp float dist = length(world - eyePos);
+        spread = smoothstep(clearRadius, clearRadius + max(clearBuffer, 0.5) * 3.0, dist);
+    } else {
+        highp vec2 sc = FRAGCOORD.xy * SCREEN_PIXEL_SIZE - 0.5;
+        spread = clamp(length(sc) * 1.4, 0.0, 1.0);
+    }
+    highp float hazeA = haze * (0.3 + 0.7 * spread) * (0.5 + sheets);
+    hazeA = clamp(hazeA, 0.0, 0.8);
+
+    highp float outA = drops + hazeA * (1.0 - drops);
+    highp vec3 rgb = (rainColor * drops + hazeColor * hazeA * (1.0 - drops)) / max(outA, 0.001);
+
+    // lightning washes the open sky white for a moment
+    highp float flashA = clamp(flash, 0.0, 1.0) * 0.55;
+    rgb = mix(rgb, vec3(0.92, 0.95, 1.0), flashA);
+    outA = outA + flashA * (1.0 - outA);
+
+    highp vec2 maskUv = FRAGCOORD.xy * SCREEN_PIXEL_SIZE;
+    highp float maskAlpha = texture2D(MASK_TEXTURE, maskUv).a;
+    outA *= (1.0 - maskAlpha) * intensity;
+
+    if (outA <= 0.002) {
+        discard;
+    }
+
+    COLOR = vec4(rgb, outA);
+}

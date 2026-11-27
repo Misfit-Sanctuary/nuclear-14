@@ -12786,3 +12786,517 @@ Entries:
   id: 6552
   time: '2026-11-05T22:50:48.0000000+00:00'
   url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2152
+- author: alekszejg
+  changes:
+    - type: Tweak
+      message: Tweakes to recent food recipes.
+  id: 6553
+  time: '2026-11-05T22:58:05.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2151
+- author: Tytos
+  changes:
+    - type: Fix
+      message: no more infintie money charcoal
+  id: 6554
+  time: '2026-11-07T02:46:08.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2160
+- author: ToasterEnjoyer
+  changes: []
+  id: 6555
+  time: '2026-11-07T02:52:55.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2138
+- author: Tytos
+  changes:
+    - type: Add
+      message: Added the wt-550
+    - type: Fix
+      message: Fixed acolyte kit desc
+  id: 6556
+  time: '2026-11-07T03:03:26.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1989
+- author: enkidienne
+  changes:
+    - type: Add
+      message: .50 HMG
+    - type: Add
+      message: Automatic Grenade Launcher
+    - type: Add
+      message: Heavy automatic shotgun
+  id: 6557
+  time: '2026-11-07T04:35:24.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/1943
+- author: JohnKieser
+  changes:
+    - type: Fix
+      message: >-
+        Corrected C27 speed. Should be normal again(4.5 sprint not counting
+        agility and other factors)
+  id: 6558
+  time: '2026-11-07T05:35:22.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2161
+- author: JohnKieser
+  changes:
+    - type: Fix
+      message: Gorehew sprite issues should be fixed
+    - type: Fix
+      message: Empty raider ammo boxes should show up correctly if they did not already
+    - type: Fix
+      message: in-hand sprites for raiders with guns were not showing
+    - type: Fix
+      message: >-
+        new canaan loadout items, shemagh and police vest, should actually
+        appear now in the loadout menu  
+    - type: Tweak
+      message: >-
+        Heavy Scavenger armor pierce and heat buffed to 0.7 . Given a slowdown 
+        of .8. .75 explosive resist
+    - type: Tweak
+      message: 'metal armor loadout cost now 5. Tribal armor loadout cost now 2. '
+  id: 6559
+  time: '2026-11-07T17:05:55.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2162
+- author: hobolyra
+  changes:
+    - type: Tweak
+      message: BoS off duty get bunker access
+  id: 6560
+  time: '2026-11-07T23:18:05.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2163
+- author: cythisiax
+  changes:
+    - type: Add
+      message: New Recruit BUI for Enclave & Rangers. No more right click > recruit.
+    - type: Tweak
+      message: Enclave moved to 'Minor Faction' tab from "Whitelist' tab.
+    - type: Tweak
+      message: >-
+        Adjusted/Removed specific ranger equipment that is gated to theater
+        command.
+  id: 6561
+  time: '2026-11-08T00:24:39.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2167
+- author: JohnKieser
+  changes:
+    - type: Tweak
+      message: >-
+        Changed up how evaporations work slightly. Should be more performant,
+        but let us know about any oddities.
+  id: 6562
+  time: '2026-11-08T02:48:49.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2165
+- author: hobolyra
+  changes:
+    - type: Add
+      message: Whitelisted Vault Manager role
+  id: 6563
+  time: '2026-11-08T17:20:36.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2159
+- author: cythisiax
+  changes:
+    - type: Tweak
+      message: /war BUI update and code fixes - /warjoin opens same GUI
+    - type: Tweak
+      message: '/raid BUI update and code fixes - /raidjoin opens same GUI. '
+    - type: Add
+      message: /factionmotd for faction leaders to set faction motd.
+    - type: Fix
+      message: >-
+        Enclave Officers cannot remove from faction, only Enclave Commander can
+        remove from faction.
+    - type: Tweak
+      message: >-
+        Enclave Commander can only be promoted via a Reformer for future
+        non-WL/timeholders.
+    - type: Fix
+      message: >-
+        Ranger Lead cannot remove from faction, only Chief Ranger can remove
+        from faction.
+    - type: Tweak
+      message: >-
+        Ranger Lead can only be promoted via Chief Ranger+ for future
+        non-WL/timeholders.
+    - type: Tweak
+      message: >-
+        GUI for faction mngment only shows online members, no longer offline
+        members.
+  id: 6564
+  time: '2026-11-08T23:27:03.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2172
+- author: Enkidienne
+  changes:
+    - type: Add
+      message: Added MOTD+polls
+  id: 6565
+  time: '2026-11-09T19:30:12.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2147
+- author: Davisrocket
+  changes:
+    - type: Add
+      message: New explosion type for incinerator
+    - type: Add
+      message: >-
+        Added incinerator, flamer, cryolator, and crystalizing cryolator with
+        fully custom sprites
+    - type: Add
+      message: >-
+        Added custom ammo, custom morphing projectiles, and made a small balance
+        on making the weapons functional
+  id: 6566
+  time: '2026-11-09T19:34:17.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2142
+- author: Tupi213
+  changes:
+    - type: Add
+      message: >-
+        gave the ripper and gorehew a smol buff to their damage, should work
+        more as a breaching tool.
+  id: 6567
+  time: '2026-11-10T00:07:08.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2136
+- author: Enkidienne
+  changes:
+    - type: Add
+      message: Mortars and related equipements
+  id: 6568
+  time: '2026-11-10T21:01:01.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2135
+- author: JohnKieser
+  changes:
+    - type: Tweak
+      message: RMC Mortars and associated items shouldn't be available as BPs
+  id: 6569
+  time: '2026-11-10T21:30:21.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2179
+- author: Davisrocket
+  changes:
+    - type: Add
+      message: Enclave Commander now spawns with Enclave Microbomb Detonator
+  id: 6570
+  time: '2026-11-12T05:18:36.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2181
+- author: hobolyra
+  changes:
+    - type: Add
+      message: BoS Archivist role
+  id: 6571
+  time: '2026-11-12T05:19:38.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2176
+- author: RedBookcase
+  changes:
+    - type: Add
+      message: >-
+        Adds the Tribeam Laser Rifle! It spawns randomly as loot and can be
+        crafted by the Brotherhood or purchased in the Enclave ASRS.
+  id: 6572
+  time: '2026-11-14T01:48:28.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2171
+- author: Davisrocket
+  changes:
+    - type: Add
+      message: Ammo Canister with functionality
+  id: 6573
+  time: '2026-11-14T01:49:53.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2182
+- author: Wazura
+  changes:
+    - type: Add
+      message: Added 3 kits to Willow Shaman
+    - type: Add
+      message: Gave Shaman Health Analyzer
+  id: 6574
+  time: '2026-11-14T02:28:00.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2184
+- author: Davisrocket
+  changes:
+    - type: Fix
+      message: RSI Error in Shaman Kits
+  id: 6575
+  time: '2026-11-15T01:24:56.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2189
+- author: Davisrocket
+  changes:
+    - type: Tweak
+      message: Enclave Recruitment playtime reduced to 2 hours for Enlisted/Junior Sci
+    - type: Tweak
+      message: Enclave Reformer renamed to Enclave General
+  id: 6576
+  time: '2026-11-15T01:27:09.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2188
+- author: Tytos
+  changes:
+    - type: Tweak
+      message: sm gladiators have access to legion base now
+  id: 6577
+  time: '2026-11-16T15:45:03.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2190
+- author: JohnKieser
+  changes:
+    - type: Add
+      message: Commissioned player armor for Artivus. Sprites by barkuaad!!
+  id: 6578
+  time: '2026-11-20T21:17:10.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2196
+- author: cythisiax
+  changes:
+    - type: Add
+      message: Rank prefixes for factions based off badge & pinned rank.
+    - type: Tweak
+      message: >-
+        All rank prefixes can be adjusted by job specific tag in their
+        respective yaml.
+    - type: Tweak
+      message: Unnecessary material extractor things.
+    - type: Tweak
+      message: MP Commander can no longer go to Lieutenant Colonel rank, capped to LT.
+    - type: Fix
+      message: Roster GUI issue for Enclave
+  id: 6579
+  time: '2026-11-23T19:33:52.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2207
+- author: sigmatique
+  changes:
+    - type: Fix
+      message: Robots can now stand up by themselves if forced/fallen down
+    - type: Fix
+      message: Robobrain starting cell changed to the antique powercell prototype
+  id: 6580
+  time: '2026-11-24T00:51:25.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2206
+- author: Laus4Deus
+  changes:
+    - type: Fix
+      message: Ash Viper Venom not having obtainable ingredients
+  id: 6581
+  time: '2026-11-24T00:52:58.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2200
+- author: Davisrocket
+  changes:
+    - type: Tweak
+      message: Gauss Rifle Availability Reduced to One for enclave requisition
+  id: 6582
+  time: '2026-11-24T01:04:58.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2194
+- author: ComradeLeanna
+  changes:
+    - type: Fix
+      message: >-
+        Fixed cases where vault would not be translated to voûte when using the
+        French accent.
+  id: 6583
+  time: '2026-11-24T01:35:52.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2193
+- author: sigmatique
+  changes:
+    - type: Fix
+      message: >-
+        Tesla APA MK2 Power System Fix - Tesla MK2 now has X02 Power Systems,
+        the same as its parent (APA MK2)
+  id: 6584
+  time: '2026-11-24T01:44:37.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2201
+- author: JJmanus and Davisrocket
+  changes:
+    - type: Tweak
+      message: Tesla PA Resprite by JJmanus
+    - type: Fix
+      message: Tesla PA inhand directionality
+  id: 6585
+  time: '2026-11-24T01:45:52.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2202
+- author: hobolyra
+  changes:
+    - type: Fix
+      message: Hacking wires no longer invisible
+  id: 6586
+  time: '2026-11-24T01:57:08.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2191
+- author: Enkidienne
+  changes:
+    - type: Tweak
+      message: Ranger factions tweaks.
+  id: 6587
+  time: '2026-11-24T06:40:14.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2186
+- author: ZABLIK51
+  changes:
+    - type: Tweak
+      message: Cruoris Mendax armor resprite
+  id: 6588
+  time: '2026-11-24T23:28:08.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2210
+- author: ZABLIK51
+  changes:
+    - type: Add
+      message: Added Legion Speculatore. They are in your walls.
+  id: 6589
+  time: '2026-11-24T23:30:13.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2209
+- author: cythisiax
+  changes:
+    - type: Add
+      message: >-
+        Snow accumulation on ground tiles and objects during snowfall weathers
+        with player foot tracking. Video in #sneak-peeks.
+  id: 6590
+  time: '2026-11-25T00:07:41.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2208
+- author: sigmatique
+  changes:
+    - type: Add
+      message: Honor Guard plushie (character and art by Car/Screechlord)
+    - type: Add
+      message: Gao Jie plushie (character and art by skaothi)
+    - type: Tweak
+      message: >-
+        Rearranged player-added plushies into their own RSI folders and credited
+        their respective artists
+    - type: Remove
+      message: Removed SEVER plush from Town shop
+  id: 6591
+  time: '2026-11-25T02:30:58.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2204
+- author: ToasterEnjoyer
+  changes:
+    - type: Add
+      message: Added timelocked sequoia
+    - type: Fix
+      message: >-
+        ranger roles who already got CPR or riding for free cannot take them as
+        perks
+  id: 6592
+  time: '2026-11-25T02:31:29.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2203
+- author: Enkidienne
+  changes:
+    - type: Add
+      message: >-
+        Hospitalier clothes to loadout, armor to town BP, and craftable flag.
+        Sprites of new armor, clothes, and flag by neonvandal
+    - type: Add
+      message: >-
+        Spraycan in loadout are replace by a new greyscale one. Open its UI to
+        select a hexcode color.
+    - type: Add
+      message: ranger prometheus tracker.
+    - type: Add
+      message: >-
+        All COs and high ranked officer of all factions now naturally sound
+        louder.
+  id: 6593
+  time: '2026-11-25T03:25:29.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2183
+- author: hobolyra
+  changes:
+    - type: Tweak
+      message: Crank recipe changed to use Quantum instead of amonia
+  id: 6594
+  time: '2026-11-25T03:44:22.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2213
+- author: riptidetheshark87-tech
+  changes:
+    - type: Add
+      message: New helmet of peace sprite. Art by BerryWuffy
+    - type: Add
+      message: new tribal shotgun. T4 BP craftable. Art by BerryWuffy/CaramelKitten
+    - type: Tweak
+      message: >-
+        Wayfarer scav, heavy and Warden plate armor moved from loadout to tribal
+        BP
+    - type: Remove
+      message: Tribal combat armor Mk2 as tribe BP(replaced by wayfarer heavy armor)
+  id: 6595
+  time: '2026-11-25T04:19:55.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2211
+- author: Enkidienne
+  changes:
+    - type: Tweak
+      message: Mortar fixes
+  id: 6596
+  time: '2026-11-25T22:52:09.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2192
+- author: Wassuy
+  changes:
+    - type: Remove
+      message: radhog and bloatfly from extractor waves
+  id: 6597
+  time: '2026-11-25T22:53:39.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2212
+- author: ToasterEnjoyer
+  changes: []
+  id: 6598
+  time: '2026-11-25T22:54:36.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2214
+- author: Enkidienne
+  changes:
+    - type: Add
+      message: Scoped weapons. Need a high enough perception to use the scope.
+  id: 6599
+  time: '2026-11-26T03:04:38.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2178
+- author: Wassuy
+  changes:
+    - type: Add
+      message: 'Added Raider S.P.E.I.C.A.L. '
+    - type: Add
+      message: Added MG Raiders
+    - type: Add
+      message: Added Taser Raiders
+    - type: Add
+      message: Added More Raiders Varitants
+    - type: Add
+      message: Added PowerArmor Raiders.
+    - type: Add
+      message: Added Reinforced Longjohns from fallout 4
+    - type: Tweak
+      message: Better Little Stash Loot.
+    - type: Tweak
+      message: Raiders now carry grenades, look out!
+    - type: Tweak
+      message: Better Raider Bosses loot.
+    - type: Tweak
+      message: Increased Raider Bosses Health.
+    - type: Tweak
+      message: Raider at extractor now spawn more in numbers, plus more varitants!
+    - type: Tweak
+      message: Raider Intelligence
+    - type: Tweak
+      message: Raider Equipments.
+    - type: Tweak
+      message: Raider Can Now Be Operated With Surgecy.
+    - type: Tweak
+      message: Raider now drop bone and human meats upon meatspiking!, yummy!
+    - type: Tweak
+      message: All Raider Had Worsen Accurcy.
+    - type: Remove
+      message: Non-locusts now no longer spawn at extractor waves
+    - type: Remove
+      message: >-
+        Removed All Voicelines From Raiders, Sorry bud. (Required voice actors,
+        everyone its welcome., ping/dm wassuy on the discord)
+    - type: Remove
+      message: Raider regeneration upon hitting critical and stunned states.
+  id: 6600
+  time: '2026-11-26T05:24:43.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2174
+- author: hobolyra
+  changes:
+    - type: Add
+      message: >-
+        New Vault-Tec uniform and Jacket. Based off TG sprites. Edited by
+        Hobolyra
+    - type: Tweak
+      message: Vault Management role changes and fixes
+  id: 6601
+  time: '2026-11-26T05:29:15.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2215
+- author: hobolyra
+  changes:
+    - type: Add
+      message: Holiday decorations
+    - type: Add
+      message: Eggnog as a craftable drink
+    - type: Tweak
+      message: Vault Christmas special
+  id: 6602
+  time: '2026-11-26T05:30:13.0000000+00:00'
+  url: https://github.com/Misfit-Sanctuary/nuclear-14/pull/2205

@@ -1,0 +1,64 @@
+uniform highp float amount;
+uniform highp float coverage;
+uniform highp float debugPaint;
+uniform highp float buried;
+
+highp float solidAt(highp vec2 uv) {
+    return zTexture(uv).a;
+}
+
+void fragment() {
+    highp vec4 col = zTexture(UV);
+    highp vec2 ps = TEXTURE_PIXEL_SIZE;
+
+    highp vec3 bright = vec3(0.98, 0.99, 1.0);
+    highp vec3 cool = vec3(0.76, 0.84, 0.96);
+    highp vec3 paint = vec3(0.1, 0.3, 1.0);
+
+    highp float a1 = solidAt(UV + vec2(0.0, ps.y));
+    highp float a2 = solidAt(UV + vec2(0.0, ps.y * 2.0));
+    highp float a3 = solidAt(UV + vec2(0.0, ps.y * 3.0));
+    highp float a4 = solidAt(UV + vec2(0.0, ps.y * 4.0));
+    highp float a5 = solidAt(UV + vec2(0.0, ps.y * 5.0));
+
+    highp float thick3 = step(0.35, amount);
+    highp float thick4 = step(0.7, amount);
+
+    highp float top = 1.0 - a1;
+    highp float cap = max(top, 1.0 - a2);
+    cap = max(cap, (1.0 - a3) * thick3);
+    cap = max(cap, (1.0 - a4) * thick4 * 0.85);
+
+    highp float edgeAlpha = mix(a3, mix(a4, a5, thick4), thick3);
+    highp float shadow = (1.0 - cap) * (1.0 - edgeAlpha) * coverage;
+
+    highp vec3 snow = mix(cool, bright, top);
+    highp float mixAmount = clamp(cap * (0.8 + amount * 0.5), 0.0, 0.97);
+    mixAmount = max(mixAmount, 0.18 * amount) * coverage;
+
+    highp vec3 result = mix(col.rgb, snow, mixAmount);
+    result = mix(result, result * vec3(0.5, 0.55, 0.7), shadow * 0.65);
+    result = mix(result, paint, debugPaint * 0.7);
+    highp vec4 solidCol = vec4(result, col.a);
+
+    highp float below = solidAt(UV - vec2(0.0, ps.y));
+    highp float pile = below * step(0.3, amount) * coverage;
+    highp float left = solidAt(UV + vec2(-ps.x, -ps.y));
+    highp float right = solidAt(UV + vec2(ps.x, -ps.y));
+    pile *= 0.55 + 0.45 * min(left, right);
+    highp vec3 pileRgb = mix(bright, paint, debugPaint * 0.7);
+
+    pile *= 1.0 - step(0.001, buried);
+    highp vec4 emptyCol = vec4(pileRgb, pile * 0.95);
+    highp vec3 buriedRgb = mix(col.rgb, vec3(0.9, 0.92, 0.95), buried * 0.8);
+    buriedRgb = mix(buriedRgb, paint, debugPaint * 0.7);
+    highp vec4 buriedCol = vec4(buriedRgb, col.a * (1.0 - buried * 0.6));
+    solidCol = mix(solidCol, buriedCol, step(0.001, buried));
+
+    highp float isEmpty = step(col.a, 0.0);
+    if (isEmpty > 0.5 && pile <= 0.0) {
+        discard;
+    }
+
+    COLOR = mix(solidCol, emptyCol, isEmpty);
+}

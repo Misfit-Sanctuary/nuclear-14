@@ -33,6 +33,8 @@ public sealed partial class StencilOverlay : Overlay
 
     private readonly ShaderInstance _shader;
     private readonly ShaderInstance _weatherDrawShader;
+    private readonly Content.Client._Misfits.Weather.SnowfallRenderer _snowfall;
+    private readonly Content.Client._Misfits.Weather.RainfallRenderer _rainfall; // #Cythisiax Added - rain shader
 
     // #Misfits Fix - Stencil mask throttle: while the view is static the roofed-tile
     // stencil mask only needs rebuilding at 4 Hz to catch tile/roof changes, instead
@@ -50,6 +52,8 @@ public sealed partial class StencilOverlay : Overlay
         IoCManager.InjectDependencies(this);
         _shader = _protoManager.Index<ShaderPrototype>("WorldGradientCircle").InstanceUnique();
         _weatherDrawShader = _protoManager.Index<ShaderPrototype>("WeatherDraw").InstanceUnique();
+        _snowfall = new Content.Client._Misfits.Weather.SnowfallRenderer();
+        _rainfall = new Content.Client._Misfits.Weather.RainfallRenderer(); // #Cythisiax Added - rain shader
     }
 
     protected override void Draw(in OverlayDrawArgs args)

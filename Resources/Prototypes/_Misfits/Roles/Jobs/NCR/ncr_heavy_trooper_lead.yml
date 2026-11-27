@@ -43,6 +43,14 @@
           - Wastelander
           - NCR
       - type: PowerArmorProficiency # #Misfits Add - Heavy Trooper Leads can operate their T-51 immediately.
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinNCRStaffSergeant }
+    - { pin: ClothingNeckPinNCRSergeant1st, hours: 20 }
+    - { pin: ClothingNeckPinNCRMasterSergeant, hours: 40 }
+    - { pin: ClothingNeckPinNCRWarrantOfficer, hours: 60 }
+    - { pin: ClothingNeckPinNCRChiefWarrantOfficer2, hours: 80 }
 
 - type: playTimeTracker
   id: NCRHeavyTrooperLead

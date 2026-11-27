@@ -366,62 +366,13 @@
 
 
 # Paints
-
+# #Misfits Change - every colour can was folded into one recolourable can.
 - type: loadout
-  id: LoadoutSprayPaintBlue
+  id: LoadoutSprayPaint
   category: Items
   cost: 0
   items:
-    - SprayPaintBlue
-
-- type: loadout
-  id: LoadoutSprayPaintRed
-  category: Items
-  cost: 0
-  items:
-    - SprayPaintRed
-
-- type: loadout
-  id: LoadoutSprayPaintBlack
-  category: Items
-  cost: 0
-  items:
-    - SprayPaintBlack
-
-- type: loadout
-  id: LoadoutSprayPaintOrange
-  category: Items
-  cost: 0
-  items:
-    - SprayPaintOrange
-
-- type: loadout
-  id: LoadoutSprayPaintPurple
-  category: Items
-  cost: 0
-  items:
-    - SprayPaintPurple
-
-- type: loadout
-  id: LoadoutSprayPaintWhite
-  category: Items
-  cost: 0
-  items:
-    - SprayPaintWhite
-
-- type: loadout
-  id: LoadoutSprayPaintGreen
-  category: Items
-  cost: 0
-  items:
-    - SprayPaintGreen
-
-- type: loadout
-  id: LoadoutSprayPaintDesertTan
-  category: Items
-  cost: 0
-  items:
-    - SprayPaintDesertTan
+    - N14SprayPaintGeneric
 
 - type: loadout
   id: LoadoutLuxuryPen

@@ -35,6 +35,12 @@ public sealed class SprayPainterColorPickedMessage : BoundUserInterfaceMessage
 }
 
 [Serializable, NetSerializable]
+public sealed class SprayPainterSetCustomColorMessage(Color? color) : BoundUserInterfaceMessage
+{
+    public readonly Color? Color = color;
+}
+
+[Serializable, NetSerializable]
 public sealed class SprayPainterSetDecalMessage(ProtoId<DecalPrototype> decal) : BoundUserInterfaceMessage
 {
     public readonly ProtoId<DecalPrototype> Decal = decal;

@@ -418,12 +418,13 @@ public sealed class FactionRosterSystem : EntitySystem
             string? characterName = null;
             var online = _player.TryGetSessionById(userId, out var session);
 
-            // #Cythisiax Added - roster lists only members who are connected right now
-            if (!online)
+            // #Cythisiax Edited - roster lists only members playing one of this faction's jobs
+            // this round; whitelisted players in the lobby, ghosting or on another faction's job
+            // don't show up.
+            if (record.ActiveJob == null || !online || session!.AttachedEntity is not { } body)
                 continue;
 
-            if (session!.AttachedEntity is { } body)
-                characterName = Name(body);
+            characterName = Name(body);
 
             var locked = IsLocked(roster, authority, viewer, userId, record);
 

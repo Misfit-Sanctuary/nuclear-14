@@ -37,6 +37,9 @@
         factions:
           - Enclave
           - Wastelander
+      # #Misfits Add - command voice: bigger chat text
+      - type: SpeechFontOverride
+        fontSizeBonus: 4
       - type: ReplacementAccent
         accent: n14Enclave
       - type: CPRTraining
@@ -45,6 +48,10 @@
         action: ActionOpenFactionRosterEnclave
   - !type:AddTraitSpecial # #Misfits Add - Enclave scientists are issued an Enclave Eyebot companion
     traits: [ MisfitsPetEyebotEnclave ]
+  # #Cythisiax Added - rank pins this job works up through, by hours played
+  rank:
+    pins:
+    - { pin: ClothingNeckPinEnclaveHeadScientist }
 
 - type: startingGear
   id: EnclaveHeadScientistGear

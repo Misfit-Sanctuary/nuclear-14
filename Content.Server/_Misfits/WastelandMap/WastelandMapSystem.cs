@@ -88,6 +88,7 @@ public sealed class WastelandMapSystem : EntitySystem
         "CaesarLegionLegate",
         "CaesarLegionCenturion",
         "CaesarLegionOptio",
+        "CaesarLegionSpeculatore",
     ];
 
     private static readonly HashSet<string> FollowersCommunicationsJobs =

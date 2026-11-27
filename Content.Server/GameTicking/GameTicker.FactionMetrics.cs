@@ -81,7 +81,8 @@ public sealed partial class GameTicker
     {
         return departmentId switch
         {
-            "Rangers" or "MilitaryPolice" or "OSI" => "NCR",
+            // Rangers keep their own series: they are a MinorFaction department, not an NCR sub-department.
+            "MilitaryPolice" or "OSI" => "NCR",
             "BrotherhoodOfSteelLancers" or "BoSPersonalWhitelist" => "BrotherhoodOfSteel",
             _ => departmentId,
         };

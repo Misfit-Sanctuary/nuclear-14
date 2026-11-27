@@ -33,9 +33,9 @@ job-description-ncr-citizen = You are a citizen of the NCR coming east for work,
 job-name-ncr-trader = NCR Trader
 job-description-ncr-trader = You are a Caravaneer and a citizen of the NCR, supplying the republic's trade routes.
 
-# #Misfits Add - Enclave job locale (expanded 8-role hierarchy). Reformer is admin-only apex role.
-job-name-enclave-reformer = The Reformer
-job-description-enclave-reformer = You are the Enclave's supreme authority on the field — its Reformer. Shape the cell's doctrine, judge its members, and determine its future. Answerable only to Eden.
+# #Misfits Add - Enclave job locale (expanded 8-role hierarchy). General is admin-only apex role.
+job-name-enclave-reformer = The General
+job-description-enclave-reformer = You are the Enclave's supreme authority on the field — its General. Shape the cell's doctrine, judge its members, and determine its future. Answerable only to Eden.
 job-name-enclave-commander = Enclave Commander
 job-description-enclave-commander = Lead the Enclave cell with absolute authority, coordinate military and science branches, and ensure operational security.
 job-name-enclave-senior-officer = Enclave Senior Officer
@@ -170,6 +170,8 @@ job-name-bos-west-scribe = Brotherhood Head Scribe
 job-description-bos-west-scribe = Lead the scribes, control technical doctrine, and safeguard the chapter's knowledge.
 
 # #Misfits Add — New consolidated Brotherhood of Steel jobs.
+job-name-bos-archivist = Brotherhood Archivist
+job-description-bos-archivist = Curate and manage the chapter's archives. Safeguard the knowledge.
 job-name-bos-headknight = Brotherhood Head Knight
 job-description-bos-headknight = Oversee the Brotherhood's knightly orders, logistics, and battlefield readiness.
 job-name-bos-paladin = Brotherhood Paladin
