@@ -16,3 +16,19 @@
     proto: PelletShotgun12Beanbag
   - type: SpentAmmoVisuals
     state: beanbag
+
+# #Misfits Add - 12 gauge slug shell. Inherits the N14ShellShotgun12 tag, so every
+# existing 12 gauge shotgun, ammo box and drum accepts it with no gun changes.
+- type: entity
+  id: N14ShellShotgun12Slug
+  name: slug shell (12 gauge)
+  parent: N14BaseShell12Shotgun
+  components:
+  - type: Sprite
+    layers:
+      - state: slug
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: PelletShotgun12Slug
+  - type: SpentAmmoVisuals
+    state: slug

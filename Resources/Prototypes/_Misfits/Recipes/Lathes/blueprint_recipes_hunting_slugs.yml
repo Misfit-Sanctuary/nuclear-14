@@ -1,0 +1,63 @@
+# #Misfits Add - blueprint-gated recipes for the hunting shotgun and both gauges of slug ammo.
+
+- type: latheCategory
+  id: N14BlueprintHuntingSlugs
+  name: lathe-category-blueprint-hunting-slugs
+
+# Boxes.
+- type: latheRecipe
+  id: N14BPHuntingSlugBox12
+  result: MisfitsMagazineBox12GaugeSlug
+  category: N14BlueprintHuntingSlugs
+  completetime: 5
+  requiresBlueprint: true
+  materials:
+    Lead: 100
+    N14Gunpowder: 60
+    Cardboard: 100
+
+- type: latheRecipe
+  id: N14BPHuntingSlugBox20
+  result: MisfitsMagazineBox20GaugeSlug
+  category: N14BlueprintHuntingSlugs
+  completetime: 5
+  requiresBlueprint: true
+  materials:
+    Lead: 40
+    N14Gunpowder: 40
+    Cardboard: 100
+
+# Drums.
+- type: latheRecipe
+  id: N14BPHuntingSlugDrum12
+  result: MisfitsMagazineShotgun12Slug
+  category: N14BlueprintHuntingSlugs
+  completetime: 5
+  requiresBlueprint: true
+  materials:
+    Lead: 100
+    Steel: 100
+    N14Gunpowder: 100
+
+- type: latheRecipe
+  id: N14BPHuntingSlugDrum20
+  result: MisfitsMagazineShotgun20Slug
+  category: N14BlueprintHuntingSlugs
+  completetime: 5
+  requiresBlueprint: true
+  materials:
+    Lead: 100
+    Steel: 100
+    N14Gunpowder: 100
+
+# Gun.
+- type: latheRecipe
+  id: N14BPHuntingShotgun
+  result: N14WeaponShotgunHunting
+  category: N14BlueprintHuntingSlugs
+  completetime: 8
+  requiresBlueprint: true
+  materials:
+    Steel: 6000
+    Wood: 1000
+    N14Brass: 500

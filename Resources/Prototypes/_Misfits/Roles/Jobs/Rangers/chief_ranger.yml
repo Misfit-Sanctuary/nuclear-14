@@ -20,6 +20,8 @@
   hideIfPlaytimeRequirementsNotMet: false
   accessGroups:
   - NCRRanger # same access as Veteran Ranger
+  access:
+  - NCRRangerCommand # #Misfits Add - ranger command crate
   requirements:
     - !type:CharacterDepartmentTimeRequirement # #Misfits Add - admin-only timelock (70h Rangers)
       department: Rangers

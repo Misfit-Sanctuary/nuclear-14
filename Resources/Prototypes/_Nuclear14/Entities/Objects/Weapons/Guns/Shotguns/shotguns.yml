@@ -63,6 +63,7 @@
     size: Large
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: BallisticAmmoProvider
+    fillTransferAmount: 1
     whitelist:
       tags:
       - N14ShellShotgun12
@@ -99,6 +100,7 @@
     soundGunshot:
       collection: N14DoubleBarrelShotgunGunshot
   - type: BallisticAmmoProvider
+    fillTransferAmount: 1
     whitelist:
       tags:
       - N14ShellShotgun12
@@ -133,6 +135,7 @@
     soundGunshot:
       collection: N14DoubleBarrelShotgunGunshot
   - type: BallisticAmmoProvider
+    fillTransferAmount: 1
     whitelist:
       tags:
       - N14ShellShotgun12
@@ -243,6 +246,7 @@
       collection: N14CaravanShotgunGunshot
   - type: GunRequiresWield
   - type: BallisticAmmoProvider
+    fillTransferAmount: 1
     whitelist:
       tags:
       - N14ShellShotgun20
@@ -272,6 +276,7 @@
     size: Normal # Forge-Change
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/lever_shotgun.rsi
   - type: BallisticAmmoProvider
+    fillTransferAmount: 1
     whitelist:
       tags:
       - N14ShellShotgun20
@@ -380,6 +385,7 @@
     size: Normal # Forge-Change
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/shortpump.rsi
   - type: BallisticAmmoProvider
+    fillTransferAmount: 1
     whitelist:
       tags:
       - N14ShellShotgun12
@@ -416,6 +422,7 @@
     size: Large
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/blowback.rsi
   - type: BallisticAmmoProvider
+    fillTransferAmount: 1
     whitelist:
       tags:
       - N14ShellShotgun12
@@ -449,6 +456,7 @@
     size: Large
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/chinese_shotgun.rsi
   - type: BallisticAmmoProvider
+    fillTransferAmount: 1
     whitelist:
       tags:
       - N14ShellShotgun12
@@ -482,6 +490,7 @@
     size: Large
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/canadian_shotgun.rsi
   - type: BallisticAmmoProvider
+    fillTransferAmount: 1
     whitelist:
       tags:
       - N14ShellShotgun12
@@ -515,6 +524,7 @@
     size: Large
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/tribal_shotgun.rsi
   - type: BallisticAmmoProvider
+    fillTransferAmount: 1
     whitelist:
       tags:
       - N14ShellShotgun12
@@ -548,6 +558,7 @@
     soundGunshot:
       collection: N14DoubleBarrelShotgunGunshot
   - type: BallisticAmmoProvider
+    fillTransferAmount: 1
     whitelist:
       tags:
       - N14ShellShotgun12
@@ -605,6 +616,7 @@
     soundGunshot:
       collection: N14DoubleBarrelShotgunGunshot
   - type: BallisticAmmoProvider
+    fillTransferAmount: 1
     whitelist:
       tags:
       - N14ShellShotgun12
@@ -667,6 +679,7 @@
     soundGunshot:
       collection: N14DoubleBarrelShotgunGunshot
   - type: BallisticAmmoProvider
+    fillTransferAmount: 1
     whitelist:
       tags:
       - N14ShellShotgun12
@@ -711,6 +724,7 @@
     soundGunshot:
       collection: N14ShotgunGunshot
   - type: BallisticAmmoProvider
+    fillTransferAmount: 1
     whitelist:
       tags:
       - N14ShellShotgun12
@@ -753,6 +767,7 @@
     soundGunshot:
       collection: N14AutoShotgunGunshot
   - type: BallisticAmmoProvider
+    fillTransferAmount: 1
     whitelist:
       tags:
       - N14ShellShotgun12
@@ -779,3 +794,42 @@
     - suitStorage
   - type: Sprite
     sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/neostead_brotherhood.rsi
+
+- type: entity
+  name: Hunting Shotgun
+  parent: [N14WeaponShotgunBase, BaseGunWieldable]
+  id: N14WeaponShotgunHunting
+  description: A bottom-loading pump-action shotgun built for greater range and power over similar shotguns. Faster flying shells mean more effective against armor. Uses 12 gauge shells.
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,4,0
+    sprite: _Misfits/Objects/Weapons/Guns/Shotguns/Hunting_Shotgun.rsi
+  - type: Sprite
+    sprite: _Misfits/Objects/Weapons/Guns/Shotguns/Hunting_Shotgun_icon.rsi
+  - type: Clothing
+    sprite: _Misfits/Objects/Weapons/Guns/Shotguns/Hunting_Shotgun.rsi
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  # #Misfits Add - rapid fire blooms badly: +5 deg per shot up to a 15 deg cone, settling at 1 deg/s.
+  - type: Gun
+    maxAngle: 45
+    angleIncrease: 5
+    angleDecay: 1
+    soundGunshot:
+      path: /Audio/_Nuclear14/Weapons/Guns/Shotguns/N14WeaponShotgunHunting/gunshot.ogg
+  - type: BallisticAmmoProvider
+    fillTransferAmount: 1
+    whitelist:
+      tags:
+      - N14ShellShotgun12
+    capacity: 8
+    proto: N14ShellShotgun12
+    soundInsert:
+      path: /Audio/_Nuclear14/Weapons/Effects/Reload/Shotguns/hunting_shotgun_insert.ogg
+  - type: Tag
+    tags:
+    - WeaponShotgunHunting
+  - type: Wieldable
+  - type: ArmorPiercing
+    piercing: 0.2

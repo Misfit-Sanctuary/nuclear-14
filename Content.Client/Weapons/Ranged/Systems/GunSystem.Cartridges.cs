@@ -108,9 +108,7 @@ public sealed partial class GunSystem
     /// </summary>
     private EntityUid SpawnClientCart(SpentCartEvent ev)
     {
-        var (rsi, sound) = GetRSIFromCartProto(ev.Proto);
-        // on invalid carts we default to BaseSpentID anyway so we just need to check for SpentID
-        var stateId = rsi.TryGetState(SpentID, out var _) ? SpentID : BaseSpentID;
+        var (rsi, sound, stateId) = GetRSIFromCartProto(ev.Proto);
 
         var spentCartVisual = CVAR_CartridgeVisuals == OLD_SCHOOL
         ? SpawnCartOldSchool(ev.Coords, stateId, rsi) :
@@ -130,15 +128,32 @@ public sealed partial class GunSystem
     /// </summary>
     /// <param name="protoId"/>
     /// <returns>RSI and sound of prototype or static defaults</returns>
-    private (RSI, SoundSpecifier) GetRSIFromCartProto(string? protoId)
+    private (RSI, SoundSpecifier, StateId) GetRSIFromCartProto(string? protoId)
     {
         // protoId shouldnt be missing, cast to also avoid null check boiler plate
         if (!_protoMan.Resolve((EntProtoId?) protoId, out var proto))
-            return (CRSI, SoundDefault);
+            return (CRSI, SoundDefault, BaseSpentID);
         _ = proto.TryComp<SpriteComponent>(out var rsi, _compFactory);
         _ = proto.TryComp<CartridgeAmmoComponent>(out var sound, _compFactory);
+        _ = proto.TryComp<SpentAmmoVisualsComponent>(out var spentVisuals, _compFactory);
 
-        return (rsi?.BaseRSI ?? CRSI, sound?.EjectSound ?? SoundDefault);
+        var baseRsi = rsi?.BaseRSI ?? CRSI;
+
+        // #Misfits Change - use the cartridge's own spent state (e.g. "slug-spent") so an ejected
+        // shell keeps the colour of the shell that was fired instead of always showing base-spent.
+        var stateId = BaseSpentID;
+        if (spentVisuals != null)
+        {
+            var named = spentVisuals.Suffix ? new StateId($"{spentVisuals.State}-spent") : SpentID;
+            if (baseRsi.TryGetState(named, out _))
+                stateId = named;
+        }
+
+        // on invalid carts we default to BaseSpentID anyway so we just need to check for SpentID
+        if (stateId == BaseSpentID && baseRsi.TryGetState(SpentID, out _))
+            stateId = SpentID;
+
+        return (baseRsi, sound?.EjectSound ?? SoundDefault, stateId);
     }
 
     private const float MaxArc = 2.85f;

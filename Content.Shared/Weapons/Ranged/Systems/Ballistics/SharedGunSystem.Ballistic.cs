@@ -166,10 +166,13 @@ public abstract partial class SharedGunSystem
     {
         if (args.Handled || _whitelistSystem.IsWhitelistFailOrNull(recieverComp.Whitelist, args.Used))
             return;
+        // #Misfits Fix - instant fill comes from the loader item (SpeedLoader), never the player.
+        var instantFill = CanInstantFill(args.Used);
+
         // TODO: rework
         if (!Timing.IsFirstTimePredicted)
         {
-            int slots = CanInstantFill(args.User) ? recieverComp.Capacity - recieverComp.AmmoCount : 1;
+            var slots = instantFill ? recieverComp.Capacity - recieverComp.AmmoCount : 1;
             TryAmmoInsert(slots, args.Used, recieverComp, recieverUid, args.User);
             return;
         }
@@ -183,7 +186,7 @@ public abstract partial class SharedGunSystem
         }
 
         // ent has whitelist but doesnt pass method to instantly insert more than 1 ammo
-        if (!CanInstantFill(args.User)) emptySlots = 1;
+        if (!instantFill) emptySlots = 1;
 
         if (!TryAmmoInsert(emptySlots, args.Used, recieverComp, recieverUid, args.User))
         {
@@ -243,17 +246,21 @@ public abstract partial class SharedGunSystem
     private void OnBallisticAmmoFillDoAfter(EntityUid giverUID, BallisticAmmoProviderComponent giverComp, AmmoFillDoAfterEvent args)
     {
 
-        args.Repeat = Timing.IsFirstTimePredicted && !args.Cancelled &&
-                      !Deleted(args.Target) && TryComp<BallisticAmmoProviderComponent>(args.Target.Value, out var recieverComp) &&
-                      !PopupCancels(recieverComp, args.Target.Value, giverComp, giverUID, args.User) &&
-                      TryAmmoInsert(5, giverUID, recieverComp, args.Target.Value, args.User);
+        if (args.Target is not { } targetUid || Deleted(targetUid) ||
+            !TryComp<BallisticAmmoProviderComponent>(targetUid, out var receiverComp))
+        {
+            args.Repeat = false;
+            return;
+        }
 
-        Audio.PlayPredicted(giverComp.SoundInsert, giverUID, args.User, args.Repeat ? _audioParam : _noAmmoAudio);
+        args.Repeat = Timing.IsFirstTimePredicted && !args.Cancelled &&
+                      !PopupCancels(receiverComp, targetUid, giverComp, giverUID, args.User) &&
+                      TryAmmoInsert(Math.Max(1, receiverComp.FillTransferAmount), giverUID, receiverComp, targetUid, args.User);
+
+        // #Misfits Add - the filled container voices the pour, so a gun hears its own shell load.
+        if (args.Repeat)
+            Audio.PlayPredicted(receiverComp.SoundInsert ?? giverComp.SoundInsert, targetUid, args.User);
     }
-    private static AudioParams _audioParam = AudioParams.Default;
-    //default sound execpt for pitch
-    private static AudioParams _noAmmoAudio = new(0, PITCH, SharedAudioSystem.DefaultSoundRange, 1, 1, false, 0f);
-    private const float PITCH = 1.2f;
 
 
     ///  UI info on examine

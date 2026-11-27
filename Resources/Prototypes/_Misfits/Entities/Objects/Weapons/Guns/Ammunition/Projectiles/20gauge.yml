@@ -17,3 +17,25 @@
     falloffStartTiles: 3.0
     maxFalloffTiles: 8.0
     minDamageMultiplier: 0.3
+
+# #Misfits Add - 20 gauge slug. Lighter than the 12 gauge slug; partial AP of 0.5 puts
+# 18 of its 36 total damage through armour and power armour integrity.
+- type: entity
+  id: PelletShotgun20Slug
+  name: slug (20 gauge)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: slug
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 36
+  - type: ArmorPiercing
+    piercing: 0.5 # half of the total damage goes through armour
+  - type: BallisticDamageFalloff
+    falloffStartTiles: 6.0
+    maxFalloffTiles: 12.0
+    minDamageMultiplier: 0.5

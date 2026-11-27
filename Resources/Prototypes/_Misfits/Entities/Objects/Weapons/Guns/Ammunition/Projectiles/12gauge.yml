@@ -17,3 +17,25 @@
     falloffStartTiles: 3.0
     maxFalloffTiles: 8.0
     minDamageMultiplier: 0.3
+
+# #Misfits Add - 12 gauge slug. A single heavy projectile instead of a pellet cloud.
+# 0.5 AP: half of its 40 damage (20) ignores armour entirely.
+- type: entity
+  id: PelletShotgun12Slug
+  name: slug (12 gauge)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: slug
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 40
+  - type: ArmorPiercing
+    piercing: 0.5 # half of the total damage goes through armour
+  - type: BallisticDamageFalloff
+    falloffStartTiles: 6.0
+    maxFalloffTiles: 12.0
+    minDamageMultiplier: 0.5

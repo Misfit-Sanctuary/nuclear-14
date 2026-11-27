@@ -1,0 +1,15 @@
+# #Misfits Add - Ranger command crate, keyed to NCRRangerCommand (Ranger Lead and Chief Ranger only).
+
+- type: entity
+  parent: N14CrateArmy
+  id: N14CrateRangerCommand
+  name: ranger command crate
+  suffix: Locked
+  description: A reinforced army crate sealed with a Ranger command cipher. Only the Ranger Lead and the Chief Ranger can open it.
+  components:
+  - type: Lock
+  - type: AccessReader
+    access: [[NCRRangerCommand]]
+  - type: StorageFill
+    contents:
+    - id: N14BlueprintHuntingSlugs

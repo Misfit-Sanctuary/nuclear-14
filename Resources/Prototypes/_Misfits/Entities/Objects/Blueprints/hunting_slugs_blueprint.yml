@@ -1,0 +1,15 @@
+# #Misfits Add - unlocks the hunting shotgun and both gauges of slug boxes and drums; not mapped yet.
+
+- type: entity
+  parent: N14BlueprintBase
+  id: N14BlueprintHuntingSlugs
+  name: Hunting Slug Blueprint
+  description: Manufacturing schematics for a hunting shotgun and its slug loads, covering twelve and twenty gauge boxes and drums.
+  components:
+  - type: Blueprint
+    recipes:
+    - N14BPHuntingShotgun
+    - N14BPHuntingSlugBox12
+    - N14BPHuntingSlugBox20
+    - N14BPHuntingSlugDrum12
+    - N14BPHuntingSlugDrum20

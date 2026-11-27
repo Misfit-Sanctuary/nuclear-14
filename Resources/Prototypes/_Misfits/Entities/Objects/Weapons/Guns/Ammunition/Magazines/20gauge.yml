@@ -1,0 +1,10 @@
+# #Misfits Add - 20 gauge slug drum; vanilla N14MagazineShotgun20 only loads buckshot.
+
+- type: entity
+  parent: N14BaseMagazineShotgun20
+  id: MisfitsMagazineShotgun20Slug
+  name: ammo drum (20 gauge slug)
+  description: A drum of twenty gauge slug shells.
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun20Slug

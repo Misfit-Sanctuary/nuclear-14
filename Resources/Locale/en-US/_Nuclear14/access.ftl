@@ -34,6 +34,7 @@ id-card-access-level-ncr-ranger = NCRR Post
 id-card-access-level-ncr-sgt = NCRA Armory
 id-card-access-level-ncr-medic = NCRA Labs
 id-card-access-level-ncr = NCRA Gates
+id-card-access-level-ncr-ranger-command = Ranger Command
 
 id-card-access-level-midwest-paladin-commander = BoS Office
 id-card-access-level-midwest-paladin = BoS Suits

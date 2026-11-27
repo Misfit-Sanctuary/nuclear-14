@@ -275,8 +275,10 @@ public sealed partial class GunSystem : SharedGunSystem
         EntityUid? user,
         ICommonSession? userSession)
     {
-        // #Misfits Add - fraction of worn armor this gun's shots ignore
-        var armorPiercing = TryComp<ArmorPiercingComponent>(gunUid, out var piercingComp) ? piercingComp.Piercing : 0f;
+        // #Misfits Add - fraction of the shot's total damage that goes through armor
+        var armorPiercing = TryComp<ArmorPiercingComponent>(gunUid, out var piercingComp)
+            ? Math.Clamp(piercingComp.Piercing, 0f, 1f)
+            : 0f;
 
         EntityUid lastHit = EntityUid.Invalid;
 
@@ -355,8 +357,17 @@ public sealed partial class GunSystem : SharedGunSystem
             }
 
             var hitName = ToPrettyString(hitEntity);
-            if (dmg != null)
-                dmg = Damageable.TryChangeDamage(hitEntity, dmg, origin: user, armorPiercing: armorPiercing); // #Misfits Add
+            if (dmg != null && armorPiercing > 0f) // #Misfits Add - partial AP split
+            {
+                // The through-armor part ignores every resistance, the rest takes armor normally.
+                var pierced = Damageable.TryChangeDamage(hitEntity, dmg * armorPiercing, ignoreResistances: true, origin: user);
+                dmg = Damageable.TryChangeDamage(hitEntity, dmg * (1f - armorPiercing), origin: user);
+
+                if (pierced != null)
+                    dmg = dmg == null ? pierced : dmg + pierced;
+            }
+            else if (dmg != null)
+                dmg = Damageable.TryChangeDamage(hitEntity, dmg, origin: user);
 
             // check null again, as TryChangeDamage returns modified damage values
             if (dmg != null)
