@@ -10,11 +10,11 @@
     openSlots:
       - outerClothing
       - back
-  - type: Vehicle # for some reason this is the only comp that forces it to take just one hand.
-    renderOver: South
-    overlayPrototype: MisfitsMountRiderOverlay
+#  - type: Vehicle # for some reason this is the only comp that forces it to take just one hand.
+#    renderOver: South
+#    overlayPrototype: MisfitsMountRiderOverlay
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: Objects
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       sprite: _Misfits/Mobs/Animals/brahdo-standard.rsi
@@ -27,9 +27,10 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.75
-        density: 50
+        density: 300
         mask:
         - MobMask
+        - TableMask
         layer:
         - MobLayer
   - type: DamageStateVisuals
@@ -41,12 +42,13 @@
   - type: Stamina
     critThreshold: 200
   - type: Strap
+    lockToBuckleOffset: true
     # #Misfits Change - brahdo riding now requires the shared riding perk instead of any humanoid.
     whitelist:
       requireAll: true
       components:
       - HumanoidAppearance
-      - RidingPerk
+#      - RidingPerk
     # #Misfits Fix - Super Mutants and Power Armor wearers are too heavy to ride
     blacklist:
       tags:
@@ -61,16 +63,27 @@
       path: /Audio/_NC/Effects/dismount-saddle.ogg
       params:
         volume: 20 # It's normal
+  - type: DirectionalBuckleOffset
+    offsets:
+    - { North: "0, 0.25", South: "0, .4", East: "-0.15, 0.05" , West: "0.15, 0", SouthEast: "0, .4", SouthWest: "0, .4", NorthWest: "0, 0.25", NorthEast: "0, 0.25"}
+#    riderOffset: 0, 0.45
+#    directionOffsets:
+#      North: 0, 0.05
+#      South: 0, 0.4
+#      East: -0.15, 0.05
+#      West: 0.15, 0
   - type: Mountable
-    riderOffset: 0, 0.45
-    directionOffsets:
-      North: 0, 0.05
-      South: 0, 0.4
-      East: -0.15, 0.05
-      West: 0.15, 0
-  - type: BrahdoSpooked
-    spookDuration: 5
-    buckChance: 0.15
+  - type: EffectOnCollide
+    damageOnCollide: true
+    stunOnCollide: false
+    pushOnCollide: true
+    collideHardOnly: true
+    collideCooldown: 0.25
+    minimumSpeed: 3.5
+    damage:
+      groups:
+        Brute: 10.0
+    pushForce: 1000
   - type: Tag
     tags:
     - FootstepSound
@@ -92,7 +105,7 @@
       50: .95 # dont get hit chuds
       100: .90
       150: .80
-      180: .70 # lol
+      180: .70
   - type: MovementSpeedModifier
     baseWalkSpeed : 5.0
     baseSprintSpeed : 5.0
@@ -124,6 +137,7 @@
   - type: UnequipOnTrigger
     slotsToUnequip:
     - outerClothing
+  - type: DriveOnBuckle
   - type: Inventory
     templateId: brahdo
   - type: InventorySlots
@@ -152,7 +166,6 @@
     - Latin
     - Tribal
     - Sign
-
 - type: entity
   parent: MisfitsMobBrahdo_Base
   id: MisfitsMobBrahdo_Standard
@@ -166,7 +179,7 @@
   description: "A mutated horse favored among couriers and scouts. It is a head shorter than others, and seems to have needed that nimble stature to survive through uneven terrain. Treat it right and it'll never let you down"
   components:
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: Objects
     scale: 0.9, 0.9
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -174,12 +187,12 @@
       state: base
     - map: [ "outerClothing" ]
   - type: Mountable
-    riderOffset: 0, 0.42
-    directionOffsets:
-      North: 0, 0.05
-      South: 0, 0.35
-      East: -0.14, 0.05
-      West: 0.14, 0
+#    riderOffset: 0, 0.42
+#    directionOffsets:
+#      North: 0, 0.05
+#      South: 0, 0.35
+#      East: -0.14, 0.05
+#      West: 0.14, 0
   - type: Fixtures
     fixtures:
       fix1:
@@ -206,9 +219,9 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 6.75
     baseSprintSpeed : 6.75
-  - type: BrahdoSpooked
-    spookDuration: 5
-    buckChance: 0.35 # pussayyyy
+#  - type: BrahdoSpooked
+#    spookDuration: 5
+#    buckChance: 0.35 # pussayyyy
   - type: Butcherable
     spawned:
     - id: MisfitFoodMeatBrahdoRaw
@@ -221,7 +234,7 @@
   description: "A Mutated horse that was likely ridden by an experienced waster. It is past its prime, but history has left it faster and sturdier than most."
   components:
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: Objects
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       sprite: _Misfits/Mobs/Animals/brahdo-grey.rsi
@@ -245,9 +258,9 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 5.25 # if stamina was a thing this would be lower and compensate with higher stamina
     baseSprintSpeed : 5.25
-  - type: BrahdoSpooked
-    spookDuration: 1
-    buckChance: 0.0 # it watched so many pg-13 horror movies
+#  - type: BrahdoSpooked
+#    spookDuration: 1
+#    buckChance: 0.0 # it watched so many pg-13 horror movies
 
 - type: entity
   parent: MisfitsMobBrahdo_Base
@@ -268,7 +281,7 @@
         layer:
         - MobLayer
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: Objects
     scale: 1.2, 1.2
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -276,15 +289,15 @@
       state: base
     - map: [ "outerClothing" ]
   - type: Mountable
-    riderOffset: 0, 0.55
-    directionOffsets:
-      North: 0, 0.05
-      South: 0, 0.5
-      East: -0.18, 0.05
-      West: 0.18, 0
-  - type: BrahdoSpooked
-    spookDuration: 1
-    buckChance: 0.0
+#    riderOffset: 0, 0.55
+#    directionOffsets:
+#      North: 0, 0.05
+#      South: 0, 0.5
+#      East: -0.18, 0.05
+#      West: 0.18, 0
+#  - type: BrahdoSpooked
+#    spookDuration: 1
+#    buckChance: 0.0
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: N14ToughAnimal
@@ -314,7 +327,7 @@
   description: "A Mutated and unfortunately ghoulified horse. Rarely seen or used, as hardly anyone would be willing to venture that deeply into irradiated depths in the first place. This one seems to have kept its mind."
   components:
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: Objects
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       sprite: _Misfits/Mobs/Animals/brahdo-ghoul.rsi

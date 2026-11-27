@@ -23,8 +23,8 @@ public sealed class RiderEyeSystem : EntitySystem
     private void OnBuckled(Entity<EyeComponent> ent, ref BuckledEvent args)
     {
         var strap = args.Strap.Owner;
-        if (!HasComp<MountableComponent>(strap) && !HasComp<VehicleComponent>(strap))
-            return;
+        // if (!HasComp<MountableComponent>(strap) && !HasComp<VehicleComponent>(strap))
+        //     return;
 
         if (ent.Comp.Target != null)
             return;

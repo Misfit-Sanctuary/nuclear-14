@@ -22,3 +22,13 @@
   id: AircraftStructural
   supportedTypes:
   - Structural
+
+
+- type: damageContainer
+  id: MisfitsVehicleNormal
+  supportedGroups:
+  - Brute
+  - Burn
+  - InternalMechanical
+  supportedTypes:
+  - Structural

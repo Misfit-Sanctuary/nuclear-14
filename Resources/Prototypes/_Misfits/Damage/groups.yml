@@ -8,3 +8,9 @@
   damageTypes:
     - Starvation
     - Dehydration
+
+- type: damageGroup
+  id: InternalMechanical
+  name: damage-group-internalMechanical
+  damageTypes:
+  - EngineDamage
