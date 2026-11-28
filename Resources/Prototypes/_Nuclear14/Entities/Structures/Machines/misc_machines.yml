@@ -131,12 +131,11 @@
         acts: ["Destruction"]
 
 # Water Treatment Works
+# #Cythisiax Added - shared body for the water plant and the seismic extractors, with no repair graph, so extractors can't be fixed into water plants
 - type: entity
+  abstract: true
   parent: BaseStructure
-  id: N14MachineWaterTreatmentBroken
-  name: water treatment works
-  description: A broken all in one water treatment machine.
-  suffix: broken
+  id: N14MachineWaterTreatmentBase
   components:
   - type: Sprite
     sprite: _Nuclear14/Structures/Machines/water_treatment.rsi
@@ -166,6 +165,15 @@
         - MachineMask
         layer:
         - MachineLayer
+
+# #Cythisiax Edited - now sits on the shared base, only the real water plant gets the repair graph
+- type: entity
+  parent: N14MachineWaterTreatmentBase
+  id: N14MachineWaterTreatmentBroken
+  name: water treatment works
+  description: A broken all in one water treatment machine.
+  suffix: broken
+  components:
   # #Cythisiax Added - can be fixed into a working machine
   - type: Construction
     graph: N14WaterTreatment

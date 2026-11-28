@@ -10,9 +10,9 @@ namespace Content.Shared._Misfits.WaterPlant;
 
 public sealed partial class FreezesInSnowSystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _proto = default!;
-    [Dependency] private SharedTransformSystem _transform = default!;
-    [Dependency] private SharedWeatherSystem _weather = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedWeatherSystem _weather = default!;
 
     public override void Initialize()
     {

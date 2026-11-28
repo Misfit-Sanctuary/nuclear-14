@@ -118,6 +118,7 @@ public sealed class WastelandMapSystem : EntitySystem
 [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 [Dependency] private readonly SharedMapSystem _mapSystem = default!;
 [Dependency] private readonly InventorySystem _inventorySystem = default!; // #Misfits Add - C-27 ID slot lookup
+    [Dependency] private readonly WaterPurifierSystem _waterPlant = default!; // #Cythisiax Added - water plant map marker
 
     private const int MaxSharedAnnotations = 128;
     private const int MaxStrokePoints = 512; // 256 UV points × 2 floats each
@@ -1008,10 +1009,10 @@ public sealed class WastelandMapSystem : EntitySystem
         }
     }
 
-    // #Cythisiax Added - the one water plant marker an admin turned on, if any. Hidden by default.
+    // #Cythisiax Added - the one water plant marker an admin turned on
     private void AppendWaterPlantBlips(List<WastelandMapTrackedBlip> buffer, MapId mapId, Box2 bounds)
     {
-        var waterPlant = EntityManager.System<WaterPurifierSystem>();
+        var waterPlant = _waterPlant; // #Cythisiax Edited - injected
         if (waterPlant.Marker is not { } marker || marker.MapId != mapId || !bounds.Contains(marker.Position))
             return;
 
