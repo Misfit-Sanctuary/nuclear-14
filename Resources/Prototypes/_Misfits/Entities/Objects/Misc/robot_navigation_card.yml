@@ -19,7 +19,7 @@
     mapTexturePath: _Misfits/Maps/wendover_map.png
     mapTitle: General Atomics Navigation
     # #Misfits Fix - Match the corrected Wendover AABB so robot map markers line up with the rendered image.
-    worldBounds: "-517,-308,484,311"
+    worldBounds: "-220,-336,588,290" # #Cythisiax Edited - matches the trimmed and centred map picture
     # No tacticalFeed - standalone personal map, no faction blip sharing
   - type: WastelandMapAction
     requiredSlot: IDCARD
@@ -40,7 +40,7 @@
     mapTexturePath: _Misfits/Maps/wendover_map.png
     mapTitle: RobCo Industries Navigation
     # #Misfits Fix - Match the corrected Wendover AABB so robot map markers line up with the rendered image.
-    worldBounds: "-517,-308,484,311"
+    worldBounds: "-220,-336,588,290" # #Cythisiax Edited - matches the trimmed and centred map picture
 
 # #Misfits Add - tribal Protectron identification tracked by the Tree of Life.
 - type: entity

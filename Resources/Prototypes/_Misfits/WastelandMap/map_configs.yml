@@ -6,8 +6,82 @@
 - type: wastelandMapConfig
   id: Wendover
   mapTexturePath: _Misfits/Maps/wendover_map.png
+  satelliteTexturePath: _Misfits/Maps/wendover_map_satellite.png # #Cythisiax Added - aerial photo picture for war faction tactical maps
+  regionMaskPath: _Misfits/Maps/wendover_map_mask.png # #Cythisiax Added - keeps area outlines on the land
   # Computed from Wendover surface grid tile AABB (2026-06-28 render)
-  worldBounds: "-517,-328,484,311"
+  worldBounds: "-220,-336,588,290" # #Cythisiax Edited - matches the trimmed and centred map picture
+  # #Cythisiax Added - colour each faction paints the areas it holds on war maps
+  factionColors:
+    NCR: "#D9A441"
+    Rangers: "#8C6A3F"
+    CaesarLegion: "#C0392B"
+    BrotherhoodOfSteel: "#4A90D9"
+    Enclave: "#9B59B6"
+    Townsfolk: "#4CAF50"
+    Vault: "#F1E05A"
+    Tribal: "#D35400"
+    Followers: "#00BCD4"
+    Eighties: "#FF4FA3"
+  # #Cythisiax Added - named areas for scout reports and territory, bases go first so they win where boxes overlap
+  regions:
+  - name: the Brotherhood bunker
+    bounds: "-109,168,-19,228"
+    homeOf: BrotherhoodOfSteel
+  - name: the NCR base
+    bounds: "-172,-247,-99,-172"
+    homeOf: NCR
+  - name: the Ranger station
+    bounds: "-50,-278,-18,-238"
+    homeOf: Rangers
+  - name: the Legion camp
+    bounds: "161,216,234,290"
+    homeOf: CaesarLegion
+  - name: the Town
+    bounds: "-107,-148,-36,-105"
+    homeOf: Townsfolk
+  - name: the Followers clinic # neutral, nobody takes it unless they go to war with the Followers
+    bounds: "-32,-136,-10,-101"
+    homeOf: Followers
+  - name: the Tribal camp
+    bounds: "278,-45,330,15"
+    homeOf: Tribal
+  - name: the 80s clubhouse
+    bounds: "-182,81,-147,160"
+    homeOf: Eighties
+  - name: the Northwest Hills
+    bounds: "-220,130,-109,290"
+  - name: the Northern Hills
+    bounds: "-109,130,84,290"
+  - name: the Ridge Pass
+    bounds: "84,216,161,290"
+  - name: the Eastern Ridge
+    bounds: "234,216,351,290"
+  - name: the North Sands
+    bounds: "84,130,351,216"
+  - name: the West Plains
+    bounds: "-220,38,-68,130"
+  - name: the East Plains
+    bounds: "-68,38,84,130"
+  - name: the South Sands
+    bounds: "84,38,351,130"
+  - name: Wendover West
+    bounds: "-220,-104,-43,38"
+  - name: Downtown Wendover
+    bounds: "-43,-104,134,38"
+  - name: the North Flats
+    bounds: "134,-64,351,38"
+  - name: the South Flats
+    bounds: "134,-159,351,-64"
+  - name: the West Strip
+    bounds: "-220,-169,-36,-104"
+  - name: the East Strip
+    bounds: "-36,-169,134,-104"
+  - name: the Southern Dunes
+    bounds: "-220,-336,104,-169"
+  - name: the Airfield
+    bounds: "104,-336,351,-159"
+  - name: the Eastern Tunnels # underground past the east mountain wall
+    bounds: "351,-336,588,290"
 
 - type: wastelandMapConfig
   id: Vault

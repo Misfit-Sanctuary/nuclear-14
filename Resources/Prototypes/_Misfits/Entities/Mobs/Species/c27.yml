@@ -558,7 +558,7 @@
     mapTexturePath: _Misfits/Maps/wendover_map.png
     mapTitle: Recon Tactical Map
     tacticalFeed: C27 # #Misfits Add - resolved per viewer from the chassis's own ID card (NCR or BoS only)
-    worldBounds: "-517,-308,484,311"
+    worldBounds: "-220,-336,588,290" # #Cythisiax Edited - matches the trimmed and centred map picture
   # #Misfits Add - grant the map action the way N14MobC27ZAX grants its repair action, since WastelandMapAction only auto-grants for worn items.
   - type: ActionGrant
     actions:

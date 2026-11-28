@@ -116,6 +116,7 @@ public sealed partial class WastelandMapProgramUiFragment : BoxContainer
             if (resourceCache.TryGetResource<TextureResource>(fullPath, out var textureResource))
             {
                 _mapViewer.SetTexture(textureResource.Texture, worldBounds);
+                _mapViewer.SetRegionMask(texturePath); // #Cythisiax Added - area outlines follow the land
                 _loadedTexturePath = texturePath;
                 _loadedBounds = worldBounds;
                 _hasLoadedMap = true;
@@ -124,5 +125,11 @@ public sealed partial class WastelandMapProgramUiFragment : BoxContainer
 
         _mapViewer.SetTrackedBlips(trackedBlips);
         _mapViewer.SetAnnotations(sharedAnnotations);
+    }
+
+    // #Cythisiax Added - area boxes for war maps
+    public void SetRegions(WastelandMapRegionBox[] regions)
+    {
+        _mapViewer.SetRegions(regions);
     }
 }

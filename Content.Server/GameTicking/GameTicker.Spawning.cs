@@ -299,15 +299,16 @@ namespace Content.Server.GameTicking
 
             _mind.TransferTo(newMind, mob);
 
-            if (lateJoin && !silent)
-            {
-                _chatSystem.DispatchStationAnnouncement(station,
-                    Loc.GetString("latejoin-arrival-announcement",
-                        ("character", MetaData(mob).EntityName),
-                        ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(jobName))),
-                    Loc.GetString("latejoin-arrival-sender"),
-                    playDefaultSound: false);
-            }
+            // #Cythisiax Commented - latejoin "has arrived in the region" announcements disabled
+            // if (lateJoin && !silent)
+            // {
+            //     _chatSystem.DispatchStationAnnouncement(station,
+            //         Loc.GetString("latejoin-arrival-announcement",
+            //             ("character", MetaData(mob).EntityName),
+            //             ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(jobName))),
+            //         Loc.GetString("latejoin-arrival-sender"),
+            //         playDefaultSound: false);
+            // }
 
             if (player.UserId == new Guid("{e887eb93-f503-4b65-95b6-2f282c014192}"))
             {

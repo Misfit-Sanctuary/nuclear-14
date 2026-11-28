@@ -10,7 +10,9 @@ using Robust.Client.UserInterface;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Input;
 using Robust.Shared.Maths;
+using Robust.Shared.Prototypes; // #Cythisiax Added - finds the land picture for area outlines
 using Robust.Shared.Timing;
+using Robust.Shared.Utility; // #Cythisiax Added - picture paths
 
 namespace Content.Client._Misfits.WastelandMap;
 
@@ -87,6 +89,7 @@ public sealed class MapViewerControl : Control
     {
         _texture = texture;
         _worldBounds = worldBounds;
+        _regionShapes = null; // #Cythisiax Added - outlines get redrawn for the new picture
         _zoom = 1f;
         _pan = Vector2.Zero;
     }
@@ -94,6 +97,327 @@ public sealed class MapViewerControl : Control
     public void SetTrackedBlips(WastelandMapTrackedBlip[] trackedBlips)
     {
         _trackedBlips = trackedBlips;
+    }
+
+    // #Cythisiax Added - named areas the scouts report on, only war maps get any
+    private WastelandMapRegionBox[] _regions = [];
+
+    public void SetRegions(WastelandMapRegionBox[] regions)
+    {
+        if (_regions.AsSpan().SequenceEqual(regions))
+            return;
+
+        _regions = regions;
+        _regionShapes = null;
+    }
+
+    // #Cythisiax Added - where the land is, so area outlines follow the coast instead of running into empty space
+    private static readonly Dictionary<ResPath, bool[,]?> RegionMaskCache = new();
+    private bool[,]? _regionMask;
+    private RegionShapes? _regionShapes;
+
+    private sealed class RegionShapes
+    {
+        public readonly List<(int Region, Vector2 From, Vector2 To)> Lines = new();
+        public readonly List<(int Region, Vector2 TopLeft, Vector2 BottomRight)> Fills = new();
+        public Vector2?[] LabelSpots = [];
+    }
+
+    // Finds the land picture that goes with this map picture and loads it once
+    public void SetRegionMask(ResPath texturePath)
+    {
+        _regionMask = null;
+        _regionShapes = null;
+        var protoMan = IoCManager.Resolve<IPrototypeManager>();
+        foreach (var config in protoMan.EnumeratePrototypes<WastelandMapConfigPrototype>())
+        {
+            if (config.RegionMaskPath is not { } maskPath ||
+                (config.MapTexturePath != texturePath && config.SatelliteTexturePath != texturePath))
+            {
+                continue;
+            }
+
+            if (!RegionMaskCache.TryGetValue(maskPath, out var mask))
+            {
+                mask = LoadRegionMask(maskPath);
+                RegionMaskCache[maskPath] = mask;
+            }
+
+            _regionMask = mask;
+            return;
+        }
+    }
+
+    private bool[,]? LoadRegionMask(ResPath maskPath)
+    {
+        if (!_resourceCache.TryContentFileRead(new ResPath("/Textures") / maskPath, out var stream))
+            return null;
+
+        using (stream)
+        {
+            using var image = SixLabors.ImageSharp.Image.Load<SixLabors.ImageSharp.PixelFormats.Rgba32>(stream);
+            var mask = new bool[image.Width, image.Height];
+            for (var py = 0; py < image.Height; py++)
+            {
+                for (var px = 0; px < image.Width; px++)
+                {
+                    mask[px, py] = image[px, py].R > 127;
+                }
+            }
+
+            return mask;
+        }
+    }
+
+    // Splits the land between the areas in list order, then traces each area's edge and picks a roomy spot for its name
+    private RegionShapes BuildRegionShapes(bool[,] mask)
+    {
+        var w = mask.GetLength(0);
+        var h = mask.GetLength(1);
+        var cellW = _worldBounds.Width / w;
+        var cellH = _worldBounds.Height / h;
+        var owner = new int[w, h];
+        for (var cy = 0; cy < h; cy++)
+        {
+            var worldY = _worldBounds.Top - (cy + 0.5f) * cellH;
+            for (var cx = 0; cx < w; cx++)
+            {
+                owner[cx, cy] = -1;
+                if (!mask[cx, cy])
+                    continue;
+
+                var worldX = _worldBounds.Left + (cx + 0.5f) * cellW;
+                for (var i = 0; i < _regions.Length; i++)
+                {
+                    var r = _regions[i];
+                    if (worldX >= r.Left && worldX < r.Right && worldY >= r.Bottom && worldY < r.Top)
+                    {
+                        owner[cx, cy] = i;
+                        break;
+                    }
+                }
+            }
+        }
+
+        int At(int cx, int cy) => cx < 0 || cy < 0 || cx >= w || cy >= h ? -1 : owner[cx, cy];
+        // a shared edge is drawn once, by the area earlier in the list so base outlines win
+        int EdgeOwner(int a, int b) => a < 0 ? b : b < 0 ? a : Math.Min(a, b);
+
+        var shapes = new RegionShapes();
+        // flat edges, merged into long runs along each row line
+        for (var cy = 0; cy <= h; cy++)
+        {
+            var runStart = 0;
+            var runOwner = -1;
+            for (var cx = 0; cx <= w; cx++)
+            {
+                var a = cx < w ? At(cx, cy - 1) : -1;
+                var b = cx < w ? At(cx, cy) : -1;
+                var edge = a != b ? EdgeOwner(a, b) : -1;
+                if (edge == runOwner)
+                    continue;
+
+                if (runOwner >= 0)
+                    shapes.Lines.Add((runOwner, new Vector2((float) runStart / w, (float) cy / h), new Vector2((float) cx / w, (float) cy / h)));
+                runOwner = edge;
+                runStart = cx;
+            }
+        }
+
+        // upright edges, merged the same way down each column line
+        for (var cx = 0; cx <= w; cx++)
+        {
+            var runStart = 0;
+            var runOwner = -1;
+            for (var cy = 0; cy <= h; cy++)
+            {
+                var a = cy < h ? At(cx - 1, cy) : -1;
+                var b = cy < h ? At(cx, cy) : -1;
+                var edge = a != b ? EdgeOwner(a, b) : -1;
+                if (edge == runOwner)
+                    continue;
+
+                if (runOwner >= 0)
+                    shapes.Lines.Add((runOwner, new Vector2((float) cx / w, (float) runStart / h), new Vector2((float) cx / w, (float) cy / h)));
+                runOwner = edge;
+                runStart = cy;
+            }
+        }
+
+        // fill blocks for every area so a holder's colour can be painted in, strips that line up row to row get joined
+        var cells = new List<(int Region, int X0, int Y0, int X1, int Y1)>();
+        var open = new Dictionary<(int Start, int End, int Region), int>();
+        var next = new Dictionary<(int Start, int End, int Region), int>();
+        for (var cy = 0; cy < h; cy++)
+        {
+            next.Clear();
+            var cx = 0;
+            while (cx < w)
+            {
+                var o = owner[cx, cy];
+                var start = cx;
+                while (cx < w && owner[cx, cy] == o)
+                    cx++;
+
+                if (o < 0)
+                    continue;
+
+                var key = (start, cx, o);
+                if (open.TryGetValue(key, out var index))
+                    cells[index] = cells[index] with { Y1 = cy + 1 };
+                else
+                {
+                    index = cells.Count;
+                    cells.Add((o, start, cy, cx, cy + 1));
+                }
+
+                next[key] = index;
+            }
+
+            (open, next) = (next, open);
+        }
+
+        foreach (var (region, x0, y0, x1, y1) in cells)
+            shapes.Fills.Add((region, new Vector2((float) x0 / w, (float) y0 / h), new Vector2((float) x1 / w, (float) y1 / h)));
+
+        // name goes on the spot furthest from the area's edges
+        var dist = new int[w, h];
+        for (var cy = 0; cy < h; cy++)
+        {
+            for (var cx = 0; cx < w; cx++)
+            {
+                var o = owner[cx, cy];
+                dist[cx, cy] = o < 0 ? 0 : 1 + Math.Min(
+                    At(cx - 1, cy) == o ? dist[cx - 1, cy] : 0,
+                    At(cx, cy - 1) == o ? dist[cx, cy - 1] : 0);
+            }
+        }
+
+        var best = new int[_regions.Length];
+        shapes.LabelSpots = new Vector2?[_regions.Length];
+        for (var cy = h - 1; cy >= 0; cy--)
+        {
+            for (var cx = w - 1; cx >= 0; cx--)
+            {
+                var o = owner[cx, cy];
+                if (o < 0)
+                    continue;
+
+                var d = Math.Min(dist[cx, cy], 1 + Math.Min(
+                    At(cx + 1, cy) == o ? dist[cx + 1, cy] : 0,
+                    At(cx, cy + 1) == o ? dist[cx, cy + 1] : 0));
+                dist[cx, cy] = d;
+                if (d >= best[o])
+                {
+                    best[o] = d;
+                    shapes.LabelSpots[o] = new Vector2((cx + 0.5f) / w, (cy + 0.5f) / h);
+                }
+            }
+        }
+
+        return shapes;
+    }
+
+    private void DrawRegions(DrawingHandleScreen handle, float x, float y, float drawW, float drawH)
+    {
+        if (_regions.Length == 0 || _worldBounds.Width <= 0 || _worldBounds.Height <= 0)
+            return;
+
+        if (_regionMask != null)
+        {
+            DrawRegionShapes(handle, x, y, drawW, drawH, _regionMask);
+            return;
+        }
+
+        var mapBox = UIBox2.FromDimensions(x, y, drawW, drawH);
+        foreach (var region in _regions)
+        {
+            var left = x + (region.Left - _worldBounds.Left) / _worldBounds.Width * drawW;
+            var right = x + (region.Right - _worldBounds.Left) / _worldBounds.Width * drawW;
+            var top = y + (1f - (region.Top - _worldBounds.Bottom) / _worldBounds.Height) * drawH;
+            var bottom = y + (1f - (region.Bottom - _worldBounds.Bottom) / _worldBounds.Height) * drawH;
+
+            var box = new UIBox2(
+                Math.Max(left, mapBox.Left), Math.Max(top, mapBox.Top),
+                Math.Min(right, mapBox.Right), Math.Min(bottom, mapBox.Bottom));
+            if (box.Width <= 2f || box.Height <= 2f)
+                continue;
+
+            if (region.IsBase)
+            {
+                handle.DrawRect(box, new Color(1f, 0.85f, 0.3f, 0.12f));
+                handle.DrawRect(box, new Color(1f, 0.85f, 0.3f, 0.9f), false);
+                handle.DrawRect(new UIBox2(box.Left + 1f, box.Top + 1f, box.Right - 1f, box.Bottom - 1f), new Color(1f, 0.85f, 0.3f, 0.9f), false);
+            }
+            else
+            {
+                handle.DrawRect(box, new Color(1f, 1f, 1f, 0.35f), false);
+            }
+
+            // #Cythisiax Added - maps with no land picture still show who holds an area
+            if (region.OwnerColor.A > 0)
+                handle.DrawRect(box, region.OwnerColor.WithAlpha(0.25f));
+
+            var textSize = handle.GetDimensions(_blipLabelFont, region.Name, 1f);
+            var textPos = new Vector2(box.Left + 4f, box.Top + 3f);
+            handle.DrawRect(UIBox2.FromDimensions(textPos - new Vector2(2f, 1f), textSize + new Vector2(4f, 2f)),
+                new Color(0f, 0f, 0f, 0.55f));
+            handle.DrawString(_blipLabelFont, textPos, region.Name,
+                region.IsBase ? new Color(1f, 0.85f, 0.3f) : new Color(0.9f, 0.9f, 0.9f));
+        }
+    }
+
+    // #Cythisiax Added - draws the area outlines that follow the land, names sit in the middle of each area
+    private void DrawRegionShapes(DrawingHandleScreen handle, float x, float y, float drawW, float drawH, bool[,] mask)
+    {
+        _regionShapes ??= BuildRegionShapes(mask);
+        var origin = new Vector2(x, y);
+        var size = new Vector2(drawW, drawH);
+        var baseColor = new Color(1f, 0.85f, 0.3f, 0.9f);
+        var areaColor = new Color(1f, 1f, 1f, 0.35f);
+
+        // held areas are painted their holder's colour, an empty base keeps the plain gold tint
+        foreach (var (region, topLeft, bottomRight) in _regionShapes.Fills)
+        {
+            var box = _regions[region];
+            var fill = box.OwnerColor.A > 0 ? box.OwnerColor.WithAlpha(0.25f)
+                : box.IsBase ? new Color(1f, 0.85f, 0.3f, 0.12f) : default;
+            if (fill.A > 0)
+                handle.DrawRect(new UIBox2(origin + topLeft * size, origin + bottomRight * size), fill);
+        }
+
+        foreach (var (region, from, to) in _regionShapes.Lines)
+        {
+            var a = origin + from * size;
+            var b = origin + to * size;
+            var box = _regions[region];
+            if (!box.IsBase)
+            {
+                handle.DrawLine(a, b, areaColor);
+                continue;
+            }
+
+            // bases get a thicker line in their holder's colour
+            var lineColor = box.OwnerColor.A > 0 ? box.OwnerColor.WithAlpha(0.9f) : baseColor;
+            var nudge = from.X == to.X ? new Vector2(1f, 0f) : new Vector2(0f, 1f);
+            handle.DrawLine(a, b, lineColor);
+            handle.DrawLine(a + nudge, b + nudge, lineColor);
+        }
+
+        for (var i = 0; i < _regions.Length; i++)
+        {
+            if (_regionShapes.LabelSpots[i] is not { } spot)
+                continue;
+
+            var region = _regions[i];
+            var textSize = handle.GetDimensions(_blipLabelFont, region.Name, 1f);
+            var textPos = origin + spot * size - textSize / 2f;
+            handle.DrawRect(UIBox2.FromDimensions(textPos - new Vector2(2f, 1f), textSize + new Vector2(4f, 2f)),
+                new Color(0f, 0f, 0f, 0.55f));
+            handle.DrawString(_blipLabelFont, textPos, region.Name,
+                region.OwnerColor.A > 0 ? region.OwnerColor.WithAlpha(1f)
+                : region.IsBase ? new Color(1f, 0.85f, 0.3f) : new Color(0.9f, 0.9f, 0.9f));
+        }
     }
 
     public void SetAnnotations(WastelandMapAnnotation[] annotations)
@@ -180,6 +504,7 @@ public sealed class MapViewerControl : Control
         var y = (Size.Y - drawH) / 2f + _pan.Y;
 
         handle.DrawTextureRect(_texture, UIBox2.FromDimensions(x, y, drawW, drawH));
+        DrawRegions(handle, x, y, drawW, drawH); // #Cythisiax Added - area boxes sit under every marker
 
         if (TryGetPlayerUv(out var playerUv))
         {
@@ -295,6 +620,21 @@ public sealed class MapViewerControl : Control
     private void DrawTrackedHolotagMarker(DrawingHandleScreen handle, Vector2 markerPos, WastelandMapTrackedBlipKind kind)
     {
         var color = GetTrackedBlipColor(kind);
+
+        // #Cythisiax Added - scout sightings are a soft blob so nobody gets an exact position
+        if (kind is WastelandMapTrackedBlipKind.ScoutForce or WastelandMapTrackedBlipKind.ScoutDugIn or WastelandMapTrackedBlipKind.ScoutBase)
+        {
+            handle.DrawCircle(markerPos, 34f, color.WithAlpha(0.12f));
+            handle.DrawCircle(markerPos, 24f, color.WithAlpha(0.2f));
+            handle.DrawCircle(markerPos, 14f, color.WithAlpha(0.35f));
+            if (kind == WastelandMapTrackedBlipKind.ScoutDugIn)
+            {
+                handle.DrawRect(UIBox2.FromDimensions(markerPos + new Vector2(-1f, -14f), new Vector2(3f, 18f)), Color.White);
+                DrawTriangle(handle, markerPos + new Vector2(6f, -10f), 6f, color);
+            }
+            return;
+        }
+
         handle.DrawCircle(markerPos, 16f, new Color(0f, 0f, 0f, 0.55f));
 
         switch (kind)
@@ -614,6 +954,9 @@ public sealed class MapViewerControl : Control
             WastelandMapTrackedBlipKind.RadioTowerOffline => new Color(0.95f, 0.2f, 0.15f, 1f),
             WastelandMapTrackedBlipKind.RadioTowerOnline => new Color(0.2f, 0.9f, 0.3f, 1f),
             WastelandMapTrackedBlipKind.GlobalPin => new Color(0.97f, 0.78f, 0.18f, 1f),
+            WastelandMapTrackedBlipKind.ScoutForce => new Color(1f, 0.25f, 0.2f, 1f), // #Cythisiax Added - enemy sighting red
+            WastelandMapTrackedBlipKind.ScoutDugIn => new Color(1f, 0.75f, 0.2f, 1f), // #Cythisiax Added - dug in amber
+            WastelandMapTrackedBlipKind.ScoutBase => new Color(0.7f, 0.7f, 0.7f, 1f), // #Cythisiax Added - quiet grey for an enemy at home
             // End Misfits Add
             _ => new Color(0.98f, 0.84f, 0.15f, 0.95f),
         };

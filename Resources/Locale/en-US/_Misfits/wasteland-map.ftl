@@ -9,3 +9,24 @@ followers-death-alert = [Followers Medical Alert] A new missing person has been 
 
 # #Misfits Add - Label shown on FoTA tacmap for dead bodies instead of the character's name
 followers-missing-person = Missing Person
+# #Cythisiax Added - scout reports sent to commanders of factions at war
+scout-report-departed = [Scout Report] {$size} {$faction} force has left their base.
+scout-report-at-base = [Scout Report] {$faction} is holding inside their base.
+scout-report-spotted = [Scout Report] {$size} {$faction} force spotted in {$region}.
+scout-report-dug-in = [Scout Report] {$faction} force has dug in at {$region}.
+scout-report-took-area = [Scout Report] {$faction} has taken control of {$region}.
+scout-size-large = Large
+scout-size-medium = Medium
+scout-size-small = Small
+scout-faction-ncr = NCR Army
+scout-faction-rangers = NCR Ranger
+scout-faction-legion = Legion
+scout-faction-brotherhood = Brotherhood
+scout-faction-enclave = Enclave
+scout-faction-townsfolk = Townsfolk
+scout-faction-vault = Vault
+scout-faction-tribal = Tribal
+scout-faction-eighties = 80s
+scout-map-force = {$size} {$faction} force
+scout-map-dug-in = {$faction} dug in
+scout-map-base = {$faction} at base
