@@ -81,9 +81,10 @@ public enum WastelandMapTacticalFeedKind : byte
 [Serializable, NetSerializable]
 public readonly record struct WastelandMapTrackedBlip(float X, float Y, string Label, WastelandMapTrackedBlipKind Kind);
 
-// #Cythisiax Added - a named area drawn on war maps, bases get tinted
+// #Cythisiax Added - a named area drawn on war maps, whoever holds it paints it their colour
 [Serializable, NetSerializable]
-public readonly record struct WastelandMapRegionBox(string Name, float Left, float Bottom, float Right, float Top, bool IsBase);
+public readonly record struct WastelandMapRegionBox(string Name, float Left, float Bottom, float Right, float Top, bool IsBase,
+    Color OwnerColor = default);
 
 [Serializable, NetSerializable]
 public enum WastelandMapCommunicationsChannelKind : byte
@@ -345,9 +346,17 @@ public sealed partial class WastelandMapConfigPrototype : IPrototype
     [DataField]
     public ResPath? SatelliteTexturePath;
 
+    // #Cythisiax Added - small black and white picture of where the land is, keeps area outlines off the empty edges
+    [DataField]
+    public ResPath? RegionMaskPath;
+
     // #Cythisiax Added - named areas of the map that scout reports talk about, a faction base is just an area with an owner
     [DataField]
     public List<WastelandMapRegion> Regions = new();
+
+    // #Cythisiax Added - the colour each faction paints the areas it holds, bases included
+    [DataField]
+    public Dictionary<string, Color> FactionColors = new();
 }
 
 // #Cythisiax Added - one named box on the map, the home faction is set when the box is that faction's base

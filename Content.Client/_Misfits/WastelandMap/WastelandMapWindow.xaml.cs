@@ -150,6 +150,7 @@ public sealed partial class WastelandMapWindow : FancyWindow
             if (resourceCache.TryGetResource<TextureResource>(fullPath, out var textureResource))
             {
                 _mapViewer.SetTexture(textureResource.Texture, worldBounds);
+                _mapViewer.SetRegionMask(texturePath); // #Cythisiax Added - area outlines follow the land
                 _loadedTexturePath = texturePath;
                 _loadedBounds = worldBounds;
                 _hasLoadedMap = true;

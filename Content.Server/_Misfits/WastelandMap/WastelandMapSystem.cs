@@ -133,9 +133,12 @@ public sealed class WastelandMapSystem : EntitySystem
     private const int ScoutMinForce = 3;
     private const int ScoutDugInChecks = 5;
     private const float ScoutBlur = 6f;
+    private const int ScoutControlChecks = 15; // one check a minute so this is 15 minutes of holding an area
 
     // Rangers go first so a Ranger never gets counted as NCR Army
-    private static readonly string[] ScoutFactions = ["Rangers", "NCR", "CaesarLegion", "BrotherhoodOfSteel", "Enclave"];
+    // #Cythisiax Edited - the 80s, townsfolk, vault and tribals can hold ground too, they go last so a war faction member is never counted as one
+    // Followers stay out on purpose, they are neutral and never take ground
+    private static readonly string[] ScoutFactions = ["Rangers", "NCR", "CaesarLegion", "BrotherhoodOfSteel", "Enclave", "Eighties", "Townsfolk", "Vault", "Tribal"];
 
     private static readonly HashSet<string> RangerLeaderJobs =
     [
@@ -165,7 +168,16 @@ public sealed class WastelandMapSystem : EntitySystem
     private readonly HashSet<string> _scoutEnemies = new();
     private readonly List<(string Faction, string Text)> _scoutAlerts = new();
     private readonly List<(string Faction, MapId Map, int Region)> _scoutRemove = new();
-    private readonly Dictionary<string, WastelandMapRegionBox[]> _scoutRegionBoxes = new();
+    private readonly Dictionary<(string Config, MapId Map), (int Version, WastelandMapRegionBox[] Boxes)> _scoutRegionBoxes = new();
+
+    // #Cythisiax Added - who holds each area, bases belong to their home faction until someone takes them
+    private readonly Dictionary<(MapId Map, int Region), string> _areaOwners = new();
+    private readonly Dictionary<(MapId Map, int Region), int> _homeHolders = new();
+    private readonly Dictionary<(MapId Map, int Region), int> _homeHoldChecks = new();
+    private readonly Dictionary<(MapId Map, int Region), int> _areaContenders = new();
+    private readonly List<(MapId Map, int Region)> _areaScratch = new();
+    private readonly HashSet<string> _areaTold = new();
+    private int _areaOwnerVersion;
 
     private const int MaxSharedAnnotations = 128;
     private const int MaxStrokePoints = 512; // 256 UV points × 2 floats each
@@ -504,18 +516,21 @@ public sealed class WastelandMapSystem : EntitySystem
         if (config == null && !TryGetScoutConfig(mapId, out config))
             return [];
 
-        if (_scoutRegionBoxes.TryGetValue(config.ID, out var cached))
-            return cached;
+        // #Cythisiax Edited - rebuilt whenever an area changes hands so the holder's colour shows
+        if (_scoutRegionBoxes.TryGetValue((config.ID, mapId), out var cached) && cached.Version == _areaOwnerVersion)
+            return cached.Boxes;
 
         var boxes = new WastelandMapRegionBox[config.Regions.Count];
         for (var i = 0; i < boxes.Length; i++)
         {
             var region = config.Regions[i];
+            var owner = _areaOwners.GetValueOrDefault((mapId, i)) ?? region.HomeOf;
+            var color = owner != null ? config.FactionColors.GetValueOrDefault(owner) : default;
             boxes[i] = new WastelandMapRegionBox(region.Name, region.Bounds.Left, region.Bounds.Bottom,
-                region.Bounds.Right, region.Bounds.Top, region.HomeOf != null);
+                region.Bounds.Right, region.Bounds.Top, region.HomeOf != null, color);
         }
 
-        _scoutRegionBoxes[config.ID] = boxes;
+        _scoutRegionBoxes[(config.ID, mapId)] = (_areaOwnerVersion, boxes);
         return boxes;
     }
 
@@ -946,6 +961,9 @@ public sealed class WastelandMapSystem : EntitySystem
         _scoutHomeSpot.Clear();
         _scoutAtBase.Clear();
         _scoutBlips.Clear();
+        _areaOwners.Clear();
+        _homeHoldChecks.Clear();
+        _areaOwnerVersion++;
     }
 
     private void RunScoutSnapshot()
@@ -953,6 +971,7 @@ public sealed class WastelandMapSystem : EntitySystem
         _scoutOnline.Clear();
         _scoutHome.Clear();
         _scoutHomeSpot.Clear();
+        _homeHolders.Clear();
         foreach (var group in _scoutGroups.Values)
         {
             group.Count = 0;
@@ -988,6 +1007,7 @@ public sealed class WastelandMapSystem : EntitySystem
             {
                 _scoutHome[faction] = _scoutHome.GetValueOrDefault(faction) + 1;
                 _scoutHomeSpot[faction] = (xform.MapID, region.Bounds.Center);
+                _homeHolders[(xform.MapID, regionIndex)] = _homeHolders.GetValueOrDefault((xform.MapID, regionIndex)) + 1;
                 continue;
             }
 
@@ -1091,6 +1111,104 @@ public sealed class WastelandMapSystem : EntitySystem
 
         foreach (var (faction, text) in _scoutAlerts)
             SendScoutAlert(faction, text);
+
+        UpdateAreaControl();
+    }
+
+    // #Cythisiax Added - an area changes hands when one faction has held it alone for 15 minutes
+    private void UpdateAreaControl()
+    {
+        // count how many factions have a real force in each area right now, a fight stops anyone taking it
+        _areaContenders.Clear();
+        foreach (var (key, group) in _scoutGroups)
+        {
+            var area = (key.Map, key.Region);
+            _areaContenders[area] = _areaContenders.GetValueOrDefault(area) + 1;
+        }
+
+        foreach (var (area, count) in _homeHolders)
+        {
+            if (count >= ScoutMinForce)
+                _areaContenders[area] = _areaContenders.GetValueOrDefault(area) + 1;
+        }
+
+        // attackers who have dug in long enough take the area
+        foreach (var (key, group) in _scoutGroups)
+        {
+            var area = (key.Map, key.Region);
+            if (group.Checks < ScoutControlChecks || _areaContenders.GetValueOrDefault(area) != 1)
+                continue;
+            var owner = GetAreaOwner(area);
+            if (owner == key.Faction)
+                continue;
+
+            // held ground can only be taken off a faction you are at war with, so friends never steal it
+            if (owner != null)
+            {
+                _factionWar.GetWarEnemyFactions(key.Faction, _scoutEnemies);
+                if (!_scoutEnemies.Contains(owner))
+                    continue;
+            }
+
+            SetAreaOwner(area, key.Faction);
+        }
+
+        // the home faction takes its base back the same way
+        _areaScratch.Clear();
+        foreach (var area in _homeHoldChecks.Keys)
+        {
+            if (_homeHolders.GetValueOrDefault(area) < ScoutMinForce)
+                _areaScratch.Add(area);
+        }
+
+        foreach (var area in _areaScratch)
+            _homeHoldChecks.Remove(area);
+
+        foreach (var (area, count) in _homeHolders)
+        {
+            if (count < ScoutMinForce || !TryGetScoutConfig(area.Map, out var config))
+                continue;
+
+            var checks = _homeHoldChecks.GetValueOrDefault(area) + 1;
+            _homeHoldChecks[area] = checks;
+            var home = config.Regions[area.Region].HomeOf;
+            if (home == null || checks < ScoutControlChecks || _areaContenders.GetValueOrDefault(area) != 1)
+                continue;
+            if (GetAreaOwner(area) == home)
+                continue;
+
+            SetAreaOwner(area, home);
+        }
+    }
+
+    private string? GetAreaOwner((MapId Map, int Region) area)
+    {
+        if (_areaOwners.TryGetValue(area, out var owner))
+            return owner;
+
+        return TryGetScoutConfig(area.Map, out var config) ? config.Regions[area.Region].HomeOf : null;
+    }
+
+    private void SetAreaOwner((MapId Map, int Region) area, string faction)
+    {
+        if (!TryGetScoutConfig(area.Map, out var config))
+            return;
+
+        var region = config.Regions[area.Region];
+        var lost = GetAreaOwner(area);
+        if (region.HomeOf == faction)
+            _areaOwners.Remove(area);
+        else
+            _areaOwners[area] = faction;
+        _areaOwnerVersion++;
+
+        // the taker, the old holder and everyone at war with the taker hear about it
+        var text = Loc.GetString("scout-report-took-area", ("faction", GetScoutFactionName(faction)), ("region", region.Name));
+        _factionWar.GetWarEnemyFactions(faction, _areaTold);
+        _areaTold.Add(faction);
+        if (lost != null)
+            _areaTold.Add(lost);
+        SendScoutAlertTo(_areaTold, text);
     }
 
     // Only the leaders of factions at war with this one hear about it
@@ -1201,6 +1319,10 @@ public sealed class WastelandMapSystem : EntitySystem
             "CaesarLegion" => Loc.GetString("scout-faction-legion"),
             "BrotherhoodOfSteel" => Loc.GetString("scout-faction-brotherhood"),
             "Enclave" => Loc.GetString("scout-faction-enclave"),
+            "Townsfolk" => Loc.GetString("scout-faction-townsfolk"), // #Cythisiax Added - factions that can hold ground
+            "Vault" => Loc.GetString("scout-faction-vault"),
+            "Eighties" => Loc.GetString("scout-faction-eighties"),
+            "Tribal" => Loc.GetString("scout-faction-tribal"),
             _ => faction,
         };
     }
