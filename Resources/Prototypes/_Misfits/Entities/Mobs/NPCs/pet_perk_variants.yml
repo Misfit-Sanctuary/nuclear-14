@@ -373,11 +373,11 @@
     sprite: _Misfits/Mobs/Pets/cat.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: spoon_ncr
+      state: spoon_thin
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: spoon_ncr
+        Base: spoon_thin
       Critical:
         Base: spoon_dead
       Dead:
