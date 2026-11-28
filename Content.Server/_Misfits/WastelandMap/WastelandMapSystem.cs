@@ -7,6 +7,7 @@ using Content.Server._Misfits.Group; // #Misfits Add - group blip injection
 using Content.Server._Misfits.Overwatch;
 using Content.Server._Misfits.TribalHunt;
 using Content.Server._Misfits.TreeOfLife;
+using Content.Server._Misfits.WaterPlant; // #Cythisiax Added - water plants show on the map
 using Content.Server.Radio.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Humanoid; // #Misfits Add - Followers casualty filter for humanoid player bodies only
@@ -117,6 +118,7 @@ public sealed class WastelandMapSystem : EntitySystem
 [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 [Dependency] private readonly SharedMapSystem _mapSystem = default!;
 [Dependency] private readonly InventorySystem _inventorySystem = default!; // #Misfits Add - C-27 ID slot lookup
+    [Dependency] private readonly WaterPurifierSystem _waterPlant = default!; // #Cythisiax Added - water plant map marker
 
     private const int MaxSharedAnnotations = 128;
     private const int MaxStrokePoints = 512; // 256 UV points × 2 floats each
@@ -799,6 +801,7 @@ public sealed class WastelandMapSystem : EntitySystem
             AppendMaterialExtractorBlips(_blipScratch, mapId, bounds);
             AppendExpeditionEntranceBlips(_blipScratch, mapId, bounds);
             AppendRadioTowerBlips(_blipScratch, mapId, bounds);
+            AppendWaterPlantBlips(_blipScratch, mapId, bounds); // #Cythisiax Added - show water plants on the map
             AppendGlobalMapPins(_blipScratch, mapId, bounds);
             if (AllowsSharedOverlays(feed)) // #Misfits Change - Tribe maps are tagged-ID-only.
                 AppendTribalHuntTargetBlips(_blipScratch, mapId, bounds);
@@ -1004,6 +1007,23 @@ public sealed class WastelandMapSystem : EntitySystem
                     ? WastelandMapTrackedBlipKind.RadioTowerOnline
                     : WastelandMapTrackedBlipKind.RadioTowerOffline));
         }
+    }
+
+    // #Cythisiax Added - the one water plant marker an admin turned on
+    private void AppendWaterPlantBlips(List<WastelandMapTrackedBlip> buffer, MapId mapId, Box2 bounds)
+    {
+        var waterPlant = _waterPlant; // #Cythisiax Edited - injected
+        if (waterPlant.Marker is not { } marker || marker.MapId != mapId || !bounds.Contains(marker.Position))
+            return;
+
+        var online = waterPlant.IsMarkerRunning();
+        buffer.Add(new WastelandMapTrackedBlip(
+            marker.Position.X,
+            marker.Position.Y,
+            Loc.GetString(online ? "n14-water-plant-map-label-online" : "n14-water-plant-map-label-offline"),
+            online
+                ? WastelandMapTrackedBlipKind.WaterPlantOnline
+                : WastelandMapTrackedBlipKind.WaterPlantOffline));
     }
 
     /// <summary>

@@ -1,5 +1,5 @@
 - type: entity
-  parent: N14MachineWaterTreatmentBroken
+  parent: N14MachineWaterTreatmentBase # #Cythisiax Edited - because I used base watertreatment prototype for this entire fucking thing, and does not caus eissues with new mechanic.
   id: N14SeismicMaterialExtractor
   name: seismic material extractor
   description: A battered pre-war drill that hammers the ground for usable raw materials. Its racket draws unwanted attention.
@@ -257,7 +257,7 @@
     - Structure
 
 - type: entity
-  parent: N14MachineWaterTreatmentBroken
+  parent: N14MachineWaterTreatmentBase # #Cythisiax Edited - uses the base with no repair graph so it cannot be fixed into a water plant
   id: N14SeismicMaterialExtractorBroken
   name: destroyed seismic material extractor
   description: The drill is silent. Its ruined hopper is full of twisted machinery.

@@ -47,6 +47,8 @@ public enum WastelandMapTrackedBlipKind : byte
     RadioTowerOffline, // public radio is blocked until this tower is activated
     RadioTowerOnline, // activated public-radio tower
     GlobalPin, // administrator-created, round-scoped landmark visible on every map feed
+    WaterPlantOffline, // #Cythisiax Added - water plant site with no machine running
+    WaterPlantOnline, // #Cythisiax Added - water plant site with at least one powered machine
 }
 
 [Serializable, NetSerializable]

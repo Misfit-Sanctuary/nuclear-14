@@ -193,6 +193,26 @@
   id: N14ToiletWater
   suffix: filled water
   components:
+  # #Cythisiax Edited - gives fake dirty water now (used to be clean water)
+  - type: SolutionContainerManager
+    solutions:
+      toilet:
+        reagents:
+        - ReagentId: MisfitsWaterDirtyPlacebo
+          Quantity: 200
+  - type: SolutionRegeneration
+    solution: toilet
+    generated:
+      reagents:
+      - ReagentId: MisfitsWaterDirtyPlacebo
+        Quantity: 2
+
+# #Cythisiax Added - clean water toilet for places with real plumbing (Vault, Enclave)
+- type: entity
+  parent: N14ToiletWater
+  id: N14ToiletWaterClean
+  suffix: filled clean water
+  components:
   - type: SolutionContainerManager
     solutions:
       toilet:
@@ -274,6 +294,28 @@
   parent: N14Sink
   id: N14SinkFilledWater
   suffix: filled water
+  components:
+  # #Cythisiax Edited - gives fake dirty water now (used to be clean water)
+  - type: SolutionContainerManager
+    solutions:
+      drainBuffer:
+        maxVol: 200
+      tank:
+        reagents:
+        - ReagentId: MisfitsWaterDirtyPlacebo
+          Quantity: 200
+  - type: SolutionRegeneration
+    solution: tank
+    generated:
+      reagents:
+      - ReagentId: MisfitsWaterDirtyPlacebo
+        Quantity: 1
+
+# #Cythisiax Added - clean water sink for places with real plumbing (Vault, Enclave)
+- type: entity
+  parent: N14SinkFilledWater
+  id: N14SinkFilledWaterClean
+  suffix: filled clean water
   components:
   - type: SolutionContainerManager
     solutions:

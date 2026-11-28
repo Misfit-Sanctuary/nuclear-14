@@ -1,0 +1,23 @@
+# #Cythisiax Added - The steps to fix a broken water treatment machine.
+- type: constructionGraph
+  id: N14WaterTreatment
+  start: broken
+  graph:
+  - node: broken
+    entity: N14MachineWaterTreatmentBroken
+    edges:
+    - to: working
+      steps:
+      - tool: Welding
+        doAfter: 10
+      - material: Steel
+        amount: 10
+        doAfter: 3
+      - material: Cable
+        amount: 5
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 5
+
+  - node: working
+    entity: N14MachineWaterTreatment

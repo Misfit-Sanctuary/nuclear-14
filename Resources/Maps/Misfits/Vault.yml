@@ -139922,7 +139922,7 @@ entities:
       pos: -81.5,70.5
     - type: Fixtures
       fixtures: {}
-- proto: N14SinkFilledWater
+- proto: N14SinkFilledWaterClean
   entities:
   - uid: 17263
     components:
@@ -143929,7 +143929,7 @@ entities:
       parent: 2
       rot: 1.5707963267948966 rad
       pos: -90.5,4.5
-- proto: N14ToiletWater
+- proto: N14ToiletWaterClean
   entities:
   - uid: 17829
     components:
