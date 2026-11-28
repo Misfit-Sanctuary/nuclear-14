@@ -407,7 +407,7 @@ public sealed class MapViewerControl : Control
                 handle.DrawCircle(markerPos, 4f, Color.Black);
                 handle.DrawCircle(markerPos, 2f, Color.White);
                 break;
-            // #Cythisiax Added - water plant marker, drawn as a droplet
+            // #Cythisiax Added - water plants show as a water drop on the map
             case WastelandMapTrackedBlipKind.WaterPlantOffline:
             case WastelandMapTrackedBlipKind.WaterPlantOnline:
                 DrawDiamond(handle, markerPos + new Vector2(0f, -7f), 8f, color);
@@ -621,8 +621,8 @@ public sealed class MapViewerControl : Control
             WastelandMapTrackedBlipKind.RadioTowerOffline => new Color(0.95f, 0.2f, 0.15f, 1f),
             WastelandMapTrackedBlipKind.RadioTowerOnline => new Color(0.2f, 0.9f, 0.3f, 1f),
             WastelandMapTrackedBlipKind.GlobalPin => new Color(0.97f, 0.78f, 0.18f, 1f),
-            WastelandMapTrackedBlipKind.WaterPlantOffline => new Color(0.5f, 0.58f, 0.66f, 1f), // #Cythisiax Added
-            WastelandMapTrackedBlipKind.WaterPlantOnline => new Color(0.2f, 0.75f, 1f, 1f), // #Cythisiax Added
+            WastelandMapTrackedBlipKind.WaterPlantOffline => new Color(0.5f, 0.58f, 0.66f, 1f), // #Cythisiax Added - grey when no machine is running
+            WastelandMapTrackedBlipKind.WaterPlantOnline => new Color(0.2f, 0.75f, 1f, 1f), // #Cythisiax Added - blue when water is being made
             // End Misfits Add
             _ => new Color(0.98f, 0.84f, 0.15f, 0.95f),
         };

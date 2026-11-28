@@ -58,20 +58,23 @@
         - Impassable
         - MidImpassable
         - LowImpassable
+  # #Cythisiax Edited - gives fake dirty water now (used to be clean water)
   - type: SolutionContainerManager
     solutions:
       well:
         reagents:
-        - ReagentId: Water
+        - ReagentId: MisfitsWaterDirtyPlacebo
           Quantity: 500
   - type: DrainableSolution
     solution: well
   - type: ReagentTank
+  # #Cythisiax Added - the water freezes while it snows so you can't draw any
+  - type: FreezesInSnow
   - type: SolutionRegeneration
     solution: well
     generated:
       reagents:
-      - ReagentId: Water
+      - ReagentId: MisfitsWaterDirtyPlacebo
         Quantity: 1
 
 - type: entity

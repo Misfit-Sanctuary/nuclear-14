@@ -1,10 +1,10 @@
-# #Cythisiax Added - Water plant: repair steps that turn a broken treatment machine into a working one.
+# #Cythisiax Added - The steps to fix a broken water treatment machine.
 - type: constructionGraph
-  id: N14WaterPurifier
+  id: N14WaterTreatment
   start: broken
   graph:
   - node: broken
-    entity: N14WaterPurifierBroken
+    entity: N14MachineWaterTreatmentBroken
     edges:
     - to: working
       steps:
@@ -20,4 +20,4 @@
         doAfter: 5
 
   - node: working
-    entity: N14WaterPurifier
+    entity: N14MachineWaterTreatment

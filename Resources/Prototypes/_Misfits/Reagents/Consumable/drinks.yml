@@ -1,4 +1,4 @@
-﻿- type: reagent
+- type: reagent
   id: MisfitsMilkZoy
   parent: MilkOat
   name: reagent-name-milk-zoy
@@ -20,3 +20,22 @@
   physicalDesc: reagent-physical-desc-clumpy
   color: "#9e785b"
   flavor: zilk
+
+# #Cythisiax Added - Fake dirty water. Looks just like dirty water but only tastes bad.
+# Wells and sinks give this. Real clean water comes from powered treatment machines.
+- type: reagent
+  id: MisfitsWaterDirtyPlacebo
+  parent: Water
+  name: reagent-name-water-dirty
+  desc: reagent-desc-water-dirty
+  physicalDesc: reagent-physical-desc-translucent
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:PopupMessage
+        type: Local
+        visualType: Small
+        messages: [ "misfits-water-dirty-placebo-taste" ]
+        probability: 0.05

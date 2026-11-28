@@ -8,15 +8,27 @@
   products:
     Water: 1
 
+# #Cythisiax Removed - charcoal no longer cleans dirty water, you boil it instead
+
+# #Cythisiax Added - boiling dirty water makes it clean
 - type: reaction
-  id: WaterFiltered
+  id: WaterDirtyBoiled
+  minTemp: 373
   reactants:
-    Charcoal:
-      amount: 1
     WaterDirty:
       amount: 1
   products:
-    WaterFiltered: 1
+    Water: 1
+
+# #Cythisiax Added - the fake dirty water from wells and sinks boils clean too
+- type: reaction
+  id: MisfitsWaterDirtyPlaceboBoiled
+  minTemp: 373
+  reactants:
+    MisfitsWaterDirtyPlacebo:
+      amount: 1
+  products:
+    Water: 1
 
 - type: reaction
   id: WaterDirty

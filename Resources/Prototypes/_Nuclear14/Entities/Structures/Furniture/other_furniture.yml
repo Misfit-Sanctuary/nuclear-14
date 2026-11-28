@@ -193,17 +193,18 @@
   id: N14ToiletWater
   suffix: filled water
   components:
+  # #Cythisiax Edited - gives fake dirty water now (used to be clean water)
   - type: SolutionContainerManager
     solutions:
       toilet:
         reagents:
-        - ReagentId: Water
+        - ReagentId: MisfitsWaterDirtyPlacebo
           Quantity: 200
   - type: SolutionRegeneration
     solution: toilet
     generated:
       reagents:
-      - ReagentId: Water
+      - ReagentId: MisfitsWaterDirtyPlacebo
         Quantity: 2
 
 - type: entity
@@ -275,19 +276,20 @@
   id: N14SinkFilledWater
   suffix: filled water
   components:
+  # #Cythisiax Edited - gives fake dirty water now (used to be clean water)
   - type: SolutionContainerManager
     solutions:
       drainBuffer:
         maxVol: 200
       tank:
         reagents:
-        - ReagentId: Water
+        - ReagentId: MisfitsWaterDirtyPlacebo
           Quantity: 200
   - type: SolutionRegeneration
     solution: tank
     generated:
       reagents:
-      - ReagentId: Water
+      - ReagentId: MisfitsWaterDirtyPlacebo
         Quantity: 1
 
 - type: entity

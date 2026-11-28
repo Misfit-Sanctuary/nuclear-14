@@ -32,7 +32,7 @@
     Poison:
       effects:
       - !type:HealthChange
-        # #Cythisiax Added - dirty water makes you sick but can't kill: it stops hurting once you're at 50 total damage
+        # #Cythisiax Added - dirty water makes you sick but can't kill you. It stops hurting once you're at 50 damage
         conditions:
         - !type:TotalDamage
           max: 50

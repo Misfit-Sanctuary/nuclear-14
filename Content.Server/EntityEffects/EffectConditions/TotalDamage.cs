@@ -18,7 +18,7 @@ public sealed partial class TotalDamage : EntityEffectCondition
         if (args.EntityManager.TryGetComponent(args.TargetEntity, out DamageableComponent? damage))
         {
             var total = damage.TotalDamage;
-            // #Cythisiax Fixed - Min is inclusive now, so a condition with no min also applies at exactly 0 damage
+            // #Cythisiax Fixed - also counts someone right at the lowest number, so it works on people who are not hurt at all
             if (total >= Min && total < Max)
                 return true;
         }

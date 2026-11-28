@@ -166,6 +166,10 @@
         - MachineMask
         layer:
         - MachineLayer
+  # #Cythisiax Added - can be fixed into a working machine
+  - type: Construction
+    graph: N14WaterTreatment
+    node: broken
 
 - type: entity
   parent: N14MachineWaterTreatmentBroken
@@ -178,6 +182,10 @@
     sprite: _Nuclear14/Structures/Machines/water_treatment.rsi
     layers:
     - state: watertreatment
+  # #Cythisiax Added - this is what a fixed machine turns into
+  - type: Construction
+    graph: N14WaterTreatment
+    node: working
   - type: Destructible
     thresholds:
     - trigger:
@@ -200,7 +208,7 @@
   - type: DrainableSolution
     solution: well
   - type: ReagentTank
-  # #Cythisiax Edited - treatment machines only make water while powered (was free SolutionRegeneration)
+  # #Cythisiax Edited - only makes water while it has power (it used to make water for free)
   - type: ApcPowerReceiver
     powerLoad: 1500
   - type: ExtensionCableReceiver
