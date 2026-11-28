@@ -160,6 +160,12 @@ public sealed partial class WastelandMapWindow : FancyWindow
         _mapViewer.SetAnnotations(sharedAnnotations);
     }
 
+    // #Cythisiax Added - area boxes for war maps
+    public void SetRegions(WastelandMapRegionBox[] regions)
+    {
+        _mapViewer.SetRegions(regions);
+    }
+
     public void UpdateOverwatch(OverwatchConsoleState? state, OverwatchWatchingComponent? watch, IEye? eye)
     {
         _overwatchState = state;

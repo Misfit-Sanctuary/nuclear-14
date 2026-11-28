@@ -5,6 +5,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Content.Shared._Misfits.Overwatch;
+using Robust.Shared.Prototypes;
+using Content.Shared.CartridgeLoader;
 
 namespace Content.Shared._Misfits.WastelandMap;
 
@@ -47,6 +49,9 @@ public enum WastelandMapTrackedBlipKind : byte
     RadioTowerOffline, // public radio is blocked until this tower is activated
     RadioTowerOnline, // activated public-radio tower
     GlobalPin, // administrator-created, round-scoped landmark visible on every map feed
+    ScoutForce, // #Cythisiax Added - rough spot where scouts saw an enemy force
+    ScoutDugIn, // #Cythisiax Added - enemy force that has sat in one area long enough to dig in
+    ScoutBase, // #Cythisiax Added - enemy faction is mostly at home in their base
 }
 
 [Serializable, NetSerializable]
@@ -75,6 +80,10 @@ public enum WastelandMapTacticalFeedKind : byte
 
 [Serializable, NetSerializable]
 public readonly record struct WastelandMapTrackedBlip(float X, float Y, string Label, WastelandMapTrackedBlipKind Kind);
+
+// #Cythisiax Added - a named area drawn on war maps, bases get tinted
+[Serializable, NetSerializable]
+public readonly record struct WastelandMapRegionBox(string Name, float Left, float Bottom, float Right, float Top, bool IsBase);
 
 [Serializable, NetSerializable]
 public enum WastelandMapCommunicationsChannelKind : byte
@@ -158,6 +167,7 @@ public sealed class WastelandMapBoundUserInterfaceState : BoundUserInterfaceStat
     public readonly WastelandMapAnnotation[] SharedAnnotations;
     public readonly OverwatchConsoleState? Overwatch;
     public readonly WastelandMapCommunicationsState? Communications;
+    public readonly WastelandMapRegionBox[] Regions; // #Cythisiax Added - named areas, only sent to war maps
 
     public WastelandMapBoundUserInterfaceState(string mapTitle, string mapTexturePath,
         bool compactHud,
@@ -165,8 +175,10 @@ public sealed class WastelandMapBoundUserInterfaceState : BoundUserInterfaceStat
         WastelandMapTrackedBlip[]? trackedBlips = null,
         WastelandMapAnnotation[]? sharedAnnotations = null,
         OverwatchConsoleState? overwatch = null,
-        WastelandMapCommunicationsState? communications = null)
+        WastelandMapCommunicationsState? communications = null,
+        WastelandMapRegionBox[]? regions = null)
     {
+        Regions = regions ?? [];
         MapTitle = mapTitle;
         MapTexturePath = mapTexturePath;
         CompactHud = compactHud;
@@ -305,3 +317,110 @@ public sealed partial class WastelandMapComponent : Component
     public List<WastelandMapAnnotation> SharedAnnotations = new();
 }
 
+// #Cythisiax Edited - moved in from its own small file so the map code sits together
+// #Misfits Add - Wasteland map rendering configuration per game map.
+// Maps a game map ID (e.g. "Wendover", "Vault") to its pre-rendered
+// tactical image path and world-space bounds. Used by WastelandMapSystem
+// to auto-detect map texture and bounds when WastelandMapComponent
+// doesn't have them hardcoded (via MapConfigId field).
+[Prototype("wastelandMapConfig")]
+public sealed partial class WastelandMapConfigPrototype : IPrototype
+{
+    [IdDataField]
+    public string ID { get; private set; } = string.Empty;
+
+    /// <summary>
+    /// Path to the rendered map texture, relative to Resources/Textures/.
+    /// </summary>
+    [DataField(required: true)]
+    public ResPath MapTexturePath = default!;
+
+    /// <summary>
+    /// World-space tile bounds (left,bottom,right,top) that the rendered image covers.
+    /// </summary>
+    [DataField(required: true)]
+    public Box2 WorldBounds;
+
+    // #Cythisiax Added - aerial photo style picture shown on faction war tactical maps instead of the plain one
+    [DataField]
+    public ResPath? SatelliteTexturePath;
+
+    // #Cythisiax Added - named areas of the map that scout reports talk about, a faction base is just an area with an owner
+    [DataField]
+    public List<WastelandMapRegion> Regions = new();
+}
+
+// #Cythisiax Added - one named box on the map, the home faction is set when the box is that faction's base
+[DataDefinition]
+public sealed partial class WastelandMapRegion
+{
+    [DataField(required: true)]
+    public string Name = string.Empty;
+
+    [DataField(required: true)]
+    public Box2 Bounds;
+
+    [DataField]
+    public string? HomeOf;
+}
+
+// #Cythisiax Edited - moved in from its own small file so the map code sits together
+// #Misfits Change - Pip-Boy tactical map cartridge messages
+[Serializable, NetSerializable]
+public sealed class WastelandMapCartridgeAddAnnotationMessageEvent : CartridgeMessageEvent
+{
+    public readonly WastelandMapAnnotation Annotation;
+
+    public WastelandMapCartridgeAddAnnotationMessageEvent(WastelandMapAnnotation annotation)
+    {
+        Annotation = annotation;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class WastelandMapCartridgeRemoveAnnotationMessageEvent : CartridgeMessageEvent
+{
+    public readonly int Index;
+
+    public WastelandMapCartridgeRemoveAnnotationMessageEvent(int index)
+    {
+        Index = index;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class WastelandMapCartridgeClearAnnotationsMessageEvent : CartridgeMessageEvent;
+
+// #Cythisiax Edited - moved in from its own small file so the map code sits together
+/// <summary>Sent when an administrator names a new global tactical-map pin.</summary>
+[Serializable, NetSerializable]
+public sealed class MapPinNameMessage : BoundUserInterfaceMessage
+{
+    public readonly string Name;
+
+    public MapPinNameMessage(string name)
+    {
+        Name = name;
+    }
+}
+
+[Serializable, NetSerializable]
+public enum MapPinManageUiKey : byte
+{
+    Key,
+}
+
+[Serializable, NetSerializable]
+public readonly record struct GlobalMapPinEntry(NetEntity Pin, string Label, float X, float Y);
+
+[Serializable, NetSerializable]
+public sealed class MapPinManageState(GlobalMapPinEntry[] pins) : BoundUserInterfaceState
+{
+    public readonly GlobalMapPinEntry[] Pins = pins;
+}
+
+[Serializable, NetSerializable]
+public sealed class MapPinRemoveMessage(NetEntity pin) : BoundUserInterfaceMessage
+{
+    public readonly NetEntity Pin = pin;
+}

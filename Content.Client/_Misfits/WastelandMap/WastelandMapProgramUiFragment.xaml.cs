@@ -125,4 +125,10 @@ public sealed partial class WastelandMapProgramUiFragment : BoxContainer
         _mapViewer.SetTrackedBlips(trackedBlips);
         _mapViewer.SetAnnotations(sharedAnnotations);
     }
+
+    // #Cythisiax Added - area boxes for war maps
+    public void SetRegions(WastelandMapRegionBox[] regions)
+    {
+        _mapViewer.SetRegions(regions);
+    }
 }

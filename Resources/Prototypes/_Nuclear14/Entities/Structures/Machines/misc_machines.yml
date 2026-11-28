@@ -41,7 +41,7 @@
     mapTexturePath: _Misfits/Maps/wendover_map.png
     mapTitle: Tactical Map - Wendover
     # #Misfits Fix - Use the corrected Wendover AABB so faction blips align with the rendered map image.
-    worldBounds: "-517,-308,484,311"
+    worldBounds: "-220,-336,588,290" # #Cythisiax Edited - matches the trimmed and centred map picture
     tacticalFeed: Brotherhood
     trackBrotherhoodHolotags: true
     communicationsJobs:
@@ -99,7 +99,7 @@
     mapTexturePath: _Misfits/Maps/wendover_map.png
     mapTitle: NCR Tactical Map - Wendover
     # #Misfits Fix - Use the corrected Wendover AABB so NCR blips align with the rendered map image.
-    worldBounds: "-517,-308,484,311"
+    worldBounds: "-220,-336,588,290" # #Cythisiax Edited - matches the trimmed and centred map picture
     tacticalFeed: NCR
     communicationsJobs:
     - NCRCommander

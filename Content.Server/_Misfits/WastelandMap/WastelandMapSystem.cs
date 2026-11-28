@@ -1,6 +1,14 @@
 // #Misfits Change - Wasteland Map server system
+// #Cythisiax Added - scouts check every faction once a minute and tell commanders at war where the enemy is
+// Only shows up for factions that are actually at war with each other, nobody is an enemy by default
 using System;
 using System.Collections.Generic;
+using System.Numerics;
+using Content.Server._Misfits.FactionWar;
+using Content.Shared.Cuffs.Components;
+using Content.Shared.GameTicking;
+using Content.Shared._Misfits.StealthBoy;
+using Robust.Shared.Random;
 using Content.Server.Access.Components;
 using Content.Server.Chat.Managers; // #Misfits Add - faction death alert chat dispatch
 using Content.Server._Misfits.Group; // #Misfits Add - group blip injection
@@ -117,6 +125,47 @@ public sealed class WastelandMapSystem : EntitySystem
 [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 [Dependency] private readonly SharedMapSystem _mapSystem = default!;
 [Dependency] private readonly InventorySystem _inventorySystem = default!; // #Misfits Add - C-27 ID slot lookup
+    [Dependency] private readonly FactionWarSystem _factionWar = default!; // #Cythisiax Added - who is at war with who
+    [Dependency] private readonly IRobustRandom _random = default!; // #Cythisiax Added - blurs where scouts saw a force
+
+    // #Cythisiax Added - scout report settings
+    private const float ScoutInterval = 60f;
+    private const int ScoutMinForce = 3;
+    private const int ScoutDugInChecks = 5;
+    private const float ScoutBlur = 6f;
+
+    // Rangers go first so a Ranger never gets counted as NCR Army
+    private static readonly string[] ScoutFactions = ["Rangers", "NCR", "CaesarLegion", "BrotherhoodOfSteel", "Enclave"];
+
+    private static readonly HashSet<string> RangerLeaderJobs =
+    [
+        "NCRChiefRanger",
+        "NCRDagger",
+        "RangerChief",
+        "NCRVeteranRanger",
+    ];
+
+    private sealed class ScoutGroup
+    {
+        public int Count;
+        public Vector2 Sum;
+        public Vector2 Shown;
+        public string Size = string.Empty;
+        public int Checks;
+    }
+
+    private float _scoutAccumulator;
+    private readonly Dictionary<(string Faction, MapId Map, int Region), ScoutGroup> _scoutGroups = new();
+    private readonly Dictionary<string, int> _scoutOnline = new();
+    private readonly Dictionary<string, int> _scoutHome = new();
+    private readonly Dictionary<string, int> _scoutLastHome = new();
+    private readonly Dictionary<string, (MapId Map, Vector2 Center)> _scoutHomeSpot = new();
+    private readonly Dictionary<string, HashSet<string>> _scoutAtBase = new();
+    private readonly Dictionary<string, List<(MapId Map, WastelandMapTrackedBlip Blip)>> _scoutBlips = new();
+    private readonly HashSet<string> _scoutEnemies = new();
+    private readonly List<(string Faction, string Text)> _scoutAlerts = new();
+    private readonly List<(string Faction, MapId Map, int Region)> _scoutRemove = new();
+    private readonly Dictionary<string, WastelandMapRegionBox[]> _scoutRegionBoxes = new();
 
     private const int MaxSharedAnnotations = 128;
     private const int MaxStrokePoints = 512; // 256 UV points × 2 floats each
@@ -158,6 +207,7 @@ public sealed class WastelandMapSystem : EntitySystem
         SubscribeLocalEvent<MindContainerComponent, MobStateChangedEvent>(OnMindedEntityMobStateChanged);
         // #Misfits Add - track MapId→gameMap for auto-detect bounds/texture
         SubscribeLocalEvent<PostGameMapLoad>(OnPostGameMapLoad);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnScoutRoundRestart); // #Cythisiax Added - forget old scout reports each round
     }
 
     // #Misfits Add - Track MapId→gameMap prototype ID so BuildState can auto-resolve
@@ -240,12 +290,20 @@ public sealed class WastelandMapSystem : EntitySystem
             bounds = bounds.Union(gridBounds);
         }
 
-        return any ? bounds : new Box2(-517, -308, 484, 311); // fallback to Wendover bounds
+        return any ? bounds : new Box2(-220, -336, 588, 290); // #Cythisiax Edited - fallback matches the trimmed Wendover picture
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        // #Cythisiax Added - scouts look around once a minute
+        _scoutAccumulator += frameTime;
+        if (_scoutAccumulator >= ScoutInterval)
+        {
+            _scoutAccumulator = 0f;
+            RunScoutSnapshot();
+        }
 
         _updateAccumulator += frameTime;
         if (_updateAccumulator < UpdateInterval)
@@ -387,6 +445,7 @@ public sealed class WastelandMapSystem : EntitySystem
         var (texPath, bounds) = ResolveMapConfig(comp, mapId);
 
         var feed = feedOverride ?? GetEffectiveFeed(comp, actor);
+        texPath = GetSatelliteTexture(texPath, feed); // #Cythisiax Added - war tactical maps get the aerial photo picture
         var trackedBlips = GetTrackedBlips(feed, mapId, bounds, actor);
         var sharedAnnotations = GetSharedAnnotations(comp, mapId, feed).ToArray();
         var overwatch = uid == null
@@ -407,7 +466,57 @@ public sealed class WastelandMapSystem : EntitySystem
             trackedBlips,
             sharedAnnotations,
             overwatch,
-            communications);
+            communications,
+            GetScoutRegionBoxes(comp, mapId, feed)); // #Cythisiax Added - area boxes on war maps
+    }
+
+    // #Cythisiax Added - the big war factions that get the area boxes and the aerial photo picture
+    private static bool IsWarFeed(WastelandMapTacticalFeedKind feed)
+    {
+        return feed is WastelandMapTacticalFeedKind.NCR or WastelandMapTacticalFeedKind.Legion
+            or WastelandMapTacticalFeedKind.Brotherhood or WastelandMapTacticalFeedKind.Enclave;
+    }
+
+    // #Cythisiax Added - swaps the plain picture for its aerial photo twin when a war faction is looking
+    private ResPath GetSatelliteTexture(ResPath texPath, WastelandMapTacticalFeedKind feed)
+    {
+        if (!IsWarFeed(feed))
+            return texPath;
+
+        foreach (var config in _prototypeManager.EnumeratePrototypes<WastelandMapConfigPrototype>())
+        {
+            if (config.SatelliteTexturePath != null && config.MapTexturePath == texPath)
+                return config.SatelliteTexturePath.Value;
+        }
+
+        return texPath;
+    }
+
+    // #Cythisiax Added - only the war factions with their own tactical map get the area boxes
+    private WastelandMapRegionBox[] GetScoutRegionBoxes(WastelandMapComponent comp, MapId mapId, WastelandMapTacticalFeedKind feed)
+    {
+        if (!IsWarFeed(feed))
+            return [];
+
+        WastelandMapConfigPrototype? config = null;
+        if (comp.MapConfigId != null)
+            _prototypeManager.TryIndex(comp.MapConfigId, out config);
+        if (config == null && !TryGetScoutConfig(mapId, out config))
+            return [];
+
+        if (_scoutRegionBoxes.TryGetValue(config.ID, out var cached))
+            return cached;
+
+        var boxes = new WastelandMapRegionBox[config.Regions.Count];
+        for (var i = 0; i < boxes.Length; i++)
+        {
+            var region = config.Regions[i];
+            boxes[i] = new WastelandMapRegionBox(region.Name, region.Bounds.Left, region.Bounds.Bottom,
+                region.Bounds.Right, region.Bounds.Top, region.HomeOf != null);
+        }
+
+        _scoutRegionBoxes[config.ID] = boxes;
+        return boxes;
     }
 
     public WastelandMapTacticalFeedKind GetEffectiveFeed(WastelandMapComponent comp, EntityUid? actor = null)
@@ -812,6 +921,7 @@ public sealed class WastelandMapSystem : EntitySystem
         {
             _groupScratch.Clear();
             AppendGroupMemberBlips(_groupScratch, actor.Value, mapId, bounds);
+            AppendScoutBlips(_groupScratch, actor.Value, feed, mapId); // #Cythisiax Added - enemy forces scouts have seen
             if (_groupScratch.Count == 0)
                 return nonActorBlips;
 
@@ -823,6 +933,306 @@ public sealed class WastelandMapSystem : EntitySystem
         }
 
         return nonActorBlips;
+    }
+
+    // #Cythisiax Added - scout reports
+    private void OnScoutRoundRestart(RoundRestartCleanupEvent ev)
+    {
+        _scoutAccumulator = 0f;
+        _scoutGroups.Clear();
+        _scoutOnline.Clear();
+        _scoutHome.Clear();
+        _scoutLastHome.Clear();
+        _scoutHomeSpot.Clear();
+        _scoutAtBase.Clear();
+        _scoutBlips.Clear();
+    }
+
+    private void RunScoutSnapshot()
+    {
+        _scoutOnline.Clear();
+        _scoutHome.Clear();
+        _scoutHomeSpot.Clear();
+        foreach (var group in _scoutGroups.Values)
+        {
+            group.Count = 0;
+            group.Sum = Vector2.Zero;
+        }
+
+        // Count where every living member of each warring faction is standing
+        var query = EntityQueryEnumerator<ActorComponent, NpcFactionMemberComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out _, out _, out var xform))
+        {
+            var faction = GetScoutFaction(uid);
+            if (faction == null || !_mobState.IsAlive(uid))
+                continue;
+
+            _scoutOnline[faction] = _scoutOnline.GetValueOrDefault(faction) + 1;
+
+            // Prisoners and anyone hidden by a Stealth Boy slip past the scouts
+            if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.CuffedHandCount > 0)
+                continue;
+            if (HasComp<StealthBoyActiveComponent>(uid))
+                continue;
+
+            if (!TryGetScoutConfig(xform.MapID, out var config))
+                continue;
+
+            var pos = _transform.GetMapCoordinates(uid, xform).Position;
+            var regionIndex = FindScoutRegion(config, pos);
+            if (regionIndex < 0)
+                continue;
+
+            var region = config.Regions[regionIndex];
+            if (region.HomeOf == faction)
+            {
+                _scoutHome[faction] = _scoutHome.GetValueOrDefault(faction) + 1;
+                _scoutHomeSpot[faction] = (xform.MapID, region.Bounds.Center);
+                continue;
+            }
+
+            var key = (faction, xform.MapID, regionIndex);
+            if (!_scoutGroups.TryGetValue(key, out var found))
+            {
+                found = new ScoutGroup();
+                _scoutGroups[key] = found;
+            }
+
+            found.Count++;
+            found.Sum += pos;
+        }
+
+        _scoutAlerts.Clear();
+        foreach (var list in _scoutBlips.Values)
+            list.Clear();
+
+        // Leaving and holding the base
+        foreach (var faction in ScoutFactions)
+        {
+            var online = _scoutOnline.GetValueOrDefault(faction);
+            var home = _scoutHome.GetValueOrDefault(faction);
+            var name = GetScoutFactionName(faction);
+
+            if (_scoutLastHome.TryGetValue(faction, out var lastHome) && lastHome - home >= ScoutMinForce)
+            {
+                _scoutAlerts.Add((faction, Loc.GetString("scout-report-departed",
+                    ("size", GetScoutSize(lastHome - home, online)), ("faction", name))));
+            }
+            _scoutLastHome[faction] = home;
+
+            var atBase = home >= ScoutMinForce && home * 2 >= online;
+            if (!atBase)
+            {
+                _scoutAtBase.Remove(faction);
+                continue;
+            }
+
+            // Anyone who only just went to war with them still gets told they are sitting at home
+            if (!_scoutAtBase.TryGetValue(faction, out var told))
+            {
+                told = new HashSet<string>();
+                _scoutAtBase[faction] = told;
+            }
+
+            _factionWar.GetWarEnemyFactions(faction, _scoutEnemies);
+            told.IntersectWith(_scoutEnemies);
+            _scoutEnemies.ExceptWith(told);
+            if (_scoutEnemies.Count > 0)
+            {
+                told.UnionWith(_scoutEnemies);
+                SendScoutAlertTo(_scoutEnemies, Loc.GetString("scout-report-at-base", ("faction", name)));
+            }
+
+            if (_scoutHomeSpot.TryGetValue(faction, out var spot))
+            {
+                AddScoutBlip(faction, spot.Map, new WastelandMapTrackedBlip(spot.Center.X, spot.Center.Y,
+                    Loc.GetString("scout-map-base", ("faction", name)), WastelandMapTrackedBlipKind.ScoutBase));
+            }
+        }
+
+        // Forces out in the wastes
+        _scoutRemove.Clear();
+        foreach (var (key, group) in _scoutGroups)
+        {
+            if (group.Count < ScoutMinForce || !TryGetScoutConfig(key.Map, out var config))
+            {
+                _scoutRemove.Add(key);
+                continue;
+            }
+
+            var name = GetScoutFactionName(key.Faction);
+            var regionName = config.Regions[key.Region].Name;
+            var size = GetScoutSize(group.Count, _scoutOnline.GetValueOrDefault(key.Faction));
+            group.Checks++;
+            group.Shown = group.Sum / group.Count + _random.NextVector2(ScoutBlur);
+
+            if (group.Checks == 1 || size != group.Size)
+            {
+                _scoutAlerts.Add((key.Faction, Loc.GetString("scout-report-spotted",
+                    ("size", size), ("faction", name), ("region", regionName))));
+            }
+            else if (group.Checks == ScoutDugInChecks)
+            {
+                _scoutAlerts.Add((key.Faction, Loc.GetString("scout-report-dug-in",
+                    ("faction", name), ("region", regionName))));
+            }
+            group.Size = size;
+
+            var dugIn = group.Checks >= ScoutDugInChecks;
+            var label = dugIn
+                ? Loc.GetString("scout-map-dug-in", ("faction", name))
+                : Loc.GetString("scout-map-force", ("size", size), ("faction", name));
+            AddScoutBlip(key.Faction, key.Map, new WastelandMapTrackedBlip(group.Shown.X, group.Shown.Y, label,
+                dugIn ? WastelandMapTrackedBlipKind.ScoutDugIn : WastelandMapTrackedBlipKind.ScoutForce));
+        }
+
+        foreach (var key in _scoutRemove)
+            _scoutGroups.Remove(key);
+
+        foreach (var (faction, text) in _scoutAlerts)
+            SendScoutAlert(faction, text);
+    }
+
+    // Only the leaders of factions at war with this one hear about it
+    private void SendScoutAlert(string faction, string text)
+    {
+        _factionWar.GetWarEnemyFactions(faction, _scoutEnemies);
+        SendScoutAlertTo(_scoutEnemies, text);
+    }
+
+    private void SendScoutAlertTo(HashSet<string> enemies, string text)
+    {
+        if (enemies.Count == 0)
+            return;
+
+        var query = EntityQueryEnumerator<ActorComponent, NpcFactionMemberComponent>();
+        while (query.MoveNext(out var uid, out var actor, out _))
+        {
+            var viewer = GetScoutFaction(uid);
+            if (viewer == null || !enemies.Contains(viewer))
+                continue;
+
+            if (!_mind.TryGetMind(uid, out var mindId, out _) ||
+                !_jobs.MindTryGetJob(mindId, out _, out var job) ||
+                !GetScoutLeaderJobs(viewer).Contains(job.ID))
+            {
+                continue;
+            }
+
+            _chatManager.DispatchServerMessage(actor.PlayerSession, text);
+        }
+    }
+
+    private void AppendScoutBlips(List<WastelandMapTrackedBlip> buffer, EntityUid actor, WastelandMapTacticalFeedKind feed, MapId mapId)
+    {
+        var viewer = GetScoutViewerFaction(actor, feed);
+        if (viewer == null)
+            return;
+
+        _factionWar.GetWarEnemyFactions(viewer, _scoutEnemies);
+        foreach (var enemy in _scoutEnemies)
+        {
+            if (!_scoutBlips.TryGetValue(enemy, out var list))
+                continue;
+
+            foreach (var (map, blip) in list)
+            {
+                if (map == mapId)
+                    buffer.Add(blip);
+            }
+        }
+    }
+
+    private void AddScoutBlip(string faction, MapId map, WastelandMapTrackedBlip blip)
+    {
+        if (!_scoutBlips.TryGetValue(faction, out var list))
+        {
+            list = new List<(MapId, WastelandMapTrackedBlip)>();
+            _scoutBlips[faction] = list;
+        }
+
+        list.Add((map, blip));
+    }
+
+    // The map has to belong to the viewer's own faction, a stolen map shows nothing
+    private string? GetScoutViewerFaction(EntityUid actor, WastelandMapTacticalFeedKind feed)
+    {
+        return feed switch
+        {
+            WastelandMapTacticalFeedKind.NCR when _npcFaction.IsMember(actor, "Rangers") => "Rangers",
+            WastelandMapTacticalFeedKind.NCR when _npcFaction.IsMember(actor, "NCR") => "NCR",
+            WastelandMapTacticalFeedKind.Legion when _npcFaction.IsMember(actor, "CaesarLegion") => "CaesarLegion",
+            WastelandMapTacticalFeedKind.Brotherhood when _npcFaction.IsMember(actor, "BrotherhoodOfSteel") => "BrotherhoodOfSteel",
+            WastelandMapTacticalFeedKind.Enclave when _npcFaction.IsMember(actor, "Enclave") => "Enclave",
+            _ => null,
+        };
+    }
+
+    private string? GetScoutFaction(EntityUid uid)
+    {
+        foreach (var faction in ScoutFactions)
+        {
+            if (_npcFaction.IsMember(uid, faction))
+                return faction;
+        }
+
+        return null;
+    }
+
+    private IReadOnlySet<string> GetScoutLeaderJobs(string faction)
+    {
+        return faction switch
+        {
+            "Rangers" => RangerLeaderJobs,
+            "NCR" => NcrCommunicationsJobs,
+            "CaesarLegion" => LegionCommunicationsJobs,
+            "BrotherhoodOfSteel" => BrotherhoodCommunicationsJobs,
+            "Enclave" => EnclaveCommunicationsJobs,
+            _ => EmptyCommunicationsJobs,
+        };
+    }
+
+    private string GetScoutFactionName(string faction)
+    {
+        return faction switch
+        {
+            "Rangers" => Loc.GetString("scout-faction-rangers"),
+            "NCR" => Loc.GetString("scout-faction-ncr"),
+            "CaesarLegion" => Loc.GetString("scout-faction-legion"),
+            "BrotherhoodOfSteel" => Loc.GetString("scout-faction-brotherhood"),
+            "Enclave" => Loc.GetString("scout-faction-enclave"),
+            _ => faction,
+        };
+    }
+
+    // Size is judged against how many of that faction are online, not a flat number
+    private string GetScoutSize(int count, int online)
+    {
+        var share = online > 0 ? (float) count / online : 1f;
+        if (share >= 0.5f)
+            return Loc.GetString("scout-size-large");
+        if (share >= 0.25f)
+            return Loc.GetString("scout-size-medium");
+        return Loc.GetString("scout-size-small");
+    }
+
+    private bool TryGetScoutConfig(MapId mapId, [System.Diagnostics.CodeAnalysis.NotNullWhen(true)] out WastelandMapConfigPrototype? config)
+    {
+        config = null;
+        return _gameMapByMapId.TryGetValue(mapId, out var gameMapId)
+            && _prototypeManager.TryIndex(gameMapId, out config)
+            && config.Regions.Count > 0;
+    }
+
+    private static int FindScoutRegion(WastelandMapConfigPrototype config, Vector2 pos)
+    {
+        for (var i = 0; i < config.Regions.Count; i++)
+        {
+            if (config.Regions[i].Bounds.Contains(pos))
+                return i;
+        }
+
+        return -1;
     }
 
     // #Misfits Add - keep the Tribe feed limited to its explicitly tagged identification items.
@@ -1253,6 +1663,10 @@ public sealed class WastelandMapSystem : EntitySystem
         while (query.MoveNext(out var uid, out var presetId, out var idCard, out var xform))
         {
             if (!_tag.HasTag(uid, requiredTag))
+                continue;
+
+            // #Cythisiax Added - spare blank tags lying around the base are not people, so leave them off the map
+            if (string.IsNullOrWhiteSpace(idCard.FullName))
                 continue;
 
             var meta = MetaData(uid);

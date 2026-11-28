@@ -96,6 +96,53 @@ public sealed class MapViewerControl : Control
         _trackedBlips = trackedBlips;
     }
 
+    // #Cythisiax Added - named areas the scouts report on, only war maps get any
+    private WastelandMapRegionBox[] _regions = [];
+
+    public void SetRegions(WastelandMapRegionBox[] regions)
+    {
+        _regions = regions;
+    }
+
+    private void DrawRegions(DrawingHandleScreen handle, float x, float y, float drawW, float drawH)
+    {
+        if (_regions.Length == 0 || _worldBounds.Width <= 0 || _worldBounds.Height <= 0)
+            return;
+
+        var mapBox = UIBox2.FromDimensions(x, y, drawW, drawH);
+        foreach (var region in _regions)
+        {
+            var left = x + (region.Left - _worldBounds.Left) / _worldBounds.Width * drawW;
+            var right = x + (region.Right - _worldBounds.Left) / _worldBounds.Width * drawW;
+            var top = y + (1f - (region.Top - _worldBounds.Bottom) / _worldBounds.Height) * drawH;
+            var bottom = y + (1f - (region.Bottom - _worldBounds.Bottom) / _worldBounds.Height) * drawH;
+
+            var box = new UIBox2(
+                Math.Max(left, mapBox.Left), Math.Max(top, mapBox.Top),
+                Math.Min(right, mapBox.Right), Math.Min(bottom, mapBox.Bottom));
+            if (box.Width <= 2f || box.Height <= 2f)
+                continue;
+
+            if (region.IsBase)
+            {
+                handle.DrawRect(box, new Color(1f, 0.85f, 0.3f, 0.12f));
+                handle.DrawRect(box, new Color(1f, 0.85f, 0.3f, 0.9f), false);
+                handle.DrawRect(new UIBox2(box.Left + 1f, box.Top + 1f, box.Right - 1f, box.Bottom - 1f), new Color(1f, 0.85f, 0.3f, 0.9f), false);
+            }
+            else
+            {
+                handle.DrawRect(box, new Color(1f, 1f, 1f, 0.35f), false);
+            }
+
+            var textSize = handle.GetDimensions(_blipLabelFont, region.Name, 1f);
+            var textPos = new Vector2(box.Left + 4f, box.Top + 3f);
+            handle.DrawRect(UIBox2.FromDimensions(textPos - new Vector2(2f, 1f), textSize + new Vector2(4f, 2f)),
+                new Color(0f, 0f, 0f, 0.55f));
+            handle.DrawString(_blipLabelFont, textPos, region.Name,
+                region.IsBase ? new Color(1f, 0.85f, 0.3f) : new Color(0.9f, 0.9f, 0.9f));
+        }
+    }
+
     public void SetAnnotations(WastelandMapAnnotation[] annotations)
     {
         _annotations = annotations;
@@ -180,6 +227,7 @@ public sealed class MapViewerControl : Control
         var y = (Size.Y - drawH) / 2f + _pan.Y;
 
         handle.DrawTextureRect(_texture, UIBox2.FromDimensions(x, y, drawW, drawH));
+        DrawRegions(handle, x, y, drawW, drawH); // #Cythisiax Added - area boxes sit under every marker
 
         if (TryGetPlayerUv(out var playerUv))
         {
@@ -295,6 +343,21 @@ public sealed class MapViewerControl : Control
     private void DrawTrackedHolotagMarker(DrawingHandleScreen handle, Vector2 markerPos, WastelandMapTrackedBlipKind kind)
     {
         var color = GetTrackedBlipColor(kind);
+
+        // #Cythisiax Added - scout sightings are a soft blob so nobody gets an exact position
+        if (kind is WastelandMapTrackedBlipKind.ScoutForce or WastelandMapTrackedBlipKind.ScoutDugIn or WastelandMapTrackedBlipKind.ScoutBase)
+        {
+            handle.DrawCircle(markerPos, 34f, color.WithAlpha(0.12f));
+            handle.DrawCircle(markerPos, 24f, color.WithAlpha(0.2f));
+            handle.DrawCircle(markerPos, 14f, color.WithAlpha(0.35f));
+            if (kind == WastelandMapTrackedBlipKind.ScoutDugIn)
+            {
+                handle.DrawRect(UIBox2.FromDimensions(markerPos + new Vector2(-1f, -14f), new Vector2(3f, 18f)), Color.White);
+                DrawTriangle(handle, markerPos + new Vector2(6f, -10f), 6f, color);
+            }
+            return;
+        }
+
         handle.DrawCircle(markerPos, 16f, new Color(0f, 0f, 0f, 0.55f));
 
         switch (kind)
@@ -614,6 +677,9 @@ public sealed class MapViewerControl : Control
             WastelandMapTrackedBlipKind.RadioTowerOffline => new Color(0.95f, 0.2f, 0.15f, 1f),
             WastelandMapTrackedBlipKind.RadioTowerOnline => new Color(0.2f, 0.9f, 0.3f, 1f),
             WastelandMapTrackedBlipKind.GlobalPin => new Color(0.97f, 0.78f, 0.18f, 1f),
+            WastelandMapTrackedBlipKind.ScoutForce => new Color(1f, 0.25f, 0.2f, 1f), // #Cythisiax Added - enemy sighting red
+            WastelandMapTrackedBlipKind.ScoutDugIn => new Color(1f, 0.75f, 0.2f, 1f), // #Cythisiax Added - dug in amber
+            WastelandMapTrackedBlipKind.ScoutBase => new Color(0.7f, 0.7f, 0.7f, 1f), // #Cythisiax Added - quiet grey for an enemy at home
             // End Misfits Add
             _ => new Color(0.98f, 0.84f, 0.15f, 0.95f),
         };

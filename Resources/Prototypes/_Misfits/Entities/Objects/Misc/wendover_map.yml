@@ -13,7 +13,7 @@
     mapTitle: Wendover Area Map
     # World tile bounds of the rendered image (left, bottom, right, top).
     # #Misfits Fix - Restored the wider Wendover AABB so tactical markers line up with the NCR-side map art.
-    worldBounds: "-517,-308,484,311"
+    worldBounds: "-220,-336,588,290" # #Cythisiax Edited - matches the trimmed and centred map picture
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/clutter.rsi
     layers:

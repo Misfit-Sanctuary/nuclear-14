@@ -34,5 +34,6 @@ public sealed partial class WastelandMapProgramUi : UIFragment
         var bounds = new Box2(mapState.BoundsLeft, mapState.BoundsBottom, mapState.BoundsRight, mapState.BoundsTop);
         var texturePath = new ResPath(mapState.MapTexturePath);
         _fragment?.SetMap(mapState.MapTitle, texturePath, bounds, mapState.TrackedBlips, mapState.SharedAnnotations);
+        _fragment?.SetRegions(mapState.Regions); // #Cythisiax Added - area boxes for war maps
     }
 }

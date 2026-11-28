@@ -2388,6 +2388,24 @@ public sealed class FactionWarSystem : EntitySystem
         return false;
     }
 
+    // #Cythisiax Added - lists every faction on the other side of a war with this faction, nobody counts as an enemy unless a war is declared
+    public void GetWarEnemyFactions(string factionId, HashSet<string> enemies)
+    {
+        enemies.Clear();
+        foreach (var war in _activeWars.Values)
+        {
+            if (war.Side1FactionId == null || war.Side2FactionId == null)
+                continue;
+
+            if (war.Side1FactionId == factionId)
+                enemies.Add(war.Side2FactionId);
+            else if (war.Side2FactionId == factionId)
+                enemies.Add(war.Side1FactionId);
+        }
+
+        enemies.Remove(factionId);
+    }
+
     public bool HasWar(string warKey)
     {
         return _activeWars.ContainsKey(warKey);

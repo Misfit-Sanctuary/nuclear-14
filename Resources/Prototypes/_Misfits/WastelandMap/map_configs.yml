@@ -6,8 +6,40 @@
 - type: wastelandMapConfig
   id: Wendover
   mapTexturePath: _Misfits/Maps/wendover_map.png
+  satelliteTexturePath: _Misfits/Maps/wendover_map_satellite.png # #Cythisiax Added - aerial photo picture for war faction tactical maps
   # Computed from Wendover surface grid tile AABB (2026-06-28 render)
-  worldBounds: "-517,-328,484,311"
+  worldBounds: "-220,-336,588,290" # #Cythisiax Edited - matches the trimmed and centred map picture
+  # #Cythisiax Added - named areas for scout reports, bases go first so they win where boxes overlap
+  regions:
+  - name: the Brotherhood bunker
+    bounds: "-109,168,-19,228"
+    homeOf: BrotherhoodOfSteel
+  - name: the NCR base
+    bounds: "-172,-247,-99,-172"
+    homeOf: NCR
+  - name: the Legion camp
+    bounds: "161,216,234,290"
+    homeOf: CaesarLegion
+  - name: the Northern Hills
+    bounds: "-220,171,84,290"
+  - name: the Northern Ridge
+    bounds: "84,216,351,290"
+  - name: the Northern Plains
+    bounds: "-220,38,84,171"
+  - name: the East Sands
+    bounds: "84,31,351,216"
+  - name: Wendover Town
+    bounds: "-220,-104,134,38"
+  - name: the Salt Flats
+    bounds: "134,-159,351,31"
+  - name: the Southern Strip
+    bounds: "-220,-169,134,-104"
+  - name: the Airfield
+    bounds: "104,-336,351,-159"
+  - name: the Southern Dunes
+    bounds: "-220,-336,104,-169"
+  - name: the Eastern Tunnels # #Cythisiax Added - underground past the east mountain wall
+    bounds: "351,-336,588,290"
 
 - type: wastelandMapConfig
   id: Vault
